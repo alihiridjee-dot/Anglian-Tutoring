@@ -1,0 +1,452 @@
+{
+  "format": 1,
+  "concept_id": "aphys-049",
+  "subject": "physics",
+  "title": "Alpha, beta and gamma radiation",
+  "key_idea": "Unstable nuclei emit α particles, β particles or γ rays. The three differ in charge, mass, ionising power and penetration. A decay equation balances nucleon number and charge on both sides.",
+  "sections": [
+    {
+      "heading": "The three types of radiation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An unstable nucleus becomes more stable by emitting radiation. This section covers what each type is and how far it travels."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ionising radiation",
+              "meaning": "Radiation that removes electrons from atoms it passes, leaving charged ions."
+            },
+            {
+              "term": "Penetration",
+              "meaning": "How far the radiation travels into a material before it is absorbed."
+            },
+            {
+              "term": "Positron",
+              "meaning": "The antiparticle of the electron, with the same mass and a charge of +e."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**α radiation** is a helium nucleus: 2 protons and 2 neutrons, charge +2e, mass 4 u.",
+            "**β⁻ radiation** is a fast electron, charge −e. A β⁺ particle is a positron, charge +e.",
+            "β particles have a tiny mass, about 1/1800 of a nucleon.",
+            "**γ radiation** is a high-energy photon from the nucleus. It has no charge and no mass."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of alpha, beta and gamma radiation by nature, charge, ionising power, range in air and what stops them.",
+            "items": [
+              "α",
+              "β",
+              "γ"
+            ],
+            "rows": [
+              {
+                "feature": "Nature",
+                "values": [
+                  "Helium nucleus",
+                  "Electron or positron",
+                  "Electromagnetic wave"
+                ]
+              },
+              {
+                "feature": "Charge",
+                "values": [
+                  "+2e",
+                  "−e (β⁻) or +e (β⁺)",
+                  "None"
+                ]
+              },
+              {
+                "feature": "Ionising power",
+                "values": [
+                  "Strong",
+                  "Weak",
+                  "Very weak"
+                ]
+              },
+              {
+                "feature": "Range in air",
+                "values": [
+                  "A few cm",
+                  "About 1 m",
+                  "Very long, intensity falls with distance"
+                ]
+              },
+              {
+                "feature": "Stopped by",
+                "values": [
+                  "Paper or skin",
+                  "A few mm of aluminium",
+                  "Never fully stopped; thick lead reduces it"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "α particles are heavy and highly charged, so they ionise strongly and lose their energy in a few centimetres of air.",
+            "β particles are lighter and ionise less, so they travel further.",
+            "γ rays have no charge, so they ionise least and are the most penetrating.",
+            "A radiation that ionises strongly is absorbed quickly: strong ionisation and long range do not go together."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "α is a helium nucleus, β is an electron or positron, γ is a photon.",
+            "Ionising power falls from α to β to γ, while penetration rises.",
+            "γ is never fully stopped. Thick lead only reduces its intensity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Background radiation and absorption experiments",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Radiation is all around us, so every measurement must be corrected. This section covers the sources of background and how to identify a source by absorption."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Background radiation",
+              "meaning": "The ionising radiation always present from natural and artificial sources."
+            },
+            {
+              "term": "Corrected count rate",
+              "meaning": "The measured count rate with the background count rate subtracted."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Natural sources: radon gas from rocks, cosmic rays, rocks and soil, food and drink, and the human body.",
+            "Artificial sources: medical procedures, fallout from weapons testing and the nuclear industry.",
+            "To remove it, measure the count rate with no source present, then subtract it from every reading."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Identifying a source by absorption"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Measure background.",
+              "text": "Record the count rate on a Geiger–Müller tube and counter with the source removed."
+            },
+            {
+              "lead": "Fix the geometry.",
+              "text": "Place the source a set distance from the tube, then place different absorbers between them."
+            },
+            {
+              "lead": "Record and correct.",
+              "text": "Take the count rate with each absorber and subtract the background."
+            },
+            {
+              "lead": "Interpret.",
+              "text": "Paper stops α. A few mm of aluminium stops β. Only thick lead greatly reduces γ."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "If paper cuts the count rate to background, the source is an α emitter.",
+            "If paper has little effect but aluminium does, the source emits β.",
+            "If only lead reduces it, the source emits γ. A mixed source gives a drop at each stage.",
+            "The same idea is used in thickness gauges: β radiation through paper or foil, γ radiation through steel. A change in count rate means a change in thickness.",
+            "Safe handling: use tongs, keep the source pointed away, store it in a lead-lined box and keep exposure short."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Always subtract the background count rate to get the corrected count rate.",
+            "The material that stops a radiation identifies it.",
+            "Thickness gauges use the way a material absorbs radiation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Nuclear decay equations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A decay equation shows the parent nucleus, the daughter nucleus and the particle emitted. This section covers how to write and balance one."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Nucleon number A is written at the top left of the symbol, proton number Z at the bottom left.",
+            "The total A is the same before and after the decay.",
+            "The total charge (the sum of Z) is the same before and after the decay."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "α decay",
+          "formula": "²³⁸₉₂U → ²³⁴₉₀Th + ⁴₂α",
+          "where": [
+            "A falls by 4",
+            "Z falls by 2"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "β⁻ decay",
+          "formula": "¹⁴₆C → ¹⁴₇N + ⁰₋₁β + ν̄ₑ",
+          "where": [
+            "A is unchanged",
+            "Z rises by 1",
+            "ν̄ₑ is an electron antineutrino"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "β⁺ decay",
+          "formula": "²²₁₁Na → ²²₁₀Ne + ⁰₊₁β + νₑ",
+          "where": [
+            "A is unchanged",
+            "Z falls by 1",
+            "νₑ is an electron neutrino"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In β⁻ decay a neutron changes to a proton: n → p + e⁻ + ν̄ₑ.",
+            "In β⁺ decay a proton changes to a neutron: p → n + e⁺ + νₑ.",
+            "γ emission changes neither A nor Z. The nucleus only loses energy."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a type of decay to see how the nucleon number and proton number of the nucleus change.",
+            "prompt": "Pick a type of decay",
+            "result_labels": [
+              "Change in nucleon number A",
+              "Change in proton number Z",
+              "Particle emitted"
+            ],
+            "options": [
+              {
+                "label": "α decay",
+                "results": [
+                  "Falls by 4",
+                  "Falls by 2",
+                  "Helium nucleus ⁴₂α"
+                ]
+              },
+              {
+                "label": "β⁻ decay",
+                "results": [
+                  "No change",
+                  "Rises by 1",
+                  "Electron and antineutrino"
+                ]
+              },
+              {
+                "label": "β⁺ decay",
+                "results": [
+                  "No change",
+                  "Falls by 1",
+                  "Positron and neutrino"
+                ]
+              },
+              {
+                "label": "γ emission",
+                "results": [
+                  "No change",
+                  "No change",
+                  "γ photon"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Balance A and Z on both sides of every decay equation.",
+            "α lowers A by 4 and Z by 2. β⁻ raises Z by 1. β⁺ lowers Z by 1.",
+            "γ emission changes neither A nor Z."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A source's count rate falls to the background level when a sheet of paper is placed in front of it. State the type of radiation emitted and explain your answer.",
+      "a": "α radiation, because α particles are strongly ionising and are absorbed by paper, whereas β and γ would pass through it.",
+      "marks": 2
+    },
+    {
+      "q": "Complete the equation for the decay of radium-226 by α emission: ²²⁶₈₈Ra → ?Rn + ⁴₂α.",
+      "a": "²²²₈₆Rn. The nucleon number falls from 226 to 222 and the proton number from 88 to 86.",
+      "marks": 2
+    },
+    {
+      "q": "State the change in the nucleus, and the particles emitted, in β⁻ decay.",
+      "a": "A neutron changes into a proton, and an electron and an electron antineutrino are emitted. The proton number rises by 1 and the nucleon number is unchanged.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.8.1.2",
+        "AQA 3.8.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "The inverse-square law for γ radiation"
+            },
+            {
+              "type": "paragraph",
+              "text": "γ rays from a small source spread out in all directions, so their intensity falls quickly with distance."
+            },
+            {
+              "type": "equation",
+              "label": "Inverse-square law",
+              "formula": "I = k / x²",
+              "where": [
+                "I = intensity, or corrected count rate",
+                "k = a constant for the source",
+                "x = distance from the source in m"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Doubling the distance cuts the intensity to one quarter.",
+                "To verify the law, measure the corrected count rate at several distances and plot it against 1/x². A straight line through the origin confirms it.",
+                "The distance is measured to the tube, so keep the source small and well away from the tube.",
+                "For safe handling, keep a long distance from a source and spend as little time near it as possible."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Stability and the N–Z graph"
+            },
+            {
+              "type": "list",
+              "items": [
+                "On a graph of neutron number N against proton number Z, stable nuclei lie along a narrow band.",
+                "Light stable nuclei have N ≈ Z. Heavier ones have more neutrons than protons.",
+                "A nucleus above the band has too many neutrons and decays by **β⁻** emission.",
+                "A nucleus below the band has too few neutrons and decays by **β⁺** emission or electron capture.",
+                "Large nuclei beyond the band decay by α emission, which lowers both N and Z."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Electron capture",
+              "formula": "p + e⁻ → n + νₑ",
+              "where": [
+                "Z falls by 1",
+                "N rises by 1",
+                "A is unchanged"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "After α or β decay the daughter nucleus is often in an excited state and then emits a γ photon.",
+                "A nuclear energy level diagram shows the excited state above the ground state. The γ photon carries the energy difference between the two levels.",
+                "Technetium-99m is a pure γ source with a half-life of about 6 hours. It is used as a tracer in medical diagnosis.",
+                "Medical uses of radiation are a balance between the benefit of a diagnosis or treatment and the risk of exposure.",
+                "Outside the body, β and γ are the greater hazard because they penetrate skin. Inside the body, α is the most hazardous because it deposits all its energy in a small volume of tissue."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 11.168",
+        "EDEX 11.169",
+        "EDEX 11.170"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 11.1.7",
+        "CAIE 11.1.10",
+        "CAIE 11.1.11"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Energies of α and β particles"
+            },
+            {
+              "type": "list",
+              "items": [
+                "α particles from one type of nucleus have discrete energies. Each decay releases the same energy, shared between the α particle and the daughter nucleus.",
+                "β particles have a continuous range of energies, from zero up to a maximum.",
+                "This is because the energy is shared between the β particle and an (anti)neutrino, in a different split each time.",
+                "The continuous β spectrum was the evidence that a third particle, the neutrino, must be emitted."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.4.3b",
+        "OCR 6.4.3c",
+        "OCR 6.4.4k"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "58559e1e-c471-4a64-992e-9e6202fce634",
+      "38a954e7-ec78-4b3a-b2f5-785a9aa19cdb",
+      "c40b9f7c-4f07-4a3a-948e-c8b2cc83453e",
+      "8dca2614-e188-4fd2-9b0e-fe4ef9b46f02",
+      "69d7c73e-4416-4f54-8152-49fdec9ba0b4",
+      "3c2e8025-e24d-407d-8995-208bc1232233",
+      "4dc6af0d-fa9c-4c3c-a6c5-fc715a367fa5",
+      "daca5bcf-67c4-4249-a1a9-d6ed64fd99b5",
+      "daccf06e-572f-4c17-865b-f42f8a263561",
+      "d03d6071-a6dc-4cec-a0d5-2f4dc51d70fc",
+      "409f11e2-8272-4bc8-8fec-4f2010e669a8"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "format": 1,
+  "concept_id": "ichem-006",
+  "subject": "chemistry",
+  "title": "Substances in natural water",
+  "key_idea": "Water from natural sources contains dissolved and suspended substances. Some are beneficial, such as dissolved oxygen. Others are harmful, such as sewage, plastics, and nitrates and phosphates from fertilisers and detergents. Distilled water is used in the lab because it has fewer impurities.",
+  "sections": [
+    {
+      "heading": "Distilled water and pure water",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Water from taps and rivers contains dissolved substances. This section covers why labs use distilled water and how to test purity."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tap water contains dissolved chemical impurities, such as metal compounds.",
+            "These impurities could react in an experiment and change the results.",
+            "**Distilled water** contains far fewer chemical impurities, so it is used in practical chemistry.",
+            "A physical test shows whether water is pure: it boils at exactly 100 °C and freezes at exactly 0 °C.",
+            "Impure water boils at a higher temperature than 100 °C and freezes at a lower temperature than 0 °C."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Distilled water is used because it has fewer impurities than tap water.",
+            "Pure water boils at 100 °C and freezes at 0 °C."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Substances in natural water",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Many substances can be found in water from rivers, lakes and the sea. This section covers what they are and what they do."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Substance",
+            "Where it comes from",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "Dissolved oxygen",
+              "Air and plants",
+              "Beneficial: aquatic life needs it to respire"
+            ],
+            [
+              "Metal compounds",
+              "Rocks and soil",
+              "Some provide essential minerals. Some are toxic"
+            ],
+            [
+              "Plastics",
+              "Litter and waste",
+              "Harmful: they damage aquatic life"
+            ],
+            [
+              "Sewage",
+              "Waste from homes",
+              "Harmful: contains microbes that cause disease"
+            ],
+            [
+              "Harmful microbes",
+              "Sewage and waste",
+              "Harmful: they cause disease"
+            ],
+            [
+              "Nitrates",
+              "Fertilisers",
+              "Harmful: lead to deoxygenation of water"
+            ],
+            [
+              "Phosphates",
+              "Fertilisers and detergents",
+              "Harmful: lead to deoxygenation of water"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Too many nitrates or phosphates cause the water to lose dissolved oxygen.",
+            "Fish and other aquatic life then cannot survive.",
+            "Details of how this happens (eutrophication) are not required."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Eight substances found in water are sorted into beneficial and harmful.",
+            "prompt": "Sort each substance into beneficial or harmful.",
+            "groups": [
+              "Beneficial",
+              "Harmful"
+            ],
+            "items": [
+              {
+                "text": "Dissolved oxygen for fish",
+                "group": 0
+              },
+              {
+                "text": "Metal compounds that provide essential minerals",
+                "group": 0
+              },
+              {
+                "text": "Toxic metal compounds",
+                "group": 1
+              },
+              {
+                "text": "Plastics",
+                "group": 1
+              },
+              {
+                "text": "Sewage",
+                "group": 1
+              },
+              {
+                "text": "Harmful microbes",
+                "group": 1
+              },
+              {
+                "text": "Nitrates from fertilisers",
+                "group": 1
+              },
+              {
+                "text": "Phosphates from detergents",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Dissolved oxygen and some metal compounds are beneficial.",
+            "Toxic metal compounds, plastics, sewage, microbes, nitrates and phosphates are harmful.",
+            "Nitrates and phosphates lead to deoxygenation."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why distilled water is used in practical chemistry rather than tap water.",
+      "a": "Distilled water contains fewer chemical impurities, which could interfere with the reaction.",
+      "marks": 2
+    },
+    {
+      "q": "Give one beneficial substance found in natural water.",
+      "a": "Dissolved oxygen, which aquatic life needs. Some metal compounds provide essential minerals.",
+      "marks": 1
+    },
+    {
+      "q": "State two harmful substances found in natural water.",
+      "a": "Any two from: some metal compounds, plastics, sewage, harmful microbes, nitrates, phosphates.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 10.1.3",
+        "CAIE 10.1.4",
+        "CAIE 10.1.5",
+        "CAIE 10.1.6"
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.50"
+      ],
+      "worked_example": {
+        "exemplar_id": "89b4561b-aa1b-4110-895c-51a1439769c4",
+        "source": "EDEXCEL jun 2022, Paper 1 (CR), Q2(b)(iii)",
+        "question": "Pure water is obtained from sodium chloride solution by simple distillation. Describe a physical test to show that the liquid collected is pure water.",
+        "marks": 2,
+        "answer_points": [
+          "Measure its boiling point.",
+          "The boiling point is 100 °C.",
+          "Or: measure its freezing point, which is 0 °C."
+        ],
+        "tip": "Give the test and the value you expect."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "abb79f95-5f15-4720-8ccc-9224cefe0483",
+      "279e506a-4b4e-4db4-91cd-edaec4d6db74",
+      "a7ac5b9b-2de9-4a5a-bb43-98f795679aa4",
+      "bdca9795-2486-45f8-a47c-502a30e1e9c1"
+    ],
+    "exemplar_ids": [
+      "89b4561b-aa1b-4110-895c-51a1439769c4"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

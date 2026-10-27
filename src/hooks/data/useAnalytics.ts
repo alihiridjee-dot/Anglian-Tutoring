@@ -1,28 +1,37 @@
-import { useQuery } from "@tanstack/react-query";
+import { useCallback, useMemo } from "react";
+import { queryOptions, useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoStudent, DEMO_ANALYTICS } from "@/lib/demo/studentDemo";
-import { summariseAnalytics, type SubjectAnalytics } from "@/lib/profile/analytics";
+import {
+  summariseScoredWork,
+  type ScoredWorkRow,
+  type SubjectAnalytics,
+} from "@/lib/profile/analytics";
 
-async function fetchAnalytics(userId: string, subjects: string[]): Promise<SubjectAnalytics[]> {
-  // Through the read model, not embeds of mcq_sets and resources: those sit
-  // behind the paywall, so a paused or lapsed child's work lost its subject and
-  // every card said "No marked work yet" (S-23).
-  const { data, error } = await supabase.rpc("student_scored_work", { _student_id: userId });
-  // A failed read must not be averaged as "no work done" — that put a predicted
-  // grade of 1 in front of a parent because a request timed out.
-  if (error) throw error;
-
-  // The newest 200 of each, as before.
-  const newest = (kind: string) =>
-    (data ?? [])
-      .filter((w) => w.kind === kind)
-      .sort((a, b) => b.scored_at.localeCompare(a.scored_at))
-      .slice(0, 200)
-      // A quiz with no questions has no percentage; it counted as 0 before.
-      .map((w) => ({ subject: w.subject, pct: w.pct === null ? 0 : Number(w.pct) }));
-
-  return summariseAnalytics(subjects, newest("quiz"), newest("homework"));
-}
+/**
+ * Every scored quiz and marked task of one student (the newest 500 of each),
+ * read once and shared. The predicted grades, the weekly trend and the
+ * feedback list are all cut from this one fetch; each used to call the same
+ * function itself, three times per Parent Portal visit. Under the "analytics"
+ * key, so a finished quiz (which invalidates "analytics") refreshes all three.
+ */
+export const scoredWorkQuery = (studentId: string | null) =>
+  queryOptions({
+    queryKey: ["analytics", studentId, "scored-work"],
+    queryFn: async (): Promise<ScoredWorkRow[]> => {
+      // Through the read model, not embeds of mcq_sets and resources: those sit
+      // behind the paywall, so a paused or lapsed child's work lost its subject
+      // and every card said "No marked work yet" (S-23).
+      const { data, error } = await supabase.rpc("student_scored_work", {
+        _student_id: studentId!,
+      });
+      // A failed read must not be averaged as "no work done" — that put a
+      // predicted grade of 1 in front of a parent because a request timed out.
+      if (error) throw error;
+      return data ?? [];
+    },
+    enabled: !!studentId,
+  });
 
 /**
  * Per-subject quiz and homework averages, with the predicted grade.
@@ -35,23 +44,26 @@ async function fetchAnalytics(userId: string, subjects: string[]): Promise<Subje
  */
 export function useAnalytics(userId: string | null, subjects: string[]) {
   const demo = isDemoStudent();
-  // Sorted for the key only, so ["biology","physics"] and ["physics","biology"]
-  // are one cache entry.
-  const sorted = [...subjects].sort();
+  // The caller's order: rows are shown in the order asked for.
+  const subjectList = subjects.join(",");
+  const select = useCallback(
+    (rows: ScoredWorkRow[]) => summariseScoredWork(subjectList ? subjectList.split(",") : [], rows),
+    [subjectList],
+  );
 
   const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ["analytics", demo ? "demo" : userId, sorted],
-    queryFn: async (): Promise<SubjectAnalytics[]> => {
-      // Demo student: serve the fixed showcase profile, never real analytics.
-      if (demo) {
-        return DEMO_ANALYTICS.filter((r) => subjects.length === 0 || subjects.includes(r.subject));
-      }
-      // The caller's order, not the key's: rows are shown in the order asked for.
-      return fetchAnalytics(userId as string, subjects);
-    },
-    enabled: demo || (!!userId && sorted.length > 0),
+    ...scoredWorkQuery(userId),
+    select,
+    enabled: !demo && !!userId && subjects.length > 0,
   });
 
+  // Demo student: the fixed showcase profile, never real analytics.
+  const demoRows = useMemo(() => {
+    if (!demo) return EMPTY_ROWS;
+    const asked = subjectList ? subjectList.split(",") : [];
+    return DEMO_ANALYTICS.filter((r) => asked.length === 0 || asked.includes(r.subject));
+  }, [demo, subjectList]);
+  if (demo) return { rows: demoRows, loading: false, error: null, refetch };
   return { rows: data ?? EMPTY_ROWS, loading: isLoading, error, refetch };
 }
 

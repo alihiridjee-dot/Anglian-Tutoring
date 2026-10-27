@@ -1,4 +1,5 @@
 import { toast } from "sonner";
+import { useQuery } from "@tanstack/react-query";
 import { Target } from "lucide-react";
 import { ErrorNote } from "@/components/Shared";
 import {
@@ -9,7 +10,15 @@ import {
 } from "@/lib/planner/weeklyPlanDal";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { carryOrigin, type PointCoverage } from "@/lib/planner/coverage";
-import { addWeeks, weekKeyToDate, toDateKey, weekRangeLabel } from "@/lib/planner/week";
+import { breakCovering } from "@/lib/planner/breaks";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
+import {
+  addWeeks,
+  currentWeekKey,
+  weekKeyToDate,
+  toDateKey,
+  weekRangeLabel,
+} from "@/lib/planner/week";
 import { TutorTake } from "./TutorTake";
 import { type Activity } from "./useWeekPlan";
 import { useWeekVerdicts, useWeeklyCheckin } from "./useWeekReview";
@@ -44,6 +53,7 @@ export function WeekReview({
   weekStart,
   onChanged,
   readOnly = false,
+  examDate,
 }: {
   studentId: string;
   plan: WeeklyPlan;
@@ -57,6 +67,8 @@ export function WeekReview({
   weekStart: string;
   onChanged: () => void;
   readOnly?: boolean;
+  /** The programme's exam date: nothing can be carried into a week at or after it. */
+  examDate?: string;
 }) {
   const { summary, lanes, lock, metrics } = useWeekVerdicts({
     points,
@@ -82,7 +94,22 @@ export function WeekReview({
     saveNote,
   } = useWeeklyCheckin({ studentId, plan, points, coverage, activity });
 
-  const nextWeekLabel = weekRangeLabel(addWeeks(weekKeyToDate(weekStart), 1));
+  // Loose work goes into the week after this one — or into the current week
+  // when this one is further back, since a week that has already passed is
+  // nowhere for new work to land. It used to carry from a fortnight ago into
+  // last week, where the points were invisible and still owed.
+  const nextStart = [toDateKey(addWeeks(weekKeyToDate(weekStart), 1)), currentWeekKey()]
+    .sort()
+    .at(-1)!;
+  const nextWeekLabel = weekRangeLabel(weekKeyToDate(nextStart));
+  // Nothing is ever planned at or after the exam date, so there is nothing to carry into.
+  const beyondExam = !!examDate && nextStart >= examDate;
+  // Nor for a week the student is on a break for.
+  const { data: breaks = [] } = useQuery(studentBreaksQuery(studentId));
+  const intoBreak = !!breakCovering(breaks, nextStart);
+  // A tick is the student's own word that a point is done; it is not carried.
+  const ticked = new Set(points.filter((p) => p.done_at).map((p) => p.spec_point_id));
+  const loose = summary.toRevisit.filter((id) => !ticked.has(id));
 
   /**
    * Carry the loose points into next week, each staying in the lane it was in.
@@ -94,10 +121,9 @@ export function WeekReview({
    * `carried_from`.
    */
   const carryForward = async () => {
-    if (summary.toRevisit.length === 0) return;
+    if (loose.length === 0) return;
     setBusy("carry");
-    const nextStart = toDateKey(addWeeks(weekKeyToDate(weekStart), 1));
-    const carrying = new Set(summary.toRevisit);
+    const carrying = new Set(loose);
     const origins: Record<string, PlanPointOrigin> = {};
     for (const p of points) {
       if (carrying.has(p.spec_point_id)) origins[p.spec_point_id] = carryOrigin(p.origin);
@@ -105,17 +131,22 @@ export function WeekReview({
     try {
       const existing = await WeeklyPlanDAL.getPlan(studentId, subject, nextStart);
       if (existing) {
-        await WeeklyPlanDAL.addPoints(existing.plan.id, summary.toRevisit, "student", {
+        const added = await WeeklyPlanDAL.addPoints(existing.plan.id, loose, "student", {
           origins,
           carriedFrom: weekStart,
         });
+        // Zero means the planner's rules kept every one of them out.
+        if (added === 0) {
+          toast.error("Those can't be carried forward right now.");
+          return;
+        }
       } else {
         await WeeklyPlanDAL.savePlan({
           subject,
           board,
           level,
           weekStart: nextStart,
-          specPointIds: summary.toRevisit,
+          specPointIds: loose,
           source: readOnly ? "tutor" : "student",
           origins,
           origin: "student",
@@ -124,9 +155,7 @@ export function WeekReview({
         });
       }
       toast.success(
-        `Carried ${summary.toRevisit.length} ${
-          summary.toRevisit.length === 1 ? "topic" : "topics"
-        } into ${nextWeekLabel}.`,
+        `Carried ${loose.length} ${loose.length === 1 ? "point" : "points"} into ${nextWeekLabel}.`,
       );
       onChanged();
     } catch (e) {
@@ -194,11 +223,12 @@ export function WeekReview({
         studentFeltReady={coveredOk}
       />
 
-      {!locked && summary.toRevisit.length > 0 && (
+      {!locked && !beyondExam && !intoBreak && loose.length > 0 && (
         <CarryForwardBar
-          count={summary.toRevisit.length}
+          count={loose.length}
           busy={busy}
           nextWeekLabel={nextWeekLabel}
+          intoThisWeek={nextStart === currentWeekKey()}
           onCarry={carryForward}
         />
       )}

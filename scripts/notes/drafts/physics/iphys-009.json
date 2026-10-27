@@ -1,0 +1,346 @@
+{
+  "format": 1,
+  "concept_id": "iphys-009",
+  "subject": "physics",
+  "title": "Refractive index and optical fibres",
+  "key_idea": "The refractive index of a material tells you how much it slows light and bends it towards the normal. It links to the critical angle, beyond which light is totally internally reflected. Optical fibres use this to carry signals.",
+  "sections": [
+    {
+      "heading": "Refractive index",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Light changes speed when it passes from one material into another. The refractive index measures that change."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Refractive index (n)",
+              "meaning": "A measure of how much a material slows down light and bends it. (Supplement) It is the ratio of the speed of light in air to its speed in the material."
+            },
+            {
+              "term": "Normal",
+              "meaning": "A line drawn at right angles to the surface where the ray meets it."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Refractive index (from speeds) (Supplement)",
+          "formula": "n = speed of light in air ÷ speed of light in the material",
+          "where": [
+            "n = refractive index (no unit)",
+            "speeds are in m/s"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) The speed of light in air is about 3.0 × 10⁸ m/s.",
+            "A higher refractive index means light travels more slowly in the material.",
+            "A ray entering a material with a higher refractive index bends towards the normal."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice calculation. Given the speed of light in air and in a material, calculate the refractive index.",
+            "question": "(Supplement) The speed of light in air is 3.0 × 10⁸ m/s. In a material it is {v} × 10⁸ m/s. Calculate the refractive index of the material.",
+            "variables": [
+              {
+                "id": "v",
+                "min": 1.3,
+                "max": 2.4,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "3 / v",
+              "decimals": 2
+            },
+            "working": [
+              "n = speed in air ÷ speed in material",
+              "n = 3.0 × 10⁸ ÷ ({v} × 10⁸)",
+              "n = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Supplement) Refractive index is a ratio of speeds, so it has no unit.",
+            "The greater the refractive index, the slower the light and the more it bends."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using angles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You can also find the refractive index from the angles of the ray in air and in the material."
+        },
+        {
+          "type": "equation",
+          "label": "Refractive index (from angles)",
+          "formula": "n = sin i ÷ sin r",
+          "where": [
+            "i = angle of incidence, in air, measured from the normal (degrees)",
+            "r = angle of refraction, in the material, measured from the normal (degrees)"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Finding n for a glass block"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Mark",
+              "text": "Place the block on paper and draw round it."
+            },
+            {
+              "lead": "Shine",
+              "text": "Direct a thin ray from a ray box into the block at an angle to the normal."
+            },
+            {
+              "lead": "Record",
+              "text": "Mark the incident ray and the ray that leaves, then join them through the block to find the refracted ray."
+            },
+            {
+              "lead": "Measure",
+              "text": "Draw the normal where the ray enters the block. Use a protractor to measure i and r from the normal."
+            },
+            {
+              "lead": "Repeat",
+              "text": "Use a range of angles of incidence, and plot a graph of sin i against sin r."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The gradient of the graph of sin i against sin r is the refractive index.",
+            "A graph from several angles is more reliable than one calculation."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "n = sin i ÷ sin r, with both angles measured from the normal.",
+            "Plot sin i against sin r and take the gradient for a reliable value of n."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Critical angle and total internal reflection",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Inside a dense material, light hitting the surface at a big enough angle cannot escape. It reflects back instead."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Critical angle (c)",
+              "meaning": "The angle of incidence in the material for which the refracted ray travels along the surface, at 90° to the normal."
+            },
+            {
+              "term": "Total internal reflection",
+              "meaning": "All the light is reflected back into the material when the angle of incidence is greater than the critical angle."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light must be travelling from a material with a higher refractive index towards one with a lower refractive index, such as glass to air.",
+            "If the angle of incidence is less than c, most light refracts out and a little reflects.",
+            "If the angle is greater than c, all the light is totally internally reflected."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Critical angle",
+          "formula": "n = 1 ÷ sin c",
+          "where": [
+            "n = refractive index of the material",
+            "c = critical angle (degrees)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Question",
+              "text": "Glass has a refractive index of 1.5. Calculate its critical angle."
+            },
+            {
+              "lead": "Rearrange",
+              "text": "sin c = 1 ÷ n"
+            },
+            {
+              "lead": "Substitute",
+              "text": "sin c = 1 ÷ 1.5 = 0.667"
+            },
+            {
+              "lead": "Answer",
+              "text": "c = sin⁻¹ 0.667 = 42°"
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Total internal reflection needs a ray going from a higher to a lower refractive index.",
+            "It happens only when the angle of incidence is greater than the critical angle.",
+            "sin c = 1 ÷ n, so a higher refractive index gives a smaller critical angle."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Optical fibres",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An optical fibre is a thin strand of glass. Light stays inside it by total internal reflection."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "A sequence showing how light travels along an optical fibre by total internal reflection.",
+            "steps": [
+              "Light enters one end of the fibre",
+              "It meets the wall at more than the critical angle",
+              "Total internal reflection occurs",
+              "The ray zigzags along the fibre",
+              "Light leaves the far end"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) Visible light and infrared are used, because glass is transparent to them.",
+            "(Supplement) They can carry very high rates of data.",
+            "Optical fibres carry cable television, broadband internet and telephone calls.",
+            "There is little signal loss, so signals travel far, and they are secure.",
+            "Fibres are also used in endoscopes, to look inside the body, and to inspect pipes."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Total internal reflection in prisms"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A glass prism with 45° angles turns light through 90° or 180° by total internal reflection, because 45° is greater than the critical angle of glass (about 42°).",
+            "Prisms are used in periscopes and binoculars.",
+            "Cat's eye reflectors on roads also use total internal reflection."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Light is trapped in a fibre by repeated total internal reflection.",
+            "Optical fibres carry large amounts of data quickly with little loss."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "(Supplement) Light travels at 3.0 × 10⁸ m/s in air and 2.0 × 10⁸ m/s in glass. Calculate the refractive index of the glass.",
+      "a": "n = 3.0 × 10⁸ ÷ 2.0 × 10⁸ = 1.5",
+      "marks": 2
+    },
+    {
+      "q": "A ray in air meets glass with i = 50° and r = 30°. Calculate n.",
+      "a": "n = sin 50° ÷ sin 30° = 0.766 ÷ 0.5 = 1.53, which is 1.5 to 2 significant figures.",
+      "marks": 2
+    },
+    {
+      "q": "State two conditions needed for total internal reflection.",
+      "a": "The light travels from a material with a higher refractive index to one with a lower refractive index, and the angle of incidence is greater than the critical angle.",
+      "marks": 2
+    },
+    {
+      "q": "State two uses of optical fibres.",
+      "a": "Any two from: broadband internet, telephone networks, cable television, endoscopes.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 3.2.2.6S",
+        "CAIE 3.2.2.7S",
+        "CAIE 3.2.2.8S",
+        "CAIE 3.2.2.9S"
+      ],
+      "worked_example": {
+        "exemplar_id": "dbc8034e-e43c-4c4d-ab87-dc79a0d8fcfe",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q4(b)(i)",
+        "question": "The lens in a magnifying glass is a converging lens. The refractive index of the glass used to make the lens is 1.5. The speed of light in air is 3.0 × 10⁸ m/s. Calculate the speed of light in the glass.",
+        "marks": 2,
+        "answer_points": [
+          "n = c ÷ v, so v = c ÷ n.",
+          "v = 3.0 × 10⁸ ÷ 1.5.",
+          "Speed of light in the glass = 2.0 × 10⁸ m/s."
+        ],
+        "tip": "One mark for the correct substitution and one for the answer with its unit."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.18",
+        "IGCSE 3.19",
+        "IGCSE 3.20",
+        "IGCSE 3.22"
+      ],
+      "worked_example": {
+        "exemplar_id": "340d59ad-f311-4acf-b810-934381bf197c",
+        "source": "EDEXCEL jan 2023, Paper 1 (PR), Q7(b)(i)",
+        "question": "The refractive index of a glass block is 1.52. Calculate the critical angle of the block.",
+        "marks": 3,
+        "answer_points": [
+          "Use of sin c = 1 ÷ n.",
+          "Substitution: sin c = 1 ÷ 1.52.",
+          "Evaluation: c = sin⁻¹ (1 ÷ 1.52) = 41°."
+        ],
+        "tip": "Marks are for the equation, the substitution and the correct answer."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "3349903e-42dc-4aff-ab4f-3ff4c6b6b9aa",
+      "c64f0817-dfbf-4f25-afc4-8650c90fb14b",
+      "1fea0377-cb09-41f0-883c-f6a6778410a1",
+      "341448ff-35c0-40b1-9275-dd44c8bd8050",
+      "cb4b8211-dc63-48fe-bb5f-0ab0faaf6b60",
+      "6a495082-cfde-4bab-9d3b-85a39408aee8",
+      "120834c6-5726-473b-b2ba-2c6e5a843a07",
+      "ce6e553c-670e-4a53-8f8d-fad824827687"
+    ],
+    "exemplar_ids": [
+      "dbc8034e-e43c-4c4d-ab87-dc79a0d8fcfe",
+      "340d59ad-f311-4acf-b810-934381bf197c"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

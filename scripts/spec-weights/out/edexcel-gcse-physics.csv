@@ -1,0 +1,297 @@
+code,title,weight,topic
+EDEX 1.1,"SI units for physical quantities, as listed in Appendix 3",1.1,Key concepts of physics
+EDEX 1.2,"Multiples and sub-multiples of units, from giga (G) to nano (n)",1.1,Key concepts of physics
+EDEX 1.3,Convert between different units,1.4,Key concepts of physics
+EDEX 1.4,Significant figures and standard form where appropriate,1.5,Key concepts of physics
+EDEX 2.1,Scalar quantities as having magnitude (size) but no direction,1.7,Motion and forces
+EDEX 2.2,Vector quantities as having both magnitude (size) and direction,1.7,Motion and forces
+EDEX 2.3,Difference between vector and scalar quantities,1.7,Motion and forces
+EDEX 2.4,"Vector and scalar quantities, including displacement, velocity, force and energy",2.64,Motion and forces
+EDEX 2.5,Velocity as speed in a stated direction,1.1,Motion and forces
+EDEX 2.6,"Equations linking speed, distance and time",1.74,Motion and forces
+EDEX 2.7,Analyse distance/time graphs,2,Motion and forces
+EDEX 2.8,"Equation linking acceleration, change in velocity and time taken",1.23,Motion and forces
+EDEX 2.9,"Equation linking final velocity, initial velocity, acceleration and distance",1.7,Motion and forces
+EDEX 2.10,Analyse velocity/time graphs to find acceleration and distance travelled,3.02,Motion and forces
+EDEX 2.11,"Laboratory methods for determining the speeds of objects, such as light gates",1.3,Motion and forces
+EDEX 2.12,"Typical speeds in everyday life for wind, sound, walking, running and transport",1.1,Motion and forces
+EDEX 2.13,"Acceleration in free fall, g = 10 m/s², and estimating everyday accelerations",1.1,Motion and forces
+EDEX 2.14,Newton’s first law when the resultant force is zero or not zero,2.12,Motion and forces
+EDEX 2.15,Newton’s second law as force = mass × acceleration,1.12,Motion and forces
+EDEX 2.16,Define weight and use the equation weight = mass × gravitational field strength,1.44,Motion and forces
+EDEX 2.17,How weight is measured,1.3,Motion and forces
+EDEX 2.18,Relationship between the weight of a body and the gravitational field strength,1.3,Motion and forces
+EDEX 2.19,"Practical: Relationship between force, mass and acceleration by varying",4.2,Motion and forces
+EDEX 2.20,Changing velocity of an object in a circular orbit at constant speed,1.7,Motion and forces
+EDEX 2.21,Centripetal force as the resultant force for motion in a circle,1.72,Motion and forces
+EDEX 2.22,Inertial mass as a measure of how difficult it is to change an object’s velocity,1.92,Motion and forces
+EDEX 2.23,"Newton’s third law in equilibrium and collisions, and conservation of momentum",1.1,Motion and forces
+EDEX 2.24,Define momentum and use the equation momentum = mass × velocity,1.49,Motion and forces
+EDEX 2.25,Examples of momentum in collisions,1.3,Motion and forces
+EDEX 2.26,Newton’s second law as force = change in momentum ÷ time,1.63,Motion and forces
+EDEX 2.27,Methods of measuring human reaction times and typical results,1.7,Motion and forces
+EDEX 2.28,Stopping distance of a vehicle as thinking distance plus braking distance,1.1,Motion and forces
+EDEX 2.29,Factors that affect the stopping distance of a vehicle,3.75,Motion and forces
+EDEX 2.30,Factors affecting a driver’s reaction time,1.3,Motion and forces
+EDEX 2.31,Dangers caused by large decelerations and estimating the forces involved,1.7,Motion and forces
+EDEX 2.32P,Estimate how the emergency stopping distance of a road vehicle varies with speed,1.6,Motion and forces
+EDEX 2.33P,Carry out calculations to show braking distance depends on initial velocity squared,1.58,Motion and forces
+EDEX 3.1,Equation for the change in gravitational potential energy,1.72,Conservation of energy
+EDEX 3.2,Equation for the kinetic energy of a moving object,1.37,Conservation of energy
+EDEX 3.3,Draw and interpret diagrams to represent energy transfers,1.5,Conservation of energy
+EDEX 3.4,What is meant by conservation of energy,1.7,Conservation of energy
+EDEX 3.5,Analyse the changes in the way energy is stored when a system changes,3.77,Conservation of energy
+EDEX 3.6,Conservation of total energy in a closed system,1.7,Conservation of energy
+EDEX 3.7,Mechanical processes becoming wasteful by dissipating energy as heat,1.7,Conservation of energy
+EDEX 3.8,"Explain, using examples, how energy is dissipated in all system changes",1.7,Conservation of energy
+EDEX 3.9,Ways of reducing unwanted energy transfer,1.7,Conservation of energy
+EDEX 3.10,Effects of wall thickness and thermal conductivity on cooling of a building,1.3,Conservation of energy
+EDEX 3.11,Equation for efficiency: useful energy transferred ÷ total energy supplied,1.1,Conservation of energy
+EDEX 3.12,How efficiency can be increased,1.7,Conservation of energy
+EDEX 3.13,Main energy sources available for use on Earth,1.54,Conservation of energy
+EDEX 3.14,Patterns and trends in the use of energy resources,1.7,Conservation of energy
+EDEX 4.1,Energy and information transfer by waves without transfer of matter,1.1,Waves
+EDEX 4.2,"Evidence that water and sound waves travel, not the water or air itself",1.3,Waves
+EDEX 4.3,Define and use the terms frequency and wavelength as applied to waves,1.4,Waves
+EDEX 4.4,"Wave terms: amplitude, period, wave velocity and wavefront",1.5,Waves
+EDEX 4.5,"Difference between longitudinal and transverse waves, with examples",1.3,Waves
+EDEX 4.6,Equations for wave speed: frequency × wavelength and distance ÷ time,1.52,Waves
+EDEX 4.7,How to measure the velocity of sound in air and of ripples on water,1.3,Waves
+EDEX 4.8P,Depth or distance from time and wave velocity,1.8,Waves
+EDEX 4.9P,"Effects of reflection, refraction, transmission and absorption of waves",2.18,Waves
+EDEX 4.10,How waves will be refracted at a boundary,1.7,Waves
+EDEX 4.11,"How different substances absorb, transmit, refract or reflect waves",1.1,Waves
+EDEX 4.12P,"Converting between sound waves and vibrations in solids, and how the ear works",2.03,Waves
+EDEX 4.13P,Ultrasound as sound with frequencies above 20 000 Hz,1.1,Waves
+EDEX 4.14P,Infrasound as sound with frequencies below 20 Hz,1.1,Waves
+EDEX 4.15P,Uses of ultrasound and infrasound,2.36,Waves
+EDEX 4.16P,"How velocity, frequency and wavelength change as sound enters a new medium",1.3,Waves
+EDEX 4.17,"Practical: Suitability of equipment to measure wave speed, frequency and wavelength",4.2,Waves
+EDEX 5.1P,"Explain, with ray diagrams, reflection, refraction and total internal reflection",1.7,Light and the electromagnetic spectrum
+EDEX 5.2P,Difference between specular and diffuse reflection,1.7,Light and the electromagnetic spectrum
+EDEX 5.3P,How colour is related to absorption at surfaces and transmission through filters,2.14,Light and the electromagnetic spectrum
+EDEX 5.4P,Relate the power of a lens to its focal length and shape,1.4,Light and the electromagnetic spectrum
+EDEX 5.5P,Ray diagrams comparing refraction of light by converging and diverging lenses,1.5,Light and the electromagnetic spectrum
+EDEX 5.6P,Effects of different types of lens in producing real and virtual images,1.7,Light and the electromagnetic spectrum
+EDEX 5.7,Electromagnetic waves as transverse waves with the same speed in a vacuum,1.1,Light and the electromagnetic spectrum
+EDEX 5.8,"Explain, with examples, that all electromagnetic waves transfer energy",1.7,Light and the electromagnetic spectrum
+EDEX 5.9,Practical: Refraction in rectangular glass blocks,4.2,Light and the electromagnetic spectrum
+EDEX 5.10,Main groupings of the continuous electromagnetic spectrum,1.19,Light and the electromagnetic spectrum
+EDEX 5.11,Electromagnetic spectrum as continuous from radio waves to gamma rays,1.39,Light and the electromagnetic spectrum
+EDEX 5.12,The limited range of electromagnetic frequencies detected by our eyes,1.1,Light and the electromagnetic spectrum
+EDEX 5.13,"How different substances absorb, transmit, refract or reflect electromagnetic waves",1.1,Light and the electromagnetic spectrum
+EDEX 5.14,Effect of different velocities of electromagnetic waves in different substances,1.7,Light and the electromagnetic spectrum
+EDEX 5.15P,Emission of radiation by all bodies and its dependence on temperature,1.7,Light and the electromagnetic spectrum
+EDEX 5.16P,Why a body at constant temperature radiates the same power it absorbs,1.7,Light and the electromagnetic spectrum
+EDEX 5.17P,What happens to a body when it radiates less or more power than it absorbs,1.7,Light and the electromagnetic spectrum
+EDEX 5.18P,How the Earth’s temperature depends on incoming and emitted radiation,1.7,Light and the electromagnetic spectrum
+EDEX 5.19P,Practical: Effect of surface type on thermal energy radiated or absorbed,4.2,Light and the electromagnetic spectrum
+EDEX 5.20,Danger of electromagnetic waves increases with frequency,1.1,Light and the electromagnetic spectrum
+EDEX 5.21,Harmful effects on people of excessive exposure to electromagnetic radiation,2.78,Light and the electromagnetic spectrum
+EDEX 5.22,"Uses of electromagnetic radiation, from radio waves to gamma rays",4.37,Light and the electromagnetic spectrum
+EDEX 5.23,Radio waves and oscillations in electrical circuits,1.1,Light and the electromagnetic spectrum
+EDEX 5.24,Radiation generated and absorbed by changes in atoms and nuclei,1.56,Light and the electromagnetic spectrum
+EDEX 6.1,Atom as a nucleus of protons and neutrons surrounded by electrons,1.61,Radioactivity
+EDEX 6.2,Typical size of atoms and small molecules,1.1,Radioactivity
+EDEX 6.3,Structure of nuclei of isotopes using atomic number and mass number,1.37,Radioactivity
+EDEX 6.4,"Isotopes of an element: same nuclear charge, different numbers of neutrons",1.14,Radioactivity
+EDEX 6.5,Relative masses and relative electric charges of protons,1.1,Radioactivity
+EDEX 6.6,Equal numbers of protons and electrons making an atom neutral,1.1,Radioactivity
+EDEX 6.7,Electrons orbiting the nucleus at different set distances,1.1,Radioactivity
+EDEX 6.8,Electrons changing orbit when absorbing or emitting electromagnetic radiation,1.7,Radioactivity
+EDEX 6.9,How atoms may form positive ions by losing outer electrons,1.7,Radioactivity
+EDEX 6.10,Radiations emitted from unstable nuclei in a random process,1.1,Radioactivity
+EDEX 6.11,"Alpha, beta and gamma rays as ionising radiations",1.1,Radioactivity
+EDEX 6.12,What is meant by background radiation,1.7,Radioactivity
+EDEX 6.13,Origins of background radiation from Earth and space,1.3,Radioactivity
+EDEX 6.14,Methods for measuring radioactivity: photographic film and Geiger–Müller tube,1.3,Radioactivity
+EDEX 6.15,"Alpha particles, beta particles and gamma rays",1.17,Radioactivity
+EDEX 6.16,"Alpha, beta and gamma radiations",1.8,Radioactivity
+EDEX 6.17,How and why the atomic model has changed over time,1.37,Radioactivity
+EDEX 6.18,Process of β⁻ decay,1.3,Radioactivity
+EDEX 6.19,Process of β⁺ decay,1.3,Radioactivity
+EDEX 6.20,Effects of radioactive decay on atomic number and mass number,1.7,Radioactivity
+EDEX 6.21,Gamma radiation emitted when nuclei rearrange after radioactive decay,1.1,Radioactivity
+EDEX 6.22,Balancing nuclear equations for mass and charge using given data,1.5,Radioactivity
+EDEX 6.23,How the activity of a radioactive source decreases over time,1.3,Radioactivity
+EDEX 6.24,Becquerel (Bq) as the unit of activity of a radioactive isotope,1.1,Radioactivity
+EDEX 6.25,Half-life of a radioactive isotope: time for half the nuclei to decay,1.79,Radioactivity
+EDEX 6.26,Random decay of individual nuclei and predictable activity of large numbers,1.83,Radioactivity
+EDEX 6.27,"Half-life calculations on the decay of a radioactive isotope, including graphs",1.5,Radioactivity
+EDEX 6.28P,"Uses of radioactivity, including smoke alarms, food irradiation and cancer treatment",2.47,Radioactivity
+EDEX 6.29,Dangers of ionising radiation,1.3,Radioactivity
+EDEX 6.30P,"How the dangers of ionising radiation depend on half-life, and precautions needed",1.7,Radioactivity
+EDEX 6.31,Precautions to ensure the safety of people exposed to radiation,1.7,Radioactivity
+EDEX 6.32,"Differences between contamination and irradiation, and their hazards",1.3,Radioactivity
+EDEX 6.33P,Comparison of treating tumours with radiation applied internally or externally,1.8,Radioactivity
+EDEX 6.34P,"Uses of radioactive substances in diagnosis, including PET scanners and tracers",1.7,Radioactivity
+EDEX 6.35P,Why isotopes used in PET scanners have to be produced nearby,1.7,Radioactivity
+EDEX 6.36P,Advantages and disadvantages of nuclear power for generating electricity,2.12,Radioactivity
+EDEX 6.37P,Nuclear reactions as a source of energy,1.1,Radioactivity
+EDEX 6.38P,"How fission of U-235 produces two daughter nuclei, neutrons and energy",1.7,Radioactivity
+EDEX 6.39P,Principle of a controlled nuclear chain reaction,1.7,Radioactivity
+EDEX 6.40P,How the chain reaction is controlled in a nuclear reactor,1.7,Radioactivity
+EDEX 6.41P,How heat from the chain reaction generates electricity in a nuclear power station,1.3,Radioactivity
+EDEX 6.42P,The products of nuclear fission are radioactive,1.1,Radioactivity
+EDEX 6.43P,Nuclear fusion as the creation of larger nuclei with a release of energy,1.48,Radioactivity
+EDEX 6.44P,Difference between nuclear fusion and nuclear fission,1.7,Radioactivity
+EDEX 6.45P,Why nuclear fusion does not happen at low temperatures and pressures,1.7,Radioactivity
+EDEX 6.46P,Relate fusion conditions to the difficulty of making a fusion power station,1.4,Radioactivity
+EDEX 7.1P,How and why weight and the value of g differ between the Earth and other bodies,1.88,Astronomy
+EDEX 7.2P,"Components of the Solar System, including planets, moons, asteroids and comets",1.12,Astronomy
+EDEX 7.3P,Names and order,1.1,Astronomy
+EDEX 7.4P,How ideas about the structure of the Solar System have changed over time,1.3,Astronomy
+EDEX 7.5P,"Orbits of moons, planets, comets and artificial satellites",1.3,Astronomy
+EDEX 7.6P,How gravity changes a planet’s velocity but not its speed in a circular orbit,1.7,Astronomy
+EDEX 7.7P,How orbital radius must change if orbital speed changes in a stable orbit,1.7,Astronomy
+EDEX 7.8P,Steady State and Big Bang theories,1.8,Astronomy
+EDEX 7.9P,Evidence supporting the Big Bang theory: red-shift and CMB radiation,1.3,Astronomy
+EDEX 7.10P,Why the Big Bang is the accepted model rather than the Steady State theory,1.19,Astronomy
+EDEX 7.11P,Change in observed frequency and wavelength from a moving wave source,1.3,Astronomy
+EDEX 7.12P,Red-shift in light received from galaxies at different distances from Earth,1.3,Astronomy
+EDEX 7.13P,Why the red-shift of galaxies is evidence for the Universe expanding,1.7,Astronomy
+EDEX 7.14P,How the Big Bang and Steady State theories both account for red-shift,1.7,Astronomy
+EDEX 7.15P,How discovery of the CMB radiation led to acceptance of the Big Bang theory,1.7,Astronomy
+EDEX 7.16P,"Evolution of stars of similar mass to the Sun, from nebula to white dwarf",2.22,Astronomy
+EDEX 7.17P,How the balance of thermal expansion and gravity affects the life cycle of stars,1.7,Astronomy
+EDEX 7.18P,Evolution of stars with a mass larger than the Sun,1.3,Astronomy
+EDEX 7.19P,How methods of observing the Universe have changed over time,1.3,Astronomy
+EDEX 8.1,Changes involved in the way energy is stored when systems change,1.3,Energy – forces doing work
+EDEX 8.2,Draw and interpret diagrams to represent energy transfers,1.5,Energy – forces doing work
+EDEX 8.3,Conservation of total energy in a closed system,1.7,Energy – forces doing work
+EDEX 8.4,Different ways that the energy of a system can be changed,1.88,Energy – forces doing work
+EDEX 8.5,How to measure the work done by a force and that it equals energy transferred,1.3,Energy – forces doing work
+EDEX 8.6,Equation for work done: force × distance moved in the direction of the force,1.19,Energy – forces doing work
+EDEX 8.7,Calculating energy changes when a system is changed by work done by forces,1.3,Energy – forces doing work
+EDEX 8.8,Equation for the change in gravitational potential energy,1.72,Energy – forces doing work
+EDEX 8.9,Equation for the kinetic energy of a moving object,1.37,Energy – forces doing work
+EDEX 8.10,"Explain, using examples, how energy is dissipated in all system changes",1.7,Energy – forces doing work
+EDEX 8.11,Mechanical processes becoming wasteful by dissipating energy as heat,1.7,Energy – forces doing work
+EDEX 8.12,Define power as the rate of energy transfer and explain it with examples,1.4,Energy – forces doing work
+EDEX 8.13,Equation for power: work done ÷ time taken,1.1,Energy – forces doing work
+EDEX 8.14,One watt is one joule per second,1.1,Energy – forces doing work
+EDEX 8.15,Equation for efficiency: useful energy transferred ÷ total energy supplied,1.1,Energy – forces doing work
+EDEX 9.1,"Describe, with examples, how objects interact at a distance and by contact",2.36,Forces and their effects
+EDEX 9.2,Difference between vector and scalar quantities using examples,1.7,Forces and their effects
+EDEX 9.3,"Vector diagrams to illustrate resolution of forces, net force and equilibrium",1.5,Forces and their effects
+EDEX 9.4,Draw and use free body force diagrams,1.5,Forces and their effects
+EDEX 9.5,Forces acting on an isolated object or system and the resultant force,1.99,Forces and their effects
+EDEX 9.6P,Situations where forces can cause rotation,1.3,Forces and their effects
+EDEX 9.7P,Equation for the moment of a force: force × distance normal to the force,1.17,Forces and their effects
+EDEX 9.8P,Principle of moments: sum of clockwise moments = sum of anti-clockwise moments,1.23,Forces and their effects
+EDEX 9.9P,How levers and gears transmit the rotational effects of forces,1.7,Forces and their effects
+EDEX 9.10,Ways of reducing unwanted energy transfer through lubrication,1.7,Forces and their effects
+EDEX 10.1,"Structure of the atom, including position, mass and charge of its particles",1.3,Electricity and circuits
+EDEX 10.2,Draw and use electric circuit diagrams with standard symbols,1.77,Electricity and circuits
+EDEX 10.3,Differences between series and parallel circuits,1.3,Electricity and circuits
+EDEX 10.4,Measuring potential difference with a voltmeter connected in parallel,1.1,Electricity and circuits
+EDEX 10.5,"Potential difference as energy per unit charge, and the volt as a joule per coulomb",1.7,Electricity and circuits
+EDEX 10.6,"Equation linking energy transferred, charge moved and potential difference",1.1,Electricity and circuits
+EDEX 10.7,Measuring current with an ammeter connected in series with a component,1.1,Electricity and circuits
+EDEX 10.8,"Electric current as the rate of flow of charge, and as a flow of electrons in metals",1.7,Electricity and circuits
+EDEX 10.9,"Equation linking charge, current and time",1.1,Electricity and circuits
+EDEX 10.10,Current in a closed circuit that includes a source of potential difference,1.3,Electricity and circuits
+EDEX 10.11,Current is conserved at a junction,1.1,Electricity and circuits
+EDEX 10.12,How changing the resistance in a circuit changes the current,1.7,Electricity and circuits
+EDEX 10.13,"Equation linking potential difference, current and resistance",1.1,Electricity and circuits
+EDEX 10.14,Why resistors in series increase net resistance and in parallel decrease it,1.7,Electricity and circuits
+EDEX 10.15,"Currents, potential differences and resistances in series circuits",1.8,Electricity and circuits
+EDEX 10.16,Design and construction of series circuits for testing and measuring,1.7,Electricity and circuits
+EDEX 10.17,"Practical: Construct circuits to investigate potential difference, current and resistance",4.04,Electricity and circuits
+EDEX 10.18,"How current varies with potential difference in lamps, diodes and fixed resistors",2.36,Electricity and circuits
+EDEX 10.19,How the resistance of a light-dependent resistor varies with light intensity,1.3,Electricity and circuits
+EDEX 10.20,How the resistance of a thermistor varies with temperature,1.3,Electricity and circuits
+EDEX 10.21,"How circuits explore resistance in filament lamps, diodes, thermistors and LDRs",2.69,Electricity and circuits
+EDEX 10.22,Energy transfer that heats a resistor when there is a current in it,1.1,Electricity and circuits
+EDEX 10.23,Dissipation of electrical energy as thermal energy in the surroundings,1.7,Electricity and circuits
+EDEX 10.24,Energy transfer in a resistor as collisions between electrons and lattice ions,1.7,Electricity and circuits
+EDEX 10.25,Ways of reducing unwanted energy transfer through low resistance wires,1.7,Electricity and circuits
+EDEX 10.26,Advantages and disadvantages of the heating effect of an electric current,1.3,Electricity and circuits
+EDEX 10.27,"Equation linking energy transferred, current, potential difference and time",1.54,Electricity and circuits
+EDEX 10.28,"Power as the energy transferred per second, measured in watts",1.3,Electricity and circuits
+EDEX 10.29,"Equation linking power, energy transferred and time taken",1.1,Electricity and circuits
+EDEX 10.30,How power transfer in a circuit device relates to potential difference and current,1.7,Electricity and circuits
+EDEX 10.31,"Equations linking electrical power to current, potential difference and resistance",1.46,Electricity and circuits
+EDEX 10.32,How energy is transferred from batteries and a.c. mains in domestic devices,1.3,Electricity and circuits
+EDEX 10.33,Difference between direct and alternating voltage,1.7,Electricity and circuits
+EDEX 10.34,Direct current (d.c.) as movement of charge in one direction only,1.3,Electricity and circuits
+EDEX 10.35,Alternating current (a.c.) as movement of charge that changes direction,1.3,Electricity and circuits
+EDEX 10.36,UK domestic supply as a.c. at 50 Hz and about 230 V,1.1,Electricity and circuits
+EDEX 10.37,Difference in function between the live and the neutral mains input wires,1.7,Electricity and circuits
+EDEX 10.38,Function of an earth wire and of fuses or circuit breakers in ensuring safety,1.7,Electricity and circuits
+EDEX 10.39,Why switches and fuses belong in the live wire of a domestic circuit,1.7,Electricity and circuits
+EDEX 10.40,"Potential differences between the live, neutral and earth mains wires",1.1,Electricity and circuits
+EDEX 10.41,Dangers of any connection between the live wire and earth,1.7,Electricity and circuits
+EDEX 10.42,Describe how appliance power ratings relate to changes in stored energy,1.3,Electricity and circuits
+EDEX 11.1P,How an insulator is charged by friction through the transfer of electrons,1.7,Static electricity
+EDEX 11.2P,How the material gaining electrons becomes negatively charged,1.7,Static electricity
+EDEX 11.3P,"Like charges repel, unlike charges attract",1.1,Static electricity
+EDEX 11.4P,"Common electrostatic phenomena in terms of electron movement, including lightning",2.72,Static electricity
+EDEX 11.5P,How earthing removes excess charge by movement of electrons,1.7,Static electricity
+EDEX 11.6P,"Uses of electrostatic charges in everyday situations, including insecticide sprayers",1.7,Static electricity
+EDEX 11.7P,Some of the dangers of sparking in everyday situations,1.3,Static electricity
+EDEX 11.8P,Define an electric field as the region where a charge experiences a force,1.4,Static electricity
+EDEX 11.9P,Shape and direction of electric fields around a point charge and between parallel plates,1.39,Static electricity
+EDEX 11.10P,How the concept of an electric field helps to explain static electricity,1.7,Static electricity
+EDEX 12.1,"Unlike magnetic poles attract, like poles repel",1.1,Magnetism and the motor effect
+EDEX 12.2,Uses of permanent and temporary magnetic materials,1.3,Magnetism and the motor effect
+EDEX 12.3,Difference between permanent and induced magnets,1.7,Magnetism and the motor effect
+EDEX 12.4,Shape and direction of the magnetic field around bar magnets,1.39,Magnetism and the motor effect
+EDEX 12.5,Use of plotting compasses to show the shape and direction of magnetic fields,1.3,Magnetism and the motor effect
+EDEX 12.6,How the behaviour of a magnetic compass shows that the Earth’s core is magnetic,1.7,Magnetism and the motor effect
+EDEX 12.7,How to show that a current creates a magnetic field around a long straight conductor,1.61,Magnetism and the motor effect
+EDEX 12.8,Dependence of field strength on current and distance from a long straight conductor,1.1,Magnetism and the motor effect
+EDEX 12.9,How the fields of individual coils combine inside and outside a solenoid,2.52,Magnetism and the motor effect
+EDEX 12.10,Equal and opposite forces on a current-carrying conductor and a magnet near it,1.1,Magnetism and the motor effect
+EDEX 12.11,Magnetic forces as interactions between magnetic fields,1.7,Magnetism and the motor effect
+EDEX 12.12,"Fleming’s left-hand rule for the directions of force, current and magnetic field",1.14,Magnetism and the motor effect
+EDEX 12.13,Equation for the force on a current-carrying conductor in a magnetic field,1.99,Magnetism and the motor effect
+EDEX 12.14P,How the force on a conductor in a magnetic field causes rotation in electric motors,1.7,Magnetism and the motor effect
+EDEX 13.1P,How to produce a current by the relative movement of a magnet and a conductor,2.32,Electromagnetic induction
+EDEX 13.2,Factors affecting the size and direction of an induced potential difference,1.1,Electromagnetic induction
+EDEX 13.3P,How alternators and dynamos generate alternating and direct current by induction,1.7,Electromagnetic induction
+EDEX 13.4P,"How microphones, loudspeakers and headphones convert between sound and current",1.83,Electromagnetic induction
+EDEX 13.5,How an alternating current in one circuit induces a current in another in a transformer,1.7,Electromagnetic induction
+EDEX 13.6,Transformers change the size of an alternating voltage,1.1,Electromagnetic induction
+EDEX 13.7P,Turns ratio equation for transformers,2.08,Electromagnetic induction
+EDEX 13.8,Why the national grid transfers electrical energy at high voltages,2.03,Electromagnetic induction
+EDEX 13.9,Where and why step-up and step-down transformers are used in the national grid,1.7,Electromagnetic induction
+EDEX 13.10,Power equation (for transformers with 100% efficiency),1.94,Electromagnetic induction
+EDEX 13.11P,Advantages of power transmission in high-voltage cables,1.7,Electromagnetic induction
+EDEX 14.1,"Simple kinetic theory model to explain solids, liquids and gases",1.52,Particle model
+EDEX 14.2,"Equation linking density, mass and volume",1.1,Particle model
+EDEX 14.3,Practical: Densities of solid and liquids,4.2,Particle model
+EDEX 14.4,Differences in density between the different states of matter,1.7,Particle model
+EDEX 14.5,"Conservation of mass in changes of state, and how they differ from chemical changes",1.54,Particle model
+EDEX 14.6,"How heating a system changes its stored energy, temperature or state",1.7,Particle model
+EDEX 14.7,Define specific heat capacity and specific latent heat and explain the differences,1.4,Particle model
+EDEX 14.8,Equation for change in thermal energy using specific heat capacity,1.79,Particle model
+EDEX 14.9,Equation for thermal energy in a change of state using specific latent heat,1.59,Particle model
+EDEX 14.10,Ways of reducing unwanted energy transfer through thermal insulation,1.7,Particle model
+EDEX 14.11,Practical: Properties of water by determining the specific heat capacity,4.2,Particle model
+EDEX 14.12,Pressure of a gas,1.7,Particle model
+EDEX 14.13,Effect of changing the temperature of a gas on particle velocity and pressure,1.88,Particle model
+EDEX 14.14,"Term absolute zero, −273 °C",1.3,Particle model
+EDEX 14.15,Convert between the kelvin and Celsius scales,1.4,Particle model
+EDEX 14.16P,Compressing and expanding gases by changing pressure,1.7,Particle model
+EDEX 14.17P,Pressure of a gas producing a net force at right angles to any surface,1.7,Particle model
+EDEX 14.18P,Effect of changing the volume of a gas on particle collisions and pressure,2.01,Particle model
+EDEX 14.19P,Equation P₁ × V₁ = P₂ × V₂ for a fixed mass of gas at constant temperature,1.5,Particle model
+EDEX 14.20P,Why doing work on a gas can increase its temperature,1.7,Particle model
+EDEX 15.1,"Explain why stretching, bending or compressing an object needs more than one force",1.7,Forces and matter
+EDEX 15.2,Difference between elastic and inelastic distortion,1.3,Forces and matter
+EDEX 15.4,Equation to calculate the work done in stretching a spring,1.63,Forces and matter
+EDEX 15.5,Difference between linear and non-linear relationships between force and extension,1.3,Forces and matter
+EDEX 15.7P,Why atmospheric pressure varies with height above the Earth’s surface,1.7,Forces and matter
+EDEX 15.8P,Pressure in a fluid as being due to the fluid and atmospheric pressure,1.3,Forces and matter
+EDEX 15.9P,Pressure in fluids acts normal to any surface,1.1,Forces and matter
+EDEX 15.10P,"How pressure is related to force and area, using appropriate examples",1.7,Forces and matter
+EDEX 15.12P,How pressure in fluids increases with depth and density,1.3,Forces and matter
+EDEX 15.13P,Why the pressure in liquids varies with density and depth,1.7,Forces and matter
+EDEX 15.15P,Why an object in a fluid is subject to an upwards force,1.97,Forces and matter
+EDEX 15.16P,Upthrust equals the weight of fluid displaced,1.1,Forces and matter
+EDEX 15.17P,"How upthrust, weight and fluid density decide whether an object floats or sinks",1.7,Forces and matter
+EDEX 15.3,Force exerted on a spring = spring constant × extension xkF ×=,1.37,Forces and matter
+EDEX 15.11P,Pressure = force normal to surface ÷ area of surface A FP =,1.14,Forces and matter
+EDEX 15.14P,Equation for pressure due to a column of liquid,2.34,Forces and matter
+EDEX 15.6,Extension and work done when applying forces to a spring,4.2,Forces and matter

@@ -1,6 +1,7 @@
 /** Isolated PostgreSQL checks for the practice queue (20261005220000): one job
  * per point and kind, the trigger on saved weeks, claiming, saving, failing,
- * waking the worker, and the rollback. No production data is read or written.
+ * waking the worker, and the rollback; and 20261007111000, under which only
+ * this week's plan queues. No production data is read or written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-practice-queue-db.ts
  */
@@ -2853,6 +2854,100 @@ assert.deepEqual(await legacy(), legacyBefore, "ensure_generated_* as they were,
   // With the fix, none.
   await db.exec(migration);
   assert.deepEqual(await unguarded(), [], "every UPDATE and DELETE has a WHERE clause");
+}
+
+// ── 23. Only this week's plan queues (20261007111000) ──────────────────
+// Ali's rule (7 Oct): a quiz or task is queued only for a point on a plan for
+// the current week. That morning 20261007094747 wrote every row of every week
+// to re-check its tick, and the test student's old weeks queued 45 points.
+{
+  const thisWeekOnly = await readFile(
+    new URL(
+      "../supabase/migrations/20261007111000_practice_queue_this_week_only.sql",
+      import.meta.url,
+    ),
+    "utf8",
+  );
+  const undo = await readFile(
+    new URL(
+      "../supabase/rollbacks/20261007111000_practice_queue_this_week_only.down.sql",
+      import.meta.url,
+    ),
+    "utf8",
+  );
+  const save = (week: string, list: string[]) =>
+    as(
+      student,
+      "select public.save_weekly_plan($1, 'biology', 'aqa', 'gcse', $2, 'ai', null, $3::jsonb)",
+      [student, week, JSON.stringify(list.map((p) => ({ spec_point_id: p, origin: "core" })))],
+    );
+  // In Sunday's last hour next week counts too: a fast clock may cut it first.
+  const sundayLastHour = londonMonday(new Date(Date.now() + 3_600_000)) !== thisMonday;
+
+  // Jobs the old trigger left waiting: a point only in an old week, one a
+  // tutor asked for, and one on this week's plan.
+  await resetQueue();
+  const [historical, asked, current] = [await newPoint(), await newPoint(), await newPoint()];
+  await save(mon(-3), [historical, asked]);
+  await save(mon(0), [current]);
+  await request(asked, "quiz", true); // the press: rearm, as runPracticeJobNow sends it
+  assert.equal(await jobCount(historical), 2, "the old trigger queued an old week");
+
+  await db.exec(thisWeekOnly);
+  await db.exec(thisWeekOnly); // safe to run twice
+  assert.equal(await jobCount(historical), 0, "an old week's waiting jobs are removed");
+  assert.equal((await job(asked, "quiz")).requested, true, "a tutor's request stays");
+  assert.equal(await job(asked, "task"), undefined, "the task nobody asked for goes");
+  assert.equal(await jobCount(current), 2, "this week's waiting jobs stay");
+
+  // Saving an old week, or one ahead, queues nothing; this week does.
+  const [old, ahead, next, thisWeek] = [
+    await newPoint(),
+    await newPoint(),
+    await newPoint(),
+    await newPoint(),
+  ];
+  await save(mon(-1), [old]);
+  await save(mon(2), [ahead]);
+  await save(mon(1), [next]);
+  await save(mon(0), [current, thisWeek]);
+  assert.equal(await jobCount(old), 0, "last week queues nothing");
+  assert.equal(await jobCount(ahead), 0, "a week ahead queues nothing");
+  assert.equal(
+    await jobCount(next),
+    sundayLastHour ? 2 : 0,
+    "next week, only in Sunday's last hour",
+  );
+  assert.equal(await jobCount(thisWeek), 2, "this week's points are queued");
+
+  // What 20261007094747 did: write every row of every week. Only points on
+  // this week's plans get a job.
+  await resetQueue();
+  await db.exec("update public.student_weekly_plan_points set done_at = done_at where true");
+  const weeks = sundayLastHour ? [mon(0), mon(1)] : [mon(0)];
+  const shown = (
+    await db.query<{ id: string }>(
+      `select distinct pp.spec_point_id as id from public.student_weekly_plan_points pp
+       join public.student_weekly_plans w on w.id = pp.plan_id
+       where w.week_start = any($1::date[]) order by 1`,
+      [weeks],
+    )
+  ).rows.map((r) => r.id);
+  const queued = (
+    await db.query<{ id: string }>(
+      "select distinct spec_point_id as id from private.practice_jobs order by 1",
+    )
+  ).rows.map((r) => r.id);
+  assert.ok(shown.includes(thisWeek) && !queued.includes(old) && !queued.includes(historical));
+  assert.deepEqual(queued, shown, "a write to every row queues only this week's points");
+
+  // The rollback puts the old trigger back, and the rule goes on again.
+  await db.exec(undo);
+  const back = await newPoint();
+  await save(mon(-2), [back]);
+  assert.equal(await jobCount(back), 2, "after the rollback an old week queues again");
+  await db.exec(thisWeekOnly);
+  assert.equal(await jobCount(back), 0);
 }
 
 console.log("practice queue: all checks passed");

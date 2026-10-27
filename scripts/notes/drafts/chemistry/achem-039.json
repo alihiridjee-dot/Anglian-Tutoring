@@ -1,0 +1,382 @@
+{
+  "format": 1,
+  "concept_id": "achem-039",
+  "subject": "chemistry",
+  "title": "Weak acids and Ka",
+  "key_idea": "A weak acid is only partly dissociated, and the extent is measured by Ka. For a weak acid, [H⁺] = √(Ka × [HA]) when two approximations hold. pKa = −log₁₀Ka, so a larger Ka means a smaller pKa.",
+  "sections": [
+    {
+      "heading": "Strong and weak acids",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acids differ in how far they dissociate in water. This section covers the difference and what it does to pH."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Strong acid",
+              "meaning": "An acid that dissociates completely in water."
+            },
+            {
+              "term": "Weak acid",
+              "meaning": "An acid that dissociates only slightly in water, so an equilibrium is set up."
+            },
+            {
+              "term": "Degree of dissociation",
+              "meaning": "The fraction of acid molecules that have donated H⁺."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Strong acid, e.g. HCl",
+            "Weak acid, e.g. CH₃COOH"
+          ],
+          "rows": [
+            [
+              "Dissociation",
+              "Complete, →",
+              "Partial, ⇌"
+            ],
+            [
+              "[H⁺] compared with [acid]",
+              "Equal for a monobasic acid",
+              "Much less"
+            ],
+            [
+              "pH of equimolar solutions",
+              "Lower",
+              "Higher"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Weak bases, such as NH₃, also dissociate only slightly in water.",
+            "A strong and a weak acid of the same concentration have different pH, because their [H⁺] differ.",
+            "Neither is the same as **concentrated** or **dilute**. Those words describe how much acid is dissolved, not how far it dissociates."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Strong acids dissociate completely. Weak acids dissociate partly.",
+            "Equimolar weak acids have a higher pH than strong acids."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The acid dissociation constant, Ka",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ka is the equilibrium constant for a weak acid dissociating. pKa puts it on a log scale like pH."
+        },
+        {
+          "type": "equation",
+          "label": "Dissociation of a weak acid",
+          "formula": "HA(aq) ⇌ H⁺(aq) + A⁻(aq)",
+          "where": [
+            "HA = undissociated acid",
+            "A⁻ = conjugate base"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Acid dissociation constant",
+          "formula": "Ka = [H⁺][A⁻] ÷ [HA]",
+          "where": [
+            "Ka = acid dissociation constant (mol/dm³)",
+            "[H⁺], [A⁻], [HA] = equilibrium concentrations (mol/dm³)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "pKa",
+          "formula": "pKa = −log₁₀Ka",
+          "where": [
+            "pKa = no unit",
+            "Ka = acid dissociation constant (mol/dm³)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A larger Ka means a stronger weak acid, with more dissociation.",
+            "A smaller pKa means a stronger acid. Ethanoic acid has Ka = 1.74 × 10⁻⁵ mol/dm³ and pKa = 4.76.",
+            "To reverse it, Ka = 10^(−pKa)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ka = [H⁺][A⁻] ÷ [HA] for HA ⇌ H⁺ + A⁻.",
+            "pKa = −log₁₀Ka. Larger Ka means smaller pKa."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The pH of a weak acid",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The exact equilibrium needs a quadratic equation, so two approximations are made. This section sets out the method."
+        },
+        {
+          "type": "list",
+          "items": [
+            "[HA] at equilibrium ≈ [HA] before dissociation. This holds because only a very small fraction dissociates, so [HA] ≫ [H⁺].",
+            "[H⁺] = [A⁻] at equilibrium. This holds because H⁺ from the dissociation of water is negligible."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Weak acid approximation",
+          "formula": "Ka = [H⁺]² ÷ [HA]",
+          "where": [
+            "[H⁺] = hydrogen ion concentration (mol/dm³)",
+            "[HA] = acid concentration (mol/dm³)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Hydrogen ion concentration of a weak acid",
+          "formula": "[H⁺] = √(Ka × [HA])",
+          "where": [
+            "Ka = acid dissociation constant (mol/dm³)",
+            "[HA] = acid concentration (mol/dm³)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write",
+              "text": "Ka = [H⁺][A⁻] ÷ [HA], then put [A⁻] = [H⁺]."
+            },
+            {
+              "lead": "Rearrange",
+              "text": "[H⁺] = √(Ka × [HA])."
+            },
+            {
+              "lead": "Calculate",
+              "text": "0.100 mol/dm³ ethanoic acid: [H⁺] = √(1.74 × 10⁻⁵ × 0.100) = 1.32 × 10⁻³ mol/dm³."
+            },
+            {
+              "lead": "Find pH",
+              "text": "pH = −log₁₀(1.32 × 10⁻³) = 2.88."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question finding the hydrogen ion concentration of a weak acid.",
+            "question": "A weak acid HA has Ka = {k} × 10⁻⁵ mol/dm³. Its concentration is {c} mol/dm³. Calculate [H⁺] in units of 10⁻³ mol/dm³.",
+            "variables": [
+              {
+                "id": "k",
+                "min": 1,
+                "max": 9,
+                "step": 0.5
+              },
+              {
+                "id": "c",
+                "min": 0.05,
+                "max": 0.5,
+                "step": 0.05
+              }
+            ],
+            "answer": {
+              "formula": "sqrt(k*c*10)",
+              "unit": "× 10⁻³ mol/dm³",
+              "decimals": 2,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "[H⁺] = √(Ka × [HA]) = √({k} × 10⁻⁵ × {c}).",
+              "This is {answer} × 10⁻³ mol/dm³.",
+              "Then pH = −log₁₀[H⁺]."
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Finding Ka from pH data"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Concentration",
+              "text": "If a mass is given, moles = mass ÷ Mr, then concentration = moles ÷ volume in dm³."
+            },
+            {
+              "lead": "[H⁺]",
+              "text": "[H⁺] = 10^(−pH)."
+            },
+            {
+              "lead": "Ka",
+              "text": "Use [A⁻] = [H⁺], so Ka = [H⁺]² ÷ [HA]."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A 0.100 mol/dm³ acid of pH 2.88 has [H⁺] = 1.32 × 10⁻³, so Ka = (1.32 × 10⁻³)² ÷ 0.100 = 1.74 × 10⁻⁵ mol/dm³."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Assume [HA] is unchanged and [H⁺] = [A⁻].",
+            "[H⁺] = √(Ka × [HA]) for a weak acid.",
+            "Ka can be found from a measured pH by reversing the method."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "When the approximations fail",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The approximations work for weak acids that are very slightly dissociated. They fail for the stronger weak acids."
+        },
+        {
+          "type": "list",
+          "items": [
+            "If Ka is large, a sizeable fraction of HA dissociates. Then [HA] at equilibrium is noticeably smaller than the starting concentration.",
+            "Then [HA]equilibrium ≈ [HA]undissociated is no longer valid, and the calculated [H⁺] is too high.",
+            "In very dilute solutions, H⁺ from water is no longer negligible, so [H⁺] = [A⁻] is not valid either.",
+            "A full answer needs a quadratic equation, which is not required here."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The approximations hold only for slightly dissociated acids.",
+            "For stronger weak acids the calculated [H⁺] is too high."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write the expression for Ka for propanoic acid, CH₃CH₂COOH.",
+      "a": "Ka = [CH₃CH₂COO⁻][H⁺] ÷ [CH₃CH₂COOH]",
+      "marks": 1
+    },
+    {
+      "q": "Calculate the pH of 0.250 mol/dm³ methanoic acid, Ka = 1.6 × 10⁻⁴ mol/dm³. State your two assumptions.",
+      "a": "[H⁺] = √(1.6 × 10⁻⁴ × 0.250) = 6.3 × 10⁻³ mol/dm³; pH = 2.20. Assumptions: [HA] equilibrium = [HA] initial; [H⁺] = [A⁻] (H⁺ from water negligible).",
+      "marks": 4
+    },
+    {
+      "q": "Explain why the approximation [HA]equilibrium ≈ [HA]undissociated gives an error for a stronger weak acid.",
+      "a": "More of the acid dissociates, so the equilibrium [HA] is smaller than the initial concentration; the calculated [H⁺] is therefore too high.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.3c",
+        "OCR 5.1.3g",
+        "OCR 5.1.3h"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Further detail on approximations"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Learners are not required to solve quadratic equations.",
+                "State both approximations in an answer: [HA]equilibrium ≈ [HA]undissociated, and [H⁺]equilibrium ≈ [A⁻]equilibrium."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 12.7",
+        "EDEX 12.9",
+        "EDEX 12.10",
+        "EDEX 12.13",
+        "EDEX 12.14",
+        "EDEX 12.15"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Defining pKw and comparing pH data"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**pKw** = −log₁₀Kw, which is 14.00 at 298 K.",
+                "At the same concentration, a strong acid has a lower pH than a weak acid, and a strong base has a higher pH than a weak base.",
+                "A salt of a strong acid and a strong base is about pH 7. A salt of a weak acid and a strong base is above 7. A salt of a strong acid and a weak base is below 7."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Diluting strong and weak acids"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Diluting a strong acid 10, 100 and 1000 times raises its pH by 1, 2 and 3.",
+                "For a weak acid [H⁺] = √(Ka × [HA]), so a tenfold dilution cuts [H⁺] by √10, about 3.2. The pH rises by only about 0.5 for each tenfold dilution, so about 1.5 after 1000 times.",
+                "A weak acid is also more dissociated when more dilute."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.12.4"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "01484169-771b-471e-bdcd-2849a9a871b0",
+      "bfa57ba6-0735-4c15-966c-f25880a75d5d",
+      "dc8d31c9-9f8a-43f1-8443-bceaf41cf396",
+      "9f84f501-20c9-485f-8025-9fbf9683b256",
+      "708b58c2-52db-42ee-b8fe-cb7f9c881c6c",
+      "34779b4d-f94f-4375-b3b5-2dd10ff00461",
+      "59b7fed8-fca1-49be-823f-0976b12b1a1d",
+      "75ccc2ea-2dd1-4eec-ab4d-fe72d101e6e7",
+      "8f5d264a-44f2-4480-8f90-15bd1264b6f9",
+      "c25c9ef4-b025-47d5-8024-0c25520c1ed8"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

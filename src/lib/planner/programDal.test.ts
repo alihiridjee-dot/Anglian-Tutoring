@@ -1,8 +1,12 @@
 import { describe, expect, test, spyOn } from "bun:test";
 import { handPicked, ProgramDAL } from "./programDal";
 import { focusInputs, type RoadmapResult } from "./roadmap";
-import { WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
+import { MAX_WEEK_POINTS, WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
 import { WeeklyActivityDAL } from "./weeklyActivityDal";
+import { SubjectPauseDAL } from "./pausesDal";
+import { BreakDAL } from "./breaksDal";
+import { currentWeekKey, toDateKey } from "./week";
+import { examMondayFor, examMondayIn } from "./pacing";
 import { type RejectionReason } from "./admissibility";
 import type { ProgressPoint, TopicProgress } from "./scheduleDal";
 
@@ -161,6 +165,174 @@ describe("saved review repair", () => {
     }
   });
 });
+describe("applying a new exam date", () => {
+  const course = {
+    studentId: "student",
+    subject: "biology",
+    board: "cambridge",
+    level: "igcse",
+  } as const;
+  const teach = { topicId: "t", title: "T", startWeek: "2026-10-05", endWeek: "2026-10-19" };
+  const reflowed = (bands: object[], needsAck = true) =>
+    ({ needsAck, bands, programStart: "2026-10-05", examDate: "2028-06-30" }) as RoadmapResult;
+
+  test("re-cuts this week too, not just the full plan", async () => {
+    // The bug: the full plan moved to the new date, and this week kept the 15
+    // points the old date gave it.
+    const load = spyOn(ProgramDAL, "loadRoadmap");
+    const ack = spyOn(ProgramDAL, "acknowledge").mockResolvedValue();
+    const recut = spyOn(ProgramDAL, "refreshWeek").mockResolvedValue(true);
+    const pause = spyOn(SubjectPauseDAL, "open").mockResolvedValue(null);
+    const breaks = spyOn(BreakDAL, "list").mockResolvedValue([]);
+    try {
+      load.mockResolvedValue(reflowed([teach]));
+      await ProgramDAL.applyPending(course);
+      expect(ack).toHaveBeenCalledTimes(1);
+      expect(recut).toHaveBeenCalledWith({ ...course, weekStart: currentWeekKey() });
+
+      // Nothing re-flowed: nothing is written.
+      load.mockResolvedValue(reflowed([teach], false));
+      await ProgramDAL.applyPending(course);
+      expect(ack).toHaveBeenCalledTimes(1);
+      expect(recut).toHaveBeenCalledTimes(1);
+
+      // A custom order's weeks are re-cut by reorder_student_topics instead.
+      const schedule = { version: 1, from: "2026-10-05", examDate: "2028-06-30" };
+      load.mockResolvedValue(reflowed([{ ...teach, schedule }]));
+      await ProgramDAL.applyPending(course);
+      expect(recut).toHaveBeenCalledTimes(1);
+
+      // A paused subject or a break week is never planned.
+      load.mockResolvedValue(reflowed([teach]));
+      pause.mockResolvedValueOnce({ reason: "paused", startedAt: "2026-10-01T00:00:00Z" });
+      await ProgramDAL.applyPending(course);
+      breaks.mockResolvedValueOnce([
+        { startsOn: currentWeekKey(), endsOn: currentWeekKey() } as never,
+      ]);
+      await ProgramDAL.applyPending(course);
+      expect(recut).toHaveBeenCalledTimes(1);
+
+      // The plan is saved even when the week can't follow it just now.
+      recut.mockRejectedValueOnce(new Error("offline"));
+      const warn = spyOn(console, "warn").mockImplementation(() => {});
+      try {
+        expect(await ProgramDAL.applyPending(course)).toEqual(reflowed([teach]));
+        expect(warn).toHaveBeenCalledTimes(1);
+      } finally {
+        warn.mockRestore();
+      }
+    } finally {
+      load.mockRestore();
+      ack.mockRestore();
+      recut.mockRestore();
+      pause.mockRestore();
+      breaks.mockRestore();
+    }
+  });
+});
+describe("moving every subject to one exam year", () => {
+  // Relative to the real clock: the planner only plans to the next three summers.
+  const year = examMondayFor().getUTCFullYear() + 1;
+  const june = toDateKey(examMondayIn(year));
+  const course = (subject: string) => ({ subject, board: "aqa" }) as never;
+
+  /** The write and the read `setExamYear` makes itself; the rest is spied on. */
+  function fakeDb(plans: { subject: string; exam_date: string }[]) {
+    const updates: { table: string; values: unknown }[] = [];
+    const db = {
+      from: (table: string) => ({
+        update: (values: unknown) => ({
+          eq: async () => {
+            updates.push({ table, values });
+            return { error: null };
+          },
+        }),
+        select: () => ({ eq: async () => ({ data: plans, error: null }) }),
+      }),
+    } as never;
+    return { updates, db };
+  }
+
+  test("saves the year, then moves each planned subject to that June", async () => {
+    const { updates, db } = fakeDb([
+      { subject: "biology", exam_date: `${year - 1}-06-07` },
+      // Set by hand to a May paper in that year: kept.
+      { subject: "chemistry", exam_date: `${year}-05-14` },
+      { subject: "physics", exam_date: `${year + 1}-06-01` },
+    ]);
+    const setDate = spyOn(ProgramDAL, "setExamDate").mockImplementation(async ({ subject }) => {
+      if (subject === "physics")
+        throw new Error(
+          "That exam date leaves too few weeks for your remaining topics. Choose a later date.",
+        );
+    });
+    const apply = spyOn(ProgramDAL, "applyPending").mockResolvedValue(null);
+    try {
+      const result = await ProgramDAL.setExamYear(
+        {
+          studentId: "student",
+          year,
+          level: "gcse",
+          courses: ["biology", "chemistry", "physics", "combined"].map(course),
+        },
+        db,
+      );
+      // The profile first: a subject added later is planned to it.
+      expect(updates).toEqual([{ table: "profiles", values: { exam_year: year } }]);
+      expect(setDate.mock.calls.map(([p]) => [p.subject, p.examDate])).toEqual([
+        ["biology", june],
+        ["physics", june],
+      ]);
+      // Only a subject that moved is re-flowed, and this week with it.
+      expect(apply.mock.calls.map(([p]) => p.subject)).toEqual(["biology"]);
+      expect(result).toEqual({
+        // "combined" has no plan yet: its first one is cut to the new year.
+        moved: ["biology", "combined"],
+        kept: ["chemistry"],
+        refused: [
+          {
+            subject: "physics",
+            message:
+              "That exam date leaves too few weeks for your remaining topics. Choose a later date.",
+          },
+        ],
+      } as never);
+    } finally {
+      setDate.mockRestore();
+      apply.mockRestore();
+    }
+  });
+
+  test("a year the planner won't plan to is refused before anything is saved", async () => {
+    const { updates, db } = fakeDb([]);
+    await expect(
+      ProgramDAL.setExamYear(
+        { studentId: "student", year: year + 5, level: "gcse", courses: [] },
+        db,
+      ),
+    ).rejects.toThrow("Choose one of the exam years shown.");
+    expect(updates).toEqual([]);
+  });
+
+  test("a re-flow that fails still counts the subject as moved: its date is saved", async () => {
+    const { db } = fakeDb([{ subject: "biology", exam_date: `${year - 1}-06-07` }]);
+    const setDate = spyOn(ProgramDAL, "setExamDate").mockResolvedValue();
+    const apply = spyOn(ProgramDAL, "applyPending").mockRejectedValue(new Error("offline"));
+    const warn = spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      const result = await ProgramDAL.setExamYear(
+        { studentId: "student", year, level: "gcse", courses: [course("biology")] },
+        db,
+      );
+      expect(result.moved).toEqual(["biology"] as never);
+      expect(warn).toHaveBeenCalledTimes(1);
+    } finally {
+      setDate.mockRestore();
+      apply.mockRestore();
+      warn.mockRestore();
+    }
+  });
+});
 describe("assessment-backed focus inputs", () => {
   test("confidence alone cannot admit a point", () => {
     expect(focusInputs([topic([point("a", { confidence: 10 })])]).candidates).toEqual([]);
@@ -252,6 +424,46 @@ describe("saved-week catch-up", () => {
           roadmap,
         }),
       ).toBe(false);
+    } finally {
+      add.mockRestore();
+    }
+  });
+
+  test("tops a nearly full week up only to the cap, and leaves a full one alone", async () => {
+    // `addPoints` throws past the cap, and the week loader runs this on every
+    // visit: one refusal here put an error on the week for the rest of it.
+    const owed = (id: string) => ({
+      specPointId: id,
+      topicId: "old-topic",
+      topicTitle: "Old topic",
+      code: id,
+      title: id,
+      weight: 1,
+      plannedWeek: "2026-07-13",
+    });
+    const roadmap = {
+      catchUpSchedule: {
+        weeks: { "2026-09-07": [owed("old1"), owed("old2")] },
+        assignedIds: [],
+        held: [],
+      },
+    } as unknown as RoadmapResult;
+    const held = (n: number) =>
+      Array.from(
+        { length: n },
+        (_, i) => ({ spec_point_id: `p${i}`, origin: "core" }) as PlanPoint,
+      );
+    const week = { planId: "saved", weekStart: "2026-09-07", roadmap };
+    const add = spyOn(WeeklyPlanDAL, "addPoints").mockResolvedValue(1);
+    try {
+      expect(await ProgramDAL.ensureCatchUp({ ...week, points: held(MAX_WEEK_POINTS - 1) })).toBe(
+        true,
+      );
+      expect(add).toHaveBeenCalledWith("saved", ["old1"], "core");
+      expect(await ProgramDAL.ensureCatchUp({ ...week, points: held(MAX_WEEK_POINTS) })).toBe(
+        false,
+      );
+      expect(add).toHaveBeenCalledTimes(1);
     } finally {
       add.mockRestore();
     }

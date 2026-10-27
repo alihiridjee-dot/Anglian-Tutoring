@@ -1,0 +1,338 @@
+{
+  "format": 1,
+  "concept_id": "chem-058",
+  "subject": "chemistry",
+  "title": "Practical: electrolysis of copper sulfate solution",
+  "key_idea": "With inert electrodes, copper sulfate solution gives copper at the negative electrode and oxygen at the positive electrode. With copper electrodes, the positive electrode dissolves and the negative electrode gains copper. This is how copper is purified.",
+  "sections": [
+    {
+      "heading": "Inert and non-inert electrodes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the two kinds of electrode used in the practical."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Inert electrode",
+              "meaning": "An electrode that does not react. It only carries the current. Graphite and platinum are inert."
+            },
+            {
+              "term": "Non-inert electrode",
+              "meaning": "An electrode that takes part in the reaction and is changed during electrolysis. Copper is an example."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "An inert electrode must conduct electricity.",
+            "It must stay solid and not dissolve.",
+            "It must not react with the electrolyte or the products.",
+            "Graphite is used because it conducts and is inert."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Inert electrodes do not react. Non-inert electrodes are changed.",
+            "An inert electrode conducts electricity and does not dissolve."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Copper sulfate with each type of electrode",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers what happens at each electrode, and how the reaction is used to purify copper."
+        },
+        {
+          "type": "subheading",
+          "text": "Inert electrodes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The solution contains Cu²⁺, SO₄²⁻, H⁺ and OH⁻ ions.",
+            "Negative electrode: copper forms, because copper is less reactive than hydrogen. A pink-brown solid appears.",
+            "Positive electrode: oxygen forms, because there is no halide ion. Bubbles appear."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Copper electrodes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Negative electrode: copper ions gain electrons and form copper atoms. The electrode gets larger.",
+            "Positive electrode: copper atoms lose electrons and form copper ions. The electrode gets smaller, because the copper dissolves.",
+            "The solution stays the same shade of blue, because the same number of copper ions enter and leave the solution.",
+            "(Higher tier) Negative electrode: Cu²⁺ + 2e⁻ → Cu. This is reduction.",
+            "(Higher tier) Positive electrode: Cu → Cu²⁺ + 2e⁻. This is oxidation."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Choose the type of electrode to see what happens in copper sulfate solution.",
+            "prompt": "Pick the electrodes",
+            "result_labels": [
+              "Negative electrode (cathode)",
+              "Positive electrode (anode)",
+              "Change in mass",
+              "Blue colour of the solution"
+            ],
+            "options": [
+              {
+                "label": "Inert electrodes",
+                "results": [
+                  "Copper forms as a pink-brown solid",
+                  "Oxygen forms as bubbles",
+                  "The negative electrode gains mass. The positive electrode does not change.",
+                  "The blue fades, because copper ions are used up"
+                ]
+              },
+              {
+                "label": "Copper electrodes",
+                "results": [
+                  "Copper ions gain electrons and form copper",
+                  "Copper atoms lose electrons and form copper ions",
+                  "The negative electrode gains mass. The positive electrode loses mass.",
+                  "The same shade of blue, because the same number of ions enter and leave"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Purifying copper"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Impure copper is used as the positive electrode. Pure copper is used as the negative electrode.",
+            "Copper dissolves from the impure electrode and is deposited on the pure electrode.",
+            "The negative electrode gains pure copper. The impurities are left behind."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Inert electrodes: copper at the negative electrode, oxygen at the positive electrode.",
+            "Copper electrodes: the positive electrode dissolves, the negative electrode gains copper, and the solution colour does not change.",
+            "Copper electrodes can purify copper."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Carrying out the investigation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the method for finding the mass of copper deposited, and how to improve it."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Clean",
+              "text": "Clean the copper electrodes with emery paper to remove surface oxide, grease and impurities."
+            },
+            {
+              "lead": "Weigh",
+              "text": "Weigh each electrode and record its mass."
+            },
+            {
+              "lead": "Set up",
+              "text": "Put the electrodes in copper sulfate solution. Connect them to a direct current supply, with an ammeter in the circuit."
+            },
+            {
+              "lead": "Run",
+              "text": "Switch on for a measured time, with the current kept constant."
+            },
+            {
+              "lead": "Dry",
+              "text": "Remove the negative electrode. Rinse it with water or propanone and leave it to dry. Do not scrape off the copper."
+            },
+            {
+              "lead": "Reweigh",
+              "text": "Weigh the electrode again and subtract its starting mass."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of the copper electrolysis investigation in order.",
+            "prompt": "Put the steps of the investigation in the correct order.",
+            "steps": [
+              "Clean the copper electrodes",
+              "Weigh each electrode",
+              "Connect the electrodes in copper sulfate solution to a direct current supply",
+              "Switch on for a measured time",
+              "Rinse the negative electrode and let it dry",
+              "Reweigh it and find the change in mass"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "As the current increases, the mass of copper increases. The mass is proportional to the current.",
+            "A higher current means more electrons per second, so more copper ions are reduced.",
+            "With inert electrodes, gases can be collected in test tubes placed over the electrodes. A measuring cylinder, burette or gas syringe can measure their volume.",
+            "The mass of copper can differ from the expected value if copper falls off the electrode, the electrode is not dry, copper is removed when drying, or the timing or the current is wrong."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Weigh the negative electrode before and after, and subtract.",
+            "Rinse and dry the electrode, and do not scrape off the copper.",
+            "More current means more copper."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Copper sulfate solution is electrolysed using copper electrodes. Describe what happens to each electrode.",
+      "a": "The positive electrode gets smaller because copper atoms form ions and dissolve. The negative electrode gets larger because copper is deposited.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the solution stays the same shade of blue when copper electrodes are used.",
+      "a": "The same number of copper ions enter the solution at the positive electrode as leave it at the negative electrode.",
+      "marks": 2
+    },
+    {
+      "q": "State what is done to the negative electrode before it is reweighed.",
+      "a": "It is rinsed (with water or propanone) and left to dry.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.3.4", "AQA T 5.4.3.4"],
+      "worked_example": {
+        "exemplar_id": "c351fb90-37e0-4216-a3bb-fceb000375c9",
+        "source": "AQA jun 2021, Paper 1 (H), Q07.4",
+        "question": "Some students investigated the electrolysis of copper nitrate solution using inert electrodes. They investigated how the mass of copper produced at the negative electrode varied with time and current.\n\nMethod:\n1. Weigh the negative electrode.\n2. Set up the apparatus.\n3. Adjust the power supply until the ammeter shows a current of 0.3 A.\n4. Switch off the power supply after 5 minutes.\n5. Rinse the negative electrode with water and allow to dry.\n6. Reweigh the negative electrode.\n7. Repeat steps 1 to 6 for different times.\n8. Repeat steps 1 to 7 at different currents.\n\nSome of the copper produced did not stick to the negative electrode but fell to the bottom of the beaker.\n\nSuggest how the students could find the total mass of copper produced.",
+        "marks": 4,
+        "answer_points": [
+          "Filter the mixture.",
+          "Wash and dry the copper (residue).",
+          "Weigh the copper collected.",
+          "Add this to the increase in mass of the electrode."
+        ],
+        "tip": "One mark for each step, in a sensible order."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.30", "EDEX 3.31"],
+      "worked_example": {
+        "exemplar_id": "4ec6dde3-e36d-46be-8ca9-9f4e34e83e77",
+        "source": "EDEXCEL nov 2021, Paper 1 (H), Q5(d)(ii)",
+        "question": "A solution of copper sulfate in a beaker is electrolysed using copper electrodes.\n\nDuring the electrolysis, the anode gets smaller, the cathode gets larger and the solution remains the same shade of blue.\n\nGive the reason for each of these observations.",
+        "marks": 3,
+        "answer_points": [
+          "Anode: smaller because copper atoms form ions and go into solution (oxidation of Cu atoms).",
+          "Cathode: larger because copper atoms are formed from ions in the solution (reduction of Cu²⁺).",
+          "Solution: the same number of ions enter and leave the solution."
+        ],
+        "tip": "One mark for each observation."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.4e"],
+      "worked_example": {
+        "exemplar_id": "033f7fc5-b016-4368-a302-f9522e139883",
+        "source": "OCR sample null, Paper 3, Q23(b)",
+        "question": "Meena electrolyses copper sulfate using copper electrodes.\n\nMeena finds that:\n- the cathode gains mass\n- the anode loses mass.\n\nExplain these observations in terms of the reactions at each electrode.",
+        "marks": 2,
+        "answer_points": [
+          "Copper is deposited at the cathode.",
+          "The copper anode dissolves, because copper ions are produced at the anode."
+        ],
+        "tip": "Half equations also score: Cu²⁺ + 2e⁻ → Cu at the cathode and Cu → Cu²⁺ + 2e⁻ at the anode."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.1.6", "CAIE 4.1.7", "CAIE 4.1.9S"],
+      "worked_example": {
+        "exemplar_id": "eee9cb5c-aa3e-49eb-9b6b-1a2f0d5e3093",
+        "source": "CAMBRIDGE jun 2023, Paper 43, Q5(c)(i)",
+        "question": "Spoons can be electroplated with silver.\nName the substances used as:\nthe anode (positive electrode) ______\nthe cathode (negative electrode) ______\nthe electrolyte ______",
+        "marks": 3,
+        "answer_points": [
+          "Anode: silver.",
+          "Cathode: the spoon.",
+          "Electrolyte: aqueous silver nitrate (a solution of silver nitrate)."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "**Electroplating** coats a metal object with a thin layer of another metal."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Metal objects are electroplated to improve their appearance and to resist corrosion.",
+                "The object to be plated is the cathode (negative electrode).",
+                "The plating metal is the anode (positive electrode).",
+                "The electrolyte is a solution of a salt of the plating metal, such as silver nitrate to plate silver.",
+                "To find the mass plated, weigh the object before and after, then subtract."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) With graphite electrodes, the blue colour of the copper sulfate solution becomes lighter.",
+                "(Supplement) With copper electrodes, the blue colour stays the same, no bubbles form at the anode and the anode dissolves."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.60C"]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "spec_point_ids": [
+      "2aabe9e7-24b9-4c10-a8e8-5ea0d124765a",
+      "e4ddeeac-5459-4151-8bf5-b60e26c707ce",
+      "de1aed7b-3fca-4a4a-946e-46dd49a6ff46",
+      "5c4dcdbb-a285-4219-a431-88351bb70267",
+      "4c43c006-fac7-49da-8d20-e79942a090ec",
+      "4b5cee21-08f4-49d2-9848-21de16d73fe0",
+      "181b53c8-b087-4cf0-a022-f12b30089332"
+    ],
+    "exemplar_ids": [
+      "c351fb90-37e0-4216-a3bb-fceb000375c9",
+      "4ec6dde3-e36d-46be-8ca9-9f4e34e83e77",
+      "033f7fc5-b016-4368-a302-f9522e139883",
+      "eee9cb5c-aa3e-49eb-9b6b-1a2f0d5e3093"
+    ]
+  }
+}

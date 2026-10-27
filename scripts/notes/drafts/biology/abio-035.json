@@ -1,0 +1,365 @@
+{
+  "format": 1,
+  "concept_id": "abio-035",
+  "subject": "biology",
+  "title": "Nucleotides and the structure of DNA and RNA",
+  "key_idea": "DNA and RNA are polymers of nucleotides, joined by phosphodiester bonds. DNA is a double helix of two antiparallel strands held together by hydrogen bonds between complementary bases. RNA is a shorter, single polynucleotide chain.",
+  "sections": [
+    {
+      "heading": "The nucleotide",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A nucleotide is the monomer of nucleic acids. This section covers its three parts and the bases."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nucleotide",
+              "meaning": "The monomer of a nucleic acid: a pentose sugar, a phosphate group and a nitrogen-containing organic base."
+            },
+            {
+              "term": "Pentose",
+              "meaning": "A sugar with five carbon atoms. It is deoxyribose in DNA and ribose in RNA."
+            },
+            {
+              "term": "Purine",
+              "meaning": "A base with a double ring structure: adenine and guanine."
+            },
+            {
+              "term": "Pyrimidine",
+              "meaning": "A base with a single ring structure: cytosine, thymine and uracil."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "DNA nucleotide",
+            "RNA nucleotide"
+          ],
+          "rows": [
+            [
+              "Pentose sugar",
+              "Deoxyribose",
+              "Ribose"
+            ],
+            [
+              "Phosphate group",
+              "One",
+              "One"
+            ],
+            [
+              "Bases",
+              "Adenine, cytosine, guanine, thymine",
+              "Adenine, cytosine, guanine, uracil"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The phosphate group and the base are both attached to the pentose sugar.",
+            "A purine pairs with a pyrimidine, so the two chains stay a constant width apart.",
+            "ATP is also a nucleotide: it is adenine, ribose and three phosphate groups. It is a phosphorylated nucleotide."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Nucleotide = pentose + phosphate + organic base.",
+            "DNA has deoxyribose and thymine; RNA has ribose and uracil.",
+            "Purines (A, G) have two rings; pyrimidines (C, T, U) have one."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Polynucleotides and phosphodiester bonds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Nucleotides join in long chains called polynucleotides. This section covers how they are made and broken down."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **condensation reaction** joins two nucleotides and releases water.",
+            "It forms a **phosphodiester bond** between the phosphate group of one nucleotide and the pentose sugar of the next.",
+            "This repeats to give a sugar-phosphate backbone, with the bases pointing out from it.",
+            "Breaking the bond needs a **hydrolysis** reaction, which uses water and splits the polynucleotide into nucleotides."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Condensation forms phosphodiester bonds and builds polynucleotides.",
+            "Hydrolysis breaks the bonds and releases nucleotides.",
+            "The sugar-phosphate backbone carries the bases."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The DNA double helix",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "DNA holds genetic information. Its structure suits that job."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A DNA molecule has two polynucleotide chains twisted around each other into a **double helix**.",
+            "The chains are held together by **hydrogen bonds** between **complementary base pairs**.",
+            "Adenine pairs with thymine (A–T) through two hydrogen bonds.",
+            "Guanine pairs with cytosine (G–C) through three hydrogen bonds, so a G–C pair is harder to separate.",
+            "The two chains run in opposite directions. One runs 5′ to 3′ and the other 3′ to 5′: they are **antiparallel**."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why the structure suits its job"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The sugar-phosphate backbone protects the bases inside the helix.",
+            "Many hydrogen bonds make the molecule stable, but each is weak enough to be broken, so the strands can separate for replication and transcription.",
+            "The base sequence carries the genetic information.",
+            "Complementary pairing means each strand can act as a template for the other."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of DNA and RNA molecules.",
+            "items": [
+              "DNA",
+              "RNA"
+            ],
+            "rows": [
+              {
+                "feature": "Chains",
+                "values": [
+                  "Two, in a double helix",
+                  "One"
+                ]
+              },
+              {
+                "feature": "Length",
+                "values": [
+                  "Very long",
+                  "Relatively short"
+                ]
+              },
+              {
+                "feature": "Pentose sugar",
+                "values": [
+                  "Deoxyribose",
+                  "Ribose"
+                ]
+              },
+              {
+                "feature": "Base pairing with A",
+                "values": [
+                  "Thymine",
+                  "Uracil"
+                ]
+              },
+              {
+                "feature": "Job",
+                "values": [
+                  "Holds genetic information",
+                  "Transfers genetic information from DNA to the ribosomes"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A–T has two hydrogen bonds; G–C has three.",
+            "The two strands are antiparallel and twisted into a double helix.",
+            "Many weak hydrogen bonds give stability while still letting the strands separate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "RNA and the purification of DNA",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "RNA is a relatively short polynucleotide chain. Messenger RNA (mRNA) is the example to know."
+        },
+        {
+          "type": "list",
+          "items": [
+            "mRNA is a single strand made as a copy of one gene.",
+            "It carries the code from the DNA in the nucleus to the ribosomes, which are made of RNA and protein.",
+            "It is short, because it copies one gene and not a whole chromosome.",
+            "It is a single chain, so its bases are exposed and can be read at the ribosome."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Purifying DNA by precipitation"
+        },
+        {
+          "type": "paragraph",
+          "text": "DNA can be separated from other cell contents in a practical. Each step has a reason."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Break open the cells.",
+              "text": "Mash the tissue with a detergent. The detergent breaks down the cell membranes and the nuclear envelope, releasing the DNA."
+            },
+            {
+              "lead": "Remove the proteins.",
+              "text": "Add a protease enzyme to digest the histones and other proteins bound to the DNA."
+            },
+            {
+              "lead": "Filter.",
+              "text": "Remove cell debris, leaving a solution of DNA."
+            },
+            {
+              "lead": "Precipitate the DNA.",
+              "text": "Add cold ethanol. DNA is not soluble in ethanol, so it comes out of solution as white strands."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "RNA is a short single polynucleotide; mRNA carries a gene's code to the ribosomes.",
+            "Detergent frees the DNA, protease removes protein and cold ethanol precipitates the DNA."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how two nucleotides are joined to form part of a polynucleotide.",
+      "a": "A condensation reaction (releasing water) joins the phosphate group of one nucleotide to the pentose sugar of the other, forming a phosphodiester bond.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a DNA molecule with a high proportion of G–C pairs is more stable than one with a high proportion of A–T pairs.",
+      "a": "G–C pairs are held by three hydrogen bonds, while A–T pairs are held by two. More hydrogen bonds need more energy to break, so the molecule is harder to separate.",
+      "marks": 3
+    },
+    {
+      "q": "State three differences between a DNA molecule and an mRNA molecule.",
+      "a": "DNA is a double helix of two chains and mRNA is a single chain. DNA is very long and mRNA is short. DNA contains deoxyribose and thymine; mRNA contains ribose and uracil.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.5.1a",
+        "AQA 3.1.5.1b",
+        "AQA 3.1.5.1c",
+        "AQA 3.1.5.1d",
+        "AQA 3.1.5.1e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In all living cells, DNA holds genetic information and RNA transfers genetic information from DNA to the ribosomes.",
+                "Ribosomes are formed from RNA and proteins.",
+                "The relative simplicity of DNA, with only four bases, led many scientists to doubt that it carried the genetic code. Proteins, with 20 different amino acids, seemed more likely to carry complex information."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.5"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 6.1.1",
+        "CAIE 6.1.2",
+        "CAIE 6.1.3",
+        "CAIE 6.1.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "ATP is a phosphorylated nucleotide: adenine, ribose and three phosphate groups. Structural formulae are not expected.",
+                "The 5′ and 3′ labels name the carbon atoms of the pentose sugar at each end of a strand. One strand runs 5′ to 3′ and its partner runs 3′ to 5′.",
+                "Complementary base pairing between the two strands depends on them being antiparallel.",
+                "mRNA is a single polynucleotide of ribonucleotides, with uracil in place of thymine, complementary to the template strand of a gene."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.3a",
+        "OCR 2.1.3b",
+        "OCR 2.1.3d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Twisting of the two antiparallel polynucleotides, held by hydrogen bonds between complementary bases (A to T, G to C), gives the double helix its shape.",
+                "Be able to identify the purines and pyrimidines, and the type of pentose sugar, on a diagram of a nucleotide.",
+                "For DNA purification by precipitation, explain the role of each reagent: detergent, protease and cold ethanol."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "8c278294-6d50-4ca9-8f40-e88b9fade157",
+      "18be9c80-f97f-4302-9120-2d0936fcdac7",
+      "239386fd-c242-43e4-9cc5-59cf19ca0cfe",
+      "41301ec5-b665-43d4-8b17-36bc74bc1fbb",
+      "5f39d928-031e-4b31-8b80-62a1156fc107",
+      "f947e551-eb3d-4c88-a066-ab5738fd3d22",
+      "11c93d96-d0cd-4ece-97c5-b9c260a5c388",
+      "f021f41c-93c4-48d2-b4f3-2e2d5839e293",
+      "75b2313d-6f58-4ad2-a268-17d8b8821c7f",
+      "1e04ecc1-bb81-4477-be42-20c7fba382db",
+      "724030a7-e15e-4ed1-b57d-ed03c7f6bf71",
+      "3baac9fb-bdcc-4ed8-bb7b-8f0aad7aa1b5",
+      "b0a4962f-b3c4-4632-b1fe-17caff1fcdea"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

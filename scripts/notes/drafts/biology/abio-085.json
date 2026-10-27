@@ -1,0 +1,374 @@
+{
+  "format": 1,
+  "concept_id": "abio-085",
+  "subject": "biology",
+  "title": "Planning and evaluating experiments",
+  "key_idea": "A good investigation changes one variable, controls the others and measures the result with suitable apparatus. Safety, ethics and careful records make it trustworthy. Evaluation looks at precision, accuracy, anomalies and limitations, and suggests improvements.",
+  "sections": [
+    {
+      "heading": "Designing an experiment",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A good design lets you test one idea fairly and collect results you can trust. This section covers choosing the method, the apparatus and the variables."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Independent variable",
+              "meaning": "The factor you change on purpose."
+            },
+            {
+              "term": "Dependent variable",
+              "meaning": "The factor you measure to see the effect."
+            },
+            {
+              "term": "Control variable",
+              "meaning": "A factor you keep the same so it cannot affect the result."
+            },
+            {
+              "term": "Control experiment",
+              "meaning": "A set-up with the independent variable absent or at its normal level, used for comparison."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Planning the method"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Turn the problem into a testable question: what changes, and what will you measure?",
+            "Apply the biology you know to the practical. For example, enzyme activity depends on temperature, so a water bath is needed to hold it steady.",
+            "Choose apparatus that measures to a suitable precision for the size of the change expected.",
+            "Choose a technique that gives quantitative data where possible, such as a volume of gas or a reading from a colorimeter.",
+            "Include enough values of the independent variable, over a wide enough range, to show a pattern.",
+            "Plan repeats at each value so that a mean can be calculated and anomalies spotted."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Identifying variables to control"
+        },
+        {
+          "type": "list",
+          "items": [
+            "List everything else that could affect the dependent variable, such as temperature, pH, volume, mass, light intensity and time.",
+            "Say how each one will be kept constant, for example by using a buffer for pH or a thermostatically controlled water bath for temperature.",
+            "Where a variable cannot be controlled, say how it will be monitored.",
+            "Use the same batch of biological material where possible, because organisms vary."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "The steps of planning an investigation, from question to refined method.",
+            "steps": [
+              "Testable question",
+              "Choose variables",
+              "Select apparatus",
+              "Write method",
+              "Trial run",
+              "Refine method"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change one variable, measure one variable and control the rest.",
+            "A plan needs suitable apparatus, a range of values and repeats."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Safety, ethics and the use of organisms",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Practical work must be safe for people and fair to living things. You identify the risks before you start and plan how to reduce them."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Identify each hazard: a chemical, a hot object, sharp instruments, microorganisms or electricity.",
+            "State the risk it causes and a precaution that reduces it, such as eye protection, a lab coat or disposing of cultures properly.",
+            "Follow written instructions in the order given, and read them through before you start.",
+            "When measuring responses or physiological functions, use organisms safely and ethically."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use as few organisms as will give reliable results.",
+            "Cause no pain or lasting harm, and return wild organisms to where they were found.",
+            "Handle them gently and keep them in suitable conditions.",
+            "With people, take only part in tests that are safe, and let the volunteer stop at any time."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Name the hazard, the risk and the precaution.",
+            "Treat organisms with care and use only as many as needed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Recording, presenting and citing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Records show what you did and what you found. Anyone should be able to repeat your work from them."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Make and record observations and measurements as you go, not from memory afterwards.",
+            "Draw a results table before you start, with headings that give the quantity and the unit.",
+            "Record to a consistent number of decimal places, matching the apparatus.",
+            "Keep a record of the method, any changes made to it and the reasons.",
+            "Present information and data in a scientific way: tables, graphs and annotated drawings, with units."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Research and sources"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use online and offline research: websites, textbooks and other printed scientific sources.",
+            "Judge a source for who wrote it, when, and whether the evidence is shown.",
+            "Cite every source correctly, so that a reader can find it: author, title, publisher or website, and date."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Results tables, graphs and drawings must have headings and units.",
+            "Always cite where information came from."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evaluating methods and results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Evaluation asks whether the method was fit for purpose and whether the conclusion follows from the data."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Evaluate whether the method was appropriate to meet the expected outcomes.",
+            "Draw a conclusion that matches the evidence, and state which hypothesis it supports.",
+            "A valid conclusion answers the original question, with only the independent variable changing.",
+            "Identify anomalies: results that do not fit the pattern. Look for a cause, then repeat or leave them out of the mean."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Limitations and refinement"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Limitations can come from the apparatus (low precision), the method (poor control of a variable) or the sample (too few repeats or too small a sample).",
+            "Suggest an improvement that deals with each limitation, such as a more precise measuring cylinder, a water bath, more repeats or a wider range.",
+            "Refining the design means changing the procedure or apparatus so the next result is more reliable."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Precision, accuracy and error"
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Accuracy",
+              "meaning": "How close a measurement is to the true value."
+            },
+            {
+              "term": "Precision",
+              "meaning": "How close repeated measurements are to each other."
+            },
+            {
+              "term": "Uncertainty",
+              "meaning": "The margin of error in a measurement, given as a plus or minus value, e.g. ±0.5 cm³."
+            },
+            {
+              "term": "Percentage error",
+              "meaning": "The uncertainty as a percentage of the measured value."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Percentage error",
+          "formula": "percentage error = (uncertainty ÷ measured value) × 100",
+          "where": [
+            "uncertainty = the margin of error of the apparatus, in the same unit as the measurement",
+            "measured value = the reading taken, in the same unit"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A reading made as the difference of two readings (a burette start and end) has the uncertainty of each added together.",
+            "Percentage error is smaller when you measure a larger quantity with the same apparatus.",
+            "Repeating readings and taking a mean reduces the effect of random error but not of a fault in the apparatus."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A percentage error calculation with new numbers each time.",
+            "question": "A balance measures to ±{unc} g. A mass of {mass} g is measured on it. Calculate the percentage error in the mass.",
+            "variables": [
+              {
+                "id": "unc",
+                "min": 0.01,
+                "max": 0.05,
+                "step": 0.01
+              },
+              {
+                "id": "mass",
+                "min": 2,
+                "max": 10,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "unc / mass * 100",
+              "unit": "%",
+              "decimals": 2,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "Percentage error = (uncertainty ÷ measured value) × 100.",
+              "Percentage error = ({unc} ÷ {mass}) × 100.",
+              "Percentage error = {answer}%"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Evaluate the method, the data and the conclusion separately.",
+            "Percentage error = uncertainty ÷ measured value × 100.",
+            "Every limitation needs a matching improvement."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A student investigates the effect of temperature on the rate of an enzyme reaction. Name the independent variable and two variables to control.",
+      "a": "Independent variable: temperature. Control variables, any two from: pH, enzyme concentration, substrate concentration, volume of solutions, time.",
+      "marks": 3
+    },
+    {
+      "q": "A 25 cm³ measuring cylinder reads to ±0.5 cm³. A volume of 20 cm³ is measured with it. Calculate the percentage error.",
+      "a": "(0.5 ÷ 20) × 100; = 2.5%.",
+      "marks": 2
+    },
+    {
+      "q": "One repeat of an experiment gives a result far from the others. Explain how a student should deal with it and why.",
+      "a": "Identify it as an anomaly; look for a cause (such as a measuring or timing error); repeat the measurement or exclude it from the mean; because it would otherwise make the mean less reliable.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 1.1.1a",
+        "OCR 1.1.1b",
+        "OCR 1.1.1c",
+        "OCR 1.1.4a",
+        "OCR 1.1.4b",
+        "OCR 1.1.4c",
+        "OCR 1.1.4d",
+        "OCR 1.1.4e",
+        "OCR 1.2.1a",
+        "OCR 1.2.1b",
+        "OCR 1.2.1c",
+        "OCR 1.2.1d",
+        "OCR 1.2.1e",
+        "OCR 1.2.1f",
+        "OCR 1.2.1h",
+        "OCR 1.2.1i",
+        "OCR 1.2.2h"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.17"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Be able to discuss the ethical issues of using invertebrates in research. Invertebrates are often used because they are simple and cheap to keep."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Arguments for use: they have simpler nervous systems, so they may feel less pain than vertebrates, and they breed quickly in large numbers.",
+                "Arguments against: it is not certain that invertebrates cannot suffer, and some show signs of responding to harm.",
+                "Wild invertebrates should be returned unharmed, and their habitat disturbed as little as possible.",
+                "Keep numbers to a minimum, handle them gently and avoid unnecessary stress."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Weigh the benefit of the research against possible harm to the animals.",
+                "Use the fewest animals and cause the least harm."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "16960571-27ab-4ec2-a4b2-619ff642058b",
+      "3c938427-4013-413a-bf79-42178ea6548b",
+      "07fb2634-79f1-4c6c-a2f3-97136f37ef8d",
+      "116cb055-fd48-49ad-b545-de13281f1beb",
+      "4640ec48-79f3-48ba-b8c8-c4573bfae060",
+      "7b5350c3-4d06-4380-9d0f-69bff12c4506",
+      "24a0b54d-23e4-42a9-bffb-1ad800f12d2a",
+      "9bff6ca7-6e85-4c76-a1af-e4083caec6f0",
+      "6db9dd85-a72d-4638-b044-148111674f29",
+      "aeae3d72-e5f9-49a7-997d-b85244593d82",
+      "22d23d04-bca0-41ba-bf36-fb9967269997",
+      "01240f3c-3daa-43a4-8b7d-9e0c75edc7d4",
+      "ba3a8e22-54f2-4c89-bcb7-26bdbfdd5304",
+      "e9bc771a-5c52-4b40-a374-56fc11dab69d",
+      "a71ce5c3-bf6b-46a7-a345-fc781f22ea0b",
+      "e6542ae2-cb6f-4092-a0d1-8af3ed1826ac",
+      "8b201abf-e093-4ffd-a891-63de4a54c38a",
+      "db3e6ef1-6762-4859-a599-1775161eeecc"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

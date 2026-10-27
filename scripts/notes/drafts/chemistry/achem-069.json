@@ -1,0 +1,445 @@
+{
+  "format": 1,
+  "concept_id": "achem-069",
+  "subject": "chemistry",
+  "title": "Alkanes, fuels and pollution",
+  "key_idea": "**Alkanes** are saturated hydrocarbons with only single bonds. They are not very reactive, but they burn, so they are used as fuels. Crude oil is separated by fractional distillation, and cracking makes more useful short molecules. Burning fuels makes pollutants that need to be controlled.",
+  "sections": [
+    {
+      "heading": "Bonding, shape and reactivity of alkanes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Alkanes contain only single C–C and C–H bonds. This section explains their shape, their rotation and why they react so little."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Saturated",
+              "meaning": "Containing only single bonds between carbon atoms."
+            },
+            {
+              "term": "σ bond",
+              "meaning": "A bond formed by orbitals overlapping directly between the two bonded atoms."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Every bond in an alkane is a **σ bond**.",
+            "A σ bond allows **free rotation**, so the groups on each carbon can turn about the C–C bond.",
+            "Each carbon has four bonding pairs and no lone pairs. The pairs repel equally, so the shape is **tetrahedral**.",
+            "The bond angle around each carbon is **109.5°**.",
+            "A 3-D diagram shows a tetrahedral carbon with two bonds in the plane of the paper, one wedge towards you and one dashed bond away."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why alkanes are unreactive"
+        },
+        {
+          "type": "list",
+          "items": [
+            "C–C and C–H bonds have a **high bond enthalpy**, so a lot of energy is needed to break them.",
+            "The bonds are **almost non-polar**, because carbon and hydrogen have similar electronegativities.",
+            "Polar reagents, such as nucleophiles and electrophiles, are therefore not attracted to alkanes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alkanes have only σ bonds, with free rotation and a tetrahedral shape of 109.5°.",
+            "They are unreactive because the bonds are strong and non-polar."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Boiling points of alkanes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Alkanes are held together by weak forces between molecules. Their boiling points depend on how strong those forces are."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The only forces between alkane molecules are **London forces** (induced dipole–dipole interactions).",
+            "A longer chain has more electrons and more points of contact, so the London forces are stronger.",
+            "More energy is needed to separate the molecules, so the **boiling point rises** along the series.",
+            "A branched alkane has a smaller surface area of contact than its straight-chain isomer, and its molecules cannot pack as closely.",
+            "The London forces are weaker, so a branched isomer has a **lower boiling point**."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Alkane",
+            "Structure",
+            "Boiling point (°C)"
+          ],
+          "rows": [
+            [
+              "Butane",
+              "Straight chain",
+              "0"
+            ],
+            [
+              "2-methylpropane",
+              "Branched",
+              "−12"
+            ],
+            [
+              "Pentane",
+              "Straight chain",
+              "36"
+            ],
+            [
+              "2,2-dimethylpropane",
+              "Highly branched",
+              "10"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Longer chains have stronger London forces and higher boiling points.",
+            "Branching lowers the boiling point, because the surface contact and the packing are less."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Crude oil and cracking",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Petroleum is a mixture, mainly of alkanes. It is separated into fractions, and the heavy fractions are broken into more useful molecules."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Crude oil is separated by **fractional distillation**, which uses the different boiling points of the alkanes.",
+            "Short chains have low boiling points and rise to the top of the column. Long chains stay near the bottom.",
+            "Demand is greater for the small molecules, such as petrol, than for the long-chain fractions, which are more abundant.",
+            "**Cracking** breaks C–C bonds in long alkanes to make shorter alkanes and alkenes, which sell for more.",
+            "Cracking is an economic process: it matches supply of fractions to demand and the alkenes are the raw materials for plastics."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Thermal cracking",
+            "Catalytic cracking"
+          ],
+          "rows": [
+            [
+              "Conditions",
+              "High pressure and high temperature",
+              "Slight pressure, high temperature, zeolite catalyst"
+            ],
+            [
+              "Main products",
+              "A high percentage of alkenes",
+              "Motor fuels and aromatic hydrocarbons"
+            ]
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Example of cracking",
+          "formula": "C₁₀H₂₂ → C₈H₁₈ + C₂H₄",
+          "where": [
+            "decane cracks to octane and ethene"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reforming turns straight-chain hydrocarbons into branched-chain alkanes and cyclic hydrocarbons. These burn more efficiently.",
+            "An alkene can be turned back into an alkane by adding hydrogen, with H₂ and a Pt or Ni catalyst and heat.",
+            "Cracking in the lab can use heat with aluminium oxide, Al₂O₃."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fractional distillation separates crude oil by boiling point.",
+            "Cracking breaks long alkanes into shorter alkanes and alkenes, which are in greater demand."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Combustion and pollution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Alkanes burn to release energy. How much oxygen is available decides the products and the pollution they cause."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Complete combustion in plenty of oxygen makes carbon dioxide and water.",
+            "Incomplete combustion in a limited supply of oxygen makes carbon monoxide or carbon (soot), and water.",
+            "**Carbon monoxide** is toxic. It binds to haemoglobin in the blood, so less oxygen can be carried."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Complete combustion of propane",
+          "formula": "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Pollutant",
+            "How it forms",
+            "Problem"
+          ],
+          "rows": [
+            [
+              "Carbon monoxide, CO",
+              "Incomplete combustion",
+              "Toxic gas"
+            ],
+            [
+              "Carbon particles (soot)",
+              "Incomplete combustion",
+              "Respiratory problems; global dimming"
+            ],
+            [
+              "Unburned hydrocarbons",
+              "Fuel that leaves the engine without burning",
+              "Contribute to smog; some are carcinogenic"
+            ],
+            [
+              "Oxides of nitrogen, NOₓ",
+              "Nitrogen and oxygen react in a hot engine",
+              "Acid rain and respiratory problems"
+            ],
+            [
+              "Sulfur dioxide, SO₂",
+              "Sulfur impurities in the fuel burn",
+              "Acid rain"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting task: decide how each pollutant forms.",
+            "prompt": "Sort each pollutant by how it forms.",
+            "groups": [
+              "Incomplete combustion",
+              "High temperature in the engine",
+              "Impurity in the fuel"
+            ],
+            "items": [
+              {
+                "text": "Carbon monoxide",
+                "group": 0
+              },
+              {
+                "text": "Carbon particles",
+                "group": 0
+              },
+              {
+                "text": "Oxides of nitrogen",
+                "group": 1
+              },
+              {
+                "text": "Sulfur dioxide",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Removing pollutants"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **catalytic converter** has a honeycomb coated with platinum, palladium and rhodium catalysts.",
+            "It converts CO, NOₓ and unburned hydrocarbons into CO₂, N₂ and H₂O.",
+            "Sulfur dioxide is removed from flue gases by reacting it with **calcium oxide** or **calcium carbonate**, which are basic and neutralise the acidic gas."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "In a catalytic converter",
+          "formula": "2CO + 2NO → 2CO₂ + N₂"
+        },
+        {
+          "type": "equation",
+          "label": "Removing sulfur dioxide",
+          "formula": "CaO + SO₂ → CaSO₃"
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Incomplete combustion makes CO and carbon. NOₓ forms at high temperature. SO₂ comes from sulfur in the fuel.",
+            "Catalytic converters remove CO, NOₓ and hydrocarbons, and calcium compounds remove SO₂."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why pentane has a higher boiling point than 2,2-dimethylpropane.",
+      "a": "Both have London forces between molecules. Pentane is a straight chain, so its molecules have a larger surface area of contact and pack closer together. Its London forces are stronger, so more energy is needed to separate the molecules.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why alkanes react with very few reagents.",
+      "a": "The C–C and C–H bonds have a high bond enthalpy, so they are hard to break. The bonds are almost non-polar, so they do not attract polar reagents.",
+      "marks": 2
+    },
+    {
+      "q": "State the problem caused by carbon monoxide and by sulfur dioxide, and how each is removed.",
+      "a": "Carbon monoxide is toxic, and it is converted to carbon dioxide in a catalytic converter. Sulfur dioxide causes acid rain, and it is removed from flue gases using calcium oxide or calcium carbonate.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.1.2a",
+        "OCR 4.1.2b",
+        "OCR 4.1.2c",
+        "OCR 4.1.2d",
+        "OCR 4.1.2e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Draw a 3-D diagram of the tetrahedral shape around a carbon atom in an alkane.",
+                "Explain the low reactivity of alkanes in terms of high bond enthalpy and very low polarity of the σ bonds.",
+                "Hybridisation is not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6B.8",
+        "EDEX 6B.9",
+        "EDEX 6B.10",
+        "EDEX 6B.11",
+        "EDEX 6B.12",
+        "EDEX 6B.13",
+        "EDEX 6B.14"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know that alkanes and cycloalkanes are saturated hydrocarbons, and know the general formula CₙH₂ₙ₊₂ for alkanes.",
+                "Alkane fuels come from fractional distillation, cracking and reforming of crude oil.",
+                "Pollutants include carbon monoxide, oxides of nitrogen and sulfur, carbon particulates and unburned hydrocarbons.",
+                "The problems you need are the toxicity of carbon monoxide and the acidity of oxides of nitrogen and sulfur.",
+                "Compare alternative fuels, such as biodiesel and alcohols made from plants, with fossil fuels. Plant-based fuels are renewable, while fossil fuels are not."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.2.1",
+        "AQA 3.3.2.2",
+        "AQA 3.3.2.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explain the economic reasons for cracking alkanes.",
+                "Thermal cracking uses high pressure and high temperature and gives a high percentage of alkenes. The mechanism is not required.",
+                "Catalytic cracking uses a slight pressure, high temperature and a zeolite catalyst. The mechanism is not required.",
+                "Explain why sulfur dioxide can be removed from flue gases using calcium oxide or calcium carbonate."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 13.1.2",
+        "CAIE 14.1.1",
+        "CAIE 14.1.4",
+        "CAIE 14.1.5",
+        "CAIE 14.1.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Alkanes are simple hydrocarbons with no functional group.",
+                "Alkanes are made by hydrogenation of an alkene (H₂(g), Pt or Ni catalyst, heat) or by cracking a longer alkane (heat with Al₂O₃).",
+                "Suggest how cracking gives more useful alkanes and alkenes of lower Mr from heavy fractions.",
+                "Explain the unreactivity of alkanes, including towards polar reagents, by the strength of the C–H bond and the lack of polarity.",
+                "Recognise the environmental effects of CO, oxides of nitrogen and unburnt hydrocarbons from the internal combustion engine, and their catalytic removal."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "77bad5d4-cab7-4e53-99af-16f991d450ee",
+      "d17cd933-77b2-4217-b523-6d472cf35849",
+      "19d1eb17-2ccd-4739-abff-8c9193c589a0",
+      "43d3d143-c5b1-4731-b4e0-583d73241bb6",
+      "d77630ac-6b9b-41a9-adcf-e6f5f27dfd3e",
+      "5c980616-d888-4f0c-960e-c0da66a9c5a3",
+      "5ce0b2b3-8fe8-45ee-aaa9-2c82012c195b",
+      "efae89d6-144d-4b7f-91d0-0147a7d92d31",
+      "f8d869a6-ed57-4175-8e55-f400a160fa81",
+      "bc181434-cc84-4862-b85d-68267a8d95b1",
+      "ff9a11fc-a518-4781-b59c-a22fca745a38",
+      "2dd22db0-cdb1-4700-9a80-5663ca7b89bd",
+      "28f713aa-ea0b-4e89-87cc-f7450b29d30b",
+      "fddc63a4-8667-44f7-b4cc-54a5e37b7a43",
+      "b38ac148-3982-4746-9db8-5dfac609a1a4",
+      "72d691e6-c1f8-481e-a831-c743abb31dbc",
+      "4447fdf3-1150-4dd4-9853-c018f1971fae",
+      "ac3c147f-5d35-4493-8f91-36063eeac0cd",
+      "56422ea1-d8b6-4086-aafb-392ad0200f48",
+      "55c6deaf-2ff0-4834-bc38-e0ea8af77ebf"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

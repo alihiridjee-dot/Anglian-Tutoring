@@ -1,13 +1,14 @@
 import { customSchedule, reorderTopics, resumeAfterPause } from "./topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
+import { dbError } from "@/lib/platform/errors";
 import { type SubjectV, type BoardV, type LevelV } from "../curriculum/taxonomy";
 import { type Json } from "@/integrations/supabase/types";
 import { mondayOf, addWeeks, currentWeekKey, toDateKey, weekKeyToDate } from "./week";
 import { ScheduleDAL, type TopicProgress } from "./scheduleDal";
 import {
   type PacingBand,
-  examMondayFor,
+  examMondayIn,
   programStartFor,
   isTeachBand,
   projectReviews,
@@ -16,7 +17,6 @@ import {
 import { spineReach } from "./admissibility";
 import { WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
 import { WeeklyActivityDAL } from "./weeklyActivityDal";
-import { PlanOverridesDAL } from "./planOverridesDal";
 import { blockedBy, indexOverrides, programmeMayAssign, type PlanOverride } from "./overrides";
 import {
   buildRoadmap,
@@ -25,10 +25,20 @@ import {
   spineIsForAnotherCourse,
   type RoadmapResult,
 } from "./roadmap";
-import { mergeWeek, selectWeek, unsupportedReviews, type WeekSelection } from "./weekCut";
-import { SubjectPauseDAL } from "./pausesDal";
+import {
+  MAX_WEEK_POINTS,
+  mergeWeek,
+  selectWeek,
+  unsupportedReviews,
+  weekDrift,
+  type SavedWeekPoints,
+  type WeekDrift,
+  type WeekSelection,
+} from "./weekCut";
+import { SubjectPauseDAL, type PauseRecord } from "./pausesDal";
+import { readCourseState, type CourseState } from "./courseState";
 import { BreakDAL } from "./breaksDal";
-import { breakWeekKeys, layBreaksOver, type StudentBreak } from "./breaks";
+import { breakCovering, breakWeekKeys, layBreaksOver, type StudentBreak } from "./breaks";
 
 export { handPicked } from "./weekCut";
 
@@ -79,35 +89,33 @@ export class ProgramDAL {
     board: BoardV;
     level: LevelV;
     projectOnly?: boolean;
-    progress?: TopicProgress[];
+    /** This week's state of the course, when the caller holds it; else it is read, in one trip. */
+    state?: CourseState;
   }): Promise<RoadmapResult | null> {
     const { studentId, subject, board, level } = params;
+    const state =
+      params.state?.weekStart === currentWeekKey()
+        ? params.state
+        : await readCourseState({ studentId, subject, board, level });
 
-    // Progress already contains the ordered curriculum and weights. Reusing it
-    // avoids two redundant reads and keeps teaching and reviews on one snapshot.
-    const progress =
-      params.progress ?? (await ScheduleDAL.getTopicProgress({ studentId, subject, board, level }));
+    // Progress already contains the ordered curriculum and weights, so teaching
+    // and reviews are cut from one snapshot.
+    const { progress } = state;
     if (progress.length === 0) return null;
 
-    const { data: baseline, error: baselineError } = await supabase
-      .from("student_program_plan")
-      .select("program_start, exam_date, pacing")
-      .eq("student_id", studentId)
-      .eq("subject", subject)
-      .maybeSingle();
-
-    if (baselineError) throw baselineError;
+    // A copy: the state may be shared (cached), and the lines below adjust it.
+    const baseline = state.baseline && { ...state.baseline };
     // A stored date the calendar can't resolve (a half-typed "0002-06-01") must
     // not take the whole planner down, or the date box that would fix it never
     // renders. Plan against the default exam week instead; the next save
     // replaces the bad value.
     if (baseline && !isReadableExamDate(baseline.exam_date))
-      baseline.exam_date = toDateKey(examMondayFor());
+      baseline.exam_date = toDateKey(examMondayIn(state.examYear));
 
     // A subject that has just restarted picks its programme up where it
     // stopped, before anything is cut from it (see resumeAfterPause).
     if (baseline) {
-      const resumed = await this.pickUpAfterPauses({ studentId, subject, baseline, progress });
+      const resumed = await this.pickUpAfterPauses({ baseline, progress, pauses: state.pauses });
       if (resumed) baseline.pacing = resumed as unknown as Json;
     }
     // What a saved change to the programme starts from: the spine as stored,
@@ -118,35 +126,28 @@ export class ProgramDAL {
     // A break booked, under way or just over shows the course as it will be
     // picked up: nothing taught in its weeks, nothing in them missed. Its weeks
     // are closed to the forecasts below too.
-    const breaks = baseline ? await BreakDAL.list(studentId) : [];
+    const breaks = baseline ? state.breaks : [];
     if (baseline) {
       const ahead = this.withBreaksAhead({ baseline, progress, breaks });
       if (ahead) baseline.pacing = ahead as unknown as Json;
     }
 
     const thisMonday = mondayOf();
-    const thisWeek = toDateKey(thisMonday);
 
     // One figure for the year, computed once from the same candidates both the
     // roadmap and the week are about to be cut from.
-    const examMonday = baseline ? weekKeyToDate(baseline.exam_date) : examMondayFor();
+    const examMonday = baseline ? weekKeyToDate(baseline.exam_date) : examMondayIn(state.examYear);
 
-    const savedWeek = params.projectOnly
-      ? null
-      : await WeeklyPlanDAL.getPlan(studentId, subject, thisWeek);
-    // Read even under `projectOnly` — that flag suppresses reading back the
-    // *saved week* so projection isn't doubled, and this is a different fact.
-    // Skipping it would hand the generation path an empty ledger and chase the
-    // student for work they had already done.
-    const ledger = await WeeklyActivityDAL.getDeliveryLedger(studentId, subject, thisWeek);
-    // The tutor's standing decisions against the programme, read every load
-    // for the same reason the ledger is: every lane below projects around them.
-    const overrides = await PlanOverridesDAL.list(studentId, subject);
+    // `projectOnly` leaves the saved week out of the projection, so it isn't
+    // counted twice. The ledger is a different fact and counts either way:
+    // without it the generation path would chase the student for work they had
+    // already done. So do the tutor's overrides, which every lane below
+    // projects around.
+    const savedWeek = params.projectOnly ? null : state.week;
+    const { ledger, overrides } = state;
     // Generation suppresses saved review bands, but must still reserve catch-up
     // capacity already used by this week's assignments, including completed ones.
-    const catchUpWeek =
-      savedWeek ??
-      (params.projectOnly ? await WeeklyPlanDAL.getPlan(studentId, subject, thisWeek) : null);
+    const catchUpWeek = state.week;
 
     // A tutor moved the student to another board or level: the stored spine
     // teaches the old course's topics, so it is no programme for this one. It
@@ -196,7 +197,7 @@ export class ProgramDAL {
           },
           { onConflict: "student_id,subject" },
         );
-        if (seedError) throw seedError;
+        if (seedError) throw dbError(seedError);
       }
     }
     return roadmap;
@@ -212,14 +213,12 @@ export class ProgramDAL {
    * when: both ends of the stop are recorded by the database.
    */
   private static async pickUpAfterPauses(p: {
-    studentId: string;
-    subject: SubjectV;
     baseline: { exam_date: string; pacing: Json };
     progress: TopicProgress[];
+    /** The subject's stops, oldest first. */
+    pauses: PauseRecord[];
   }): Promise<PacingBand[] | null> {
-    const pending = (await SubjectPauseDAL.history(p.studentId, p.subject)).filter(
-      (r) => r.endedAt && !r.programmeResumedAt,
-    );
+    const pending = p.pauses.filter((r) => r.endedAt && !r.programmeResumedAt);
     if (!pending.length) return null;
     const stored = p.baseline.pacing as unknown as PacingBand[];
     // A spine for another course is rebuilt from this week anyway.
@@ -318,7 +317,11 @@ export class ProgramDAL {
             params.weekStart,
           ),
       )
-      .map((p) => p.specPointId);
+      .map((p) => p.specPointId)
+      // `addPoints` refuses to push a week past the cap, and this runs on every
+      // load of the week, so a full week topped up mid-week showed an error all
+      // week. The top-up takes only the room that is left.
+      .slice(0, Math.max(0, MAX_WEEK_POINTS - existing.size));
     if (!missing.length) return false;
     return (await WeeklyPlanDAL.addPoints(params.planId, missing, "core")) > 0;
   }
@@ -353,9 +356,12 @@ export class ProgramDAL {
     /** Repair legacy review lanes without churning otherwise valid saved weeks. */
     repairUnsupportedReviews?: boolean;
     roadmap?: RoadmapResult | null;
+    /** The course's state, when the caller holds it: its week is this one if they match. */
+    state?: CourseState;
   }): Promise<boolean> {
     const { studentId, subject, board, level, weekStart } = params;
-    const existing = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
+    const held = params.state?.weekStart === weekStart ? params.state : undefined;
+    const existing = held ? held.week : await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
     if (!existing) return false; // nothing saved yet — the normal build path owns this
 
     // A caller that already holds the roadmap hands it over; otherwise it is
@@ -369,6 +375,7 @@ export class ProgramDAL {
             board,
             level,
             projectOnly: true,
+            state: params.state,
           });
     // Missing curriculum is not evidence that a saved assignment is invalid.
     if (params.repairUnsupportedReviews && !roadmap) return false;
@@ -405,8 +412,32 @@ export class ProgramDAL {
       origins: merged.origins,
       carriedFroms: merged.carriedFroms,
       origin: "ai",
+      facts: params.state?.facts,
     });
     return true;
+  }
+
+  /**
+   * Where this week's saved plan has fallen behind the full plan ([[weekDrift]]),
+   * or null when it hasn't. A point started this week stays in it whatever the
+   * plan says (mergeWeek), so it is no reason to re-cut on its own. The
+   * coverage read that tells is made only when nothing else already says yes.
+   */
+  static async weekBehindPlan(params: {
+    studentId: string;
+    weekStart: string;
+    saved: SavedWeekPoints;
+    roadmap: RoadmapResult | null;
+  }): Promise<WeekDrift | null> {
+    const drift = weekDrift(params.saved, params.roadmap, params.weekStart);
+    if (!drift || drift.missing.length) return drift;
+    const coverage = await WeeklyActivityDAL.getCoverage(
+      params.studentId,
+      drift.stale,
+      params.weekStart,
+    );
+    const stale = drift.stale.filter((id) => !coverage.get(id)?.attempted);
+    return stale.length ? { missing: [], stale } : null;
   }
 
   private static async reorderedReviews(p: {
@@ -537,7 +568,7 @@ export class ProgramDAL {
       .eq("student_id", params.studentId)
       .eq("subject", params.subject)
       .maybeSingle();
-    if (readError) throw readError;
+    if (readError) throw dbError(readError);
     const stored = (saved?.pacing ?? []) as unknown as PacingBand[];
     const custom = customSchedule(stored);
     if (custom) {
@@ -559,11 +590,93 @@ export class ProgramDAL {
       .update({ exam_date: params.examDate, updated_at: new Date().toISOString() })
       .eq("student_id", params.studentId)
       .eq("subject", params.subject);
-    if (error) throw error;
+    if (error) throw dbError(error);
   }
 
   /**
-   * Make the re-flowed plan the plan, with no accept step.
+   * Move every subject to one exam summer: the exam year on the profile.
+   *
+   * The year is saved on the profile first, because it is also what a subject
+   * added later is planned to ({@link defaultExamMonday}). Fixing each date
+   * with the date box left that answer wrong. Then each subject with a plan
+   * moves to the first Monday of that June and re-flows, this week included
+   * ({@link applyPending}). A subject whose exam is already in that year keeps
+   * its date: one set by hand, a May paper say, is the better answer.
+   *
+   * One subject at a time, and a refusal doesn't stop the rest: a custom topic
+   * order refuses a date that leaves too few weeks. So the caller is told
+   * which subjects moved, which kept their date and which couldn't move.
+   *
+   * `db` is for tests; the two calls it makes are the only ones not spied on.
+   */
+  static async setExamYear(
+    params: {
+      studentId: string;
+      year: number;
+      level: LevelV;
+      courses: { subject: SubjectV; board: BoardV }[];
+    },
+    db: Pick<typeof supabase, "from"> = supabase,
+  ): Promise<{
+    moved: SubjectV[];
+    kept: SubjectV[];
+    refused: { subject: SubjectV; message: string }[];
+  }> {
+    const examDate = toDateKey(examMondayIn(params.year));
+    // A year the planner won't plan to (past, or too far ahead) would be
+    // saved and then quietly ignored, so it is refused here instead.
+    if (!examDate.startsWith(`${params.year}-`))
+      throw new Error("Choose one of the exam years shown.");
+    const { error } = await db
+      .from("profiles")
+      .update({ exam_year: params.year })
+      .eq("id", params.studentId);
+    if (error) throw error;
+    const { data: plans, error: plansError } = await db
+      .from("student_program_plan")
+      .select("subject, exam_date")
+      .eq("student_id", params.studentId);
+    if (plansError) throw plansError;
+
+    const result = {
+      moved: [] as SubjectV[],
+      kept: [] as SubjectV[],
+      refused: [] as { subject: SubjectV; message: string }[],
+    };
+    for (const course of params.courses) {
+      const plan = (plans ?? []).find((p) => p.subject === course.subject);
+      // No plan yet: the first one is cut to the year just saved.
+      if (!plan) {
+        result.moved.push(course.subject);
+        continue;
+      }
+      if (isReadableExamDate(plan.exam_date) && plan.exam_date.startsWith(`${params.year}-`)) {
+        result.kept.push(course.subject);
+        continue;
+      }
+      try {
+        await this.setExamDate({ studentId: params.studentId, subject: course.subject, examDate });
+      } catch (e) {
+        result.refused.push({
+          subject: course.subject,
+          message: e instanceof Error ? e.message : "Its exam date couldn't change.",
+        });
+        continue;
+      }
+      result.moved.push(course.subject);
+      try {
+        await this.applyPending({ ...course, studentId: params.studentId, level: params.level });
+      } catch (e) {
+        // The date is saved. The re-flow is tried again on the next planner
+        // visit, as it is after the date box.
+        console.warn("[planner] couldn't re-flow a subject to the new exam year", e);
+      }
+    }
+    return result;
+  }
+
+  /**
+   * Make the re-flowed plan the plan, this week included, with no accept step.
    *
    * A spine only re-flows when the exam date or the course itself changes, and
    * neither is a choice the student can decline — so asking them to review and
@@ -577,7 +690,7 @@ export class ProgramDAL {
     level: LevelV;
   }): Promise<RoadmapResult | null> {
     const fresh = await this.loadRoadmap(course);
-    if (fresh?.needsAck)
+    if (fresh?.needsAck) {
       await this.acknowledge({
         studentId: course.studentId,
         subject: course.subject,
@@ -585,7 +698,38 @@ export class ProgramDAL {
         programStart: fresh.programStart,
         examDate: fresh.examDate,
       });
+      // A custom order's weeks are re-cut by `reorder_student_topics` as it is
+      // saved. Curriculum order's never were: the full plan moved to the new
+      // date and this week kept the points the old one gave it.
+      if (!customSchedule(fresh.bands)) await this.recutThisWeek(course);
+    }
     return fresh;
+  }
+
+  /**
+   * Re-cut this week's saved plan from the spine just accepted. The usual
+   * merge (`refreshWeek`): anything ticked, started, handed in, carried or
+   * added by hand stays; untouched automatic points are swapped for what the
+   * new spine gives this week.
+   *
+   * A paused subject or a break week is read, never planned (see useWeekPlan),
+   * and the database refuses the write. It never fails the apply: the new plan
+   * is saved, and "Check for a better week" re-cuts by hand.
+   */
+  private static async recutThisWeek(course: {
+    studentId: string;
+    subject: SubjectV;
+    board: BoardV;
+    level: LevelV;
+  }): Promise<void> {
+    const weekStart = currentWeekKey();
+    try {
+      if (await SubjectPauseDAL.open(course.studentId, course.subject)) return;
+      if (breakCovering(await BreakDAL.list(course.studentId), weekStart)) return;
+      await this.refreshWeek({ ...course, weekStart });
+    } catch (e) {
+      console.warn("[planner] couldn't re-cut this week to the new plan", e);
+    }
   }
 
   /**

@@ -1,0 +1,342 @@
+code,title,weight,topic
+EDEX 1.1,"Structure of an atom: electrons, protons and neutrons",1.05,Atomic structure and the periodic table
+EDEX 1.2,Relative mass and relative charge of sub-atomic particles,1.05,Atomic structure and the periodic table
+EDEX 1.3,Atomic (proton) number and mass number,1.05,Atomic structure and the periodic table
+EDEX 1.4,"Number of sub-atomic particles in atoms, molecules and ions",1.42,Atomic structure and the periodic table
+EDEX 1.5,Isotopes,1.4,Atomic structure and the periodic table
+EDEX 1.6,Relative isotopic mass and relative atomic mass,1.4,Atomic structure and the periodic table
+EDEX 1.7,Relative molecular mass and relative formula mass,1.71,Atomic structure and the periodic table
+EDEX 1.8,Relative atomic mass from isotopic abundance data,2,Atomic structure and the periodic table
+EDEX 1.9,"Predicting mass spectra of diatomic molecules, including chlorine",1.9,Atomic structure and the periodic table
+EDEX 1.10,Molecular ion peak and relative molecular mass,1.6,Atomic structure and the periodic table
+EDEX 1.11,First and successive ionisation energies,1.4,Atomic structure and the periodic table
+EDEX 1.12,Factors affecting ionisation energies,1.4,Atomic structure and the periodic table
+EDEX 1.13,First ionisation energy across a period,1.4,Atomic structure and the periodic table
+EDEX 1.14,First ionisation energy down a group,1.4,Atomic structure and the periodic table
+EDEX 1.15,Evidence for quantum shells and electron sub-shells,2.88,Atomic structure and the periodic table
+EDEX 1.16,Electrons in the first four quantum shells,1.05,Atomic structure and the periodic table
+EDEX 1.17,Orbitals and opposite electron spins,1.05,Atomic structure and the periodic table
+EDEX 1.18,Shapes of s- and p-orbitals,1.05,Atomic structure and the periodic table
+EDEX 1.19,"Electrons in s, p and d-subshells",1.05,Atomic structure and the periodic table
+EDEX 1.20,Filling subshells singly before pairing,1.05,Atomic structure and the periodic table
+EDEX 1.21,Electronic configurations of atoms and ions up to Z = 36,2.87,Atomic structure and the periodic table
+EDEX 1.22,"Classifying elements as s, p and d-block",1.05,Atomic structure and the periodic table
+EDEX 1.23,Electronic configuration and chemical properties,1.4,Atomic structure and the periodic table
+EDEX 1.24,Periodicity as a repeating pattern across periods,1.4,Atomic structure and the periodic table
+EDEX 1.25,"Period 2 and 3 trends: melting and boiling temperatures, ionisation energy",2.57,Atomic structure and the periodic table
+EDEX 1.26,Illustrating periodicity using data,1.4,Atomic structure and the periodic table
+EDEX 2A.1,Ionic bonding as electrostatic attraction,1.05,Bonding and structure
+EDEX 2A.2,Effect of ionic radius and ionic charge on bond strength,1.4,Bonding and structure
+EDEX 2A.3,Formation of ions by electron loss or gain,1.4,Bonding and structure
+EDEX 2A.4,Dot-and-cross diagrams for cations and anions,1.5,Bonding and structure
+EDEX 2A.5,Trends in ionic radii and isoelectronic ions,1.4,Bonding and structure
+EDEX 2A.6,Evidence for the existence of ions,1.4,Bonding and structure
+EDEX 2A.7,Covalent bonding as electrostatic attraction,1.05,Bonding and structure
+EDEX 2A.8,Dot-and-cross diagrams for covalent substances,2.12,Bonding and structure
+EDEX 2A.9,Bond length and bond strength in covalent bonds,1.4,Bonding and structure
+EDEX 2A.10,Electron-pair repulsion and the shape of molecules and ions,1.4,Bonding and structure
+EDEX 2A.11,Shapes and bond angles with up to six outer pairs of electrons,2.55,Bonding and structure
+EDEX 2A.12,Predicting shapes and bond angles of analogous species,1.9,Bonding and structure
+EDEX 2A.13,Electronegativity,1.05,Bonding and structure
+EDEX 2A.14,"Bonding continuum, electronegativity differences and bond polarity",1.09,Bonding and structure
+EDEX 2A.15,Polar bonds and polar molecules,1.44,Bonding and structure
+EDEX 2A.16,"London forces, permanent dipoles and hydrogen bonds",2.06,Bonding and structure
+EDEX 2A.17,"Hydrogen bonding in H₂O, liquid NH₃ and liquid HF",1.4,Bonding and structure
+EDEX 2A.18,Anomalous properties of water from hydrogen bonding,1.95,Bonding and structure
+EDEX 2A.19,Predicting hydrogen bonding in analogous molecules,1.9,Bonding and structure
+EDEX 2A.20,Intermolecular forces and boiling temperature trends,3.3,Bonding and structure
+EDEX 2A.21,Factors influencing the choice of solvents,3.35,Bonding and structure
+EDEX 2A.22,Metallic bonding,1.05,Bonding and structure
+EDEX 2B.23,"Giant ionic, covalent and metallic lattices",1.89,Bonding and structure
+EDEX 2B.24,Simple molecular structures,1.05,Bonding and structure
+EDEX 2B.25,"Structures of carbon: graphite, diamond and graphene",1.05,Bonding and structure
+EDEX 2B.26,Predicting structure and bonding from data,1.9,Bonding and structure
+EDEX 2B.27,Predicting physical properties from structure and bonding,3.18,Bonding and structure
+EDEX 3.1,Oxidation number,1.05,Redox I
+EDEX 3.2,Calculating oxidation numbers,1.8,Redox I
+EDEX 3.3,Redox as electron transfer and change in oxidation number,1.4,Redox I
+EDEX 3.4,Oxidation and reduction as electron loss or gain,1.4,Redox I
+EDEX 3.5,Oxidising agents gain electrons,1.05,Redox I
+EDEX 3.6,Reducing agents lose electrons,1.05,Redox I
+EDEX 3.7,Disproportionation reactions,1.4,Redox I
+EDEX 3.8,Oxidation number to classify redox and disproportionation,1.05,Redox I
+EDEX 3.9,Roman numerals for oxidation numbers,1.4,Redox I
+EDEX 3.10,Writing formulae from oxidation numbers,1.4,Redox I
+EDEX 3.11,Metals form positive ions by loss of electrons,1.4,Redox I
+EDEX 3.12,Non-metals form negative ions by gain of electrons,1.4,Redox I
+EDEX 3.13,Ionic half-equations and full ionic equations,1.4,Redox I
+EDEX 4A.1,Ionisation energy trend down Group 2,1.4,Inorganic chemistry and the periodic table
+EDEX 4A.2,Reactivity trend of Group 2 elements down the group,1.4,Inorganic chemistry and the periodic table
+EDEX 4A.3,"Reactions of Mg to Ba with oxygen, chlorine and water",1.05,Inorganic chemistry and the periodic table
+EDEX 4A.4,Group 2 oxides and hydroxides with water and dilute acid,1.05,Inorganic chemistry and the periodic table
+EDEX 4A.5,Solubility trends of Group 2 hydroxides and sulfates,1.05,Inorganic chemistry and the periodic table
+EDEX 4A.6,Thermal stability of Group 1 and 2 nitrates and carbonates,1.58,Inorganic chemistry and the periodic table
+EDEX 4A.7,Flame colours and electron transitions,1.58,Inorganic chemistry and the periodic table
+EDEX 4A.8,Experiments on thermal decomposition and flame colours,1.93,Inorganic chemistry and the periodic table
+EDEX 4B.9,Physical property trends of Group 7 elements,1.4,Inorganic chemistry and the periodic table
+EDEX 4B.10,Reactivity trend of Group 7 elements down the group,1.4,Inorganic chemistry and the periodic table
+EDEX 4B.11,"Redox reactions of Cl₂, Br₂ and I₂ with halide ions",1.6,Inorganic chemistry and the periodic table
+EDEX 4B.12,Oxidation and disproportionation reactions of the halogens,3.5,Inorganic chemistry and the periodic table
+EDEX 4B.13,Reactions of halide ions and hydrogen halides,2.75,Inorganic chemistry and the periodic table
+EDEX 4B.14,Predicting properties of fluorine and astatine,1.4,Inorganic chemistry and the periodic table
+EDEX 4C.15,"Tests for carbonate, sulfate and ammonium ions",2.73,Inorganic chemistry and the periodic table
+EDEX 5.1,The mole as the unit for amount of substance,1.05,"Formulae, equations and amounts of substance"
+EDEX 5.2,The Avogadro constant,1.5,"Formulae, equations and amounts of substance"
+EDEX 5.3,Molar mass,1.05,"Formulae, equations and amounts of substance"
+EDEX 5.4,Empirical formula and molecular formula,1.05,"Formulae, equations and amounts of substance"
+EDEX 5.5,Calculating empirical and molecular formulae,2.3,"Formulae, equations and amounts of substance"
+EDEX 5.6,Balanced full and ionic equations with state symbols,1.4,"Formulae, equations and amounts of substance"
+EDEX 5.7,"Amounts of substances from mass, gas volume and concentration",1.87,"Formulae, equations and amounts of substance"
+EDEX 5.8,Reacting masses from chemical equations,1.8,"Formulae, equations and amounts of substance"
+EDEX 5.9,Reacting volumes of gases using amount of substance,1.8,"Formulae, equations and amounts of substance"
+EDEX 5.10,Reacting volumes of gases using molar volume,1.8,"Formulae, equations and amounts of substance"
+EDEX 5.CP1,Core practical 1: Measure the molar volume of a gas,3.4,"Formulae, equations and amounts of substance"
+EDEX 5.11,Solution concentrations and simple acid-base titrations,2.07,"Formulae, equations and amounts of substance"
+EDEX 5.CP2,Core practical 2: Standard solution and concentration of sodium hydroxide,3.4,"Formulae, equations and amounts of substance"
+EDEX 5.CP3,Core practical 3: Concentration of hydrochloric acid,3.4,"Formulae, equations and amounts of substance"
+EDEX 5.12,Measurement uncertainties and measurement errors,1.84,"Formulae, equations and amounts of substance"
+EDEX 5.13,Minimising percentage error and percentage uncertainty,1.4,"Formulae, equations and amounts of substance"
+EDEX 5.14,Percentage yield and percentage atom economy,2.11,"Formulae, equations and amounts of substance"
+EDEX 5.15,Relating equations to observations in test tube reactions,2.17,"Formulae, equations and amounts of substance"
+EDEX 5.16,"Risks, hazards and precautions in practical procedures",1.4,"Formulae, equations and amounts of substance"
+EDEX 6A.1,Hydrocarbons,1.05,Organic chemistry I
+EDEX 6A.2,Types of formula for organic molecules,1.4,Organic chemistry I
+EDEX 6A.3,Homologous series and functional group,1.05,Organic chemistry I
+EDEX 6A.4,IUPAC nomenclature of organic compounds,1.2,Organic chemistry I
+EDEX 6A.5,Classifying organic reactions by type,1.4,Organic chemistry I
+EDEX 6A.6,Structural isomerism,1.4,Organic chemistry I
+EDEX 6A.7,Stereoisomerism and E/Z isomerism,1.4,Organic chemistry I
+EDEX 6B.8,General formula for alkanes,1.05,Organic chemistry I
+EDEX 6B.9,Alkanes and cycloalkanes as saturated hydrocarbons,1.05,Organic chemistry I
+EDEX 6B.10,"Alkane fuels from distillation, cracking and reforming",1.6,Organic chemistry I
+EDEX 6B.11,Pollutants from the combustion of alkane fuels,1.05,Organic chemistry I
+EDEX 6B.12,Problems arising from combustion pollutants,1.44,Organic chemistry I
+EDEX 6B.13,Catalytic converters and pollutants,1.4,Organic chemistry I
+EDEX 6B.14,Alternative fuels compared with fossil fuels,1.42,Organic chemistry I
+EDEX 6B.15,Radicals and homolytic fission,1.78,Organic chemistry I
+EDEX 6B.16,Alkane combustion and radical substitution with halogens,2.13,Organic chemistry I
+EDEX 6B.17,Limitations of radical substitution in synthesis,1.51,Organic chemistry I
+EDEX 6C.18,General formula for alkenes,1.05,Organic chemistry I
+EDEX 6C.19,Alkenes and cycloalkenes as unsaturated hydrocarbons,1.05,Organic chemistry I
+EDEX 6C.20,Bonding in alkenes: σ- and π-bonds,1.4,Organic chemistry I
+EDEX 6C.21,Electrophiles,1.05,Organic chemistry I
+EDEX 6C.22,"Addition reactions of alkenes: hydrogen, halogens, steam, manganate(VII)",3.7,Organic chemistry I
+EDEX 6C.23,Heterolytic bond fission,1.4,Organic chemistry I
+EDEX 6C.24,Electrophilic addition mechanisms for alkenes,2.93,Organic chemistry I
+EDEX 6C.25,Bromine test for a C=C double bond,1.05,Organic chemistry I
+EDEX 6C.26,Addition polymerisation and repeat units,1.05,Organic chemistry I
+EDEX 6C.27,"Waste polymers: recycling, incineration and feedstock",1.75,Organic chemistry I
+EDEX 6C.28,Sustainable use of polymers over their life cycle,1.47,Organic chemistry I
+EDEX 6C.29,Limiting the problems of polymer disposal,1.84,Organic chemistry I
+EDEX 6D.30,"Primary, secondary and tertiary halogenoalkanes",1.05,Organic chemistry I
+EDEX 6D.31,Nucleophiles,1.4,Organic chemistry I
+EDEX 6D.32,Reactions of halogenoalkanes with nucleophiles and bases,3.97,Organic chemistry I
+EDEX 6D.33,Comparing rates of hydrolysis of halogenoalkanes,2.04,Organic chemistry I
+EDEX 6D.CP4,Core practical 4: Rates of hydrolysis of halogenoalkanes,3.4,Organic chemistry I
+EDEX 6D.34,"Reactivity of primary, secondary and tertiary halogenoalkanes",1.05,Organic chemistry I
+EDEX 6D.35,"Reactivity of chloro-, bromo- and iodoalkanes and bond enthalpy",1.4,Organic chemistry I
+EDEX 6D.36,Nucleophilic substitution mechanisms for primary halogenoalkanes,1.84,Organic chemistry I
+EDEX 6E.37,"Primary, secondary and tertiary alcohols",1.05,Organic chemistry I
+EDEX 6E.38,"Reactions of alcohols: combustion, halogenation, oxidation, elimination",3.81,Organic chemistry I
+EDEX 6E.39,Preparation and purification of a liquid organic compound,2.83,Organic chemistry I
+EDEX 6E.CP5,Core practical 5: The oxidation of ethanol,3.4,Organic chemistry I
+EDEX 6E.CP6,Core practical 6: Chlorination of 2-methylpropan-2-ol,3.4,Organic chemistry I
+EDEX 7A.1,Using mass spectra to find molecular mass and structure,2.36,Modern analytical techniques I
+EDEX 7B.2,Infrared absorptions of functional groups,4,Modern analytical techniques I
+EDEX 7B.CP7,Core practical 7: Analysis of inorganic and organic unknowns,3.4,Modern analytical techniques I
+EDEX 8.1,Standard conditions,1.05,Energetics I
+EDEX 8.2,Enthalpy change at constant pressure,1.05,Energetics I
+EDEX 8.3,Enthalpy level diagrams,1.69,Energetics I
+EDEX 8.4,"Standard enthalpy changes: reaction, formation, combustion, neutralisation",2.28,Energetics I
+EDEX 8.5,Experiments to measure enthalpy changes (Q=mcΔT),3.08,Energetics I
+EDEX 8.6,Calculating enthalpy changes in kJ mol⁻¹ from experiments,1.8,Energetics I
+EDEX 8.7,Enthalpy cycles using Hess’s Law,1.4,Energetics I
+EDEX 8.8,Calculating enthalpy changes using Hess’s Law,1.8,Energetics I
+EDEX 8.CP8,Core practical 8: Enthalpy change of a reaction using Hess’s Law,3.4,Energetics I
+EDEX 8.9,Bond enthalpy and mean bond enthalpy,1.05,Energetics I
+EDEX 8.10,Enthalpy change of reaction from mean bond enthalpies,1.8,Energetics I
+EDEX 8.11,Mean bond enthalpies from enthalpy changes of reaction,1.8,Energetics I
+EDEX 9.1,Collision theory and the rate of a chemical reaction,1.4,Kinetics I
+EDEX 9.2,Activation energy and successful collisions,1.4,Kinetics I
+EDEX 9.3,Calculating the rate of a reaction,2.53,Kinetics I
+EDEX 9.4,Maxwell-Boltzmann distribution and temperature,1.4,Kinetics I
+EDEX 9.5,Catalysts and alternative reaction routes,1.4,Kinetics I
+EDEX 9.6,Reaction profiles for catalysed and uncatalysed reactions,1.5,Kinetics I
+EDEX 9.7,Catalysts and the Maxwell-Boltzmann distribution,1.6,Kinetics I
+EDEX 9.8,Solid (heterogeneous) catalysts in industry,1.4,Kinetics I
+EDEX 9.9,Economic benefits of catalysts,1.4,Kinetics I
+EDEX 10.1,Reversible reactions and dynamic equilibrium,1.91,Equilibrium I
+EDEX 10.2,"Effect of temperature, concentration and pressure on equilibrium",1.9,Equilibrium I
+EDEX 10.3,Compromise between yield and rate in industrial processes,2.1,Equilibrium I
+EDEX 10.4,Expression for Kc,1.4,Equilibrium I
+EDEX 11.1,Expression for Kp,1.4,Equilibrium II
+EDEX 11.2,Calculating Kc and Kp from experimental data,1.8,Equilibrium II
+EDEX 11.3,Effect of temperature on Kc and Kp,1.05,Equilibrium II
+EDEX 11.4,Temperature and the position of equilibrium,1.4,Equilibrium II
+EDEX 11.5,Factors that do not change the equilibrium constant,1.4,Equilibrium II
+EDEX 12.1,Brønsted–Lowry acids and bases,1.05,Acid-base equilibria
+EDEX 12.2,Acid-base reactions as proton transfer,1.05,Acid-base equilibria
+EDEX 12.3,Conjugate acid-base pairs,1.2,Acid-base equilibria
+EDEX 12.4,Defining pH,1.4,Acid-base equilibria
+EDEX 12.5,Calculating pH from hydrogen ion concentration,1.8,Acid-base equilibria
+EDEX 12.6,Calculating [H⁺] from pH,1.8,Acid-base equilibria
+EDEX 12.7,Strong and weak acids and degree of dissociation,1.4,Acid-base equilibria
+EDEX 12.8,Calculating the pH of a strong acid,1.8,Acid-base equilibria
+EDEX 12.9,"Acid dissociation constant, Ka",1.4,Acid-base equilibria
+EDEX 12.10,Calculating the pH of a weak acid,1.8,Acid-base equilibria
+EDEX 12.11,"Ionic product of water, Kw",1.4,Acid-base equilibria
+EDEX 12.12,Calculating the pH of a strong base using Kw,1.8,Acid-base equilibria
+EDEX 12.13,Defining pKa and pKw,1.4,Acid-base equilibria
+EDEX 12.14,Analysing data from pH experiments,3.02,Acid-base equilibria
+EDEX 12.15,Calculating Ka from experimental pH data,1.8,Acid-base equilibria
+EDEX 12.16,Titration curves for strong and weak monobasic acids and bases,1.5,Acid-base equilibria
+EDEX 12.17,Selecting an indicator from a titration curve,1.4,Acid-base equilibria
+EDEX 12.18,Buffer solutions,1.05,Acid-base equilibria
+EDEX 12.19,Action of a buffer solution,1.4,Acid-base equilibria
+EDEX 12.20,Calculating the pH of a buffer solution,1.8,Acid-base equilibria
+EDEX 12.21,Preparing a buffer solution of a given pH,1.8,Acid-base equilibria
+EDEX 12.22,Weak acid–strong base titration curve: buffer action and Ka,1.95,Acid-base equilibria
+EDEX 12.23,Enthalpy of neutralisation for strong and weak acids,1.4,Acid-base equilibria
+EDEX 12.24,Control of blood pH by carbonic acid and hydrogencarbonate ions,1.4,Acid-base equilibria
+EDEX 12.CP9,Core practical 9: Finding the Ka value for a weak acid,3.4,Acid-base equilibria
+EDEX 13A.1,Defining lattice energy,1.4,Energetics II
+EDEX 13A.2,Enthalpy change of atomisation and electron affinity,1.84,Energetics II
+EDEX 13A.3,Born-Haber cycles,1.4,Energetics II
+EDEX 13A.4,Lattice energy as a measure of ionic bond strength,1.05,Energetics II
+EDEX 13A.5,Experimental and theoretical lattice energies,1.56,Energetics II
+EDEX 13A.6,Polarisation of ions,1.4,Energetics II
+EDEX 13A.7,Polarising power of a cation,1.05,Energetics II
+EDEX 13A.8,Polarisability of an anion,1.05,Energetics II
+EDEX 13A.9,Enthalpy change of solution and enthalpy change of hydration,1.4,Energetics II
+EDEX 13A.10,"Energy cycles for solution, hydration and lattice energy",1.52,Energetics II
+EDEX 13A.11,Effect of ionic charge and radius on lattice energy and hydration,1.84,Energetics II
+EDEX 13B.12,Why enthalpy changes alone do not control reactions,1.4,Energetics II
+EDEX 13B.13,Entropy and the natural direction of change,1.07,Energetics II
+EDEX 13B.14,"Entropy changes in state changes, dissolving and reactions",3.19,Energetics II
+EDEX 13B.15,Total entropy change: ΔStotal = ΔSsystem + ΔSsurroundings,1.58,Energetics II
+EDEX 13B.16,Calculating ΔSsystem from entropies,1.8,Energetics II
+EDEX 13B.17,Calculating ΔSsurroundings and ΔStotal,1.8,Energetics II
+EDEX 13B.18,Feasibility and the equation ΔG = ΔH − TΔSsystem,1.14,Energetics II
+EDEX 13B.19,Using ΔG to predict feasibility and temperature,2.03,Energetics II
+EDEX 13B.20,ΔG = −RT ln K and the equilibrium constant,1.66,Energetics II
+EDEX 13B.21,Why a negative ΔG may not occur in practice,1.4,Energetics II
+EDEX 13B.22,Feasible reactions inhibited by kinetic factors,1.05,Energetics II
+EDEX 14.1,Oxidation and reduction as electron transfer,1.4,Redox II
+EDEX 14.2,Oxidation and reduction as changes in oxidation number,1.4,Redox II
+EDEX 14.3,Standard electrode potential,1.05,Redox II
+EDEX 14.4,Conditions for standard electrode potential,1.78,Redox II
+EDEX 14.5,Standard hydrogen electrode and reference electrodes,1.05,Redox II
+EDEX 14.6,Methods for measuring standard electrode potentials,2.04,Redox II
+EDEX 14.CP10,Core practical 10: Investigating some electrochemical cells,3.4,Redox II
+EDEX 14.7,"Calculating standard emf, Eᶿcell",1.8,Redox II
+EDEX 14.8,Cell diagrams,1.4,Redox II
+EDEX 14.9,Conditions when measuring electrode potential,1.4,Redox II
+EDEX 14.10,Predicting feasibility from standard electrode potentials,1.9,Redox II
+EDEX 14.11,"Eᶿcell, total entropy change and ln K",1.4,Redox II
+EDEX 14.12,Limitations of predictions from electrode potentials,1.4,Redox II
+EDEX 14.13,The electrochemical series,1.05,Redox II
+EDEX 14.14,Disproportionation and electrode potentials,1.4,Redox II
+EDEX 14.15,Electrode potentials and storage cells,1.4,Redox II
+EDEX 14.16,Fuel cells and the energy from fuels,1.67,Redox II
+EDEX 14.17,Electrode reactions in a hydrogen-oxygen fuel cell,1.05,Redox II
+EDEX 14.18,Redox titration calculations,1.4,Redox II
+EDEX 14.19,Methods used in redox titrations,1.4,Redox II
+EDEX 14.CP11,Core practical 11: Redox titration,3.4,Redox II
+EDEX 15A.1,Electronic configurations of d-block elements and ions (Sc–Zn),1.44,Transition metals
+EDEX 15A.2,Definition of a transition metal,1.05,Transition metals
+EDEX 15A.3,Variable oxidation number of transition metals,1.4,Transition metals
+EDEX 15A.4,Ligands,1.05,Transition metals
+EDEX 15A.5,Dative bonding in complex ions,1.4,Transition metals
+EDEX 15A.6,Complex ions,1.05,Transition metals
+EDEX 15A.7,Coloured ions of transition metals,1.05,Transition metals
+EDEX 15A.8,Colour from d-orbital splitting by ligands,1.4,Transition metals
+EDEX 15A.9,Lack of colour in some ions and complex ions,1.4,Transition metals
+EDEX 15A.10,"Colour changes: oxidation number, ligand, coordination number",2.06,Transition metals
+EDEX 15A.11,Coordination number,1.4,Transition metals
+EDEX 15A.12,"Monodentate ligands: H₂O, OH⁻ and NH₃",1.4,Transition metals
+EDEX 15A.13,Octahedral shape of six-fold coordination complexes,1.4,Transition metals
+EDEX 15A.14,Tetrahedral complexes with large ligands,1.05,Transition metals
+EDEX 15A.15,Square planar complexes and cis-platin,1.05,Transition metals
+EDEX 15A.16,Cis-platin as a single isomer in cancer treatment,1.4,Transition metals
+EDEX 15A.17,Bidentate and multidentate ligands,1.2,Transition metals
+EDEX 15A.18,Haemoglobin as an iron(II) complex,1.05,Transition metals
+EDEX 15A.19,Ligand exchange of oxygen for carbon monoxide in haemoglobin,1.05,Transition metals
+EDEX 15B.20,Colours of vanadium oxidation states,1.05,Transition metals
+EDEX 15B.21,Redox interconversion of vanadium oxidation states,1.4,Transition metals
+EDEX 15B.22,Redox reactions of the dichromate(VI) ion,2.31,Transition metals
+EDEX 15B.23,Dichromate(VI) and chromate(VI) equilibrium,1.05,Transition metals
+EDEX 15B.24,Metal ions with aqueous sodium hydroxide and aqueous ammonia,1.49,Transition metals
+EDEX 15B.25,Ligand exchange versus amphoteric behaviour,1.4,Transition metals
+EDEX 15B.26,Ligand exchange in copper(II) and cobalt(II) complexes,2.13,Transition metals
+EDEX 15B.27,Ligand substitution and change in coordination number,1.42,Transition metals
+EDEX 15B.28,Stability of complexes with bidentate and multidentate ligands,1.51,Transition metals
+EDEX 15B.29,Transition metals as heterogeneous and homogeneous catalysts,1.05,Transition metals
+EDEX 15B.30,"Heterogeneous catalysts: different phase, reaction at the surface",1.05,Transition metals
+EDEX 15B.31,V₂O₅ as a catalyst in the contact process,1.4,Transition metals
+EDEX 15B.32,Catalytic converters and CO and NO emissions,2.64,Transition metals
+EDEX 15B.33,Homogeneous catalysts and intermediate species,1.05,Transition metals
+EDEX 15B.34,Fe²⁺ catalysis of the I⁻ and S₂O₈²⁻ reaction,1.4,Transition metals
+EDEX 15B.35,Mn²⁺ autocatalysis of the MnO₄⁻ and C₂O₄²⁻ reaction,1.05,Transition metals
+EDEX 15B.CP12,Core practical 12: Preparation of a transition metal complex,3.4,Transition metals
+EDEX 16.1,"Rate terms: rate equation, order, half-life, rate-determining step",3.76,Kinetics II
+EDEX 16.2,Rate equations of the form rate = k[A]ᵐ[B]ⁿ,1.4,Kinetics II
+EDEX 16.3,Experimental techniques for obtaining rate data,2.81,Kinetics II
+EDEX 16.4,Initial-rate and continuous monitoring methods,4.51,Kinetics II
+EDEX 16.5,Rate and half-life of a first-order reaction from graphs,1.8,Kinetics II
+EDEX 16.6,Order from concentration-time and rate-concentration graphs,1.95,Kinetics II
+EDEX 16.7,Order from initial-rate data,1.4,Kinetics II
+EDEX 16.8,Acid-catalysed iodination of propanone,2.55,Kinetics II
+EDEX 16.9,Rate-determining step and the rate equation,1.4,Kinetics II
+EDEX 16.10,Deducing a reaction mechanism from the rate equation,1.4,Kinetics II
+EDEX 16.11,Rate equations as evidence for SN1 or SN2 mechanisms,1.49,Kinetics II
+EDEX 16.12,Activation energy from graphical methods,1.5,Kinetics II
+EDEX 16.CP13,Core practical 13a and 13b: Rates of reaction,3.44,Kinetics II
+EDEX 16.CP14,Core practical 14: Finding the activation energy of a reaction,3.4,Kinetics II
+EDEX 17A.1,Optical isomerism and chirality,1.05,Organic chemistry II
+EDEX 17A.2,Chiral centres and non-superimposable mirror images,1.4,Organic chemistry II
+EDEX 17A.3,Optical activity and plane-polarised light,1.14,Organic chemistry II
+EDEX 17A.4,Racemic mixtures,1.4,Organic chemistry II
+EDEX 17A.5,Optical activity as evidence for SN1 and SN2 mechanisms,1.5,Organic chemistry II
+EDEX 17B.6,Aldehyde and ketone functional groups,1.2,Organic chemistry II
+EDEX 17B.7,Hydrogen bonding in aldehydes and ketones,1.95,Organic chemistry II
+EDEX 17B.8,Reactions of carbonyl compounds,4.1,Organic chemistry II
+EDEX 17C.9,Carboxylic acid functional group,1.2,Organic chemistry II
+EDEX 17C.10,Hydrogen bonding in carboxylic acids,1.4,Organic chemistry II
+EDEX 17C.11,Preparation of carboxylic acids,1.4,Organic chemistry II
+EDEX 17C.12,Reactions of carboxylic acids,2.5,Organic chemistry II
+EDEX 17C.13,Acyl chloride and ester functional groups,1.2,Organic chemistry II
+EDEX 17C.14,Reactions of acyl chlorides,2.28,Organic chemistry II
+EDEX 17C.15,Hydrolysis of esters,1.4,Organic chemistry II
+EDEX 17C.16,Polyesters by condensation polymerisation,1.4,Organic chemistry II
+EDEX 18A.1,Kekulé and delocalised models of benzene,1.44,Organic chemistry III
+EDEX 18A.2,Evidence for the delocalised model of benzene,1.87,Organic chemistry III
+EDEX 18A.3,Resistance of benzene to bromination,1.47,Organic chemistry III
+EDEX 18A.4,Reactions of benzene,2.7,Organic chemistry III
+EDEX 18A.5,Electrophilic substitution mechanisms of benzene,1.4,Organic chemistry III
+EDEX 18A.6,Reaction of phenol with bromine water,1.4,Organic chemistry III
+EDEX 18A.7,Ease of bromination of phenol compared with benzene,1.4,Organic chemistry III
+EDEX 18B.8,"Amine, amide and amino acid functional groups",1.64,Organic chemistry III
+EDEX 18B.9,Reactions of primary aliphatic amines,2.77,Organic chemistry III
+EDEX 18B.10,"Basicity of ammonia, aliphatic amines and aromatic amines",1.4,Organic chemistry III
+EDEX 18B.11,Preparation of primary aliphatic amines,1.84,Organic chemistry III
+EDEX 18B.12,Reducing aromatic nitro-compounds to amines,1.05,Organic chemistry III
+EDEX 18B.13,Preparing amides from acyl chlorides,1.4,Organic chemistry III
+EDEX 18B.14,Polyamides as condensation polymers,1.05,Organic chemistry III
+EDEX 18B.15,Repeat units of condensation polymers,2.29,Organic chemistry III
+EDEX 18B.16,Properties of 2-amino acids and zwitterions,1.95,Organic chemistry III
+EDEX 18B.17,Peptide bonds in proteins,2.02,Organic chemistry III
+EDEX 18B.CP15,Core practical 15: Analysis of inorganic and organic unknowns,3.4,Organic chemistry III
+EDEX 18C.18,Deducing formulae from analytical data,1.64,Organic chemistry III
+EDEX 18C.19,Planning reaction schemes of up to four steps,1.4,Organic chemistry III
+EDEX 18C.20,Lengthening carbon chains with Grignard reagents,1.69,Organic chemistry III
+EDEX 18C.21,Selecting practical procedures and controlling risk,1.62,Organic chemistry III
+EDEX 18C.22,Techniques for preparing and purifying organic compounds,3.47,Organic chemistry III
+EDEX 18C.CP16,Core practical 16: Preparation of aspirin,3.4,Organic chemistry III
+EDEX 19A.1,Accurate relative molecular mass from mass spectra,2.5,Modern analytical techniques II
+EDEX 19B.2,Information from ¹³C NMR about carbon atom positions,1.4,Modern analytical techniques II
+EDEX 19B.3,Using ¹³C NMR data: environments and chemical shift,2.43,Modern analytical techniques II
+EDEX 19B.4,High resolution proton NMR,1.4,Modern analytical techniques II
+EDEX 19B.5,"Using ¹H NMR data: shifts, peak areas and splitting",3.76,Modern analytical techniques II
+EDEX 19C.6,Chromatography: mobile and stationary phases,1.05,Modern analytical techniques II
+EDEX 19C.7,Calculating Rf values from chromatograms,1.8,Modern analytical techniques II
+EDEX 19C.8,HPLC and gas chromatography,2.2,Modern analytical techniques II

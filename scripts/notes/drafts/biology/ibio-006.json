@@ -1,0 +1,197 @@
+{
+  "format": 1,
+  "concept_id": "ibio-006",
+  "subject": "biology",
+  "title": "Cholera and controlling the spread of disease",
+  "key_idea": "Clean water, hygienic food, good personal hygiene, waste disposal and sewage treatment stop pathogens spreading. (Supplement) Cholera is a bacterial disease spread in contaminated water. Its toxin makes the gut lining secrete chloride ions, so water leaves the blood by osmosis.",
+  "sections": [
+    {
+      "heading": "Controlling the spread of disease",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Many pathogens spread through water, food and waste. This section covers five ways to break that chain."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Measure",
+            "What it does"
+          ],
+          "rows": [
+            [
+              "A clean water supply",
+              "Water is treated so that it has no pathogens in it. People then cannot drink pathogens and become infected."
+            ],
+            [
+              "Hygienic food preparation",
+              "Washing hands, cleaning surfaces, cooking food thoroughly and keeping raw and cooked food apart stop pathogens reaching food and multiplying in it."
+            ],
+            [
+              "Good personal hygiene",
+              "Washing hands after using the toilet and before eating stops pathogens passing from person to person or onto food."
+            ],
+            [
+              "Waste disposal",
+              "Rubbish and waste are removed and stored safely. Pests such as flies and rats cannot feed and breed in it and carry pathogens to people or food."
+            ],
+            [
+              "Sewage treatment",
+              "Human waste contains pathogens. Treating it stops them reaching rivers, drinking water and food crops."
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The details of the stages of sewage treatment are not needed."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pathogens spread through water, food, waste and touch.",
+            "Clean water, hygienic food preparation, personal hygiene, waste disposal and sewage treatment each break the chain of infection."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cholera",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Cholera is a good example of a disease that spreads when water or sewage is not controlled."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cholera is caused by a **bacterium**.",
+            "The bacteria are transmitted in **contaminated water**.",
+            "A person becomes infected by drinking water that contains the bacteria.",
+            "Water becomes contaminated when sewage gets into it. This is why clean water and sewage treatment prevent cholera."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cholera is caused by a bacterium.",
+            "It is spread by drinking contaminated water, so clean water and sewage treatment prevent it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How the cholera toxin causes diarrhoea",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) The bacteria live in the small intestine and make a toxin. The toxin does the damage by changing how water moves."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Toxin",
+              "meaning": "A poison produced by a pathogen."
+            },
+            {
+              "term": "Lumen",
+              "meaning": "The space inside the small intestine."
+            },
+            {
+              "term": "Water potential",
+              "meaning": "The tendency of water to move. The more dissolved ions in a solution, the lower its water potential."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Six events are put in order, from the cholera bacteria producing a toxin to diarrhoea causing dehydration and loss of ions.",
+            "prompt": "Put these events in the order that causes diarrhoea.",
+            "steps": [
+              "Cholera bacteria produce a toxin.",
+              "Cells lining the small intestine secrete chloride ions.",
+              "Chloride ions move into the lumen of the small intestine.",
+              "The water potential of the fluid in the small intestine becomes lower.",
+              "Water moves from the blood into the small intestine by osmosis.",
+              "Watery diarrhoea causes dehydration and loss of ions from the blood."
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Water moves by **osmosis**, from the higher water potential in the blood to the lower water potential in the gut.",
+            "The extra water makes the faeces watery. This is **diarrhoea**.",
+            "The body loses a lot of water, so the person becomes dehydrated.",
+            "Ions are lost from the blood along with the water."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The toxin causes chloride ions to be secreted into the small intestine.",
+            "This lowers the water potential in the gut, so water leaves the blood by osmosis.",
+            "The result is diarrhoea, dehydration and loss of ions."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name two ways of controlling the spread of disease through water.",
+      "a": "Any two from: a clean (treated) water supply, sewage treatment, safe disposal of waste.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) State the type of pathogen that causes cholera and how it is spread.",
+      "a": "A bacterium. It is spread in contaminated water that people drink.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) Explain how the cholera toxin causes diarrhoea.",
+      "a": "The toxin makes cells secrete chloride ions into the small intestine. This lowers the water potential there, so water moves in from the blood by osmosis. The faeces become watery.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 10.1.5",
+        "CAIE 10.1.16S",
+        "CAIE 10.1.17S"
+      ],
+      "worked_example": {
+        "exemplar_id": "173e1cb4-5526-426b-8dcb-9a99d04c474d",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q3(c)",
+        "question": "People with cholera can become very dehydrated.\n\nExplain how cholera causes dehydration.",
+        "marks": 4,
+        "answer_points": [
+          "The cholera bacterium produces a toxin.",
+          "The toxin causes secretion of chloride ions into the small intestine.",
+          "The ions lower the water potential in the gut, so water moves out of the cells and blood.",
+          "Water moves down the water potential gradient, from high to low water potential, by osmosis.",
+          "This causes diarrhoea and a loss of water from the body."
+        ],
+        "tip": "Any four score one mark each. Link the chloride ions to water potential and osmosis."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "7ab5687a-59f9-41df-8d0f-0f8c23ceb055",
+      "243f3cfe-dbb5-480b-a4fa-35624e58f89e",
+      "2f98e23f-1bfe-4a61-98e3-c07945f373e5"
+    ],
+    "exemplar_ids": [
+      "173e1cb4-5526-426b-8dcb-9a99d04c474d"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

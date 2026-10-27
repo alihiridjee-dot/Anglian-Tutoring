@@ -1,0 +1,410 @@
+{
+  "format": 1,
+  "concept_id": "achem-055",
+  "subject": "chemistry",
+  "title": "Halide ions",
+  "key_idea": "Halide ions are reducing agents, and reducing power increases down the group. Concentrated sulfuric acid is reduced further by Br⁻ and I⁻ than by Cl⁻. Silver nitrate and ammonia identify the halides by the colour and solubility of the silver halide.",
+  "sections": [
+    {
+      "heading": "Halide ions as reducing agents",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Halide ions can give up an electron, so they act as reducing agents. This section covers how reducing power changes and what happens with concentrated sulfuric acid."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reducing power **increases** down the group: I⁻ > Br⁻ > Cl⁻ > F⁻.",
+            "A larger ion has its outer electron further from the nucleus and more shielded, so it is lost more easily."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Solid sodium halides react with concentrated sulfuric acid. All of them first give a hydrogen halide as steamy fumes."
+        },
+        {
+          "type": "equation",
+          "label": "First step, for any halide",
+          "formula": "NaX + H₂SO₄ → NaHSO₄ + HX",
+          "where": [
+            "X: F, Cl, Br or I"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cl⁻ and F⁻ are not strong enough to reduce sulfuric acid. Only steamy white fumes of HCl or HF are seen.",
+            "Br⁻ reduces some H₂SO₄ to SO₂. It forms orange-brown bromine and choking SO₂ as well as HBr.",
+            "I⁻ is the strongest reducing agent. It reduces H₂SO₄ to SO₂, then to sulfur, then to hydrogen sulfide."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Halide",
+            "Reaction with concentrated H₂SO₄",
+            "Sulfur oxidation number change"
+          ],
+          "rows": [
+            [
+              "NaCl",
+              "Steamy fumes of HCl only",
+              "None"
+            ],
+            [
+              "NaBr",
+              "2HBr + H₂SO₄ → Br₂ + SO₂ + 2H₂O",
+              "+6 to +4"
+            ],
+            [
+              "NaI",
+              "2HI + H₂SO₄ → I₂ + SO₂ + 2H₂O",
+              "+6 to +4"
+            ],
+            [
+              "NaI",
+              "6HI + H₂SO₄ → 3I₂ + S + 4H₂O",
+              "+6 to 0"
+            ],
+            [
+              "NaI",
+              "8HI + H₂SO₄ → 4I₂ + H₂S + 4H₂O",
+              "+6 to −2"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "With iodide you see a black solid and purple fumes, a yellow solid, and a smell of bad eggs."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick a solid sodium halide to see what concentrated sulfuric acid does.",
+            "prompt": "Pick a solid sodium halide.",
+            "result_labels": [
+              "What you see",
+              "Is H₂SO₄ reduced?",
+              "Reducing product of sulfur"
+            ],
+            "options": [
+              {
+                "label": "NaF",
+                "results": [
+                  "Steamy fumes of HF",
+                  "No",
+                  "None"
+                ]
+              },
+              {
+                "label": "NaCl",
+                "results": [
+                  "Steamy fumes of HCl",
+                  "No",
+                  "None"
+                ]
+              },
+              {
+                "label": "NaBr",
+                "results": [
+                  "Steamy fumes, orange-brown Br₂ vapour, choking SO₂",
+                  "Yes",
+                  "SO₂"
+                ]
+              },
+              {
+                "label": "NaI",
+                "results": [
+                  "Steamy fumes, purple I₂ vapour, yellow solid S, smell of H₂S",
+                  "Yes",
+                  "SO₂, S and H₂S"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reducing power of the halide ions increases down the group.",
+            "Cl⁻ does not reduce H₂SO₄. Br⁻ gives SO₂. I⁻ gives SO₂, S and H₂S."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Silver nitrate and ammonia test",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Halide ions are identified by precipitation with silver ions, then dissolving in ammonia. This section covers the method and the results."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Acidify",
+              "text": "Add dilute nitric acid to the test solution."
+            },
+            {
+              "lead": "Add silver nitrate",
+              "text": "Add aqueous silver nitrate. A precipitate shows a halide."
+            },
+            {
+              "lead": "Add ammonia",
+              "text": "Add dilute ammonia, then concentrated ammonia if the solid has not dissolved."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Precipitation of a silver halide",
+          "formula": "Ag⁺(aq) + X⁻(aq) → AgX(s)",
+          "where": [
+            "X: Cl, Br or I"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Halide",
+            "Precipitate",
+            "Dilute ammonia",
+            "Concentrated ammonia"
+          ],
+          "rows": [
+            [
+              "Cl⁻",
+              "White",
+              "Dissolves",
+              "Dissolves"
+            ],
+            [
+              "Br⁻",
+              "Cream",
+              "Does not dissolve",
+              "Dissolves"
+            ],
+            [
+              "I⁻",
+              "Pale yellow",
+              "Does not dissolve",
+              "Does not dissolve"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Nitric acid is added first to remove carbonate and hydroxide ions, which would also give a precipitate with silver ions.",
+            "Hydrochloric acid cannot be used, because it adds chloride ions. Sulfuric acid cannot be used, because Ag₂SO₄ is only sparingly soluble.",
+            "Ammonia distinguishes the halides. The solubility of the silver halides in ammonia falls from AgCl to AgI."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick a halide ion to see the silver nitrate and ammonia test results.",
+            "prompt": "Pick a halide ion.",
+            "result_labels": [
+              "Precipitate with silver nitrate",
+              "In dilute ammonia",
+              "In concentrated ammonia",
+              "Ionic equation"
+            ],
+            "options": [
+              {
+                "label": "Chloride",
+                "results": [
+                  "White",
+                  "Dissolves",
+                  "Dissolves",
+                  "Ag⁺ + Cl⁻ → AgCl"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Silver nitrate",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    },
+                    {
+                      "label": "Dilute ammonia",
+                      "colour": "colourless"
+                    },
+                    {
+                      "label": "Concentrated ammonia",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Bromide",
+                "results": [
+                  "Cream",
+                  "Does not dissolve",
+                  "Dissolves",
+                  "Ag⁺ + Br⁻ → AgBr"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Silver nitrate",
+                      "colour": "colourless",
+                      "precipitate": "cream"
+                    },
+                    {
+                      "label": "Dilute ammonia",
+                      "colour": "colourless",
+                      "precipitate": "cream"
+                    },
+                    {
+                      "label": "Concentrated ammonia",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Iodide",
+                "results": [
+                  "Pale yellow",
+                  "Does not dissolve",
+                  "Does not dissolve",
+                  "Ag⁺ + I⁻ → AgI"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Silver nitrate",
+                      "colour": "colourless",
+                      "precipitate": "pale-yellow"
+                    },
+                    {
+                      "label": "Dilute ammonia",
+                      "colour": "colourless",
+                      "precipitate": "pale-yellow"
+                    },
+                    {
+                      "label": "Concentrated ammonia",
+                      "colour": "colourless",
+                      "precipitate": "pale-yellow"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Acidified silver nitrate gives a precipitate with Cl⁻, Br⁻ and I⁻.",
+            "The colour and the solubility in ammonia tell the halides apart."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what is seen when concentrated sulfuric acid is added to solid sodium bromide.",
+      "a": "Steamy fumes of HBr, orange-brown bromine vapour and a choking gas, SO₂.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why iodide ions are better reducing agents than chloride ions.",
+      "a": "The iodide ion is larger, so the outer electron is further from the nucleus and more shielded. It is lost more easily.",
+      "marks": 2
+    },
+    {
+      "q": "A solution gives a cream precipitate with acidified silver nitrate. State what happens when dilute and then concentrated ammonia is added, and name the ion.",
+      "a": "The precipitate does not dissolve in dilute ammonia but dissolves in concentrated ammonia. The ion is bromide, Br⁻.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.3g"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4B.13"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the reactions of the hydrogen halides with ammonia and with water."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A hydrogen halide gas reacts with ammonia gas to form a white smoke of the ammonium halide: NH₃ + HCl → NH₄Cl.",
+                "Hydrogen halides dissolve in water to form acids: HCl + H₂O → H₃O⁺ + Cl⁻.",
+                "HCl, HBr and HI are strong acids. Hydrogen fluoride is a weak acid.",
+                "The fumes seen in moist air are tiny drops of the acid."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 11.3.1",
+        "CAIE 11.3.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the reaction with concentrated sulfuric acid as balanced equations."
+            },
+            {
+              "type": "list",
+              "items": [
+                "NaCl + H₂SO₄ → NaHSO₄ + HCl",
+                "NaBr + H₂SO₄ → NaHSO₄ + HBr, then 2HBr + H₂SO₄ → Br₂ + SO₂ + 2H₂O",
+                "NaI + H₂SO₄ → NaHSO₄ + HI, then the reductions to I₂ with SO₂, S and H₂S as above",
+                "The trend in what H₂SO₄ is reduced to (nothing, SO₂, H₂S) shows the trend in reducing power."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.3.1"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "ceef1012-5fc1-456b-bfb0-8bea624e8e8f",
+      "20aaa2a3-787c-4660-9a06-4b99fef33dfa",
+      "dff53a90-f085-4c80-86b5-7140293188f1",
+      "b11a54a7-21a8-4005-a987-3316c3c061c1"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

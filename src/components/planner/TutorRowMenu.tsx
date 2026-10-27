@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Ban, CalendarDays, Loader2, MoreHorizontal, X } from "lucide-react";
-import { weekKeyToDate, weekRangeLabel } from "@/lib/planner/week";
+import { addWeeks, toDateKey, weekKeyToDate, weekRangeLabel } from "@/lib/planner/week";
 import { type TutorWeekRow } from "./tutorWeekRows";
 import { type TutorOverrideActions } from "./useTutorOverrides";
 
@@ -32,7 +32,10 @@ export function TutorRowMenu({
   const busy = actions.busy;
   const mine = busy && "specPointId" in busy && busy.specPointId === row.specPointId;
   const disabled = busy !== null;
-  const nextWeek = weekChoices.find((w) => w > weekStart) ?? null;
+  // The week straight after, when it is one of the choices. A break week is
+  // left out of them, and the week after the break isn't "next week".
+  const following = toDateKey(addWeeks(weekKeyToDate(weekStart), 1));
+  const nextWeek = weekChoices.includes(following) ? following : null;
 
   useEffect(() => {
     if (!open) return;

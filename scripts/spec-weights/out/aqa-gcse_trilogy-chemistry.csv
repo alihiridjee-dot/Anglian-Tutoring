@@ -1,0 +1,94 @@
+code,title,weight,topic
+AQA T 5.1.1.1,"Atoms, elements and compounds",3.35,Atomic structure and the periodic table
+AQA T 5.1.1.2,Mixtures,1.74,Atomic structure and the periodic table
+AQA T 5.1.1.3,The development of the model of the atom (common content with physics),2.89,Atomic structure and the periodic table
+AQA T 5.1.1.4,Relative electrical charges of subatomic particles,2.16,Atomic structure and the periodic table
+AQA T 5.1.1.5,Size and mass of atoms,3.17,Atomic structure and the periodic table
+AQA T 5.1.1.6,Relative atomic mass,1.8,Atomic structure and the periodic table
+AQA T 5.1.1.7,Electronic structure,1.3,Atomic structure and the periodic table
+AQA T 5.1.2.1,The periodic table,2.2,Atomic structure and the periodic table
+AQA T 5.1.2.2,Development of the periodic table,1.38,Atomic structure and the periodic table
+AQA T 5.1.2.3,Metals and non-metals,2.39,Atomic structure and the periodic table
+AQA T 5.1.2.4,Group 0,2.14,Atomic structure and the periodic table
+AQA T 5.1.2.5,Group 1,2.49,Atomic structure and the periodic table
+AQA T 5.1.2.6,Group 7,2.79,Atomic structure and the periodic table
+AQA T 5.2.1.1,Chemical bonds,1.7,"Bonding, structure, and the properties of matter"
+AQA T 5.2.1.2,Ionic bonding,2.79,"Bonding, structure, and the properties of matter"
+AQA T 5.2.1.3,Ionic compounds,2.52,"Bonding, structure, and the properties of matter"
+AQA T 5.2.1.4,Covalent bonding,3.54,"Bonding, structure, and the properties of matter"
+AQA T 5.2.1.5,Metallic bonding,1.3,"Bonding, structure, and the properties of matter"
+AQA T 5.2.2.1,The three states of matter,4.06,"Bonding, structure, and the properties of matter"
+AQA T 5.2.2.2,State symbols,1.5,"Bonding, structure, and the properties of matter"
+AQA T 5.2.2.3,Properties of ionic compounds,1.3,"Bonding, structure, and the properties of matter"
+AQA T 5.2.2.4,Properties of small molecules,1.5,"Bonding, structure, and the properties of matter"
+AQA T 5.2.2.5,Polymers,1.1,"Bonding, structure, and the properties of matter"
+AQA T 5.2.2.6,Giant covalent structures,1.1,"Bonding, structure, and the properties of matter"
+AQA T 5.2.2.7,Properties of metals and alloys,1.7,"Bonding, structure, and the properties of matter"
+AQA T 5.2.2.8,Metals as conductors,1.3,"Bonding, structure, and the properties of matter"
+AQA T 5.2.3.1,Diamond,1.7,"Bonding, structure, and the properties of matter"
+AQA T 5.2.3.2,Graphite,1.7,"Bonding, structure, and the properties of matter"
+AQA T 5.2.3.3,Graphene and fullerenes,2.67,"Bonding, structure, and the properties of matter"
+AQA T 5.3.1.1,Conservation of mass and balanced chemical equations,1.3,Quantitative chemistry
+AQA T 5.3.1.2,Relative formula mass,1.8,Quantitative chemistry
+AQA T 5.3.1.3,Mass changes when a reactant or product is a gas,1.75,Quantitative chemistry
+AQA T 5.3.1.4,Chemical measurements,1.94,Quantitative chemistry
+AQA T 5.3.2.1,Moles (HT only),1.91,Quantitative chemistry
+AQA T 5.3.2.2,Amounts of substances in equations (HT only),2.24,Quantitative chemistry
+AQA T 5.3.2.3,Using moles to balance equations (HT only),1.85,Quantitative chemistry
+AQA T 5.3.2.4,Limiting reactants (HT only),1.7,Quantitative chemistry
+AQA T 5.3.2.5,Concentration of solutions,2.54,Quantitative chemistry
+AQA T 5.4.1.1,Metal oxides,1.7,Chemical changes
+AQA T 5.4.1.2,The reactivity series,2.35,Chemical changes
+AQA T 5.4.1.3,Extraction of metals and reduction,2.05,Chemical changes
+AQA T 5.4.1.4,Oxidation and reduction in terms of electrons (HT only),1.74,Chemical changes
+AQA T 5.4.2.1,Reactions of acids with metals,2.44,Chemical changes
+AQA T 5.4.2.2,Neutralisation of acids and salt production,2.78,Chemical changes
+AQA T 5.4.2.3,Soluble salts,3.33,Chemical changes
+AQA T 5.4.2.4,The pH scale and neutralisation,1.98,Chemical changes
+AQA T 5.4.2.5,Strong and weak acids (HT only),2.12,Chemical changes
+AQA T 5.4.3.1,The process of electrolysis,1.86,Chemical changes
+AQA T 5.4.3.2,Electrolysis of molten ionic compounds,1.9,Chemical changes
+AQA T 5.4.3.3,Using electrolysis to extract metals,2.14,Chemical changes
+AQA T 5.4.3.4,Electrolysis of aqueous solutions,3.97,Chemical changes
+AQA T 5.4.3.5,Representation of reactions at electrodes as half equations (HT only),1.3,Chemical changes
+AQA T 5.5.1.1,Energy transfer during exothermic and endothermic reactions,4.69,Energy changes
+AQA T 5.5.1.2,Reaction profiles,2.31,Energy changes
+AQA T 5.5.1.3,The energy change of reactions (HT only),2.48,Energy changes
+AQA T 5.6.1.1,Calculating rates of reactions,3.75,The rate and extent of chemical change
+AQA T 5.6.1.2,Factors which affect the rates of chemical reactions,3.1,The rate and extent of chemical change
+AQA T 5.6.1.3,Collision theory and activation energy,3.05,The rate and extent of chemical change
+AQA T 5.6.1.4,Catalysts,2.29,The rate and extent of chemical change
+AQA T 5.6.2.1,Reversible reactions,1.3,The rate and extent of chemical change
+AQA T 5.6.2.2,Energy changes and reversible reactions,1.3,The rate and extent of chemical change
+AQA T 5.6.2.3,Equilibrium,1.3,The rate and extent of chemical change
+AQA T 5.6.2.4,The effect of changing conditions on equilibrium (HT only),1.5,The rate and extent of chemical change
+AQA T 5.6.2.5,The effect of changing concentration (HT only),1.6,The rate and extent of chemical change
+AQA T 5.6.2.6,The effect of temperature changes on equilibrium (HT only),2.48,The rate and extent of chemical change
+AQA T 5.6.2.7,The effect of pressure changes on equilibrium (HT only),2.04,The rate and extent of chemical change
+AQA T 5.7.1.1,"Crude oil, hydrocarbons and alkanes",1.37,Organic chemistry
+AQA T 5.7.1.2,Fractional distillation and petrochemicals,1.95,Organic chemistry
+AQA T 5.7.1.3,Properties of hydrocarbons,2.51,Organic chemistry
+AQA T 5.7.1.4,Cracking and alkenes,3.18,Organic chemistry
+AQA T 5.8.1.1,Pure substances,1.5,Chemical analysis
+AQA T 5.8.1.2,Formulations,1.2,Chemical analysis
+AQA T 5.8.1.3,Chromatography,5.18,Chemical analysis
+AQA T 5.8.2.1,Test for hydrogen,1.3,Chemical analysis
+AQA T 5.8.2.2,Test for oxygen,1.3,Chemical analysis
+AQA T 5.8.2.3,Test for carbon dioxide,1.3,Chemical analysis
+AQA T 5.8.2.4,Test for chlorine,1.3,Chemical analysis
+AQA T 5.9.1.1,The proportions of different gases in the atmosphere,1.96,Chemistry of the atmosphere
+AQA T 5.9.1.2,The Earth's early atmosphere,1.81,Chemistry of the atmosphere
+AQA T 5.9.1.3,How oxygen increased,1.3,Chemistry of the atmosphere
+AQA T 5.9.1.4,How carbon dioxide decreased,1.74,Chemistry of the atmosphere
+AQA T 5.9.2.1,Greenhouse gases,1.3,Chemistry of the atmosphere
+AQA T 5.9.2.2,Human activities which increase greenhouse gases in the atmosphere,3.94,Chemistry of the atmosphere
+AQA T 5.9.2.3,Global climate change,1.74,Chemistry of the atmosphere
+AQA T 5.9.2.4,The carbon footprint and its reduction,1.74,Chemistry of the atmosphere
+AQA T 5.9.3.1,Atmospheric pollutants from fuels,1.78,Chemistry of the atmosphere
+AQA T 5.9.3.2,Properties and effects of atmospheric pollutants,1.3,Chemistry of the atmosphere
+AQA T 5.10.1.1,Using the Earth's resources and sustainable development,3.05,Using resources
+AQA T 5.10.1.2,Potable water,5.67,Using resources
+AQA T 5.10.1.3,Waste water treatment,2.38,Using resources
+AQA T 5.10.1.4,Alternative methods of extracting metals (HT only),2.16,Using resources
+AQA T 5.10.2.1,Life cycle assessment,2.57,Using resources
+AQA T 5.10.2.2,Ways of reducing the use of resources,2.61,Using resources

@@ -1,0 +1,181 @@
+{
+  "format": 1,
+  "concept_id": "iphys-001",
+  "subject": "physics",
+  "title": "Measuring length, volume and time",
+  "key_idea": "Use a ruler or measuring cylinder with your eye at the right position, and a clock or timer for time. To find a very small distance or a very short time, measure many together and divide, so the reading error is shared out.",
+  "sections": [
+    {
+      "heading": "Measuring length and volume",
+      "blocks": [
+        { "type": "paragraph", "text": "A ruler measures length and a measuring cylinder measures the volume of a liquid. This section covers how to read each one accurately." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Parallax error", "meaning": "A wrong reading caused by looking at a scale from an angle." },
+            { "term": "Meniscus", "meaning": "The curved surface of a liquid in a narrow tube." }
+          ]
+        },
+        { "type": "subheading", "text": "Using a ruler" },
+        {
+          "type": "list",
+          "items": [
+            "Put the ruler **close to** the object, so the scale touches what you are measuring.",
+            "View the scale from directly in front, at right angles, to avoid **parallax error**.",
+            "Check that the ruler is straight along the object (use a set-square to check it is vertical).",
+            "Length is measured in metres (m), centimetres (cm) or millimetres (mm)."
+          ]
+        },
+        { "type": "subheading", "text": "Using a measuring cylinder" },
+        {
+          "type": "list",
+          "items": [
+            "Stand the cylinder on a flat, level surface.",
+            "Put your eye level with the liquid surface.",
+            "Read the **bottom of the meniscus**. The volume between the bottom and the top of the curve is very small.",
+            "Volume is measured in cm³ (1 cm³ is the same as 1 ml)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Look at right angles to the scale to avoid parallax error.",
+            "Read a measuring cylinder at the bottom of the meniscus, on a level surface."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring time",
+      "blocks": [
+        { "type": "paragraph", "text": "Clocks and timers measure time intervals. Pick the one that suits the length of the interval." },
+        {
+          "type": "list",
+          "items": [
+            "A **clock** or watch is suitable for long intervals, such as minutes or hours.",
+            "A **stopwatch** or digital timer is suitable for short intervals. A digital timer can read to 0.01 s.",
+            "Your reaction time (about 0.2 s) causes an error in every hand-timed reading. The error matters most for short intervals."
+          ]
+        },
+        { "type": "subheading", "text": "Timing precisely" },
+        {
+          "type": "list",
+          "items": [
+            "Keep the timer and the experiment close together, so you can see both.",
+            "Start and stop the timer at the same point in the motion each time.",
+            "To record a reading at an exact time, set a timer to go off at that time, or let a second person read the instrument."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use a clock for long intervals and a stopwatch or digital timer for short ones.",
+            "Reaction time is the main error in hand-timed short intervals."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Small distances and short times",
+      "blocks": [
+        { "type": "paragraph", "text": "One very small distance or one very short time is hard to measure well. Measure many together and divide." },
+        {
+          "type": "equation",
+          "label": "Average of multiples",
+          "formula": "average = total measurement ÷ number measured",
+          "where": [
+            "total measurement is the whole length (m) or time (s)",
+            "number measured is the count of sheets, oscillations and so on"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To find the thickness of one sheet of paper, measure a stack of 100 sheets and divide by 100.",
+            "To find the **period** of a pendulum, time 10 or 20 complete oscillations and divide by that number.",
+            "Start and stop the timer as the pendulum passes the same point, such as the middle of its swing.",
+            "Repeat the whole measurement and take an average."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Oscillation", "meaning": "One complete swing out and back to the starting position." },
+            { "term": "Period", "meaning": "The time taken for one complete oscillation, in seconds." }
+          ]
+        },
+        { "type": "paragraph", "text": "Timing many oscillations is more accurate than timing one. The same timing error is spread over a longer time, so it is a smaller part of the result." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Find the period of a pendulum from the time for several oscillations.",
+            "question": "A student times {n} complete oscillations of a pendulum. The total time is {t} s. Calculate the period of the pendulum.",
+            "variables": [
+              { "id": "n", "min": 10, "max": 20, "step": 10 },
+              { "id": "t", "min": 15, "max": 30, "step": 0.5 }
+            ],
+            "answer": { "formula": "t / n", "unit": "s", "decimals": 2 },
+            "working": [
+              "period = total time ÷ number of oscillations",
+              "period = {t} ÷ {n}",
+              "period = {answer} s"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure many, then divide, to find a small distance or short time.",
+            "Timing many oscillations reduces the effect of reaction-time errors."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how to read the volume of water in a measuring cylinder accurately.",
+      "a": "Stand it on a level surface, put your eye level with the liquid and read at the bottom of the meniscus.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why timing 10 oscillations of a pendulum gives a more accurate period than timing one.",
+      "a": "The timing (reaction time) error is spread over a longer time, so it has less effect on the period.",
+      "marks": 1
+    },
+    {
+      "q": "A stack of 200 sheets of paper is 2.0 cm thick. Calculate the thickness of one sheet.",
+      "a": "2.0 ÷ 200 = 0.010 cm (0.1 mm).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.1.1", "CAIE 1.1.2", "CAIE 1.1.3"],
+      "worked_example": {
+        "exemplar_id": "ca94bc6f-2a7f-4918-a458-7399bd29995e",
+        "source": "CAMBRIDGE mar 2025, Paper 62, Q1(a)",
+        "question": "A student investigates the behaviour of a spring. She suspends a mass of 100 g from the spring and measures the stretched length of the spring. Describe two techniques for measuring the length of the spring, to ensure an accurate reading.",
+        "marks": 2,
+        "answer_points": [
+          "Read the ruler viewing it perpendicularly (at right angles).",
+          "Put the ruler close to the spring.",
+          "Use a set-square or short ruler to measure the length of the spring.",
+          "Use a set-square to check that the ruler is vertical.",
+          "Use a horizontal marker."
+        ],
+        "tip": "Any two score one mark each. Name the technique, not just \"be careful\"."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": ["a99d6578-2692-4abe-86da-5532a15f4c35", "5878bf60-6c66-4253-83e8-16b9e4cbe9c7", "43e2ae15-1e41-41c1-ae49-110709e53567"],
+    "exemplar_ids": ["ca94bc6f-2a7f-4918-a458-7399bd29995e"]
+  }
+}

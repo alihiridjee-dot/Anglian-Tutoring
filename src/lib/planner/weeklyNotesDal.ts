@@ -1,6 +1,7 @@
 import { supabase } from "@/integrations/supabase/client";
 import { type Json } from "@/integrations/supabase/types";
 import { getSessionUserId } from "@/lib/auth/session";
+import { dbError } from "@/lib/platform/errors";
 
 /** A stored end-of-week check-in row. */
 export interface WeeklyCheckin {
@@ -62,7 +63,7 @@ export class WeeklyNotesDAL {
       },
       { onConflict: "plan_id" },
     );
-    if (error) throw error;
+    if (error) throw dbError(error);
   }
 
   /**
@@ -78,6 +79,25 @@ export class WeeklyNotesDAL {
     if (error) throw error;
     if (!data) return null;
     return { plan_id: data.plan_id, note: data.note, next_points: data.next_points ?? [] };
+  }
+
+  /**
+   * The tutor's notes for several plans in one read, keyed by plan id. A plan
+   * with no note has no entry. Throws on a failed read, like `getTutorNote`.
+   */
+  static async getTutorNotes(planIds: string[]): Promise<Map<string, TutorNote>> {
+    if (planIds.length === 0) return new Map();
+    const { data, error } = await supabase
+      .from("student_weekly_tutor_notes")
+      .select("plan_id, note, next_points")
+      .in("plan_id", planIds);
+    if (error) throw error;
+    return new Map(
+      (data ?? []).map((r) => [
+        r.plan_id,
+        { plan_id: r.plan_id, note: r.note, next_points: r.next_points ?? [] },
+      ]),
+    );
   }
 
   /**
@@ -104,6 +124,6 @@ export class WeeklyNotesDAL {
       },
       { onConflict: "plan_id" },
     );
-    if (error) throw error;
+    if (error) throw dbError(error);
   }
 }

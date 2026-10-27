@@ -1,0 +1,364 @@
+{
+  "format": 1,
+  "concept_id": "phys-033",
+  "subject": "physics",
+  "title": "Atomic number, mass number and isotopes",
+  "key_idea": "The **atomic number** is the number of protons and identifies the element. The **mass number** is protons plus neutrons. **Isotopes** are atoms of the same element with the same number of protons but a different number of neutrons.",
+  "sections": [
+    {
+      "heading": "Atomic number and mass number",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two numbers describe the nucleus of an atom. This section covers what they mean and how to find the number of neutrons."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Atomic number",
+              "meaning": "The number of protons in an atom. Every atom of an element has the same atomic number."
+            },
+            {
+              "term": "Mass number",
+              "meaning": "The total number of protons and neutrons in an atom."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a neutral atom the number of electrons equals the number of protons.",
+            "The atomic number fixes the charge of the nucleus, so it fixes the element.",
+            "A nucleus is written with the mass number at the top and the atomic number at the bottom, for example ²³⁸₉₂U.",
+            "²³⁸₉₂U means mass number 238 and atomic number 92. It has 92 protons."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Number of neutrons",
+          "formula": "number of neutrons = mass number - atomic number",
+          "where": [
+            "Mass number is the number of protons plus neutrons.",
+            "Atomic number is the number of protons."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Read the numbers.",
+              "text": "For ²³⁸₉₂U the mass number is 238 and the atomic number is 92."
+            },
+            {
+              "lead": "Subtract.",
+              "text": "Neutrons = 238 - 92."
+            },
+            {
+              "lead": "Answer.",
+              "text": "Neutrons = 146. There are 92 protons and 92 electrons."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the number of neutrons in a uranium nucleus.",
+            "question": "A uranium nucleus has atomic number 92 and mass number {A}. Calculate the number of neutrons in the nucleus.",
+            "variables": [
+              {
+                "id": "A",
+                "min": 233,
+                "max": 238,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "A - 92",
+              "decimals": 0
+            },
+            "working": [
+              "Neutrons = mass number - atomic number",
+              "Neutrons = {A} - 92",
+              "Neutrons = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Atomic number is the number of protons. Mass number is protons plus neutrons.",
+            "Neutrons = mass number - atomic number.",
+            "A neutral atom has equal numbers of protons and electrons."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Isotopes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Atoms of one element are not all identical. They can differ in the number of neutrons."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Isotopes",
+              "meaning": "Atoms of the same element with the same number of protons but different numbers of neutrons."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Isotopes have the same atomic number but different mass numbers.",
+            "The nucleus of each element has a characteristic positive charge, so isotopes of an element have the same charge.",
+            "Isotopes differ in mass because of their neutrons.",
+            "Carbon-12 has 6 protons and 6 neutrons. Carbon-14 has 6 protons and 8 neutrons.",
+            "Isotopes of one element have the same number of electrons, so they react in the same way."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Move the slider to change the number of neutrons in a carbon atom. The protons and electrons stay the same."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the number of neutrons in a carbon nucleus and see the mass number.",
+            "inputs": [
+              {
+                "id": "n",
+                "label": "Neutrons",
+                "min": 4,
+                "max": 10,
+                "step": 1,
+                "value": 6
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Protons (atomic number)",
+                "formula": "6",
+                "decimals": 0
+              },
+              {
+                "label": "Electrons in the atom",
+                "formula": "6",
+                "decimals": 0
+              },
+              {
+                "label": "Mass number",
+                "formula": "6 + n",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Isotopes have the same number of protons and a different number of neutrons.",
+            "Isotopes have the same atomic number and a different mass number."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Ions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An atom has no overall charge. It becomes an ion when it gains or loses electrons."
+        },
+        {
+          "type": "list",
+          "items": [
+            "An atom that loses one or more outer electrons becomes a positive ion.",
+            "The number of protons does not change, so there are now more protons than electrons.",
+            "The nucleus is unchanged, so the element stays the same."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Losing an electron makes a positive ion.",
+            "Only the electrons change. The nucleus stays the same."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A gold atom is written ¹⁹⁷₇₉Au. How many protons, neutrons and electrons does it have?",
+      "a": "Protons: 79. Neutrons: 197 - 79 = 118. Electrons: 79.",
+      "marks": 3
+    },
+    {
+      "q": "State what is the same and what is different in two isotopes of an element.",
+      "a": "They have the same number of protons (the same atomic number). They have a different number of neutrons (a different mass number).",
+      "marks": 2
+    },
+    {
+      "q": "What happens to an atom when it becomes a positive ion?",
+      "a": "It loses one or more outer electrons.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.4.1.2",
+        "AQA T 6.4.1.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "9a1e7744-b2a7-4dbe-bdb2-6b17ca3226cd",
+        "source": "AQA jun 2018, Paper 1 (F), Q5.1",
+        "question": "Americium-241 (²⁴¹₉₅Am) is an isotope of americium.\n\nIsotope A has mass number 243 and atomic number 95.\nIsotope B has mass number 243 and atomic number 94.\nIsotope C has mass number 242 and atomic number 95.\n\nWhich of these isotopes is not an isotope of americium?\n\nGive a reason for your answer.",
+        "marks": 2,
+        "answer_points": [
+          "B.",
+          "Americium has an atomic number of 95, and B has an atomic number of 94."
+        ],
+        "tip": "The reason scores only if B is chosen. Proton number is accepted for atomic number."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 6.3",
+        "EDEX 6.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "bb71e86b-1eb5-4ca5-960a-e18addb89362",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(a)",
+        "question": "Carbon-13 and carbon-14 are isotopes of carbon.\n\nNuclei of carbon-13 and carbon-14 can be represented by the symbols ¹³₆C and ¹⁴₆C.\n\nComplete a table for an atom of carbon-13 and an atom of carbon-14 giving the number of neutrons in the nucleus and the number of electrons in orbit around the nucleus.",
+        "marks": 2,
+        "answer_points": [
+          "Carbon-13: 7 neutrons and 6 electrons.",
+          "Carbon-14: 8 neutrons and 6 electrons."
+        ],
+        "tip": "One mark for each column, so both numbers in the column must be right."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P6.1a",
+        "OCR P6.1b",
+        "OCR P6.1c"
+      ],
+      "worked_example": {
+        "exemplar_id": "7f8c72c0-a02d-4629-be56-ef989267864e",
+        "source": "OCR jun 2025, Paper 2, Q18(a)",
+        "question": "The carbon-14 atom has 6 protons and 8 neutrons in its nucleus.\n\nCarbon-12 is a different isotope of carbon.\n\nState one similarity and one difference between an atom of carbon-14 and an atom of carbon-12.",
+        "marks": 2,
+        "answer_points": [
+          "Similarity: the same number of protons (the same number of electrons or the same atomic number is also allowed).",
+          "Difference: a different number of neutrons (a different mass number is also allowed)."
+        ],
+        "tip": "Carbon-12 has 6 protons and 6 neutrons. Say which particle is the same and which is different."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 5.1.1.2",
+        "CAIE 5.1.2.3",
+        "CAIE 5.1.2.4",
+        "CAIE 5.1.2.5",
+        "CAIE 5.1.2.8S",
+        "CAIE 5.1.2.7S",
+        "CAIE 5.2.3.3S"
+      ],
+      "worked_example": {
+        "exemplar_id": "673ead8d-606b-4497-b560-e74e2ea0556a",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q8(a)",
+        "question": "The isotope uranium-235 is represented by ²³⁵₉₂U.\n\nState what the numbers 92 and 235 represent in this symbol.",
+        "marks": 2,
+        "answer_points": [
+          "92 is the proton number (the number of protons in the nucleus).",
+          "235 is the nucleon number (the number of protons and neutrons in the nucleus)."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An atom that gains one or more electrons becomes a negative ion.",
+                "(Supplement) The relative mass of a nucleus is equal to its nucleon number, because protons and neutrons each have a relative mass of 1.",
+                "The proton number is another name for the atomic number. The nucleon number is another name for the mass number.",
+                "(Supplement) The relative charge on a nucleus equals its proton number, because neutrons have no charge.",
+                "(Supplement) An isotope can be radioactive if its nucleus has too many neutrons or is too heavy."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 7.3",
+        "IGCSE 7.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "4b4b1306-4315-4f61-a2d2-31995ef648ac",
+        "source": "EDEXCEL jun 2025, Paper 2 (PR), Q2(a)",
+        "question": "Uranium-239 is an isotope of the element uranium.\n\nState what is meant by the term isotopes.",
+        "marks": 2,
+        "answer_points": [
+          "Nuclei with the same number of protons.",
+          "Nuclei with a different number of neutrons."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The proton number is another name for the atomic number. The nucleon number is another name for the mass number."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "spec_point_ids": [
+      "4214a5da-b95b-420c-a248-d29d6aa0384c",
+      "acd7d4d4-03e3-4a81-99e3-435d86d8e979",
+      "94f80382-3e72-4f9a-8ceb-e4b4fabcead2",
+      "c94524a0-bab4-4f42-9aee-d79f25908de0",
+      "35b0e0e3-3274-4076-9f0c-9ebf39c49846",
+      "95cc0565-067e-4a02-9eba-9a0d3de080c9",
+      "e558d928-8f96-4af1-9063-db4a06737066",
+      "cb7f8cce-3e53-4596-a550-9bf06843de14",
+      "7da24b12-3ff6-4446-8ea5-aebef2d04065",
+      "fb38c4c9-4f0a-4273-8de6-8a9136a33bce",
+      "45e9db70-cede-4c21-bd7a-1e0764b89079",
+      "8eb71f5a-bae4-48c6-818b-6f7502c4c567",
+      "1a0a4480-1105-48ad-8237-482b0699c5ef"
+    ],
+    "exemplar_ids": [
+      "9a1e7744-b2a7-4dbe-bdb2-6b17ca3226cd",
+      "bb71e86b-1eb5-4ca5-960a-e18addb89362",
+      "7f8c72c0-a02d-4629-be56-ef989267864e",
+      "803cf3fb-7b3c-4005-9965-4bbd4765e4df",
+      "8afedb73-a551-4a93-bf08-917edcb6c784",
+      "7b6ff230-baf9-4946-8e40-8f3069de4c70",
+      "673ead8d-606b-4497-b560-e74e2ea0556a",
+      "4b4b1306-4315-4f61-a2d2-31995ef648ac"
+    ]
+  }
+}

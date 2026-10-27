@@ -1,0 +1,360 @@
+{
+  "format": 1,
+  "concept_id": "achem-024",
+  "subject": "chemistry",
+  "title": "Entropy",
+  "key_idea": "**Entropy**, S, measures how dispersed the energy and particles in a system are: the more ways they can be arranged, the higher the entropy. Change goes in the direction of increasing total entropy. This is why some endothermic reactions happen.",
+  "sections": [
+    {
+      "heading": "What entropy is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Enthalpy alone cannot explain why reactions happen. Some endothermic reactions go ahead at room temperature, so another factor must be involved."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Entropy, S",
+              "meaning": "A measure of the dispersal of energy in a system. It is greater the more disordered the system, and the more ways the particles and their energy can be arranged."
+            },
+            {
+              "term": "Entropy change, ΔS",
+              "meaning": "The final entropy minus the initial entropy. It is positive when the system becomes more disordered."
+            },
+            {
+              "term": "Standard entropy, S⦵",
+              "meaning": "The entropy of 1 mol of a substance under standard conditions. Its units are J K⁻¹ mol⁻¹."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Energy and matter tend to spread out. A hot object cools by spreading energy to its surroundings, and a gas expands to fill its container.",
+            "The natural direction of change is towards an increase in the total entropy of the system and its surroundings.",
+            "Entropy values are never negative. A perfect crystal at 0 K has zero entropy.",
+            "Entropy changes are small, so they are measured in J K⁻¹ mol⁻¹, not kJ."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Entropy measures the dispersal of energy and particles.",
+            "Total entropy tends to increase, so ΔS(total) is positive for a change that happens.",
+            "Units of entropy are J K⁻¹ mol⁻¹."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Predicting the sign of ΔS",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You can predict whether ΔS for a system is positive or negative by asking whether the particles end up with more freedom."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Change",
+            "Sign of ΔS",
+            "Reason"
+          ],
+          "rows": [
+            [
+              "Solid to liquid to gas",
+              "Positive",
+              "Particles move more freely, so there are more arrangements"
+            ],
+            [
+              "Gas to liquid to solid",
+              "Negative",
+              "Particles are more ordered"
+            ],
+            [
+              "Heating a substance",
+              "Positive",
+              "Particles have more energy, spread over more energy levels"
+            ],
+            [
+              "Dissolving an ionic solid",
+              "Usually positive",
+              "The ordered lattice breaks up and ions disperse in solution"
+            ],
+            [
+              "More moles of gas on the right",
+              "Positive",
+              "Gases have far greater entropy than solids and liquids"
+            ],
+            [
+              "Fewer moles of gas on the right",
+              "Negative",
+              "The gas molecules are fewer and more ordered"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Order of entropy for a substance: solid < liquid << gas. The step from liquid to gas is the largest.",
+            "For a reaction, count the moles of gas on each side. A change in gas moles has a bigger effect than any other.",
+            "Some dissolving is the exception: ions with a high charge density order the water molecules around them, which can make ΔS negative."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort six changes into those where entropy increases and those where it decreases.",
+            "prompt": "Sort each change by what happens to the entropy of the system",
+            "groups": [
+              "Entropy increases",
+              "Entropy decreases"
+            ],
+            "items": [
+              {
+                "text": "Ice melts to water",
+                "group": 0
+              },
+              {
+                "text": "Steam condenses to water",
+                "group": 1
+              },
+              {
+                "text": "CaCO₃(s) → CaO(s) + CO₂(g)",
+                "group": 0
+              },
+              {
+                "text": "N₂(g) + 3H₂(g) → 2NH₃(g)",
+                "group": 1
+              },
+              {
+                "text": "A gas is heated",
+                "group": 0
+              },
+              {
+                "text": "Water freezes to ice",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gases have much higher entropy than liquids and solids.",
+            "More moles of gas gives a positive ΔS; fewer gives a negative ΔS.",
+            "Melting, boiling, dissolving and heating usually raise entropy."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating entropy changes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Use standard entropy values to find ΔS for the system. Then use the enthalpy change to find ΔS for the surroundings. The two add up to the total."
+        },
+        {
+          "type": "equation",
+          "label": "Entropy change of the system",
+          "formula": "ΔS(system) = ΣS⦵(products) − ΣS⦵(reactants)",
+          "where": [
+            "ΔS in J K⁻¹ mol⁻¹",
+            "Σ = sum of (moles × standard entropy) for each substance"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the entropy change of the system for the formation of ammonia from nitrogen and hydrogen.",
+            "question": "N₂(g) + 3H₂(g) → 2NH₃(g). S⦵ values: N₂ **{n}**, H₂ **{h}**, NH₃ **{a}** J K⁻¹ mol⁻¹. Calculate ΔS(system).",
+            "variables": [
+              {
+                "id": "n",
+                "min": 190,
+                "max": 193,
+                "step": 1
+              },
+              {
+                "id": "h",
+                "min": 130,
+                "max": 131,
+                "step": 1
+              },
+              {
+                "id": "a",
+                "min": 192,
+                "max": 193,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "2 * a - n - 3 * h",
+              "unit": "J K⁻¹ mol⁻¹",
+              "decimals": 0
+            },
+            "working": [
+              "ΣS(products) = 2 × {a}",
+              "ΣS(reactants) = {n} + 3 × {h}",
+              "ΔS(system) = products − reactants = **{answer}** J K⁻¹ mol⁻¹ (negative: 4 mol of gas becomes 2 mol)"
+            ]
+          }
+        },
+        {
+          "type": "equation",
+          "label": "Entropy change of the surroundings",
+          "formula": "ΔS(surroundings) = −ΔH ÷ T",
+          "where": [
+            "ΔS(surroundings) in J K⁻¹ mol⁻¹",
+            "ΔH = enthalpy change of the reaction, in J mol⁻¹ (multiply kJ by 1000)",
+            "T = temperature, in K"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Total entropy change",
+          "formula": "ΔS(total) = ΔS(system) + ΔS(surroundings)",
+          "where": [
+            "all terms in J K⁻¹ mol⁻¹"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "An exothermic reaction releases heat. This disperses energy into the surroundings, so ΔS(surroundings) is positive.",
+            "An endothermic reaction takes heat in, so ΔS(surroundings) is negative.",
+            "A reaction can happen if ΔS(total) is positive, even if ΔS(system) is negative.",
+            "An endothermic reaction can happen when ΔS(system) is positive and large enough to make ΔS(total) positive."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ΔS(system) = Σproducts − Σreactants.",
+            "ΔS(surroundings) = −ΔH ÷ T, with ΔH converted to J.",
+            "The reaction happens when ΔS(total) is positive."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Predict the sign of ΔS for 2H₂O₂(l) → 2H₂O(l) + O₂(g). Explain your answer.",
+      "a": "Positive. A gas is produced from liquids, and gases have much higher entropy because their particles can be arranged in many more ways.",
+      "marks": 2
+    },
+    {
+      "q": "A reaction has ΔH = −92 kJ mol⁻¹ at 298 K. Calculate ΔS(surroundings).",
+      "a": "ΔS(surroundings) = −ΔH ÷ T = +92 000 ÷ 298 = +309 J K⁻¹ mol⁻¹.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how an endothermic reaction can occur at room temperature.",
+      "a": "ΔS(surroundings) is negative, but if ΔS(system) is positive and larger in size, ΔS(total) is positive, so the reaction is favoured.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.2a",
+        "OCR 5.2.2b",
+        "OCR 5.2.2c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explain why entropy differs between solids, liquids and gases.",
+                "Explain the effect of a change in the number of gaseous molecules in a reaction on the entropy.",
+                "Calculate ΔS for a reaction from the entropies of the reactants and products."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 13B.12",
+        "EDEX 13B.13",
+        "EDEX 13B.14",
+        "EDEX 13B.15",
+        "EDEX 13B.16",
+        "EDEX 13B.17"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Discuss typical reactions in terms of disorder and enthalpy change: dissolving ammonium nitrate crystals in water, ethanoic acid with ammonium carbonate, burning magnesium ribbon in air, and solid barium hydroxide (Ba(OH)₂·8H₂O) with solid ammonium chloride.",
+                "The first, second and fourth are endothermic and still go ahead: ΔS(system) is positive and large, because a solid becomes liquid or gas. Burning magnesium is exothermic: it releases so much heat that ΔS(surroundings) is large and positive, even though ΔS(system) is negative."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 23.3.1",
+        "CAIE 23.3.2",
+        "CAIE 23.3.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Define entropy as the number of possible arrangements of the particles and their energy in a given system.",
+                "Predict and explain the sign of ΔS for a change of state, a temperature change, and a reaction that changes the number of gaseous molecules.",
+                "ΔS⦵ = ΣS⦵(products) − ΣS⦵(reactants). Using ΔS(total) = ΔS(surroundings) + ΔS(system) is not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.8.2"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "9a6396a6-72a1-4cf1-a69b-cbf2a0bb01d9",
+      "8744002a-a763-4816-8036-3894aca09227",
+      "0045a5e1-da31-4ab6-ad3a-8216e937bac9",
+      "fe798e15-472b-4eea-ae21-0d315bd6281f",
+      "ff4859e4-9b3a-4cfe-8a06-94c2936595ac",
+      "99b17949-f9fd-4d5a-8909-80ac5c1138ba",
+      "5b10d1a1-4488-4ffb-848f-17ad83f3bf2f",
+      "39111f5d-e8bb-4a7b-b049-9100d0da0e6d",
+      "e015feba-a953-464c-aca1-b858cb4469f6",
+      "caad0562-39a3-4fb2-98eb-4fb6a2893b8d",
+      "100e76ef-0640-4f17-841f-6bdb14b2f453",
+      "f04238ef-5250-448a-a550-0b5dd962b622"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -8,8 +8,34 @@ import {
   noWork,
   practiceInWeek,
 } from "./coverage";
-import { mapAttemptSources } from "./attemptSources";
-import { selectIn, selectInSafe } from "../platform/db/chunked";
+import { sourcesFromRows } from "./attemptSources";
+import { readPointEvidence } from "./readModels";
+import { selectInSafe } from "../platform/db/chunked";
+
+/** Which promised points were delivered, and which still sit in a later week. */
+export interface DeliveryLedger {
+  done: Set<string>;
+  outstanding: Set<string>;
+}
+type LedgerRow = {
+  week_start: string;
+  student_weekly_plan_points: { spec_point_id: string; done_at: string | null }[] | null;
+};
+
+/** The ledger from every week's rows (see getDeliveryLedger). */
+export function ledgerFrom(weeks: LedgerRow[], fromWeek: string): DeliveryLedger {
+  const done = new Set<string>();
+  const outstanding = new Set<string>();
+  for (const plan of weeks) {
+    // Date-keys are YYYY-MM-DD, so a lexical compare is a chronological one.
+    const pending = plan.week_start > fromWeek;
+    for (const point of plan.student_weekly_plan_points ?? []) {
+      if (point.done_at) done.add(point.spec_point_id);
+      else if (pending) outstanding.add(point.spec_point_id);
+    }
+  }
+  return { done, outstanding };
+}
 
 /**
  * What happened in a student's weeks, read back: what was delivered, the work
@@ -41,28 +67,14 @@ export class WeeklyActivityDAL {
     subject: SubjectV,
     /** Monday of the week being planned — only later weeks are outstanding. */
     fromWeek: string,
-  ): Promise<{ done: Set<string>; outstanding: Set<string> }> {
-    const done = new Set<string>();
-    const outstanding = new Set<string>();
+  ): Promise<DeliveryLedger> {
     const { data, error } = await supabase
       .from("student_weekly_plans")
       .select("week_start, student_weekly_plan_points(spec_point_id, done_at)")
       .eq("student_id", studentId)
       .eq("subject", subject);
     if (error) throw new Error(error.message);
-
-    for (const plan of (data ?? []) as unknown as {
-      week_start: string;
-      student_weekly_plan_points: { spec_point_id: string; done_at: string | null }[] | null;
-    }[]) {
-      // Date-keys are YYYY-MM-DD, so a lexical compare is a chronological one.
-      const pending = plan.week_start > fromWeek;
-      for (const point of plan.student_weekly_plan_points ?? []) {
-        if (point.done_at) done.add(point.spec_point_id);
-        else if (pending) outstanding.add(point.spec_point_id);
-      }
-    }
-    return { done, outstanding };
+    return ledgerFrom((data ?? []) as unknown as LedgerRow[], fromWeek);
   }
 
   /**
@@ -210,35 +222,14 @@ export class WeeklyActivityDAL {
     }
     if (specPointIds.length === 0) return out;
 
-    // spec point → homework resource ids, and → mcq set ids.
-    const { resourceToPoints, setToPoints } = await mapAttemptSources(specPointIds);
-
-    const resourceIds = [...resourceToPoints.keys()];
-    const setIds = [...setToPoints.keys()];
-
-    const [subs, attempts] = await Promise.all([
-      selectIn<{ resource_id: string; score_pct: number | null; submitted_at: string }>(
-        resourceIds,
-        (batch) =>
-          supabase
-            .from("homework_submissions")
-            .select("resource_id, score_pct, submitted_at")
-            .eq("student_id", studentId)
-            .in("resource_id", batch),
-      ),
-      selectIn<{
-        set_id: string;
-        score: number | null;
-        total: number | null;
-        created_at: string;
-      }>(setIds, (batch) =>
-        supabase
-          .from("mcq_attempts")
-          .select("set_id, score, total, created_at")
-          .eq("user_id", studentId)
-          .in("set_id", batch),
-      ),
-    ]);
+    // The homework and quizzes behind the points, and the student's attempts at
+    // them, in one trip (`planner_point_evidence`).
+    const {
+      sources,
+      submissions: subs,
+      attempts,
+    } = await readPointEvidence(studentId, specPointIds);
+    const { resourceToPoints, setToPoints } = sourcesFromRows(sources);
 
     const merge = (a: number | null, b: number | null) =>
       b == null ? a : a == null ? b : Math.max(a, b);

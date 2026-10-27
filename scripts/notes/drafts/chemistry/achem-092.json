@@ -1,0 +1,439 @@
+{
+  "format": 1,
+  "concept_id": "achem-092",
+  "subject": "chemistry",
+  "title": "NMR spectroscopy",
+  "key_idea": "NMR gives one peak per environment of ¹³C or ¹H atoms. Chemical shift shows the type of environment, peak area the number of protons, and splitting the neighbours.",
+  "sections": [
+    {
+      "heading": "What NMR shows",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Nuclear magnetic resonance (NMR) spectroscopy tells you about the carbon and hydrogen atoms in a molecule. This section covers the ideas shared by carbon-13 and proton NMR."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Environment",
+              "meaning": "The set of atoms of one element in the same position in the molecule, with the same surroundings. Atoms in the same environment give one peak."
+            },
+            {
+              "term": "Chemical shift, δ",
+              "meaning": "The position of a peak on the scale, in parts per million (ppm), measured from the TMS peak."
+            },
+            {
+              "term": "TMS",
+              "meaning": "Tetramethylsilane, (CH₃)₄Si, the standard that sets δ = 0."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Nuclei with an odd mass number, such as ¹H and ¹³C, behave like tiny magnets.",
+            "In a strong magnetic field, they absorb radio waves of a particular frequency.",
+            "The frequency depends on the **environment** of the nucleus, as the nearby atoms shield it. This is the chemical shift.",
+            "Atoms bonded to electronegative atoms or to C=O have a larger shift."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Each peak is one environment. More electronegative neighbours give a larger δ.",
+            "Symmetry in a molecule reduces the number of peaks."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Carbon-13 NMR",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Carbon-13 NMR shows the carbon atoms in a molecule. The spectra are simple because each environment gives a single peak."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The number of peaks equals the number of **different carbon environments**.",
+            "Each peak's position shows the type of carbon.",
+            "In ¹³C spectra the peaks are single lines (the spectra are proton decoupled), and they give no splitting information.",
+            "Spectra are simpler than ¹H spectra, since there are fewer peaks."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Carbon type",
+            "δ / ppm"
+          ],
+          "rows": [
+            [
+              "C–C (alkyl)",
+              "5–40"
+            ],
+            [
+              "C–Cl, C–Br, C–N",
+              "20–65"
+            ],
+            [
+              "C–O (alcohols, ethers, esters)",
+              "50–90"
+            ],
+            [
+              "C=C",
+              "90–150"
+            ],
+            [
+              "Benzene ring carbons",
+              "110–160"
+            ],
+            [
+              "C=O in acids and esters",
+              "160–185"
+            ],
+            [
+              "C=O in aldehydes and ketones",
+              "190–220"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Propan-2-ol has three carbon atoms but only two peaks. The two CH₃ carbons are in identical environments, so they share one peak. Propan-1-ol has three carbon environments and so three peaks."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Count the peaks to find the number of carbon environments.",
+            "Use δ to say what type each carbon is."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Proton NMR",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Proton (¹H) NMR gives three pieces of evidence for each environment: its shift, its area and its splitting."
+        },
+        {
+          "type": "subheading",
+          "text": "Chemical shift"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Proton type",
+            "δ / ppm"
+          ],
+          "rows": [
+            [
+              "R–CH₃",
+              "0.7–1.2"
+            ],
+            [
+              "R–CH₂–R",
+              "1.2–1.4"
+            ],
+            [
+              "CH₃–C=O or CH₂–C=O",
+              "2.1–2.6"
+            ],
+            [
+              "R–O–CH₂ or CH₂–OH",
+              "3.3–4.3"
+            ],
+            [
+              "C=C–H",
+              "4.5–6.0"
+            ],
+            [
+              "Aromatic H",
+              "6.0–9.0"
+            ],
+            [
+              "Aldehyde –CHO",
+              "9.4–10.0"
+            ],
+            [
+              "Carboxylic acid –COOH",
+              "10.0–12.0"
+            ],
+            [
+              "Alcohol –OH",
+              "0.5–5.0 (variable)"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Peak area"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The area under each peak is proportional to the number of protons in that environment.",
+            "The relative areas, from an integration trace or ratio numbers, give the simplest ratio of protons.",
+            "A ratio of 3 : 2 : 1 means three, two and one proton in the three environments, or a multiple of this."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Splitting: the n + 1 rule"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A proton with **n** equivalent protons on the neighbouring carbon atoms splits into **n + 1** lines.",
+            "Protons on the same carbon do not split each other.",
+            "Singlet: no neighbouring protons. Doublet (1 : 1): one. Triplet (1 : 2 : 1): two. Quartet (1 : 3 : 3 : 1): three."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a molecule to see its number of carbon peaks, proton environments, area ratio and splitting.",
+            "prompt": "Pick a molecule",
+            "result_labels": [
+              "¹³C peaks",
+              "¹H environments",
+              "¹H area ratio",
+              "¹H splitting"
+            ],
+            "options": [
+              {
+                "label": "Ethanol, CH₃CH₂OH",
+                "results": [
+                  "2",
+                  "3",
+                  "3 : 2 : 1",
+                  "triplet, quartet, singlet"
+                ]
+              },
+              {
+                "label": "Propan-1-ol, CH₃CH₂CH₂OH",
+                "results": [
+                  "3",
+                  "4",
+                  "3 : 2 : 2 : 1",
+                  "triplet, multiplet, triplet, singlet"
+                ]
+              },
+              {
+                "label": "Propan-2-ol, (CH₃)₂CHOH",
+                "results": [
+                  "2",
+                  "3",
+                  "6 : 1 : 1",
+                  "doublet, multiplet, singlet"
+                ]
+              },
+              {
+                "label": "Propanone, CH₃COCH₃",
+                "results": [
+                  "2",
+                  "1",
+                  "single peak",
+                  "singlet"
+                ]
+              },
+              {
+                "label": "Ethanal, CH₃CHO",
+                "results": [
+                  "2",
+                  "2",
+                  "3 : 1",
+                  "doublet, quartet"
+                ]
+              },
+              {
+                "label": "Ethanoic acid, CH₃COOH",
+                "results": [
+                  "2",
+                  "2",
+                  "3 : 1",
+                  "singlet, singlet"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Shift tells the environment, area the number of protons, splitting the neighbours.",
+            "Use n + 1 on the adjacent carbons, not on the same carbon."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Standards, solvents and D₂O",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A spectrum needs a reference point and a solvent that does not give its own peaks. This section covers both, and a trick for O–H and N–H protons."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**TMS** is added as the reference. Its peak is set at δ = 0 and all other shifts are measured from it.",
+            "The sample is dissolved in a **deuterated solvent** such as CDCl₃. Deuterium (²H) does not absorb in the proton NMR range, so the solvent gives no peaks to hide the sample's.",
+            "Add a drop of **D₂O** and shake. The O–H or N–H protons swap for deuterium, and their peaks vanish from the spectrum."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Comparing a spectrum before and after adding D₂O shows which peak is the O–H or N–H proton."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "TMS is the zero point of the δ scale.",
+            "Deuterated solvents give no ¹H peaks, and D₂O removes O–H and N–H peaks."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the number of peaks in the ¹³C NMR spectrum of propanone and in its ¹H NMR spectrum.",
+      "a": "Two peaks in ¹³C (the two CH₃ carbons are equivalent, plus C=O). One peak in ¹H (all six protons are equivalent).",
+      "marks": 2
+    },
+    {
+      "q": "A ¹H NMR spectrum has a triplet at δ 1.0 and a quartet at δ 2.4, in the ratio 3 : 2. Explain the splitting.",
+      "a": "The CH₃ protons have two neighbouring protons (CH₂), so n + 1 = 3, a triplet. The CH₂ protons have three neighbouring protons (CH₃), so n + 1 = 4, a quartet.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how D₂O is used to identify an O–H proton.",
+      "a": "Run the spectrum, add D₂O and shake, then run it again. The peak from the O–H proton disappears because the H is exchanged for D.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.3.2a",
+        "OCR 6.3.2b",
+        "OCR 6.3.2c",
+        "OCR 6.3.2d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You must be able to recognise aromatic protons from their shift, but you are not asked to analyse their splitting."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Aromatic protons appear in the range δ 6.0–9.0.",
+                "You may also be asked to predict the ¹³C or ¹H spectrum of a molecule you are given: count the environments, estimate each δ from the data sheet and give the splitting.",
+                "Chemical shift values are provided on the data sheet."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 19B.2",
+        "EDEX 19B.3",
+        "EDEX 19B.4",
+        "EDEX 19B.5"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.15"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "¹H spectra can be recorded in CCl₄ as well as in deuterated solvents, as CCl₄ has no hydrogen atoms."
+            },
+            {
+              "type": "list",
+              "items": [
+                "TMS is suitable as a standard because it gives **one sharp peak**, since all 12 protons are equivalent.",
+                "It is **inert**, so it does not react with the sample.",
+                "It is **volatile**, so it is easy to remove afterwards.",
+                "Its peak lies at a lower shift than almost every other peak, so it does not overlap.",
+                "Splitting patterns are limited to doublet, triplet and quartet in aliphatic compounds."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 37.3.1",
+        "CAIE 37.3.2",
+        "CAIE 37.4.1",
+        "CAIE 37.4.2",
+        "CAIE 37.4.3",
+        "CAIE 37.4.4",
+        "CAIE 37.4.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Splitting patterns are limited to singlet, doublet, triplet, quartet and multiplet."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A pattern of more than four lines is called a multiplet.",
+                "You may be asked to predict the shift and splitting for each proton in a molecule you are given, and then to use them to suggest a structure."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c989bc5f-cf24-45d2-b582-a30dc0b90ee9",
+      "86394459-c156-4341-b393-41aa83fbf28d",
+      "dc3ef34d-58b5-45fd-a523-bef0969cdb6c",
+      "c1d4d1fe-b245-4163-88b4-653ed5f909c4",
+      "b993ec1f-ff7c-4092-bae8-bcfde21a4b44",
+      "b3cc1238-e714-4d72-8042-bc43ca8ccff0",
+      "cf9cf770-303c-4e3a-84e8-0648e16fef89",
+      "3865909b-867d-4d65-ae95-eb3e78504583",
+      "134f8a43-35de-4069-b897-536ce7f651fa",
+      "5053fe86-4f7e-416e-806d-cb99861a02fc",
+      "41681235-4256-4d71-965e-c2ca2c2bf686",
+      "17640f7a-e250-406b-a55a-4cf31711c792",
+      "f3e5b11d-2ba3-47f1-a022-1f966e134f80",
+      "747622da-ec59-41eb-b13d-e6ec1d3525f3",
+      "474aa83f-441e-4305-b468-51097f8b0ea7",
+      "a1badb8d-c60e-40f4-a2ce-294df343e33f"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

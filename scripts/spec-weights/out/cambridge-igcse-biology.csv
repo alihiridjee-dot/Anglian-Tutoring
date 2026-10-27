@@ -1,0 +1,390 @@
+code,title,weight,topic
+CAIE 1.1.1,Describe the characteristics of living organisms,4.44,Characteristics and classification of living organisms
+CAIE 1.2.1,State that organisms can be classified into groups by the features that they share,1,Characteristics and classification of living organisms
+CAIE 1.2.2,Describe a species as a group of organisms that can reproduce to produce fertile offspring,1.3,Characteristics and classification of living organisms
+CAIE 1.2.3,Describe the binomial system of naming species using genus and species,1.43,Characteristics and classification of living organisms
+CAIE 1.2.4,Construct and use dichotomous keys based on identifiable features,1.4,Characteristics and classification of living organisms
+CAIE 1.2.5S,Explain that classification systems aim to reflect evolutionary relationships,1.7,Characteristics and classification of living organisms
+CAIE 1.2.6S,Explain that the sequences of bases in DNA are used as a means of classification,1.7,Characteristics and classification of living organisms
+CAIE 1.2.7S,Explain how DNA base sequences show the relatedness of organisms,1.86,Characteristics and classification of living organisms
+CAIE 1.3.1,State the main features used to place animals and plants into the appropriate kingdoms,1,Characteristics and classification of living organisms
+CAIE 1.3.2,State the main features used to place organisms into groups within the animal kingdom,1.71,Characteristics and classification of living organisms
+CAIE 1.3.3,Classify organisms using the features identified in 1.3.1 and 1.3.2,1.4,Characteristics and classification of living organisms
+CAIE 1.3.4S,State the features used to place organisms into the five kingdoms,1,Characteristics and classification of living organisms
+CAIE 1.3.5S,State the main features used to place organisms into groups within the plant kingdom,1,Characteristics and classification of living organisms
+CAIE 1.3.6S,Classify organisms using the features identified in 1.3.4 and 1.3.5,1.4,Characteristics and classification of living organisms
+CAIE 1.3.7S,State the features of viruses,1,Characteristics and classification of living organisms
+CAIE 2.1.1,Describe and compare the structure of a plant cell with an animal cell,1.3,Organisation of the organism
+CAIE 2.1.2,Describe the structure of a bacterial cell,1.3,Organisation of the organism
+CAIE 2.1.3,"Identify cell structures in diagrams of plant, animal and bacterial cells",1.2,Organisation of the organism
+CAIE 2.1.4,"Describe the functions of cell structures in plant, animal and bacterial cells",1.3,Organisation of the organism
+CAIE 2.1.5,State that new cells are produced by division of existing cells,1,Organisation of the organism
+CAIE 2.1.6,State that specialised cells have specific functions,3.01,Organisation of the organism
+CAIE 2.1.7,"Describe the meaning of cell, tissue, organ, organ system and organism",1.3,Organisation of the organism
+CAIE 2.2.1,State and use the formula: magnification = image size ÷ actual size,1,Organisation of the organism
+CAIE 2.2.2,Calculate magnification and size of biological specimens using millimetres as units,1.8,Organisation of the organism
+CAIE 2.2.3S,Convert measurements between millimetres (mm) and micrometres (μm),1.4,Organisation of the organism
+CAIE 3.1.1,Describe diffusion as net movement of particles down a concentration gradient,1.5,Movement into and out of cells
+CAIE 3.1.2,State that diffusion energy comes from random movement of molecules and ions,1,Movement into and out of cells
+CAIE 3.1.3,State that some substances cross the cell membrane by diffusion,1,Movement into and out of cells
+CAIE 3.1.4,Describe the importance of diffusion of gases and solutes in living organisms,1.3,Movement into and out of cells
+CAIE 3.1.5,Investigate the factors that influence diffusion,4.2,Movement into and out of cells
+CAIE 3.2.1,"Describe the role of water as a solvent in digestion, excretion and transport",1.3,Movement into and out of cells
+CAIE 3.2.2,State that water diffuses through partially permeable membranes by osmosis,1,Movement into and out of cells
+CAIE 3.2.3,State that water moves into and out of cells by osmosis through the cell membrane,1,Movement into and out of cells
+CAIE 3.2.4,Investigate osmosis using materials such as dialysis tubing,4.2,Movement into and out of cells
+CAIE 3.2.5,Investigate and describe the effect of solution concentration on plant tissues,4.2,Movement into and out of cells
+CAIE 3.2.6,State that plants are supported by water pressing outwards on cell walls,1,Movement into and out of cells
+CAIE 3.2.7S,Describe osmosis as net water movement from higher to lower water potential,1.46,Movement into and out of cells
+CAIE 3.2.8S,Explain the effects of solutions on plant cells using turgor and plasmolysis,1.7,Movement into and out of cells
+CAIE 3.2.9S,Explain the importance of water potential and osmosis in water uptake and loss,1.7,Movement into and out of cells
+CAIE 3.3.1,Describe active transport as particle movement against a concentration gradient,1.48,Movement into and out of cells
+CAIE 3.3.2S,"Explain the importance of active transport, including ion uptake by root hairs",1.7,Movement into and out of cells
+CAIE 3.3.3S,State that protein carriers move molecules or ions in active transport,1,Movement into and out of cells
+CAIE 4.1.1,"List the chemical elements that make up: carbohydrates, fats and proteins",1.1,Biological molecules
+CAIE 4.1.2,State that large molecules are made from smaller molecules,1.82,Biological molecules
+CAIE 4.1.3,"Describe the tests for starch, reducing sugars, proteins, fats and vitamin C",2.64,Biological molecules
+CAIE 4.1.4S,Describe the structure of a DNA molecule,2.87,Biological molecules
+CAIE 5.1.1,Describe a catalyst as a substance that speeds up a reaction and is unchanged,1.3,Enzymes
+CAIE 5.1.2,Describe enzymes as protein biological catalysts in all metabolic reactions,1.3,Enzymes
+CAIE 5.1.3,Describe why enzymes give reaction rates high enough to sustain life,1.3,Enzymes
+CAIE 5.1.4,Describe enzyme action in terms of the complementary active site and substrate,1.3,Enzymes
+CAIE 5.1.5,Investigate and describe the effect of temperature and pH on enzyme activity,4.2,Enzymes
+CAIE 5.1.6S,Explain enzyme action using the active site and enzyme–substrate complex,1.7,Enzymes
+CAIE 5.1.7S,Explain enzyme specificity in terms of active site and substrate fit,1.7,Enzymes
+CAIE 5.1.8S,"Explain the effect of temperature on enzyme activity, including denaturation",1.7,Enzymes
+CAIE 5.1.9S,"Explain the effect of pH changes on enzyme activity, including denaturation",1.7,Enzymes
+CAIE 6.1.1,Describe photosynthesis as making carbohydrates from raw materials using light,1.3,Plant nutrition
+CAIE 6.1.2,"State the word equation for photosynthesis, including light and chlorophyll",1,Plant nutrition
+CAIE 6.1.3,State that chlorophyll is a green pigment that is found in chloroplasts,1,Plant nutrition
+CAIE 6.1.4,State that chlorophyll transfers light energy into chemical energy,1,Plant nutrition
+CAIE 6.1.5,Outline the subsequent use and storage of the carbohydrates made in photosynthesis,3.01,Plant nutrition
+CAIE 6.1.6,Explain the importance of nitrate ions for amino acids and magnesium for chlorophyll,2.14,Plant nutrition
+CAIE 6.1.7,"Investigate the need for chlorophyll, light and carbon dioxide in photosynthesis",4.2,Plant nutrition
+CAIE 6.1.8,"Investigate and describe how light, CO₂ and temperature affect photosynthesis",4.2,Plant nutrition
+CAIE 6.1.9,Investigate the effect of light and dark on gas exchange in an aquatic plant,4.2,Plant nutrition
+CAIE 6.1.10S,State the balanced chemical equation for photosynthesis as: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂,1,Plant nutrition
+CAIE 6.1.11S,Identify and explain the limiting factors of photosynthesis,1.2,Plant nutrition
+CAIE 6.2.1,"State and explain how large, thin leaves are adapted for photosynthesis",1,Plant nutrition
+CAIE 6.2.2,Identify leaf structures of a dicotyledonous plant in diagrams and images,1.44,Plant nutrition
+CAIE 6.2.3,Explain how the structures listed in 6.2.2 adapt leaves for photosynthesis,1.7,Plant nutrition
+CAIE 7.1.1,Describe what is meant by a balanced diet,1.3,Human nutrition
+CAIE 7.1.2,"State the dietary sources and importance of nutrients, fibre and water",2.83,Human nutrition
+CAIE 7.1.3,State the causes of scurvy and rickets,1,Human nutrition
+CAIE 7.2.1,Identify in diagrams and images the main organs of the digestive system,2,Human nutrition
+CAIE 7.2.2,"Describe the functions of digestive organs, from ingestion to egestion",3.47,Human nutrition
+CAIE 7.3.1,Describe physical digestion as the breakdown of food into smaller pieces,1.3,Human nutrition
+CAIE 7.3.2,State that physical digestion increases the surface area of food for enzymes,1,Human nutrition
+CAIE 7.3.3,"Identify incisors, canines, premolars and molars in diagrams and images",1.2,Human nutrition
+CAIE 7.3.4,Describe the structure of human teeth,1.34,Human nutrition
+CAIE 7.3.5,Describe the functions of the types of human teeth in physical digestion of food,1.3,Human nutrition
+CAIE 7.3.6,Describe the function of the stomach in physical digestion,1.3,Human nutrition
+CAIE 7.3.7S,Outline the role of bile in emulsifying fats and oils to increase surface area,1.4,Human nutrition
+CAIE 7.4.1,Describe chemical digestion as breaking large insoluble molecules into soluble ones,1.3,Human nutrition
+CAIE 7.4.2,State the role of chemical digestion in making small molecules that can be absorbed,1,Human nutrition
+CAIE 7.4.3,"Describe the functions of the enzymes amylase, proteases and lipase",2.2,Human nutrition
+CAIE 7.4.4,"State where amylase, protease and lipase are secreted and where they act",1,Human nutrition
+CAIE 7.4.5,Describe the functions of hydrochloric acid in gastric juice,1.3,Human nutrition
+CAIE 7.4.6S,Describe the digestion of starch in the digestive system,1.92,Human nutrition
+CAIE 7.4.7S,Describe the digestion of protein by proteases in the digestive system,1.98,Human nutrition
+CAIE 7.4.8S,Explain how alkaline bile neutralises acidic food and gastric juices in the duodenum,1.83,Human nutrition
+CAIE 7.5.1,State that the small intestine is the region where nutrients are absorbed,1,Human nutrition
+CAIE 7.5.2,State that most water is absorbed in the small intestine and some in the colon,1,Human nutrition
+CAIE 7.5.3S,Explain how villi and microvilli increase the surface area of the small intestine,1.7,Human nutrition
+CAIE 7.5.4S,Describe the structure of a villus,1.3,Human nutrition
+CAIE 7.5.5S,Describe the roles of capillaries and lacteals in villi,1.3,Human nutrition
+CAIE 8.1.1,State the functions of xylem and phloem,1.48,Transport in plants
+CAIE 8.1.2,"Identify xylem and phloem in diagrams of roots, stems and leaves",1.2,Transport in plants
+CAIE 8.1.3S,Relate the structure of xylem vessels to their function,2.44,Transport in plants
+CAIE 8.2.1,Identify in diagrams and images root hair cells and state their functions,1.2,Transport in plants
+CAIE 8.2.2,State that root hairs have a large surface area for water and mineral ion uptake,1,Transport in plants
+CAIE 8.2.3,"Outline the pathway of water through the root, stem and leaf",1.4,Transport in plants
+CAIE 8.2.4,Investigate the pathway of water through above-ground plant parts using a stain,4.2,Transport in plants
+CAIE 8.3.1,Describe transpiration as the loss of water vapour from leaves,1.3,Transport in plants
+CAIE 8.3.2,State that water evaporates from mesophyll cells and diffuses out through the stomata,1.07,Transport in plants
+CAIE 8.3.3,Investigate and describe the effects of temperature and wind speed on transpiration rate,4.2,Transport in plants
+CAIE 8.3.4S,Explain how water vapour loss relates to internal surface area and stomata,1.79,Transport in plants
+CAIE 8.3.5S,Explain the mechanism by which water moves up the xylem by transpiration pull,1.9,Transport in plants
+CAIE 8.3.6S,"Explain the effects of temperature, wind speed and humidity on transpiration rate",1.7,Transport in plants
+CAIE 8.3.7S,Explain how and why wilting occurs,1.7,Transport in plants
+CAIE 8.4.1S,Describe translocation of sucrose and amino acids in phloem from sources to sinks,1.3,Transport in plants
+CAIE 8.4.2S,Describe sources and sinks in the translocation of sucrose and amino acids,1.83,Transport in plants
+CAIE 8.4.3S,Explain why some parts of a plant may act as a source and a sink at different times,1.7,Transport in plants
+CAIE 9.1.1,"Describe the circulatory system as blood vessels, a pump and valves for one-way flow",1.3,Transport in animals
+CAIE 9.1.2S,Describe the single circulation of a fish,1.3,Transport in animals
+CAIE 9.1.3S,Describe the double circulation of a mammal,1.3,Transport in animals
+CAIE 9.1.4S,Explain the advantages of a double circulation,1.7,Transport in animals
+CAIE 9.2.1,Identify in diagrams and images the structures of the mammalian heart,1.29,Transport in animals
+CAIE 9.2.2,State that blood leaves the heart in arteries and returns in veins,1,Transport in animals
+CAIE 9.2.3,"State that heart activity may be monitored by ECG, pulse rate and heart sounds",1,Transport in animals
+CAIE 9.2.4,Investigate and describe the effect of physical activity on the heart rate,4.2,Transport in animals
+CAIE 9.2.5,Describe coronary heart disease and state its possible risk factors,1.41,Transport in animals
+CAIE 9.2.6,Discuss the roles of diet and exercise in reducing the risk of coronary heart disease,1.9,Transport in animals
+CAIE 9.2.7S,Identify the atrioventricular and semilunar valves in diagrams of the heart,1.2,Transport in animals
+CAIE 9.2.8S,Explain the relative thickness of the muscle walls of the atria and ventricles,2.21,Transport in animals
+CAIE 9.2.9S,Explain the importance of the septum in separating oxygenated and deoxygenated blood,1.7,Transport in animals
+CAIE 9.2.10S,Describe the functioning of the heart in terms of muscle contraction and valve action,1.3,Transport in animals
+CAIE 9.2.11S,Explain the effect of physical activity on the heart rate,1.7,Transport in animals
+CAIE 9.3.1,"Describe the structure of arteries, veins and capillaries",1.3,Transport in animals
+CAIE 9.3.2,State the functions of capillaries,1,Transport in animals
+CAIE 9.3.3,Identify in diagrams and images the main blood vessels to and from the heart,2.26,Transport in animals
+CAIE 9.3.4S,Explain how the structure of arteries and veins is related to blood pressure,1.7,Transport in animals
+CAIE 9.3.5S,Explain how the structure of capillaries is related to their functions,1.7,Transport in animals
+CAIE 9.3.6S,"Identify the hepatic artery, hepatic veins and hepatic portal vein in diagrams",1.2,Transport in animals
+CAIE 9.4.1,"List the components of blood as: red blood cells, white blood cells, platelets and plasma",1.1,Transport in animals
+CAIE 9.4.2,Identify red and white blood cells in photomicrographs and diagrams,1.2,Transport in animals
+CAIE 9.4.3,"State the functions of red blood cells, white blood cells, platelets and plasma",2.5,Transport in animals
+CAIE 9.4.4,State the roles of blood clotting as preventing blood loss and the entry of pathogens,1,Transport in animals
+CAIE 9.4.5S,Identify lymphocytes and phagocytes in photomicrographs and diagrams,1.2,Transport in animals
+CAIE 9.4.6S,State the functions of lymphocytes,1.44,Transport in animals
+CAIE 9.4.7S,Describe the process of clotting as the conversion of fibrinogen to fibrin to form a mesh,1.3,Transport in animals
+CAIE 10.1.1,Describe a pathogen as a disease-causing organism,1.3,Diseases and immunity
+CAIE 10.1.2,Describe a transmissible disease as one whose pathogen passes between hosts,1.3,Diseases and immunity
+CAIE 10.1.3,"State how pathogens are transmitted, directly and indirectly",1.48,Diseases and immunity
+CAIE 10.1.4,Describe the body defences,1.3,Diseases and immunity
+CAIE 10.1.5,"Explain how clean water, hygiene and sewage treatment control the spread of disease",3.16,Diseases and immunity
+CAIE 10.1.6S,Describe active immunity as defence against a pathogen by antibody production in the body,1.3,Diseases and immunity
+CAIE 10.1.7S,"State that each pathogen has its own antigens, which have specific shapes",1,Diseases and immunity
+CAIE 10.1.8S,Describe antibodies as proteins that bind to antigens and destroy or mark pathogens,1.3,Diseases and immunity
+CAIE 10.1.9S,State that specific antibodies have complementary shapes which fit specific antigens,1,Diseases and immunity
+CAIE 10.1.10S,Explain that active immunity is gained after an infection by a pathogen or by vaccination,1.7,Diseases and immunity
+CAIE 10.1.11S,Outline the process of vaccination,2.33,Diseases and immunity
+CAIE 10.1.12S,Explain the role of vaccination in controlling the spread of diseases,1.7,Diseases and immunity
+CAIE 10.1.13S,Explain passive immunity as short-term defence by antibodies from another individual,1.7,Diseases and immunity
+CAIE 10.1.14S,Explain the importance of breast-feeding for passive immunity in infants,1.7,Diseases and immunity
+CAIE 10.1.15S,State that memory cells are not produced in passive immunity,1,Diseases and immunity
+CAIE 10.1.16S,Describe cholera as a bacterial disease transmitted in contaminated water,1.3,Diseases and immunity
+CAIE 10.1.17S,"Explain how the cholera toxin causes diarrhoea, dehydration and loss of ions",1.94,Diseases and immunity
+CAIE 11.1.1,Describe the features of gas exchange surfaces in humans,1.3,Gas exchange in humans
+CAIE 11.1.2,Identify the parts of the breathing system in diagrams and images,1.2,Gas exchange in humans
+CAIE 11.1.3,Investigate the differences between inspired and expired air using limewater,4.2,Gas exchange in humans
+CAIE 11.1.4,Describe the differences in composition between inspired and expired air,1.3,Gas exchange in humans
+CAIE 11.1.5,Investigate how physical activity affects the rate and depth of breathing,4.2,Gas exchange in humans
+CAIE 11.1.6S,Identify in diagrams and images the internal and external intercostal muscles,1.2,Gas exchange in humans
+CAIE 11.1.7S,State the function of cartilage in the trachea,1,Gas exchange in humans
+CAIE 11.1.8S,"Explain how the ribs, intercostal muscles and diaphragm ventilate the lungs",1.83,Gas exchange in humans
+CAIE 11.1.9S,Explain the differences in composition between inspired and expired air,1.7,Gas exchange in humans
+CAIE 11.1.10S,Explain the link between physical activity and the rate and depth of breathing,2.03,Gas exchange in humans
+CAIE 11.1.11S,"Explain how goblet cells, mucus and cilia protect the breathing system",1.7,Gas exchange in humans
+CAIE 12.1.1,State the uses of energy in living organisms,1.13,Respiration
+CAIE 12.1.2,Investigate and describe the effect of temperature on respiration in yeast,4.2,Respiration
+CAIE 12.2.1,Describe aerobic respiration as using oxygen to release energy from nutrients,1.3,Respiration
+CAIE 12.2.2,State the word equation for aerobic respiration,1,Respiration
+CAIE 12.2.3S,State the balanced chemical equation for aerobic respiration,1,Respiration
+CAIE 12.3.1,Describe anaerobic respiration as releasing energy from nutrients without oxygen,1.3,Respiration
+CAIE 12.3.2,State that anaerobic respiration releases much less energy than aerobic respiration,1,Respiration
+CAIE 12.3.3,State the word equation for anaerobic respiration in yeast,1,Respiration
+CAIE 12.3.4,State the word equation for anaerobic respiration in muscles,1,Respiration
+CAIE 12.3.5S,State the balanced chemical equation for anaerobic respiration in yeast,1,Respiration
+CAIE 12.3.6S,State that lactic acid build-up in vigorous exercise causes an oxygen debt,1,Respiration
+CAIE 12.3.7S,Outline how the oxygen debt is removed after exercise,2.73,Respiration
+CAIE 13.1.1,State that carbon dioxide is excreted through the lungs,1,Excretion in humans
+CAIE 13.1.2,State that the kidneys excrete urea and excess water and ions,1,Excretion in humans
+CAIE 13.1.3,"Identify in diagrams and images the kidneys, ureters, bladder and urethra",1.2,Excretion in humans
+CAIE 13.1.4S,Identify in diagrams and images the structure of the kidney,1.2,Excretion in humans
+CAIE 13.1.5S,Outline the structure and function of a nephron and its associated blood vessels,3.26,Excretion in humans
+CAIE 13.1.6S,Describe the role of the liver in converting amino acids to proteins,1.3,Excretion in humans
+CAIE 13.1.7S,State that urea is formed in the liver from excess amino acids,1,Excretion in humans
+CAIE 13.1.8S,Describe deamination as the removal of nitrogen from amino acids to form urea,1.3,Excretion in humans
+CAIE 13.1.9S,Explain the importance of excretion,1.7,Excretion in humans
+CAIE 14.1.1,State that electrical impulses travel along neurones,1,Coordination and response
+CAIE 14.1.2,Describe the mammalian nervous system in terms of the CNS and the PNS,2.05,Coordination and response
+CAIE 14.1.3,Describe the role of the nervous system as coordination and regulation of body functions,1.3,Coordination and response
+CAIE 14.1.4,"Identify in diagrams and images sensory, relay and motor neurones",1.2,Coordination and response
+CAIE 14.1.5,Describe a simple reflex arc from receptor to effector,1.3,Coordination and response
+CAIE 14.1.6,"Describe a reflex action as an automatic, rapid response to stimuli",1.3,Coordination and response
+CAIE 14.1.7,Describe a synapse as a junction between two neurones,1.3,Coordination and response
+CAIE 14.1.8S,Describe the structure of a synapse,1.3,Coordination and response
+CAIE 14.1.9S,Describe how an impulse crosses a synapse using neurotransmitters,2.76,Coordination and response
+CAIE 14.1.10S,State that synapses ensure that impulses travel in one direction only,1,Coordination and response
+CAIE 14.2.1,Describe sense organs as groups of receptor cells responding to specific stimuli,1.3,Coordination and response
+CAIE 14.2.2,Identify in diagrams and images the structures of the eye,1.2,Coordination and response
+CAIE 14.2.3,Describe the function of each part of the eye,3.11,Coordination and response
+CAIE 14.2.4,Explain the pupil reflex,1.7,Coordination and response
+CAIE 14.2.5S,Explain the pupil reflex using the circular and radial muscles of the iris,1.7,Coordination and response
+CAIE 14.2.6S,Explain accommodation to view near and distant objects,1.86,Coordination and response
+CAIE 14.2.7S,Describe the distribution of rods and cones in the retina of a human,1.3,Coordination and response
+CAIE 14.2.8S,Outline the function of rods and cones,1.97,Coordination and response
+CAIE 14.2.9S,Identify in diagrams and images the position of the fovea and state its function,1.2,Coordination and response
+CAIE 14.3.1,Describe a hormone as a chemical produced by a gland and carried by the blood,1.34,Coordination and response
+CAIE 14.3.2,Identify endocrine glands in diagrams and state the hormones they secrete,2.26,Coordination and response
+CAIE 14.3.3,"Describe adrenaline, the ‘fight or flight’ hormone, and its effects",2.03,Coordination and response
+CAIE 14.3.4,Compare nervous and hormonal control,1.8,Coordination and response
+CAIE 14.3.5S,State that glucagon is secreted by the pancreas,1,Coordination and response
+CAIE 14.3.6S,Describe the role of adrenaline in the control of metabolic activity,1.74,Coordination and response
+CAIE 14.4.1,Describe homeostasis as the maintenance of a constant internal environment,1.3,Coordination and response
+CAIE 14.4.2,State that insulin decreases blood glucose concentration,1,Coordination and response
+CAIE 14.4.3S,Explain homeostatic control by negative feedback with reference to a set point,1.7,Coordination and response
+CAIE 14.4.4S,"Describe blood glucose control by the liver, insulin and glucagon",1.3,Coordination and response
+CAIE 14.4.5S,Outline the treatment of Type 1 diabetes,1.4,Coordination and response
+CAIE 14.4.6S,Identify the parts of the skin in diagrams and images,1.2,Coordination and response
+CAIE 14.4.7S,"Describe how insulation, sweating, shivering and the brain control body temperature",1.3,Coordination and response
+CAIE 14.4.8S,Describe how vasodilation and vasoconstriction control body temperature in mammals,1.3,Coordination and response
+CAIE 14.5.1,Describe gravitropism as plant growth towards or away from gravity,1.3,Coordination and response
+CAIE 14.5.2,Describe phototropism as plant growth towards or away from a light source,1.3,Coordination and response
+CAIE 14.5.3,Investigate and describe gravitropism and phototropism in shoots and roots,4.2,Coordination and response
+CAIE 14.5.4S,Explain phototropism and gravitropism as chemical control of plant growth,1.7,Coordination and response
+CAIE 14.5.5S,Explain the role of auxin in controlling shoot growth,3.02,Coordination and response
+CAIE 15.1.1,Describe a drug as a substance taken into the body that affects chemical reactions,1.3,Drugs
+CAIE 15.1.2,Describe the use of antibiotics for the treatment of bacterial infections,1.3,Drugs
+CAIE 15.1.3,State that antibiotic-resistant bacteria reduce the effectiveness of antibiotics,1,Drugs
+CAIE 15.1.4,State that antibiotics kill bacteria but do not affect viruses,1,Drugs
+CAIE 15.1.5S,Explain how using antibiotics only when essential limits resistant bacteria,1.7,Drugs
+CAIE 16.1.1,Describe asexual reproduction as producing genetically identical offspring,1.3,Reproduction
+CAIE 16.1.2,"Identify examples of asexual reproduction in diagrams, images and information provided",1.2,Reproduction
+CAIE 16.1.3S,Discuss the advantages and disadvantages of asexual reproduction,2.34,Reproduction
+CAIE 16.2.1,Describe sexual reproduction as the fusion of two gametes to form a zygote,1.43,Reproduction
+CAIE 16.2.2,Describe fertilisation as the fusion of the nuclei of gametes,1.3,Reproduction
+CAIE 16.2.3S,State that nuclei of gametes are haploid and that the nucleus of a zygote is diploid,1,Reproduction
+CAIE 16.2.4S,Discuss the advantages and disadvantages of sexual reproduction,2.34,Reproduction
+CAIE 16.3.1,Identify and draw the parts of an insect-pollinated flower,1.2,Reproduction
+CAIE 16.3.2,State the functions of the structures listed in 16.3.1,1,Reproduction
+CAIE 16.3.3,Identify and describe the anthers and stigmas of a wind-pollinated flower,1.2,Reproduction
+CAIE 16.3.4,Distinguish between the pollen grains of insect-pollinated and wind-pollinated flowers,1.4,Reproduction
+CAIE 16.3.5,Describe pollination as the transfer of pollen grains from an anther to a stigma,1.3,Reproduction
+CAIE 16.3.6,State that fertilisation occurs when a pollen nucleus fuses with a nucleus in an ovule,1,Reproduction
+CAIE 16.3.7,Describe the structural adaptations of insect-pollinated and wind-pollinated flowers,1.3,Reproduction
+CAIE 16.3.8,Investigate and describe the environmental conditions that affect germination of seeds,4.2,Reproduction
+CAIE 16.3.9S,Describe self-pollination as pollen transfer to a flower on the same plant,1.39,Reproduction
+CAIE 16.3.10S,Describe cross-pollination as pollen transfer to a flower on a different plant,1.37,Reproduction
+CAIE 16.3.11S,Discuss the effects of self-pollination and cross-pollination on a population,1.94,Reproduction
+CAIE 16.3.12S,Describe pollen tube growth into the ovule and fertilisation,1.32,Reproduction
+CAIE 16.4.1,Identify the parts of the male reproductive system and state their functions,1.2,Reproduction
+CAIE 16.4.2,Identify the parts of the female reproductive system and state their functions,1.2,Reproduction
+CAIE 16.4.3,Describe fertilisation as the fusion of the nuclei of sperm and egg cell,1.3,Reproduction
+CAIE 16.4.4,Explain the adaptive features of sperm,1.7,Reproduction
+CAIE 16.4.5,Explain the adaptive features of egg cells,1.7,Reproduction
+CAIE 16.4.6,"Compare male and female gametes in terms of: size, structure, motility and numbers",1.8,Reproduction
+CAIE 16.4.7,State that the zygote forms an embryo that implants into the uterus lining,1,Reproduction
+CAIE 16.4.8,Identify the structures that support fetal development and state their functions,1.2,Reproduction
+CAIE 16.4.9S,Describe how the placenta and umbilical cord exchange substances with the fetus,1.48,Reproduction
+CAIE 16.4.10S,State that some pathogens and toxins can pass across the placenta and affect the fetus,1,Reproduction
+CAIE 16.5.1,Describe the roles of testosterone and oestrogen during puberty,1.3,Reproduction
+CAIE 16.5.2,Describe the menstrual cycle in terms of the ovaries and uterus lining,1.3,Reproduction
+CAIE 16.5.3S,Describe where oestrogen and progesterone are produced in the cycle and pregnancy,1.3,Reproduction
+CAIE 16.5.4S,Explain the role of hormones in controlling the menstrual cycle and pregnancy,1.7,Reproduction
+CAIE 16.6.1,Describe a sexually transmitted infection (STI) as one passed on by sexual contact,1.3,Reproduction
+CAIE 16.6.2,State that human immunodeficiency virus (HIV) is a pathogen that causes an STI,1,Reproduction
+CAIE 16.6.3,State that HIV infection may lead to AIDS,1,Reproduction
+CAIE 16.6.4,Describe the methods of transmission of HIV,1.3,Reproduction
+CAIE 16.6.5,Explain how the spread of STIs is controlled,1.7,Reproduction
+CAIE 17.1.1,"State that chromosomes are made of DNA, which contains genes",1,Inheritance
+CAIE 17.1.2,Define a gene as a length of DNA that codes for a protein,1.4,Inheritance
+CAIE 17.1.3,Define an allele as an alternative form of a gene,1.4,Inheritance
+CAIE 17.1.4,Describe the inheritance of sex in humans with reference to X and Y chromosomes,1.3,Inheritance
+CAIE 17.1.5S,State that a gene's base sequence determines a protein's amino acid sequence,1.13,Inheritance
+CAIE 17.1.6S,Explain that different sequences of amino acids give different shapes to protein molecules,1.7,Inheritance
+CAIE 17.1.7S,Explain that DNA controls cell function by controlling the production of proteins,1.7,Inheritance
+CAIE 17.1.8S,Explain how a protein is made,4.35,Inheritance
+CAIE 17.1.9S,Explain that cells contain the same genes but express only some of them,1.86,Inheritance
+CAIE 17.1.10S,Describe a haploid nucleus as a nucleus containing a single set of chromosomes,1.3,Inheritance
+CAIE 17.1.11S,Describe a diploid nucleus as a nucleus containing two sets of chromosomes,1.3,Inheritance
+CAIE 17.1.12S,"State that a diploid cell has pairs of chromosomes, 23 pairs in humans",1,Inheritance
+CAIE 17.2.1S,Describe mitosis as nuclear division giving rise to genetically identical cells,1.3,Inheritance
+CAIE 17.2.2S,"State the role of mitosis in growth, repair, cell replacement and asexual reproduction",1,Inheritance
+CAIE 17.2.3S,State that the exact replication of chromosomes occurs before mitosis,1,Inheritance
+CAIE 17.2.4S,State that mitosis maintains the chromosome number in each daughter cell,1,Inheritance
+CAIE 17.2.5S,Describe stem cells as unspecialised cells that divide by mitosis,1.3,Inheritance
+CAIE 17.3.1S,State that meiosis is involved in the production of gametes,1,Inheritance
+CAIE 17.3.2S,Describe meiosis as a reduction division that halves the chromosome number,1.43,Inheritance
+CAIE 17.4.1,Describe inheritance as passing genetic information from generation to generation,1.3,Inheritance
+CAIE 17.4.2,"Describe genotype as the genetic make-up of an organism, in terms of alleles",1.3,Inheritance
+CAIE 17.4.3,Describe phenotype as the observable features of an organism,1.3,Inheritance
+CAIE 17.4.4,Describe homozygous as having two identical alleles of a particular gene,1.3,Inheritance
+CAIE 17.4.5,State that two identical homozygous individuals that breed together will be pure-breeding,1,Inheritance
+CAIE 17.4.6,Describe heterozygous as having two different alleles of a particular gene,1.3,Inheritance
+CAIE 17.4.7,State that a heterozygous individual will not be pure-breeding,1,Inheritance
+CAIE 17.4.8,Describe a dominant allele as an allele that is expressed if it is present in the genotype,1.3,Inheritance
+CAIE 17.4.9,Describe a recessive allele as one only expressed when no dominant allele is present,1.3,Inheritance
+CAIE 17.4.10,Interpret pedigree diagrams for the inheritance of a given characteristic,1.6,Inheritance
+CAIE 17.4.11,Use genetic diagrams to predict monohybrid crosses and phenotypic ratios,1.5,Inheritance
+CAIE 17.4.12,Use Punnett squares to work out and show the possible genotypes of a cross,1.5,Inheritance
+CAIE 17.4.13S,Explain how to use a test cross to identify an unknown genotype,1.7,Inheritance
+CAIE 17.4.14S,Describe codominance as both alleles contributing to the phenotype,1.3,Inheritance
+CAIE 17.4.15S,Explain the inheritance of ABO blood groups,1.7,Inheritance
+CAIE 17.4.16S,Describe a sex-linked characteristic as controlled by a gene on a sex chromosome,1.48,Inheritance
+CAIE 17.4.17S,Describe red-green colour blindness as an example of sex linkage,1.3,Inheritance
+CAIE 17.4.18S,Use genetic diagrams to predict monohybrid crosses with codominance or sex linkage,1.5,Inheritance
+CAIE 18.1.1,Describe variation as differences between individuals of the same species,1.3,Variation and selection
+CAIE 18.1.2,State that continuous variation results in a range of phenotypes between two extremes,1,Variation and selection
+CAIE 18.1.3,State that discontinuous variation gives distinct phenotypes with no intermediates,1.07,Variation and selection
+CAIE 18.1.4,State the causes of discontinuous and continuous variation,1,Variation and selection
+CAIE 18.1.5,Investigate and describe examples of continuous and discontinuous variation,4.2,Variation and selection
+CAIE 18.1.6,Describe mutation as genetic change,1.3,Variation and selection
+CAIE 18.1.7,State that mutation is the way in which new alleles are formed,1,Variation and selection
+CAIE 18.1.8,State that ionising radiation and some chemicals increase the rate of mutation,1,Variation and selection
+CAIE 18.1.9S,Describe gene mutation as a random change in the base sequence of DNA,1.3,Variation and selection
+CAIE 18.1.10S,"State the sources of genetic variation, including mutation and meiosis",1,Variation and selection
+CAIE 18.2.1,Describe an adaptive feature as an inherited feature that aids survival,1.3,Variation and selection
+CAIE 18.2.2,Interpret images or other information about a species to describe its adaptive features,1.6,Variation and selection
+CAIE 18.2.3S,Explain the adaptive features of hydrophytes and xerophytes to their environments,1.7,Variation and selection
+CAIE 18.3.1,"Describe natural selection, from genetic variation to passing on alleles",3,Variation and selection
+CAIE 18.3.2,Describe selective breeding as selection by humans of desirable features,2.12,Variation and selection
+CAIE 18.3.3,Outline how selective breeding improves crop plants and domesticated animals,1.42,Variation and selection
+CAIE 18.3.4S,Describe adaptation as populations becoming better suited to their environment,1.3,Variation and selection
+CAIE 18.3.5S,Describe antibiotic-resistant bacteria as an example of natural selection,1.3,Variation and selection
+CAIE 18.3.6S,Outline the differences between natural and artificial selection,1.4,Variation and selection
+CAIE 19.1.1,State that the Sun is the principal source of energy input to biological systems,1,Organisms and their environment
+CAIE 19.1.2,Describe the flow of energy through living organisms,1.32,Organisms and their environment
+CAIE 19.2.1,Describe a food chain as the transfer of energy from one organism to the next,1.3,Organisms and their environment
+CAIE 19.2.2,Construct and interpret simple food chains,1.4,Organisms and their environment
+CAIE 19.2.3,Describe a food web as a network of interconnected food chains and interpret food webs,1.3,Organisms and their environment
+CAIE 19.2.4,Describe a producer as an organism that makes its own organic nutrients,1.3,Organisms and their environment
+CAIE 19.2.5,Describe a consumer as an organism that gets its energy by feeding on other organisms,1.3,Organisms and their environment
+CAIE 19.2.6,"State how consumers are classed as primary, secondary, tertiary or quaternary",1,Organisms and their environment
+CAIE 19.2.7,Describe a herbivore as an animal that gets its energy by eating plants,1.3,Organisms and their environment
+CAIE 19.2.8,Describe a carnivore as an animal that gets its energy by eating other animals,1.3,Organisms and their environment
+CAIE 19.2.9,Describe decomposers as organisms that get energy from dead or waste material,1.3,Organisms and their environment
+CAIE 19.2.10,Use food webs to describe the impact of overharvesting and introduced species,1.5,Organisms and their environment
+CAIE 19.2.11,"Draw, describe and interpret pyramids of numbers and pyramids of biomass",1.5,Organisms and their environment
+CAIE 19.2.12,Discuss the advantages of pyramids of biomass over pyramids of numbers,1.9,Organisms and their environment
+CAIE 19.2.13,Describe a trophic level as an organism's position in a food chain or web,1.3,Organisms and their environment
+CAIE 19.2.14,"Identify the trophic levels in food webs, food chains and ecological pyramids",1.2,Organisms and their environment
+CAIE 19.2.15S,"Draw, describe and interpret pyramids of energy",1.5,Organisms and their environment
+CAIE 19.2.16S,Discuss the advantages of pyramids of energy over those of numbers or biomass,1.9,Organisms and their environment
+CAIE 19.2.17S,Explain why energy transfer between trophic levels is often not efficient,1.7,Organisms and their environment
+CAIE 19.2.18S,Explain why energy loss limits food chains to fewer than five trophic levels,1.7,Organisms and their environment
+CAIE 19.2.19S,Explain why eating crop plants is more energy efficient than eating livestock,1.7,Organisms and their environment
+CAIE 19.3.1,Describe the carbon cycle,1.3,Organisms and their environment
+CAIE 19.3.2S,Describe the nitrogen cycle,3.62,Organisms and their environment
+CAIE 19.3.3S,State the roles of microorganisms in the nitrogen cycle,1.04,Organisms and their environment
+CAIE 19.4.1,Describe a population as one species living in the same area at the same time,1.3,Organisms and their environment
+CAIE 19.4.2,Describe a community as all of the populations of different species in an ecosystem,1.3,Organisms and their environment
+CAIE 19.4.3,Describe an ecosystem as organisms and their environment interacting together,1.3,Organisms and their environment
+CAIE 19.4.4,Identify the factors that affect the rate of population growth,1.2,Organisms and their environment
+CAIE 19.4.5,"Identify the lag, exponential, stationary and death phases of population growth",1.22,Organisms and their environment
+CAIE 19.4.6,Interpret graphs and diagrams of population growth,1.6,Organisms and their environment
+CAIE 19.4.7S,Explain what causes each phase of the sigmoid population growth curve,1.7,Organisms and their environment
+CAIE 20.1.1,Describe how humans have increased food production,3,Human influences on ecosystems
+CAIE 20.1.2,Describe the advantages and disadvantages of large-scale monocultures of crop plants,1.3,Human influences on ecosystems
+CAIE 20.1.3,Describe the advantages and disadvantages of intensive livestock production,1.3,Human influences on ecosystems
+CAIE 20.2.1,Describe biodiversity as the number of different species that live in an area,1.3,Human influences on ecosystems
+CAIE 20.2.2,Describe the reasons for habitat destruction,2.03,Human influences on ecosystems
+CAIE 20.2.3,State that humans can harm habitats by altering food webs and food chains,1,Human influences on ecosystems
+CAIE 20.2.4,Explain the undesirable effects of deforestation as habitat destruction,1.79,Human influences on ecosystems
+CAIE 20.3.1,Describe the effects of untreated sewage and excess fertiliser on aquatic ecosystems,1.3,Human influences on ecosystems
+CAIE 20.3.2,Describe the effects of non-biodegradable plastics on land and in water,1.3,Human influences on ecosystems
+CAIE 20.3.3,Describe the sources and effects of pollution of the air by methane and carbon dioxide,1.3,Human influences on ecosystems
+CAIE 20.3.4S,Explain the process of eutrophication of water,3.55,Human influences on ecosystems
+CAIE 20.4.1,Describe a sustainable resource as one produced as rapidly as it is removed,1.3,Human influences on ecosystems
+CAIE 20.4.2,State that some resources can be conserved and managed sustainably,1,Human influences on ecosystems
+CAIE 20.4.3,Explain why organisms become endangered or extinct,1.7,Human influences on ecosystems
+CAIE 20.4.4,Describe how endangered species can be conserved,2.18,Human influences on ecosystems
+CAIE 20.4.5S,"Explain how education, protected areas, quotas and replanting conserve forests",1.7,Human influences on ecosystems
+CAIE 20.4.6S,"Explain how fish stocks can be conserved, including closed seasons and quotas",1.7,Human influences on ecosystems
+CAIE 20.4.7S,Describe the reasons for conservation programmes,2.45,Human influences on ecosystems
+CAIE 20.4.8S,Describe the use of artificial insemination and IVF in captive breeding,1.3,Human influences on ecosystems
+CAIE 20.4.9S,Explain the risks of a smaller population and reduced genetic variation,1.7,Human influences on ecosystems
+CAIE 21.1.1,State why bacteria are useful in biotechnology and genetic modification,1,Biotechnology and genetic modification
+CAIE 21.1.2S,Discuss why bacteria are useful in biotechnology and genetic modification,2.36,Biotechnology and genetic modification
+CAIE 21.2.1,Describe how yeast makes ethanol for biofuels by anaerobic respiration,1.3,Biotechnology and genetic modification
+CAIE 21.2.2,Describe the role of anaerobic respiration in yeast during bread-making,1.3,Biotechnology and genetic modification
+CAIE 21.2.3,Describe the use of pectinase in fruit juice production,1.3,Biotechnology and genetic modification
+CAIE 21.2.4,Investigate and describe the use of biological washing powders that contain enzymes,4.2,Biotechnology and genetic modification
+CAIE 21.2.5S,Explain the use of lactase to produce lactose-free milk,1.7,Biotechnology and genetic modification
+CAIE 21.2.6S,"Describe how fermenters make products such as insulin, penicillin and mycoprotein",1.3,Biotechnology and genetic modification
+CAIE 21.2.7S,Describe and explain the conditions that need to be controlled in a fermenter,1.3,Biotechnology and genetic modification
+CAIE 21.3.1,"Describe genetic modification as removing, changing or inserting genes",1.3,Biotechnology and genetic modification
+CAIE 21.3.2,Outline examples of genetic modification,2.97,Biotechnology and genetic modification
+CAIE 21.3.3S,Outline genetic modification of bacteria to produce a human protein,4.32,Biotechnology and genetic modification
+CAIE 21.3.4S,Discuss the advantages and disadvantages of genetically modifying crops,1.9,Biotechnology and genetic modification

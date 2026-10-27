@@ -498,13 +498,21 @@ function liveSpine(params: {
   }));
   const remaining = orderInputs(stored, orderTopics, from).remaining;
   if (!remaining.length) return stored;
-  return reorderTopics({
-    bands: stored,
-    topics: orderTopics,
-    order: remaining.map((t) => t.topicId),
-    from,
-    examDate: baseline.exam_date,
-  });
+  try {
+    return reorderTopics({
+      bands: stored,
+      topics: orderTopics,
+      order: remaining.map((t) => t.topicId),
+      from,
+      examDate: baseline.exam_date,
+    });
+  } catch (e) {
+    // Too few weeks left, or the exams have passed: the stored spine still cuts
+    // weeks, and `unscheduledTopicTitles` reports what it cannot hold. Throwing
+    // here took the whole planner down — including the date box that fixes it.
+    console.warn("[planner] couldn't re-spread the custom order to the new exam date", e);
+    return stored;
+  }
 }
 
 /** Under a custom order: topics with at least one point no week of the spine carries. */

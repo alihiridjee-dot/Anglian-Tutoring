@@ -1,0 +1,368 @@
+{
+  "format": 1,
+  "concept_id": "chem-030",
+  "subject": "chemistry",
+  "title": "Empirical and molecular formulae",
+  "key_idea": "The empirical formula is the simplest whole-number ratio of atoms in a compound. The molecular formula shows the actual number of atoms in one molecule. Divide each mass by Ar to get moles, find the simplest ratio, then write the formula.",
+  "sections": [
+    {
+      "heading": "Empirical and molecular formulae",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two kinds of formula describe the same compound. This section covers what each shows."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Empirical formula",
+              "meaning": "The simplest whole-number ratio of the atoms of each element in a compound."
+            },
+            {
+              "term": "Molecular formula",
+              "meaning": "The actual number of atoms of each element in one molecule."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Compound", "Molecular formula", "Empirical formula"],
+          "rows": [
+            ["Ethene", "C₂H₄", "CH₂"],
+            ["Butane", "C₄H₁₀", "C₂H₅"],
+            ["Hydrogen peroxide", "H₂O₂", "HO"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To get the empirical formula from a molecular formula, divide all the numbers by the largest number that goes into all of them.",
+            "Some compounds have the same empirical and molecular formula, such as water, H₂O.",
+            "From a diagram or model of a molecule, count the atoms of each element, then write the simplest ratio.",
+            "From a model of an ionic lattice, count the ions of each type. A lattice with 1 Mg²⁺ ion for every 2 Cl⁻ ions has the empirical formula MgCl₂."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Empirical formula = simplest whole-number ratio of atoms.",
+            "Molecular formula = the real number of atoms in a molecule.",
+            "A molecular formula is a whole-number multiple of the empirical formula."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Working out an empirical formula",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You are given the mass of each element in a sample. Turn the masses into moles to find the ratio of atoms. Always show your working."
+        },
+        {
+          "type": "equation",
+          "label": "Moles of an element",
+          "where": ["mass in grams", "Ar = relative atomic mass of the element"],
+          "formula": "moles = mass ÷ Ar"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Divide each mass by its Ar.",
+              "text": "Tin chloride: 1.19 g of Sn and 1.42 g of Cl. Ar: Sn = 119.0, Cl = 35.5. Sn: 1.19 ÷ 119 = 0.01. Cl: 1.42 ÷ 35.5 = 0.04."
+            },
+            {
+              "lead": "Find the simplest ratio.",
+              "text": "Divide both by the smaller number, 0.01. Sn : Cl = 1 : 4."
+            },
+            {
+              "lead": "Write the formula.",
+              "text": "The empirical formula is SnCl₄."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the ratio is not whole numbers, such as 1 : 1.5, multiply both by 2 to get 2 : 3.",
+            "Do not divide Ar by mass. That inverts the ratio and gives the wrong formula.",
+            "If you are given percentages, treat them as masses in 100 g. For 85.7% C and 14.3% H: C is 85.7 ÷ 12 = 7.14 and H is 14.3 ÷ 1 = 14.3. The ratio is 1 : 2, so the formula is CH₂."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass ÷ Ar gives moles. Compare the moles.",
+            "Divide by the smallest number to get the ratio.",
+            "Turn the ratio into a formula with whole numbers."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "From empirical to molecular formula",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "If you know the empirical formula and the Mr of the compound, you can find the molecular formula."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find the Mr of the empirical formula.",
+              "text": "A hydrocarbon has empirical formula CH₂ and Mr = 84. Mr of CH₂ = 12 + (2 × 1) = 14."
+            },
+            {
+              "lead": "Divide.",
+              "text": "84 ÷ 14 = 6, so there are six CH₂ units."
+            },
+            {
+              "lead": "Multiply the formula.",
+              "text": "The molecular formula is C₆H₁₂."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Practise finding the number of carbon atoms in a hydrocarbon from its empirical formula and Mr.",
+            "kind": "practice",
+            "answer": {
+              "formula": "M / 14",
+              "decimals": 0
+            },
+            "working": [
+              "Mr of CH₂ = 12 + (2 × 1) = 14",
+              "Number of CH₂ units = {M} ÷ 14 = **{answer}**",
+              "There are {answer} carbon atoms and twice as many hydrogen atoms in each molecule."
+            ],
+            "question": "A hydrocarbon has the empirical formula CH₂ and a relative formula mass of **{M}**. How many carbon atoms are in one molecule? (Ar: C = 12, H = 1)",
+            "variables": [
+              {
+                "id": "M",
+                "max": 140,
+                "min": 28,
+                "step": 14
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Divide the Mr of the compound by the Mr of the empirical formula.",
+            "Multiply every number in the empirical formula by the answer.",
+            "Show both steps in your working."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "An experiment: the formula of magnesium oxide",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You can find the empirical formula of magnesium oxide by measuring the masses of magnesium and oxygen that combine."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Weigh.",
+              "text": "Find the mass of a crucible and lid. Add magnesium ribbon and weigh again."
+            },
+            {
+              "lead": "Heat.",
+              "text": "Heat the crucible strongly. Lift the lid briefly so oxygen can get in."
+            },
+            {
+              "lead": "Reheat to constant mass.",
+              "text": "Cool and weigh. Reheat and reweigh until the mass stops changing, which shows the magnesium has reacted completely."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "The mass gained is the mass of oxygen. Find the moles of Mg and O and the simplest ratio."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Example: 0.24 g of Mg gains 0.16 g of oxygen. Mg: 0.24 ÷ 24 = 0.01. O: 0.16 ÷ 16 = 0.01.",
+            "The ratio is 1 : 1, so the empirical formula is MgO."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The gain in mass is the mass of oxygen.",
+            "Reheat until the mass is constant.",
+            "Then use moles to find the ratio."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give the empirical formula of a compound with the molecular formula C₆H₁₂O₆.",
+      "a": "CH₂O",
+      "marks": 1
+    },
+    {
+      "q": "1.20 g of magnesium reacts completely with 3.55 g of chlorine. Calculate the empirical formula. (Ar: Mg = 24.0, Cl = 35.5)",
+      "a": "Mg: 1.20 ÷ 24.0 = 0.05. Cl: 3.55 ÷ 35.5 = 0.1. The ratio is 1 : 2. The formula is MgCl₂.",
+      "marks": 3
+    },
+    {
+      "q": "In the magnesium oxide experiment, how do you check that all the magnesium has reacted?",
+      "a": "Reheat and weigh again, and repeat until the mass stays constant.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": ["EDEX 1.44", "EDEX 1.45", "EDEX 1.46"],
+      "worked_example": {
+        "exemplar_id": "5ef9d86e-e689-4203-835d-3e2aa2ab2c2d",
+        "source": "EDEXCEL nov 2021, Paper 2 (F), Q5(b)",
+        "question": "Tin reacts with chlorine to form tin chloride.\n\nA sample of tin chloride contains 1.19 g of tin and 1.42 g of chlorine.\n\nCalculate the empirical formula of this tin chloride.\n\n(relative atomic masses: Cl = 35.5, Sn = 119.0)\n\nYou must show your working.",
+        "marks": 3,
+        "answer_points": ["1.19 ÷ 119 and 1.42 ÷ 35.5 (1)", "0.01 : 0.04 (1)", "SnCl₄ (1)"],
+        "tip": "One mark each for the moles, the ratio and the formula."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C2.1d"],
+      "worked_example": {
+        "exemplar_id": "aebbf1ca-0a9c-4259-afa2-6fbd9d99de79",
+        "source": "OCR jun 2023, Paper 3, Q12",
+        "question": "The empirical formula of a compound is CH₂O.\n\nThe relative formula mass of the compound is 180.0.\n\nWhat is the molecular formula of the compound?\n\nRelative atomic mass (Ar): C = 12.0, H = 1.0, O = 16.0",
+        "marks": 1,
+        "answer_points": [
+          "Mr of CH₂O = 12.0 + (2 × 1.0) + 16.0 = 30.0",
+          "180.0 ÷ 30.0 = 6, so the compound is 6 × CH₂O",
+          "The molecular formula is C₆H₁₂O₆"
+        ],
+        "tip": "This is a one-mark multiple-choice question, so the working is not marked. Do the calculation to pick the right option."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 3.1.2", "CAIE 3.1.5S", "CAIE 3.3.7S", "CAIE 3.1.3"],
+      "worked_example": {
+        "exemplar_id": "88756516-a648-4b63-8e53-61b25a145e62",
+        "source": "CAMBRIDGE jun 2025, Paper 43, Q5(e)",
+        "question": "An organic compound has the following composition by mass: C, 58.82%; H, 9.80%; O, 31.38%.\n\nCalculate the empirical formula of the compound.",
+        "marks": 3,
+        "answer_points": [
+          "Divide each percentage by its Ar: C 58.82 ÷ 12 = 4.90, H 9.80 ÷ 1 = 9.80, O 31.38 ÷ 16 = 1.96",
+          "Divide each by the smallest: C 4.90 ÷ 1.96 = 2.5, H 9.80 ÷ 1.96 = 5, O 1.96 ÷ 1.96 = 1",
+          "Ratio 2.5 : 5 : 1, so multiply by 2 to get 5 : 10 : 2",
+          "Empirical formula = C₅H₁₀O₂"
+        ],
+        "tip": "One mark for each stage: moles, the ratio, then the formula."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.31", "IGCSE 1.32", "IGCSE 1.33", "IGCSE 1.36", "IGCSE 4.2"],
+      "worked_example": {
+        "exemplar_id": "c39fb763-ed77-404a-a421-d60a8973b4b2",
+        "source": "EDEXCEL jun 2024, Paper 1 (C), Q6(c)(ii)",
+        "question": "Potassium aluminium sulfate is normally found as a hydrated salt, with the formula KAl(SO₄)₂.xH₂O\n\nWhen 23.7 g of the hydrated salt is heated to remove all the water, 12.9 g of the anhydrous salt is formed.\n\nCalculate the value of x.\n\n[for KAl(SO₄)₂, Mr = 258; for H₂O, Mr = 18]",
+        "marks": 4,
+        "answer_points": [
+          "Mass of water = 23.7 − 12.9 = 10.8 g",
+          "Moles of KAl(SO₄)₂ = 12.9 ÷ 258 = 0.0500",
+          "Moles of water = 10.8 ÷ 18 = 0.600",
+          "x = 0.600 ÷ 0.0500 = 12"
+        ],
+        "tip": "The value of x must be a whole number."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Formula of a hydrated salt"
+            },
+            {
+              "type": "paragraph",
+              "text": "Water of crystallisation is water that is part of a crystal. Heating drives it off and leaves the anhydrous salt."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Weigh.",
+                  "text": "Find the mass of the hydrated salt in a tube."
+                },
+                {
+                  "lead": "Heat and reweigh.",
+                  "text": "Heat, cool and reweigh. Repeat until the mass stops changing (constant mass)."
+                },
+                {
+                  "lead": "Find the masses.",
+                  "text": "Mass of water lost = mass before − mass after. The mass left is the anhydrous salt."
+                },
+                {
+                  "lead": "Find the moles.",
+                  "text": "Divide each mass by its Mr."
+                },
+                {
+                  "lead": "Find the ratio.",
+                  "text": "x = moles of water ÷ moles of anhydrous salt, as a whole number."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Formula of a metal oxide by reduction"
+            },
+            {
+              "type": "paragraph",
+              "text": "A metal oxide such as copper(II) oxide can be reduced by passing hydrogen or methane over the heated oxide."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Weigh the oxide, heat it in the gas until it is all reduced, then weigh the metal left.",
+                "Mass of oxygen lost = mass of oxide − mass of metal.",
+                "Divide each mass by its Ar and find the simplest ratio to get the formula."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "f59f8a0b-501e-46e7-bbb8-8361831c6231",
+      "44d67354-e267-44ee-81eb-91d589990745",
+      "f398e792-a0b6-43e2-bcb0-0d9037efb5d7",
+      "adba84a5-fc3a-4feb-b15b-04a953ff0ee1",
+      "111d658e-fa00-4559-8b3d-cede5f6d38b5",
+      "831cacea-5942-4cb6-abce-e1ab616ce58a",
+      "8df76071-e793-430e-9716-fe47b309527a",
+      "da4cf6ea-3768-4ef4-800d-44099a6ed0c0",
+      "2eb4efb2-6719-4ab2-999e-b9e910330433",
+      "ba230153-3470-4afa-89fe-af006971142e",
+      "59d317dd-998b-482a-b694-cc44f7084319"
+    ],
+    "exemplar_ids": [
+      "5ef9d86e-e689-4203-835d-3e2aa2ab2c2d",
+      "aebbf1ca-0a9c-4259-afa2-6fbd9d99de79",
+      "88756516-a648-4b63-8e53-61b25a145e62",
+      "c39fb763-ed77-404a-a421-d60a8973b4b2"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

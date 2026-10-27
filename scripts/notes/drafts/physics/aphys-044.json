@@ -1,0 +1,333 @@
+{
+  "format": 1,
+  "concept_id": "aphys-044",
+  "subject": "physics",
+  "title": "Antiparticles, annihilation and pair production",
+  "key_idea": "Every particle has an antiparticle with the same mass and opposite charge. A particle and its antiparticle annihilate, turning their mass into photons. A photon of enough energy can turn into a particle–antiparticle pair. Mass and energy are linked by ΔE = c²Δm.",
+  "sections": [
+    {
+      "heading": "Particles and antiparticles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "For every type of particle there is a matching antiparticle. This section covers how the pair compare."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Particle",
+            "Antiparticle",
+            "Charge of particle"
+          ],
+          "rows": [
+            [
+              "Electron e⁻",
+              "Positron e⁺",
+              "−1"
+            ],
+            [
+              "Proton p",
+              "Antiproton p̄",
+              "+1"
+            ],
+            [
+              "Neutron n",
+              "Antineutron n̄",
+              "0"
+            ],
+            [
+              "Neutrino ν",
+              "Antineutrino ν̄",
+              "0"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A particle and its antiparticle have the **same mass** and the same rest energy.",
+            "They have **opposite charge**: the positron is +1 and the antiproton is −1.",
+            "Neutral particles have neutral antiparticles. The antineutron is still a different particle from the neutron.",
+            "Other quantum numbers, such as baryon number and lepton number, are also opposite.",
+            "You can deduce the properties of an antiparticle from its particle, and the other way round."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An antiparticle has the same mass but opposite charge.",
+            "The positron is the antiparticle of the electron."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Energy and mass units",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mass and energy are equivalent. Particle physics uses units that suit the tiny values involved."
+        },
+        {
+          "type": "equation",
+          "label": "Mass–energy equivalence",
+          "formula": "ΔE = c²Δm",
+          "where": [
+            "ΔE = change in energy (J)",
+            "c = speed of light, 3.00 × 10⁸ m/s",
+            "Δm = change in mass (kg)"
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Electronvolt (eV)",
+              "meaning": "The energy gained by an electron accelerated through 1 V. 1 eV = 1.60 × 10⁻¹⁹ J."
+            },
+            {
+              "term": "MeV and GeV",
+              "meaning": "Units of energy. 1 MeV = 10⁶ eV and 1 GeV = 10⁹ eV."
+            },
+            {
+              "term": "MeV/c² and GeV/c²",
+              "meaning": "Units of mass. A mass m has energy mc², so its mass in MeV/c² is its rest energy in MeV."
+            },
+            {
+              "term": "Rest energy",
+              "meaning": "The energy equivalent of a particle's mass, mc²."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "1 MeV = 1.60 × 10⁻¹³ J.",
+            "1 MeV/c² = 1.78 × 10⁻³⁰ kg.",
+            "The electron has a rest energy of 0.511 MeV, so its mass is 0.511 MeV/c².",
+            "The proton has a rest energy of about 938 MeV, so its mass is about 938 MeV/c²."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ΔE = c²Δm links energy and mass.",
+            "A mass in MeV/c² is its rest energy in MeV.",
+            "Convert with 1 MeV = 1.60 × 10⁻¹³ J."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Photons, annihilation and pair production",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Electromagnetic radiation travels as photons, packets of energy. The energy of a photon depends on its frequency or wavelength."
+        },
+        {
+          "type": "equation",
+          "label": "Energy of a photon",
+          "formula": "E = hf = hc / λ",
+          "where": [
+            "E = energy of the photon (J)",
+            "h = Planck constant, 6.63 × 10⁻³⁴ J s",
+            "f = frequency (Hz)",
+            "c = speed of light (m/s)",
+            "λ = wavelength (m)"
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Annihilation",
+              "meaning": "A particle and its antiparticle meet and their mass becomes the energy of photons."
+            },
+            {
+              "term": "Pair production",
+              "meaning": "A photon of enough energy becomes a particle and its antiparticle."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Annihilation"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An electron and a positron annihilate to give two photons: e⁻ + e⁺ → γ + γ.",
+            "Two photons are produced so that momentum is conserved. They travel in opposite directions.",
+            "Total energy is the rest energy of the pair plus their kinetic energy. For a pair at rest, each photon has 0.511 MeV."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Pair production"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A photon passes near a nucleus and becomes a pair: γ → e⁻ + e⁺.",
+            "The nucleus takes a little momentum, so momentum is conserved.",
+            "The photon needs at least twice the rest energy of one particle.",
+            "Any extra energy becomes the kinetic energy of the pair."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Minimum photon energy for pair production",
+          "formula": "E(min) = 2mc²",
+          "where": [
+            "E(min) = least photon energy needed (J or MeV)",
+            "mc² = rest energy of one of the pair (J or MeV)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider activity. Choose the particle in a pair and see the minimum photon energy needed to make it, and the longest wavelength the photon can have.",
+            "inputs": [
+              {
+                "id": "m",
+                "label": "Particle–antiparticle pair",
+                "choices": [
+                  {
+                    "label": "Electron and positron",
+                    "value": 0.511
+                  },
+                  {
+                    "label": "Muon and antimuon",
+                    "value": 105.7
+                  },
+                  {
+                    "label": "Proton and antiproton",
+                    "value": 938
+                  }
+                ]
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Minimum photon energy",
+                "unit": "MeV",
+                "formula": "2 * m",
+                "decimals": 1
+              },
+              {
+                "label": "Longest photon wavelength",
+                "unit": "fm",
+                "formula": "1240 / (2 * m)",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Annihilation turns a particle and antiparticle into photons.",
+            "Pair production needs a photon with at least 2mc² of energy.",
+            "Energy, momentum and charge are conserved in both."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two ways in which a proton and an antiproton are similar and one way in which they differ.",
+      "a": "They have the same mass and the same rest energy. They differ in charge: the proton is +1 and the antiproton is −1.",
+      "marks": 3
+    },
+    {
+      "q": "An electron and a positron annihilate at rest. Explain why two photons are produced, and state the energy of each in MeV.",
+      "a": "The total momentum before is zero, so two photons travelling in opposite directions are needed to conserve momentum. Each has an energy of 0.511 MeV, the rest energy of one electron.",
+      "marks": 3
+    },
+    {
+      "q": "Calculate the minimum photon energy, in MeV, needed to produce a proton and an antiproton. The rest energy of a proton is 938 MeV.",
+      "a": "E = 2mc² = 2 × 938 = 1876 MeV (about 1.9 GeV).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know that the positron, antiproton, antineutron and antineutrino are the antiparticles of the electron, proton, neutron and neutrino.",
+                "Compare a particle and its antiparticle by mass, charge and rest energy in MeV.",
+                "Know the photon model of electromagnetic radiation, the Planck constant and E = hf = hc / λ.",
+                "Know annihilation and pair production and the energies involved.",
+                "Calculations do not need E = mc²: work in MeV and use the rest energies you are given."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.137",
+        "EDEX 8.138",
+        "EDEX 8.141"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use ΔE = c²Δm for creation and annihilation. In annihilation, the mass lost appears as photon energy. In creation, the photon energy needed is at least the mass created × c².",
+                "Convert between MeV and GeV and between MeV/c² and GeV/c², and then to joules and kilograms.",
+                "1 GeV/c² = 1000 MeV/c², and 1 MeV/c² = 1.78 × 10⁻³⁰ kg.",
+                "Work in either set of units, but do not mix them."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 11.1.8"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.4.2a",
+        "OCR 6.4.2b",
+        "OCR 6.4.4c"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "f1598569-f9b7-4dcf-b190-d9ddec82e286",
+      "492c97a8-fbd5-4332-bd76-1da1446c5a03",
+      "a1e89a69-d56f-42e2-bdb5-cd96a3d64e23",
+      "da9e3577-19df-4769-8c27-b9987bcdf526",
+      "c328a56a-3861-4f42-825d-20040988f49b",
+      "901b5d66-ce24-4bbf-8e88-61a72325c46c",
+      "79e09d91-eea0-4b1b-9f77-5e6af51e3198",
+      "f5ef7183-c07a-48be-a21c-c8709aaa1fa6"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

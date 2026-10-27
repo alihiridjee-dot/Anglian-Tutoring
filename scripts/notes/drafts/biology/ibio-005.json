@@ -1,0 +1,234 @@
+{
+  "format": 1,
+  "concept_id": "ibio-005",
+  "subject": "biology",
+  "title": "Water movement through the plant",
+  "key_idea": "Water enters a plant through root hair cells, crosses the root cortex, rises up the xylem and leaves as vapour through the stomata. Evaporation from the leaf pulls up a column of water held together by cohesion. A plant that loses water faster than it takes it up wilts.",
+  "sections": [
+    {
+      "heading": "The route of water through the plant",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Water travels from the soil to the air through the root, stem and leaf. This section gives the pathway in order."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "The pathway of water through a plant in order: root hair cell, root cortex cells, xylem, mesophyll cells, air spaces in the leaf, then out through the stomata.",
+            "prompt": "Put the pathway of water through the plant in order, from the soil to the air.",
+            "steps": [
+              "Root hair cells take in water from the soil by osmosis",
+              "Water crosses the root cortex cells",
+              "Water enters the xylem",
+              "Water rises through the xylem in the stem",
+              "Water leaves the xylem and enters the mesophyll cells in the leaf",
+              "Water evaporates into the air spaces and diffuses out of the stomata"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Root hair cells have a large surface area, so they take in water quickly.",
+            "The **xylem** is a continuous tube of dead cells with no end walls. It carries water and mineral ions up the plant.",
+            "In the leaf, water moves from the xylem into the **mesophyll** cells."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The pathway is root hair cells, root cortex cells, xylem, mesophyll cells.",
+            "Water enters root hair cells by osmosis."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Tracing the pathway with a stain",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A stain shows which part of the stem carries water. The method is the same for any leafy shoot."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Prepare.",
+              "text": "Cut the stem of a leafy plant, for example celery, under water."
+            },
+            {
+              "lead": "Stain.",
+              "text": "Stand the cut stem in water containing a coloured dye, such as eosin or red ink."
+            },
+            {
+              "lead": "Wait.",
+              "text": "Leave it for several hours, so water is drawn up the stem."
+            },
+            {
+              "lead": "Cut.",
+              "text": "Cut thin slices across the stem and lengthways."
+            },
+            {
+              "lead": "Look.",
+              "text": "The dye is found in the xylem, which shows where water travels."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A coloured dye in the water shows the pathway in the stem.",
+            "The stain is found in the xylem."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evaporation and loss through stomata",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Water is lost from a leaf as vapour. This section covers how the leaf is built for this."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Transpiration",
+              "meaning": "The loss of water vapour from the leaves of a plant."
+            },
+            {
+              "term": "Stomata",
+              "meaning": "Small pores in the leaf, mostly on the underside, which let gases and water vapour pass."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Water **evaporates** from the surface of the mesophyll cells into the air spaces.",
+            "The air spaces between mesophyll cells interconnect and give a large internal surface area.",
+            "Water vapour diffuses out of the leaf through the stomata.",
+            "More and larger stomata mean more water vapour is lost."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Water evaporates from mesophyll cells into the air spaces.",
+            "Vapour escapes by diffusion through the stomata.",
+            "A large internal surface area and more stomata increase water loss."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Transpiration pull and wilting",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Water moves up the xylem without a pump. Evaporation from the leaf does the work."
+        },
+        {
+          "type": "subheading",
+          "text": "Transpiration pull"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Water evaporates from the leaf, so the pressure at the top of the xylem falls.",
+            "This **transpiration pull** draws up a column of water in the xylem.",
+            "Water molecules are held together by forces of attraction between them. This is **cohesion**.",
+            "The xylem is a continuous tube, so the column does not break.",
+            "Water molecules also stick to the walls of the xylem (adhesion)."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Wilting"
+        },
+        {
+          "type": "list",
+          "items": [
+            "If water is lost faster than the roots take it up, the cells lose water.",
+            "The cells lose their firmness and become limp, or **flaccid**.",
+            "Nothing pushes the cell contents against the cell wall, so the leaves and stems droop.",
+            "This is **wilting**. It happens in hot, dry or windy conditions, or when the soil is dry.",
+            "Wilting reduces the surface area exposed, so less water is lost."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Transpiration pull draws up a column of water molecules held together by cohesion.",
+            "Wilting happens when water loss is greater than water uptake."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the tissue that carries water up the stem.",
+      "a": "Xylem.",
+      "marks": 1
+    },
+    {
+      "q": "Describe how you could show which part of a stem carries water.",
+      "a": "Stand a cut stem in water with a coloured dye. After some time, cut a thin slice of the stem. The dye is seen in the xylem.",
+      "marks": 3
+    },
+    {
+      "q": "(Supplement) Explain how water moves up the xylem.",
+      "a": "Water evaporates from the leaf, causing transpiration pull. This draws up a column of water in the xylem. The water molecules stay together because of forces of attraction between them (cohesion).",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 8.2.3",
+        "CAIE 8.2.4",
+        "CAIE 8.3.4S",
+        "CAIE 8.3.5S",
+        "CAIE 8.3.7S"
+      ],
+      "worked_example": {
+        "exemplar_id": "65934f31-e47a-4c25-8294-bb26efad2ab8",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q1(c)",
+        "question": "Describe how water moves through a plant from the soil to the air spaces in a leaf.",
+        "marks": 4,
+        "answer_points": [
+          "Water enters root hair cells by osmosis.",
+          "It moves through the root cortex.",
+          "It reaches the xylem in the root.",
+          "A column of water moves up the stem in the xylem.",
+          "Water molecules are held together by forces of attraction (cohesion).",
+          "Water moves out of the xylem in the leaf into the mesophyll cells.",
+          "Water evaporates from the surface of the mesophyll cells into the air spaces."
+        ],
+        "tip": "Any four score one mark each. Follow the route in order."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "dea170f3-a779-4457-8d4d-9ec5dcf5efbe",
+      "dc1d4148-c3d3-4a38-89d5-dbda7a9415f9",
+      "4d815279-fccd-484b-9ef8-71f5dcef70ed",
+      "d23e3fe9-1cd4-48e4-83e5-e77ec891ee2f",
+      "fd96fb0f-5af2-4a34-89a0-f552d12e3633"
+    ],
+    "exemplar_ids": [
+      "65934f31-e47a-4c25-8294-bb26efad2ab8"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

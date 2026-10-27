@@ -29,3 +29,13 @@ export const subjectPauseQuery = (studentId: string, subject: SubjectV) =>
     queryFn: () => SubjectPauseDAL.open(studentId, subject),
     staleTime: 30_000,
   });
+
+/** Every stop of the subject, oldest first: what a past week was paused by. */
+export const subjectPauseHistoryQuery = (studentId: string, subject: SubjectV) =>
+  queryOptions({
+    queryKey: [...plannerKey(studentId), subject, "pause-history"],
+    // A failed read reads as "never paused" (see SubjectPauseDAL): the week
+    // then says "No plan was set", as it did before.
+    queryFn: () => SubjectPauseDAL.history(studentId, subject),
+    staleTime: 30_000,
+  });

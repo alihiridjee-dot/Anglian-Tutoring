@@ -1,0 +1,351 @@
+{
+  "format": 1,
+  "concept_id": "bio-070",
+  "title": "The eye",
+  "subject": "biology",
+  "key_idea": "The eye is a sense organ that detects light. The cornea and lens focus light onto the retina, which sends impulses along the optic nerve to the brain. The iris controls how much light enters, and the lens changes shape to focus on near or distant objects. (Separate science)",
+  "sections": [
+    {
+      "heading": "Structure of the eye",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) The eye is a sensory receptor organ. This section covers each main part and the job it does."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "A self-test: tap each part of the eye to learn its job, then test yourself.",
+            "prompt": "Tap a part of the eye to see what it does.",
+            "parts": [
+              {
+                "name": "Cornea",
+                "detail": "The transparent front of the eye. It refracts (bends) light as it enters."
+              },
+              {
+                "name": "Iris",
+                "detail": "A ring of muscle that controls how much light enters the eye by changing the size of the pupil."
+              },
+              {
+                "name": "Pupil",
+                "detail": "The hole in the middle of the iris that lets light through."
+              },
+              {
+                "name": "Lens",
+                "detail": "Refracts light to focus it on the retina. It can change shape to focus on near and distant objects."
+              },
+              {
+                "name": "Ciliary muscles",
+                "detail": "Muscles around the lens that change its shape. They work with the suspensory ligaments."
+              },
+              {
+                "name": "Suspensory ligaments",
+                "detail": "Fibres that hold the lens in place and pull on it, or slacken, to change its shape."
+              },
+              {
+                "name": "Retina",
+                "detail": "The light-sensitive layer at the back of the eye. It contains receptor cells (rods and cones) and the image is focused on it."
+              },
+              {
+                "name": "Optic nerve",
+                "detail": "Carries impulses from the retina to the brain."
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The retina has two types of receptor cell. **Rod cells** detect the intensity of light and work in dim light. They do not detect colour.",
+            "**Cone cells** are responsible for colour vision and work in bright light.",
+            "Both types send impulses along the optic nerve to the brain. The brain processes the information, so you see.",
+            "If the retina is damaged, light may not be detected, or information may not be sent to the brain."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Light is refracted by the cornea and the lens, and is focused on the retina.",
+            "Rods work in dim light. Cones give colour vision.",
+            "Impulses pass along the optic nerve to the brain."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Adjusting to light and to distance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The eye adjusts in two ways. It controls how much light gets in, and it focuses on near or far objects."
+        },
+        {
+          "type": "subheading",
+          "text": "The pupil reflex"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In **bright light**, the circular muscles in the iris contract and the radial muscles relax. The pupil gets smaller.",
+            "This reduces the amount of light entering the eye and protects the retina.",
+            "In **dim light**, the radial muscles contract and the circular muscles relax. The pupil gets larger so more light enters.",
+            "This is a reflex, so it is automatic and rapid."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Accommodation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Accommodation is the change in the shape of the lens that lets the eye focus on objects at different distances. The ciliary muscles and suspensory ligaments control it."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor: pick a situation and see how the iris, ciliary muscles, suspensory ligaments and lens respond.",
+            "prompt": "Pick what the eye is looking at.",
+            "result_labels": ["Pupil", "Ciliary muscles", "Suspensory ligaments", "Lens"],
+            "options": [
+              {
+                "label": "A bright light",
+                "results": [
+                  "Gets smaller. Iris muscles contract.",
+                  "No change",
+                  "No change",
+                  "No change"
+                ],
+                "explanation": "Less light enters the eye, which protects the retina."
+              },
+              {
+                "label": "A dim room",
+                "results": [
+                  "Gets larger. More light enters.",
+                  "No change",
+                  "No change",
+                  "No change"
+                ],
+                "explanation": "More light is needed to form an image on the retina."
+              },
+              {
+                "label": "A near object",
+                "results": [
+                  "No change",
+                  "Contract, so their diameter gets smaller",
+                  "Loosen (slacken)",
+                  "Thicker and more curved. It refracts light more."
+                ],
+                "explanation": "The thicker lens bends the light rays more, so they focus on the retina."
+              },
+              {
+                "label": "A distant object",
+                "results": [
+                  "No change",
+                  "Relax",
+                  "Pulled tight",
+                  "Thinner and less curved. It refracts light less."
+                ],
+                "explanation": "A thin lens bends the light rays less, so a distant object is focused on the retina."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Bright light: the pupil gets smaller. Dim light: the pupil gets larger.",
+            "Near object: ciliary muscles contract, ligaments loosen, the lens is thicker.",
+            "Distant object: ciliary muscles relax, ligaments are tight, the lens is thinner."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the part of the eye that contains the receptor cells.",
+      "a": "The retina.",
+      "marks": 1
+    },
+    {
+      "q": "Describe how the pupil changes when a person moves from a dim room to bright sunlight.",
+      "a": "The muscles in the iris contract and the pupil gets smaller, so less light enters the eye.",
+      "marks": 2
+    },
+    {
+      "q": "Describe what happens to the lens when the eye focuses on a near object.",
+      "a": "The ciliary muscles contract, the suspensory ligaments loosen, and the lens becomes thicker and more curved so light is refracted more.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.5"],
+      "worked_example": {
+        "exemplar_id": "5f03b7fb-b868-4f16-be9c-3143d2070927",
+        "source": "AQA jun 2019, Paper 2 (H), Q04.1",
+        "question": "The human eye can focus on objects at different distances. A person's eye forms a clear image of a distant object.\n\nExplain how the person's eye could adjust to form a clear image of a nearer object.",
+        "marks": 6,
+        "answer_points": [
+          "The ciliary muscles contract.",
+          "So the ciliary muscles have a smaller diameter.",
+          "The suspensory ligaments loosen (slacken).",
+          "The lens becomes thicker (more curved).",
+          "The thicker lens is more convergent, so light rays are refracted (bent) more.",
+          "Light rays are focused on the retina."
+        ],
+        "tip": "Each of the six points earns a mark. Say the suspensory ligaments loosen or slacken. Do not write relax."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 2.15B"],
+      "worked_example": {
+        "exemplar_id": "6f5145ca-b81a-4421-9d2a-ada8da6cff15",
+        "source": "EDEXCEL nov 2020, Paper 1 (F), Q7(b)",
+        "question": "Explain the functions of the two types of cell in the retina that detect light.",
+        "marks": 4,
+        "answer_points": [
+          "Cone cells.",
+          "Cone cells are responsible for colour vision.",
+          "Rod cells.",
+          "Rod cells detect the intensity of light.",
+          "Both types send impulses to the brain."
+        ],
+        "tip": "Four of these five points are needed: name each cell, give its function, and say both send impulses to the brain."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.1d"],
+      "worked_example": {
+        "exemplar_id": "b91b23f0-4243-47c4-9b44-44ae5b52372f",
+        "source": "OCR jun 2018, Paper 4, Q18(b)(ii)",
+        "question": "Retinitis pigmentosa is a genetic condition that affects the eyes. The condition causes rod cells in the retina to break down.\n\nIf a baby has retinitis pigmentosa, it will have normal colour vision but will not be able to see well in dim light.\n\nExplain why.",
+        "marks": 3,
+        "answer_points": [
+          "The rod cells do not work (they are damaged).",
+          "Rod cells can work in dim light, so without them the baby cannot see well in dim light.",
+          "Rod cells cannot detect colour, so colour vision is normal. The cone cells are not broken down."
+        ],
+        "tip": "Saying only that the rod cells are broken down repeats the question. Say what rods and cones do."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 14.2.1",
+        "CAIE 14.2.2",
+        "CAIE 14.2.3",
+        "CAIE 14.2.4",
+        "CAIE 14.2.5S",
+        "CAIE 14.2.6S",
+        "CAIE 14.2.7S",
+        "CAIE 14.2.8S",
+        "CAIE 14.2.9S"
+      ],
+      "worked_example": {
+        "exemplar_id": "d8b4e005-8149-4314-aa8b-ba572358ae8c",
+        "source": "CAMBRIDGE jun 2024, Paper 42, Q2(c)",
+        "question": "Describe the distribution and function of rods and cones in the eye.",
+        "marks": 4,
+        "answer_points": [
+          "Distribution: both rods and cones are found in the retina.",
+          "There are more cones (and no rods) at the fovea.",
+          "There are no rods or cones at the blind spot.",
+          "Function: rods and cones are light receptors. They respond to light and generate impulses.",
+          "Rods respond to dim light, give night vision and a black and white (grey) image.",
+          "Cones respond to bright light and give colour vision, because different cones absorb different wavelengths of light."
+        ],
+        "tip": "Any four points score. Include at least one point on distribution and one on function."
+      },
+      "extra": [
+        {
+          "heading": "Sense organs and the blind spot",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Sense organ",
+                  "meaning": "A group of receptor cells that respond to specific stimuli: light, sound, touch, temperature and chemicals."
+                },
+                {
+                  "term": "Blind spot",
+                  "meaning": "The place where the optic nerve leaves the retina. It has no receptor cells, so it cannot detect light."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The eye is a sense organ. Its receptor cells detect light."
+            }
+          ]
+        },
+        {
+          "heading": "Rods, cones and the fovea",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Rods and cones are not spread evenly across the retina."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Rods** are spread across the retina. They are more sensitive than cones, so they give night vision.",
+                "**Cones** are concentrated at the **fovea**. There are three kinds, and each absorbs a different colour of light. Together they give colour vision.",
+                "The **fovea** is the small area of the retina where cones are densest. It gives sharp colour vision.",
+                "There are no rods or cones at the blind spot."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.91", "IGCSE 2.92"],
+      "worked_example": {
+        "exemplar_id": "3c45fed8-ea29-4771-b196-8677f3f5bc93",
+        "source": "EDEXCEL jun 2022, Paper 1 (B), Q8(c)",
+        "question": "Some rats with white fur also have pink eyes.\n\nThese rats have pink eyes because they do not have pigment in their irises. This means that their irises let light pass through, unlike the coloured irises found in other rats.\n\nExplain how this difference in the iris affects vision in the rats with pink eyes.",
+        "marks": 3,
+        "answer_points": [
+          "The iris does not block light, or blocks less light.",
+          "So the pupil changing size (dilating or constricting) has little or no effect. The iris cannot control the amount of light entering the eye.",
+          "Too much light enters the eye and falls on the retina.",
+          "This gives poor vision, or damages the retina."
+        ],
+        "tip": "Any three points score. Do not stop at saying that the iris lets light through."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "c284b080-5203-45bf-ab28-fe85ee7ebb1e",
+      "7ff8f794-7173-489d-a515-f773ef6a19fd",
+      "dfa2621f-37a3-45d1-aa0a-a8a2ad23ddb7",
+      "e5cd17da-2208-40f2-83a2-26c87e7e46a2",
+      "bd7b58f5-eee0-49a3-b81f-0663ded449e6",
+      "4c3c91d8-133a-41f3-bfb6-958bb4b1b979",
+      "5c0fda84-2e9e-4d92-9ffd-3e7e6ee6d17f",
+      "740949d5-1b48-401b-b55d-2334bdd7b085",
+      "f9fca01a-6aa5-4494-a71c-6a7909306e0a",
+      "52244cb5-664d-4d2e-998e-ae27d4d7675f",
+      "be3fa34d-69b2-4dc1-b77e-397e7724cccc",
+      "fb9b6d95-d081-4382-8f5c-7c853a89cc65",
+      "f5149d10-6604-4650-9d31-e1d3e735cd35",
+      "71f9d6b8-72c7-42e9-af7b-2aeade72c1b9"
+    ],
+    "exemplar_ids": [
+      "5f03b7fb-b868-4f16-be9c-3143d2070927",
+      "6f5145ca-b81a-4421-9d2a-ada8da6cff15",
+      "b91b23f0-4243-47c4-9b44-44ae5b52372f",
+      "d8b4e005-8149-4314-aa8b-ba572358ae8c",
+      "3c45fed8-ea29-4771-b196-8677f3f5bc93"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

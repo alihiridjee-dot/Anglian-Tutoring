@@ -1,0 +1,291 @@
+{
+  "format": 1,
+  "concept_id": "abio-034",
+  "subject": "biology",
+  "title": "Antibiotics and medicines",
+  "key_idea": "Antibiotics kill bacteria or stop them growing, and do not affect viruses. Using them selects for resistant bacteria, which is a growing problem, especially in hospitals. New medicines come from living organisms and are tested in stages to show they are safe and work.",
+  "sections": [
+    {
+      "heading": "How antibiotics work",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Antibiotics are chemicals that kill or stop the growth of bacteria without harming human cells. They act on features bacteria have and human cells lack."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Bactericidal",
+              "meaning": "An antibiotic that kills bacteria."
+            },
+            {
+              "term": "Bacteriostatic",
+              "meaning": "An antibiotic that stops bacteria growing or reproducing. The immune system then clears them."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Penicillin"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bacterial cell walls contain peptidoglycan. Enzymes join the peptidoglycan chains together as the wall is built.",
+            "Penicillin blocks the enzyme that forms these cross-links.",
+            "The wall is weak in growing cells. Water enters by osmosis, and the cell swells and bursts (lysis).",
+            "Penicillin is therefore bactericidal, and works only on growing bacteria."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why antibiotics do not affect viruses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A virus has no cell wall and no metabolism of its own, so there is nothing for these antibiotics to attack.",
+            "A virus reproduces inside host cells using host enzymes and ribosomes.",
+            "Antibiotics that block bacterial processes therefore do not harm viruses."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Penicillin stops cell wall synthesis, so bacteria burst by osmosis.",
+            "Bactericidal antibiotics kill; bacteriostatic antibiotics stop growth.",
+            "Antibiotics do not work on viruses."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Antibiotic resistance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Resistance happens when bacteria evolve the ability to survive an antibiotic."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages by which antibiotic resistance spreads in order.",
+            "prompt": "Put the stages in the right order.",
+            "steps": [
+              "A random mutation gives one bacterium resistance to an antibiotic.",
+              "The antibiotic is used and kills non-resistant bacteria.",
+              "The resistant bacterium survives and has less competition.",
+              "It reproduces, and passes the resistance gene to its offspring.",
+              "Resistance can also pass to other bacteria on plasmids.",
+              "The population becomes mostly resistant."
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Resistance has serious consequences."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Infections that were easy to treat become hard or impossible to treat.",
+            "Patients stay ill longer, and may die.",
+            "Treatment costs more, and operations and cancer treatments become riskier.",
+            "Multi-drug-resistant bacteria such as MRSA and some strains of TB spread between people."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Resistance can be slowed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Prescribe antibiotics only when they are needed, and never for viral infections.",
+            "Patients should complete the whole course.",
+            "Use a narrow-spectrum antibiotic aimed at the cause where possible.",
+            "Limit use in farming, and develop new antibiotics.",
+            "Use good hygiene to prevent infections in the first place."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Resistance is natural selection acting on bacteria.",
+            "Overuse and not completing courses increase resistance."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Hospital-acquired infections",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hospitals bring together sick patients, antibiotics and many bacteria, so infections spread easily."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Patients have weakened immune systems and open wounds, tubes and surgical sites.",
+            "Heavy antibiotic use selects for resistant strains such as MRSA and Clostridium difficile.",
+            "Staff, equipment and visitors can carry bacteria between patients."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Understanding these causes led to codes of practice."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hand-washing and alcohol gel between patients.",
+            "Isolating infected patients and screening on admission.",
+            "Cleaning wards, equipment and beds.",
+            "Policies that restrict antibiotic prescribing and require the right drug and dose."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hospitals give resistant bacteria many chances to spread.",
+            "Hygiene, isolation and careful prescribing reduce infection."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Outline how penicillin kills bacteria, and explain why it does not affect viruses.",
+      "a": "Penicillin inhibits the enzyme that forms cross-links in the peptidoglycan cell wall. The weakened wall cannot resist osmotic uptake of water, so the bacterium bursts. Viruses have no cell wall or metabolism of their own, so penicillin has no target.",
+      "marks": 4
+    },
+    {
+      "q": "Explain how the overuse of antibiotics leads to resistant bacteria.",
+      "a": "A mutation can make a bacterium resistant. When antibiotics are used, non-resistant bacteria die but the resistant ones survive and reproduce. They pass the resistance allele to their offspring, so the proportion of resistant bacteria increases.",
+      "marks": 4
+    },
+    {
+      "q": "Suggest two steps a hospital can take to reduce infections acquired by patients.",
+      "a": "Hand-washing or alcohol gel between patients; isolation of infected patients; screening of patients on admission; careful cleaning of wards and equipment; restricting the antibiotics that are prescribed.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4.13",
+        "EDEX 6.14",
+        "EDEX 6.15"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Development of drug testing"
+            },
+            {
+              "type": "list",
+              "items": [
+                "William Withering studied foxglove (digitalis) in the 1700s. He tested doses on patients with dropsy, which gave the first steps towards a controlled dose.",
+                "A **placebo** is a treatment with no active drug, given to a control group to show the real effect of the drug.",
+                "In a **double-blind** trial neither the patient nor the doctor knows who has the drug or the placebo. This removes bias.",
+                "Modern testing has three phases. Phase 1 tests safety on a small group of healthy volunteers. Phase 2 tests whether it works in patients. Phase 3 compares it with existing treatment or a placebo in large numbers of patients."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Bacteriostatic and bactericidal"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Bactericidal antibiotics, such as penicillin, kill bacteria.",
+                "Bacteriostatic antibiotics, such as tetracycline, stop bacteria multiplying so the immune system can clear them."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 10.2.1",
+        "CAIE 10.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Consequences of resistance: treatment failure, longer illness, greater cost and more deaths.",
+                "Steps to reduce its impact: restrict use to bacterial infections, complete courses, develop new antibiotics, better hygiene, and monitoring of resistant strains."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.1.1m",
+        "OCR 4.1.1n"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Sources of medicines"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Many drugs come from microorganisms. Penicillin comes from the fungus Penicillium.",
+                "Many come from plants. Aspirin was developed from willow bark, and digitalis comes from foxglove.",
+                "This is one reason to conserve **biodiversity**: undiscovered organisms may contain new medicines.",
+                "Personalised medicine uses a patient's genes to choose the best drug and dose, with fewer side effects."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Benefits and risks of antibiotics"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Benefits: after penicillin was discovered in the mid-20th century, antibiotics made many deadly infections treatable and made surgery safer.",
+                "Risks: wide use has increased resistance. This limits treatment of infections and may take us back to a time when infections could not be treated."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "fc8cae80-52b8-4287-a824-f70f253c87d1",
+      "91e6725b-73c7-496c-940d-bf11b5471434",
+      "0682bffa-244e-43ea-a924-1a2d6fc29477",
+      "12fcc536-bb32-455c-a896-66af84a61064",
+      "c1d41b7b-bdd7-402d-a33e-92cfe5950021",
+      "3c7fae42-4513-47f3-ab90-1f83777717e9",
+      "08c81238-d3bc-4cf4-b58b-f6bff4cc4d89"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

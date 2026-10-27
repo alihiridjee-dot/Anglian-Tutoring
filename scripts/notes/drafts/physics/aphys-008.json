@@ -1,0 +1,370 @@
+{
+  "format": 1,
+  "concept_id": "aphys-008",
+  "subject": "physics",
+  "title": "Displacement, velocity and acceleration graphs",
+  "key_idea": "Velocity is the rate of change of displacement, and acceleration is the rate of change of velocity. On motion graphs the gradient gives the rate of change, and the area under a velocity-time or acceleration-time graph gives the change in displacement or velocity.",
+  "sections": [
+    {
+      "heading": "Defining the quantities",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Motion in a straight line is described by five quantities. This section covers their definitions and equations."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Distance",
+              "meaning": "The total length of path travelled. A scalar."
+            },
+            {
+              "term": "Displacement",
+              "meaning": "The distance in a straight line from the start, in a stated direction. A vector."
+            },
+            {
+              "term": "Speed",
+              "meaning": "The rate of change of distance. A scalar."
+            },
+            {
+              "term": "Velocity",
+              "meaning": "The rate of change of displacement. A vector."
+            },
+            {
+              "term": "Acceleration",
+              "meaning": "The rate of change of velocity. A vector."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Velocity",
+          "formula": "v = Δs / Δt",
+          "where": [
+            "v = velocity (m/s)",
+            "Δs = change in displacement (m)",
+            "Δt = time taken (s)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Acceleration",
+          "formula": "a = Δv / Δt",
+          "where": [
+            "a = acceleration (m/s²)",
+            "Δv = change in velocity (m/s)",
+            "Δt = time taken (s)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Average speed** is total distance divided by total time.",
+            "**Instantaneous speed** is the speed at one moment. It is the average speed over a very short time.",
+            "Velocity changes if the speed changes or the direction changes.",
+            "A negative velocity means motion in the opposite direction to the one chosen as positive.",
+            "A negative acceleration is a deceleration only when the object is moving in the positive direction."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Displacement, velocity and acceleration are vectors. Distance and speed are scalars.",
+            "v = Δs / Δt and a = Δv / Δt.",
+            "Average values use a long time interval. Instantaneous values use a very short one."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reading motion graphs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Three graphs describe the same motion. Each gradient and area has a physical meaning."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of what the gradient and the area under each motion graph represent.",
+            "items": [
+              "Displacement-time",
+              "Velocity-time",
+              "Acceleration-time"
+            ],
+            "rows": [
+              {
+                "feature": "Gradient gives",
+                "values": [
+                  "Velocity",
+                  "Acceleration",
+                  "Not needed at this level"
+                ]
+              },
+              {
+                "feature": "Area under graph gives",
+                "values": [
+                  "Nothing useful",
+                  "Change in displacement",
+                  "Change in velocity"
+                ]
+              },
+              {
+                "feature": "Straight sloping line means",
+                "values": [
+                  "Constant velocity",
+                  "Constant acceleration",
+                  "Not applicable"
+                ]
+              },
+              {
+                "feature": "Horizontal line means",
+                "values": [
+                  "At rest",
+                  "Constant velocity",
+                  "Constant acceleration"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Displacement-time graphs"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The gradient is the velocity.",
+            "A straight line means constant velocity. A horizontal line means the object is at rest.",
+            "A curve means the velocity is changing, so the object is accelerating.",
+            "The gradient of a curve at a point is the instantaneous velocity. It is found by drawing a tangent to the curve at that point.",
+            "A steeper line means a greater velocity. A negative gradient means motion back towards the start.",
+            "On a distance-time graph the gradient is the speed, and it can never be negative. On a speed-time graph the gradient is the rate of change of speed."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Velocity-time graphs"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The gradient is the acceleration.",
+            "The area between the graph and the time axis is the change in displacement.",
+            "A horizontal line means constant velocity. A straight sloping line means constant acceleration.",
+            "A curve means the acceleration is changing (non-uniform acceleration).",
+            "Where the line crosses the time axis, the velocity is zero. The object is momentarily at rest and, if the line carries on below the axis, it reverses direction.",
+            "Areas above the axis count as positive displacement. Areas below count as negative."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Acceleration-time graphs"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The area between the graph and the time axis is the change in velocity.",
+            "A horizontal line means constant acceleration. The line on the axis means zero acceleration."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gradient of s-t = velocity. Gradient of v-t = acceleration.",
+            "Area under v-t = displacement. Area under a-t = change in velocity.",
+            "For a curve, draw a tangent for the gradient at a point."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Uniform and non-uniform acceleration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Uniform acceleration is constant. Non-uniform acceleration changes with time, so the graphs are curved."
+        },
+        {
+          "type": "list",
+          "items": [
+            "For uniform acceleration, the v-t graph is a straight sloping line. Its area is a triangle, a rectangle or a trapezium.",
+            "For non-uniform acceleration, the v-t graph is a curve. The gradient changes along it.",
+            "To find the area under a curve, count squares or divide it into strips and add their areas. This gives an estimate.",
+            "A bouncing ball has a v-t graph made of straight lines with sudden changes in sign at each bounce, because the velocity reverses direction."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Question",
+              "text": "A car's velocity rises from 4.0 m/s to 16 m/s in 6.0 s. Find its acceleration and the displacement."
+            },
+            {
+              "lead": "Acceleration",
+              "text": "a = Δv / Δt = (16 − 4.0) / 6.0 = 2.0 m/s²"
+            },
+            {
+              "lead": "Displacement",
+              "text": "Area of the trapezium = ½ × (4.0 + 16) × 6.0 = 60 m"
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice calculation. Find an acceleration from a change in velocity and a time.",
+            "question": "A cyclist increases speed in a straight line from {u} m/s to {v} m/s in {t} s. Calculate the acceleration.",
+            "variables": [
+              {
+                "id": "u",
+                "min": 2,
+                "max": 8,
+                "step": 1
+              },
+              {
+                "id": "v",
+                "min": 10,
+                "max": 20,
+                "step": 1
+              },
+              {
+                "id": "t",
+                "min": 2,
+                "max": 10,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "(v - u) / t",
+              "unit": "m/s²",
+              "decimals": 2
+            },
+            "working": [
+              "a = (v − u) / t",
+              "a = ({v} − {u}) / {t}",
+              "a = {answer} m/s²"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Uniform acceleration gives a straight v-t line. Non-uniform gives a curve.",
+            "Estimate areas under curves by counting squares or splitting into strips."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is given by (a) the gradient and (b) the area under a velocity-time graph.",
+      "a": "(a) The gradient is the acceleration. (b) The area is the change in displacement.",
+      "marks": 2
+    },
+    {
+      "q": "A displacement-time graph is a curve with a gradient that gets steeper. Describe the motion.",
+      "a": "The velocity is increasing, so the object is accelerating.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how to find the instantaneous velocity at a point on a displacement-time curve.",
+      "a": "Draw a tangent to the curve at that point. The gradient of the tangent, change in displacement divided by change in time, is the instantaneous velocity.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part of the course also lists the equations for uniform acceleration. They are developed in the next note."
+            },
+            {
+              "type": "list",
+              "items": [
+                "v = u + at",
+                "s = ((u + v) / 2) × t",
+                "s = ut + ½at²",
+                "v² = u² + 2as",
+                "Calculations may use average and instantaneous speeds and velocities.",
+                "Graphs may show the motion of a bouncing ball."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.10",
+        "EDEX 2.11"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 2.1.1",
+        "CAIE 2.1.2",
+        "CAIE 2.1.3",
+        "CAIE 2.1.4",
+        "CAIE 2.1.5"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.1a",
+        "OCR 3.1.1b",
+        "OCR 3.1.1c",
+        "OCR 3.1.1d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Data-loggers can be used to analyse motion. A motion sensor records position against time, and the software plots displacement-time and velocity-time graphs.",
+                "Estimate the area under non-linear graphs by counting squares."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "11dfd4ee-42e7-4a70-9be5-39431b055012",
+      "56efe26a-fdb1-42e6-84ea-915f88c9ae77",
+      "216a2ac1-a864-4212-9341-26346fd59849",
+      "ec2165d7-be50-4f29-9690-523d4257394b",
+      "1fdf3c69-c909-4117-bdde-746778fc2c5a",
+      "498d4e6c-532f-4e68-a906-7f2030c29ce6",
+      "0e09d685-0108-446c-9b8e-c79984d10bcb",
+      "471e3705-d988-4e05-9cff-1d4fcd458063",
+      "1662329a-a4fd-4b86-a464-37dc75bab597",
+      "0d319e8a-6d14-468d-852b-833654e34dec",
+      "3561c415-de8b-4544-ae5d-33e7be432c07",
+      "740f28c3-5b93-47d4-8b14-caf69277900f"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

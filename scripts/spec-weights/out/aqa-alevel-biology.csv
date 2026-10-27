@@ -1,0 +1,256 @@
+code,title,weight,topic
+AQA 3.1.1a,Biochemical basis of life,1.4,Biological molecules
+AQA 3.1.1b,Monomers,1.4,Biological molecules
+AQA 3.1.1c,Polymers,1.4,Biological molecules
+AQA 3.1.1d,Examples of monomers,1.4,Biological molecules
+AQA 3.1.1e,Condensation reactions,1.4,Biological molecules
+AQA 3.1.1f,Hydrolysis reactions,1.4,Biological molecules
+AQA 3.1.2a,"Monosaccharides: glucose, galactose and fructose",1.4,Biological molecules
+AQA 3.1.2b,Glycosidic bond formation,1.4,Biological molecules
+AQA 3.1.2c,"Disaccharides: maltose, sucrose and lactose",2.68,Biological molecules
+AQA 3.1.2d,Isomers of glucose: α-glucose and β-glucose,2.68,Biological molecules
+AQA 3.1.2e,Polysaccharides formed from glucose units,1.95,Biological molecules
+AQA 3.1.2f,"Structure and function of glycogen, starch and cellulose",1.4,Biological molecules
+AQA 3.1.2g,Biochemical tests for sugars and starch,1.4,Biological molecules
+AQA 3.1.3a,Triglycerides and phospholipids as lipids,1.4,Biological molecules
+AQA 3.1.3b,Formation of triglycerides,1.4,Biological molecules
+AQA 3.1.3c,Ester bond formation,1.4,Biological molecules
+AQA 3.1.3d,Saturated and unsaturated fatty acids,1.62,Biological molecules
+AQA 3.1.3e,Structure of phospholipids,1.4,Biological molecules
+AQA 3.1.3f,Properties of triglycerides and phospholipids,1.64,Biological molecules
+AQA 3.1.3g,Emulsion test for lipids,1.4,Biological molecules
+AQA 3.1.4.1a,Amino acids and their general structure,2.2,Biological molecules
+AQA 3.1.4.1b,"Peptide bonds, dipeptides and polypeptides",2.02,Biological molecules
+AQA 3.1.4.1c,Polypeptides in a functional protein,1.4,Biological molecules
+AQA 3.1.4.1d,"Hydrogen bonds, ionic bonds and disulfide bridges",1.4,Biological molecules
+AQA 3.1.4.1e,Levels of protein structure and protein function,1.73,Biological molecules
+AQA 3.1.4.1f,Biuret test for proteins,1.4,Biological molecules
+AQA 3.1.4.2a,Enzymes lower activation energy,1.93,Biological molecules
+AQA 3.1.4.2b,Induced-fit model of enzyme action,1.62,Biological molecules
+AQA 3.1.4.2c,"Enzyme properties, specificity and rate factors",2.62,Biological molecules
+AQA 3.1.4.2 RP1,Required practical 1: effect of a variable on enzyme rate,3.4,Biological molecules
+AQA 3.1.5.1a,DNA and RNA as information-carrying molecules,2,Biological molecules
+AQA 3.1.5.1b,Ribosomes,1.4,Biological molecules
+AQA 3.1.5.1c,"Nucleotides, their components and phosphodiester bonds",3.28,Biological molecules
+AQA 3.1.5.1d,DNA double helix and base pairing,1.4,Biological molecules
+AQA 3.1.5.1e,Structure of RNA,1.4,Biological molecules
+AQA 3.1.5.2a,Semi-conservative replication and genetic continuity,1.51,Biological molecules
+AQA 3.1.5.2b,Process of semi-conservative DNA replication,3.52,Biological molecules
+AQA 3.1.6a,Structure of ATP,1.44,Biological molecules
+AQA 3.1.6b,Hydrolysis of ATP,2.51,Biological molecules
+AQA 3.1.6c,Resynthesis of ATP,1.4,Biological molecules
+AQA 3.1.7a,Water,4.1,Biological molecules
+AQA 3.1.8a,Inorganic ions in solution,1.4,Biological molecules
+AQA 3.1.8b,Roles of inorganic ions,2.11,Biological molecules
+AQA 3.2.1.1a,Eukaryotic cell structure and organelle function,4.71,Cells
+AQA 3.2.1.1b,"Specialised cells, tissues, organs and systems",1.76,Cells
+AQA 3.2.1.2a,Differences between prokaryotic and eukaryotic cells,2.99,Cells
+AQA 3.2.1.2b,Additional structures of prokaryotic cells,2.17,Cells
+AQA 3.2.1.2c,Structure of virus particles,1.4,Cells
+AQA 3.2.1.3a,"Optical, transmission electron and scanning electron microscopes",1.4,Cells
+AQA 3.2.1.3b,Measuring cell size; magnification and resolution,1.4,Cells
+AQA 3.2.1.3c,Calculating magnification from image and object size,1.5,Cells
+AQA 3.2.1.3d,Cell fractionation and ultracentrifugation,1.67,Cells
+AQA 3.2.2a,Cells that retain the ability to divide,1.4,Cells
+AQA 3.2.2b,"The cell cycle, interphase and mitosis",2.6,Cells
+AQA 3.2.2c,Behaviour of chromosomes during the stages of mitosis,2.57,Cells
+AQA 3.2.2d,Cytokinesis,1.4,Cells
+AQA 3.2.2e,"Uncontrolled cell division, tumours and cancer treatment",1.51,Cells
+AQA 3.2.2f,Binary fission in prokaryotic cells,2.22,Cells
+AQA 3.2.2g,Viruses and cell division,1.4,Cells
+AQA 3.2.2 RP2,Required practical 2: Mitosis in root tip squashes and mitotic index,4.27,Cells
+AQA 3.2.3a,Basic structure of cell membranes,1.4,Cells
+AQA 3.2.3b,Fluid-mosaic model of membrane structure,1.69,Cells
+AQA 3.2.3c,Mechanisms of movement across membranes,3.54,Cells
+AQA 3.2.3d,Adaptations for rapid transport and factors affecting its rate,3.26,Cells
+AQA 3.2.3 RP3,Required practical 3: Water potential of plant tissue,3.42,Cells
+AQA 3.2.3 RP4,Required practical 4: Effect of a variable on membrane permeability,3.4,Cells
+AQA 3.2.4a,Cell-surface molecules identified by the immune system,2.64,Cells
+AQA 3.2.4b,Antigens and antigen variability,1.4,Cells
+AQA 3.2.4c,Phagocytosis of pathogens and destruction by lysozymes,1.4,Cells
+AQA 3.2.4d,T lymphocytes and the cellular response,2.42,Cells
+AQA 3.2.4e,"B lymphocytes, antibodies and the humoral response",3.19,Cells
+AQA 3.2.4f,Vaccines and herd immunity,1.4,Cells
+AQA 3.2.4g,Active and passive immunity,1.4,Cells
+AQA 3.2.4h,Structure of HIV and its replication in helper T cells,1.4,Cells
+AQA 3.2.4i,"HIV, AIDS and why antibiotics do not work on viruses",1.4,Cells
+AQA 3.2.4j,Uses of monoclonal antibodies,2.11,Cells
+AQA 3.2.4k,Ethical issues and evidence for vaccines and monoclonal antibodies,2.26,Cells
+AQA 3.2.4l,Use of antibodies in the ELISA test,1.4,Cells
+AQA 3.3.1a,Size of an organism and surface area to volume ratio,1.6,Organisms exchange substances with their environment
+AQA 3.3.1b,Body shape and exchange systems in larger organisms,1.4,Organisms exchange substances with their environment
+AQA 3.3.2a,Adaptations of gas exchange surfaces,2.92,Organisms exchange substances with their environment
+AQA 3.3.2b,Compromise between gas exchange and water loss,1.4,Organisms exchange substances with their environment
+AQA 3.3.2c,Gross structure of the human gas exchange system,1.4,Organisms exchange substances with their environment
+AQA 3.3.2d,Alveolar epithelium as a gas exchange surface,1.4,Organisms exchange substances with their environment
+AQA 3.3.2e,Ventilation and the mechanism of breathing,4.1,Organisms exchange substances with their environment
+AQA 3.3.3a,Hydrolysis of large molecules during digestion,1.4,Organisms exchange substances with their environment
+AQA 3.3.3b,"Digestion of carbohydrates, lipids and proteins in mammals",2.15,Organisms exchange substances with their environment
+AQA 3.3.3c,Absorption of the products of digestion in the ileum,2.17,Organisms exchange substances with their environment
+AQA 3.3.4.1a,Haemoglobins and their quaternary structure,1.4,Organisms exchange substances with their environment
+AQA 3.3.4.1b,Oxygen transport and the oxyhaemoglobin dissociation curve,2.4,Organisms exchange substances with their environment
+AQA 3.3.4.1c,Different types of haemoglobin in different animals,1.4,Organisms exchange substances with their environment
+AQA 3.3.4.1d,General pattern of blood circulation in a mammal,1.51,Organisms exchange substances with their environment
+AQA 3.3.4.1e,Heart structure and the cardiac cycle,3.48,Organisms exchange substances with their environment
+AQA 3.3.4.1f,"Structure of arteries, arterioles and veins",1.4,Organisms exchange substances with their environment
+AQA 3.3.4.1g,"Capillaries, capillary beds and tissue fluid",1.4,Organisms exchange substances with their environment
+AQA 3.3.4.1 RP5,Required practical 5: dissection of a gas exchange or transport system,3.4,Organisms exchange substances with their environment
+AQA 3.3.4.2a,Xylem and the cohesion-tension theory,1.4,Organisms exchange substances with their environment
+AQA 3.3.4.2b,Phloem and the mass flow hypothesis of translocation,2.71,Organisms exchange substances with their environment
+AQA 3.4.1a,DNA in prokaryotic cells,1.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.1b,DNA and chromosomes in eukaryotic nuclei,1.49,"Genetic information, variation and relationships between organisms"
+AQA 3.4.1c,DNA in mitochondria and chloroplasts,1.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.1d,Definition of a gene,1.91,"Genetic information, variation and relationships between organisms"
+AQA 3.4.1e,Gene locus,1.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.1f,Triplet code and properties of the genetic code,1.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.1g,"Non-coding DNA, exons and introns",2.02,"Genetic information, variation and relationships between organisms"
+AQA 3.4.2a,Genome and proteome,1.53,"Genetic information, variation and relationships between organisms"
+AQA 3.4.2b,Structure of mRNA and tRNA,1.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.2c,Transcription and RNA polymerase,2.33,"Genetic information, variation and relationships between organisms"
+AQA 3.4.2d,Translation and the genetic code,3.11,"Genetic information, variation and relationships between organisms"
+AQA 3.4.3a,Gene mutations and mutagenic agents,2.11,"Genetic information, variation and relationships between organisms"
+AQA 3.4.3b,Chromosome mutation by non-disjunction,1.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.3c,Genetically different daughter cells from meiosis,2.17,"Genetic information, variation and relationships between organisms"
+AQA 3.4.3d,Process of meiosis,4.1,"Genetic information, variation and relationships between organisms"
+AQA 3.4.4a,Genetic diversity as number of alleles in a population,1.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.4b,Genetic diversity enabling natural selection,1.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.4c,Principles of natural selection,4.03,"Genetic information, variation and relationships between organisms"
+AQA 3.4.4d,Directional and stabilising selection,1.84,"Genetic information, variation and relationships between organisms"
+AQA 3.4.4e,"Anatomical, physiological and behavioural adaptations",2.06,"Genetic information, variation and relationships between organisms"
+AQA 3.4.4 RP6,Required practical 6: effect of antimicrobials on microbial growth,3.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.5a,Species and courtship behaviour,1.53,"Genetic information, variation and relationships between organisms"
+AQA 3.4.5b,Phylogenetic classification system,2.24,"Genetic information, variation and relationships between organisms"
+AQA 3.4.5c,Hierarchy of taxa from domain to species,1.56,"Genetic information, variation and relationships between organisms"
+AQA 3.4.5d,Binomial naming of species,1.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.6a,Biodiversity across habitats,1.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.6b,Species richness,1.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.6c,Meaning of an index of diversity,1.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.6d,Calculating an index of diversity,1.93,"Genetic information, variation and relationships between organisms"
+AQA 3.4.6e,"Farming, conservation and biodiversity",1.4,"Genetic information, variation and relationships between organisms"
+AQA 3.4.7a,Comparing genetic diversity within and between species,4.32,"Genetic information, variation and relationships between organisms"
+AQA 3.4.7b,Quantitative investigation of variation within a species,2.62,"Genetic information, variation and relationships between organisms"
+AQA 3.5.1a,Light-dependent reaction of photosynthesis (A-level only),3.64,Energy transfers in and between organisms (A-level only)
+AQA 3.5.1b,Reduced NADP and ATP driving the light-independent reaction (A-level only),1.53,Energy transfers in and between organisms (A-level only)
+AQA 3.5.1c,"Calvin cycle, rubisco and limiting factors of photosynthesis (A-level only)",4.32,Energy transfers in and between organisms (A-level only)
+AQA 3.5.1 RP7,Required practical 7: chromatography of photosynthetic pigments (A-level only),3.47,Energy transfers in and between organisms (A-level only)
+AQA 3.5.1 RP8,Required practical 8: dehydrogenase activity in chloroplast extracts (A-level only),3.4,Energy transfers in and between organisms (A-level only)
+AQA 3.5.2a,ATP production in respiration (A-level only),1.4,Energy transfers in and between organisms (A-level only)
+AQA 3.5.2b,Glycolysis as the first stage of respiration (A-level only),1.4,Energy transfers in and between organisms (A-level only)
+AQA 3.5.2c,Stages of glycolysis (A-level only),2.28,Energy transfers in and between organisms (A-level only)
+AQA 3.5.2d,Fate of pyruvate in anaerobic respiration (A-level only),1.49,Energy transfers in and between organisms (A-level only)
+AQA 3.5.2e,Pyruvate entering the mitochondrial matrix (A-level only),1.4,Energy transfers in and between organisms (A-level only)
+AQA 3.5.2f,"Link reaction, Krebs cycle and oxidative phosphorylation (A-level only)",4.32,Energy transfers in and between organisms (A-level only)
+AQA 3.5.2 RP9,Required practical 9: rate of respiration in single-celled organisms (A-level only),3.4,Energy transfers in and between organisms (A-level only)
+AQA 3.5.3a,Plants synthesising organic compounds from carbon dioxide (A-level only),1.4,Energy transfers in and between organisms (A-level only)
+AQA 3.5.3b,Sugars as respiratory substrates and plant biomass (A-level only),1.62,Energy transfers in and between organisms (A-level only)
+AQA 3.5.3c,Measuring biomass and its chemical energy store (A-level only),1.51,Energy transfers in and between organisms (A-level only)
+AQA 3.5.3d,Gross primary production (GPP) (A-level only),1.4,Energy transfers in and between organisms (A-level only)
+AQA 3.5.3e,Net primary production (NPP) (A-level only),1.78,Energy transfers in and between organisms (A-level only)
+AQA 3.5.3f,Availability of net primary production to other trophic levels (A-level only),1.44,Energy transfers in and between organisms (A-level only)
+AQA 3.5.3g,Net production of consumers (A-level only),2,Energy transfers in and between organisms (A-level only)
+AQA 3.5.3h,Primary and secondary productivity (A-level only),1.51,Energy transfers in and between organisms (A-level only)
+AQA 3.5.3i,Farming practices and the efficiency of energy transfer (A-level only),2.31,Energy transfers in and between organisms (A-level only)
+AQA 3.5.4a,Recycling of nutrients in ecosystems (A-level only),1.4,Energy transfers in and between organisms (A-level only)
+AQA 3.5.4b,"Saprobionts, mycorrhizae and bacteria in nutrient cycling (A-level only)",3.1,Energy transfers in and between organisms (A-level only)
+AQA 3.5.4c,Natural and artificial fertilisers (A-level only),1.4,Energy transfers in and between organisms (A-level only)
+AQA 3.5.4d,Environmental issues from fertiliser use (A-level only),1.4,Energy transfers in and between organisms (A-level only)
+AQA 3.6.1.1a,Increasing the chance of survival by responding to the environment (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.1.1b,Growth factors and directional stimuli in flowering plants (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.1.1c,"IAA concentration, cell elongation, gravitropism and phototropism (A-level only)",1.51,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.1.1d,Taxes and kineses (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.1.1e,Three-neurone simple reflex and its protective effect (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.1.1 RP10,Required practical 10: environmental variable and animal movement (A-level only),3.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.1.2a,Pacinian corpuscle as an example of a receptor (A-level only),2.06,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.1.2b,Basic structure of a Pacinian corpuscle (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.1.2c,Stretch-mediated sodium ion channels and the generator potential (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.1.2d,"Rods, cones and the human retina (A-level only)",1.8,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.1.3a,"Myogenic stimulation and the roles of SAN, AVN and Purkyne tissue (A-level only)",1.56,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.1.3b,"Chemoreceptors, pressure receptors and nervous control of heart rate (A-level only)",1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.2.1a,Structure of a myelinated motor neurone (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.2.1b,Establishment of the resting potential (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.2.1c,"Depolarisation, action potential and the all-or-nothing principle (A-level only)",1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.2.1d,Passage of an action potential along myelinated and non-myelinated axons (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.2.1e,The refractory period (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.2.1f,Factors affecting the speed of conductance (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.2.2a,Structure of a synapse and of a neuromuscular junction (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.2.2b,Transmission across a cholinergic synapse (A-level only),2.9,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.2.2c,Cholinergic synapse compared with neuromuscular junction (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.3a,Antagonistic muscle pairs against an incompressible skeleton (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.3b,Structure of skeletal muscle and the myofibril (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.3c,"Actin, myosin, calcium ions and ATP in myofibril contraction (A-level only)",1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.3d,"Calcium ions, tropomyosin and actinomyosin bridge formation (A-level only)",1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.3e,ATP and phosphocreatine in muscle contraction (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.3f,Slow and fast skeletal muscle fibres (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.1a,Homeostasis and physiological control systems in mammals (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.1b,Stable core temperature and blood pH in relation to enzyme activity (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.1c,Stable blood glucose concentration (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.1d,Negative feedback restoring systems to their original level (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.1e,Separate mechanisms controlling departures in different directions (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.2a,Factors that influence blood glucose concentration (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.2b,"Liver: glycogenesis, glycogenolysis and gluconeogenesis (A-level only)",1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.2c,Action of insulin (A-level only),2.53,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.2d,Action of glucagon (A-level only),2.39,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.2e,Role of adrenaline (A-level only),1.86,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.2f,"Second messenger model: adenylate cyclase, cAMP and protein kinase (A-level only)",1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.2g,Causes and control of type I and type II diabetes (A-level only),1.8,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.2 RP11,Required practical 11: glucose dilution series and calibration curve (A-level only),3.62,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.3a,Osmoregulation as control of the water potential of the blood (A-level only),1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.3b,"Hypothalamus, posterior pituitary and ADH in osmoregulation (A-level only)",1.4,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.6.4.3c,Structure of the nephron and its role (A-level only),2.9,Organisms respond to changes in their internal and external environments (A-level only)
+AQA 3.7.1a,Genotype (A-level only),1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.1b,Phenotype and its interaction with the environment (A-level only),1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.1c,"Multiple alleles, dominance and codominance (A-level only)",1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.1d,Homozygous and heterozygous alleles at a locus (A-level only),1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.1e,Genetic diagrams to interpret and predict crosses (A-level only),2.06,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.1f,Chi-squared test for phenotypic ratios (A-level only),1.5,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.2a,Species as populations (A-level only),1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.2b,Definition of a population (A-level only),1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.2c,Gene pool and allele frequency (A-level only),1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.2d,Hardy–Weinberg principle (A-level only),1.42,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.2e,Hardy–Weinberg equation (A-level only),1.93,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.3a,Variation in phenotype within a population (A-level only),2.62,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.3b,Natural selection and differential survival (A-level only),1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.3c,Selective advantage and allele frequencies in the gene pool (A-level only),1.69,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.3d,"Stabilising, directional and disruptive selection (A-level only)",1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.3e,Evolution as a change in allele frequency (A-level only),1.84,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.3f,Reproductive separation and the formation of new species (A-level only),2.8,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.3g,Allopatric and sympatric speciation (A-level only),1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.3h,Genetic drift in small populations (A-level only),1.73,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.4a,"Populations, communities and ecosystems (A-level only)",1.58,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.4b,Niche: adaptation to abiotic and biotic conditions (A-level only),1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.4c,Carrying capacity and factors affecting population size (A-level only),2.17,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.4d,Estimating population size: quadrats and mark-release-recapture (A-level only),2.84,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.4e,Ecosystems as dynamic systems (A-level only),1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.4f,Primary succession and climax community (A-level only),1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.4g,Species changing the environment during succession (A-level only),1.87,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.4h,Abiotic changes caused by organisms and biodiversity (A-level only),1.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.4i,Conservation of habitats and management of succession (A-level only),2.53,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.7.4 RP12,Required practical 12: effect of an environmental factor on distribution (A-level only),3.4,"Genetics, populations, evolution and ecosystems (A-level only)"
+AQA 3.8.1a,Types of gene mutation (A-level only),1.4,The control of gene expression (A-level only)
+AQA 3.8.1b,Causes and effects of gene mutations (A-level only),3.42,The control of gene expression (A-level only)
+AQA 3.8.2.1a,Totipotent cells (A-level only),1.4,The control of gene expression (A-level only)
+AQA 3.8.2.1b,Cell specialisation from partial DNA translation (A-level only),1.4,The control of gene expression (A-level only)
+AQA 3.8.2.1c,Totipotent cells in early mammalian embryos (A-level only),1.4,The control of gene expression (A-level only)
+AQA 3.8.2.1d,"Pluripotent, multipotent and unipotent cells and iPS cells (A-level only)",3.44,The control of gene expression (A-level only)
+AQA 3.8.2.2a,Transcription factors and oestrogen action (A-level only),2.09,The control of gene expression (A-level only)
+AQA 3.8.2.2b,Epigenetic control of gene expression (A-level only),1.4,The control of gene expression (A-level only)
+AQA 3.8.2.2c,"Epigenetics, DNA methylation and histone acetylation (A-level only)",2.86,The control of gene expression (A-level only)
+AQA 3.8.2.2d,Epigenetics in the development and treatment of disease (A-level only),1.4,The control of gene expression (A-level only)
+AQA 3.8.2.2e,RNA interference (RNAi) and translation (A-level only),1.4,The control of gene expression (A-level only)
+AQA 3.8.2.3a,Benign and malignant tumours (A-level only),1.4,The control of gene expression (A-level only)
+AQA 3.8.2.3b,"Oncogenes, tumour suppressor genes and tumour development (A-level only)",3.88,The control of gene expression (A-level only)
+AQA 3.8.3a,Genome sequencing projects (A-level only),1.4,The control of gene expression (A-level only)
+AQA 3.8.3b,"Genomes, proteomes and vaccine antigens in simpler organisms (A-level only)",1.78,The control of gene expression (A-level only)
+AQA 3.8.3c,Non-coding DNA and regulatory genes in complex organisms (A-level only),1.42,The control of gene expression (A-level only)
+AQA 3.8.3d,"Automated, continuously updated sequencing methods (A-level only)",1.4,The control of gene expression (A-level only)
+AQA 3.8.4.1a,Recombinant DNA technology and transgenic organisms (A-level only),3.88,The control of gene expression (A-level only)
+AQA 3.8.4.1b,Methods of producing DNA fragments (A-level only),2.46,The control of gene expression (A-level only)
+AQA 3.8.4.1c,Amplifying DNA fragments in vitro and in vivo (A-level only),1.4,The control of gene expression (A-level only)
+AQA 3.8.4.1d,Polymerase chain reaction (PCR) (A-level only),1.4,The control of gene expression (A-level only)
+AQA 3.8.4.1e,"Culture of transformed host cells, vectors and marker genes (A-level only)",3.24,The control of gene expression (A-level only)
+AQA 3.8.4.2a,Labelled DNA probes and DNA hybridisation (A-level only),1.4,The control of gene expression (A-level only)
+AQA 3.8.4.2b,"Screening for heritable conditions, drug responses and health risks (A-level only)",1.71,The control of gene expression (A-level only)
+AQA 3.8.4.2c,Genetic counselling and personalised medicine (A-level only),1.4,The control of gene expression (A-level only)
+AQA 3.8.4.3a,Variable number tandem repeats (VNTRs) (A-level only),1.89,The control of gene expression (A-level only)
+AQA 3.8.4.3b,Genetic fingerprinting technique and gel electrophoresis (A-level only),2.15,The control of gene expression (A-level only)
+AQA 3.8.4.3c,Uses of genetic fingerprinting (A-level only),2,The control of gene expression (A-level only)

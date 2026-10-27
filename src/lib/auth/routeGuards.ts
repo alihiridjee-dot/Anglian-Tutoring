@@ -83,6 +83,14 @@ export function guardParentOnly(args: GuardArgs) {
 }
 
 /**
+ * Billing is for the people who pay: students and parents. Staff never do, and
+ * the student view would offer them the plan shop, so they go to the Studio.
+ */
+export function guardNotStaff(args: GuardArgs) {
+  if (isStaffRole(roleOf(args))) throw redirect({ to: "/tutor" });
+}
+
+/**
  * Pages the paywall is never drawn over, for a student without a live plan.
  *
  * Billing, so a student who paused or cancelled can get back in to resume —

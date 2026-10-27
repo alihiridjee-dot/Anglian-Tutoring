@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef } from "react";
+import { toast } from "sonner";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   WeeklyPlanDAL,
@@ -12,13 +13,23 @@ import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { type PointCoverage, type PointActivity, type PointWork } from "@/lib/planner/coverage";
 import { getSessionUserId } from "@/lib/auth/session";
-import { courseKey, invalidatePlanner, roadmapQuery } from "@/lib/planner/queries";
+import {
+  courseChanged,
+  courseKey,
+  invalidatePlanner,
+  roadmapQuery,
+  stateQuery,
+} from "@/lib/planner/queries";
 import { weekIsForAnotherCourse } from "@/lib/planner/weekCut";
-import { subjectPauseQuery, type SubjectPause } from "@/lib/planner/subjectPauses";
+import { type SubjectPause } from "@/lib/planner/subjectPauses";
 import { breakCovering, type StudentBreak } from "@/lib/planner/breaks";
-import { studentBreaksQuery } from "@/lib/planner/breakQueries";
+import { pastWeekGap, type PastWeekGap } from "@/lib/planner/pastWeek";
+import { currentWeekKey } from "@/lib/planner/week";
 
 export type Activity = Map<string, PointActivity & PointWork>;
+
+/** Week re-cuts already tried this session, each keyed by the drift that set it off. */
+const healTried = new Set<string>();
 
 export interface WeekPlanState {
   plan: WeeklyPlan | null;
@@ -31,6 +42,8 @@ export interface WeekPlanState {
   pause: SubjectPause | null;
   /** The week falls in a break the student is taking: nothing is planned for it. */
   onBreak: StudentBreak | null;
+  /** A week gone by with nothing in it, and why: a break, a pause or another course. */
+  pastGap: PastWeekGap | null;
   loading: boolean;
   error: Error | null;
   reload: () => Promise<void>;
@@ -57,14 +70,28 @@ export function useWeekPlan(params: {
     queryKey: weekKey,
     enabled: !!studentId && params.enabled !== false,
     queryFn: async ({ signal }) => {
-      let saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
+      // Only this week is ever built, re-cut or topped up, and it is read from
+      // the course's state: the same single read the full plan is built from.
+      // Any other week is read as it was saved.
+      if (!isCurrent || weekStart !== currentWeekKey())
+        return WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
+      const read = () => client.fetchQuery(stateQuery(params));
+      let state = await read();
+      let saved = state.week;
+      /** After a write: the course is read again, once, for this and every view of it. */
+      const reread = async () => {
+        await courseChanged(client, params);
+        state = await read();
+        return state.week;
+      };
       // A paused subject is read, never planned: no week is built and nothing
       // is added to one until the student can use it again. The database
       // refuses those writes too; this is so the planner doesn't try.
-      if (await client.fetchQuery(subjectPauseQuery(studentId, subject))) return saved;
+      if (state.pause) return saved;
       // A break week is read, never planned, in the same way (student_breaks).
-      if (breakCovering(await client.fetchQuery(studentBreaksQuery(studentId)), weekStart))
-        return saved;
+      if (breakCovering(state.breaks, weekStart)) return saved;
+      // Everything below writes, and only the student's own look may.
+      if ((await getSessionUserId()) !== studentId) return saved;
       /**
        * A saved review with nothing behind it is repaired before the week is
        * read, not left sitting there.
@@ -79,15 +106,20 @@ export function useWeekPlan(params: {
        * turns it into honest teaching so it actually gets covered.
        */
       const unsupported = saved?.withheld.some((w) => w.reason === "no-evidence");
-      if (unsupported && isCurrent && (await getSessionUserId()) === studentId) {
+      if (unsupported) {
         const roadmap = await client.fetchQuery(roadmapQuery(client, params, true));
         signal.throwIfAborted();
-        if (await ProgramDAL.refreshWeek({ ...params, roadmap, repairUnsupportedReviews: true })) {
-          saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
-          await client.invalidateQueries({ queryKey: [...courseKey(params), "roadmap"] });
-        }
+        if (
+          await ProgramDAL.refreshWeek({
+            ...params,
+            roadmap,
+            state,
+            repairUnsupportedReviews: true,
+          })
+        )
+          saved = await reread();
       }
-      if (!saved && isCurrent && (await getSessionUserId()) === studentId) {
+      if (!saved) {
         const roadmap = await client.fetchQuery(roadmapQuery(client, params, true));
         // No curriculum came back (hidden from this student, or the read
         // failed), so there is nothing to plan from. An empty week saved now
@@ -105,10 +137,10 @@ export function useWeekPlan(params: {
           rationale: selection.rationale,
           source: "ai",
           origin: "ai",
+          facts: state.facts,
         });
-        saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
         // A newly saved week now owns the current roadmap assignments.
-        await client.invalidateQueries({ queryKey: [...courseKey(params), "roadmap"] });
+        saved = await reread();
       }
       /**
        * A week a person started, not the programme, is completed by it.
@@ -130,20 +162,44 @@ export function useWeekPlan(params: {
        * old course's points with history stay withheld, not deleted.
        */
       const otherCourse = !!saved && weekIsForAnotherCourse(saved.plan, { board, level });
-      if (
-        saved &&
-        (saved.plan.source !== "ai" || otherCourse) &&
-        isCurrent &&
-        (await getSessionUserId()) === studentId
-      ) {
+      if (saved && (saved.plan.source !== "ai" || otherCourse)) {
         const roadmap = await client.fetchQuery(roadmapQuery(client, params, true));
         signal.throwIfAborted();
-        if (await ProgramDAL.refreshWeek({ ...params, roadmap })) {
-          saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
-          await client.invalidateQueries({ queryKey: [...courseKey(params), "roadmap"] });
+        if (await ProgramDAL.refreshWeek({ ...params, roadmap, state })) saved = await reread();
+      }
+      /**
+       * A week cut from an older full plan is re-cut to the plan as it is now.
+       *
+       * The full plan can move under a saved week (a new exam date, new topic
+       * weights, a pause picked up), and the week kept its old points until
+       * Monday. The check costs nothing while the two agree: it reads the
+       * roadmap the catch-up top-up below fetches anyway. The re-cut is the
+       * usual merge, so anything ticked, started, carried or added by hand
+       * stays. Marks moving is no reason to re-cut; that stays "Check for a
+       * better week". A re-cut is tried once per drift this session, and a
+       * failed one leaves the week as it was rather than taking it down. The
+       * nightly check does the same for students who don't log in
+       * (planHeal.server).
+       */
+      if (saved) {
+        try {
+          const roadmap = await client.fetchQuery(roadmapQuery(client, params));
+          signal.throwIfAborted();
+          const drift = await ProgramDAL.weekBehindPlan({ studentId, weekStart, saved, roadmap });
+          const key = drift && JSON.stringify([studentId, subject, weekStart, drift]);
+          if (key && !healTried.has(key)) {
+            healTried.add(key);
+            const projected = await client.fetchQuery(roadmapQuery(client, params, true));
+            signal.throwIfAborted();
+            if (await ProgramDAL.refreshWeek({ ...params, roadmap: projected, state }))
+              saved = await reread();
+          }
+        } catch (e) {
+          if (signal.aborted) throw e;
+          console.warn("[planner] couldn't re-cut this week to the full plan", e);
         }
       }
-      if (saved && isCurrent && (await getSessionUserId()) === studentId) {
+      if (saved) {
         const roadmap = await client.fetchQuery(roadmapQuery(client, params));
         signal.throwIfAborted();
         if (
@@ -153,10 +209,8 @@ export function useWeekPlan(params: {
             points: [...saved.points, ...saved.withheld.map((w) => w.point)],
             roadmap,
           })
-        ) {
-          saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
-          await client.invalidateQueries({ queryKey: [...courseKey(params), "roadmap"] });
-        }
+        )
+          saved = await reread();
       }
       return saved;
     },
@@ -188,15 +242,14 @@ export function useWeekPlan(params: {
     queryFn: () => WeeklyActivityDAL.getCoverage(studentId, ids, weekStart),
     enabled: !!week.data && withCoverage,
   });
-  const pause = useQuery({
-    ...subjectPauseQuery(studentId, subject),
+  // The subject's stops and the student's breaks come with the course's state,
+  // which this week (or the full plan) has read already.
+  const course = useQuery({
+    ...stateQuery(params),
     enabled: !!studentId && params.enabled !== false,
   });
-  const breaks = useQuery({
-    ...studentBreaksQuery(studentId),
-    enabled: !!studentId && params.enabled !== false,
-  });
-  const onBreak = breakCovering(breaks.data ?? [], weekStart);
+  const onBreak = breakCovering(course.data?.breaks ?? [], weekStart);
+  const past = weekStart < currentWeekKey();
   const road = useQuery({
     ...roadmapQuery(client, params),
     // `enabled` binds the roadmap too: without it, a panel with no course to
@@ -218,6 +271,28 @@ export function useWeekPlan(params: {
     mutationFn: async ({ id, value }: { id: string; value: boolean }) => {
       if (week.data) await WeeklyPlanDAL.setPointDone(week.data.plan.id, id, value);
     },
+    /**
+     * Tick the box at once. The round trip used to be the only thing that
+     * moved it, and `reload` refetches the whole planner, so for a second or
+     * two the box still read its old state. A second tap in that window sent
+     * the same value again: a double-tap left the point ticked. The cache is
+     * updated before the write and put back if the write fails.
+     */
+    onMutate: async ({ id, value }) => {
+      await client.cancelQueries({ queryKey: weekKey });
+      const previous = client.getQueryData<typeof week.data>(weekKey);
+      if (previous)
+        client.setQueryData(weekKey, {
+          ...previous,
+          points: previous.points.map((p) =>
+            p.spec_point_id === id ? { ...p, done_at: value ? new Date().toISOString() : null } : p,
+          ),
+        });
+      return { previous };
+    },
+    onError: (_error, _vars, context) => {
+      if (context?.previous) client.setQueryData(weekKey, context.previous);
+    },
     onSettled: reload,
   });
   return {
@@ -227,19 +302,35 @@ export function useWeekPlan(params: {
     activity: activity.data ?? new Map(),
     coverage: withCoverage ? (coverage.data ?? new Map()) : new Map(),
     roadmap: params.roadmap !== undefined ? params.roadmap : (road.data ?? null),
-    pause: pause.data ?? null,
+    pause: course.data?.pause ?? null,
     onBreak,
+    pastGap:
+      past && week.data !== undefined
+        ? pastWeekGap({
+            weekStart,
+            plan: week.data?.plan ?? null,
+            points,
+            withheld,
+            course: { board, level },
+            onBreak,
+            pauses: course.data?.pauses ?? [],
+          })
+        : null,
     loading:
       week.isLoading ||
       activity.isLoading ||
       coverage.isLoading ||
       road.isLoading ||
-      pause.isLoading ||
-      breaks.isLoading,
+      course.isLoading,
     error: week.error ?? activity.error ?? coverage.error ?? road.error,
     reload,
     setPointDone: async (id, value) => {
-      await done.mutateAsync({ id, value });
+      try {
+        await done.mutateAsync({ id, value });
+      } catch (e) {
+        // The box has already been put back (onError); say why.
+        toast.error(e instanceof Error ? e.message : "Couldn't save that tick — try again.");
+      }
     },
   };
 }

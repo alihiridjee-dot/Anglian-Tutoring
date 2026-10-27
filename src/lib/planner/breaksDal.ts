@@ -2,6 +2,21 @@ import { supabase } from "@/integrations/supabase/client";
 import { isDemoMode } from "@/lib/auth/session";
 import type { BreakReason, StudentBreak } from "./breaks";
 
+/** One `student_breaks` row, as the planner holds it. */
+export const toBreak = (r: {
+  id: string;
+  starts_on: string;
+  ends_on: string;
+  reason: string;
+  recorded_at: string | null;
+}): StudentBreak => ({
+  id: r.id,
+  startsOn: r.starts_on,
+  endsOn: r.ends_on,
+  reason: r.reason as BreakReason,
+  recordedAt: r.recorded_at,
+});
+
 /**
  * Reads and writes of `student_breaks`. Writes go through `book_break` and
  * `end_break`, which check who is asking and every rule; nobody writes the
@@ -23,13 +38,7 @@ export class BreakDAL {
         .is("cancelled_at", null)
         .order("starts_on");
       if (error) throw error;
-      return (data ?? []).map((r) => ({
-        id: r.id,
-        startsOn: r.starts_on,
-        endsOn: r.ends_on,
-        reason: r.reason as BreakReason,
-        recordedAt: r.recorded_at,
-      }));
+      return (data ?? []).map(toBreak);
     } catch (e) {
       console.warn("[planner] couldn't read the student's breaks", e);
       return [];
@@ -64,6 +73,28 @@ export class BreakDAL {
       console.warn("[planner] couldn't read the students' breaks", e);
       return {};
     }
+  }
+
+  /**
+   * Whether the week starting `weekStart` falls in a break that stands.
+   *
+   * Unlike {@link list}, a failed read throws instead of reading as "no
+   * break". A tutor's move takes a point out of one week before it puts it in
+   * the other, and the database refuses a break week only at that second
+   * step, so the move has to know the week is open before it starts.
+   */
+  static async isBreakWeek(studentId: string, weekStart: string): Promise<boolean> {
+    if (isDemoMode()) return false;
+    const { data, error } = await supabase
+      .from("student_breaks")
+      .select("id")
+      .eq("student_id", studentId)
+      .is("cancelled_at", null)
+      .lte("starts_on", weekStart)
+      .gte("ends_on", weekStart)
+      .limit(1);
+    if (error) throw new Error(error.message);
+    return (data ?? []).length > 0;
   }
 
   /**

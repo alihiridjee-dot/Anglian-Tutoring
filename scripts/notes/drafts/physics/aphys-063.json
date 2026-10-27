@@ -1,0 +1,167 @@
+{
+  "format": 1,
+  "concept_id": "aphys-063",
+  "subject": "physics",
+  "title": "Required practicals: radiation and oscillations",
+  "key_idea": "Two practicals: gamma rays are absorbed by lead in a way that depends on its thickness, and an unknown mass can be found from the resonant frequencies of known masses on a spring.",
+  "sections": [
+    {
+      "heading": "Absorption of gamma radiation by lead",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This practical measures how the count rate from a gamma source falls as lead sheets of increasing thickness are placed in its path."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequence activity. The student puts the steps of the gamma absorption method in order.",
+            "prompt": "Put the steps of the method in order.",
+            "steps": [
+              "Measure the background count rate with no source present.",
+              "Set up the source, lead sheets and detector in a line with a fixed distance between source and detector.",
+              "Measure the count rate over a fixed time with no lead.",
+              "Add lead sheets one at a time, measuring the thickness and the count over the same fixed time.",
+              "Subtract the background rate from each reading to get the corrected count rate."
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a Geiger–Müller tube and counter as the detector.",
+            "Keep the source-to-detector distance the same throughout.",
+            "Count for a long enough time, or repeat the count, so the random nature of decay has less effect.",
+            "Measure the thickness of the lead with a micrometer or vernier callipers."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Analysis"
+        },
+        {
+          "type": "equation",
+          "label": "Absorption of gamma radiation",
+          "formula": "I = I₀e^(−μx)",
+          "where": ["I = corrected count rate after thickness x (counts/s)", "I₀ = corrected count rate with no lead (counts/s)", "μ = absorption coefficient of lead (m⁻¹)", "x = thickness of lead (m)"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Take natural logs: ln I = ln I₀ − μx.",
+            "A graph of ln I against x is a straight line with gradient −μ.",
+            "Alternatively, find the thickness that halves the count rate, called the half-value thickness. It is related to μ by x½ = ln 2 / μ."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Safety"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Keep the source in a lead-lined box when not in use.",
+            "Handle the source with tongs, at arm's length, and never point it at anyone.",
+            "Keep the time of exposure short and stay as far away as is practical."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Correct every count for background radiation.",
+            "I = I₀e^(−μx), so ln I against x is a straight line with gradient −μ.",
+            "Use tongs and keep the source stored when not in use."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Unknown mass from resonant frequencies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A mass on a spring has a natural frequency that depends on the mass. Finding it for known masses lets you find an unknown mass."
+        },
+        {
+          "type": "equation",
+          "label": "Natural frequency of a mass on a spring",
+          "formula": "f = (1 / 2π)√(k / m)",
+          "where": ["f = natural frequency (Hz)", "k = spring constant (N/m)", "m = mass (kg)"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rearranging gives 1 / f² = (4π² / k) m.",
+            "A graph of 1 / f² against m is a straight line. It passes close to the origin if the mass of the spring is small.",
+            "The frequency of the oscillation at resonance equals the natural frequency of the system."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Method"
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Set up", "text": "Hang a known mass from a spring, with the top of the spring attached to a vibration generator driven by a signal generator." },
+            { "lead": "Drive", "text": "Increase the driving frequency in small steps. The amplitude of the mass rises and then falls." },
+            { "lead": "Find resonance", "text": "Find the frequency that gives the maximum amplitude. Use a fiducial marker or a ruler to judge the largest amplitude, and refine with smaller steps near the peak." },
+            { "lead": "Repeat", "text": "Repeat for several known masses." },
+            { "lead": "Unknown mass", "text": "Hang the unknown mass, find its resonant frequency, and read its mass from the graph." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Keep the amplitude small so the spring obeys Hooke's law.",
+            "Check the resonant frequency more than once for each mass.",
+            "The spring has mass of its own, so the line may cut the 1 / f² axis slightly above the origin. The unknown mass is still read from the line."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The resonant frequency equals the natural frequency of the mass-spring system.",
+            "1 / f² is proportional to m, so the graph gives the unknown mass.",
+            "Judge the peak amplitude carefully and refine the frequency steps near it."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why the background count rate is measured in the gamma absorption experiment.",
+      "a": "Background radiation is always present and is detected as well as the radiation from the source. It must be subtracted from each reading to get the count rate due to the source alone.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how the absorption coefficient of lead can be found from a graph.",
+      "a": "Plot ln (corrected count rate) against thickness of lead. The graph is a straight line, and the gradient is −μ, so μ is the negative of the gradient.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how the resonant frequency of a mass on a spring is found, and how this is used to find an unknown mass.",
+      "a": "Drive the mass with a vibration generator and vary the frequency until the amplitude is a maximum; that frequency is the resonant frequency. Repeat for known masses, plot 1/f² against m (a straight line), then find the resonant frequency of the unknown mass and read its mass from the line.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 11.171", "EDEX 13.187"]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "spec_point_ids": [
+      "db4419f1-46e5-496c-a368-6c50221e97bd",
+      "52fde7ac-0b94-4020-ab32-e82e0487bf0d"
+    ],
+    "exemplar_ids": []
+  }
+}

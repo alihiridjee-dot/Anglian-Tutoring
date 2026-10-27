@@ -1,0 +1,302 @@
+{
+  "format": 1,
+  "concept_id": "abio-081",
+  "subject": "biology",
+  "title": "Recombinant DNA technology",
+  "key_idea": "Recombinant DNA combines DNA from different organisms. A gene is obtained, cut into a vector such as a plasmid and put into a host cell. If the gene is expressed, the host makes a useful protein, such as human insulin.",
+  "sections": [
+    {
+      "heading": "Obtaining the gene",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Genetic engineering is the deliberate manipulation of genetic material to modify the characteristics of an organism. A gene is transferred so that it is expressed in the new organism."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Recombinant DNA",
+              "meaning": "DNA made by joining DNA from two or more different organisms."
+            },
+            {
+              "term": "Transgenic organism",
+              "meaning": "An organism that contains a gene from another species."
+            },
+            {
+              "term": "Vector",
+              "meaning": "A carrier, such as a plasmid, used to take a gene into a host cell."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The genetic code is universal, and so are transcription and translation. A gene from one species can therefore be read in another."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**From the donor's DNA**: restriction endonucleases cut the DNA either side of the gene. They cut at specific base sequences, often leaving short single-stranded 'sticky ends'.",
+            "**From mRNA**: the donor cell makes lots of mRNA for the protein. Reverse transcriptase makes complementary DNA (cDNA) from it, and DNA polymerase makes the second strand. The cDNA has no introns.",
+            "**Chemically**: a 'gene machine' joins nucleotides in the right order, using the known amino acid sequence."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A gene can be cut out with restriction enzymes, made from mRNA with reverse transcriptase, or built in a gene machine.",
+            "The universal genetic code allows a gene to work in another species."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Inserting the gene into a host",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The gene is joined into a vector with the right control sequences, then the vector is taken up by host cells."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "The steps in making a recombinant plasmid and a transformed host.",
+            "prompt": "Put the steps of genetic engineering with a plasmid in order.",
+            "steps": [
+              "Obtain the gene and add a promoter and terminator",
+              "Cut the plasmid with the same restriction enzyme, to give matching sticky ends",
+              "Mix the gene and plasmid. Sticky ends base-pair and DNA ligase joins the sugar-phosphate backbones",
+              "Transform host cells with the recombinant plasmid",
+              "Identify transformed cells using a marker gene",
+              "Culture the transformed cells so they express the gene"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Restriction endonucleases** cut the plasmid at the same sequence, so the cut ends are complementary to the gene's ends.",
+            "**DNA ligase** forms phosphodiester bonds to seal the gene into the plasmid, making recombinant DNA.",
+            "A **promoter** must be added to the gene, because the host's RNA polymerase needs it to start transcription. A terminator marks the end.",
+            "Host cells take up the plasmid when they are treated to make them permeable, for example with calcium ions and heat shock, or by electroporation, which uses an electric pulse.",
+            "Only a few cells take up the plasmid, so they have to be identified."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Restriction enzymes cut, ligase joins, and the promoter lets the gene be expressed.",
+            "Host cells must be made to take up the recombinant plasmid."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Marker genes and gene editing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Marker genes show which cells have taken up the gene and are expressing it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The marker gene is placed in the vector next to the desired gene.",
+            "A gene for a **fluorescent product**, such as green fluorescent protein (GFP), makes transformed cells glow under UV light. This confirms the gene is expressed.",
+            "Antibiotic-resistance genes can also be used: only cells with the plasmid survive on a medium containing the antibiotic.",
+            "**Gene editing** is a form of genetic engineering. It inserts, deletes or replaces DNA at specific sites in the genome."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A marker gene shows which cells carry the new gene.",
+            "Gene editing changes DNA at a chosen site."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making proteins for medicine",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Genetically modified organisms can produce human proteins for use as drugs. Microorganisms, animals and plants are all used."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Insulin** for diabetes is made by bacteria or yeast carrying the human gene.",
+            "**Factor VIII** is a blood-clotting protein, used to treat haemophilia.",
+            "**Adenosine deaminase** is used to treat a form of severe combined immunodeficiency (SCID).",
+            "Recombinant proteins are identical to human ones, so there is less chance of an immune reaction than with proteins from animals.",
+            "They can be made in large amounts, and are free from infectious agents that could be in donated human blood or tissue.",
+            "Production can be scaled up in fermenters, and it avoids the ethical objections to using animals."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "GM organisms make human proteins such as insulin and factor VIII.",
+            "Recombinant proteins are safe, pure and made in quantity."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain the roles of restriction endonuclease and DNA ligase in making recombinant DNA.",
+      "a": "Restriction endonuclease cuts the plasmid and the gene at specific base sequences, leaving matching sticky ends. DNA ligase joins the sugar-phosphate backbones of the gene and plasmid to seal them together.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why a promoter must be transferred with the gene into a bacterium.",
+      "a": "RNA polymerase in the host must bind to the promoter to start transcription. Without the promoter the gene would not be transcribed, so the protein would not be made.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how a gene for a fluorescent protein can be used to show that a gene has been expressed.",
+      "a": "The fluorescent marker gene is transferred with the desired gene. Cells that express the transferred genes make the fluorescent protein, so they glow under UV light and can be identified.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.8.4.1a",
+        "AQA 3.8.4.1b",
+        "AQA 3.8.4.1c",
+        "AQA 3.8.4.1d",
+        "AQA 3.8.4.1e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Amplifying DNA fragments"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**In vitro**: the polymerase chain reaction (PCR) copies fragments in a machine.",
+                "**In vivo**: transformed host cells are cultured, and copy the fragment each time the cells divide.",
+                "Promoter and terminator regions are added to the fragment so that it is expressed in the host."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Issues"
+            },
+            {
+              "type": "list",
+              "items": [
+                "You must be able to interpret information on recombinant DNA technology.",
+                "Evaluate ethical, financial and social issues of its use and ownership in agriculture, industry and medicine.",
+                "Balance the humanitarian benefits (for example food or medicine for poor countries) against opposition from environmentalists and anti-globalisation activists.",
+                "Relate recombinant DNA technology to gene therapy, where a working allele is delivered to a patient's cells.",
+                "You do not need to recall specific marker genes in a written paper."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.17"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Drugs can be produced using GM **microorganisms** (for example bacteria making insulin), **animals** and **plants**.",
+                "Animals and plants can be modified to secrete the drug in milk, eggs or plant tissue, from which it is purified.",
+                "Microorganisms grow quickly and cheaply in fermenters, and make large amounts of the product."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 19.1.1",
+        "CAIE 19.1.2",
+        "CAIE 19.1.3",
+        "CAIE 19.1.4",
+        "CAIE 19.1.5",
+        "CAIE 19.1.6",
+        "CAIE 19.1.7",
+        "CAIE 19.2.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Learn the exact definition: **recombinant DNA** is DNA formed by combining DNA from different sources.",
+                "Genes can be extracted from a donor, synthesised from the donor's mRNA, or synthesised chemically from nucleotides.",
+                "DNA polymerase makes the second strand of cDNA, and reverse transcriptase makes the first.",
+                "The advantages of recombinant human proteins (insulin, factor VIII, adenosine deaminase) are: exact human structure, fewer side effects, no risk of infection, ethical acceptability and large-scale production."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.3f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe the principles of genetic engineering: isolating a gene from one organism and placing it in another using a suitable vector.",
+                "The techniques include restriction enzymes, plasmids and DNA ligase to form recombinant DNA with the desired gene.",
+                "**Electroporation** uses a short electric pulse to make the cell membrane permeable so that the plasmid can enter."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "a8861253-6d5d-4505-9635-7c2bdb111fe8",
+      "0b9fa89d-ba51-457e-99f5-0981e7c6c314",
+      "cda3bfb2-9345-4682-b0d0-a93d1f0851a8",
+      "916308dc-924b-43ed-8c83-f6461b95f2a0",
+      "51404d1d-2eff-4f96-b7eb-9073cc2d6e5b",
+      "4672e4e4-291b-4bff-9e92-d238dccef3fd",
+      "a68b68e2-08f7-4381-96b0-ef58e85150ff",
+      "ba308e08-f684-4261-ab65-39f694ce820d",
+      "e6eaf925-c8f7-40fc-825d-a83c79a4af52",
+      "bc236e29-5044-4357-8451-27fe102b2e51",
+      "578e6034-7686-411f-ac0b-7cb8f063971b",
+      "a25abe32-dae0-4639-8b31-bba584cca3eb",
+      "b79e1f1d-fea2-4f98-842c-8bb49474cd52",
+      "76427d4f-d479-4c95-86b6-5b71954ee13c",
+      "16419fa6-849b-4856-b06a-0d53d43bc8a4"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

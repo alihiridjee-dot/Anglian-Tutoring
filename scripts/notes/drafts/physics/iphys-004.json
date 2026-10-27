@@ -1,0 +1,153 @@
+{
+  "format": 1,
+  "concept_id": "iphys-004",
+  "subject": "physics",
+  "title": "Thermal expansion",
+  "key_idea": "Solids, liquids and gases expand when they are heated and contract when they are cooled. Gases expand the most and solids the least. Particles move faster and spread further apart; they do not get bigger.",
+  "sections": [
+    {
+      "heading": "Expansion of solids, liquids and gases",
+      "blocks": [
+        { "type": "paragraph", "text": "Most materials get bigger when they are heated. This section covers how the three states compare." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Thermal expansion", "meaning": "The increase in size of a material when its temperature rises." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Solids, liquids and gases all **expand** when heated and **contract** when cooled.",
+            "A gas expands at constant pressure when it is heated.",
+            "**Gases** expand the most, **liquids** expand less and **solids** expand the least.",
+            "The expansion of a solid is small, but it can be very large for a long object."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "All three states expand when heated and contract when cooled.",
+            "Gas expands most and solid expands least."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Uses and problems of expansion",
+      "blocks": [
+        { "type": "paragraph", "text": "Expansion is useful in some devices and a problem in some structures." },
+        {
+          "type": "table",
+          "columns": ["Use of expansion", "How it works"],
+          "rows": [
+            ["Liquid-in-glass thermometer", "The liquid expands as it warms, so it rises up the narrow tube."],
+            ["Bimetallic strip", "Two metals expand by different amounts, so the strip bends. It can switch a thermostat on and off."],
+            ["Loosening a tight metal lid", "Running hot water over the lid makes it expand and come loose."]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Problem caused by expansion", "How it is dealt with"],
+          "rows": [
+            ["Railway lines can buckle in hot weather", "Small gaps are left between the rails."],
+            ["Bridges can crack as they expand", "Expansion joints or rollers allow the bridge to move."],
+            ["Power cables sag in hot weather and are tight in cold weather", "Cables are hung with some slack."]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Thermometers and thermostats use expansion.",
+            "Gaps, joints and slack cables allow for expansion."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Explaining expansion with particles",
+      "blocks": [
+        { "type": "paragraph", "text": "(Supplement) The particle model explains why materials expand and why gases expand the most." },
+        {
+          "type": "list",
+          "items": [
+            "Heating gives the particles more energy in their kinetic store.",
+            "In a solid the particles vibrate more. In a liquid or gas they move faster.",
+            "The average separation of the particles increases, so the material takes up more space.",
+            "The particles themselves do not get bigger, and their number does not change."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of solids, liquids and gases: arrangement, forces between particles and how much they expand.",
+            "items": ["Solid", "Liquid", "Gas"],
+            "rows": [
+              { "feature": "Arrangement", "values": ["Close together in a fixed pattern", "Close together, random", "Far apart, random"] },
+              { "feature": "Forces between particles", "values": ["Strong", "Weaker", "Almost none"] },
+              { "feature": "Expansion when heated", "values": ["Smallest", "Larger", "Largest"] }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a solid, strong forces hold the particles close, so they can only move apart a little.",
+            "In a liquid the forces are weaker, so the particles can move further apart.",
+            "In a gas the forces are almost zero, so the particles spread out the most."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Heating makes the particles move or vibrate more, so they spread further apart.",
+            "Weaker forces between particles mean greater expansion."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State which state of matter has the greatest thermal expansion and which has the least.",
+      "a": "Gas has the greatest expansion and solid has the least.",
+      "marks": 2
+    },
+    {
+      "q": "Give one problem caused by thermal expansion and how it is overcome.",
+      "a": "Rails buckle in hot weather, so gaps are left between rails. (Bridges have expansion joints.)",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) Explain, in terms of particles, why a gas expands more than a solid when heated.",
+      "a": "The forces between gas particles are almost zero, so they can move much further apart. In a solid, strong forces hold the particles close together.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 2.2.1.1", "CAIE 2.2.1.2", "CAIE 2.2.1.3S"],
+      "worked_example": {
+        "exemplar_id": "c80d063e-5499-4ce0-852d-6766057d2fa2",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q4(b)(ii)",
+        "question": "An aluminium dish is initially at room temperature. Boiling water is poured into the dish. Explain, in terms of its particles, why the aluminium expands.",
+        "marks": 2,
+        "answer_points": [
+          "The particles gain energy in their kinetic store as the temperature of the aluminium increases.",
+          "The average separation of the aluminium particles increases (the particles move further apart)."
+        ],
+        "tip": "One mark for the particles gaining energy and one for the separation increasing."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": ["d8497bb5-2ccb-4e8f-a36a-71738a6a11ca", "de114f00-7f09-409a-9a50-52b79df1624f", "62a7a088-7012-4592-9e2e-727df5ab2bfe"],
+    "exemplar_ids": ["c80d063e-5499-4ce0-852d-6766057d2fa2"]
+  }
+}

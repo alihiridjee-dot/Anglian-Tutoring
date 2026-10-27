@@ -1,0 +1,318 @@
+{
+  "format": 1,
+  "concept_id": "aphys-041",
+  "subject": "physics",
+  "title": "Energy levels and line spectra",
+  "key_idea": "Electrons in an isolated atom can only have certain energies. When an electron drops to a lower level, the atom emits a photon with exactly the difference in energy. That is why atoms give line spectra, not a smooth rainbow.",
+  "sections": [
+    {
+      "heading": "Excitation and ionisation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An atom's electrons can only have certain fixed energies, called energy levels. The levels are discrete, so energies in between are not allowed."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ground state",
+              "meaning": "The lowest energy level of an atom."
+            },
+            {
+              "term": "Excitation",
+              "meaning": "An electron moves to a higher energy level, taking energy from a photon or a collision."
+            },
+            {
+              "term": "Ionisation",
+              "meaning": "An electron gains enough energy to leave the atom completely."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Energy levels have negative values. Zero is the energy of a free electron at rest, outside the atom.",
+            "The more negative the level, the more tightly bound the electron.",
+            "Ionisation energy is the energy needed to take an electron from the ground state to zero energy.",
+            "Energy levels are quoted in joules or in eV. Convert with 1 eV = 1.60 × 10⁻¹⁹ J."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "An electron colliding with an atom can excite or ionise it if it has enough kinetic energy. A photon must have exactly the right energy to excite an electron."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Electron energies in an atom are discrete.",
+            "Levels are negative; ionisation reaches zero."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Transitions and photons",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When an electron falls from a higher level E₁ to a lower level E₂, the atom emits one photon. The photon carries away the difference in energy."
+        },
+        {
+          "type": "equation",
+          "label": "Photon from a transition",
+          "formula": "hf = E₁ − E₂ = ΔE",
+          "where": [
+            "h = Planck constant (J s)",
+            "f = frequency of the photon (Hz)",
+            "E₁, E₂ = upper and lower energy levels (J)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Wavelength form",
+          "formula": "hc/λ = ΔE",
+          "where": [
+            "c = speed of light (m/s)",
+            "λ = wavelength (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A bigger energy gap gives a higher frequency and a shorter wavelength.",
+            "Absorption is the reverse: a photon is absorbed only if hf equals the gap between two levels.",
+            "Photons whose energy matches no gap (and is below the ionisation energy) pass through without being absorbed."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider for hydrogen energy level transitions. Choose a transition and read the photon energy, frequency and wavelength.",
+            "inputs": [
+              {
+                "id": "d",
+                "label": "Transition",
+                "choices": [
+                  {
+                    "label": "n = 3 to n = 2",
+                    "value": 1.89
+                  },
+                  {
+                    "label": "n = 4 to n = 2",
+                    "value": 2.55
+                  },
+                  {
+                    "label": "n = 5 to n = 2",
+                    "value": 2.86
+                  },
+                  {
+                    "label": "n = 2 to n = 1",
+                    "value": 10.2
+                  },
+                  {
+                    "label": "n = 3 to n = 1",
+                    "value": 12.09
+                  }
+                ]
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Photon energy",
+                "unit": "eV",
+                "formula": "d",
+                "decimals": 2,
+                "bar": true
+              },
+              {
+                "label": "Frequency",
+                "unit": "× 10¹⁴ Hz",
+                "formula": "d * 2.413",
+                "decimals": 1
+              },
+              {
+                "label": "Wavelength",
+                "unit": "nm",
+                "formula": "1240 / d",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Photon energy equals the difference between two levels: hf = E₁ − E₂.",
+            "Only certain photon energies are possible, so only certain frequencies."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Types of spectrum",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A spectrum shows the wavelengths present in light. There are three kinds."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Spectrum",
+            "Appearance",
+            "How it forms"
+          ],
+          "rows": [
+            [
+              "Continuous",
+              "A smooth band of all colours",
+              "Hot solid, liquid or dense gas emits all wavelengths"
+            ],
+            [
+              "Emission line",
+              "Bright coloured lines on a dark background",
+              "A hot, low-pressure gas emits photons as electrons fall between levels"
+            ],
+            [
+              "Absorption line",
+              "Dark lines across a continuous spectrum",
+              "Cool gas in front of a continuous source absorbs photons that match its energy gaps"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The dark lines in an absorption spectrum are at the same wavelengths as the bright lines in the emission spectrum of the same gas.",
+            "Each element has its own pattern of lines, because each has its own energy levels. Line spectra are evidence for discrete energy levels.",
+            "The lines in light from a star identify the elements in its atmosphere."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A line spectrum is evidence for discrete energy levels.",
+            "Absorption lines match the emission lines of the same element."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by an excited atom.",
+      "a": "An atom in which an electron is in a higher energy level than the ground state.",
+      "marks": 1
+    },
+    {
+      "q": "An electron falls from an energy level of −1.5 eV to one of −3.4 eV. Calculate the wavelength of the photon emitted. (h = 6.63 × 10⁻³⁴ J s, c = 3.00 × 10⁸ m/s, e = 1.60 × 10⁻¹⁹ C)",
+      "a": "ΔE = 1.9 eV = 1.9 × 1.60 × 10⁻¹⁹ = 3.04 × 10⁻¹⁹ J. λ = hc/ΔE = 6.63 × 10⁻³⁴ × 3.00 × 10⁸ ÷ 3.04 × 10⁻¹⁹ = 6.5 × 10⁻⁷ m.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why an absorption spectrum has dark lines.",
+      "a": "Atoms in a cool gas absorb photons whose energy equals the gap between two of their levels. Those wavelengths are removed from the continuous spectrum, leaving dark lines.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.2.2",
+        "AQA 3.2.2.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A fluorescent tube shows ionisation and excitation at work."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Electrons",
+                  "text": "A high voltage accelerates electrons through mercury vapour in the tube."
+                },
+                {
+                  "lead": "Excitation",
+                  "text": "Colliding electrons excite mercury atoms."
+                },
+                {
+                  "lead": "De-excitation",
+                  "text": "The atoms fall back and emit ultraviolet photons."
+                },
+                {
+                  "lead": "Coating",
+                  "text": "A fluorescent coating on the tube absorbs the ultraviolet and re-emits visible light."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Some collisions ionise the mercury atoms, which keeps the tube conducting.",
+                "Without the coating the tube would give out mostly ultraviolet."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Collisions excite and ionise the gas.",
+                "The coating turns ultraviolet into visible light."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.96"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 22.4.1",
+        "CAIE 22.4.2",
+        "CAIE 22.4.3"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.5.2a",
+        "OCR 5.5.2b",
+        "OCR 5.5.2c",
+        "OCR 5.5.2d",
+        "OCR 5.5.2e",
+        "OCR 5.5.2f"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "b0c09844-ea3c-4543-833b-91cdc9b18c83",
+      "96b94854-ea58-4297-8b47-81efd0e38265",
+      "264a33bb-e2e1-4d4a-bb35-46cfff41e1f8",
+      "937b65e1-13a7-4a48-9976-6a2b412ae951",
+      "37c18013-270c-4215-a2f4-a5669b07b5e8",
+      "d15b07f6-6127-445b-a434-54f9e5210289",
+      "18995537-575f-4cbc-aa1f-8c27b700e100",
+      "ed77dd47-c4c8-41cc-bd66-3449c514a715",
+      "8f1b13f7-bbd8-4ce6-9618-1143764a5eec",
+      "c736d2f4-f06c-49b0-ae13-f723471b54a8",
+      "c349d345-28bd-4ad8-a685-6c364e826e28",
+      "8d6c07a8-7670-4892-a8cc-3dd2f2707672"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,371 @@
+{
+  "format": 1,
+  "concept_id": "achem-018",
+  "subject": "chemistry",
+  "title": "Enthalpy changes and standard conditions",
+  "key_idea": "An **enthalpy change**, ΔH, is the heat energy change of a reaction at constant pressure. It is negative if the reaction is exothermic and positive if it is endothermic. Standard enthalpy changes are measured under standard conditions so that values can be compared.",
+  "sections": [
+    {
+      "heading": "Enthalpy change and its sign",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every reaction involves an energy change with the surroundings. This section covers what enthalpy change means and how its sign tells you the direction of the heat flow."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Enthalpy change, ΔH",
+              "meaning": "The heat energy change measured at constant pressure."
+            },
+            {
+              "term": "Exothermic",
+              "meaning": "A reaction that gives out heat to the surroundings. The temperature of the surroundings rises."
+            },
+            {
+              "term": "Endothermic",
+              "meaning": "A reaction that takes in heat from the surroundings. The temperature of the surroundings falls."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Exothermic",
+            "Endothermic"
+          ],
+          "rows": [
+            [
+              "Sign of ΔH",
+              "Negative",
+              "Positive"
+            ],
+            [
+              "Enthalpy of products compared with reactants",
+              "Products are lower",
+              "Products are higher"
+            ],
+            [
+              "Heat flow",
+              "Out to the surroundings",
+              "In from the surroundings"
+            ],
+            [
+              "Example",
+              "Combustion, neutralisation",
+              "Thermal decomposition of calcium carbonate"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "ΔH = enthalpy of products − enthalpy of reactants.",
+            "Measuring at constant pressure means the heat measured is the enthalpy change itself.",
+            "The units of ΔH are kJ mol⁻¹: kilojoules for the amounts shown in the balanced equation."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick exothermic or endothermic to see its reaction profile, the sign of ΔH and what happens to the temperature of the surroundings.",
+            "prompt": "Pick a type of reaction",
+            "result_labels": [
+              "Sign of ΔH",
+              "Products compared with reactants",
+              "Temperature of the surroundings"
+            ],
+            "options": [
+              {
+                "label": "Exothermic",
+                "results": [
+                  "Negative",
+                  "Lower in enthalpy",
+                  "Rises"
+                ],
+                "explanation": "Heat is given out to the surroundings, so the products have less enthalpy than the reactants.",
+                "scene": {
+                  "kind": "energy-profile",
+                  "direction": "exothermic"
+                }
+              },
+              {
+                "label": "Endothermic",
+                "results": [
+                  "Positive",
+                  "Higher in enthalpy",
+                  "Falls"
+                ],
+                "explanation": "Heat is taken in from the surroundings, so the products have more enthalpy than the reactants.",
+                "scene": {
+                  "kind": "energy-profile",
+                  "direction": "endothermic"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ΔH is the heat change at constant pressure.",
+            "Exothermic: ΔH is negative and the surroundings warm up.",
+            "Endothermic: ΔH is positive and the surroundings cool down."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Enthalpy diagrams and activation energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An enthalpy diagram plots enthalpy up the vertical axis. It shows how the enthalpy of the products compares with the reactants, and how much energy the reaction needs to get started."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Draw the axes.",
+              "text": "Enthalpy goes on the vertical axis. The horizontal axis is the progress of the reaction."
+            },
+            {
+              "lead": "Mark the reactants.",
+              "text": "Draw a level line for the reactants and label it with the formulae and state symbols."
+            },
+            {
+              "lead": "Mark the products.",
+              "text": "Exothermic: draw the products lower. Endothermic: draw them higher."
+            },
+            {
+              "lead": "Show ΔH.",
+              "text": "Draw an arrow between the two levels. Point it down for exothermic and up for endothermic. Label it ΔH with its sign."
+            },
+            {
+              "lead": "Show the activation energy.",
+              "text": "Draw a curve that rises above the reactants and then falls to the products. Mark the climb from the reactants as the activation energy, Eₐ."
+            }
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Activation energy, Eₐ",
+              "meaning": "The minimum energy that colliding particles need for a reaction to take place."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bonds in the reactants must start to break before new bonds form. This needs energy, which is the activation energy.",
+            "The peak of the curve is the transition state. Its height above the reactants is Eₐ.",
+            "Eₐ is the same idea for exothermic and endothermic reactions. A high Eₐ means a slow reaction at a given temperature.",
+            "ΔH and Eₐ are different quantities: ΔH is the overall change, Eₐ is the energy barrier."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Exothermic profile: products below reactants. Endothermic profile: products above.",
+            "Activation energy is the minimum energy needed for a reaction to occur.",
+            "Eₐ is measured from the reactants up to the top of the curve."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Standard conditions and types of enthalpy change",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Enthalpy changes depend on temperature, pressure and state. Standard conditions fix these so values can be compared. The symbol ⦵ shows that standard conditions apply."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Standard conditions",
+              "meaning": "A pressure of 100 kPa and a stated temperature, usually 298 K."
+            },
+            {
+              "term": "Standard state",
+              "meaning": "The physical state of a substance under standard conditions, such as H₂O(l) or O₂(g)."
+            },
+            {
+              "term": "Standard enthalpy change of reaction, ΔrH⦵",
+              "meaning": "The enthalpy change when the amounts shown in the balanced equation react, with everything in its standard state."
+            },
+            {
+              "term": "Standard enthalpy change of formation, ΔfH⦵",
+              "meaning": "The enthalpy change when 1 mol of a compound forms from its elements, with all substances in their standard states."
+            },
+            {
+              "term": "Standard enthalpy change of combustion, ΔcH⦵",
+              "meaning": "The enthalpy change when 1 mol of a substance burns completely in oxygen, with all substances in their standard states."
+            },
+            {
+              "term": "Standard enthalpy change of neutralisation, ΔneutH⦵",
+              "meaning": "The enthalpy change when an acid and an alkali react to form 1 mol of water, with all substances in their standard states."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The enthalpy of formation of an element in its standard state is zero.",
+            "Formation equations make 1 mol of the compound, so fractions are allowed: ½O₂ is fine.",
+            "Combustion is always exothermic, so ΔcH⦵ is always negative.",
+            "Neutralisation is exothermic. For a strong acid and strong alkali it is close to −57 kJ mol⁻¹, because the reaction is H⁺ + OH⁻ → H₂O."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Enthalpy change",
+            "Example equation"
+          ],
+          "rows": [
+            [
+              "Formation of methane",
+              "C(s) + 2H₂(g) → CH₄(g)"
+            ],
+            [
+              "Combustion of methane",
+              "CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(l)"
+            ],
+            [
+              "Neutralisation",
+              "½H₂SO₄(aq) + NaOH(aq) → ½Na₂SO₄(aq) + H₂O(l)"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Standard conditions: 100 kPa and a stated temperature, usually 298 K.",
+            "Formation: 1 mol of compound from its elements. Combustion: 1 mol burned completely. Neutralisation: 1 mol of water formed.",
+            "Always include state symbols in enthalpy equations."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define the standard enthalpy change of formation of carbon dioxide and write the equation for it.",
+      "a": "The enthalpy change when 1 mol of CO₂(g) forms from its elements, carbon and oxygen, with all substances in their standard states. C(s) + O₂(g) → CO₂(g).",
+      "marks": 3
+    },
+    {
+      "q": "A reaction has ΔH = +45 kJ mol⁻¹. State what happens to the temperature of the surroundings and sketch the enthalpy profile.",
+      "a": "The reaction is endothermic, so the surroundings cool down. The products are drawn higher than the reactants, with a curve rising above both and the activation energy marked from the reactants.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the enthalpy of formation of oxygen gas, O₂(g), is zero.",
+      "a": "Oxygen is an element in its standard state, so no reaction is needed to form it from its elements and there is no enthalpy change.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.2.1a",
+        "OCR 3.2.1b",
+        "OCR 3.2.1c",
+        "OCR 3.2.1d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Definitions are required for the enthalpy changes of formation, combustion and neutralisation only. For reaction, know that it goes with the stated equation.",
+                "Use the symbols ΔrH, ΔfH, ΔcH and ΔneutH."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.1",
+        "EDEX 8.2",
+        "EDEX 8.3",
+        "EDEX 8.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An enthalpy level diagram shows only the levels of reactants and products, with ΔH between them. It does not show activation energy.",
+                "A reaction profile diagram adds the curve between the levels, so it does show activation energy.",
+                "Define standard enthalpy change of reaction as well as formation, combustion and neutralisation."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.4.1"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 5.1.1",
+        "CAIE 5.1.2",
+        "CAIE 5.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "This course takes standard conditions as 298 K and 101 kPa, shown by ⦵.",
+                "A reaction pathway diagram should show both the enthalpy change of the reaction and the activation energy.",
+                "Use the symbols ΔHr, ΔHf, ΔHc and ΔHneut."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "610b0c59-7ddb-4e6e-812e-5433da828c2d",
+      "64552414-57d3-42dd-8fe3-60394a590a36",
+      "b62cff05-873a-4882-9341-4a89b67596a5",
+      "fe465b11-40f9-4233-93b3-4815c636fafa",
+      "46beede5-0785-41af-b8a7-65f94cd51b97",
+      "afaa00aa-27bd-4c37-939b-a6c38ae42672",
+      "529f0f71-7462-4423-91f2-4839761e5895",
+      "b2e74bc3-7db0-4cbd-aad0-5c46a7e3e84e",
+      "45f45f83-6932-4b68-b982-a734f2edce51",
+      "d6ce21ad-4ace-4b54-94ba-6379451a4515",
+      "90b20f0c-cffb-4f3b-aa89-0b09b49efa51",
+      "2d83fa63-81bf-4614-b8a6-f6f77280786d"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

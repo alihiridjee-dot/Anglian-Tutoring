@@ -1,0 +1,391 @@
+{
+  "format": 1,
+  "concept_id": "abio-001",
+  "subject": "biology",
+  "title": "Water and inorganic ions",
+  "key_idea": "Water molecules are polar, so they form hydrogen bonds with each other. These bonds give water the properties that suit it to life: it is a solvent, a metabolite, a coolant and a stable habitat. Inorganic ions dissolved in cells and fluids each have a specific role.",
+  "sections": [
+    {
+      "heading": "Hydrogen bonding in water",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Water is a small molecule with an uneven spread of charge. This section covers why that makes water cohesive."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Dipole",
+              "meaning": "A molecule with a slightly negative end and a slightly positive end."
+            },
+            {
+              "term": "Polar molecule",
+              "meaning": "A molecule that is a dipole, so it attracts other charged and polar particles."
+            },
+            {
+              "term": "Hydrogen bond",
+              "meaning": "A weak attraction between a slightly positive hydrogen atom and a slightly negative atom on another molecule."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In H₂O the oxygen atom pulls the shared electrons towards itself.",
+            "Oxygen is slightly negative (δ−) and each hydrogen is slightly positive (δ+).",
+            "The δ+ hydrogen of one molecule is attracted to the δ− oxygen of a neighbour: a **hydrogen bond**.",
+            "Each hydrogen bond is weak, but there are very many, so together they are strong."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Water is a dipole because oxygen is δ− and hydrogen is δ+.",
+            "Hydrogen bonds form between neighbouring water molecules.",
+            "Many weak bonds together give water its special properties."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Properties of water and their roles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each property of water follows from its polarity and hydrogen bonding. This section links each property to a role in living organisms."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Property",
+            "Explanation",
+            "Role in organisms"
+          ],
+          "rows": [
+            [
+              "Solvent",
+              "Polar water molecules surround charged ions and polar molecules and pull them apart.",
+              "Metabolic reactions happen in solution in cytoplasm. Ions, glucose and amino acids are carried in blood, tissue fluid, xylem and phloem."
+            ],
+            [
+              "Metabolite",
+              "Water takes part in reactions as a reactant or a product.",
+              "Used in hydrolysis and photosynthesis. Released in condensation and respiration."
+            ],
+            [
+              "High specific heat capacity",
+              "A lot of energy is needed to break hydrogen bonds and raise the temperature.",
+              "Buffers changes in temperature. Cells and body fluids stay stable, and lakes and seas make a stable habitat."
+            ],
+            [
+              "High latent heat of vaporisation",
+              "A lot of energy is needed to break the hydrogen bonds between molecules and evaporate water.",
+              "Sweating and transpiration cool an organism with little water lost."
+            ],
+            [
+              "Strong cohesion",
+              "Hydrogen bonds hold water molecules together.",
+              "Continuous columns of water are pulled up xylem. Surface tension lets small animals walk on water."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Water is the main component of cytoplasm and body fluids, so it is also the **transport medium** for dissolved substances.",
+            "Ice is less dense than liquid water, so it floats and insulates the water below it. Aquatic life survives under frozen ponds."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Roles of water are sorted by the property that explains them: solvent, heat properties or cohesion.",
+            "prompt": "Sort each role of water into the property that explains it.",
+            "groups": [
+              "Solvent",
+              "Heat properties",
+              "Cohesion"
+            ],
+            "items": [
+              {
+                "text": "Carries glucose and ions in the blood",
+                "group": 0
+              },
+              {
+                "text": "Metabolic reactions occur in cytoplasm",
+                "group": 0
+              },
+              {
+                "text": "Sweating cools the body",
+                "group": 1
+              },
+              {
+                "text": "A pond changes temperature slowly, so it is a stable habitat",
+                "group": 1
+              },
+              {
+                "text": "Pulls a continuous column of water up the xylem",
+                "group": 2
+              },
+              {
+                "text": "Surface tension supports a pond skater",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Solvent action allows reactions and transport in solution.",
+            "High specific heat capacity buffers temperature changes.",
+            "High latent heat of vaporisation gives a cooling effect.",
+            "Cohesion supports water columns and gives surface tension."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Inorganic ions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Inorganic ions are dissolved in cytoplasm and body fluids. Some are at high concentrations and some at very low concentrations."
+        },
+        {
+          "type": "paragraph",
+          "text": "Each type of ion has a specific role that depends on its properties and charge."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Ion",
+            "Symbol",
+            "Role"
+          ],
+          "rows": [
+            [
+              "Hydrogen",
+              "H⁺",
+              "Sets pH: more H⁺ means more acidic. Also builds up gradients across membranes."
+            ],
+            [
+              "Hydroxide",
+              "OH⁻",
+              "Makes a solution alkaline. Together with H⁺ it sets pH."
+            ],
+            [
+              "Sodium",
+              "Na⁺",
+              "Moves glucose and amino acids into cells by co-transport. Also needed for nerve impulses."
+            ],
+            [
+              "Potassium",
+              "K⁺",
+              "Needed for nerve impulses. Helps to open stomata."
+            ],
+            [
+              "Calcium",
+              "Ca²⁺",
+              "Strengthens bones and teeth. Needed for muscle contraction and blood clotting."
+            ],
+            [
+              "Iron(II)",
+              "Fe²⁺",
+              "Part of the haem group in haemoglobin, where oxygen binds."
+            ],
+            [
+              "Phosphate",
+              "PO₄³⁻",
+              "Part of DNA, RNA and ATP, and of phospholipids."
+            ],
+            [
+              "Hydrogencarbonate",
+              "HCO₃⁻",
+              "Carries carbon dioxide in the blood. Helps to buffer pH."
+            ],
+            [
+              "Chloride",
+              "Cl⁻",
+              "Balances the charge of positive ions. Moves into red blood cells as HCO₃⁻ moves out (chloride shift)."
+            ],
+            [
+              "Nitrate",
+              "NO₃⁻",
+              "Taken up by plants to make amino acids and nucleotides."
+            ],
+            [
+              "Ammonium",
+              "NH₄⁺",
+              "A source of nitrogen. Bacteria convert it to nitrate."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Each ion has a specific role set by its charge and properties.",
+            "H⁺ sets pH, Fe²⁺ is in haemoglobin, Na⁺ drives co-transport, PO₄³⁻ is in DNA and ATP."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how hydrogen bonds form between water molecules.",
+      "a": "Oxygen is slightly negative (δ−) and hydrogen is slightly positive (δ+) because water is polar. The δ+ hydrogen of one molecule is attracted to the δ− oxygen of another, forming a hydrogen bond.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why sweating cools the body with little loss of water.",
+      "a": "Water has a high latent heat of vaporisation. A lot of heat energy is taken from the body to break the hydrogen bonds when sweat evaporates, so a small mass of water gives a large cooling effect.",
+      "marks": 3
+    },
+    {
+      "q": "State two ways the properties of water help transport in the xylem of a plant.",
+      "a": "Cohesion between water molecules (hydrogen bonds) holds the water together as a continuous column. Water is a solvent, so it carries dissolved mineral ions.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.2",
+        "EDEX 4.12"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Water and ions in plants"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Water keeps cells turgid, supports non-woody stems, and is a reactant in photosynthesis.",
+                "Water carries dissolved mineral ions from the roots in the xylem.",
+                "**Nitrate** is used to make amino acids, proteins and nucleotides. A shortage causes stunted growth and yellow older leaves.",
+                "**Calcium ions** form calcium pectate in the middle lamella between cell walls. A shortage causes poor growth of roots and shoots.",
+                "**Magnesium ions** are part of chlorophyll. A shortage causes yellow leaves (chlorosis), because less chlorophyll can be made."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 2.4.1",
+        "CAIE 8.1.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Water in blood and tissue fluid"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Water is the main component of blood plasma and tissue fluid.",
+                "As a solvent it carries glucose, amino acids, ions, urea and hormones in solution.",
+                "Its high specific heat capacity means blood carries heat around the body without large changes in its own temperature.",
+                "Heat from active organs is distributed evenly and lost at the skin."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.2a",
+        "OCR 2.1.2c",
+        "OCR 2.1.2p"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Chemical elements in biological molecules"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Molecule",
+                "Elements"
+              ],
+              "rows": [
+                [
+                  "Carbohydrates",
+                  "C, H, O"
+                ],
+                [
+                  "Lipids",
+                  "C, H, O"
+                ],
+                [
+                  "Proteins",
+                  "C, H, O, N, S"
+                ],
+                [
+                  "Nucleic acids",
+                  "C, H, O, N, P"
+                ]
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Water as a habitat and coolant"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Aquatic eukaryotes and prokaryotes live in water, which is a stable habitat because of its high specific heat capacity.",
+                "Ice floats, so water under it stays liquid and organisms survive the winter.",
+                "Evaporation of water from skin (sweat) or leaves (transpiration) is a coolant in eukaryotes.",
+                "Prokaryotes need water as a solvent: all metabolic reactions in their cytoplasm happen in solution."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.7a",
+        "AQA 3.1.8a",
+        "AQA 3.1.8b"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "78266afa-c4db-4a2b-b2ce-7bf0060ae1e6",
+      "19fdca9b-d7c9-4eeb-a16c-baaeecf789a0",
+      "6c04c4a8-9d03-42ad-ad83-7c1c8dc2fd74",
+      "8b042f15-a429-49c8-ae2b-21475a637c6d",
+      "5b70e23f-e55e-4ad9-983e-bff782a01995",
+      "ec41ff5c-47d5-4b56-b442-638aa0f547eb",
+      "9374de3a-717d-486d-ba3a-2e7e90a3ce17",
+      "91addc54-0116-4e85-9067-fd066f0c6f7c",
+      "880ea992-5ee0-4e5b-83e4-fa6636118a5e",
+      "fc90881f-fc79-4836-b468-4472db6af81d"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

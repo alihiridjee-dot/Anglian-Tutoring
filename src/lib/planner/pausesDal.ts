@@ -16,6 +16,21 @@ export interface PauseRecord {
   programmeResumedAt: string | null;
 }
 
+/** One `student_subject_pauses` row, as the planner holds it. */
+export const toPauseRecord = (r: {
+  id: string;
+  reason: string;
+  started_at: string;
+  ended_at: string | null;
+  programme_resumed_at: string | null;
+}): PauseRecord => ({
+  id: r.id,
+  reason: r.reason as PauseReason,
+  startedAt: r.started_at,
+  endedAt: r.ended_at,
+  programmeResumedAt: r.programme_resumed_at,
+});
+
 /**
  * Reads of `student_subject_pauses`. A failed read reads as "never paused":
  * the planner must not go down because of it, and the database still refuses
@@ -52,13 +67,7 @@ export class SubjectPauseDAL {
         .eq("subject", subject)
         .order("started_at");
       if (error) throw error;
-      return (data ?? []).map((r) => ({
-        id: r.id,
-        reason: r.reason as PauseReason,
-        startedAt: r.started_at,
-        endedAt: r.ended_at,
-        programmeResumedAt: r.programme_resumed_at,
-      }));
+      return (data ?? []).map(toPauseRecord);
     } catch (e) {
       console.warn("[planner] couldn't read the subject's pauses", e);
       return [];

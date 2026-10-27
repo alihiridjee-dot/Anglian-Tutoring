@@ -19,6 +19,7 @@ import type { LucideIcon } from "lucide-react";
 import { Nav } from "@/components/landing/Nav";
 import { Footer } from "@/components/landing/Footer";
 import { FloatingWhatsApp } from "@/components/landing/FloatingWhatsApp";
+import { ExplainerVideo } from "@/components/how-it-works/ExplainerVideo";
 import { ForgettingCurve } from "@/components/how-it-works/ForgettingCurve";
 import { RevisitSimulator } from "@/components/how-it-works/RevisitSimulator";
 import {
@@ -29,6 +30,7 @@ import {
   ProgrammeMock,
   QuizMock,
 } from "@/components/how-it-works/ServicePreviews";
+import { canonical } from "@/lib/platform/seo";
 
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
@@ -40,6 +42,7 @@ export const Route = createFileRoute("/how-it-works")({
           "Up to 3 live sessions a week, tasks marked by the tutor who taught it, a weekly quiz, a direct line to your tutor — and a spaced-repetition scheduler that brings every topic back just before your child would forget it.",
       },
     ],
+    links: [canonical("/how-it-works")],
   }),
   component: HowItWorks,
 });
@@ -225,6 +228,14 @@ function HowItWorks() {
             >
               <Sparkles className="h-3.5 w-3.5 text-amber-500" /> Explore the platform
             </Link>
+          </motion.div>
+
+          <motion.div
+            {...fadeUp}
+            transition={{ ...fadeUp.transition, delay: 0.32 }}
+            className="mx-auto mt-12 max-w-3xl"
+          >
+            <ExplainerVideo />
           </motion.div>
         </div>
       </section>

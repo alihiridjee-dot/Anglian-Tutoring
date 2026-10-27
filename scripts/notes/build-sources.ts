@@ -16,32 +16,25 @@
  * Needs SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY (exemplars sit behind
  * tutor-only RLS and this runs outside a session).
  */
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { layerOf, loadConceptMap, type Concept } from "./conceptMap";
 
 const url = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!url || !key) throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set");
 
-const [subject, which] = process.argv.slice(2);
+const argv = process.argv.slice(2);
+// --only cambridge_igcse,edexcel_igcse keeps just those courses (a layer-only writer needs no more).
+const onlyAt = argv.indexOf("--only");
+const only = onlyAt >= 0 ? new Set(argv[onlyAt + 1].split(",")) : null;
+const [subject, which] = onlyAt >= 0 ? argv.filter((_, i) => i !== onlyAt && i !== onlyAt + 1) : argv;
 if (!subject || !which)
-  throw new Error('Usage: build-sources.ts <subject> <"Group name" | concept id>');
+  throw new Error('Usage: build-sources.ts <subject> <"Group name" | concept id> [--only course,course]');
 
 const here = dirname(fileURLToPath(import.meta.url));
-const map = JSON.parse(readFileSync(join(here, "concepts", `gcse-${subject}.json`), "utf8"));
-type Ref = { id: string; board: string; code: string; primary: boolean };
-type Concept = {
-  id: string;
-  group: string;
-  title: string;
-  scope: string;
-  kind: string;
-  higher_only: boolean;
-  separate_only: boolean;
-  data_note?: string;
-  spec_points: Ref[];
-};
+const map = loadConceptMap(subject);
 const concepts: Concept[] = map.concepts.filter(
   (c: Concept) => c.id === which || c.group === which,
 );
@@ -57,7 +50,7 @@ async function get(path: string) {
   return res.json();
 }
 const inList = (ids: string[]) => `in.(${ids.join(",")})`;
-const board = (b: string) => (b.startsWith("aqa") ? "aqa" : b);
+const board = layerOf;
 
 const outDir = join(here, ".sources");
 mkdirSync(outDir, { recursive: true });
@@ -96,26 +89,38 @@ for (const c of concepts) {
       description: p?.description,
     });
   }
+  // A question belongs to the course of the spec point it is tagged to, not to
+  // its own board: Edexcel GCSE and Edexcel IGCSE questions must not mix.
+  const courseOf = new Map(c.spec_points.map((r) => [r.id, board(r.board)]));
   for (const e of usable) {
-    const b = board(e.board);
-    const slot = (byBoard[b] ??= { spec_points: [], questions: [] }) as { questions: unknown[] };
-    slot.questions.push({
-      exemplar_id: e.id,
-      source: `${e.board.toUpperCase()} ${e.series} ${e.year}, Paper ${e.paper}${e.tier ? ` (${e.tier})` : ""}, Q${e.question_label}`,
-      marks: e.marks,
-      command_word: e.command_word,
-      needs_image: e.needs_image,
-      context: e.shared_context,
-      question: e.prompt,
-      mark_scheme: e.mark_scheme,
-    });
+    const courses = new Set<string>(
+      links
+        .filter((l: { exemplar_id: string }) => l.exemplar_id === e.id)
+        .map((l: { spec_point_id: string }) => courseOf.get(l.spec_point_id))
+        .filter(Boolean),
+    );
+    for (const b of courses) {
+      const slot = (byBoard[b] ??= { spec_points: [], questions: [] }) as { questions: unknown[] };
+      slot.questions.push({
+        exemplar_id: e.id,
+        source: `${e.board.toUpperCase()} ${e.series} ${e.year}, Paper ${e.paper}${e.tier ? ` (${e.tier})` : ""}, Q${e.question_label}`,
+        marks: e.marks,
+        command_word: e.command_word,
+        needs_image: e.needs_image,
+        context: e.shared_context,
+        question: e.prompt,
+        mark_scheme: e.mark_scheme,
+      });
+    }
   }
+  if (only) for (const b of Object.keys(byBoard)) if (!only.has(b)) delete byBoard[b];
   // Most marks first: the richest mark schemes are the most useful to write from.
   for (const s of Object.values(byBoard) as { questions: { marks: number }[] }[])
     s.questions.sort((a, b) => b.marks - a.marks);
 
   const pack = { concept: { ...c, spec_points: undefined }, boards: byBoard };
-  writeFileSync(join(outDir, `${c.id}.json`), JSON.stringify(pack, null, 2));
+  // A filtered pack goes to its own file so it never replaces the full pack validate.ts reads.
+  writeFileSync(join(outDir, `${c.id}${only ? ".igcse" : ""}.json`), JSON.stringify(pack, null, 2));
   const counts = Object.entries(byBoard)
     .map(([b, s]) => `${b} ${(s as { questions: unknown[] }).questions.length}q`)
     .join(", ");

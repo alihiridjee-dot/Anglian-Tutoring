@@ -1,0 +1,337 @@
+{
+  "format": 1,
+  "concept_id": "abio-063",
+  "subject": "biology",
+  "title": "Sampling and estimating populations",
+  "key_idea": "Ecologists cannot count every organism, so they sample. Random sampling with quadrats and transects estimates the distribution and abundance of plants and slow-moving animals. Mark-release-recapture estimates the size of a population of motile animals using the Lincoln index.",
+  "sections": [
+    {
+      "heading": "Why we sample",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sampling measures the biodiversity of a habitat without counting every organism. A sample must be large enough and unbiased to represent the whole area."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Random sampling** gives every part of the area an equal chance of being chosen. It avoids bias.",
+            "To sample randomly, divide the area into a grid and use random numbers as coordinates.",
+            "**Non-random sampling** is used when the area is not uniform. It includes opportunistic, stratified and systematic methods.",
+            "Sample the full range of organisms in a habitat, not only the most obvious ones.",
+            "A larger sample, and more samples, make the estimate more reliable."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sampling estimates biodiversity and population size without counting everything.",
+            "Random sampling avoids bias, and a larger sample is more reliable."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Quadrats and transects",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Quadrats and transects measure the distribution and abundance of plants and slow-moving or non-motile animals."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Abundance",
+              "meaning": "How many individuals of a species there are in an area."
+            },
+            {
+              "term": "Distribution",
+              "meaning": "Where in the habitat a species is found."
+            },
+            {
+              "term": "Quadrat",
+              "meaning": "A square frame of known area placed on the ground to count or estimate the organisms inside."
+            },
+            {
+              "term": "Transect",
+              "meaning": "A line or belt laid across a habitat along which samples are taken."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Frame quadrats"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Place quadrats at random positions using random coordinates.",
+            "Count the number of individuals, or estimate percentage cover for species that are hard to count.",
+            "Repeat many times, then calculate the mean per quadrat.",
+            "Estimate the population as the mean number per quadrat multiplied by the total area divided by the area of one quadrat."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Line and belt transects"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a transect when conditions change gradually, for example up a shore or away from a path.",
+            "A **line transect** records the organisms touching a tape measure laid across the habitat.",
+            "A **belt transect** is a strip of a set width, normally sampled with a quadrat moved along the line.",
+            "Sample at regular intervals (systematic sampling) to show how distribution changes with an abiotic factor."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Random quadrats estimate abundance; transects show how distribution changes across a gradient.",
+            "Belt transects use quadrats along a line, so they give more detail than a line alone."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mark-release-recapture",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Motile animals move away, so quadrats do not work. Mark-release-recapture estimates their population size."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Capture",
+              "text": "Catch a sample of animals and count them (n₁)."
+            },
+            {
+              "lead": "Mark",
+              "text": "Mark each one in a harmless way, for example with a dot of paint."
+            },
+            {
+              "lead": "Release",
+              "text": "Release them and allow time for them to mix back into the population."
+            },
+            {
+              "lead": "Recapture",
+              "text": "Catch a second sample (n₂) and count how many are marked (m)."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Lincoln index (estimated population size)",
+          "formula": "N = (n₁ × n₂) ÷ m",
+          "where": [
+            "N = estimated total population",
+            "n₁ = number caught and marked in the first sample",
+            "n₂ = total number caught in the second sample",
+            "m = number of marked animals in the second sample"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate a population size using the Lincoln index.",
+            "question": "In a first sample, {n1} animals are caught and marked. In a second sample, {n2} animals are caught and {m} of them are marked. Estimate the population size.",
+            "variables": [
+              {
+                "id": "n1",
+                "min": 20,
+                "max": 60,
+                "step": 10
+              },
+              {
+                "id": "n2",
+                "min": 20,
+                "max": 60,
+                "step": 10
+              },
+              {
+                "id": "m",
+                "min": 5,
+                "max": 10,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "n1 * n2 / m",
+              "decimals": 0
+            },
+            "working": [
+              "N = (n₁ × n₂) ÷ m",
+              "N = ({n1} × {n2}) ÷ {m}",
+              "N = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "The method only works if these assumptions are true."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The marked animals have mixed evenly back into the population.",
+            "The marking does not harm the animals or make them easier for predators to see.",
+            "The mark does not rub off or fade during the investigation.",
+            "There is no significant migration, births or deaths between the two samples.",
+            "Marked and unmarked animals are equally likely to be recaptured."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Estimated population = (first sample × second sample) ÷ marked animals recaptured.",
+            "The estimate is reliable only if the assumptions hold."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Sampling methods for animals",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Different animals need different tools. Match the method to the organism and the habitat."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Method",
+            "Used to sample"
+          ],
+          "rows": [
+            [
+              "Sweep net",
+              "Insects and other small animals in long grass or foliage"
+            ],
+            [
+              "Pitfall trap",
+              "Small animals that walk on the ground, such as beetles"
+            ],
+            [
+              "Pooter",
+              "Small insects, sucked gently into a tube from a surface"
+            ],
+            [
+              "Quadrat",
+              "Plants and slow-moving or non-motile animals"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pick a technique that suits the organism: nets, traps and pooters for small animals, quadrats for plants.",
+            "Whatever the method, sample randomly and repeat to make the results reliable."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why quadrats are placed at random when estimating the abundance of a plant species.",
+      "a": "To avoid bias, so that every part of the area has an equal chance of being sampled and the sample is representative of the whole area.",
+      "marks": 2
+    },
+    {
+      "q": "A student marks 40 beetles. A second sample contains 30 beetles, of which 6 are marked. Calculate the estimated population.",
+      "a": "(40 × 30) ÷ 6 = 200 beetles.",
+      "marks": 2
+    },
+    {
+      "q": "State three assumptions made when using mark-release-recapture.",
+      "a": "Any three from: marked individuals mix evenly with the rest; marking does not harm or affect survival; the mark does not fade or rub off; no births, deaths or migration between samples; marked and unmarked equally likely to be caught.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.4d",
+        "AQA 3.7.4 RP12"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use randomly placed quadrats, or quadrats along a belt transect, for slow-moving or non-motile organisms.",
+                "Use mark-release-recapture for motile organisms, and know the assumptions made.",
+                "Calculate a population size from given mark-release-recapture data."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 18.2.3",
+        "CAIE 18.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explain why random sampling matters in measuring the biodiversity of an area.",
+                "Use frame quadrats, line transects, belt transects and mark-release-recapture with the Lincoln index.",
+                "The Lincoln index formula is given in the exam, so concentrate on using it."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.1b",
+        "OCR 6.3.1e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know random and non-random sampling: opportunistic, stratified and systematic.",
+                "**Opportunistic** sampling uses whatever is convenient. **Stratified** sampling samples each distinct area in proportion to its size. **Systematic** sampling takes samples at regular intervals.",
+                "Techniques to know: quadrats, sweep nets, pitfall traps and pooters.",
+                "Use sampling and recording methods to determine the distribution and abundance of organisms in a variety of ecosystems."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "10db45a1-b4d8-4ce5-aa3f-c86be42c845f",
+      "d1a3671b-358a-4ec6-aef4-9a3d712897f8",
+      "df2852a1-65ad-456b-ac1a-f7e3e3bb4d30",
+      "1660b9ab-a883-439b-af16-1ac09ac365b2",
+      "df750488-bf75-4cbe-918e-8b6396150b61",
+      "72350d32-e429-41fb-a876-388f530ddf06"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "format": 1,
+  "concept_id": "chem-111",
+  "subject": "chemistry",
+  "title": "Uncertainty in measurements",
+  "key_idea": "Every measurement has some uncertainty. Repeat the readings, leave out anomalous results and find the mean. The range of the readings about the mean is a measure of uncertainty, written as mean ± uncertainty.",
+  "sections": [
+    {
+      "heading": "Repeats, means and anomalous results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every measurement has some uncertainty. Taking repeat readings and finding the mean gives a more reliable value."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Uncertainty",
+              "meaning": "The range of the readings about the mean: the greatest amount any reading is above or below the mean. It is shown as a ± value."
+            },
+            {
+              "term": "Range",
+              "meaning": "The largest reading minus the smallest reading. It can be written as from the smallest reading to the largest."
+            },
+            {
+              "term": "Anomalous result",
+              "meaning": "A result that does not fit the pattern. It is left out of the mean."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Mean",
+          "formula": "mean = total of the readings ÷ number of readings",
+          "where": [
+            "readings in the same unit, such as °C or g"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Leave out any anomalous result before calculating the mean.",
+            "Example: 0.84 g, 0.79 g, 0.86 g and 0.47 g. The 0.47 g is anomalous.",
+            "Mean = (0.84 + 0.79 + 0.86) ÷ 3 = 0.83 g."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Repeat readings, then find the mean.",
+            "Do not include an anomalous result in the mean."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Uncertainty from the range",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The range of the repeat readings about the mean is used as a measure of uncertainty. The uncertainty is shown after the mean as ± a value."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Find the mean of the readings.",
+            "Find how far each reading is above or below the mean.",
+            "The largest of these differences is the uncertainty.",
+            "If the readings are spread evenly either side of the mean, this is half the range."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Uncertainty",
+          "formula": "uncertainty = largest difference between a reading and the mean",
+          "where": [
+            "readings and mean in the same unit"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Worked example"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Highest temperature reached in four trials: 37.6 °C, 37.2 °C, 37.8 °C and 37.4 °C.",
+            "Mean = (37.6 + 37.2 + 37.8 + 37.4) ÷ 4 = 37.5 °C.",
+            "Differences from the mean: 0.1, 0.3, 0.3 and 0.1 °C. The largest is 0.3 °C.",
+            "Result: 37.5 ± 0.3 °C. The readings lie between 37.2 °C and 37.8 °C.",
+            "Another set: 6, 9, 10 and 11 cm³ has a mean of 9 cm³. The differences are 3, 0, 1 and 2, so the result is 9 ± 3 cm³."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the uncertainty from four repeat readings.",
+            "question": "Four repeat readings of the highest temperature were {a} °C, {b} °C, {c} °C and {d} °C. Calculate the uncertainty: the largest difference between a reading and the mean. Give your answer to 2 decimal places.",
+            "variables": [
+              {
+                "id": "a",
+                "min": 36,
+                "max": 38,
+                "step": 0.2
+              },
+              {
+                "id": "b",
+                "min": 36,
+                "max": 38,
+                "step": 0.2
+              },
+              {
+                "id": "c",
+                "min": 36,
+                "max": 38,
+                "step": 0.2
+              },
+              {
+                "id": "d",
+                "min": 36,
+                "max": 38,
+                "step": 0.2
+              }
+            ],
+            "answer": {
+              "formula": "max(max(max(a, b), max(c, d)) - (a + b + c + d) / 4, (a + b + c + d) / 4 - min(min(a, b), min(c, d)))",
+              "unit": "°C",
+              "decimals": 2
+            },
+            "working": [
+              "Mean = ({a} + {b} + {c} + {d}) ÷ 4",
+              "Uncertainty = largest difference between a reading and the mean = {answer} °C"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The uncertainty is the range about the mean.",
+            "Uncertainty = the largest difference between a reading and the mean.",
+            "Write the result as mean ± uncertainty, with the unit."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reporting and explaining uncertainty",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Questions ask you to calculate mean ± uncertainty, or to explain what the ± value shows."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for finding mean plus or minus uncertainty in order.",
+            "prompt": "Put the steps in order.",
+            "steps": [
+              "Leave out any anomalous result",
+              "Add the remaining readings and divide by how many there are to find the mean",
+              "Find how far each reading is from the mean",
+              "Take the largest difference as the uncertainty",
+              "Write the result as mean ± uncertainty, with the unit"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Explaining the ± value"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The ± value is the uncertainty.",
+            "It is the range about the mean value.",
+            "The readings are a maximum of that value either side of the mean.",
+            "Example: 16.5 ± 0.3 °C means readings from 16.2 °C to 16.8 °C."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "State that the ± value is the uncertainty.",
+            "Explain that it is the range about the mean, with readings that much either side."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Four readings are 37.6, 37.2, 37.8 and 37.4 °C. Calculate the mean and give the uncertainty.",
+      "a": "Mean = 150 ÷ 4 = 37.5 °C. The largest difference from the mean is 37.8 − 37.5 = 0.3 °C. Result: 37.5 ± 0.3 °C.",
+      "marks": 3
+    },
+    {
+      "q": "A mean temperature is recorded as 16.5 ± 0.3 °C. Explain what ± 0.3 °C shows.",
+      "a": "It is the uncertainty. It is the range about the mean value, so readings are a maximum of 0.3 °C either side of the mean.",
+      "marks": 2
+    },
+    {
+      "q": "Results are 0.84 g, 0.79 g, 0.86 g and 0.47 g, and 0.47 g is anomalous. Calculate the mean.",
+      "a": "(0.84 + 0.79 + 0.86) ÷ 3 = 0.83 g.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.3.1.4",
+        "AQA T 5.3.1.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "b9bbf9f7-5620-48d2-96ad-96a967285202",
+        "source": "AQA jun 2024, Paper 1 (H), Q04.5",
+        "question": "A student repeated an experiment four times using 0.50 g of zinc powder.\n\nThe table shows the results.\n\n| | Trial 1 | Trial 2 | Trial 3 | Trial 4 |\n| Highest temperature reached in °C | 37.6 | 37.2 | 37.8 | 37.4 |\n\nCalculate the mean highest temperature reached.\n\nInclude the uncertainty in your answer.\n\nMean highest temperature reached = _____ ± _____ °C",
+        "marks": 3,
+        "answer_points": [
+          "Mean = (37.6 + 37.2 + 37.8 + 37.4) ÷ 4, or 150 ÷ 4.",
+          "= 37.5 °C.",
+          "Uncertainty: 37.5 ± 0.3 °C."
+        ],
+        "tip": "One mark for the method, one for the mean and one for the uncertainty."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 12.1.2"
+      ],
+      "extra": [
+        {
+          "heading": "Judging methods and apparatus",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Uncertainty depends on the apparatus and method. Compare them by their advantages and disadvantages."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A burette or pipette measures a volume more precisely than a measuring cylinder, so the uncertainty is smaller. A burette is slower to use.",
+                "A gas syringe measures a gas volume directly and precisely. It can stick, and gas can leak.",
+                "Collecting a gas over water in a measuring cylinder is simple, but a gas that dissolves in water is lost.",
+                "A balance that reads to more decimal places gives a smaller uncertainty in the mass.",
+                "Repeating the experiment and taking a mean gives more reliable results, but it takes more time and materials."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "81eacb10-a1f3-42d1-888f-ab9eec83e404",
+      "9b619373-4a93-4ade-a84b-55c549b3259a"
+    ],
+    "exemplar_ids": [
+      "b9bbf9f7-5620-48d2-96ad-96a967285202"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

@@ -1,0 +1,364 @@
+{
+  "format": 1,
+  "concept_id": "aphys-047",
+  "subject": "physics",
+  "title": "Conservation laws and particle equations",
+  "key_idea": "In every particle interaction, charge, baryon number and lepton number are conserved, along with energy and momentum. Add each quantity before and after to test whether an equation is possible. In β decay, one quark changes flavour through the weak interaction.",
+  "sections": [
+    {
+      "heading": "Quantities that are conserved",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An interaction can only happen if certain quantities are the same before and after. Each one is found by adding the values for every particle."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Quantity",
+            "Particles",
+            "Antiparticles"
+          ],
+          "rows": [
+            [
+              "Charge",
+              "Its own charge",
+              "Opposite charge"
+            ],
+            [
+              "Baryon number",
+              "Baryons +1, all other particles 0",
+              "Antibaryons −1"
+            ],
+            [
+              "Lepton number",
+              "Leptons +1, all other particles 0",
+              "Antileptons −1"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Charge**, **baryon number** and **lepton number** are conserved in every interaction.",
+            "Nucleon number and charge are conserved in nuclear processes.",
+            "**Energy** and **momentum** are conserved. Mass can become energy and energy can become mass.",
+            "Quarks have baryon number +⅓ and antiquarks −⅓, so a baryon has baryon number +1."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Charge, baryon number and lepton number must be equal before and after.",
+            "Energy and momentum are always conserved."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Testing a particle equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To decide whether an interaction is possible, add each quantity on both sides of the equation."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "List",
+              "text": "Write down the charge, baryon number and lepton number of every particle."
+            },
+            {
+              "lead": "Add",
+              "text": "Add each quantity on the left, then on the right."
+            },
+            {
+              "lead": "Compare",
+              "text": "If any quantity differs, the interaction cannot happen."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Neutron decay, n → p + e⁻ + ν̄: charge 0 = +1 − 1 + 0, baryon number 1 = 1, lepton number 0 = 0 + 1 − 1. It is allowed.",
+            "If the antineutrino is left out, the lepton number changes from 0 to +1, so the equation is not allowed.",
+            "An antineutrino (not a neutrino) is emitted in β⁻ decay, to balance the electron's lepton number."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor activity. Choose an interaction and see whether charge, baryon number and lepton number are conserved, and whether it is possible.",
+            "prompt": "Choose an interaction to test.",
+            "result_labels": [
+              "Charge",
+              "Baryon number",
+              "Lepton number",
+              "Possible?"
+            ],
+            "options": [
+              {
+                "label": "n → p + e⁻ + ν̄",
+                "results": [
+                  "0 → 0",
+                  "1 → 1",
+                  "0 → 0",
+                  "Yes"
+                ]
+              },
+              {
+                "label": "n → p + e⁻",
+                "results": [
+                  "0 → 0",
+                  "1 → 1",
+                  "0 → +1",
+                  "No: lepton number changes"
+                ]
+              },
+              {
+                "label": "p + ν̄ → n + e⁺",
+                "results": [
+                  "+1 → +1",
+                  "1 → 1",
+                  "−1 → −1",
+                  "Yes"
+                ]
+              },
+              {
+                "label": "p + p → p + p + p̄",
+                "results": [
+                  "+2 → +1",
+                  "2 → 1",
+                  "0 → 0",
+                  "No: charge and baryon number change"
+                ]
+              },
+              {
+                "label": "π⁺ → μ⁺ + ν_μ",
+                "results": [
+                  "+1 → +1",
+                  "0 → 0",
+                  "0 → 0",
+                  "Yes"
+                ]
+              },
+              {
+                "label": "e⁻ + e⁺ → γ + γ",
+                "results": [
+                  "0 → 0",
+                  "0 → 0",
+                  "0 → 0",
+                  "Yes"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Add each quantity before and after. Any difference means the interaction is not possible.",
+            "An electron needs an antineutrino to balance lepton number."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Beta decay as a change of quark",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Beta decay happens through the weak interaction. It changes one quark into another quark of a different flavour inside a nucleon."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Decay",
+            "Nucleon change",
+            "Quark change",
+            "Particles emitted"
+          ],
+          "rows": [
+            [
+              "β⁻",
+              "neutron → proton",
+              "d → u",
+              "electron and electron antineutrino"
+            ],
+            [
+              "β⁺",
+              "proton → neutron",
+              "u → d",
+              "positron and electron neutrino"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "β⁻ decay: d → u + e⁻ + ν̄. Charge: −⅓ → +⅔ − 1 = −⅓ (balanced).",
+            "β⁺ decay: u → d + e⁺ + ν. Charge: +⅔ → −⅓ + 1 = +⅔ (balanced).",
+            "The neutron is udd and becomes uud, which is a proton.",
+            "The proton is uud and becomes udd, which is a neutron.",
+            "β⁺ decay happens inside a proton-rich nucleus. A free proton does not decay this way."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "β⁻ decay of a nucleus: the proton number goes up by 1 and the nucleon number stays the same.",
+            "β⁺ decay of a nucleus: the proton number goes down by 1 and the nucleon number stays the same."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "β⁻ decay: d → u + e⁻ + ν̄. β⁺ decay: u → d + e⁺ + ν.",
+            "Balance charge on each side of a quark equation."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why the neutron decay n → p + e⁻ is not allowed, and write the equation that is.",
+      "a": "Lepton number is 0 before and +1 after, so it is not conserved. The correct equation is n → p + e⁻ + ν̄, in which the antineutrino has lepton number −1.",
+      "marks": 3
+    },
+    {
+      "q": "Write the quark equation for β⁺ decay and show that charge is conserved.",
+      "a": "u → d + e⁺ + ν. Charge before = +⅔; after = −⅓ + 1 + 0 = +⅔.",
+      "marks": 3
+    },
+    {
+      "q": "State the change in quark composition when a neutron undergoes β⁻ decay.",
+      "a": "A down quark changes into an up quark, so udd becomes uud (a proton).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.1.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Strangeness** is also conserved in strong interactions. In weak interactions it can change by 0, +1 or −1.",
+                "Strange particles are always produced in pairs, so that total strangeness stays zero.",
+                "Example: K⁺ → π⁺ + π⁰ has strangeness +1 → 0. The change of 1 is allowed because it is a weak decay.",
+                "Data for particles outside those on the course is given in the question.",
+                "Energy and momentum are conserved in all interactions."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.135",
+        "EDEX 8.142",
+        "EDEX 8.143"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Use conservation of charge, energy and momentum to interpret particle tracks in a magnetic field."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Oppositely charged particles curve in opposite directions.",
+                "A neutral particle leaves no track.",
+                "A track with a smaller radius has less momentum, because r = p / BQ.",
+                "A pair created from a photon appears as two tracks curving apart from one point, with equal and opposite charges.",
+                "A track that spirals inwards is a particle losing energy.",
+                "If the tracks of the decay products do not balance the momentum, a neutral particle that left no track carried it away."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 11.1.6",
+        "CAIE 11.1.9",
+        "CAIE 11.2.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Nucleon number and charge are conserved in nuclear processes.",
+                "Alpha decay: the nucleon number falls by 4 and the proton number by 2.",
+                "An electron antineutrino is produced in β⁻ decay and an electron neutrino in β⁺ decay."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.4.2h",
+        "OCR 6.4.2i",
+        "OCR 6.4.2j",
+        "OCR 6.4.2k",
+        "OCR 6.4.2l"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "β⁻ decay is written d → u + ⁰₋₁e + ν̄ and β⁺ decay is u → d + ⁰₊₁e + ν.",
+                "Check the charge on each side of a quark equation, using +⅔ for u and −⅓ for d.",
+                "Other hadron decays can also be written as quark changes. Add the quark charges to check them."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "2f3aed0f-b4e0-4f70-90ab-b27965180cfd",
+      "2e4e7306-9c6c-4fd9-aed4-5dcd7988cb66",
+      "1cb2c238-58ca-4135-927d-695eee3d0658",
+      "f3c3f349-347f-4a15-8c21-0b34397def73",
+      "13df5e93-abdd-45b3-8deb-2a4f09f4aefa",
+      "bb2c2d3c-30be-4dc2-99fa-9e39b573f13d",
+      "21dd7cb8-aec9-4ee5-8380-ab7268a571a1",
+      "be991647-5fd4-4827-905d-6fe6220c7b41",
+      "e9c774c4-7f74-41b6-a47f-ad1787cd8c11",
+      "88e64375-0c3d-4ecd-bd3b-567c9963f2d8",
+      "ab32905c-84da-4b5c-9be2-d1c2e4219d4b",
+      "6515e4c7-b539-4a2a-bacc-6403fb5390f7"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,380 @@
+{
+  "format": 1,
+  "concept_id": "phys-011",
+  "subject": "physics",
+  "title": "Charge and current",
+  "key_idea": "Electric current is the rate of flow of charge. Charge flows only in a closed circuit that includes a source of potential difference. Charge flow = current × time.",
+  "sections": [
+    {
+      "heading": "What current is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Current is a flow of electrical charge. In a metal wire the charge that flows is made of electrons."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Electric current",
+              "meaning": "The rate of flow of electrical charge. Measured in amperes (A)."
+            },
+            {
+              "term": "Charge flow",
+              "meaning": "The amount of charge that passes a point. Measured in coulombs (C)."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Conditions for charge to flow"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The circuit must include a **source of potential difference**, such as a cell, battery or power supply.",
+            "The circuit must be a **closed circuit**, with no gaps, so the charge has a complete path.",
+            "If either is missing, there is no current in the circuit."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Current in a single loop"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A current has the same value at any point in a single closed loop.",
+            "An ammeter placed before a lamp and one placed after it show the same reading.",
+            "Components do not use up current. They transfer energy."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Current is the rate of flow of charge. In metals, the charge is carried by electrons.",
+            "Charge flows only with a source of potential difference and a closed circuit.",
+            "The current is the same everywhere in a single closed loop."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating charge flow",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Charge flow, current and time are linked by one equation. Use it for any current that stays steady."
+        },
+        {
+          "type": "equation",
+          "label": "Charge flow",
+          "formula": "Q = I × t",
+          "where": [
+            "Q = charge flow, in coulombs (C)",
+            "I = current, in amperes (A)",
+            "t = time, in seconds (s)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rearrange the equation to find current or time."
+        },
+        {
+          "type": "equation",
+          "label": "Current",
+          "formula": "I = Q ÷ t",
+          "where": [
+            "I = current, in amperes (A)",
+            "Q = charge flow, in coulombs (C)",
+            "t = time, in seconds (s)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Time",
+          "formula": "t = Q ÷ I",
+          "where": [
+            "t = time, in seconds (s)",
+            "Q = charge flow, in coulombs (C)",
+            "I = current, in amperes (A)"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Convert units first"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Time must be in **seconds**. Multiply minutes by 60 and hours by 3600.",
+            "Current must be in **amperes**. Divide milliamperes (mA) by 1000.",
+            "Forgetting to convert is the most common way to lose marks in this calculation."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Convert.",
+              "text": "A current of 15 A flows for 2 minutes. t = 2 × 60 = 120 s."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "Q = I × t = 15 × 120."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "Q = 1800 C."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the charge flow from a current and a time, with new numbers each time.",
+            "question": "A current of {I} A flows in a wire for {t} seconds. Calculate the charge flow.",
+            "variables": [
+              {
+                "id": "I",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5
+              },
+              {
+                "id": "t",
+                "min": 10,
+                "max": 120,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "I * t",
+              "unit": "C",
+              "decimals": 1
+            },
+            "working": [
+              "Q = I × t",
+              "Q = {I} × {t}",
+              "Q = {answer} C"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Charge flow (C) = current (A) × time (s).",
+            "Convert minutes to seconds and milliamperes to amperes before substituting.",
+            "Give the unit: coulombs, C."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the two conditions needed for charge to flow in a circuit.",
+      "a": "A source of potential difference and a closed (complete) circuit.",
+      "marks": 2
+    },
+    {
+      "q": "A current of 2.5 A flows for 30 seconds. Calculate the charge that flows.",
+      "a": "Q = I × t = 2.5 × 30 = 75 C.",
+      "marks": 3
+    },
+    {
+      "q": "A current of 40 mA transfers a charge of 3.6 C. Calculate how long this takes.",
+      "a": "40 mA = 0.04 A. t = Q ÷ I = 3.6 ÷ 0.04 = 90 s.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.2.1.2",
+        "AQA T 6.2.1.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "2d2c368a-7353-4d8c-97c0-9c02ca20762c",
+        "source": "AQA jun 2022, Paper 1 (F), Q07.4",
+        "question": "The battery supplies a current of 130 000 A.\n\nCalculate the charge flow from the battery in 5 minutes.\n\nChoose the unit from the box.\n\ncoulombs   newtons   watts\n\nCharge flow = ______ Unit ______",
+        "marks": 4,
+        "answer_points": [
+          "Convert the time: t = 5 × 60 = 300 s.",
+          "Substitute: Q = 130 000 × 300.",
+          "Q = 39 000 000 C (or 3.9 × 10⁷ C).",
+          "Unit: coulombs (C)."
+        ],
+        "tip": "One mark for converting the time, one for the substitution, one for the answer and one for the unit."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 10.8",
+        "EDEX 10.9",
+        "EDEX 10.10"
+      ],
+      "worked_example": {
+        "exemplar_id": "d94691f8-deb2-4e94-9475-e87b80c3a7fe",
+        "source": "EDEXCEL jun 2022, Paper 2 (F), Q1(b)(ii)",
+        "question": "The current in a lamp is 0.21 A.\n\nCalculate the charge that flows through the lamp in a time of 300 s.\nState the unit of charge.\n\nUse the equation\ncharge = current × time",
+        "marks": 3,
+        "answer_points": [
+          "Substitution: charge = 0.21 × 300.",
+          "Evaluation: charge = 63.",
+          "Unit: coulombs (C)."
+        ],
+        "tip": "The unit is an independent mark. C, c and As are all accepted."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P3.1e",
+        "OCR P3.1f",
+        "OCR P3.1g"
+      ],
+      "worked_example": {
+        "exemplar_id": "8315952d-1964-4836-ae6a-d35de3fe3594",
+        "source": "OCR jun 2024, Paper 1, Q18(c)",
+        "question": "Calculate the charge flow in a circuit when there is a current of 15 A for 2 minutes.\n\nUse the equation: charge flow = current × time\n\nCharge flow = ______ C",
+        "marks": 3,
+        "answer_points": [
+          "Convert the time: t = 2 × 60 = 120 s.",
+          "Substitute: Q = 15 × 120.",
+          "Q = 1800 C."
+        ],
+        "tip": "Check the answer line first. 1800 C scores all 3 marks. 30 C, with the time not converted, scores 2 marks."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.2.1.7S",
+        "CAIE 4.2.2.1",
+        "CAIE 4.2.2.3",
+        "CAIE 4.2.2.5S",
+        "CAIE 4.2.2.6S",
+        "CAIE 4.2.1.5",
+        "CAIE 4.2.1.6"
+      ],
+      "worked_example": {
+        "exemplar_id": "23bbaa42-48a9-4414-aaf6-0010b0ce5ade",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q6(d)",
+        "question": "In a lightning strike, there is a current of 3.0 × 10⁴ A for 48 ms.\n\nCalculate the charge that flows.",
+        "marks": 3,
+        "answer_points": [
+          "Q = I × t (or I = Q / t).",
+          "Convert the time to seconds: 48 ms = 48 × 10⁻³ s = 0.048 s.",
+          "Q = 3.0 × 10⁴ × 0.048 = 1400 C (1440 C before rounding)."
+        ],
+        "tip": "Marks are given for the equation, for converting milliseconds to seconds, and for the final answer."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Conductors and insulators"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **conductor** has free (mobile) electrons that can carry charge through it. Metals are conductors.",
+                "An **insulator** has no free electrons, so charge cannot flow through it. Plastic and rubber are insulators.",
+                "To test a material, connect it in a circuit with a cell and a lamp. If the lamp lights, the material is a conductor."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Direction of current"
+            },
+            {
+              "type": "list",
+              "items": [
+                "(Supplement) Conventional current is drawn from the positive terminal to the negative terminal.",
+                "(Supplement) The free electrons in a metal flow the other way, from the negative terminal to the positive terminal."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.14",
+        "IGCSE 2.15",
+        "IGCSE 2.16"
+      ],
+      "worked_example": {
+        "exemplar_id": "003de273-0dc6-4095-b560-8a31af317f02",
+        "source": "EDEXCEL jun 2024, Paper 1 (P), Q11(b)(i)",
+        "question": "An electronic device is recharged from a power bank. It receives a constant current of 2.4 A and 3.8 × 10³ C of charge is transferred.\n\nCalculate the time taken to recharge the device.\nGive your answer in minutes.",
+        "marks": 3,
+        "answer_points": [
+          "Substitute into Q = I × t: 3.8 × 10³ = 2.4 × t, so t = Q ÷ I.",
+          "t = 3.8 × 10³ ÷ 2.4 = 1583 s (1600 s to 2 significant figures).",
+          "Convert to minutes: 1583 ÷ 60 = 26 minutes."
+        ],
+        "tip": "One mark each for the substitution or rearrangement, the time in seconds and the conversion to minutes."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "In a solid metal, the current is a flow of electrons. Electrons carry a negative charge."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The electrons are free to move through the metal.",
+                "They flow from the negative terminal towards the positive terminal."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "2f7d6d21-3f08-4476-89a0-5b8a407ee5ee",
+      "e0a5b4ed-3675-4f14-aef6-1fe664f228f2",
+      "06704b31-455f-48bc-870b-a3432d620f51",
+      "f72fafdc-4a45-4771-b237-56d82c2ce3fa",
+      "9e0000c7-e31e-4f04-b8ff-eebaf9965dfd",
+      "462143b1-5982-485d-8a0d-a7358625ddcf",
+      "9bf34753-f164-44fd-ba10-e96e142b60bd",
+      "859a6d23-9eb2-44d3-96eb-3b00c9f06082",
+      "db025d3a-ba7e-4984-928c-9f4d4281cb53",
+      "ff8fc51f-78ad-4957-8951-ebd7fe002d79",
+      "990126b6-5ead-4e72-8944-925e7b00beb4",
+      "8c0b02d9-9b35-4037-9d37-90abfeb3b833",
+      "9c41a97b-430d-4321-8384-0af75b92f263",
+      "bf93b4d2-e1c2-4899-99e4-22324788b7a6",
+      "1da05d46-2726-41ef-9bf2-4fba2557d975",
+      "977959df-3e44-45df-840c-0240b48721cd"
+    ],
+    "exemplar_ids": [
+      "2d2c368a-7353-4d8c-97c0-9c02ca20762c",
+      "d94691f8-deb2-4e94-9475-e87b80c3a7fe",
+      "8315952d-1964-4836-ae6a-d35de3fe3594",
+      "b74d28e7-f41c-4a78-ac0d-d1aea05c3311",
+      "f5121c6c-4d32-469c-b35a-92a32f444acd",
+      "8abd97a8-b45a-4619-8579-43942639aa36",
+      "92d6ed5e-8b52-4967-aff5-8b5dfa83041f",
+      "62820b64-5006-47ef-96dc-16a76d54f35a",
+      "e2fd9564-1b39-4c74-908d-2e0c1a7007e4",
+      "5b3a7967-fc9d-472e-9ef0-98c1762b4a7f",
+      "23bbaa42-48a9-4414-aaf6-0010b0ce5ade",
+      "003de273-0dc6-4095-b560-8a31af317f02"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

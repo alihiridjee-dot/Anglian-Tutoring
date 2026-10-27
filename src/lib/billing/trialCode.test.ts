@@ -3,10 +3,16 @@ import {
   buildTrialEmail,
   canonicalEmail,
   makeTrialCode,
+  NO_CARD_TRIALS_UNTIL,
   normaliseTrialCode,
   TRIAL_DAYS,
+  trialNeedsCard,
 } from "../../../supabase/functions/_shared/trialCode";
-import { mayOfferTrial, TRIAL_DAYS as CLIENT_TRIAL_DAYS } from "./trialCode";
+import {
+  mayOfferTrial,
+  NO_CARD_TRIALS_UNTIL as CLIENT_NO_CARD_TRIALS_UNTIL,
+  TRIAL_DAYS as CLIENT_TRIAL_DAYS,
+} from "./trialCode";
 
 describe("makeTrialCode", () => {
   test("is AE- and two groups of four, from characters that can't be misread", () => {
@@ -62,6 +68,19 @@ describe("buildTrialEmail", () => {
 
 test("the plan page promises the same trial length the server grants", () => {
   expect(CLIENT_TRIAL_DAYS).toBe(TRIAL_DAYS);
+});
+
+describe("no-card trials", () => {
+  test("the plan page and Checkout switch back to a card at the same moment", () => {
+    expect(CLIENT_NO_CARD_TRIALS_UNTIL).toBe(NO_CARD_TRIALS_UNTIL);
+  });
+
+  test("run to the end of Sunday 11 October, UK time, then need a card", () => {
+    expect(trialNeedsCard(Date.parse("2026-10-07T12:00:00Z"))).toBe(false);
+    expect(trialNeedsCard(Date.parse("2026-10-11T22:59:59Z"))).toBe(false);
+    expect(trialNeedsCard(Date.parse("2026-10-11T23:00:00Z"))).toBe(true);
+    expect(trialNeedsCard(Date.parse("2026-11-01T12:00:00Z"))).toBe(true);
+  });
 });
 
 describe("canonicalEmail", () => {

@@ -44,7 +44,7 @@ import {
   expireOpenCheckouts,
 } from "./customers.ts";
 import { checkTrialCode, claimTrialCode } from "./trialCodes.ts";
-import { TRIAL_DAYS } from "../_shared/trialCode.ts";
+import { TRIAL_DAYS, trialNeedsCard } from "../_shared/trialCode.ts";
 
 /** Where Stripe sends the browser back to. Whitelisted — never client URLs. */
 const RETURN_PATHS: Record<string, string> = {
@@ -260,8 +260,16 @@ async function resolvePackage(
   return rows.find((r) => r.level === level) ?? rows.find((r) => r.level === null) ?? null;
 }
 
+/**
+ * The live site, where Stripe sends the payer back. Refused rather than
+ * guessed: a localhost address sends every payer to "can't connect to the
+ * server" (APP_URL itself was localhost until 6 Oct 2026). Failing here stops
+ * before Stripe is opened, so nobody pays.
+ */
 function appUrl() {
-  return Deno.env.get("APP_URL") ?? "http://localhost:3000";
+  const url = Deno.env.get("APP_URL")?.trim();
+  if (!url) throw new HttpError(500, "Payments aren't set up on the server yet.");
+  return url.replace(/\/+$/, "");
 }
 
 function returnPath(key: string | undefined, fallback: string) {
@@ -272,6 +280,8 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
   const user = await requireUser(req);
   const db = admin();
   const stripe = stripeClient();
+  // First, so a missing APP_URL changes nothing: no checkout expired, no customer made.
+  const back = `${appUrl()}${returnPath(payload.return_to, RETURN_PATHS.onboarding)}`;
 
   const beneficiary = payload.student_id ?? user.id;
 
@@ -325,8 +335,9 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
     ? await checkTrialCode(stripe, db, payload.trial_code, user.id, beneficiary)
     : null;
 
+  const noCard = !!trial && !trialNeedsCard();
+
   const customerId = await resolveCustomer(stripe, user.id, user.email);
-  const back = `${appUrl()}${returnPath(payload.return_to, RETURN_PATHS.onboarding)}`;
 
   const session = await stripe.checkout.sessions.create({
     mode: "subscription",
@@ -339,6 +350,11 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
     subscription_data: {
       metadata: { student_id: beneficiary, payer_id: user.id, tier: pkg.tier },
       ...(trial ? { trial_period_days: TRIAL_DAYS } : {}),
+      // A trial started without a card just ends on day 15. Stripe's default
+      // would bill a card that isn't there and leave the plan past due.
+      ...(noCard
+        ? { trial_settings: { end_behavior: { missing_payment_method: "cancel" as const } } }
+        : {}),
     },
     metadata: {
       student_id: beneficiary,
@@ -347,11 +363,12 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
       ...(trial ? { trial_code: trial.code } : {}),
     },
     allow_promotion_codes: true,
-    // A trial still takes the card up front, so it rolls into the plan on day
-    // 15 unless cancelled. The short expiry frees an abandoned trial code.
+    // A trial normally takes the card up front, so it rolls into the plan on
+    // day 15 unless cancelled; until NO_CARD_TRIALS_UNTIL it takes none. The
+    // short expiry frees an abandoned trial code.
     ...(trial
       ? {
-          payment_method_collection: "always" as const,
+          payment_method_collection: noCard ? ("if_required" as const) : ("always" as const),
           expires_at: Math.floor(Date.now() / 1000) + 31 * 60,
         }
       : {}),

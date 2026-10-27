@@ -1,0 +1,245 @@
+{
+  "format": 1,
+  "concept_id": "aphys-006",
+  "subject": "physics",
+  "title": "Physics and society",
+  "key_idea": "Physics must be communicated clearly, using the right terms, units and evidence. Applications of physics bring benefits and risks that need weighing up. The scientific community checks new claims through peer review, and society uses the evidence to make decisions.",
+  "sections": [
+    {
+      "heading": "Communicating physics",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Physics is shared in words, equations, tables and graphs. Use the correct terms so that others understand exactly what you mean."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use precise physics terms, such as \"mass\" and \"weight\", \"speed\" and \"velocity\", for the right quantity.",
+            "Give every value with its unit and a sensible number of significant figures.",
+            "Use equations, labelled diagrams, tables and graphs where they make a point clearer.",
+            "Support each claim with evidence from data, and say how strong the evidence is.",
+            "Write in short, logical steps, and match the length of an answer to the marks."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Say",
+            "Rather than"
+          ],
+          "rows": [
+            [
+              "the current is 2.0 A",
+              "the current is high"
+            ],
+            [
+              "the force doubles",
+              "the force gets bigger"
+            ],
+            [
+              "the readings are close together",
+              "the readings are good"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use accurate terminology, units and evidence.",
+            "Choose words, equations, diagrams or graphs to make the point clearly."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Applications, benefits and risks",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Advances in physics lead to useful technologies. Most also bring risks, so we have to weigh up costs and benefits."
+        },
+        {
+          "type": "list",
+          "items": [
+            "An application is a use of physics, such as medical imaging, nuclear power or satellite communications.",
+            "An implication is a wider consequence, such as the need for waste storage or for new regulations.",
+            "Benefits can be to health, to the economy or to the environment.",
+            "Risks can be to health, to the environment, or to groups who do not share the benefits."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort statements about nuclear power into benefits and risks.",
+            "prompt": "Sort each statement about nuclear power into a benefit or a risk.",
+            "groups": [
+              "Benefit",
+              "Risk"
+            ],
+            "items": [
+              {
+                "text": "Produces large amounts of electricity from a small mass of fuel.",
+                "group": 0
+              },
+              {
+                "text": "Releases no carbon dioxide while generating.",
+                "group": 0
+              },
+              {
+                "text": "Generates electricity continuously, whatever the weather.",
+                "group": 0
+              },
+              {
+                "text": "Produces radioactive waste that must be stored safely for a very long time.",
+                "group": 1
+              },
+              {
+                "text": "An accident can release radioactive material.",
+                "group": 1
+              },
+              {
+                "text": "Power stations are costly to build and to decommission.",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "List",
+              "text": "Set out the benefits and the risks, and who is affected."
+            },
+            {
+              "lead": "Weigh",
+              "text": "Compare how large and how likely each one is."
+            },
+            {
+              "lead": "Conclude",
+              "text": "Make a reasoned judgement and say what evidence would change it."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Evaluate an application by weighing its benefits against its risks.",
+            "Give a reasoned judgement and support it with evidence."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Validating knowledge and informing decisions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "New claims are checked before they are accepted. Once they are, society can use them to make decisions."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Peer review",
+              "meaning": "Checking of a scientific report by independent experts before it is published."
+            },
+            {
+              "term": "Replication",
+              "meaning": "Repeating an experiment, often by a different team, to see whether the same result is found."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Scientists publish methods and data so that others can check and repeat them.",
+            "Peer review looks for errors, bias and conclusions that go beyond the evidence.",
+            "Results that other teams reproduce are accepted; those that cannot be reproduced are questioned.",
+            "Conferences and journals let scientists share, challenge and improve each other's work.",
+            "This process keeps science honest and corrects mistakes over time."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "How society uses science"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Governments use scientific evidence to set laws and safety limits, such as limits on radiation doses.",
+            "Decisions also depend on cost, ethics and public opinion, not just on the science.",
+            "People may disagree about a decision even when they agree about the evidence.",
+            "Check the source: is it independent, expert and based on data?"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Peer review and replication check new knowledge and protect integrity.",
+            "Society uses science to inform decisions, alongside cost and ethics."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by peer review and explain why it is important.",
+      "a": "Independent experts check a report before it is published. It helps to spot errors and bias, so only reliable results are accepted.",
+      "marks": 2
+    },
+    {
+      "q": "Give one benefit and one risk of using X-rays in medical imaging.",
+      "a": "Benefit: shows bones and some organs without surgery. Risk: ionising radiation can damage cells and increase the chance of cancer.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a government might decide not to follow scientific advice alone when planning a new power station.",
+      "a": "Decisions also depend on cost, public opinion, ethics and environmental impact, as well as on the scientific evidence.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.5",
+        "EDEX 1.6",
+        "EDEX 1.7",
+        "EDEX 1.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Communicate in appropriate ways: choose between a table, a graph, an equation or a labelled diagram to suit the information.",
+                "Evaluate the benefits and risks of an application of science, and reach a justified judgement.",
+                "Explain the role of the scientific community in validating new knowledge and ensuring integrity.",
+                "Explain how society uses science to inform decision making."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "0569f251-917f-48ed-9b78-c80e605a9a8c",
+      "8c56a8bf-4550-4077-9ec2-145f006629c5",
+      "df7ad34e-1478-4dab-b365-ff75be630e90",
+      "2f50d3fb-7760-48c3-9adc-f661691cc62c"
+    ],
+    "exemplar_ids": []
+  }
+}

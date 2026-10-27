@@ -175,7 +175,7 @@ function glow(el: HTMLElement) {
 
 let stopReturn: (() => void) | null = null;
 
-function returnTo(entry: Entry) {
+function returnTo(entry: Entry, target?: HTMLElement) {
   stopReturn?.();
   const started = performance.now();
   let found: HTMLElement | null = null;
@@ -204,7 +204,7 @@ function returnTo(entry: Entry) {
       // away. Only a real shift is followed, not a card's own rise-in.
       if (centre(found, 24)) stillSince = now;
       if (now - stillSince > SETTLE_MS || now - started > WAIT_MS + SETTLE_MS) return stop();
-    } else if (entry.mark && (found = findMark(entry.mark))) {
+    } else if ((found = target?.isConnected ? target : entry.mark ? findMark(entry.mark) : null)) {
       centre(found, 1);
       stillSince = now;
       glow(found);
@@ -221,6 +221,14 @@ function returnTo(entry: Entry) {
     timer = window.setTimeout(step, 16);
   };
   step();
+}
+
+/**
+ * Lands on an element the way Back lands on a card: centred below the header,
+ * glowed once, and held there while the page around it finishes loading.
+ */
+export function landOn(el: HTMLElement) {
+  returnTo({ path: window.location.pathname }, el);
 }
 
 /**

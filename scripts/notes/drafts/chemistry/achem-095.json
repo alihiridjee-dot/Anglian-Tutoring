@@ -1,0 +1,467 @@
+{
+  "format": 1,
+  "concept_id": "achem-095",
+  "subject": "chemistry",
+  "title": "Identifying organic and inorganic unknowns",
+  "key_idea": "Test-tube tests identify functional groups: bromine water for alkenes, carbonate for acids, dichromate for oxidisable alcohols and aldehydes, and Tollens' reagent for aldehydes. Combine the results to identify an unknown.",
+  "sections": [
+    {
+      "heading": "Test-tube tests for organic groups",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A few quick tests on a small sample can show which functional group an unknown compound contains. This section covers the tests for alkenes, alcohols, aldehydes and carboxylic acids."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Group",
+            "Test",
+            "Positive result"
+          ],
+          "rows": [
+            [
+              "Alkene",
+              "Shake with bromine water",
+              "Orange colour disappears (decolourises)"
+            ],
+            [
+              "Carboxylic acid",
+              "Add sodium carbonate solution",
+              "Fizzing; CO₂ turns limewater milky"
+            ],
+            [
+              "Primary or secondary alcohol, or aldehyde",
+              "Warm with acidified potassium dichromate(VI)",
+              "Orange changes to green"
+            ],
+            [
+              "Aldehyde",
+              "Warm with Tollens' reagent",
+              "Silver mirror forms"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tertiary alcohols and ketones do **not** change acidified dichromate, so it stays orange.",
+            "Tollens' reagent separates an aldehyde from a ketone. Only the aldehyde is oxidised, and it reduces the silver ions to silver.",
+            "The aldehyde is oxidised to a carboxylic acid, so the organic product of both oxidations is an acid."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick an unknown compound and see the result of four tests.",
+            "prompt": "Pick an unknown compound",
+            "result_labels": [
+              "Bromine water",
+              "Sodium carbonate",
+              "Acidified dichromate, warmed",
+              "Tollens' reagent"
+            ],
+            "options": [
+              {
+                "label": "Propene (alkene)",
+                "results": [
+                  "Decolourises",
+                  "No reaction",
+                  "No change, stays orange",
+                  "No reaction"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Br₂(aq)",
+                      "colour": "colourless"
+                    },
+                    {
+                      "label": "Na₂CO₃",
+                      "colour": "colourless"
+                    },
+                    {
+                      "label": "Cr₂O₇²⁻",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Tollens'",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Ethanoic acid (carboxylic acid)",
+                "results": [
+                  "No change, stays orange",
+                  "Fizzes",
+                  "No change, stays orange",
+                  "No reaction"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Br₂(aq)",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Na₂CO₃",
+                      "colour": "colourless",
+                      "bubbles": true
+                    },
+                    {
+                      "label": "Cr₂O₇²⁻",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Tollens'",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Propan-1-ol (primary alcohol)",
+                "results": [
+                  "No change, stays orange",
+                  "No reaction",
+                  "Turns green",
+                  "No reaction"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Br₂(aq)",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Na₂CO₃",
+                      "colour": "colourless"
+                    },
+                    {
+                      "label": "Cr₂O₇²⁻",
+                      "colour": "green"
+                    },
+                    {
+                      "label": "Tollens'",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Ethanal (aldehyde)",
+                "results": [
+                  "No change, stays orange",
+                  "No reaction",
+                  "Turns green",
+                  "Silver mirror"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Br₂(aq)",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Na₂CO₃",
+                      "colour": "colourless"
+                    },
+                    {
+                      "label": "Cr₂O₇²⁻",
+                      "colour": "green"
+                    },
+                    {
+                      "label": "Tollens'",
+                      "colour": "colourless",
+                      "precipitate": "grey"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Propanone (ketone)",
+                "results": [
+                  "No change, stays orange",
+                  "No reaction",
+                  "No change, stays orange",
+                  "No reaction"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Br₂(aq)",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Na₂CO₃",
+                      "colour": "colourless"
+                    },
+                    {
+                      "label": "Cr₂O₇²⁻",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Tollens'",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "2-methylpropan-2-ol (tertiary alcohol)",
+                "results": [
+                  "No change, stays orange",
+                  "No reaction",
+                  "No change, stays orange",
+                  "No reaction"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Br₂(aq)",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Na₂CO₃",
+                      "colour": "colourless"
+                    },
+                    {
+                      "label": "Cr₂O₇²⁻",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Tollens'",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Learn each test as reagent, conditions and positive result.",
+            "Dichromate turning green means a primary or secondary alcohol, or an aldehyde.",
+            "Tollens' reagent picks out the aldehyde."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Identifying an unknown",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Use several tests together. One result rarely identifies a compound on its own."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Test in a sensible order",
+              "text": "Start with tests that use up little sample and are clear, such as bromine water and sodium carbonate."
+            },
+            {
+              "lead": "Record every result",
+              "text": "Write down the positive result or 'no change' for each test."
+            },
+            {
+              "lead": "Narrow down",
+              "text": "Rule out groups with a negative result and keep those with a positive one."
+            },
+            {
+              "lead": "Confirm",
+              "text": "Choose a final test that splits the groups left. For example, Tollens' reagent separates an aldehyde from a ketone."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A negative result is evidence too. A compound that does not decolourise bromine water has no C=C.",
+            "Several groups may be present in one molecule, so more than one test can be positive."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Combine the tests and record every result.",
+            "Use the negative results to rule groups out."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how to show that an unknown liquid is an aldehyde and not a ketone.",
+      "a": "Warm with Tollens' reagent. An aldehyde gives a silver mirror; a ketone gives no change.",
+      "marks": 2
+    },
+    {
+      "q": "An unknown compound turns acidified potassium dichromate(VI) from orange to green but does not give a silver mirror with Tollens' reagent. What can you deduce?",
+      "a": "It is a primary or secondary alcohol. It cannot be an aldehyde because Tollens' reagent is negative.",
+      "marks": 2
+    },
+    {
+      "q": "Describe a test that distinguishes propene from propane.",
+      "a": "Shake with bromine water. Propene decolourises it from orange; propane does not change it.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.3.1c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Three more groups are tested for, and the 2,4-DNP test has a wider use."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Haloalkanes**: warm with aqueous silver nitrate in ethanol. A precipitate of silver halide forms as the halide ion is released: white for chloride, cream for bromide, yellow for iodide.",
+                "The precipitate forms faster with C–I than with C–Br or C–Cl, because the C–I bond is the weakest.",
+                "**Phenols**: they are weakly acidic but do not react with carbonate, so there is no fizzing with Na₂CO₃. A carboxylic acid does fizz.",
+                "**Carbonyl compounds** (aldehyde or ketone): add 2,4-dinitrophenylhydrazine (2,4-DNP). An orange precipitate forms. Tollens' reagent then separates an aldehyde from a ketone."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.6.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The practical tests for alcohols, aldehydes, alkenes and carboxylic acids are done in test tubes on a small scale."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Add a few drops of the unknown to each reagent in a separate tube. Label every tube.",
+                "Warm the tubes for the dichromate and Tollens' tests in a beaker of hot water, not a flame.",
+                "Use a fume cupboard where needed. Record the colour before and after for each test."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7B.CP7",
+        "EDEX 18B.CP15"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The unknowns practical also includes inorganic tests. Use the same method of recording each result and narrowing down."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Ion",
+                "Test",
+                "Positive result"
+              ],
+              "rows": [
+                [
+                  "Cu²⁺",
+                  "NaOH(aq)",
+                  "Pale blue precipitate, insoluble in excess"
+                ],
+                [
+                  "Fe²⁺",
+                  "NaOH(aq)",
+                  "Green precipitate, turning brown on standing"
+                ],
+                [
+                  "Fe³⁺",
+                  "NaOH(aq)",
+                  "Brown precipitate"
+                ],
+                [
+                  "Al³⁺",
+                  "NaOH(aq)",
+                  "White precipitate, dissolves in excess"
+                ],
+                [
+                  "Mg²⁺ or Ca²⁺",
+                  "NaOH(aq)",
+                  "White precipitate, insoluble in excess"
+                ],
+                [
+                  "NH₄⁺",
+                  "NaOH(aq), warm",
+                  "NH₃ turns damp red litmus paper blue"
+                ],
+                [
+                  "CO₃²⁻",
+                  "Dilute acid",
+                  "Fizzing; CO₂ turns limewater milky"
+                ],
+                [
+                  "SO₄²⁻",
+                  "Acidified BaCl₂(aq)",
+                  "White precipitate"
+                ],
+                [
+                  "Cl⁻, Br⁻, I⁻",
+                  "Acidified AgNO₃(aq)",
+                  "White, cream and yellow precipitates"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Silver halide precipitates differ in ammonia: AgCl dissolves in dilute NH₃(aq), AgBr dissolves only in concentrated NH₃(aq), and AgI does not dissolve.",
+                "Add 2,4-DNP to an unknown organic compound: an orange precipitate shows an aldehyde or ketone."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "f6aa1acf-15c8-4c3a-8b42-fa53dfa06b75",
+      "04219c74-025e-476d-93fc-8f97964c44d2",
+      "b9e0c8c2-e27f-4770-ae48-59403c2a9c85",
+      "7daf321c-20e7-4464-a229-74b221f8767a"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

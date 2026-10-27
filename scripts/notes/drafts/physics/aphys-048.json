@@ -1,0 +1,273 @@
+{
+  "format": 1,
+  "concept_id": "aphys-048",
+  "subject": "physics",
+  "title": "Particle accelerators and detectors",
+  "key_idea": "Electric fields accelerate charged particles and magnetic fields bend their paths. Linacs and cyclotrons use both to reach high energies. A charged particle in a magnetic field moves in a circle of radius r = p / BQ. High energies are needed to probe nucleons and to create new particles.",
+  "sections": [
+    {
+      "heading": "Thermionic emission and electric fields",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Electrons for an accelerator are released from a heated metal and then accelerated by a potential difference."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Thermionic emission",
+              "meaning": "The release of electrons from the surface of a heated metal, because the heat gives them enough energy to escape."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A hot filament releases electrons.",
+            "A potential difference between the filament and a second electrode accelerates them.",
+            "The electrons gain kinetic energy equal to the work done by the electric field.",
+            "A magnetic field applied sideways deflects the beam, because the force is at right angles to the motion."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Energy gained from a potential difference",
+          "formula": "½mv² = QV",
+          "where": [
+            "m = mass of the particle (kg)",
+            "v = speed gained (m/s)",
+            "Q = charge of the particle (C)",
+            "V = accelerating potential difference (V)"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Heated metal releases electrons by thermionic emission.",
+            "A potential difference accelerates charged particles. A magnetic field deflects them."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Linacs, cyclotrons and r = p / BQ",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A charged particle moving at right angles to a magnetic field feels a force at right angles to its velocity, so it travels in a circle."
+        },
+        {
+          "type": "equation",
+          "label": "Radius of the circular path",
+          "formula": "r = p / BQ",
+          "where": [
+            "r = radius of the path (m)",
+            "p = momentum of the particle, mv (kg m/s)",
+            "B = magnetic flux density (T)",
+            "Q = charge of the particle (C)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Force",
+              "text": "The magnetic force is BQv. It is the centripetal force, mv² / r."
+            },
+            {
+              "lead": "Equate",
+              "text": "BQv = mv² / r."
+            },
+            {
+              "lead": "Rearrange",
+              "text": "r = mv / BQ = p / BQ."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A greater momentum gives a larger radius. A stronger field gives a smaller radius."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice calculation. Find the radius of the circular path of a charged particle in a magnetic field using r = p / BQ.",
+            "question": "A particle with charge 1.60 × 10⁻¹⁹ C and momentum {a} × 10⁻²¹ kg m/s moves at right angles to a magnetic field of flux density {b} T. Calculate the radius of its path.",
+            "variables": [
+              {
+                "id": "a",
+                "min": 20,
+                "max": 100,
+                "step": 10
+              },
+              {
+                "id": "b",
+                "min": 0.5,
+                "max": 2,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "a * 1e-21 / (b * 1.6e-19)",
+              "unit": "m",
+              "decimals": 3
+            },
+            "working": [
+              "r = p / BQ",
+              "r = ({a} × 10⁻²¹) / ({b} × 1.60 × 10⁻¹⁹)",
+              "r = {answer} m"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "The linear accelerator (linac)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A line of hollow metal tubes (drift tubes) is joined to an alternating potential difference.",
+            "A particle is accelerated in each gap between tubes. Inside a tube there is no field, so it drifts at constant speed.",
+            "The polarity switches each time the particle is in a tube, so every gap speeds it up.",
+            "The tubes get longer along the line, because the speed rises while the time in each tube stays the same."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The cyclotron"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Two hollow D-shaped metal chambers (dees) sit in a vacuum, with a gap between them.",
+            "A uniform magnetic field at right angles to the dees bends the particles into semicircles.",
+            "An alternating potential difference across the gap speeds the particles up each time they cross.",
+            "Greater speed means a larger radius, so the path spirals outwards until the particles leave the edge."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Put the steps of how a cyclotron accelerates a particle in order.",
+            "prompt": "Put the steps of one pass through a cyclotron in order.",
+            "steps": [
+              "A particle is accelerated across the gap by the potential difference.",
+              "It enters a dee, where only the magnetic field acts on it.",
+              "The magnetic field bends it through a semicircle.",
+              "The potential difference reverses while it is in the dee.",
+              "It crosses the gap again and gains more speed.",
+              "The radius of its next semicircle is larger."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "r = p / BQ comes from setting the magnetic force equal to the centripetal force.",
+            "A linac uses alternating potential difference across gaps between drift tubes.",
+            "A cyclotron uses a magnetic field to bend particles in semicircles between accelerating gaps."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Detectors and high-energy collisions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Detectors show the paths of charged particles after a collision. This section covers how, and why such high energies are used."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A charged particle **ionises** the atoms it passes, leaving a trail that is detected.",
+            "A magnetic field **deflects** the particle, so the track curves.",
+            "The direction of the curve shows the sign of the charge.",
+            "The radius of the curve shows the momentum, from r = p / BQ.",
+            "Neutral particles leave no track."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why high energies are needed"
+        },
+        {
+          "type": "list",
+          "items": [
+            "To see detail, the de Broglie wavelength of the probe must be about as small as the object, and λ = h / p.",
+            "A very small wavelength needs a very large momentum, so a very high energy.",
+            "Firing high-energy electrons at nucleons shows that they contain smaller particles, the quarks.",
+            "High energy is also needed to create new, more massive particles, because E = mc²."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Lifetimes at high speed"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Particles moving close to the speed of light live longer, as measured in the laboratory, than the same particles at rest.",
+            "This relativistic increase matters only when the speed is a large fraction of c.",
+            "It lets unstable particles travel further before they decay and be detected.",
+            "Relativistic equations are not needed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Detectors use ionisation to show tracks and a magnetic field to curve them.",
+            "High energy means a short wavelength, which probes the structure of nucleons.",
+            "Fast particles last longer than the same particles at rest."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how electrons are produced and accelerated in a particle accelerator.",
+      "a": "A heated metal filament releases electrons by thermionic emission. A potential difference between the filament and another electrode accelerates them.",
+      "marks": 3
+    },
+    {
+      "q": "Derive r = p / BQ for a charged particle moving at right angles to a magnetic field.",
+      "a": "The magnetic force BQv provides the centripetal force mv² / r. So BQv = mv² / r, giving r = mv / BQ = p / BQ.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the drift tubes in a linac get longer along the accelerator.",
+      "a": "The particles speed up, but the potential difference alternates at a fixed frequency, so the time in each tube is the same. At a greater speed they cover a greater distance in that time, so the tubes must be longer.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.132",
+        "EDEX 8.133",
+        "EDEX 8.134",
+        "EDEX 8.136",
+        "EDEX 8.139"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "0a4c1b06-59dc-416b-894a-00bbbe3409d7",
+      "3f7e81e7-878a-43bb-ab7e-49ee370f3d60",
+      "19be517c-687f-4feb-850b-c331a1163170",
+      "1e209d4e-1ef3-45d5-bb44-90c3913b3f12",
+      "f164d498-f259-4833-b7dc-b6381dac76d7"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

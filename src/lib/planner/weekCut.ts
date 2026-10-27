@@ -1,4 +1,3 @@
-import { customSchedule } from "./topicOrder";
 import { isTeachBand, selectWeekPoints, withWeeklyPoints } from "./pacing";
 import { hasStudentHistory } from "./admissibility";
 import { catchUpBudget, trickle } from "./backlog";
@@ -55,6 +54,9 @@ export interface WeekSelection {
 
 const emptyWeek = (): WeekSelection => ({ specPointIds: [], origins: {}, rationale: "" });
 
+/** `save_weekly_plan` refuses a week holding more spec points than this. */
+export const MAX_WEEK_POINTS = 200;
+
 /**
  * Fixed teaching and assessed reviews for one week of the programme. Empty weeks
  * stay empty: past the exam, before any curriculum exists, or when the spine has
@@ -77,6 +79,7 @@ export function selectWeek(roadmap: RoadmapResult | null, weekStart: string): We
           due.some((b) => b.specPointId === p.specPointId),
         )
       : trickle(due, catchUpBudget(roadmap.focusLoad?.spine ?? 0)).take;
+    const done = new Set(roadmap.completedPointIds ?? []);
     const { specPointIds, lanes, teachTitle, focusCount, teachCount, catchUpIds, catchUpTopics } =
       selectWeekPoints({
         bands: [
@@ -97,15 +100,14 @@ export function selectWeek(roadmap: RoadmapResult | null, weekStart: string): We
           ...roadmap.bands.filter((b) => !isTeachBand(b)),
         ],
         weekStart,
-        topics: customSchedule(roadmap.baselineBands)
-          ? roadmap.progress.map((t) => ({
-              ...t,
-              points: t.points.map((p) => ({
-                ...p,
-                reps: roadmap.completedPointIds?.includes(p.id) ? Math.max(1, p.reps) : p.reps,
-              })),
-            }))
-          : roadmap.progress,
+        // A point the student ticked off is delivered — the backlog, the
+        // curriculum view and the reorder RPC all say so — and must not be
+        // taught again when its spine week comes round. This used to hold only
+        // under a custom topic order.
+        topics: roadmap.progress.map((t) => ({
+          ...t,
+          points: t.points.map((p) => (done.has(p.id) ? { ...p, reps: Math.max(1, p.reps) } : p)),
+        })),
         catchUp: take.map((b) => ({
           specPointId: b.specPointId,
           topicTitle: b.topicTitle,
@@ -136,9 +138,13 @@ export function selectWeek(roadmap: RoadmapResult | null, weekStart: string): We
       ).length;
     if (allowed.specPointIds.length === 0) {
       // The programme covers this week and has nothing outstanding in it. A
-      // real answer, and the week's own copy says it far better than six
-      // points picked for no stated reason would.
-      return emptyWeek();
+      // real answer — and one the week should state, or a student meets a
+      // single catch-up point with no word on where the rest of the week went.
+      return {
+        ...emptyWeek(),
+        rationale:
+          "Nothing new from your course this week: its points are already covered. Missed work and reviews are added as they come due.",
+      };
     }
     const parts: string[] = [];
     if (keptFocus > 0) parts.push(`${keptFocus} to revisit`);
@@ -196,6 +202,85 @@ export function unsupportedReviews(existing: SavedWeekPoints, roadmap: RoadmapRe
     .map((w) => w.point);
   const saved = [...existing.points, ...quarantined];
   return { unsupported, quarantined, saved };
+}
+
+/** Where a saved week and the full plan disagree about the week's teaching. */
+export interface WeekDrift {
+  /** Points the full plan teaches this week that the week does not hold. */
+  missing: string[];
+  /** Untouched points the programme put in the week that the plan now teaches later. */
+  stale: string[];
+}
+
+/**
+ * Whether a saved week still teaches what the full plan gives it, and where
+ * not. Null when the two agree.
+ *
+ * The full plan can move after a week is saved: an exam date changed before
+ * the change re-cut the week too, new topic weights, a pause picked up. The
+ * week then kept its old points until Monday, so the dashboard listed all of
+ * a topic that the full plan now spreads over three weeks.
+ *
+ * Only the teaching slice is compared. Reviews follow marks and catch-up
+ * follows missed work, and neither is a reason to re-cut a week the student
+ * is part-way through: that stays their call ("Check for a better week").
+ * Pure, and cheap enough for every load, because `roadmap` is the full plan
+ * the page already holds. A stale point may still have been started this
+ * week, which only a coverage read can tell (ProgramDAL.weekBehindPlan).
+ */
+export function weekDrift(
+  saved: SavedWeekPoints,
+  roadmap: RoadmapResult | null,
+  weekStart: string,
+): WeekDrift | null {
+  if (!roadmap || weekStart >= roadmap.examDate) return null;
+  // Where each point is taught on the spine this week is cut from (selectWeek
+  // reads the same bands). A topic split around a break can teach a point in
+  // two bands, so "later" is measured from the first.
+  const thisWeek = new Set<string>();
+  const firstWeek = new Map<string, string>();
+  const pointsByTopic = new Map(
+    roadmap.progress.map((t) => [
+      t.topicId,
+      t.points.map((p) => ({ specPointId: p.id, code: p.code, title: p.title, weight: p.weight })),
+    ]),
+  );
+  for (const band of withWeeklyPoints(roadmap.baselineBands, pointsByTopic)) {
+    if (!isTeachBand(band)) continue;
+    for (const [week, refs] of Object.entries(band.pointsByWeek ?? {}))
+      for (const { specPointId: id } of refs) {
+        if (week === weekStart) thisWeek.add(id);
+        if (!firstWeek.has(id) || week < firstWeek.get(id)!) firstWeek.set(id, week);
+      }
+  }
+
+  // The teaching a fresh cut would give the week: selectWeek's own rules for
+  // what is already delivered and what the tutor set aside, less its reviews
+  // and catch-up.
+  const fresh = selectWeek(roadmap, weekStart);
+  const held = new Set(
+    [...saved.points, ...saved.withheld.map((w) => w.point)].map((p) => p.spec_point_id),
+  );
+  const missing = fresh.specPointIds.filter(
+    (id) => fresh.origins[id] === "core" && thisWeek.has(id) && !held.has(id),
+  );
+
+  // A point the student has practised or ticked anywhere is delivered, so
+  // where the plan now puts it is no reason to take it out of the week.
+  const delivered = new Set(roadmap.completedPointIds ?? []);
+  for (const t of roadmap.progress) for (const p of t.points) if (p.reps > 0) delivered.add(p.id);
+  const stale = saved.points
+    .filter(
+      (p) =>
+        p.origin === "core" &&
+        !hasStudentHistory(p) &&
+        !delivered.has(p.spec_point_id) &&
+        !thisWeek.has(p.spec_point_id) &&
+        (firstWeek.get(p.spec_point_id) ?? "") > weekStart,
+    )
+    .map((p) => p.spec_point_id);
+
+  return missing.length || stale.length ? { missing, stale } : null;
 }
 
 /** What a re-cut writes back, or null when the saved week already says this. */
@@ -261,16 +346,20 @@ export function mergeWeek(params: {
     carriedFroms[p.spec_point_id] = p.carried_from;
   }
   for (const id of fresh.specPointIds) origins[id] ??= fresh.origins[id] ?? "ai";
-  const specPointIds = Object.keys(origins);
+  const merged = Object.keys(origins);
   if (
     params.expectedPointIds &&
-    (params.expectedPointIds.length !== specPointIds.length ||
-      specPointIds.some((id) => !params.expectedPointIds!.includes(id)))
+    (params.expectedPointIds.length !== merged.length ||
+      merged.some((id) => !params.expectedPointIds!.includes(id)))
   ) {
     throw new Error(
       "Your assessment results or assignments changed. Preview the updated week again before applying it.",
     );
   }
+  // Kept points were listed first, so a week that would overflow the cap the
+  // database enforces sheds the fresh automatic points from the end rather
+  // than failing to save at all — and then failing on every load after.
+  const specPointIds = merged.slice(0, MAX_WEEK_POINTS);
 
   const before = new Set(existing.points.map((p) => p.spec_point_id));
   // Three independent reasons to write. The point set differing is the

@@ -1,0 +1,267 @@
+{
+  "format": 1,
+  "concept_id": "aphys-045",
+  "subject": "physics",
+  "title": "Fundamental interactions and exchange particles",
+  "key_idea": "There are four fundamental interactions: gravity, electromagnetic, weak and strong. Forces between particles are explained by exchange particles that carry the interaction. Diagrams show incoming and outgoing particles joined by the exchange particle, with charge conserved at every vertex.",
+  "sections": [
+    {
+      "heading": "The four fundamental interactions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "All forces between particles come from four fundamental interactions. This section covers what each one acts on."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Interaction",
+            "Acts on",
+            "Range"
+          ],
+          "rows": [
+            [
+              "Gravity",
+              "All particles with mass",
+              "Infinite, but very weak"
+            ],
+            [
+              "Electromagnetic",
+              "Charged particles",
+              "Infinite"
+            ],
+            [
+              "Weak nuclear",
+              "All quarks and leptons",
+              "Very short range, about 10⁻¹⁸ m"
+            ],
+            [
+              "Strong nuclear",
+              "Quarks and so hadrons",
+              "Short range, a few fm"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The strong nuclear force is also called the **strong interaction**.",
+            "The weak interaction causes β decay. It is the only one of the four that can change one type of quark into another.",
+            "Gravity is far weaker than the others, so it can be ignored between individual particles."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Four interactions: gravity, electromagnetic, weak and strong.",
+            "The weak interaction is responsible for β decay."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Exchange particles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In this model, a force between two particles is caused by the exchange of a third particle between them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Exchange particle",
+              "meaning": "A particle that is emitted by one particle and absorbed by another, carrying the interaction between them."
+            },
+            {
+              "term": "Virtual photon",
+              "meaning": "The exchange particle of the electromagnetic force. It exists only for a very short time."
+            },
+            {
+              "term": "W boson",
+              "meaning": "The W⁺ and W⁻ are the exchange particles of the weak interaction."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor activity. Choose an interaction and see its exchange particle, what it acts on and an example.",
+            "prompt": "Choose an interaction.",
+            "result_labels": [
+              "Exchange particle",
+              "Acts on",
+              "Example"
+            ],
+            "options": [
+              {
+                "label": "Electromagnetic",
+                "results": [
+                  "Virtual photon",
+                  "Charged particles",
+                  "Repulsion between two electrons"
+                ]
+              },
+              {
+                "label": "Weak nuclear",
+                "results": [
+                  "W⁺ or W⁻",
+                  "Quarks and leptons",
+                  "β⁻ decay of a neutron"
+                ]
+              },
+              {
+                "label": "Strong nuclear",
+                "results": [
+                  "Pion (between nucleons)",
+                  "Hadrons",
+                  "Holding protons and neutrons together"
+                ]
+              },
+              {
+                "label": "Gravity",
+                "results": [
+                  "Graviton (not tested)",
+                  "All particles with mass",
+                  "Attraction of the Earth and the Moon"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Electromagnetic force: **virtual photons** are exchanged between charged particles.",
+            "Weak interaction: **W⁺** and **W⁻** bosons are exchanged, in β⁻ and β⁺ decay, electron capture and electron–proton collisions.",
+            "The W boson carries charge, so the particle that emits it changes charge.",
+            "The gluon, the Z⁰ and the graviton are not needed here."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Forces are explained by the exchange of particles.",
+            "Virtual photons carry the electromagnetic force. W⁺ and W⁻ carry the weak interaction."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Diagrams of interactions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A simple diagram shows the incoming particles, the exchange particle and the outgoing particles. Time runs in one direction, up the page."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Incoming",
+              "text": "Draw the incoming particles at the start, with arrows showing particles travelling forward in time."
+            },
+            {
+              "lead": "Exchange",
+              "text": "Draw the exchange particle as a wavy or dashed line joining the two particle lines."
+            },
+            {
+              "lead": "Outgoing",
+              "text": "Draw the outgoing particles. Label every line."
+            },
+            {
+              "lead": "Check",
+              "text": "At each point where lines meet, the charge on each side must be the same."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Reaction",
+            "Equation",
+            "Exchange particle"
+          ],
+          "rows": [
+            [
+              "β⁻ decay",
+              "n → p + e⁻ + ν̄",
+              "W⁻"
+            ],
+            [
+              "β⁺ decay",
+              "p → n + e⁺ + ν",
+              "W⁺"
+            ],
+            [
+              "Electron capture",
+              "p + e⁻ → n + ν",
+              "W⁺ (from the proton)"
+            ],
+            [
+              "Electron–proton collision",
+              "e⁻ + p → n + ν",
+              "W⁻ (from the electron)"
+            ],
+            [
+              "Two electrons repel",
+              "e⁻ + e⁻ → e⁻ + e⁻",
+              "Virtual photon"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In β⁻ decay the neutron emits a W⁻ and becomes a proton. The W⁻ then becomes an electron and an antineutrino.",
+            "Electron capture and the electron–proton collision give the same particles, but the diagram shows the exchange from different directions.",
+            "Check each vertex: for β⁻ decay, 0 → +1 + (−1) is balanced."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A diagram shows incoming particles, the exchange particle and outgoing particles.",
+            "Charge is conserved at every vertex."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the four fundamental interactions.",
+      "a": "Gravity, electromagnetic, weak nuclear and strong nuclear.",
+      "marks": 2
+    },
+    {
+      "q": "State the exchange particle in (a) the electromagnetic interaction and (b) β⁻ decay.",
+      "a": "(a) A virtual photon. (b) A W⁻ boson.",
+      "marks": 2
+    },
+    {
+      "q": "Describe β⁻ decay in terms of an exchange particle, and show that charge is conserved.",
+      "a": "A neutron emits a W⁻ and becomes a proton. The W⁻ becomes an electron and an electron antineutrino. Charge: 0 before; +1 + (−1) + 0 = 0 after.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.1.4"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "741443fb-ad9f-446d-b7e6-b23de66ce2ed"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

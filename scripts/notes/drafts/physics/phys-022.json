@@ -1,0 +1,256 @@
+{
+  "format": 1,
+  "concept_id": "phys-022",
+  "subject": "physics",
+  "title": "Electric fields",
+  "key_idea": "A charged object creates an **electric field** around it. Another charged object in the field feels a force. The field is strongest close to the charge. Fields explain the non-contact force between charges and sparking.",
+  "sections": [
+    {
+      "heading": "What an electric field is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A charged object creates an electric field around itself. This section covers what the field is and how its strength changes."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Electric field",
+              "meaning": "The region around a charged object where another charged object experiences a force."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The electric field is strongest close to the charged object.",
+            "The further away from the charged object, the weaker the field.",
+            "A second charged object placed in the field experiences a force.",
+            "The force gets stronger as the distance between the objects decreases."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Fields explain non-contact forces"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sphere A has an electric field, and sphere B is in it.",
+            "So sphere B experiences a force without touching sphere A.",
+            "The force can be attraction or repulsion, depending on the charges."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In the alpha particle scattering experiment, a positive alpha particle approaching a positive gold nucleus is repelled. The field strength and the force on it increase as it gets closer."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An electric field is the region where a charged object experiences a force.",
+            "The field is stronger closer to the charge, and so is the force.",
+            "A charged object in the field of another feels a force without contact."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Drawing electric fields",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Field lines show the shape, the direction and the strength of an electric field."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The arrows show the direction of the force on a positive charge.",
+            "Lines that are close together show a strong field.",
+            "Lines that are far apart show a weak field."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Two electric field patterns compared: an isolated charged sphere and parallel plates.",
+            "items": ["Isolated charged sphere", "Between parallel plates"],
+            "rows": [
+              {
+                "feature": "Field lines",
+                "values": [
+                  "Straight lines that point directly towards or away from the sphere.",
+                  "Straight, parallel and equally spaced lines."
+                ]
+              },
+              {
+                "feature": "Direction",
+                "values": [
+                  "Away from a positive sphere. Towards a negative sphere.",
+                  "From the positive plate to the negative plate."
+                ]
+              },
+              {
+                "feature": "Strength",
+                "values": [
+                  "Strongest close to the sphere, where the lines are closest together.",
+                  "The same everywhere between the plates (away from the edges), because the lines are equally spaced."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "An electric field pattern is similar to a magnetic field pattern. Closeness of the lines shows strength, and both show the direction of the force."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Field lines for an isolated sphere are straight and radial, away from positive and towards negative.",
+            "Between parallel plates the lines are parallel and equally spaced.",
+            "Closer lines mean a stronger field."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Fields and sparking",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Electric fields also explain sparks. A very strong field can make air conduct."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps that lead to a spark between a charged object and an earthed conductor into order.",
+            "prompt": "Put the steps in order.",
+            "steps": [
+              "A charged object is brought close to an earthed conductor.",
+              "The electric field strength between them becomes very high.",
+              "The air becomes ionised, so it conducts.",
+              "Charge flows through the air and a spark jumps."
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Air is normally an insulator with a high resistance.",
+            "In a very strong field the air breaks down and becomes ionised.",
+            "The ionised air conducts, so electrons move across the gap as a spark.",
+            "A kite flown very close to an overhead power cable can give a fatal shock for this reason. The ionised air, and the kite or string, conduct charge to the person."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A very strong electric field ionises the air.",
+            "Ionised air conducts, so charge moves across the gap as a spark.",
+            "The object does not need to touch the power cable for a dangerous shock."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is an electric field?",
+      "a": "The region around a charged object where another charged object experiences a force.",
+      "marks": 1
+    },
+    {
+      "q": "How does the electric field strength vary as the distance from a charged object increases?",
+      "a": "It decreases.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why a spark can jump between a charged rod and an earthed conductor that are close together.",
+      "a": "The electric field strength is very high, so the air becomes ionised and conducts. Electrons move through the air from the rod to the conductor.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.5.2"],
+      "worked_example": {
+        "exemplar_id": "aff95144-94a0-4025-b0d7-9154b36a47c4",
+        "source": "AQA jun 2021, Paper 1 (H), Q10.2",
+        "question": "It is dangerous for a person to fly a kite near an overhead power cable. The person could receive a fatal electric shock if the kite was very close to, but not touching the power cable. Explain why.",
+        "marks": 3,
+        "answer_points": [
+          "The electric field strength is very high.",
+          "This causes the air to become ionised (the air breaks down or becomes a conductor).",
+          "The kite or string conducts charge to the person or to earth."
+        ],
+        "tip": "One mark for each step. Do not write about the kite touching the power cable."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 11.8P", "EDEX 11.9P", "EDEX 11.10P"],
+      "worked_example": {
+        "exemplar_id": "d1bdb08b-bd22-4615-b3c1-4ee889b13f8b",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q4(c)(i)",
+        "question": "Metal sphere A is fixed to a table. Metal sphere B can be moved. Metal sphere B is placed at a short distance from metal sphere A. Both spheres are insulated from the table and given a negative charge. The force between the charged spheres is measured. Explain, in terms of electric fields, why a force is exerted on sphere B.",
+        "marks": 2,
+        "answer_points": ["Sphere A has an electric field.", "Sphere B is in it."],
+        "tip": "Do not write about the nature of the force, such as repulsion. It is ignored."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P3.1d"],
+      "worked_example": {
+        "exemplar_id": "9c3ee270-07dc-471b-9053-709f0dc87908",
+        "source": "OCR jun 2023, Paper 3, Q22(b)",
+        "question": "An electrostatic dust precipitator uses static electricity to remove smoke particles from gases before the gases are released from a chimney in a factory. The precipitator uses high voltages. Why are high voltages dangerous?",
+        "marks": 1,
+        "answer_points": ["High voltages can cause electric shocks or electrocution."],
+        "tip": "Unqualified answers such as dangerous or heating are ignored. Electrocution, with damage to the nervous system or heart, is also credited."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 4.2.1.8S", "CAIE 4.2.1.9S", "CAIE 4.2.1.10S"],
+      "worked_example": {
+        "exemplar_id": "c7201566-df6f-45df-9fda-9e73cbbbf843",
+        "source": "CAMBRIDGE nov 2024, Paper 43, Q5(a)(iii)",
+        "question": "A metal sphere is negatively charged. A small negatively charged particle is released from rest at a position next to the sphere. Describe the motion of the particle due to the electric field around the sphere.",
+        "marks": 2,
+        "answer_points": [
+          "The particle accelerates, because there is a resultant force on it",
+          "It moves away from the sphere, because like charges repel"
+        ],
+        "tip": "Say that it accelerates, and say which way it moves."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.26P"]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "spec_point_ids": [
+      "0fd5d872-2e66-4ae9-84ed-a6061a88d118",
+      "7f53d359-af24-4ad6-9ecc-654fabdc9f03",
+      "b568c287-6a62-43cd-b853-bb65b721f8f7",
+      "729259cf-0ba3-401c-99b1-4309c12d5dd4",
+      "5e28fcae-7582-4bcf-a472-040c2e811f92",
+      "112b61c9-fcda-4453-adc4-922b6e4b4e9d",
+      "e467d383-0157-4f74-b499-80a992a0f155",
+      "51ff4dc9-6e03-48b8-95c6-4d6ba9794d6a"
+    ],
+    "exemplar_ids": [
+      "aff95144-94a0-4025-b0d7-9154b36a47c4",
+      "d1bdb08b-bd22-4615-b3c1-4ee889b13f8b",
+      "9c3ee270-07dc-471b-9053-709f0dc87908",
+      "c7201566-df6f-45df-9fda-9e73cbbbf843"
+    ]
+  }
+}

@@ -1,0 +1,339 @@
+{
+  "format": 1,
+  "concept_id": "bio-029",
+  "subject": "biology",
+  "title": "Blood vessels",
+  "key_idea": "The body has three types of blood vessel. Arteries carry blood away from the heart at high pressure, veins carry it back at low pressure, and capillaries let substances pass between the blood and cells. The structure of each suits its job.",
+  "sections": [
+    {
+      "heading": "Arteries, veins and capillaries",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the structure of each vessel and how it fits its function. Always link a feature to a reason."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Lumen",
+              "meaning": "The hollow space in the middle of a blood vessel that the blood flows through."
+            },
+            {
+              "term": "Elastic tissue",
+              "meaning": "Tissue in the wall that stretches and then springs back to its shape."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Arteries"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Carry blood **away from the heart** at high pressure.",
+            "Thick walls with a lot of muscle tissue and elastic tissue, to withstand the high pressure and to push blood around the body.",
+            "A narrow lumen, which helps to maintain high pressure.",
+            "No valves."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Veins"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Carry blood **towards the heart** at low pressure.",
+            "Thinner walls, with less muscle tissue and less elastic tissue than arteries.",
+            "A wide lumen, so a lot of blood can flow.",
+            "Valves close to stop the backflow of blood, so it keeps flowing in one direction."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Capillaries"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tiny vessels that run close to every cell, linking arteries to veins.",
+            "Walls only **one cell thick**, so there is a short diffusion distance.",
+            "Very narrow, with a large surface area for the exchange of substances such as oxygen and glucose."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each feature into the blood vessel it belongs to: artery, vein or capillary.",
+            "prompt": "Which blood vessel has this feature?",
+            "groups": ["Artery", "Vein", "Capillary"],
+            "items": [
+              {
+                "text": "Thick wall with a lot of muscle and elastic tissue",
+                "group": 0
+              },
+              {
+                "text": "Narrow lumen that keeps blood pressure high",
+                "group": 0
+              },
+              {
+                "text": "Carries blood away from the heart",
+                "group": 0
+              },
+              {
+                "text": "Has valves to prevent backflow",
+                "group": 1
+              },
+              {
+                "text": "Wide lumen",
+                "group": 1
+              },
+              {
+                "text": "Carries blood back to the heart at low pressure",
+                "group": 1
+              },
+              {
+                "text": "Wall is one cell thick",
+                "group": 2
+              },
+              {
+                "text": "Exchanges substances with body cells",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Arteries: thick, muscular, elastic walls and a narrow lumen to handle high pressure.",
+            "Veins: wide lumen and valves to return blood at low pressure.",
+            "Capillaries: one-cell-thick walls for fast exchange."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Blood flow rate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Blood flow can be measured as a rate: the volume of blood that passes through a vessel in a given time."
+        },
+        {
+          "type": "equation",
+          "label": "Volume of blood flowing",
+          "formula": "volume = rate of flow × time",
+          "where": ["volume in cm³", "rate of flow in cm³/minute", "time in minutes"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A blood flow calculation with new numbers each time.",
+            "question": "Blood flows through a coronary artery at {rate} cm³/minute. Calculate the volume of blood that flows through the artery in {time} minutes.",
+            "variables": [
+              {
+                "id": "rate",
+                "min": 150,
+                "max": 300,
+                "step": 10
+              },
+              {
+                "id": "time",
+                "min": 2,
+                "max": 10,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "rate * time",
+              "unit": "cm³",
+              "decimals": 0
+            },
+            "working": ["volume = rate of flow × time", "volume = {rate} × {time} = {answer} cm³"]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Volume = rate of flow × time.",
+            "Check the units. Change cm³ to dm³ by dividing by 1000."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how the structure of an artery is related to its function.",
+      "a": "It has thick walls with muscle and elastic tissue, to withstand high blood pressure and push blood around the body. Its narrow lumen helps to maintain high pressure.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how valves help veins to return blood to the heart.",
+      "a": "The valves close, which prevents the backflow of blood, so blood flows in one direction towards the heart.",
+      "marks": 2
+    },
+    {
+      "q": "Explain one way a capillary is adapted for its function.",
+      "a": "Its wall is one cell thick, so there is a short diffusion distance for the exchange of substances.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.6", "AQA T 4.2.2.2"],
+      "worked_example": {
+        "exemplar_id": "66968b9e-b3e3-44be-9f66-06248d217b88",
+        "source": "AQA jun 2018, Paper 1 (H), Q03.5",
+        "question": "Compare the structure of an artery with the structure of a vein.",
+        "marks": 3,
+        "answer_points": [
+          "Arteries have a thicker layer of muscle (tissue), or veins have a thinner layer.",
+          "Arteries have a thicker layer of elastic tissue, or veins have a thinner layer.",
+          "Arteries have a narrower lumen, or veins have a wider lumen.",
+          "Arteries do not have valves, and veins have valves."
+        ],
+        "tip": "Any three points score. If you give neither muscle nor elastic tissue, a thicker wall for an artery earns one mark."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 8.7"],
+      "worked_example": {
+        "exemplar_id": "4c5366bf-773a-4b90-a59b-7d8ca1e4976c",
+        "source": "EDEXCEL nov 2020, Paper 2 (H), Q6(c)",
+        "question": "Explain how one structure of a vein helps the blood return to the heart.",
+        "marks": 2,
+        "answer_points": [
+          "Veins contain valves, which prevent the backflow of blood.",
+          "Or: veins have a large lumen, to maximise blood flow."
+        ],
+        "tip": "Choose one structure and link it to its effect. One mark for the structure and one for what it does."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.2d"],
+      "worked_example": {
+        "exemplar_id": "2a6f3b8e-1c26-49d2-8ffa-8ccf1b48f1a6",
+        "source": "OCR jun 2023, Paper 3, Q17(b)",
+        "question": "Chronic venous insufficiency (CVI) is a condition caused by faulty valves found in some blood vessels in the legs. Describe how CVI will affect the person's blood circulation. Suggest one symptom of this condition.",
+        "marks": 2,
+        "answer_points": [
+          "Effect: backflow of blood will not be prevented, or blood could collect / pool in the veins.",
+          "Symptom: legs may swell, be painful or have itchy skin."
+        ],
+        "tip": "One mark for the effect on circulation and one for a symptom. Reduced blood flow back to the heart is also allowed."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 9.3.1",
+        "CAIE 9.3.2",
+        "CAIE 9.3.4S",
+        "CAIE 9.3.5S",
+        "CAIE 9.3.6S",
+        "CAIE 7.5.5S",
+        "CAIE 9.1.1",
+        "CAIE 9.2.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "9b97a481-f7b3-4c22-b875-50bcceeede59",
+        "source": "CAMBRIDGE jun 2024, Paper 41, Q1(e)",
+        "question": "Explain how the structure of arteries and veins relates to the difference in the pressure of the blood transported by these vessels.",
+        "marks": 4,
+        "answer_points": [
+          "Arteries have thick walls, to withstand high pressure.",
+          "Arteries have a thick layer of elastic tissue, to stretch and recoil as the pressure changes.",
+          "Arteries have a thick layer of muscle tissue, to change the pressure.",
+          "Arteries have a narrower lumen, to maintain high pressure.",
+          "Veins have valves, to prevent backflow of blood at low pressure.",
+          "Veins have thin walls or a large lumen, so there is less resistance to blood flowing at low pressure."
+        ],
+        "tip": "Any four points score, with no more than three for arteries."
+      },
+      "extra": [
+        {
+          "heading": "Blood vessels of the liver",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Three main vessels carry blood to and from the liver."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The **hepatic artery** brings oxygenated blood to the liver.",
+                "The **hepatic portal vein** brings blood from the gut to the liver.",
+                "The **hepatic veins** take blood away from the liver."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 2.68", "IGCSE 2.69"],
+      "worked_example": {
+        "exemplar_id": "2f44217e-cbce-4d7b-b63d-7a2fbb6b7031",
+        "source": "EDEXCEL jun 2024, Paper 1 (BR), Q7(a)(i)",
+        "question": "Explain two differences between the structure of the wall of an artery and the wall of a vein.",
+        "marks": 4,
+        "answer_points": [
+          "An artery has a thick layer of elastic tissue, because blood pressure is higher and the wall can stretch and recoil.",
+          "An artery has a thick layer of muscle, to control blood flow.",
+          "An artery has no valves, because the blood pressure is high enough to prevent backflow."
+        ],
+        "tip": "Marks are given in pairs: a difference and its reason. The reverse for veins is accepted."
+      },
+      "extra": [
+        {
+          "heading": "Blood vessels to and from the organs",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Each main organ has its own artery and vein."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Lungs: the **pulmonary artery** takes blood to the lungs and the **pulmonary vein** brings it back to the heart.",
+                "Liver: the **hepatic artery** and the **hepatic portal vein** bring blood in, and the **hepatic veins** take it away.",
+                "Kidneys: the **renal artery** brings blood in and the **renal vein** takes it away."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "732961bd-de3e-4121-a47e-f0e5b4c44eca",
+      "57209c99-4e8b-4f41-9cb3-1c4070056482",
+      "e0fa0fc3-5266-46ac-a96a-b939bad1f87d",
+      "fa537cb3-6883-4a41-9632-c731ed800246",
+      "0ad4476e-a888-451b-9ed6-48b66f5df0b7",
+      "be36859f-8792-447e-812d-8e770c369418",
+      "40cb21ae-dede-42ba-919c-ed3abfa88e45",
+      "be3e57a4-a27f-4d83-8e96-fda7f7b2441a",
+      "9ab947ea-ef08-4548-9d52-108ee349f5b1",
+      "fcd546d5-c49c-489a-8a44-db2136e4be02"
+    ],
+    "exemplar_ids": [
+      "66968b9e-b3e3-44be-9f66-06248d217b88",
+      "4c5366bf-773a-4b90-a59b-7d8ca1e4976c",
+      "2a6f3b8e-1c26-49d2-8ffa-8ccf1b48f1a6",
+      "9b97a481-f7b3-4c22-b875-50bcceeede59",
+      "2f44217e-cbce-4d7b-b63d-7a2fbb6b7031"
+    ]
+  }
+}

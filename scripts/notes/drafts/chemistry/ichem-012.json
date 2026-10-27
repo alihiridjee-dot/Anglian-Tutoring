@@ -1,0 +1,291 @@
+{
+  "format": 1,
+  "concept_id": "ichem-012",
+  "subject": "chemistry",
+  "title": "Heat energy change and molar enthalpy",
+  "key_idea": "The heat energy change is found from Q = mcΔT. The molar enthalpy change, ΔH, is the heat energy change per mole, in kJ/mol. ΔH is negative when the temperature rises (exothermic) and positive when it falls (endothermic).",
+  "sections": [
+    {
+      "heading": "Heat energy change, Q",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When a reaction happens in water, the temperature change of the water tells you the heat energy change."
+        },
+        {
+          "type": "equation",
+          "formula": "Q = m × c × ΔT",
+          "label": "Heat energy change",
+          "where": [
+            "Q = heat energy change in J",
+            "m = mass of water or solution in g (1.0 cm³ of water has a mass of 1.0 g)",
+            "c = specific heat capacity in J/g/°C (4.2 for water, or the value given in the question)",
+            "ΔT = temperature change in °C"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Mass",
+              "text": "Use the mass of water or solution that was heated, not the mass of the solid or fuel."
+            },
+            {
+              "lead": "ΔT",
+              "text": "Final temperature minus initial temperature."
+            },
+            {
+              "lead": "Calculate",
+              "text": "50 cm³ of water rises by 8.0 °C: Q = 50 × 4.2 × 8.0 = 1680 J."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the heat energy change Q from the mass of water and the temperature change.",
+            "question": "**{m} g** of water is heated and its temperature rises by **{t} °C**. The specific heat capacity of water is 4.2 J/g/°C. Calculate the heat energy change, Q, in J.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 50,
+                "max": 200,
+                "step": 10
+              },
+              {
+                "id": "t",
+                "min": 2,
+                "max": 30,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "m * 4.2 * t",
+              "unit": "J",
+              "decimals": 0
+            },
+            "working": [
+              "Q = m × c × ΔT",
+              "Q = {m} × 4.2 × {t}",
+              "Q = **{answer}** J"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Q = mcΔT, with m the mass of water in g.",
+            "Q is in joules when c is in J/g/°C."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Molar enthalpy change, ΔH",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The molar enthalpy change is the heat energy change for one mole of the reacting substance."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Molar enthalpy change, ΔH",
+              "meaning": "The heat energy change per mole of a substance, in kJ/mol."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "formula": "ΔH = Q ÷ n",
+          "label": "Molar enthalpy change",
+          "where": [
+            "ΔH = molar enthalpy change in kJ/mol",
+            "Q = heat energy change in kJ (J ÷ 1000)",
+            "n = amount of substance in mol (mass ÷ Mr)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the temperature rises, the reaction is exothermic and ΔH is **negative**.",
+            "If the temperature falls, the reaction is endothermic and ΔH is **positive**.",
+            "Always include the sign."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find Q",
+              "text": "Use Q = mcΔT, in J."
+            },
+            {
+              "lead": "Find n",
+              "text": "Divide the mass of the reacting substance by its Mr or Ar."
+            },
+            {
+              "lead": "Divide",
+              "text": "Q ÷ n gives J/mol."
+            },
+            {
+              "lead": "Convert",
+              "text": "Divide by 1000 to get kJ/mol."
+            },
+            {
+              "lead": "Sign",
+              "text": "Negative if the temperature rose, positive if it fell."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Example: 0.60 g of magnesium (Ar = 24) reacts with excess acid and Q = 11 500 J. The temperature rises.",
+            "n = 0.60 ÷ 24 = 0.025 mol",
+            "Q ÷ n = 11 500 ÷ 0.025 = 460 000 J/mol = 460 kJ/mol",
+            "The temperature rose, so ΔH = −460 kJ/mol."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating a molar enthalpy change from a temperature rise and the amount in moles.",
+            "question": "**100 cm³** of solution (c = 4.2 J/g/°C, 1.0 cm³ has a mass of 1.0 g) rises in temperature by **{t} °C** when **{n} mol** of a reactant reacts. Calculate ΔH in kJ/mol, including the sign.",
+            "variables": [
+              {
+                "id": "t",
+                "min": 3,
+                "max": 20,
+                "step": 1
+              },
+              {
+                "id": "n",
+                "min": 0.01,
+                "max": 0.05,
+                "step": 0.005
+              }
+            ],
+            "answer": {
+              "formula": "-(100 * 4.2 * t) / 1000 / n",
+              "unit": "kJ/mol",
+              "decimals": 1
+            },
+            "working": [
+              "Q = 100 × 4.2 × {t} J, then ÷ 1000 to give kJ",
+              "ΔH = Q ÷ {n}",
+              "The temperature rises, so the sign is negative: ΔH = **{answer}** kJ/mol"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ΔH = Q ÷ n, with Q in kJ.",
+            "Exothermic gives a negative ΔH. Endothermic gives a positive ΔH.",
+            "Check the units: J ÷ 1000 gives kJ."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Burning a fuel to heat water",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A fuel in a spirit burner can heat water in a copper can. The experiment gives the molar enthalpy change of combustion."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Weigh",
+              "text": "Find the mass of the spirit burner and fuel."
+            },
+            {
+              "lead": "Heat",
+              "text": "Burn the fuel under a known mass of water, stirring."
+            },
+            {
+              "lead": "Weigh again",
+              "text": "Immediately find the final mass of the burner and fuel."
+            },
+            {
+              "lead": "Calculate",
+              "text": "Mass of fuel burned gives n. The water's temperature rise gives Q."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Stir the water so that the heat is spread evenly.",
+            "Weigh the burner straight away, so that no fuel evaporates.",
+            "The result is lower than the data book value, because heat is lost to the surroundings, combustion is incomplete, or the fuel is impure or evaporates."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The fuel burned gives n and the water's temperature rise gives Q.",
+            "Heat loss makes the measured value smaller than the data book value."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate Q when 100 g of water rises in temperature by 10 °C (c = 4.2 J/g/°C).",
+      "a": "Q = 100 × 4.2 × 10 = 4200 J.",
+      "marks": 2
+    },
+    {
+      "q": "A reaction releases 4200 J when 0.020 mol reacts. Calculate ΔH in kJ/mol.",
+      "a": "4.2 ÷ 0.020 = 210, so ΔH = −210 kJ/mol.",
+      "marks": 3
+    },
+    {
+      "q": "State the sign of ΔH when the temperature of the mixture falls.",
+      "a": "Positive, because the reaction is endothermic.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.3",
+        "IGCSE 3.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "539a8656-b08a-413f-be0a-1ea18fef1e5f",
+        "source": "EDEXCEL jun 2022, Paper 1 (CR), Q8(b)(i)",
+        "question": "The reaction between zinc and silver nitrate solution is exothermic. A mass of 0.65 g of zinc is added to excess silver nitrate solution. The heat energy change is 800 J. Calculate the molar enthalpy change, ΔH, in kJ/mol. Include a sign in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "800 ÷ 1000 = 0.8 kJ.",
+          "0.65 ÷ 65 = 0.01 mol.",
+          "0.8 ÷ 0.01 = −80 kJ/mol."
+        ],
+        "tip": "The question says exothermic, so the sign is negative. The answer without a minus sign loses a mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "74f5241b-76af-4dd9-9258-62ca40c122bf",
+      "15322fc2-c7bc-4a13-ac54-3a040223e377"
+    ],
+    "exemplar_ids": [
+      "539a8656-b08a-413f-be0a-1ea18fef1e5f"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

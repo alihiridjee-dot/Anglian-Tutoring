@@ -1,0 +1,445 @@
+{
+  "format": 1,
+  "concept_id": "achem-029",
+  "subject": "chemistry",
+  "title": "Rate equations and orders",
+  "key_idea": "A rate equation links the rate to the concentrations of reactants: rate = k[A]ᵐ[B]ⁿ. The orders m and n are found by experiment, not from the balanced equation. The rate constant k has units that depend on the overall order.",
+  "sections": [
+    {
+      "heading": "Rate equations and orders",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A rate equation shows how the rate depends on concentration. This section covers the terms and how to write one."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Rate equation",
+              "meaning": "An equation that links the rate of reaction to the concentrations of the reactants."
+            },
+            {
+              "term": "Order of reaction",
+              "meaning": "The power to which the concentration of a reactant is raised in the rate equation."
+            },
+            {
+              "term": "Overall order",
+              "meaning": "The sum of the orders with respect to each reactant."
+            },
+            {
+              "term": "Rate constant, k",
+              "meaning": "The constant in the rate equation. It is fixed at a given temperature."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rate equation",
+          "formula": "rate = k[A]ᵐ[B]ⁿ",
+          "where": [
+            "rate in mol/dm³/s",
+            "k, the rate constant",
+            "[A], [B], concentrations in mol/dm³",
+            "m, n, orders with respect to A and B (0, 1 or 2)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The orders are found **by experiment**. They cannot be read from the coefficients in the balanced equation.",
+            "Only reactants (and sometimes catalysts) appear in the rate equation. Products usually do not.",
+            "A reactant with order 0 does not appear, because [A]⁰ = 1."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Orders come from experiments, not from the balanced equation.",
+            "Overall order is the sum of the individual orders.",
+            "The orders are 0, 1 or 2."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What each order means",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The order tells you how the rate changes when a concentration changes. This section covers the three orders."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Order",
+            "Doubling the concentration",
+            "Effect on rate"
+          ],
+          "rows": [
+            [
+              "0",
+              "Rate is unchanged",
+              "Rate does not depend on [A]"
+            ],
+            [
+              "1",
+              "Rate doubles",
+              "Rate is proportional to [A]"
+            ],
+            [
+              "2",
+              "Rate quadruples",
+              "Rate is proportional to [A]²"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Choose the order and a factor by which the concentration is multiplied, and see how many times faster the rate becomes.",
+            "inputs": [
+              {
+                "id": "order",
+                "label": "Order with respect to A",
+                "choices": [
+                  {
+                    "label": "Zero",
+                    "value": 0
+                  },
+                  {
+                    "label": "First",
+                    "value": 1
+                  },
+                  {
+                    "label": "Second",
+                    "value": 2
+                  }
+                ]
+              },
+              {
+                "id": "factor",
+                "label": "Concentration is multiplied by",
+                "min": 1,
+                "max": 4,
+                "step": 0.5,
+                "value": 2
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Rate is multiplied by",
+                "formula": "factor ^ order",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Order 1: rate is multiplied by the same factor.",
+            "Order 2: rate is multiplied by the factor squared."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Finding orders from initial-rate data",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The initial rate is measured in separate experiments with different starting concentrations. This section covers how to read the orders from the results."
+        },
+        {
+          "type": "paragraph",
+          "text": "Compare two experiments where only one concentration changes. The change in rate shows the order."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Experiment",
+            "[A] / mol/dm³",
+            "[B] / mol/dm³",
+            "Initial rate / mol/dm³/s"
+          ],
+          "rows": [
+            [
+              "1",
+              "0.10",
+              "0.10",
+              "2.0 × 10⁻⁴"
+            ],
+            [
+              "2",
+              "0.20",
+              "0.10",
+              "4.0 × 10⁻⁴"
+            ],
+            [
+              "3",
+              "0.20",
+              "0.20",
+              "1.6 × 10⁻³"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Experiments 1 and 2: [A] doubles and the rate doubles, so the reaction is first order in A.",
+            "Experiments 2 and 3: [B] doubles and the rate increases four times, so it is second order in B.",
+            "The rate equation is rate = k[A][B]². The overall order is 3."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change one concentration at a time and compare the rates.",
+            "Rate × 2 for concentration × 2 means order 1; rate × 4 means order 2; no change means order 0."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The rate constant and its units",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Once the rate equation is known, k is found by rearranging it. This section covers the calculation and the units."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Rearrange.",
+              "text": "For rate = k[A][B]², k = rate ÷ ([A][B]²)."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "Use any one experiment, such as experiment 1: k = 2.0 × 10⁻⁴ ÷ (0.10 × 0.10²) = 0.20."
+            },
+            {
+              "lead": "Find the units.",
+              "text": "Put the units of rate and concentration into the rearranged equation and cancel."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Overall order",
+            "Units of k"
+          ],
+          "rows": [
+            [
+              "0",
+              "mol dm⁻³ s⁻¹"
+            ],
+            [
+              "1",
+              "s⁻¹"
+            ],
+            [
+              "2",
+              "dm³ mol⁻¹ s⁻¹"
+            ],
+            [
+              "3",
+              "dm⁶ mol⁻² s⁻¹"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of a rate constant for a reaction that is first order in A and first order in B, with new numbers each time.",
+            "question": "For a reaction with rate = k[A][B], the rate is {rate} mol/dm³/s when [A] = {a} mol/dm³ and [B] = {b} mol/dm³. Calculate k.",
+            "variables": [
+              {
+                "id": "rate",
+                "min": 0.002,
+                "max": 0.02,
+                "step": 0.002
+              },
+              {
+                "id": "a",
+                "min": 0.1,
+                "max": 0.5,
+                "step": 0.1
+              },
+              {
+                "id": "b",
+                "min": 0.1,
+                "max": 0.5,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "rate / (a * b)",
+              "unit": "dm³ mol⁻¹ s⁻¹",
+              "decimals": 3
+            },
+            "working": [
+              "k = rate ÷ ([A][B])",
+              "k = {rate} ÷ ({a} × {b}) = {answer} dm³ mol⁻¹ s⁻¹"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "k is constant at a fixed temperature. A catalyst, or a rise in temperature, changes it.",
+            "A rise in temperature increases k, and so the rate. The Arrhenius equation (see its own note) explains how."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rearrange the rate equation for k.",
+            "The units of k depend on the overall order."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define the term order of reaction.",
+      "a": "The power to which the concentration of a reactant is raised in the rate equation (how the rate depends on that concentration).",
+      "marks": 1
+    },
+    {
+      "q": "The rate of a reaction is unchanged when the concentration of X doubles, and doubles when the concentration of Y doubles. Write the rate equation.",
+      "a": "rate = k[Y]. The order with respect to X is 0, so X does not appear.",
+      "marks": 2
+    },
+    {
+      "q": "A reaction has rate = k[A]²[B]. When [A] = 0.20 mol/dm³ and [B] = 0.10 mol/dm³ the rate is 3.2 × 10⁻³ mol/dm³/s. Calculate k and give its units.",
+      "a": "k = rate ÷ ([A]²[B]) = 3.2 × 10⁻³ ÷ (0.20² × 0.10) = 0.80. Units: dm⁶ mol⁻² s⁻¹.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.1a",
+        "OCR 5.1.1b",
+        "OCR 5.1.1c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know the terms in 5.1.1a, including half-life and rate-determining step, which are covered in the next notes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Interpret initial-rate data to find the order for each reactant.",
+                "Integrated forms of rate equations are not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 16.1",
+        "EDEX 16.2",
+        "EDEX 16.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The terms for this course also include activation energy and heterogeneous and homogeneous catalysts. They are covered in earlier notes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Be able to determine and use rate equations of the form rate = k[A]ᵐ[B]ⁿ.",
+                "Deduce an order from initial-rate data."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.9.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know that k varies with temperature according to the Arrhenius equation, covered in its own note."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Explain the qualitative effect of temperature on k: k increases as T increases.",
+                "Equations and the gas constant are given when needed."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 26.1.1",
+        "CAIE 26.1.2",
+        "CAIE 26.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Be able to construct a rate equation and calculate an initial rate from concentration data."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Deduce orders from initial-rate data, from concentration–time graphs and by the half-life method.",
+                "Calculate k using the initial rates and the rate equation, or using k = 0.693 ÷ t½ for a first-order reaction."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "f9a23e9a-f80d-4674-bab8-14006a186fcf",
+      "5833d644-3521-4de2-9bc8-c8d85b8ba47e",
+      "7c29d63a-c503-400c-8c1d-58eb21a414f5",
+      "5d1399b0-4297-4208-aa9b-cae0fe0f9193",
+      "09187fc2-541b-4210-af7a-e9a8ed1ea959",
+      "d3796c30-9275-4ee4-9c15-353f4be1c385",
+      "9fec3288-77d5-4817-9e4e-9b247dd5127b",
+      "2e7cd41c-f8e7-4157-91bd-2899f4f47dec",
+      "cd972dab-9ad3-4e0d-a584-b972659641c6",
+      "e51c6408-1a96-4606-a688-bf6ee245532b"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

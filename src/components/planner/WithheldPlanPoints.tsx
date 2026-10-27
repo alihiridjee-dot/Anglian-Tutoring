@@ -14,11 +14,11 @@ export function WithheldPlanPoints({
   return (
     <details className="premium-card tint-slate rounded-xl p-4 my-4">
       <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
-        Saved work outside this week’s plan ({points.length})
+        Kept aside from this week ({points.length})
       </summary>
       <p className="text-sm text-muted-foreground mt-2">
-        These assignments are kept for reference. They do not count as unfinished work. Your
-        submitted work and results are unchanged.
+        These were set for you but no longer fit your plan. They don’t count as unfinished, and your
+        marks are unchanged.
       </p>
       <ul className="space-y-3 mt-3">
         {points.map(({ point, reason }) => {

@@ -3,14 +3,20 @@ import { useOnboardingUser } from "@/hooks/useOnboardingUser";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { dbError } from "@/lib/platform/errors";
 import { LEVELS, BOARDS, type LevelV, type BoardV } from "@/lib/curriculum/taxonomy";
 import { StepCard, ChoiceTile } from "@/components/onboarding/StepCard";
 import { ErrorNote, Spinner } from "@/components/Shared";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
-import { knownMainBoard } from "@/lib/auth/onboarding";
+import { examYearOptions, knownMainBoard } from "@/lib/auth/onboarding";
 
 /**
- * Step 1 — level and exam board.
+ * Step 1 — level, exam year and exam board.
+ *
+ * The exam year is asked here, on a step that can't be skipped, because every
+ * subject's plan is cut to it: guessed, it was the nearest June, and a Year 10
+ * got a two-year course squeezed into one. The nearest summer is chosen to
+ * start with, so a student in their final year only has to carry on.
  *
  * The board chosen here is the student's default; it rides to the subjects step
  * in the URL rather than a column, because the board is ultimately stored *per
@@ -28,6 +34,7 @@ function BoardStep() {
   const user = useOnboardingUser();
   const [level, setLevel] = useState<LevelV>("gcse");
   const [board, setBoard] = useState<BoardV>("edexcel");
+  const [examYear, setExamYear] = useState(() => examYearOptions(null)[0].year);
   const [saving, setSaving] = useState(false);
   const {
     coverage,
@@ -38,6 +45,11 @@ function BoardStep() {
 
   const teachableLevels = coverage.levels();
   const teachableBoards = coverage.boardsFor(level);
+  // A-Level offers one summer fewer than GCSE, so a Year 9 answer that then
+  // switches to A-Level would be saved without a tile showing it. The nearest
+  // summer stands in, as it does before any answer.
+  const yearOptions = examYearOptions(level);
+  const chosenYear = yearOptions.some((o) => o.year === examYear) ? examYear : yearOptions[0].year;
 
   // Coverage arrives after the first paint, and the student may have saved a
   // combination that has since lost its curriculum. Once we know what is
@@ -57,7 +69,7 @@ function BoardStep() {
   useEffect(() => {
     (async () => {
       const [{ data: profile }, { data: enrolments }] = await Promise.all([
-        supabase.from("profiles").select("level").eq("id", user.id).maybeSingle(),
+        supabase.from("profiles").select("level, exam_year").eq("id", user.id).maybeSingle(),
         supabase.from("student_enrolments").select("board").eq("student_id", user.id).limit(1),
       ]);
       // The pricing page sends a level key; only the ones that are real levels
@@ -66,6 +78,11 @@ function BoardStep() {
       if (profile?.level) setLevel(profile.level as LevelV);
       else if (intendedLevel && LEVELS.some((l) => l.value === intendedLevel))
         setLevel(intendedLevel as LevelV);
+      // A saved year that is still one on offer; an older one has had its
+      // exams, and the nearest summer stands.
+      const savedYear = profile?.exam_year;
+      if (savedYear && examYearOptions(null).some((o) => o.year === savedYear))
+        setExamYear(savedYear);
       // Seed the board from what they picked on the pricing page, but let
       // anything they've already saved win — and they can still change it here.
       const known = knownMainBoard(enrolments, user.user_metadata?.intended_board);
@@ -76,8 +93,11 @@ function BoardStep() {
   const handleContinue = async () => {
     setSaving(true);
     try {
-      const { error } = await supabase.from("profiles").update({ level }).eq("id", user.id);
-      if (error) throw error;
+      const { error } = await supabase
+        .from("profiles")
+        .update({ level, exam_year: chosenYear })
+        .eq("id", user.id);
+      if (error) throw dbError(error);
 
       navigate({ to: "/onboarding/subjects", search: { board, level } as never });
     } catch (err) {
@@ -116,6 +136,22 @@ function BoardStep() {
               />
             );
           })}
+        </div>
+      </div>
+
+      <div>
+        <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Exam year
+        </label>
+        <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
+          {yearOptions.map((o) => (
+            <ChoiceTile
+              key={o.year}
+              title={o.label}
+              selected={chosenYear === o.year}
+              onClick={() => setExamYear(o.year)}
+            />
+          ))}
         </div>
       </div>
 

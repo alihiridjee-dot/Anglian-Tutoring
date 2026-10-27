@@ -1,0 +1,319 @@
+{
+  "format": 1,
+  "concept_id": "aphys-067",
+  "subject": "physics",
+  "title": "Coulomb's law and electric field strength",
+  "key_idea": "An electric field is a region where a charge feels a force. Its strength is the force per unit positive charge, E = F/Q. Coulomb's law gives the force between two point charges, and from it E = Q/(4πε₀r²) for a point charge.",
+  "sections": [
+    {
+      "heading": "Electric fields",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Electric fields are due to charges. This section defines the field, shows how to draw it and links field strength to force."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Electric field",
+              "meaning": "A region in which a charged particle experiences a force."
+            },
+            {
+              "term": "Electric field strength, E",
+              "meaning": "The force per unit positive charge on a small positive test charge."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Electric field strength",
+          "formula": "E = F / Q",
+          "where": [
+            "E = electric field strength (N/C, same as V/m)",
+            "F = force on the charge (N)",
+            "Q = the charge in the field (C)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Force on a charge in a field",
+          "formula": "F = Q E",
+          "where": [
+            "F = force on the charge (N)",
+            "Q = charge (C)",
+            "E = electric field strength (N/C)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The field is a vector. Its direction is the direction of the force on a positive charge.",
+            "A negative charge feels a force in the opposite direction to the field.",
+            "Field lines show the direction of the force on a small positive charge.",
+            "Lines start on positive charges and end on negative charges, and they never cross.",
+            "The closer together the lines, the stronger the field.",
+            "Around a point charge the field is **radial**: straight out for positive, straight in for negative."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An electric field is a region where a charge feels a force.",
+            "E = F/Q is the force per unit positive charge, so F = QE.",
+            "Field lines go from positive to negative; closer lines mean a stronger field."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Coulomb's law",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Coulomb's law gives the force between two point charges in a vacuum. Air can be treated as a vacuum for this calculation."
+        },
+        {
+          "type": "equation",
+          "label": "Coulomb's law",
+          "formula": "F = Q₁ Q₂ / (4π ε₀ r²)",
+          "where": [
+            "F = force between the charges (N)",
+            "Q₁, Q₂ = the two charges (C)",
+            "r = distance between them (m)",
+            "ε₀ = permittivity of free space (8.85 × 10⁻¹² F/m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The force is proportional to the **product of the charges**.",
+            "The force is inversely proportional to the **square of the distance**.",
+            "Like charges repel; unlike charges attract. The two forces are equal and opposite.",
+            "For a charged sphere or conductor, the charge can be taken as a point charge at its **centre**, for points outside it.",
+            "The constant 1/(4πε₀) is about 8.99 × 10⁹ N m² C⁻²."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing the force between two point charges for chosen charges and separation.",
+            "inputs": [
+              {
+                "id": "Q1",
+                "label": "First charge",
+                "unit": "nC",
+                "min": 1,
+                "max": 10,
+                "step": 0.5,
+                "value": 5
+              },
+              {
+                "id": "Q2",
+                "label": "Second charge",
+                "unit": "nC",
+                "min": 1,
+                "max": 10,
+                "step": 0.5,
+                "value": 5
+              },
+              {
+                "id": "r",
+                "label": "Separation",
+                "unit": "cm",
+                "min": 1,
+                "max": 20,
+                "step": 0.5,
+                "value": 5
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Force between the charges",
+                "unit": "µN",
+                "formula": "89.9 * Q1 * Q2 / (r * r)",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "F = Q₁Q₂/(4πε₀r²): an inverse-square law.",
+            "Like charges repel and unlike charges attract.",
+            "A charged sphere acts as a point charge at its centre."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Field of a point charge",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Put a small test charge q at distance r from a point charge Q. Coulomb's law gives the force, and E = F/q gives the field."
+        },
+        {
+          "type": "equation",
+          "label": "Field strength of a point charge",
+          "formula": "E = Q / (4π ε₀ r²)",
+          "where": [
+            "E = electric field strength (N/C)",
+            "Q = the point charge (C)",
+            "r = distance from the charge (m)",
+            "ε₀ = permittivity of free space (8.85 × 10⁻¹² F/m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "E falls as 1/r²: double the distance and E falls to a quarter.",
+            "The direction is away from a positive Q and towards a negative Q.",
+            "The test charge q cancels, so E does not depend on it."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of the electric field strength at a distance from a point charge, with new numbers each time.",
+            "question": "Calculate the electric field strength {r} cm from a point charge of {Q} nC in air. (1/(4πε₀) = 8.99 × 10⁹ N m² C⁻²) Give your answer in kN/C.",
+            "variables": [
+              {
+                "id": "Q",
+                "min": 1,
+                "max": 10,
+                "step": 1
+              },
+              {
+                "id": "r",
+                "min": 2,
+                "max": 20,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "89.9 * Q / (r * r)",
+              "unit": "kN/C",
+              "decimals": 1,
+              "tolerance_percent": 3
+            },
+            "working": [
+              "E = Q / (4πε₀r²)",
+              "E = 8.99 × 10⁹ × ({Q} × 10⁻⁹) ÷ ({r} × 10⁻²)²",
+              "E = {answer} kN/C"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "E = Q/(4πε₀r²) for a point charge, or for a sphere outside it.",
+            "E points away from positive charge and towards negative charge.",
+            "E falls as 1/r²."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define electric field strength.",
+      "a": "The force per unit positive charge acting on a small positive test charge at that point (E = F/Q).",
+      "marks": 1
+    },
+    {
+      "q": "Two point charges exert a force F on each other. State the new force if the charges are kept the same and the distance between them is halved.",
+      "a": "F is proportional to 1/r². Halving r makes the force four times larger, 4F.",
+      "marks": 2
+    },
+    {
+      "q": "Derive E = Q/(4πε₀r²) for the field strength of a point charge Q.",
+      "a": "The force on a small test charge q at distance r is F = Qq/(4πε₀r²). Field strength is force per unit charge, E = F/q. Dividing and cancelling q gives E = Q/(4πε₀r²).",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.3.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Compare the gravitational and electrostatic forces between subatomic particles."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Both forces follow an inverse-square law, but the electrostatic force between a proton and an electron is about 10³⁹ times larger than the gravitational force.",
+                "The electric force depends on charges of about 1.6 × 10⁻¹⁹ C. Gravity depends on masses of about 10⁻²⁷ kg and on the very small constant G.",
+                "So gravity is negligible between subatomic particles."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.108",
+        "EDEX 7.109",
+        "EDEX 7.110",
+        "EDEX 7.111"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 18.1.1",
+        "CAIE 18.1.2",
+        "CAIE 18.1.3",
+        "CAIE 18.3.1",
+        "CAIE 18.3.2",
+        "CAIE 18.4.1"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.2.1a",
+        "OCR 6.2.1b",
+        "OCR 6.2.1c",
+        "OCR 6.2.1d",
+        "OCR 6.2.2a",
+        "OCR 6.2.2b"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "78adf272-a6cc-4031-b251-d1a6d2b2e292",
+      "f722291d-0eb0-4dfe-b3e5-6d6c0b922d87",
+      "ed47dbd6-dc1a-4021-af58-292af6db0993",
+      "c0ecf449-11d8-426e-a001-45b7e5dfa048",
+      "d19283d9-ebda-4fc6-bee3-eaab12e61091",
+      "b54f5256-4410-412e-9293-5e26a22bf50b",
+      "996647a6-5073-4f7c-8ddd-653ca1fc0217",
+      "62b42953-b87b-49f7-9c07-a1887c63510f",
+      "28f82070-a84e-4288-90aa-df6e7d95a423",
+      "8512d981-4e92-4545-9912-6755b2beaa5c",
+      "d1b9bfda-b072-4579-a8ba-04ba7e07df2c",
+      "a3464006-3f4f-4eff-a8ef-7166cf153c9d",
+      "762f85b6-1d4a-4d88-8e11-3066f662bda7",
+      "97178285-b22c-4c87-b042-e23386015e9c",
+      "6470f329-82a1-44ad-9481-bf25109c95fb",
+      "52dc2b06-7b9a-4b81-9de4-7f0d2ddc4585",
+      "0e37ec7b-3842-417c-a3c1-86de374f32e1"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

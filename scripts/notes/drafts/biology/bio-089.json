@@ -1,0 +1,425 @@
+{
+  "format": 1,
+  "concept_id": "bio-089",
+  "subject": "biology",
+  "title": "Meiosis",
+  "key_idea": "**Meiosis** is the cell division that makes gametes. The cell copies its DNA and divides twice, giving four genetically different cells with half the normal number of chromosomes. Fertilisation then joins two gametes and restores the full number.",
+  "sections": [
+    {
+      "heading": "What meiosis does",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Meiosis makes the gametes for sexual reproduction. This section covers the key words and the order of events."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Diploid",
+              "meaning": "A cell with the full number of chromosomes, in pairs (two sets). Body cells are diploid."
+            },
+            {
+              "term": "Haploid",
+              "meaning": "A cell with half the number of chromosomes (one set, one from each pair). Gametes are haploid."
+            },
+            {
+              "term": "Meiosis",
+              "meaning": "The cell division that makes four genetically different haploid gametes."
+            },
+            {
+              "term": "Zygote",
+              "meaning": "The diploid cell formed when two gametes fuse at fertilisation."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Meiosis happens in cells in the reproductive organs, such as the testes.",
+            "The genetic information (DNA) is copied first.",
+            "The cell then divides **twice**.",
+            "This makes **four** gametes, each with a single set of chromosomes.",
+            "All four gametes are genetically different from each other."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Put the events of meiosis and fertilisation in order.",
+            "kind": "sequence",
+            "steps": [
+              "A cell in a reproductive organ copies its DNA",
+              "A random chromosome from each pair goes into each of two new cells",
+              "Each of the two cells divides again",
+              "Four genetically different haploid gametes are formed",
+              "Two gametes fuse at fertilisation",
+              "A diploid zygote is formed, with the full number of chromosomes"
+            ],
+            "prompt": "Put meiosis and fertilisation in order"
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Meiosis copies the DNA once and divides the cell twice.",
+            "It makes four haploid gametes that are genetically different.",
+            "Gametes have half the chromosomes of a body cell."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Chromosome numbers and fertilisation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Halving the number of chromosomes is the key job of meiosis. This section covers why it matters and what happens next."
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Human",
+              "46 (23 pairs)",
+              "23"
+            ],
+            [
+              "Mouse",
+              "40",
+              "20"
+            ],
+            [
+              "Tiger",
+              "38",
+              "19"
+            ],
+            [
+              "Chicken",
+              "78",
+              "39"
+            ],
+            [
+              "Pea plant",
+              "14",
+              "7"
+            ]
+          ],
+          "columns": [
+            "Organism",
+            "Chromosomes in a body cell",
+            "Chromosomes in a gamete"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A gamete has half the number of chromosomes of a body cell, so it also has half the DNA.",
+            "At fertilisation two gametes fuse to form a zygote.",
+            "The zygote has the full diploid number of chromosomes again.",
+            "So the chromosome number stays the same from one generation to the next. It does not double each time."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "After fertilisation"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The new cell divides by **mitosis**, so the number of cells increases.",
+            "As the embryo develops, the cells **differentiate**."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "When the number does not halve"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A cell cannot halve its chromosomes evenly if it has an uneven number, for example in some hybrid plants. Gametes cannot be made, so the plant cannot make seeds.",
+            "Sometimes a gamete is formed with an extra chromosome. An extra chromosome 21 can lead to Down's syndrome and an extra chromosome 18 to Edward's syndrome."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Meiosis halves the chromosome number to make haploid gametes.",
+            "Fertilisation restores the diploid number, so the number stays constant.",
+            "The zygote then divides by mitosis and its cells differentiate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why the gametes are different, and meiosis against mitosis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Meiosis is a source of genetic variation. Mitosis, in contrast, makes identical cells."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chromosomes come in pairs in a body cell.",
+            "In meiosis a **random** chromosome from each pair goes into each new cell.",
+            "Each gamete gets a different mixture of chromosomes, so the four gametes are genetically different.",
+            "Gametes with different alleles join at fertilisation, which gives variation in the offspring."
+          ]
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Number of divisions",
+              "One",
+              "Two"
+            ],
+            [
+              "Cells made",
+              "Two",
+              "Four"
+            ],
+            [
+              "Chromosomes in each new cell",
+              "Diploid: the full number (46 in humans)",
+              "Haploid: half the number (23 in humans)"
+            ],
+            [
+              "Genetically",
+              "Identical to each other",
+              "Different from each other"
+            ],
+            [
+              "Type of cell made",
+              "Body cells, such as liver cells",
+              "Gametes, such as sperm"
+            ],
+            [
+              "DNA copied first",
+              "Yes",
+              "Yes"
+            ]
+          ],
+          "columns": [
+            "Feature",
+            "Mitosis",
+            "Meiosis"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A random chromosome from each pair goes into each gamete.",
+            "Mitosis makes two identical diploid body cells. Meiosis makes four different haploid gametes.",
+            "Both start by copying the DNA."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A human body cell contains 46 chromosomes. How many chromosomes are in a human egg cell?",
+      "a": "23.",
+      "marks": 1
+    },
+    {
+      "q": "Describe how meiosis produces cells that are genetically different.",
+      "a": "A random chromosome from each pair of chromosomes goes into each new cell (gamete).",
+      "marks": 2
+    },
+    {
+      "q": "Explain why it is important that meiosis halves the number of chromosomes.",
+      "a": "Meiosis forms gametes. Two gametes fuse at fertilisation. This keeps the chromosome number constant from one generation to the next, so it does not double.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 6.2",
+        "AQA T 4.6.1.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "2ce1d715-319f-4694-b29a-4f2a6eca07eb",
+        "source": "AQA jun 2023, Paper 2 (H), Q08.3",
+        "question": "At the end of meiosis the number of chromosomes is different from the number of chromosomes at the start of meiosis.\n\nExplain why the change in the number of chromosomes is important.",
+        "marks": 3,
+        "answer_points": [
+          "Meiosis forms gametes (sex cells, eggs and sperm).",
+          "Two gametes fuse (fertilisation).",
+          "So the chromosome number stays constant from generation to generation. It prevents the number doubling, or gives the correct number for the embryo."
+        ],
+        "tip": "One mark for each step. Link the halving to the gametes fusing."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 3.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "ff8ec957-4833-4386-9031-082714171b4e",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q2(c)",
+        "question": "Mitosis and meiosis are processes that produce new cells.\n\nCompare the outcomes of mitosis and meiosis.",
+        "marks": 3,
+        "answer_points": [
+          "Mitosis produces 2 cells and meiosis produces 4 cells.",
+          "Mitosis produces genetically identical cells and meiosis produces genetically different cells.",
+          "Mitosis produces diploid cells and meiosis produces haploid cells.",
+          "Mitosis produces body cells and meiosis produces gametes (sex cells).",
+          "Mitosis is involved in asexual reproduction and meiosis in sexual reproduction."
+        ],
+        "tip": "Any three of the five comparisons score, one mark each. Write each as a pair: mitosis does this, meiosis does that."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 5.1g",
+        "OCR 5.1h"
+      ],
+      "worked_example": {
+        "exemplar_id": "333ce979-60fc-46d2-bb01-f44776849d4b",
+        "source": "OCR jun 2022, Paper 4, Q22(a)(ii)",
+        "question": "Human genes are found on chromosomes in the nuclei of cells.\nIn body cells, there is the diploid number of chromosomes, and in gametes there is the haploid number.\nSometimes a gamete is formed that has an extra chromosome.\n- If this is chromosome number 18, a child with Edward's syndrome can be born.\n- If it is chromosome 21, a child that has Down's syndrome can be born.\n\nExplain how meiosis usually makes gametes that will produce children without these disorders.",
+        "marks": 2,
+        "answer_points": [
+          "Meiosis makes gametes that are haploid, with half the number of chromosomes (23), so they do not have an extra chromosome.",
+          "After fertilisation the diploid (full) number of chromosomes is restored, so the zygote has 46 chromosomes."
+        ],
+        "tip": "One mark for the haploid gametes with no extra chromosome, and one for the diploid number being restored at fertilisation."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 16.2.3S",
+        "CAIE 17.1.10S",
+        "CAIE 17.1.11S",
+        "CAIE 17.3.1S",
+        "CAIE 17.3.2S",
+        "CAIE 16.2.2",
+        "CAIE 16.3.6",
+        "CAIE 16.4.3",
+        "CAIE 17.1.12S",
+        "CAIE 18.1.10S"
+      ],
+      "worked_example": {
+        "exemplar_id": "1ad0e0d5-ed01-4888-9681-90e543cb5d82",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q4(b)",
+        "question": "Explain why self-pollination that results in production of offspring is a form of sexual reproduction and not asexual reproduction.",
+        "marks": 3,
+        "answer_points": [
+          "It involves gametes (sex cells), such as pollen and ovules.",
+          "The gametes are haploid and are made by meiosis (reduction division).",
+          "Fertilisation happens: the nuclei fuse and a zygote forms.",
+          "The offspring show genetic variation."
+        ],
+        "tip": "Any three of these points score the three marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Fertilisation is the fusion of the nuclei of two gametes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "In animals, the nucleus of a sperm fuses with the nucleus of an egg cell.",
+                "In flowering plants, a pollen nucleus fuses with a nucleus in an ovule.",
+                "Gamete nuclei are haploid. The nucleus of the zygote is diploid."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Sources of genetic variation in a population:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "mutation",
+                "meiosis",
+                "random mating",
+                "random fertilisation"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.30",
+        "IGCSE 3.31",
+        "IGCSE 3.32",
+        "IGCSE 3.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "5a52a683-60ac-4c70-9650-c78e4425fee2",
+        "source": "EDEXCEL nov 2020, Paper 1 (B), Q8(b)",
+        "question": "Cell division can be by meiosis or by mitosis.\nThe table lists features comparing the processes of meiosis and mitosis in human cells.\n\nComplete the table by giving the missing information.\n\nFeature | Meiosis | Mitosis\nnumber of chromosomes in each original cell | 46 | ______\nnumber of daughter cells produced from each original cell | ______ | 2\nnumber of chromosomes in each daughter cell | ______ | ______\nploidy level of daughter cells produced | ______ | diploid\ngenetic differences in daughter cells | present | ______\ntype of cell produced | ______ | body cell",
+        "marks": 6,
+        "answer_points": [
+          "Chromosomes in each original cell, mitosis: 46.",
+          "Daughter cells from each original cell, meiosis: 4.",
+          "Chromosomes in each daughter cell: meiosis 23, mitosis 46.",
+          "Ploidy of daughter cells, meiosis: haploid.",
+          "Genetic differences in daughter cells, mitosis: none (the cells are identical).",
+          "Type of cell produced, meiosis: gametes (sperm or egg cells)."
+        ],
+        "tip": "One mark for each row."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Fertilisation is also random, and this adds to the variation in the offspring."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Any sperm can fuse with any egg.",
+                "Each gamete has a different mixture of alleles, so each zygote gets a different combination.",
+                "**Random fertilisation** and meiosis together give offspring that differ from each other."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e56ab7e6-d60b-4903-aa8d-33315b2dfdc3",
+      "58ad3e91-1a88-491c-bc48-4f44b77718f4",
+      "e259e014-7392-40ba-8a3b-f8a990a41ec6",
+      "f3da84d2-34c6-4b7e-8ccc-cd75e77cb7be",
+      "c884079c-723b-48e3-be48-8a5dc2016c8f",
+      "2d2812f4-de49-413b-8882-dd5241c87edd",
+      "ec7c214f-a497-41b6-a2b1-73e368c0cd4b",
+      "05dfa679-4868-4d9a-acbc-ce779014cf5f",
+      "7a87ff1f-2ec0-4b65-8eb4-ab598792940f",
+      "654e7a92-03f1-4ad0-8511-cbef2ce5f939",
+      "1206b11d-646a-4a0c-8b00-a6d96fe0b696",
+      "af6b8029-0cf3-45c3-8fd3-feeb1778bfb5",
+      "be61e0e8-dd91-4ac0-8f13-1bb858daf3ec"
+    ],
+    "exemplar_ids": [
+      "2ce1d715-319f-4694-b29a-4f2a6eca07eb",
+      "ff8ec957-4833-4386-9031-082714171b4e",
+      "333ce979-60fc-46d2-bb01-f44776849d4b",
+      "1ad0e0d5-ed01-4888-9681-90e543cb5d82",
+      "5a52a683-60ac-4c70-9650-c78e4425fee2"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

@@ -1,0 +1,313 @@
+{
+  "format": 1,
+  "concept_id": "ibio-014",
+  "subject": "biology",
+  "title": "Energy flow and pyramids of energy",
+  "key_idea": "The Sun is the principal source of energy for biological systems. Energy flows along a food chain and only about 10% passes to each next level. Pyramids of biomass and energy show a food chain better than pyramids of numbers.",
+  "sections": [
+    {
+      "heading": "The Sun and the flow of energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "All the energy in a food chain starts with the Sun. This section covers where it goes."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **Sun** is the principal source of energy input to biological systems.",
+            "Producers take in light energy and store it as chemical energy in their biomass by photosynthesis.",
+            "When an animal eats a plant or another animal, chemical energy passes to it.",
+            "Energy is transferred to the environment at every level, mostly as heat."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "Energy flow: light energy from the Sun is stored as chemical energy in producers, passes to herbivores and then to carnivores, and at every stage some energy is transferred to the environment as heat.",
+            "steps": [
+              "Sun: light energy",
+              "Producer: chemical energy in biomass",
+              "Herbivore",
+              "Carnivore",
+              "Environment: heat"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The Sun is the principal energy source for biological systems.",
+            "Energy flows along the chain and is eventually transferred to the environment."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why energy is lost at each level",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Only about 10% of the energy at one trophic level reaches the next. The rest is lost."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Trophic level",
+              "meaning": "A feeding level in a food chain, such as producer or primary consumer."
+            },
+            {
+              "term": "Biomass",
+              "meaning": "The mass of living material in organisms."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Energy is lost as heat from **respiration** and movement.",
+            "Some parts are not eaten, such as bones or roots.",
+            "Some material is not digested and is lost in faeces.",
+            "Some energy is lost in urine.",
+            "Some organisms die and are broken down by decomposers."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Less energy at each level means there are fewer organisms at the top of a chain.",
+            "This is why food chains rarely have more than five trophic levels."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Explore the energy transfer"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Move the sliders to set the energy in the producers and the percentage passed on at each step, and see the energy at each trophic level.",
+            "inputs": [
+              {
+                "id": "E",
+                "label": "Energy in the producers",
+                "unit": "kJ",
+                "min": 1000,
+                "max": 20000,
+                "step": 500,
+                "value": 10000
+              },
+              {
+                "id": "p",
+                "label": "Energy passed to the next level",
+                "unit": "%",
+                "min": 5,
+                "max": 20,
+                "step": 1,
+                "value": 10
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Producers",
+                "unit": "kJ",
+                "formula": "E",
+                "decimals": 0
+              },
+              {
+                "label": "Primary consumers",
+                "unit": "kJ",
+                "formula": "E * p / 100",
+                "decimals": 0
+              },
+              {
+                "label": "Secondary consumers",
+                "unit": "kJ",
+                "formula": "E * (p / 100) ^ 2",
+                "decimals": 1
+              },
+              {
+                "label": "Tertiary consumers",
+                "unit": "kJ",
+                "formula": "E * (p / 100) ^ 3",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "About 10% of energy passes to the next trophic level.",
+            "Energy is lost as heat, in faeces and urine, in uneaten parts and in dead organisms."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Pyramids of number, biomass and energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A pyramid shows each trophic level as a bar. The three types measure different things."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A pyramid of **numbers** shows how many organisms are at each level.",
+            "A pyramid of **biomass** shows the mass of living material at each level.",
+            "(Supplement) A pyramid of **energy** shows the energy transferred at each level in a given time."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why biomass is better than numbers"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Numbers do not allow for size: one oak tree is counted the same as one aphid.",
+            "A pyramid of numbers can have an odd shape, such as one producer supporting thousands of consumers.",
+            "Biomass takes the mass of the organisms into account, so it is a fairer comparison."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "(Supplement) Why energy is better than biomass"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A pyramid of energy shows the **actual energy transfer** between levels.",
+            "It takes time into account, so differences in life span or season do not distort it.",
+            "It allows for different rates of reproduction and different body sizes and composition.",
+            "It always forms a true pyramid and allows better comparison between ecosystems."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "(Supplement) To interpret a pyramid of energy, compare the width of each bar. The widest bar is the producers, and each bar above it is narrower."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Energy pyramids are usually drawn to scale, with each bar in units such as kJ per m² per year.",
+            "The energy in a bar is always less than the energy in the bar below it."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pyramids of biomass allow for the size of organisms, unlike pyramids of numbers.",
+            "(Supplement) Pyramids of energy show actual energy transfer over time and are the most accurate."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the principal source of energy input to biological systems.",
+      "a": "The Sun.",
+      "marks": 1
+    },
+    {
+      "q": "Give two ways energy is lost between trophic levels.",
+      "a": "Any two from: heat from respiration, movement, faeces, urine, parts not eaten, death and decay.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) State two advantages of a pyramid of energy over a pyramid of biomass.",
+      "a": "It shows the actual energy transfer. It takes time into account, so it is more accurate.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 19.1.1",
+        "CAIE 19.1.2",
+        "CAIE 19.2.12",
+        "CAIE 19.2.15S",
+        "CAIE 19.2.16S"
+      ],
+      "worked_example": {
+        "exemplar_id": "9472b79e-693b-4f92-9e35-9c88c4f9c6d4",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q1(a)(iv)",
+        "question": "A pyramid of energy shows the energy at each trophic level of an ecosystem.\n\nDescribe the advantages of representing food chains using a pyramid of energy compared with a pyramid of biomass.",
+        "marks": 2,
+        "answer_points": [
+          "It is a more accurate representation of energy transfer or loss.",
+          "It accounts for different rates of reproduction.",
+          "It accounts for different life spans.",
+          "It accounts for different sizes or body composition of organisms.",
+          "It accounts for time or seasonal variations.",
+          "It allows better comparisons between ecosystems."
+        ],
+        "tip": "Any two score one mark each. Name what a pyramid of energy takes into account that biomass does not."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.8",
+        "IGCSE 4.7",
+        "IGCSE 4.9"
+      ],
+      "worked_example": {
+        "exemplar_id": "e487fe4a-ee03-4b48-879d-cd87209a2cfa",
+        "source": "EDEXCEL jun 2019, Paper 1 (B), Q3(b)",
+        "question": "Mud worms are eaten by other organisms in a food chain.\n\nExplain why the energy in the mud worms is not all transferred to the organisms that eat them.",
+        "marks": 4,
+        "answer_points": [
+          "Energy is lost in respiration, movement or heat loss.",
+          "Some material is egested as faeces, or is undigested or not absorbed.",
+          "Some energy is excreted in urine.",
+          "Some of the organism is uneaten.",
+          "Some organisms die and are decomposed."
+        ],
+        "tip": "Any four score one mark each. Give a different route of energy loss for each point."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course also asks about substances, not only energy, passing along a food chain."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Substances such as carbon compounds and mineral ions pass along a food chain in the biomass that is eaten.",
+                "Unlike energy, these substances are not lost to the environment as heat.",
+                "Decomposers break down dead organisms and waste, returning the substances to the soil or water for producers to use again."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "3aa9b8b6-d47c-450f-9639-e31e1736ae52",
+      "1c73ff24-6b25-4889-984e-b700480ad3ea",
+      "1827815e-cbad-4865-880b-fae9fc9ae6e0",
+      "1c3445fa-6c45-471c-bbe5-8adfa95bd6ae",
+      "c4f9bba3-c650-46aa-a8d6-4ee39890062c",
+      "148c70f9-73db-478e-9f0f-2edb795a0e16"
+    ],
+    "exemplar_ids": [
+      "9472b79e-693b-4f92-9e35-9c88c4f9c6d4",
+      "e487fe4a-ee03-4b48-879d-cd87209a2cfa"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

@@ -1,0 +1,332 @@
+{
+  "format": 1,
+  "concept_id": "abio-017",
+  "subject": "biology",
+  "title": "Surface area to volume ratio and exchange surfaces",
+  "key_idea": "As an organism gets larger, its surface area to volume ratio falls. Small organisms can exchange substances across their surface alone. Larger organisms need specialised exchange surfaces and transport systems.",
+  "sections": [
+    {
+      "heading": "Surface area to volume ratio",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how size changes the ratio, and why it matters for exchange."
+        },
+        {
+          "type": "equation",
+          "label": "Surface area to volume ratio",
+          "formula": "SA:V = surface area ÷ volume",
+          "where": [
+            "surface area, in cm²",
+            "volume, in cm³"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the side of a cube and watch the surface area to volume ratio",
+            "inputs": [
+              {
+                "id": "side",
+                "label": "Side of cube",
+                "unit": "cm",
+                "min": 1,
+                "max": 10,
+                "step": 1,
+                "value": 1
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Surface area",
+                "unit": "cm²",
+                "formula": "6 * side ^ 2",
+                "decimals": 0
+              },
+              {
+                "label": "Volume",
+                "unit": "cm³",
+                "formula": "side ^ 3",
+                "decimals": 0
+              },
+              {
+                "label": "SA:V ratio",
+                "unit": ": 1",
+                "formula": "(6 * side ^ 2) / (side ^ 3)",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "A 1 cm cube.",
+              "text": "Surface area is 6 × 1 × 1 = 6 cm². Volume is 1 cm³. The ratio is 6 : 1."
+            },
+            {
+              "lead": "A 2 cm cube.",
+              "text": "Surface area is 6 × 2 × 2 = 24 cm². Volume is 8 cm³. The ratio is 3 : 1."
+            },
+            {
+              "lead": "A 4 cm cube.",
+              "text": "Surface area is 6 × 4 × 4 = 96 cm². Volume is 64 cm³. The ratio is 1.5 : 1."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Volume increases faster than surface area as size increases, so the ratio falls.",
+            "Surface area is the area through which substances enter and leave.",
+            "Volume is the amount of living tissue that needs supplying and that produces waste."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "SA:V is surface area divided by volume.",
+            "The ratio decreases as size increases.",
+            "Larger organisms have less surface per unit of volume."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why size matters for exchange",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Organisms exchange gases, nutrients and waste with their surroundings. How they do it depends on their SA:V ratio and their metabolic rate."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Single-celled organism",
+            "Large multicellular organism"
+          ],
+          "rows": [
+            [
+              "SA:V ratio",
+              "Large",
+              "Small"
+            ],
+            [
+              "Diffusion distance",
+              "Short, so substances reach the centre quickly",
+              "Long, so diffusion alone is too slow"
+            ],
+            [
+              "Exchange",
+              "Across the body surface",
+              "Specialised exchange surfaces, such as lungs, and a transport system"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A high metabolic rate means a high demand for oxygen and a lot of heat produced.",
+            "Small mammals have a large SA:V ratio, so they lose heat quickly. They need a high metabolic rate to stay warm.",
+            "Larger animals have a smaller ratio, so they lose less heat per unit of body volume.",
+            "Changes in body shape can reduce the loss of heat, such as small ears and a rounded body in cold climates, and large ears in hot ones."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Small organisms can exchange across their surface because the ratio is large.",
+            "Large organisms need exchange surfaces and transport systems.",
+            "SA:V links to metabolic rate and to heat loss."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Features of an efficient exchange surface",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Exchange surfaces are adapted to make diffusion fast."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Why it helps",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Large surface area",
+              "More room for particles to cross",
+              "Root hair cells, villi and alveoli"
+            ],
+            [
+              "Thin layer",
+              "Short diffusion distance",
+              "Alveoli walls are one cell thick"
+            ],
+            [
+              "Good blood supply",
+              "Carries substances away, so the concentration gradient is kept steep",
+              "Capillaries around alveoli, and gill lamellae"
+            ],
+            [
+              "Ventilation",
+              "Brings in fresh air or water, so the gradient is maintained",
+              "Breathing in the lungs, and water flow over gills"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An efficient surface is large, thin and kept at a steep gradient.",
+            "Blood flow and ventilation maintain the gradient."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating SA:V with agar blocks",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Agar blocks containing an indicator model cells of different size."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Prepare.",
+              "text": "Cut agar blocks of different sizes, such as cubes of 1, 2 and 3 cm sides. The agar contains an indicator."
+            },
+            {
+              "lead": "Immerse.",
+              "text": "Place the blocks in acid or alkali at the same time, so the indicator changes colour as the substance diffuses in."
+            },
+            {
+              "lead": "Time.",
+              "text": "Record how long each block takes to change colour all the way through."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "Work out the SA:V of each block and compare it with the time taken."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Smaller blocks have a larger SA:V and change colour all the way through more quickly.",
+            "A larger block has a longer distance to the centre, and a smaller area for each unit of volume.",
+            "Control temperature and concentration, and use the same cutting method."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Higher SA:V gives faster diffusion to the centre.",
+            "Time to change colour measures the effect."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate the surface area to volume ratio of a cube with sides of 3 cm.",
+      "a": "Surface area = 6 × 3 × 3 = 54 cm². Volume = 3 × 3 × 3 = 27 cm³. Ratio = 54 ÷ 27 = 2 : 1."
+    },
+    {
+      "q": "Explain why a large multicellular organism needs a specialised gas exchange surface, but an amoeba does not.",
+      "a": "The amoeba has a large SA:V ratio and a short diffusion distance, so oxygen can diffuse across its surface fast enough. The multicellular organism has a small SA:V ratio and a long diffusion distance, so diffusion across the body surface is too slow."
+    },
+    {
+      "q": "Give three features of an efficient exchange surface.",
+      "a": "Any three from: large surface area, thin layer or short diffusion distance, good blood supply, ventilation, and a steep concentration gradient."
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.1a",
+        "AQA 3.3.1b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Relate the SA:V ratio to metabolic rate.",
+                "Changes to body shape and the development of systems in larger organisms are adaptations that facilitate exchange as the ratio decreases."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 4.2.3",
+        "CAIE 4.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Calculate the surface areas and volumes of simple 3-D shapes to show that SA:V decreases with size.",
+                "Investigate the effect of changing SA:V on diffusion using agar blocks of different sizes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.1a",
+        "OCR 3.1.1b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Link the need for exchange surfaces to SA:V, metabolic activity, and single-celled and multicellular organisms.",
+                "Examples of efficient features: increased surface area in root hair cells, a thin layer in alveoli, and good blood supply or ventilation to maintain the gradient in gills and alveoli."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "e2e021f3-7c9d-4cb3-a528-c8e548ea6249",
+      "6e8ff4c4-43f4-457e-a7a7-b349fda665ba",
+      "eadcd471-3229-4180-a9dc-611ab6131463",
+      "6abe3b69-3807-4967-a223-0a3627e6d057",
+      "17fc057b-ad04-4fc3-96d5-78c88cbad8d1",
+      "64c5f7d3-99f5-49d6-a94a-09e5d20bfeba"
+    ],
+    "exemplar_ids": []
+  }
+}

@@ -125,9 +125,14 @@ const parentNav: NavItem<ParentNavRoute>[] = [
 export function buildAuthedNav(opts: { isTutor: boolean; role: ProfileRole | null }): NavItem[] {
   if (opts.isTutor) {
     // Tutor home is the Tutor Studio; the shared content pages stay available.
+    // A tutor has no grades of their own: their Tasks page sets and marks.
     return [
       ...studentNav.map((item) =>
-        item.to === "/dashboard" ? { ...item, to: "/tutor" as const } : item,
+        item.to === "/dashboard"
+          ? { ...item, to: "/tutor" as const }
+          : item.to === "/homework"
+            ? { ...item, label: "Tasks & Marking" }
+            : item,
       ),
       ...tutorExtra,
     ];

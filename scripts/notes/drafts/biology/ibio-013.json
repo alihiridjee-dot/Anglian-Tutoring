@@ -1,0 +1,271 @@
+{
+  "format": 1,
+  "concept_id": "ibio-013",
+  "subject": "biology",
+  "title": "Food webs and feeding roles",
+  "key_idea": "A food web is a network of interconnected food chains. Organisms are producers, herbivores, carnivores or decomposers, depending on how they get their energy. A food web can be used to predict what happens when one species is removed or added.",
+  "sections": [
+    {
+      "heading": "Food chains and food webs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A food chain shows one feeding route. This section covers how chains join into a web."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Food chain",
+              "meaning": "A line showing what eats what, with arrows pointing to the feeder."
+            },
+            {
+              "term": "Food web",
+              "meaning": "A network of interconnected food chains in a habitat."
+            },
+            {
+              "term": "Producer",
+              "meaning": "An organism that makes its own food by photosynthesis."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a food chain, the arrow points from the food to the organism that eats it.",
+            "Most organisms eat more than one food, and are eaten by more than one predator.",
+            "So the chains in a habitat link up to make a **food web**.",
+            "A food web shows which organisms depend on which."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Interpreting a food web"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Find the producers: they are at the start of every chain.",
+            "Trace the arrows to find what an organism eats and what eats it.",
+            "Count the different chains that pass through an organism. More chains mean more alternative foods."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A food web is a network of interconnected food chains.",
+            "Arrows point from the food to the feeder."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Feeding roles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Organisms are named by where they get their energy from."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Herbivore",
+              "meaning": "An animal that gets its energy by eating plants."
+            },
+            {
+              "term": "Carnivore",
+              "meaning": "An animal that gets its energy by eating other animals."
+            },
+            {
+              "term": "Decomposer",
+              "meaning": "An organism that gets its energy from dead or waste organic material."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rabbits and mayflies are herbivores. Herons and salmon are carnivores.",
+            "Bacteria and fungi are decomposers. They feed on dead plants and animals and on waste.",
+            "Decomposers return nutrients to the soil or water."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Herbivores eat plants and carnivores eat animals.",
+            "Decomposers get energy from dead or waste organic material."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using a web to predict change",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Humans can change a web by removing one species or adding a new one. Every change spreads along the feeding links."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Overharvesting** is taking so many of a species that its population falls.",
+            "An **introduced species** is one brought into a habitat where it did not live before."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Reading the effect of removing a species"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The organisms that **ate** it have less food, so their numbers fall.",
+            "The organisms that it **ate** are eaten less, so their numbers rise.",
+            "Rising numbers then affect the organisms those animals feed on."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick one organism in a river food web to overharvest and see the effect on its predators, its prey and the rest of the web. The web: aquatic plants are eaten by freshwater shrimps, midges and mayflies. Mayflies are eaten by salmon. Midges are eaten by stoneflies. Stoneflies and shrimps are eaten by salmon. Herons eat salmon.",
+            "prompt": "Humans overharvest one organism. Pick which one.",
+            "result_labels": [
+              "Its predators",
+              "Its prey",
+              "Other effects"
+            ],
+            "options": [
+              {
+                "label": "Salmon",
+                "results": [
+                  "Fewer herons, as they have less food",
+                  "More mayflies, stoneflies and shrimps, as fewer are eaten",
+                  "Fewer midges, as more stoneflies eat them"
+                ],
+                "explanation": "The salmon sit in the middle of the web, so removing them changes several levels."
+              },
+              {
+                "label": "Stoneflies",
+                "results": [
+                  "Salmon lose one food, so may fall slightly",
+                  "More midges, as fewer are eaten",
+                  "More midges eat more plants, so fewer plants"
+                ],
+                "explanation": "Salmon also eat mayflies and shrimps, so they can switch food."
+              },
+              {
+                "label": "Mayflies",
+                "results": [
+                  "Salmon lose one food, so may fall slightly",
+                  "Fewer aquatic plants are eaten by mayflies, so more plants",
+                  "Shrimps and midges have less competition for the plants"
+                ],
+                "explanation": "The plants are eaten by three consumers, so losing one eases the pressure on them."
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "An introduced species can eat native species or compete with them for food.",
+            "Native populations may fall, and the predators of those species lose food too.",
+            "A food web helps to describe the impact because it shows every link."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Removing a species lowers its predators and raises its prey.",
+            "Introduced species can reduce native species by predation or competition.",
+            "Effects spread along the whole web."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by a decomposer.",
+      "a": "An organism that gets its energy from dead or waste organic material.",
+      "marks": 1
+    },
+    {
+      "q": "A food web shows salmon eating mayflies and herons eating salmon. Predict the effect on herons of overharvesting salmon.",
+      "a": "There would be fewer herons because they would have less food.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a food web gives a better picture of feeding relationships than a food chain.",
+      "a": "A food web shows the many chains that join up. Most organisms eat and are eaten by more than one species.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 19.2.3",
+        "CAIE 19.2.7",
+        "CAIE 19.2.8",
+        "CAIE 19.2.9",
+        "CAIE 19.2.10"
+      ],
+      "worked_example": {
+        "exemplar_id": "112334d3-26c5-41fe-9356-ef8e31729cf2",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q4(a)(iv)",
+        "question": "A student recorded the information about an aquatic habitat.\n\nAquatic plants provide food for freshwater shrimps and midges.\nMayflies also feed on aquatic plants.\nThe mayflies provide food for salmon.\nStoneflies feed on midges and are eaten by salmon. Salmon also eat freshwater shrimps.\nHerons feed on salmon.\n\nHumans also eat salmon.\n\nPredict the impact on the feeding relationships of overharvesting of salmon.",
+        "marks": 3,
+        "answer_points": [
+          "Fewer herons, as there is less food or fewer salmon.",
+          "More mayflies, stoneflies or freshwater shrimps, as fewer salmon eat them.",
+          "Fewer midges, as there are more stoneflies.",
+          "Fewer, more or no change in aquatic plants, with a reason such as more mayflies or shrimps feeding on them."
+        ],
+        "tip": "Any three score one mark each. Say what happens to the number and why."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.7"
+      ],
+      "worked_example": {
+        "exemplar_id": "af5c6464-4284-4c6f-8651-f2cb668639e5",
+        "source": "EDEXCEL jun 2022, Paper 1 (BR), Q3(b)",
+        "question": "Wolves were hunted in a region of North America until they became extinct. In this ecosystem, wolves eat elk and coyotes. Elk eat plants. Coyotes eat mice and beavers. Hawks eat mice.\n\nThe extinction of wolves damaged the ecosystem in these ways.\n\n- the population of mice, hawks and beavers decreased\n- the population of producer species decreased\n\nBeavers are important in this ecosystem because they cut down old trees and create shelters that other organisms nest in.\n\nDiscuss why the extinction of wolves damaged the ecosystem.",
+        "marks": 4,
+        "answer_points": [
+          "Fewer elk or coyotes were eaten, so there were more of them.",
+          "More elk eat more plants, so there are fewer producers or less grass.",
+          "There is less food for mice, and so fewer mice for the hawks.",
+          "More beavers or mice are eaten by the coyotes.",
+          "Old trees are not removed, so younger trees are shaded and less photosynthesis takes place.",
+          "Soil erosion occurs because of the loss of plants.",
+          "There are fewer shelters, habitats or nesting places for other organisms."
+        ],
+        "tip": "Any four score one mark each. Follow the effect from the removed predator to what it ate and then to the plants."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "02b418ca-885d-480c-ad6f-1404626e7329",
+      "a34e0e46-8857-41c7-8652-3ba7e455f2fc",
+      "70e1cb22-b360-4263-9e31-5a7b9565848b",
+      "69d06735-5a7a-479e-b37a-36418f5c9e77",
+      "4ae40cf3-71d5-4a19-bafb-32881f160adb",
+      "43b645a9-0ee3-47b2-880e-072acee88283"
+    ],
+    "exemplar_ids": [
+      "112334d3-26c5-41fe-9356-ef8e31729cf2",
+      "af5c6464-4284-4c6f-8651-f2cb668639e5"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

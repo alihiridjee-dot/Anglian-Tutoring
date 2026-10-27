@@ -276,3 +276,81 @@ describe("resuming after a pause", () => {
     ).toThrow(/not enough weeks/);
   });
 });
+
+describe("review horizon after a reorder", () => {
+  test("a topic that had not opened yet takes its new start as its review horizon", () => {
+    const next = reorderTopics({ ...params, order });
+    const unreached = baseline.filter((b) => b.startWeek > today).map((b) => b.topicId);
+    expect(unreached.length).toBeGreaterThan(0);
+    for (const id of unreached) {
+      const moved = next.find((b) => b.topicId === id && b.startWeek >= today)!;
+      expect(moved.reviewStartWeek).toBe(moved.startWeek);
+      // Its old week may no longer be used to admit a review of it.
+      const old = baseline.find((b) => b.topicId === id)!;
+      if (old.startWeek < moved.startWeek)
+        expect(
+          admit(
+            { specPointId: `${id}0`, topicId: id, origin: "focus", hasEvidence: true },
+            {
+              reach: spineReach(next),
+              reviewReach: spineReach(next, true),
+              weekStart: old.startWeek,
+            },
+          ).ok,
+        ).toBe(false);
+    }
+  });
+  test("a topic already underway keeps the horizon it had", () => {
+    const next = reorderTopics({ ...params, order });
+    const reached = baseline.filter((b) => b.startWeek <= today).map((b) => b.topicId);
+    for (const id of reached) {
+      const old = baseline.find((b) => b.topicId === id)!;
+      for (const band of next.filter((b) => b.topicId === id))
+        expect(band.reviewStartWeek ?? band.startWeek).toBe(old.startWeek);
+    }
+  });
+
+  // An order as the old code saved it: on 7 Sept, b (due 14 Sept) was moved,
+  // untaught, to 12 Oct, and kept 14 Sept as its review horizon.
+  const early = "2026-09-07";
+  const older = reorderTopics({
+    ...params,
+    from: early,
+    today: early,
+    order: orderInputs(baseline, topics, early)
+      .remaining.map((t) => t.topicId)
+      .reverse(),
+  }).map((b) => (b.topicId === "b" ? { ...b, reviewStartWeek: "2026-09-14" } : b));
+
+  test("an older saved order drops an early horizon from a topic not yet taught", () => {
+    // Re-ordered on 21 Sept: 14 Sept has gone by, but b's teaching has not begun.
+    const later = "2026-09-21";
+    const next = reorderTopics({
+      ...params,
+      bands: older,
+      from: later,
+      today: later,
+      order: orderInputs(older, topics, later).remaining.map((t) => t.topicId),
+    });
+    const b = next.find((band) => band.topicId === "b")!;
+    expect(b.startWeek > later).toBe(true);
+    expect(b.reviewStartWeek).toBe(b.startWeek);
+    expect(
+      admit(
+        { specPointId: "b0", topicId: "b", origin: "focus", hasEvidence: true },
+        { reach: spineReach(next), reviewReach: spineReach(next, true), weekStart: later },
+      ).ok,
+    ).toBe(false);
+  });
+  test("a pause on an older saved order drops it too", () => {
+    const next = resumeAfterPause({
+      bands: older,
+      topics,
+      pausedFrom: "2026-09-21",
+      resumeFrom: "2026-09-28",
+      examDate,
+    });
+    const b = next.find((band) => band.topicId === "b")!;
+    expect(b.reviewStartWeek).toBe(b.startWeek);
+  });
+});

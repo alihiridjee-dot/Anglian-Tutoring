@@ -1,0 +1,466 @@
+{
+  "format": 1,
+  "concept_id": "aphys-087",
+  "subject": "physics",
+  "title": "X-ray imaging and CT scanning",
+  "key_idea": "X-rays are made when fast electrons hit a metal target. Tissues absorb them by different amounts, so the transmitted beam forms a shadow image, with intensity falling as I = I₀e^(−μx). A CT scanner combines many X-ray images from different angles into slices and then a 3D image.",
+  "sections": [
+    {
+      "heading": "Producing X-rays",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "X-rays are produced when electrons that have been accelerated by a high voltage hit a metal target. Most of the electrons' energy becomes heat, and only a small fraction becomes X-rays."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **heated cathode** (filament) releases electrons by thermionic emission.",
+            "A high p.d. of tens of kilovolts between the cathode and the **anode** accelerates the electrons across a vacuum.",
+            "The electrons hit a **target** metal embedded in the anode, such as tungsten, which has a high melting point.",
+            "The anode rotates, so the beam hits a fresh part of the target and the heat is spread over a larger area."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Continuous spectrum",
+              "text": "Electrons are decelerated as they enter the target. They lose different amounts of energy, so they produce photons of all energies up to a maximum."
+            },
+            {
+              "lead": "Maximum energy",
+              "text": "The most energetic photon comes from an electron that loses all its kinetic energy in one go. Its energy is eV, so it has the minimum wavelength."
+            },
+            {
+              "lead": "Characteristic spectrum",
+              "text": "An electron can knock out an inner electron from an atom of the target. An outer electron drops into the gap and emits a photon of a fixed energy, which makes a sharp line in the spectrum."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Maximum photon energy and minimum wavelength",
+          "formula": "eV = hf = hc ÷ λ(min)",
+          "where": [
+            "e = elementary charge, 1.60 × 10⁻¹⁹ C",
+            "V = accelerating p.d. (V)",
+            "h = Planck constant, 6.63 × 10⁻³⁴ J s",
+            "c = speed of light, 3.00 × 10⁸ m s⁻¹",
+            "λ(min) = shortest wavelength produced (m)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider. Change the accelerating voltage of an X-ray tube and see the maximum photon energy and minimum wavelength.",
+            "inputs": [
+              {
+                "id": "kV",
+                "label": "Accelerating voltage",
+                "unit": "kV",
+                "min": 20,
+                "max": 150,
+                "step": 5,
+                "value": 80
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Maximum photon energy",
+                "unit": "keV",
+                "formula": "kV",
+                "decimals": 0
+              },
+              {
+                "label": "Minimum wavelength",
+                "unit": "pm",
+                "formula": "1240 / kV",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Controlling the beam"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "To change",
+            "Adjust",
+            "Because"
+          ],
+          "rows": [
+            [
+              "Intensity of the beam",
+              "The heater current",
+              "A hotter filament emits more electrons, so more X-ray photons are made each second."
+            ],
+            [
+              "Photon energy (penetration)",
+              "The tube voltage",
+              "A larger p.d. gives the electrons more energy, so the photons have more energy."
+            ],
+            [
+              "Sharpness of the image",
+              "A small area of target and a narrow beam",
+              "A small source casts a sharp shadow with less blurring at the edges."
+            ],
+            [
+              "Patient dose",
+              "A metal filter, a short exposure and a narrow beam",
+              "A filter, such as aluminium, removes low-energy photons that would be absorbed by the patient and not help to form the image."
+            ],
+            [
+              "Contrast",
+              "A lower tube voltage and a lead grid",
+              "Lower-energy photons are absorbed more differently by different tissues. A lead grid absorbs scattered photons, which would blur the image."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "X-rays come from electrons hitting a metal target. The spectrum has a continuous part and sharp characteristic lines.",
+            "The maximum photon energy is eV, which sets the minimum wavelength.",
+            "Heater current sets the intensity. Tube voltage sets the photon energy."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Attenuation and contrast",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "As X-rays pass through the body, some photons are absorbed or scattered. The transmitted beam is weaker, and by different amounts for different tissues."
+        },
+        {
+          "type": "equation",
+          "label": "Attenuation of X-rays",
+          "formula": "I = I₀e^(−μx)",
+          "where": [
+            "I = transmitted intensity (W m⁻²)",
+            "I₀ = incident intensity (W m⁻²)",
+            "μ = linear attenuation (absorption) coefficient (m⁻¹)",
+            "x = thickness of the material (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each equal layer of material removes the same **fraction** of the intensity. This is an exponential decrease.",
+            "μ depends on the material and on the photon energy. Bone has a larger μ than soft tissue, because it is denser and contains atoms with a larger atomic number.",
+            "Different tissues absorb different amounts, so the transmitted beam forms a shadow image of the structures inside the body."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Work out the percentage of an X-ray beam transmitted through a thickness of tissue.",
+            "question": "An X-ray beam passes through {x} cm of tissue with an attenuation coefficient μ = {mu} cm⁻¹. What percentage of the intensity is transmitted?",
+            "variables": [
+              {
+                "id": "mu",
+                "min": 0.1,
+                "max": 0.5,
+                "step": 0.1
+              },
+              {
+                "id": "x",
+                "min": 1,
+                "max": 8,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "100 * 2.718281828 ^ (0 - mu * x)",
+              "unit": "%",
+              "decimals": 1,
+              "tolerance_percent": 3
+            },
+            "working": [
+              "I ÷ I₀ = e^(−μx)",
+              "= e^(−{mu} × {x})",
+              "Percentage transmitted = {answer}%"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Contrast"
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Contrast",
+              "meaning": "The difference in the degree of blackening (or brightness) between two structures in an image."
+            },
+            {
+              "term": "Contrast medium",
+              "meaning": "A substance with a high atomic number that absorbs X-rays strongly and is put into soft tissue so that it shows up."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bone shows up clearly against soft tissue, because their attenuation coefficients are very different.",
+            "Soft tissues have similar coefficients, so the contrast between them is poor.",
+            "A contrast medium is swallowed, injected or inserted to improve this. **Barium** sulphate shows up the digestive system (the barium meal), and **iodine** compounds show up blood vessels and organs such as the kidneys.",
+            "These elements have a large atomic number, so they absorb X-rays much more than soft tissue does."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Intensity falls exponentially with thickness: I = I₀e^(−μx).",
+            "Differences in μ between tissues make the contrast in an image.",
+            "Barium and iodine are contrast media that absorb X-rays strongly."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "CT scanning",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A computed tomography (CT) scan builds up an image of a slice through the body from many X-ray images. Repeating this along the body gives a 3D image."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Thin beam",
+              "text": "An X-ray tube produces a thin beam, which passes through one slice of the patient."
+            },
+            {
+              "lead": "Detectors",
+              "text": "Detectors on the opposite side measure the intensity of the transmitted beam."
+            },
+            {
+              "lead": "Rotate",
+              "text": "The tube and detectors rotate around the patient, taking images from many different angles."
+            },
+            {
+              "lead": "Combine",
+              "text": "A computer combines all the images in that slice to calculate a 2D image of the slice."
+            },
+            {
+              "lead": "Move along",
+              "text": "The patient moves along the axis and the process repeats. The computer stacks the slices into a 3D image."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A CT image shows a slice, so structures are not drawn on top of one another as they are in a single X-ray image.",
+            "It shows much smaller differences in tissue density, so soft tissue such as the brain and tumours can be seen.",
+            "The 3D image can be viewed from any angle and sliced in any direction.",
+            "The patient receives a much larger dose of ionising radiation than from a single X-ray image."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "CT combines X-ray images from many angles into a slice, and slices into a 3D image.",
+            "Compared with a single X-ray image, a CT scan shows more detail in soft tissue but gives a larger dose."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate the minimum wavelength of the X-rays produced by a tube operating at 60 kV.",
+      "a": "λ = hc ÷ eV = (6.63 × 10⁻³⁴ × 3.00 × 10⁸) ÷ (1.60 × 10⁻¹⁹ × 6.0 × 10⁴) = 2.1 × 10⁻¹¹ m.",
+      "marks": 3
+    },
+    {
+      "q": "The intensity of an X-ray beam falls to 40% of its original value after passing through 3.0 cm of tissue. Calculate the attenuation coefficient.",
+      "a": "I ÷ I₀ = e^(−μx), so 0.40 = e^(−3.0μ). −3.0μ = ln 0.40 = −0.916, so μ = 0.31 cm⁻¹.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a barium meal is used before an X-ray image of the stomach and why a CT scan shows more detail than a single X-ray image.",
+      "a": "Soft tissue absorbs X-rays by similar amounts, so the contrast is poor. Barium has a high atomic number and absorbs X-rays strongly, so the stomach shows up. A CT scan combines images from many angles into slices, so structures do not overlap, and it shows small differences in tissue density.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.10.5.1",
+        "AQA 3.10.5.2",
+        "AQA 3.10.5.3",
+        "AQA 3.10.5.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Mass attenuation coefficient and half-value thickness"
+            },
+            {
+              "type": "equation",
+              "label": "Mass attenuation coefficient",
+              "formula": "μ(m) = μ ÷ ρ",
+              "where": [
+                "μ(m) = mass attenuation coefficient (m² kg⁻¹)",
+                "μ = linear attenuation coefficient (m⁻¹)",
+                "ρ = density of the material (kg m⁻³)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The **half-value thickness** is the thickness of material that reduces the intensity to half its initial value.",
+                "Putting I = I₀ ÷ 2 into I = I₀e^(−μx) gives half-value thickness = ln 2 ÷ μ."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Image detection and enhancement"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Photographic film with an intensifying screen:** the screen is a fluorescent material which gives out many visible photons for each X-ray photon. This darkens the film more, so a shorter exposure and a smaller dose are needed.",
+                "**Fluoroscopic image intensifier:** X-rays hit a fluorescent screen and the light releases electrons from a photocathode. The electrons are accelerated and focused onto a small screen, which gives a brighter live image with less dose.",
+                "**Flat panel detector:** a scintillator turns each X-ray photon into light, and a photodiode pixel under it turns the light into charge. The pixels are read out by electronic scanning to give a digital image.",
+                "The flat panel detector gives an immediate digital image with no chemical processing, can be stored and enhanced by computer, and needs a smaller dose than film."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Controlling contrast and dose"
+            },
+            {
+              "type": "paragraph",
+              "text": "Contrast is helped by a lower tube voltage and a grid to cut out scattered X-rays. Dose is reduced by filtering out low-energy photons and by intensifying screens."
+            },
+            {
+              "type": "subheading",
+              "text": "CT scanner"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The beam is narrow and **monochromatic**: filtered to one photon energy, so the attenuation depends on the tissue and not on the spectrum.",
+                "Compared with a single X-ray image, a CT scan gives a clearer image of soft tissue, but the equipment is much more expensive and the dose is larger."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 24.2.1",
+        "CAIE 24.2.2",
+        "CAIE 24.2.3",
+        "CAIE 24.2.4"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.5.1a",
+        "OCR 6.5.1b",
+        "OCR 6.5.1c",
+        "OCR 6.5.1d",
+        "OCR 6.5.1e",
+        "OCR 6.5.1f",
+        "OCR 6.5.1g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for: how X-rays are attenuated",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Four processes remove photons from an X-ray beam. Which process dominates depends on the photon energy and on the material."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Process",
+                "What happens"
+              ],
+              "rows": [
+                [
+                  "Simple (coherent) scatter",
+                  "A low-energy photon changes direction without losing energy. No ionisation happens."
+                ],
+                [
+                  "Photoelectric effect",
+                  "A photon is completely absorbed by an atom and releases an electron. It is much more likely in materials with a large atomic number, such as bone, and for lower photon energies."
+                ],
+                [
+                  "Compton effect",
+                  "A photon collides with an outer electron, releasing it. The photon loses some energy and is scattered in a new direction."
+                ],
+                [
+                  "Pair production",
+                  "A photon with energy of at least 1.02 MeV passes near a nucleus and becomes an electron and a positron."
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The photoelectric effect is an important process at diagnostic energies, and it is mainly responsible for the contrast between bone and soft tissue.",
+                "Pair production is not important for diagnostic X-rays, because the photon energies are far below 1.02 MeV."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "CT scanner components"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A rotating X-ray tube gives a thin, fan-shaped beam.",
+                "A ring of detectors surrounds the patient and measures the transmitted intensity.",
+                "Computer software combines the signals into an image, which is shown on a display."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "144ced81-5365-4d60-9cba-7b9e4c1a62a0",
+      "b5b30120-0961-4c04-a5d6-33d4f3fc3b8f",
+      "08dde0cd-689c-45c8-85d1-b9d84a382682",
+      "56a14c14-a18d-4074-8493-37f8bd7b0129",
+      "2c810256-c290-4522-a4f9-43e88f8c1d36",
+      "8d8ac40d-2320-46c0-b883-93b5f96aead9",
+      "bae67205-a3db-4b31-bdb6-e4f5dcfab207",
+      "2c2913c8-cc7d-4a81-bad7-2279bfda74e7",
+      "b567fa5a-4f74-4aba-8e85-caad83f2d4a6",
+      "a6dbd1e2-9522-449a-a45e-518278d1be1a",
+      "debe3009-60fc-4dba-8c5e-ae24c5324a0f",
+      "cad4447e-07c6-49cf-8b89-3c07446c8076",
+      "062ccb76-0530-4319-b758-16c7b6ddd047",
+      "e5dc2b8d-9ae9-463e-add9-6664f94266e5",
+      "e253ae08-5564-4298-a9e6-12e959315454"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

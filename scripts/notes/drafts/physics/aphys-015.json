@@ -1,0 +1,409 @@
+{
+  "format": 1,
+  "concept_id": "aphys-015",
+  "subject": "physics",
+  "title": "Conservation of momentum and collisions",
+  "key_idea": "In a closed system the total momentum is the same before and after an interaction. This holds in every collision and explosion. Kinetic energy is conserved only in an elastic collision.",
+  "sections": [
+    {
+      "heading": "The principle of conservation of momentum",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section states the principle and explains why it is true."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Closed system",
+              "meaning": "A group of objects with no resultant external force acting on it."
+            },
+            {
+              "term": "Conservation of momentum",
+              "meaning": "The total momentum of a closed system stays constant."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The total momentum of a closed system before an interaction equals the total momentum after it.",
+            "Momentum is a vector, so give each momentum a sign in one dimension.",
+            "It follows from Newton's laws. The two objects exert equal and opposite forces on each other (third law).",
+            "The forces act for the same time, so the impulses are equal and opposite.",
+            "One object gains the momentum that the other loses, so the total does not change."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Total momentum is conserved when no external force acts.",
+            "It follows from Newton's second and third laws."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Collisions and explosions in one dimension",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Choose a positive direction, then add up the momentum before and after."
+        },
+        {
+          "type": "equation",
+          "label": "Conservation of momentum",
+          "formula": "m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂",
+          "where": [
+            "m₁, m₂ = masses, in kg",
+            "u₁, u₂ = velocities before, in m/s",
+            "v₁, v₂ = velocities after, in m/s"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Direction",
+              "text": "Choose one direction as positive."
+            },
+            {
+              "lead": "Before",
+              "text": "Add the momenta before. A cart of 2.0 kg at +3.0 m/s hits a stationary 1.0 kg cart: total = 6.0 kg m/s."
+            },
+            {
+              "lead": "After",
+              "text": "Add the momenta after. If the carts stick, total = (2.0 + 1.0) × v."
+            },
+            {
+              "lead": "Equate",
+              "text": "Set before equal to after: 6.0 = 3.0v, so v = 2.0 m/s."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider for two trolleys that collide and stick together. It shows the shared velocity after the collision and the kinetic energy lost.",
+            "inputs": [
+              {
+                "id": "m1",
+                "label": "Mass of trolley 1",
+                "unit": "kg",
+                "min": 0.5,
+                "max": 3,
+                "step": 0.5,
+                "value": 2
+              },
+              {
+                "id": "u1",
+                "label": "Velocity of trolley 1",
+                "unit": "m/s",
+                "min": 1,
+                "max": 6,
+                "step": 0.5,
+                "value": 3
+              },
+              {
+                "id": "m2",
+                "label": "Mass of trolley 2",
+                "unit": "kg",
+                "min": 0.5,
+                "max": 3,
+                "step": 0.5,
+                "value": 1
+              },
+              {
+                "id": "u2",
+                "label": "Velocity of trolley 2",
+                "unit": "m/s",
+                "min": -3,
+                "max": 3,
+                "step": 0.5,
+                "value": 0
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Velocity after (stuck together)",
+                "unit": "m/s",
+                "formula": "(m1 * u1 + m2 * u2) / (m1 + m2)",
+                "decimals": 2
+              },
+              {
+                "label": "Kinetic energy before",
+                "unit": "J",
+                "formula": "0.5 * m1 * u1 * u1 + 0.5 * m2 * u2 * u2",
+                "decimals": 2
+              },
+              {
+                "label": "Kinetic energy after",
+                "unit": "J",
+                "formula": "(m1 * u1 + m2 * u2) * (m1 * u1 + m2 * u2) / (2 * (m1 + m2))",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "In an **explosion** the objects start together with zero total momentum.",
+            "They move apart with equal and opposite momenta, so the total is still zero.",
+            "The lighter piece moves away faster than the heavier piece."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Total momentum before = total momentum after, with signs for direction.",
+            "In an explosion from rest, the pieces have equal and opposite momenta."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Collisions in two dimensions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Momentum is a vector, so it is conserved separately in each of two perpendicular directions."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Axes",
+              "text": "Choose two perpendicular directions, for example x and y."
+            },
+            {
+              "lead": "Resolve",
+              "text": "Split every velocity into components. A speed v at angle θ to the x-axis has components v cos θ and v sin θ."
+            },
+            {
+              "lead": "Conserve x",
+              "text": "Total x-momentum before = total x-momentum after."
+            },
+            {
+              "lead": "Conserve y",
+              "text": "Total y-momentum before = total y-momentum after."
+            },
+            {
+              "lead": "Combine",
+              "text": "Use Pythagoras and tan θ to find the final speed and direction."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the total momentum is along x, the final y-components must cancel.",
+            "So the two objects leave on opposite sides of the x-axis, unless both stay on it."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Resolve into perpendicular components.",
+            "Momentum is conserved in each direction separately."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Elastic and inelastic collisions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Momentum is always conserved. Kinetic energy may or may not be."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Property",
+            "Elastic collision",
+            "Inelastic collision"
+          ],
+          "rows": [
+            [
+              "Total momentum",
+              "Conserved",
+              "Conserved"
+            ],
+            [
+              "Total kinetic energy",
+              "Conserved",
+              "Some is transferred to other forms, such as heat and sound"
+            ],
+            [
+              "Speed of approach and separation",
+              "Relative speed of approach = relative speed of separation",
+              "Relative speed of separation is smaller than the relative speed of approach"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To decide whether a collision is elastic, compare the total kinetic energy before and after.",
+            "If the totals are equal, it is elastic. If the total after is smaller, it is inelastic.",
+            "A **perfectly inelastic** collision is one where the objects stick together.",
+            "Kinetic energy cannot increase in a collision. In an explosion it does increase, because stored energy is released."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Momentum is conserved in all collisions.",
+            "Kinetic energy is conserved only in an elastic collision."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A 1500 kg car moving at 4.0 m/s hits a stationary 1000 kg car. They lock together. Calculate their speed immediately after the collision.",
+      "a": "Momentum before = 1500 × 4.0 = 6000 kg m/s. Momentum after = (1500 + 1000) × v. So v = 6000 / 2500 = 2.4 m/s.",
+      "marks": 3
+    },
+    {
+      "q": "A stationary 0.50 kg trolley is released by a spring and moves off at 1.2 m/s. A 1.5 kg trolley moves the other way. Calculate its speed.",
+      "a": "Total momentum is zero, so the momenta are equal and opposite. 0.50 × 1.2 = 1.5 × v. So v = 0.40 m/s.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how you would decide whether a collision between two objects was elastic or inelastic.",
+      "a": "Calculate the total kinetic energy before and after the collision. If it is the same, the collision is elastic. If the total is less after, it is inelastic.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.1.6"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.22",
+        "EDEX 6.99",
+        "EDEX 6.101",
+        "EDEX 6.102"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You must derive and use the kinetic energy of a non-relativistic particle in terms of its momentum."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Start",
+                  "text": "Eₖ = ½mv²."
+                },
+                {
+                  "lead": "Multiply",
+                  "text": "Multiply the top and bottom by m: Eₖ = ½m²v² / m."
+                },
+                {
+                  "lead": "Substitute",
+                  "text": "Since p = mv, m²v² = p²."
+                }
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Kinetic energy in terms of momentum",
+              "formula": "Eₖ = p² / (2m)",
+              "where": [
+                "Eₖ = kinetic energy, in J",
+                "p = momentum, in kg m/s",
+                "m = mass, in kg"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "For two particles with the same momentum, the lighter one has the **greater** kinetic energy.",
+                "Use this form when the momentum is known and the speed is not."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 3.3.1",
+        "CAIE 3.3.2",
+        "CAIE 3.3.3",
+        "CAIE 3.3.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You must be able to **state** the principle of conservation of momentum.",
+                "For an elastic collision, recall that total kinetic energy is conserved. The relative speed of approach equals the relative speed of separation.",
+                "Problems can be elastic or inelastic, in one or two dimensions.",
+                "The coefficient of restitution is not needed."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.5.2a",
+        "OCR 3.5.2b",
+        "OCR 3.5.2c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Be able to apply the principle to collisions and other interactions of bodies, in one and in two dimensions.",
+                "Know the terms **perfectly elastic collision** and **inelastic collision**."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "4bd768db-5e44-47e1-bff9-c73955b7af47",
+      "3ea7b469-0a84-4dbb-a546-e230da95189e",
+      "85042149-5ea8-4c5d-9027-227796fe62ce",
+      "848c7251-8bb8-4f30-9605-f76e267ed128",
+      "fa2ca2c2-5b06-4177-95f1-5426ccbbb660",
+      "c1ce2d29-e6e5-486d-a667-cb686b34e541",
+      "08a019d1-81d4-462d-aad1-ac11313c05e3",
+      "844722c0-9662-4f05-89bb-ca06b085e01f",
+      "094fbf7a-1201-414a-88de-c9119fdfcbf6",
+      "7af828d4-3cb8-4b9b-889e-43c8c50ef8a7",
+      "686721ad-e607-4d2e-b27c-37361af1d42c"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

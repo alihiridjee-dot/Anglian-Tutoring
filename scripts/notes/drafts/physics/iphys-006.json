@@ -1,0 +1,172 @@
+{
+  "format": 1,
+  "concept_id": "iphys-006",
+  "subject": "physics",
+  "title": "Evaporation and cooling",
+  "key_idea": "Evaporation happens when the most energetic particles escape from the surface of a liquid. This leaves the liquid cooler. It happens faster when the liquid is warmer, has a larger surface or has air moving over it.",
+  "sections": [
+    {
+      "heading": "What evaporation is",
+      "blocks": [
+        { "type": "paragraph", "text": "Particles in a liquid move at different speeds. This section covers how some of them escape." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Evaporation", "meaning": "The escape of more energetic particles from the surface of a liquid." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Some particles in a liquid have more energy than others.",
+            "A particle at the **surface** with enough energy can overcome the attraction of its neighbours and escape.",
+            "The escaped particles become a gas or vapour.",
+            "Evaporation happens at **any temperature**, even well below the boiling point."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Evaporation is the escape of the more energetic particles from the surface.",
+            "It can happen at any temperature."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evaporation and boiling",
+      "blocks": [
+        { "type": "paragraph", "text": "(Supplement) Both turn a liquid into a gas, but they are not the same process." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of evaporation and boiling: where they happen, the temperature, and bubbles.",
+            "items": ["Evaporation", "Boiling"],
+            "rows": [
+              { "feature": "Where it happens", "values": ["Only at the surface", "Throughout the liquid"] },
+              { "feature": "Temperature", "values": ["Any temperature below the boiling point", "At the boiling point only"] },
+              { "feature": "Bubbles", "values": ["No bubbles form", "Bubbles of vapour form inside the liquid"] }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Evaporation is at the surface and at any temperature.",
+            "Boiling is throughout the liquid and at a fixed temperature."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cooling by evaporation",
+      "blocks": [
+        { "type": "paragraph", "text": "Evaporation cools the liquid that is left behind. The particles that escape take their energy with them." },
+        {
+          "type": "list",
+          "items": [
+            "The escaping particles are the most energetic.",
+            "The particles that remain have a lower average energy.",
+            "So the **temperature of the remaining liquid falls**."
+          ]
+        },
+        { "type": "paragraph", "text": "(Supplement) A liquid on the surface of an object also cools the object." },
+        {
+          "type": "list",
+          "items": [
+            "The evaporating liquid needs energy, which it takes from the object it touches.",
+            "The object loses thermal energy, so its temperature falls.",
+            "Sweat evaporating cools skin, and a wet cloth round a carton keeps the milk cool."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Evaporation cools the liquid left behind.",
+            "An object touching an evaporating liquid loses energy and cools."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What changes the rate of evaporation",
+      "blocks": [
+        { "type": "paragraph", "text": "(Supplement) Three things speed up evaporation." },
+        {
+          "type": "table",
+          "columns": ["Change", "Effect on rate", "Reason"],
+          "rows": [
+            ["Higher temperature", "Faster", "More particles have enough energy to escape."],
+            ["Larger surface area", "Faster", "More particles are at the surface."],
+            ["Air moving over the surface", "Faster", "Escaped particles are carried away, so fewer return to the liquid."]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick a change to a dish of water to see what happens to the rate of evaporation and why.",
+            "prompt": "Pick a change to a dish of water.",
+            "result_labels": ["Rate of evaporation", "Reason"],
+            "options": [
+              { "label": "Warm the water", "results": ["Faster", "More particles have enough energy to escape."] },
+              { "label": "Cool the water", "results": ["Slower", "Fewer particles have enough energy to escape."] },
+              { "label": "Pour into a wider dish", "results": ["Faster", "A larger surface area means more particles at the surface."] },
+              { "label": "Blow air across the surface", "results": ["Faster", "Escaped particles are carried away, so fewer return to the liquid."] }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Warmth, a larger surface and moving air all speed up evaporation.",
+            "Always give a reason in terms of the particles."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe evaporation in terms of particles.",
+      "a": "More energetic particles escape from the surface of the liquid.",
+      "marks": 2
+    },
+    {
+      "q": "State two ways in which boiling differs from evaporation.",
+      "a": "Boiling happens at a fixed temperature (the boiling point) and takes place throughout the liquid. Evaporation happens at any temperature and only at the surface.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) Explain why sweat evaporating cools a person's skin.",
+      "a": "The sweat needs energy to evaporate. It takes thermal energy from the skin, so the skin cools.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 2.2.3.4", "CAIE 2.2.3.5", "CAIE 2.2.3.6S", "CAIE 2.2.3.7S", "CAIE 2.2.3.8S"],
+      "worked_example": {
+        "exemplar_id": "bdd52770-b379-4b73-a1a8-2a45997ffe49",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q4(a)",
+        "question": "A pressure cooker is half-full of water. As the water is heated, some water evaporates before the water boils. Describe two differences between evaporation and boiling of the water in the cooker.",
+        "marks": 2,
+        "answer_points": [
+          "Boiling happens at a specific temperature. Evaporation happens at a range of temperatures (any temperature below the boiling point).",
+          "Evaporation happens at the surface of the water. Boiling happens throughout the water."
+        ],
+        "tip": "One mark per difference. Compare both processes in each point."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": ["545117a8-ac1a-44f9-a744-f5ad477f6a93", "64e3ef3d-765f-4e64-b29b-12a506fc39f6", "408f0444-9f71-49f8-b048-ea8238083bbe", "fa44347c-e6a6-440c-a57a-61ac450bb22f", "3d1a91f5-e39a-46fc-b503-5e332ba54f98"],
+    "exemplar_ids": ["bdd52770-b379-4b73-a1a8-2a45997ffe49"]
+  }
+}

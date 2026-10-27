@@ -1,0 +1,443 @@
+{
+  "format": 1,
+  "concept_id": "aphys-086",
+  "subject": "physics",
+  "title": "Ultrasound imaging",
+  "key_idea": "A piezoelectric transducer sends short pulses of ultrasound into the body and detects the echoes from tissue boundaries. How much is reflected depends on the difference in acoustic impedance. The time for an echo to return gives the depth of each boundary, and the echoes build an A-scan or B-scan.",
+  "sections": [
+    {
+      "heading": "Making and detecting ultrasound",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ultrasound is a longitudinal sound wave with a frequency above 20 kHz, higher than humans can hear. Medical scanners use frequencies of a few megahertz."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Piezoelectric effect",
+              "meaning": "A crystal changes shape when a p.d. is applied across it, and generates an e.m.f. when its shape is changed."
+            },
+            {
+              "term": "Transducer",
+              "meaning": "A device that changes one form of energy into another. An ultrasound transducer both emits and receives ultrasound."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Generation:** an alternating p.d. at an ultrasound frequency is applied across a piezoelectric crystal. The crystal expands and contracts at that frequency and sends out a pressure wave.",
+            "The crystal vibrates strongly when the frequency of the p.d. matches its own natural frequency (resonance).",
+            "**Detection:** the returning echo squeezes and stretches the crystal, so it generates an alternating e.m.f. at the same frequency. This is amplified and processed.",
+            "One transducer does both jobs. It sends a short pulse, then waits to detect the echoes before sending the next."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pulses must be very short so that echoes from boundaries close together do not overlap.",
+            "A backing block behind the crystal damps its vibration, so each pulse dies away quickly.",
+            "The time between pulses must be long enough for echoes from the deepest boundary to return."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ultrasound is longitudinal with a frequency above 20 kHz.",
+            "A piezoelectric crystal changes a p.d. into vibration, and vibration into an e.m.f.",
+            "One transducer sends short pulses and detects the echoes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reflection, impedance and attenuation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When a pulse reaches a boundary between two tissues, part of it is reflected and the rest is transmitted. The echoes that come back are what make the image."
+        },
+        {
+          "type": "equation",
+          "label": "Specific acoustic impedance",
+          "formula": "Z = ρc",
+          "where": [
+            "Z = acoustic impedance of the medium (kg m⁻² s⁻¹)",
+            "ρ = density of the medium (kg m⁻³)",
+            "c = speed of sound in the medium (m s⁻¹)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Intensity reflection coefficient",
+          "formula": "Iᵣ ÷ Iᵢ = ((Z₂ − Z₁) ÷ (Z₂ + Z₁))²",
+          "where": [
+            "Iᵣ = reflected intensity (W m⁻²)",
+            "Iᵢ = incident intensity (W m⁻²)",
+            "Z₁, Z₂ = acoustic impedances of the two media (kg m⁻² s⁻¹)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The bigger the difference between Z₁ and Z₂, the more of the intensity is reflected.",
+            "If Z₁ and Z₂ are equal, nothing is reflected and all of the pulse is transmitted.",
+            "The fraction transmitted is 1 − Iᵣ ÷ Iᵢ.",
+            "A boundary between soft tissue and bone, or soft tissue and air, reflects strongly. Boundaries between different soft tissues reflect weakly, which is why they show up as echoes without blocking the beam."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Work out the fraction of ultrasound intensity reflected at a boundary from the two acoustic impedances.",
+            "question": "An ultrasound pulse travels in soft tissue with Z = {z1} × 10⁶ kg m⁻² s⁻¹ and meets bone with Z = {z2} × 10⁶ kg m⁻² s⁻¹. Find the fraction of the intensity reflected.",
+            "variables": [
+              {
+                "id": "z1",
+                "min": 1.3,
+                "max": 1.7,
+                "step": 0.1
+              },
+              {
+                "id": "z2",
+                "min": 3.0,
+                "max": 7.0,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "((z2 - z1) / (z2 + z1)) ^ 2",
+              "decimals": 2,
+              "tolerance_percent": 3
+            },
+            "working": [
+              "Iᵣ ÷ Iᵢ = ((Z₂ − Z₁) ÷ (Z₂ + Z₁))²",
+              "= (({z2} − {z1}) ÷ ({z2} + {z1}))²",
+              "= {answer}"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Impedance matching and gel"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Air has a very small impedance compared with skin, so about 99.9% of the intensity would be reflected at a skin–air boundary.",
+            "A layer of **gel** between the transducer and the skin removes the air gap.",
+            "The gel has an impedance close to that of skin, so almost all of the ultrasound is transmitted into the body. This is called **impedance matching**."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Attenuation"
+        },
+        {
+          "type": "paragraph",
+          "text": "As ultrasound passes through tissue, its intensity falls because of absorption and scattering. The fall is exponential with the distance travelled."
+        },
+        {
+          "type": "equation",
+          "label": "Attenuation",
+          "formula": "I = I₀e^(−μx)",
+          "where": [
+            "I = intensity after distance x (W m⁻²)",
+            "I₀ = intensity at the start (W m⁻²)",
+            "μ = attenuation coefficient of the medium (m⁻¹)",
+            "x = distance travelled in the medium (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "μ is larger for higher frequencies, so high-frequency ultrasound does not penetrate as deep.",
+            "Echoes from deep boundaries are weaker, because the pulse is attenuated on the way in and on the way back."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Z = ρc, and the more different Z₁ and Z₂ are, the more is reflected.",
+            "Gel matches the impedance of the transducer to skin, so little is reflected.",
+            "Intensity falls exponentially: I = I₀e^(−μx)."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Pulse-echo scans",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In the pulse-echo technique, the time between sending a pulse and receiving an echo gives the distance to the boundary that reflected it."
+        },
+        {
+          "type": "equation",
+          "label": "Depth from echo time",
+          "formula": "d = ct ÷ 2",
+          "where": [
+            "d = depth of the boundary (m)",
+            "c = speed of sound in the tissue (m s⁻¹)",
+            "t = time between sending the pulse and receiving the echo (s)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The factor of 2 is there because the pulse travels to the boundary and back again."
+        },
+        {
+          "type": "subheading",
+          "text": "A-scans and B-scans"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An **A-scan** shows the amplitude of the echoes against the time after the pulse. Each peak is a boundary, and the spacing between peaks gives the distances between boundaries.",
+            "A **B-scan** is built from many A-scans taken in a line or in a fan. Each echo is shown as a dot, brighter for a stronger echo, to give a 2D image of a cross-section.",
+            "A-scans are used for measuring lengths such as the depth of structures in the eye. B-scans are used for images, such as a fetus."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A sketch of an A-scan. A large spike for the transmitted pulse is followed by a smaller echo from the front of an organ and a still smaller echo from the back.",
+            "x": {
+              "label": "Time after the pulse is sent",
+              "min": 0,
+              "max": 100,
+              "ticks": [
+                0,
+                20,
+                40,
+                60,
+                80,
+                100
+              ],
+              "unit": "µs"
+            },
+            "y": {
+              "label": "Amplitude of signal"
+            },
+            "series": [
+              {
+                "name": "A-scan",
+                "points": [
+                  [
+                    0,
+                    0.03
+                  ],
+                  [
+                    1,
+                    0.9
+                  ],
+                  [
+                    2,
+                    0.03
+                  ],
+                  [
+                    28,
+                    0.03
+                  ],
+                  [
+                    30,
+                    0.55
+                  ],
+                  [
+                    32,
+                    0.03
+                  ],
+                  [
+                    68,
+                    0.03
+                  ],
+                  [
+                    70,
+                    0.35
+                  ],
+                  [
+                    72,
+                    0.03
+                  ],
+                  [
+                    100,
+                    0.03
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 1,
+                "label": "Pulse"
+              },
+              {
+                "x": 30,
+                "label": "Front of organ"
+              },
+              {
+                "x": 70,
+                "label": "Back of organ"
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "What limits the detail"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Wavelength:** details smaller than about one wavelength cannot be resolved. A higher frequency means a shorter wavelength and more detail, but more attenuation, so less penetration.",
+            "**Pulse duration:** two boundaries closer together than half the length of the pulse give echoes that overlap. Shorter pulses resolve boundaries that are closer together."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Depth = ct ÷ 2, because the pulse travels there and back.",
+            "An A-scan plots echo amplitude against time. A B-scan builds a 2D image from many A-scans.",
+            "Detail is limited by the wavelength and by the pulse duration."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how a piezoelectric transducer generates and detects ultrasound.",
+      "a": "An alternating p.d. at ultrasound frequency makes the crystal change shape and vibrate, sending out an ultrasound wave. A returning echo changes the shape of the crystal, which generates an e.m.f. that is amplified and processed.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why gel is applied between the transducer and the skin.",
+      "a": "Air has a very different acoustic impedance from skin, so without gel almost all of the ultrasound is reflected at the skin. Gel has an impedance close to that of skin, so there is impedance matching and nearly all the ultrasound is transmitted into the body.",
+      "marks": 3
+    },
+    {
+      "q": "A pulse in tissue reaches a boundary and the echo returns after 52 µs. The speed of sound in the tissue is 1500 m s⁻¹. Calculate the depth of the boundary.",
+      "a": "d = ct ÷ 2 = 1500 × 52 × 10⁻⁶ ÷ 2 = 0.039 m, which is 3.9 cm.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.10.4.1"
+      ],
+      "extra": [
+        {
+          "heading": "Ultrasound compared with other methods",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Compare ultrasound with X-rays and other imaging methods under safety, resolution and convenience."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Safety:** ultrasound is non-ionising, so there is no radiation dose. At the intensities used for scanning it has no known harmful effects, even for a fetus.",
+                "**Resolution:** the detail is limited by the wavelength, and sound is reflected strongly by bone and gas, so lungs and the structures behind bone are hard to image.",
+                "**Convenience:** the equipment is cheap and portable, and shows moving images in real time.",
+                "The quality of the image depends on the skill of the operator, and the gel and contact with the skin are needed."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.88",
+        "EDEX 5.89"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 24.1.1",
+        "CAIE 24.1.2",
+        "CAIE 24.1.3",
+        "CAIE 24.1.4",
+        "CAIE 24.1.5",
+        "CAIE 24.1.6"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.5.3a",
+        "OCR 6.5.3b",
+        "OCR 6.5.3c",
+        "OCR 6.5.3d",
+        "OCR 6.5.3e",
+        "OCR 6.5.3f",
+        "OCR 6.5.3g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for: the Doppler effect",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ultrasound reflected from moving blood has a different frequency from the frequency sent. The size of the shift gives the speed of the blood."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Blood cells move relative to the transducer, so the echo has a different frequency. This is the Doppler effect.",
+                "The frequency is higher when the blood moves towards the transducer and lower when it moves away.",
+                "The beam is usually at an angle θ to the direction of flow, so only the component v cos θ counts."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Speed of blood",
+              "formula": "Δf ÷ f = 2v cos θ ÷ c",
+              "where": [
+                "Δf = change in frequency (Hz)",
+                "f = frequency sent (Hz)",
+                "v = speed of the blood (m s⁻¹)",
+                "θ = angle between the beam and the flow of blood",
+                "c = speed of ultrasound in the tissue (m s⁻¹)"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The factor 2 is there because the blood is first a moving receiver and then a moving source."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "b27837f5-447e-4e38-9eaf-517cbec1e9e7",
+      "132fc949-b762-4bc1-9025-c7c6ad0066ce",
+      "523ddd9e-b904-49db-943c-e58cb61797e3",
+      "c2270231-4d88-47cd-904b-bb339cc28f38",
+      "859da1d5-1e0d-4cc4-9e79-fb67fd8c0908",
+      "c1396957-9131-4c31-918c-127bb05516be",
+      "126ca79f-51e1-4b84-8140-d51cfb02aa24",
+      "add8f36d-98ea-45a5-831f-3945b8245d21",
+      "123b40e5-a8b4-4b2a-9c5b-0cddf5dce48f",
+      "7702c9d1-08e8-41b0-a9ff-b7f4be9dd263",
+      "63481f3d-1b01-4bb4-a80b-66e7a86cd044",
+      "a7d612d4-40dd-44f8-8bc9-29192242e54e",
+      "53509615-cacb-40fc-b754-1033ad49229d",
+      "f1c1fcba-e14c-4b5d-83fc-dd1521071e53",
+      "9ef2e48b-d0a4-4011-99d6-b73d588d994a",
+      "0622b6cb-6350-4168-9668-7cb26a12073b"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

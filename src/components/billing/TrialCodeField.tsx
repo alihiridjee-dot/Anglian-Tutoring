@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Gift } from "lucide-react";
-import { TRIAL_DAYS } from "@/lib/billing/trialCode";
+import { TRIAL_DAYS, trialNeedsCard } from "@/lib/billing/trialCode";
 
 /** "11 October": the day a trial started today first charges. */
 function firstChargeDay(): string {
@@ -54,13 +54,19 @@ export function TrialCodeField({
         autoFocus={!value}
         className="premium-input w-full h-11 rounded-xl px-4 text-sm mt-1 font-mono tracking-wider"
       />
-      {value.trim() && (
-        <p className="mt-2 text-sm">
-          <span className="font-semibold">{TRIAL_DAYS} days free</span>, then{" "}
-          {thenPrice ?? "your plan"} from {firstChargeDay()}. Cancel before then and you pay
-          nothing.
-        </p>
-      )}
+      {value.trim() &&
+        (trialNeedsCard() ? (
+          <p className="mt-2 text-sm">
+            <span className="font-semibold">{TRIAL_DAYS} days free</span>, then{" "}
+            {thenPrice ?? "your plan"} from {firstChargeDay()}. Cancel before then and you pay
+            nothing.
+          </p>
+        ) : (
+          <p className="mt-2 text-sm">
+            <span className="font-semibold">{TRIAL_DAYS} days free, no card needed.</span> The trial
+            ends on {firstChargeDay()}; pick a plan then to keep going.
+          </p>
+        ))}
     </div>
   );
 }

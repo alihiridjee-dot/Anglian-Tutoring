@@ -85,6 +85,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   // its own close button, or simply arriving somewhere.
   const [navOpen, setNavOpen] = useState(false);
   const { data: unreadMessages = 0 } = useChatUnread();
+  const messagesHome = userRole === "parent" ? "/parent-dashboard" : "/messages";
 
   useEffect(() => {
     setNavOpen(false);
@@ -193,7 +194,12 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
           }`}
         >
           <div className="mb-6 flex items-center justify-between gap-2">
-            <Link to="/" className="wordmark flex min-w-0 items-center gap-2 px-2">
+            {/* Signed in, the logo is the way home: this role's dashboard, the
+                sidebar's first entry. The showcase keeps it as the way out. */}
+            <Link
+              to={isDemo ? "/" : nav[0].to}
+              className="wordmark flex min-w-0 items-center gap-2 px-2"
+            >
               <span className="icon-tile icon-tile-solid wordmark-tile size-10 shrink-0">
                 <GraduationCap className="size-5" aria-hidden />
               </span>
@@ -220,8 +226,10 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             const active = pathname === to || pathname.startsWith(to + "/");
             // The rail is collapsed most of the time, so an unread count has to
             // read as a dot on the icon rather than a number beside a hidden
-            // label. It stays visible either way.
-            const badge = to === "/messages" ? unreadMessages : 0;
+            // label. It stays visible either way. It sits on the page that
+            // holds the conversations: Messages, or for a parent, who has no
+            // Messages page, the Portal.
+            const badge = to === messagesHome ? unreadMessages : 0;
             return (
               <Link
                 key={to}
@@ -365,7 +373,8 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             {/* Which spec this student is on, stated on every page — it decides
                 everything they're shown, and it used to appear nowhere after the
                 onboarding step that set it. */}
-            <CourseBadge followsSlider={showSubjectSlider} />
+            {/* A tutor teaches every course and is enrolled on none. */}
+            {!isTutor && <CourseBadge followsSlider={showSubjectSlider} />}
           </div>
           {/* The subject every student page is showing, beside the course chip
               when the header has room. Below `xl` it doesn't fit beside the
@@ -374,16 +383,20 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
               cuts the page title short. */}
           {showSubjectSlider && <HeaderSubjectToggle className="hidden xl:block" />}
           <div className="ml-auto flex flex-wrap items-center gap-2 sm:gap-3 short:shrink-0 short:flex-nowrap short:gap-2">
-            <StudentGuide
-              key={`${pathname}:${title}`}
-              pageTitle={title}
-              guideKey={pathname.includes("/mcq/") ? "MCQ" : title}
-              // On a home page the button replays the welcome tour, which starts
-              // there by itself the first time (see WelcomeTour).
-              welcome={
-                !isDemo && (pathname === "/student-dashboard" || pathname === "/parent-dashboard")
-              }
-            />
+            {/* Every guide is written for a student or a parent; a tutor's
+                pages are a different set of tools. */}
+            {!isTutor && (
+              <StudentGuide
+                key={`${pathname}:${title}`}
+                pageTitle={title}
+                guideKey={pathname.includes("/mcq/") ? "MCQ" : title}
+                // On a home page the button replays the welcome tour, which starts
+                // there by itself the first time (see WelcomeTour).
+                welcome={
+                  !isDemo && (pathname === "/student-dashboard" || pathname === "/parent-dashboard")
+                }
+              />
+            )}
             {isStudentContext && (
               <HeaderLiveButton liveHref={isDemo ? "/demo/student/live" : "/live"} />
             )}

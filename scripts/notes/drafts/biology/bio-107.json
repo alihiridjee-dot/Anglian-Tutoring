@@ -1,0 +1,193 @@
+{
+  "format": 1,
+  "concept_id": "bio-107",
+  "subject": "biology",
+  "title": "Evidence for human evolution",
+  "key_idea": "Our knowledge of human evolution comes from fossils and from stone tools. Fossils such as Ardi, Lucy and Leakey's finds show how our ancestors' bodies changed. Stone tools show how skills developed. Both are dated from the rock layers they are found in.",
+  "sections": [
+    {
+      "heading": "Fossil evidence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Fossils of our ancestors show how the human body has changed. This section covers three famous finds and the changes they show."
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Ardi",
+              "4.4 million years",
+              "A very early human ancestor. Its skeleton has features for both climbing and walking upright."
+            ],
+            ["Lucy", "3.2 million years", "A later ancestor that walked upright on two legs."],
+            [
+              "Richard Leakey's finds",
+              "1.6 million years",
+              "A more recent ancestor, taller and with a larger skull than the earlier fossils."
+            ]
+          ],
+          "columns": ["Fossil", "Age", "What it shows"]
+        },
+        {
+          "type": "subheading",
+          "text": "Structural changes during human evolution"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **larger skull**, which suggests a larger brain.",
+            "**Bipedalism**: walking upright on two legs. Changes to the pelvis and a straighter spine show this.",
+            "Taller bodies, and shorter arms and longer legs (a change in the arm to leg ratio).",
+            "Opposable thumbs, shorter fingers and toes, and arched feet.",
+            "Changes to the teeth."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ardi (4.4 million years), Lucy (3.2 million years) and Leakey's finds (1.6 million years) are fossil evidence.",
+            "Changes include a larger skull, bipedalism and a taller body.",
+            "Fossils are evidence of the structure of our ancestors."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Stone tool evidence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Stone tools are found at sites used by our ancestors. This section covers what they show."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tools become more **skilfully made** over time. For example, they become more pointed.",
+            "A more advanced tool suggests a more evolved ancestor made it.",
+            "Different human ancestors made different tools. One example is the tools of Homo habilis (about 2 million years ago) and Homo erectus (about 1.6 million years ago)."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Sort each piece of evidence for human evolution into fossil evidence or stone tool evidence.",
+            "kind": "sort",
+            "items": [
+              {
+                "text": "A larger skull",
+                "group": 0
+              },
+              {
+                "text": "Walking upright (bipedalism)",
+                "group": 0
+              },
+              {
+                "text": "A taller body",
+                "group": 0
+              },
+              {
+                "text": "Arched feet and shorter toes",
+                "group": 0
+              },
+              {
+                "text": "Tools that are more pointed over time",
+                "group": 1
+              },
+              {
+                "text": "Tools made with more skill by later ancestors",
+                "group": 1
+              },
+              {
+                "text": "Different tools made by different human ancestors",
+                "group": 1
+              }
+            ],
+            "groups": ["Fossil evidence", "Stone tool evidence"],
+            "prompt": "Fossil evidence or stone tool evidence?"
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stone tools show how our ancestors' skills developed.",
+            "Better-made tools suggest a more advanced maker."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Dating the evidence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Scientists need to know how old a fossil or tool is. This section covers the methods."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Depth in the rock layer.** Older tools and fossils are found deeper down.",
+            "**Other fossils** found in the same layer, or other finds of known age from that layer.",
+            "**Comparing** a tool or fossil with others that have already been dated. This includes comparing the shape or how well the tool is made.",
+            "**Radiometric dating** of the rock layer around the find."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Deeper layers are older.",
+            "Dating uses the rock layer, other finds and radiometric dating.",
+            "Carbon dating is ignored unless it is used on organic material found with the tools."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two structural changes that have occurred during human evolution.",
+      "a": "Any two from: a larger skull or brain, bipedalism (walking upright), taller body, opposable thumbs, shorter fingers and toes, arched feet.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how scientists can date stone tools using information about where the tools were found.",
+      "a": "By the depth or layer of rock the tool is in, because older tools are deeper. Also by other fossils found there, or by radiometric dating of the rock layer.",
+      "marks": 2
+    },
+    {
+      "q": "Tool Q is more pointed than tool P. What could a scientist suggest?",
+      "a": "That tool Q was made by a more evolved human ancestor than tool P.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": ["EDEX 4.4", "EDEX 4.5"],
+      "worked_example": {
+        "exemplar_id": "4e8ed500-d823-4493-bc13-24f84e242a5b",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q6(a)(ii)",
+        "question": "Scientists think that stone tool A was probably used by Homo erectus around 1.6 million years ago. Tool B was probably used by Homo habilis around 2 million years ago.\n\nDescribe how scientists can date stone tools using information from where the tools were discovered.",
+        "marks": 2,
+        "answer_points": [
+          "Using the location in the rock layer, or how deep the tool is found.",
+          "Older tools are deeper (the converse also applies).",
+          "Using other fossils found in the same location.",
+          "Radiometric dating of the rock layer."
+        ],
+        "tip": "Any two of the four points score one mark each."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "16559564-a873-45de-a439-10a93e811886",
+      "ab94d4d3-53b4-4300-b044-677b12e7d22d"
+    ],
+    "exemplar_ids": ["4e8ed500-d823-4493-bc13-24f84e242a5b"],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "format": 1,
+  "concept_id": "bio-101",
+  "subject": "biology",
+  "title": "Mendel and the history of genetics",
+  "key_idea": "Gregor Mendel discovered the basis of inheritance by crossing pea plants in the 19th century. He showed that characteristics are passed on as separate units, and that some units hide others. He could not fully explain his results because chromosomes and genes had not yet been discovered.",
+  "sections": [
+    {
+      "heading": "Mendel's pea plant experiments",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gregor Mendel studied inheritance by breeding pea plants. This section covers what he did and how he made his results reliable."
+        },
+        {
+          "type": "list",
+          "items": [
+            "He crossed pea plants with different characteristics, such as **tall** and **short**, or round and wrinkled seeds.",
+            "He recorded the characteristics of the offspring over many generations.",
+            "In one cross, tall plants crossed with short plants gave offspring that were **all tall**.",
+            "Mendel did his work in the 19th century."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Making the investigation reliable"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Plants were grown in a warm, closed greenhouse.",
+            "This gave **identical growth conditions** for every plant, so conditions did not affect the results.",
+            "It reduced the chance of **disease and pests**.",
+            "A closed greenhouse also helps prevent unwanted pollination.",
+            "He **repeated** the crosses and compared results, so any anomalous result could be spotted."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mendel crossed pea plants and studied the offspring.",
+            "Growing the plants in the same conditions made the test fair.",
+            "Repeating the crosses shows whether a result is anomalous."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What Mendel concluded",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mendel explained his results with an idea we still use. This section covers the idea and how it looks in a modern cross."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Dominant",
+              "meaning": "A characteristic that shows in the offspring even when only one unit for it is present."
+            },
+            {
+              "term": "Recessive",
+              "meaning": "A characteristic that shows only when no dominant unit is present."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Characteristics are controlled by separate **units** that are passed from parents to offspring. We now call these **genes**, with different versions called alleles.",
+            "A plant has two units for each characteristic.",
+            "When tall (dominant) and short (recessive) are crossed, the tall unit hides the short unit. So all the offspring are tall.",
+            "The short characteristic was not lost. It can come back in later generations."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Choose the genotypes of two pea plants to see the offspring. T is the dominant tall allele and t is the recessive short allele.",
+            "kind": "punnett",
+            "alleles": {
+              "dominant": "T",
+              "recessive": "t"
+            },
+            "phenotypes": {
+              "dominant": "Tall",
+              "recessive": "Short"
+            },
+            "parent_labels": ["Plant 1", "Plant 2"],
+            "parent_options": [
+              ["TT", "Tt", "tt"],
+              ["TT", "Tt", "tt"]
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Characteristics are inherited as separate units, now called genes.",
+            "A dominant unit hides a recessive unit.",
+            "Tall crossed with short gave all tall because tall is dominant."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why Mendel's work was hard to understand",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mendel's results were clear, but he could not say what the units were. This section covers why, and how understanding grew."
+        },
+        {
+          "type": "list",
+          "items": [
+            "At the time, **chromosomes, DNA, genes and alleles were not known**.",
+            "So Mendel could not fully explain his results.",
+            "Later, scientists observed chromosomes and linked them to inheritance.",
+            "Today we know that genes are sections of DNA on chromosomes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mendel discovered the basis of inheritance. Darwin did not.",
+            "Mendel could not explain the units because genes and chromosomes were not yet known.",
+            "Later discoveries showed that the units are genes on chromosomes."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Who discovered the basis of genetic inheritance by crossing pea plants?",
+      "a": "Gregor Mendel.",
+      "marks": 1
+    },
+    {
+      "q": "Mendel crossed tall pea plants with short pea plants and all the offspring were tall. How does this show that one characteristic hides another?",
+      "a": "The tall characteristic is dominant, so it shows even when the short unit is present. The short characteristic is recessive and is hidden.",
+      "marks": 2
+    },
+    {
+      "q": "State one reason why Mendel could not fully explain the results of his investigations.",
+      "a": "Chromosomes, DNA, genes and alleles were not known at the time.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": ["EDEX 3.11B"],
+      "worked_example": {
+        "exemplar_id": "470dcef4-b1ec-49c6-85d0-11c7c67412b7",
+        "source": "EDEXCEL nov 2020, Paper 1 (H), Q4(a)(ii)",
+        "question": "Gregor Mendel used pea plants in plant breeding experiments. He discovered the basis of genetic inheritance.\n\nIn this investigation, the parent pea plants were grown in a warm, closed greenhouse.\nGive two reasons why the parent pea plants were grown in a warm, closed greenhouse.",
+        "marks": 2,
+        "answer_points": [
+          "To provide optimal, identical or controlled growth conditions for the plants.",
+          "To reduce the chances of disease, pests or pathogens."
+        ],
+        "tip": "One mark for each reason. Preventing unwanted pollination is also accepted."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 5.1m"]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "ce998243-cf18-4d55-adc8-f503d017ecd0",
+      "6caa0ec9-cb4c-424a-8022-910b00f07310"
+    ],
+    "exemplar_ids": ["470dcef4-b1ec-49c6-85d0-11c7c67412b7"],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

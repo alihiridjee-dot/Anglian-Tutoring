@@ -1,0 +1,163 @@
+{
+  "format": 1,
+  "concept_id": "ichem-003",
+  "subject": "chemistry",
+  "title": "The Contact process",
+  "key_idea": "(Supplement) The Contact process makes sulfur trioxide, which is used to make sulfuric acid. Sulfur dioxide reacts with oxygen in a reversible reaction. The typical conditions are 450 °C, 2 atmospheres (200 kPa) and a vanadium(V) oxide catalyst.",
+  "sections": [
+    {
+      "heading": "Raw materials and the reaction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) The Contact process makes sulfur trioxide from sulfur dioxide and oxygen. This section covers where they come from and the equation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) Sulfur dioxide comes from **burning sulfur** in air.",
+            "(Supplement) It also comes from **roasting sulfide ores** in air.",
+            "(Supplement) Oxygen comes from the **air**."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Conversion of sulfur dioxide to sulfur trioxide",
+          "formula": "2SO₂(g) + O₂(g) ⇌ 2SO₃(g)",
+          "where": [
+            "The ⇌ sign shows the reaction is reversible.",
+            "The forward reaction is exothermic."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "A flow diagram. Sulfur or a sulfide ore is burned in air to make sulfur dioxide. Sulfur dioxide and oxygen from the air react over a vanadium(V) oxide catalyst to make sulfur trioxide.",
+            "steps": [
+              "Sulfur or sulfide ore",
+              "Burn or roast in air",
+              "Sulfur dioxide, SO₂",
+              "Add air (oxygen)",
+              "Catalyst V₂O₅ at 450 °C and 2 atm",
+              "Sulfur trioxide, SO₃"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sulfur dioxide comes from burning sulfur or roasting sulfide ores.",
+            "Oxygen comes from the air.",
+            "The reaction is reversible: 2SO₂ + O₂ ⇌ 2SO₃."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Typical conditions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) The conditions are chosen to give a good yield at a good rate. This section covers the conditions and the reasons."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Condition",
+            "Typical value"
+          ],
+          "rows": [
+            [
+              "Temperature",
+              "450 °C"
+            ],
+            [
+              "Pressure",
+              "2 atm (200 kPa)"
+            ],
+            [
+              "Catalyst",
+              "Vanadium(V) oxide"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "(Supplement) Why these conditions"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Temperature:** the forward reaction is exothermic, so a higher temperature lowers the yield of SO₃. A lower temperature makes the rate too slow. 450 °C is a compromise.",
+            "**Pressure:** there are three moles of gas on the left and two on the right, so a high pressure favours SO₃. A pressure lower than 2 atm gives a lower yield or a lower rate.",
+            "**Pressure:** the yield is already high at 2 atm. A much higher pressure would cost more and be more dangerous.",
+            "**Catalyst:** vanadium(V) oxide speeds up the forward and the backward reactions equally. It does not change the position of equilibrium, but the equilibrium is reached faster."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The conditions are 450 °C, 2 atm (200 kPa) and a vanadium(V) oxide catalyst.",
+            "A higher temperature lowers the yield because the forward reaction is exothermic.",
+            "A catalyst speeds up the reaction but does not change the yield."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the catalyst used in the Contact process.",
+      "a": "Vanadium(V) oxide.",
+      "marks": 1
+    },
+    {
+      "q": "Describe two ways in which sulfur dioxide is obtained.",
+      "a": "Burning sulfur in air. Roasting sulfide ores in air.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a temperature higher than 450 °C is not used.",
+      "a": "The forward reaction is exothermic, so a higher temperature gives a lower yield of sulfur trioxide.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.3.8S",
+        "CAIE 6.3.9S",
+        "CAIE 6.3.10S",
+        "CAIE 6.3.11S"
+      ],
+      "worked_example": {
+        "exemplar_id": "9dbd94f2-7b85-40f1-b657-b2187f70a5c7",
+        "source": "CAMBRIDGE jun 2025, Paper 43, Q4(b)(i)",
+        "question": "Sulfuric acid is manufactured in a four-stage process. In one stage, sulfur dioxide reacts with oxygen to form sulfur trioxide. State three typical conditions for this reaction.",
+        "marks": 3,
+        "answer_points": [
+          "A temperature of 450 °C.",
+          "A pressure of 2 atm or 200 kPa.",
+          "A vanadium(V) oxide catalyst."
+        ],
+        "tip": "Give the number and the unit for each condition."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "e70fd349-6b1c-489e-b7d2-ca54dc1bb174",
+      "bf2fec3c-3c62-4de8-8452-cb09eddffaef",
+      "db06fc39-08fb-48ae-a0ab-e7a111032065"
+    ],
+    "exemplar_ids": [
+      "9dbd94f2-7b85-40f1-b657-b2187f70a5c7"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

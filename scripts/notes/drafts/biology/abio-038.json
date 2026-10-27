@@ -1,0 +1,363 @@
+{
+  "format": 1,
+  "concept_id": "abio-038",
+  "subject": "biology",
+  "title": "Transcription and translation",
+  "key_idea": "In transcription, RNA polymerase makes mRNA from one strand of a gene. In translation, ribosomes read the mRNA codons and tRNA brings the matching amino acids, which are joined to make a polypeptide.",
+  "sections": [
+    {
+      "heading": "Genome, proteome and RNA molecules",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Protein synthesis needs three kinds of RNA. This section covers them and two key terms."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Genome",
+              "meaning": "The complete set of genes in a cell."
+            },
+            {
+              "term": "Proteome",
+              "meaning": "The full range of proteins that a cell is able to produce."
+            },
+            {
+              "term": "Codon",
+              "meaning": "A triplet of bases on mRNA that codes for one amino acid, or for start or stop."
+            },
+            {
+              "term": "Anticodon",
+              "meaning": "A triplet of bases on tRNA that is complementary to a codon on mRNA."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "RNA",
+            "Structure",
+            "Job"
+          ],
+          "rows": [
+            [
+              "Messenger RNA (mRNA)",
+              "A single, linear polynucleotide copying one gene",
+              "Carries the code from DNA to the ribosome"
+            ],
+            [
+              "Transfer RNA (tRNA)",
+              "A single strand folded into a clover-leaf shape, with an anticodon at one end and an amino acid attachment site at the other",
+              "Brings a specific amino acid to the ribosome"
+            ],
+            [
+              "Ribosomal RNA (rRNA)",
+              "A polynucleotide that forms part of the ribosome with proteins",
+              "Makes up the ribosome, where translation happens"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The genome is all the genes; the proteome is all the proteins a cell can make.",
+            "mRNA carries the code, tRNA brings amino acids, rRNA forms ribosomes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Transcription",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Transcription makes an mRNA copy of a gene. It happens in the nucleus of a eukaryote."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Unwinding.",
+              "text": "The DNA double helix unwinds and hydrogen bonds between the bases break at the gene."
+            },
+            {
+              "lead": "Template strand.",
+              "text": "One strand, the **template** (antisense) strand, is used. The other is the non-transcribed (sense) strand."
+            },
+            {
+              "lead": "Base pairing.",
+              "text": "Free RNA nucleotides pair with the complementary bases on the template strand: template A pairs with U, template T with A, template C with G and template G with C."
+            },
+            {
+              "lead": "Joining.",
+              "text": "RNA polymerase joins the adjacent RNA nucleotides by condensation reactions, forming phosphodiester bonds."
+            },
+            {
+              "lead": "Release.",
+              "text": "RNA polymerase stops at a stop signal. The mRNA separates from the DNA and the helix re-forms."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The mRNA base sequence is complementary to the template strand. It matches the non-transcribed strand, except that it has uracil in place of thymine.",
+            "In **prokaryotes**, transcription gives mRNA directly.",
+            "In **eukaryotes**, transcription gives **pre-mRNA**, which is then spliced to form mRNA."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Splicing in eukaryotes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pre-mRNA contains both introns and exons.",
+            "Introns are removed and exons are joined together. This is **splicing**.",
+            "The mature mRNA leaves the nucleus through a nuclear pore and goes to a ribosome."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "RNA polymerase joins RNA nucleotides along the template strand.",
+            "mRNA matches the non-transcribed strand, with uracil for thymine.",
+            "Eukaryotic pre-mRNA is spliced: introns out, exons joined."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Translation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Translation makes a polypeptide from the codons on mRNA. It happens at a ribosome in the cytoplasm."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "mRNA binds.",
+              "text": "The mRNA attaches to a ribosome. The ribosome holds two codons at a time."
+            },
+            {
+              "lead": "tRNA brings an amino acid.",
+              "text": "A tRNA with the complementary anticodon pairs by hydrogen bonds with the first codon, at the start codon. It carries a specific amino acid."
+            },
+            {
+              "lead": "Second tRNA.",
+              "text": "A second tRNA pairs with the next codon."
+            },
+            {
+              "lead": "Peptide bond.",
+              "text": "The ribosome catalyses a peptide bond between the two amino acids. This uses energy from ATP."
+            },
+            {
+              "lead": "Move along.",
+              "text": "The ribosome moves along the mRNA by one codon. The first tRNA leaves and picks up another amino acid."
+            },
+            {
+              "lead": "Stop.",
+              "text": "This repeats until a stop codon is reached. The polypeptide is released."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of protein synthesis in order.",
+            "prompt": "Put the stages of protein synthesis in order.",
+            "steps": [
+              "RNA polymerase transcribes the template strand into pre-mRNA",
+              "Introns are removed and exons joined to make mRNA",
+              "mRNA attaches to a ribosome",
+              "tRNA anticodons pair with mRNA codons, bringing amino acids",
+              "Peptide bonds form between adjacent amino acids",
+              "A stop codon is reached and the polypeptide is released"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "tRNA anticodons pair with mRNA codons, so the codon order sets the amino acid order.",
+            "ATP provides energy, and the ribosome moves along the mRNA codon by codon.",
+            "A stop codon ends translation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "From base sequence to amino acids",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Questions give a DNA or mRNA sequence and ask for the amino acids. Work in a fixed order."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Identify the strand.",
+              "text": "Decide whether you have the template strand or the non-transcribed strand."
+            },
+            {
+              "lead": "Write the mRNA.",
+              "text": "Pair each template base with its RNA partner. With the non-transcribed strand, copy it and swap T for U."
+            },
+            {
+              "lead": "Split into codons.",
+              "text": "Read three bases at a time from the start codon."
+            },
+            {
+              "lead": "Use the code table.",
+              "text": "The question gives the table of codons and amino acids. You do not recall them."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Example: template strand 3′ TAC GGT 5′ gives mRNA 5′ AUG CCA 3′. The anticodons on tRNA are UAC and GGU."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Template strand to mRNA: swap each base for its complement, with U instead of T.",
+            "mRNA to tRNA anticodon: complement again.",
+            "The code table is given in the exam."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how mRNA is made from a gene in a eukaryotic cell.",
+      "a": "The DNA helix unwinds and hydrogen bonds break. RNA polymerase moves along the template strand, joining free RNA nucleotides that pair with complementary bases. This forms pre-mRNA, in which introns are removed and exons are joined to give mRNA.",
+      "marks": 4
+    },
+    {
+      "q": "A section of the template strand of a gene reads 3′ TACCGTAAA 5′. Write the mRNA base sequence and the tRNA anticodon for the second codon.",
+      "a": "mRNA: 5′ AUGGCAUUU 3′. Second codon GCA, so its anticodon is CGU.",
+      "marks": 2
+    },
+    {
+      "q": "Explain the roles of tRNA and the ribosome in translation.",
+      "a": "A tRNA carries a specific amino acid and has an anticodon that pairs with the complementary codon on mRNA, so amino acids line up in the order set by the mRNA. The ribosome holds the mRNA and tRNA in place, catalyses peptide bond formation between amino acids and moves along the mRNA.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.2a",
+        "AQA 3.4.2b",
+        "AQA 3.4.2c",
+        "AQA 3.4.2d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Interpret data about the genetic code and relate the base sequence of nucleic acids to the amino acid sequence of polypeptides. Codons and their amino acids do not need to be recalled.",
+                "Interpret data from experiments investigating the role of nucleic acids.",
+                "The roles in translation are of ribosomes, tRNA and ATP."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.6",
+        "EDEX 6.10"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Start codons begin translation and stop codons end it.",
+                "The DNA template (antisense) strand is the one transcribed. Codons are on mRNA and anticodons are on tRNA.",
+                "One gene can give more than one protein through post-transcriptional changes to mRNA.",
+                "The same pre-mRNA can be spliced in different ways, so different exons are kept or removed.",
+                "Different mature mRNAs from one gene are translated into different proteins."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 6.2.3",
+        "CAIE 6.2.4",
+        "CAIE 6.2.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The strand of DNA used in transcription is called the transcribed, or template, strand. The other strand is the non-transcribed strand.",
+                "In eukaryotes, the primary transcript is modified: non-coding introns are removed and coding exons are joined to form mRNA.",
+                "Describe the roles of RNA polymerase, mRNA, codons, tRNA, anticodons and ribosomes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.3g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the roles of RNA polymerase, mRNA, tRNA and rRNA in synthesising a polypeptide.",
+                "rRNA and protein make up the ribosome, the site of translation."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "3fa20021-e9c3-4cfc-a320-4b4789d576c6",
+      "15b4d702-884d-4a72-aee2-e10b29289349",
+      "0969952a-5296-4281-8496-f7165f4f26f9",
+      "1bc15197-57b5-4e01-8040-c18a8c2ca31c",
+      "c94baf11-85e3-4d92-b8a0-b71389e966b8",
+      "9f67c619-e6fb-4a52-a65c-3eba105057a1",
+      "c4b0d9fd-961c-4410-883d-bd394d820cc6",
+      "e19e6fcc-b708-4f3e-b75d-b4a870b63dbe",
+      "813dffb9-8ecc-462e-87b5-1ee83ec271af",
+      "981e6047-4136-4a4e-8534-76082d0fcc56"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

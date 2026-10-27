@@ -1,0 +1,249 @@
+{
+  "format": 1,
+  "concept_id": "achem-007",
+  "subject": "chemistry",
+  "title": "Reacting masses, gas volumes and solutions",
+  "key_idea": "Every mole calculation follows the same path: convert what you are given into moles, use the balanced equation ratio, then convert the moles into what you are asked for. The reagent that runs out first is the limiting reagent.",
+  "sections": [
+    {
+      "heading": "Amount of substance in moles",
+      "blocks": [
+        { "type": "paragraph", "text": "There are three ways to find an amount in moles, depending on whether you have a mass, a gas volume or a solution." },
+        {
+          "type": "equation",
+          "label": "From mass",
+          "formula": "n = m ÷ M",
+          "where": ["n = amount (mol)", "m = mass (g)", "M = molar mass (g mol⁻¹)"]
+        },
+        {
+          "type": "equation",
+          "label": "From gas volume",
+          "formula": "n = V ÷ Vₘ",
+          "where": ["n = amount (mol)", "V = gas volume (dm³)", "Vₘ = molar gas volume (dm³ mol⁻¹). About 24 dm³ mol⁻¹ at room temperature and pressure."]
+        },
+        {
+          "type": "equation",
+          "label": "From a solution",
+          "formula": "n = c × V",
+          "where": ["n = amount (mol)", "c = concentration (mol dm⁻³)", "V = volume (dm³)"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Change cm³ to dm³ by dividing by 1000.",
+            "To change concentration between units: g dm⁻³ = mol dm⁻³ × molar mass.",
+            "Work from the substance you know to the one you want, never straight from mass to mass."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Convert to moles first.",
+            "Use n = m ÷ M, n = V ÷ Vₘ or n = c × V.",
+            "Convert cm³ to dm³ before using concentration."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using the equation: reacting masses and gas volumes",
+      "blocks": [
+        { "type": "paragraph", "text": "The coefficients in a balanced equation give the ratio of amounts, in moles. This section covers using that ratio to find masses and gas volumes, for reactants or products." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Write the balanced equation.", "text": "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂" },
+            { "lead": "Find moles of the known substance.", "text": "2.50 g of CaCO₃ (M = 100.1): n = 2.50 ÷ 100.1 = 0.0250 mol." },
+            { "lead": "Use the ratio.", "text": "1 mol CaCO₃ gives 1 mol CO₂, so n(CO₂) = 0.0250 mol." },
+            { "lead": "Convert to what is asked.", "text": "Volume = 0.0250 × 24.0 = 0.600 dm³ = 600 cm³." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the volume of carbon dioxide made from a mass of calcium carbonate.",
+            "question": "{m} g of calcium carbonate (molar mass 100.1 g mol⁻¹) reacts completely with excess hydrochloric acid. What volume of carbon dioxide forms at room temperature and pressure (1 mol = 24.0 dm³)? Give the volume in cm³.",
+            "variables": [{ "id": "m", "min": 0.5, "max": 5, "step": 0.25 }],
+            "answer": { "formula": "m / 100.1 * 24000", "unit": "cm³", "decimals": 0, "tolerance_percent": 2 },
+            "working": ["CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂", "n(CaCO₃) = {m} ÷ 100.1 mol; n(CO₂) is the same, 1 : 1", "Volume = n × 24.0 dm³ = {answer} cm³"]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gas volumes at the same temperature and pressure react in the same ratio as the coefficients. 2 dm³ of H₂ needs 1 dm³ of O₂ to make water.",
+            "Reacting masses work in both directions: from reactant mass to product mass, or from a required product mass back to the reactant needed.",
+            "Give an answer to the same number of significant figures as the data, or one more."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Moles of known, then ratio, then moles of wanted.",
+            "Gas volumes react in the ratio of the coefficients.",
+            "The ratio works for reactants and for products."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Solutions and limiting reagents",
+      "blocks": [
+        { "type": "paragraph", "text": "For solutions, concentration and volume give the amount. When two reactants are mixed, one may run out first." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Amount of acid.", "text": "25.0 cm³ of 0.100 mol dm⁻³ HCl: n = 0.100 × 0.0250 = 2.50 × 10⁻³ mol." },
+            { "lead": "Ratio.", "text": "Mg + 2HCl → MgCl₂ + H₂, so 2 mol HCl reacts with 1 mol Mg." },
+            { "lead": "Mass of Mg needed.", "text": "n(Mg) = 1.25 × 10⁻³ mol, mass = 1.25 × 10⁻³ × 24.3 = 0.0304 g." }
+          ]
+        },
+        { "type": "subheading", "text": "Limiting reagent" },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Limiting reagent", "meaning": "The reactant that is used up first. It decides how much product forms." },
+            { "term": "Excess reagent", "meaning": "The reactant left over when the reaction stops." }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Find the moles of each reactant.", "text": "0.0500 mol Mg and 2.50 × 10⁻³ mol HCl." },
+            { "lead": "Divide each by its coefficient.", "text": "Mg: 0.0500 ÷ 1 = 0.0500. HCl: 2.50 × 10⁻³ ÷ 2 = 1.25 × 10⁻³." },
+            { "lead": "The smaller value is the limiting reagent.", "text": "HCl is limiting. Calculate the product from HCl." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "From the equation you can deduce the stoichiometric ratio of the reactants, for example by finding the moles that react from experimental data and dividing by the smallest.",
+            "A titre, a mass change or a gas volume can all give the amount of one reactant."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Moles of a reactant ÷ coefficient: the smallest is limiting.",
+            "Work out the product from the limiting reagent.",
+            "Concentration in g dm⁻³ = mol dm⁻³ × molar mass."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate the mass of magnesium oxide formed when 1.215 g of magnesium burns completely in oxygen. 2Mg + O₂ → 2MgO. (A_r: Mg 24.3, O 16.0.)",
+      "a": "n(Mg) = 1.215 ÷ 24.3 = 0.0500 mol. n(MgO) = 0.0500 mol. Mass = 0.0500 × 40.3 = 2.015 g (about 2.02 g).",
+      "marks": 3
+    },
+    {
+      "q": "Calculate the concentration, in g dm⁻³, of 0.250 mol dm⁻³ sodium hydroxide, NaOH (M = 40.0 g mol⁻¹).",
+      "a": "0.250 × 40.0 = 10.0 g dm⁻³.",
+      "marks": 1
+    },
+    {
+      "q": "0.0200 mol of zinc is added to 40.0 cm³ of 0.500 mol dm⁻³ HCl. Zn + 2HCl → ZnCl₂ + H₂. Which reagent is limiting? Calculate the volume of hydrogen formed at room temperature and pressure (1 mol = 24.0 dm³).",
+      "a": "n(HCl) = 0.500 × 0.0400 = 0.0200 mol. Zn needs 0.0400 mol HCl, so HCl is limiting. n(H₂) = 0.0100 mol. Volume = 0.0100 × 24.0 = 0.240 dm³ (240 cm³).",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": ["OCR 2.1.3e", "OCR 2.1.3g", "OCR 2.1.3i"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Express concentration in mol dm⁻³ and in g dm⁻³.",
+                "Know the techniques for measuring mass: weigh by difference, using a balance to the right precision.",
+                "Know the techniques for measuring solution volumes: pipette for a fixed volume, burette for a variable volume, volumetric flask for making up a solution.",
+                "Know the techniques for measuring gas volumes: a gas syringe or an upturned measuring cylinder or burette over water."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 5.7", "EDEX 5.8", "EDEX 5.9", "EDEX 5.10"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Calculations may involve reactants, products or both.",
+                "Reacting volumes of gases can be found two ways: from the equation using amount of substance, or using the molar volume of gases.",
+                "For gases at the same temperature and pressure, the volume ratio equals the mole ratio in the equation."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.1.2.5"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Write balanced equations for reactions studied, and balance equations for unfamiliar reactions when the reactants and products are given.",
+                "Use balanced equations to calculate masses, gas volumes and concentrations and volumes for reactions in solution.",
+                "Required practical 1: make up a volumetric solution and carry out a simple acid–base titration. Percentage yield and atom economy are covered in their own note."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 2.4.1"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Include percentage yield in reacting-mass calculations: percentage yield = (actual mass ÷ theoretical mass) × 100, where the theoretical mass comes from the limiting reagent.",
+                "Use gas volumes such as in the burning of hydrocarbons, where the gas volume ratio gives the equation.",
+                "Identify the limiting reagent and the excess reagent.",
+                "Deduce stoichiometric relationships from the results of calculations.",
+                "Give answers to the number of significant figures asked for or given in the data. Do not lose or invent figures."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "51746682-6a25-4fa2-be3c-5a2f9d76495d",
+      "e6598cc5-abea-49f6-9089-9d7bee7eab29",
+      "b1869e2b-4a18-4fa5-b797-bc13a200cbcd",
+      "3868b139-5311-4051-9e31-891d4dc3bf50",
+      "ffe2bcde-0d01-4437-8f6b-b775171dc5d9",
+      "a33cde49-5c6c-4de4-a49f-e26252998cd5",
+      "2d26ef11-e33f-465a-9a6f-cb7992245723",
+      "7b4b1799-91db-4d19-b6df-8bb038aa9f3a",
+      "5d578ea2-3ce8-4b17-be89-0a5ea67a277c"
+    ],
+    "exemplar_ids": []
+  }
+}

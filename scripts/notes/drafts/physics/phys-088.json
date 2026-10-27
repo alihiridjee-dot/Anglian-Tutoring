@@ -1,0 +1,365 @@
+{
+  "format": 1,
+  "concept_id": "phys-088",
+  "subject": "physics",
+  "title": "The Solar System",
+  "key_idea": "The Solar System is the Sun, eight planets, dwarf planets, moons, asteroids and comets. The Sun formed from a cloud of dust and gas pulled together by gravity. Our model of the Solar System has changed as telescopes and space missions gave new evidence.",
+  "sections": [
+    {
+      "heading": "What is in the Solar System",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Physics only, not needed for Combined Science) The Solar System is the Sun and everything that orbits it. It is a small part of the Milky Way galaxy."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Planet",
+              "meaning": "A large body that orbits the Sun. There are eight."
+            },
+            {
+              "term": "Dwarf planet",
+              "meaning": "A smaller body that orbits the Sun."
+            },
+            {
+              "term": "Natural satellite (moon)",
+              "meaning": "A body that orbits a planet."
+            },
+            {
+              "term": "Asteroid",
+              "meaning": "A small body that orbits the Sun."
+            },
+            {
+              "term": "Comet",
+              "meaning": "A body that orbits the Sun on an orbit not in the same plane as the planets."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Sun is a star at the centre of the Solar System.",
+            "All planets orbit the Sun, each in its own orbit.",
+            "The planet orbits are in the same plane, and the planets spin on their own axes.",
+            "Some planets have several moons."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the eight planets in order of distance from the Sun.",
+            "prompt": "Put the planets in order, nearest the Sun first.",
+            "steps": ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort objects by what they orbit.",
+            "prompt": "What does each object orbit?",
+            "groups": ["Orbits the Sun", "Orbits a planet"],
+            "items": [
+              {
+                "text": "Neptune",
+                "group": 0
+              },
+              {
+                "text": "A comet",
+                "group": 0
+              },
+              {
+                "text": "A dwarf planet",
+                "group": 0
+              },
+              {
+                "text": "An asteroid",
+                "group": 0
+              },
+              {
+                "text": "Earth's Moon",
+                "group": 1
+              },
+              {
+                "text": "A moon of Jupiter",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The Solar System has one star, eight planets, dwarf planets, moons, asteroids and comets.",
+            "Planets, dwarf planets, asteroids and comets orbit the Sun. Moons orbit planets.",
+            "The planets in order from the Sun are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How the Sun formed",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Sun formed from a cloud of dust and gas called a nebula."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Gravity",
+              "text": "Gravity pulls the dust and gas together."
+            },
+            {
+              "lead": "Heating",
+              "text": "Gravitational potential energy is transferred to kinetic energy, so the core becomes very hot and dense."
+            },
+            {
+              "lead": "Protostar",
+              "text": "A protostar forms."
+            },
+            {
+              "lead": "Fusion",
+              "text": "The temperature and pressure become high enough for nuclear fusion to begin."
+            },
+            {
+              "lead": "Balance",
+              "text": "The inward pull of gravity is balanced by the outward push from the energy released in fusion, so the star is stable."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fusion happens in the Sun because of the high temperature, the high pressure and the large gravitational forces from its large mass."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The Sun formed from a nebula pulled together by gravity.",
+            "Fusion starts when the core is hot and dense enough.",
+            "A stable star has gravity balanced by the energy from fusion."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How ideas about the Solar System have changed",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Observations have changed our model of the Solar System over time."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Long ago the Earth was believed to be at the centre, with the planets, the Moon and the Sun orbiting it.",
+            "In 1543 Copernicus proposed that the Earth is a planet, and that the Earth and the other planets orbit the Sun.",
+            "Telescope observations supported the **Sun-centred model**. Galileo saw moons orbiting Jupiter, so not everything orbits the Earth.",
+            "Later telescopes discovered the planets Uranus and Neptune and the asteroid belt.",
+            "Photographs, computer modelling, satellites and space probes such as Voyager gave more evidence."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The Earth-centred model was replaced by a Sun-centred model.",
+            "Telescope evidence, such as the moons of Jupiter, supported the change.",
+            "New technology keeps adding to the evidence."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give three types of object, other than the Sun, that form the Solar System.",
+      "a": "Any three from: planets, dwarf planets, moons (natural satellites), asteroids, comets.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how the Sun was formed.",
+      "a": "A cloud of dust and gas (nebula) was drawn together by gravity. Gravitational potential energy was transferred to kinetic energy, so the core became very hot and dense. A protostar formed and nuclear fusion began.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how observing the moons of Jupiter supported a Sun-centred Solar System.",
+      "a": "The moons were seen orbiting Jupiter. This showed that not everything orbits the Earth.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.8.1.1"],
+      "worked_example": {
+        "exemplar_id": "0e516e0d-2ad6-4f21-9b3d-952c19ebcaf8",
+        "source": "AQA jun 2024, Paper 2 (H), Q03.1",
+        "marks": 3,
+        "question": "The Universe contains many stars. The Sun is the star at the centre of our Solar System.\n\nGive three other types of object that form our Solar System.",
+        "answer_points": [
+          "Planets.",
+          "Dwarf planets.",
+          "Moons (natural satellites).",
+          "Asteroids, meteors, meteoroids, meteorites or comets are also allowed."
+        ],
+        "tip": "One mark for each type of object."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.2P", "EDEX 7.3P", "EDEX 7.4P"],
+      "worked_example": {
+        "exemplar_id": "b7f893b4-03c2-4868-8543-db267630edbd",
+        "source": "EDEXCEL jun 2018, Paper 1 (F), Q7(c)",
+        "marks": 6,
+        "question": "More than two thousand years ago the Earth was believed to be at the centre of the universe.\nThe planets, the Moon and the Sun were believed to be in orbit around the Earth.\nIn 1543 Nicolaus Copernicus proposed that the Earth was a planet, and that the Earth and the other planets orbit around the Sun.\n\nDiscuss how evidence has changed our views of the universe.",
+        "answer_points": [
+          "Telescope evidence supported the Sun-centred model.",
+          "Galileo observed the moons of Jupiter. They rotate around Jupiter, so not everything rotates about the Earth.",
+          "Other telescope observations include the discovery of Uranus, Neptune and the asteroid belt.",
+          "Detailed photographic evidence, computer modelling and satellite observations added to the evidence.",
+          "Space probes such as the Voyager missions verified the Sun-centred model."
+        ],
+        "tip": "A six-mark level-marked answer. Higher levels need accurate, detailed and logically structured physics throughout."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P8.3c", "OCR P8.3e"],
+      "extra": [
+        {
+          "heading": "Satellites",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course also covers minor planets, and geostationary and polar orbits for artificial satellites. A polar orbit travels over both poles."
+            },
+            {
+              "type": "paragraph",
+              "text": "Moons are natural satellites. Artificial satellites are made by people and launched into orbit."
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ad4d5e41-76b7-41f5-bf34-e7f87103cdb0",
+        "source": "OCR jun 2023, Paper 4, Q20(a)",
+        "marks": 3,
+        "question": "The Sun is a star.\n\nDescribe how the Sun was formed.",
+        "answer_points": [
+          "It formed from a cloud of dust and gas (a nebula).",
+          "The dust and gas were drawn together by gravitational force.",
+          "Gravitational potential energy was transferred to kinetic energy.",
+          "The core became very hot and dense and a protostar formed.",
+          "Nuclear fusion began."
+        ],
+        "tip": "Any three points score."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.1.2.1",
+        "CAIE 6.1.2.2",
+        "CAIE 6.1.2.5",
+        "CAIE 6.2.1.1",
+        "CAIE 6.2.2.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "89a0079a-291a-4c8a-854b-67582f2c3536",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q10(a)",
+        "question": "Jupiter and the Earth are planets in our Solar System.\nDescribe the composition of Jupiter and the Earth.",
+        "marks": 2,
+        "answer_points": ["Jupiter is gaseous.", "The Earth is rocky."]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "The planets and how they formed"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The Solar System also has minor planets: dwarf planets, such as Pluto, and asteroids, mostly in the asteroid belt between Mars and Jupiter.",
+                "The four planets nearest the Sun are small and rocky. The four planets furthest from the Sun are large and gaseous.",
+                "The cloud of gas and dust that formed the Solar System contained many elements.",
+                "Gravity pulled the cloud together. As it collapsed, it rotated and the material flattened into a spinning disc, called an **accretion disc**.",
+                "The planets grew from material in the disc that clumped together under gravity.",
+                "Near the Sun it was too hot for gases and ices to stay, so only rock and metal collected and small rocky planets formed. Far from the Sun it was cooler, so gas and ice built up into large gaseous planets."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "The Sun and the Milky Way"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The Sun contains most of the mass of the Solar System. Its large gravitational pull makes the planets orbit it.",
+                "The Sun is a medium-sized star made mostly of hydrogen and helium.",
+                "The Sun radiates most of its energy as infrared, visible light and ultraviolet.",
+                "A galaxy is made up of many billions of stars. The Sun is one of the stars in the Milky Way galaxy. The other stars are much further from the Earth than the Sun is.",
+                "A **light-year** is the distance light travels through space in one year."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 8.2", "IGCSE 8.4", "IGCSE 8.5"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Galaxy",
+                  "meaning": "A large collection of billions of stars."
+                },
+                {
+                  "term": "Universe",
+                  "meaning": "Space and all the billions of galaxies in it."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The Solar System is in the Milky Way galaxy.",
+                "Gravity causes the planets to orbit the Sun, moons to orbit planets, artificial satellites to orbit the Earth and comets to orbit the Sun.",
+                "A comet has a more elliptical orbit than a planet, so its distance from the Sun and its speed change a lot as it orbits. Moons and artificial satellites orbit a planet, not the Sun."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "92db1b63-72c1-48db-ad16-38d5de85e0f8",
+      "6e20bc29-ea9b-4c22-8732-f11da7da1d26",
+      "fcdff68f-7b8b-4582-b880-8fc75114d1b1",
+      "49c158fd-e48e-4734-bc05-e7d8ac7aa6b1",
+      "73e49b35-c89a-4823-abc2-6ed56946396f",
+      "5b597bcf-6af3-48b7-a3dd-37ea59a6e178"
+    ],
+    "exemplar_ids": [
+      "0e516e0d-2ad6-4f21-9b3d-952c19ebcaf8",
+      "b7f893b4-03c2-4868-8543-db267630edbd",
+      "ad4d5e41-76b7-41f5-bf34-e7f87103cdb0",
+      "89a0079a-291a-4c8a-854b-67582f2c3536"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "format": 1,
+  "concept_id": "phys-081",
+  "subject": "physics",
+  "title": "Magnetic fields",
+  "key_idea": "A magnetic field is the region around a magnet where another magnet or magnetic material feels a force. Field lines run from north to south and are closest where the field is strongest. A compass lines up with the field, which shows the Earth's core is magnetic.",
+  "sections": [
+    {
+      "heading": "Magnetic fields and field lines",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A magnetic field is the region around a magnet where a force acts on another magnet or on a magnetic material. Field lines show its direction and strength."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Magnetic field",
+              "meaning": "The region around a magnet where a force acts on another magnet or a magnetic material."
+            },
+            {
+              "term": "Field line",
+              "meaning": "A line showing the direction of the field. It runs from the north pole to the south pole."
+            },
+            {
+              "term": "Uniform field",
+              "meaning": "A field with the same strength and direction everywhere."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The direction of the field at a point is the direction of the force on a north pole placed there.",
+            "The field is strongest at the poles, and weaker as the distance from the magnet increases.",
+            "Where the lines are closer together, the field is stronger.",
+            "The force between a magnet and a magnetic material is always attraction."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "The field around a bar magnet compared with a uniform field.",
+            "items": ["Bar magnet", "Uniform field"],
+            "rows": [
+              {
+                "feature": "Shape of lines",
+                "values": ["Curved", "Straight"]
+              },
+              {
+                "feature": "Spacing of lines",
+                "values": ["Closest together at the poles", "Equally spaced, parallel"]
+              },
+              {
+                "feature": "Direction",
+                "values": ["Changes from point to point", "The same everywhere"]
+              },
+              {
+                "feature": "Strength",
+                "values": ["Strongest at the poles, weaker further away", "The same everywhere"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Field lines run from north to south.",
+            "Lines close together mean a strong field.",
+            "A uniform field has straight, parallel, equally spaced lines."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Plotting a magnetic field",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A plotting compass contains a small bar magnet. It points along the field at its position, so it can map the field around a magnet."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for plotting a magnetic field line with a plotting compass in the correct order.",
+            "prompt": "Put the steps in order.",
+            "steps": [
+              "Place the magnet on a sheet of paper and draw around it.",
+              "Place the compass near one end of the magnet and mark a dot where the needle points.",
+              "Move the compass so the opposite end of the needle is on the dot.",
+              "Mark a new dot at the other end of the needle and repeat.",
+              "Join the dots to show a field line."
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Repeat from different starting points to build up the whole pattern.",
+            "Iron filings can show the pattern too. Place a clear cover over the magnet and sprinkle iron filings on it.",
+            "To compare the strength of two magnets, see how many paper clips each picks up, or how far away it attracts them."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A compass shows the direction of the field at a point.",
+            "Join the marks to draw the field lines."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The Earth's magnetic field",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A compass needle points north because the Earth has a magnetic field. The compass aligns itself with that field."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A magnetic compass always points in the same direction wherever you are.",
+            "This is explained if the Earth behaves like a giant bar magnet. So the core of the Earth must be magnetic.",
+            "A dipping compass shows the angle of the field. The needle is horizontal at the equator and vertical at the poles.",
+            "To show the Earth has a field, use a compass. It points north."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A compass lines up with the Earth's field.",
+            "This is evidence that the Earth's core is magnetic."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the direction of a magnetic field line.",
+      "a": "From the north (seeking) pole to the south (seeking) pole of the magnet.",
+      "marks": 1
+    },
+    {
+      "q": "Explain how a magnetic compass provides evidence that the Earth has a magnetic field.",
+      "a": "The compass needle always points in the same direction (north), because it aligns itself with the Earth's magnetic field.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how a student could find out which of two permanent magnets is stronger, using paper clips.",
+      "a": "Put each magnet near the paper clips. The stronger magnet picks up more paper clips, or the longest chain, or attracts them from a greater distance.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.7.1.2", "AQA T 6.7.1.2"],
+      "worked_example": {
+        "exemplar_id": "1b2ead58-a2da-438f-b0f3-7a4e07eaf7d5",
+        "source": "AQA jun 2023, Paper 2 (H), Q04.5",
+        "question": "A magnetic compass is used by walkers.\n\nExplain how a magnetic compass provides evidence that the Earth has a magnetic field.",
+        "marks": 2,
+        "answer_points": [
+          "The compass (needle always) points in the same direction (it points north).",
+          "Because it aligns itself with the Earth's magnetic field."
+        ],
+        "tip": "The second mark depends on the first."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 12.4", "EDEX 12.5", "EDEX 12.6"],
+      "worked_example": {
+        "exemplar_id": "0635492f-3924-445b-bf47-40d301512db0",
+        "source": "EDEXCEL nov 2021, Paper 2 (H), Q5(a)(ii)",
+        "question": "A student uses plotting compasses to investigate the magnetic field between the poles of two bar magnets. The magnets are on a piece of paper with a pole of one magnet a few centimetres away from a pole of the other magnet. The student places 20 plotting compasses on the paper near the magnets and each one points in the direction of the field at its position.\n\nThe student wants to determine the shape of the magnetic field for a larger area around the magnets.\n\nDescribe how the student should continue the investigation using just one plotting compass.",
+        "marks": 3,
+        "answer_points": [
+          "Place a plotting compass on the paper near the magnets and mark the direction of the field at that point, for example a dot at each end of the needle.",
+          "Determine how the field continues: move the compass so one end of the needle is over the mark just made.",
+          "Connect the field lines: join up the dots to reveal the overall shape."
+        ],
+        "tip": "One mark for each stage: mark a point, find how the field continues, join the marks."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P4.1c", "OCR P4.1d"],
+      "worked_example": {
+        "exemplar_id": "8618d49f-9231-4df9-bac7-928325387dd7",
+        "source": "OCR sample None, Paper 1, Q17(a)(i)",
+        "question": "Two students, A and B, use different methods to see magnetic field patterns.\n\nDescribe how student A can use a compass to plot a magnetic field pattern.\nYou may draw a diagram to help you answer this question.",
+        "marks": 3,
+        "answer_points": [
+          "Place the magnet on a sheet of (plain) paper.",
+          "Place the compass near the end of the magnet.",
+          "Mark the position that the compass needle points to.",
+          "Move the compass so the opposite end is at this position and mark the new position where the compass tip settles.",
+          "Repeat above and below the magnet and connect the marks together to construct a field line."
+        ],
+        "tip": "Any three of the points score. A fully annotated diagram can score full marks."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.1.5",
+        "CAIE 4.1.6",
+        "CAIE 4.1.7",
+        "CAIE 4.1.8",
+        "CAIE 4.1.10S",
+        "CAIE 4.1.11S"
+      ],
+      "worked_example": {
+        "exemplar_id": "b4be6ab9-5581-4ccf-811f-4ce80075ac31",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q8(a)(i)",
+        "question": "State what is meant by a magnetic field.",
+        "marks": 1,
+        "answer_points": ["A region in which a (magnetic) pole experiences a force."],
+        "tip": "A follow-up asks for the direction of the field: it is the direction of the force on a north pole."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) A magnetic force is caused by two magnetic fields interacting."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Each magnet has its own field. Where the two fields overlap, they combine to give one pattern.",
+                "The force on each magnet is due to the field of the other magnet.",
+                "Field-line diagrams show this: lines run from the north pole of one magnet towards the south pole of the other when unlike poles face each other."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 6.4", "IGCSE 6.6", "IGCSE 6.7", "IGCSE 6.10P"],
+      "worked_example": {
+        "exemplar_id": "f359e8aa-1c66-4a41-8a83-27457d72b487",
+        "source": "EDEXCEL jan 2022, Paper 1 (P), Q1(d)",
+        "question": "The region of space around a magnet is known as a magnetic field.\nDescribe an investigation that could be used to determine the shape of the magnetic field around a bar magnet.",
+        "marks": 3,
+        "answer_points": [
+          "Either use a plotting compass.",
+          "Use multiple compasses, or repeat with a single compass at new positions.",
+          "Join up the marks to form a continuous line.",
+          "Or use iron filings, sprinkled on a card over the magnet.",
+          "Tap the card to reveal the pattern."
+        ],
+        "tip": "Follow one route fully: compass (three points) or iron filings (three points)."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Two permanent magnets can make a uniform field in the gap between them."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Face the opposite poles of the two magnets towards each other.",
+                "Hold the magnets very close together, but not touching.",
+                "The field lines in the gap are then straight, parallel and equally spaced.",
+                "To plot the pattern between two bar magnets, use a compass or iron filings as for one magnet. Unlike poles facing give lines running straight across the gap. Like poles facing give lines that bend away from each other."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "f3ee0ea9-74e3-42e4-b3e8-29aac581ebcd",
+      "47340042-7913-4b71-8c90-fa571382fe38",
+      "b513d2cc-2419-4620-8607-e45ad92f8353",
+      "c6b13051-6c72-4879-aed0-85458bf0723f",
+      "f5df0af9-535e-4367-8c6a-0de4a689652a",
+      "f8a540cf-c21f-4170-82c9-0b5dd2ebf791",
+      "b7c9301f-e2d1-438b-bccd-805bb46ed16f"
+    ],
+    "exemplar_ids": [
+      "1b2ead58-a2da-438f-b0f3-7a4e07eaf7d5",
+      "0635492f-3924-445b-bf47-40d301512db0",
+      "8618d49f-9231-4df9-bac7-928325387dd7",
+      "b4be6ab9-5581-4ccf-811f-4ce80075ac31",
+      "f359e8aa-1c66-4a41-8a83-27457d72b487"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "format": 1,
+  "concept_id": "aphys-084",
+  "subject": "physics",
+  "title": "The ear and hearing",
+  "key_idea": "The ear passes sound from air to the fluid of the inner ear, which turns it into nerve signals. Loudness follows the logarithm of intensity, so levels are measured in decibels. Equal loudness curves show how sensitivity changes with frequency and how damage or age raises the threshold.",
+  "sections": [
+    {
+      "heading": "How the ear detects sound",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The ear is a detector that collects sound waves in air and turns them into electrical signals for the brain. It has three parts: the outer ear, the middle ear and the inner ear."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "An interactive ear. Tap a part to see its job, then test yourself.",
+            "prompt": "Tap a part of the ear to see what it does.",
+            "parts": [
+              {
+                "name": "Pinna",
+                "detail": "Collects sound from the surroundings and directs it into the ear canal."
+              },
+              {
+                "name": "Ear canal",
+                "detail": "Carries sound to the eardrum. It resonates at about 3 kHz, which makes the ear most sensitive near that frequency."
+              },
+              {
+                "name": "Eardrum",
+                "detail": "A thin membrane that vibrates with the pressure changes of the sound wave."
+              },
+              {
+                "name": "Ossicles",
+                "detail": "Three small bones that pass the vibrations across the middle ear and act as a lever, increasing the force."
+              },
+              {
+                "name": "Oval window",
+                "detail": "A small membrane that passes the vibrations into the fluid of the cochlea. It is much smaller than the eardrum, so the pressure is greater."
+              },
+              {
+                "name": "Cochlea",
+                "detail": "A fluid-filled spiral. Different places on its basilar membrane vibrate for different frequencies."
+              },
+              {
+                "name": "Hair cells",
+                "detail": "Detect the movement of the basilar membrane and produce electrical impulses."
+              },
+              {
+                "name": "Auditory nerve",
+                "detail": "Carries the electrical impulses to the brain."
+              }
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Outer ear",
+              "text": "Sound travels down the ear canal and makes the eardrum vibrate."
+            },
+            {
+              "lead": "Middle ear",
+              "text": "The ossicles pass the vibrations on to the oval window of the inner ear."
+            },
+            {
+              "lead": "Inner ear",
+              "text": "The oval window makes the fluid in the cochlea move, which makes the basilar membrane vibrate."
+            },
+            {
+              "lead": "Detection",
+              "text": "Hair cells convert the movement into electrical impulses, which pass along the auditory nerve to the brain."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The middle ear **matches the impedance** of air to the fluid in the cochlea. Without it, most of the sound would be reflected at the oval window.",
+            "The eardrum is about twenty times the area of the oval window, and the ossicles act as a lever, so the pressure at the oval window is much larger than at the eardrum.",
+            "High frequencies make the basilar membrane vibrate near the oval window, and low frequencies make it vibrate further along, so the ear can tell frequencies apart."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sound passes from the eardrum through the ossicles to the cochlea.",
+            "Hair cells in the cochlea produce the electrical impulses.",
+            "The middle ear increases the pressure and matches air to the fluid."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Intensity, loudness and the decibel",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The ear can detect sounds over a huge range of intensities. Our sense of loudness follows the logarithm of the intensity, so levels are given on a logarithmic scale."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Intensity",
+              "meaning": "The power of a wave passing through a surface, per unit area perpendicular to the direction of travel. Unit: W m⁻²."
+            },
+            {
+              "term": "Threshold of hearing, I₀",
+              "meaning": "The quietest sound a normal ear can detect at 1 kHz: 1.0 × 10⁻¹² W m⁻²."
+            },
+            {
+              "term": "Intensity level",
+              "meaning": "How the intensity of a sound compares with the threshold of hearing, on a logarithmic scale, in decibels (dB)."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Intensity",
+          "formula": "I = P ÷ A",
+          "where": [
+            "I = intensity (W m⁻²)",
+            "P = power passing through the surface (W)",
+            "A = area of the surface (m²)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Intensity level",
+          "formula": "intensity level = 10 log (I ÷ I₀)",
+          "where": [
+            "intensity level (dB)",
+            "I = intensity of the sound (W m⁻²)",
+            "I₀ = threshold of hearing, 1.0 × 10⁻¹² W m⁻²"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A sound ten times more intense is only about twice as loud. The ear's response is roughly logarithmic.",
+            "The range from the threshold of hearing to the loudest sounds is a factor of about 10¹² in intensity. A logarithmic scale fits this range into 0 to about 120 dB.",
+            "A rise of 10 dB means the intensity is ten times greater.",
+            "A rise of 3 dB roughly doubles the intensity."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "To compare two sounds, use the difference in their levels. The relative intensity level of sound 2 compared with sound 1 is 10 log (I₂ ÷ I₁)."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question on decibels. Work out the factor by which intensity increases for a given rise in intensity level.",
+            "question": "A sound's intensity level is raised by {L} dB. By what factor does its intensity increase?",
+            "variables": [
+              {
+                "id": "L",
+                "min": 10,
+                "max": 50,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "10 ^ (L / 10)",
+              "decimals": 0
+            },
+            "working": [
+              "Rise in level = 10 log (I₂ ÷ I₁) = {L} dB",
+              "log (I₂ ÷ I₁) = {L} ÷ 10",
+              "I₂ ÷ I₁ = 10^({L} ÷ 10) = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "dB and dBA"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A sound-level meter measures the intensity level in **dB** with every frequency counted equally.",
+            "The ear is not equally sensitive at all frequencies, so a sound of 60 dB at 100 Hz does not seem as loud as 60 dB at 3 kHz.",
+            "The **dBA** scale uses a filter that reduces the reading at frequencies where the ear is less sensitive.",
+            "A dBA reading therefore matches how loud the sound seems to a human ear, and is used to assess noise at work."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Intensity is power per unit area, in W m⁻².",
+            "Intensity level = 10 log (I ÷ I₀), measured in dB.",
+            "dBA weights the reading to match the ear's sensitivity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Equal loudness curves and hearing loss",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An equal loudness curve shows the intensity level needed at each frequency for a sound to seem as loud as a reference tone. It shows how the ear's sensitivity changes with frequency."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Reference tone",
+              "text": "A listener hears a 1 kHz tone at a chosen intensity level."
+            },
+            {
+              "lead": "Match",
+              "text": "The listener adjusts a tone of another frequency until it seems equally loud."
+            },
+            {
+              "lead": "Record",
+              "text": "The intensity level needed is plotted against frequency, on a log frequency axis."
+            },
+            {
+              "lead": "Repeat",
+              "text": "Repeating at other reference levels gives a family of curves. The lowest is the threshold of hearing."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The ear is most sensitive between about 2 kHz and 4 kHz, where the curves dip lowest.",
+            "At low frequencies, much greater intensity is needed for the same loudness.",
+            "At high frequencies above about 10 kHz, the curves also rise steeply.",
+            "The curves become flatter at high levels, so a very loud sound seems about equally loud at all frequencies."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Defects of hearing"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Hearing loss** means the threshold of hearing is raised: the equal loudness curves move upwards.",
+            "The loss in dB at a frequency is how far the person's threshold is above the normal threshold at that frequency.",
+            "Exposure to excessive noise damages the hair cells. The damage is often largest near 4 kHz, which makes a dip in the person's curve.",
+            "With longer exposure, the loss spreads over a wider range of frequencies and does not recover.",
+            "With age the threshold rises at high frequencies first, so high-pitched sounds are no longer heard and the upper limit of hearing falls."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Equal loudness curves are made by matching tones to a 1 kHz reference.",
+            "The ear is most sensitive at about 2 to 4 kHz.",
+            "Noise damage and age move the curves up, so the sound must be more intense to be heard."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A sound has intensity 4.0 × 10⁻⁶ W m⁻². Calculate its intensity level.",
+      "a": "Level = 10 log (4.0 × 10⁻⁶ ÷ 1.0 × 10⁻¹²) = 10 log (4.0 × 10⁶) = 66 dB.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a decibel scale is used for the loudness of sounds instead of intensity in W m⁻².",
+      "a": "The ear detects a huge range of intensities, about 10¹² to one. Perceived loudness changes roughly with the logarithm of the intensity, so a logarithmic scale fits the range into small numbers and matches the ear's response.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how an equal loudness curve is obtained, and how the curves of a person with noise-induced hearing loss differ from normal.",
+      "a": "A 1 kHz tone is set at a level. The listener adjusts the intensity level of tones at other frequencies until they sound equally loud, and the levels are plotted against frequency. For noise damage, the curves are higher, especially around 4 kHz, because more intensity is needed for the sound to be heard.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.10.2.1",
+        "AQA 3.10.2.2",
+        "AQA 3.10.2.3"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "12d575d9-e937-4d79-a8a8-9e1f1e62a684",
+      "0d1493f2-1581-4464-b66d-840ddf2a034b",
+      "0e3d873c-dc5e-45e9-ba75-829245ad56ae"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -2,6 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { guardStudentSection } from "@/lib/auth/routeGuards";
 import { Compass, Loader2 } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
+import { EmptyState } from "@/components/Shared";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useRoles } from "@/hooks/useRole";
 import { useViewerId } from "@/hooks/useViewer";
@@ -90,13 +91,16 @@ function StudentPlannerGate() {
       </div>
     );
   }
+  // The profile page has no level control — it is chosen once, in onboarding,
+  // and a tutor can set it from the student's record. So the way forward is to
+  // ask them, not a page that does not exist.
   if (!level) {
     return (
-      <div className="rounded-2xl premium-card p-5 shadow-sm">
-        <p className="text-sm text-muted-foreground">
-          Set your exam level in your profile to start planning.
-        </p>
-      </div>
+      <EmptyState
+        title="We don't know your exam level yet"
+        body="Your plan is built for GCSE or A-level, so it needs to know which. Message your tutor and they'll set it on your account."
+        action={{ to: "/messages", label: "Message my tutor" }}
+      />
     );
   }
 

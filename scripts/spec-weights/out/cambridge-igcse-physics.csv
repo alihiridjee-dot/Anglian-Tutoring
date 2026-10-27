@@ -1,0 +1,325 @@
+code,title,weight,topic
+CAIE 1.1.1,Describe the use of rulers and measuring cylinders to find a length or a volume,1.3,"Motion, forces and energy"
+CAIE 1.1.2,Describe how to measure a variety of time intervals using clocks and digital timers,1.3,"Motion, forces and energy"
+CAIE 1.1.3,Determine an average small distance or time interval by measuring multiples,1.42,"Motion, forces and energy"
+CAIE 1.1.4S,Understand the difference between scalar and vector quantities,1.4,"Motion, forces and energy"
+CAIE 1.1.5S,"Know that distance, speed, time, mass, energy and temperature are scalars",1.05,"Motion, forces and energy"
+CAIE 1.1.6S,"Know that force, weight, velocity, acceleration and momentum are vectors",1.05,"Motion, forces and energy"
+CAIE 1.1.7S,"Determine, by calculation or graphically, the resultant of two vectors at right angles",1.4,"Motion, forces and energy"
+CAIE 1.2.1,Define speed as distance travelled per unit time,1.4,"Motion, forces and energy"
+CAIE 1.2.2,Define velocity as speed in a given direction,1.4,"Motion, forces and energy"
+CAIE 1.2.3,Recall and use the equation average speed = total distance travelled / total time taken,1.1,"Motion, forces and energy"
+CAIE 1.2.4,"Sketch, plot and interpret distance–time and speed–time graphs",1.4,"Motion, forces and energy"
+CAIE 1.2.5,Determine motion from distance–time and speed–time graphs,2.41,"Motion, forces and energy"
+CAIE 1.2.6,Calculate speed from the gradient of a straight-line section of a distance–time graph,1.8,"Motion, forces and energy"
+CAIE 1.2.7,Calculate distance travelled from the area under a speed–time graph,1.8,"Motion, forces and energy"
+CAIE 1.2.8,"State that g, the acceleration of free fall, is approximately 9.8 m/s²",1.02,"Motion, forces and energy"
+CAIE 1.2.9S,Define acceleration as change in velocity per unit time,1.4,"Motion, forces and energy"
+CAIE 1.2.10S,Determine constant or changing acceleration from a speed–time graph,1.84,"Motion, forces and energy"
+CAIE 1.2.11S,Calculate acceleration from the gradient of a speed–time graph,1.8,"Motion, forces and energy"
+CAIE 1.2.12S,Know that a deceleration is a negative acceleration and use this in calculations,1.05,"Motion, forces and energy"
+CAIE 1.2.13S,"Describe falling objects with and without air resistance, including terminal velocity",1.3,"Motion, forces and energy"
+CAIE 1.3.1,State that mass is a measure of the quantity of matter in an object,1,"Motion, forces and energy"
+CAIE 1.3.2,State that weight is a gravitational force on an object that has mass,1,"Motion, forces and energy"
+CAIE 1.3.3,Define gravitational field strength as force per unit mass,1.53,"Motion, forces and energy"
+CAIE 1.3.4,Know that weights (and masses) may be compared using a balance,1.05,"Motion, forces and energy"
+CAIE 1.3.5S,"Describe, and use the concept of, weight as the effect of a gravitational field on a mass",1.3,"Motion, forces and energy"
+CAIE 1.4.1,Define density as mass per unit volume,1.4,"Motion, forces and energy"
+CAIE 1.4.2,Describe how to determine the density of liquids and solids,1.43,"Motion, forces and energy"
+CAIE 1.4.3,Determine whether an object floats based on density data,1.4,"Motion, forces and energy"
+CAIE 1.4.4S,Determine whether one liquid floats on another using density data,1.4,"Motion, forces and energy"
+CAIE 1.5.1.1,Know that forces may produce changes in the size and shape of an object,1.05,"Motion, forces and energy"
+CAIE 1.5.1.2,"Sketch, plot and interpret load–extension graphs for an elastic solid",1.4,"Motion, forces and energy"
+CAIE 1.5.1.3,Determine the resultant of two or more forces acting along the same straight line,1.4,"Motion, forces and energy"
+CAIE 1.5.1.4,Know that objects stay at rest or at constant speed unless a resultant force acts,1.05,"Motion, forces and energy"
+CAIE 1.5.1.5,State that a resultant force can change an object's speed or direction,1,"Motion, forces and energy"
+CAIE 1.5.1.6,Describe solid friction as a force that may impede motion and produce heating,1.3,"Motion, forces and energy"
+CAIE 1.5.1.7,Know that friction (drag) acts on an object moving through a liquid,1.05,"Motion, forces and energy"
+CAIE 1.5.1.8,Know that friction (drag) acts on an object moving through a gas (e.g. air resistance),1.05,"Motion, forces and energy"
+CAIE 1.5.1.9S,Define the spring constant as force per unit extension,1.4,"Motion, forces and energy"
+CAIE 1.5.1.10S,Define and use the limit of proportionality on a load–extension graph,1.47,"Motion, forces and energy"
+CAIE 1.5.1.11S,"Recall and use F = ma, with force and acceleration in the same direction",1.1,"Motion, forces and energy"
+CAIE 1.5.1.12S,Describe qualitatively how a perpendicular force causes circular motion,2.69,"Motion, forces and energy"
+CAIE 1.5.2.1,"Describe the moment of a force as its turning effect, with everyday examples",1.3,"Motion, forces and energy"
+CAIE 1.5.2.2,Define the moment of a force as moment = force × perpendicular distance from the pivot,1.4,"Motion, forces and energy"
+CAIE 1.5.2.3,Apply the principle of moments to situations with one force each side of the pivot,1.7,"Motion, forces and energy"
+CAIE 1.5.2.4,State that an object with no resultant force or moment is in equilibrium,1,"Motion, forces and energy"
+CAIE 1.5.2.5S,Apply the principle of moments to other situations,1.7,"Motion, forces and energy"
+CAIE 1.5.2.6S,Describe an experiment to show there is no resultant moment in equilibrium,1.3,"Motion, forces and energy"
+CAIE 1.5.3.1,State what is meant by centre of gravity,1,"Motion, forces and energy"
+CAIE 1.5.3.2,Describe an experiment to find the centre of gravity of an irregular lamina,1.3,"Motion, forces and energy"
+CAIE 1.5.3.3,Describe how the position of the centre of gravity affects stability,1.3,"Motion, forces and energy"
+CAIE 1.6.1S,Define momentum as mass × velocity,1.4,"Motion, forces and energy"
+CAIE 1.6.2S,Define impulse as force × time for which force acts,1.4,"Motion, forces and energy"
+CAIE 1.6.3S,Apply conservation of momentum to solve simple problems in one dimension,1.7,"Motion, forces and energy"
+CAIE 1.6.4S,Define resultant force as the change in momentum per unit time,1.4,"Motion, forces and energy"
+CAIE 1.7.1.1,State the different ways in which energy may be stored,1,"Motion, forces and energy"
+CAIE 1.7.1.2,Describe how energy is transferred between stores during events and processes,1.48,"Motion, forces and energy"
+CAIE 1.7.1.3,Know and apply conservation of energy to simple examples and flow diagrams,1.05,"Motion, forces and energy"
+CAIE 1.7.1.4S,Recall and use the equation for kinetic energy Ek = ½mv²,1.1,"Motion, forces and energy"
+CAIE 1.7.1.5S,Recall and use the equation for the change in gravitational potential energy ∆Ep = mg∆h,1.1,"Motion, forces and energy"
+CAIE 1.7.1.6S,Know and apply conservation of energy to multi-stage examples and Sankey diagrams,1.05,"Motion, forces and energy"
+CAIE 1.7.2.1,Understand that mechanical or electrical work done is equal to the energy transferred,1.4,"Motion, forces and energy"
+CAIE 1.7.2.2,Recall and use the equation for mechanical working W = Fd = ∆E,1.1,"Motion, forces and energy"
+CAIE 1.7.3.1,Describe how useful energy or electrical power is obtained from energy resources,4.31,"Motion, forces and energy"
+CAIE 1.7.3.2,Describe the advantages and disadvantages of each energy resource,1.3,"Motion, forces and energy"
+CAIE 1.7.3.3,"Understand, qualitatively, the concept of efficiency of energy transfer",1.4,"Motion, forces and energy"
+CAIE 1.7.3.4S,Know that the Sun is the main source of energy for most energy resources,1.05,"Motion, forces and energy"
+CAIE 1.7.3.5S,Know that energy is released by nuclear fusion in the Sun,1.05,"Motion, forces and energy"
+CAIE 1.7.3.6S,Know that research is investigating nuclear fusion for large-scale electricity,3.07,"Motion, forces and energy"
+CAIE 1.7.3.7S,Define efficiency and use the efficiency equations for energy and power,2.04,"Motion, forces and energy"
+CAIE 1.7.4.1,Define power as work done per unit time and also as energy transferred per unit time,2.02,"Motion, forces and energy"
+CAIE 1.8.1,Define pressure as force per unit area,1.4,"Motion, forces and energy"
+CAIE 1.8.2,Describe how pressure varies with force and area in the context of everyday examples,1.3,"Motion, forces and energy"
+CAIE 1.8.3,Describe how liquid pressure changes with depth and density,1.3,"Motion, forces and energy"
+CAIE 1.8.4S,Recall and use ∆p = ρg∆h for pressure change beneath a liquid surface,1.1,"Motion, forces and energy"
+CAIE 2.1.1.1,"Know the distinguishing properties of solids, liquids and gases",1.05,Thermal physics
+CAIE 2.1.1.2,"Know the terms for changes of state between solids, liquids and gases",1.05,Thermal physics
+CAIE 2.1.2.1,"Describe the particle arrangement and motion in solids, liquids and gases",1.37,Thermal physics
+CAIE 2.1.2.2,Describe the relationship between the motion of particles and temperature,1.48,Thermal physics
+CAIE 2.1.2.3,Describe gas pressure in terms of particle motion and collisions,1.3,Thermal physics
+CAIE 2.1.2.4,Know that random motion in a suspension is evidence for the kinetic model,1.05,Thermal physics
+CAIE 2.1.2.5,Describe and explain Brownian motion in terms of random particle collisions,1.41,Thermal physics
+CAIE 2.1.2.6S,"Know how particle forces, distances and motion affect the properties of matter",1.09,Thermal physics
+CAIE 2.1.2.7S,Describe gas pressure as force per unit area from particle collisions,1.37,Thermal physics
+CAIE 2.1.2.8S,Know that fast-moving molecules can move microscopic particles by collisions,1.07,Thermal physics
+CAIE 2.1.3.1,Describe how changing temperature or volume affects gas pressure,1.94,Thermal physics
+CAIE 2.1.3.2,Convert temperatures between kelvin and degrees Celsius,1.4,Thermal physics
+CAIE 2.1.3.3S,Recall and use the equation pV = constant for a fixed mass of gas at constant temperature,1.1,Thermal physics
+CAIE 2.2.1.1,"Describe qualitatively the thermal expansion of solids, liquids and gases",1.3,Thermal physics
+CAIE 2.2.1.2,Describe some of the everyday applications and consequences of thermal expansion,1.3,Thermal physics
+CAIE 2.2.1.3S,"Explain the relative expansion of solids, liquids and gases using particle motion",1.74,Thermal physics
+CAIE 2.2.2.1,Know that a rise in the temperature of an object increases its internal energy,1.05,Thermal physics
+CAIE 2.2.2.2S,Describe a temperature increase as higher average kinetic energy of particles,1.32,Thermal physics
+CAIE 2.2.2.3S,Define specific heat capacity and use the equation c = ∆E / (m∆θ),1.4,Thermal physics
+CAIE 2.2.2.4S,Describe experiments to measure the specific heat capacity of a solid and a liquid,1.3,Thermal physics
+CAIE 2.2.3.1,Describe melting and boiling in terms of energy input without a change in temperature,1.3,Thermal physics
+CAIE 2.2.3.2,Know the melting and boiling temperatures for water at standard atmospheric pressure,1.05,Thermal physics
+CAIE 2.2.3.3,Describe condensation and solidification in terms of particles,1.3,Thermal physics
+CAIE 2.2.3.4,Describe evaporation as more-energetic particles escaping from a liquid's surface,1.3,Thermal physics
+CAIE 2.2.3.5,Know that evaporation causes cooling of a liquid,1.05,Thermal physics
+CAIE 2.2.3.6S,Describe the differences between boiling and evaporation,1.3,Thermal physics
+CAIE 2.2.3.7S,"Describe how temperature, surface area and air movement over a surface affect evaporation",1.3,Thermal physics
+CAIE 2.2.3.8S,Explain the cooling of an object in contact with an evaporating liquid,1.7,Thermal physics
+CAIE 2.3.1.1,Describe experiments to compare good thermal conductors and thermal insulators,1.3,Thermal physics
+CAIE 2.3.1.2S,Describe conduction in solids using lattice vibrations and free electrons,1.37,Thermal physics
+CAIE 2.3.1.3S,"Describe, in terms of particles, why thermal conduction is bad in gases and most liquids",1.3,Thermal physics
+CAIE 2.3.1.4S,Know that some solids conduct better than insulators but less than conductors,1.05,Thermal physics
+CAIE 2.3.2.1,Know that convection transfers thermal energy in liquids and gases,1.05,Thermal physics
+CAIE 2.3.2.2,Explain convection using density changes and describe experiments to show it,1.7,Thermal physics
+CAIE 2.3.3.1,Know that thermal radiation is infrared radiation and that all objects emit this radiation,1.05,Thermal physics
+CAIE 2.3.3.2,Know that thermal energy transfer by thermal radiation does not require a medium,1.05,Thermal physics
+CAIE 2.3.3.3,Describe how surface colour and texture affect infrared radiation,1.3,Thermal physics
+CAIE 2.3.3.4S,Know that constant temperature needs energy lost as fast as energy received,1.12,Thermal physics
+CAIE 2.3.3.5S,Know what happens when energy in is more or less than energy out,1.16,Thermal physics
+CAIE 2.3.3.6S,Know how incoming and emitted radiation balance affects Earth's temperature,1.05,Thermal physics
+CAIE 2.3.3.7S,Describe experiments to distinguish between good and bad emitters of infrared radiation,1.3,Thermal physics
+CAIE 2.3.3.8S,Describe experiments to distinguish between good and bad absorbers of infrared radiation,1.3,Thermal physics
+CAIE 2.3.3.9S,Describe how radiation emission depends on surface temperature and area,1.3,Thermal physics
+CAIE 2.3.4.1,"Explain everyday applications of conduction, convection and radiation",2.21,Thermal physics
+CAIE 2.3.4.2S,Explain applications involving more than one type of thermal energy transfer,2.43,Thermal physics
+CAIE 3.1.1,Know that waves transfer energy without transferring matter,1.05,Waves
+CAIE 3.1.2,Describe wave motion using vibrations in ropes and springs and water waves,1.3,Waves
+CAIE 3.1.3,"Describe wavefront, wavelength, frequency, crest, trough, amplitude and wave speed",1.3,Waves
+CAIE 3.1.4,Recall and use the equation for wave speed v = fλ,1.1,Waves
+CAIE 3.1.5,Know that transverse waves vibrate at right angles to their direction of travel,1.27,Waves
+CAIE 3.1.6,Know that longitudinal waves vibrate parallel to their direction of travel,1.18,Waves
+CAIE 3.1.7,"Describe how waves can undergo reflection, refraction and diffraction",1.96,Waves
+CAIE 3.1.8,"Describe the use of a ripple tank to show reflection, refraction and diffraction",2.54,Waves
+CAIE 3.1.9S,Describe how wavelength and gap size affects diffraction through a gap,1.3,Waves
+CAIE 3.1.10S,Describe how wavelength affects diffraction at an edge,1.3,Waves
+CAIE 3.2.1.1,"Define and use the terms normal, angle of incidence and angle of reflection",1.4,Waves
+CAIE 3.2.1.2,Describe image formation by a plane mirror and its characteristics,1.3,Waves
+CAIE 3.2.1.3,"State that for reflection, the angle of incidence is equal to the angle of reflection",1,Waves
+CAIE 3.2.1.4S,"Use simple constructions, measurements and calculations for reflection by plane mirrors",1.5,Waves
+CAIE 3.2.2.1,"Define and use the terms normal, angle of incidence and angle of refraction",1.4,Waves
+CAIE 3.2.2.2,Describe an experiment to show refraction in blocks of different shapes,1.3,Waves
+CAIE 3.2.2.3,Describe the passage of light through a transparent material,1.3,Waves
+CAIE 3.2.2.4,State the meaning of critical angle,1,Waves
+CAIE 3.2.2.5,"Describe internal reflection and total internal reflection, with examples",1.3,Waves
+CAIE 3.2.2.6S,"Define refractive index, n, as the ratio of the speeds of a wave in two different regions",1.4,Waves
+CAIE 3.2.2.7S,Recall and use the equation n = sin i / sin r,1.1,Waves
+CAIE 3.2.2.8S,Recall and use the equation n = 1 / sin c,1.1,Waves
+CAIE 3.2.2.9S,"Describe the use of optical fibres, particularly in telecommunications",1.3,Waves
+CAIE 3.2.3.1,Describe how thin converging and diverging lenses act on a parallel beam,1.3,Waves
+CAIE 3.2.3.2,"Define and use the terms focal length, principal axis and principal focus (focal point)",1.4,Waves
+CAIE 3.2.3.3,Draw and use ray diagrams for the formation of a real image by a converging lens,1.5,Waves
+CAIE 3.2.3.4,"Describe image size, orientation and whether it is real or virtual",1.3,Waves
+CAIE 3.2.3.5,Know that a virtual image is formed by extrapolating diverging rays backwards,1.05,Waves
+CAIE 3.2.3.6S,Draw and use ray diagrams for the formation of a virtual image by a converging lens,1.5,Waves
+CAIE 3.2.3.7S,Describe the use of a single lens as a magnifying glass,1.3,Waves
+CAIE 3.2.3.8S,Describe the use of converging and diverging lenses to correct long- and short-sightedness,1.3,Waves
+CAIE 3.2.4.1,Describe dispersion of light as shown by white light refracted by a glass prism,1.3,Waves
+CAIE 3.2.4.2,Know the seven spectrum colours in order of frequency and wavelength,1.05,Waves
+CAIE 3.2.4.3S,Recall that visible light of a single frequency is described as monochromatic,1.1,Waves
+CAIE 3.3.1,Know the order of the electromagnetic spectrum by frequency and wavelength,1.05,Waves
+CAIE 3.3.2,Know that all electromagnetic waves travel at the same high speed in a vacuum,1.05,Waves
+CAIE 3.3.3,Describe typical uses of the different regions of the electromagnetic spectrum,4.26,Waves
+CAIE 3.3.4,Describe the harmful effects on people of excessive exposure to electromagnetic radiation,2.78,Waves
+CAIE 3.3.5,Know that communication with artificial satellites is mainly by microwaves,1.62,Waves
+CAIE 3.3.6S,Know that electromagnetic waves travel at 3.0 × 10⁸ m/s in a vacuum and air,1.05,Waves
+CAIE 3.3.7S,Know that many important systems of communications rely on electromagnetic radiation,3.24,Waves
+CAIE 3.3.8S,Know the difference between a digital and analogue signal,1.05,Waves
+CAIE 3.3.9S,Know that a sound can be transmitted as a digital or analogue signal,1.05,Waves
+CAIE 3.3.10S,Explain the benefits of digital signalling,1.7,Waves
+CAIE 3.4.1,Describe the production of sound by vibrating sources,1.3,Waves
+CAIE 3.4.2,Describe the longitudinal nature of sound waves,1.3,Waves
+CAIE 3.4.3,State the approximate range of frequencies audible to humans as 20 Hz to 20 000 Hz,1,Waves
+CAIE 3.4.4,Know that a medium is needed to transmit sound waves,1.05,Waves
+CAIE 3.4.5,Know that the speed of sound in air is approximately 330–350 m/s,1.05,Waves
+CAIE 3.4.6,Describe a method using distance and time to measure the speed of sound in air,1.3,Waves
+CAIE 3.4.7,Describe how amplitude and frequency affect the loudness and pitch of sound,1.3,Waves
+CAIE 3.4.8,Describe an echo as the reflection of sound waves,1.3,Waves
+CAIE 3.4.9,Define ultrasound as sound with a frequency higher than 20 kHz,1.4,Waves
+CAIE 3.4.10S,Describe compression and rarefaction,1.3,Waves
+CAIE 3.4.11S,"Know that sound travels fastest in solids, then liquids, then gases",1.05,Waves
+CAIE 3.4.12S,"Describe uses of ultrasound in testing materials, medical scanning and sonar",1.37,Waves
+CAIE 4.1.1,Describe the forces between magnetic poles and between magnets and magnetic materials,1.46,Electricity and magnetism
+CAIE 4.1.2,Describe induced magnetism,1.3,Electricity and magnetism
+CAIE 4.1.3,State the differences between temporary (soft iron) and permanent (steel) magnets,1,Electricity and magnetism
+CAIE 4.1.4,State the difference between magnetic and non-magnetic materials,1,Electricity and magnetism
+CAIE 4.1.5,Describe a magnetic field as a region in which a magnetic pole experiences a force,1.3,Electricity and magnetism
+CAIE 4.1.6,Draw the pattern and direction of magnetic field lines around a bar magnet,1.5,Electricity and magnetism
+CAIE 4.1.7,State that magnetic field direction is the direction of force on a N pole,1.04,Electricity and magnetism
+CAIE 4.1.8,Describe plotting magnetic field lines with a compass or iron filings,1.34,Electricity and magnetism
+CAIE 4.1.9,Describe the uses of permanent magnets and electromagnets,1.3,Electricity and magnetism
+CAIE 4.1.10S,Explain that magnetic forces are due to interactions between magnetic fields,1.7,Electricity and magnetism
+CAIE 4.1.11S,Know that magnetic field strength is shown by the spacing of field lines,1.05,Electricity and magnetism
+CAIE 4.2.1.1,State that there are positive and negative charges,1,Electricity and magnetism
+CAIE 4.2.1.2,State that like charges repel and unlike charges attract,1,Electricity and magnetism
+CAIE 4.2.1.3,Describe experiments showing electrostatic charging by friction and its detection,1.3,Electricity and magnetism
+CAIE 4.2.1.4,Explain that charging by friction involves only a transfer of electrons,1.7,Electricity and magnetism
+CAIE 4.2.1.5,Describe an experiment to distinguish between electrical conductors and insulators,1.3,Electricity and magnetism
+CAIE 4.2.1.6,Recall and use an electron model to explain conductors and insulators,1.1,Electricity and magnetism
+CAIE 4.2.1.7S,State that charge is measured in coulombs,1,Electricity and magnetism
+CAIE 4.2.1.8S,Describe an electric field as a region in which an electric charge experiences a force,1.3,Electricity and magnetism
+CAIE 4.2.1.9S,State that electric field direction is the force direction on a positive charge,1,Electricity and magnetism
+CAIE 4.2.1.10S,Describe simple electric field patterns,2.2,Electricity and magnetism
+CAIE 4.2.2.1,Know that electric current is related to the flow of charge,1.05,Electricity and magnetism
+CAIE 4.2.2.2,Describe the use of ammeters (analogue and digital) with different ranges,1.3,Electricity and magnetism
+CAIE 4.2.2.3,Describe electrical conduction in metals in terms of the movement of free electrons,1.3,Electricity and magnetism
+CAIE 4.2.2.4,Know the difference between direct current (d.c.) and alternating current (a.c.),1.05,Electricity and magnetism
+CAIE 4.2.2.5S,Define electric current as the charge passing a point per unit time,1.4,Electricity and magnetism
+CAIE 4.2.2.6S,State the directions of conventional current and free electron flow,1,Electricity and magnetism
+CAIE 4.2.3.1,Define electromotive force (e.m.f.) as work done per unit charge around a circuit,1.4,Electricity and magnetism
+CAIE 4.2.3.2,Know that e.m.f. is measured in volts (V),1.05,Electricity and magnetism
+CAIE 4.2.3.3,Define potential difference (p.d.) as work done per unit charge in a component,1.4,Electricity and magnetism
+CAIE 4.2.3.4,Know that the p.d. between two points is measured in volts (V),1.05,Electricity and magnetism
+CAIE 4.2.3.5,Describe the use of voltmeters (analogue and digital) with different ranges,1.3,Electricity and magnetism
+CAIE 4.2.3.6S,Recall and use the equation for e.m.f. E = W / Q,1.1,Electricity and magnetism
+CAIE 4.2.3.7S,Recall and use the equation for p.d. V = W / Q,1.1,Electricity and magnetism
+CAIE 4.2.4.1,Recall and use the equation for resistance R = V / I,1.1,Electricity and magnetism
+CAIE 4.2.4.2,Describe an experiment to determine resistance using a voltmeter and ammeter,1.3,Electricity and magnetism
+CAIE 4.2.4.3,State how a metal wire's resistance depends on its length and cross-section,1,Electricity and magnetism
+CAIE 4.2.4.4S,"Sketch and explain current–voltage graphs for a resistor, filament lamp and diode",1.4,Electricity and magnetism
+CAIE 4.2.4.5S,Recall and use how resistance depends on length and cross-sectional area,1.56,Electricity and magnetism
+CAIE 4.2.5.1,Understand that electric circuits transfer energy from a source of electrical energy,1.49,Electricity and magnetism
+CAIE 4.2.5.2,Recall and use the equation for electrical power P = IV,1.1,Electricity and magnetism
+CAIE 4.2.5.3,Recall and use the equation for electrical energy E = IVt,1.1,Electricity and magnetism
+CAIE 4.2.5.4,Define the kilowatt-hour (kW h) and calculate the cost of using appliances,1.4,Electricity and magnetism
+CAIE 4.3.1.1,Draw and interpret circuit diagrams and know how components behave,1.94,Electricity and magnetism
+CAIE 4.3.1.2S,Draw and interpret circuit diagrams with diodes and LEDs,1.5,Electricity and magnetism
+CAIE 4.3.2.1,Know that the current at every point in a series circuit is the same,1.05,Electricity and magnetism
+CAIE 4.3.2.2,Know how to construct and use series and parallel circuits,1.05,Electricity and magnetism
+CAIE 4.3.2.3,Calculate the combined e.m.f. of several sources in series,1.8,Electricity and magnetism
+CAIE 4.3.2.4,Calculate the combined resistance of two or more resistors in series,1.8,Electricity and magnetism
+CAIE 4.3.2.5,State that the source current exceeds each branch current in a parallel circuit,1,Electricity and magnetism
+CAIE 4.3.2.6,State that two resistors in parallel have less resistance than either alone,1,Electricity and magnetism
+CAIE 4.3.2.7,State the advantages of connecting lamps in parallel in a lighting circuit,1,Electricity and magnetism
+CAIE 4.3.2.8S,Recall and use current and p.d. rules for series and parallel circuits,3,Electricity and magnetism
+CAIE 4.3.2.9S,Explain that current into a junction equals current out of it,1.7,Electricity and magnetism
+CAIE 4.3.2.10S,Calculate the combined resistance of two resistors in parallel,1.8,Electricity and magnetism
+CAIE 4.3.3.1,Know that p.d. across a conductor increases with resistance at constant current,1.05,Electricity and magnetism
+CAIE 4.3.3.2S,Describe the action of a variable potential divider,1.3,Electricity and magnetism
+CAIE 4.3.3.3S,Recall and use R₁ / R₂ = V₁ / V₂ for a potential divider,1.1,Electricity and magnetism
+CAIE 4.4.1,"State the hazards of damaged insulation, overheating cables, damp and overloading",2.01,Electricity and magnetism
+CAIE 4.4.2,"Know the live, neutral and earth wires and why switches go on the live wire",1.36,Electricity and magnetism
+CAIE 4.4.3,Explain how trip switches and fuses work and choose suitable ratings,1.7,Electricity and magnetism
+CAIE 4.4.4,Explain why an appliance casing must be non-conducting or earthed,1.7,Electricity and magnetism
+CAIE 4.4.5,State that a fuse protects the circuit and cabling of a double-insulated appliance,1,Electricity and magnetism
+CAIE 4.5.1.1,Know that a conductor in a changing magnetic field has an e.m.f. induced in it,1.05,Electricity and magnetism
+CAIE 4.5.1.2,Describe an experiment to demonstrate electromagnetic induction,1.3,Electricity and magnetism
+CAIE 4.5.1.3,State the factors affecting the magnitude of an induced e.m.f,1,Electricity and magnetism
+CAIE 4.5.1.4S,Know that the direction of an induced e.m.f. opposes the change causing it,1.05,Electricity and magnetism
+CAIE 4.5.1.5S,"State and use the relative directions of force, field and induced current",1,Electricity and magnetism
+CAIE 4.5.2.1S,Describe a simple a.c. generator and the use of slip rings and brushes,1.3,Electricity and magnetism
+CAIE 4.5.2.2S,Sketch and interpret graphs of e.m.f. against time for a.c. generators,1.49,Electricity and magnetism
+CAIE 4.5.3.1,Describe the magnetic field due to currents in straight wires and solenoids,1.3,Electricity and magnetism
+CAIE 4.5.3.2,Describe an experiment to find the magnetic field around wires and solenoids,1.3,Electricity and magnetism
+CAIE 4.5.3.3,Describe how the magnetic effect of a current is used in relays and loudspeakers,1.3,Electricity and magnetism
+CAIE 4.5.3.4S,State how magnetic field strength varies around straight wires and solenoids,1,Electricity and magnetism
+CAIE 4.5.3.5S,Describe how current changes affect the magnetic field of wires and solenoids,1.3,Electricity and magnetism
+CAIE 4.5.4.1,Describe an experiment to show the force on a current-carrying conductor,1.87,Electricity and magnetism
+CAIE 4.5.4.2S,"Recall and use the relative directions of force, magnetic field and current",1.1,Electricity and magnetism
+CAIE 4.5.4.3S,Determine the direction of the force on beams of charged particles in a magnetic field,1.4,Electricity and magnetism
+CAIE 4.5.5.1,Know the factors that increase the turning effect on a coil in a magnetic field,2.07,Electricity and magnetism
+CAIE 4.5.5.2S,Describe the operation of an electric motor,1.3,Electricity and magnetism
+CAIE 4.5.6.1,Describe the construction of a simple transformer with a soft-iron core,1.3,Electricity and magnetism
+CAIE 4.5.6.2,"Use the terms primary, secondary, step-up and step-down",1.5,Electricity and magnetism
+CAIE 4.5.6.3,Recall and use the equation Vp / Vs = Np / Ns where p and s refer to primary and secondary,1.1,Electricity and magnetism
+CAIE 4.5.6.4,Describe the use of transformers in high-voltage transmission of electricity,1.3,Electricity and magnetism
+CAIE 4.5.6.5,State the advantages of high-voltage transmission,1,Electricity and magnetism
+CAIE 4.5.6.6S,Explain the principle of operation of a simple iron-cored transformer,1.7,Electricity and magnetism
+CAIE 4.5.6.7S,Recall and use IₚVₚ = IₛVₛ for a transformer with 100% efficiency,1.1,Electricity and magnetism
+CAIE 4.5.6.8S,Recall and use P = I²R to explain smaller cable losses at higher voltage,1.1,Electricity and magnetism
+CAIE 5.1.1.1,Describe the atom as a positively charged nucleus orbited by negative electrons,1.3,Nuclear physics
+CAIE 5.1.1.2,Know how atoms form positive and negative ions by losing or gaining electrons,1.05,Nuclear physics
+CAIE 5.1.1.3S,Describe how α-particle scattering supports the nuclear model of the atom,2.58,Nuclear physics
+CAIE 5.1.2.1,Describe the composition of the nucleus in terms of protons and neutrons,1.3,Nuclear physics
+CAIE 5.1.2.2,"State the relative charges of protons, neutrons and electrons as +1, 0 and –1 respectively",1,Nuclear physics
+CAIE 5.1.2.3,Define proton number Z and nucleon number A and calculate neutrons in a nucleus,1.42,Nuclear physics
+CAIE 5.1.2.4,Use nuclide notation to describe a nucleus,1.57,Nuclear physics
+CAIE 5.1.2.5,Explain what an isotope is and that an element may have more than one,1.7,Nuclear physics
+CAIE 5.1.2.6S,Describe nuclear fission and fusion as splitting or joining of nuclei,1.43,Nuclear physics
+CAIE 5.1.2.7S,Know the relationship between the proton number and the relative charge on a nucleus,1.05,Nuclear physics
+CAIE 5.1.2.8S,Know the relationship between the nucleon number and the relative mass of a nucleus,1.05,Nuclear physics
+CAIE 5.2.1.1,Know what is meant by background radiation,1.05,Nuclear physics
+CAIE 5.2.1.2,Know the sources that make a significant contribution to background radiation,2.02,Nuclear physics
+CAIE 5.2.1.3,Know that ionising radiation is measured with a detector and a counter,1.05,Nuclear physics
+CAIE 5.2.1.4,Use count rate measured in counts / s or counts / minute,1.5,Nuclear physics
+CAIE 5.2.1.5S,Use measurements of background radiation to determine a corrected count rate,1.5,Nuclear physics
+CAIE 5.2.2.1,Describe the emission of radiation from a nucleus as spontaneous and random in direction,1.3,Nuclear physics
+CAIE 5.2.2.2,"Identify alpha (α), beta (β) and gamma (γ) emissions from their properties",2.17,Nuclear physics
+CAIE 5.2.2.3S,"Describe how α, β and γ radiation are deflected in electric and magnetic fields",1.3,Nuclear physics
+CAIE 5.2.2.4S,"Explain their relative ionising effects with reference to kinetic energy, electric charge",2.14,Nuclear physics
+CAIE 5.2.3.1,"Know that radioactive decay is spontaneous, random and emits α, β or γ radiation",1.21,Nuclear physics
+CAIE 5.2.3.2,"State that during α-decay or β-decay, the nucleus changes to that of a different element",1,Nuclear physics
+CAIE 5.2.3.3S,Know that isotopes are radioactive if they have excess neutrons or are too heavy,1.05,Nuclear physics
+CAIE 5.2.3.4S,"Describe the effect of α-decay, β-decay and γ-emissions on the nucleus",1.61,Nuclear physics
+CAIE 5.2.3.5S,"Use decay equations in nuclide notation for α, β and γ emission",1.5,Nuclear physics
+CAIE 5.2.4.1,Define the half-life of an isotope and use it in simple calculations,1.87,Nuclear physics
+CAIE 5.2.4.2S,Calculate half-life from data or decay curves with background not subtracted,1.8,Nuclear physics
+CAIE 5.2.4.3S,Explain how radiation type and half-life determine which isotope is used,3.71,Nuclear physics
+CAIE 5.2.5.1,State the effects of ionising nuclear radiations on living things,1,Nuclear physics
+CAIE 5.2.5.2,"Describe how radioactive materials are moved, used and stored in a safe way",1.3,Nuclear physics
+CAIE 5.2.5.3S,"Explain ionising radiation safety in terms of time, distance and shielding",1.72,Nuclear physics
+CAIE 6.1.1.1,"Know how Earth's daily rotation explains day, night and the Sun's motion",1.43,Space physics
+CAIE 6.1.1.2,Know that Earth's 365-day orbit of the Sun explains the seasons,1.05,Space physics
+CAIE 6.1.1.3,Know that the Moon's monthly orbit of the Earth explains its phases,1.12,Space physics
+CAIE 6.1.1.4S,Define average orbital speed from v = 2πr / T and use the equation,1.56,Space physics
+CAIE 6.1.2.1,"Describe the Solar System as the Sun, planets, minor planets, moons and comets",3.13,Space physics
+CAIE 6.1.2.2,Know why inner planets are rocky and small and outer planets gaseous and large,2.91,Space physics
+CAIE 6.1.2.3,Know how gravitational field strength depends on planet mass and distance,1.69,Space physics
+CAIE 6.1.2.4,Calculate the time light takes to travel between objects in the Solar System,1.8,Space physics
+CAIE 6.1.2.5,"Know that the Sun holds most of the Solar System's mass, so planets orbit it",1.05,Space physics
+CAIE 6.1.2.6,Know that the Sun's gravitational attraction keeps objects in orbit around it,1.05,Space physics
+CAIE 6.1.2.7S,"Know that planets, minor planets and comets have elliptical orbits",1.18,Space physics
+CAIE 6.1.2.8S,"Analyse and interpret planetary data on orbit, density, temperature and gravity",2,Space physics
+CAIE 6.1.2.9S,Know that gravity and orbital speed decrease with distance from the Sun,1.07,Space physics
+CAIE 6.1.2.10S,"Know that objects in elliptical orbits move faster nearer the Sun, and why",1.05,Space physics
+CAIE 6.2.1.1,Know that the Sun is a medium-sized star made mostly of hydrogen and helium,1.29,Space physics
+CAIE 6.2.1.2S,Know that stable stars are powered by fusion of hydrogen into helium,1.07,Space physics
+CAIE 6.2.2.1,State that galaxies hold billions of stars and that distances are in light-years,2.99,Space physics
+CAIE 6.2.2.2S,Know that one light-year is equal to 9.5 × 10¹⁵ m,1.05,Space physics
+CAIE 6.2.2.3S,Describe the life cycle of a star,4.66,Space physics
+CAIE 6.2.3.1,Know that the Milky Way is one of many billions of galaxies in the Universe,1.14,Space physics
+CAIE 6.2.3.2,Describe redshift as an increase in observed wavelength from receding galaxies,1.3,Space physics
+CAIE 6.2.3.3,Know that light from distant galaxies is redshifted compared with light on Earth,1.05,Space physics
+CAIE 6.2.3.4,Know that redshift is evidence for an expanding Universe and the Big Bang,1.05,Space physics
+CAIE 6.2.3.5S,Know that CMBR is microwave radiation observed at all points in space,1.07,Space physics
+CAIE 6.2.3.6S,Explain that the CMBR was produced shortly after the Universe formed,1.83,Space physics
+CAIE 6.2.3.7S,Know that a galaxy's speed away from Earth can be found from redshift,1.16,Space physics
+CAIE 6.2.3.8S,Know that supernova brightness can be used to find the distance of a far galaxy,1.05,Space physics
+CAIE 6.2.3.9S,Define the Hubble constant H₀ and use the equation H₀ = v / d,1.67,Space physics
+CAIE 6.2.3.10S,Know that the current estimate for H0 is 2.2 × 10⁻¹⁸ per second,1.05,Space physics
+CAIE 6.2.3.11S,Know that d / v = 1 / H₀ estimates the age of the Universe,1.41,Space physics

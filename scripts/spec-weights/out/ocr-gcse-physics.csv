@@ -1,0 +1,183 @@
+code,title,weight,topic
+OCR P1.1a,How and why the atomic model has changed over time the Thomson,1.3,Matter
+OCR P1.1b,Atom as a positively charged nucleus surrounded by negative electrons,1.5,Matter
+OCR P1.1c,Typical size of atoms and small molecules,1.1,Matter
+OCR P1.1d,Define density,1.4,Matter
+OCR P1.1e,Differences in density between the different states of matter,1.7,Matter
+OCR P1.1f,"Density, mass and volume in changes where mass is conserved",1.7,Matter
+OCR P1.2a,"How mass is conserved when substances melt, freeze, evaporate",1.3,Matter
+OCR P1.2b,Physical versus chemical changes: original properties recovered if reversed,1.3,Matter
+OCR P1.2c,"How heating a system changes its stored energy, temperature or state",1.3,Matter
+OCR P1.2d,Define specific heat capacity and distinguish it from specific latent heat,1.49,Matter
+OCR P1.2e,"Calculating energy change from mass, specific heat capacity and temperature change",1.72,Matter
+OCR P1.2f,Using specific latent heat and mass to calculate energy change in a change of state,1.7,Matter
+OCR P1.3a,How molecular motion in a gas relates to its temperature and pressure,1.72,Matter
+OCR P1.3b,Relationship between the temperature of a gas and its pressure,1.7,Matter
+OCR P1.3c,"Gas compression and expansion, and pressure acting at right angles to surfaces",1.1,Matter
+OCR P1.3d,How increasing the volume of a gas at constant temperature can decrease pressure,1.79,Matter
+OCR P1.3e,"How doing work on a gas raises its temperature, as in a bicycle pump",1.7,Matter
+OCR P1.3f,Simple model of the Earth’s atmosphere and of atmospheric pressure,1.3,Matter
+OCR P1.3g,Why atmospheric pressure varies with height above the surface,1.7,Matter
+OCR P1.3h,Factors which influence floating and sinking,1.3,Matter
+OCR P1.3i,Why liquid pressure varies with depth and density and causes an upwards force,1.7,Matter
+OCR P1.3j,Differences in pressure at different depths in a liquid,2,Matter
+OCR P2.1a,How to measure distance and time in a range of scenarios,1.3,Forces
+OCR P2.1b,"Measuring distance and time, and calculating speed from graphs",1.3,Forces
+OCR P2.1c,Make calculations using ratios to convert units and compute rates,1.4,Forces
+OCR P2.1d,"Vector–scalar distinction for displacement and distance, velocity and speed",1.7,Forces
+OCR P2.1e,Relate changes and differences in motion to distance–time and velocity–time graphs,1.4,Forces
+OCR P2.1f,Enclosed area in velocity-time graphs,1.6,Forces
+OCR P2.1g,Average speed for non-uniform motion,1.8,Forces
+OCR P2.1h,"Formulae relating distance, time and speed, for uniform motion",1.7,Forces
+OCR P2.2a,Examples of ways in which objects interact electrostatics,1.1,Forces
+OCR P2.2b,Interactions between pairs of objects producing a force on each object,1.3,Forces
+OCR P2.2c,Represent forces as vectors by drawing free body force diagrams,1.4,Forces
+OCR P2.2d,Applying Newton’s first law to uniform and changing motion,2.06,Forces
+OCR P2.2e,"Vector diagrams for resolving forces, net force and equilibrium",1.54,Forces
+OCR P2.2f,"Forces acting on an isolated object or system, including terminal velocity",1.43,Forces
+OCR P2.2g,"Describe, using free body diagrams, how two or more forces give a resultant force",1.3,Forces
+OCR P2.2h,"Describe, using free body diagrams, forces that balance to give zero resultant force",1.3,Forces
+OCR P2.2i,"Newton’s second law in calculations relating force, mass and acceleration",1.7,Forces
+OCR P2.2j,"Inertia as the difficulty of changing velocity, and inertial mass",1.86,Forces
+OCR P2.2k,Define momentum and describe examples of momentum in collisions,1.4,Forces
+OCR P2.2l,"Applying formulae relating force, mass, velocity and acceleration",1.7,Forces
+OCR P2.2m,"Relationship between work done, force and distance moved, and energy transfer",1.5,Forces
+OCR P2.2n,Relevant values of stored energy and energy transfers,1.8,Forces
+OCR P2.2o,"Explain, with examples, the definition of power as the rate of energy transfer",1.7,Forces
+OCR P2.2p,Newton’s third law applied to equilibrium and non-equilibrium situations,1.1,Forces
+OCR P2.2q,Why an object moving in a circle at constant speed has a changing velocity,1.7,Forces
+OCR P2.3a,"Why more than one force is needed to stretch, bend or compress an object",1.7,Forces
+OCR P2.3b,Difference between elastic and plastic deformation,1.3,Forces
+OCR P2.3c,Relationship between force and extension for a spring and other simple systems,1.3,Forces
+OCR P2.3d,Difference between linear and non-linear force–extension relationships,1.3,Forces
+OCR P2.3e,Spring constant in linear cases,1.8,Forces
+OCR P2.3f,Work done in stretching,1.8,Forces
+OCR P2.3g,"Gravitational field of all matter causing attraction, stronger for massive objects",1.3,Forces
+OCR P2.3h,"Define weight, how it is measured and its link to gravitational field strength",1.87,Forces
+OCR P2.3i,Acceleration in free fall,1.1,Forces
+OCR P2.3j,"Formulae relating force, mass and relevant physical constants",1.7,Forces
+OCR P2.3k,"Examples of forces causing rotation, with pivot location and turning direction",1.34,Forces
+OCR P2.3l,"Define and calculate the moment of a force, and the principle of moments",1.4,Forces
+OCR P2.3m,How levers and gears transmit the rotational effects of forces,1.79,Forces
+OCR P2.3n,Pressure in gases and liquids causing a net force at right angles to a surface,1.1,Forces
+OCR P2.3o,"Relationship between force, pressure and area, and how hydraulic systems work",1.5,Forces
+OCR P3.1a,"Charge as a property of all matter, with positive and negative charges",1.7,Electricity
+OCR P3.1b,Production of static electricity and sparking by rubbing surfaces,1.66,Electricity
+OCR P3.1c,How electron transfer between objects explains static electricity,1.7,Electricity
+OCR P3.1d,Concept of an electric field and how it helps explain static electricity,1.83,Electricity
+OCR P3.1e,"Current as the rate of flow of charge, and the conditions for charge to flow",1.3,Electricity
+OCR P3.1f,Current having the same value at any point in a single closed loop,1.1,Electricity
+OCR P3.1g,"Relationship between quantity of charge, current and time",1.1,Electricity
+OCR P3.2a,Differences between series and parallel circuits and positioning of meters,1.34,Electricity
+OCR P3.2b,Represent d.c. circuits using standard symbols and terminal conventions,1.69,Electricity
+OCR P3.2c,"How current depends on resistance and potential difference, and their units",1.17,Electricity
+OCR P3.2d,"Relationship between I, R and V, including resistors where R changes with current",1.26,Electricity
+OCR P3.2e,Resistors whose resistance stays constant and those where it changes with current,1.7,Electricity
+OCR P3.2f,Design and use of circuits to explore resistance in different components,1.74,Electricity
+OCR P3.2g,Graphs to explore whether circuit elements are linear or non-linear,1.5,Electricity
+OCR P3.2h,Relating graph curves to the function and properties of circuit elements,1.63,Electricity
+OCR P3.2i,Why net resistance increases in series and decreases in parallel,1.72,Electricity
+OCR P3.2j,"Calculating current, potential difference and resistance in d.c. circuits",1.89,Electricity
+OCR P3.2k,Design and use of d.c. circuits for measurement and testing,1.7,Electricity
+OCR P3.2l,How power transfer in a circuit device relates to potential difference and current,1.79,Electricity
+OCR P3.2m,"Equations for potential difference, current, charge, resistance, power and energy",1.83,Electricity
+OCR P4.1a,Attraction and repulsion between unlike and like poles of permanent magnets,1.37,Magnetism and magnetic fields
+OCR P4.1b,Difference between permanent and induced magnets,1.3,Magnetism and magnetic fields
+OCR P4.1c,"Characteristics of a magnetic field, including how strength and direction vary",1.63,Magnetism and magnetic fields
+OCR P4.1d,How a dipping compass behaves as evidence that the Earth’s core is magnetic,1.7,Magnetism and magnetic fields
+OCR P4.1e,Showing the magnetic effect of a current and the field direction around a wire,1.3,Magnetism and magnetic fields
+OCR P4.1f,How field strength depends on the current and distance from a conductor,1.1,Magnetism and magnetic fields
+OCR P4.1g,How solenoid arrangements can enhance the magnetic effect,1.7,Magnetism and magnetic fields
+OCR P4.2a,How a magnet and a current-carrying conductor exert a force on each other,1.3,Magnetism and magnetic fields
+OCR P4.2b,"Show that Fleming’s left-hand rule represents force, current and field orientations",1.4,Magnetism and magnetic fields
+OCR P4.2c,"Calculating the force on a conductor from flux density, current and length",1.74,Magnetism and magnetic fields
+OCR P4.2d,How magnetic force on a current-carrying conductor turns electric motors,2.03,Magnetism and magnetic fields
+OCR P4.2e,Induced potential difference from a changing magnetic field,1.37,Magnetism and magnetic fields
+OCR P4.2f,How alternators generate alternating current and dynamos generate direct current,1.7,Magnetism and magnetic fields
+OCR P4.2g,How transformers use a.c. in one circuit to induce a current in another,1.7,Magnetism and magnetic fields
+OCR P4.2h,How a transformer’s potential difference ratio depends on its turns ratio,1.72,Magnetism and magnetic fields
+OCR P4.2i,Equations linking potential differences and numbers of turns in a transformer,1.7,Magnetism and magnetic fields
+OCR P4.2j,How microphones and loudspeakers convert between sound waves and current,2.1,Magnetism and magnetic fields
+OCR P5.1a,"Wave motion in terms of amplitude, wavelength, frequency and period",1.3,Waves in matter
+OCR P5.1b,Define wavelength and frequency,1.4,Waves in matter
+OCR P5.1c,"Relationship between wavelength, frequency and wave velocity",1.3,Waves in matter
+OCR P5.1d,"Formulae relating velocity, frequency and wavelength",1.7,Waves in matter
+OCR P5.1e,Differences between transverse and longitudinal waves,1.3,Waves in matter
+OCR P5.1f,"Show how velocity, frequency and wavelength inter-relate when sound changes medium",1.4,Waves in matter
+OCR P5.1g,"Effects of reflection, transmission and absorption of waves at material interfaces",1.3,Waves in matter
+OCR P5.1h,"Describe, with examples, conversion between sound waves and vibrations in solids",1.41,Waves in matter
+OCR P5.1i,Why such processes only work over a limited frequency range,1.77,Waves in matter
+OCR P5.1j,How ripples model transverse waves and how wave speeds are measured,1.39,Waves in matter
+OCR P5.1k,"Evidence that the wave travels, not the water or the air",1.41,Waves in matter
+OCR P5.2a,Transverse nature and common velocity of electromagnetic waves,1.1,Waves in matter
+OCR P5.2b,Energy transfer by electromagnetic waves from source to absorber,1.7,Waves in matter
+OCR P5.2c,Frequency and wavelength relationships across the electromagnetic spectrum,1.7,Waves in matter
+OCR P5.2d,"Main groupings of the electromagnetic spectrum, from radio to gamma rays",1.59,Waves in matter
+OCR P5.2e,The limited range of the electromagnetic spectrum our eyes can detect,1.3,Waves in matter
+OCR P5.2f,Light is an electromagnetic wave,1.1,Waves in matter
+OCR P5.2g,Give examples of some practical uses of electromagnetic waves,1.4,Waves in matter
+OCR P5.2h,"Hazardous effects of ultraviolet waves, X-rays and gamma rays on body tissues",1.3,Waves in matter
+OCR P5.2i,"Explain, in qualitative terms, how the differences in velocity",2.46,Waves in matter
+OCR P5.2j,Radio waves and oscillations in electrical circuits,1.1,Waves in matter
+OCR P5.3a,"How substances absorb, transmit, refract or reflect electromagnetic waves",1.1,Waves in matter
+OCR P5.3b,How effects relate to electromagnetic wave velocity in different substances,1.7,Waves in matter
+OCR P5.3c,"Ray diagrams for reflection, refraction and convex and concave lenses",1.83,Waves in matter
+OCR P5.3d,Construct two-dimensional ray diagrams to illustrate reflection and refraction,1.4,Waves in matter
+OCR P5.3e,"How colour relates to differential absorption, transmission and reflection",1.7,Waves in matter
+OCR P6.1a,Protons and neutrons in atomic nuclei,1.1,Radioactivity
+OCR P6.1b,Atoms of the same element with different numbers of neutrons,1.1,Radioactivity
+OCR P6.1c,"Using nuclear notation to relate isotopes’ identities, charges and masses",1.5,Radioactivity
+OCR P6.1d,Unstable nuclei and the radiation they emit,1.1,Radioactivity
+OCR P6.1e,"Relate alpha, beta, gamma and neutron emission to changes in nuclear mass or charge",1.42,Radioactivity
+OCR P6.1f,Using symbols of nuclei and particles to write balanced decay equations,1.5,Radioactivity
+OCR P6.1g,"Balance equations for alpha, beta or gamma emission using masses and charges",1.4,Radioactivity
+OCR P6.1h,"Electron energy levels, radiation absorption and emission, and ionisation",2.37,Radioactivity
+OCR P6.1i,Radiation generated and absorbed by changes in atoms and nuclei,1.43,Radioactivity
+OCR P6.1j,Concept of half-life and the random nature of radioactive decay,1.7,Radioactivity
+OCR P6.1k,Net decline in emission as a ratio after a given number of half-lives,1.8,Radioactivity
+OCR P6.1l,Differences in the penetration properties of alpha particles,1.1,Radioactivity
+OCR P6.2a,"Differences between contamination and irradiation, and their hazards",1.1,Radioactivity
+OCR P6.2b,Why hazards of radioactive material depend on its half-life,1.7,Radioactivity
+OCR P6.2c,Uses of nuclear radiation for exploring organs and destroying unwanted tissue,1.3,Radioactivity
+OCR P6.2d,Nuclear fission: unstable nuclei splitting and chain reactions,1.72,Radioactivity
+OCR P6.2e,Nuclear fusion and the conversion of mass into energy of radiation,1.3,Radioactivity
+OCR P7.1a,For situations where there are energy transfers in a system,1.52,Energy
+OCR P7.1b,Changes in the way energy is stored when a system changes,1.97,Energy
+OCR P7.1c,"Energy changes from heating, work done by forces and work done by current",1.52,Energy
+OCR P7.1d,"Make calculations of energy changes in mechanical, electrical and thermal systems",2.36,Energy
+OCR P7.1e,"Calculating energy of a moving body, a stretched spring and a raised object",1.8,Energy
+OCR P7.2a,"Describe, with examples, how energy is dissipated into less useful stores",1.3,Energy
+OCR P7.2b,How energy is transferred in domestic devices and where it is wasted,1.5,Energy
+OCR P7.2c,"Describe, with examples, how appliance power ratings link to stored energy changes",1.39,Energy
+OCR P7.2d,Energy efficiency for any energy transfer,1.8,Energy
+OCR P7.2e,Ways to increase efficiency,1.3,Energy
+OCR P7.2f,"Ways of reducing unwanted energy transfer, such as lubrication and thermal insulation",1.7,Energy
+OCR P7.2g,How wall thickness and thermal conductivity affect a building’s rate of cooling,1.3,Energy
+OCR P8.1a,"Typical everyday speeds of wind, sound and moving people and vehicles",1.1,Global challenges
+OCR P8.1b,Estimate the magnitudes of everyday accelerations,1.6,Global challenges
+OCR P8.1c,Make calculations using ratios to convert units and compute rates,1.4,Global challenges
+OCR P8.1d,Methods of measuring human reaction times and typical results,1.7,Global challenges
+OCR P8.1e,Factors affecting vehicle stopping distance and the implications for safety,1.94,Global challenges
+OCR P8.1f,Estimate how stopping distances of road vehicles vary with typical speeds,1.6,Global challenges
+OCR P8.1g,Dangers caused by large decelerations,1.7,Global challenges
+OCR P8.1h,Estimate the forces involved in typical situations on a public road,1.6,Global challenges
+OCR P8.1i,"Estimate the speeds, accelerations and forces in everyday road transport",1.6,Global challenges
+OCR P8.2a,"Main energy sources on Earth, how they are used, renewable and non-renewable",1.59,Global challenges
+OCR P8.2b,Patterns and trends in the use of energy resources over time,1.7,Global challenges
+OCR P8.2c,How the national grid transfers power at high then lower voltages,1.17,Global challenges
+OCR P8.2d,Use of step-up and step-down transformers to change potential difference,1.1,Global challenges
+OCR P8.2e,How the national grid is an efficient way to transfer energy,1.7,Global challenges
+OCR P8.2f,Link transformer potential differences and turns to power transfer and high voltages,1.44,Global challenges
+OCR P8.2g,The UK domestic supply of a.c. at 50 Hz and about 230 V,1.1,Global challenges
+OCR P8.2h,Difference between direct and alternating voltage,1.7,Global challenges
+OCR P8.2i,"Functions and potential differences of the live, neutral and earth mains wires",1.1,Global challenges
+OCR P8.2j,Dangers of a live wire when a switch is open and of live-to-earth connections,2.06,Global challenges
+OCR P8.3a,Red-shift of light from receding galaxies and the expanding universe,1.97,Global challenges
+OCR P8.3b,How red shift and other evidence link to the Big Bang model,1.7,Global challenges
+OCR P8.3c,How the Sun formed from dust and gas and reached equilibrium through fusion,1.48,Global challenges
+OCR P8.3d,Radiation emitted by all bodies and how it depends on temperature,2.12,Global challenges
+OCR P8.3e,Main features of our solar system,1.66,Global challenges
+OCR P8.3f,How gravity changes a planet’s velocity but not its speed in a circular orbit,1.7,Global challenges
+OCR P8.3g,Why the radius of a stable orbit must change if the orbital speed changes,1.7,Global challenges
+OCR P8.3h,How a body’s temperature depends on the balance of radiation absorbed and emitted,2.39,Global challenges
+OCR P8.3i,"Explain, in qualitative terms, how the differences in velocity",2.39,Global challenges

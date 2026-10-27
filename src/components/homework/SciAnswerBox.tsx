@@ -9,7 +9,9 @@ import {
   type MouseEvent,
   type TextareaHTMLAttributes,
 } from "react";
+import { toast } from "sonner";
 import { SciText } from "@/components/Shared";
+import { isOwnWords, rememberOwnWords } from "@/lib/homework/pasteGuard";
 import { scriptTyped, toSciNotation, toggleScript } from "@/lib/platform/sciNotation";
 
 type Script = "sub" | "sup";
@@ -31,6 +33,7 @@ export function SciAnswerBox({
   value,
   onValueChange,
   context = "",
+  noPaste = false,
   className,
   onBlur,
   ...rest
@@ -39,6 +42,8 @@ export function SciAnswerBox({
   onValueChange: (value: string) => void;
   /** The question being answered, read for clues: see `toSciNotation`. */
   context?: string;
+  /** A student's task answer: typed, not pasted in (see pasteGuard). */
+  noPaste?: boolean;
 } & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "value" | "onChange">) {
   const read = useMemo(() => recognised(value, context), [value, context]);
   const [held, setHeld] = useState<Script | null>(null);
@@ -96,6 +101,20 @@ export function SciAnswerBox({
     el.focus();
   };
 
+  // Words copied, cut or dragged out of a box are the student's own, and the
+  // one thing a box that refuses pastes still takes.
+  const own = (e: { currentTarget: HTMLTextAreaElement }) => {
+    const el = e.currentTarget;
+    rememberOwnWords(el.value.slice(el.selectionStart, el.selectionEnd));
+  };
+  const refuse = (e: { preventDefault: () => void }, text: string) => {
+    if (isOwnWords(text)) return;
+    e.preventDefault();
+    toast("Pasting is turned off on tasks — type your answer in your own words.", {
+      id: "no-paste",
+    });
+  };
+
   // Leaving the box lets go, unless it was for one of its own buttons.
   const left = (e: FocusEvent<HTMLTextAreaElement>) => {
     const to = e.relatedTarget as HTMLElement | null;
@@ -112,6 +131,11 @@ export function SciAnswerBox({
         onBlur={left}
         onCompositionStart={() => (composedFrom.current = value)}
         onCompositionEnd={composed}
+        onCopy={noPaste ? own : undefined}
+        onCut={noPaste ? own : undefined}
+        onDragStart={noPaste ? own : undefined}
+        onPaste={noPaste ? (e) => refuse(e, e.clipboardData.getData("text/plain")) : undefined}
+        onDrop={noPaste ? (e) => refuse(e, e.dataTransfer.getData("text/plain")) : undefined}
         className={className}
         {...rest}
       />

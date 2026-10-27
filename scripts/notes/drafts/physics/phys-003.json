@@ -1,0 +1,432 @@
+{
+  "format": 1,
+  "concept_id": "phys-003",
+  "subject": "physics",
+  "title": "Kinetic and gravitational potential energy",
+  "key_idea": "A moving object has **kinetic energy**: half its mass times its speed squared. An object raised above the ground has **gravitational potential energy**: mass times gravitational field strength times height. When an object falls, one store decreases as the other increases.",
+  "sections": [
+    {
+      "heading": "Kinetic energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Anything that moves has energy in its kinetic store. The faster it moves and the greater its mass, the more energy it has."
+        },
+        {
+          "type": "equation",
+          "label": "Kinetic energy",
+          "formula": "Ek = ½ × m × v²",
+          "where": [
+            "Ek is kinetic energy in joules (J).",
+            "m is mass in kilograms (kg).",
+            "v is speed in metres per second (m/s)."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only the speed is squared, not the mass.",
+            "Doubling the mass doubles the kinetic energy.",
+            "Doubling the speed makes the kinetic energy four times bigger."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the equation.",
+              "text": "Ek = ½ × m × v²"
+            },
+            {
+              "lead": "Substitute.",
+              "text": "A cyclist of mass 70 kg at 8 m/s: Ek = ½ × 70 × 8²"
+            },
+            {
+              "lead": "Evaluate.",
+              "text": "Ek = ½ × 70 × 64 = 2240 J, or about 2200 J."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the kinetic energy of a moving object.",
+            "question": "A runner of mass {m} kg moves at {v} m/s. Calculate the kinetic energy of the runner.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 40,
+                "max": 100,
+                "step": 2
+              },
+              {
+                "id": "v",
+                "min": 2,
+                "max": 10,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "0.5 * m * v^2",
+              "unit": "J",
+              "decimals": 0
+            },
+            "working": ["Ek = ½ × m × v²", "Ek = 0.5 × {m} × {v}²", "Ek = {answer} J"]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Finding speed or mass"
+        },
+        {
+          "type": "paragraph",
+          "text": "Rearrange the equation to find speed. Work out v² first, then take the square root at the end."
+        },
+        {
+          "type": "equation",
+          "label": "Speed from kinetic energy",
+          "formula": "v = √(2 × Ek ÷ m)",
+          "where": [
+            "v is speed in metres per second (m/s).",
+            "Ek is kinetic energy in joules (J).",
+            "m is mass in kilograms (kg)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ek = ½ × m × v². Square the speed first, then multiply.",
+            "Doubling the speed makes the kinetic energy four times bigger.",
+            "To find v, work out v² first, then take the square root."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Gravitational potential energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Lifting an object against gravity transfers energy to its gravitational potential store."
+        },
+        {
+          "type": "equation",
+          "label": "Change in gravitational potential energy",
+          "formula": "ΔEp = m × g × Δh",
+          "where": [
+            "ΔEp is the change in gravitational potential energy in joules (J).",
+            "m is mass in kilograms (kg).",
+            "g is gravitational field strength in newtons per kilogram (N/kg). It is 9.8 N/kg on Earth and 1.6 N/kg on the Moon. Some questions give g = 10 N/kg.",
+            "Δh is the change in vertical height in metres (m)."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use the vertical height only, in metres.",
+            "Convert centimetres to metres first.",
+            "Use the value of g given in the question, such as 10 N/kg. If none is given, use 9.8 N/kg."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the equation.",
+              "text": "ΔEp = m × g × Δh"
+            },
+            {
+              "lead": "Substitute.",
+              "text": "A person of mass 60 kg at a height of 1.5 m, with g = 9.8 N/kg: ΔEp = 60 × 9.8 × 1.5"
+            },
+            {
+              "lead": "Evaluate.",
+              "text": "ΔEp = 882 J."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A stretched spring also stores energy, in its elastic potential store. That is covered in the forces topics."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ΔEp = m × g × Δh, with height in metres.",
+            "The value of g depends on the planet. Use the one in the question.",
+            "Doubling the height doubles the gravitational potential energy."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Energy changes in a fall",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When an object falls, its gravitational potential store decreases and its kinetic store increases. Change the mass, height and planet to see the numbers."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Drop an object from a height and see its gravitational potential energy, kinetic energy at the bottom and speed.",
+            "inputs": [
+              {
+                "id": "m",
+                "label": "Mass",
+                "unit": "kg",
+                "min": 1,
+                "max": 100,
+                "step": 1,
+                "value": 10
+              },
+              {
+                "id": "h",
+                "label": "Height dropped",
+                "unit": "m",
+                "min": 1,
+                "max": 50,
+                "step": 1,
+                "value": 10
+              },
+              {
+                "id": "g",
+                "label": "Planet",
+                "choices": [
+                  {
+                    "label": "Moon (1.6 N/kg)",
+                    "value": 1.6
+                  },
+                  {
+                    "label": "Earth (9.8 N/kg)",
+                    "value": 9.8
+                  }
+                ]
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Gravitational potential energy lost",
+                "unit": "J",
+                "formula": "m * g * h",
+                "decimals": 1,
+                "bar": true
+              },
+              {
+                "label": "Kinetic energy gained at the bottom",
+                "unit": "J",
+                "formula": "m * g * h",
+                "decimals": 1
+              },
+              {
+                "label": "Speed at the bottom",
+                "unit": "m/s",
+                "formula": "sqrt(2 * g * h)",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "With no air resistance, all the gravitational potential energy lost becomes kinetic energy.",
+            "The mass cancels out: a heavier object falling the same height reaches the same speed."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Setting m × g × h equal to ½ × m × v² gives the speed at the bottom. The mass cancels."
+        },
+        {
+          "type": "equation",
+          "label": "Speed after a fall (no air resistance)",
+          "formula": "v = √(2 × g × h)",
+          "where": [
+            "v is speed in metres per second (m/s).",
+            "g is gravitational field strength in newtons per kilogram (N/kg).",
+            "h is the height fallen in metres (m)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A falling object transfers energy from its gravitational potential store to its kinetic store.",
+            "Energy lost from one store equals energy gained by the other, if no energy is dissipated.",
+            "A higher drop gives more energy and a higher speed."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate the kinetic energy of a trolley of mass 2.0 kg moving at 3.0 m/s.",
+      "a": "Ek = 0.5 × 2.0 × 3.0² = 9 J.",
+      "marks": 3
+    },
+    {
+      "q": "Calculate the gravitational potential energy gained by a 20 kg block lifted through 16 m. g = 10 N/kg.",
+      "a": "ΔEp = 20 × 10 × 16 = 3200 J.",
+      "marks": 3
+    },
+    {
+      "q": "What happens to the kinetic energy of an object when its speed doubles?",
+      "a": "It increases four times, because kinetic energy depends on speed squared.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.1.2", "AQA T 6.1.1.2"],
+      "worked_example": {
+        "exemplar_id": "2021d0ca-bf24-4f3c-91d6-864ac9180814",
+        "source": "AQA jun 2021, Paper 1 (F), Q07.3",
+        "question": "At the instant a diver hits the water, the kinetic energy of the diver is 5040 J.\nThe speed of the diver is 12 m/s.\n\nCalculate the mass of the diver.",
+        "marks": 3,
+        "answer_points": ["5040 = 0.5 × m × 12²", "m = 5040 / (0.5 × 12²)", "m = 70 (kg)"],
+        "tip": "One mark for the substitution, one for the rearrangement and one for the answer."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.1", "EDEX 3.2", "EDEX 8.8", "EDEX 8.9"],
+      "worked_example": {
+        "exemplar_id": "5b5e0607-06f2-4530-b052-f735ec83c8f5",
+        "source": "EDEXCEL jun 2018, Paper 1 (H), Q7(c)(i)",
+        "question": "Electricity can be generated using a water turbine.\nWater gains kinetic energy by falling from the top of a dam.\n\nCalculate the minimum height that 7.0 kg of water must fall to gain 1300 J of kinetic energy.\nTake g = 10 N/kg.",
+        "marks": 3,
+        "answer_points": [
+          "Recall: (ΔPE) = mgh",
+          "Substitution and rearrangement: 1300 = 7 × 10 × h, h = 1300 / (7 × 10)",
+          "Evaluation: 19 (m)"
+        ],
+        "tip": "Answers that round to 19 m are accepted, such as 18.57 m."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P7.1d", "OCR P7.1e", "OCR P2.2n"],
+      "worked_example": {
+        "exemplar_id": "17c794f3-d723-4374-b0d3-d3dc48682f9c",
+        "source": "OCR jun 2019, Paper 3, Q21(b)(ii)",
+        "question": "A trolley has a mass of 2.0 kg.\n\nCalculate the kinetic energy of the trolley at a speed of 3.0 m/s.",
+        "marks": 3,
+        "answer_points": [
+          "KE = 0.5 × mass × (speed)² (or KE = ½mv²)",
+          "KE = 0.5 × 2.0 × 3.0²",
+          "KE = 9 (J)"
+        ],
+        "tip": "A correct final answer of 9 J scores all 3 marks."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.7.1.4S",
+        "CAIE 1.7.1.5S",
+        "CAIE 6.1.2.10S"
+      ],
+      "worked_example": {
+        "exemplar_id": "ef9bdbbc-8798-4a63-8eb3-c388b07e6903",
+        "source": "CAMBRIDGE jun 2023, Paper 42, Q2(a)",
+        "question": "A student catches a cricket ball. The speed of the ball immediately before it is caught is 18 m/s.\nThe mass of the cricket ball is 160 g.\n\nCalculate the kinetic energy stored in the cricket ball immediately before it is caught.",
+        "marks": 3,
+        "answer_points": [
+          "Convert the mass: 160 g = 0.16 kg.",
+          "Ek = ½ × m × v² = ½ × 0.16 × 18²",
+          "Ek = 26 J"
+        ],
+        "tip": "One mark for the equation, one for the substitution with the mass in kg, and one for 26 J."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) The equations for kinetic energy and for the change in gravitational potential energy are Supplement content. The same idea explains elliptical orbits."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A planet or comet in an elliptical orbit moves faster when it is closer to the Sun.",
+                "As it moves closer, its gravitational potential store decreases and its kinetic store increases, so its speed rises.",
+                "As it moves away, its kinetic store decreases and its gravitational potential store increases, so it slows down.",
+                "The total of the two stores stays the same."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.13",
+        "IGCSE 4.14",
+        "IGCSE 4.15"
+      ],
+      "worked_example": {
+        "exemplar_id": "534acece-e1f1-4b9f-b7d4-7a3793a21bcd",
+        "source": "EDEXCEL jun 2023, Paper 1 (PR), Q3(a)(ii)",
+        "question": "A model electric motor is used to lift a load through a vertical height.\nThe load has a mass of 400 g and gains 3.2 J of energy in its gravitational store when lifted.\n\nCalculate the height the load is lifted.",
+        "marks": 3,
+        "answer_points": [
+          "Convert the mass: 400 g = 0.40 kg.",
+          "Substitute: 3.2 = 0.40 × 10 × h",
+          "Rearrange: h = 3.2 ÷ (0.40 × 10)",
+          "h = 0.80 m"
+        ],
+        "tip": "One mark each for substitution, rearrangement and evaluation. Using g = 9.8 N/kg is also accepted."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Conservation of energy links gravitational potential energy, kinetic energy and work done."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Work done by a force is equal to the energy transferred.",
+                "Lifting a load at a steady speed: work done by the lifting force = gain in gravitational potential energy.",
+                "A force speeding up an object: work done = gain in kinetic energy.",
+                "A falling object with no energy dissipated: gravitational potential energy lost = kinetic energy gained."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "3935c4ff-9b82-43c4-b0bf-3f449aad4b54",
+      "ea51afaf-a074-4966-93cd-4c4be6f0a597",
+      "1f6ec2e2-d5dc-407f-a215-25574f3012fc",
+      "5a342841-9fb9-4d06-9d43-aa2e0093278e",
+      "3069050d-0049-4288-9942-1cab60c7907c",
+      "b1101cb7-109a-4c11-bd18-c7819198355e",
+      "c22e8b32-25bd-4134-9e44-95e9bd70178d",
+      "51fa129d-2332-4b81-8904-f50cba35fc11",
+      "d8c439dc-3ec0-4506-9eef-1b6f059dda21",
+      "2ef54813-c79b-49ce-b5bd-d242cd87a6fe",
+      "2a716b32-705a-429f-a970-0e70a2c9001d",
+      "29df38c3-b6fc-4d11-9bd7-26aafbc0d411",
+      "f852eeb0-f264-4e3e-b50e-10e414cf245f"
+    ],
+    "exemplar_ids": [
+      "2021d0ca-bf24-4f3c-91d6-864ac9180814",
+      "5b5e0607-06f2-4530-b052-f735ec83c8f5",
+      "17c794f3-d723-4374-b0d3-d3dc48682f9c",
+      "ef9bdbbc-8798-4a63-8eb3-c388b07e6903",
+      "534acece-e1f1-4b9f-b7d4-7a3793a21bcd"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

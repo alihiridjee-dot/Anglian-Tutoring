@@ -1,0 +1,415 @@
+{
+  "format": 1,
+  "concept_id": "achem-002",
+  "subject": "chemistry",
+  "title": "Mass spectrometry and relative atomic mass",
+  "key_idea": "Atomic masses are measured on a scale where carbon-12 is the standard. A **mass spectrometer** separates ions by their mass-to-charge ratio and shows how much of each isotope there is. The **relative atomic mass** is the weighted mean of the isotope masses.",
+  "sections": [
+    {
+      "heading": "Relative masses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Atoms are far too light to weigh in grams, so masses are compared with a standard. The standard is the carbon-12 atom."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Unified atomic mass unit (u)",
+              "meaning": "One twelfth of the mass of an atom of carbon-12."
+            },
+            {
+              "term": "Relative isotopic mass",
+              "meaning": "The mass of an atom of an isotope compared with one twelfth of the mass of an atom of carbon-12."
+            },
+            {
+              "term": "Relative atomic mass, Aᵣ",
+              "meaning": "The weighted mean mass of an atom of an element, compared with one twelfth of the mass of an atom of carbon-12."
+            },
+            {
+              "term": "Relative molecular mass, Mᵣ",
+              "meaning": "The weighted mean mass of a molecule, compared with one twelfth of the mass of an atom of carbon-12."
+            },
+            {
+              "term": "Relative formula mass, Mᵣ",
+              "meaning": "The same idea for a compound with a giant structure, such as an ionic compound, using its formula unit."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Relative masses are ratios, so they have **no units**.",
+            "Aᵣ is a weighted mean because an element is a mixture of isotopes, each with its own abundance.",
+            "Aᵣ is usually not a whole number, but a relative isotopic mass is very close to the mass number."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Relative molecular or formula mass",
+          "formula": "Mᵣ = sum of the Aᵣ values of all the atoms in the formula",
+          "where": [
+            "Aᵣ values are read from the Periodic Table",
+            "multiply an Aᵣ by the number of atoms of that element"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the formula.",
+              "text": "Calcium chloride is CaCl₂, with one Ca and two Cl."
+            },
+            {
+              "lead": "Add the Aᵣ values.",
+              "text": "40.1 + (2 × 35.5) = 111.1."
+            },
+            {
+              "lead": "Choose the term.",
+              "text": "CaCl₂ is ionic with a giant structure, so 111.1 is its relative formula mass. For a simple molecule, such as H₂O, it is the relative molecular mass."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Every relative mass is compared with one twelfth of the mass of a carbon-12 atom.",
+            "Aᵣ is a weighted mean over the isotopes of the element.",
+            "Mᵣ is the sum of the Aᵣ values in the formula. Use relative formula mass for giant structures."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The mass spectrometer",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A mass spectrometer measures the mass of ions and how many of each there are. In a time of flight (TOF) instrument, ions are separated by how long they take to travel along a tube."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "A flow diagram of a time of flight mass spectrometer: ionisation, acceleration, ion drift, detection and data analysis.",
+            "steps": [
+              "Ionisation",
+              "Acceleration",
+              "Ion drift",
+              "Detection",
+              "Data analysis"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Ionisation:** the sample is turned into positive ions.",
+            "**Acceleration:** an electric field accelerates the ions so that they all have the same kinetic energy.",
+            "**Ion drift:** the ions pass along a flight tube. Lighter ions move faster, so they arrive first.",
+            "**Detection:** each ion that arrives gains an electron and makes a tiny current. The current shows how many ions arrived.",
+            "**Data analysis:** a computer turns the arrival times into a mass spectrum."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "What the spectrum shows"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The horizontal axis is **m/z**, the mass-to-charge ratio, also written m/e. For ions with a 1+ charge, m/z equals the mass of the ion.",
+            "The height of each peak is the relative abundance of that ion.",
+            "The spectrum of an element has one peak for each isotope, so it identifies the element and its isotopes.",
+            "The peak at the largest m/z for a molecule is the molecular ion, M⁺. Its m/z value is the relative molecular mass."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Lighter ions travel faster along the flight tube and reach the detector first.",
+            "The m/z values give the isotope masses and the peak heights give their abundances.",
+            "The molecular ion peak, M⁺, gives the relative molecular mass."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Finding relative atomic mass from a spectrum",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To find Aᵣ, multiply each isotope's mass by its abundance, add the results, and divide by the total abundance. This section covers the method, and how to work backwards."
+        },
+        {
+          "type": "equation",
+          "label": "Relative atomic mass",
+          "formula": "Aᵣ = Σ(isotopic mass × abundance) ÷ Σ(abundance)",
+          "where": [
+            "isotopic mass, from the m/z of each peak",
+            "abundance, as a percentage or as a peak height",
+            "Σ means add up for every isotope"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Read the peaks.",
+              "text": "A magnesium spectrum has peaks at m/z 24 (78.6%), 25 (10.1%) and 26 (11.3%)."
+            },
+            {
+              "lead": "Multiply.",
+              "text": "24 × 78.6 = 1886.4; 25 × 10.1 = 252.5; 26 × 11.3 = 293.8."
+            },
+            {
+              "lead": "Add and divide.",
+              "text": "Total = 2432.7. Divide by 100: Aᵣ = 24.3."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question: find the relative atomic mass of chlorine from the abundance of chlorine-35 and chlorine-37.",
+            "question": "A sample of chlorine contains {p}% of chlorine-35 (mass 35) and the rest chlorine-37 (mass 37). Calculate its relative atomic mass to 1 decimal place.",
+            "variables": [
+              {
+                "id": "p",
+                "min": 70,
+                "max": 80,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "(35 * p + 37 * (100 - p)) / 100",
+              "decimals": 1
+            },
+            "working": [
+              "Chlorine-37 makes up the rest, which is (100 − {p})%.",
+              "Aᵣ = (35 × {p} + 37 × (100 − {p})) ÷ 100.",
+              "Aᵣ = {answer}."
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Working backwards"
+        },
+        {
+          "type": "paragraph",
+          "text": "If Aᵣ is known, the abundance can be found. Boron has isotopes of mass 10 and 11 and Aᵣ = 10.8. Let x be the % of mass 10. Then 10x + 11(100 − x) = 1080, so x = 20%."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Aᵣ = total of (mass × abundance) ÷ total abundance.",
+            "Use the same abundance units for every peak, then divide by their total.",
+            "An unknown abundance can be found by setting up the same equation and solving it."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define relative atomic mass.",
+      "a": "The weighted mean mass of an atom of an element compared with one twelfth of the mass of an atom of carbon-12.",
+      "marks": 2
+    },
+    {
+      "q": "A sample of neon has peaks at m/z 20 (90.5%), 21 (0.3%) and 22 (9.2%). Calculate its relative atomic mass to 1 decimal place.",
+      "a": "(20 × 90.5 + 21 × 0.3 + 22 × 9.2) ÷ 100 = (1810 + 6.3 + 202.4) ÷ 100 = 20.2.",
+      "marks": 3
+    },
+    {
+      "q": "State what happens to the ions in the ion drift stage of a time of flight mass spectrometer, and why lighter ions are detected first.",
+      "a": "The ions travel along a flight tube. All the ions have the same kinetic energy, so lighter ions have a greater speed and reach the detector sooner.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.1c",
+        "OCR 2.1.1d",
+        "OCR 2.1.1e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use the term **relative molecular mass** for simple molecules and **relative formula mass** for compounds with giant structures.",
+                "Mass spectrometry questions are limited to ions with a single positive charge, so m/z equals the isotopic mass.",
+                "Learn the definitions of relative isotopic mass and relative atomic mass. The definitions of relative molecular mass and relative formula mass are not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.6",
+        "EDEX 1.7",
+        "EDEX 1.8",
+        "EDEX 1.9",
+        "EDEX 1.10"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A diatomic molecule gives several molecular ion peaks, because each atom can be either isotope. This section predicts the spectrum of chlorine, Cl₂."
+            },
+            {
+              "type": "paragraph",
+              "text": "Chlorine is about 75% ³⁵Cl and 25% ³⁷Cl, a ratio of 3 : 1. The chance of each pair follows from this ratio."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Ion",
+                "m/z",
+                "Relative height"
+              ],
+              "rows": [
+                [
+                  "³⁵Cl³⁵Cl⁺",
+                  "70",
+                  "9"
+                ],
+                [
+                  "³⁵Cl³⁷Cl⁺",
+                  "72",
+                  "6"
+                ],
+                [
+                  "³⁷Cl³⁷Cl⁺",
+                  "74",
+                  "1"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The 72 peak is tall because a ³⁵Cl atom and a ³⁷Cl atom can pair up in two ways.",
+                "The peaks at 70, 72 and 74 are in the ratio 9 : 6 : 1.",
+                "Cl₂ also breaks up, giving peaks for Cl⁺ at m/z 35 and 37 in the ratio 3 : 1.",
+                "The molecular ion M⁺ is the ion with the largest m/z in the spectrum. Its m/z gives the relative molecular mass."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Cl₂ has molecular ion peaks at 70, 72 and 74 in the ratio 9 : 6 : 1.",
+                "The m/z value of M⁺ is the relative molecular mass."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.2.1",
+        "AQA 3.1.1.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The ionisation stage can be done in two ways. Both give positive ions."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Electron impact:** the sample is vaporised and bombarded with high-energy electrons. Each atom or molecule loses an electron: X(g) → X⁺(g) + e⁻.",
+                "**Electrospray ionisation:** the sample is dissolved in a volatile solvent and forced through a fine needle at high voltage. It gains a proton: X(g) + H⁺ → XH⁺(g).",
+                "With electrospray, the m/z of the peak is one more than the mass of X, so subtract 1 to find the relative molecular mass.",
+                "At the detector, the ions gain electrons and produce a current that is proportional to the abundance of the ions."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Kinetic energy of an ion",
+              "formula": "KE = ½mv²",
+              "where": [
+                "m, the mass of the ion",
+                "v, the speed of the ion"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "All the ions are accelerated to the same kinetic energy, so a smaller m means a larger v. Time of flight is t = d ÷ v, where d is the length of the flight tube. Lighter ions have a shorter time of flight."
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Ionisation is by electron impact or electrospray.",
+                "Equal kinetic energy means lighter ions travel faster and arrive sooner."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 2.1.1",
+        "CAIE 2.1.2",
+        "CAIE 22.2.1",
+        "CAIE 22.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Define the unified atomic mass unit as one twelfth of the mass of a carbon-12 atom, and define each relative mass in terms of it.",
+                "Relative molecular mass and relative formula mass are both written Mᵣ.",
+                "Mass spectra are read in terms of m/e values and isotopic abundances. How the instrument works is not required.",
+                "Aᵣ can be calculated from a table of abundances or directly from a mass spectrum."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "5a594aa9-4e10-4518-b98a-fee073a734e7",
+      "525f9442-a844-41d1-a607-640f789f4d95",
+      "fb7d4c8c-b24a-4d99-b7f2-fdcec78cf874",
+      "d659fc60-a74a-4b80-b9e4-8f01c81183db",
+      "c166610e-1f08-425f-a9fd-ba1735d9e0df",
+      "42f483a7-ee63-4fda-ae89-c0aa6c8f5f6d",
+      "5a377e18-cb43-4d3f-92fb-4bdd4aed1593",
+      "c887bb26-ba9a-4b26-9a55-39774ed4d852",
+      "a907d00e-6402-44db-b41e-69552bf48cf7",
+      "eb62d8e4-a234-43cf-9666-7c89104c17dd",
+      "3bcd8a5c-f2cd-4221-bcf5-197f575b15b9",
+      "b32f7e24-82b5-40a3-b0fa-3ef4e3247aa7",
+      "66c3a69a-51b8-4a72-9541-9b3aaec0b608"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

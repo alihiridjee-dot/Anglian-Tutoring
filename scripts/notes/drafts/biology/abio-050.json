@@ -1,0 +1,351 @@
+{
+  "format": 1,
+  "concept_id": "abio-050",
+  "subject": "biology",
+  "title": "Classification and phylogeny",
+  "key_idea": "Classification arranges organisms into groups within groups, based on how closely related they are. Every species has a two-part name. DNA and protein evidence has shown that life is best split into three domains: Bacteria, Archaea and Eukarya.",
+  "sections": [
+    {
+      "heading": "What is a species?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Classification is built around the species. There is more than one way to define one."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Biological species",
+              "meaning": "A group of organisms that can interbreed to produce fertile offspring."
+            },
+            {
+              "term": "Morphological species",
+              "meaning": "A group of organisms that share similar physical features, judged by their appearance."
+            },
+            {
+              "term": "Ecological species",
+              "meaning": "A group of organisms that share the same niche, so they use the same resources in the same way."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The biological definition cannot be used for fossils or for organisms that reproduce asexually, because breeding cannot be tested.",
+            "The morphological definition is useful for fossils, but individuals within a species may look very different, and different species may look alike.",
+            "Courtship behaviour is a necessary step before successful mating. Each species has its own courtship, so it helps individuals recognise members of their own species."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A biological species can interbreed to produce fertile offspring.",
+            "Each species definition has limits, so scientists use more than one.",
+            "Courtship behaviour is how individuals recognise their own species."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The taxonomic hierarchy and naming",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A phylogenetic classification arranges species into groups based on their evolutionary origins and relationships. Smaller groups sit inside larger ones, with no overlap."
+        },
+        {
+          "type": "paragraph",
+          "text": "Each group is called a **taxon** (plural taxa). Put the taxa in order from the largest to the smallest."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity: put the taxonomic ranks in order, from the largest group to the smallest.",
+            "prompt": "Put the taxa in order, from the largest group to the smallest",
+            "steps": [
+              "Domain",
+              "Kingdom",
+              "Phylum",
+              "Class",
+              "Order",
+              "Family",
+              "Genus",
+              "Species"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Every species has a **binomial**: the name of its genus (capital letter) then its species (lower case), such as Homo sapiens.",
+            "Binomials are written in italics, or underlined when handwritten.",
+            "The advantage of the system is that it is universal. Scientists in every country use the same name, so there is no confusion caused by common names that differ between languages and places."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The hierarchy runs domain, kingdom, phylum, class, order, family, genus, species.",
+            "A binomial is genus then species.",
+            "Binomial names are universal, so scientists everywhere know which organism is meant."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Kingdoms and domains",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Organisms were first classified by observable features. They are now also classified by their biological molecules, which clarifies relationships."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Kingdom",
+            "Key features"
+          ],
+          "rows": [
+            [
+              "Prokaryotae",
+              "Prokaryotic cells with no nucleus. Unicellular, with a cell wall."
+            ],
+            [
+              "Protoctista",
+              "Eukaryotic. Mostly single-celled, or multicellular without specialised tissues. Includes algae and protozoa."
+            ],
+            [
+              "Fungi",
+              "Eukaryotic, with cell walls of chitin. Feed by absorption (saprotrophs or parasites), made of hyphae."
+            ],
+            [
+              "Plantae",
+              "Eukaryotic, multicellular, with cellulose cell walls and chloroplasts. They photosynthesise."
+            ],
+            [
+              "Animalia",
+              "Eukaryotic, multicellular, with no cell walls. They feed on other organisms and have nervous coordination."
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Comparing rRNA and other molecules showed that prokaryotes are two very different groups. This led to a system with three domains."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Domain",
+            "Includes",
+            "Cells"
+          ],
+          "rows": [
+            [
+              "Bacteria",
+              "True bacteria",
+              "Prokaryotic"
+            ],
+            [
+              "Archaea",
+              "Prokaryotes that often live in extreme conditions",
+              "Prokaryotic"
+            ],
+            [
+              "Eukarya",
+              "Protoctista, Fungi, Plantae and Animalia",
+              "Eukaryotic"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Archaea and Bacteria differ in the lipids in their cell membranes, in their ribosomal RNA and in their cell walls.",
+            "Bacterial cell walls contain peptidoglycan. Archaeal cell walls do not contain peptidoglycan.",
+            "Archaeal membrane lipids have ether bonds and branched chains. Bacterial lipids have ester bonds and unbranched chains.",
+            "Archaeal ribosomal RNA is more similar to that of eukaryotes than to that of bacteria.",
+            "The five-kingdom system has one kingdom (Prokaryotae) for all prokaryotes. The three-domain system splits them into two."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Five kingdoms: Prokaryotae, Protoctista, Fungi, Plantae, Animalia.",
+            "Three domains: Bacteria, Archaea, Eukarya.",
+            "Molecular evidence, not appearance, showed that Archaea and Bacteria are different."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Phylogeny and molecular evidence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Phylogeny is the study of evolutionary relationships between organisms. Classification should reflect those relationships."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The more recently two species shared a common ancestor, the more similar their DNA base sequences and protein amino acid sequences.",
+            "Species with few differences in their DNA are closely related. Species with many differences diverged longer ago.",
+            "Advances in immunology and genome sequencing help to clarify evolutionary relationships.",
+            "Comparing proteins with antibodies is an immunological method: the more closely related, the stronger the reaction.",
+            "Viruses are not in any domain. They are classified by their nucleic acid: DNA or RNA, and single or double stranded."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Similar DNA and protein sequences show close relationship.",
+            "New molecular data is evaluated by the scientific community, leading to new groupings such as the three domains.",
+            "Viruses are classified by their type of nucleic acid."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give the correct order of the taxonomic hierarchy from domain to species.",
+      "a": "Domain, kingdom, phylum, class, order, family, genus, species.",
+      "marks": 2
+    },
+    {
+      "q": "Explain the advantage of the binomial system of naming species.",
+      "a": "Every species has a unique two-part name that is the same in every country. This avoids confusion caused by common names that vary between languages and places.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how molecular evidence led scientists to propose the three-domain system.",
+      "a": "Comparing rRNA, membrane lipids and cell walls showed that prokaryotes include two groups, Bacteria and Archaea, which are distinct from each other. The kingdom Prokaryotae was split, giving the domains Bacteria, Archaea and Eukarya.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.5a",
+        "AQA 3.4.5b",
+        "AQA 3.4.5c",
+        "AQA 3.4.5d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Two organisms belong to the same species if they can produce fertile offspring.",
+                "Be able to describe the role of courtship in species recognition.",
+                "You do not need to recall different classification systems such as the five kingdoms or the three domains.",
+                "Appreciate that immunology and genome sequencing help to clarify evolutionary relationships."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Classification organises the variety of life using differences and similarities in phenotypes and in genotypes.",
+                "Understand the process and importance of evaluating new data critically, which leads to new groupings such as the three domains based on molecular phylogeny.",
+                "The three domains are Bacteria, Archaea and Eukaryota."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 17.3.2",
+        "CAIE 18.1.1",
+        "CAIE 18.1.2",
+        "CAIE 18.1.3",
+        "CAIE 18.1.4",
+        "CAIE 18.1.5",
+        "CAIE 18.1.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Discuss the meaning of species, limited to the biological, morphological and ecological species concepts.",
+                "DNA sequence data show evolutionary relationships: the fewer the differences between two species, the more recently they shared a common ancestor.",
+                "Archaea and Bacteria are both prokaryotes. The differences are limited to membrane lipids, ribosomal RNA and cell wall composition.",
+                "In the domain Eukarya, the taxonomic hierarchy is kingdom, phylum, class, order, family, genus and species.",
+                "Outline the features of the kingdoms Protoctista, Fungi, Plantae and Animalia.",
+                "Viruses are classified by the type of nucleic acid (RNA or DNA) and whether it is single stranded or double stranded."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.2a",
+        "OCR 4.2.2b",
+        "OCR 4.2.2c",
+        "OCR 4.2.2d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the features used to classify organisms into the five kingdoms, and compare the kingdom and domain systems.",
+                "Original classification used similarities in observable features. More recent classification uses similarities in biological molecules and other genetic evidence.",
+                "Understand the relationship between classification and phylogeny: classification should reflect evolutionary history. You do not need to know cladistics."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "9cbb0f1d-e42b-40a7-8099-d6bb7e0fe68d",
+      "cb937d32-bd07-4f6a-8a5c-155c9687d2a0",
+      "62251fcc-bb5e-4edd-b8df-dd71b3a9b22e",
+      "310d7608-2fc2-489f-b10a-1f404e606aaf",
+      "1b651447-0df2-4abb-b685-e56e8a363007",
+      "56f252fc-2f9d-4e1c-910e-7efc065703e8",
+      "9b995301-2221-4119-8b02-da1b13ea3751",
+      "499bf3fe-2d21-4149-99bb-cbc3958d21c8",
+      "5bd904b9-ba89-443c-a8ad-c123524d7185",
+      "b46839eb-293f-4f4d-8e33-ab2de479fa5b",
+      "52e08163-832b-4049-bda1-cbe54fb9fb02",
+      "93255893-a988-4454-8183-e1c146a1f2d6",
+      "01891792-15b9-4ab6-b8aa-f30b13fb9f68",
+      "3311117d-5ba6-4cdc-a40e-4f15c1796592",
+      "aa9341e3-922f-40e1-a5dc-5ff58094fa02",
+      "aed8ac62-271b-4cde-a62c-28bd8467b208"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -4,6 +4,7 @@ import {
   reviewBudget,
   REVIEW_SHARE,
   examMondayFor,
+  examMondayIn,
   programStartFor,
   mondayOnOrAfter,
   computePacing,
@@ -584,6 +585,39 @@ describe("default exam date (S-32)", () => {
     expect(exam("2027-06-06T20:00:00+01:00")).toBe("2027-06-07");
     expect(exam("2026-09-07T12:00:00Z")).toBe("2027-06-07");
     expect(exam("2027-01-15T12:00:00Z")).toBe("2027-06-07");
+  });
+});
+
+describe("exam date from the year given at sign-up", () => {
+  const SEPT = new Date("2026-09-23T10:00:00Z");
+  const exam = (year: number | null | undefined, today = SEPT) =>
+    toDateKey(examMondayIn(year, today));
+
+  test("a Year 10 in September is planned to the summer after next", () => {
+    expect(exam(2028)).toBe("2028-06-05");
+    // The guess would have squeezed their course into nine months.
+    expect(toDateKey(examMondayFor(SEPT))).toBe("2027-06-07");
+  });
+
+  test("a Year 11 gets the nearest summer, the same as the guess", () => {
+    expect(exam(2027)).toBe("2027-06-07");
+  });
+
+  test("no answer keeps the guess", () => {
+    expect(exam(null)).toBe("2027-06-07");
+    expect(exam(undefined)).toBe("2027-06-07");
+  });
+
+  test("a year whose exams have begun gives way to the guess", () => {
+    // Said 2027 in Year 11, then adds a subject after their exams.
+    expect(exam(2027, new Date("2027-06-08T12:00:00Z"))).toBe("2028-06-05");
+    expect(exam(2020)).toBe("2027-06-07");
+  });
+
+  test("a year further off than a course runs gives way to the guess", () => {
+    expect(exam(2029)).toBe("2029-06-04");
+    expect(exam(2030)).toBe("2027-06-07");
+    expect(exam(2099)).toBe("2027-06-07");
   });
 });
 

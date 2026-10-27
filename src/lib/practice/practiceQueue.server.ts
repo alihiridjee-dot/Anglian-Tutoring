@@ -245,13 +245,13 @@ export async function runPracticeJobNow(
 }
 
 /** The shortest worker secret accepted; anything shorter counts as unset. */
-const MIN_SECRET_LENGTH = 32;
+export const MIN_SECRET_LENGTH = 32;
 
 /**
  * Compares digests of the two, so the time taken says nothing about how much
  * of the header matched, nor how long the secret is.
  */
-function sameSecret(given: string, expected: string): boolean {
+export function sameSecret(given: string, expected: string): boolean {
   const digest = (value: string) => crypto.createHash("sha256").update(value).digest();
   return crypto.timingSafeEqual(digest(given), digest(expected));
 }

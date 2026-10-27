@@ -1,0 +1,294 @@
+{
+  "format": 1,
+  "concept_id": "ichem-009",
+  "subject": "chemistry",
+  "title": "Laboratory apparatus and key terms",
+  "key_idea": "Choose apparatus for the quantity and the accuracy needed: stop-watch for time, thermometer for temperature, balance for mass, and cylinders, burettes, pipettes and gas syringes for volume. Know the terms solvent, solute, solution, saturated solution, residue and filtrate.",
+  "sections": [
+    {
+      "heading": "Apparatus for measuring",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each apparatus measures one quantity. Choose the one that gives the accuracy the experiment needs."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Quantity",
+            "Apparatus",
+            "Use"
+          ],
+          "rows": [
+            [
+              "Time",
+              "Stop-watch",
+              "Time a reaction or take readings at set intervals."
+            ],
+            [
+              "Temperature",
+              "Thermometer",
+              "Measure the temperature of a liquid or mixture."
+            ],
+            [
+              "Mass",
+              "Balance",
+              "Weigh a solid or a container."
+            ],
+            [
+              "Volume of a liquid",
+              "Measuring cylinder",
+              "Measure a rough volume quickly."
+            ],
+            [
+              "Volume of a liquid",
+              "Burette",
+              "Measure any volume, as accurately as possible, by running it out."
+            ],
+            [
+              "Volume of a liquid",
+              "Volumetric pipette",
+              "Measure one fixed volume very accurately."
+            ],
+            [
+              "Volume of a gas",
+              "Gas syringe",
+              "Collect and measure a gas given off."
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "An explorer of laboratory apparatus. Tap each piece to see what it measures.",
+            "prompt": "Tap each piece of apparatus to learn what it measures, then test yourself.",
+            "parts": [
+              {
+                "name": "Stop-watch",
+                "detail": "Measures time, for example how long a reaction takes or when to take a reading."
+              },
+              {
+                "name": "Thermometer",
+                "detail": "Measures temperature, for example the start and end temperature of a mixture."
+              },
+              {
+                "name": "Balance",
+                "detail": "Measures the mass of a solid, a liquid or a container."
+              },
+              {
+                "name": "Measuring cylinder",
+                "detail": "Measures volumes of liquid quickly. It is less accurate than a burette or pipette."
+              },
+              {
+                "name": "Burette",
+                "detail": "Measures any volume of liquid accurately by running it out. Used in titrations."
+              },
+              {
+                "name": "Volumetric pipette",
+                "detail": "Measures one fixed volume of liquid, such as 25.0 cm³, very accurately."
+              },
+              {
+                "name": "Gas syringe",
+                "detail": "Collects and measures the volume of a gas, for example from a reaction."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Match the apparatus to the quantity: time, temperature, mass or volume.",
+            "A burette and a pipette are more accurate than a measuring cylinder.",
+            "A pipette measures one fixed volume only."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Judging methods and apparatus",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You may be asked for the advantages and disadvantages of a method, or how to improve it."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Choice",
+            "Advantage",
+            "Disadvantage"
+          ],
+          "rows": [
+            [
+              "Burette or pipette instead of measuring cylinder",
+              "More accurate",
+              "Slower to use"
+            ],
+            [
+              "Pipette",
+              "Very accurate for one volume",
+              "Measures only one fixed volume"
+            ],
+            [
+              "Burette instead of pipette",
+              "Can measure any volume, not just one",
+              "Less suited to one exact fixed volume"
+            ],
+            [
+              "Polystyrene cup instead of glass beaker",
+              "Insulates, so less heat is lost or gained",
+              "Cannot be heated with a flame"
+            ],
+            [
+              "More readings or smaller portions",
+              "More points, so a better graph",
+              "Takes longer"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Repeat and compare results to check they are **reliable**.",
+            "Use a water bath to keep a reaction at a steady temperature.",
+            "The first bubbles of gas collected are air from the apparatus, so they are not collected."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An improvement should say what to change and why it helps.",
+            "Insulation reduces heat loss. Repeats confirm reliability."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Key terms for mixtures",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These words describe dissolving and separating. They are used in many experiments."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Solvent",
+              "meaning": "A substance that dissolves a solute."
+            },
+            {
+              "term": "Solute",
+              "meaning": "A substance that is dissolved in a solvent."
+            },
+            {
+              "term": "Solution",
+              "meaning": "A mixture of one or more solutes dissolved in a solvent."
+            },
+            {
+              "term": "Saturated solution",
+              "meaning": "A solution containing the maximum concentration of a solute dissolved in the solvent at a specified temperature."
+            },
+            {
+              "term": "Residue",
+              "meaning": "A substance that remains after evaporation, distillation, filtration or a similar process."
+            },
+            {
+              "term": "Filtrate",
+              "meaning": "A liquid or solution that has passed through a filter."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rock salt is a mixture of salt and sand. In water the salt is the solute and the water is the solvent.",
+            "Filtering the mixture leaves the sand as the residue.",
+            "The salt solution that passes through the filter paper is the filtrate.",
+            "Evaporating the filtrate leaves salt crystals as the residue.",
+            "To make a solid dissolve faster, heat the mixture, stir it or crush the solid."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A solution is a solute dissolved in a solvent.",
+            "Saturated means the maximum amount is dissolved at that temperature.",
+            "The residue stays behind. The filtrate passes through."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State which apparatus measures one fixed volume only.",
+      "a": "A volumetric pipette.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why a polystyrene cup gives more accurate temperature results than a glass beaker.",
+      "a": "Polystyrene is a better insulator, so less heat is lost to the surroundings.",
+      "marks": 2
+    },
+    {
+      "q": "A mixture of salt and sand is filtered. Name the residue and the filtrate.",
+      "a": "The sand is the residue. The salt solution is the filtrate.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 12.1.1",
+        "CAIE 12.1.2",
+        "CAIE 12.1.3"
+      ],
+      "worked_example": {
+        "exemplar_id": "a2bac26f-182a-48a6-8efb-1d6886ffb027",
+        "source": "CAMBRIDGE nov 2023, Paper 43, Q4(b)(i)",
+        "question": "Zinc sulfate crystals are produced by heating aqueous zinc sulfate until a saturated solution is formed. When the saturated solution cools down, crystals of zinc sulfate start to form. State what is meant by the term saturated solution.",
+        "marks": 2,
+        "answer_points": [
+          "A solution containing the maximum amount of solute dissolved, so no more solute can dissolve.",
+          "At a given temperature."
+        ],
+        "tip": "The temperature is a separate mark, so include it."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 1.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "2958da97-da70-46f6-a4f9-cb6b6c6e1788",
+        "source": "EDEXCEL nov 2021, Paper 2 (C), Q2(a)",
+        "question": "The box lists words that may be used to explain the term saturated solution: solute, solvent, temperature. Explain, using all the words in the box, the term saturated solution.",
+        "marks": 2,
+        "answer_points": [
+          "A saturated solution contains as much solute as possible in a certain volume of the solvent.",
+          "At a particular (given or constant) temperature."
+        ],
+        "tip": "Use all three words from the box."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "7b0d0ab4-d6b0-4d51-9e4d-959340f349ad",
+      "e26055eb-9f2b-4538-b6a0-dc17545d279e",
+      "da3258ca-dab2-48be-8c80-15e8224dea21",
+      "94e248b9-fc9c-427f-87bf-cd4f35ff5371"
+    ],
+    "exemplar_ids": [
+      "a2bac26f-182a-48a6-8efb-1d6886ffb027",
+      "2958da97-da70-46f6-a4f9-cb6b6c6e1788"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

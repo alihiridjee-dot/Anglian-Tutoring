@@ -1,0 +1,324 @@
+{
+  "format": 1,
+  "concept_id": "bio-122",
+  "subject": "biology",
+  "title": "Decomposition and rate of decay",
+  "key_idea": "Bacteria and fungi decay dead plants and animals. They decay faster when it is warm, moist and there is plenty of oxygen. Decay returns mineral ions to the soil, and its rate can be calculated from the change in mass over time.",
+  "sections": [
+    {
+      "heading": "How decay happens",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Dead plants and animals are broken down by microorganisms. This section covers who does it and what it releases."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Decay",
+              "meaning": "The breakdown of dead plants, dead animals and waste by microorganisms."
+            },
+            {
+              "term": "Decomposer",
+              "meaning": "A microorganism, such as a bacterium or fungus, that causes decay."
+            },
+            {
+              "term": "Aerobic respiration",
+              "meaning": "Respiration that uses oxygen to release energy."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The microorganisms that cause decay are **bacteria** and **fungi**.",
+            "They release enzymes that digest large molecules into small molecules.",
+            "They respire, which releases energy and carbon dioxide.",
+            "Decay releases mineral ions, such as nitrate and phosphate, into the soil.",
+            "Plants take in the mineral ions through their roots and use them to grow, so the materials are recycled."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Bacteria and fungi cause decay.",
+            "Decay releases carbon dioxide and mineral ions, which plants use again."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Factors that affect the rate of decay",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Temperature, water and oxygen all change how fast the decomposers work."
+        },
+        {
+          "type": "table",
+          "columns": ["Factor", "Effect on the rate of decay", "Why"],
+          "rows": [
+            [
+              "Temperature (up to the optimum)",
+              "Increases",
+              "Reactions and enzyme action are faster, and more decomposers are present"
+            ],
+            ["Temperature (too cold)", "Slows", "Enzymes in the decomposers work too slowly"],
+            ["Temperature (too hot)", "Slows or stops", "The enzymes in the decomposers denature"],
+            [
+              "Water content",
+              "More water gives faster decay, up to a point",
+              "Decomposers need water to grow and carry out their reactions. Too much water drives out the air, so there is less oxygen"
+            ],
+            [
+              "Oxygen",
+              "More oxygen gives faster decay",
+              "Aerobic respiration needs oxygen to release energy"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This sketch shows the shape only, not measured data. The optimum depends on the decomposers, and is about 55 °C here."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A sketch graph of the rate of decay against temperature. The rate rises as the temperature rises, peaks at the optimum of about 55 degrees Celsius, then falls sharply to almost zero at high temperatures as the enzymes denature.",
+            "x": {
+              "label": "Temperature",
+              "min": 0,
+              "max": 80,
+              "ticks": [0, 20, 40, 60, 80],
+              "unit": "°C"
+            },
+            "y": {
+              "label": "Rate of decay"
+            },
+            "series": [
+              {
+                "name": "Rate of decay",
+                "points": [
+                  [0, 0.02],
+                  [10, 0.15],
+                  [20, 0.3],
+                  [30, 0.5],
+                  [40, 0.72],
+                  [50, 0.95],
+                  [55, 1],
+                  [60, 0.9],
+                  [70, 0.55],
+                  [80, 0.05]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 55,
+                "label": "Optimum"
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Applying the factors"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a **compost** heap, soil adds decomposers and turning the contents adds air (oxygen).",
+            "Earthworms bring air into the soil, so dead plants decay faster.",
+            "Shredding plants gives a larger surface area, so decomposers can feed and respire faster.",
+            "In a peat bog, there is little oxygen and the pH is low, so most dead plants do not decay.",
+            "Respiration by decomposers releases heat, so a compost heap warms up.",
+            "Compost and the remains from a **biogas generator** can be spread on fields as a fertiliser, because they release mineral ions.",
+            "A biogas generator decays plant material without oxygen (anaerobic decay). It is slower and releases less energy than aerobic decay, and makes methane gas that can be burned as a fuel."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Food preservation"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Food decays when decomposers grow on it.",
+            "Preserving food slows decay by removing what the decomposers need.",
+            "Cold slows the enzymes and growth of the decomposers, as in a fridge or freezer. Drying removes water. Vacuum-packing or sealing out air removes oxygen."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Decay is fastest when it is warm, moist and there is oxygen.",
+            "Too hot denatures the decomposers' enzymes, so decay slows.",
+            "Food preservation slows decay by cooling, drying or removing oxygen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating the rate of decay",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "As material decays, its mass falls. The rate of decay is how much mass is lost in each unit of time."
+        },
+        {
+          "type": "equation",
+          "label": "Rate of decay",
+          "formula": "rate of decay = change in mass ÷ time taken",
+          "where": [
+            "change in mass, in g (or kg)",
+            "time taken, in days",
+            "rate of decay, in g per day (or kg per day)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Change in mass.",
+              "text": "2.0 kg falls to 1.7 kg: 2.0 − 1.7 = 0.3 kg."
+            },
+            {
+              "lead": "Divide by time.",
+              "text": "Over 20 days: 0.3 ÷ 20 = 0.015 kg per day."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practice calculating a rate of decay in grams per day from a starting mass, an end mass and a time.",
+            "question": "A student puts {start} g of leaves in a compost bin. After {days} days the mass of the leaves is {end} g. Calculate the rate of decay in g per day, to 2 decimal places.",
+            "variables": [
+              {
+                "id": "start",
+                "min": 200,
+                "max": 300,
+                "step": 10
+              },
+              {
+                "id": "end",
+                "min": 150,
+                "max": 190,
+                "step": 10
+              },
+              {
+                "id": "days",
+                "min": 5,
+                "max": 25,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "(start - end) / days",
+              "unit": "g per day",
+              "decimals": 2
+            },
+            "working": [
+              "Change in mass = {start} − {end} g.",
+              "Rate of decay = change in mass ÷ time taken, in days.",
+              "Answer = {answer} g per day."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rate of decay = change in mass ÷ time taken.",
+            "Give the unit, such as g per day."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the two types of microorganism that cause decay.",
+      "a": "Bacteria and fungi.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how an increase in oxygen concentration affects the rate of decay in a compost heap.",
+      "a": "It increases the rate of decay, because oxygen is needed for aerobic respiration by the bacteria and fungi.",
+      "marks": 2
+    },
+    {
+      "q": "Leaves in a compost bin fall in mass from 28.0 g to 20.0 g in 40 days. Calculate the rate of decay.",
+      "a": "Change in mass = 28.0 − 20.0 = 8.0 g. Rate = 8.0 ÷ 40 = 0.20 g per day.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 7.6"],
+      "worked_example": {
+        "exemplar_id": "d69dd54c-215c-4082-8b40-3689a3ba673c",
+        "source": "AQA jun 2019, Paper 2 (F), Q04.2",
+        "question": "The rate of decay in a compost heap depends on several environmental factors.\n\nExplain how the rate of decay would be affected by:\n- an increase in oxygen concentration\n- a temperature increase from 5°C to 25°C",
+        "marks": 3,
+        "answer_points": [
+          "Both increase the rate of decay.",
+          "Oxygen is needed for aerobic respiration, or oxygen is used to release energy.",
+          "Increased temperature causes faster reactions, for example faster respiration or faster enzyme action."
+        ],
+        "tip": "The first mark is for saying that both increase the rate. Do not write anaerobic respiration."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.17B", "EDEX 9.18B", "EDEX 9.19B"],
+      "worked_example": {
+        "exemplar_id": "9b390923-5232-45c8-b7fc-412718283590",
+        "source": "EDEXCEL nov 2021, Paper 2 (H), Q8(c)(ii)",
+        "question": "A student investigated the decomposition of leaves from different types of tree.\n\nThe same investigation was extended to include the leaves of a silver birch tree. The starting mass of the leaves was 28.2 grams. After 40 days the mass of the leaves was 19.7 grams.\n\nCalculate the rate of decomposition of the leaves of the silver birch tree.\nGive your answer to three significant figures and include the units.",
+        "marks": 3,
+        "answer_points": [
+          "Change in mass = 28.2 − 19.7 = 8.5 g.",
+          "Rate = 8.5 ÷ 40 = 0.213 (0.2125 rounded to three significant figures).",
+          "Units: grams per day (g/day)."
+        ],
+        "tip": "One mark each for the change in mass, the division and the units."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 4.1d"],
+      "worked_example": {
+        "exemplar_id": "8f827ca4-1c20-4dd1-b93e-c20a0122eee4",
+        "source": "OCR jun 2022, Paper 2, Q23(b)(i)",
+        "question": "Some students investigate decomposition of dead plant waste. They make a composter from two plastic bottles. They set up bottles with different numbers of air holes. They measure the mass of the bottle and plant waste at the start and after four weeks.\n\nNumber of air holes | Mass at the start (g) | Mass after 4 weeks (g)\n2 | 300 | 270\n4 | 300 | 250\n8 | 300 | 240\n16 | 300 | 235\n\nCalculate the loss in mass per week of the bottle and plant waste with 16 air holes.\nGive your answer to 3 significant figures.",
+        "marks": 3,
+        "answer_points": [
+          "Loss in mass = 300 − 235 = 65 g.",
+          "Loss per week = 65 ÷ 4 = 16.25 g.",
+          "To three significant figures: 16.3 g per week."
+        ],
+        "tip": "Check the answer line first: 16.3 earns all three marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "327f9481-a4f4-4aef-96b7-e5367376e6cb",
+      "f52db4cd-aefb-4424-959d-411f92aa1fdf",
+      "7fa66e0d-13e6-47b4-839d-51c88617fa07",
+      "8663a286-e6d2-4bdd-8c08-427d9a4e9868",
+      "ff9e991c-ca53-43b5-b7c5-194dc7ffb5a5"
+    ],
+    "exemplar_ids": [
+      "d69dd54c-215c-4082-8b40-3689a3ba673c",
+      "9b390923-5232-45c8-b7fc-412718283590",
+      "8f827ca4-1c20-4dd1-b93e-c20a0122eee4"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

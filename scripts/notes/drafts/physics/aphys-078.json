@@ -1,0 +1,390 @@
+{
+  "format": 1,
+  "concept_id": "aphys-078",
+  "subject": "physics",
+  "title": "Luminosity, magnitude and astronomical distances",
+  "key_idea": "A star's luminosity is its total power output. The intensity we receive falls with the square of the distance. Knowing a star's luminosity, or measuring its parallax, lets us find how far away it is.",
+  "sections": [
+    {
+      "heading": "Luminosity and the inverse square law",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two numbers describe how bright a star is. One is how much it gives out. The other is how much reaches us."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Luminosity (L)",
+              "meaning": "The total power of electromagnetic radiation emitted by a star, in watts."
+            },
+            {
+              "term": "Intensity (I)",
+              "meaning": "The power received per unit area, measured at right angles to the radiation. It is also called radiant flux intensity, and is sometimes written F."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A star radiates equally in all directions. By the time the radiation is a distance d away, it is spread over a sphere of area 4πd²."
+        },
+        {
+          "type": "equation",
+          "label": "Inverse square law for intensity",
+          "formula": "I = L ÷ (4πd²)",
+          "where": [
+            "I = intensity at the observer (W/m²)",
+            "L = luminosity of the source (W)",
+            "d = distance from the source (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Intensity is proportional to 1 ÷ d², so doubling the distance gives one quarter of the intensity.",
+            "The law assumes the star radiates equally in all directions.",
+            "It also assumes no radiation is absorbed or scattered on the way, which is not quite true in dusty space."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing how luminosity and distance change the intensity received from a star.",
+            "inputs": [
+              {
+                "id": "L",
+                "label": "Luminosity",
+                "unit": "× 10²⁶ W",
+                "min": 1,
+                "max": 40,
+                "step": 1,
+                "value": 4
+              },
+              {
+                "id": "d",
+                "label": "Distance",
+                "unit": "× 10¹⁶ m",
+                "min": 1,
+                "max": 10,
+                "step": 0.5,
+                "value": 2
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Intensity received",
+                "unit": "nW/m²",
+                "formula": "L * 1000 / (4 * 3.14159 * d * d)",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Luminosity is the total power a star radiates. Intensity is the power arriving per square metre.",
+            "I = L ÷ (4πd²), so intensity falls with the square of the distance.",
+            "The law assumes equal radiation in all directions and no absorption."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Units of distance and parallax",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Astronomical distances are huge, so metres are not convenient. Astronomers use three larger units."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Unit",
+            "Meaning",
+            "Size"
+          ],
+          "rows": [
+            [
+              "Astronomical unit (AU)",
+              "The mean distance from the Earth to the Sun",
+              "1.50 × 10¹¹ m"
+            ],
+            [
+              "Light-year (ly)",
+              "The distance light travels in a vacuum in one year",
+              "9.46 × 10¹⁵ m"
+            ],
+            [
+              "Parsec (pc)",
+              "The distance at which 1 AU subtends an angle of 1 second of arc",
+              "3.09 × 10¹⁶ m, or 3.26 ly"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Trigonometric parallax measures the distance to nearby stars. A nearby star seems to shift against the distant background stars as the Earth moves round its orbit."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Observe",
+              "text": "Measure the position of the star against distant stars. Do it again six months later, when the Earth is on the opposite side of its orbit."
+            },
+            {
+              "lead": "Measure",
+              "text": "Find the angle the star appears to move through, and halve it."
+            },
+            {
+              "lead": "Define",
+              "text": "This half-angle is the parallax, p. It is the angle at the star between the lines to the Earth and to the Sun."
+            },
+            {
+              "lead": "Calculate",
+              "text": "Use the small angle and the Earth–Sun distance of 1 AU to find the distance."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Parallax and distance",
+          "formula": "p = 1 ÷ d",
+          "where": [
+            "p = parallax (seconds of arc, also called arcseconds)",
+            "d = distance (parsec)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "One second of arc is 1/3600 of a degree.",
+            "A star with a parallax of 0.25 seconds of arc is 1 ÷ 0.25 = 4 pc away.",
+            "The nearer the star, the larger its parallax.",
+            "Parallax angles become too small to measure for stars that are far away, so the method works only for nearby stars."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "1 pc is the distance at which 1 AU subtends 1 second of arc. 1 pc = 3.26 ly.",
+            "Parallax is half the apparent shift of a star over six months.",
+            "p = 1 ÷ d, with p in seconds of arc and d in parsec."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Standard candles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Parallax fails for distant stars and galaxies. Another way uses objects whose luminosity we already know."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Standard candle",
+              "meaning": "An object of known luminosity."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Recognise",
+              "text": "Identify the object as a standard candle, such as a type Ia supernova or a Cepheid variable star, so its luminosity L is known."
+            },
+            {
+              "lead": "Measure",
+              "text": "Measure the intensity I received from it at the Earth."
+            },
+            {
+              "lead": "Rearrange",
+              "text": "From I = L ÷ (4πd²), d = √(L ÷ 4πI)."
+            },
+            {
+              "lead": "Calculate",
+              "text": "Find d. This gives the distance to the galaxy that contains the standard candle."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Standard candles are bright enough to be seen in other galaxies, so they reach much further than parallax.",
+            "The dimmer a standard candle looks, the further away it is.",
+            "Dust between us and the object absorbs light, which makes the object seem further away than it is."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A standard candle has a known luminosity.",
+            "Comparing the known L with the measured I gives the distance, using I = L ÷ (4πd²).",
+            "Standard candles measure distances to galaxies, far beyond the reach of parallax."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A star has a luminosity of 2.0 × 10²⁸ W. Calculate the intensity at the Earth, which is 3.0 × 10¹⁷ m away.",
+      "a": "I = L ÷ (4πd²) = 2.0 × 10²⁸ ÷ (4π × (3.0 × 10¹⁷)²) = 1.8 × 10⁻⁸ W/m².",
+      "marks": 3
+    },
+    {
+      "q": "A star has a parallax of 0.050 seconds of arc. Calculate its distance in parsec and in light-years.",
+      "a": "d = 1 ÷ p = 1 ÷ 0.050 = 20 pc. In light-years, 20 × 3.26 = 65 ly.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how a standard candle is used to find the distance to a galaxy.",
+      "a": "A standard candle has a known luminosity. Measure the intensity received at the Earth. Use I = L ÷ (4πd²) and rearrange to find d. The standard candle's distance is the distance to its galaxy.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.9.2.1",
+        "AQA 3.9.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for: apparent and absolute magnitude",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Magnitude is an older way to rank how bright stars look. It is a subjective scale, based on what the eye sees, and the numbers run backwards."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Apparent magnitude (m)",
+                  "meaning": "How bright a star looks from the Earth, on the Hipparcos scale."
+                },
+                {
+                  "term": "Absolute magnitude (M)",
+                  "meaning": "The apparent magnitude a star would have if it were at a distance of 10 pc."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The dimmest stars visible to the naked eye have a magnitude of 6.",
+                "A smaller magnitude means a brighter star.",
+                "A difference of 1 on the magnitude scale is an intensity ratio of 2.51.",
+                "Brightness is a subjective measure, as it depends on the observer. Intensity is an objective measure.",
+                "Absolute magnitude lets stars be compared fairly, as they are all placed at the same distance."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Apparent and absolute magnitude",
+              "formula": "m – M = 5 log (d ÷ 10)",
+              "where": [
+                "m = apparent magnitude",
+                "M = absolute magnitude",
+                "d = distance to the star (pc)"
+              ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "practice",
+                "alt": "A practice calculation of a star's distance in parsec from its apparent and absolute magnitudes.",
+                "question": "A star has an apparent magnitude of {m} and an absolute magnitude of {M}. Calculate its distance in parsec.",
+                "variables": [
+                  {
+                    "id": "m",
+                    "min": 6,
+                    "max": 12,
+                    "step": 1
+                  },
+                  {
+                    "id": "M",
+                    "min": -2,
+                    "max": 4,
+                    "step": 1
+                  }
+                ],
+                "answer": {
+                  "formula": "10 * 10^((m - M) / 5)",
+                  "unit": "pc",
+                  "decimals": 0,
+                  "tolerance_percent": 2
+                },
+                "working": [
+                  "m – M = 5 log (d ÷ 10)",
+                  "log (d ÷ 10) = ({m} – ({M})) ÷ 5",
+                  "d = 10 × 10^((m – M) ÷ 5) = {answer} pc"
+                ]
+              }
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "A smaller apparent magnitude means a brighter star. The dimmest naked-eye stars are magnitude 6.",
+                "A magnitude difference of 1 is an intensity ratio of 2.51.",
+                "m – M = 5 log (d ÷ 10), with d in parsec."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 10.156",
+        "EDEX 10.157",
+        "EDEX 10.158"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 25.1.1",
+        "CAIE 25.1.2",
+        "CAIE 25.1.3",
+        "CAIE 25.1.4"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.5.3a",
+        "OCR 5.5.3b",
+        "OCR 5.5.3c"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "f66cd5b4-2837-427c-9fdf-dc7bba304f4e",
+      "da05e751-4cbe-48ad-93cc-6cad0af5c8f0",
+      "f7a47172-4f8d-4b0b-9e5e-de5c06f9f8c5",
+      "8dc62bf4-34d1-4500-8644-44595cf5c138",
+      "6436fd3a-6186-48c9-b0ee-095d7babc49e",
+      "09ef10fe-ade0-4a6f-ba53-7e547ac97a14",
+      "078c0cbc-6c39-474a-b654-3a70001ac4c7",
+      "ed64f47c-cafd-404d-8e2d-bde0875321aa",
+      "3d6adac7-4813-4847-9776-b6c3e6553663",
+      "8b881f1b-d707-49dc-ac4a-7b8425b3956c",
+      "2e7d615f-00cb-44b0-942f-9a3969b68e26",
+      "a4d55da1-337a-4269-bc85-dc7ab587b305"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

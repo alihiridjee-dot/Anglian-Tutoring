@@ -1,0 +1,446 @@
+{
+  "format": 1,
+  "concept_id": "aphys-074",
+  "subject": "physics",
+  "title": "Charged particles in magnetic fields",
+  "key_idea": "A charged particle moving across a magnetic field feels a force F = BQv sin θ at right angles to its velocity. The force does no work, so a particle moving at right angles to the field travels in a circle of radius mv/(BQ).",
+  "sections": [
+    {
+      "heading": "Force on a moving charge",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A moving charge is a tiny current, so a magnetic field exerts a force on it. The force depends on the charge, its speed and the field."
+        },
+        {
+          "type": "equation",
+          "label": "Force on a moving charge",
+          "formula": "F = BQv sin θ",
+          "where": [
+            "F = force (N)",
+            "B = magnetic flux density (T)",
+            "Q = charge of the particle (C)",
+            "v = speed of the particle (m/s)",
+            "θ = angle between the velocity and the field"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "When the velocity is at right angles to the field, F = BQv.",
+            "When the velocity is along the field, the force is zero.",
+            "The force is at right angles to both the velocity and the field."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Where it comes from"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Start",
+              "text": "For a wire, F = BIL."
+            },
+            {
+              "lead": "Charge Q",
+              "text": "A charge Q takes time t = L/v to travel a length L, so the current is I = Q/t = Qv/L."
+            },
+            {
+              "lead": "Substitute",
+              "text": "F = B × (Qv/L) × L = BQv."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Direction"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use Fleming's left-hand rule: first finger along the field, thumb gives the force.",
+            "The second finger points along the conventional current, which is the direction a positive charge moves.",
+            "For a negative charge such as an electron, the current is opposite to the velocity. The force is therefore in the opposite direction to that on a positive charge moving the same way."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "F = BQv sin θ.",
+            "The force is perpendicular to the velocity, and reverses for a charge of opposite sign."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Circular motion in a magnetic field",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A force always at right angles to the velocity changes the direction of motion but not the speed. The particle moves in a circle."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The magnetic force does no work on the particle, because it is always at right angles to the motion.",
+            "The kinetic energy and speed stay constant.",
+            "The circle lies in a plane at right angles to the field."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Magnetic force",
+              "text": "The force on the particle is BQv."
+            },
+            {
+              "lead": "Centripetal force",
+              "text": "Circular motion needs a centripetal force mv²/r, and the magnetic force provides it."
+            },
+            {
+              "lead": "Equate",
+              "text": "BQv = mv²/r, so r = mv/(BQ)."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Radius of the circular path",
+          "formula": "r = mv / (BQ)",
+          "where": [
+            "r = radius (m)",
+            "m = mass of the particle (kg)",
+            "v = speed (m/s)",
+            "B = magnetic flux density (T)",
+            "Q = charge of the particle (C)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The time for one circuit is T = 2πr/v = 2πm/(BQ). It does not depend on the speed.",
+            "A faster particle moves in a larger circle but takes the same time.",
+            "A stronger field gives a smaller circle. A heavier particle gives a larger circle.",
+            "If the velocity is not at right angles to the field, only the component at right angles circles. The path becomes a helix."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider activity. Choose a particle, its speed and the magnetic flux density and see the radius of its circular path and the time for one circuit.",
+            "inputs": [
+              {
+                "id": "mq",
+                "label": "Particle",
+                "choices": [
+                  {
+                    "label": "Electron",
+                    "value": 5.69
+                  },
+                  {
+                    "label": "Proton",
+                    "value": 10440
+                  }
+                ]
+              },
+              {
+                "id": "v",
+                "label": "Speed",
+                "unit": "× 10⁶ m/s",
+                "min": 1,
+                "max": 10,
+                "step": 1,
+                "value": 2
+              },
+              {
+                "id": "b",
+                "label": "Magnetic flux density",
+                "unit": "mT",
+                "min": 10,
+                "max": 200,
+                "step": 1,
+                "value": 50
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Radius of path",
+                "unit": "mm",
+                "formula": "mq*v/b",
+                "decimals": 2
+              },
+              {
+                "label": "Time for one circuit",
+                "unit": "ns",
+                "formula": "6.283*mq/b",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A magnetic force on a moving charge acts as the centripetal force.",
+            "r = mv/(BQ), and the time for one circuit is independent of speed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Velocity selection",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Electric and magnetic fields at right angles can select particles of one speed from a beam. The forces on a particle act in opposite directions."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Electric force",
+              "text": "The electric field E exerts a force QE on the particle, in one direction."
+            },
+            {
+              "lead": "Magnetic force",
+              "text": "The magnetic field B exerts a force BQv on the particle in the opposite direction."
+            },
+            {
+              "lead": "Balance",
+              "text": "A particle with QE = BQv feels no resultant force and passes straight through."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Speed of the particles that pass straight through",
+          "formula": "v = E / B",
+          "where": [
+            "v = speed (m/s)",
+            "E = electric field strength (V/m)",
+            "B = magnetic flux density (T)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The charge cancels, so the selected speed does not depend on the charge or the mass.",
+            "Slower particles feel a larger electric force than magnetic force and are deflected one way. Faster particles are deflected the other way.",
+            "A narrow slit at the exit lets only the undeflected particles through."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Particles pass undeflected when electric and magnetic forces are equal.",
+            "The selected speed is v = E/B."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "An electron travels at 2.0 × 10⁷ m/s at right angles to a uniform magnetic field of flux density 0.50 mT. Calculate the radius of its path. (Electron mass 9.11 × 10⁻³¹ kg, charge 1.60 × 10⁻¹⁹ C.)",
+      "a": "r = mv/(BQ) = (9.11 × 10⁻³¹ × 2.0 × 10⁷) ÷ (0.50 × 10⁻³ × 1.60 × 10⁻¹⁹) = 0.23 m.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a magnetic field does not change the speed of a charged particle moving in it.",
+      "a": "The force is always at right angles to the velocity, so it does no work on the particle. Its kinetic energy and speed are constant and only its direction changes.",
+      "marks": 2
+    },
+    {
+      "q": "Charged particles pass undeflected through crossed electric and magnetic fields. E = 2.0 × 10⁴ V/m and B = 0.040 T. Calculate their speed.",
+      "a": "QE = BQv, so v = E/B = 2.0 × 10⁴ ÷ 0.040 = 5.0 × 10⁵ m/s.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.5.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "The cyclotron"
+            },
+            {
+              "type": "paragraph",
+              "text": "A cyclotron accelerates charged particles to high energies in a vacuum. It uses the fact that the time for a half-turn does not depend on speed."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Two dees",
+                  "text": "Two hollow D-shaped electrodes are placed in a uniform magnetic field at right angles to them."
+                },
+                {
+                  "lead": "Gap",
+                  "text": "A particle crossing the gap between the dees is accelerated by an alternating p.d."
+                },
+                {
+                  "lead": "Semicircle",
+                  "text": "Inside a dee there is no electric field. The magnetic field makes the particle move in a semicircle."
+                },
+                {
+                  "lead": "Timing",
+                  "text": "The half-turn takes πm/(BQ), which is the same at every speed. The p.d. alternates at the constant frequency f = BQ/(2πm)."
+                },
+                {
+                  "lead": "Spiral out",
+                  "text": "Each crossing adds energy. The speed grows, so the radius grows and the path spirals outwards to the edge."
+                }
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "The alternating p.d. has a fixed frequency because the half-turn time is constant.",
+                "The path is a spiral of increasing radius."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.122"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 20.3.1",
+        "CAIE 20.3.2",
+        "CAIE 20.3.3",
+        "CAIE 20.3.4",
+        "CAIE 20.3.5",
+        "CAIE 20.3.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "The Hall voltage"
+            },
+            {
+              "type": "paragraph",
+              "text": "When a current flows along a thin slice of conductor in a magnetic field at right angles to the slice, a small p.d. appears across its width."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Deflection",
+                  "text": "The magnetic force pushes the moving charge carriers towards one edge of the slice."
+                },
+                {
+                  "lead": "Build-up",
+                  "text": "Charge builds up on that edge and an electric field develops across the slice."
+                },
+                {
+                  "lead": "Equilibrium",
+                  "text": "The sideways electric force on a carrier grows until it equals the magnetic force. Then the carriers go straight again."
+                },
+                {
+                  "lead": "Hall voltage",
+                  "text": "The p.d. across the slice at this stage is the Hall voltage Vₕ."
+                }
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Balance of forces",
+                  "text": "qVₕ / d = Bqv, where d is the width of the slice. So Vₕ = Bvd."
+                },
+                {
+                  "lead": "Current",
+                  "text": "I = nAvq with A = dt, so v = I / (ndtq)."
+                },
+                {
+                  "lead": "Substitute",
+                  "text": "Vₕ = B × I / (ndtq) × d = BI / (ntq)."
+                }
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Hall voltage",
+              "formula": "Vₕ = BI / (ntq)",
+              "where": [
+                "Vₕ = Hall voltage (V)",
+                "B = magnetic flux density (T)",
+                "I = current (A)",
+                "n = number density of charge carriers (m⁻³)",
+                "t = thickness of the slice (m)",
+                "q = charge on each carrier (C)"
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "The Hall probe"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A Hall probe is a thin slice of semiconductor carrying a constant current.",
+                "For a constant current, Vₕ is proportional to B, so the probe is calibrated to read B.",
+                "A semiconductor has a small n, which gives a large Vₕ.",
+                "The flat face of the slice must be at right angles to the field."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Vₕ = BI/(ntq).",
+                "A Hall probe measures flux density from the Hall voltage."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.3.2a",
+        "OCR 6.3.2b",
+        "OCR 6.3.2c"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "addcacc5-c23c-4398-9a97-4911e532a25b",
+      "a2dde051-a5e8-49fd-87e7-db4f3189df89",
+      "3a351684-aafb-45fd-a73c-df3a8b5d1820",
+      "3ac40c0c-a01a-4864-af20-e2426d836691",
+      "09953dd1-0673-48f7-9775-822f005bdf87",
+      "783323e2-c72a-48e8-b8f1-a0691046501b",
+      "b21ba6bd-71e4-4f63-8955-b41cf24266da",
+      "b5dc3a93-06dc-497d-8f36-88bb81ea37f3",
+      "9e5e4703-8bf1-4628-966c-68a41cf91853",
+      "814c1baf-8ff5-4bbe-844e-6eb0f249a25b",
+      "2f3e2ccb-91fd-4396-a8d7-c2e7c6abd148"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

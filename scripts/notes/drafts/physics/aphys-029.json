@@ -1,0 +1,213 @@
+{
+  "format": 1,
+  "concept_id": "aphys-029",
+  "subject": "physics",
+  "title": "Required practicals: electricity",
+  "key_idea": "Three practicals test the electricity theory. Resistivity comes from the gradient of a graph of resistance against length. E.m.f. and internal resistance come from the intercept and gradient of a graph of terminal p.d. against current. A thermistor in a potential divider can be calibrated to act as a thermostat.",
+  "sections": [
+    {
+      "heading": "Determining the resistivity of a material",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Measure the resistance of different lengths of a wire of known diameter, then use R = ρL / A."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Diameter",
+              "text": "Use a micrometer to measure the diameter at several points along the wire and in two perpendicular directions. Take the mean and find A = πd²/4."
+            },
+            {
+              "lead": "Circuit",
+              "text": "Connect the wire in series with a cell and an ammeter. Connect a voltmeter across the wire."
+            },
+            {
+              "lead": "Lengths",
+              "text": "Clip to the wire at measured lengths along a metre rule, for example every 10 cm from 10 cm to 100 cm."
+            },
+            {
+              "lead": "Readings",
+              "text": "At each length record V and I, and calculate R = V / I. Keep the current small and switch off between readings."
+            },
+            {
+              "lead": "Graph",
+              "text": "Plot R against L. Draw the line of best fit through the origin."
+            },
+            {
+              "lead": "Resistivity",
+              "text": "The gradient is ρ / A, so ρ = gradient × A."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A small current prevents the wire heating, which would raise its resistance.",
+            "The diameter is the biggest source of uncertainty, because A depends on d², so a small percentage error in d doubles in A.",
+            "Poor contact at the clip, or a zero error on the ammeter, gives a non-zero intercept.",
+            "Repeat the readings and average, and check the ammeter for zero errors."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ρ = gradient of R against L × cross-sectional area.",
+            "Use a low current, and measure d with a micrometer at several places."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Determining the e.m.f. and internal resistance of a cell",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Change the current taken from a cell and record its terminal p.d."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Circuit",
+              "text": "Connect the cell, an ammeter, a switch and a variable resistor in series. Connect a voltmeter across the cell terminals."
+            },
+            {
+              "lead": "Readings",
+              "text": "Close the switch, adjust the variable resistor and record V and I. Do at least six readings across a wide range of current."
+            },
+            {
+              "lead": "Switch off",
+              "text": "Open the switch between readings, so the cell does not warm up or run down."
+            },
+            {
+              "lead": "Graph",
+              "text": "Plot V against I. Use V = E − Ir to find E from the y-intercept and r from the negative of the gradient."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A cell with a small internal resistance gives a shallow line, so use as wide a range of current as is safe.",
+            "A large current heats the cell and changes r, so switch off between readings.",
+            "Read the intercept from a graph that extends back to I = 0, not by extrapolating from a small range."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "V = E − Ir: y-intercept = E, gradient = −r.",
+            "Switch off between readings to stop the cell warming."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calibrating a thermistor as a thermostat",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An NTC thermistor in a potential divider gives an output p.d. that changes with temperature. A calibration graph turns that p.d. into a temperature."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Circuit",
+              "text": "Connect the thermistor in series with a fixed resistor across a supply of known p.d. Connect a voltmeter across the fixed resistor."
+            },
+            {
+              "lead": "Water bath",
+              "text": "Place the thermistor in a waterproof sleeve in a beaker of water, with a thermometer beside it."
+            },
+            {
+              "lead": "Readings",
+              "text": "Change the water temperature in steps, for example every 10 °C from near 0 °C to near 80 °C. Stir, wait for the temperature to settle, then record the temperature and the output p.d."
+            },
+            {
+              "lead": "Calibrate",
+              "text": "Plot output p.d. against temperature and draw a smooth curve. Use it to read the p.d. that matches the switching temperature."
+            },
+            {
+              "lead": "Thermostat",
+              "text": "Set a comparator or switching circuit to operate at that p.d., so the circuit switches a heater at the chosen temperature."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for calibrating a thermistor as a thermostat in order.",
+            "prompt": "Put the steps of the calibration in order.",
+            "steps": [
+              "Connect the thermistor and fixed resistor in series across the supply.",
+              "Place the thermistor in a water bath beside a thermometer.",
+              "Stir and let the water settle at each temperature.",
+              "Record the temperature and the output p.d.",
+              "Plot output p.d. against temperature.",
+              "Read off the p.d. for the switching temperature and set the switching circuit to it."
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Stirring and waiting make the thermistor temperature equal the thermometer reading.",
+            "Using a thermistor in a sleeve keeps water away from the electrical contacts.",
+            "A small current avoids heating the thermistor above the water temperature.",
+            "The output p.d. across the fixed resistor rises as the temperature rises, because the thermistor resistance falls."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The output p.d. is calibrated against temperature using a water bath.",
+            "Stir and wait so the thermistor and thermometer agree."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "In the resistivity experiment, the gradient of a graph of R against L is 5.2 Ω/m and the wire's diameter is 0.28 mm. Calculate the resistivity.",
+      "a": "A = π × (0.28 × 10⁻³)² ÷ 4 = 6.2 × 10⁻⁸ m². ρ = gradient × A = 5.2 × 6.2 × 10⁻⁸ = 3.2 × 10⁻⁷ Ω m.",
+      "marks": 3
+    },
+    {
+      "q": "A graph of terminal p.d. against current for a cell is a straight line from 1.55 V at 0 A to 1.10 V at 0.90 A. State the e.m.f. and calculate the internal resistance.",
+      "a": "E = 1.55 V. r = (1.55 − 1.10) ÷ 0.90 = 0.50 Ω.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the water must be stirred and left to settle before each reading when calibrating the thermistor.",
+      "a": "Stirring makes the temperature the same throughout the water, and waiting lets the thermistor reach the same temperature as the thermometer, so the p.d. matches the recorded temperature.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.40",
+        "EDEX 3.46",
+        "EDEX 9.145"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "0c266f4f-c0dd-490f-a5b0-112801d1a821",
+      "8f51043c-daad-45a0-9555-b17a4062f76b",
+      "970f03ab-64a4-4f16-bd28-4c433347c739"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

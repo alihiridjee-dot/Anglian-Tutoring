@@ -1,0 +1,422 @@
+{
+  "format": 1,
+  "concept_id": "aphys-094",
+  "subject": "physics",
+  "title": "The nature of light and matter waves",
+  "key_idea": "Light was first seen as particles, then as waves, then as both. Young's fringes and Maxwell's equations favoured waves. Black-body radiation and the photoelectric effect needed quanta. De Broglie then gave matter a wavelength, which electron microscopes use.",
+  "sections": [
+    {
+      "heading": "Newton, Huygens and Young",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two rival theories of light competed for over a century. This section compares them and explains why one was preferred."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort each statement into Newton's corpuscular theory or Huygens' wave theory.",
+            "prompt": "Which theory does each statement belong to?",
+            "groups": [
+              "Newton's corpuscular theory",
+              "Huygens' wave theory"
+            ],
+            "items": [
+              {
+                "text": "Light is a stream of tiny particles",
+                "group": 0
+              },
+              {
+                "text": "Light is a wave spreading out from a source",
+                "group": 1
+              },
+              {
+                "text": "Light speeds up when it enters glass",
+                "group": 0
+              },
+              {
+                "text": "Light slows down when it enters glass",
+                "group": 1
+              },
+              {
+                "text": "Straight-line travel and sharp shadows were explained easily",
+                "group": 0
+              },
+              {
+                "text": "Every point on a wavefront is a source of secondary wavelets",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Newton's theory:** light is a stream of tiny particles, called corpuscles. It explained reflection, and the straight-line travel that gives sharp shadows.",
+            "**Huygens' theory:** light is a wave. Each point on a wavefront sends out secondary wavelets, and the new wavefront is their envelope. It explained reflection and refraction.",
+            "The two theories disagree on refraction: Newton's needed light to speed up in a denser medium, and Huygens' needed it to slow down."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why Newton's theory was preferred"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It explained sharp shadows and straight-line travel simply. Waves were expected to bend round obstacles, and the effect is hard to see because the wavelength of light is so small.",
+            "Newton's reputation carried great weight.",
+            "At the time the speed of light could not be measured in a dense medium, so the disagreement over refraction could not be tested."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Young's double slits"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light passing through two close slits gives a pattern of bright and dark **fringes**.",
+            "Light from the two slits overlaps and superposes. Where the waves arrive in step they reinforce and the fringe is bright. Where they arrive out of step they cancel and the fringe is dark.",
+            "Particles cannot easily give dark places where light from two slits meets. So the fringes are strong evidence for waves.",
+            "Huygens' theory was accepted only slowly. Newton's authority was great, and the fringes are hard to see because the slits must be very close together."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Newton: particles. Huygens: waves.",
+            "Newton's theory was preferred for its simple account of shadows, and for his reputation.",
+            "Young's fringes can only be explained by interfering waves."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Electromagnetic waves",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Maxwell showed that light is one kind of electromagnetic wave. This section covers his result and the experiments that tested it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "An electromagnetic wave is a **transverse** wave of oscillating electric and magnetic fields.",
+            "The two fields are at right angles to each other and to the direction the wave travels.",
+            "It needs no medium and travels through a vacuum."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Maxwell's speed of electromagnetic waves in a vacuum",
+          "formula": "c = 1 ÷ √(μ₀ε₀)",
+          "where": [
+            "c = speed of electromagnetic waves in a vacuum (m/s)",
+            "μ₀ = permeability of free space (H/m)",
+            "ε₀ = permittivity of free space (F/m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "ε₀ relates to the **electric field strength** due to a charged object in free space.",
+            "μ₀ relates to the **magnetic flux density** due to a current-carrying wire in free space.",
+            "Putting in the measured values gives 3.00 × 10⁸ m/s, the speed of light. So light is an electromagnetic wave."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Hertz and radio waves"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hertz made radio waves with a spark across a gap and detected them with a loop of wire a distance away.",
+            "He measured their wavelength from standing waves formed by reflection. With the frequency known he found the speed from v = fλ.",
+            "The speed was the same as that of light. The waves also reflected, refracted and diffracted like light. This confirmed Maxwell."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Fizeau and the speed of light"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Send.",
+              "text": "A beam passes through a gap in a toothed wheel and travels a long distance d to a mirror."
+            },
+            {
+              "lead": "Return.",
+              "text": "The reflected beam returns to the wheel. If the wheel has turned so that a tooth now blocks the gap, the light is cut off."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "The light's round trip of 2d takes the same time as the wheel takes to turn through one gap to the next tooth. So c = 2d ÷ t."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The result showed that light has a finite speed of about 3 × 10⁸ m/s. This matched the speed Maxwell later predicted for electromagnetic waves."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Maxwell: c = 1 ÷ √(μ₀ε₀), the same as the speed of light.",
+            "Hertz found radio waves travel at the speed of light.",
+            "Fizeau showed that the speed of light is finite and very large."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The discovery of photoelectricity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two problems showed that classical wave theory was incomplete. This section covers them and Einstein's answer."
+        },
+        {
+          "type": "subheading",
+          "text": "Black-body radiation"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A hot object emits radiation over a range of wavelengths. An ideal absorber and emitter is called a **black body**.",
+            "Classical theory predicted that the intensity would rise without limit at short wavelengths. This was called the **ultraviolet catastrophe**.",
+            "Real measurements show the intensity peaks and then falls at short wavelengths.",
+            "Planck solved it by supposing that radiation is emitted only in discrete packets of energy, called **quanta**."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The photoelectric effect"
+        },
+        {
+          "type": "paragraph",
+          "text": "Light shone on a clean metal surface can release electrons. Experiments showed three results that wave theory could not explain."
+        },
+        {
+          "type": "list",
+          "items": [
+            "No electrons are emitted below a **threshold frequency**, however intense the light is. Wave theory says enough intensity should always work.",
+            "Emission starts at once, even in dim light. Wave theory says energy should take time to build up.",
+            "The maximum kinetic energy of the electrons depends on frequency, not intensity. Wave theory says more intensity gives more energy."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Einstein's photoelectric equation",
+          "formula": "hf = φ + Eₖ(max)",
+          "where": [
+            "h = Planck constant, 6.63 × 10⁻³⁴ J s",
+            "f = frequency of the radiation (Hz)",
+            "φ = work function of the metal (J)",
+            "Eₖ(max) = maximum kinetic energy of an emitted electron (J)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light arrives as **photons**, each of energy hf.",
+            "One photon gives all its energy to one electron. If hf is less than φ, no electron escapes.",
+            "More intense light means more photons, so more electrons, but the same maximum energy.",
+            "This shows that electromagnetic radiation behaves as particles as well as waves."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Planck: energy is emitted in quanta, which fixes the ultraviolet catastrophe.",
+            "Wave theory fails on threshold frequency, instant emission and maximum energy.",
+            "Einstein: light is photons of energy hf."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Wave–particle duality",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "If waves can behave as particles, particles may behave as waves. De Broglie proposed that they do."
+        },
+        {
+          "type": "equation",
+          "label": "De Broglie wavelength",
+          "formula": "p = h ÷ λ",
+          "where": [
+            "p = momentum of the particle (kg m/s)",
+            "h = Planck constant, 6.63 × 10⁻³⁴ J s",
+            "λ = wavelength (m)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Wavelength of an electron accelerated through a pd",
+          "formula": "λ = h ÷ √(2meV)",
+          "where": [
+            "m = electron mass (kg)",
+            "e = electron charge (C)",
+            "V = accelerating pd (V)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider activity. Change the accelerating voltage and read the wavelength of the electrons.",
+            "inputs": [
+              {
+                "id": "V",
+                "label": "Accelerating pd",
+                "unit": "V",
+                "min": 10,
+                "max": 10000,
+                "step": 10,
+                "value": 150
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Electron wavelength",
+                "unit": "pm",
+                "formula": "1226 / sqrt(V)",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Electrons fired at a thin crystalline film, such as graphite, are diffracted and form a pattern of **rings**. Particles alone would not do this.",
+            "This is **low-energy electron diffraction**, and it shows that electrons behave as waves.",
+            "A faster electron has more momentum and a shorter wavelength, so the rings are closer to the centre."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A particle of momentum p has wavelength λ = h ÷ p.",
+            "Electron diffraction is direct evidence for matter waves.",
+            "Faster electrons have shorter wavelengths and smaller rings."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Electron microscopes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A microscope can only show detail about as small as its wavelength. Electrons can have a far shorter wavelength than light."
+        },
+        {
+          "type": "list",
+          "items": [
+            "To resolve atoms, the wavelength must be about the size of an atom, around 10⁻¹⁰ m.",
+            "From λ = h ÷ √(2meV) this needs an anode voltage of about 150 V.",
+            "Practical microscopes use thousands of volts, so the wavelength is smaller still."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Transmission electron microscope (TEM)"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Emit and accelerate.",
+              "text": "An electron gun produces electrons, accelerated through a high pd in a vacuum."
+            },
+            {
+              "lead": "Focus.",
+              "text": "Magnetic fields from coils act as lenses and focus the beam onto a very thin sample."
+            },
+            {
+              "lead": "Transmit.",
+              "text": "Electrons pass through the thin sample. Thicker or denser parts scatter more."
+            },
+            {
+              "lead": "Image.",
+              "text": "Magnetic lenses form an image on a fluorescent screen or detector."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Scanning tunnelling microscope (STM)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A very sharp conducting tip is brought to within about a nanometre of a conducting surface.",
+            "A small pd is applied. Electrons **tunnel** across the gap, even though classically they could not cross it.",
+            "The tunnelling current falls very rapidly as the gap grows, so it is highly sensitive to the tip height.",
+            "The tip scans across the surface. A feedback system moves the tip up and down to keep the current constant, and the tip's movement maps the surface at atomic scale."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Electron microscopes use short de Broglie wavelengths to see fine detail.",
+            "A TEM sends electrons through a thin sample.",
+            "An STM measures the tunnelling current between a tip and a surface."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two reasons why Newton's corpuscular theory of light was preferred to Huygens' wave theory.",
+      "a": "It explained straight-line travel and sharp shadows simply, whereas waves were expected to bend round obstacles. Newton's reputation and authority were great.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the photoelectric effect cannot be explained by wave theory and how Einstein explained it.",
+      "a": "Wave theory predicts that any frequency should release electrons if the light is intense enough, that there would be a delay, and that maximum energy would rise with intensity. Observation shows a threshold frequency, instant emission and maximum energy depending on frequency. Einstein: light comes in photons of energy hf; one photon releases one electron if hf is at least the work function.",
+      "marks": 4
+    },
+    {
+      "q": "Calculate the de Broglie wavelength of an electron of momentum 1.2 × 10⁻²⁴ kg m/s. (h = 6.63 × 10⁻³⁴ J s)",
+      "a": "λ = h ÷ p = 6.63 × 10⁻³⁴ ÷ 1.2 × 10⁻²⁴ = 5.5 × 10⁻¹⁰ m.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.12.2.1",
+        "AQA 3.12.2.2",
+        "AQA 3.12.2.3",
+        "AQA 3.12.2.4",
+        "AQA 3.12.2.5",
+        "AQA 3.12.2.6"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "e6fbb0f6-d987-4969-bcdf-79563c16fb94",
+      "39d92a98-20d7-4b73-90ae-94fa3e2d25c1",
+      "43b3c568-1004-458a-b5af-1175fed904b0",
+      "fe956235-83fd-429e-b1f7-dd057392601d",
+      "36cc3fea-934b-4e10-b9e9-ef05027fb646",
+      "81077b17-d4a2-42f9-9804-223580c6017a"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

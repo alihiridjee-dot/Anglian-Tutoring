@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ShieldCheck } from "lucide-react";
 import { Nav } from "@/components/landing/Nav";
 import { Footer } from "@/components/landing/Footer";
+import { canonical } from "@/lib/platform/seo";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
@@ -13,11 +14,12 @@ export const Route = createFileRoute("/privacy")({
           "What information Anglia Educate collects about students, parents and visitors, why, who it's shared with, how long it's kept, and your rights.",
       },
     ],
+    links: [canonical("/privacy")],
   }),
   component: PrivacyPage,
 });
 
-const UPDATED = "5 October 2026";
+const UPDATED = "7 October 2026";
 const CONTACT = "angliaeducate@gmail.com";
 
 /**
@@ -57,7 +59,7 @@ const PROCESSORS = [
   },
   {
     name: "DeepSeek",
-    what: "Its AI reads a question a student chooses to send with “Ask for help” in the search box, as described under AI help in the search box.",
+    what: "Its AI reads a question a student chooses to send with “Ask for help” in the search box, and the names of the topics a student found hardest, to suggest questions for their tutor. Both are described under AI help from DeepSeek.",
     where: "China",
   },
   {
@@ -159,8 +161,9 @@ function PrivacyPage() {
           <h3>Your account</h3>
           <p>
             Your name, email address and password, whether you&apos;re a student, parent or tutor,
-            and, if you give them, your phone number, school, level, exam board and a profile photo.
-            Your password is held by our sign-in provider in a form nobody can read, including us.
+            and, if you give them, your phone number, school, level, exam board, exam year and a
+            profile photo. Your password is held by our sign-in provider in a form nobody can read,
+            including us.
           </p>
           <h3>If you sign in with Google or Microsoft</h3>
           <p>
@@ -249,7 +252,7 @@ function PrivacyPage() {
           </p>
         </Section>
 
-        <Section title="AI help in the search box">
+        <Section title="AI help from DeepSeek">
           <p>
             Students can type a question into the search box, such as &quot;where&apos;s my quiz for
             this week?&quot;. Most questions are answered by the site itself, and nothing leaves it.
@@ -260,6 +263,12 @@ function PrivacyPage() {
             AI company based in China, which picks the page that answers it. We remove email
             addresses and phone numbers first, and send nothing else: no name, account, marks or
             work.
+          </p>
+          <p>
+            When a student starts a question to our tutors, the site suggests questions about the
+            topics they found hardest. To write them, DeepSeek is sent the names of up to three
+            topics from the exam board&apos;s syllabus, such as &quot;Osmosis&quot;. The site picks
+            the topics from the student&apos;s marks, but sends no marks, name, account or work.
           </p>
           <p>
             DeepSeek stores what it receives in China and may use it to improve its AI. That&apos;s
@@ -302,7 +311,8 @@ function PrivacyPage() {
           <p>
             DeepSeek is based in China, which UK law does not treat as protecting data to the same
             standard. That&apos;s why it receives so little: only a question a student types and
-            chooses to send, with email addresses and phone numbers removed.
+            chooses to send, with email addresses and phone numbers removed, and the names of
+            syllabus topics.
           </p>
         </Section>
 

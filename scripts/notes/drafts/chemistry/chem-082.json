@@ -1,0 +1,400 @@
+{
+  "format": 1,
+  "concept_id": "chem-082",
+  "subject": "chemistry",
+  "title": "Addition polymerisation",
+  "key_idea": "(Separate science) In addition polymerisation, many small alkene molecules called monomers join to make one very large molecule, a polymer. The C=C bond opens and no other molecule is made. So the repeating unit has the same atoms as the monomer.",
+  "sections": [
+    {
+      "heading": "How addition polymers form",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Alkenes can be used to make polymers. Each alkene molecule has a C=C double bond, which opens so the molecules can join in a chain."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Monomer",
+              "meaning": "A small molecule that can join with many others to make a polymer."
+            },
+            {
+              "term": "Polymer",
+              "meaning": "A substance of high average relative molecular mass, made of small repeating units."
+            },
+            {
+              "term": "Addition polymerisation",
+              "meaning": "Many monomers join together with no other molecule formed."
+            },
+            {
+              "term": "Repeating unit",
+              "meaning": "The part of the polymer chain that repeats, written in brackets with n."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Making poly(ethene)",
+          "formula": "n CH₂=CH₂ → [–CH₂–CH₂–]ₙ",
+          "where": [
+            "n is a very large number of molecules, with no unit.",
+            "CH₂=CH₂ is ethene, the monomer.",
+            "[–CH₂–CH₂–] is the repeating unit."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The double bond in each monomer breaks, or opens up.",
+            "The monomers link together to form a long chain.",
+            "No other molecule is formed, so the repeating unit has the same atoms as the monomer.",
+            "Conditions and mechanisms are not required."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Addition polymers are made from monomers that contain C=C.",
+            "The double bond opens and the monomers join in a long chain.",
+            "The repeating unit has the same atoms as the monomer."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Monomers, polymers and repeating units",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Each alkene gives its own polymer. The polymer is named by putting the monomer name in brackets after poly."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a monomer to see the polymer, its repeating unit and a use.",
+            "prompt": "Pick a monomer",
+            "result_labels": [
+              "Polymer",
+              "Repeating unit",
+              "Example use"
+            ],
+            "options": [
+              {
+                "label": "Ethene, CH₂=CH₂",
+                "results": [
+                  "Poly(ethene)",
+                  "–CH₂–CH₂–",
+                  "Plastic bags and bottles"
+                ]
+              },
+              {
+                "label": "Propene, CH₂=CHCH₃",
+                "results": [
+                  "Poly(propene)",
+                  "–CH₂–CH(CH₃)–",
+                  "Crates and ropes"
+                ]
+              },
+              {
+                "label": "Chloroethene, CH₂=CHCl",
+                "results": [
+                  "Poly(chloroethene), PVC",
+                  "–CH₂–CHCl–",
+                  "Window frames, water pipes and insulation for electrical wires"
+                ]
+              },
+              {
+                "label": "Tetrafluoroethene, CF₂=CF₂",
+                "results": [
+                  "Poly(tetrafluoroethene), PTFE",
+                  "–CF₂–CF₂–",
+                  "Coating for frying pans"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Drawing a repeating unit"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Draw the monomer.",
+              "text": "Show the C=C in the middle, with the other atoms above and below it."
+            },
+            {
+              "lead": "Open the double bond.",
+              "text": "Change C=C to a single bond C–C."
+            },
+            {
+              "lead": "Add the links.",
+              "text": "Draw a bond from each carbon out through the brackets."
+            },
+            {
+              "lead": "Add n.",
+              "text": "Write n after the brackets to show many repeating units."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To find the monomer from a polymer, do it in reverse: take one repeating unit and put the double bond back.",
+            "Keep the side atoms the same, so propene keeps its CH₃ group."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The repeating unit has the same atoms as its monomer.",
+            "To find a monomer, put the C=C back into one repeating unit."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Properties and uses of addition polymers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) The use of a polymer depends on its properties. A good answer links a property to the use, then gives the reason."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Polymer",
+            "Use",
+            "Properties that suit it"
+          ],
+          "rows": [
+            [
+              "Poly(ethene)",
+              "Plastic bags and bottles",
+              "Flexible, unreactive, waterproof"
+            ],
+            [
+              "Poly(propene)",
+              "Crates and ropes",
+              "Flexible, waterproof, unreactive"
+            ],
+            [
+              "Poly(chloroethene) (PVC)",
+              "Window frames, water pipes, insulation for electrical wires",
+              "Does not conduct electricity, waterproof, flexible, unreactive"
+            ],
+            [
+              "Poly(tetrafluoroethene) (PTFE)",
+              "Coating for frying pans, stain-proofing clothing",
+              "Slippery (non-stick), high melting point, unreactive"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "PVC insulates cables because it does not conduct electricity, so it separates the user from the current.",
+            "PTFE coats pans because it is non-stick, so food will not stick.",
+            "A food wrapping must be non-toxic, so it does not poison the food.",
+            "It could instead be unreactive, so it does not react with the food, or flexible, so it wraps all around the food."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Link each use to a property and give a reason.",
+            "PTFE is non-stick, PVC is an insulator, and poly(ethene) is flexible and unreactive."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What type of molecule is the monomer in addition polymerisation, and what happens to its double bond?",
+      "a": "The monomer is an alkene (it contains C=C). The double bond opens so the monomers can join together in a chain.",
+      "marks": 2
+    },
+    {
+      "q": "Draw or describe the repeating unit of poly(ethene).",
+      "a": "–CH₂–CH₂–, the repeating unit of poly(ethene) in brackets with n after it.",
+      "marks": 1
+    },
+    {
+      "q": "State one use of PTFE and the property that makes it suitable.",
+      "a": "Coating frying pans, because it is non-stick (slippery), so food will not stick to the pan.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.7.3.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "5b943dba-e620-4ab7-a12a-fd43c88ebf65",
+        "source": "AQA jun 2018, Paper 2 (F), Q06.3",
+        "question": "Disposable cups are made from coated paper or poly(styrene).\n\nComplete the sentences.\nChoose answers from the box.\n\nceramics   composites   four   many   monomers   polymers   two\n\nPoly(styrene) is produced from small molecules called ______ .\nWhen poly(styrene) is made, ______ styrene molecules join to form large molecules.\nThese large molecules are called ______ .",
+        "marks": 3,
+        "answer_points": [
+          "monomers",
+          "many",
+          "polymers"
+        ],
+        "tip": "One mark for each word. The words must be in this order."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 9.17C",
+        "EDEX 9.18C",
+        "EDEX 9.19C",
+        "EDEX 9.20C",
+        "EDEX 9.21C"
+      ],
+      "worked_example": {
+        "exemplar_id": "42c82a9a-16dd-44e6-be10-cef1c8a505bb",
+        "source": "EDEXCEL jun 2023, Paper 2 (F), Q10(c)(ii)",
+        "question": "Poly(tetrafluoroethene) is also known as Teflon™.\n\nState one use of poly(tetrafluoroethene) and explain how one of its properties makes it suitable for that use.",
+        "marks": 3,
+        "answer_points": [
+          "Use: coating (frying) pans.",
+          "Property: it is slippery or non-stick.",
+          "Reason: food will not stick to the (frying) pan."
+        ],
+        "tip": "One mark each for the use, the property and the reason. The property and reason must depend on the use."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.2d",
+        "OCR C6.2g"
+      ],
+      "extra": [
+        {
+          "heading": "OCR only: writing a polymer",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "OCR writes a polymer as [repeat unit]ₙ. The n shows many repeating units."
+            },
+            {
+              "type": "list",
+              "items": [
+                "To deduce the polymer from a simple alkene, open the C=C and put the repeating unit in brackets.",
+                "To deduce the monomer, put the C=C back into one repeating unit."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.8.1",
+        "CAIE 11.8.2",
+        "CAIE 11.8.3",
+        "CAIE 11.8.6S",
+        "CAIE 11.8.7S",
+        "CAIE 11.8.9S"
+      ],
+      "worked_example": {
+        "exemplar_id": "57573fb3-9cdb-4b8e-ab1f-165b483bbd6f",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q5(d)(i)",
+        "question": "Propene will undergo polymerisation.\n\nSuggest the name of the polymer formed from propene.",
+        "marks": 1,
+        "answer_points": [
+          "Poly(propene)."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Plastics are made from polymers."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Poly(ethene) is a polymer made from ethene monomers.",
+                "Poly(propene) is a polymer made from propene monomers."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.44",
+        "IGCSE 4.45",
+        "IGCSE 4.46",
+        "IGCSE 4.47"
+      ],
+      "worked_example": {
+        "exemplar_id": "5f773e03-2bc9-48a3-906b-530043d12761",
+        "source": "EDEXCEL jun 2022, Paper 1 (CR), Q7(d)(ii)",
+        "question": "Explain why the disposal of polymers such as poly(chloroethene) is difficult.",
+        "marks": 2,
+        "answer_points": [
+          "They are inert (unreactive), so they are non-biodegradable and do not break down in landfill.",
+          "Or: when they are burned, they produce toxic fumes."
+        ],
+        "tip": "Either route scores both marks."
+      },
+      "extra": [
+        {
+          "heading": "Disposal of addition polymers",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Addition polymers are inert, so they do not biodegrade.",
+                "They stay in landfill sites for a long time and use up space.",
+                "Burning them can give toxic gases."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "62d81e20-9a8f-4c53-abc1-36387fc00afa",
+      "3299dbb5-56d7-4fe9-8f6b-2e7754f93c91",
+      "69c5e0f3-2d3b-4d11-b51c-31f53e35bcf8",
+      "be1de134-8963-4875-85f1-5ed1a336aad4",
+      "2fc9b38c-77ab-4d2c-9010-2a2176221b50",
+      "602770e6-a8e0-4573-ba2e-ee2a20498835",
+      "706ff07c-d62c-4f6f-af5a-79d26733cda5",
+      "f23d933d-83dc-4974-8fc5-9a01cea4a58e",
+      "b399c223-cf9c-437a-91d4-4842dd6ff571",
+      "78f34076-f770-4a70-8137-fc1090a4a838",
+      "e7ac16c7-dacc-48d0-a167-601253e92763",
+      "3490f404-3f7a-4a79-b1a2-922b0afb5ea2",
+      "8a7b0492-368a-463d-a8f2-ee7d3f2cf5ac",
+      "eb57300a-4e59-4399-a3ec-fd4a4047946a",
+      "31b89a66-7c12-4fb7-b55e-a72d572feca7",
+      "e80d694c-212a-4074-9ec6-6fe6d530daf4",
+      "c3075cc8-e844-47e8-bf79-16c0b3076198"
+    ],
+    "exemplar_ids": [
+      "5b943dba-e620-4ab7-a12a-fd43c88ebf65",
+      "42c82a9a-16dd-44e6-be10-cef1c8a505bb",
+      "57573fb3-9cdb-4b8e-ab1f-165b483bbd6f",
+      "5f773e03-2bc9-48a3-906b-530043d12761"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

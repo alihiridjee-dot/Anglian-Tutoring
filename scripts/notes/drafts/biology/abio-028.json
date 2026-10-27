@@ -1,0 +1,239 @@
+{
+  "format": 1,
+  "concept_id": "abio-028",
+  "subject": "biology",
+  "title": "Translocation in the phloem",
+  "key_idea": "**Translocation** is the movement of assimilates, mainly sucrose, in the phloem from **sources** to **sinks**. Companion cells use energy to load sucrose into the sieve tubes. Water follows by osmosis, and the pressure it builds drives **mass flow** towards the sink.",
+  "sections": [
+    {
+      "heading": "What is moved, and where",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plants move dissolved substances in water. Mineral ions travel in the xylem, and organic compounds travel in the phloem."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Assimilates",
+              "meaning": "Organic substances made by the plant and carried in the phloem, such as sucrose and amino acids."
+            },
+            {
+              "term": "Source",
+              "meaning": "A part of the plant that loads assimilates into the phloem, such as a photosynthesising leaf or a storage organ in spring."
+            },
+            {
+              "term": "Sink",
+              "meaning": "A part of the plant that removes assimilates from the phloem to use or store them, such as roots, growing shoots, fruits and meristems."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sucrose is the main sugar carried. It is soluble and does not react easily, so it is a good transport sugar.",
+            "A store such as a tuber can be a sink in summer, when it takes in sugars, and a source in spring, when it releases them.",
+            "Translocation can move in either direction, depending on where the sinks are, so it is not always upwards or downwards.",
+            "Translocation needs energy, so it is an active process."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Phloem carries sucrose and amino acids from sources to sinks.",
+            "Sources include leaves. Sinks include roots, growing shoots and stores.",
+            "Translocation can go in either direction and needs energy."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Loading and mass flow",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The **mass flow hypothesis** explains how phloem sap moves. Sucrose is loaded at the source, which creates a pressure that pushes sap towards the sink."
+        },
+        {
+          "type": "subheading",
+          "text": "Loading at the source"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Proton pumps.",
+              "text": "Companion cells use ATP to pump H⁺ out of the cell into the surrounding cell walls. This builds up a high concentration of H⁺ outside."
+            },
+            {
+              "lead": "Cotransport.",
+              "text": "H⁺ flows back into the companion cell down its concentration gradient through a cotransporter protein. Sucrose is carried in with it against its gradient."
+            },
+            {
+              "lead": "Into the sieve tube.",
+              "text": "Sucrose passes from the companion cell into the sieve tube element through plasmodesmata."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Mass flow to the sink"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "An activity: put the stages of mass flow in the phloem in order.",
+            "prompt": "Put the stages of mass flow in order, from loading to unloading.",
+            "steps": [
+              "Sucrose is actively loaded into the sieve tube at the source",
+              "The water potential of the sieve tube falls",
+              "Water enters the sieve tube from the xylem by osmosis",
+              "Hydrostatic pressure rises at the source",
+              "Sap flows along the sieve tube down the pressure gradient towards the sink",
+              "Sucrose leaves at the sink, water potential rises and water leaves, so pressure falls"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Loading lowers the water potential in the sieve tube. Water moves in from the xylem by osmosis, so the **hydrostatic pressure** at the source rises.",
+            "At the sink, sucrose is removed and used or stored, for example as starch. Water potential rises and water moves out, so the pressure falls.",
+            "Sap moves by mass flow down this hydrostatic pressure gradient from source to sink. The sieve plates have pores, so the sap flows through."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Companion cells use proton pumps and cotransporter proteins to load sucrose actively.",
+            "Water enters the sieve tube by osmosis, building hydrostatic pressure at the source.",
+            "Sap flows by mass flow from high pressure at the source to low pressure at the sink."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how sucrose is loaded into the phloem at a source.",
+      "a": "Companion cells use ATP to pump hydrogen ions out into the cell wall. Hydrogen ions then move back in through cotransporter proteins, down their concentration gradient. Sucrose moves in with them against its gradient. Sucrose then passes through plasmodesmata into the sieve tube element.",
+      "marks": 4
+    },
+    {
+      "q": "Describe how mass flow moves sucrose from a leaf to a root.",
+      "a": "Sucrose loaded into the sieve tube lowers its water potential, so water enters from the xylem by osmosis. This raises the hydrostatic pressure at the leaf. Sucrose is removed at the root, so water leaves and the pressure is lower. Sap flows down the pressure gradient from leaf to root.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why a storage root can be both a sink and a source.",
+      "a": "In summer it takes in sucrose and stores it as starch, so it is a sink. In spring, the starch is converted back to sucrose and loaded into the phloem to supply growing shoots, so it is a source.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.4.2b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Evidence for and against mass flow"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Method",
+                "What it shows"
+              ],
+              "rows": [
+                [
+                  "Tracers",
+                  "A radioactive tracer, such as carbon-14 in carbon dioxide, is supplied to a leaf. It appears in sucrose in the phloem and then in the sinks. Autoradiography shows the tracer in the phloem and not in the xylem."
+                ],
+                [
+                  "Ringing",
+                  "A ring of bark, including the phloem, is removed from a stem. Sugars build up above the ring and the tissue swells. The region below the ring can die, which shows that sugars travel in the phloem."
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "For the hypothesis: sap leaks from cut phloem, so it is under pressure. There is a hydrostatic pressure gradient from source to sink. Metabolic poisons stop translocation, so it needs energy. Sucrose concentration is higher at the source than the sink.",
+                "Against the hypothesis: sieve plates would be expected to resist flow. Not all solutes move at the same speed, but mass flow predicts that they would. Sucrose moves to many sinks, not only to the one with the lowest pressure.",
+                "Be careful to separate a correlation from a cause when you interpret tracer and ringing data."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.3f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Translocation is an energy-requiring process. ATP is used for active loading at the source and to maintain the gradients.",
+                "Sucrose is the main assimilate. Meristems and roots are typical sinks.",
+                "At the sink, sucrose is converted into other substances, such as starch for storage, which keeps its concentration low so more sucrose can enter.",
+                "Active loading at the source and removal at the sink keep the hydrostatic pressure gradient in place."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 7.2.1",
+        "CAIE 7.2.6",
+        "CAIE 7.2.7",
+        "CAIE 7.2.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Some mineral ions, such as nitrate and potassium, and organic compounds are carried dissolved in water.",
+                "Sucrose and amino acids are carried in the phloem from sources to sinks.",
+                "In the companion cell, the proton pump uses ATP to move H⁺ out. The cotransporter then moves H⁺ and sucrose into the cell together.",
+                "Mass flow occurs down a hydrostatic pressure gradient. It is faster than diffusion alone, and the sap moves as a bulk flow rather than particle by particle."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "138519e7-09cf-4c6f-92e2-f2b83c7b1556",
+      "3bab469e-bb0b-412e-8f76-f1f7d3471522",
+      "f2dc7b75-b28f-4ef2-b5a3-9bd5d62d3d2a",
+      "1faae6b5-fbdc-46da-8d14-b047c563d0a6",
+      "436d41be-ae71-436b-8cdb-892f0ba14f4c",
+      "a5c6d413-5c60-436d-b169-7e5210c9ccf4"
+    ],
+    "exemplar_ids": []
+  }
+}

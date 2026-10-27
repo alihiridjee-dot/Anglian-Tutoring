@@ -1,6 +1,6 @@
 import { usePageRestore } from "@/hooks/usePageRestore";
 import { type useNavigate } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { type QueryClient } from "@tanstack/react-query";
 import { type User } from "@supabase/supabase-js";
 import { toast } from "sonner";
@@ -11,6 +11,7 @@ import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { INVITE_MESSAGE, useInviteParent, type InviteOutcome } from "@/hooks/data/useParentLinks";
 import { startCheckout } from "@/lib/billing/billing";
 import { forgetTrialCode, readTrialCode } from "@/lib/billing/trialCode";
+import { readWelcomeTourSeen, readWelcomeVideoWatched } from "@/lib/profile/welcomeTour";
 import {
   BEST_VALUE_CADENCE,
   BEST_VALUE_LABEL,
@@ -122,6 +123,20 @@ export function usePlanStep({
   const selectedPkg = packageFor(cadence);
   const selectedUnit = CADENCES.find((c) => c.key === cadence)!.unit;
 
+  // A new student's welcome video, shown here the moment the payment is
+  // confirmed, before the dashboard draws. The tour starts after it.
+  const [welcomeVideo, setWelcomeVideo] = useState(false);
+
+  const enterDashboard = useCallback(() => {
+    // The auth guard caches its answer for a minute. Without evicting it, the
+    // student lands on a dashboard still wearing the paywall they just paid to
+    // remove. Evicted only now: done earlier, a guard re-run during the video
+    // would whisk the student to the dashboard mid-video.
+    invalidateGuardState(queryClient);
+    toast.success("You're all set — welcome to Anglia Educate.");
+    navigate({ to: "/dashboard" });
+  }, [navigate, queryClient]);
+
   /**
    * Coming back from Stripe means the payment succeeded, not that we know about
    * it yet — the webhook is a separate round trip. Poll for it rather than
@@ -137,12 +152,14 @@ export function usePlanStep({
       if (cancelled) return;
       if (data?.has_access) {
         forgetTrialCode();
-        // The auth guard caches its answer for a minute. Without evicting it,
-        // the student lands on a dashboard still wearing the paywall they just
-        // paid to remove.
-        invalidateGuardState(queryClient);
-        toast.success("You're all set — welcome to Anglia Educate.");
-        navigate({ to: "/dashboard" });
+        // Only a student who has never been through the tour. A returning
+        // one, or one whose profile can't be read, goes straight in.
+        const isNew =
+          !readWelcomeVideoWatched(user.id) &&
+          (await readWelcomeTourSeen(user.id).catch(() => "unknown")) === null;
+        if (cancelled) return;
+        if (isNew) setWelcomeVideo(true);
+        else enterDashboard();
         return;
       }
       if (++attempts < 15) setTimeout(poll, 1000);
@@ -156,7 +173,7 @@ export function usePlanStep({
     return () => {
       cancelled = true;
     };
-  }, [search.checkout, navigate, queryClient, confirmRound]);
+  }, [search.checkout, enterDashboard, user.id, confirmRound]);
 
   useEffect(() => {
     if (search.checkout === "cancelled") toast.info("Checkout cancelled — nothing was charged.");
@@ -213,6 +230,8 @@ export function usePlanStep({
     redirecting,
     confirmDelayed,
     setConfirmRound,
+    welcomeVideo,
+    enterDashboard,
     parentEmail,
     setParentEmail,
     inviting,

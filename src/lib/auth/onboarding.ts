@@ -1,5 +1,8 @@
 import { supabase } from "@/integrations/supabase/client";
 import { isBoard, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { examMondayFor } from "@/lib/planner/pacing";
+import { toDateKey } from "@/lib/planner/week";
+import { dbError } from "@/lib/platform/errors";
 
 /**
  * Profile setup — the steps between verifying an email and reaching payment.
@@ -109,6 +112,32 @@ export function gradeOptions(level: LevelV | null): string[] {
     : ["9", "8", "7", "6", "5", "4", "3", "2", "1", "U"];
 }
 
+/**
+ * The summers a student can be sitting, nearest first, each named by the
+ * school year that sits it. A-Level is a two-year course, so two summers. A
+ * GCSE can start in Year 9, so three: offered only Years 11 and 10, a Year 9
+ * had no right answer and was planned a year short. The planner's exam date
+ * box covers anyone off that track.
+ *
+ * From the exam Monday to the end of August the nearest series is next
+ * summer's and the student is between years. "Going into Year 11" says which
+ * to pick there, where "Year 11" would send a Year 10 in July a year late.
+ */
+export function examYearOptions(
+  level: LevelV | null,
+  today: Date = new Date(),
+): { year: number; label: string }[] {
+  const nearest = Number(toDateKey(examMondayFor(today)).slice(0, 4));
+  const [calendarYear, month] = toDateKey(today).split("-").map(Number);
+  const between = nearest > calendarYear && month <= 8;
+  const finalYear = level === "alevel" ? 13 : 11;
+  const summers = level === "alevel" ? [0, 1] : [0, 1, 2];
+  return summers.map((ahead) => ({
+    year: nearest + ahead,
+    label: `${between ? "Going into Year" : "Year"} ${finalYear - ahead} · Exams in summer ${nearest + ahead}`,
+  }));
+}
+
 /** Setup was finished with no subject saved. */
 export class NoSubjectsError extends Error {
   constructor() {
@@ -133,12 +162,12 @@ export async function completeOnboarding(
     .from("student_enrolments")
     .select("subject", { count: "exact", head: true })
     .eq("student_id", userId);
-  if (countError) throw countError;
+  if (countError) throw dbError(countError);
   if (!count) throw new NoSubjectsError();
 
   const { error } = await db
     .from("profiles")
     .update({ onboarding_completed_at: new Date().toISOString() })
     .eq("id", userId);
-  if (error) throw error;
+  if (error) throw dbError(error);
 }

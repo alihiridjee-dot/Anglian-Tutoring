@@ -1,0 +1,233 @@
+{
+  "format": 1,
+  "concept_id": "iphys-011",
+  "subject": "physics",
+  "title": "Communication using electromagnetic waves",
+  "key_idea": "Artificial satellites communicate mainly using microwaves. (Supplement) Mobile phones use microwaves, Bluetooth uses radio waves, and optical fibres carry light or infrared. Digital signals can be regenerated accurately, so they are better than analogue signals.",
+  "sections": [
+    {
+      "heading": "Satellite communication",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Artificial satellites relay signals around the Earth. This section covers which waves they use and which orbits."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Communication with artificial satellites is mainly by **microwaves**.",
+            "Some satellite phones use satellites in low orbits.",
+            "Some satellite phones, and direct broadcast satellite television, use **geostationary** satellites."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Geostationary satellite",
+              "meaning": "A satellite that stays above the same point on the Earth, because it orbits once every 24 hours above the equator."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Satellites communicate mainly using microwaves.",
+            "Satellite television uses geostationary satellites."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Choosing the right wave",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Each system uses the part of the electromagnetic spectrum that suits it best."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A picker. Choose a communication system to see which electromagnetic wave it uses and why.",
+            "prompt": "(Supplement) Pick a communication system.",
+            "result_labels": [
+              "Wave used",
+              "Why it suits"
+            ],
+            "options": [
+              {
+                "label": "Mobile phone or wireless internet",
+                "results": [
+                  "Microwaves",
+                  "Microwaves penetrate some walls and need only a short aerial for transmission and reception."
+                ]
+              },
+              {
+                "label": "Bluetooth",
+                "results": [
+                  "Radio waves",
+                  "Radio waves pass through walls, but the signal is weakened when they do."
+                ]
+              },
+              {
+                "label": "Cable television and high-speed broadband",
+                "results": [
+                  "Visible light or infrared in optical fibres",
+                  "Glass is transparent to visible light and some infrared. Visible light and short-wavelength infrared can carry high rates of data."
+                ]
+              },
+              {
+                "label": "Satellite communication",
+                "results": [
+                  "Microwaves",
+                  "Microwaves are the waves mainly used for signals to and from satellites."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Supplement) Microwaves suit mobile phones: they pass through some walls and need short aerials.",
+            "(Supplement) Bluetooth uses radio waves, which weaken as they pass through walls.",
+            "(Supplement) Optical fibres carry visible light or infrared at high data rates."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Analogue and digital signals",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) A signal carries information, such as sound, from one place to another."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Analogue signal",
+              "meaning": "A signal whose size varies continuously, taking any value in a range."
+            },
+            {
+              "term": "Digital signal",
+              "meaning": "A signal that has only two values, on and off, often written as 1 and 0."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of analogue and digital signals.",
+            "items": [
+              "Analogue",
+              "Digital"
+            ],
+            "rows": [
+              {
+                "feature": "Values",
+                "values": [
+                  "Any value in a range",
+                  "Only two: on or off"
+                ]
+              },
+              {
+                "feature": "Noise picked up on the way",
+                "values": [
+                  "Stays in the signal and is amplified with it",
+                  "Can be removed when the signal is regenerated"
+                ]
+              },
+              {
+                "feature": "Sound",
+                "values": [
+                  "Can be sent as an analogue signal",
+                  "Can be sent as a digital signal"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Benefits of digital signals"
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) Digital signals can carry data at a faster rate, and the data can be compressed.",
+            "(Supplement) The signal can be regenerated accurately, because a receiver only has to decide between on and off.",
+            "(Supplement) Regeneration removes noise, so the signal can be sent over a longer range."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Supplement) Analogue signals vary continuously. Digital signals are only on or off.",
+            "(Supplement) Digital signals give faster data transmission and, through regeneration, a longer range with less noise."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the type of electromagnetic wave mainly used to communicate with artificial satellites.",
+      "a": "Microwaves.",
+      "marks": 1
+    },
+    {
+      "q": "(Supplement) State two reasons why microwaves are used for mobile phone signals.",
+      "a": "They penetrate some walls, and they need only short aerials.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) State two advantages of digital signals over analogue signals.",
+      "a": "Any two from: faster data transmission or data can be compressed; longer range because the signal can be regenerated; noise is easily removed.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 3.3.5",
+        "CAIE 3.3.7S",
+        "CAIE 3.3.8S",
+        "CAIE 3.3.9S",
+        "CAIE 3.3.10S"
+      ],
+      "worked_example": {
+        "exemplar_id": "a6e2910a-a1cc-4ada-b2ff-dcc8d4dabd70",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q6(c)(ii)",
+        "question": "All mobile phone (cell phone) networks use digital signals to communicate with the phone. State two advantages of using digital signals rather than analogue signals.",
+        "marks": 2,
+        "answer_points": [
+          "Faster data transmission rate, or the data can be compressed.",
+          "The signal can be transmitted over longer distances, as it can be regenerated.",
+          "Noise is easily removed from the signal, because it can be regenerated."
+        ],
+        "tip": "Any two score one mark each."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "eac1801b-9d0d-4c29-a325-010d5eac8584",
+      "c6eaa4b9-3e90-4fb2-ab12-3daad3fee9f7",
+      "1004303f-d486-4b97-a55c-0a376fbcbddf",
+      "3d97d60c-027e-4952-b73a-5c8a821faf37",
+      "9e33e752-795f-4ae6-8d6b-badf6555b863"
+    ],
+    "exemplar_ids": [
+      "a6e2910a-a1cc-4ada-b2ff-dcc8d4dabd70"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

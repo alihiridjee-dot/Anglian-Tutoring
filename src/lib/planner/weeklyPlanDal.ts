@@ -9,10 +9,16 @@ import {
   type Rejection,
   type Partitioned,
 } from "./admissibility";
-import { ScheduleDAL } from "./scheduleDal";
+import { ScheduleDAL, type TopicProgress } from "./scheduleDal";
 import { type PacingBand } from "./pacing";
+import { type WeekPointRow } from "./readModels";
 import { selectIn } from "../platform/db/chunked";
+import { dbError } from "../platform/errors";
 import { getSessionUserId } from "@/lib/auth/session";
+
+import { MAX_WEEK_POINTS } from "./weekCut";
+
+export { MAX_WEEK_POINTS };
 
 export type PlanSource = Database["public"]["Enums"]["plan_source"];
 export type PlanPointOrigin = Database["public"]["Enums"]["plan_point_origin"];
@@ -43,23 +49,71 @@ export type PlanPoint = {
   done_at: string | null;
 };
 
-type PointRow = {
-  origin: PlanPointOrigin;
-  carried_from: string | null;
-  done_at: string | null;
-  spec_points: {
-    id: string;
-    code: string;
-    title: string;
-    description: string | null;
-    topic_id: string;
-    sort_order: number;
-    topics: { title: string | null; sort_order: number } | null;
-  } | null;
-};
-
 /** One point on its way into a plan, as both write paths shape it. */
 export type WithheldPlanPoint = Rejection<PlanPoint>;
+
+/** A saved week, split into the points that count and those withheld from it. */
+export type SavedWeek = { plan: WeeklyPlan; points: PlanPoint[]; withheld: WithheldPlanPoint[] };
+
+/** A point's topic and the course that topic is on; null when no topic can be seen. */
+export type PointTopic = { topicId: string; subject: string; board: string; level: string } | null;
+
+/**
+ * What the admission rules need to know about a course beyond its points: the
+ * stored spine and exam date, the student's enrolment and level, and which
+ * points have assessed evidence. A caller that already holds them
+ * ([[courseState]]) hands them over, and nothing is read again.
+ */
+export interface CourseFacts {
+  pacing: PacingBand[];
+  examDate: string | undefined;
+  /** The boards the student is enrolled on for the subject. */
+  boards: string[];
+  level: string | null | undefined;
+  /** Points with assessed evidence. Read only when a week holds a review. */
+  evidenced?: ReadonlySet<string>;
+  /** The course's own points, so screening them looks nothing up. */
+  topics?: ReadonlyMap<string, PointTopic>;
+  /** `assessment_scheduler_version()`, when already read. */
+  schedulerVersion?: number;
+}
+
+/** The points with assessed evidence behind them: the only ones a review may claim. */
+export const evidencedIn = (progress: TopicProgress[]): Set<string> =>
+  new Set(progress.flatMap((t) => t.points.filter((p) => p.reps > 0).map((p) => p.id)));
+
+const pointTopic = (p: NonNullable<WeekPointRow["spec_points"]>): PointTopic =>
+  p.topics && { topicId: p.topic_id, ...p.topics };
+
+/** A saved week's points in reading order: by topic, then by point. */
+function toPlanPoints(rows: WeekPointRow[]): PlanPoint[] {
+  return rows
+    .filter((r) => !!r.spec_points)
+    .map((r) => ({
+      spec_point_id: r.spec_points!.id,
+      code: r.spec_points!.code,
+      title: r.spec_points!.title,
+      description: r.spec_points!.description,
+      topic_id: r.spec_points!.topic_id,
+      topic_title: r.spec_points!.topics?.title ?? null,
+      origin: r.origin,
+      carried_from: r.carried_from,
+      done_at: r.done_at,
+      _ts: r.spec_points!.topics?.sort_order ?? 0,
+      _ps: r.spec_points!.sort_order ?? 0,
+    }))
+    .sort((a, b) => a._ts - b._ts || a._ps - b._ps || a.code.localeCompare(b.code))
+    .map(({ _ts, _ps, ...p }) => p);
+}
+
+/** A week and its points with their spec points and topics, in one request. */
+const WEEK_COLUMNS =
+  "id, subject, board, level, week_start, source, note, ai_rationale, student_weekly_plan_points(origin, carried_from, done_at, spec_points(id, code, title, description, topic_id, sort_order, topics(title, sort_order, subject, board, level)))";
+
+async function schedulerVersion(): Promise<number> {
+  const { data, error } = await supabase.rpc("assessment_scheduler_version" as never);
+  return error ? NaN : Number(data);
+}
 
 type IncomingPoint = {
   spec_point_id: string;
@@ -74,63 +128,41 @@ type IncomingPoint = {
  * All writes bind to the caller via RLS (`auth.uid() = student_id`).
  */
 export class WeeklyPlanDAL {
-  /** Shared read/write classification. Unknown pacing never bypasses course checks. */
+  /**
+   * Shared read/write classification. Unknown pacing never bypasses course checks.
+   *
+   * Whatever the caller does not already hold — the course facts, the topics of
+   * points it has not seen, the evidence a review needs — is read at once, in
+   * one step.
+   */
   private static async classify<T extends { spec_point_id: string; origin: PlanPointOrigin }>(
     studentId: string,
     course: { subject: SubjectV; board: BoardV; level: LevelV },
     weekStart: string,
     points: T[],
+    known: { facts?: CourseFacts; topics?: ReadonlyMap<string, PointTopic> } = {},
   ): Promise<Partitioned<T>> {
     if (!points.length) return { admitted: [], rejected: [] };
-    const [baselineResult, enrolmentResult, profileResult, topicOf, progress] = await Promise.all([
-      supabase
-        .from("student_program_plan")
-        .select("pacing, exam_date")
-        .eq("student_id", studentId)
-        .eq("subject", course.subject)
-        .maybeSingle(),
-      supabase
-        .from("student_enrolments")
-        .select("board")
-        .eq("student_id", studentId)
-        .eq("subject", course.subject),
-      supabase.from("profiles").select("level").eq("id", studentId).maybeSingle(),
-      selectIn<{
-        id: string;
-        topic_id: string | null;
-        topics: { subject: string; board: string; level: string } | null;
-      }>(
-        points.map((p) => p.spec_point_id),
-        (batch) =>
-          supabase
-            .from("spec_points")
-            .select("id, topic_id, topics(subject, board, level)")
-            .in("id", batch),
-      ),
-      points.some((p) => p.origin === "focus")
-        ? ScheduleDAL.getTopicProgress({ studentId, ...course })
-        : Promise.resolve([]),
+    const held = known.topics ?? known.facts?.topics;
+    const unseen = points.map((p) => p.spec_point_id).filter((id) => !held?.has(id));
+    const [facts, looked, evidenced] = await Promise.all([
+      known.facts ?? this.readFacts(studentId, course.subject),
+      unseen.length ? this.readTopics(unseen) : new Map<string, PointTopic>(),
+      known.facts?.evidenced ??
+        (points.some((p) => p.origin === "focus")
+          ? ScheduleDAL.getTopicProgress({ studentId, ...course }).then(evidencedIn)
+          : new Set<string>()),
     ]);
-    for (const result of [baselineResult, enrolmentResult, profileResult])
-      if (result.error) throw new Error(result.error.message);
-    const baseline = baselineResult.data;
-    const enrolments = enrolmentResult.data ?? [];
-    const level = profileResult.data?.level;
     const planOnCourse =
-      (!enrolments.length || enrolments.some((e) => e.board === course.board)) &&
-      (!level || level === course.level);
-    const topics = new Map(topicOf.map((p) => [p.id, p]));
-    const evidenced = new Set(
-      progress.flatMap((t) => t.points.filter((p) => p.reps > 0).map((p) => p.id)),
-    );
+      (!facts.boards.length || facts.boards.includes(course.board)) &&
+      (!facts.level || facts.level === course.level);
     return partition(
       points,
       (p) => {
-        const row = topics.get(p.spec_point_id);
-        const topic = row?.topics;
+        const topic = held?.get(p.spec_point_id) ?? looked.get(p.spec_point_id) ?? null;
         return {
           specPointId: p.spec_point_id,
-          topicId: topic ? row!.topic_id : null,
+          topicId: topic?.topicId ?? null,
           origin: p.origin,
           hasEvidence: evidenced.has(p.spec_point_id),
           onCourse:
@@ -142,11 +174,53 @@ export class WeeklyPlanDAL {
         };
       },
       {
-        reach: spineReach((baseline?.pacing ?? []) as unknown as PacingBand[]),
-        reviewReach: spineReach((baseline?.pacing ?? []) as unknown as PacingBand[], true),
+        reach: spineReach(facts.pacing),
+        reviewReach: spineReach(facts.pacing, true),
         weekStart,
-        examDate: baseline?.exam_date,
+        examDate: facts.examDate,
       },
+    );
+  }
+
+  /** The course facts the admission rules check against, in one step. */
+  private static async readFacts(studentId: string, subject: SubjectV): Promise<CourseFacts> {
+    const [baselineResult, enrolmentResult, profileResult] = await Promise.all([
+      supabase
+        .from("student_program_plan")
+        .select("pacing, exam_date")
+        .eq("student_id", studentId)
+        .eq("subject", subject)
+        .maybeSingle(),
+      supabase
+        .from("student_enrolments")
+        .select("board")
+        .eq("student_id", studentId)
+        .eq("subject", subject),
+      supabase.from("profiles").select("level").eq("id", studentId).maybeSingle(),
+    ]);
+    for (const result of [baselineResult, enrolmentResult, profileResult])
+      if (result.error) throw dbError(result.error);
+    return {
+      pacing: (baselineResult.data?.pacing ?? []) as unknown as PacingBand[],
+      examDate: baselineResult.data?.exam_date,
+      boards: (enrolmentResult.data ?? []).map((e) => e.board),
+      level: profileResult.data?.level,
+    };
+  }
+
+  private static async readTopics(ids: string[]): Promise<Map<string, PointTopic>> {
+    const rows = await selectIn<{
+      id: string;
+      topic_id: string | null;
+      topics: { subject: string; board: string; level: string } | null;
+    }>(ids, (batch) =>
+      supabase
+        .from("spec_points")
+        .select("id, topic_id, topics(subject, board, level)")
+        .in("id", batch),
+    );
+    return new Map(
+      rows.map((r) => [r.id, r.topics && r.topic_id ? { topicId: r.topic_id, ...r.topics } : null]),
     );
   }
 
@@ -155,8 +229,11 @@ export class WeeklyPlanDAL {
     course: { subject: SubjectV; board: BoardV; level: LevelV },
     weekStart: string,
     points: IncomingPoint[],
+    facts?: CourseFacts,
   ): Promise<IncomingPoint[]> {
-    const { admitted, rejected } = await this.classify(studentId, course, weekStart, points);
+    const { admitted, rejected } = await this.classify(studentId, course, weekStart, points, {
+      facts,
+    });
     const refused = rejected.find((r) => isHandPicked(r.point.origin));
     if (refused)
       throw new Error(`That spec point can't be assigned — ${describeReason(refused.reason)}.`);
@@ -173,53 +250,45 @@ export class WeeklyPlanDAL {
     studentId: string,
     subject: SubjectV,
     weekStart: string,
-  ): Promise<{ plan: WeeklyPlan; points: PlanPoint[]; withheld: WithheldPlanPoint[] } | null> {
-    const { data: plan, error } = await supabase
+  ): Promise<SavedWeek | null> {
+    const { data, error } = await supabase
       .from("student_weekly_plans")
-      .select("id, subject, board, level, week_start, source, note, ai_rationale")
+      .select(WEEK_COLUMNS)
       .eq("student_id", studentId)
       .eq("subject", subject)
       .eq("week_start", weekStart)
       .maybeSingle();
-    if (error) {
-      throw new Error(error.message);
-    }
-    if (!plan) return null;
+    if (error) throw dbError(error);
+    if (!data) return null;
+    const { student_weekly_plan_points: points, ...plan } = data as unknown as WeeklyPlan & {
+      student_weekly_plan_points: WeekPointRow[] | null;
+    };
+    return this.weekFrom(studentId, { plan, points: points ?? [] });
+  }
 
-    const { data: rows, error: pointsError } = await supabase
-      .from("student_weekly_plan_points")
-      .select(
-        "origin, carried_from, done_at, spec_points!inner(id, code, title, description, topic_id, sort_order, topics(title, sort_order))",
-      )
-      .eq("plan_id", plan.id);
-
-    if (pointsError) throw new Error(pointsError.message);
-
-    const points: PlanPoint[] = ((rows ?? []) as unknown as PointRow[])
-      .filter((r) => !!r.spec_points)
-      .map((r) => ({
-        spec_point_id: r.spec_points!.id,
-        code: r.spec_points!.code,
-        title: r.spec_points!.title,
-        description: r.spec_points!.description,
-        topic_id: r.spec_points!.topic_id,
-        topic_title: r.spec_points!.topics?.title ?? null,
-        origin: r.origin,
-        carried_from: r.carried_from,
-        done_at: r.done_at,
-        _ts: r.spec_points!.topics?.sort_order ?? 0,
-        _ps: r.spec_points!.sort_order ?? 0,
-      }))
-      .sort((a, b) => a._ts - b._ts || a._ps - b._ps || a.code.localeCompare(b.code))
-      .map(({ _ts, _ps, ...p }) => p);
-
+  /**
+   * A saved week's rows, split into what counts and what is withheld
+   * ([[admissibility]]). The rows carry their points' topics; `facts` are the
+   * course's, when the caller holds them.
+   */
+  static async weekFrom(
+    studentId: string,
+    week: { plan: WeeklyPlan; points: WeekPointRow[] },
+    facts?: CourseFacts,
+  ): Promise<SavedWeek> {
+    const topics = new Map(
+      week.points.flatMap((r) =>
+        r.spec_points ? [[r.spec_points.id, pointTopic(r.spec_points)]] : [],
+      ),
+    );
     const { admitted, rejected } = await this.classify(
       studentId,
-      plan as WeeklyPlan,
-      weekStart,
-      points,
+      week.plan,
+      week.plan.week_start,
+      toPlanPoints(week.points),
+      { facts, topics },
     );
-    return { plan: plan as WeeklyPlan, points: admitted, withheld: rejected };
+    return { plan: week.plan, points: admitted, withheld: rejected };
   }
 
   /**
@@ -250,10 +319,14 @@ export class WeeklyPlanDAL {
     carriedFroms?: Record<string, string | null>;
     /** Whose plan — omit for the signed-in student; a tutor passes the target. */
     studentId?: string;
+    /** The course's facts, when the caller holds them (see {@link CourseFacts}). */
+    facts?: CourseFacts;
   }): Promise<string> {
-    const uid = await getSessionUserId();
-    if (!uid) throw new Error("Not signed in");
-    const studentId = params.studentId ?? uid;
+    // Who may save whose week is the database's call (RLS and grants). A
+    // session only names the student when nobody else does: the nightly plan
+    // check (planHeal.server) names them and has no session.
+    const studentId = params.studentId ?? (await getSessionUserId());
+    if (!studentId) throw new Error("Not signed in");
 
     // One transaction, server-side (`save_weekly_plan`). This used to be an
     // upsert followed by a separate delete and insert, which left the plan
@@ -268,12 +341,11 @@ export class WeeklyPlanDAL {
         origin: params.origins?.[spec_point_id] ?? params.origin ?? "ai",
         carried_from: params.carriedFroms?.[spec_point_id] ?? params.carriedFrom ?? null,
       })),
+      params.facts,
     );
 
-    const { data: version, error: versionError } = await supabase.rpc(
-      "assessment_scheduler_version" as never,
-    );
-    if (versionError || !Number.isFinite(Number(version)) || Number(version) < 4)
+    const version = params.facts?.schedulerVersion ?? (await schedulerVersion());
+    if (!Number.isFinite(version) || version < 4)
       throw new Error(
         "The planner history protection update must be installed before saving a week.",
       );
@@ -290,7 +362,7 @@ export class WeeklyPlanDAL {
       _rationale: (params.rationale ?? null) as string,
       _points: points as unknown as Json,
     });
-    if (error) throw error;
+    if (error) throw dbError(error);
     return planId;
   }
 
@@ -318,8 +390,26 @@ export class WeeklyPlanDAL {
       .select("student_id, subject, board, level, week_start")
       .eq("id", planId)
       .maybeSingle();
-    if (planError) throw planError;
+    if (planError) throw dbError(planError);
     if (!plan) throw new Error("That weekly plan no longer exists.");
+
+    // The database caps a week at MAX_WEEK_POINTS, but only in `save_weekly_plan`.
+    // This upsert sailed past it, and the next re-cut of an overfull week was then
+    // refused for ever, taking the whole planner down with an error. So the cap
+    // is applied here too, before anything is written, with a reason a student
+    // can act on. Only points not already in the week count towards it. A
+    // ticked-off point still counts: only taking points out makes room.
+    const { data: held, error: heldError } = await supabase
+      .from("student_weekly_plan_points")
+      .select("spec_point_id")
+      .eq("plan_id", planId);
+    if (heldError) throw dbError(heldError);
+    const present = new Set((held ?? []).map((r) => r.spec_point_id));
+    const incoming = new Set(specPointIds.filter((id) => !present.has(id)));
+    if (present.size + incoming.size > MAX_WEEK_POINTS)
+      throw new Error(
+        `This week already holds as much as it can (${MAX_WEEK_POINTS} points). To make room, a tutor needs to remove or move some of it.`,
+      );
 
     const points = await this.screen(
       plan.student_id,
@@ -337,7 +427,7 @@ export class WeeklyPlanDAL {
       points.map((p) => ({ plan_id: planId, ...p })),
       { onConflict: "plan_id,spec_point_id", ignoreDuplicates: true },
     );
-    if (error) throw error;
+    if (error) throw dbError(error);
     return points.length;
   }
 
@@ -405,7 +495,7 @@ export class WeeklyPlanDAL {
       .from("spec_points")
       .select("id")
       .eq("topic_id", params.topicId);
-    if (error) throw error;
+    if (error) throw dbError(error);
     const ids = (pts ?? []).map((p) => p.id);
     if (ids.length === 0) return 0;
 
@@ -448,7 +538,7 @@ export class WeeklyPlanDAL {
       .update({ done_at: done ? new Date().toISOString() : null })
       .eq("plan_id", planId)
       .eq("spec_point_id", specPointId);
-    if (error) throw error;
+    if (error) throw dbError(error);
   }
 
   /** Persist the student's free-text note on the plan. */
@@ -457,6 +547,6 @@ export class WeeklyPlanDAL {
       .from("student_weekly_plans")
       .update({ note, updated_at: new Date().toISOString() })
       .eq("id", planId);
-    if (error) throw error;
+    if (error) throw dbError(error);
   }
 }

@@ -4,7 +4,7 @@ exports[`no curriculum: answers null and reads nothing else 1`] = `
 {
   "io": [
     [
-      "getTopicProgress",
+      "readCourseState",
       {
         "board": "aqa",
         "level": "gcse",
@@ -21,41 +21,13 @@ exports[`first view by the student: seeds the baseline 1`] = `
 {
   "io": [
     [
-      "getTopicProgress",
+      "readCourseState",
       {
         "board": "aqa",
         "level": "gcse",
         "studentId": "student",
         "subject": "biology",
       },
-    ],
-    [
-      "db",
-      "GET",
-      "student_program_plan",
-      "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
-    ],
-    [
-      "getPlan",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "getDeliveryLedger",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "db",
-      "GET",
-      "student_plan_overrides",
-      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
     ],
     [
       "getSessionUserId",
@@ -475,41 +447,13 @@ exports[`first view by someone else: answers the same but leaves no mark 1`] = `
 {
   "io": [
     [
-      "getTopicProgress",
+      "readCourseState",
       {
         "board": "aqa",
         "level": "gcse",
         "studentId": "student",
         "subject": "biology",
       },
-    ],
-    [
-      "db",
-      "GET",
-      "student_program_plan",
-      "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
-    ],
-    [
-      "getPlan",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "getDeliveryLedger",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "db",
-      "GET",
-      "student_plan_overrides",
-      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
     ],
     [
       "getSessionUserId",
@@ -895,54 +839,13 @@ exports[`acknowledged baseline, nothing saved this week 1`] = `
 {
   "io": [
     [
-      "getTopicProgress",
+      "readCourseState",
       {
         "board": "aqa",
         "level": "gcse",
         "studentId": "student",
         "subject": "biology",
       },
-    ],
-    [
-      "db",
-      "GET",
-      "student_program_plan",
-      "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
-    ],
-    [
-      "pauseHistory",
-      [
-        "student",
-        "biology",
-      ],
-    ],
-    [
-      "breaks",
-      [
-        "student",
-      ],
-    ],
-    [
-      "getPlan",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "getDeliveryLedger",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "db",
-      "GET",
-      "student_plan_overrides",
-      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
     ],
   ],
   "result": {
@@ -1350,54 +1253,13 @@ exports[`saved week: owns its reviews, reports withheld points, narrows the back
 {
   "io": [
     [
-      "getTopicProgress",
+      "readCourseState",
       {
         "board": "aqa",
         "level": "gcse",
         "studentId": "student",
         "subject": "biology",
       },
-    ],
-    [
-      "db",
-      "GET",
-      "student_program_plan",
-      "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
-    ],
-    [
-      "pauseHistory",
-      [
-        "student",
-        "biology",
-      ],
-    ],
-    [
-      "breaks",
-      [
-        "student",
-      ],
-    ],
-    [
-      "getPlan",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "getDeliveryLedger",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "db",
-      "GET",
-      "student_plan_overrides",
-      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
     ],
   ],
   "result": {
@@ -1818,54 +1680,13 @@ exports[`projectOnly: skips the saved-week read but still reserves its catch-up 
 {
   "io": [
     [
-      "getTopicProgress",
+      "readCourseState",
       {
         "board": "aqa",
         "level": "gcse",
         "studentId": "student",
         "subject": "biology",
       },
-    ],
-    [
-      "db",
-      "GET",
-      "student_program_plan",
-      "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
-    ],
-    [
-      "pauseHistory",
-      [
-        "student",
-        "biology",
-      ],
-    ],
-    [
-      "breaks",
-      [
-        "student",
-      ],
-    ],
-    [
-      "getDeliveryLedger",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "db",
-      "GET",
-      "student_plan_overrides",
-      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
-    ],
-    [
-      "getPlan",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
     ],
   ],
   "result": {
@@ -2311,54 +2132,13 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
 {
   "io": [
     [
-      "getTopicProgress",
+      "readCourseState",
       {
         "board": "aqa",
         "level": "gcse",
         "studentId": "student",
         "subject": "biology",
       },
-    ],
-    [
-      "db",
-      "GET",
-      "student_program_plan",
-      "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
-    ],
-    [
-      "pauseHistory",
-      [
-        "student",
-        "biology",
-      ],
-    ],
-    [
-      "breaks",
-      [
-        "student",
-      ],
-    ],
-    [
-      "getPlan",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "getDeliveryLedger",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "db",
-      "GET",
-      "student_plan_overrides",
-      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
     ],
   ],
   "result": {
@@ -2792,54 +2572,13 @@ exports[`custom topic order is kept as stored 1`] = `
 {
   "io": [
     [
-      "getTopicProgress",
+      "readCourseState",
       {
         "board": "aqa",
         "level": "gcse",
         "studentId": "student",
         "subject": "biology",
       },
-    ],
-    [
-      "db",
-      "GET",
-      "student_program_plan",
-      "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
-    ],
-    [
-      "pauseHistory",
-      [
-        "student",
-        "biology",
-      ],
-    ],
-    [
-      "breaks",
-      [
-        "student",
-      ],
-    ],
-    [
-      "getPlan",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "getDeliveryLedger",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "db",
-      "GET",
-      "student_plan_overrides",
-      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
     ],
   ],
   "result": {
@@ -2954,24 +2693,6 @@ exports[`custom topic order is kept as stored 1`] = `
         "weeks": 1,
       },
       {
-        "endWeek": "2026-12-28",
-        "kind": "revisit",
-        "points": [
-          {
-            "code": "B1",
-            "dueAt": "2026-09-28T09:00:00Z",
-            "eligibleAt": "2026-09-28T09:00:00Z",
-            "specPointId": "b1",
-            "title": "Point b1",
-            "weight": 1,
-          },
-        ],
-        "startWeek": "2026-12-28",
-        "title": "Topic t2",
-        "topicId": "t2",
-        "weeks": 1,
-      },
-      {
         "endWeek": "2027-05-31",
         "fixedPoints": true,
         "pointsByWeek": {
@@ -2992,7 +2713,7 @@ exports[`custom topic order is kept as stored 1`] = `
             },
           ],
         },
-        "reviewStartWeek": "2026-12-28",
+        "reviewStartWeek": "2027-03-15",
         "schedule": {
           "examDate": "2027-06-07",
           "from": "2026-10-05",
@@ -3002,6 +2723,24 @@ exports[`custom topic order is kept as stored 1`] = `
         "title": "Topic t2",
         "topicId": "t2",
         "weeks": 12,
+      },
+      {
+        "endWeek": "2027-03-15",
+        "kind": "revisit",
+        "points": [
+          {
+            "code": "B1",
+            "dueAt": "2026-09-28T09:00:00Z",
+            "eligibleAt": "2026-09-28T09:00:00Z",
+            "specPointId": "b1",
+            "title": "Point b1",
+            "weight": 1,
+          },
+        ],
+        "startWeek": "2027-03-15",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 1,
       },
     ],
     "baselineBands": [
@@ -3097,7 +2836,7 @@ exports[`custom topic order is kept as stored 1`] = `
             },
           ],
         },
-        "reviewStartWeek": "2026-12-28",
+        "reviewStartWeek": "2027-03-15",
         "schedule": {
           "examDate": "2027-06-07",
           "from": "2026-10-05",
@@ -3408,7 +3147,7 @@ exports[`custom topic order is kept as stored 1`] = `
             },
           ],
         },
-        "reviewStartWeek": "2026-12-28",
+        "reviewStartWeek": "2027-03-15",
         "schedule": {
           "examDate": "2027-06-07",
           "from": "2026-10-05",
@@ -3429,54 +3168,13 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
 {
   "io": [
     [
-      "getTopicProgress",
+      "readCourseState",
       {
         "board": "aqa",
         "level": "gcse",
         "studentId": "student",
         "subject": "biology",
       },
-    ],
-    [
-      "db",
-      "GET",
-      "student_program_plan",
-      "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
-    ],
-    [
-      "pauseHistory",
-      [
-        "student",
-        "biology",
-      ],
-    ],
-    [
-      "breaks",
-      [
-        "student",
-      ],
-    ],
-    [
-      "getPlan",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "getDeliveryLedger",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "db",
-      "GET",
-      "student_plan_overrides",
-      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
     ],
   ],
   "result": {
@@ -3592,24 +3290,6 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
         "weeks": 1,
       },
       {
-        "endWeek": "2026-12-28",
-        "kind": "revisit",
-        "points": [
-          {
-            "code": "B1",
-            "dueAt": "2026-09-28T09:00:00Z",
-            "eligibleAt": "2026-09-28T09:00:00Z",
-            "specPointId": "b1",
-            "title": "Point b1",
-            "weight": 1,
-          },
-        ],
-        "startWeek": "2026-12-28",
-        "title": "Topic t2",
-        "topicId": "t2",
-        "weeks": 1,
-      },
-      {
         "endWeek": "2027-05-03",
         "fixedPoints": true,
         "openedWeek": undefined,
@@ -3631,7 +3311,7 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
             },
           ],
         },
-        "reviewStartWeek": "2026-12-28",
+        "reviewStartWeek": "2027-03-01",
         "schedule": {
           "examDate": "2027-05-10",
           "from": "2026-10-05",
@@ -3641,6 +3321,24 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
         "title": "Topic t2",
         "topicId": "t2",
         "weeks": 10,
+      },
+      {
+        "endWeek": "2027-03-15",
+        "kind": "revisit",
+        "points": [
+          {
+            "code": "B1",
+            "dueAt": "2026-09-28T09:00:00Z",
+            "eligibleAt": "2026-09-28T09:00:00Z",
+            "specPointId": "b1",
+            "title": "Point b1",
+            "weight": 1,
+          },
+        ],
+        "startWeek": "2027-03-15",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 1,
       },
     ],
     "baselineBands": [
@@ -3736,7 +3434,7 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
             },
           ],
         },
-        "reviewStartWeek": "2026-12-28",
+        "reviewStartWeek": "2027-03-15",
         "schedule": {
           "examDate": "2027-06-07",
           "from": "2026-10-05",
@@ -4066,7 +3764,7 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
             },
           ],
         },
-        "reviewStartWeek": "2026-12-28",
+        "reviewStartWeek": "2027-03-15",
         "schedule": {
           "examDate": "2027-06-07",
           "from": "2026-10-05",
@@ -4083,51 +3781,9 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
 }
 `;
 
-exports[`caller-supplied progress is used instead of reading it 1`] = `
+exports[`a caller-supplied state is used instead of reading it 1`] = `
 {
-  "io": [
-    [
-      "db",
-      "GET",
-      "student_program_plan",
-      "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
-    ],
-    [
-      "pauseHistory",
-      [
-        "student",
-        "biology",
-      ],
-    ],
-    [
-      "breaks",
-      [
-        "student",
-      ],
-    ],
-    [
-      "getPlan",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "getDeliveryLedger",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "db",
-      "GET",
-      "student_plan_overrides",
-      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
-    ],
-  ],
+  "io": [],
   "result": {
     "backlog": [],
     "backlogByTopic": [],
@@ -4471,19 +4127,13 @@ exports[`caller-supplied progress is used instead of reading it 1`] = `
 exports[`a failed baseline read throws rather than posing as a first view 1`] = `
 [
   [
-    "getTopicProgress",
+    "readCourseState",
     {
       "board": "aqa",
       "level": "gcse",
       "studentId": "student",
       "subject": "biology",
     },
-  ],
-  [
-    "db",
-    "GET",
-    "student_program_plan",
-    "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
   ],
 ]
 `;
@@ -4492,26 +4142,13 @@ exports[`an ended stop is picked up before anything is cut from the programme 1`
 {
   "io": [
     [
-      "getTopicProgress",
+      "readCourseState",
       {
         "board": "aqa",
         "level": "gcse",
         "studentId": "student",
         "subject": "biology",
       },
-    ],
-    [
-      "db",
-      "GET",
-      "student_program_plan",
-      "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
-    ],
-    [
-      "pauseHistory",
-      [
-        "student",
-        "biology",
-      ],
     ],
     [
       "resumeProgramme",
@@ -4540,34 +4177,6 @@ exports[`an ended stop is picked up before anything is cut from the programme 1`
         ],
         "pauseId": "p1",
       },
-    ],
-    [
-      "breaks",
-      [
-        "student",
-      ],
-    ],
-    [
-      "getPlan",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "getDeliveryLedger",
-      [
-        "student",
-        "biology",
-        "2026-09-21",
-      ],
-    ],
-    [
-      "db",
-      "GET",
-      "student_plan_overrides",
-      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
     ],
   ],
   "result": {

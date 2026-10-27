@@ -1,0 +1,498 @@
+{
+  "format": 1,
+  "concept_id": "abio-008",
+  "subject": "biology",
+  "title": "Microscopy",
+  "key_idea": "Microscopes let us see cells. Magnification makes an image bigger; resolution is how much detail it shows. Light microscopes are cheap and can view living cells. Electron microscopes resolve far more detail. Image size, real size and magnification are linked by one formula.",
+  "sections": [
+    {
+      "heading": "Magnification and resolution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two ideas describe what a microscope can do. They are not the same, and the difference is often tested."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Magnification",
+              "meaning": "How many times larger the image is than the real object."
+            },
+            {
+              "term": "Resolution",
+              "meaning": "The smallest distance between two points at which they can still be seen as separate."
+            },
+            {
+              "term": "Resolving power",
+              "meaning": "The ability of a microscope to show two close points as two points, not a blur."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Magnifying an image with poor resolution only makes a bigger blur.",
+            "Resolution sets how much **detail** you can see, however large the image is.",
+            "Light waves are long, so a light microscope cannot separate points closer than about 0.2 µm.",
+            "Electrons have a much shorter wavelength, so electron microscopes have a much higher resolution."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Magnification is how much bigger; resolution is how clearly detail is separated.",
+            "A shorter wavelength gives a better resolution."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Light and electron microscopes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Three types of microscope are used to study cells. They make images in different ways, so their images look different."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Light microscope",
+            "Transmission electron microscope (TEM)",
+            "Scanning electron microscope (SEM)"
+          ],
+          "rows": [
+            [
+              "Radiation used",
+              "Light",
+              "A beam of electrons passing through the specimen",
+              "A beam of electrons scanned across the surface"
+            ],
+            [
+              "Typical resolution",
+              "About 0.2 µm",
+              "About 0.1 nm",
+              "About 3 to 10 nm"
+            ],
+            [
+              "Useful magnification",
+              "Up to about ×1500",
+              "Over ×500 000",
+              "Up to about ×100 000"
+            ],
+            [
+              "Image",
+              "Colour if stained, 2D",
+              "Black and white, 2D slice through the cell",
+              "Black and white, 3D view of the surface"
+            ],
+            [
+              "Specimen",
+              "Can be living, thin or thick",
+              "Dead, in a vacuum, in very thin sections",
+              "Dead, in a vacuum, can be thick"
+            ],
+            [
+              "Cost and preparation",
+              "Cheap, small, quick to prepare",
+              "Expensive, large, long and complex preparation",
+              "Expensive, large, complex preparation"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a TEM, electromagnets focus the electron beam. Dense parts of the specimen absorb or scatter electrons and look dark.",
+            "In an SEM, electrons bounce off the surface and are collected to build up a 3D picture.",
+            "A TEM has a higher resolution than an SEM, but an SEM shows the shape of surfaces.",
+            "An electron microscope must work in a **vacuum**, because air would scatter the electrons."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Limitations"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light microscope: low resolution, so organelles such as ribosomes cannot be seen.",
+            "Electron microscopes: specimens are dead, so no living processes can be watched.",
+            "Preparation can create **artefacts**: structures seen in the image that are not in the living cell.",
+            "Scientists accepted that a structure was a real organelle only when it appeared with different preparation methods and different microscopes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Light microscopes can view living cells; electron microscopes cannot.",
+            "TEM shows internal detail in 2D; SEM shows surface detail in 3D.",
+            "Artefacts are produced by preparing the specimen, not by the cell."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Preparing and drawing slides",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A temporary mount lets you view cells under a light microscope quickly. The specimen must be thin enough for light to pass through."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Cut",
+              "text": "Take a very thin piece of tissue, for example a layer of onion epidermis, with forceps or a scalpel."
+            },
+            {
+              "lead": "Mount",
+              "text": "Place it on a slide in a drop of water, or a drop of stain."
+            },
+            {
+              "lead": "Cover",
+              "text": "Lower a cover slip onto it at an angle, using a mounted needle, so that no air bubbles are trapped."
+            },
+            {
+              "lead": "Blot",
+              "text": "Remove surplus liquid with filter paper, then view at low power first and focus."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A stain makes transparent parts show up. Different stains bind to different structures.",
+            "Iodine in potassium iodide stains starch blue-black and also colours nuclei.",
+            "Methylene blue and eosin are other common stains for animal cells."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Biological drawings"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a sharp pencil and a clear, single, unbroken line. No shading or colouring.",
+            "Draw what you see, in proportion, and large enough to fill most of the space.",
+            "Draw whole cells or the outlines of tissues, not every cell in view.",
+            "Label with ruled lines that touch the structure and do not cross. Give the drawing a title and its magnification."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A thin specimen, a stain and an air-free cover slip give a good light microscope image.",
+            "A drawing shows clear lines, correct proportions and ruled labels."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating magnification and size",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Magnification links the size of the image to the real size of the object. Both must be in the same unit before you divide."
+        },
+        {
+          "type": "equation",
+          "label": "Magnification",
+          "formula": "magnification = size of image ÷ size of real object",
+          "where": [
+            "size of image: measured on the drawing or micrograph, for example in mm",
+            "size of real object: the actual size, in the same unit as the image"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Unit",
+            "Symbol",
+            "Conversion"
+          ],
+          "rows": [
+            [
+              "Millimetre",
+              "mm",
+              "1 mm = 1000 µm"
+            ],
+            [
+              "Micrometre",
+              "µm",
+              "1 µm = 1000 nm"
+            ],
+            [
+              "Nanometre",
+              "nm",
+              "1 nm = 0.001 µm"
+            ]
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Measure",
+              "text": "Measure the image with a ruler, for example 45 mm across a cell."
+            },
+            {
+              "lead": "Convert",
+              "text": "Change both lengths to the same unit. 45 mm = 45 000 µm."
+            },
+            {
+              "lead": "Divide",
+              "text": "If the real width is 15 µm: 45 000 ÷ 15 = ×3000."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rearrange the equation to find the real size: real size = size of image ÷ magnification. Always give the unit and say if the answer is a width or a length."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A magnification calculation with new numbers each time.",
+            "question": "A cell has a real width of {actual} µm. Its image on a micrograph is {image} mm wide. Calculate the magnification.",
+            "variables": [
+              {
+                "id": "actual",
+                "min": 4,
+                "max": 20,
+                "step": 2
+              },
+              {
+                "id": "image",
+                "min": 20,
+                "max": 80,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "image * 1000 / actual",
+              "unit": "×",
+              "decimals": 0,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "Convert the image to µm: {image} mm × 1000 = {image} × 1000 µm.",
+              "Magnification = image size ÷ real size = ({image} × 1000) ÷ {actual}.",
+              "Magnification = ×{answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Put image and object in the same unit before dividing.",
+            "Magnification has no unit; it is written as ×3000.",
+            "Rearrange to find the real size or the image size."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Eyepiece graticule and stage micrometer",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An eyepiece graticule is a ruler in the eyepiece lens. Its divisions have no real size until they are calibrated."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Eyepiece graticule",
+              "meaning": "A scale in the eyepiece. Its divisions are arbitrary units."
+            },
+            {
+              "term": "Stage micrometer",
+              "meaning": "A slide with a scale of known length, for example divisions of 10 µm."
+            },
+            {
+              "term": "Calibration",
+              "meaning": "Working out the real length of one graticule division."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Line up",
+              "text": "Put the stage micrometer on the stage and line its scale up with the graticule."
+            },
+            {
+              "lead": "Count",
+              "text": "Count how many graticule divisions match a known length on the stage micrometer."
+            },
+            {
+              "lead": "Calibrate",
+              "text": "Divide the known length by the number of graticule divisions. 100 µm over 40 divisions gives 2.5 µm per division."
+            },
+            {
+              "lead": "Measure",
+              "text": "Replace the micrometer with the specimen. Count the divisions across a cell and multiply by 2.5 µm."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Calibrate again every time you change the objective lens, because the scale of the image changes.",
+            "Take several measurements and find a mean, because cells vary in size.",
+            "Use mm for large structures, µm for cells and nm for organelles and viruses."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Calibrate with the stage micrometer, then use the graticule to measure.",
+            "Calibrate separately for each objective lens."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain the difference between magnification and resolution.",
+      "a": "Magnification is how many times bigger the image is than the real object. Resolution is the smallest distance at which two points can be seen as separate, so it determines the detail seen.",
+      "marks": 2
+    },
+    {
+      "q": "A cell has an image 60 mm wide on a micrograph with a magnification of ×1200. Calculate its real width in µm.",
+      "a": "Real size = image size ÷ magnification = 60 mm ÷ 1200 = 0.05 mm = 50 µm.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a transmission electron microscope shows more detail than a light microscope, and give one limitation of using it.",
+      "a": "Electrons have a much shorter wavelength than light, so the microscope has a greater resolution and can show separate points that are closer together. Any one limitation: specimens must be dead, in a vacuum, in very thin sections, or can have artefacts.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.1.3a",
+        "AQA 3.2.1.3b",
+        "AQA 3.2.1.3c",
+        "AQA 3.2.1.3d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Cell fractionation separates organelles so that they can be studied. It has two stages: homogenisation, then ultracentrifugation."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Homogenise",
+                  "text": "Break the cells open in a blender, in a cold, isotonic, buffered solution."
+                },
+                {
+                  "lead": "Filter",
+                  "text": "Filter out whole cells and large debris."
+                },
+                {
+                  "lead": "Spin slowly",
+                  "text": "Spin the filtrate in a centrifuge. The heaviest organelles, the nuclei, form a pellet at the bottom."
+                },
+                {
+                  "lead": "Spin faster",
+                  "text": "Pour off the liquid above the pellet (the supernatant) and spin it faster. The next heaviest organelles form the next pellet."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The order of the pellets, from heaviest to lightest, is nuclei, chloroplasts, mitochondria, lysosomes, endoplasmic reticulum and ribosomes.",
+                "**Cold** slows enzymes, so the organelles are not digested.",
+                "**Isotonic** has the same water potential as the cells, so organelles do not burst or shrink by osmosis.",
+                "A **buffer** keeps the pH constant so that enzymes are not denatured."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 1.1.1",
+        "CAIE 1.1.2",
+        "CAIE 1.1.3",
+        "CAIE 1.1.4",
+        "CAIE 1.1.5"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.1a",
+        "OCR 2.1.1b",
+        "OCR 2.1.1c",
+        "OCR 2.1.1d",
+        "OCR 2.1.1e",
+        "OCR 2.1.1f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Differential staining uses stains that bind to different parts of a cell, so that components and cell types can be told apart."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Acetic orcein stains chromosomes dark red or purple, so dividing cells are easy to find.",
+                "The Gram stain separates bacteria into two types: Gram-positive cells stay purple and Gram-negative cells appear pink.",
+                "Stained sections of tissue show the shape and arrangement of cells in the tissue.",
+                "The image from a light microscope shows colour, but electron microscope images are black and white and may be coloured by computer afterwards."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Annotated diagrams add notes to a drawing. The notes say what each structure is and how it is suited to its function."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "3eda2138-8230-4cae-8a16-b15fdc6ce456",
+      "f97ff381-395d-405e-abc5-f7ebd2719316",
+      "2070b334-1f2f-4baa-8693-7c68530ce32f",
+      "2c461791-e71d-43e8-827b-1923410d5996",
+      "64d552f4-1792-40fc-89ac-047bcc077a46",
+      "dfedc182-8732-4d75-b762-27615101e803",
+      "5bb67fd0-8715-452b-8f8a-918b5309e397",
+      "03736705-1409-4d46-be3f-f54b3fc4471c",
+      "7585bcb4-fc6b-4a2d-8eb5-c3a070b0ec1b",
+      "56c9d025-3e79-46aa-bc64-510d632bb2cb",
+      "553bec56-3207-4f13-b82b-dc403c8cc94d",
+      "44bcea64-eccf-4579-8337-d4977424462a",
+      "b32fe61a-667a-4fce-b0f6-552d068b7189",
+      "19e31fea-2a1f-425f-a35f-1b8ed5997901",
+      "271d46b9-9856-45eb-9deb-f44ead019d07"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

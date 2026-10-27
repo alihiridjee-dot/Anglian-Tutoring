@@ -8,6 +8,8 @@ import { PlannerRosterDAL, type SpecPointLabel } from "@/lib/planner/plannerRost
 import { WeeklyNotesDAL } from "@/lib/planner/weeklyNotesDal";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { addWeeks, weekKeyToDate, toDateKey, weekRangeLabel } from "@/lib/planner/week";
+import { breakCovering } from "@/lib/planner/breaks";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { draftWeeklyFeedback } from "@/lib/planner/weeklyFeedback.functions";
 
 /** Per-point performance the tutor's AI draft is grounded in. */
@@ -47,6 +49,9 @@ export function useTutorTake({
   const nextStart = useMemo(() => toDateKey(addWeeks(weekKeyToDate(weekStart), 1)), [weekStart]);
   const nextLabel = weekRangeLabel(addWeeks(weekKeyToDate(weekStart), 1));
   const thisLabel = weekRangeLabel(weekKeyToDate(weekStart));
+  // Next week falls in a break: nothing new can be planned for it.
+  const { data: breaks = [] } = useQuery(studentBreaksQuery(studentId));
+  const nextOnBreak = !!breakCovering(breaks, nextStart);
 
   const draftFn = useServerFn(draftWeeklyFeedback);
   const hasCheckin = studentFeltReady != null || !!studentReflection;
@@ -219,6 +224,7 @@ export function useTutorTake({
     retry: () => void savedQuery.refetch(),
     nextLabel,
     thisLabel,
+    nextOnBreak,
     hasCheckin,
     note,
     setNote,

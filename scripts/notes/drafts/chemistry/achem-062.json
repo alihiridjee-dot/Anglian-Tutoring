@@ -1,0 +1,350 @@
+{
+  "format": 1,
+  "concept_id": "achem-062",
+  "subject": "chemistry",
+  "title": "Ligand substitution and stability constants",
+  "key_idea": "In ligand substitution one ligand in a complex is swapped for another, often with a colour change. Bidentate and multidentate ligands replace monodentate ones because the entropy of the system rises: this is the chelate effect.",
+  "sections": [
+    {
+      "heading": "Ligand substitution reactions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ligands in a complex can be swapped for others. Whether the coordination number changes depends on the size and charge of the ligands."
+        },
+        {
+          "type": "list",
+          "items": [
+            "H₂O and NH₃ are similar in size and both uncharged. Swapping them does **not** change the coordination number.",
+            "Cl⁻ is larger than H₂O and NH₃ and is charged. Swapping H₂O for Cl⁻ can change the coordination number from 6 to 4.",
+            "Substitution may be incomplete: some H₂O ligands remain."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Reaction",
+            "Colour change",
+            "Coordination number"
+          ],
+          "rows": [
+            [
+              "[Cu(H₂O)₆]²⁺ + 4NH₃ ⇌ [Cu(NH₃)₄(H₂O)₂]²⁺ + 4H₂O",
+              "Pale blue to deep blue",
+              "6 to 6"
+            ],
+            [
+              "[Cu(H₂O)₆]²⁺ + 4Cl⁻ ⇌ [CuCl₄]²⁻ + 6H₂O",
+              "Pale blue to yellow-green",
+              "6 to 4"
+            ],
+            [
+              "[Co(H₂O)₆]²⁺ + 4Cl⁻ ⇌ [CoCl₄]²⁻ + 6H₂O",
+              "Pink to blue",
+              "6 to 4"
+            ],
+            [
+              "[Cr(H₂O)₆]³⁺ + 6NH₃ ⇌ [Cr(NH₃)₆]³⁺ + 6H₂O",
+              "Green or violet to purple",
+              "6 to 6"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "With a little ammonia, [Cu(H₂O)₆]²⁺ first gives a pale blue precipitate of Cu(OH)₂(H₂O)₄. Excess ammonia then dissolves it to give the deep blue solution.",
+            "Cl⁻ replaces H₂O only when the chloride ion concentration is high, for example in concentrated hydrochloric acid. Adding water reverses the change.",
+            "Ligand exchange can also happen with Co²⁺ and NH₃, and with Fe³⁺ and Cl⁻."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "H₂O to NH₃: same coordination number. H₂O to Cl⁻: coordination number can fall from 6 to 4.",
+            "Ligand substitution usually changes the colour.",
+            "Write substitution equations with complexed formulae and ⇌."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Haemoglobin and carbon monoxide",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Haemoglobin shows ligand substitution in the body."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Haem is an iron(II) complex with a multidentate ligand. You need not know its structure.",
+            "Oxygen forms a coordinate bond to Fe²⁺ in haemoglobin. This lets oxygen be carried round the blood.",
+            "Oxygen is released where it is needed, because the bond is weak enough to break.",
+            "Carbon monoxide is toxic because it replaces the oxygen on Fe²⁺, in a ligand substitution.",
+            "CO binds more strongly than O₂ and does not easily leave, so the blood can no longer carry oxygen."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Oxygen bonds reversibly to Fe²⁺ in haemoglobin.",
+            "CO replaces O₂ by ligand exchange.",
+            "CO binds more strongly, so oxygen transport is blocked."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The chelate effect",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Bidentate and multidentate ligands replace monodentate ligands, and the new complex is more stable. This is the **chelate effect**."
+        },
+        {
+          "type": "equation",
+          "label": "Example: three bidentate ligands replace six water molecules",
+          "formula": "[Ni(H₂O)₆]²⁺ + 3NH₂CH₂CH₂NH₂ → [Ni(NH₂CH₂CH₂NH₂)₃]²⁺ + 6H₂O",
+          "where": [
+            "4 particles on the left, 7 on the right."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The number of particles rises from 4 to 7, so there is a large positive increase in the entropy of the system (ΔS).",
+            "The bonds broken (Ni–O) and made (Ni–N) are similar in strength, so the enthalpy change is close to zero.",
+            "Free energy change ΔG = ΔH − TΔS is therefore negative, because ΔS is positive. The reaction is feasible and the products are favoured.",
+            "EDTA⁴⁻ is multidentate, so one ion replaces six water molecules and gives a very large entropy gain."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Chelate effect: bidentate or multidentate ligands replace monodentate ones.",
+            "More particles are formed, so entropy rises.",
+            "ΔH is about zero, so the balance of enthalpy and entropy favours the product."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what you see when concentrated hydrochloric acid is added to aqueous copper(II) sulfate, and write the equation.",
+      "a": "The pale blue solution turns yellow-green. [Cu(H₂O)₆]²⁺ + 4Cl⁻ ⇌ [CuCl₄]²⁻ + 6H₂O.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why carbon monoxide is toxic.",
+      "a": "CO is a ligand that forms a coordinate bond to Fe²⁺ in haemoglobin. It replaces oxygen and binds more strongly, so oxygen can no longer be transported in the blood.",
+      "marks": 3
+    },
+    {
+      "q": "Explain, in terms of entropy, why replacing six H₂O ligands with three bidentate ligands gives a more stable complex.",
+      "a": "The number of particles increases from 4 to 7, so ΔS (system) is large and positive. ΔH is about zero, so ΔG is negative and the more stable complex is formed.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.3.1h",
+        "OCR 5.3.1i"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Learn the substitution and colour changes for [Cu(NH₃)₄(H₂O)₂]²⁺ and [CuCl₄]²⁻ from [Cu(H₂O)₆]²⁺, and for [Cr(NH₃)₆]³⁺ from [Cr(H₂O)₆]³⁺.",
+                "Use complexed formulae in substitution equations.",
+                "Explain the importance of iron in haemoglobin, including ligand substitution involving O₂ and CO."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 15A.18",
+        "EDEX 15A.19",
+        "EDEX 15B.26",
+        "EDEX 15B.27",
+        "EDEX 15B.28"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Ligand exchange in copper(II) goes via Cu(OH)₂(H₂O)₄ to [Cu(NH₃)₄(H₂O)₂]²⁺, and to [CuCl₄]²⁻. In cobalt(II), [Co(H₂O)₆]²⁺ gives [CoCl₄]²⁻.",
+                "Replacing small, uncharged ligands (H₂O) with larger, charged ligands (Cl⁻) can change the coordination number.",
+                "The stability of complexes with bidentate and multidentate ligands is explained by a large positive increase in ΔS of the system."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.5.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Examples of exchange without change of coordination number: Co²⁺ and Cu²⁺ with H₂O and NH₃.",
+                "Examples of exchange of H₂O by Cl⁻ involving a change of coordination number: Co²⁺, Cu²⁺ and Fe³⁺.",
+                "Explain the chelate effect in terms of the balance between the entropy and enthalpy change in these reactions."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 28.2.7",
+        "CAIE 28.3.5",
+        "CAIE 28.5.1",
+        "CAIE 28.5.2",
+        "CAIE 28.5.3",
+        "CAIE 28.5.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explain ligand exchange qualitatively for copper(II) and cobalt(II) with water, ammonia, hydroxide and chloride ligands.",
+                "Use these complexes as examples of ligand exchange changing the colour observed.",
+                "Write Kstab expressions without [H₂O] and use them in calculations, including finding an unknown equilibrium concentration.",
+                "Explain ligand exchange in terms of Kstab: the new complex has a larger Kstab than the one it replaces."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Stability constants, Kstab",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The stability constant measures how far the formation of a complex goes."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Stability constant, Kstab",
+                  "meaning": "The equilibrium constant for the formation of a complex ion in a solvent from its constituent ions or molecules."
+                }
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Kstab for the silver ammine complex",
+              "formula": "Ag⁺(aq) + 2NH₃(aq) ⇌ [Ag(NH₃)₂]⁺(aq)      Kstab = [[Ag(NH₃)₂]⁺] ÷ ([Ag⁺][NH₃]²)",
+              "where": [
+                "Concentrations are equilibrium concentrations in mol dm⁻³.",
+                "Units here: mol⁻² dm⁶.",
+                "[H₂O] is not included."
+              ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "practice",
+                "alt": "Calculate a stability constant from equilibrium concentrations.",
+                "question": "At equilibrium, a solution has [[Ag(NH₃)₂]⁺] = {c} mol dm⁻³, [Ag⁺] = {a} × 10⁻⁶ mol dm⁻³ and [NH₃] = {n} mol dm⁻³. Calculate Kstab for Ag⁺ + 2NH₃ ⇌ [Ag(NH₃)₂]⁺ in mol⁻² dm⁶.",
+                "variables": [
+                  {
+                    "id": "c",
+                    "min": 0.02,
+                    "max": 0.1,
+                    "step": 0.02
+                  },
+                  {
+                    "id": "a",
+                    "min": 1,
+                    "max": 5,
+                    "step": 1
+                  },
+                  {
+                    "id": "n",
+                    "min": 0.1,
+                    "max": 0.5,
+                    "step": 0.1
+                  }
+                ],
+                "answer": {
+                  "formula": "c * 1000000 / (a * n ^ 2)",
+                  "unit": "mol⁻² dm⁶",
+                  "decimals": 0,
+                  "tolerance_percent": 1
+                },
+                "working": [
+                  "Kstab = [[Ag(NH₃)₂]⁺] ÷ ([Ag⁺][NH₃]²)",
+                  "= {c} ÷ ({a} × 10⁻⁶ × {n}²)",
+                  "= {answer} mol⁻² dm⁶"
+                ]
+              }
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **large** Kstab means the equilibrium lies far to the right: a stable complex.",
+                "A ligand that forms a complex with a larger Kstab replaces one with a smaller Kstab.",
+                "Work out the units from the expression. Divide the units of the top by the units of the bottom."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Kstab is the equilibrium constant for forming the complex. Leave out [H₂O].",
+                "Large Kstab: stable complex.",
+                "Ligand exchange goes towards the complex with the larger Kstab."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "f3c88c2f-118f-4717-b79d-4f21761eceec",
+      "b8386f66-d149-4480-88d9-544c59e5df40",
+      "29671c24-7f32-4c75-982a-e9b0d886fc97",
+      "843a55bd-5089-4de5-a869-ca94568741cf",
+      "1004470c-db61-4359-8b39-6b4e873a3e29",
+      "ac9182a8-691a-4f9e-8c8f-58416cc331fc",
+      "29babb5e-89ef-4112-b4cd-7a62df553749",
+      "ed41705c-a4b3-472b-a3fd-0c8fa282706f",
+      "c701a4e6-d5cc-41aa-995a-b10da75deca4",
+      "2ba4afd1-f812-4bed-a98b-cad051ee7421",
+      "d78f062d-d38d-4aae-9036-830117437db6",
+      "dc8e0fb1-7bc6-4c47-8e9a-9d22c54dd3fb",
+      "fe3ac3e4-3021-4893-96ee-3ea970d67414",
+      "c0d07d8e-fe38-4ca3-8133-641e46f41407"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

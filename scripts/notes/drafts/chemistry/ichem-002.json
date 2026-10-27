@@ -1,0 +1,403 @@
+{
+  "format": 1,
+  "concept_id": "ichem-002",
+  "subject": "chemistry",
+  "title": "Oxidation numbers and redox agents",
+  "key_idea": "An **oxidation number** shows how oxidised or reduced an atom is. **Oxidation** is a loss of electrons and an increase in oxidation number. **Reduction** is a gain of electrons and a decrease in oxidation number. An oxidising agent is reduced, and a reducing agent is oxidised.",
+  "sections": [
+    {
+      "heading": "Oxidation and reduction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Redox reactions are reactions where oxidation and reduction happen together. This section covers the definitions."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Oxidation",
+              "meaning": "Loss of electrons, or an increase in oxidation number. It can also be gain of oxygen."
+            },
+            {
+              "term": "Reduction",
+              "meaning": "Gain of electrons, or a decrease in oxidation number. It can also be loss of oxygen."
+            },
+            {
+              "term": "Redox reaction",
+              "meaning": "A reaction in which one substance is oxidised and another is reduced."
+            },
+            {
+              "term": "Oxidising agent",
+              "meaning": "A substance that oxidises another substance and is itself reduced."
+            },
+            {
+              "term": "Reducing agent",
+              "meaning": "A substance that reduces another substance and is itself oxidised."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Change",
+            "Oxidation",
+            "Reduction"
+          ],
+          "rows": [
+            [
+              "Electrons",
+              "Lost",
+              "Gained"
+            ],
+            [
+              "Oxidation number",
+              "Increases",
+              "Decreases"
+            ],
+            [
+              "Oxygen",
+              "Gained",
+              "Lost"
+            ],
+            [
+              "The substance that undergoes it is the",
+              "reducing agent",
+              "oxidising agent"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "An **oxidising agent** gives oxygen to another substance, or takes electrons from it.",
+            "A **reducing agent** takes oxygen from another substance, or gives electrons to it."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Example: aluminium and iron(III) oxide"
+        },
+        {
+          "type": "equation",
+          "label": "Equation",
+          "formula": "Fe₂O₃ + 2Al → 2Fe + Al₂O₃",
+          "where": [
+            "Al gains oxygen, so it is oxidised and is the reducing agent.",
+            "Fe₂O₃ loses oxygen, so it is reduced and is the oxidising agent."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Example: zinc and silver ions"
+        },
+        {
+          "type": "equation",
+          "label": "Ionic equation",
+          "formula": "Zn(s) + 2Ag⁺(aq) → Zn²⁺(aq) + 2Ag(s)",
+          "where": [
+            "Zn loses two electrons, so it is oxidised.",
+            "Ag⁺ gains one electron, so it is reduced."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Zinc is the reducing agent.",
+            "Silver ions are the oxidising agent."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Oxidation is loss of electrons. Reduction is gain of electrons.",
+            "An oxidising agent is reduced. A reducing agent is oxidised.",
+            "A redox reaction has oxidation and reduction at the same time."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Oxidation numbers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An oxidation number is a number given to an atom to track electrons. This section covers the rules and how to use them."
+        },
+        {
+          "type": "subheading",
+          "text": "The rules"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An atom in an uncombined element has an oxidation number of **0**.",
+            "A monatomic ion has an oxidation number equal to its charge, such as +2 for Mg²⁺.",
+            "The oxidation numbers in a compound add up to **0**.",
+            "The oxidation numbers in an ion add up to the **charge** on the ion.",
+            "Oxygen is –2 and hydrogen is +1 in most compounds. Chlorine in chlorides is –1."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Working out an oxidation number"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the known values.",
+              "text": "In SO₄²⁻, each O is –2. There are four O atoms."
+            },
+            {
+              "lead": "Add them up.",
+              "text": "4 × –2 = –8."
+            },
+            {
+              "lead": "Set the total to the charge.",
+              "text": "S + (–8) = –2."
+            },
+            {
+              "lead": "Solve.",
+              "text": "S = +6."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Roman numerals in names"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A Roman numeral in a name gives the oxidation number of the element before it.",
+            "Manganese(IV) oxide contains manganese with an oxidation number of +4.",
+            "Chlorine(I) oxide contains chlorine with an oxidation number of +1.",
+            "Iron(III) oxide contains iron with an oxidation number of +3."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Find the oxidation number of the central atom in an ion with four oxygen atoms and a given charge.",
+            "question": "An ion has the formula XO₄ and an overall charge of –{q}. The oxidation number of each O is –2. What is the oxidation number of X?",
+            "variables": [
+              {
+                "id": "q",
+                "min": 1,
+                "max": 3,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "8 - q",
+              "decimals": 0
+            },
+            "working": [
+              "4 × –2 = –8.",
+              "X + (–8) = –{q}.",
+              "X = {answer}."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An element on its own is 0. An ion's numbers add up to its charge.",
+            "A Roman numeral gives the oxidation number.",
+            "Reaction with oxygen increases an oxidation number: that is oxidation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Spotting redox and agents",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You can find redox reactions and agents by looking for changes in oxidation number. This section covers the method and two colour tests."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the oxidation number of each element.",
+              "text": "Do this on both sides of the equation."
+            },
+            {
+              "lead": "Find the changes.",
+              "text": "Look for an element that goes up and one that goes down."
+            },
+            {
+              "lead": "Name the agents.",
+              "text": "The substance that contains the element that goes down is the oxidising agent. The substance that contains the element that goes up is the reducing agent."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In 2Mg(NO₃)₂ → 2MgO + 4NO₂ + O₂, nitrogen goes from +5 to +4. It is reduced.",
+            "In Fe₂O₃ → Fe, iron goes from +3 to 0. It is reduced.",
+            "In 4NH₃ → 4NO, nitrogen goes from –3 to +2. It is oxidised."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "(Supplement) Colour changes that show redox"
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) **Acidified potassium manganate(VII)** is purple. It is an oxidising agent. It turns **colourless** when it is reduced by a reducing agent.",
+            "(Supplement) **Aqueous potassium iodide** is colourless. An oxidising agent oxidises iodide ions to iodine, and the solution turns **brown**."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Choose a test reagent and see its colour change when it reacts with a substance of the matching type.",
+            "prompt": "Pick a test reagent",
+            "result_labels": [
+              "Type of substance it reacts with",
+              "Colour change",
+              "What this shows"
+            ],
+            "options": [
+              {
+                "label": "Acidified potassium manganate(VII) with sodium sulfite",
+                "results": [
+                  "A reducing agent",
+                  "Purple to colourless",
+                  "The manganate(VII) is reduced and the sulfite is oxidised"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Before",
+                      "colour": "purple"
+                    },
+                    {
+                      "label": "After",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Aqueous potassium iodide with aqueous chlorine",
+                "results": [
+                  "An oxidising agent",
+                  "Colourless to brown",
+                  "The iodide is oxidised to iodine and the chlorine is reduced"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Before",
+                      "colour": "colourless"
+                    },
+                    {
+                      "label": "After",
+                      "colour": "brown"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A rise in oxidation number is oxidation. A fall is reduction.",
+            "Purple manganate(VII) turning colourless shows a reducing agent.",
+            "Potassium iodide turning brown shows an oxidising agent."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the oxidation number of nitrogen in NH₃.",
+      "a": "–3",
+      "marks": 1
+    },
+    {
+      "q": "Define the term reducing agent.",
+      "a": "A substance that reduces another substance and is itself oxidised.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) Acidified potassium manganate(VII) is added to a reducing agent. State the colour change.",
+      "a": "Purple to colourless.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.4.1",
+        "CAIE 6.4.9S",
+        "CAIE 6.4.10S",
+        "CAIE 6.4.13S",
+        "CAIE 6.4.6S",
+        "CAIE 6.4.7S",
+        "CAIE 6.4.11S",
+        "CAIE 6.4.12S"
+      ],
+      "worked_example": {
+        "exemplar_id": "8da78773-79cb-4f5f-beb0-bb149ea5d2a0",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q3(f)",
+        "question": "The reaction of sulfur chloride S₂Cl₂ with chlorine is a redox reaction. S₂Cl₂(g) + Cl₂(g) ⇌ 2SCl₂(g). The oxidation number of Cl in S₂Cl₂ and in SCl₂ is –1. Use oxidation numbers to explain why: sulfur is oxidised in the forward reaction, and chlorine is oxidised in the reverse reaction.",
+        "marks": 4,
+        "answer_points": [
+          "The oxidation number of S goes from +1.",
+          "The oxidation number of S goes to +2.",
+          "The oxidation number of Cl goes from –1 to 0 (in Cl₂).",
+          "The oxidation numbers of Cl and S both increase, so both are oxidised."
+        ],
+        "tip": "Give the numbers each time, not just the words 'increase' or 'decrease'."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.20"
+      ],
+      "worked_example": {
+        "exemplar_id": "5d0c4205-5d7b-454e-bbdd-ba21c10c58b5",
+        "source": "EDEXCEL jun 2022, Paper 1 (CR), Q8(b)(ii)",
+        "question": "This is the ionic equation for the reaction between zinc and silver nitrate solution. Zn(s) + 2Ag⁺(aq) → Zn²⁺(aq) + 2Ag(s). Explain, in terms of electrons, why this is a redox reaction.",
+        "marks": 2,
+        "answer_points": [
+          "Zinc is oxidised because it loses electrons.",
+          "Silver ions are reduced because they gain electrons."
+        ],
+        "tip": "Say what happens to the electrons, and name which substance does it."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "df81f710-980f-49cb-94d7-0104ca3ebfda",
+      "0ba9e5bc-af26-4acf-af79-5cdbde1cc680",
+      "6077e3ee-8949-4746-a880-2a115cb5000e",
+      "3877babf-0cd0-4b17-89b2-d332b2d4589f",
+      "e08ad7f0-c58a-4540-96ae-a5be0b34a323"
+    ],
+    "exemplar_ids": [
+      "8da78773-79cb-4f5f-beb0-bb149ea5d2a0",
+      "5d0c4205-5d7b-454e-bbdd-ba21c10c58b5"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "format": 1,
+  "concept_id": "phys-058",
+  "subject": "physics",
+  "title": "Required practical: force, mass and acceleration",
+  "key_idea": "Investigate how acceleration depends on force and on mass using a trolley. Keep the total mass constant when changing the force. Compensate for friction. Measure acceleration with light gates, or from distance and time.",
+  "sections": [
+    {
+      "heading": "Aim and variables",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This practical shows how the acceleration of an object depends on the resultant force on it and on its mass. There are two investigations."
+        },
+        {
+          "type": "table",
+          "columns": ["Variable", "Force varied", "Mass varied"],
+          "rows": [
+            ["Independent variable", "Resultant force (N)", "Mass of the moving system (kg)"],
+            ["Dependent variable", "Acceleration (m/s²)", "Acceleration (m/s²)"],
+            ["Control variable", "Mass of the system", "Resultant force"]
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Moving system",
+              "meaning": "The trolley plus the weight hanger and masses attached to it."
+            },
+            {
+              "term": "Compensating for friction",
+              "meaning": "Tilting the runway so friction is balanced and the trolley rolls at a constant speed."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Investigation 1 varies force and keeps mass constant.",
+            "Investigation 2 varies mass and keeps force constant."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The method",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A trolley is pulled along a runway by a weight hanger. The weights on the hanger provide the force."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for investigating force and acceleration in order.",
+            "prompt": "Put the steps of the force and acceleration investigation in order.",
+            "steps": [
+              "Set up a trolley on a runway, joined by a string over a pulley to a weight hanger.",
+              "Raise one end of the runway until the trolley rolls at a constant speed, to compensate for friction.",
+              "Put all the slotted masses on the trolley, so the total mass is fixed.",
+              "Move one mass at a time from the trolley to the hanger to increase the force.",
+              "Release the trolley and use light gates to measure its acceleration.",
+              "Plot a graph of acceleration against force."
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Keeping the mass constant"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Transfer mass between the trolley and the hanger.",
+            "Mass removed from the trolley equals mass added to the hanger, so the total mass does not change.",
+            "The force comes from the weight of the masses on the hanger."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Weight",
+          "formula": "W = m × g",
+          "where": [
+            "W: weight in newtons, N",
+            "m: mass in kilograms, kg",
+            "g: gravitational field strength in newtons per kilogram, N/kg"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Varying the mass"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Keep the same mass on the hanger, so the force is constant.",
+            "Add masses to the trolley, one at a time.",
+            "Measure the acceleration each time."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Compensate for friction by tilting the runway until the trolley rolls at a constant speed.",
+            "Move masses between trolley and hanger to keep the total mass constant.",
+            "Use light gates, or timing and a ruler, to find the acceleration."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring and interpreting the acceleration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Light gates and a computer can give the acceleration directly. Without them, use distance and time."
+        },
+        {
+          "type": "equation",
+          "label": "Average acceleration",
+          "formula": "a = Δv / t",
+          "where": [
+            "a: acceleration in metres per second squared, m/s²",
+            "Δv: change in velocity in metres per second, m/s",
+            "t: time taken in seconds, s"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "For a trolley released from rest with constant acceleration, divide distance by time to get the mean speed.",
+            "Double the mean speed to get the final speed.",
+            "Divide the final speed by the time to get the acceleration."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the acceleration of a trolley from the distance and time of its run.",
+            "question": "A trolley is released from rest. It moves {s} m in {t} s with constant acceleration. Calculate its acceleration.",
+            "variables": [
+              {
+                "id": "s",
+                "min": 0.6,
+                "max": 1.6,
+                "step": 0.2
+              },
+              {
+                "id": "t",
+                "min": 1,
+                "max": 2,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "2 * s / (t * t)",
+              "unit": "m/s²",
+              "decimals": 2
+            },
+            "working": [
+              "Mean speed = {s} ÷ {t}",
+              "Final speed = 2 × mean speed",
+              "a = final speed ÷ {t} = {answer} m/s²"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "What the results show"
+        },
+        {
+          "type": "list",
+          "items": [
+            "With constant mass, acceleration is proportional to resultant force: the graph is a straight line through the origin.",
+            "With constant force, acceleration decreases as mass increases."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The acceleration comes from the change in velocity divided by the time taken.",
+            "Acceleration is proportional to force when mass is constant.",
+            "Acceleration decreases as mass increases when force is constant."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the independent variable and the control variable when investigating how force affects acceleration.",
+      "a": "The independent variable is the resultant force. The control variable is the mass of the moving system.",
+      "marks": 2
+    },
+    {
+      "q": "How can the student keep the total mass constant while the force changes?",
+      "a": "Transfer masses between the trolley and the weight hanger.",
+      "marks": 1
+    },
+    {
+      "q": "Explain how the student can compensate for friction on the runway.",
+      "a": "Raise one end of the runway until the trolley, not attached to the hanger, rolls at a constant speed.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.6.2", "AQA T 6.5.4.2"],
+      "worked_example": {
+        "exemplar_id": "c0efcac0-9ebf-45ac-a9f7-f05d87063de8",
+        "source": "AQA jun 2024, Paper 2 (H), Q05.3",
+        "question": "The student held the trolley stationary and then released it. The trolley moved along the runway with a constant acceleration.\nThe student recorded the time taken for the trolley to travel a measured distance along the runway.\nFor one set of results, the force acting through the string was 2.0 N.\n\nDescribe how the acceleration of the trolley can be calculated using the time taken and distance travelled by the trolley.",
+        "marks": 3,
+        "answer_points": [
+          "Divide the distance travelled by the time taken to give the average (mean) velocity",
+          "Double the mean velocity to give the maximum velocity",
+          "Divide the change in velocity by the time taken to give the acceleration"
+        ],
+        "tip": "Speed can be used instead of velocity throughout. Using v² = u² + 2as is also allowed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 2.19"],
+      "worked_example": {
+        "exemplar_id": "76c374e3-778b-4a08-8939-d358de72609b",
+        "source": "EDEXCEL jun 2018, Paper 1 (H), Q9(a)(iii)",
+        "question": "A student investigates the relationship between force and acceleration for a trolley on a runway. A weight hanger on a string pulls the trolley.\n\nExplain how the student could improve the procedure to compensate for the effects of frictional forces acting on the trolley.",
+        "marks": 2,
+        "answer_points": [
+          "Raise one end of the runway",
+          "So that the trolley (not attached to the weight hanger) rolls at a constant speed, or just starts to move",
+          "The force of gravity on the trolley balances the forces of friction"
+        ],
+        "tip": "One mark for raising one end of the runway and one for the reason. Methods that reduce friction directly, such as oiling the wheels, are also credited."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": ["7659b8f0-e9fb-4c2e-9587-3f3ea541d9eb"],
+    "exemplar_ids": [
+      "c0efcac0-9ebf-45ac-a9f7-f05d87063de8",
+      "76c374e3-778b-4a08-8939-d358de72609b"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

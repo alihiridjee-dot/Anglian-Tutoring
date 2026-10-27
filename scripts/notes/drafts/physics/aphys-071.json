@@ -1,0 +1,268 @@
+{
+  "format": 1,
+  "concept_id": "aphys-071",
+  "subject": "physics",
+  "title": "Energy stored by a capacitor",
+  "key_idea": "The energy stored by a capacitor is the area under its p.d.–charge graph. This gives W = ½QV = ½CV² = ½Q²/C. Capacitors can release their energy very quickly.",
+  "sections": [
+    {
+      "heading": "Energy from the p.d.–charge graph",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Charging a capacitor means pushing charge onto the plates against the p.d. already there. The energy stored is the work done in doing this."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The p.d. is V = Q/C, so a graph of p.d. against charge is a straight line through the origin.",
+            "Moving a small charge ΔQ at p.d. V needs work V ΔQ. That is the area of a thin strip under the graph.",
+            "Adding all the strips, the total energy stored is the area under the graph.",
+            "The area is a triangle: ½ × base × height."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A straight line graph of potential difference against charge for a capacitor, through the origin. The area under the line is the energy stored.",
+            "x": {
+              "label": "Charge stored, Q",
+              "min": 0,
+              "max": 5,
+              "ticks": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "unit": "μC"
+            },
+            "y": {
+              "label": "Potential difference, V"
+            },
+            "series": [
+              {
+                "name": "V = Q / C",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    5,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "bands": [
+              {
+                "from": 0,
+                "to": 5,
+                "label": "Area under the line = energy stored"
+              }
+            ]
+          }
+        },
+        {
+          "type": "equation",
+          "label": "Energy stored by a capacitor",
+          "formula": "W = ½QV",
+          "where": [
+            "W = energy stored (J)",
+            "Q = charge stored (C)",
+            "V = final p.d. across the capacitor (V)"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Energy stored is the area under the p.d.–charge graph.",
+            "The area is a triangle, so W = ½QV.",
+            "It is half of QV because the p.d. builds up from zero as the charge builds up."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Three forms of the equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Substituting C = Q/V into W = ½QV gives two more forms. Use whichever fits the quantities you know."
+        },
+        {
+          "type": "equation",
+          "label": "Energy from capacitance and p.d.",
+          "formula": "W = ½CV²",
+          "where": [
+            "W = energy stored (J)",
+            "C = capacitance (F)",
+            "V = p.d. across the capacitor (V)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Energy from charge and capacitance",
+          "formula": "W = ½Q² / C",
+          "where": [
+            "W = energy stored (J)",
+            "Q = charge stored (C)",
+            "C = capacitance (F)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Start",
+              "text": "W = ½QV."
+            },
+            {
+              "lead": "Use Q = CV",
+              "text": "Replace Q to get W = ½CV²."
+            },
+            {
+              "lead": "Use V = Q/C",
+              "text": "Replace V to get W = ½Q²/C."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "For the same capacitor, doubling the p.d. makes the energy four times larger, because W ∝ V².",
+            "For the same charge, a larger capacitance stores less energy, because W ∝ 1/C."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation. Find the energy stored in a capacitor from its capacitance and p.d.",
+            "question": "A {c} mF capacitor is charged to {v} V. Calculate the energy stored, in mJ.",
+            "variables": [
+              {
+                "id": "c",
+                "min": 1,
+                "max": 10,
+                "step": 1
+              },
+              {
+                "id": "v",
+                "min": 3,
+                "max": 12,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "0.5*c*v*v",
+              "unit": "mJ",
+              "decimals": 1
+            },
+            "working": [
+              "W = ½CV² = ½ × {c} mF × ({v} V)²",
+              "W = {answer} mJ"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "W = ½QV = ½CV² = ½Q²/C.",
+            "Energy depends on the square of the p.d. or of the charge."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A 2200 μF capacitor is charged to 9.0 V. Calculate the energy stored.",
+      "a": "W = ½CV² = ½ × 2200 × 10⁻⁶ × 9.0² = 8.9 × 10⁻² J.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the energy stored by a capacitor is ½QV and not QV.",
+      "a": "The p.d. rises from zero to V as the charge builds up, in proportion to the charge. The energy is the area of the triangle under the p.d.–charge graph, which is ½QV.",
+      "marks": 3
+    },
+    {
+      "q": "The p.d. across a capacitor is doubled. State and explain the effect on the energy stored.",
+      "a": "The energy becomes four times larger. W = ½CV², so W is proportional to V² when C is constant.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.4.3"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.117"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 19.2.1",
+        "CAIE 19.2.2"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.2a",
+        "OCR 6.1.2b",
+        "OCR 6.1.2c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Uses of capacitors as energy stores"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A camera flash: the capacitor charges slowly from a battery, then releases its energy in a very short burst.",
+                "A defibrillator: a capacitor stores energy and delivers it quickly to the patient in one pulse.",
+                "A backup supply: a capacitor keeps the memory of a device powered for a short time if the main supply is cut off.",
+                "A capacitor can release energy much faster than a battery, but it stores much less energy for its size."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Capacitors suit uses that need energy delivered quickly.",
+                "They store less energy than a battery of the same size."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "bcbea574-0ef8-4438-99c1-4dbde2c0b61d",
+      "70e52009-4b9f-4229-9552-716f78e3cadc",
+      "4eed9cde-c99a-4a85-a4f0-d00c37852840",
+      "86525cf1-93f6-4ec9-8e78-c804e77edc3a",
+      "31efb2cc-657c-458c-a08a-80e329b6797d",
+      "887a0b86-3aa7-4f53-bf96-5057adecab82",
+      "b3b1aac7-7c91-40ed-bd46-af0825a58579"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

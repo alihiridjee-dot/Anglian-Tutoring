@@ -1,0 +1,243 @@
+{
+  "format": 1,
+  "concept_id": "ibio-017",
+  "subject": "biology",
+  "title": "Yeast and bacteria in food production",
+  "key_idea": "Yeast makes bread rise by anaerobic respiration, which releases carbon dioxide. Lactobacillus bacteria ferment the lactose in milk to lactic acid, which makes yoghurt. Industrial fermenters give microorganisms the conditions they need to grow.",
+  "sections": [
+    {
+      "heading": "Yeast and bread",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Yeast is a single-celled fungus. It respires anaerobically when oxygen is short, which is called fermentation."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Anaerobic respiration",
+              "meaning": "Release of energy from glucose without oxygen."
+            },
+            {
+              "term": "Fermentation",
+              "meaning": "Anaerobic respiration by microorganisms."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Anaerobic respiration in yeast",
+          "formula": "glucose → ethanol + carbon dioxide",
+          "where": [
+            "glucose: C₆H₁₂O₆, the sugar in the dough",
+            "ethanol: C₂H₅OH, which evaporates when the bread is baked",
+            "carbon dioxide: CO₂, the gas that makes the dough rise"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Yeast is mixed with flour, water and sugar to make dough, and the dough is kept warm.",
+            "The yeast respires and releases **carbon dioxide**.",
+            "The gas forms bubbles in the dough, so the dough **rises**.",
+            "Baking kills the yeast and the bubbles set, so the bread has a light texture."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Yeast respires anaerobically and releases carbon dioxide.",
+            "The carbon dioxide makes bread dough rise."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating yeast",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A common practical measures how conditions affect the rate of anaerobic respiration in yeast."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mix yeast and glucose solution in a test tube.",
+            "Add a layer of **paraffin oil** to keep out oxygen.",
+            "Keep the tube at a set temperature in a **water bath** with a thermometer.",
+            "Count the bubbles of gas each minute, or collect the gas in a gas syringe or measuring cylinder.",
+            "Repeat at other temperatures or glucose concentrations."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The rate is the volume of gas divided by the time taken.",
+            "Measuring the **volume** of gas is more accurate than counting bubbles, which vary in size.",
+            "Rate rises with temperature up to an optimum, then falls as the enzymes denature."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Paraffin oil excludes oxygen so the yeast respires anaerobically.",
+            "Measure the volume of gas and the time to get a rate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Lactobacillus and yoghurt",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Yoghurt is made from milk by the bacterium Lactobacillus."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of making yoghurt in order.",
+            "prompt": "Put the steps of making yoghurt in order.",
+            "steps": [
+              "Heat the milk to kill other microorganisms",
+              "Cool the milk to 40 to 46 °C",
+              "Add Lactobacillus bacteria",
+              "Bacteria ferment lactose by anaerobic respiration",
+              "Lactic acid is made and the pH falls",
+              "The milk protein clots and the milk thickens"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heating the milk **kills** other bacteria, so they cannot compete for the sugar.",
+            "Lactobacillus uses the sugar **lactose** in milk for anaerobic respiration.",
+            "This produces **lactic acid**, which lowers the pH and gives the sharp taste.",
+            "The acid makes the milk protein clot, so the milk thickens."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Milk is heated to kill other bacteria.",
+            "Lactobacillus ferments lactose to lactic acid, which thickens the milk."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Industrial fermenters",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A fermenter is a large vessel used to grow microorganisms. It keeps the conditions right for growth."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Condition",
+            "Why it is needed",
+            "How it is controlled"
+          ],
+          "rows": [
+            [
+              "Aseptic conditions",
+              "Prevents contamination and competition from other microorganisms",
+              "Steam-clean the vessel and filter the air"
+            ],
+            [
+              "Nutrients",
+              "Supply the microorganisms with food",
+              "Nutrient broth"
+            ],
+            [
+              "Optimum temperature",
+              "Respiration releases heat; too hot would denature enzymes",
+              "Temperature monitor and cooling water jacket"
+            ],
+            [
+              "Optimum pH",
+              "Enzymes work best at their optimum pH",
+              "pH probe and addition of acid or alkali"
+            ],
+            [
+              "Oxygen",
+              "Needed for aerobic respiration, which many microorganisms use",
+              "Air pumped in through a sparger"
+            ],
+            [
+              "Agitation",
+              "Mixes the contents and spreads heat and nutrients evenly",
+              "Stirrer"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A fermenter controls temperature, pH, oxygen, nutrients and contamination.",
+            "A stirrer mixes the contents and a water jacket removes heat."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the gas that makes bread dough rise.",
+      "a": "Carbon dioxide.",
+      "marks": 1
+    },
+    {
+      "q": "Describe how Lactobacillus produces yoghurt from milk.",
+      "a": "It ferments lactose by respiration and produces lactic acid. The milk protein clots and the milk thickens.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why air is filtered before it enters a fermenter.",
+      "a": "It removes bacteria and other microorganisms, which prevents contamination and competition for nutrients.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 5.5",
+        "IGCSE 5.6",
+        "IGCSE 5.7",
+        "IGCSE 5.8"
+      ],
+      "worked_example": {
+        "exemplar_id": "78103f61-9279-485f-a36f-868c235b6b4f",
+        "source": "EDEXCEL jun 2023, Paper 1 (BR), Q1(b)",
+        "question": "Describe how Lactobacillus bacteria produce yoghurt from milk.",
+        "marks": 3,
+        "answer_points": [
+          "The bacteria respire or ferment.",
+          "They use the sugar lactose.",
+          "Lactic acid is produced.",
+          "The protein clots and the milk thickens or goes solid."
+        ],
+        "tip": "Any three score one mark each. Name the sugar and the acid."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "d3d95dfb-4455-45f9-9bd3-f50ab2323207",
+      "2379049f-86f3-4689-b161-8d9695165b5b",
+      "9d65ffac-a6ca-4b75-b570-6f94b252ec0d"
+    ],
+    "exemplar_ids": [
+      "78103f61-9279-485f-a36f-868c235b6b4f"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

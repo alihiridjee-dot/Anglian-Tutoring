@@ -2,6 +2,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { type SubjectV, type BoardV, type LevelV } from "../curriculum/taxonomy";
 import { currentWeekKey } from "./week";
 import { WeeklyPlanDAL } from "./weeklyPlanDal";
+import { BreakDAL } from "./breaksDal";
 import { type PlanOverride, type PlanOverrideKind } from "./overrides";
 
 /** What `remove_plan_point` did. */
@@ -36,9 +37,21 @@ type Row = {
   created_at: string;
 };
 
+/** One `student_plan_overrides` row, as the planner holds it. */
+export const toOverride = (r: Row): PlanOverride => ({
+  id: r.id,
+  specPointId: r.spec_point_id,
+  kind: r.kind,
+  weekStart: r.week_start,
+  note: r.note,
+  createdBy: r.created_by,
+  createdAt: r.created_at,
+});
+
 const OVERRIDES_TABLE = "student_plan_overrides";
 const NOT_INSTALLED =
   "The planner override update is not installed on the database yet. Nothing was changed.";
+const BREAK_WEEK = "That's a break week, so nothing can be planned for it.";
 
 /** The table or function does not exist: the migration has not been applied. */
 function notInstalled(error: { code?: string; message?: string }): boolean {
@@ -77,15 +90,7 @@ export class PlanOverridesDAL {
       if (notInstalled(error)) return [];
       throw new Error(error.message);
     }
-    return ((data ?? []) as Row[]).map((r) => ({
-      id: r.id,
-      specPointId: r.spec_point_id,
-      kind: r.kind,
-      weekStart: r.week_start,
-      note: r.note,
-      createdBy: r.created_by,
-      createdAt: r.created_at,
-    }));
+    return ((data ?? []) as Row[]).map(toOverride);
   }
 
   /** Whether the database carries the override rule (scheduler version 5 or later). */
@@ -174,6 +179,9 @@ export class PlanOverridesDAL {
     if (params.specPointIds.length === 0) return;
     if (params.weekStart < currentWeekKey())
       throw new Error("Past weeks are history and cannot be changed.");
+    // Before the removals below are withdrawn: the database would refuse the
+    // pin itself, but only after they had gone.
+    if (await BreakDAL.isBreakWeek(params.studentId, params.weekStart)) throw new Error(BREAK_WEEK);
     const { error } = await supabase
       .from(OVERRIDES_TABLE)
       .delete()
@@ -191,6 +199,10 @@ export class PlanOverridesDAL {
    * the second as a pin. Two statements, in that order, so a failure on the
    * second leaves the point removed rather than duplicated. Returns the removal
    * result so a caller can report a point the student's work kept in place.
+   *
+   * A break week is refused before either. The database refuses it only at
+   * the pin, so a move into one took the point out of its week and put it
+   * nowhere.
    */
   static async move(params: {
     studentId: string;
@@ -205,6 +217,7 @@ export class PlanOverridesDAL {
     if (params.toWeek === params.fromWeek) throw new Error("Choose a different week.");
     if (params.toWeek < currentWeekKey())
       throw new Error("Past weeks are history and cannot be changed.");
+    if (await BreakDAL.isBreakWeek(params.studentId, params.toWeek)) throw new Error(BREAK_WEEK);
     const result = await this.remove({
       studentId: params.studentId,
       subject: params.subject,

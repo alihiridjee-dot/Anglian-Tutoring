@@ -1,5 +1,5 @@
 import { PlannerPointItem } from "./PlannerPointItem";
-import { PLANNER_TIME_ZONE, weekKeyToDate } from "@/lib/planner/week";
+import { plannerDateLabel, weekKeyToDate } from "@/lib/planner/week";
 import { RotateCcw } from "lucide-react";
 import { type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
@@ -64,7 +64,7 @@ export function WeekPointRow({
         <p className="text-sm text-muted-foreground">
           {roadmap && nextReview >= weekKeyToDate(roadmap.examDate)
             ? "Next memory review falls beyond this exam period."
-            : `Next review eligible from ${nextReview.toLocaleDateString(undefined, { timeZone: PLANNER_TIME_ZONE, day: "numeric", month: "short" })}. It will be assigned at the next weekly opening.`}
+            : `Next review from ${plannerDateLabel(nextReview)}. It is added to your week when it comes round.`}
         </p>
       )}
       {p.carried_from && (

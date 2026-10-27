@@ -1,0 +1,249 @@
+{
+  "format": 1,
+  "concept_id": "abio-056",
+  "subject": "biology",
+  "title": "The Calvin cycle",
+  "key_idea": "The Calvin cycle in the stroma fixes carbon dioxide into organic molecules. Rubisco joins CO₂ to RuBP to make GP. ATP and reduced NADP reduce GP to triose phosphate, and most triose phosphate is used to regenerate RuBP.",
+  "sections": [
+    {
+      "heading": "The three stages of the cycle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The light-independent stage takes place in the stroma. It uses ATP and reduced NADP from the light-dependent stage, so it stops soon after the light is switched off."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "RuBP",
+              "meaning": "Ribulose bisphosphate, a 5-carbon compound that accepts carbon dioxide."
+            },
+            {
+              "term": "Rubisco",
+              "meaning": "Ribulose bisphosphate carboxylase, the enzyme that catalyses carbon fixation."
+            },
+            {
+              "term": "GP",
+              "meaning": "Glycerate 3-phosphate, a 3-carbon compound made when carbon dioxide is fixed."
+            },
+            {
+              "term": "TP",
+              "meaning": "Triose phosphate, a 3-carbon sugar phosphate, also called GALP (glyceraldehyde 3-phosphate)."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Fixation.",
+              "text": "Rubisco catalyses the combination of CO₂ with RuBP (5C). This makes an unstable 6-carbon compound that splits at once into two molecules of GP (3C)."
+            },
+            {
+              "lead": "Reduction.",
+              "text": "ATP supplies energy and reduced NADP supplies hydrogen to reduce each GP to triose phosphate (3C). NADP and ADP are made and return to the light-dependent stage."
+            },
+            {
+              "lead": "Regeneration.",
+              "text": "Most of the triose phosphate is used, with more ATP, to regenerate RuBP so the cycle can continue."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "The Calvin cycle as a loop: CO₂ combines with RuBP to make GP, GP is reduced to triose phosphate, and triose phosphate regenerates RuBP.",
+            "steps": [
+              "RuBP (5C) + CO₂, catalysed by rubisco",
+              "Two GP (3C)",
+              "Reduction using ATP and reduced NADP",
+              "Triose phosphate (3C)",
+              "Regeneration of RuBP using ATP"
+            ],
+            "loop": true
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbon dioxide is fixed when rubisco joins it to RuBP, making two GP.",
+            "GP is reduced to triose phosphate using ATP and reduced NADP.",
+            "Five out of every six triose phosphate molecules are used to regenerate RuBP."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Counting carbons",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "For three CO₂ molecules to enter the cycle, three RuBP are needed. The numbers of carbons show why the cycle works."
+        },
+        {
+          "type": "list",
+          "items": [
+            "3 CO₂ (3C) + 3 RuBP (15C) make 6 GP (18C).",
+            "6 GP are reduced to 6 triose phosphate (18C).",
+            "5 triose phosphate (15C) regenerate 3 RuBP (15C).",
+            "1 triose phosphate (3C) is the net gain, and leaves the cycle.",
+            "Two triose phosphate are needed to make one hexose sugar, so the cycle must turn six times for one glucose."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Three turns fix three CO₂ and give one net triose phosphate.",
+            "Six turns are needed to make one 6C glucose molecule.",
+            "ATP is used twice: in reduction and in regeneration of RuBP."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What the products are used for",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The triose phosphate that leaves the cycle is the starting point for many of the plant's molecules. Some GP is also used directly."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Carbohydrates: triose phosphate is converted to glucose, then to sucrose for transport, starch for storage and cellulose for cell walls.",
+            "Lipids: glycerol can be made from triose phosphate, and fatty acids from GP, to make fats and oils.",
+            "Amino acids: GP and triose phosphate are the carbon skeletons for some amino acids, which are used to make proteins, with nitrogen from nitrate.",
+            "Sugars are also respired by the plant, animals and other organisms to release energy."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Triose phosphate makes carbohydrates, lipids and amino acids.",
+            "GP can be used to make some amino acids.",
+            "Most triose phosphate is recycled to RuBP."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the enzyme that catalyses carbon fixation and state the two compounds it joins.",
+      "a": "Rubisco (ribulose bisphosphate carboxylase). It joins carbon dioxide to ribulose bisphosphate (RuBP) to make two molecules of glycerate 3-phosphate (GP).",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the Calvin cycle stops when the light is switched off, even though it does not use light directly.",
+      "a": "The light-dependent stage stops, so no ATP or reduced NADP is made. Without them GP cannot be reduced to triose phosphate and RuBP cannot be regenerated, so RuBP falls and GP builds up.",
+      "marks": 3
+    },
+    {
+      "q": "State two uses of triose phosphate in a plant cell.",
+      "a": "Any two from: making glucose, starch, sucrose or cellulose; making lipids (glycerol); making amino acids; regenerating RuBP.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use the names GP, GALP (the same compound as triose phosphate), RuBP and rubisco.",
+                "The products are simple sugars. Plants, animals and other organisms use them in respiration and to make new molecules: polysaccharides, amino acids, lipids and nucleic acids."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 13.1.11",
+        "CAIE 13.1.12"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Outline three main stages: fixation of CO₂ by rubisco and RuBP (5C) to make two GP (3C); reduction of GP to TP using reduced NADP and ATP; regeneration of RuBP from TP using ATP.",
+                "State that intermediates make other molecules: GP is used to make some amino acids, and TP is used to make carbohydrates, lipids and amino acids."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.1e",
+        "OCR 5.2.1f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explain how the products of the light-dependent stage are used in the cycle to make TP, with reference to RuBP, rubisco and GP. No other biochemical detail is required.",
+                "Describe TP as the starting material for carbohydrates, lipids and amino acids, and as recycled to regenerate the supply of RuBP."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.1b",
+        "AQA 3.5.1c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The light-independent reaction uses reduced NADP from the light-dependent reaction to form a simple sugar.",
+                "The hydrolysis of ATP, also from the light-dependent reaction, provides the additional energy.",
+                "Carbon dioxide reacts with RuBP to form two molecules of GP, catalysed by rubisco. ATP and reduced NADP reduce GP to triose phosphate.",
+                "Some triose phosphate regenerates RuBP in the Calvin cycle. Some is converted to useful organic substances."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "248dbceb-2bb3-4ec4-bde9-eae468c49df0",
+      "5961bf0a-23da-40ff-b51d-f1c0b70bb48a",
+      "35213df7-8c9d-4a09-ba93-f9e1d99e4a4d",
+      "b81b3c63-87da-4846-8ee0-61aacd20c1a9",
+      "78e46e42-371f-4360-b0ce-ea936242a9f8",
+      "5f1b7d08-0457-4480-9ab5-cb851d9b2c5b",
+      "3c3bd2cf-4de7-4b3a-a448-d249adee100e"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

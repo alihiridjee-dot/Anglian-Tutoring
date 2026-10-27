@@ -1,7 +1,8 @@
 /** Pure selection, prompting and response validation; no credentials or DB access. */
 import { toSciNotationTogether } from "@/lib/platform/sciNotation";
+import { flattenedLayout } from "@/lib/platform/textBlocks";
 
-export const FRAMEWORK_VERSION = "exam-generation-v3";
+export const FRAMEWORK_VERSION = "exam-generation-v4";
 export type GenerationFormat = "written" | "mcq";
 export type Grounding = "exact" | "topic" | "style";
 
@@ -186,13 +187,26 @@ Write a varied SET across the learning outcomes. Progress in demand and vary com
 
 Examples labelled exact cover this point. Topic examples support the surrounding topic. Style examples demonstrate format and marking only: their content never expands curriculum scope. Missing examples are not a reason to reject a supported curriculum request. A missing tier or specification version means unknown, not permission to assume Higher tier or a different syllabus. Do not assess higher-only content unless supported by the supplied curriculum.
 
-Choose fresh, scientifically plausible scenarios and values. Do not copy or merely paraphrase an exemplar. Supply every datum, unit and shared introduction needed to answer each item. Each item must stand alone: include relevant shared context in its prompt. Students can type text or select an MCQ option; they cannot upload, draw, sketch or plot. Do not refer to absent images, tables, graphs, earlier answers or unseen paper pages. Express any necessary data legibly in plain text, not LaTeX, Markdown or HTML.
+Choose fresh, scientifically plausible scenarios and values. Do not copy or merely paraphrase an exemplar. Supply every datum, unit and shared introduction needed to answer each item. Each item must stand alone: include relevant shared context in its prompt. Students can type text or select an MCQ option; they cannot upload, draw, sketch or plot. Do not refer to absent images, tables, graphs, earlier answers or unseen paper pages. Express any necessary data legibly in plain text, not LaTeX, Markdown or HTML. Put a key, a method's steps or a list of results one item per line. Write a table as its header row, then each row on its own line, with a cell for every heading and cells separated by " | ".
 
-Scientific notation: write every subscript and superscript as a Unicode character, in every field: question, options, explanation and mark scheme alike. Formulas: H₂O, CO₂, Cl₂, Al₂(SO₄)₃, (NH₄)₂SO₄, C₆H₁₂O₆. Ions and electrons: Na⁺, Cl⁻, Mg²⁺, O²⁻, SO₄²⁻, NH₄⁺, e⁻. Coefficients and state symbols stay full size: 2H₂O(l), NaCl(aq). Units: cm³, dm³, m², m/s², mol/dm³, kg m⁻³, J kg⁻¹ °C⁻¹. Standard form: 3.0 × 10⁸, 1.5 × 10⁻³. Powers: v², x³. Use → and ⇌ for arrows, × for multiplication and °C for temperature. Never write H2O, Mg2+, SO4^2-, cm3, 10^-3 or x 10-3. Reference examples may have lost this notation when copied from print; write it properly regardless.
+Scientific notation: write every subscript and superscript as a Unicode character, in every field: question, options, explanation and mark scheme alike. Formulas: H₂O, CO₂, Cl₂, Al₂(SO₄)₃, (NH₄)₂SO₄, C₆H₁₂O₆. Ions and electrons: Na⁺, Cl⁻, Mg²⁺, O²⁻, SO₄²⁻, NH₄⁺, e⁻. Coefficients and state symbols stay full size: 2H₂O(l), NaCl(aq). Units: cm³, dm³, m², m/s², mol/dm³, kg m⁻³, J kg⁻¹ °C⁻¹. Standard form: 3.0 × 10⁸, 1.5 × 10⁻³. Powers: v², x³. Use → and ⇌ for arrows, × for multiplication and °C for temperature. Use ⇌ only for a reaction the curriculum treats as reversible (for example the Haber process, the Contact process, hydrated copper sulfate, ammonium chloride); every other reaction takes →. If a student must write a reversible equation, the mark scheme says the ⇌ sign is needed. Never write H2O, Mg2+, SO4^2-, cm3, 10^-3 or x 10-3. Reference examples may have lost this notation when copied from print; write it properly regardless.
 
 Construct each question and its answer/rubric together. The command word, reasoning demanded and marks must agree. State credit allocations, acceptable equivalents, exclusions and dependencies as applicable. Use explicit level descriptors when the marking approach requires them; do not turn every extended response into one mark per bullet. For calculations supply the correct result, essential working and relevant unit/tolerance rules in the mark scheme or MCQ explanation. A description must not secretly require an explanation. Preserve meaningful marking distinctions from guidance while adapting all answers to the NEW question.
 
 Return only the structured result requested. Never expose reference answers or marking instructions in the student-facing question. Do not include a claim that a generated question is an official exam-board question.`;
+
+/**
+ * How a written question's mark scheme is laid out. Students read it once
+ * their work is marked, drawn by `layoutMarkScheme`: this is the shape that
+ * draws cleanly, where a paragraph of points joined by semicolons does not.
+ */
+export const MARK_SCHEME_LAYOUT = `Lay out each mark_scheme as plain lines, one item per line, with no HTML, no blank lines and no Markdown except key terms:
+- Each creditworthy point is its own line starting "- " and ending with its credit when it carries one: "- Light is focused in front of the retina (1)". Never join points with semicolons or run them into a paragraph.
+- A line that introduces a list ends with a colon: "Any two from:" or "Indicative content:".
+- A question in parts puts each part label on its own line, "(a)", above that part's points.
+- A levels-of-response scheme gives its indicative content as points, then "Levels:" and one line per level from the top: "- Level 3 (5–6 marks): …", down to "- 0 marks: no relevant content."
+- Acceptable alternatives, rejections, error carried forward and other conditions come after the points they qualify, under a "Guidance:" line, one per line starting "- ".
+- Wrap each key scientific term a student must use in double asterisks, the first time it appears in a point: "- **Alleles** are different versions of a **gene** (1)". Mark single terms or short names only, one to three per point, never a whole sentence, a part label, a level label, a credit or the words Accept, Allow or Do not.`;
 
 const block = (name: string, value: unknown) =>
   `<${name}>\n${JSON.stringify(value).replace(/</g, "\\u003c")}\n</${name}>`;
@@ -222,6 +236,7 @@ export function buildGenerationPrompt(
       format === "written"
         ? `Write exactly ${count} written questions. answer_type is short, long or numeric. marks is an integer from 1 to 30, justified by the rubric. mark_scheme must contain the answer and all credit rules.`
         : `Write exactly ${count} MCQs. Each has exactly four distinct, plausible options and one correct answer. correct_index is a zero-based integer from 0 to 3. Vary its position across the set. explanation must identify why the keyed answer is correct.`,
+      ...(format === "written" ? [MARK_SCHEME_LAYOUT] : []),
       "For each item record assessment_objectives (AO1/AO2/AO3 where applicable), mathematical_demand and practical_demand separately. These are internal labels, not student-facing text.",
     ].join("\n\n"),
   };
@@ -354,6 +369,9 @@ export function validateQuestions(
     }
     const prompt = format === "written" ? q.prompt : q.question;
     if (!nonempty(prompt)) throw new Error(`Question ${n} is empty`);
+    // A key or table run into one line is a jumble on any page.
+    const lost = flattenedLayout(prompt);
+    if (lost) throw new Error(`Question ${n} ${lost}`);
     if (format === "written") {
       if (!Number.isInteger(q.marks) || q.marks < 1 || q.marks > 30)
         throw new Error(`Question ${n}'s marks are not a whole number from 1 to 30`);

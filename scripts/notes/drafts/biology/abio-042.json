@@ -1,0 +1,138 @@
+{
+  "format": 1,
+  "concept_id": "abio-042",
+  "subject": "biology",
+  "title": "Genetic control of body plans",
+  "key_idea": "Homeobox genes contain a highly conserved sequence and regulate gene expression. Hox genes, a subset, control the body plan. Mitosis and apoptosis then shape body form, and the genes that control them respond to internal and external signals.",
+  "sections": [
+    {
+      "heading": "Homeobox and Hox genes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A body plan is the overall arrangement of an organism's body parts. Genes control it during development."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Body plan",
+              "meaning": "The basic layout of an organism's body, such as head at one end, tail at the other and limbs in the right places."
+            },
+            {
+              "term": "Homeobox gene",
+              "meaning": "A gene containing a short, highly conserved DNA sequence that codes for a part of a protein that binds to DNA and regulates gene expression."
+            },
+            {
+              "term": "Hox gene",
+              "meaning": "A subset of homeobox genes in animals that control the development of the body plan."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Homeobox sequences are similar and **highly conserved** in plants, animals and fungi. Over evolution, the sequence has changed very little.",
+            "The homeobox codes for a protein domain that binds to DNA. These proteins act as transcription factors, switching other genes on or off.",
+            "Hox genes control the development of the body plan in animals. They are arranged in clusters, and genes in the cluster are expressed in the same order as the body regions they control.",
+            "Hox genes switch on the genes that make each segment develop in the right place, such as the head, thorax and abdomen of an insect, or the position of limbs.",
+            "A mutation in a Hox gene can put a body part in the wrong place."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Homeobox sequences are highly conserved across plants, animals and fungi and regulate gene expression.",
+            "Hox genes are a subset that control body plan development."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mitosis and apoptosis shape the body",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hox genes tell cells where to be. Mitosis and apoptosis build and sculpt the body form."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Mitosis",
+              "meaning": "Cell division that makes genetically identical cells, used for growth and for increasing the number of cells."
+            },
+            {
+              "term": "Apoptosis",
+              "meaning": "Programmed cell death: a controlled process in which a cell breaks down and is removed without harming neighbouring cells."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mitosis increases cell number, so tissues and organs grow.",
+            "Apoptosis removes cells that are not needed. In a developing hand, the cells between the fingers die, which separates the digits.",
+            "In a tadpole, apoptosis removes the tail cells as it becomes a frog.",
+            "The balance of mitosis and apoptosis controls the size and shape of body parts."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Genes that respond to signals"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Genes that regulate the cell cycle and apoptosis respond to internal stimuli, such as DNA damage, and external stimuli, such as chemical signals from other cells.",
+            "If the cell cycle genes do not work, cells divide too often. If apoptosis genes do not work, unwanted cells survive. Either can cause abnormal development or disease."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mitosis adds cells; apoptosis removes them. Together they shape the body.",
+            "Cell cycle and apoptosis genes respond to internal and external stimuli."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the role of Hox genes in the development of an animal.",
+      "a": "Hox genes are a subset of homeobox genes. They regulate the expression of other genes and so control the development of the body plan, such as where the head, limbs and body segments form.",
+      "marks": 2
+    },
+    {
+      "q": "Explain what is meant by saying that homeobox gene sequences are highly conserved.",
+      "a": "The base sequence of the homeobox is very similar in plants, animals and fungi. It has changed very little during evolution, which suggests the sequence is essential for its function.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how mitosis and apoptosis together control the development of the body form.",
+      "a": "Mitosis increases the number of cells so that tissues and organs grow. Apoptosis removes unwanted cells, for example between the fingers of a developing hand. The balance between the two shapes the body. Genes regulating the cell cycle and apoptosis respond to internal and external stimuli.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.1c",
+        "OCR 6.1.1d"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "ac25c08d-af29-4f2c-8dc8-406e1fb29c4a",
+      "654cbe17-2cd1-42ec-ba69-6dc31ea4b0be"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

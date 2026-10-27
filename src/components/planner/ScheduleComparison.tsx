@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "sonner";
 import { ProgramDAL, handPicked } from "@/lib/planner/programDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import type { WeekPlanState } from "./useWeekPlan";
@@ -61,13 +62,12 @@ export function ScheduleComparison({
         "assessment_scheduler_version" as never,
       );
       if (migrationError || !Number.isFinite(Number(data)) || Number(data) < 4)
-        throw new Error(
-          "The scheduler database update must be installed before replacing an existing week. You can still compare the proposal here.",
-        );
+        throw new Error("This needs a newer version of the planner. Your week is unchanged.");
       await ProgramDAL.refreshWeek({ ...params, expectedPointIds: proposed ?? [] });
       await week.reload();
       onApplied?.();
       setProposed(null);
+      toast.success("Your week is updated.");
     } catch (e) {
       setError(e instanceof Error ? e.message : "Could not update the week.");
     } finally {
@@ -77,11 +77,11 @@ export function ScheduleComparison({
   return (
     <details className="premium-card rounded-xl p-3">
       <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
-        Compare with the assessment-driven schedule
+        Check for a better week
       </summary>
       <p className="my-2 text-sm text-muted-foreground">
-        Completed, started and manually added work is preserved. Assignments outside the programme’s
-        rules remain in saved history instead of the active week.
+        See what your plan would set this week now that your marks have moved. Anything you’ve done,
+        started or added yourself stays.
       </p>
       {busy ? (
         <Spinner />
@@ -90,7 +90,7 @@ export function ScheduleComparison({
           className="btn-premium px-3 py-2 min-h-11 sm:pointer-fine:min-h-0 text-sm"
           onClick={compare}
         >
-          Preview proposed week
+          Show me the suggested week
         </button>
       )}
       {proposed && (
@@ -116,7 +116,7 @@ export function ScheduleComparison({
             className="btn-solid px-3 py-2 min-h-11 sm:pointer-fine:min-h-0 text-sm"
             onClick={apply}
           >
-            Apply updated week
+            Use this week
           </button>
         </div>
       )}

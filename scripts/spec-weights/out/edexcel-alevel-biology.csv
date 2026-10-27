@@ -1,0 +1,156 @@
+code,title,weight,topic
+EDEX 1.1,Why animals need a heart and circulation,1.4,"Lifestyle, health and risk"
+EDEX 1.2,"Water as a solvent in transport, including its dipole nature",1.4,"Lifestyle, health and risk"
+EDEX 1.3,"How the structures of capillaries, arteries and veins relate to function",1.4,"Lifestyle, health and risk"
+EDEX 1.4,The cardiac cycle and the structure and function of the mammalian heart,1.91,"Lifestyle, health and risk"
+EDEX 1.5,The course of events leading to atherosclerosis,1.4,"Lifestyle, health and risk"
+EDEX 1.6,The blood-clotting process and its role in cardiovascular disease,1.4,"Lifestyle, health and risk"
+EDEX 1.7,Factors that increase the risk of cardiovascular disease,1.05,"Lifestyle, health and risk"
+EDEX 1.8,Interpreting illness and mortality data: correlation and causation,2.04,"Lifestyle, health and risk"
+EDEX 1.9,Evaluating the design of studies on health risk factors,2.21,"Lifestyle, health and risk"
+EDEX 1.10,Why perceived risks often differ from actual risks,1.56,"Lifestyle, health and risk"
+EDEX 1.11,"Energy budgets, diet and the consequences of energy imbalance",2.48,"Lifestyle, health and risk"
+EDEX 1.12,"Monosaccharides, disaccharides and polysaccharides",1.93,"Lifestyle, health and risk"
+EDEX 1.13,"Condensation, glycosidic bonds and hydrolysis of carbohydrates",1.18,"Lifestyle, health and risk"
+EDEX 1.14,Triglyceride synthesis and saturated versus unsaturated lipids,1.62,"Lifestyle, health and risk"
+EDEX 1.15,"Blood cholesterol, HDLs and LDLs and cardiovascular disease",2.97,"Lifestyle, health and risk"
+EDEX 1.16,Using scientific knowledge to reduce the risk of coronary heart disease,1.53,"Lifestyle, health and risk"
+EDEX 1.CP1,Core practical: effect of caffeine on Daphnia heart rate,4.2,"Lifestyle, health and risk"
+EDEX 1.17,Ethical issues of using invertebrates in research,1.4,"Lifestyle, health and risk"
+EDEX 1.CP2,Core practical: vitamin C content of food and drink,4.2,"Lifestyle, health and risk"
+EDEX 1.18,Benefits and risks of treatments for cardiovascular disease,1.05,"Lifestyle, health and risk"
+EDEX 2.1,"Gas exchange surfaces, Fick’s law and the mammalian lung",2.47,Genes and health
+EDEX 2.2,Cell membrane structure and the fluid mosaic model,1.8,Genes and health
+EDEX 2.CP3,Core practical: effect of alcohol or temperature on membrane permeability,4.2,Genes and health
+EDEX 2.3,Osmosis and the movement of free water molecules,1.44,Genes and health
+EDEX 2.4,"Passive and active transport, endocytosis, exocytosis and carrier proteins",2.15,Genes and health
+EDEX 2.5,"Mononucleotides, DNA and RNA structure and complementary base pairing",2.33,Genes and health
+EDEX 2.6,"Protein synthesis: transcription, translation, codons and anticodons",2.37,Genes and health
+EDEX 2.7,"The genetic code: triplet, non-overlapping and degenerate",1.4,Genes and health
+EDEX 2.8,What a gene is: a base sequence coding for a polypeptide,1.05,Genes and health
+EDEX 2.9,"Amino acids, polypeptides and globular and fibrous protein structure",3.4,Genes and health
+EDEX 2.10,"Enzyme mechanism, specificity and activation energy",2.62,Genes and health
+EDEX 2.CP4,Core practical: effect of enzyme and substrate concentration on initial rate,4.2,Genes and health
+EDEX 2.11,DNA replication and the Meselson and Stahl experiment,2.11,Genes and health
+EDEX 2.12,"Replication errors, mutations and cystic fibrosis",1.88,Genes and health
+EDEX 2.13,Genetic terms and patterns of monohybrid inheritance,1.73,Genes and health
+EDEX 2.14,"How cystic fibrosis impairs gaseous exchange, digestion and reproduction",1.4,Genes and health
+EDEX 2.15,"Genetic screening: carriers, PGD and prenatal testing",2.02,Genes and health
+EDEX 2.16,Social and ethical issues of genetic screening,1.2,Genes and health
+EDEX 3.1,All living organisms are made of cells with common features,1.05,Voice of the genome
+EDEX 3.2,Ultrastructure of eukaryotic cells,1.05,Voice of the genome
+EDEX 3.3,Role of the rER and Golgi apparatus in protein transport,1.44,Voice of the genome
+EDEX 3.4,Ultrastructure of prokaryotic cells,1.05,Voice of the genome
+EDEX 3.5,Recognising organelles from electron microscope images,1.1,Voice of the genome
+EDEX 3.6,How mammalian gametes are specialised for their functions,1.4,Voice of the genome
+EDEX 3.7,Fertilisation in mammals: acrosome and cortical reactions,1.05,Voice of the genome
+EDEX 3.8,"Loci, gene linkage and sex linkage",1.56,Voice of the genome
+EDEX 3.9,How meiosis produces genetic variation,1.71,Voice of the genome
+EDEX 3.10,Mitosis and the cell cycle in growth and asexual reproduction,1.4,Voice of the genome
+EDEX 3.CP5,Core practical: root tip squash to observe the stages of mitosis,3.4,Voice of the genome
+EDEX 3.11,"Stem cells, pluripotency, totipotency and medical therapies",2.08,Voice of the genome
+EDEX 3.12,"Differential gene expression, cell specialisation and the lac operon",1.62,Voice of the genome
+EDEX 3.13,"Organisation of cells into tissues, organs and systems",1.4,Voice of the genome
+EDEX 3.14,"Genotype, environment and epigenetic changes",2.5,Voice of the genome
+EDEX 3.15,Polygenic inheritance and continuous variation,1.62,Voice of the genome
+EDEX 4.1,The extent of life’s variety and the threat from human activity,1.05,Biodiversity and natural resources
+EDEX 4.2,"Biodiversity, endemism, heterozygosity index and index of diversity",3.15,Biodiversity and natural resources
+EDEX 4.3,"Niche and behavioural, physiological and anatomical adaptation",1.4,Biodiversity and natural resources
+EDEX 4.4,"Natural selection, adaptation and evolution",1.4,Biodiversity and natural resources
+EDEX 4.5,The Hardy-Weinberg equation and reproductive isolation,2.33,Biodiversity and natural resources
+EDEX 4.6,"Classification, the species concept and the three domains of life",2.86,Biodiversity and natural resources
+EDEX 4.7,Ultrastructure of plant cells compared with animal cells,1.07,Biodiversity and natural resources
+EDEX 4.8,Recognising plant cell organelles from electron microscope images,1.1,Biodiversity and natural resources
+EDEX 4.9,Structure and function of starch and cellulose,1.42,Biodiversity and natural resources
+EDEX 4.10,"Cellulose microfibrils, secondary thickening and plant fibre properties",1.6,Biodiversity and natural resources
+EDEX 4.CP6,"Core practical: identify sclerenchyma, phloem and xylem in stems",3.2,Biodiversity and natural resources
+EDEX 4.11,"Sclerenchyma fibres, xylem vessels and phloem compared",1.25,Biodiversity and natural resources
+EDEX 4.12,Importance of water and inorganic ions to plants,1.4,Biodiversity and natural resources
+EDEX 4.CP7,Core practical: investigate plant mineral deficiencies,4.2,Biodiversity and natural resources
+EDEX 4.CP8,Core practical: determine the tensile strength of plant fibres,3.4,Biodiversity and natural resources
+EDEX 4.13,Development of drug testing from historic to contemporary protocols,1.4,Biodiversity and natural resources
+EDEX 4.14,Conditions required for bacterial growth,1.4,Biodiversity and natural resources
+EDEX 4.CP9,Core practical: antimicrobial properties of plants and aseptic technique,4.2,Biodiversity and natural resources
+EDEX 4.15,How plant fibres and starch contribute to sustainability,1.4,Biodiversity and natural resources
+EDEX 4.16,Evaluating zoos and seed banks in conserving endangered species,2.26,Biodiversity and natural resources
+EDEX 5.1,"Ecosystem, community, population and habitat",1.4,On the wild side
+EDEX 5.2,Biotic and abiotic factors controlling numbers and distribution,1.4,On the wild side
+EDEX 5.3,How niche accounts for distribution and abundance,1.4,On the wild side
+EDEX 5.CP10,Core practical: ecology of a habitat using quadrats and transects,3.58,On the wild side
+EDEX 5.4,Succession from colonisation to a climax community,1.4,On the wild side
+EDEX 5.5,The overall reaction of photosynthesis,1.71,On the wild side
+EDEX 5.6,Phosphorylation of ADP and hydrolysis of ATP,1.4,On the wild side
+EDEX 5.7,The light-dependent reactions of photosynthesis,1.67,On the wild side
+EDEX 5.8,Light-independent reactions: the Calvin cycle and its products,2.71,On the wild side
+EDEX 5.CP11,Core practical: photosynthesis in isolated chloroplasts (the Hill reaction),4.2,On the wild side
+EDEX 5.9,Chloroplast structure in relation to photosynthesis,1.4,On the wild side
+EDEX 5.10,Net and gross primary productivity and plant respiration,2.24,On the wild side
+EDEX 5.11,Efficiency of biomass and energy transfers between trophic levels,1.05,On the wild side
+EDEX 5.12,Evidence for climate change and its causes,1.53,On the wild side
+EDEX 5.13,Anthropogenic climate change and the greenhouse effect,1.4,On the wild side
+EDEX 5.14,Extrapolating data and the limitations of climate change models,1.95,On the wild side
+EDEX 5.15,Effects of climate change on plants and animals,1.4,On the wild side
+EDEX 5.16,Effect of temperature on enzyme activity and its impact on organisms,1.4,On the wild side
+EDEX 5.17,Evolution through gene mutation and natural selection,1.4,On the wild side
+EDEX 5.18,The scientific community and the evidence for evolution,1.53,On the wild side
+EDEX 5.19,"Isolation, gene flow and allopatric or sympatric speciation",1.4,On the wild side
+EDEX 5.CP12,"Core practical: temperature and enzyme-catalysed reaction rate, including Q₁₀",4.2,On the wild side
+EDEX 5.CP13,Core practical: effects of temperature on the development of organisms,4.2,On the wild side
+EDEX 5.20,How conclusions on controversial issues can depend on who reaches them,1.73,On the wild side
+EDEX 5.21,Using the carbon cycle to reduce atmospheric carbon dioxide,1.4,On the wild side
+EDEX 5.22,Reforestation and sustainable resources: human needs and conservation,1.4,On the wild side
+EDEX 6.1,Determining the time of death of a mammal,1.49,"Immunity, infection and forensics"
+EDEX 6.2,Micro-organisms in decomposition and the recycling of carbon,1.05,"Immunity, infection and forensics"
+EDEX 6.3,DNA profiling for identification and genetic relationships,1.05,"Immunity, infection and forensics"
+EDEX 6.4,Amplifying DNA with the polymerase chain reaction (PCR),1.05,"Immunity, infection and forensics"
+EDEX 6.CP14,Core practical: gel electrophoresis to separate DNA fragments,3.5,"Immunity, infection and forensics"
+EDEX 6.5,Comparing the structure of bacteria and viruses,1.8,"Immunity, infection and forensics"
+EDEX 6.6,How Mycobacterium tuberculosis (TB) and HIV infect human cells,1.4,"Immunity, infection and forensics"
+EDEX 6.7,Non-specific responses of the body to infection,1.4,"Immunity, infection and forensics"
+EDEX 6.8,"Antigens, antibodies and the immune response",1.4,"Immunity, infection and forensics"
+EDEX 6.9,Roles of B cells and T cells in the immune response,1.53,"Immunity, infection and forensics"
+EDEX 6.10,"One gene, more than one protein: post-transcriptional changes to mRNA",1.4,"Immunity, infection and forensics"
+EDEX 6.11,Routes of pathogen entry and the body’s barriers to infection,1.67,"Immunity, infection and forensics"
+EDEX 6.12,"Natural, artificial, active and passive immunity",1.4,"Immunity, infection and forensics"
+EDEX 6.13,The evolutionary race between pathogens and their hosts,1.4,"Immunity, infection and forensics"
+EDEX 6.14,Bacteriostatic and bactericidal antibiotics,1.4,"Immunity, infection and forensics"
+EDEX 6.CP15,Core practical: effect of different antibiotics on bacteria,4.2,"Immunity, infection and forensics"
+EDEX 6.15,Hospital acquired infections: prevention and control,1.18,"Immunity, infection and forensics"
+EDEX 7.1,"How muscles, tendons, the skeleton and ligaments produce movement",1.05,Run for your life
+EDEX 7.2,Skeletal muscle contraction and the sliding filament theory,1.49,Run for your life
+EDEX 7.3,The overall reaction of aerobic respiration and its many steps,2.55,Run for your life
+EDEX 7.4,The role of glycolysis in aerobic and anaerobic respiration,1.58,Run for your life
+EDEX 7.5,"The link reaction, the Krebs cycle and the mitochondria",2,Run for your life
+EDEX 7.6,"Oxidative phosphorylation, the electron transport chain and chemiosmosis",1.4,Run for your life
+EDEX 7.7,What happens to lactate after anaerobic respiration,1.4,Run for your life
+EDEX 7.CP16,Core practical: investigate the rate of respiration,4.2,Run for your life
+EDEX 7.8,"Cardiac muscle, the heart’s electrical activity (SAN, AVN) and ECGs",2.53,Run for your life
+EDEX 7.9,Cardiac output and the control of heart rate and ventilation,2.95,Run for your life
+EDEX 7.CP17,"Core practical: effects of exercise on breathing, using spirometer traces",4.2,Run for your life
+EDEX 7.10,Muscle fibre structure and fast and slow twitch fibres,1.49,Run for your life
+EDEX 7.11,Negative and positive feedback control,1.84,Run for your life
+EDEX 7.12,"Homeostasis, the hypothalamus and thermoregulation during exercise",1.47,Run for your life
+EDEX 7.13,Data on the disadvantages of exercising too much or too little,1.8,Run for your life
+EDEX 7.14,"Medical technology, keyhole surgery and prostheses in sport",1.4,Run for your life
+EDEX 7.15,Ethical positions on performance-enhancing substances in sport,1.9,Run for your life
+EDEX 7.16,Switching genes on and off with DNA transcription factors,1.4,Run for your life
+EDEX 8.1,"Sensory, relay and motor neurones, Schwann cells and myelination",1.05,Grey matter
+EDEX 8.2,"Effectors responding to stimuli, and how the pupil dilates and contracts",1.84,Grey matter
+EDEX 8.3,Conduction of a nerve impulse (action potential) along an axon,1.53,Grey matter
+EDEX 8.4,"Synapses and neurotransmitters, including acetylcholine",1.05,Grey matter
+EDEX 8.5,"Detecting light: rod cells, rhodopsin and hyperpolarisation",1.78,Grey matter
+EDEX 8.6,"Phytochrome, IAA and plant responses to environmental cues",1.4,Grey matter
+EDEX 8.7,Nervous and hormonal co-ordination in animals,1.4,Grey matter
+EDEX 8.8,Location and functions of regions of the human brain,1.05,Grey matter
+EDEX 8.9,"MRI, fMRI, PET and CT scans in brain investigation and diagnosis",1.58,Grey matter
+EDEX 8.10,The critical period in the development of visual capacities,1.4,Grey matter
+EDEX 8.11,"Animal models in brain research, including Hubel and Wiesel",1.4,Grey matter
+EDEX 8.12,Moral and ethical issues of using animals in medical research,1.9,Grey matter
+EDEX 8.13,Learning by habituation,1.4,Grey matter
+EDEX 8.CP18,Core practical: investigate habituation to a stimulus,4.2,Grey matter
+EDEX 8.14,"Brain chemical imbalances: dopamine, serotonin and new drugs",1.51,Grey matter
+EDEX 8.15,Effects of drugs on synapses: L-Dopa and MDMA,1.42,Grey matter
+EDEX 8.16,"Genome sequencing, personalised medicine and ethical issues",1.42,Grey matter
+EDEX 8.17,Drugs produced using genetically modified organisms,1.05,Grey matter
+EDEX 8.18,Risks and benefits of genetically modified organisms,1.4,Grey matter
+EDEX 8.19,Investigating nature and nurture in brain development,3.67,Grey matter

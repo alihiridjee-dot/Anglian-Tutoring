@@ -1,4 +1,5 @@
 import { useId, useState, type ReactNode } from "react";
+import { useQuery } from "@tanstack/react-query";
 import {
   AlertTriangle,
   ArrowRight,
@@ -12,6 +13,9 @@ import {
 } from "lucide-react";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { cn } from "@/lib/utils";
+import { breakCovering } from "@/lib/planner/breaks";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
+import { currentWeekKey } from "@/lib/planner/week";
 import { type PlanAttention as Attention } from "./formatSchedule";
 import { useAddMissedToWeek } from "./useAddMissedToWeek";
 
@@ -40,6 +44,9 @@ export function PlanAttention({
 }) {
   const headingId = useId();
   const { busy, add } = useAddMissedToWeek({ course, onAdded: onChanged });
+  // Missed work goes into this week, and nothing new can be planned for a break week.
+  const { data: breaks = [] } = useQuery(studentBreaksQuery(course.studentId));
+  const thisWeekOnBreak = !!breakCovering(breaks, currentWeekKey());
   const { missed, heldCount, overload, moved } = attention;
 
   // "2 reviews and 1 topic have no week left" — only the parts that exist.
@@ -68,19 +75,21 @@ export function PlanAttention({
             title={`${topic.title}: ${plural(topic.specPointIds.length, "missed point")}`}
             meta={`Due since ${topic.since}`}
             action={
-              <button
-                type="button"
-                onClick={() => add(topic)}
-                disabled={busy !== null}
-                className="btn-soft inline-flex h-11 sm:pointer-fine:h-8 shrink-0 items-center gap-1.5 rounded-lg px-3 text-xs"
-              >
-                {busy === topic.topicId ? (
-                  <Loader2 className="size-3.5 animate-spin" aria-hidden />
-                ) : (
-                  <Plus className="size-3.5" aria-hidden />
-                )}
-                Add to this week
-              </button>
+              !thisWeekOnBreak && (
+                <button
+                  type="button"
+                  onClick={() => add(topic)}
+                  disabled={busy !== null}
+                  className="btn-soft inline-flex h-11 sm:pointer-fine:h-8 shrink-0 items-center gap-1.5 rounded-lg px-3 text-xs"
+                >
+                  {busy === topic.topicId ? (
+                    <Loader2 className="size-3.5 animate-spin" aria-hidden />
+                  ) : (
+                    <Plus className="size-3.5" aria-hidden />
+                  )}
+                  Add to this week
+                </button>
+              )
             }
           />
         ))}

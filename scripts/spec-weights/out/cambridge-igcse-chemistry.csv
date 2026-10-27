@@ -1,0 +1,253 @@
+code,title,weight,topic
+CAIE 1.1.1,"State the distinguishing properties of solids, liquids and gases",1,States of matter
+CAIE 1.1.2,"Describe the particle structure of solids, liquids and gases",1.3,States of matter
+CAIE 1.1.3,"Describe changes of state (melting, boiling, evaporating, freezing, condensing)",1.3,States of matter
+CAIE 1.1.4,Describe the effects of temperature and pressure on the volume of a gas,1.3,States of matter
+CAIE 1.1.5S,Explain changes of state in terms of kinetic particle theory,1.7,States of matter
+CAIE 1.1.6S,Explain the effects of temperature and pressure on gas volume using particle theory,1.7,States of matter
+CAIE 1.2.1,Describe and explain diffusion in terms of kinetic particle theory,1.3,States of matter
+CAIE 1.2.2S,Describe and explain how relative molecular mass affects gas diffusion rate,1.3,States of matter
+CAIE 2.1.1,"Describe the differences between elements, compounds and mixtures",1.3,"Atoms, elements and compounds"
+CAIE 2.2.1,Describe the atom as a nucleus of protons and neutrons with electrons in shells,1.3,"Atoms, elements and compounds"
+CAIE 2.2.2,"State the relative charges and relative masses of a proton, a neutron and an electron",1,"Atoms, elements and compounds"
+CAIE 2.2.3,Define proton number / atomic number as the number of protons in the nucleus of an atom,1.4,"Atoms, elements and compounds"
+CAIE 2.2.4,Define mass (nucleon) number as the total number of protons and neutrons,1.4,"Atoms, elements and compounds"
+CAIE 2.2.5,"Determine electronic configurations of elements and ions, proton number 1 to 20",1.4,"Atoms, elements and compounds"
+CAIE 2.2.6,State how group and period numbers relate to outer electrons and shells,2.08,"Atoms, elements and compounds"
+CAIE 2.3.1,Define isotopes as atoms of the same element with different numbers of neutrons,1.4,"Atoms, elements and compounds"
+CAIE 2.3.2,"Interpret and use symbols for atoms, e.g. ¹²₆C, and ions, e.g. ³⁵₁₇Cl⁻",1.6,"Atoms, elements and compounds"
+CAIE 2.3.3S,State why isotopes of the same element have the same chemical properties,1.02,"Atoms, elements and compounds"
+CAIE 2.3.4S,Calculate relative atomic mass from isotope masses and abundances,1.8,"Atoms, elements and compounds"
+CAIE 2.4.1,Describe the formation of positive ions (cations) and negative ions (anions),1.3,"Atoms, elements and compounds"
+CAIE 2.4.2,State that ionic bonds are strong attractions between oppositely charged ions,1,"Atoms, elements and compounds"
+CAIE 2.4.3,Describe the formation of ionic bonds between elements from Group I and Group VII,1.3,"Atoms, elements and compounds"
+CAIE 2.4.4,Describe the properties of ionic compounds,1.74,"Atoms, elements and compounds"
+CAIE 2.4.5S,Describe the giant ionic lattice as alternating positive and negative ions,1.3,"Atoms, elements and compounds"
+CAIE 2.4.6S,Describe the formation of ionic bonds between ions of metallic and non-metallic elements,1.3,"Atoms, elements and compounds"
+CAIE 2.4.7S,Explain in terms of structure and bonding the properties of ionic compounds,2.27,"Atoms, elements and compounds"
+CAIE 2.5.1,State that a covalent bond is a shared pair of electrons between two atoms,1,"Atoms, elements and compounds"
+CAIE 2.5.2,Describe the formation of covalent bonds in simple molecules,1.41,"Atoms, elements and compounds"
+CAIE 2.5.3,Describe in terms of structure and bonding the properties of simple molecular compounds,1.74,"Atoms, elements and compounds"
+CAIE 2.5.4S,Describe the formation of covalent bonds in simple molecules,1.39,"Atoms, elements and compounds"
+CAIE 2.5.5S,Explain in terms of structure and bonding the properties of simple molecular compounds,2.43,"Atoms, elements and compounds"
+CAIE 2.6.1,Describe the giant covalent structures of graphite and diamond,1.3,"Atoms, elements and compounds"
+CAIE 2.6.2,Relate the structures and bonding of graphite and diamond to their uses,1.91,"Atoms, elements and compounds"
+CAIE 2.6.3S,"Describe the giant covalent structure of silicon(IV) oxide, SiO₂",1.3,"Atoms, elements and compounds"
+CAIE 2.6.4S,Describe how structure gives diamond and silicon(IV) oxide similar properties,1.3,"Atoms, elements and compounds"
+CAIE 2.7.1S,Describe metallic bonding as attraction between ions and delocalised electrons,1.3,"Atoms, elements and compounds"
+CAIE 2.7.2S,Explain in terms of structure and bonding the properties of metals,2.14,"Atoms, elements and compounds"
+CAIE 3.1.1,State the formulae of the elements and compounds named in the subject content,1,Stoichiometry
+CAIE 3.1.2,Define the molecular formula as the number and type of atoms in one molecule,1.4,Stoichiometry
+CAIE 3.1.3,Deduce the formula of a simple compound from a model or diagram of its atoms,1.4,Stoichiometry
+CAIE 3.1.4,Construct word equations and symbol equations to show how reactants form products,1.4,Stoichiometry
+CAIE 3.1.5S,Define empirical formula as the simplest whole-number ratio of atoms or ions,1.4,Stoichiometry
+CAIE 3.1.6S,"Deduce the formula of an ionic compound from a model, diagram or ion charges",1.49,Stoichiometry
+CAIE 3.1.7S,Construct symbol equations with state symbols,1.4,Stoichiometry
+CAIE 3.1.8S,Deduce symbol equations with state symbols from given information,1.4,Stoichiometry
+CAIE 3.2.1,"Describe relative atomic mass, Aᵣ, as average isotope mass compared with ¹²C",1.32,Stoichiometry
+CAIE 3.2.2,"Define relative molecular mass, Mᵣ, as the sum of relative atomic masses",1.4,Stoichiometry
+CAIE 3.2.3,Calculate reacting masses in simple proportions,1.8,Stoichiometry
+CAIE 3.3.1,State that concentration can be measured in g/dm³ or mol/dm³,1,Stoichiometry
+CAIE 3.3.2S,State that one mole contains 6.02 × 10²³ particles (the Avogadro constant),1.13,Stoichiometry
+CAIE 3.3.3S,Use amount of substance (mol) = mass (g) / molar mass (g/mol) in calculations,3.29,Stoichiometry
+CAIE 3.3.4S,"Use the molar gas volume, 24 dm³ at r.t.p., in calculations involving gases",1.5,Stoichiometry
+CAIE 3.3.5S,"Calculate reacting masses, limiting reactants, gas volumes and concentrations",1.89,Stoichiometry
+CAIE 3.3.6S,"Use titration data to calculate moles, concentration or volume of a solution",1.5,Stoichiometry
+CAIE 3.3.7S,"Calculate empirical formulae and molecular formulae, given appropriate data",1.8,Stoichiometry
+CAIE 3.3.8S,"Calculate percentage yield, percentage composition by mass and percentage purity",1.8,Stoichiometry
+CAIE 4.1.1,Define electrolysis as decomposition of an ionic compound by electric current,1.4,Electrochemistry
+CAIE 4.1.2,"Identify the anode, cathode and electrolyte in simple electrolytic cells",1.99,Electrochemistry
+CAIE 4.1.3,"Identify the products of electrolysing lead(II) bromide, NaCl(aq) and dilute H₂SO₄",2.17,Electrochemistry
+CAIE 4.1.4,State that metals or hydrogen form at the cathode and non-metals at the anode,1,Electrochemistry
+CAIE 4.1.5,Predict the electrode products in electrolysis of a molten binary compound,1.9,Electrochemistry
+CAIE 4.1.6,State that electroplating improves appearance and corrosion resistance,1,Electrochemistry
+CAIE 4.1.7,Describe how metals are electroplated,1.3,Electrochemistry
+CAIE 4.1.8S,Describe the transfer of charge during electrolysis,2.2,Electrochemistry
+CAIE 4.1.9S,Identify products of electrolysing copper(II) sulfate with different electrodes,1.31,Electrochemistry
+CAIE 4.1.10S,Predict the electrode products from electrolysis of aqueous halide compounds,1.9,Electrochemistry
+CAIE 4.1.11S,Construct ionic half-equations for the anode (oxidation) and cathode (reduction),1.4,Electrochemistry
+CAIE 4.2.1,State that a hydrogen–oxygen fuel cell produces electricity and only water,1,Electrochemistry
+CAIE 4.2.2S,Describe advantages and disadvantages of hydrogen–oxygen fuel cells in vehicles,1.3,Electrochemistry
+CAIE 5.1.1,State that an exothermic reaction transfers thermal energy to the surroundings,1,Chemical energetics
+CAIE 5.1.2,State that an endothermic reaction takes in thermal energy from the surroundings,1,Chemical energetics
+CAIE 5.1.3,Interpret reaction pathway diagrams showing exothermic and endothermic reactions,1.6,Chemical energetics
+CAIE 5.1.4S,"State that thermal energy transfer in a reaction is the enthalpy change, ∆H",1.11,Chemical energetics
+CAIE 5.1.5S,"Define activation energy, Eₐ, as the minimum energy particles need to react",1.4,Chemical energetics
+CAIE 5.1.6S,Draw and label reaction pathway diagrams for exothermic and endothermic reactions,2.51,Chemical energetics
+CAIE 5.1.7S,State that bond breaking is endothermic and bond making is exothermic,1.13,Chemical energetics
+CAIE 5.1.8S,Calculate the enthalpy change of a reaction using bond energies,1.8,Chemical energetics
+CAIE 6.1.1,"Identify physical and chemical changes, and describe the differences between them",1.2,Chemical reactions
+CAIE 6.2.1,"Describe how concentration, pressure, surface area, temperature and catalysts affect rate",2.73,Chemical reactions
+CAIE 6.2.2,State that a catalyst increases reaction rate and is unchanged at the end,1,Chemical reactions
+CAIE 6.2.3,Describe practical methods for investigating the rate of a reaction,1.32,Chemical reactions
+CAIE 6.2.4,"Interpret data, including graphs, from rate of reaction experiments",1.6,Chemical reactions
+CAIE 6.2.5S,"Describe collision theory using particles per unit volume, collisions and energy",2.25,Chemical reactions
+CAIE 6.2.6S,Describe and explain factors affecting reaction rate using collision theory,2.84,Chemical reactions
+CAIE 6.2.7S,"State that a catalyst decreases the activation energy, Ea, of a reaction",1,Chemical reactions
+CAIE 6.2.8S,Evaluate practical methods for investigating the rate of a reaction,2.12,Chemical reactions
+CAIE 6.3.1,State that some chemical reactions are reversible as shown by the symbol ⇌,1,Chemical reactions
+CAIE 6.3.2,Describe how changing conditions changes the direction of a reversible reaction,2.01,Chemical reactions
+CAIE 6.3.3S,State when a reversible reaction in a closed system is at equilibrium,1.77,Chemical reactions
+CAIE 6.3.4S,Predict and explain the effect of changing conditions on the position of equilibrium,2.91,Chemical reactions
+CAIE 6.3.5S,State the symbol equation for the production of ammonia in the Haber process,1.44,Chemical reactions
+CAIE 6.3.6S,State the sources of the hydrogen (methane) and nitrogen (air) in the Haber process,1,Chemical reactions
+CAIE 6.3.7S,State the typical conditions in the Haber process,1,Chemical reactions
+CAIE 6.3.8S,State the symbol equation for SO₂ to SO₃ conversion in the Contact process,1.44,Chemical reactions
+CAIE 6.3.9S,State the sources of sulfur dioxide and oxygen in the Contact process,1,Chemical reactions
+CAIE 6.3.10S,State the typical conditions for converting sulfur dioxide to sulfur trioxide,1.11,Chemical reactions
+CAIE 6.3.11S,Explain why the typical conditions are used in the Haber and Contact processes,1.86,Chemical reactions
+CAIE 6.4.1,Use a Roman numeral to indicate the oxidation number of an element in a compound,1.5,Chemical reactions
+CAIE 6.4.2,Define redox reactions as involving simultaneous oxidation and reduction,1.4,Chemical reactions
+CAIE 6.4.3,Define oxidation as gain of oxygen and reduction as loss of oxygen,1.4,Chemical reactions
+CAIE 6.4.4,Identify redox reactions as reactions involving gain and loss of oxygen,1.2,Chemical reactions
+CAIE 6.4.5,Identify oxidation and reduction in redox reactions,1.2,Chemical reactions
+CAIE 6.4.6S,"Define oxidation in terms of loss of electrons, an increase in oxidation number",1.84,Chemical reactions
+CAIE 6.4.7S,"Define reduction in terms of gain of electrons, a decrease in oxidation number",1.84,Chemical reactions
+CAIE 6.4.8S,Identify redox reactions as reactions involving gain and loss of electrons,1.2,Chemical reactions
+CAIE 6.4.9S,Identify redox reactions by changes in oxidation number,3.04,Chemical reactions
+CAIE 6.4.10S,Identify redox reactions by colour changes with potassium manganate(VII) or iodide,1.2,Chemical reactions
+CAIE 6.4.11S,"Define an oxidising agent (oxidises another substance, is itself reduced)",1.4,Chemical reactions
+CAIE 6.4.12S,"Define a reducing agent (reduces another substance, is itself oxidised)",1.4,Chemical reactions
+CAIE 6.4.13S,Identify oxidising agents and reducing agents in redox reactions,1.2,Chemical reactions
+CAIE 7.1.1,"Describe the reactions of acids with metals, bases and carbonates",1.96,"Acids, bases and salts"
+CAIE 7.1.2,"Describe acids in terms of their effect on litmus, thymolphthalein and methyl orange",1.96,"Acids, bases and salts"
+CAIE 7.1.3,State that bases are oxides or hydroxides of metals and that alkalis are soluble bases,1,"Acids, bases and salts"
+CAIE 7.1.4,Describe the reactions of bases with acids and ammonium salts,1.74,"Acids, bases and salts"
+CAIE 7.1.5,"Describe alkalis in terms of their effect on litmus, thymolphthalein and methyl orange",1.96,"Acids, bases and salts"
+CAIE 7.1.6,State that aqueous acids contain H⁺ ions and aqueous alkalis contain OH⁻ ions,1,"Acids, bases and salts"
+CAIE 7.1.7,Describe how to compare acidity and alkalinity using universal indicator paper,1.3,"Acids, bases and salts"
+CAIE 7.1.8,Describe the neutralisation reaction between an acid and an alkali to produce water,1.3,"Acids, bases and salts"
+CAIE 7.1.9S,Define acids as proton donors and bases as proton acceptors,1.4,"Acids, bases and salts"
+CAIE 7.1.10S,Define strong and weak acids in terms of dissociation in aqueous solution,1.47,"Acids, bases and salts"
+CAIE 7.1.11S,"State that hydrochloric acid is a strong acid, as shown by its symbol equation",1,"Acids, bases and salts"
+CAIE 7.1.12S,"State that ethanoic acid is a weak acid, as shown by its symbol equation",1,"Acids, bases and salts"
+CAIE 7.2.1,"Classify oxides as acidic or basic, related to metallic and non-metallic character",1.4,"Acids, bases and salts"
+CAIE 7.2.2S,Describe amphoteric oxides as oxides that react with both acids and bases,1.3,"Acids, bases and salts"
+CAIE 7.2.3S,Classify Al₂O₃ and ZnO as amphoteric oxides,1.4,"Acids, bases and salts"
+CAIE 7.3.1,"Describe how to prepare, separate and purify soluble salts from acids",2.31,"Acids, bases and salts"
+CAIE 7.3.2,Describe the general solubility rules for salts,3.31,"Acids, bases and salts"
+CAIE 7.3.3,Define a hydrated substance and an anhydrous substance,1.4,"Acids, bases and salts"
+CAIE 7.3.4S,Describe the preparation of insoluble salts by precipitation,1.3,"Acids, bases and salts"
+CAIE 7.3.5S,"Define water of crystallisation, including in CuSO₄·5H₂O and CoCl₂·6H₂O",1.84,"Acids, bases and salts"
+CAIE 8.1.1,Describe the Periodic Table as periods and groups in order of proton number,1.3,The Periodic Table
+CAIE 8.1.2,Describe the change from metallic to non‑metallic character across a period,1.3,The Periodic Table
+CAIE 8.1.3,Describe the relationship between group number and the charge of ions formed,1.3,The Periodic Table
+CAIE 8.1.4,Explain similar chemical properties in a group in terms of electronic configuration,1.7,The Periodic Table
+CAIE 8.1.5,Explain how an element’s position in the Periodic Table predicts its properties,1.7,The Periodic Table
+CAIE 8.1.6S,"Identify trends in groups, given information about the elements",1.2,The Periodic Table
+CAIE 8.2.1,Describe the Group I alkali metals and the trends in their properties down the group,2.12,The Periodic Table
+CAIE 8.2.2,"Predict the properties of other elements in Group I, given information about the elements",1.9,The Periodic Table
+CAIE 8.3.1,Describe the Group VII halogens and the trends in their properties down the group,1.76,The Periodic Table
+CAIE 8.3.2,"State the appearance of chlorine, bromine and iodine at room temperature and pressure",1.66,The Periodic Table
+CAIE 8.3.3,Describe and explain the displacement reactions of halogens with other halide ions,1.3,The Periodic Table
+CAIE 8.3.4,Predict the properties of other Group VII elements from given information,1.9,The Periodic Table
+CAIE 8.4.1,"Describe the properties of transition elements, including colour and catalytic activity",2.29,The Periodic Table
+CAIE 8.4.2S,Describe transition elements as having ions with variable oxidation numbers,1.3,The Periodic Table
+CAIE 8.5.1,"Describe and explain the unreactive, monatomic nature of the Group VIII noble gases",1.3,The Periodic Table
+CAIE 9.1.1,Compare the general physical properties of metals and non-metals,2.7,Metals
+CAIE 9.1.2,Describe the general chemical properties of metals,1.96,Metals
+CAIE 9.2.1,Describe the uses of metals in terms of their physical properties,3.09,Metals
+CAIE 9.3.1,Describe an alloy as a mixture of a metal with other elements,2.05,Metals
+CAIE 9.3.2,State that alloys can be harder and stronger than the pure metals and are more useful,1,Metals
+CAIE 9.3.3,Describe the uses of alloys in terms of their physical properties,1.3,Metals
+CAIE 9.3.4,Identify representations of alloys from diagrams of structure,1.2,Metals
+CAIE 9.3.5S,Explain in terms of structure how alloys are harder and stronger than pure metals,1.88,Metals
+CAIE 9.4.1,"State the order of the reactivity series, including carbon and hydrogen",1,Metals
+CAIE 9.4.2,"Describe and explain reactions of metals with water, steam and dilute hydrochloric acid",2.43,Metals
+CAIE 9.4.3,Deduce an order of reactivity from a given set of experimental results,1.4,Metals
+CAIE 9.4.4S,Describe metal reactivity in terms of positive ion formation and displacement reactions,1.43,Metals
+CAIE 9.4.5S,Explain the apparent unreactivity of aluminium in terms of its oxide layer,1.7,Metals
+CAIE 9.5.1,State the conditions required for the rusting of iron and steel,1,Metals
+CAIE 9.5.2,State some common barrier methods,1,Metals
+CAIE 9.5.3,Describe how barrier methods prevent rusting by excluding oxygen or water,1.3,Metals
+CAIE 9.5.4S,Describe the use of zinc in galvanising as barrier and sacrificial protection,1.3,Metals
+CAIE 9.5.5S,Explain sacrificial protection using the reactivity series and electron loss,1.7,Metals
+CAIE 9.6.1,Describe how the ease of obtaining metals from ores relates to the reactivity series,1.3,Metals
+CAIE 9.6.2,Describe the extraction of iron from hematite in the blast furnace,3.33,Metals
+CAIE 9.6.3,State that the main ore of aluminium is bauxite and it is extracted by electrolysis,1,Metals
+CAIE 9.6.4S,State the symbol equations for the extraction of iron from hematite,2.5,Metals
+CAIE 9.6.5S,Describe the extraction of aluminium from purified bauxite / aluminium oxide,2.4,Metals
+CAIE 10.1.1,Describe tests for water using anhydrous cobalt(II) chloride and copper(II) sulfate,1.3,Chemistry of the environment
+CAIE 10.1.2,Describe how to test for the purity of water using melting point and boiling point,1.3,Chemistry of the environment
+CAIE 10.1.3,Explain why distilled water is used in practical chemistry rather than tap water,1.7,Chemistry of the environment
+CAIE 10.1.4,State that water from natural sources may contain substances,2.72,Chemistry of the environment
+CAIE 10.1.5,State that some of these substances are beneficial,1.44,Chemistry of the environment
+CAIE 10.1.6,State that some of these substances are potentially harmful,2.48,Chemistry of the environment
+CAIE 10.1.7,"Describe water treatment using sedimentation, filtration, carbon and chlorination",2.12,Chemistry of the environment
+CAIE 10.2.1,State that ammonium salts and nitrates are used as fertilisers,1,Chemistry of the environment
+CAIE 10.2.2,"Describe the use of NPK fertilisers to provide nitrogen, phosphorus and potassium",1.3,Chemistry of the environment
+CAIE 10.3.1,"State the composition of clean, dry air, including 78% N₂ and 21% O₂",1.07,Chemistry of the environment
+CAIE 10.3.2,State the source of each of these air pollutants,3.03,Chemistry of the environment
+CAIE 10.3.3,State the adverse effect of these air pollutants,3.41,Chemistry of the environment
+CAIE 10.3.4,State and explain strategies to reduce the effects of these environmental issues,2.28,Chemistry of the environment
+CAIE 10.3.5,Describe photosynthesis as the reaction of CO₂ and water to give glucose and oxygen,1.3,Chemistry of the environment
+CAIE 10.3.6,"State the word equation for photosynthesis, carbon dioxide + water → glucose + oxygen",1,Chemistry of the environment
+CAIE 10.3.7S,Describe how the greenhouse gases carbon dioxide and methane cause global warming,1.85,Chemistry of the environment
+CAIE 10.3.8S,Explain how oxides of nitrogen form in cars and are removed by catalytic converters,1.7,Chemistry of the environment
+CAIE 10.3.9S,"State the symbol equation for photosynthesis, 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",1,Chemistry of the environment
+CAIE 11.1.1,Draw and interpret displayed formulae showing all atoms and bonds,1.5,Organic chemistry
+CAIE 11.1.2,Write and interpret general formulae of compounds in the same homologous series,2.32,Organic chemistry
+CAIE 11.1.3,Identify a functional group as the atoms that determine chemical properties,1.2,Organic chemistry
+CAIE 11.1.4,State that a homologous series is a family of similar compounds,1,Organic chemistry
+CAIE 11.1.5,State that a saturated compound has only single carbon–carbon bonds,1,Organic chemistry
+CAIE 11.1.6,State that an unsaturated compound has carbon–carbon bonds that are not all single,1,Organic chemistry
+CAIE 11.1.7S,State that a structural formula shows how the atoms in a molecule are arranged,1,Organic chemistry
+CAIE 11.1.8S,"Define structural isomers, including those of C₄H₁₀ and C₄H₈",1.42,Organic chemistry
+CAIE 11.1.9S,Describe the general characteristics of a homologous series,2.84,Organic chemistry
+CAIE 11.2.1,"Name and draw displayed formulae of methane, ethane, ethene, ethanol and ethanoic acid",2.17,Organic chemistry
+CAIE 11.2.2,"State the type of compound from a name ending in -ane, -ene, -ol or -oic acid",1.02,Organic chemistry
+CAIE 11.2.3S,"Name and draw unbranched alkanes, alkenes, alcohols and carboxylic acids",2.15,Organic chemistry
+CAIE 11.2.4S,Name and draw the displayed formulae of unbranched esters,1.04,Organic chemistry
+CAIE 11.3.1,"Name the fossil fuels: coal, natural gas and petroleum",1,Organic chemistry
+CAIE 11.3.2,Name methane as the main constituent of natural gas,1,Organic chemistry
+CAIE 11.3.3,State that hydrocarbons are compounds that contain hydrogen and carbon only,1,Organic chemistry
+CAIE 11.3.4,State that petroleum is a mixture of hydrocarbons,1,Organic chemistry
+CAIE 11.3.5,Describe the separation of petroleum into useful fractions by fractional distillation,1.3,Organic chemistry
+CAIE 11.3.6,Describe how petroleum fraction properties change up the fractionating column,2.42,Organic chemistry
+CAIE 11.3.7,Name the uses of the fractions obtained from petroleum,4.03,Organic chemistry
+CAIE 11.4.1,State that alkanes have single covalent bonds and are saturated hydrocarbons,1,Organic chemistry
+CAIE 11.4.2,"Describe alkanes as generally unreactive, except in combustion and substitution",1.3,Organic chemistry
+CAIE 11.4.3S,State that in a substitution reaction one atom or group is replaced by another,1,Organic chemistry
+CAIE 11.4.4S,Describe the photochemical substitution reaction of alkanes with chlorine,1.48,Organic chemistry
+CAIE 11.5.1,State that alkenes have a carbon–carbon double bond and are unsaturated,1,Organic chemistry
+CAIE 11.5.2,Describe the manufacture of alkenes and hydrogen by cracking larger alkanes,1.3,Organic chemistry
+CAIE 11.5.3,Describe the reasons for the cracking of larger alkane molecules,1.3,Organic chemistry
+CAIE 11.5.4,Describe the bromine test to distinguish saturated from unsaturated hydrocarbons,1.3,Organic chemistry
+CAIE 11.5.5S,State that in an addition reaction only one product is formed,1,Organic chemistry
+CAIE 11.5.6S,"Describe the addition reactions of alkenes with bromine, hydrogen and steam",2.38,Organic chemistry
+CAIE 11.6.1,Describe how ethanol is made by fermentation and from ethene and steam,2.25,Organic chemistry
+CAIE 11.6.2,Describe the combustion of ethanol,1.3,Organic chemistry
+CAIE 11.6.3,"State the uses of ethanol as a solvent, a fuel",1.44,Organic chemistry
+CAIE 11.6.4S,Describe the advantages and disadvantages of each method of making ethanol,1.74,Organic chemistry
+CAIE 11.7.1,"Describe the reaction of ethanoic acid with metals, bases, carbonates",1.96,Organic chemistry
+CAIE 11.7.2S,Describe the formation of ethanoic acid by the oxidation of ethanol,1.74,Organic chemistry
+CAIE 11.7.3S,Describe the reaction of a carboxylic acid with an alcohol to form an ester,1.3,Organic chemistry
+CAIE 11.8.1,Define polymers as large molecules built up from many smaller molecules called monomers,1.4,Organic chemistry
+CAIE 11.8.2,Describe the formation of poly(ethene) by addition polymerisation of ethene,1.3,Organic chemistry
+CAIE 11.8.3,State that plastics are made from polymers,1,Organic chemistry
+CAIE 11.8.4,Describe how the properties of plastics have implications for their disposal,1.3,Organic chemistry
+CAIE 11.8.5,Describe the environmental challenges caused by plastics,1.96,Organic chemistry
+CAIE 11.8.6S,Identify the repeat units and/or linkages in addition and condensation polymers,1.2,Organic chemistry
+CAIE 11.8.7S,"Deduce the repeat unit of an addition polymer from the alkene, and vice versa",1.4,Organic chemistry
+CAIE 11.8.8S,"Deduce the repeat unit of a condensation polymer from its monomers, and vice versa",2.08,Organic chemistry
+CAIE 11.8.9S,Describe the differences between addition and condensation polymerisation,1.3,Organic chemistry
+CAIE 11.8.10S,"Describe and draw the structure of nylon, a polyamide, and PET, a polyester",1.94,Organic chemistry
+CAIE 11.8.11S,State that PET can be converted back into monomers and re-polymerised,1,Organic chemistry
+CAIE 11.8.12S,Describe proteins as natural polyamides formed from amino acid monomers,1.32,Organic chemistry
+CAIE 11.8.13S,Describe and draw the structure of proteins from amino acid units,1.3,Organic chemistry
+CAIE 12.1.1,"Name appropriate apparatus for the measurement of time, temperature, mass and volume",2.65,Experimental techniques and chemical analysis
+CAIE 12.1.2,Suggest advantages and disadvantages of experimental methods and apparatus,1.4,Experimental techniques and chemical analysis
+CAIE 12.1.3,"Describe the terms solvent, solute, solution, saturated solution, residue and filtrate",3.95,Experimental techniques and chemical analysis
+CAIE 12.2.1,"Describe an acid–base titration using a burette, pipette and indicator",1.96,Experimental techniques and chemical analysis
+CAIE 12.2.2,Describe how to identify the end-point of a titration using an indicator,1.3,Experimental techniques and chemical analysis
+CAIE 12.3.1,Describe how paper chromatography separates soluble coloured substances,1.3,Experimental techniques and chemical analysis
+CAIE 12.3.2,Interpret simple chromatograms to identify substances and assess purity,2.04,Experimental techniques and chemical analysis
+CAIE 12.3.3S,Describe paper chromatography of colourless substances using a locating agent,1.39,Experimental techniques and chemical analysis
+CAIE 12.3.4S,State and use the equation for Rf in chromatography,1,Experimental techniques and chemical analysis
+CAIE 12.4.1,Describe and explain methods of separation and purification,2.4,Experimental techniques and chemical analysis
+CAIE 12.4.2,Suggest suitable separation and purification techniques for given substances,1.4,Experimental techniques and chemical analysis
+CAIE 12.4.3,Identify substances and assess purity using melting and boiling points,1.2,Experimental techniques and chemical analysis
+CAIE 12.5.1,Describe tests to identify the anions,3.67,Experimental techniques and chemical analysis
+CAIE 12.5.2,Describe tests using aqueous sodium hydroxide and ammonia to identify cations,3.35,Experimental techniques and chemical analysis
+CAIE 12.5.3,Describe tests to identify the gases,3.18,Experimental techniques and chemical analysis
+CAIE 12.5.4,Describe the use of a flame test to identify the cations,2.71,Experimental techniques and chemical analysis

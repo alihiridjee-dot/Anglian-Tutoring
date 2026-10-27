@@ -1,0 +1,502 @@
+{
+  "format": 1,
+  "concept_id": "achem-073",
+  "subject": "chemistry",
+  "title": "Halogenoalkanes and nucleophilic substitution",
+  "key_idea": "A halogenoalkane has a polar carbon–halogen bond. The δ+ carbon is attacked by nucleophiles, which replace the halogen. The weaker the carbon–halogen bond, the faster the reaction. Primary, secondary and tertiary halogenoalkanes differ in how they react.",
+  "sections": [
+    {
+      "heading": "Classifying halogenoalkanes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Halogenoalkanes are alkanes with one or more hydrogen atoms replaced by a halogen. This section covers their polar bond and how they are classified."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The halogen is more electronegative than carbon, so the C–X bond is **polar**.",
+            "The carbon carries a partial positive charge (δ+). The halogen carries a partial negative charge (δ–).",
+            "The δ+ carbon is the site that nucleophiles attack."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type",
+            "Carbon bonded to the halogen is attached to",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Primary",
+              "one other carbon atom (or none)",
+              "1-bromobutane, CH₃CH₂CH₂CH₂Br"
+            ],
+            [
+              "Secondary",
+              "two other carbon atoms",
+              "2-bromobutane, CH₃CH₂CHBrCH₃"
+            ],
+            [
+              "Tertiary",
+              "three other carbon atoms",
+              "2-bromo-2-methylpropane, (CH₃)₃CBr"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity: put six halogenoalkanes into primary, secondary and tertiary groups.",
+            "prompt": "Sort each halogenoalkane by the carbon that carries the halogen.",
+            "groups": [
+              "Primary",
+              "Secondary",
+              "Tertiary"
+            ],
+            "items": [
+              {
+                "text": "1-bromobutane",
+                "group": 0
+              },
+              {
+                "text": "chloroethane",
+                "group": 0
+              },
+              {
+                "text": "2-bromobutane",
+                "group": 1
+              },
+              {
+                "text": "2-chloropropane",
+                "group": 1
+              },
+              {
+                "text": "2-bromo-2-methylpropane",
+                "group": 2
+              },
+              {
+                "text": "2-iodo-2-methylbutane",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The C–X bond is polar, so the carbon is δ+.",
+            "Classify by the number of carbon atoms attached to the carbon that carries the halogen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactions with nucleophiles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A nucleophile attacks the δ+ carbon and replaces the halogen. This is nucleophilic substitution. This section covers the reagents and conditions."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nucleophile",
+              "meaning": "An electron pair donor. It uses a lone pair to form a new covalent bond."
+            },
+            {
+              "term": "Nucleophilic substitution",
+              "meaning": "A reaction in which a nucleophile replaces an atom or group on a molecule."
+            },
+            {
+              "term": "Hydrolysis",
+              "meaning": "A reaction with water or hydroxide ions that breaks a bond and adds OH."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Nucleophile",
+            "Reagent and conditions",
+            "Organic product"
+          ],
+          "rows": [
+            [
+              "OH⁻",
+              "aqueous NaOH or KOH, heat",
+              "alcohol"
+            ],
+            [
+              "CN⁻",
+              "KCN in ethanol, heat",
+              "nitrile (carbon chain one longer)"
+            ],
+            [
+              "NH₃",
+              "excess ammonia in ethanol, heat under pressure",
+              "primary amine"
+            ],
+            [
+              "H₂O",
+              "aqueous silver nitrate in ethanol",
+              "alcohol, plus a silver halide precipitate"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Example: CH₃CH₂Br + OH⁻ → CH₃CH₂OH + Br⁻",
+            "Example: CH₃CH₂Br + CN⁻ → CH₃CH₂CN + Br⁻. The new C–C bond makes the carbon chain longer.",
+            "Example: CH₃CH₂Br + 2NH₃ → CH₃CH₂NH₂ + NH₄Br. A second ammonia molecule removes H⁺."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Water is a weak nucleophile, so hydrolysis with silver nitrate is slow. The halide ion that leaves is at once precipitated by Ag⁺. The colour of the precipitate shows which halogen was present."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a halogenoalkane and see the precipitate formed with warm aqueous silver nitrate in ethanol, and how fast it forms.",
+            "prompt": "Pick a halogenoalkane to hydrolyse with silver nitrate in ethanol.",
+            "result_labels": [
+              "Precipitate",
+              "Speed of reaction"
+            ],
+            "options": [
+              {
+                "label": "Chloroalkane",
+                "results": [
+                  "White silver chloride, AgCl",
+                  "Slowest. The C–Cl bond is the strongest of the three."
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "R–Cl",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Bromoalkane",
+                "results": [
+                  "Cream silver bromide, AgBr",
+                  "Intermediate."
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "R–Br",
+                      "colour": "colourless",
+                      "precipitate": "cream"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Iodoalkane",
+                "results": [
+                  "Yellow silver iodide, AgI",
+                  "Fastest. The C–I bond is the weakest."
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "R–I",
+                      "colour": "colourless",
+                      "precipitate": "yellow"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A nucleophile donates a lone pair to the δ+ carbon.",
+            "Aqueous hydroxide gives an alcohol, cyanide a nitrile and ammonia an amine.",
+            "Silver nitrate in ethanol shows which halogen is present, from the colour of the precipitate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The mechanism",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Primary halogenoalkanes react in one step, called SN₂. This section covers the mechanism using hydroxide as the nucleophile."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Approach",
+              "text": "The hydroxide ion uses a lone pair on oxygen to attack the δ+ carbon, from the side opposite the halogen."
+            },
+            {
+              "lead": "One step",
+              "text": "A curly arrow goes from the lone pair on OH⁻ to the carbon. A second curly arrow goes from the C–Br bond to the bromine atom."
+            },
+            {
+              "lead": "Result",
+              "text": "A new C–O bond forms as the C–Br bond breaks. The products are an alcohol and a bromide ion, Br⁻."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The same mechanism works with CN⁻ and with NH₃ as the nucleophile.",
+            "With ammonia the first product is an ion, RNH₃⁺. A second ammonia removes H⁺ to give RNH₂.",
+            "Curly arrows start from a lone pair or a bond and end at the atom that receives the pair."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Primary halogenoalkanes react by a one-step mechanism.",
+            "The curly arrow from the nucleophile starts at its lone pair."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why some halogenoalkanes react faster",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The rate of hydrolysis depends on the halogen and on the type of halogenoalkane. This section explains each trend."
+        },
+        {
+          "type": "subheading",
+          "text": "The halogen"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The C–X bond must break in the rate-determining step.",
+            "The bond gets weaker down the group: C–F is strongest and C–I is weakest. Approximate values are C–Cl 346, C–Br 290 and C–I 228 kJ/mol.",
+            "Less energy is needed to break the bond, so the rate of hydrolysis increases: RCl < RBr < RI.",
+            "Bond polarity is not the deciding factor. C–F is the most polar bond but the slowest to react."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The type of halogenoalkane"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tertiary halogenoalkanes hydrolyse fastest. Primary are slowest. Secondary lie between.",
+            "Tertiary halogenoalkanes form a more stable carbocation, because three alkyl groups push electron density towards the positive carbon.",
+            "Alkyl groups also hinder the approach of a nucleophile, which slows the one-step mechanism for tertiary compounds."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Weaker C–X bonds react faster, so iodoalkanes are the most reactive.",
+            "The order of hydrolysis rate is tertiary, then secondary, then primary."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by the term nucleophile and give two examples.",
+      "a": "An electron pair donor. Examples: OH⁻, CN⁻, NH₃ or H₂O.",
+      "marks": 2
+    },
+    {
+      "q": "1-bromopropane is warmed with aqueous sodium hydroxide. Write the equation and name the type of mechanism and the organic product.",
+      "a": "CH₃CH₂CH₂Br + OH⁻ → CH₃CH₂CH₂OH + Br⁻. Nucleophilic substitution. The product is propan-1-ol.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why 1-iodobutane is hydrolysed faster than 1-chlorobutane.",
+      "a": "The C–I bond is weaker (has a lower bond enthalpy) than the C–Cl bond. Less energy is needed to break it, so the reaction is faster.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.2a",
+        "OCR 4.2.2b",
+        "OCR 4.2.2c",
+        "OCR 4.2.2d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Compare rates of hydrolysis experimentally. Warm the halogenoalkane in ethanol with aqueous silver nitrate at the same temperature.",
+                "Time how long the precipitate takes to appear. A shorter time means a faster reaction.",
+                "Explain the trend for C–F, C–Cl, C–Br and C–I in terms of bond enthalpy. C–F is so strong that it hardly reacts.",
+                "Know the mechanism for the hydrolysis of a primary halogenoalkane with aqueous alkali."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6D.30",
+        "EDEX 6D.31",
+        "EDEX 6D.32",
+        "EDEX 6D.33",
+        "EDEX 6D.34",
+        "EDEX 6D.35",
+        "EDEX 6D.36"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In the silver nitrate reaction, water acts as the nucleophile. The reaction compares chloro-, bromo- and iodoalkanes, and also primary, secondary and tertiary compounds.",
+                "Experimental data can show the order: iodoalkane > bromoalkane > chloroalkane, and tertiary > secondary > primary.",
+                "Know the reaction with potassium cyanide as an example of lengthening the carbon chain.",
+                "Know the mechanisms for primary halogenoalkanes with aqueous potassium hydroxide and with ammonia.",
+                "Know that ethanolic potassium hydroxide makes an alkene, where hydroxide acts as a base. This is covered under elimination."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.3.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Outline the nucleophilic substitution mechanisms with OH⁻, CN⁻ and NH₃.",
+                "With ammonia, draw the intermediate in which nitrogen has a positive charge, then show a second ammonia molecule removing H⁺.",
+                "Explain why the carbon–halogen bond enthalpy influences the rate of reaction."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 15.1.1",
+        "CAIE 15.1.2",
+        "CAIE 15.1.3",
+        "CAIE 15.1.5",
+        "CAIE 15.1.6",
+        "CAIE 15.1.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Making halogenoalkanes"
+            },
+            {
+              "type": "list",
+              "items": [
+                "From alkanes: free-radical substitution with Cl₂ or Br₂ and ultraviolet light, for example C₂H₆ + Cl₂ → C₂H₅Cl + HCl.",
+                "From alkenes: electrophilic addition of X₂ or HX(g) at room temperature.",
+                "From alcohols: substitution using HX(g); KCl with concentrated H₂SO₄ or concentrated H₃PO₄; PCl₃ and heat; PCl₅; or SOCl₂."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "SN₁ and SN₂"
+            },
+            {
+              "type": "paragraph",
+              "text": "SN stands for substitution, nucleophilic. The number is the molecularity of the rate-determining step: 2 means two species collide in it, 1 means only one."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "SN₂ (one step)",
+                  "text": "The nucleophile attacks the δ+ carbon as the C–X bond breaks. The transition state has both the nucleophile and the halogen partly bonded. The rate depends on both reactants."
+                },
+                {
+                  "lead": "SN₁ step 1",
+                  "text": "The C–X bond breaks heterolytically, slowly, to give a carbocation and X⁻. The rate depends only on the halogenoalkane."
+                },
+                {
+                  "lead": "SN₁ step 2",
+                  "text": "The nucleophile attacks the planar carbocation and bonds to the carbon quickly."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Primary halogenoalkanes tend to react by SN₂. Tertiary react by SN₁. Secondary react by a mixture of the two, depending on structure.",
+                "Alkyl groups are electron-donating (the inductive effect). Three of them stabilise the tertiary carbocation, which favours SN₁.",
+                "Bulky alkyl groups around the carbon also block the nucleophile, which disfavours SN₂.",
+                "Reactions with NaOH(aq) and heat give an alcohol, KCN in ethanol and heat a nitrile, and NH₃ in ethanol heated under pressure an amine."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "04e3ca79-eb13-447b-a168-ddb0417b68d0",
+      "6e4d5e38-4905-4b93-b10a-f31808534e3c",
+      "06559c2a-26bb-47ec-9860-75795cfaf651",
+      "bc2b5386-49a8-4a85-8139-7860b495dd25",
+      "6880e62f-7607-4486-a765-1bf80c84db62",
+      "dc5f6b41-79cc-41d0-a74d-58474043463e",
+      "caa66020-8b69-413e-a948-6bff4ca23760",
+      "661e6153-9e6e-40dc-a9a0-53e6cdf7ece4",
+      "2ffe47e1-12ca-4aa8-bc14-63ea4e3a9121",
+      "5a1aa29a-af28-4622-b679-79580d8d0e98",
+      "30222f51-8e43-4e36-9a71-e27de4c5da4c",
+      "3c8b2bd5-9e17-4bb6-b6e8-682c49907392",
+      "bb2f0b95-693c-4e3f-b7e5-edf7300219e6",
+      "17f75a5c-cbc9-4e86-b3ca-9b3bbb1d319c",
+      "6c944c00-b90e-4f59-9e23-b2ab88a316ab",
+      "a8b511c5-e26b-4cce-a375-245df91c482a",
+      "fd0c0226-d21e-451b-8730-d0ab64be40a2",
+      "132050f6-30a2-4e30-965f-cb8901c694b2"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "format": 1,
+  "concept_id": "phys-029",
+  "subject": "physics",
+  "title": "Required practical: specific heat capacity",
+  "key_idea": "To find a **specific heat capacity**, heat a known mass with an electric heater. Measure the energy supplied and the temperature change. Then use c = ΔE ÷ (m × Δθ). Insulating and stirring improve the result.",
+  "sections": [
+    {
+      "heading": "Specific heat capacity and its equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers what specific heat capacity means and how the equation links the quantities you measure."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Specific heat capacity",
+              "meaning": "The energy needed to raise the temperature of 1 kg of a substance by 1 °C."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Change in thermal energy",
+          "formula": "ΔE = m × c × Δθ",
+          "where": [
+            "ΔE = change in thermal energy, in joules (J)",
+            "m = mass, in kilograms (kg)",
+            "c = specific heat capacity, in joules per kilogram per degree Celsius (J/kg °C)",
+            "Δθ = temperature change, in degrees Celsius (°C)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In the practical you measure ΔE, m and Δθ. Rearrange the equation to find c."
+        },
+        {
+          "type": "equation",
+          "label": "Specific heat capacity",
+          "formula": "c = ΔE ÷ (m × Δθ)",
+          "where": [
+            "c = specific heat capacity, in joules per kilogram per degree Celsius (J/kg °C)",
+            "ΔE = energy transferred to the substance, in joules (J)",
+            "m = mass, in kilograms (kg)",
+            "Δθ = temperature rise, in degrees Celsius (°C)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Data",
+              "text": "A 0.50 kg metal block gains 11 500 J of energy and its temperature rises by 25 °C."
+            },
+            {
+              "lead": "Substitute",
+              "text": "c = 11 500 ÷ (0.50 × 25)"
+            },
+            {
+              "lead": "Answer",
+              "text": "c = 920 J/kg °C"
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the energy needed to warm some water by a given temperature rise.",
+            "question": "Water has a mass of {m} kg. It is heated and its temperature rises by {dT} °C. The specific heat capacity of water is 4200 J/kg °C. Calculate the energy transferred to the water.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 0.1,
+                "max": 1,
+                "step": 0.1
+              },
+              {
+                "id": "dT",
+                "min": 5,
+                "max": 50,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "m * 4200 * dT",
+              "unit": "J",
+              "decimals": 0
+            },
+            "working": ["ΔE = m × c × Δθ", "ΔE = {m} × 4200 × {dT}", "ΔE = {answer} J"]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Specific heat capacity is the energy to raise 1 kg by 1 °C.",
+            "ΔE = m × c × Δθ, with mass in kg and energy in J.",
+            "To find c, divide the energy by the mass and the temperature rise."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Method: measuring specific heat capacity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An electric heater transfers energy to a block of metal or to water. You measure three things: mass, energy transferred and temperature change."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mass: use a balance. For water, measure the mass of the empty beaker, then the beaker with water, and subtract.",
+            "Energy transferred: use a joulemeter connected to the heater.",
+            "Temperature: use a thermometer to find the start and final temperatures.",
+            "Alternatively, find the energy from the potential difference, the current and the time on a stopwatch.",
+            "The electric heater does work. This is the energy that increases the thermal energy of the block or water.",
+            "Calculate the temperature change by subtraction."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for measuring specific heat capacity into order.",
+            "prompt": "Put the steps of the method in order.",
+            "steps": [
+              "Measure the mass of the block or of the water with a balance.",
+              "Insulate the block or beaker, and put the heater and thermometer in place.",
+              "Measure the starting temperature and the starting joulemeter reading.",
+              "Switch on the heater so the temperature increases.",
+              "Switch off and read the joulemeter. The energy transferred is the final minus the starting reading.",
+              "Measure the highest temperature reached and work out the temperature change.",
+              "Calculate c using c = ΔE ÷ (m × Δθ)."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure the mass, the energy transferred and the temperature change.",
+            "Use a balance, a joulemeter and a thermometer.",
+            "Use c = ΔE ÷ (m × Δθ) to calculate the result."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Improving accuracy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some of the energy from the heater is wasted. These steps give a more accurate value of c."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Insulate the block or beaker, or add a lid. Less energy is wasted and the temperature rise is greater.",
+            "Stir the water so its temperature is even.",
+            "After switching off, keep watching the thermometer and record the highest temperature. Energy takes time to spread by conduction and convection.",
+            "Keep the heater fully in the water or block."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Insulation and a lid reduce wasted energy.",
+            "Stir, and record the highest temperature reached."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the three measurements needed to find the specific heat capacity of a metal block.",
+      "a": "The mass of the block, the energy transferred to it, and the temperature change.",
+      "marks": 3
+    },
+    {
+      "q": "Why does wrapping the block in insulation make the value of specific heat capacity more accurate?",
+      "a": "Less energy is wasted, and the temperature increase of the block is greater.",
+      "marks": 2
+    },
+    {
+      "q": "A 0.40 kg block gains 18 000 J of energy and its temperature rises by 50 °C. Calculate its specific heat capacity.",
+      "a": "c = 18 000 ÷ (0.40 × 50) = 900 J/kg °C.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.1.3", "AQA T 6.1.1.3"],
+      "worked_example": {
+        "exemplar_id": "dbd1e4dc-1a5d-4ed7-b295-7af4257159e4",
+        "source": "AQA jun 2019, Paper 1 (F), Q8.5",
+        "question": "A student carried out an experiment to determine the specific heat capacity of water. The energy transferred to the water was 26 400 J. The mass of water was 0.20 kg. The temperature increase of the water was 30 °C. Calculate the specific heat capacity of water using the data from this experiment. Choose the unit from J/kg, J/kg °C and J/°C.",
+        "marks": 4,
+        "answer_points": [
+          "26 400 = 0.20 × c × 30",
+          "c = 26 400 ÷ (0.20 × 30)",
+          "c = 4400",
+          "Unit: J/kg °C"
+        ],
+        "tip": "One mark each for the substitution, the rearrangement, the answer and the unit. A correct numerical answer of 4400 scores 3 marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 14.11"],
+      "worked_example": {
+        "exemplar_id": "0b09aa94-5d67-4ead-aa95-a2b7b643fdc3",
+        "source": "EDEXCEL jun 2018, Paper 2 (F), Q8(a)(i)",
+        "question": "A student uses apparatus to determine the specific heat capacity of water. State the measurements needed to calculate the specific heat capacity of water.",
+        "marks": 4,
+        "answer_points": [
+          "The mass of the water.",
+          "The temperature rise (change).",
+          "The energy supplied by the heater.",
+          "Detail of any of these, for example measure the temperature at the start and end, or take the start and end readings on the joulemeter."
+        ],
+        "tip": "One mark for each measurement and one mark for detail. Volume or weight of water is accepted. The word amount is ignored."
+      },
+      "extra": [
+        {
+          "heading": "Temperature-time graph for melting ice",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The practical also asks for a temperature-time graph for melting ice."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Heat ice and plot temperature against time.",
+                "The line is flat at 0 °C while the ice melts. This is a change of state, so the temperature does not change.",
+                "When all the ice has melted, the temperature of the water rises."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 2.2.2.4S"],
+      "worked_example": {
+        "exemplar_id": "d1d9c418-e35c-405a-b196-5105a02b3f07",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q4(a)",
+        "question": "Describe an experiment to determine the specific heat capacity of aluminium. You may draw a diagram. Include in your answer the measurements made and any equations needed.",
+        "marks": 4,
+        "answer_points": [
+          "Heat an aluminium block with an electric heater, so that a measurable amount of thermal energy transfers to it",
+          "Find the energy transferred using E = Pt or E = IVt",
+          "Measure the mass of the block, the time of heating, and the initial and final temperatures",
+          "Use c = E / (mΔθ)"
+        ],
+        "tip": "Other workable methods score too, such as heating the block and placing it in a known mass of water."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 5.14P", "IGCSE 5.11P"],
+      "worked_example": {
+        "exemplar_id": "d167fe96-4fb1-470a-a44f-563985cb558e",
+        "source": "EDEXCEL jan 2023, Paper 2 (PR), Q6(a)",
+        "question": "A student does an investigation to find the specific heat capacity of water. The equipment is a 50 W heater, a power supply, a beaker, water, a thermometer, a stopwatch, connecting leads and a balance. Describe an investigation the student could use to find the specific heat capacity of water.",
+        "marks": 5,
+        "answer_points": [
+          "Measure the mass of the water, by finding the difference between the empty beaker and the beaker with water",
+          "Measure the temperature increase (initial and final temperatures)",
+          "Measure the time taken",
+          "Allow the temperature to rise to its maximum after the heater is switched off",
+          "Calculate the energy using E = P × t, then use E = m × c × Δθ to find c"
+        ],
+        "tip": "Any five of these ideas score the marks. Plotting a temperature–time graph and using its gradient also scores."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "spec_point_ids": [
+      "60e73727-82bc-489c-9aec-4905102a2a7b",
+      "920d5b82-0da1-4056-ae3e-efd5805bc95c",
+      "d6e13b88-d99b-4a5b-9920-522afb61d365",
+      "5ee45f15-242d-4d70-8dd5-b765388066b7"
+    ],
+    "exemplar_ids": [
+      "dbd1e4dc-1a5d-4ed7-b295-7af4257159e4",
+      "aa960a5e-73a8-4ecb-8ed6-40aa86d57936",
+      "ed4cbc64-280a-44ed-89f2-74336013d93e",
+      "6c40393e-c65b-4f3b-97e2-3cdb0098d6f4",
+      "decffb6f-ca1b-4619-af91-8fcaab0d93a6",
+      "0b09aa94-5d67-4ead-aa95-a2b7b643fdc3",
+      "cd9d0dc4-2adb-4585-91b2-17cfb6f4e3e8",
+      "5005ce70-83df-4530-93c3-15dc9a641d36",
+      "b4253d6d-fbd4-4702-986a-28cd63a140d3",
+      "d1d9c418-e35c-405a-b196-5105a02b3f07",
+      "d167fe96-4fb1-470a-a44f-563985cb558e"
+    ]
+  }
+}

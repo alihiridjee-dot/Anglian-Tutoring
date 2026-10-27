@@ -1,0 +1,245 @@
+code,title,weight,topic
+OCR 1.1.1a,Experimental design,1.78,Development of practical skills in biology
+OCR 1.1.1b,Identifying variables to control,1.4,Development of practical skills in biology
+OCR 1.1.1c,Evaluating an experimental method,1.4,Development of practical skills in biology
+OCR 1.1.2a,Using practical apparatus and techniques,1.47,Development of practical skills in biology
+OCR 1.1.2b,Units for measurements,1.4,Development of practical skills in biology
+OCR 1.1.2c,Presenting observations and data,1.4,Development of practical skills in biology
+OCR 1.1.3a,Processing and interpreting results,1.4,Development of practical skills in biology
+OCR 1.1.3b,Mathematical skills for analysis,1.66,Development of practical skills in biology
+OCR 1.1.3c,Significant figures,1.4,Development of practical skills in biology
+OCR 1.1.3d,Plotting and interpreting graphs,1.88,Development of practical skills in biology
+OCR 1.1.4a,Evaluating results and drawing conclusions,1.4,Development of practical skills in biology
+OCR 1.1.4b,Identifying anomalies,1.4,Development of practical skills in biology
+OCR 1.1.4c,Limitations in experimental procedures,1.4,Development of practical skills in biology
+OCR 1.1.4d,Precision and accuracy of measurements,1.4,Development of practical skills in biology
+OCR 1.1.4e,Refining experimental design,1.4,Development of practical skills in biology
+OCR 1.2.1a,Investigative approaches in practical work,1.7,Development of practical skills in biology
+OCR 1.2.1b,Safe use of practical equipment,1.47,Development of practical skills in biology
+OCR 1.2.1c,Following written instructions,1.4,Development of practical skills in biology
+OCR 1.2.1d,Recording observations and measurements,1.4,Development of practical skills in biology
+OCR 1.2.1e,Keeping records of experimental activities,1.4,Development of practical skills in biology
+OCR 1.2.1f,Presenting information and data,1.4,Development of practical skills in biology
+OCR 1.2.1g,Software and tools to process data,1.5,Development of practical skills in biology
+OCR 1.2.1h,Online and offline research skills,1.5,Development of practical skills in biology
+OCR 1.2.1i,Citing sources of information,1.4,Development of practical skills in biology
+OCR 1.2.1j,"Experimental instruments, equipment and techniques",1.5,Development of practical skills in biology
+OCR 1.2.2a,Apparatus for quantitative measurements,1.5,Development of practical skills in biology
+OCR 1.2.2b,Instrumentation such as a colorimeter or potometer,1.5,Development of practical skills in biology
+OCR 1.2.2c,Laboratory glassware and serial dilutions,1.5,Development of practical skills in biology
+OCR 1.2.2d,Light microscope at high and low power,1.5,Development of practical skills in biology
+OCR 1.2.2e,Scientific drawings with annotations,1.4,Development of practical skills in biology
+OCR 1.2.2f,Qualitative reagents for biological molecules,1.5,Development of practical skills in biology
+OCR 1.2.2g,Chromatography and electrophoresis,1.4,Development of practical skills in biology
+OCR 1.2.2h,Safe and ethical use of organisms,1.84,Development of practical skills in biology
+OCR 1.2.2i,Aseptic techniques,1.5,Development of practical skills in biology
+OCR 1.2.2j,Dissecting an animal or plant organ,1.4,Development of practical skills in biology
+OCR 1.2.2k,Sampling techniques in fieldwork,1.5,Development of practical skills in biology
+OCR 1.2.2l,"ICT, computer modelling and data loggers",1.5,Development of practical skills in biology
+OCR 2.1.1a,Microscopy to observe cells,3.8,Foundations in biology
+OCR 2.1.1b,Preparing microscope slides,1.4,Foundations in biology
+OCR 2.1.1c,Staining in light microscopy,1.4,Foundations in biology
+OCR 2.1.1d,Drawing cells seen under the light microscope,1.4,Foundations in biology
+OCR 2.1.1e,The magnification formula,1.4,Foundations in biology
+OCR 2.1.1f,Magnification and resolution,1.98,Foundations in biology
+OCR 2.1.1g,Ultrastructure of eukaryotic cells,1.93,Foundations in biology
+OCR 2.1.1h,Photomicrographs of cellular components,1.4,Foundations in biology
+OCR 2.1.1i,Organelles in protein production and secretion,1.4,Foundations in biology
+OCR 2.1.1j,Importance of the cytoskeleton,1.4,Foundations in biology
+OCR 2.1.1k,Prokaryotic and eukaryotic cells compared,1.4,Foundations in biology
+OCR 2.1.2a,Hydrogen bonding and the properties of water,2.33,Foundations in biology
+OCR 2.1.2b,"Monomers, polymers, condensation and hydrolysis",1.4,Foundations in biology
+OCR 2.1.2c,Chemical elements in biological molecules,1.71,Foundations in biology
+OCR 2.1.2d,Structure of glucose and ribose,1.91,Foundations in biology
+OCR 2.1.2e,Glycosidic bonds in disaccharides and polysaccharides,1.4,Foundations in biology
+OCR 2.1.2f,"Structure of starch, glycogen and cellulose",1.4,Foundations in biology
+OCR 2.1.2g,Carbohydrate structure and function,1.4,Foundations in biology
+OCR 2.1.2h,Structure of triglycerides and phospholipids,1.4,Foundations in biology
+OCR 2.1.2i,Synthesis and breakdown of triglycerides,1.4,Foundations in biology
+OCR 2.1.2j,Lipid structure and function,1.78,Foundations in biology
+OCR 2.1.2k,General structure of an amino acid,1.4,Foundations in biology
+OCR 2.1.2l,Peptide bonds in dipeptides and polypeptides,1.4,Foundations in biology
+OCR 2.1.2m,Levels of protein structure,1.4,Foundations in biology
+OCR 2.1.2n,Globular proteins,1.56,Foundations in biology
+OCR 2.1.2o,Fibrous proteins,1.4,Foundations in biology
+OCR 2.1.2p,Key inorganic ions,1.96,Foundations in biology
+OCR 2.1.2q,Chemical tests for biological molecules,1.56,Foundations in biology
+OCR 2.1.2r,Quantitative methods for concentration,1.4,Foundations in biology
+OCR 2.1.2s,Paper and thin layer chromatography,2.84,Foundations in biology
+OCR 2.1.3a,Structure of a nucleotide,1.64,Foundations in biology
+OCR 2.1.3b,Phosphodiester bonds in polynucleotides,1.4,Foundations in biology
+OCR 2.1.3c,Structure of ADP and ATP,1.4,Foundations in biology
+OCR 2.1.3d,Structure of DNA and DNA purification,2.51,Foundations in biology
+OCR 2.1.3e,Semi-conservative DNA replication,1.84,Foundations in biology
+OCR 2.1.3f,The genetic code,1.67,Foundations in biology
+OCR 2.1.3g,Transcription and translation,1.4,Foundations in biology
+OCR 2.1.4a,Enzymes in metabolism,1.47,Foundations in biology
+OCR 2.1.4b,Intracellular and extracellular enzymes,1.64,Foundations in biology
+OCR 2.1.4c,Mechanism of enzyme action,1.51,Foundations in biology
+OCR 2.1.4d,Factors affecting enzyme activity,2.37,Foundations in biology
+OCR 2.1.4e,Coenzymes and cofactors,1.44,Foundations in biology
+OCR 2.1.4f,Enzyme inhibitors,1.4,Foundations in biology
+OCR 2.1.5a,Roles of membranes,1.87,Foundations in biology
+OCR 2.1.5b,Fluid mosaic model of membranes,1.62,Foundations in biology
+OCR 2.1.5c,Factors affecting membrane structure and permeability,1.84,Foundations in biology
+OCR 2.1.5d,Movement of molecules across membranes,2.31,Foundations in biology
+OCR 2.1.5e,Osmosis and water potential,2.55,Foundations in biology
+OCR 2.1.6a,The cell cycle,1.4,Foundations in biology
+OCR 2.1.6b,Regulation of the cell cycle,1.4,Foundations in biology
+OCR 2.1.6c,Main stages of mitosis,1.4,Foundations in biology
+OCR 2.1.6d,Plant tissue sections showing mitosis,1.62,Foundations in biology
+OCR 2.1.6e,Significance of mitosis,1.4,Foundations in biology
+OCR 2.1.6f,Significance of meiosis,1.4,Foundations in biology
+OCR 2.1.6g,Main stages of meiosis,1.78,Foundations in biology
+OCR 2.1.6h,Specialised cells,1.49,Foundations in biology
+OCR 2.1.6i,"Tissues, organs and organ systems",1.4,Foundations in biology
+OCR 2.1.6j,Features and differentiation of stem cells,1.4,Foundations in biology
+OCR 2.1.6k,Erythrocytes and neutrophils from bone marrow stem cells,1.4,Foundations in biology
+OCR 2.1.6l,Xylem vessels and phloem sieve tubes from meristem stem cells,1.4,Foundations in biology
+OCR 2.1.6m,Uses of stem cells in research and medicine,1.64,Foundations in biology
+OCR 3.1.1a,Need for specialised exchange surfaces,1.42,Exchange and transport
+OCR 3.1.1b,Features of an efficient exchange surface,1.47,Exchange and transport
+OCR 3.1.1c,Mammalian gaseous exchange system,1.67,Exchange and transport
+OCR 3.1.1d,Mechanism of ventilation in mammals,1.4,Exchange and transport
+OCR 3.1.1e,"Vital capacity, tidal volume and oxygen uptake",1.49,Exchange and transport
+OCR 3.1.1f,Ventilation and gas exchange in bony fish and insects,2.07,Exchange and transport
+OCR 3.1.1g,Dissecting a fish or insect gaseous exchange system,1.4,Exchange and transport
+OCR 3.1.1h,Histology of exchange surfaces,1.4,Exchange and transport
+OCR 3.1.2a,Need for transport systems in animals,1.4,Exchange and transport
+OCR 3.1.2b,Types of circulatory system,1.4,Exchange and transport
+OCR 3.1.2c,Structure and function of blood vessels,1.4,Exchange and transport
+OCR 3.1.2d,Formation of tissue fluid,1.51,Exchange and transport
+OCR 3.1.2e,Structure and dissection of the mammalian heart,1.86,Exchange and transport
+OCR 3.1.2f,The cardiac cycle,1.49,Exchange and transport
+OCR 3.1.2g,Initiation and coordination of heart action,1.73,Exchange and transport
+OCR 3.1.2h,Electrocardiogram (ECG) traces,1.4,Exchange and transport
+OCR 3.1.2i,Haemoglobin transporting oxygen and carbon dioxide,1.47,Exchange and transport
+OCR 3.1.2j,Oxygen dissociation curves of fetal and adult haemoglobin,1.62,Exchange and transport
+OCR 3.1.3a,Need for transport systems in plants,1.4,Exchange and transport
+OCR 3.1.3b,Vascular system of herbaceous dicotyledonous plants,3.04,Exchange and transport
+OCR 3.1.3c,Transpiration,2.15,Exchange and transport
+OCR 3.1.3d,Water transport through the plant,1.89,Exchange and transport
+OCR 3.1.3e,Adaptations of plants to water availability,1.4,Exchange and transport
+OCR 3.1.3f,Mechanism of translocation,1.73,Exchange and transport
+OCR 4.1.1a,Types of pathogen that cause communicable diseases in plants and animals,2.29,"Communicable diseases, disease prevention and the immune system"
+OCR 4.1.1b,Means of transmission of animal and plant communicable pathogens,2.11,"Communicable diseases, disease prevention and the immune system"
+OCR 4.1.1c,Plant defences against pathogens,1.4,"Communicable diseases, disease prevention and the immune system"
+OCR 4.1.1d,Primary non-specific defences against pathogens in animals,2.58,"Communicable diseases, disease prevention and the immune system"
+OCR 4.1.1e,"Phagocytes: structure, mode of action and blood smears",2.04,"Communicable diseases, disease prevention and the immune system"
+OCR 4.1.1f,B and T lymphocytes in the specific immune response,1.78,"Communicable diseases, disease prevention and the immune system"
+OCR 4.1.1g,Primary and secondary immune responses,1.4,"Communicable diseases, disease prevention and the immune system"
+OCR 4.1.1h,Structure and general functions of antibodies,1.4,"Communicable diseases, disease prevention and the immune system"
+OCR 4.1.1i,"Action of opsonins, agglutinins and anti-toxins",1.4,"Communicable diseases, disease prevention and the immune system"
+OCR 4.1.1j,Active and passive immunity; natural and artificial immunity,1.4,"Communicable diseases, disease prevention and the immune system"
+OCR 4.1.1k,Autoimmune diseases,1.4,"Communicable diseases, disease prevention and the immune system"
+OCR 4.1.1l,Principles of vaccination and vaccination programmes,1.53,"Communicable diseases, disease prevention and the immune system"
+OCR 4.1.1m,Possible sources of medicines,1.4,"Communicable diseases, disease prevention and the immune system"
+OCR 4.1.1n,Benefits and risks of using antibiotics to manage bacterial infection,1.69,"Communicable diseases, disease prevention and the immune system"
+OCR 4.2.1a,Biodiversity at different levels,1.53,Biodiversity
+OCR 4.2.1b,Sampling to measure the biodiversity of a habitat,2.75,Biodiversity
+OCR 4.2.1c,Measuring species richness and species evenness in a habitat,1.4,Biodiversity
+OCR 4.2.1d,Simpson’s Index of Diversity (D),2.02,Biodiversity
+OCR 4.2.1e,"Assessing genetic biodiversity, including calculations",2.07,Biodiversity
+OCR 4.2.1f,Factors affecting biodiversity,1.4,Biodiversity
+OCR 4.2.1g,"Ecological, economic and aesthetic reasons for maintaining biodiversity",1.49,Biodiversity
+OCR 4.2.1h,In situ and ex situ methods of maintaining biodiversity,1.44,Biodiversity
+OCR 4.2.1i,International and local conservation agreements,1.69,Biodiversity
+OCR 4.2.2a,Biological classification of species,1.4,Biodiversity
+OCR 4.2.2b,Binomial system of naming species and its advantage,1.4,Biodiversity
+OCR 4.2.2c,Five kingdoms and the evidence for the three domains of life,3.04,Biodiversity
+OCR 4.2.2d,Relationship between classification and phylogeny,1.4,Biodiversity
+OCR 4.2.2e,Evidence for the theory of evolution by natural selection,1.71,Biodiversity
+OCR 4.2.2f,Different types of variation,1.73,Biodiversity
+OCR 4.2.2g,Types of adaptation of organisms to their environment,1.44,Biodiversity
+OCR 4.2.2h,How natural selection affects a population over time,1.76,Biodiversity
+OCR 4.2.2i,Implications of evolution in some species for human populations,1.4,Biodiversity
+OCR 5.1.1a,Need for communication systems in multicellular organisms,1.6,Communication and homeostasis
+OCR 5.1.1b,Communication between cells by cell signalling,1.4,Communication and homeostasis
+OCR 5.1.1c,Principles of homeostasis,1.4,Communication and homeostasis
+OCR 5.1.1d,Temperature control in ectotherms and endotherms,1.67,Communication and homeostasis
+OCR 5.1.2a,Excretion and its importance in metabolism and homeostasis,1.51,Communication and homeostasis
+OCR 5.1.2b,Structure and functions of the mammalian liver,2.88,Communication and homeostasis
+OCR 5.1.2c,"Structure, mechanisms of action and functions of the mammalian kidney",3.17,Communication and homeostasis
+OCR 5.1.2d,Control of the water potential of the blood,1.58,Communication and homeostasis
+OCR 5.1.2e,Effects of kidney failure and its potential treatments,1.84,Communication and homeostasis
+OCR 5.1.2f,Excretory products in medical diagnosis,1.67,Communication and homeostasis
+OCR 5.1.3a,Mammalian sensory receptors converting stimuli into nerve impulses,1.73,Communication and homeostasis
+OCR 5.1.3b,"Structure and functions of sensory, relay and motor neurones",1.4,Communication and homeostasis
+OCR 5.1.3c,Generation and transmission of nerve impulses in mammals,1.87,Communication and homeostasis
+OCR 5.1.3d,Structure and roles of synapses in neurotransmission,1.58,Communication and homeostasis
+OCR 5.1.4a,Endocrine communication by hormones,1.4,Communication and homeostasis
+OCR 5.1.4b,Structure and functions of the adrenal glands,1.49,Communication and homeostasis
+OCR 5.1.4c,Histology of the pancreas,1.95,Communication and homeostasis
+OCR 5.1.4d,Regulation of blood glucose concentration,1.89,Communication and homeostasis
+OCR 5.1.4e,Differences between Type 1 and Type 2 diabetes mellitus,1.44,Communication and homeostasis
+OCR 5.1.4f,Potential treatments for diabetes mellitus,1.47,Communication and homeostasis
+OCR 5.1.5a,Types of plant responses and investigations into phototropism and geotropism,2.24,Communication and homeostasis
+OCR 5.1.5b,Roles of plant hormones,1.4,Communication and homeostasis
+OCR 5.1.5c,Experimental evidence for auxins in the control of apical dominance,1.84,Communication and homeostasis
+OCR 5.1.5d,Experimental evidence for gibberellin in stem elongation and seed germination,1.91,Communication and homeostasis
+OCR 5.1.5e,Practical investigations into the effect of plant hormones on growth,3.4,Communication and homeostasis
+OCR 5.1.5f,Commercial use of plant hormones,1.4,Communication and homeostasis
+OCR 5.1.5g,Organisation of the mammalian nervous system,1.58,Communication and homeostasis
+OCR 5.1.5h,Structure of the human brain and the functions of its parts,1.6,Communication and homeostasis
+OCR 5.1.5i,Reflex actions,1.4,Communication and homeostasis
+OCR 5.1.5j,Coordination of responses by the nervous and endocrine systems,1.93,Communication and homeostasis
+OCR 5.1.5k,Effects of hormones and nervous mechanisms on heart rate,1.64,Communication and homeostasis
+OCR 5.1.5l,Mammalian muscle structure and the mechanism of muscular contraction,2.8,Communication and homeostasis
+OCR 5.2.1a,Interrelationship between photosynthesis and respiration,1.4,Energy for biological processes
+OCR 5.2.1b,Chloroplast structure and the sites of the two main stages of photosynthesis,1.49,Energy for biological processes
+OCR 5.2.1c,Photosynthetic pigments and thin layer chromatography (TLC),1.93,Energy for biological processes
+OCR 5.2.1d,Light-dependent stage of photosynthesis,2.02,Energy for biological processes
+OCR 5.2.1e,Fixation of carbon dioxide and the light-independent stage,2.04,Energy for biological processes
+OCR 5.2.1f,Uses of triose phosphate (TP),1.64,Energy for biological processes
+OCR 5.2.1g,Factors affecting photosynthesis and the rate of photosynthesis,2.68,Energy for biological processes
+OCR 5.2.2a,Need for cellular respiration,1.51,Energy for biological processes
+OCR 5.2.2b,Structure of the mitochondrion,1.4,Energy for biological processes
+OCR 5.2.2c,Process and site of glycolysis,1.78,Energy for biological processes
+OCR 5.2.2d,Link reaction and its site in the cell,1.49,Energy for biological processes
+OCR 5.2.2e,Process and site of the Krebs cycle,2.02,Energy for biological processes
+OCR 5.2.2f,Importance of coenzymes in cellular respiration,1.4,Energy for biological processes
+OCR 5.2.2g,Process and site of oxidative phosphorylation,1.4,Energy for biological processes
+OCR 5.2.2h,Chemiosmotic theory,1.4,Energy for biological processes
+OCR 5.2.2i,Anaerobic respiration in eukaryotes and respiration rates in yeast,2.44,Energy for biological processes
+OCR 5.2.2j,"Relative energy values of carbohydrates, lipids and proteins as substrates",1.4,Energy for biological processes
+OCR 5.2.2k,Use and interpretation of the respiratory quotient (RQ),1.42,Energy for biological processes
+OCR 5.2.2l,Investigating factors affecting the rate of respiration,3.44,Energy for biological processes
+OCR 6.1.1a,Types of gene mutations and their effects on protein production and function,1.67,Genetics and evolution
+OCR 6.1.1b,Regulatory mechanisms controlling gene expression,2.36,Genetics and evolution
+OCR 6.1.1c,Genetic control of the development of body plans,1.96,Genetics and evolution
+OCR 6.1.1d,Mitosis and apoptosis controlling the development of body form,1.69,Genetics and evolution
+OCR 6.1.2a,Environmental and genetic factors in phenotypic variation; sexual reproduction,2.4,Genetics and evolution
+OCR 6.1.2b,Genetic diagrams and phenotypic ratios for linkage and epistasis,2.22,Genetics and evolution
+OCR 6.1.2c,Chi-squared (χ²) test for observed and expected results,1.62,Genetics and evolution
+OCR 6.1.2d,Genetic basis of continuous and discontinuous variation,1.4,Genetics and evolution
+OCR 6.1.2e,Factors that can affect the evolution of a species,1.4,Genetics and evolution
+OCR 6.1.2f,Hardy–Weinberg principle and allele frequencies in populations,1.82,Genetics and evolution
+OCR 6.1.2g,Isolating mechanisms in the evolution of new species,1.4,Genetics and evolution
+OCR 6.1.2h,"Artificial selection: principles, uses and ethical considerations",2.88,Genetics and evolution
+OCR 6.1.3a,Principles of DNA sequencing and new DNA sequencing techniques,1.73,Genetics and evolution
+OCR 6.1.3b,"Gene sequencing: genome comparisons, amino acid sequences, synthetic biology",3.02,Genetics and evolution
+OCR 6.1.3c,Principles of DNA profiling and its uses,1.4,Genetics and evolution
+OCR 6.1.3d,Polymerase chain reaction (PCR) and its application in DNA analysis,1.4,Genetics and evolution
+OCR 6.1.3e,Electrophoresis for separating nucleic acid fragments or proteins,1.4,Genetics and evolution
+OCR 6.1.3f,Principles and techniques of genetic engineering,2.51,Genetics and evolution
+OCR 6.1.3g,"Ethical issues of genetic manipulation of animals, plants and microorganisms",2.13,Genetics and evolution
+OCR 6.1.3h,Principles and potential of gene therapy in medicine,1.4,Genetics and evolution
+OCR 6.2.1a,Natural clones in plants and taking plant cuttings,2.55,Cloning and biotechnology
+OCR 6.2.1b,Artificial clones of plants: micropropagation and tissue culture,2.11,Cloning and biotechnology
+OCR 6.2.1c,Natural clones in animal species,1.4,Cloning and biotechnology
+OCR 6.2.1d,Artificial clones in animals: embryo twinning and SCNT,2.51,Cloning and biotechnology
+OCR 6.2.1e,Use of microorganisms in biotechnological processes,1.4,Cloning and biotechnology
+OCR 6.2.1f,Advantages and disadvantages of using microorganisms to make food,1.4,Cloning and biotechnology
+OCR 6.2.1g,Aseptic culture of microorganisms; batch and continuous fermentation,2.2,Cloning and biotechnology
+OCR 6.2.1h,Standard growth curve of a microorganism in a closed culture,2.33,Cloning and biotechnology
+OCR 6.2.1i,Uses of immobilised enzymes in biotechnology and methods of immobilisation,3,Cloning and biotechnology
+OCR 6.3.1a,"Ecosystems: size, dynamics, biotic and abiotic factors",1.84,Ecosystems
+OCR 6.3.1b,Biomass transfers through ecosystems,1.84,Ecosystems
+OCR 6.3.1c,Recycling within ecosystems,2.04,Ecosystems
+OCR 6.3.1d,Primary succession in the development of an ecosystem,1.4,Ecosystems
+OCR 6.3.1e,Measuring the distribution and abundance of organisms in ecosystems,2.06,Ecosystems
+OCR 6.3.2a,Factors that determine the size of a population,1.6,Ecosystems
+OCR 6.3.2b,Interactions between populations,1.4,Ecosystems
+OCR 6.3.2c,"Reasons for, and differences between, conservation and preservation",1.4,Ecosystems
+OCR 6.3.2d,Managing an ecosystem to provide resources sustainably,1.4,Ecosystems
+OCR 6.3.2e,Management of environmental resources and the effects of human activities,1.82,Ecosystems

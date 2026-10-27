@@ -17,10 +17,10 @@ import {
   scoreToRating,
 } from "./scheduler";
 import { weightOf } from "./pacing";
-import { SubjectPauseDAL } from "./pausesDal";
+import { SubjectPauseDAL, type PauseRecord } from "./pausesDal";
 import { pausedMsSince } from "./pauseTime";
 import { BreakDAL } from "./breaksDal";
-import { backOn } from "./breaks";
+import { backOn, type StudentBreak } from "./breaks";
 import { weekKeyToDate } from "./week";
 import { readCourseSnapshot, type CourseSnapshot } from "./readModels";
 import {
@@ -36,6 +36,7 @@ import {
   type TopicAssessment,
 } from "./assessability";
 import { selectIn, selectInSafe, selectInHistory } from "../platform/db/chunked";
+import { dbError } from "../platform/errors";
 
 /** One spec point's standing for the programme's expandable topic breakdown. */
 export interface ProgressPoint {
@@ -287,8 +288,29 @@ export class ScheduleDAL {
     level: LevelV;
     now?: Date;
   }): Promise<TopicProgress[]> {
+    const [snapshot, pauses, breaks] = await Promise.all([
+      readCourseSnapshot(params),
+      SubjectPauseDAL.history(params.studentId, params.subject),
+      BreakDAL.list(params.studentId),
+    ]);
+    return this.progressFrom({ ...params, snapshot, pauses, breaks });
+  }
+
+  /** {@link getTopicProgress} from reads already made ([[courseState]] makes them in one trip). */
+  static async progressFrom(params: {
+    studentId: string;
+    subject: SubjectV;
+    board: BoardV;
+    level: LevelV;
+    snapshot: CourseSnapshot | null;
+    /** The subject's recorded stops, oldest first. */
+    pauses: PauseRecord[];
+    /** The student's breaks that stand. */
+    breaks: StudentBreak[];
+    now?: Date;
+  }): Promise<TopicProgress[]> {
     const now = params.now ?? new Date();
-    const snapshot = await readCourseSnapshot(params);
+    const { snapshot } = params;
     const { data: topics, error: topicsError } = snapshot
       ? { data: snapshot.topics, error: null }
       : await supabase
@@ -297,7 +319,7 @@ export class ScheduleDAL {
           .eq("subject", params.subject)
           .eq("board", params.board)
           .eq("level", params.level);
-    if (topicsError) throw topicsError;
+    if (topicsError) throw dbError(topicsError);
     if (!topics || topics.length === 0) return [];
 
     const pts =
@@ -335,13 +357,13 @@ export class ScheduleDAL {
     // Paused time doesn't count. A review's clock stops while its subject is
     // stopped, so a pause never comes back as a pile of overdue reviews.
     const spans = [
-      ...(await SubjectPauseDAL.history(params.studentId, params.subject)).map((r) => ({
+      ...params.pauses.map((r) => ({
         start: new Date(r.startedAt),
         end: r.endedAt ? new Date(r.endedAt) : null,
       })),
       // A break stops it too. Once over, a break is recorded in the history
       // above; until then it is read from the booking.
-      ...(await BreakDAL.list(params.studentId))
+      ...params.breaks
         .filter((b) => !b.recordedAt)
         .map((b) => ({ start: weekKeyToDate(b.startsOn), end: weekKeyToDate(backOn(b)) })),
     ];

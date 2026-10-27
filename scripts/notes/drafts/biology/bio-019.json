@@ -1,0 +1,375 @@
+{
+  "format": 1,
+  "concept_id": "bio-019",
+  "subject": "biology",
+  "title": "The human digestive system",
+  "key_idea": "The digestive system is an organ system in which several organs work together to digest and absorb food. Digestive enzymes convert food into small soluble molecules. These are absorbed into the blood, mostly in the small intestine.",
+  "sections": [
+    {
+      "heading": "The organs and what they do",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The digestive system is an example of an organ system. This section covers each organ and its job."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap an organ of the digestive system to learn its job, then test yourself.",
+            "prompt": "Organs of the digestive system",
+            "parts": [
+              {
+                "name": "Salivary glands",
+                "detail": "Make amylase, which starts to break down starch."
+              },
+              {
+                "name": "Stomach",
+                "detail": "Makes protease and hydrochloric acid. The acid gives the right pH for the protease and kills microorganisms."
+              },
+              {
+                "name": "Liver",
+                "detail": "Makes bile. Bile is alkaline, so it neutralises acid from the stomach. It also emulsifies fat into small droplets, giving a larger surface area for lipase."
+              },
+              {
+                "name": "Gall bladder",
+                "detail": "Stores bile until it is released into the small intestine."
+              },
+              {
+                "name": "Pancreas",
+                "detail": "Makes amylase, protease and lipase and releases them into the small intestine."
+              },
+              {
+                "name": "Small intestine",
+                "detail": "Makes enzymes and finishes digestion. Most digested food molecules are absorbed into the blood here."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Several organs work together, so the digestive system is an organ system.",
+            "Amylase comes from the salivary glands, pancreas and small intestine.",
+            "Bile is made in the liver and stored in the gall bladder."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Digestion and absorption",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Food molecules are too large to pass into the blood. Digestion breaks them into small soluble molecules that can be absorbed."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Digestion",
+              "meaning": "Breaking down large food molecules into small soluble molecules, using enzymes."
+            },
+            {
+              "term": "Absorption",
+              "meaning": "Small soluble molecules moving from the small intestine into the blood."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Food molecule",
+            "Broken down by",
+            "Into"
+          ],
+          "rows": [
+            [
+              "Carbohydrates, such as starch",
+              "Carbohydrases, such as amylase",
+              "Simple sugars"
+            ],
+            [
+              "Proteins",
+              "Proteases",
+              "Amino acids"
+            ],
+            [
+              "Lipids (fats)",
+              "Lipases",
+              "Glycerol and fatty acids"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The next notes cover the enzymes in detail. The products of digestion are used to build new carbohydrates, lipids and proteins. Some glucose is used in respiration."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Digestive enzymes convert food into small soluble molecules.",
+            "The small molecules are absorbed into the bloodstream.",
+            "Most food molecules are absorbed in the small intestine."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The stomach and the small intestine",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two organs are examined more than the rest. Know why each one is suited to its job."
+        },
+        {
+          "type": "subheading",
+          "text": "The stomach"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The stomach is acidic because it produces hydrochloric acid.",
+            "This is the optimum pH for the protease made in the stomach.",
+            "The acid also kills microorganisms in the food."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The small intestine"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The lining has many villi, which have microvilli. These give a large surface area for absorption.",
+            "The wall of a villus is one cell thick, so there is a short pathway for molecules.",
+            "A good blood supply carries the molecules away. This keeps a steep concentration gradient.",
+            "The cells have many mitochondria. They release the energy for active transport of sugar."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stomach acid gives the right pH for protease.",
+            "Villi: large surface area, thin wall, good blood supply.",
+            "Many mitochondria provide energy for active transport."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Why is the digestive system called an organ system?",
+      "a": "Several organs work together to digest and absorb food.",
+      "marks": 1
+    },
+    {
+      "q": "Where is most digested food absorbed into the blood?",
+      "a": "The small intestine.",
+      "marks": 1
+    },
+    {
+      "q": "Give one way that villi are adapted for efficient absorption of sugar molecules.",
+      "a": "Any one from: microvilli increase the surface area; the wall is one cell thick, giving a short pathway; a good blood supply maintains the diffusion gradient; many mitochondria release energy for active transport.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 2.2",
+        "AQA T 4.2.2.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "f925ad12-fc55-4b31-8295-3b009f471c25",
+        "source": "AQA jun 2022, Paper 1 (F), Q1.3",
+        "question": "Foods are digested before they are absorbed into the blood.\n\nWhich term describes the pH in the stomach?\n\nGive one reason why the stomach is this pH.",
+        "marks": 2,
+        "answer_points": [
+          "Acidic.",
+          "Reason, any one from: it produces (hydrochloric) acid; it is the optimum or best condition for the enzyme (protease) to act.",
+          "Also accepted: it contains hydrochloric acid, or it kills microorganisms."
+        ],
+        "tip": "One mark for the term and one mark for a reason. Name the acid or link the pH to the enzyme."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 7.2.1",
+        "CAIE 7.2.2",
+        "CAIE 7.4.5",
+        "CAIE 3.2.1",
+        "CAIE 7.3.6",
+        "CAIE 7.4.4",
+        "CAIE 7.4.8S",
+        "CAIE 7.5.1"
+      ],
+      "worked_example": {
+        "exemplar_id": "f891eec5-715a-4cdb-9873-58c620183e34",
+        "source": "CAMBRIDGE jun 2025, Paper 43, Q1(b)(iv)",
+        "question": "Explain why amylase digests starch in the small intestine but does not digest starch in the stomach.",
+        "marks": 6,
+        "answer_points": [
+          "The stomach produces gastric juice containing hydrochloric acid.",
+          "The stomach is acidic, with a low pH.",
+          "The acid denatures the amylase.",
+          "This changes the shape of the active site.",
+          "The active site is no longer complementary to the substrate (starch).",
+          "Enzyme-substrate complexes cannot form.",
+          "Bile is released into the small intestine (duodenum) and is an alkaline mixture.",
+          "It neutralises the acidic mixture, giving a suitable pH for amylase to work."
+        ],
+        "tip": "Any six of these points score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The alimentary canal is the tube food passes through, from mouth to anus. Five processes happen along it."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Ingestion",
+                  "meaning": "Taking food and drink into the body through the mouth."
+                },
+                {
+                  "term": "Digestion",
+                  "meaning": "Breaking down food into small soluble molecules."
+                },
+                {
+                  "term": "Absorption",
+                  "meaning": "Moving nutrients from the intestines into the blood."
+                },
+                {
+                  "term": "Assimilation",
+                  "meaning": "Uptake and use of nutrients by cells."
+                },
+                {
+                  "term": "Egestion",
+                  "meaning": "Removing undigested food from the body as faeces."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Organs along the canal"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Mouth: teeth chew food, and the salivary glands add amylase. This is ingestion and the start of digestion.",
+                "Oesophagus: carries food to the stomach.",
+                "Stomach: churns food and adds acid and protease.",
+                "Small intestine: the duodenum is the first part, where bile and pancreatic juice enter. The ileum is the second part, where nutrients are absorbed.",
+                "Large intestine: the colon absorbs water, and the rectum stores faeces. The anus is where faeces leave the body (egestion)."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Where enzymes are made and where they act"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Amylase is made in the salivary glands, pancreas and small intestine. It acts in the mouth and the small intestine.",
+                "Protease is made in the stomach, pancreas and small intestine. It acts in the stomach and the small intestine.",
+                "Lipase is made in the pancreas and small intestine. It acts in the small intestine."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Other points"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The stomach wall churns food. This is physical digestion.",
+                "Water is a solvent. Digested food dissolves in it for absorption and transport, and waste dissolves in it for excretion.",
+                "(Supplement) Bile is alkaline. It neutralises the acidic mixture from the stomach, giving a suitable pH for enzymes in the small intestine."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.27",
+        "IGCSE 2.28",
+        "IGCSE 2.30"
+      ],
+      "worked_example": {
+        "exemplar_id": "5fb800e0-aa38-431b-9093-2cfb8df4c47f",
+        "source": "EDEXCEL jun 2023, Paper 1 (BR), Q2(a)",
+        "question": "Lentils are a good source of protein and are often eaten as part of a balanced diet.\nDescribe how lentils are transported from the mouth to the stomach after being eaten.",
+        "marks": 2,
+        "answer_points": [
+          "Peristalsis.",
+          "Muscle contraction.",
+          "Along the oesophagus."
+        ],
+        "tip": "Any two of these points score the marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The alimentary canal is the tube food passes through. Each part has its own job."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Mouth: teeth chew food, and saliva contains amylase.",
+                "Oesophagus: carries food from the mouth to the stomach.",
+                "Stomach: churns food and adds acid and protease.",
+                "Small intestine: the duodenum is the first part and the ileum is the second. Nutrients are absorbed here.",
+                "Pancreas: makes enzymes that act in the small intestine.",
+                "Large intestine: the colon absorbs water, and the rectum stores faeces."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Peristalsis"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Peristalsis** is a wave of muscle contraction along the gut wall.",
+                "Muscles behind the food contract and push it along.",
+                "It moves food through the whole gut, not only the oesophagus."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "82cd7442-3455-4be9-87fc-894abcf02e5d",
+      "c874b05f-5fb0-4430-b94e-f1edc32f9be2",
+      "853ca112-6d30-4971-b580-c46a659ed3de",
+      "bf149536-9689-44b9-9439-14d2a08fcf29",
+      "d31f3ecf-0099-4817-b443-04841bffb5af",
+      "5fbeedca-673b-45d8-9cbb-1f015a4f3e6e",
+      "48307987-b92d-4961-beda-a457569024ce"
+    ],
+    "exemplar_ids": [
+      "f925ad12-fc55-4b31-8295-3b009f471c25",
+      "f891eec5-715a-4cdb-9873-58c620183e34",
+      "5fb800e0-aa38-431b-9093-2cfb8df4c47f"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

@@ -1,0 +1,389 @@
+{
+  "format": 1,
+  "concept_id": "aphys-065",
+  "subject": "physics",
+  "title": "Gravitational potential and energy",
+  "key_idea": "Gravitational potential at a point is the work done per unit mass in bringing a small mass from infinity to that point. It is negative, V = −GM/r, and zero at infinity. The potential energy of a mass is E = mV = −GMm/r.",
+  "sections": [
+    {
+      "heading": "Gravitational potential",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Potential tells you how much energy each kilogram has at a point in a field, measured from a zero at infinity."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Gravitational potential, V",
+              "meaning": "The work done per unit mass in bringing a small test mass from infinity to the point."
+            },
+            {
+              "term": "Potential difference, ΔV",
+              "meaning": "The change in potential between two points."
+            },
+            {
+              "term": "Equipotential surface",
+              "meaning": "A surface on which every point has the same potential."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Potential of a point mass",
+          "formula": "V = −G M / r",
+          "where": [
+            "V = gravitational potential (J/kg)",
+            "G = gravitational constant (6.67 × 10⁻¹¹ N m² kg⁻²)",
+            "M = mass producing the field (kg)",
+            "r = distance from the centre of M (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Potential is **zero at infinity**, the point furthest from every mass.",
+            "The negative sign appears because gravity is attractive: the field does the work as a mass comes in from infinity, so potential falls below zero.",
+            "The closer to the mass, the more negative V becomes.",
+            "Potential is a scalar: it has size and sign but no direction."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A graph of gravitational potential against distance from the centre of a planet. It starts strongly negative at the surface and rises towards zero as distance increases.",
+            "x": {
+              "label": "Distance from centre of planet",
+              "min": 1,
+              "max": 8,
+              "ticks": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+              ],
+              "unit": "R"
+            },
+            "y": {
+              "label": "Gravitational potential V",
+              "zero": 0.9
+            },
+            "series": [
+              {
+                "name": "V = −GM/r",
+                "points": [
+                  [
+                    1,
+                    0.1
+                  ],
+                  [
+                    1.5,
+                    0.37
+                  ],
+                  [
+                    2,
+                    0.5
+                  ],
+                  [
+                    3,
+                    0.63
+                  ],
+                  [
+                    4,
+                    0.7
+                  ],
+                  [
+                    6,
+                    0.79
+                  ],
+                  [
+                    8,
+                    0.82
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "V is work done per unit mass from infinity, and V = −GM/r.",
+            "V is zero at infinity and negative everywhere else.",
+            "V is a scalar; equipotentials are surfaces of equal V."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Work, equipotentials and graphs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Moving a mass between points of different potential needs work. Potential and field strength are linked by a gradient."
+        },
+        {
+          "type": "equation",
+          "label": "Work done moving a mass",
+          "formula": "ΔW = m ΔV",
+          "where": [
+            "ΔW = work done (J)",
+            "m = mass moved (kg)",
+            "ΔV = potential difference between the points (J/kg)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "No work is done moving a mass along an **equipotential** surface, because ΔV = 0.",
+            "Around a point mass the equipotentials are spheres centred on the mass.",
+            "Field lines cross equipotentials at right angles."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Field strength from the potential gradient",
+          "formula": "g = −ΔV / Δr",
+          "where": [
+            "g = gravitational field strength (N/kg)",
+            "ΔV = change in potential (J/kg)",
+            "Δr = change in distance (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "On a graph of V against r, the **gradient** is minus the field strength: g is the size of the slope.",
+            "On a graph of g against r, the **area under the graph** between two distances is the change in potential ΔV.",
+            "Both g and the size of V fall as r increases, but V falls as 1/r and g as 1/r²."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ΔW = mΔV; no work is done along an equipotential.",
+            "g = −ΔV/Δr: field strength is the negative of the potential gradient.",
+            "ΔV is the area under a graph of g against r."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Potential energy and escape velocity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A mass m at potential V has gravitational potential energy mV. This is the energy needed to move it to infinity with no energy left over."
+        },
+        {
+          "type": "equation",
+          "label": "Gravitational potential energy",
+          "formula": "E = m V = −G M m / r",
+          "where": [
+            "E = gravitational potential energy (J)",
+            "m = the small mass (kg)",
+            "M = the mass producing the field (kg)",
+            "r = separation of the centres (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "On a graph of force against distance for a point or spherical mass, the **area under the graph** is the work done between two distances.",
+            "The change in potential energy as r changes is ΔE = mΔV.",
+            "To escape, a mass must be given at least enough kinetic energy to reach infinity, where its potential energy is zero."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "At the minimum escape speed the kinetic energy just equals the size of the potential energy. The mass arrives at infinity with no speed left."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Energy balance",
+              "text": "Kinetic energy + potential energy = 0 at the escape speed."
+            },
+            {
+              "lead": "Substitute",
+              "text": "½mv² − GMm/r = 0."
+            },
+            {
+              "lead": "Rearrange",
+              "text": "The mass m cancels, so v² = 2GM/r."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Escape velocity",
+          "formula": "v = √(2 G M / r)",
+          "where": [
+            "v = escape speed (m/s)",
+            "G = gravitational constant (6.67 × 10⁻¹¹ N m² kg⁻²)",
+            "M = mass of the planet (kg)",
+            "r = distance from its centre (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Escape velocity does not depend on the mass of the escaping object.",
+            "Atoms in a planet's atmosphere can escape if their speed is above the escape velocity. Light, fast atoms such as hydrogen escape from small planets more easily than heavy ones."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of the escape velocity from a planet, with new numbers each time.",
+            "question": "A planet has mass {M} × 10²⁴ kg and radius {r} × 10⁶ m. Calculate the escape velocity from its surface in km/s. (G = 6.67 × 10⁻¹¹ N m² kg⁻²)",
+            "variables": [
+              {
+                "id": "M",
+                "min": 1,
+                "max": 10,
+                "step": 0.5
+              },
+              {
+                "id": "r",
+                "min": 3,
+                "max": 10,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "sqrt(2 * 6.67 * 10 * M / r) ",
+              "unit": "km/s",
+              "decimals": 1,
+              "tolerance_percent": 3
+            },
+            "working": [
+              "v = √(2GM/r)",
+              "v² = 2 × 6.67 × 10⁻¹¹ × {M} × 10²⁴ ÷ ({r} × 10⁶)",
+              "v = {answer} km/s"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "E = mV = −GMm/r, and E is zero at infinity.",
+            "The area under a force–distance graph is the work done.",
+            "Escape velocity: ½mv² = GMm/r, so v = √(2GM/r)."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define gravitational potential at a point and state why it is negative.",
+      "a": "The work done per unit mass in bringing a small test mass from infinity to the point. It is negative because gravity is attractive and potential is defined as zero at infinity, so work is done by the field as the mass comes in.",
+      "marks": 3
+    },
+    {
+      "q": "A graph shows gravitational field strength g against distance r. State how to find the change in potential between two distances.",
+      "a": "Find the area under the graph between the two values of r. This area equals ΔV.",
+      "marks": 2
+    },
+    {
+      "q": "Show that the escape velocity from a planet of mass M and radius R is √(2GM/R).",
+      "a": "Escape needs the kinetic energy to equal the size of the potential energy: ½mv² = GMm/R. Cancel m and rearrange to get v² = 2GM/R, so v = √(2GM/R).",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.2.3"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 12.178"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 13.4.1",
+        "CAIE 13.4.2",
+        "CAIE 13.4.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course writes gravitational potential with the symbol φ and potential energy as E_P."
+            },
+            {
+              "type": "list",
+              "items": [
+                "φ = −GM/r is used for the potential in the field of a point mass.",
+                "E_P = −GMm/r follows from the definition of potential: the potential energy of two point masses is the mass multiplied by the potential."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.4.4a",
+        "OCR 5.4.4b",
+        "OCR 5.4.4c",
+        "OCR 5.4.4d",
+        "OCR 5.4.4e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course uses the symbol Vg for gravitational potential and links the energy to the force–distance graph."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Vg = −GM/r at distance r from a point mass M, and changes in potential are ΔVg.",
+                "E = mVg = −GMm/r at distance r from a point mass M.",
+                "For the graph of force against distance for a point or spherical mass, work done is the area under the graph.",
+                "You may be asked to predict whether atoms can escape from the atmosphere of a planet, using escape velocity."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "7804de5c-a213-420e-b706-0ede23ea769f",
+      "6350f022-cdd9-4dc6-84ba-976435929ad9",
+      "7748fee6-e674-4d8f-8075-b108148cac32",
+      "40dc61b3-c6da-4ebe-bca8-4d45da398283",
+      "a1b874f0-792e-4c05-8a72-ff598f14576f",
+      "ed702e10-83e9-4176-b44c-32dec99390c5",
+      "3339251c-9ab8-4254-8565-9ea38e30c590",
+      "46b55ba7-dbc5-4ead-8206-d14a5b74727b",
+      "4f6f5751-9e13-411f-b6b5-21d2a7a6a3c2",
+      "9b984fde-d473-41a5-b039-70907107faea"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

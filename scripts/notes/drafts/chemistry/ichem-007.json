@@ -1,0 +1,467 @@
+{
+  "format": 1,
+  "concept_id": "ichem-007",
+  "subject": "chemistry",
+  "title": "Structural formulae, isomers and naming",
+  "key_idea": "A structural formula shows how the atoms in a molecule are arranged. Organic compounds are named from the number of carbons and the functional group. Structural isomers have the same molecular formula but different structural formulae.",
+  "sections": [
+    {
+      "heading": "Ways to write an organic molecule",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "One molecule can be written in several ways. This section covers the types of formula and the words used for families of compounds."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Molecular formula",
+              "meaning": "The number of atoms of each element in one molecule, e.g. C₂H₆O."
+            },
+            {
+              "term": "Empirical formula",
+              "meaning": "The simplest whole-number ratio of atoms of each element."
+            },
+            {
+              "term": "General formula",
+              "meaning": "One formula that fits every member of a homologous series, e.g. CₙH₂ₙ₊₂ for alkanes."
+            },
+            {
+              "term": "Structural formula",
+              "meaning": "An unambiguous description of how the atoms are arranged, e.g. CH₃CH₂OH."
+            },
+            {
+              "term": "Displayed formula",
+              "meaning": "Shows every atom and every bond as a drawing."
+            },
+            {
+              "term": "Homologous series",
+              "meaning": "A family of compounds with the same functional group and general formula."
+            },
+            {
+              "term": "Functional group",
+              "meaning": "The atom or group of atoms that decides the chemical reactions of a compound."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ethane has the molecular formula C₂H₆ and the empirical formula CH₃.",
+            "Ethanol has the molecular formula C₂H₆O and the structural formula CH₃CH₂OH.",
+            "Ethene is written CH₂=CH₂. The double bond is part of the structural formula.",
+            "Methyl ethanoate is written CH₃COOCH₃. It shows the order of the atoms, so it cannot mean anything else.",
+            "Members of a series have similar chemical properties. Each differs from the next by one CH₂ group, and they show a trend in physical properties, such as boiling point.",
+            "In a displayed formula, carbon forms four bonds, oxygen two and hydrogen one. A C=O or C=C is drawn as a double bond."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A structural formula shows the arrangement of atoms. A molecular formula only shows the numbers.",
+            "A displayed formula shows every atom and every bond.",
+            "A homologous series shares a functional group and a general formula."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Naming unbranched compounds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The name has a stem for the length of the carbon chain and an ending for the functional group."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Carbons",
+            "Stem"
+          ],
+          "rows": [
+            [
+              "1",
+              "meth-"
+            ],
+            [
+              "2",
+              "eth-"
+            ],
+            [
+              "3",
+              "prop-"
+            ],
+            [
+              "4",
+              "but-"
+            ],
+            [
+              "5",
+              "pent-"
+            ],
+            [
+              "6",
+              "hex-"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Series",
+            "Ending",
+            "Functional group",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Alkane",
+              "-ane",
+              "C–C single bonds only",
+              "propane, CH₃CH₂CH₃"
+            ],
+            [
+              "Alkene",
+              "-ene",
+              "C=C double bond",
+              "propene, CH₂=CHCH₃"
+            ],
+            [
+              "Alcohol",
+              "-ol",
+              "–OH",
+              "ethanol, CH₃CH₂OH"
+            ],
+            [
+              "Carboxylic acid",
+              "-oic acid",
+              "–COOH",
+              "ethanoic acid, CH₃COOH"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Alkanes and alkenes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The first five alkanes are methane CH₄, ethane CH₃CH₃, propane CH₃CH₂CH₃, butane CH₃CH₂CH₂CH₃ and pentane CH₃CH₂CH₂CH₂CH₃.",
+            "The first three alkenes are ethene CH₂=CH₂, propene CH₂=CHCH₃ and butene.",
+            "Butene has two unbranched forms. **But-1-ene** is CH₂=CHCH₂CH₃ and **but-2-ene** is CH₃CH=CHCH₃.",
+            "The number gives the first carbon of the double bond, counting from the end that gives the lower number."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Alcohols and carboxylic acids"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Propanol has two forms. **Propan-1-ol** is CH₃CH₂CH₂OH and **propan-2-ol** is CH₃CH(OH)CH₃.",
+            "Butanol also has two unbranched forms. **Butan-1-ol** is CH₃CH₂CH₂CH₂OH and **butan-2-ol** is CH₃CH(OH)CH₂CH₃.",
+            "The number gives the carbon that carries the –OH group."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Acid",
+            "Structural formula"
+          ],
+          "rows": [
+            [
+              "Methanoic acid",
+              "HCOOH"
+            ],
+            [
+              "Ethanoic acid",
+              "CH₃COOH"
+            ],
+            [
+              "Propanoic acid",
+              "CH₃CH₂COOH"
+            ],
+            [
+              "Butanoic acid",
+              "CH₃CH₂CH₂COOH"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The carbon of the –COOH group counts in the chain, so ethanoic acid has two carbons."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The stem gives the number of carbons: meth, eth, prop, but, pent, hex.",
+            "The ending gives the series: -ane, -ene, -ol, -oic acid.",
+            "A number shows where the C=C or –OH is on the chain."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Esters",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An ester is made from an alcohol and a carboxylic acid. Its name comes from both parent compounds."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The ester group is –COO–.",
+            "The first word comes from the alcohol and ends in **-yl**: methanol gives methyl, ethanol gives ethyl.",
+            "The second word comes from the acid and ends in **-oate**: ethanoic acid gives ethanoate, butanoic acid gives butanoate."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Name it",
+              "text": "Butanoic acid and ethanol make ethyl butanoate."
+            },
+            {
+              "lead": "Write it",
+              "text": "The acid chain comes first and joins through COO to the alcohol chain: CH₃CH₂CH₂COOCH₂CH₃."
+            },
+            {
+              "lead": "Work backwards",
+              "text": "In CH₃COOCH₂CH₂CH₂CH₃ the chain after COO has four carbons (butyl) and the acid part has two (ethanoate): butyl ethanoate."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Methyl ethanoate is CH₃COOCH₃.",
+            "Ethyl ethanoate is CH₃COOCH₂CH₃.",
+            "Propyl butanoate has 7 carbon atoms in total: 4 from butanoic acid and 3 from propan-1-ol."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Structural formulae are sorted into alkanes, alkenes and alcohols.",
+            "prompt": "Sort each structural formula into the right homologous series.",
+            "groups": [
+              "Alkane",
+              "Alkene",
+              "Alcohol"
+            ],
+            "items": [
+              {
+                "text": "CH₃CH₂CH₃",
+                "group": 0
+              },
+              {
+                "text": "CH₃CH₂CH₂CH₃",
+                "group": 0
+              },
+              {
+                "text": "CH₂=CHCH₃",
+                "group": 1
+              },
+              {
+                "text": "CH₃CH=CHCH₃",
+                "group": 1
+              },
+              {
+                "text": "CH₃CH₂OH",
+                "group": 2
+              },
+              {
+                "text": "CH₃CH(OH)CH₃",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An ester name has the alcohol part first (-yl) and the acid part second (-oate).",
+            "Count the carbons on each side of COO to work out the parent alcohol and acid."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Structural isomers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some molecular formulae can be written as more than one structural formula. This section covers what that means and the examples you need."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Structural isomers",
+              "meaning": "Compounds with the same molecular formula but different structural formulae."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Molecular formula",
+            "Isomer 1",
+            "Isomer 2"
+          ],
+          "rows": [
+            [
+              "C₄H₁₀",
+              "butane, CH₃CH₂CH₂CH₃",
+              "methylpropane, CH₃CH(CH₃)CH₃"
+            ],
+            [
+              "C₄H₈",
+              "but-1-ene, CH₃CH₂CH=CH₂",
+              "but-2-ene, CH₃CH=CHCH₃"
+            ],
+            [
+              "C₃H₈O",
+              "propan-1-ol, CH₃CH₂CH₂OH",
+              "propan-2-ol, CH₃CH(OH)CH₃"
+            ],
+            [
+              "C₃H₆O₂",
+              "propanoic acid, CH₃CH₂COOH",
+              "methyl ethanoate, CH₃COOCH₃"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pentane, C₅H₁₂, has three isomers. Only one of them is unbranched.",
+            "Isomers can be in the same series, such as butane and methylpropane.",
+            "Isomers can also be in different series, such as an ester and a carboxylic acid with the same formula.",
+            "To spot isomers, count each atom to check the molecular formula, then compare how the atoms are joined."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Isomers have the same molecular formula but different structural formulae.",
+            "Different arrangements can give different names and different properties."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by the term structural isomers.",
+      "a": "Compounds with the same molecular formula but different structural formulae.",
+      "marks": 2
+    },
+    {
+      "q": "Name the ester made from propanoic acid and methanol, and write its structural formula.",
+      "a": "Methyl propanoate, CH₃CH₂COOCH₃.",
+      "marks": 2
+    },
+    {
+      "q": "Write the structural formulae of propan-1-ol and propan-2-ol.",
+      "a": "Propan-1-ol is CH₃CH₂CH₂OH. Propan-2-ol is CH₃CH(OH)CH₃.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.1.7S",
+        "CAIE 11.1.8S",
+        "CAIE 11.2.3S",
+        "CAIE 11.2.4S"
+      ],
+      "worked_example": {
+        "exemplar_id": "6fc68e86-5422-4760-9a3d-fdeeaa76791a",
+        "source": "CAMBRIDGE nov 2024, Paper 41, Q5(d)",
+        "question": "Hydrogen is the first element of the Periodic Table. For each of the homologous series shown, name a member that contains six hydrogen atoms.\n● alkanes\n● alkenes\n● alcohols\n● carboxylic acids",
+        "marks": 4,
+        "answer_points": [
+          "Alkane: ethane (C₂H₆).",
+          "Alkene: propene (C₃H₆).",
+          "Alcohol: ethanol (C₂H₅OH).",
+          "Carboxylic acid: propanoic acid (C₂H₅COOH)."
+        ],
+        "tip": "One mark for each correct name. Check the hydrogen count in the formula, including the hydrogen in –OH and –COOH."
+      },
+      "extra": [
+        {
+          "heading": "What this course asks",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Everything in this note is Supplement content for this course."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Know that a structural formula is an unambiguous description of how the atoms are arranged.",
+                "Write structural isomers of C₄H₁₀ and C₄H₈, as in the table.",
+                "Name and draw alkanes, alkenes, alcohols, carboxylic acids (up to four carbons) and the unbranched esters made from them."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.2",
+        "IGCSE 4.4",
+        "IGCSE 4.5",
+        "IGCSE 4.21",
+        "IGCSE 4.26",
+        "IGCSE 4.41C",
+        "IGCSE 4.3",
+        "IGCSE 4.35C",
+        "IGCSE 4.40C"
+      ],
+      "worked_example": {
+        "exemplar_id": "925d95c9-c6a8-4d22-a606-0e303471521f",
+        "source": "EDEXCEL jun 2024, Paper 1 (C), Q8(a)(i)",
+        "question": "This question is about hydrocarbons. The molecular formula C₄H₈ represents all the isomers of an alkene. Explain what is meant by the term isomers.",
+        "marks": 2,
+        "answer_points": [
+          "Compounds with the same molecular formula.",
+          "But different structural or displayed formulae (different arrangements of atoms)."
+        ],
+        "tip": "The second mark does not depend on the first, so give both points."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "45dface7-42ad-4f30-af57-73e60a265df8",
+      "fe0b5716-dd09-4a95-bf60-345ce3e535bb",
+      "00b848f2-f1da-4191-b3b9-2836365808d4",
+      "0288ac15-20b7-4970-b7a4-2dddf00304bf",
+      "6ae7cd8c-9870-4cbc-ab58-1286592a701e",
+      "03448729-5567-420d-9295-4de444cca19a",
+      "ab1f64ad-80b5-408f-a3cd-7d47600c6cc4",
+      "82a7d371-e05e-4127-8292-970c0a854f15",
+      "c43de2c0-35a5-49e0-868e-f5f8a11599c5",
+      "f2b1e3d9-9f1e-4d38-a498-23490625bf7d"
+    ],
+    "exemplar_ids": [
+      "6fc68e86-5422-4760-9a3d-fdeeaa76791a",
+      "925d95c9-c6a8-4d22-a606-0e303471521f"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

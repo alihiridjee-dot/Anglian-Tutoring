@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { NoteView } from "@/components/notes/NoteView";
 import { findDraft } from "@/lib/notes/draftNotes";
-import { NOTE_BOARDS, type NoteBoard } from "@/lib/notes/noteFormat";
+import { NOTE_BOARDS, NOTE_COURSE, type NoteBoard } from "@/lib/notes/noteFormat";
 
 // DEV ONLY — the same note from two writers, side by side, for a blind comparison.
 type Search = { board: NoteBoard; left: string; right: string };
@@ -28,7 +28,9 @@ export const Route = createFileRoute("/notes-preview/compare/$conceptId")({
   component: Compare,
 });
 
-const LABEL: Record<NoteBoard, string> = { aqa: "AQA", edexcel: "Edexcel", ocr: "OCR" };
+const LABEL = Object.fromEntries(
+  NOTE_BOARDS.map((b) => [b, `${NOTE_COURSE[b].board} ${NOTE_COURSE[b].level}`]),
+) as Record<NoteBoard, string>;
 const TRIAL = ["bio-001", "bio-008", "bio-012", "bio-013", "bio-015"];
 const SET_LABEL: Record<string, string> = {
   "trial/a": "Sonnet — first draft",

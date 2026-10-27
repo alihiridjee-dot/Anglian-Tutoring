@@ -1,0 +1,82 @@
+code,title,weight,topic
+AQA 4.1.1.1,Energy stores and systems,4.37,Energy
+AQA 4.1.1.2,Changes in energy,2.74,Energy
+AQA 4.1.1.3,Energy changes in systems,3.54,Energy
+AQA 4.1.1.4,Power,2.45,Energy
+AQA 4.1.2.1,Energy transfers in a system,5.29,Energy
+AQA 4.1.2.2,Efficiency,1.6,Energy
+AQA 4.1.3,National and global energy resources,4.34,Energy
+AQA 4.2.1.1,Standard circuit diagram symbols,1.5,Electricity
+AQA 4.2.1.2,Electrical charge and current,1.3,Electricity
+AQA 4.2.1.3,"Current, resistance and potential difference",4.06,Electricity
+AQA 4.2.1.4,Resistors,6.02,Electricity
+AQA 4.2.2,Series and parallel circuits,5.12,Electricity
+AQA 4.2.3.1,Direct and alternating potential difference,1.7,Electricity
+AQA 4.2.3.2,Mains electricity,3.12,Electricity
+AQA 4.2.4.1,Power,1.7,Electricity
+AQA 4.2.4.2,Energy transfers in everyday appliances,4.67,Electricity
+AQA 4.2.4.3,The National Grid,1.7,Electricity
+AQA 4.2.5.1,Static charge,2.23,Electricity
+AQA 4.2.5.2,Electric fields,2.16,Electricity
+AQA 4.3.1.1,Density of materials,4.87,Particle model of matter
+AQA 4.3.1.2,Changes of state,1.3,Particle model of matter
+AQA 4.3.2.1,Internal energy,1.3,Particle model of matter
+AQA 4.3.2.2,Temperature changes in a system and specific heat capacity,2.23,Particle model of matter
+AQA 4.3.2.3,Changes of state and specific latent heat,2.3,Particle model of matter
+AQA 4.3.3.1,Particle motion in gases,2.14,Particle model of matter
+AQA 4.3.3.2,Pressure in gases (physics only),2.74,Particle model of matter
+AQA 4.3.3.3,Increasing the pressure of a gas (physics only) (HT only),1.7,Particle model of matter
+AQA 4.4.1.1,The structure of an atom,1.32,Atomic structure
+AQA 4.4.1.2,"Mass number, atomic number and isotopes",1.68,Atomic structure
+AQA 4.4.1.3,The development of the model of the atom (common content with chemistry),2.89,Atomic structure
+AQA 4.4.2.1,Radioactive decay and nuclear radiation,3.08,Atomic structure
+AQA 4.4.2.2,Nuclear equations,2.03,Atomic structure
+AQA 4.4.2.3,Half-lives and the random nature of radioactive decay,2.83,Atomic structure
+AQA 4.4.2.4,Radioactive contamination,1.93,Atomic structure
+AQA 4.4.3.1,Background radiation,1.74,Atomic structure
+AQA 4.4.3.2,Different half-lives of radioactive isotopes,1.7,Atomic structure
+AQA 4.4.3.3,Uses of nuclear radiation,2.18,Atomic structure
+AQA 4.4.4.1,Nuclear fission,1.61,Atomic structure
+AQA 4.4.4.2,Nuclear fusion,1.3,Atomic structure
+AQA 4.5.1.1,Scalar and vector quantities,1.3,Forces
+AQA 4.5.1.2,Contact and non-contact forces,1.74,Forces
+AQA 4.5.1.3,Gravity,1.8,Forces
+AQA 4.5.1.4,Resultant forces,3.66,Forces
+AQA 4.5.2,Work done and energy transfer,2.15,Forces
+AQA 4.5.3,Forces and elasticity,7.35,Forces
+AQA 4.5.4,"Moments, levers and gears (physics only)",2.98,Forces
+AQA 4.5.5.1,Pressure in a fluid,4.13,Forces
+AQA 4.5.5.2,Atmospheric pressure,1.79,Forces
+AQA 4.5.6.1,Describing motion along a line,8.3,Forces
+AQA 4.5.6.2,"Forces, accelerations and Newton's Laws of motion",7.53,Forces
+AQA 4.5.6.3,Forces and braking,6.19,Forces
+AQA 4.5.7.1,Momentum is a property of moving objects,1.3,Forces
+AQA 4.5.7.2,Conservation of momentum,1.94,Forces
+AQA 4.5.7.3,Changes in momentum (physics only),2.09,Forces
+AQA 4.6.1.1,Transverse and longitudinal waves,1.65,Waves
+AQA 4.6.1.2,Properties of waves,5.92,Waves
+AQA 4.6.1.3,Reflection of waves (physics only),3.85,Waves
+AQA 4.6.1.4,Sound waves (physics only) (HT only),1.84,Waves
+AQA 4.6.1.5,Waves for detection and exploration (physics only) (HT only),2.36,Waves
+AQA 4.6.2.1,Types of electromagnetic waves,1.55,Waves
+AQA 4.6.2.2,Properties of electromagnetic waves 1,4.21,Waves
+AQA 4.6.2.3,Properties of electromagnetic waves 2,2.47,Waves
+AQA 4.6.2.4,Uses and applications of electromagnetic waves,3.12,Waves
+AQA 4.6.2.5,Lenses (physics only),1.98,Waves
+AQA 4.6.2.6,Visible light (physics only),2.78,Waves
+AQA 4.6.3.1,Emission and absorption of infrared radiation,1.3,Waves
+AQA 4.6.3.2,Perfect black bodies and radiation,3.53,Waves
+AQA 4.7.1.1,Poles of a magnet,1.88,Magnetism and electromagnetism
+AQA 4.7.1.2,Magnetic fields,2.69,Magnetism and electromagnetism
+AQA 4.7.2.1,Electromagnetism,3.13,Magnetism and electromagnetism
+AQA 4.7.2.2,Fleming's left-hand rule (HT only),2.01,Magnetism and electromagnetism
+AQA 4.7.2.3,Electric motors (HT only),1.7,Magnetism and electromagnetism
+AQA 4.7.2.4,Loudspeakers (physics only) (HT only),1.7,Magnetism and electromagnetism
+AQA 4.7.3.1,Induced potential (HT only),2.57,Magnetism and electromagnetism
+AQA 4.7.3.2,Uses of the generator effect (HT only),2.14,Magnetism and electromagnetism
+AQA 4.7.3.3,Microphones (HT only),1.7,Magnetism and electromagnetism
+AQA 4.7.3.4,Transformers (HT only),3.68,Magnetism and electromagnetism
+AQA 4.8.1.1,Our solar system,2.2,Space physics (physics only)
+AQA 4.8.1.2,The life cycle of a star,2.49,Space physics (physics only)
+AQA 4.8.1.3,"Orbital motion, natural and artificial satellites",2.79,Space physics (physics only)
+AQA 4.8.2,Red-shift (physics only),3.26,Space physics (physics only)

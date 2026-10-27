@@ -142,9 +142,12 @@ the same debt minus whatever the current week already carries — **read that on
 for display**, or a panel goes on offering "practise Topic 1" straight after the
 student has put all of Topic 1 into their week.
 
-`CatchUpPanel` is the on-demand path: one control puts a whole topic's
-outstanding points into the current week, hand-picked (`student` / `tutor`), so
-it survives a re-cut. Admissibility already permitted this — `admit()` tests
+The on-demand path is the tutor's: "Add to this week" on a missed topic in the
+tutor's Full plan (`useAddMissedToWeek`) puts the topic's outstanding points
+into the current week, hand-picked (`tutor`), so it survives a re-cut. Students
+had the same control ("Practise now", `CatchUpPanel`) until 7 Oct 2026, when Ali
+removed it with "Retake this topic": students don't add to their own week.
+Admissibility already permitted this — `admit()` tests
 whether a topic *has opened*, not whether it is open now — so nothing was
 relaxed to allow it.
 
@@ -234,3 +237,34 @@ Run `bun scripts/simulate-scheduler.ts`; results are in `scheduler-simulation.js
 The scenarios use 90 unit-weight skills, uncapped eligible reviews and the full
 teaching window. Results report peak weekly reviews and spacing violations. These
 are synthetic stress scenarios, not predictions for actual students.
+
+## Stress-test fixes, 2026-10-05
+
+Found by a stress audit of the student planner (see
+`docs/SCHEDULER_STRESS_AUDIT_HANDOFF.md`); each has a unit test.
+
+- **A ticked-off point is never taught again.** `selectWeek` treats
+  `completedPointIds` as delivered on every spine, not only under a custom order.
+- **A reorder or a pause resume carries a review horizon only from a band that
+  had opened.** A topic moved from November to April used to keep November as
+  `reviewStartWeek`, so untaught material was admitted as revision.
+- **The 200-point week cap is applied at `addPoints` and on a re-cut.** The
+  direct upsert used to sail past the cap `save_weekly_plan` enforces, after
+  which every re-cut of that week threw and the planner showed an error for
+  ever. `mergeWeek` now sheds fresh automatic points past the cap.
+- **A custom order the new exam date cannot hold no longer throws.** `liveSpine`
+  keeps the stored spine and `unscheduledTopicTitles` reports the overflow.
+- **Catch-up order inside a week is numeric on the spec code** (1.8 before 1.10;
+  landed with #211).
+- **An empty cut carries a rationale**, and the rationale is now shown to the
+  student under the week (it used to render only in the sales demo).
+- **`?week=` on the planner route is a real calendar date snapped to its Monday**,
+  or absent; an impossible date used to throw in the tutor planner.
+- Student surfaces: week arrows stop at the programme start and the exam week; a
+  post-exam week, a pre-programme week and an unbuilt future week each say so
+  with a way forward; an out-of-range exam date is refused aloud and put back;
+  a date that drops topics warns; ticks are optimistic (a double-tap nets out);
+  carry-forward lands in the current week when reviewing an older week, skips
+  ticked points, and is hidden once next week is at or after the exam; "Review
+  more now" offers only reviews this week may hold; paused weeks link to
+  Billing; the weekly task list is on the planner's This week tab too.

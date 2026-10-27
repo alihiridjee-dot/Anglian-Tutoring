@@ -1,0 +1,344 @@
+{
+  "format": 1,
+  "concept_id": "chem-067",
+  "subject": "chemistry",
+  "title": "Measuring and calculating rates of reaction",
+  "key_idea": "The **rate of reaction** is how quickly reactants are used up or products are formed. Mean rate is the quantity divided by the time taken. On a graph against time, a steeper line means a faster reaction, and the gradient of a tangent gives the rate at one moment.",
+  "sections": [
+    {
+      "heading": "What rate of reaction means",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how to measure a rate and how to calculate a mean rate from results."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Rate of reaction",
+              "meaning": "How fast reactants are used up or products are formed."
+            },
+            {
+              "term": "Mean rate",
+              "meaning": "The total change in quantity divided by the total time taken."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Measure the quantity of a reactant used up, or the quantity of a product formed, over time.",
+            "The quantity can be a **mass in grams** or a **volume in cm³**.",
+            "The unit of rate follows from the units used: g/s or cm³/s. If the time is in minutes, the unit is g/min or cm³/min.",
+            "(AQA: Higher tier) The quantity can also be in moles, so the unit of rate is mol/s."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Mean rate of reaction",
+          "formula": "mean rate of reaction = quantity of product formed ÷ time taken",
+          "where": [
+            "quantity of product formed, in g or cm³",
+            "time taken, in s",
+            "mean rate, in g/s or cm³/s"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "For a reactant, use the quantity of reactant used up in place of the quantity of product formed."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the quantity and the time.",
+              "text": "A reaction makes 45 cm³ of gas in 90 s."
+            },
+            {
+              "lead": "Check the units.",
+              "text": "The time is already in seconds. If it was in minutes, convert it first: 2 minutes = 120 s."
+            },
+            {
+              "lead": "Divide.",
+              "text": "45 ÷ 90 = 0.5, so the mean rate is 0.5 cm³/s."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate a mean rate of reaction from a volume of gas and a time.",
+            "question": "A reaction produces {v} cm³ of gas in {t} s. Calculate the mean rate of reaction.",
+            "variables": [
+              {
+                "id": "v",
+                "min": 20,
+                "max": 80,
+                "step": 10
+              },
+              {
+                "id": "t",
+                "min": 20,
+                "max": 50,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "v / t",
+              "unit": "cm³/s",
+              "decimals": 2
+            },
+            "working": ["mean rate = volume ÷ time", "mean rate = {v} ÷ {t} = {answer} cm³/s"]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mean rate = quantity of product formed (or reactant used) ÷ time taken.",
+            "Quantity is a mass in g or a volume in cm³. Rate is in g/s or cm³/s.",
+            "Convert the time to seconds before you divide if the unit asks for seconds."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Rate from a graph",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A graph of the quantity of product against time shows how the rate changes during the reaction."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A graph of volume of gas collected against time. The line rises steeply at the start, then flattens and becomes horizontal when the reaction has finished.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 120,
+              "ticks": [0, 20, 40, 60, 80, 100, 120],
+              "unit": "s"
+            },
+            "y": {
+              "label": "Volume of gas collected"
+            },
+            "series": [
+              {
+                "name": "Product",
+                "points": [
+                  [0, 0],
+                  [10, 0.35],
+                  [20, 0.58],
+                  [40, 0.8],
+                  [60, 0.92],
+                  [80, 0.98],
+                  [100, 1],
+                  [120, 1]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 5,
+                "label": "Steepest: fastest rate"
+              }
+            ],
+            "bands": [
+              {
+                "from": 0,
+                "to": 40,
+                "label": "Fast"
+              },
+              {
+                "from": 100,
+                "to": 120,
+                "label": "Finished"
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The line is steepest at the start, when the concentration of reactant is highest. The rate is fastest here.",
+            "The line gets less steep as reactants are used up, so the rate falls.",
+            "The line becomes flat when one reactant is used up. The reaction has stopped.",
+            "On two curves, the steeper line is the faster reaction."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Rate at one moment: the tangent"
+        },
+        {
+          "type": "paragraph",
+          "text": "A curve has a different rate at every point. The slope of a **tangent** (a straight line touching the curve at one point) measures the rate at that time."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Draw the tangent.",
+              "text": "Place a ruler so it touches the curve at the chosen time and draw a straight line."
+            },
+            {
+              "lead": "Make a triangle.",
+              "text": "Draw a right-angled triangle under the tangent, as large as you can."
+            },
+            {
+              "lead": "Find the gradient (AQA: Higher tier).",
+              "text": "Divide the change on the vertical axis by the change on the horizontal axis."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Gradient of a tangent (AQA: Higher tier)",
+          "formula": "rate at that time = change in quantity ÷ change in time",
+          "where": [
+            "change in quantity, read from the vertical axis, in g or cm³",
+            "change in time, read from the horizontal axis, in s"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A steeper line means a faster rate. A flat line means the reaction has finished.",
+            "The slope of a tangent measures the rate at one time.",
+            "(AQA: Higher tier) Calculate the gradient of the tangent to find the rate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Tables, means and anomalous results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Results are collected in a table, and repeats are averaged. This section covers how to present and process them."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Give each column a **heading with a unit**, such as time in s and volume of gas in cm³.",
+            "Put the time values in order, with each volume next to its time.",
+            "An **anomalous result** does not fit the pattern. Leave it out when you calculate a mean.",
+            "Round the answer as the question asks, for example to 2 significant figures."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Headings need units. Time values go in order.",
+            "Leave out anomalous results before calculating a mean."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A reaction produces 60 cm³ of gas in 40 seconds. Calculate the mean rate of reaction.",
+      "a": "60 ÷ 40 = 1.5 cm³/s.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how to find the rate of reaction at 30 seconds from a graph of volume against time.",
+      "a": "Draw a tangent to the curve at 30 s. Calculate the gradient of the tangent.",
+      "marks": 2
+    },
+    {
+      "q": "Why does a graph of volume of gas against time become flat?",
+      "a": "One of the reactants has been used up, so no more gas is made. The reaction has stopped.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.6.1.1", "AQA T 5.6.1.1"],
+      "worked_example": {
+        "exemplar_id": "c997fc4e-d93e-4fcf-883a-11ae4ede3f2c",
+        "source": "AQA jun 2023, Paper 2 (H), Q01.2",
+        "question": "A student investigated the rate of the reaction between zinc and sulfuric acid. Hydrogen gas is produced during this reaction.\n\nThe student calculated the rate of the reaction for each trial. The rates of reaction in cm³/s for trials 1 to 4 were 0.78, 0.81, 0.68 and 0.81.\n\nDetermine the mean time taken to collect 20 cm³ of gas.\n\nDo not include any anomalous results.\n\nUse the equation: mean rate of reaction = volume of gas collected / mean time taken",
+        "marks": 5,
+        "answer_points": [
+          "Leave out the anomalous result, 0.68. Mean rate = (0.78 + 0.81 + 0.81) / 3.",
+          "Mean rate = 0.80 cm³/s.",
+          "0.80 = 20 / mean time taken.",
+          "Mean time taken = 20 / 0.80.",
+          "Mean time taken = 25 s."
+        ],
+        "tip": "One mark for each step. Using all four rates and getting 0.77 cm³/s scores only 1 mark for the mean."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.5"],
+      "worked_example": {
+        "exemplar_id": "198ed042-e1e2-4154-84ad-5699caa9de7c",
+        "source": "EDEXCEL nov 2020, Paper 2 (F), Q9(a)(ii)",
+        "question": "Calcium carbonate reacts with dilute hydrochloric acid to produce carbon dioxide gas. The rate of reaction between calcium carbonate and dilute hydrochloric acid at room temperature was investigated. The calcium carbonate powder produced 90 cm³ of carbon dioxide in five minutes.\n\nCalculate the average rate of reaction in cm³ s⁻¹.",
+        "marks": 3,
+        "answer_points": [
+          "Convert the time from minutes to seconds: 5 × 60 = 300 s.",
+          "Rate = volume ÷ time = 90 / 300.",
+          "Rate = 0.3 cm³ s⁻¹."
+        ],
+        "tip": "The final answer 0.3 scores all 3 marks, with or without working."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C5.2b"],
+      "extra": [
+        {
+          "heading": "Using 1/t as a measure of rate",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Some experiments time how long a reaction takes, for example until a cross disappears. A short time means a fast reaction."
+            },
+            {
+              "type": "equation",
+              "label": "Rate and time",
+              "formula": "rate is proportional to 1 ÷ t",
+              "where": [
+                "t, the time taken for the reaction, in s",
+                "a smaller time gives a larger rate"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "If the time is halved, the rate is doubled.",
+                "On a graph of quantity against time, the gradient of the line is the rate."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 6.2.4"]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "68d3360b-69d0-442e-bd0e-fb919f7dcf15",
+      "5e7ffb62-ac35-467a-a73a-02f82f1dc7a9",
+      "74c6d0bf-7dff-4575-be5a-7ecf0b1ef93b",
+      "0c3577a4-e237-4f96-ad1e-b8498d75a620",
+      "14628bf9-5b96-4739-bb70-20f1e789185d"
+    ],
+    "exemplar_ids": [
+      "c997fc4e-d93e-4fcf-883a-11ae4ede3f2c",
+      "198ed042-e1e2-4154-84ad-5699caa9de7c"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

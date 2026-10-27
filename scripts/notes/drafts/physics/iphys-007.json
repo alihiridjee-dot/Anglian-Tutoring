@@ -1,0 +1,343 @@
+{
+  "format": 1,
+  "concept_id": "iphys-007",
+  "subject": "physics",
+  "title": "Conduction and convection",
+  "key_idea": "Conduction passes thermal energy through a material by vibrating particles. (Supplement) In metals, free electrons carry it too. Convection passes it through liquids and gases: warmed fluid becomes less dense, rises, and cooler fluid sinks to take its place.",
+  "sections": [
+    {
+      "heading": "Conduction in solids",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Conduction is the transfer of thermal energy through a material without the material itself moving. This section explains how it happens in solids."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Thermal conductor",
+              "meaning": "A material that transfers thermal energy well, such as a metal."
+            },
+            {
+              "term": "Thermal insulator",
+              "meaning": "A material that transfers thermal energy badly, such as wood or plastic."
+            },
+            {
+              "term": "Free (delocalised) electrons",
+              "meaning": "Electrons in a metal that are not fixed to one atom and can move through the whole metal."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Lattice vibrations"
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) The particles in every solid are held in a **lattice** and vibrate about fixed positions.",
+            "(Supplement) The hot end vibrates more strongly, so its particles pass energy to their neighbours by collisions.",
+            "(Supplement) The energy passes from particle to particle along the solid.",
+            "This is the only method in most non-metals, which is why they are generally poor conductors."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Free electrons in metals"
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) A metal also has **free electrons**.",
+            "(Supplement) The free electrons near the hot end gain energy and move through the metal.",
+            "(Supplement) They collide with atoms or ions further along and transfer energy to them.",
+            "This is much faster than lattice vibrations alone, so metals are **good conductors**."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Some solids conduct better than thermal insulators but less well than good conductors. Glass is an example."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Conduction needs no movement of the material itself.",
+            "All solids conduct by lattice vibrations.",
+            "Metals also conduct using free electrons, so they conduct best."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Conduction in liquids and gases",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gases and most liquids are poor conductors. This section explains why, in terms of particles."
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) The particles in a gas are far apart, so collisions are rare.",
+            "(Supplement) The particles in a liquid are closer but can move around, so energy is passed on less well than in a solid.",
+            "Gases and most liquids have no free electrons to carry energy.",
+            "Trapped air is a very good insulator, which is why wool, fur and foam keep things warm."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Comparing conductors and insulators"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fix identical rods of different materials so that one end of each is heated equally.",
+            "Attach a drawing pin to each rod with wax, at the same distance from the heat.",
+            "The pin on the best conductor falls first.",
+            "Alternatively, put strips of different materials in hot water and time how long the heat takes to reach the top."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gases are poor conductors because their particles are far apart.",
+            "Liquids are also poor conductors, because energy passes on slowly.",
+            "Compare materials by timing how fast heat travels along identical rods."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Convection",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Convection transfers thermal energy through liquids and gases by the movement of the fluid itself. It cannot happen in solids."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Heat",
+              "text": "The fluid is heated and its particles gain energy."
+            },
+            {
+              "lead": "Expand",
+              "text": "The fluid expands, so the particles move further apart."
+            },
+            {
+              "lead": "Less dense",
+              "text": "The warm fluid is now less dense than the fluid around it."
+            },
+            {
+              "lead": "Rise",
+              "text": "The warm fluid rises."
+            },
+            {
+              "lead": "Replace",
+              "text": "Cooler, denser fluid sinks and takes its place, and the process repeats."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This circulating flow is a **convection current**. At the top the fluid cools, becomes denser again and sinks."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "A loop showing a convection current: fluid is heated, expands and becomes less dense, rises, cools and becomes more dense, then sinks and is heated again.",
+            "steps": [
+              "Fluid is heated",
+              "It expands and becomes less dense",
+              "Warm fluid rises",
+              "It cools and becomes denser",
+              "Cool fluid sinks"
+            ],
+            "loop": true
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Showing convection"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Drop a crystal of potassium permanganate in a beaker of water and heat the water just below the crystal. The coloured water rises and circles round.",
+            "Put a candle under one chimney of a box with two chimneys, and hold smoke over the other. The smoke goes down the cool chimney, across the box and up the chimney above the candle."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Convection happens only in liquids and gases.",
+            "Warm fluid is less dense, so it rises.",
+            "Cool, denser fluid sinks and replaces it, forming a convection current."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Everyday uses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Most real situations involve more than one method. Radiation, the third method, is covered elsewhere."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A kitchen pan has a metal base so the heat conducts quickly to the food, and a plastic or wooden handle so it does not burn your hand.",
+            "A radiator warms a room by convection. Air next to it is warmed, rises, and cooler air flows in at the bottom.",
+            "(Supplement) A fire burning wood or coal heats the room mainly by radiation. Convection carries hot gases up the chimney, and conduction passes energy through the coal and the metal grate.",
+            "(Supplement) A car radiator conducts heat from the hot engine coolant through its metal walls to the air. Convection moves the warm air away, and some energy is radiated."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Everyday examples of energy transfer are sorted into conduction and convection.",
+            "prompt": "Sort each example by the main way thermal energy is transferred.",
+            "groups": [
+              "Conduction",
+              "Convection"
+            ],
+            "items": [
+              {
+                "text": "Heat travelling along a metal spoon in hot soup",
+                "group": 0
+              },
+              {
+                "text": "Heat passing through the base of a pan",
+                "group": 0
+              },
+              {
+                "text": "Heat passing from a hot drink through the wall of a metal mug",
+                "group": 0
+              },
+              {
+                "text": "Warm air rising from a radiator",
+                "group": 1
+              },
+              {
+                "text": "Hot water rising to the top of a kettle",
+                "group": 1
+              },
+              {
+                "text": "Smoke rising up a chimney",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metal is used where heat must pass quickly, and plastic, wood or trapped air where it must not.",
+            "Rooms are heated by convection currents.",
+            "Real situations often combine conduction, convection and radiation."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "(Supplement) Explain why a metal conducts thermal energy better than wood.",
+      "a": "A metal has free (delocalised) electrons that move through it and carry energy, as well as lattice vibrations. Wood has only lattice vibrations.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why warm air rises.",
+      "a": "The warm air expands, so it is less dense than the cooler air around it, so it rises.",
+      "marks": 2
+    },
+    {
+      "q": "Why can convection not happen in a solid?",
+      "a": "The particles in a solid cannot move from place to place, so there can be no flow of hot material.",
+      "marks": 1
+    },
+    {
+      "q": "(Supplement) Explain why a gas is a poor thermal conductor.",
+      "a": "Its particles are far apart, so they collide rarely and pass on little energy.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 2.3.1.1",
+        "CAIE 2.3.1.2S",
+        "CAIE 2.3.1.3S",
+        "CAIE 2.3.1.4S",
+        "CAIE 2.3.2.1",
+        "CAIE 2.3.2.2",
+        "CAIE 2.3.4.1",
+        "CAIE 2.3.4.2S"
+      ],
+      "worked_example": {
+        "exemplar_id": "22db2a56-d145-41cc-989e-ddc4947773f6",
+        "source": "CAMBRIDGE jun 2024, Paper 43, Q5(a)",
+        "question": "Two containers are each filled with hot water. The outer surface of the metal container is hot. Explain how electrons transfer thermal energy through the metal of the container.",
+        "marks": 3,
+        "answer_points": [
+          "Metals contain delocalised (free) electrons.",
+          "The delocalised electrons gain energy from the lattice vibrations of the atoms nearest to the hot water.",
+          "The electrons move through the metal.",
+          "Collisions between the electrons and remote ions or atoms transfer thermal energy to all parts of the metal container."
+        ],
+        "tip": "Any three score one mark each. Say that the electrons move and that they collide."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 4.6",
+        "IGCSE 4.7",
+        "IGCSE 4.9"
+      ],
+      "worked_example": {
+        "exemplar_id": "ad71bac3-015a-4ebb-9008-efa0e0349b2a",
+        "source": "EDEXCEL jan 2021, Paper 1 (P), Q10(b)",
+        "question": "The air near the bar of a large hurdle on an athletics track receives energy by heating. Explain how a convection current is formed in the air near the bar.",
+        "marks": 4,
+        "answer_points": [
+          "The temperature of the air increases.",
+          "The air expands, so its particles move further apart.",
+          "The density of the air decreases.",
+          "The warm air rises.",
+          "Cool air replaces the warmed air.",
+          "The process repeats."
+        ],
+        "tip": "Any four score one mark each. Link the change in density to the air rising."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "68d8cb96-171e-4a35-94a7-9723b8bde3cb",
+      "58af52c5-2d7d-4eaa-9d1a-a850562e1aae",
+      "82f998e0-fdaa-44b8-a086-2912ad731d49",
+      "b5854b09-8495-4693-94de-390d35265c7b",
+      "ac07d9a7-5be4-41c4-a621-9f50c2a34160",
+      "cd98cb20-aeff-4dbe-b2b6-322c02ce66d5",
+      "760d5b48-71e3-409f-800d-e5ccfd24db8e",
+      "6909aa39-44f5-43d0-b3cb-8bb691ae7db1",
+      "35624c29-3571-4f7a-8f16-26b8346c2212",
+      "d11ec1e1-8ff6-460c-aa24-e7b77c9a7640",
+      "24575967-25a2-4c9c-8a9b-7926e94c2f4b"
+    ],
+    "exemplar_ids": [
+      "22db2a56-d145-41cc-989e-ddc4947773f6",
+      "ad71bac3-015a-4ebb-9008-efa0e0349b2a"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

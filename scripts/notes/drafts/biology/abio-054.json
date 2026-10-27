@@ -1,0 +1,463 @@
+{
+  "format": 1,
+  "concept_id": "abio-054",
+  "subject": "biology",
+  "title": "Chloroplasts and photosynthetic pigments",
+  "key_idea": "Photosynthesis uses light energy to split water and to build glucose from carbon dioxide. It happens in chloroplasts, where pigments in the thylakoid membranes absorb light. Chromatography separates the pigments, and their Rf values identify them.",
+  "sections": [
+    {
+      "heading": "The overall reaction of photosynthesis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Photosynthesis stores light energy in the chemical bonds of organic molecules. Light is used to split the strong bonds in water."
+        },
+        {
+          "type": "equation",
+          "label": "Overall reaction of photosynthesis",
+          "formula": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
+          "where": [
+            "Energy from light is needed",
+            "Chlorophyll and other pigments absorb the light",
+            "Hydrogen from water is stored in glucose"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Water is split by light, which releases oxygen into the atmosphere.",
+            "The hydrogen from water is combined with carbon dioxide to make glucose, a fuel.",
+            "Respiration is the reverse: it uses the glucose and oxygen and releases carbon dioxide and water.",
+            "The products of photosynthesis are the raw materials of respiration, and the products of respiration are the raw materials of photosynthesis."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Light energy splits water, releasing oxygen.",
+            "Hydrogen is stored in glucose by combining it with carbon dioxide.",
+            "Photosynthesis and respiration have each other's products as raw materials."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Chloroplast structure and function",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A chloroplast is a small organelle, 2 to 10 μm long, found in the palisade cells and other green cells of leaves. Each part has a job in the two stages of photosynthesis."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "An explorer of the parts of a chloroplast. Tap each part to read its job.",
+            "prompt": "Tap a part of the chloroplast to see what it does",
+            "parts": [
+              {
+                "name": "Outer membrane",
+                "detail": "Part of the chloroplast envelope. It is partially permeable and controls what enters and leaves."
+              },
+              {
+                "name": "Inner membrane",
+                "detail": "The second membrane of the envelope. Together the two membranes keep the stroma separate from the cytoplasm."
+              },
+              {
+                "name": "Thylakoid",
+                "detail": "A flattened, membrane-bound sac. Its membrane holds the pigments, electron carriers and ATP synthase, and it is the site of the light-dependent stage."
+              },
+              {
+                "name": "Granum",
+                "detail": "A stack of thylakoids. Stacking gives a large surface area for pigments and the enzymes of the light-dependent stage."
+              },
+              {
+                "name": "Lamella",
+                "detail": "A thin membrane that joins one granum to the next, linking the thylakoids together."
+              },
+              {
+                "name": "Stroma",
+                "detail": "The fluid around the grana. It holds the enzymes of the Calvin cycle, including rubisco, and it is the site of the light-independent stage."
+              },
+              {
+                "name": "Chloroplast DNA",
+                "detail": "A loop of DNA in the stroma, coding for some chloroplast proteins."
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Thylakoid membranes (stacked in grana) are the site of the light-dependent stage.",
+            "The stroma is the site of the light-independent stage, the Calvin cycle.",
+            "The envelope of two membranes keeps conditions in the stroma different from the cytoplasm.",
+            "Chloroplast DNA and ribosomes let the chloroplast make some of its own proteins."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Grana of thylakoids = light-dependent stage.",
+            "Stroma = light-independent stage (Calvin cycle).",
+            "Many thylakoid membranes give a large surface area for light absorption."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Photosynthetic pigments",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Photosynthetic pigments are coloured molecules in the thylakoid membranes. Each absorbs certain wavelengths of light."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Chlorophyll a",
+              "meaning": "The main pigment. It absorbs mainly red and blue-violet light, and reflects green."
+            },
+            {
+              "term": "Chlorophyll b",
+              "meaning": "An accessory pigment that absorbs slightly different wavelengths, mostly blue and orange-red."
+            },
+            {
+              "term": "Carotene",
+              "meaning": "An orange accessory pigment that absorbs mainly blue light."
+            },
+            {
+              "term": "Xanthophyll",
+              "meaning": "A yellow accessory pigment that absorbs mainly blue light."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pigments are arranged in groups called light harvesting systems, or photosystems, in the thylakoid membranes.",
+            "Each photosystem has many accessory pigments around a primary pigment at the reaction centre, which is a molecule of chlorophyll a.",
+            "Accessory pigments absorb light of other wavelengths and pass the energy to the reaction centre.",
+            "Having several pigments means a wider range of wavelengths is used, so more light energy is absorbed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Chlorophyll a, chlorophyll b, carotene and xanthophyll are the main pigments.",
+            "Accessory pigments widen the range of wavelengths used.",
+            "Energy is funnelled to the reaction centre of each photosystem."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Absorption and action spectra",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two graphs show how light of different wavelengths is used. They are similar but not identical."
+        },
+        {
+          "type": "list",
+          "items": [
+            "An **absorption spectrum** shows how much light of each wavelength a pigment absorbs.",
+            "An **action spectrum** shows the rate of photosynthesis at each wavelength of light.",
+            "Both have peaks in the blue-violet and red parts of the spectrum and a trough in green.",
+            "The action spectrum follows the combined absorption spectra of all the pigments, which shows that the absorbed light drives photosynthesis."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A line graph with wavelength on the x axis. Both the absorption spectrum and the action spectrum have a high peak in the blue-violet, a low point in the green and a second peak in the red.",
+            "x": {
+              "label": "Wavelength of light",
+              "min": 400,
+              "max": 700,
+              "ticks": [
+                400,
+                450,
+                500,
+                550,
+                600,
+                650,
+                700
+              ],
+              "unit": "nm"
+            },
+            "y": {
+              "label": "Relative absorption or rate"
+            },
+            "series": [
+              {
+                "name": "Absorption spectrum (combined pigments)",
+                "points": [
+                  [
+                    400,
+                    0.55
+                  ],
+                  [
+                    430,
+                    0.9
+                  ],
+                  [
+                    470,
+                    0.75
+                  ],
+                  [
+                    500,
+                    0.4
+                  ],
+                  [
+                    550,
+                    0.2
+                  ],
+                  [
+                    600,
+                    0.35
+                  ],
+                  [
+                    640,
+                    0.6
+                  ],
+                  [
+                    670,
+                    0.85
+                  ],
+                  [
+                    700,
+                    0.15
+                  ]
+                ]
+              },
+              {
+                "name": "Action spectrum",
+                "points": [
+                  [
+                    400,
+                    0.45
+                  ],
+                  [
+                    430,
+                    0.8
+                  ],
+                  [
+                    470,
+                    0.7
+                  ],
+                  [
+                    500,
+                    0.45
+                  ],
+                  [
+                    550,
+                    0.3
+                  ],
+                  [
+                    600,
+                    0.4
+                  ],
+                  [
+                    640,
+                    0.6
+                  ],
+                  [
+                    670,
+                    0.8
+                  ],
+                  [
+                    700,
+                    0.1
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Absorption spectrum: light absorbed. Action spectrum: rate of photosynthesis.",
+            "Both are highest in blue-violet and red light, and lowest in green.",
+            "Where the two match, the pigment absorbing that light is driving photosynthesis."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Separating pigments by chromatography",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chromatography separates the pigments in a leaf extract. Each pigment travels at its own speed in the solvent."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Extract.",
+              "text": "Grind leaves with a solvent such as propanone to dissolve the pigments."
+            },
+            {
+              "lead": "Spot.",
+              "text": "Apply a concentrated spot of extract on a pencil line near the bottom of the paper or TLC plate."
+            },
+            {
+              "lead": "Run.",
+              "text": "Stand the plate in a solvent, with the spot above the solvent level. The solvent rises and carries the pigments."
+            },
+            {
+              "lead": "Mark.",
+              "text": "Mark the solvent front with a pencil as soon as the plate is removed, before it dries."
+            },
+            {
+              "lead": "Measure.",
+              "text": "Measure the distance moved by each pigment spot and by the solvent front."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rf value",
+          "formula": "Rf = distance moved by the pigment ÷ distance moved by the solvent front",
+          "where": [
+            "Both distances are measured from the pencil line, in the same unit",
+            "Rf has no unit and is always less than 1"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A pigment that is more soluble in the solvent, and sticks less to the stationary phase, travels further and has a higher Rf.",
+            "The Rf of a pigment is the same each time under the same conditions, so it identifies the pigment.",
+            "In order from the top: carotene (highest Rf, yellow-orange), xanthophyll (yellow), chlorophyll a (blue-green), chlorophyll b (yellow-green).",
+            "Use a pencil line, because ink would also separate and dissolve."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rf = distance moved by pigment ÷ distance moved by solvent front.",
+            "Rf values identify pigments when conditions are the same.",
+            "Carotene travels furthest; chlorophyll b travels least."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State where in a chloroplast the light-dependent and the light-independent stages occur.",
+      "a": "The light-dependent stage occurs in the thylakoid membranes (in the grana). The light-independent stage occurs in the stroma.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a leaf contains several photosynthetic pigments rather than only chlorophyll a.",
+      "a": "Each pigment absorbs different wavelengths of light. Accessory pigments absorb wavelengths that chlorophyll a absorbs poorly and pass the energy to the reaction centre. A wider range of wavelengths is used, so more energy is absorbed and the rate of photosynthesis is higher.",
+      "marks": 3
+    },
+    {
+      "q": "In a chromatogram, a pigment spot moved 3.6 cm and the solvent front moved 8.0 cm from the pencil line. Calculate the Rf value and explain how it identifies the pigment.",
+      "a": "Rf = 3.6 ÷ 8.0 = 0.45. The Rf for a pigment is constant under the same conditions, so the value can be compared with known values to identify the pigment.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.5",
+        "EDEX 5.9"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 13.1.1",
+        "CAIE 13.1.3",
+        "CAIE 13.1.4",
+        "CAIE 13.1.5",
+        "CAIE 13.1.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You must relate chloroplast structure to function using diagrams and electron micrographs. In a micrograph, look for the two envelope membranes, the stacked grana, and the stroma between them.",
+                "You must interpret absorption spectra of the individual pigments, and the action spectrum for photosynthesis, including which wavelengths are least used.",
+                "You must describe and use chromatography to identify chloroplast pigments, with Rf values."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.1a",
+        "OCR 5.2.1b",
+        "OCR 5.2.1c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You must link the raw materials and products of photosynthesis and respiration: the glucose and oxygen from photosynthesis are used in respiration, and the carbon dioxide and water from respiration can be used in photosynthesis.",
+                "Name the components of a chloroplast: outer membrane, lamellae, grana, thylakoid, stroma and DNA.",
+                "Thin layer chromatography (TLC) is the practical method for separating pigments. Refer to light harvesting systems and photosystems when you explain why the pigments are important."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.1 RP7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use chromatography to investigate pigments isolated from the leaves of different plants, for example shade-tolerant and shade-intolerant plants, or leaves of different colours.",
+                "Compare the pigments found in each: shade-tolerant leaves often have relatively more chlorophyll b, which helps them absorb the light that reaches them under other leaves.",
+                "Calculate Rf values from the distances moved to identify each pigment."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "5039ea96-f2c6-4a05-a2bb-5f48a7a5f342",
+      "210c8df5-85f3-4e13-960a-4ea110d414b5",
+      "46e4909e-0224-419f-8a43-80ba0c382014",
+      "74ffbeda-a282-4184-ac7c-0b67d739d9d2",
+      "4ed0353f-f0e7-4cc9-9032-b5586343ddce",
+      "3e8a5fbc-bd76-4871-83b4-bf8b85ff924b",
+      "bec81a91-2691-40e0-9459-7d4024ad0ede",
+      "8fb09a0f-44a9-48d2-bd25-a7d68a63a6d8",
+      "6cbbff56-63b6-4e99-b68d-826796fb4389",
+      "c650f33e-4df0-4523-93f5-d4bdd40f7b19",
+      "ce90201f-3f43-44d6-8582-dc70b2df3b2e"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

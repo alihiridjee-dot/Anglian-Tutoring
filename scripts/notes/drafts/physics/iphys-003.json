@@ -1,0 +1,194 @@
+{
+  "format": 1,
+  "concept_id": "iphys-003",
+  "subject": "physics",
+  "title": "Centre of gravity and stability",
+  "key_idea": "The centre of gravity is the point where the whole weight of an object seems to act. An object is more stable with a low centre of gravity and a wide base. It topples when a vertical line from its centre of gravity falls outside its base.",
+  "sections": [
+    {
+      "heading": "What centre of gravity means",
+      "blocks": [
+        { "type": "paragraph", "text": "Every part of an object has weight. We can treat all of that weight as one force acting from a single point." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Centre of gravity", "meaning": "The point where the whole weight of an object seems to act." },
+            { "term": "Lamina", "meaning": "A thin, flat sheet of material." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The weight of an object acts **through** its centre of gravity, vertically downwards.",
+            "For a regular object of uniform material, the centre of gravity is at its geometric centre.",
+            "For an irregular object it must be found by experiment.",
+            "The centre of gravity does not have to be inside the object. A ring has its centre of gravity in the hole."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Centre of gravity is the point where all the weight seems to act.",
+            "Weight acts through the centre of gravity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Finding the centre of gravity of a lamina",
+      "blocks": [
+        { "type": "paragraph", "text": "A freely hanging lamina comes to rest with its centre of gravity directly below the point it hangs from. A plumb line shows the vertical." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Make holes", "text": "Make three small holes near the edge of the lamina." },
+            { "lead": "Hang it", "text": "Hang the lamina from a pin in a clamp, through one hole, so that it swings freely." },
+            { "lead": "Add the plumb line", "text": "Hang a plumb line from the same pin. Wait until both are still." },
+            { "lead": "Mark the line", "text": "Mark two points on the lamina where the string passes. Draw a line through them with a ruler." },
+            { "lead": "Repeat", "text": "Hang the lamina from each of the other holes and draw the lines." },
+            { "lead": "Find the point", "text": "The lines cross at the centre of gravity." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Two lines are enough, and the third checks the result.",
+            "A uniform metre ruler balances on a pivot at its centre of gravity. The balance point is the centre of gravity."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Put the steps for finding the centre of gravity of a lamina in the correct order.",
+            "prompt": "Put the steps for finding the centre of gravity of an irregular lamina in order.",
+            "steps": [
+              "Make small holes near the edge of the lamina.",
+              "Hang the lamina from a pin through one hole.",
+              "Hang a plumb line from the same pin.",
+              "Draw a line along the plumb line on the lamina.",
+              "Repeat with the other holes.",
+              "The centre of gravity is where the lines cross."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A hanging lamina has its centre of gravity vertically below the pin.",
+            "Plumb-line lines from different holes cross at the centre of gravity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Stability",
+      "blocks": [
+        { "type": "paragraph", "text": "Stability is how hard an object is to topple. It depends on where the centre of gravity is and how wide the base is." },
+        {
+          "type": "list",
+          "items": [
+            "If you tilt an object, its centre of gravity moves with it.",
+            "While a vertical line down from the centre of gravity stays **inside the base**, the weight turns the object back.",
+            "When the line moves **outside the base**, the weight turns the object over and it topples."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Feature", "More stable", "Less stable"],
+          "rows": [
+            ["Centre of gravity", "Low", "High"],
+            ["Base", "Wide", "Narrow"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A low centre of gravity and a wide base mean the object has to tilt further before it topples.",
+            "A ship carries its heaviest containers at the bottom, so its centre of gravity is lower.",
+            "A tall, thin transmitter without wires is very unstable. A small tilt puts the centre of gravity outside the base."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort the features into those that make an object more stable and those that make it less stable.",
+            "prompt": "Does each feature make an object more stable or less stable?",
+            "groups": ["More stable", "Less stable"],
+            "items": [
+              { "text": "Low centre of gravity", "group": 0 },
+              { "text": "Wide base", "group": 0 },
+              { "text": "Heavy load kept at the bottom", "group": 0 },
+              { "text": "High centre of gravity", "group": 1 },
+              { "text": "Narrow base", "group": 1 },
+              { "text": "Heavy load kept at the top", "group": 1 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An object topples when its centre of gravity is no longer above its base.",
+            "A low centre of gravity and a wide base give greater stability."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by centre of gravity.",
+      "a": "The point where the whole weight of the object seems to act.",
+      "marks": 1
+    },
+    {
+      "q": "Describe how a plumb line is used to find the centre of gravity of an irregular lamina.",
+      "a": "Hang the lamina freely from a pin through a hole and hang a plumb line from the same pin. Draw the vertical line on the lamina. Repeat from another hole. The centre of gravity is where the lines cross.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a bus with its heavy luggage at the bottom is less likely to topple.",
+      "a": "The centre of gravity is lower, so the bus has to tilt further before the centre of gravity is outside the base.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 1.5.3.1", "CAIE 1.5.3.2", "CAIE 1.5.3.3"],
+      "worked_example": {
+        "exemplar_id": "8f0f50dd-aa53-43fa-a918-9722067c538c",
+        "source": "CAMBRIDGE mar 2023, Paper 42, Q2(b)",
+        "question": "The containers with the greatest mass are loaded near the bottom of a ship. State and explain the effect on the stability of the ship of loading the containers in this way.",
+        "marks": 2,
+        "answer_points": [
+          "The centre of gravity is lower.",
+          "So the ship is more stable."
+        ],
+        "tip": "One mark for the lower centre of gravity and one for the effect on stability."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": ["IGCSE 1.31P"],
+      "worked_example": {
+        "exemplar_id": "e3adc50d-3525-4af0-9f31-6e44641ac368",
+        "source": "EDEXCEL jan 2021, Paper 2 (PR), Q2(a)(i)",
+        "question": "A metal block sits on top of a wooden block and is held stationary by a force F. The weight of the metal block acts through point G. Give the name of point G.",
+        "marks": 1,
+        "answer_points": [
+          "Centre of gravity (centre of mass is also accepted)."
+        ],
+        "tip": "The weight of a body always acts through its centre of gravity."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": ["05ad5d18-209e-4941-a415-903a85bc64d9", "2aa05729-a20f-4907-82c1-6ece3efdcbf2", "6558e116-0407-49f2-bd99-8a1a61e0fd3b", "653a31af-88c1-4442-a0f9-da1da83b604b"],
+    "exemplar_ids": ["8f0f50dd-aa53-43fa-a918-9722067c538c", "e3adc50d-3525-4af0-9f31-6e44641ac368"]
+  }
+}

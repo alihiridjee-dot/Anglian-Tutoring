@@ -1,0 +1,369 @@
+{
+  "format": 1,
+  "concept_id": "bio-075",
+  "subject": "biology",
+  "title": "Diabetes",
+  "key_idea": "In type 1 diabetes the pancreas does not make enough insulin, so it is treated with insulin injections. In type 2 diabetes the body cells no longer respond to insulin, so diet and exercise help. Obesity is a risk factor for type 2.",
+  "sections": [
+    {
+      "heading": "Type 1 diabetes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Diabetes is a disorder in which blood glucose concentration cannot be controlled. There are two types, with different causes."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The pancreas fails to produce enough insulin.",
+            "Glucose cannot move into the cells properly, so blood glucose concentration becomes very high.",
+            "It is normally treated with insulin injections.",
+            "The insulin causes cells to take in glucose and liver and muscle to store it as glycogen, so blood glucose falls."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Type 1: the pancreas does not make enough insulin.",
+            "Treatment: insulin injections."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Type 2 diabetes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In type 2 diabetes the problem is not making insulin. It is the response of the cells."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Insulin resistance",
+              "meaning": "The body cells no longer respond properly to the insulin the pancreas produces."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The pancreas still makes insulin, often more than normal, but the cells (including liver and muscle cells) absorb less glucose.",
+            "Blood glucose concentration stays high, which stimulates the pancreas to release even more insulin.",
+            "Common treatments are a carbohydrate-controlled diet, an exercise regime and losing body mass.",
+            "Medicines such as metformin can also lower blood glucose."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Type 1 and type 2 compared"
+        },
+        {
+          "type": "table",
+          "columns": ["Feature", "Type 1", "Type 2"],
+          "rows": [
+            [
+              "Cause",
+              "The pancreas does not make enough insulin",
+              "Body cells no longer respond to insulin"
+            ],
+            ["Insulin in the blood", "Low or none", "Made, often more than normal"],
+            [
+              "Treatment",
+              "Insulin injections",
+              "Diet, exercise and losing mass, sometimes medicine"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "On a graph, blood glucose in a person without diabetes rises after a meal, then returns to normal.",
+            "In a person with diabetes it rises higher and stays high for longer."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Type 2: the cells do not respond to insulin, so glucose stays in the blood.",
+            "Treatment: carbohydrate-controlled diet, exercise and losing mass."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Obesity, BMI and type 2 diabetes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Obesity is a risk factor for type 2 diabetes. Body mass index (BMI) compares a person's mass with their height."
+        },
+        {
+          "type": "equation",
+          "label": "Body mass index",
+          "formula": "BMI = body mass ÷ height²",
+          "where": ["BMI, in kg/m²", "body mass, in kg", "height, in m"]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Square the height.",
+              "text": "A person is 1.75 m tall. 1.75² = 3.0625."
+            },
+            {
+              "lead": "Divide.",
+              "text": "Their mass is 95 kg. 95 ÷ 3.0625 = 31.02."
+            },
+            {
+              "lead": "Round.",
+              "text": "BMI = 31.0 kg/m² to 1 decimal place."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating body mass index from mass and height.",
+            "question": "A person has a body mass of **{m} kg** and a height of **{h} m**. Calculate their BMI. Give your answer to 1 decimal place.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 60,
+                "max": 120,
+                "step": 5
+              },
+              {
+                "id": "h",
+                "min": 1.7,
+                "max": 1.9,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "m / (h * h)",
+              "unit": "kg/m²",
+              "decimals": 1
+            },
+            "working": ["BMI = body mass ÷ height²", "BMI = {m} ÷ ({h} × {h}) = **{answer}** kg/m²"]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Evaluating the link"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A higher body mass or BMI is linked to a greater chance of developing type 2 diabetes.",
+            "Other factors also affect the chance, such as age, diet, exercise and genes.",
+            "Losing body mass and exercising help to control type 2 diabetes.",
+            "Recommendations about lifestyle can involve social and ethical issues, such as cost to the health service and people's freedom to choose."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "BMI = mass ÷ height². Square the height first.",
+            "Obesity is linked to type 2 diabetes, but it is not the only factor."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "High blood glucose and body cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In untreated diabetes the blood glucose concentration is very high. This affects the water balance of the body cells."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The blood is more concentrated, with a lower water potential, than the solution inside the cells.",
+            "Water moves out of the cells by osmosis, through the partially permeable cell membrane.",
+            "The cells become dehydrated and shrivel."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "High blood glucose makes the blood more concentrated than the cells.",
+            "Water leaves the cells by osmosis."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why a person with type 2 diabetes often has a higher blood insulin concentration than a person without diabetes.",
+      "a": "Their cells absorb less glucose, so blood glucose stays high. This causes the pancreas to release more insulin.",
+      "marks": 3
+    },
+    {
+      "q": "Describe two lifestyle changes that help to control type 2 diabetes.",
+      "a": "Any two from: eat less carbohydrate or sugar; lose body mass; take more exercise.",
+      "marks": 2
+    },
+    {
+      "q": "A person has a body mass of 90 kg and a height of 1.8 m. Calculate their BMI to 1 decimal place.",
+      "a": "90 ÷ 1.8² = 90 ÷ 3.24 = 27.8 kg/m².",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.9", "AQA T 4.5.3.2"],
+      "worked_example": {
+        "exemplar_id": "8f4cee7d-1100-4e04-a198-23822593e4fb",
+        "source": "AQA jun 2019, Paper 2 (H), Q08.2",
+        "question": "The body cells of a person with Type 2 diabetes do not respond to insulin. A person with Type 2 diabetes often has a higher blood insulin concentration than a non-diabetic person.\n\nExplain why.",
+        "marks": 3,
+        "answer_points": [
+          "Cells / liver / muscles absorb less glucose (or convert less glucose to glycogen). Do not accept \"no absorption\".",
+          "So glucose concentration in the blood remains high (does not decrease).",
+          "The high blood glucose stimulates the pancreas to release more insulin."
+        ],
+        "tip": "Three linked steps: cells absorb less glucose, blood glucose stays high, the pancreas releases more insulin."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.15", "EDEX 7.16", "EDEX 7.17"],
+      "worked_example": {
+        "exemplar_id": "40244dd5-f532-4971-9971-8ebd0812f1dd",
+        "source": "EDEXCEL nov 2021, Paper 2 (H), Q7(a)",
+        "question": "A hospital patient was tested for diabetes.\n\nA nurse recorded his mass and height. His mass was 124 kg and his height was 1.8 m.\n\nCalculate the BMI of this patient.",
+        "marks": 2,
+        "answer_points": [
+          "Substitution: 124 ÷ 1.8².",
+          "Evaluation: BMI = 38.27 (accept 38 or 38.3; any correct rounding).",
+          "Correct answer with no working gains 2 marks. 68.9 (height not squared) gains 1 mark."
+        ],
+        "tip": "One mark for the substitution with the height squared and one for the evaluation."
+      },
+      "extra": [
+        {
+          "heading": "Waist-to-hip ratio (Edexcel)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Edexcel also uses the waist-to-hip ratio to assess the risk of type 2 diabetes."
+            },
+            {
+              "type": "equation",
+              "label": "Waist-to-hip ratio",
+              "formula": "waist-to-hip ratio = waist circumference ÷ hip circumference",
+              "where": [
+                "waist circumference and hip circumference are measured in the same unit, for example cm"
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Measure.",
+                  "text": "A waist of 90 cm and hips of 100 cm."
+                },
+                {
+                  "lead": "Divide.",
+                  "text": "90 ÷ 100 = 0.9."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Besides BMI and waist-to-hip ratio, age, diet, exercise regime, ethnicity and genetic makeup also affect the probability of developing type 2 diabetes."
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.3e"],
+      "worked_example": {
+        "exemplar_id": "8f6cd6ba-eaff-49b8-8116-19a4a0c6ce14",
+        "source": "OCR jun 2022, Paper 1, Q22(e)",
+        "question": "Diabetes can be Type 1 or Type 2.\n\nDescribe two differences between the treatments for Type 1 and Type 2 diabetes.",
+        "marks": 2,
+        "answer_points": [
+          "Type 1 diabetes is treated with insulin.",
+          "Type 2 diabetes is controlled through diet and exercise (allow: medication to lower blood glucose; reduce sugar intake; lose weight).",
+          "Ignore the causes of diabetes."
+        ],
+        "tip": "One mark for each type. Write about treatment only."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 14.4.5S"],
+      "worked_example": {
+        "exemplar_id": "a934eb9c-f7de-4c15-b331-ca020787be41",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q3(c)(ii)",
+        "question": "A gene mutation may be involved in the development of type 1 diabetes.\n\nOutline the treatment of type 1 diabetes.",
+        "marks": 3,
+        "answer_points": [
+          "Insulin is given by injections or by a pump.",
+          "Blood (or urine) glucose concentration is monitored.",
+          "Carbohydrate intake in the diet is controlled.",
+          "Exercise after eating helps to lower blood glucose."
+        ],
+        "tip": "Any three points score one mark each. Name the insulin treatment and one way of managing diet or monitoring."
+      },
+      "extra": [
+        {
+          "heading": "Treating type 1 diabetes",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Supplement) Insulin is only part of the treatment of type 1 diabetes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Insulin is given by **injections** or by a **pump** that delivers it through the day.",
+                "Blood glucose concentration is **monitored**.",
+                "Carbohydrate intake is counted and matched to activity.",
+                "Exercise after eating helps to lower blood glucose.",
+                "A pancreas transplant or an artificial pancreas can also be used."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "spec_point_ids": [
+      "2379c612-83c0-49b3-b6cd-2c4c72bb525d",
+      "3e79cc14-db30-458a-b9cd-c583fdd1f5a6",
+      "ab9d2a9c-5f3b-444b-96a1-d85a95c71cbf",
+      "8be68259-ce78-467e-a689-4435e226ee57",
+      "cbbd3fd8-4c66-4259-a06c-98de94ac6516",
+      "685953fd-4f6a-4a55-aebe-16d79ca6e827"
+    ],
+    "exemplar_ids": [
+      "8f4cee7d-1100-4e04-a198-23822593e4fb",
+      "40244dd5-f532-4971-9971-8ebd0812f1dd",
+      "8f6cd6ba-eaff-49b8-8116-19a4a0c6ce14",
+      "01626f2c-d396-4e55-a9d2-e096d24e1692",
+      "adf65141-7193-44c3-a673-8f8808a440b4",
+      "d5ebd735-e047-435c-89c8-f1aea21895f9",
+      "23e051d1-2ef7-4a0c-8bec-12250f036865",
+      "a44467e4-8583-42bc-b16a-cafee23795f0",
+      "ecaa1922-29f8-431d-b7d9-d50826da5749",
+      "802a792d-282c-444f-95f1-755bbb806dd3",
+      "ecaf62d0-dcc7-4ddc-b478-733cb4198b1a",
+      "3c13f619-fa11-4a46-b964-2f29809db321",
+      "ccad2d4c-2d52-434d-bc91-89ad460b5968",
+      "0cebda33-cebc-40f1-a173-ca3109451c64",
+      "a934eb9c-f7de-4c15-b331-ca020787be41"
+    ]
+  }
+}

@@ -1,0 +1,392 @@
+{
+  "format": 1,
+  "concept_id": "aphys-095",
+  "subject": "physics",
+  "title": "Special relativity",
+  "key_idea": "The speed of light is the same for every observer. Einstein built special relativity on this and on the idea that physics is the same in every inertial frame. Moving clocks run slow, moving lengths shorten, and mass and energy are equivalent.",
+  "sections": [
+    {
+      "heading": "The Michelson–Morley experiment",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Nineteenth-century physicists thought light waves needed a medium, the ether. The experiment tried to detect the Earth's motion through it."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Split.",
+              "text": "Light from a source meets a half-silvered mirror, which splits it into two beams at right angles."
+            },
+            {
+              "lead": "Reflect.",
+              "text": "Each beam travels along an arm of equal length to a mirror and is reflected back."
+            },
+            {
+              "lead": "Recombine.",
+              "text": "The beams meet again and superpose, giving interference fringes."
+            },
+            {
+              "lead": "Rotate.",
+              "text": "If the Earth moves through the ether, light would take different times along the two arms. Turning the apparatus through 90° should shift the fringes."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "No fringe shift of the expected size was seen. The result was a **null result**.",
+            "So absolute motion through the ether could not be detected, and there was no evidence for an ether.",
+            "The speed of light is the same in every direction and does not depend on the motion of the observer or the source. This is the **invariance** of the speed of light."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The interferometer compares light times along two perpendicular arms.",
+            "The null result shows no absolute motion could be detected.",
+            "The speed of light is invariant."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Einstein's postulates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Einstein used two postulates to build the theory. They apply to inertial frames of reference."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Inertial frame of reference",
+              "meaning": "A frame that is not accelerating. Newton's first law holds in it: a body with no resultant force moves at constant velocity."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Postulate 1:** the laws of physics have the same form in all inertial frames.",
+            "**Postulate 2:** the speed of light in free space is the same for all observers, whatever their motion."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Everyone measures the same speed for light. So time and length must differ between observers in relative motion."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Physical laws are the same in every inertial frame.",
+            "The speed of light in free space is invariant.",
+            "Time and length are not the same for all observers."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Time dilation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A clock that moves relative to an observer runs slow, as measured by that observer."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Proper time, t₀",
+              "meaning": "The time between two events measured by a clock at rest relative to both events, so they happen at the same place for it."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Time dilation",
+          "formula": "t = t₀ ÷ √(1 − v² ÷ c²)",
+          "where": [
+            "t = time measured by an observer for whom the clock moves (s)",
+            "t₀ = proper time (s)",
+            "v = relative speed (m/s)",
+            "c = speed of light, 3.00 × 10⁸ m/s"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider activity. Change the speed as a fraction of the speed of light and read the dilated time.",
+            "inputs": [
+              {
+                "id": "t0",
+                "label": "Proper time",
+                "unit": "µs",
+                "min": 1,
+                "max": 10,
+                "step": 0.1,
+                "value": 2.2
+              },
+              {
+                "id": "b",
+                "label": "Speed as a fraction of c",
+                "min": 0,
+                "max": 0.99,
+                "step": 0.01,
+                "value": 0.5
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Dilated time",
+                "unit": "µs",
+                "formula": "t0 / sqrt(1 - b * b)",
+                "decimals": 2
+              },
+              {
+                "label": "Factor t ÷ t₀",
+                "formula": "1 / sqrt(1 - b * b)",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "At everyday speeds v² ÷ c² is tiny, so the effect cannot be noticed.",
+            "As v approaches c, the dilated time becomes very large.",
+            "t is always greater than t₀."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Evidence: muon decay"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Muons are made high in the atmosphere, about 10 km up, by cosmic rays. At rest a muon lasts only about 2.2 µs on average.",
+            "Even at nearly the speed of light a muon would travel only about 660 m in that time, so very few should reach the ground.",
+            "Many do reach the ground. In the Earth's frame the muon's lifetime is dilated, so it lives long enough to arrive."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Proper time is the shortest time. Moving clocks run slow.",
+            "t = t₀ ÷ √(1 − v² ÷ c²).",
+            "Muons reaching the ground confirm time dilation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Length contraction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An object moving relative to an observer is measured to be shorter, in the direction of its motion."
+        },
+        {
+          "type": "equation",
+          "label": "Length contraction",
+          "formula": "l = l₀ √(1 − v² ÷ c²)",
+          "where": [
+            "l = length measured by an observer who sees the object move (m)",
+            "l₀ = proper length, measured in the object's rest frame (m)",
+            "v = relative speed (m/s)",
+            "c = speed of light, 3.00 × 10⁸ m/s"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only the length **along the direction of motion** changes.",
+            "The proper length l₀ is the largest length.",
+            "The effect is the same one as time dilation seen from the other side. For the muon, the atmosphere appears shorter in its own frame."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Work out the contracted length of an object moving at a fraction of the speed of light, with new numbers each time.",
+            "question": "A rod has a proper length of {L} m. It moves along its length at {b} c relative to an observer. Calculate the length the observer measures.",
+            "variables": [
+              {
+                "id": "L",
+                "min": 20,
+                "max": 200,
+                "step": 10
+              },
+              {
+                "id": "b",
+                "min": 0.5,
+                "max": 0.95,
+                "step": 0.05
+              }
+            ],
+            "answer": {
+              "formula": "L * sqrt(1 - b * b)",
+              "unit": "m",
+              "decimals": 1
+            },
+            "working": [
+              "l = l₀ √(1 − v² ÷ c²)",
+              "l = {L} × √(1 − {b}²) = {answer} m"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "l = l₀ √(1 − v² ÷ c²), so l is less than l₀.",
+            "Only lengths along the motion contract.",
+            "Proper length is measured in the rest frame."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mass and energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mass and energy are equivalent. This section covers rest energy, total energy and the evidence for how kinetic energy changes with speed."
+        },
+        {
+          "type": "equation",
+          "label": "Mass–energy equivalence",
+          "formula": "E = mc²",
+          "where": [
+            "E = energy (J)",
+            "m = mass (kg)",
+            "c = speed of light, 3.00 × 10⁸ m/s"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Total energy of a moving particle",
+          "formula": "E = m₀c² ÷ √(1 − v² ÷ c²)",
+          "where": [
+            "m₀ = rest mass (kg)",
+            "m₀c² = rest energy (J)",
+            "v = speed of the particle (m/s)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **kinetic energy** is the total energy minus the rest energy.",
+            "As v approaches c, the energy and the effective mass grow without limit.",
+            "So no particle with mass can reach the speed of light."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Graphs"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The graph of mass against speed is nearly flat at low speed, then rises steeply and tends to infinity as v approaches c.",
+            "The graph of kinetic energy against speed follows the classical ½m₀v² at low speed, then rises much faster and tends to infinity at c.",
+            "At low speed the relativistic and classical curves agree."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Bertozzi's experiment"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Electrons were accelerated through known pds, so their kinetic energy was known.",
+            "Their speeds were measured by timing them over a fixed distance.",
+            "The speed approached c but never passed it, however large the energy became.",
+            "This is direct evidence that kinetic energy does not vary as ½mv², and agrees with the relativistic prediction."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "E = mc², with total energy m₀c² ÷ √(1 − v² ÷ c²).",
+            "Kinetic energy = total energy − rest energy.",
+            "Bertozzi showed electrons cannot reach c, as relativity predicts."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the null result of the Michelson–Morley experiment and state what it showed.",
+      "a": "No shift in the interference fringes was seen when the apparatus was rotated. So the expected difference in light travel times along the two arms did not exist, absolute motion could not be detected, and the speed of light is invariant.",
+      "marks": 3
+    },
+    {
+      "q": "A muon has a proper lifetime of 2.2 µs and moves at 0.98c. Calculate its lifetime as measured on Earth.",
+      "a": "t = t₀ ÷ √(1 − v² ÷ c²) = 2.2 ÷ √(1 − 0.98²) = 2.2 ÷ 0.199 = 11 µs.",
+      "marks": 3
+    },
+    {
+      "q": "A particle moves at 0.80c. Calculate the ratio of its total energy to its rest energy, and state its kinetic energy in terms of m₀c².",
+      "a": "E ÷ m₀c² = 1 ÷ √(1 − 0.80²) = 1 ÷ 0.60 = 1.7. Kinetic energy = total − rest = 0.67 m₀c².",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.12.3.1",
+        "AQA 3.12.3.2",
+        "AQA 3.12.3.3",
+        "AQA 3.12.3.4",
+        "AQA 3.12.3.5"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.139"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know when the increase in a particle's lifetime matters. The relativistic equations are not needed."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The increase is significant only when the particle moves at a speed close to the speed of light.",
+                "Fast unstable particles, such as muons from cosmic rays or particles in accelerators, live longer as measured in the laboratory than their lifetime at rest.",
+                "At everyday speeds the increase is far too small to measure."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "5b6219ee-9d93-4e76-b59b-a4928b054e5a",
+      "7632a61b-c807-41ed-bb49-c0c5944f111f",
+      "f21569ba-6dd5-4389-a244-a75a9394841d",
+      "01950f4d-3d86-4b9e-9ca2-6e8a86f3725b",
+      "d9310b34-9bab-4a02-86fe-33d7f884944a"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

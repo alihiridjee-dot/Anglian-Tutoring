@@ -1,0 +1,309 @@
+{
+  "format": 1,
+  "concept_id": "achem-023",
+  "subject": "chemistry",
+  "title": "Enthalpies of solution and hydration",
+  "key_idea": "When an ionic solid dissolves, the lattice breaks up into gaseous ions and the ions are then hydrated. The **enthalpy change of solution** equals the energy to break the lattice plus the **enthalpies of hydration** of the ions. Highly charged, small ions give large lattice and hydration enthalpies.",
+  "sections": [
+    {
+      "heading": "Solution and hydration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dissolving has two stages. Energy is needed to separate the ions. Energy is released when water molecules bond to them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Enthalpy change of solution, ΔsolH",
+              "meaning": "The enthalpy change when 1 mol of a solute dissolves completely in a solvent, so that the ions no longer interact."
+            },
+            {
+              "term": "Enthalpy change of hydration, ΔhydH",
+              "meaning": "The enthalpy change when 1 mol of gaseous ions dissolves in water to form 1 mol of aqueous ions."
+            },
+            {
+              "term": "Lattice enthalpy of dissociation",
+              "meaning": "The enthalpy change when 1 mol of ionic lattice breaks up into gaseous ions. It is endothermic."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hydration is exothermic. Polar water molecules are attracted to the ions: the δ− oxygen to cations and the δ+ hydrogens to anions.",
+            "Breaking the lattice is endothermic. It is the opposite of lattice formation.",
+            "Dissolving can be endothermic or exothermic overall, depending on which of the two is bigger.",
+            "A solid is more soluble when ΔsolH is exothermic or only slightly endothermic. Entropy also matters (see Entropy)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hydration of gaseous ions is exothermic.",
+            "Breaking the lattice is endothermic.",
+            "ΔsolH is the net effect of the two."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The enthalpy cycle for solution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The cycle links the solid and the aqueous ions by two routes. The direct route is dissolving. The other goes through gaseous ions."
+        },
+        {
+          "type": "equation",
+          "label": "Enthalpy change of solution",
+          "formula": "ΔsolH = −(lattice enthalpy of formation) + ΣΔhydH(ions)",
+          "where": [
+            "ΔsolH in kJ mol⁻¹",
+            "lattice enthalpy of formation is negative, so its minus sign gives a positive term",
+            "ΣΔhydH = the hydration enthalpies of the cation and the anion, each times the number of moles of that ion"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Draw the cycle.",
+              "text": "Put the solid, NaCl(s), on the left and the aqueous ions, Na⁺(aq) + Cl⁻(aq), on the right. Put the gaseous ions below."
+            },
+            {
+              "lead": "Label the arrows.",
+              "text": "Solid to gaseous ions: +787 (lattice dissociation). Gaseous ions to aqueous ions: the two hydration enthalpies."
+            },
+            {
+              "lead": "Add them up.",
+              "text": "Na⁺ hydration is −406 kJ mol⁻¹ and Cl⁻ hydration is −364 kJ mol⁻¹. ΔsolH = 787 − 406 − 364 = +17 kJ mol⁻¹."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the enthalpy change of solution of sodium chloride from the lattice enthalpy and the hydration enthalpies.",
+            "question": "For NaCl: lattice enthalpy of dissociation = +{d} kJ mol⁻¹, ΔhydH of Na⁺ = −{c} kJ mol⁻¹, ΔhydH of Cl⁻ = −{a} kJ mol⁻¹. Calculate ΔsolH.",
+            "variables": [
+              {
+                "id": "d",
+                "min": 785,
+                "max": 790,
+                "step": 1
+              },
+              {
+                "id": "c",
+                "min": 400,
+                "max": 410,
+                "step": 1
+              },
+              {
+                "id": "a",
+                "min": 360,
+                "max": 367,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "d - c - a",
+              "unit": "kJ mol⁻¹",
+              "decimals": 0
+            },
+            "working": [
+              "ΔsolH = lattice dissociation + hydration of Na⁺ + hydration of Cl⁻",
+              "= {d} − {c} − {a}",
+              "= **{answer}** kJ mol⁻¹"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Energy level diagrams show the same information: the gaseous ions at the top, the solid and aqueous ions below, and arrows for each step.",
+            "To find a missing term, such as a hydration enthalpy, rearrange the cycle.",
+            "For a compound with a 2+ ion or two anions, such as MgCl₂, multiply by the number of moles of each ion."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ΔsolH = lattice dissociation + hydration of the ions.",
+            "Multiply each hydration enthalpy by the number of ions in the formula.",
+            "Check the sign of lattice enthalpy: formation is negative, dissociation positive."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Effect of ionic charge and radius",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Both the lattice enthalpy and the hydration enthalpy depend on the charge and size of the ions in the same way. The attraction is stronger when the ions have a higher charge density."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Ion property",
+            "Lattice enthalpy",
+            "Hydration enthalpy"
+          ],
+          "rows": [
+            [
+              "Higher ionic charge",
+              "More exothermic: stronger attraction between ions",
+              "More exothermic: stronger attraction to water molecules"
+            ],
+            [
+              "Larger ionic radius",
+              "Less exothermic: charges further apart",
+              "Less exothermic: water molecules are further from the charge"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mg²⁺ has a much more exothermic hydration enthalpy than Na⁺, because it has twice the charge and is smaller.",
+            "Down Group 2 and Group 1 the cations get larger, so both the lattice and hydration enthalpies become less exothermic.",
+            "Solubility trends come from how fast each of these two changes with ionic size."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "High charge and small size give the largest enthalpies.",
+            "The trend applies to both lattice and hydration enthalpies.",
+            "ΔsolH depends on the difference between the two large numbers."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define the enthalpy change of hydration.",
+      "a": "The enthalpy change when 1 mol of gaseous ions dissolves in water to form 1 mol of aqueous ions.",
+      "marks": 2
+    },
+    {
+      "q": "The lattice enthalpy of dissociation of MgCl₂ is +2526 kJ mol⁻¹. The hydration enthalpies are Mg²⁺ −1920 and Cl⁻ −364 kJ mol⁻¹. Calculate ΔsolH.",
+      "a": "ΔsolH = +2526 + (−1920) + 2 × (−364) = 2526 − 1920 − 728 = −122 kJ mol⁻¹.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the hydration enthalpy of Mg²⁺ is more exothermic than that of Ca²⁺.",
+      "a": "Mg²⁺ is smaller than Ca²⁺ with the same charge, so its charge density is higher and it attracts water molecules more strongly.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.1c",
+        "OCR 5.2.1d",
+        "OCR 5.2.1e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Definitions are required for enthalpy change of solution and enthalpy change of hydration. Details of infinite dilution are not required.",
+                "Use simple ionic solids such as NaCl and MgCl₂ for the cycles and calculations."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 13A.9",
+        "EDEX 13A.10",
+        "EDEX 13A.11"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use energy cycles and energy level diagrams to calculate ΔsolH, ΔhydH and lattice energy.",
+                "Give the effect of ionic charge and radius on the values of lattice energy and enthalpy change of hydration."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 23.2.1",
+        "CAIE 23.2.2",
+        "CAIE 23.2.3",
+        "CAIE 23.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use the symbols ΔHhyd and ΔHsol.",
+                "Explain, in qualitative terms, how ionic charge and ionic radius change the size of an enthalpy change of hydration."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.8.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Define the enthalpy of hydration.",
+                "Use cycles to calculate enthalpies of solution for ionic compounds from lattice enthalpies and enthalpies of hydration, as part of Born–Haber work."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "f5b71f51-09e2-46cf-9136-64fe0f60fe6b",
+      "daad7e28-164d-4eab-8769-a6e9fda7eb40",
+      "6c5ee104-e54b-400c-83ce-73fe60bd19fd",
+      "28c1bd9a-e819-4d02-8183-60b3d630f164",
+      "40f2502d-5738-4765-b46d-a383facfa040",
+      "252aa76d-5d6c-4bb2-83ea-3712a4d4736f",
+      "6dcea389-3fda-4a64-8772-70a85abe4613",
+      "2e234538-2d3d-406f-8515-7095e296e0c0",
+      "40dfc349-4a15-4a3c-9905-4d0c9c8f15d7",
+      "309b2edf-cbe1-421e-989e-b717b1557534"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

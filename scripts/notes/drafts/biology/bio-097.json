@@ -1,0 +1,234 @@
+{
+  "format": 1,
+  "concept_id": "bio-097",
+  "subject": "biology",
+  "title": "Inherited disorders",
+  "key_idea": "Some disorders are inherited through certain alleles. **Polydactyly** is caused by a dominant allele and **cystic fibrosis** by a recessive allele. **Embryo screening** can test for these alleles, but it raises economic, social and ethical issues.",
+  "sections": [
+    {
+      "heading": "Polydactyly and cystic fibrosis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Inherited disorders are caused by the alleles a person inherits. This section covers the two you must know."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Inherited disorder",
+              "meaning": "A disorder caused by inheriting certain alleles from the parents."
+            },
+            {
+              "term": "Polydactyly",
+              "meaning": "Having extra fingers or toes. It is caused by a dominant allele."
+            },
+            {
+              "term": "Cystic fibrosis (CF)",
+              "meaning": "A disorder of cell membranes. It is caused by a recessive allele."
+            },
+            {
+              "term": "Carrier",
+              "meaning": "A heterozygous person who has one recessive allele but does not have the disorder."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "rows": [
+            ["Effect", "Extra fingers or toes", "Too much mucus in the lungs and digestive system"],
+            ["Allele that causes it", "Dominant (D)", "Recessive (for example h)"],
+            ["Genotypes with the disorder", "DD and Dd", "hh only"],
+            ["Genotypes without it", "dd only", "HH and Hh (Hh are carriers)"]
+          ],
+          "columns": ["Feature", "Polydactyly", "Cystic fibrosis"]
+        },
+        {
+          "type": "subheading",
+          "text": "Why cystic fibrosis slows growth"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mucus blocks the duct from the pancreas to the small intestine.",
+            "Fewer digestive enzymes enter the small intestine, so less food is digested.",
+            "Less glucose and fewer amino acids are absorbed into the blood.",
+            "So less glucose is available for respiration, and less protein is made for growth.",
+            "Mucus also blocks the tubes to the alveoli, so less oxygen enters the blood.",
+            "Less oxygen reaches the cells, so less energy is released by aerobic respiration."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Polydactyly: dominant allele. One copy is enough to have it.",
+            "Cystic fibrosis: recessive allele. Two copies are needed.",
+            "CF slows growth because less food is digested and less oxygen reaches the cells."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How these disorders are inherited",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Use a genetic cross to predict the disorder. Choose the parents below and look at the children."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "punnett",
+            "alt": "Choose the genotypes of two parents to see the chance of their children having polydactyly, which is caused by a dominant allele.",
+            "alleles": {
+              "dominant": "D",
+              "recessive": "d"
+            },
+            "phenotypes": {
+              "dominant": "Polydactyly",
+              "recessive": "No polydactyly"
+            },
+            "parent_labels": ["Parent 1", "Parent 2"],
+            "parent_options": [
+              ["DD", "Dd", "dd"],
+              ["DD", "Dd", "dd"]
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A person with polydactyly may have the genotype Dd. They have the disorder because the dominant allele is expressed.",
+            "Two parents who are both Hh carriers of cystic fibrosis have a 25% chance of a child with CF. The cross is in the notes on genetic crosses.",
+            "Two parents with no CF who have a child with CF must both be carriers.",
+            "One allele in every 50 in the UK population is the CF allele. A person needs two, so about 1 person in 2500 has CF (1/50 × 1/50)."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "When neither parent has the allele"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Two parents may have no alleles for polydactyly, and still have a child with it.",
+            "This is caused by a **mutation**, a change in the base sequence, in the formation of a gamete (during meiosis).",
+            "The mutation changes the amino acid sequence, so a different protein is made (or none).",
+            "The child who has the mutated allele has the disorder, because the allele is dominant."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "One dominant allele is enough for polydactyly.",
+            "CF needs two recessive alleles, so both parents of an affected child are carriers.",
+            "A new mutation in a gamete can cause a disorder in a family with no history of it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Embryo screening",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Embryo screening tests an embryo's DNA to find out its genotype. This section covers the methods and the issues."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Screening finds out whether an embryo has the alleles for an inherited disorder such as CF.",
+            "In one method, a fine needle takes a sample of the fluid around the embryo after about 10 weeks of pregnancy, and the DNA is tested. The test has a small risk of miscarriage.",
+            "In another method, a couple use in vitro fertilisation (IVF) to make a small number of embryos. Each is tested, and only embryos without the disorder are implanted.",
+            "IVF is a stressful, invasive procedure. It often does not result in a baby, and the free public health service may not provide it to everyone who wants it."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Advantages"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Parents can find out if the embryo has an inherited disorder.",
+            "They can prepare for the baby, for example with early treatment.",
+            "They can decide whether to continue with the pregnancy.",
+            "Over time there are fewer people with inherited disorders."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Arguments against"
+        },
+        {
+          "type": "list",
+          "items": [
+            "There is a risk to the embryo or to the mother, such as miscarriage.",
+            "The process is stressful.",
+            "It may lead to termination of the pregnancy, or destruction of embryos.",
+            "The screening process may be costly.",
+            "The embryo cannot give consent.",
+            "It may increase prejudice against people who have inherited disorders."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Embryo screening and gene therapy may reduce suffering. They also raise ethical issues, so you may be asked for an informed judgement from the information given."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Embryo screening tests an embryo's genotype for alleles that cause disorders.",
+            "Give specific advantages and specific arguments against.",
+            "Use the information in the question to support a judgement."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Polydactyly is caused by a dominant allele, D. A person has the genotype Dd. Do they have polydactyly? Explain.",
+      "a": "Yes. The dominant allele is expressed even if only one copy is present.",
+      "marks": 2
+    },
+    {
+      "q": "Give two advantages of embryo screening.",
+      "a": "Any two from: can find out if the embryo has an inherited disorder; can prepare for the baby; can decide whether to continue with the pregnancy; fewer people with inherited disorders over time.",
+      "marks": 2
+    },
+    {
+      "q": "Give two arguments against embryo screening. Do not refer to religion.",
+      "a": "Any two from: risk to the embryo; risk to the mother (miscarriage); stressful process; may lead to termination of the pregnancy; cost; the embryo cannot give consent.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA T 4.6.1.5", "AQA 6.7"],
+      "worked_example": {
+        "exemplar_id": "d0640fb1-4d62-4392-8942-4afdb43fe3e8",
+        "source": "AQA jun 2018, Paper 1 (H), Q06.3",
+        "question": "In a person with CF, cells lining the lungs and digestive system create too much mucus.\n\nThe mucus can:\n- block the duct leading from the pancreas to the small intestine\n- block the tubes leading to the alveoli in the lungs.\n\nExplain why children with CF grow more slowly than children without CF.",
+        "marks": 6,
+        "answer_points": [
+          "Fewer (digestive) enzymes enter the small intestine, so the enzymes break down less food.",
+          "So there is less absorption of nutrients: less glucose enters the blood, so less glucose is available for respiration.",
+          "Fewer amino acids enter the blood, so less protein is made for growth.",
+          "Less oxygen enters the blood and reaches the cells, so less oxygen is available for aerobic respiration.",
+          "So less energy is released for growth."
+        ],
+        "tip": "Marked in levels. For Level 3 (5 to 6 marks) you must link the points logically and include both the enzymes and the oxygen."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": ["bd48148e-9191-4133-9fc0-c7011b8981db"],
+    "exemplar_ids": ["d0640fb1-4d62-4392-8942-4afdb43fe3e8"],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

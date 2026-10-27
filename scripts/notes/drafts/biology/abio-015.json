@@ -1,0 +1,396 @@
+{
+  "format": 1,
+  "concept_id": "abio-015",
+  "subject": "biology",
+  "title": "Diffusion, active transport and bulk transport",
+  "key_idea": "Substances cross membranes by passive methods that need no energy, and by active methods that use ATP. Diffusion moves particles down a gradient. Active transport moves them against it. Bulk transport moves large amounts in vesicles.",
+  "sections": [
+    {
+      "heading": "Passive transport: diffusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Passive transport needs no ATP. Particles move down a concentration gradient because of their own kinetic energy."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Diffusion",
+              "meaning": "The net movement of particles from a region of higher concentration to a region of lower concentration, down a concentration gradient."
+            },
+            {
+              "term": "Simple diffusion",
+              "meaning": "Diffusion directly through the phospholipid bilayer."
+            },
+            {
+              "term": "Facilitated diffusion",
+              "meaning": "Diffusion through channel proteins or carrier proteins."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Simple diffusion"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Small, non-polar molecules pass through the bilayer, such as oxygen, carbon dioxide and lipid-soluble substances.",
+            "The hydrophobic core limits movement. Ions and polar molecules, such as glucose, cannot cross easily.",
+            "Water is small enough to cross slowly between the phospholipids."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Facilitated diffusion"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Channel proteins form a water-filled pore. Each is specific to certain ions or polar molecules, and some can open and close.",
+            "Carrier proteins bind a specific molecule, change shape and release it on the other side.",
+            "Both move substances down their gradient, so no ATP is used.",
+            "Rate levels off when all the proteins are in use. This is called saturation."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Passive transport is down a gradient and uses no ATP.",
+            "Simple diffusion crosses the bilayer, and only small non-polar molecules can do this easily.",
+            "Facilitated diffusion uses channel or carrier proteins for ions and polar molecules."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What affects the rate of transport",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Several factors change how fast substances cross a membrane."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Factor",
+            "Effect on rate"
+          ],
+          "rows": [
+            [
+              "Steeper concentration gradient",
+              "Faster diffusion. A bigger difference gives a greater net movement."
+            ],
+            [
+              "Larger surface area of membrane",
+              "Faster. More membrane means more room for particles to cross."
+            ],
+            [
+              "Thinner exchange surface",
+              "Faster, because the diffusion distance is shorter."
+            ],
+            [
+              "More channel or carrier proteins",
+              "Faster facilitated diffusion, up to the point where all are in use."
+            ],
+            [
+              "Higher temperature",
+              "Faster, because particles have more kinetic energy."
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Cells are adapted for rapid transport by having more membrane or more proteins in it. The microvilli of epithelial cells in the ileum increase surface area. Cells with a lot of transport have many carrier proteins."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rate rises with gradient, surface area and temperature, and with a shorter distance.",
+            "Facilitated diffusion also depends on how many proteins are present.",
+            "Adaptations increase membrane area or protein number."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Active transport and co-transport",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Active transport moves substances against their concentration gradient. It needs energy from ATP."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A carrier protein binds the substance on one side of the membrane.",
+            "ATP is hydrolysed to ADP and phosphate, and the energy released changes the shape of the carrier.",
+            "The substance is released on the other side, at a higher concentration.",
+            "Only specific substances bind, because each carrier has a binding site of one shape.",
+            "Rate depends on how many carriers there are and how much ATP is available. Respiration inhibitors stop it."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Co-transport"
+        },
+        {
+          "type": "paragraph",
+          "text": "Co-transport moves two substances at once using one carrier protein. The absorption of glucose in the ileum is the standard example."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Sodium out.",
+              "text": "Active transport removes sodium ions from the epithelial cell into the blood. This keeps sodium concentration inside the cell low."
+            },
+            {
+              "lead": "Sodium in.",
+              "text": "Sodium ions diffuse from the gut lumen into the cell down a gradient, through a co-transporter protein."
+            },
+            {
+              "lead": "Glucose with it.",
+              "text": "The same protein carries glucose in, against its gradient. The glucose is carried along with the sodium ions."
+            },
+            {
+              "lead": "Glucose out.",
+              "text": "Glucose then diffuses into the blood through a different protein, by facilitated diffusion."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Active transport goes against the gradient and uses ATP.",
+            "Carriers change shape using energy from ATP hydrolysis.",
+            "In co-transport, sodium moving down its gradient brings glucose in."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Bulk transport",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Large molecules and whole cells move in or out of cells in vesicles. This also needs ATP."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Endocytosis",
+              "meaning": "Bulk transport into a cell. The membrane folds in around the material and pinches off as a vesicle."
+            },
+            {
+              "term": "Exocytosis",
+              "meaning": "Bulk transport out of a cell. A vesicle fuses with the cell-surface membrane and releases its contents."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Endocytosis takes in large particles, such as a phagocyte engulfing a bacterium.",
+            "Exocytosis releases products such as enzymes and hormones, which have been packaged in vesicles by the Golgi apparatus.",
+            "Both processes use ATP, to move the vesicle and to change the shape of the membrane.",
+            "The membrane gained by endocytosis is balanced by the membrane lost in exocytosis."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sorting transport processes by whether they use ATP",
+            "prompt": "Sort each process or feature into the right group.",
+            "groups": [
+              "Passive: no ATP",
+              "Active: needs ATP"
+            ],
+            "items": [
+              {
+                "text": "Simple diffusion of oxygen",
+                "group": 0
+              },
+              {
+                "text": "Facilitated diffusion through a channel protein",
+                "group": 0
+              },
+              {
+                "text": "Movement down a concentration gradient",
+                "group": 0
+              },
+              {
+                "text": "Facilitated diffusion through a carrier protein",
+                "group": 0
+              },
+              {
+                "text": "Active transport by a carrier protein",
+                "group": 1
+              },
+              {
+                "text": "Endocytosis",
+                "group": 1
+              },
+              {
+                "text": "Exocytosis",
+                "group": 1
+              },
+              {
+                "text": "Movement against a concentration gradient",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Endocytosis takes material in by a vesicle. Exocytosis sends it out.",
+            "Both need ATP.",
+            "Diffusion and facilitated diffusion are passive. Active transport, endocytosis and exocytosis are active."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating diffusion in model cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Model cells show how size and conditions change the rate of diffusion."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use agar blocks or Visking tubing containing a coloured substance or indicator.",
+            "Change one variable, such as the block size, temperature or concentration gradient.",
+            "Time how long the substance takes to diffuse in or out. Colour change or mass change can be used.",
+            "Control the other variables, and repeat to get a mean."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change one variable and control the rest.",
+            "Time to diffuse measures the rate."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why glucose cannot cross a cell membrane by simple diffusion.",
+      "a": "Glucose is a large, polar molecule. It cannot pass through the hydrophobic core of the phospholipid bilayer, so it needs a protein to cross."
+    },
+    {
+      "q": "Describe how active transport differs from facilitated diffusion.",
+      "a": "Active transport moves substances against their concentration gradient and uses energy from ATP hydrolysis. Facilitated diffusion moves substances down their gradient and uses no ATP."
+    },
+    {
+      "q": "Explain how glucose is absorbed from the ileum into an epithelial cell by co-transport.",
+      "a": "Sodium ions are actively transported out of the cell, so the concentration of sodium is lower inside. Sodium ions diffuse in through a co-transporter protein. Glucose enters with them against its concentration gradient."
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.3c",
+        "AQA 3.2.3d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Cholesterol restricts the movement of the other molecules in the membrane.",
+                "Explain how surface area, the number of channel or carrier proteins, and differences in concentration or water potential gradients affect the rate of movement across membranes.",
+                "Explain the adaptations of specialised cells in relation to the rate of transport across their membranes.",
+                "Required practical 4: investigate the effect of a named variable on the permeability of cell-surface membranes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Passive transport is diffusion and facilitated diffusion.",
+                "ATP is the immediate source of energy for active transport.",
+                "Know the involvement of both carrier and channel proteins in membrane transport."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 4.2.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe and explain each of: simple diffusion, facilitated diffusion, osmosis, active transport, endocytosis and exocytosis.",
+                "Osmosis is covered in the note on osmosis and water potential."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.5d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Diffusion and facilitated diffusion are the passive methods.",
+                "Active transport, endocytosis and exocytosis need ATP as an immediate source of energy.",
+                "Practical investigations into the factors affecting diffusion rates in model cells, such as agar blocks of different sizes."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "0c61aa4b-1e96-4f70-b146-4dd0ae79a5b7",
+      "25dcae69-c3f0-4396-99c3-12608ccd349c",
+      "ee1e64b5-bd56-4818-8c5c-e69055124c43",
+      "b6378a49-db3e-40cf-9ade-081c37f574f5",
+      "6e73e801-bc9b-474a-8ff2-56a23fe82142"
+    ],
+    "exemplar_ids": []
+  }
+}

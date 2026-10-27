@@ -1,0 +1,327 @@
+{
+  "format": 1,
+  "concept_id": "aphys-024",
+  "subject": "physics",
+  "title": "Resistance and I-V characteristics",
+  "key_idea": "Resistance is potential difference divided by current, R = V / I. Ohm's law says the current in a metal at constant temperature is directly proportional to the p.d. An I-V graph shows how a component behaves, and only a straight line through the origin means a constant resistance.",
+  "sections": [
+    {
+      "heading": "Resistance and Ohm's law",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Resistance measures how hard it is to push current through a component. It is defined for every component, whether or not it obeys Ohm's law."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Resistance",
+              "meaning": "The potential difference across a component divided by the current in it."
+            },
+            {
+              "term": "Ohm (Ω)",
+              "meaning": "The unit of resistance. One ohm is one volt per ampere."
+            },
+            {
+              "term": "Ohm's law",
+              "meaning": "For a metallic conductor at constant temperature, the current is directly proportional to the potential difference across it."
+            },
+            {
+              "term": "Ohmic conductor",
+              "meaning": "A conductor that obeys Ohm's law, so its resistance is constant."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Resistance",
+          "formula": "R = V / I",
+          "where": [
+            "R = resistance (Ω)",
+            "V = potential difference (V)",
+            "I = current (A)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ohm's law is a special case: I ∝ V only while the temperature and other physical conditions stay constant.",
+            "R = V / I is a definition. It does not mean that V and I are proportional.",
+            "Unless a question says otherwise, treat an ammeter as ideal (zero resistance) and a voltmeter as ideal (infinite resistance)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "R = V / I always defines resistance.",
+            "Ohm's law holds only at constant temperature, and only for ohmic conductors.",
+            "Ideal ammeter: zero resistance. Ideal voltmeter: infinite resistance."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "I-V characteristics of components",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An I-V characteristic plots current against p.d. for a component. Its shape shows how the resistance changes."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Component",
+            "Shape of the I-V graph",
+            "Resistance"
+          ],
+          "rows": [
+            [
+              "Resistor or metal wire at constant temperature",
+              "Straight line through the origin",
+              "Constant"
+            ],
+            [
+              "Filament lamp",
+              "Curve that flattens as p.d. rises, symmetric about the origin",
+              "Increases as the current increases"
+            ],
+            [
+              "Semiconductor diode",
+              "Almost zero current in reverse and below about 0.6 V forward, then a steep rise",
+              "Very high in reverse, falls sharply once conducting"
+            ],
+            [
+              "LED",
+              "Like a diode but with a higher forward threshold; it emits light when it conducts",
+              "Very high in reverse, falls sharply once conducting"
+            ],
+            [
+              "NTC thermistor",
+              "Curve that steepens as current heats it",
+              "Decreases as the current increases"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a component to see what its I-V graph looks like and how its resistance changes.",
+            "prompt": "Pick a component.",
+            "result_labels": [
+              "I-V graph",
+              "Resistance as p.d. rises",
+              "Obeys Ohm's law?"
+            ],
+            "options": [
+              {
+                "label": "Resistor at constant temperature",
+                "results": [
+                  "Straight line through the origin",
+                  "Stays constant",
+                  "Yes"
+                ]
+              },
+              {
+                "label": "Filament lamp",
+                "results": [
+                  "Curve that flattens",
+                  "Increases, because the filament gets hotter",
+                  "No"
+                ]
+              },
+              {
+                "label": "Semiconductor diode",
+                "results": [
+                  "Flat, then a steep rise in the forward direction only",
+                  "Very high until the threshold, then it falls",
+                  "No"
+                ]
+              },
+              {
+                "label": "NTC thermistor",
+                "results": [
+                  "Curve that steepens",
+                  "Decreases, because more carriers are released as it warms",
+                  "No"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Only a straight line through the origin shows constant resistance.",
+            "A diode conducts in one direction only, above a threshold p.d.",
+            "A filament lamp's resistance increases and a thermistor's decreases as current rises."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why a filament lamp curves",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The resistance of a filament lamp increases as the current increases, because its temperature increases."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Heating",
+              "text": "A larger current transfers more energy to the filament each second, so its temperature rises."
+            },
+            {
+              "lead": "Vibrations",
+              "text": "The metal ions vibrate with larger amplitude."
+            },
+            {
+              "lead": "Collisions",
+              "text": "The conduction electrons collide with the ions more often."
+            },
+            {
+              "lead": "Resistance",
+              "text": "The current rises less than in proportion to the p.d., so R = V / I increases."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Read resistance at a point from the values of V and I there: R = V / I.",
+            "Do not use the gradient of a curve. With I on the y-axis, the gradient of a straight line through the origin is 1 ÷ R.",
+            "If V is on the y-axis, the gradient of a straight line through the origin is R itself."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Higher temperature means more frequent electron-ion collisions and a larger resistance.",
+            "For a curve, find R at a point as V divided by I, not from the slope."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State Ohm's law.",
+      "a": "The current in a metallic conductor is directly proportional to the potential difference across it, provided the temperature stays constant.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the I-V graph of a filament lamp is a curve that flattens at high p.d.",
+      "a": "A larger current makes the filament hotter. The ions vibrate more and collide with the electrons more often, so the resistance increases. Current then rises less than in proportion to p.d.",
+      "marks": 3
+    },
+    {
+      "q": "At 4.0 V a lamp carries 0.50 A, and at 8.0 V it carries 0.70 A. Calculate its resistance at each p.d. and say whether it is ohmic.",
+      "a": "At 4.0 V: R = 4.0 ÷ 0.50 = 8.0 Ω. At 8.0 V: R = 8.0 ÷ 0.70 = 11 Ω. The resistance changes, so it is not ohmic.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.1.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Questions can put either I or V on the horizontal axis. Work out which axis is which before reading a gradient.",
+                "Treat meters as ideal unless the question says otherwise.",
+                "Ohm's law is a special case of I ∝ V under constant physical conditions, not a definition of resistance."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.33",
+        "EDEX 3.38"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 9.3.1",
+        "CAIE 9.3.2",
+        "CAIE 9.3.3",
+        "CAIE 9.3.4",
+        "CAIE 9.3.5"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.3a",
+        "OCR 4.2.3b",
+        "OCR 4.2.3c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You must know how to investigate the characteristics of ohmic and non-ohmic components."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Circuit",
+                  "text": "Put the component in series with an ammeter and connect a voltmeter across it only."
+                },
+                {
+                  "lead": "Vary the p.d.",
+                  "text": "Use a variable resistor as a potential divider, or a variable supply, to change the p.d. from zero in small steps."
+                },
+                {
+                  "lead": "Record",
+                  "text": "Read V and I at each step. Reverse the connections to cover negative values."
+                },
+                {
+                  "lead": "Safety",
+                  "text": "Keep the current low enough that the component does not overheat or burn out. Put a protective resistor in series with a diode or LED."
+                },
+                {
+                  "lead": "Analyse",
+                  "text": "Enter the results in a spreadsheet, plot I against V, and calculate V / I for each row to see how R changes."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "60d75ce9-34f7-42d1-8f10-fb185f76f046",
+      "044087db-228f-4c99-803e-4498fbf4ddec",
+      "c723e84a-1f8c-4dae-9297-13e9217ea352",
+      "cfebc08f-1420-4288-8278-4d8b57d6f1a8",
+      "370b9849-2e88-46c2-b1d8-abe467113111",
+      "d65c6915-1d59-4c59-b4e6-b809d49ae027",
+      "bd67d606-29ea-4846-ac81-c7bd8c91efe4",
+      "1d7a0300-66b3-493e-b905-b585d27bdbd8",
+      "a462ebf9-7ddc-4777-b2fe-e190ba716d7d",
+      "9ad0fd2b-7e4f-4f43-8211-6c6724ba97f0",
+      "d1236b8b-4864-42bd-8f6b-7e7ebb80a2c7"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

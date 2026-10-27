@@ -140,7 +140,11 @@ export function Live() {
                   ? `No ${subjectLabel(activeSubject)} lessons booked in`
                   : "No lessons booked in"
               }
-              body="There's nothing on the timetable right now. Once your tutor schedules the next session it appears here with a join link and the spec points it'll cover."
+              body={
+                isTutor
+                  ? "There's nothing on the timetable right now. A session you schedule appears here with its join link and the spec points it'll cover."
+                  : "There's nothing on the timetable right now. Once your tutor schedules the next session it appears here with a join link and the spec points it'll cover."
+              }
             />
           ) : (
             upcoming.map((s) => (

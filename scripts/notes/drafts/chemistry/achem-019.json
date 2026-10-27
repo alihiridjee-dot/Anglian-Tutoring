@@ -1,0 +1,291 @@
+{
+  "format": 1,
+  "concept_id": "achem-019",
+  "subject": "chemistry",
+  "title": "Calorimetry",
+  "key_idea": "In calorimetry you measure a temperature change and use **q = mcΔT** to find the heat energy transferred. Dividing by the moles that reacted, and fixing the sign, gives ΔH in kJ mol⁻¹. Heat loss to the surroundings is the main source of error.",
+  "sections": [
+    {
+      "heading": "Finding the heat energy transferred",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A calorimeter holds a known mass of liquid, usually water or a solution. The heat from the reaction changes that liquid's temperature, and the change tells you the energy transferred."
+        },
+        {
+          "type": "equation",
+          "label": "Heat energy transferred",
+          "formula": "q = m × c × ΔT",
+          "where": [
+            "q = heat energy transferred, in J",
+            "m = mass of the liquid that changes temperature, in g",
+            "c = specific heat capacity, in J g⁻¹ K⁻¹ (water and dilute solutions: 4.18)",
+            "ΔT = temperature change, in K or °C"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "m is the mass of the water or solution being heated, not the mass of the reactants. For a dilute solution, take 1.00 cm³ as 1.00 g.",
+            "A temperature change of 1 °C is the same size as a change of 1 K.",
+            "In a combustion experiment, the liquid being heated is the water above the burner. The fuel is what burns.",
+            "q is in joules. Convert to kJ by dividing by 1000."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "q = mcΔT gives the energy transferred in J.",
+            "m is the mass of liquid whose temperature changes.",
+            "Divide by 1000 to convert J to kJ."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "From q to ΔH in kJ mol⁻¹",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "q is the energy for the amounts you used. ΔH is per mole, so you divide by the moles that reacted. The sign comes from the direction of the temperature change."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find q.",
+              "text": "Use q = mcΔT. Convert to kJ."
+            },
+            {
+              "lead": "Find the moles.",
+              "text": "Use the limiting reactant, or the mass of fuel burned divided by its molar mass."
+            },
+            {
+              "lead": "Divide.",
+              "text": "Energy per mole = q ÷ moles."
+            },
+            {
+              "lead": "Add the sign.",
+              "text": "Temperature rise: exothermic, so ΔH is negative. Temperature fall: endothermic, so ΔH is positive."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Molar enthalpy change",
+          "formula": "ΔH = −q ÷ n",
+          "where": [
+            "ΔH in kJ mol⁻¹",
+            "q = mcΔT, in kJ, using the temperature rise as positive",
+            "n = moles of the substance that reacted"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the enthalpy change in kJ per mole from a mass of solution, a temperature rise and the moles that reacted.",
+            "question": "**{m} g** of solution rises in temperature by **{dT} °C** when **{n} mol** of a reactant reacts. Calculate ΔH in kJ mol⁻¹. Use c = 4.18 J g⁻¹ K⁻¹.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 25,
+                "max": 100,
+                "step": 25
+              },
+              {
+                "id": "dT",
+                "min": 3,
+                "max": 12,
+                "step": 0.5
+              },
+              {
+                "id": "n",
+                "min": 0.02,
+                "max": 0.05,
+                "step": 0.005
+              }
+            ],
+            "answer": {
+              "formula": "-(m * 4.18 * dT) / (n * 1000)",
+              "unit": "kJ mol⁻¹",
+              "decimals": 1
+            },
+            "working": [
+              "q = {m} × 4.18 × {dT} = mcΔT in J, so divide by 1000 to give kJ",
+              "ΔH = −q ÷ n = −q ÷ {n}",
+              "ΔH = **{answer}** kJ mol⁻¹ (negative, because the temperature rose)"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ΔH = −q ÷ n, with q in kJ.",
+            "Temperature rise gives a negative ΔH. Temperature fall gives a positive ΔH.",
+            "Give both the sign and the units in the final answer."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Experiments, errors and assumptions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two kinds of experiment are common. In both, some heat is lost or gained, so the measured ΔH is not exact."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Experiment",
+            "Method",
+            "Main errors"
+          ],
+          "rows": [
+            [
+              "Reaction in solution (neutralisation, displacement, dissolving)",
+              "Mix measured volumes in an insulated cup with a lid. Take the temperature before and after mixing and use the maximum change.",
+              "Heat lost to the surroundings. Heat absorbed by the cup and thermometer. Slow mixing."
+            ],
+            [
+              "Combustion of a fuel such as an alcohol",
+              "Burn the fuel in a spirit burner under a metal can of water. Weigh the burner before and after and record the water temperature rise.",
+              "Heat lost to the air. Incomplete combustion. Heat absorbed by the can. Evaporation of the fuel."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Assumptions made in the calculation: all the heat goes into the liquid, the liquid has the specific heat capacity of water, and its density is 1.00 g cm⁻³.",
+            "Heat loss makes the measured temperature change too small. The measured value of ΔH is then less exothermic than the true value.",
+            "To reduce heat loss, use insulation and a lid, stir, and (for combustion) use a draught shield and keep the flame close to the can.",
+            "A cooling-curve extrapolation back to the time of mixing gives a better value of ΔT than the highest reading."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Heat loss is the main error, and it makes the temperature change too small.",
+            "Combustion experiments also lose heat through incomplete combustion.",
+            "Insulation, a lid, stirring and a draught shield all reduce the error."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "50.0 cm³ of 1.00 mol dm⁻³ HCl is mixed with 50.0 cm³ of 1.00 mol dm⁻³ NaOH. The temperature rises by 6.8 °C. Calculate ΔH for the neutralisation in kJ mol⁻¹. (c = 4.18 J g⁻¹ K⁻¹, 1.00 cm³ has a mass of 1.00 g.)",
+      "a": "q = 100 × 4.18 × 6.8 = 2842 J = 2.842 kJ. Moles of water = 0.0500 mol. ΔH = −2.842 ÷ 0.0500 = −56.8 kJ mol⁻¹.",
+      "marks": 4
+    },
+    {
+      "q": "A student burns 0.46 g of ethanol (Mᵣ = 46) and heats 200 g of water by 14.0 °C. Calculate the enthalpy change of combustion in kJ mol⁻¹. (c = 4.18 J g⁻¹ K⁻¹)",
+      "a": "q = 200 × 4.18 × 14.0 = 11 704 J = 11.7 kJ. Moles = 0.46 ÷ 46 = 0.010 mol. ΔH = −11.7 ÷ 0.010 = −1170 kJ mol⁻¹.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why the value of ΔcH found in a spirit burner experiment is less exothermic than the data book value.",
+      "a": "Heat is lost to the surroundings and to the apparatus, and combustion may be incomplete, so the temperature rise of the water is smaller than it should be.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.2.1e",
+        "OCR 3.2.1h"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the techniques and procedures for finding enthalpy changes directly (calorimetry) and indirectly (by Hess's law from other enthalpy changes, such as combustion and formation).",
+                "Calculate an enthalpy change directly from experimental results using q = mcΔT."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.5",
+        "EDEX 8.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Be ready to evaluate sources of error and the assumptions made in the experiment.",
+                "Expect three set-ups: substances mixed in an insulated container, enthalpy of combustion measured with a series of alcohols in a spirit burner, and a change that cannot be measured directly. The last is solved with Hess's law."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.4.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You do not need to recall the specific heat capacity of a substance. It is given in the question.",
+                "This is a required practical: the measurement of an enthalpy change. Be ready to describe the method and use the results in related calculations."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 5.1.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The two relationships to use are q = mcΔT and ΔH = −mcΔT ÷ n, with n the moles of the reactant.",
+                "Use the combined form directly: it gives the sign as well, because the minus is built in."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "92f5b7c4-e5a0-4433-b583-bd6e83deaba9",
+      "893f1ce9-910c-47c3-88e1-8f2b4c7a4444",
+      "1eb2de60-496f-4758-8392-0fa250863e44",
+      "856ff274-4e17-4289-b15c-435686b0fc1a",
+      "f21ee263-f52e-4f21-8dac-8ff01d4167b5",
+      "1e8d2fed-0abc-4c7e-9f9e-554529cc65dc"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

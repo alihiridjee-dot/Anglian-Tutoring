@@ -1,0 +1,186 @@
+{
+  "format": 1,
+  "concept_id": "bio-054",
+  "subject": "biology",
+  "title": "Plant defence responses",
+  "key_idea": "Plants defend themselves against pathogens and pests with physical barriers, chemicals and mechanical features. Barriers such as the waxy cuticle and cell wall stop entry. Chemicals are toxic or antimicrobial, and some are used in medicines.",
+  "sections": [
+    {
+      "heading": "Physical defences",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Physical defences are barriers that pests and pathogens must get through. They stop or slow the entry of a pathogen."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Cuticle",
+              "meaning": "A waxy layer on the surface of a leaf."
+            },
+            {
+              "term": "Cell wall",
+              "meaning": "A layer of cellulose around each plant cell."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The waxy **cuticle** on leaves is impermeable and helps to stop pathogens getting in.",
+            "Plant cells have cell walls made of cellulose, which are difficult for pests and pathogens to penetrate.",
+            "Bark on trees is a physical defence. Bark that falls off is classed as a physical response.",
+            "A pest such as an aphid has to push its mouthpart through the waxy cuticle and the cell wall to feed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The leaf cuticle and the cell wall are physical defences.",
+            "A pest or pathogen must get through them to enter the plant."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Chemical and mechanical defences",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plants also make chemicals, and some have features that stop animals eating them."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each plant defence into a physical or mechanical defence or a chemical defence.",
+            "prompt": "Is the defence physical or mechanical, or chemical?",
+            "groups": ["Physical or mechanical", "Chemical"],
+            "items": [
+              {
+                "text": "Waxy cuticle on the leaf",
+                "group": 0
+              },
+              {
+                "text": "Cellulose cell wall",
+                "group": 0
+              },
+              {
+                "text": "Bark that falls off",
+                "group": 0
+              },
+              {
+                "text": "Thorns on a gorse plant",
+                "group": 0
+              },
+              {
+                "text": "Poisonous berries",
+                "group": 1
+              },
+              {
+                "text": "Antimicrobial substances",
+                "group": 1
+              },
+              {
+                "text": "Unpleasant taste or smell",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chemical defences include antimicrobial (antibacterial) chemicals and poisons that are toxic to pests and pathogens.",
+            "An unpleasant taste or smell deters pests.",
+            "Poisonous berries stop animals eating the plant.",
+            "Some of the chemicals plants make are used in medicines.",
+            "Thorns and hairs are mechanical defences. They deter or stop animals eating or damaging the plant.",
+            "Other mechanical defences are leaves that droop or curl when touched, and mimicry, which tricks animals."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Chemical defences include antimicrobial chemicals, poisons and unpleasant tastes.",
+            "Thorns are a mechanical (physical) defence. Poisonous berries are a chemical defence."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name two physical defences of a leaf against pathogens.",
+      "a": "The waxy cuticle and the (cellulose) cell wall.",
+      "marks": 2
+    },
+    {
+      "q": "State whether poisonous berries are a chemical or a physical defence.",
+      "a": "Chemical.",
+      "marks": 1
+    },
+    {
+      "q": "How do thorns help a gorse plant to survive?",
+      "a": "They deter or prevent animals from eating or damaging the plant.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 3.10"],
+      "worked_example": {
+        "exemplar_id": "8386c918-eecc-46db-9294-c0dfaa491601",
+        "source": "AQA jun 2022, Paper 1 (H), Q04.1",
+        "question": "Plants and animals have many defence responses. The table shows some plant defences.\n\nIdentify whether each defence is a chemical response or a physical response.\n\n1. Thick, waxy layer on leaf surface\n2. Berries that are poisonous\n3. Bark on trees that falls off",
+        "marks": 2,
+        "answer_points": [
+          "Thick, waxy layer on leaf surface: physical.",
+          "Berries that are poisonous: chemical.",
+          "Bark on trees that falls off: physical."
+        ],
+        "tip": "All three correct score 2 marks. Two correct score 1 mark. One correct scores 0."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.9B", "EDEX 5.10B"],
+      "worked_example": {
+        "exemplar_id": "39aeb17d-7d49-41a3-a909-3ffd378d25ea",
+        "source": "EDEXCEL jun 2018, Paper 1 (F), Q7(b)",
+        "question": "Explain how plants protect themselves from being eaten by pests and against diseases caused by pathogens.",
+        "marks": 6,
+        "answer_points": [
+          "Plants have physical and chemical defences.",
+          "Physical: plant leaves have waxy cuticles, which are impermeable.",
+          "Physical: plant cells have cell walls made of cellulose, which are difficult for pests or pathogens to penetrate.",
+          "Physical: some plants have spines or hairs, which deter pests.",
+          "Chemical: chemicals toxic to pests and pathogens, or with anti-microbial properties.",
+          "Chemical: an unpleasant taste or smell deters pests."
+        ],
+        "tip": "This is a levelled question. Cover both physical and chemical defences, with detail and a clear structure."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3g", "OCR 6.3h"]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "66088360-623b-4a73-9c47-39e01d9c56a0",
+      "729e04ae-f4d2-4a88-b93f-0438eabc80d6",
+      "407c08e9-6fa5-4387-ba47-1e24bc5108b8",
+      "c4d1e449-216c-41d4-8d1a-daca738afc06",
+      "6e24ac44-afa6-485f-8aab-5e894d45654c"
+    ],
+    "exemplar_ids": [
+      "8386c918-eecc-46db-9294-c0dfaa491601",
+      "39aeb17d-7d49-41a3-a909-3ffd378d25ea"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

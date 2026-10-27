@@ -43,6 +43,13 @@ export async function markWelcomeTourSeen(userId: string): Promise<string> {
  */
 const VIDEO_WATCHED = "anglia.welcome-video-watched.v1";
 
+/**
+ * Also kept for this page load. A new student watches the video on the payment
+ * page and is taken to the tour without a reload, so the tour must know even
+ * where storage is blocked, or it would play the video a second time.
+ */
+const watchedThisVisit = new Set<string>();
+
 function local(): Storage | null {
   // Safari in private mode throws on access rather than returning null.
   try {
@@ -54,6 +61,7 @@ function local(): Storage | null {
 }
 
 export function readWelcomeVideoWatched(userId: string): boolean {
+  if (watchedThisVisit.has(userId)) return true;
   try {
     return !!local()?.getItem(`${VIDEO_WATCHED}:${userId}`);
   } catch {
@@ -62,6 +70,7 @@ export function readWelcomeVideoWatched(userId: string): boolean {
 }
 
 export function markWelcomeVideoWatched(userId: string): void {
+  watchedThisVisit.add(userId);
   try {
     local()?.setItem(`${VIDEO_WATCHED}:${userId}`, new Date().toISOString());
   } catch {

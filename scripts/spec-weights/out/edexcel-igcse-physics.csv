@@ -1,0 +1,196 @@
+code,title,weight,topic
+IGCSE 1.1,"Use the units kg, m, m/s, m/s², N, s and N/kg",1.5,Forces and motion
+IGCSE 1.2P,"Use the following units: newton metre (Nm), kilogram metre/second (kg m/s)",1.5,Forces and motion
+IGCSE 1.3,Plot and explain distance−time graphs,1.6,Forces and motion
+IGCSE 1.4,"Know and use the relationship between average speed, distance moved and time taken",1.05,Forces and motion
+IGCSE 1.5,Practical: investigate the motion of everyday objects,4.2,Forces and motion
+IGCSE 1.6,"Know and use the relationship between acceleration, change in velocity and time taken",1.12,Forces and motion
+IGCSE 1.7,Plot and explain velocity−time graphs,1.6,Forces and motion
+IGCSE 1.8,Determine acceleration from the gradient of a velocity−time graph,1.4,Forces and motion
+IGCSE 1.9,Determine the distance travelled from the area under a velocity−time graph,1.4,Forces and motion
+IGCSE 1.10,"Use the relationship between final speed, initial speed, acceleration and distance moved",1.68,Forces and motion
+IGCSE 1.11,Describe the effects of forces between bodies,1.3,Forces and motion
+IGCSE 1.12,Identify different types of force,1.2,Forces and motion
+IGCSE 1.13,Understand how vector quantities differ from scalar quantities,1.4,Forces and motion
+IGCSE 1.14,Understand that force is a vector quantity,1.4,Forces and motion
+IGCSE 1.15,Calculate the resultant force of forces that act along a line,1.8,Forces and motion
+IGCSE 1.16,Know that friction is a force that opposes motion,1.05,Forces and motion
+IGCSE 1.17,"Know and use the relationship between unbalanced force, mass and acceleration",1.05,Forces and motion
+IGCSE 1.18,"Know and use the relationship between weight, mass and gravitational field strength",1.05,Forces and motion
+IGCSE 1.19,Know that stopping distance is thinking distance plus braking distance,1.05,Forces and motion
+IGCSE 1.20,Describe the factors affecting vehicle stopping distance,1.3,Forces and motion
+IGCSE 1.21,Describe the forces on falling objects and why they reach terminal velocity,1.3,Forces and motion
+IGCSE 1.22,"Practical: investigate extension against force for springs, wires and rubber bands",4.2,Forces and motion
+IGCSE 1.23,Know the initial linear region of a force-extension graph shows Hooke’s law,1.05,Forces and motion
+IGCSE 1.24,Describe elastic behaviour as a material recovering its shape after deformation,1.3,Forces and motion
+IGCSE 1.25P,"Know and use the relationship between momentum, mass and velocity",1.05,Forces and motion
+IGCSE 1.26P,Use the idea of momentum to explain safety features,1.5,Forces and motion
+IGCSE 1.27P,"Use the conservation of momentum to calculate the mass, velocity or momentum of objects",1.5,Forces and motion
+IGCSE 1.28P,"Use the relationship between force, change in momentum and time taken",1.52,Forces and motion
+IGCSE 1.29P,Demonstrate an understanding of Newton’s third law,1.4,Forces and motion
+IGCSE 1.30P,Know and use moment = force × perpendicular distance from the pivot,1.09,Forces and motion
+IGCSE 1.31P,Know that the weight of a body acts through its centre of gravity,1.05,Forces and motion
+IGCSE 1.32P,Use the principle of moments for a simple system of parallel forces acting in one plane,1.5,Forces and motion
+IGCSE 1.33P,Understand how upward forces on a light beam vary with the load’s position,1.4,Forces and motion
+IGCSE 2.1,"Use the units ampere, coulomb, joule, ohm, second, volt and watt",1.5,Electricity
+IGCSE 2.2,"Understand how insulation, earthing, fuses and circuit breakers protect users",1.4,Electricity
+IGCSE 2.3,Understand why current in a resistor transfers energy and raises temperature,1.53,Electricity
+IGCSE 2.4,"Know and use the relationship between power, current and voltage",1.16,Electricity
+IGCSE 2.5,"Use the relationship between energy transferred, current, voltage and time",1.5,Electricity
+IGCSE 2.6,Know the difference between alternating current (a.c.) and direct current (d.c.),1.05,Electricity
+IGCSE 2.7,Explain why a series or parallel circuit is more appropriate for particular applications,1.7,Electricity
+IGCSE 2.8,Understand how current in a series circuit depends on voltage and components,1.4,Electricity
+IGCSE 2.9,"Describe how current varies with voltage in wires, resistors, lamps and diodes",1.3,Electricity
+IGCSE 2.10,Describe the qualitative effect of changing resistance on the current in a circuit,1.3,Electricity
+IGCSE 2.11,Describe how LDR and thermistor resistance varies with light and temperature,1.3,Electricity
+IGCSE 2.12,Know that lamps and LEDs can be used to indicate the presence of a current in a circuit,1.05,Electricity
+IGCSE 2.13,"Know and use the relationship between voltage, current and resistance",1.05,Electricity
+IGCSE 2.14,Know that current is the rate of flow of charge,1.05,Electricity
+IGCSE 2.15,"Know and use the relationship between charge, current and time",1.05,Electricity
+IGCSE 2.16,Know that current in solid metallic conductors is a flow of electrons,1.05,Electricity
+IGCSE 2.17,Understand why current is conserved at a junction in a circuit,1.4,Electricity
+IGCSE 2.18,Know that the voltage across two components connected in parallel is the same,1.05,Electricity
+IGCSE 2.19,"Calculate currents, voltages and resistances of two components in series",1.8,Electricity
+IGCSE 2.20,"Know that voltage is energy transferred per unit charge, and a volt is a joule per coulomb",1.49,Electricity
+IGCSE 2.21,"Know and use the relationship between energy transferred, charge and voltage",1.05,Electricity
+IGCSE 2.22P,Identify common materials that are electrical conductors or insulators,1.2,Electricity
+IGCSE 2.23P,Practical: investigate how insulating materials can be charged by friction,4.2,Electricity
+IGCSE 2.24P,Explain how electrostatic charges are produced by loss and gain of electrons,1.7,Electricity
+IGCSE 2.25P,Know that unlike charges attract and like charges repel,1.05,Electricity
+IGCSE 2.26P,Explain electrostatic phenomena in terms of the movement of electrons,1.7,Electricity
+IGCSE 2.27P,"Explain the dangers of electrostatic charge, e.g. when fuelling aircraft and tankers",1.7,Electricity
+IGCSE 2.28P,"Explain some uses of electrostatic charges, e.g. in photocopiers and inkjet printers",1.7,Electricity
+IGCSE 3.1,"Use the units degree, hertz, metre, metre/second and second",1.5,Waves
+IGCSE 3.2,Explain the difference between longitudinal and transverse waves,1.7,Waves
+IGCSE 3.3,"Know the definitions of amplitude, wavefront, frequency, wavelength and period of a wave",1.05,Waves
+IGCSE 3.4,Know that waves transfer energy and information without transferring matter,1.05,Waves
+IGCSE 3.5,"Know and use the relationship between the speed, frequency and wavelength of a wave",1.05,Waves
+IGCSE 3.6,Use the relationship between frequency and time period,1.5,Waves
+IGCSE 3.7,Use the above relationships in different contexts,1.5,Waves
+IGCSE 3.8,Explain the Doppler effect of a moving source on observed frequency and wavelength,1.88,Waves
+IGCSE 3.9,Explain that all waves can be reflected and refracted,1.7,Waves
+IGCSE 3.10,Know the electromagnetic spectrum and that all its waves travel at the same speed,1.27,Waves
+IGCSE 3.11,Know the order of the electromagnetic spectrum by wavelength and frequency,1.05,Waves
+IGCSE 3.12,Explain some of the uses of electromagnetic radiations,4.04,Waves
+IGCSE 3.13,Explain the harmful effects of electromagnetic waves and simple protective measures,3.07,Waves
+IGCSE 3.14,Know that light waves are transverse waves and that they can be reflected and refracted,1.05,Waves
+IGCSE 3.15,Use the law of reflection (the angle of incidence equals the angle of reflection),1.5,Waves
+IGCSE 3.16,Draw ray diagrams to illustrate reflection and refraction,1.5,Waves
+IGCSE 3.17,Practical: investigate the refraction of light using blocks and prisms,4.2,Waves
+IGCSE 3.18,"Know and use the refractive index relationship, n = sin i / sin r",1.05,Waves
+IGCSE 3.19,"Practical: investigate the refractive index of glass, using a glass block",4.2,Waves
+IGCSE 3.20,Describe the role of total internal reflection in optical fibres and prisms,1.3,Waves
+IGCSE 3.21,Explain the meaning of critical angle c,1.7,Waves
+IGCSE 3.22,Know and use the relationship between critical angle and refractive index,1.05,Waves
+IGCSE 3.23,Know that sound waves are longitudinal waves that can be reflected and refracted,1.05,Waves
+IGCSE 3.24P,Know that the frequency range for human hearing is 20–20 000 Hz,1.05,Waves
+IGCSE 3.25P,Practical: investigate the speed of sound in air,4.2,Waves
+IGCSE 3.26P,Understand how an oscilloscope and microphone can be used to display a sound wave,1.4,Waves
+IGCSE 3.27P,Practical: investigate the frequency of a sound wave using an oscilloscope,4.2,Waves
+IGCSE 3.28P,Understand how the pitch of a sound relates to the frequency of vibration of the source,1.4,Waves
+IGCSE 3.29P,Understand how the loudness of a sound relates to the amplitude of vibration of the source,1.4,Waves
+IGCSE 4.1,"Use the units kilogram, joule, metre, m/s, m/s², newton, second and watt",1.5,Energy resources and energy transfers
+IGCSE 4.2,Describe energy transfers involving energy stores,1.83,Energy resources and energy transfers
+IGCSE 4.3,Use the principle of conservation of energy,1.5,Energy resources and energy transfers
+IGCSE 4.4,Know and use the relationship for efficiency from useful and total energy output,1.05,Energy resources and energy transfers
+IGCSE 4.5,"Describe devices and situations, explaining energy transfers with Sankey diagrams",1.39,Energy resources and energy transfers
+IGCSE 4.6,"Describe thermal energy transfer by conduction, convection and radiation",1.3,Energy resources and energy transfers
+IGCSE 4.7,Explain the role of convection in everyday phenomena,1.7,Energy resources and energy transfers
+IGCSE 4.8,Explain how emission and absorption of radiation are related to surface and temperature,1.7,Energy resources and energy transfers
+IGCSE 4.9,"Practical: investigate thermal energy transfer by conduction, convection and radiation",4.2,Energy resources and energy transfers
+IGCSE 4.10,Explain ways of reducing unwanted energy transfer,1.7,Energy resources and energy transfers
+IGCSE 4.11,"Know and use the relationship between work done, force and distance moved",1.16,Energy resources and energy transfers
+IGCSE 4.12,Know that work done is equal to energy transferred,1.05,Energy resources and energy transfers
+IGCSE 4.13,"Know and use the gravitational potential energy relationship, GPE = m × g × h",1.23,Energy resources and energy transfers
+IGCSE 4.14,Know and use the relationship for kinetic energy,1.05,Energy resources and energy transfers
+IGCSE 4.15,"Understand how conservation of energy links GPE, kinetic energy and work",1.4,Energy resources and energy transfers
+IGCSE 4.16,Describe power as the rate of transfer of energy or the rate of doing work,1.3,Energy resources and energy transfers
+IGCSE 4.17,"Use the relationship between power, work done (energy transferred) and time taken",1.5,Energy resources and energy transfers
+IGCSE 4.18P,Describe the energy transfers involved in generating electricity,2.93,Energy resources and energy transfers
+IGCSE 4.19P,Describe the advantages and disadvantages of large-scale electricity production,1.3,Energy resources and energy transfers
+IGCSE 5.1,"Use the units °C, K, J, kg, kg/m³, m, m², m³, m/s, m/s², N and Pa",1.61,"Solids, liquids and gases"
+IGCSE 5.2P,Use the following unit: joules/kilogram degree Celsius (J/kg °C),1.5,"Solids, liquids and gases"
+IGCSE 5.3,"Know and use the relationship between density, mass and volume",1.05,"Solids, liquids and gases"
+IGCSE 5.4,Practical: investigate density using direct measurements of mass and volume,4.2,"Solids, liquids and gases"
+IGCSE 5.5,"Know and use the relationship between pressure, force and area",1.05,"Solids, liquids and gases"
+IGCSE 5.6,Understand how pressure in a gas or liquid at rest acts equally in all directions,1.4,"Solids, liquids and gases"
+IGCSE 5.7,"Know and use the relationship for pressure difference, p = h × ρ × g",1.05,"Solids, liquids and gases"
+IGCSE 5.8P,"Explain why heating a system changes its stored energy, temperature or state",1.7,"Solids, liquids and gases"
+IGCSE 5.9P,Describe the changes when a solid melts and when a liquid evaporates or boils,1.3,"Solids, liquids and gases"
+IGCSE 5.10P,"Describe the arrangement and motion of particles in solids, liquids and gases",1.3,"Solids, liquids and gases"
+IGCSE 5.11P,Practical: obtain a temperature–time graph for a change of state,3.4,"Solids, liquids and gases"
+IGCSE 5.12P,Know the definition of specific heat capacity (J/kg °C),1.07,"Solids, liquids and gases"
+IGCSE 5.13P,Use the equation for change in thermal energy,1.5,"Solids, liquids and gases"
+IGCSE 5.14P,Practical: investigate the specific heat capacity of water and some solids,4.2,"Solids, liquids and gases"
+IGCSE 5.15,Explain how gas molecules exert a force and pressure on container walls,1.7,"Solids, liquids and gases"
+IGCSE 5.16,"Understand why there is an absolute zero of temperature, which is –273 °C",1.4,"Solids, liquids and gases"
+IGCSE 5.17,Describe the Kelvin scale and convert between Kelvin and Celsius,1.3,"Solids, liquids and gases"
+IGCSE 5.18,Understand why a rise in temperature increases the average speed of gas molecules,1.4,"Solids, liquids and gases"
+IGCSE 5.19,Know that Kelvin temperature is proportional to average kinetic energy of gas molecules,1.05,"Solids, liquids and gases"
+IGCSE 5.20,Explain how pressure relates to volume and to Kelvin temperature for a fixed amount of gas,2.16,"Solids, liquids and gases"
+IGCSE 5.21,Use the relationship between pressure and Kelvin temperature at constant volume,1.5,"Solids, liquids and gases"
+IGCSE 5.22,Use the relationship between pressure and volume of a gas at constant temperature,1.5,"Solids, liquids and gases"
+IGCSE 6.1,"Use the following units: ampere (A), volt (V) and watt (W)",1.5,Magnetism and electromagnetism
+IGCSE 6.2,Know that magnets repel and attract other magnets and attract magnetic substances,1.05,Magnetism and electromagnetism
+IGCSE 6.3,Describe the properties of magnetically hard and soft materials,1.3,Magnetism and electromagnetism
+IGCSE 6.4,Understand the term 'magnetic field line',1.4,Magnetism and electromagnetism
+IGCSE 6.5,Know that magnetism is induced in some materials when they are placed in a magnetic field,1.05,Magnetism and electromagnetism
+IGCSE 6.6,Practical: investigate the magnetic field pattern around and between bar magnets,4.2,Magnetism and electromagnetism
+IGCSE 6.7,Describe how to use two permanent magnets to produce a uniform magnetic field pattern,1.3,Magnetism and electromagnetism
+IGCSE 6.8,Know that an electric current in a conductor produces a magnetic field around it,1.05,Magnetism and electromagnetism
+IGCSE 6.9P,Describe the construction of electromagnets,1.3,Magnetism and electromagnetism
+IGCSE 6.10P,"Draw magnetic field patterns for a straight wire, flat circular coil and solenoid",1.5,Magnetism and electromagnetism
+IGCSE 6.11P,Know when a moving charged particle experiences a force in a magnetic field,1.12,Magnetism and electromagnetism
+IGCSE 6.12,Understand the force on a current-carrying wire and its use in motors and loudspeakers,1.44,Magnetism and electromagnetism
+IGCSE 6.13,Use the left-hand rule to predict the force on a current-carrying wire in a field,1.5,Magnetism and electromagnetism
+IGCSE 6.14,Describe how the force on a current-carrying conductor changes with field and current,1.3,Magnetism and electromagnetism
+IGCSE 6.15,Know how a voltage is induced in a conductor or coil and what affects its size,1.36,Magnetism and electromagnetism
+IGCSE 6.16,Describe generating electricity by rotating a magnet in a coil or a coil in a field,1.59,Magnetism and electromagnetism
+IGCSE 6.17P,Describe the structure of a transformer and how it changes alternating voltage,1.41,Magnetism and electromagnetism
+IGCSE 6.18P,Explain step-up and step-down transformers in generating and transmitting electricity,1.7,Magnetism and electromagnetism
+IGCSE 6.19P,Know and use the transformer relationship between voltages and turns ratio,1.21,Magnetism and electromagnetism
+IGCSE 6.20P,Know and use the relationship between input power and output power,1.05,Magnetism and electromagnetism
+IGCSE 7.1,"Use the units becquerel (Bq), centimetre (cm), hour (h), minute (min) and second (s)",1.5,Radioactivity and particles
+IGCSE 7.2,Describe the structure of an atom and use nuclear symbols such as ¹⁴₆C,1.3,Radioactivity and particles
+IGCSE 7.3,"Know the terms atomic (proton) number, mass (nucleon) number and isotope",1.05,Radioactivity and particles
+IGCSE 7.4,"Know that α, β⁻ and γ radiations are ionising and emitted randomly by unstable nuclei",1.05,Radioactivity and particles
+IGCSE 7.5,"Describe alpha, beta and gamma radiation, their penetrating power and ionising ability",1.41,Radioactivity and particles
+IGCSE 7.6,Practical: investigate the penetrating power of different types of radiation,4.2,Radioactivity and particles
+IGCSE 7.7,"Describe how alpha, beta, gamma and neutron emission change atomic and mass numbers",1.41,Radioactivity and particles
+IGCSE 7.8,Understand how to balance nuclear equations in terms of mass and charge,1.4,Radioactivity and particles
+IGCSE 7.9,Know that photographic film or a Geiger−Müller detector can detect ionising radiations,1.05,Radioactivity and particles
+IGCSE 7.10,Explain the sources of background (ionising) radiation from Earth and space,1.7,Radioactivity and particles
+IGCSE 7.11,Know that radioactive activity decreases over time and is measured in becquerels,1.05,Radioactivity and particles
+IGCSE 7.12,Know the definition of half-life and that it differs between isotopes,1.05,Radioactivity and particles
+IGCSE 7.13,Use the concept of the half-life to carry out simple calculations on activity,1.5,Radioactivity and particles
+IGCSE 7.14,Describe uses of radioactivity in industry and medicine,1.3,Radioactivity and particles
+IGCSE 7.15,Describe the difference between contamination and irradiation,1.3,Radioactivity and particles
+IGCSE 7.16,Describe the dangers of ionising radiations,2.34,Radioactivity and particles
+IGCSE 7.17,Know that nuclear reactions can be a source of energy,1.05,Radioactivity and particles
+IGCSE 7.18,Understand how U-235 undergoes fission by neutron collision and releases energy,1.53,Radioactivity and particles
+IGCSE 7.19,Know that U-235 fission produces two radioactive daughter nuclei and a few neutrons,1.05,Radioactivity and particles
+IGCSE 7.20,Describe how a chain reaction starts when fission neutrons strike other U-235 nuclei,1.3,Radioactivity and particles
+IGCSE 7.21,Describe the role played by the control rods and moderator in the fission process,1.3,Radioactivity and particles
+IGCSE 7.22,Understand the role of shielding around a nuclear reactor,1.4,Radioactivity and particles
+IGCSE 7.23,Explain the difference between nuclear fusion and nuclear fission,1.7,Radioactivity and particles
+IGCSE 7.24,Describe fusion as smaller nuclei forming larger ones with mass loss and energy release,1.3,Radioactivity and particles
+IGCSE 7.25,Know that fusion is the energy source for stars,1.05,Radioactivity and particles
+IGCSE 7.26,Explain why nuclear fusion does not happen at low temperatures and pressures,1.7,Radioactivity and particles
+IGCSE 8.1,"Use the units kg, m, m/s, m/s², N, s and N/kg",1.5,Astrophysics
+IGCSE 8.2,"Know that the universe is made of billions of galaxies, including our Milky Way",1.91,Astrophysics
+IGCSE 8.3,Understand why g varies and that it differs on other planets and the Moon,1.4,Astrophysics
+IGCSE 8.4,"Explain that gravitational force causes moons, planets, satellites and comets to orbit",2.76,Astrophysics
+IGCSE 8.5,"Describe the differences in the orbits of comets, moons and planets",1.3,Astrophysics
+IGCSE 8.6,"Use the relationship between orbital speed, orbital radius and time period",1.66,Astrophysics
+IGCSE 8.7,Understand how stars can be classified according to their colour,1.4,Astrophysics
+IGCSE 8.8,Know that a star’s colour is related to its surface temperature,1.05,Astrophysics
+IGCSE 8.9,Describe the evolution of Sun-like stars from nebula to white dwarf,2.22,Astrophysics
+IGCSE 8.10,Describe the evolution of stars with a mass larger than the Sun,1.3,Astrophysics
+IGCSE 8.11P,Understand absolute magnitude as a star's brightness at a standard distance,1.4,Astrophysics
+IGCSE 8.12P,Draw the main components of the Hertzsprung–Russell diagram (HR diagram),1.5,Astrophysics
+IGCSE 8.13P,Describe the past evolution of the universe and the case for the Big Bang theory,1.3,Astrophysics
+IGCSE 8.14P,Describe red-shift and cosmic microwave background as evidence for the Big Bang,1.3,Astrophysics
+IGCSE 8.15P,Describe how a moving wave source changes the observed frequency and wavelength,1.3,Astrophysics
+IGCSE 8.16P,"Use the equation linking change in wavelength, galaxy velocity and speed of light",1.99,Astrophysics
+IGCSE 8.17P,Describe the red-shift in light from galaxies at different distances from the Earth,1.3,Astrophysics
+IGCSE 8.18P,Explain why the red-shift of galaxies provides evidence for the expansion of the universe,1.7,Astrophysics

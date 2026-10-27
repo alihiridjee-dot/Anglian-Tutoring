@@ -1,0 +1,329 @@
+{
+  "format": 1,
+  "concept_id": "aphys-066",
+  "subject": "physics",
+  "title": "Orbits and satellites",
+  "key_idea": "In a circular orbit gravity provides the centripetal force, so GMm/r² = mv²/r. This gives the orbital speed and the period, with T² proportional to r³. A geostationary satellite has a 24-hour period, orbits west to east above the Equator and stays over one point.",
+  "sections": [
+    {
+      "heading": "Circular orbits",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A planet or satellite in a circular orbit is accelerating towards the centre. The only force acting on it is gravity, so gravity is the centripetal force."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Equate forces",
+              "text": "Gravitational force = centripetal force, so GMm/r² = mv²/r."
+            },
+            {
+              "lead": "Speed",
+              "text": "Cancel m and one r to get v² = GM/r."
+            },
+            {
+              "lead": "Period",
+              "text": "The distance round the orbit is 2πr, so T = 2πr/v and v = 2πr/T."
+            },
+            {
+              "lead": "Substitute",
+              "text": "(2πr/T)² = GM/r, so 4π²r²/T² = GM/r."
+            },
+            {
+              "lead": "Rearrange",
+              "text": "T² = (4π²/GM) r³."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Orbital speed",
+          "formula": "v = √(G M / r)",
+          "where": [
+            "v = orbital speed (m/s)",
+            "G = gravitational constant (6.67 × 10⁻¹¹ N m² kg⁻²)",
+            "M = mass of the body being orbited (kg)",
+            "r = orbital radius, from its centre (m)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Orbital period",
+          "formula": "T² = (4π² / G M) r³",
+          "where": [
+            "T = orbital period (s)",
+            "M = mass of the body being orbited (kg)",
+            "r = orbital radius (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The speed does not depend on the mass of the orbiting body.",
+            "The larger the radius, the slower the speed and the longer the period.",
+            "**T² ∝ r³** (Kepler's third law) for any bodies orbiting the same central mass, such as the planets round the Sun or the moons of Jupiter.",
+            "T²/r³ is the same for every orbit round that mass, and it is 4π²/GM."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing the orbital speed and period of a satellite orbiting the Earth at a chosen radius.",
+            "inputs": [
+              {
+                "id": "r",
+                "label": "Orbital radius from Earth's centre",
+                "unit": "× 10⁶ m",
+                "min": 6.8,
+                "max": 50,
+                "step": 0.2,
+                "value": 6.8
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Orbital speed",
+                "unit": "km/s",
+                "formula": "sqrt(398.2 / r)",
+                "decimals": 2
+              },
+              {
+                "label": "Orbital period",
+                "unit": "hours",
+                "formula": "2 * 3.1416 * sqrt(r*r*r * 1000000 / 398.2) / 3600",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gravity provides the centripetal force: GMm/r² = mv²/r.",
+            "v = √(GM/r) and T² = (4π²/GM)r³, so T² ∝ r³.",
+            "A bigger orbit means a lower speed and a longer period."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Energy of an orbiting satellite",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A satellite has kinetic energy because it moves and potential energy because it is in the Earth's field. Both depend on the orbital radius."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Energy",
+            "Expression",
+            "Sign"
+          ],
+          "rows": [
+            [
+              "Kinetic",
+              "½mv² = GMm / 2r",
+              "Positive"
+            ],
+            [
+              "Potential",
+              "−GMm / r",
+              "Negative"
+            ],
+            [
+              "Total",
+              "−GMm / 2r",
+              "Negative"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The kinetic energy comes from v² = GM/r.",
+            "The total energy is negative, so the satellite is bound to the Earth.",
+            "The total energy equals minus the kinetic energy, and it is half the potential energy.",
+            "Moving to a larger orbit raises the total energy (it becomes less negative) but lowers the kinetic energy.",
+            "To escape, a satellite needs a speed of at least √(2GM/r), which is √2 times its orbital speed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "KE = GMm/2r, PE = −GMm/r, total = −GMm/2r.",
+            "The total energy is negative, so the satellite is bound.",
+            "Escape speed is √2 times the orbital speed at the same radius."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Geostationary and low orbits",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A satellite's orbit is chosen to suit its job. Two common choices are low orbits and the geostationary orbit."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Geostationary orbit",
+              "meaning": "An orbit in which a satellite stays above the same point on the Earth's surface."
+            },
+            {
+              "term": "Synchronous orbit",
+              "meaning": "An orbit whose period matches the rotation of the Earth."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The period is **24 hours**, the same as the Earth's rotation.",
+            "The orbit is directly above the **Equator**, in the equatorial plane.",
+            "The satellite orbits in the same direction as the Earth rotates, from **west to east**.",
+            "Using T² = (4π²/GM)r³ with T = 24 hours gives a radius of about 4.2 × 10⁷ m, about 3.6 × 10⁷ m above the surface."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of low orbit and geostationary orbit satellites.",
+            "items": [
+              "Low orbit",
+              "Geostationary"
+            ],
+            "rows": [
+              {
+                "feature": "Height",
+                "values": [
+                  "A few hundred km",
+                  "About 36 000 km"
+                ]
+              },
+              {
+                "feature": "Period",
+                "values": [
+                  "About 90 minutes",
+                  "24 hours"
+                ]
+              },
+              {
+                "feature": "Position",
+                "values": [
+                  "Moves across the sky; passes over many places",
+                  "Fixed above one point on the Equator"
+                ]
+              },
+              {
+                "feature": "Uses",
+                "values": [
+                  "Imaging and monitoring the Earth, surveillance, science",
+                  "Communications and TV broadcasting"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Geostationary: period 24 h, above the Equator, west to east.",
+            "It stays above one point, so a fixed dish can point at it.",
+            "Low orbits are closer and faster, and sweep across the Earth."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Show that the orbital speed of a satellite in a circular orbit of radius r about a mass M is √(GM/r).",
+      "a": "Gravity provides the centripetal force: GMm/r² = mv²/r. Cancel m and one r to give v² = GM/r, so v = √(GM/r).",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a geostationary satellite must orbit above the Equator with a period of 24 hours.",
+      "a": "To stay over one point it must have the same angular speed as the Earth, so its period is 24 hours and it moves west to east. Gravity's pull is towards the Earth's centre, so the orbit's plane passes through the centre; only an orbit in the equatorial plane stays above a fixed point on the surface.",
+      "marks": 3
+    },
+    {
+      "q": "A satellite moves to a higher circular orbit. State and explain what happens to its speed and its total energy.",
+      "a": "The speed decreases because v = √(GM/r). The total energy, −GMm/2r, becomes less negative, so it increases.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.2.4"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 12.180"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 13.2.3",
+        "CAIE 13.2.4"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.4.3a",
+        "OCR 5.4.3b",
+        "OCR 5.4.3c",
+        "OCR 5.4.3d",
+        "OCR 5.4.3e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course asks for Kepler's three laws of planetary motion, and for T² = (4π²/GM)r³ to be derived from first principles."
+            },
+            {
+              "type": "list",
+              "items": [
+                "First law: each planet moves in an **ellipse** with the Sun at one focus.",
+                "Second law: the line joining a planet to the Sun sweeps out equal areas in equal times.",
+                "Third law: the square of the period is proportional to the cube of the mean orbital radius, T² ∝ r³.",
+                "The third law applies to systems other than the solar system, such as moons orbiting a planet.",
+                "You may be asked to predict a geostationary orbit using Newton's laws, and to give uses of geostationary satellites."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "504e50ad-02ef-4ae4-a35c-874525583fe1",
+      "b9b12bf2-7ce7-46cf-8aa5-e085f8a9acd8",
+      "a52da933-261c-47a7-a153-5f3982f4e1a4",
+      "43c7119a-74a8-435e-939c-b98f962df9c7",
+      "9f67af4b-b8f6-4611-81a7-c081b33fe8d1",
+      "ed5ef6cd-c102-4015-95fb-29780347aeff",
+      "683e870e-afa0-48b5-a2ce-2c029572c03f",
+      "c9f9a222-491c-432f-8c77-cb66963e831d",
+      "12a20df4-59c5-43f0-9849-b59b92ed7fe9"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

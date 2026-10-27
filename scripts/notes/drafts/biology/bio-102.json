@@ -1,0 +1,237 @@
+{
+  "format": 1,
+  "concept_id": "bio-102",
+  "subject": "biology",
+  "title": "The Human Genome Project and genomics in medicine",
+  "key_idea": "The genome is all the genetic material of an organism. The Human Genome Project sequenced the whole human genome. This helps doctors find genes linked to disease, predict risk, and match treatments to a patient. It also raises concerns about privacy and anxiety.",
+  "sections": [
+    {
+      "heading": "DNA, genes and the genome",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Human Genome Project is about reading the order of bases in DNA. This section covers the terms you need first."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "DNA",
+              "meaning": "The chemical that genetic material is made of. A polymer of two strands twisted into a double helix."
+            },
+            {
+              "term": "Gene",
+              "meaning": "A small section of DNA on a chromosome. It codes for a particular sequence of amino acids, which makes a specific protein."
+            },
+            {
+              "term": "Genome",
+              "meaning": "All the genetic material of an organism."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "DNA contains four bases: **A, C, G and T**.",
+            "A sequence of three bases codes for one amino acid.",
+            "DNA is contained in structures called **chromosomes** in the nucleus. Genes are small sections of DNA on them.",
+            "The Human Genome Project sequenced the 3 billion base pairs in the human genome. The first complete genome was finished in 2003."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The genome is all the genetic material of an organism.",
+            "A gene is a section of DNA that codes for a sequence of amino acids, making a protein.",
+            "The Human Genome Project found the order of the bases in human DNA."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using the genome in medicine",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Knowing the genome has many uses. This section covers the outcomes of the project and the medical uses."
+        },
+        {
+          "type": "subheading",
+          "text": "Outcomes of the project"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Genes can be **located** and mapped on chromosomes.",
+            "The roles of genes, and the proteins they make, can be found.",
+            "**Alleles and mutations** can be identified.",
+            "People's genomes differ by small changes in the base sequence. These changes are mutations. They give different alleles, so they affect the phenotype and produce variation."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Medical uses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Find genes linked to disease**, and understand and treat inherited disorders.",
+            "**Predict risk:** genetic testing shows if a person is more likely to develop a disease. They can then change their lifestyle to reduce the risk.",
+            "**Personalised medicine** (genomic medicine): the diagnosis and treatment are matched to the patient's own genome, such as finding the best drug for a genetic disorder.",
+            "Tracing human **migration** and ancestry, and understanding human evolution."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Genome knowledge helps to locate genes linked to disease.",
+            "Testing can show the risk of a disease. It does not say the disease will definitely happen.",
+            "Treatment can be matched to a person's genome."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Benefits and concerns",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Genetic testing helps, but not everyone wants it. Sort the points into benefits and concerns."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Sort each point about genome testing into a benefit or a concern.",
+            "kind": "sort",
+            "items": [
+              {
+                "text": "Find genes linked to a disease",
+                "group": 0
+              },
+              {
+                "text": "Predict a person's risk of a disease",
+                "group": 0
+              },
+              {
+                "text": "Choose the best drug for a patient",
+                "group": 0
+              },
+              {
+                "text": "Trace where ancestors lived",
+                "group": 0
+              },
+              {
+                "text": "Insurance costs might rise",
+                "group": 1
+              },
+              {
+                "text": "Stress or depression from knowing the result",
+                "group": 1
+              },
+              {
+                "text": "A person's DNA information is no longer private",
+                "group": 1
+              },
+              {
+                "text": "Employers may be reluctant to offer jobs",
+                "group": 1
+              }
+            ],
+            "groups": ["Benefit", "Concern"],
+            "prompt": "Benefit or concern?"
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Benefits include better prevention, diagnosis and treatment.",
+            "Concerns include insurance, employment, privacy and stress.",
+            "Some people prefer not to know if they may develop a disease."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is meant by the genome of an organism?",
+      "a": "All the genetic material of an organism.",
+      "marks": 1
+    },
+    {
+      "q": "Give two benefits of understanding the human genome.",
+      "a": "Any two from: finding genes linked to disease, diagnosing or treating inherited disorders, predicting the risk of disease, personalised medicine, tracing human migration or ancestry.",
+      "marks": 2
+    },
+    {
+      "q": "Suggest one reason why a person might not want a genetic test that identifies genes linked to a disease.",
+      "a": "They might not want to know if they will get a disease, it could cause stress or depression, or it could affect their insurance.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 6.4", "AQA T 4.6.1.3"],
+      "worked_example": {
+        "exemplar_id": "580700e0-7c00-4555-887b-bc2522cdd531",
+        "source": "AQA jun 2019, Paper 2 (H), Q03.4",
+        "question": "Scientists working on the Human Genome Project have now mapped the entire genetic code of humans.\n\nExplain one way this could be important for people in the future.",
+        "marks": 2,
+        "answer_points": [
+          "It can identify genes linked to a disease, for example cancer or diabetes.",
+          "So it can lead to better prevention or treatment of that disease."
+        ],
+        "tip": "Each route scores two marks: a use, then its result. Other routes: genes causing inherited disorders, so IVF or gene therapy can prevent them; or tracing human migration, to understand ancient history."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.21"],
+      "worked_example": {
+        "exemplar_id": "8a8481fb-d91d-4c07-a7ff-dd7384641ab3",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q5(d)",
+        "question": "The Human Genome Project sequenced the order of the bases in the human genome.\n\nGive two other outcomes from the Human Genome Project.",
+        "marks": 2,
+        "answer_points": [
+          "The genes were mapped or found (their location on chromosomes).",
+          "The functions of proteins, or the role of each gene, were found.",
+          "Alleles or mutations were identified.",
+          "Genetic testing became possible, to predict the risk of disease.",
+          "Personalised medicines or new medicines can be produced."
+        ],
+        "tip": "Any two of these score one mark each."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3x"],
+      "worked_example": {
+        "exemplar_id": "b14b4f53-9ef7-41a8-93b4-991d076460f0",
+        "source": "OCR jun 2019, Paper 3, Q22(c)(i)",
+        "question": "DNA databases involve storing a person's individual DNA profile. The DNA profile identifies DNA sequences present in an individual.\nDNA databases are used by many different organisations.\nSolving crimes is one use of a DNA database.\n\nSuggest other reasons why organisations might need a DNA database.",
+        "marks": 2,
+        "answer_points": [
+          "To check on heredity (find relatives or a family tree).",
+          "To look for genetic disorders or identify health risk factors.",
+          "To choose the correct medication (genomics).",
+          "To confirm a person's identity."
+        ],
+        "tip": "Any two of these score one mark each."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "4af3fb2c-bd6e-47f6-b637-51854983ce03",
+      "5fb6fbf3-0f14-43f2-8ec7-89ab145a7c13"
+    ],
+    "exemplar_ids": [
+      "580700e0-7c00-4555-887b-bc2522cdd531",
+      "8a8481fb-d91d-4c07-a7ff-dd7384641ab3",
+      "b14b4f53-9ef7-41a8-93b4-991d076460f0"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

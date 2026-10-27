@@ -203,7 +203,8 @@ export function SpecPointDetail({
                         params={{ setId: s.id }}
                         className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-lg border border-border bg-background hover:border-primary/50 text-foreground font-medium transition"
                       >
-                        Take
+                        {/* Nothing is recorded for a tutor (TakeMcqPage). */}
+                        {isTutor ? "Preview" : "Take"}
                       </Link>
                     )}
                     {isTutor && (

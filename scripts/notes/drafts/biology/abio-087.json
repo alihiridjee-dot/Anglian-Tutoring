@@ -1,0 +1,400 @@
+{
+  "format": 1,
+  "concept_id": "abio-087",
+  "subject": "biology",
+  "title": "Laboratory techniques and apparatus",
+  "key_idea": "Biology practicals use measuring apparatus, colorimeters, potometers, serial dilutions, microscopes and graticules. Other techniques separate molecules (chromatography, electrophoresis), grow microbes safely (aseptic technique), study organs (dissection) and sample habitats (quadrats and transects). Each needs the right apparatus and careful use.",
+  "sections": [
+    {
+      "heading": "Measuring apparatus and instruments",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A wide range of apparatus is used in biology. Choose the tool whose precision suits the measurement, and use it correctly."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Quantity",
+            "Apparatus",
+            "How to use it well"
+          ],
+          "rows": [
+            [
+              "Mass",
+              "Balance",
+              "Zero it with the container on; read to the precision of the balance."
+            ],
+            [
+              "Time",
+              "Stopwatch or data logger",
+              "Start and stop at a clear end point; use a larger time to reduce percentage error."
+            ],
+            [
+              "Volume",
+              "Measuring cylinder, pipette, burette, syringe",
+              "Read at the bottom of the meniscus at eye level; choose the smallest size that fits."
+            ],
+            [
+              "Temperature",
+              "Thermometer or temperature probe",
+              "Keep the bulb in the liquid; wait for a steady reading."
+            ],
+            [
+              "Length",
+              "Ruler, micrometer or graticule",
+              "Read at eye level; measure from zero."
+            ],
+            [
+              "pH",
+              "pH meter, probe or indicator paper",
+              "Calibrate the meter with buffer solutions; rinse the probe between samples."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Colorimeter and potometer"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **colorimeter** measures how much light a coloured solution absorbs or transmits. It gives a quantitative measure of the colour, and so of the concentration.",
+            "Set the colorimeter to zero with a blank (the solvent only), and choose a filter of a colour complementary to the solution.",
+            "Plot a calibration curve from solutions of known concentration, then read the unknown from it.",
+            "A **potometer** measures the rate of water uptake by a cut shoot. The movement of an air bubble along a capillary tube over time gives the rate.",
+            "Set up a potometer under water to keep air out of the shoot, and cut the shoot at a slant."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Choose apparatus to match the precision needed.",
+            "A calibration curve turns a colorimeter reading into a concentration."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Glassware, serial dilutions and qualitative reagents",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Many biological techniques rely on measuring liquids accurately and diluting them in a controlled way."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Serial dilution",
+              "meaning": "A series of dilutions, each made from the one before using the same dilution factor, e.g. ×10."
+            },
+            {
+              "term": "Dilution factor",
+              "meaning": "How many times more dilute the new solution is than the one before."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a pipette or syringe to transfer a fixed volume of solution into a fixed volume of distilled water.",
+            "Mix well and use a clean pipette tip each time.",
+            "Repeat with the new solution to make the next dilution.",
+            "The concentration falls by the dilution factor at each step."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Concentration after serial dilution",
+          "formula": "concentration = starting concentration ÷ (dilution factor)ⁿ",
+          "where": [
+            "starting concentration = the concentration of the first solution",
+            "dilution factor = how many times more dilute each step is",
+            "n = the number of dilution steps"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A serial dilution calculation with new numbers each time.",
+            "question": "A 1.0 mol dm⁻³ solution is diluted by a factor of {factor} at each step, in {n} steps. What is the final concentration in mol dm⁻³?",
+            "variables": [
+              {
+                "id": "factor",
+                "min": 2,
+                "max": 10,
+                "step": 2
+              },
+              {
+                "id": "n",
+                "min": 2,
+                "max": 3,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "1 / factor ^ n",
+              "unit": "mol dm⁻³",
+              "decimals": 5,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "Each step divides the concentration by {factor}.",
+              "After {n} steps the concentration is 1.0 ÷ {factor}^{n}.",
+              "Final concentration = {answer} mol dm⁻³"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Qualitative reagents for biological molecules"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Test for",
+            "Reagent",
+            "Method",
+            "Positive result"
+          ],
+          "rows": [
+            [
+              "Reducing sugar",
+              "Benedict's solution",
+              "Heat with the sample in a water bath",
+              "Green, yellow, orange or brick-red precipitate"
+            ],
+            [
+              "Starch",
+              "Iodine in potassium iodide solution",
+              "Add to the sample",
+              "Blue-black"
+            ],
+            [
+              "Protein",
+              "Biuret reagent",
+              "Add to the sample and mix",
+              "Purple (lilac)"
+            ],
+            [
+              "Lipid",
+              "Ethanol, then water",
+              "Shake the sample with ethanol, then add water",
+              "White emulsion"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A serial dilution divides the concentration by the same factor each time.",
+            "Qualitative reagents tell you what is present, not how much."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Microscopy and scientific drawing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A light microscope lets you see cells and tissues. Scientific drawings record what you see."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Start on low power, focus using the coarse focus, then switch to high power and use the fine focus.",
+            "Use a thin, flat sample under a coverslip, with no air bubbles; lower the coverslip at an angle.",
+            "Stain the specimen if needed, to make structures visible."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Using a graticule"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An eyepiece graticule is a scale in the eyepiece. Its divisions have no fixed size.",
+            "Calibrate it with a stage micrometer, which has a scale of known length.",
+            "Count how many graticule divisions match a length on the micrometer, to find the size of one division at that magnification.",
+            "Recalibrate every time you change the objective lens."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Size of one graticule division",
+          "formula": "size of one division = length on stage micrometer ÷ number of graticule divisions",
+          "where": [
+            "length on stage micrometer = the known length, in µm",
+            "number of graticule divisions = how many cover that length"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Scientific drawings"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a sharp pencil, with clear, single lines and no shading.",
+            "Draw only what you see, not what you expect to see.",
+            "Make the drawing large and in proportion.",
+            "Add a title and the magnification or a scale bar.",
+            "Label the drawing with ruled lines that do not cross, and annotate the labels with the features and functions seen."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Calibrate a graticule against a stage micrometer.",
+            "Drawings need clear lines, labels, annotations and a scale."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Separation, aseptic technique, dissection and fieldwork",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some techniques separate mixtures, others keep cultures free from contamination. Dissection and fieldwork use their own safe methods."
+        },
+        {
+          "type": "subheading",
+          "text": "Chromatography and electrophoresis"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In thin layer or paper chromatography, a spot of the mixture is placed on a pencil line, and a solvent moves up the plate.",
+            "Compounds move different distances depending on how soluble they are in the solvent and how strongly they stick to the paper.",
+            "Calculate Rf = distance moved by the compound ÷ distance moved by the solvent front.",
+            "In electrophoresis, charged molecules move through a gel in an electric field. Their speed depends on charge and size."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Aseptic technique"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Aseptic technique prevents contamination of the culture, and prevents microbes from escaping.",
+            "Work near a Bunsen flame, which draws air upwards and away.",
+            "Sterilise instruments such as inoculating loops by flaming them.",
+            "Flame the neck of bottles and lift lids only slightly, briefly.",
+            "Use sterile agar plates or broth, tape the lid on without sealing it fully, and incubate upside down at 25 °C or lower.",
+            "Disinfect the bench before and after."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of inoculating an agar plate aseptically in order.",
+            "prompt": "Put these steps of inoculating an agar plate in order.",
+            "steps": [
+              "Disinfect the bench and wash your hands",
+              "Flame the inoculating loop until red hot and let it cool",
+              "Collect the culture and spread it on the agar",
+              "Close the lid and tape it on, without sealing it fully",
+              "Incubate the plate upside down"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Dissection"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a sharp scalpel or scissors on a dissecting board, cutting away from your body and fingers.",
+            "Fix the organ in place, and cut carefully to see the structure.",
+            "Wear gloves and a lab coat, and wash hands and clean the equipment afterwards."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Sampling in fieldwork"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a quadrat to sample the abundance of plants in an area.",
+            "Place quadrats at random using random numbers for coordinates, to avoid bias.",
+            "Use a belt transect to sample along an environmental gradient.",
+            "Take enough samples, and measure abiotic factors such as light, temperature and soil moisture."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Aseptic technique protects both the culture and the user.",
+            "Random sampling avoids bias; a transect samples along a gradient."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A student makes three serial dilutions, each ×10, starting from a 0.5 mol dm⁻³ solution. Calculate the concentration of the third dilution.",
+      "a": "0.5 ÷ 10³ (÷ 1000); = 0.0005 (5.0 × 10⁻⁴) mol dm⁻³.",
+      "marks": 2
+    },
+    {
+      "q": "Eight graticule divisions cover 40 µm on a stage micrometer. Calculate the size of one graticule division and use it to find the length of a cell that spans 15 divisions.",
+      "a": "40 ÷ 8 = 5 µm per division; 15 × 5 = 75 µm.",
+      "marks": 3
+    },
+    {
+      "q": "Describe three precautions in aseptic technique when transferring bacteria onto an agar plate.",
+      "a": "Any three from: flame the loop before and after use; pass the neck of the bottle through the flame; lift the lid only slightly and briefly; work near a Bunsen flame; tape the lid without sealing it fully; incubate upside down at a low temperature; disinfect the bench.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 1.1.2a",
+        "OCR 1.2.1j",
+        "OCR 1.2.2a",
+        "OCR 1.2.2b",
+        "OCR 1.2.2c",
+        "OCR 1.2.2d",
+        "OCR 1.2.2e",
+        "OCR 1.2.2f",
+        "OCR 1.2.2g",
+        "OCR 1.2.2i",
+        "OCR 1.2.2j",
+        "OCR 1.2.2k"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c28b846d-43e7-4ea5-a1b6-9a104e6c13c7",
+      "e7293f14-84b5-4ef0-a594-40a70cd19782",
+      "003445c9-301c-4e94-9aca-824c89c30b92",
+      "527358dc-8afb-42ad-9c8c-b4f57ebc8481",
+      "0d0062e0-2e54-4a51-a771-401a86f35970",
+      "1a1b04c1-0eb5-4aa5-be79-6d810d132940",
+      "51c6d0bc-6edd-4e24-9943-173f4d0e9a6e",
+      "ebc3e317-1c94-4c52-a6e5-028ef4f725c6",
+      "d779801e-8b7e-4cd2-8a01-d260815f776e",
+      "3ca62e44-9910-449e-b9ce-ccd104a195ad",
+      "8a0cd25f-86f4-4a65-9d20-22923769dfda",
+      "f930d58a-75db-483e-982d-2af1b3d3fa61"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

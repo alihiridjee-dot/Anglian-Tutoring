@@ -1,0 +1,303 @@
+{
+  "format": 1,
+  "concept_id": "bio-109",
+  "subject": "biology",
+  "title": "Classification of living organisms",
+  "key_idea": "Living things are sorted into groups. Linnaeus used seven groups from kingdom to species, and gave each organism a two-part name. New evidence from microscopes, biochemistry and DNA led to the three-domain system. Evolutionary trees show how organisms are related.",
+  "sections": [
+    {
+      "heading": "The Linnaean system",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Carl Linnaeus classified living things in the 1700s, by their appearance. This section covers his groups and how organisms are named."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Classification",
+              "meaning": "Sorting living things into groups, depending on their structure and characteristics."
+            },
+            {
+              "term": "Binomial name",
+              "meaning": "A two-part name made of the genus and the species, for example Musca domestica (the house fly)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "There are seven groups, from largest to smallest. Tap each group, using the house fly as the example."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Tap each Linnaean group to see where it comes in the order and the house fly's group.",
+            "kind": "explorer",
+            "parts": [
+              {
+                "name": "Kingdom",
+                "detail": "The largest of the seven groups. The house fly is in the kingdom Animalia."
+              },
+              {
+                "name": "Phylum",
+                "detail": "The group after kingdom. The house fly is in the phylum Arthropoda."
+              },
+              {
+                "name": "Class",
+                "detail": "The group after phylum. The house fly is in the class Insecta."
+              },
+              {
+                "name": "Order",
+                "detail": "The group after class. The house fly is in the order Diptera."
+              },
+              {
+                "name": "Family",
+                "detail": "The group after order. The house fly is in the family Muscidae."
+              },
+              {
+                "name": "Genus",
+                "detail": "The group after family. It is the first part of the binomial name: Musca."
+              },
+              {
+                "name": "Species",
+                "detail": "The smallest group. It is the second part of the binomial name: domestica."
+              }
+            ],
+            "prompt": "The seven groups, largest to smallest"
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The order is kingdom, phylum, class, order, family, genus, species.",
+            "The binomial name is the genus and the species."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "New evidence and the three-domain system",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Linnaeus used appearance. Better evidence has since changed how we classify. This section covers the new evidence and the new system."
+        },
+        {
+          "type": "subheading",
+          "text": "Evidence now used"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Internal and cell structures, seen with **light and electron microscopes**.",
+            "Chemical analysis and comparison of **biochemical processes**.",
+            "**DNA and genetic analysis**.",
+            "Studies of evolutionary relationships."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The three-domain system"
+        },
+        {
+          "type": "paragraph",
+          "text": "Carl Woese proposed the three-domain system, based on DNA and chemical evidence. A domain is a larger group than a kingdom."
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Archaea",
+              "Primitive bacteria. They can survive in extreme environments."
+            ],
+            [
+              "Bacteria (Prokaryota)",
+              "True bacteria."
+            ],
+            [
+              "Eukaryota (Eukarya)",
+              "Organisms whose cells have a nucleus: protists, fungi, plants and animals."
+            ]
+          ],
+          "columns": [
+            "Domain",
+            "What it contains"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Before this, living things were often sorted into five kingdoms: animals, plants, fungi, protists and prokaryotes. Genetic analysis led to the three domains. For example, Archaea DNA is more like that of eukaryotes."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "New evidence, especially DNA, changed classification.",
+            "The three domains are Archaea, Bacteria and Eukaryota.",
+            "Plants, animals, fungi and protists are all in the domain Eukaryota."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evolutionary trees and DNA",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Evolutionary trees show how organisms are related. This section covers how genes are compared."
+        },
+        {
+          "type": "list",
+          "items": [
+            "An **evolutionary tree** shows how scientists believe organisms are related.",
+            "It uses current classification data for living organisms and fossil data for extinct organisms.",
+            "Species whose branches split from a common ancestor more recently are more closely related."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Scientists compare the **sequence of genes** from different organisms.",
+            "Closely related organisms have more similar sequences. Organisms with similar gene sequences share a recent common ancestor.",
+            "Differences in sequence can show how far back two species split.",
+            "The same idea works for the amino acid sequence of a protein. The species with the fewest differences from an ancestor is the most closely related.",
+            "In **molecular phylogenetics**, DNA sequencing is used to work out evolutionary relationships."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **natural** classification groups organisms by their evolutionary relationships.",
+            "An **artificial** classification groups them using chosen features, whether or not they are closely related."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "More similar gene sequences mean a closer relationship.",
+            "Molecular phylogenetics uses DNA sequences to classify organisms."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What are the two parts of a binomial name?",
+      "a": "The genus and the species.",
+      "marks": 2
+    },
+    {
+      "q": "Give three types of evidence now used to classify living things, other than appearance.",
+      "a": "Any three from: internal or cell structures with light or electron microscopes, chemical analysis, comparison of biochemical processes, DNA or genetic analysis, studies of evolutionary relationships.",
+      "marks": 3
+    },
+    {
+      "q": "Two species have gene sequences that are very similar. What does this suggest?",
+      "a": "They are closely related and share a recent common ancestor.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 6.17",
+        "AQA T 4.6.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "46d63bc0-a31d-494e-9c9f-7ee29ebd13bb",
+        "source": "AQA jun 2018, Paper 2 (H), Q03.4",
+        "question": "Carl Woese developed the three-domain system of classification.\n\nDescribe the three-domain system of classification.",
+        "marks": 3,
+        "answer_points": [
+          "It is based on DNA or chemical evidence.",
+          "Archaea are primitive or simple bacteria.",
+          "Prokaryota (Bacteria) are true or modern bacteria.",
+          "Eukaryota includes plants and animals (organisms whose cells have a nucleus)."
+        ],
+        "tip": "Any three of the four points score one mark each."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 4.7"
+      ],
+      "worked_example": {
+        "exemplar_id": "9f75bdf1-0b4e-486e-854a-081263c53fea",
+        "source": "EDEXCEL jun 2018, Paper 1 (H), Q7(a)(ii)",
+        "question": "Genetic analysis provides evidence for evolution.\nScientists can sequence genes from different organisms.\n\nDescribe how this type of genetic analysis provides evidence for evolution.",
+        "marks": 2,
+        "answer_points": [
+          "Compare the genes, or the sequence of genes, from different organisms.",
+          "Closely related organisms have more similar or identical sequences, and differences in sequence can show evolution."
+        ],
+        "tip": "One mark for the comparison, one for what it shows."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 5.2b"
+      ]
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 1.2.1",
+        "CAIE 1.2.2",
+        "CAIE 1.2.3",
+        "CAIE 1.2.5S",
+        "CAIE 1.2.6S",
+        "CAIE 1.2.7S"
+      ],
+      "worked_example": {
+        "exemplar_id": "778c54d9-83ae-4332-93b8-1987ec53d465",
+        "source": "CAMBRIDGE nov 2024, Paper 42, Q4(a)(i)",
+        "question": "Describe what is meant by the term species.",
+        "marks": 2,
+        "answer_points": [
+          "A group of organisms that can reproduce.",
+          "To produce fertile offspring."
+        ]
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Species",
+                  "meaning": "A group of organisms that can reproduce to produce fertile offspring."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "42d420e3-b9e1-4307-88d1-1e65d257e6f1",
+      "ce82ece4-5f33-42d5-9cde-1c02f52088e2",
+      "a08af470-9c76-47d3-877f-ac0c5f3fbd80",
+      "8f8fe959-8257-442f-9b75-dd351b68466a",
+      "df1bec8c-ea22-493e-b3a7-e96922a1a53e",
+      "4dc4ea91-58e1-40b3-8770-8f7b24043e5b",
+      "8c4cbda8-68fb-4205-b598-6d9b835798ac",
+      "d4babcfc-b7cd-4e60-bf8b-c5ff5bec8a13",
+      "2c22d960-7800-4b6c-8ff5-91e8effa70af",
+      "cfc296ed-a24a-4fc7-bf13-468ba0b475c8"
+    ],
+    "exemplar_ids": [
+      "46d63bc0-a31d-494e-9c9f-7ee29ebd13bb",
+      "9f75bdf1-0b4e-486e-854a-081263c53fea",
+      "778c54d9-83ae-4332-93b8-1987ec53d465"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

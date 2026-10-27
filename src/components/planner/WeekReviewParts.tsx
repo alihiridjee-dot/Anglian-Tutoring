@@ -114,16 +114,19 @@ export function WeeklyCheckinForm({
   );
 }
 
-/** Carries whatever is still loose into next week. */
+/** Carries whatever is still loose into next week, or into this one from a week gone by. */
 export function CarryForwardBar({
   count,
   busy,
   nextWeekLabel,
+  intoThisWeek,
   onCarry,
 }: {
   count: number;
   busy: WeekReviewBusy;
   nextWeekLabel: string;
+  /** The week being reviewed has passed, so the points land in this week. */
+  intoThisWeek: boolean;
   onCarry: () => void;
 }) {
   return (
@@ -139,7 +142,7 @@ export function CarryForwardBar({
         ) : (
           <ArrowRight className="w-4 h-4" />
         )}
-        Carry {count} into next week
+        Carry {count} into {intoThisWeek ? "this week" : "next week"}
       </button>
       <span className="text-[11px] text-muted-foreground">
         An explicit request for extra practice in {nextWeekLabel}; normal reviews follow their

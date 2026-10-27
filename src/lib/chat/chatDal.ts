@@ -208,7 +208,9 @@ export class ChatDAL {
         unread: summary?.unread ?? 0,
         lastMessage: summary?.last_message ?? null,
         counterpartName: mine
-          ? (t.tutor_id && tutorNames.get(t.tutor_id)) || "Your tutor"
+          ? t.tutor_id
+            ? tutorNames.get(t.tutor_id) || "Your tutor"
+            : "The team"
           : memberLabel(
               t,
               memberNames,
@@ -240,7 +242,8 @@ export class ChatDAL {
    * unreachable — and the FK makes the reverse impossible anyway.
    */
   static async startThread(input: {
-    tutorId: string;
+    /** Null sends it to the team: every tutor is told (on_chat_message_insert). */
+    tutorId: string | null;
     subjectLine: string;
     body: string;
     /** Narrowed to the subject enum — it is the column's own type. */

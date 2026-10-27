@@ -1,0 +1,466 @@
+{
+  "format": 1,
+  "concept_id": "aphys-081",
+  "subject": "physics",
+  "title": "Redshift, Hubble's law and the Big Bang",
+  "key_idea": "Light from distant galaxies is shifted to longer wavelengths, so they are moving away. Hubble's law says the further away a galaxy is, the faster it recedes. This means the Universe is expanding, and it began in a hot, dense Big Bang.",
+  "sections": [
+    {
+      "heading": "The Doppler effect and redshift",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When a source of waves moves relative to an observer, the observed frequency changes. This is the Doppler effect, and it applies to light as well as sound."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A source moving towards the observer has its waves bunched up: the wavelength is shorter and the frequency higher.",
+            "A source moving away has its waves stretched: the wavelength is longer and the frequency lower.",
+            "For light, a shift to longer wavelengths, towards the red end, is a redshift."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Spectra from distant objects show emission and absorption lines at the same patterns as on Earth. The lines are at longer wavelengths than their known values, so the objects are moving away from us."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Redshift (z)",
+              "meaning": "The fractional change in wavelength of light from a receding source, Δλ ÷ λ."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Redshift and the Doppler effect for light",
+          "formula": "z = Δλ ÷ λ ≈ Δf ÷ f ≈ v ÷ c",
+          "where": [
+            "Δλ = change in wavelength (m), Δf = change in frequency (Hz)",
+            "λ = emitted wavelength (m), f = emitted frequency (Hz)",
+            "v = speed of the source relative to the observer (m/s)",
+            "c = speed of light, 3.0 × 10⁸ m/s"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "This is valid only when v is much smaller than c.",
+            "The same relationship works for radio waves and visible light.",
+            "A larger redshift means a faster speed of recession."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice calculation of the speed of a galaxy from the redshift of a hydrogen line.",
+            "question": "A hydrogen line has a wavelength of 656 nm in the laboratory. In the light from a galaxy it is observed at {obs} nm. Calculate the speed at which the galaxy is receding, in km/s. (c = 3.00 × 10⁵ km/s)",
+            "variables": [
+              {
+                "id": "obs",
+                "min": 660,
+                "max": 700,
+                "step": 2
+              }
+            ],
+            "answer": {
+              "formula": "300000 * (obs - 656) / 656",
+              "unit": "km/s",
+              "decimals": 0,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "z = Δλ ÷ λ = ({obs} – 656) ÷ 656",
+              "v = z × c",
+              "v = {answer} km/s"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Light from a receding source is shifted to longer wavelengths: a redshift.",
+            "z = Δλ ÷ λ ≈ Δf ÷ f ≈ v ÷ c, for speeds much less than c.",
+            "Spectral lines from distant galaxies are at longer wavelengths than their known values."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Hubble's law and the expanding Universe",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Almost all galaxies show a redshift. The further away they are, the bigger the redshift."
+        },
+        {
+          "type": "equation",
+          "label": "Hubble's law",
+          "formula": "v = H₀d",
+          "where": [
+            "v = speed of recession of a galaxy (km/s)",
+            "H₀ = Hubble constant, about 70 km s⁻¹ Mpc⁻¹",
+            "d = distance to the galaxy (Mpc)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A galaxy twice as far away recedes twice as fast.",
+            "Every galaxy sees the others moving away from it. This is what happens when space itself expands.",
+            "So the redshift of galaxies shows that the Universe is expanding.",
+            "In SI units, H₀ is in s⁻¹ and d is in metres. 1 Mpc = 3.09 × 10²² m."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The age of the Universe"
+        },
+        {
+          "type": "paragraph",
+          "text": "Run the expansion backwards. If every galaxy has always moved at its present speed, the time since they were together is d ÷ v."
+        },
+        {
+          "type": "equation",
+          "label": "Estimated age of the Universe",
+          "formula": "t ≈ 1 ÷ H₀",
+          "where": [
+            "t = age of the Universe (s)",
+            "H₀ = Hubble constant (s⁻¹)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "This assumes that H₀ has stayed constant.",
+            "Convert H₀ from km s⁻¹ Mpc⁻¹ to s⁻¹ by dividing by the number of km in a Mpc, 3.09 × 10¹⁹.",
+            "With H₀ = 70 km s⁻¹ Mpc⁻¹, t is about 4.4 × 10¹⁷ s, about 14 billion years."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing the recession speed of a galaxy at a given distance, and the estimated age of the Universe, for different values of the Hubble constant.",
+            "inputs": [
+              {
+                "id": "H",
+                "label": "Hubble constant",
+                "unit": "km s⁻¹ Mpc⁻¹",
+                "min": 60,
+                "max": 80,
+                "step": 1,
+                "value": 70
+              },
+              {
+                "id": "d",
+                "label": "Distance of galaxy",
+                "unit": "Mpc",
+                "min": 10,
+                "max": 1000,
+                "step": 10,
+                "value": 100
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Recession speed",
+                "unit": "km/s",
+                "formula": "H * d",
+                "decimals": 0
+              },
+              {
+                "label": "Estimated age of the Universe",
+                "unit": "billion years",
+                "formula": "977.8 / H",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hubble's law: v = H₀d, so more distant galaxies recede faster.",
+            "This is explained by the expansion of the Universe.",
+            "t ≈ 1 ÷ H₀ estimates the age, assuming H₀ is constant."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The Big Bang",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "If the Universe is expanding, it was once smaller, hotter and denser. The Big Bang theory says that all space, matter and energy began in a very small, extremely hot state and has been expanding and cooling ever since."
+        },
+        {
+          "type": "subheading",
+          "text": "Evidence for the Big Bang"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Redshift: the galaxies are receding from each other, as Hubble's law shows, so the Universe expands from a past start.",
+            "Cosmic microwave background radiation: microwaves arrive from every direction. They are radiation from the early hot Universe, stretched by expansion to a temperature of about 2.7 K.",
+            "Abundance of elements: the Universe is about three quarters hydrogen and one quarter helium by mass, which is what is expected from nuclear reactions in the hot early Universe."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Age and fate, dark matter and dark energy"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The estimated age depends on the value of H₀, which is hard to measure, so the age is uncertain.",
+            "Visible matter has too little gravity to explain how galaxies move. Dark matter is unseen matter that supplies the extra gravity.",
+            "Dark energy is a name for whatever makes the expansion speed up.",
+            "The fate of the Universe depends on how much matter there is. Gravity may slow the expansion and stop it, or the Universe may expand forever."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The Big Bang theory says the Universe began hot and dense and has been expanding and cooling.",
+            "Evidence: galactic redshift, cosmic microwave background radiation and the abundance of hydrogen and helium.",
+            "Dark matter and dark energy affect how the Universe has expanded and how it will end."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A galaxy is receding at 1.5 × 10⁷ m/s. A spectral line has a wavelength of 486 nm in the laboratory. Calculate the wavelength observed from the galaxy.",
+      "a": "Δλ ÷ λ = v ÷ c = 1.5 × 10⁷ ÷ 3.0 × 10⁸ = 0.050. Δλ = 0.050 × 486 = 24 nm. The observed wavelength is 486 + 24 = 510 nm.",
+      "marks": 3
+    },
+    {
+      "q": "A galaxy is 250 Mpc away. Calculate its recession speed, taking H₀ = 70 km s⁻¹ Mpc⁻¹.",
+      "a": "v = H₀d = 70 × 250 = 1.75 × 10⁴ km/s.",
+      "marks": 2
+    },
+    {
+      "q": "State two pieces of evidence for the Big Bang theory and explain how one of them supports it.",
+      "a": "Any two of: the redshift of galaxies, the cosmic microwave background radiation, the abundance of hydrogen and helium. For example, the redshift shows the galaxies are receding, so the Universe is expanding, so it must have been smaller, hotter and denser in the past.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.9.3.1",
+        "AQA 3.9.3.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for: binary stars, galaxies and quasars",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Doppler shift applies to radio waves too. It is also written z = Δλ ÷ λ = –v ÷ c, where v is the velocity of the source towards the observer. A receding source has a negative v and a positive z."
+            },
+            {
+              "type": "list",
+              "items": [
+                "In a binary star the two stars orbit their common centre of mass.",
+                "Viewed in the plane of their orbit, one star approaches as the other recedes, so their spectral lines shift in opposite directions and swap back again.",
+                "The time for one complete cycle of the shift is the orbital period.",
+                "The greatest shift gives the speed of each star along the line of sight, using v = c × Δλ ÷ λ.",
+                "Galaxies and quasars show large redshifts. For very large redshifts v is close to c and the simple approximation no longer works."
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Question",
+                  "text": "A line of wavelength 500.000 nm is shifted by 0.020 nm as a star orbits. Calculate the speed of the star along the line of sight."
+                },
+                {
+                  "lead": "Substitute",
+                  "text": "v = c × Δλ ÷ λ = 3.0 × 10⁸ × 0.020 ÷ 500.000"
+                },
+                {
+                  "lead": "Answer",
+                  "text": "v = 1.2 × 10⁴ m/s"
+                }
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "In a binary star the spectral lines shift back and forth once per orbit.",
+                "The size of the shift gives the speed along the line of sight."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 10.161",
+        "EDEX 10.162",
+        "EDEX 10.163"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for: the controversy over age and fate",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A larger value of H₀ gives a younger Universe, as t ≈ 1 ÷ H₀. A smaller value gives an older one.",
+                "Different methods give slightly different values of H₀, so the age of the Universe is disputed.",
+                "The fate depends on how much mass there is. More mass, including dark matter, means gravity may stop the expansion and make the Universe collapse.",
+                "Less mass means the Universe expands for ever.",
+                "Dark matter is hard to detect, so we cannot be certain how much there is."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "The value of H₀ sets the estimated age of the Universe, and the amount of dark matter helps set its fate.",
+                "Uncertainty in both is the source of the controversy."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 25.3.1",
+        "CAIE 25.3.2",
+        "CAIE 25.3.3",
+        "CAIE 25.3.4"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.5.3d",
+        "OCR 5.5.3e",
+        "OCR 5.5.3f",
+        "OCR 5.5.3g",
+        "OCR 5.5.3h",
+        "OCR 5.5.3i",
+        "OCR 5.5.3j",
+        "OCR 5.5.3k",
+        "OCR 5.5.3l",
+        "OCR 5.5.3m",
+        "OCR 5.5.3n",
+        "OCR 5.5.3o"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for: the cosmological principle and the history of the Universe",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Cosmological principle",
+                  "meaning": "On a large enough scale the Universe is homogeneous (the same everywhere) and isotropic (the same in every direction), and the laws of physics are universal."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The Big Bang gave rise to the expansion of space-time: space itself stretches, carrying the galaxies apart.",
+                "The cosmic microwave background has a temperature of 2.7 K.",
+                "Scientists accepted the Big Bang theory once the microwave background was found, as the theory predicted it and the rival ideas did not."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Evolution of the Universe"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Start",
+                  "text": "The Universe is extremely hot and dense, and begins to expand."
+                },
+                {
+                  "lead": "Cool",
+                  "text": "As it expands it cools, and particles form, then nuclei of hydrogen and helium."
+                },
+                {
+                  "lead": "Atoms",
+                  "text": "It becomes cool enough for atoms to form, and radiation can travel freely. This is the microwave background we see today."
+                },
+                {
+                  "lead": "Structure",
+                  "text": "Gravity gathers the gas into stars and galaxies."
+                },
+                {
+                  "lead": "Now",
+                  "text": "Stars make heavier elements, and the Universe continues to expand."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "What the Universe is made of"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Dark energy makes up most of the Universe, about 68%.",
+                "Dark matter makes up about 27%.",
+                "Ordinary matter, which includes everything we can see, is only about 5%."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "The Universe is homogeneous and isotropic, and physics is the same everywhere.",
+                "The microwave background at 2.7 K is evidence for the Big Bang.",
+                "Only a small percentage of the Universe is ordinary matter."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "d1f4bc22-e542-4d71-b3ea-c08e0f979795",
+      "1e5bf922-dab4-45b3-a84a-303f107ceec5",
+      "9f742002-e5d5-4fd3-9f9f-26debf5ea3f6",
+      "dc1350b1-02c3-4ca7-9bfb-06236338e355",
+      "412b01a2-dfb0-4c4c-a775-ae7f15a94ef0",
+      "2e107456-4677-4c50-b7d1-16840b5b5a5d",
+      "3a211f99-e36b-4331-919f-29d632bc92e5",
+      "b4459e34-d931-4856-be68-e4e402ba8081",
+      "f245b4c1-e57f-4216-a90b-2cad7ac3f775",
+      "b447bb10-3133-49e2-ba7d-38d734431147",
+      "b9381bd2-f6f0-4ef0-92ef-4290cb32c4b7",
+      "8dadf914-abdf-4870-a1b4-7be5e5d1b654",
+      "f78aa818-b623-4420-a19a-d9243ae30c18",
+      "4bc9baf7-4f84-4fef-a9ce-85c71d3bd398",
+      "8c9de576-5550-4143-93a9-ab487c96e938",
+      "9e62e16b-5681-45d0-8d90-aefeea34b112",
+      "2dbb9c60-2d5a-496f-a3b6-b1bbd5ccddbd",
+      "60a648e0-a949-4ed2-b065-ee656de3e8d8",
+      "a8655a80-dddd-40ef-bab3-1a16ed2f42b8",
+      "b9657e5c-1da0-4ebb-b395-fba1ceddec05",
+      "12358599-c024-43e1-9ce4-bfc69d3f4a92"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

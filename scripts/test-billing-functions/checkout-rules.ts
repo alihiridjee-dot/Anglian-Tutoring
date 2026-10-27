@@ -205,4 +205,27 @@ assert.ok(
   "A session was opened",
 );
 
+// ── APP_URL: no return address, no checkout ───────────────────────────────
+// Stripe sends the payer back to APP_URL. It was localhost until 6 Oct 2026,
+// so every payer landed on "can't connect". Missing, it's refused before
+// Stripe is touched, rather than guessed.
+world({ payer: CHILD });
+DB.tables.subscriptions = [];
+Deno.env.delete("APP_URL");
+r = await call(CHILD, { action: "checkout", tier: "monthly_1" });
+assert.equal(r.status, 500);
+assert.equal(r.body.error, "Payments aren't set up on the server yet.");
+assert.deepEqual(STRIPE.calls, [], "Stripe was touched with no return address");
+assert.equal(STRIPE.customers.size, 0, "A customer was made with no return address");
+// Set, the payer comes back to it, however it was typed.
+Deno.env.set("APP_URL", "https://app.test/");
+r = await call(CHILD, { action: "checkout", tier: "monthly_1" });
+assert.equal(r.status, 200);
+const opened = [...STRIPE.sessions.values()].at(-1);
+assert.equal(
+  opened.success_url,
+  "https://app.test/onboarding/plan?checkout=success&session_id={CHECKOUT_SESSION_ID}",
+);
+Deno.env.set("APP_URL", "https://app.test");
+
 console.log("checkout rules: all checks passed");

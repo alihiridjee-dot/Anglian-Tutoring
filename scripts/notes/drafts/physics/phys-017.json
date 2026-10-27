@@ -1,0 +1,473 @@
+{
+  "format": 1,
+  "concept_id": "phys-017",
+  "subject": "physics",
+  "title": "Mains electricity and plug safety",
+  "key_idea": "Mains appliances use a **live**, a **neutral** and an **earth** wire. The live wire is at about 230 V and is dangerous. The earth wire and a fuse (or circuit breaker) make a fault safe.",
+  "sections": [
+    {
+      "heading": "The three wires",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Most appliances connect to the mains through a three-core cable. Each wire has colour-coded insulation and a different job."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Live wire",
+              "meaning": "Carries the alternating potential difference from the supply."
+            },
+            {
+              "term": "Neutral wire",
+              "meaning": "Completes the circuit."
+            },
+            {
+              "term": "Earth wire",
+              "meaning": "A safety wire that stops the appliance becoming live."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Wire",
+            "Insulation colour",
+            "Potential difference to earth"
+          ],
+          "rows": [
+            [
+              "Live",
+              "brown",
+              "about 230 V"
+            ],
+            [
+              "Neutral",
+              "blue",
+              "0 V, or close to it"
+            ],
+            [
+              "Earth",
+              "green and yellow stripes",
+              "0 V"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The UK mains supply is about 230 V and has a frequency of 50 Hz.",
+            "The potential difference between the live and neutral wires is 230 V.",
+            "The earth wire only carries a current if there is a fault."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap each part of a mains plug and cable to see what it does, then test yourself.",
+            "prompt": "Tap a part of the plug circuit to see its job.",
+            "parts": [
+              {
+                "name": "Live wire (brown)",
+                "detail": "Carries the alternating potential difference from the supply. It is at about 230 V compared with earth."
+              },
+              {
+                "name": "Neutral wire (blue)",
+                "detail": "Completes the circuit. It is at, or close to, 0 V."
+              },
+              {
+                "name": "Earth wire (green and yellow)",
+                "detail": "A safety wire at 0 V. It carries a current only if there is a fault, and stops the case becoming live."
+              },
+              {
+                "name": "Fuse",
+                "detail": "A thin wire in the live wire. It melts and breaks the circuit when the current is too large."
+              },
+              {
+                "name": "Switch",
+                "detail": "Fitted in the live wire, so that an appliance that is switched off is disconnected from the 230 V."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Live is brown at about 230 V. Neutral is blue at about 0 V. Earth is green and yellow at 0 V.",
+            "The live wire carries the supply and the neutral wire completes the circuit.",
+            "The earth wire is only a safety wire."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Earth wires, fuses and circuit breakers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers what happens in a fault, and how the safety features protect the user and the wiring."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Fuse",
+              "meaning": "A wire that melts when the current gets too great, breaking the circuit."
+            },
+            {
+              "term": "Circuit breaker",
+              "meaning": "A switch that turns the circuit off when the current is too large. It can be reset."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "A fault with a metal case"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The earth wire is connected to the metal case of the appliance.",
+            "If the live wire touches the case, the charge flows through the earth wire instead of through the person.",
+            "The earth wire has a much lower resistance than a person, so a large current flows to earth.",
+            "The case is kept at earth potential, so a person who touches it does not get a shock."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "What happens when the live wire touches the metal case of an earthed appliance.",
+            "steps": [
+              "Live wire touches the metal case",
+              "Large current flows through the earth wire",
+              "Fuse wire heats up and melts",
+              "Mains supply is disconnected"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "How a fuse or circuit breaker protects"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A fuse is a thin wire between the live pin and the appliance.",
+            "A larger current heats the wire more. When the current is too large, the wire melts.",
+            "This disconnects the appliance from the mains and prevents overheating of the wiring.",
+            "Choose a fuse rated just above the normal current. A current of 2.3 A needs a 5 A fuse, not a fuse with a lower rating or a much higher one."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fuses and switches go in the live wire. If they were in the neutral wire, the appliance would still be connected to the live wire when it is off."
+        },
+        {
+          "type": "subheading",
+          "text": "Appliances without an earth wire"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An appliance with a plastic case does not need an earth wire.",
+            "Plastic is an insulator, so there is little or no chance of an electric shock.",
+            "These appliances are often double insulated."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The earth wire keeps a metal case at earth potential, so a person cannot get a shock.",
+            "A large current melts the fuse wire, which disconnects the appliance.",
+            "Switches and fuses are fitted in the live wire."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why the live wire is dangerous",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The live wire is at about 230 V and the person touching it is at earth potential. This section covers why that matters."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A person is at earth potential, so there is a large potential difference between the live wire and the person.",
+            "If the person touches the live wire, there is a current in the person and they can get an electric shock.",
+            "A live wire can be dangerous even when a switch in the circuit is open. The part of the circuit on the live side of the switch is still at 230 V.",
+            "Any connection between the live wire and earth is dangerous, because a large current can flow through whatever makes the connection."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This is why a circuit should be disconnected from the mains before anyone works on a switch or other part of it."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A person at earth potential touching a live wire has a large potential difference across them and gets a shock.",
+            "A live wire is still dangerous when a switch is open.",
+            "Never provide a connection between the live wire and earth, except through the safety features."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give the colour of the insulation on the live wire, the neutral wire and the earth wire.",
+      "a": "Live: brown. Neutral: blue. Earth: green and yellow.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how an earth wire and a fuse protect a person if the live wire touches the metal case of an appliance.",
+      "a": "The charge flows through the earth wire instead of the person because its resistance is much lower. The large current melts the fuse wire, which disconnects the appliance from the mains.",
+      "marks": 3
+    },
+    {
+      "q": "Why can a live wire still be dangerous when the switch is open?",
+      "a": "The live wire is still at about 230 V, so there is a large potential difference between it and a person at earth potential, and they can get an electric shock.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.2.3.2",
+        "AQA T 6.2.3.2"
+      ],
+      "worked_example": {
+        "exemplar_id": "9067ff27-e96d-4c2c-88df-d5a2eb8908be",
+        "source": "AQA jun 2020, Paper 1 (H), Q09.2",
+        "question": "An electrician replaced the switch. The electrician would have received an electric shock unless the circuit was disconnected from the mains supply. Explain why.",
+        "marks": 3,
+        "answer_points": [
+          "One wire in the switch is live.",
+          "The electrician is earthed, so is at earth potential.",
+          "So there will be a (large) potential difference between the live wire and the electrician (or earth) if the electrician touched the wire."
+        ],
+        "tip": "One mark each for the live wire, the electrician at earth potential, and the potential difference between them."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 10.37",
+        "EDEX 10.38",
+        "EDEX 10.39",
+        "EDEX 10.40",
+        "EDEX 10.41"
+      ],
+      "worked_example": {
+        "exemplar_id": "d464d7e7-e7c4-4042-badc-610414999d28",
+        "source": "EDEXCEL jun 2024, Paper 2 (F), Q6(c)(ii)",
+        "question": "The wiring for a cooker has safety features. Explain how a fuse can prevent overheating of the wiring for the cooker.",
+        "marks": 2,
+        "answer_points": [
+          "If the current is too large, the fuse melts or breaks.",
+          "This stops the current, or switches off the circuit."
+        ],
+        "tip": "Link two points from: the current is too large, the fuse melts, the current stops. Do not write about p.d. or voltage."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P8.2i",
+        "OCR P8.2j"
+      ],
+      "worked_example": {
+        "exemplar_id": "edd5008d-566d-480a-989e-fce3f8528126",
+        "source": "OCR nov 2020, Paper 2, Q21(c)(ii)",
+        "question": "A projector with a plastic case does not need an earth wire. A projector with a metal case needs an earth wire. Explain why.",
+        "marks": 2,
+        "answer_points": [
+          "The earth wire (together with a fuse) prevents the user getting an electric shock if there is a fault.",
+          "A plastic case is an insulator, so an earth wire is not required."
+        ],
+        "tip": "One mark for the earth wire preventing a shock with a metal case, and one for the plastic case being an insulator."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 4.4.1",
+        "CAIE 4.4.2",
+        "CAIE 4.4.3",
+        "CAIE 4.4.4",
+        "CAIE 4.4.5"
+      ],
+      "worked_example": {
+        "exemplar_id": "11f38769-1626-434c-8f22-a4aafc80f5ec",
+        "source": "CAMBRIDGE jun 2025, Paper 41, Q4(b)(ii)",
+        "question": "A heater has a power of 2.0 kW when it is connected to the mains supply with an e.m.f. of 230 V. The plug connecting the heater to the mains supply is fitted with a fuse.\n\nFuse ratings of 3 A, 5 A, 10 A and 13 A are available.\n\nState which fuse is used. Explain your answer.",
+        "marks": 2,
+        "answer_points": [
+          "10 A.",
+          "The fuse rating must be higher than the normal current in the heater, which is about 8.7 A.",
+          "A smaller fuse would melt in normal use.",
+          "A larger fuse might not melt before the wiring is damaged."
+        ],
+        "tip": "One mark for the correct fuse and one for any one valid reason."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Mains hazards"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Damaged insulation** can expose a live wire, so a person can get an electric shock.",
+                "**Overheating cables** can start a fire.",
+                "**Damp conditions** make a shock more likely, because water conducts electricity.",
+                "**Overloading** plugs, extension leads and sockets draws an excess current, which overheats the cables."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Double-insulated appliances"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The outer casing of an appliance must be either earthed or non-conducting (double-insulated).",
+                "A double-insulated appliance has a non-conducting casing, so it has no earth wire.",
+                "Its fuse still protects the circuit and the cabling."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A trip switch (circuit breaker) switches the circuit off when the current is too large. It is reset by switching it back on.",
+                "Set the trip switch just above the normal current, in the same way as a fuse rating."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Electrical power",
+              "formula": "P = I × V",
+              "where": [
+                "P = power, in watts (W)",
+                "I = current, in amperes (A)",
+                "V = potential difference, in volts (V)"
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find the current.",
+                  "text": "A 920 W kettle works from 230 V. I = P ÷ V = 920 ÷ 230 = 4.0 A."
+                },
+                {
+                  "lead": "Choose the fuse.",
+                  "text": "Fuses of 3 A, 5 A and 13 A are available. Use the 5 A fuse, the smallest rating above 4.0 A."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.2",
+        "IGCSE 2.4"
+      ],
+      "worked_example": {
+        "exemplar_id": "e41ae140-0c35-47aa-98c3-2cb285c0c93a",
+        "source": "EDEXCEL jun 2023, Paper 1 (P), Q3(b)(i)",
+        "question": "A family has a television set. In normal use, the current in the television set is 0.31 A.\n\nExplain how a fuse works to protect the television set if there is a fault.",
+        "marks": 3,
+        "answer_points": [
+          "The current becomes greater than the fuse rating.",
+          "The fuse wire melts.",
+          "This breaks the circuit, so the television set is isolated from the mains."
+        ],
+        "tip": "One mark for each stage: too much current, the wire melting and the circuit breaking."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Double insulation, earthing, fuses and circuit breakers protect the user or the device."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A double-insulated appliance has a plastic outer case and no earth wire.",
+                "A fuse or circuit breaker switches off the current if it is too large, which protects the wiring and the appliance."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Use power, current and potential difference to choose a fuse. The rating must be just above the normal current."
+            },
+            {
+              "type": "equation",
+              "label": "Electrical power",
+              "formula": "P = I × V",
+              "where": [
+                "P = power, in watts (W)",
+                "I = current, in amperes (A)",
+                "V = potential difference, in volts (V)"
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find the current.",
+                  "text": "A 920 W kettle works from 230 V. I = P ÷ V = 920 ÷ 230 = 4.0 A."
+                },
+                {
+                  "lead": "Choose the fuse.",
+                  "text": "Fuses of 3 A, 5 A and 13 A are available. Use the 5 A fuse, the smallest rating above 4.0 A."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "29dc0b1e-f9e2-4b24-9ef9-af9aca956979",
+      "4146f63c-747a-424f-9d5e-0482d11a4003",
+      "df56745b-3d95-41c7-8068-bef868837d79",
+      "26ffe411-895f-49aa-902d-610b92663cd9",
+      "12e2d047-8a26-4a12-a082-82b4942a1bb7",
+      "19280874-09c8-4cd2-9b34-4252a6fe1a6c",
+      "4e85097b-e124-4320-8035-f847b3f0b6f6",
+      "883ef74b-15a9-48f6-9ec0-de1db50f9b95",
+      "ec42224e-3e59-4641-9bbc-d405d494049e",
+      "d039fe22-0ccc-4670-b13d-ae683b98982c",
+      "27adf1e0-36d0-418f-87b4-5085f69a982d",
+      "f185af9f-0fee-4340-9d11-de4ee479d8fe",
+      "2430efde-1a44-4e3f-9f80-028c504c0198",
+      "394618bc-8539-4f5c-a91a-89aab4a4c549",
+      "bc371361-fced-4bc7-8657-a11dbc873751"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "exemplar_ids": [
+      "9067ff27-e96d-4c2c-88df-d5a2eb8908be",
+      "d464d7e7-e7c4-4042-badc-610414999d28",
+      "edd5008d-566d-480a-989e-fce3f8528126",
+      "11f38769-1626-434c-8f22-a4aafc80f5ec",
+      "e41ae140-0c35-47aa-98c3-2cb285c0c93a"
+    ]
+  }
+}

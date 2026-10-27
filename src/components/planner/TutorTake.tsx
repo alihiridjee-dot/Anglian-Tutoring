@@ -91,7 +91,9 @@ export function TutorTake({
         studentFeltReady={studentFeltReady}
       />
 
-      <NextWeekAssigner take={take} subject={subject} board={board} level={level} />
+      {!take.nextOnBreak && (
+        <NextWeekAssigner take={take} subject={subject} board={board} level={level} />
+      )}
     </div>
   );
 }

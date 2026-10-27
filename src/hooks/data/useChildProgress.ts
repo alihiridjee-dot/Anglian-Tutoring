@@ -1,10 +1,14 @@
+import { useCallback, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { currentWeekKey, mondayOf, toDateKey } from "@/lib/planner/week";
+import { currentWeekKey } from "@/lib/planner/week";
 import type { BoardV, LevelV, SubjectV } from "@/lib/curriculum/taxonomy";
 import { WeeklyPlanDAL, type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import { WeeklyNotesDAL } from "@/lib/planner/weeklyNotesDal";
-import { trendWeeks } from "@/lib/profile/analytics";
+import { weeklyQuizAverages, type ScoredWorkRow } from "@/lib/profile/analytics";
+import { scoredWorkQuery } from "@/hooks/data/useAnalytics";
+
+export type { WeeklyTrendPoint } from "@/lib/profile/analytics";
 
 /**
  * Real progress data for one student, read by a linked parent (or the student
@@ -68,60 +72,14 @@ export function useChildCourse(studentId: string | null) {
   });
 }
 
-export interface WeeklyTrendPoint {
-  /** ISO date of the Monday starting the week. */
-  weekStart: string;
-  /** Short label for the axis, e.g. "7 Jul". */
-  label: string;
-  /** subject → average % that week (absent if no attempts). */
-  averages: Record<string, number>;
-}
-
 /**
  * Weekly MCQ averages per subject over the last `weeks` weeks — the real
- * version of the trends chart. Weeks with no attempts simply have no entry for
- * that subject, and the chart connects across the gap.
+ * version of the trends chart, cut from the scored work the predicted grades
+ * already read (`scoredWorkQuery`), so it costs no request of its own.
  */
 export function useChildTrends(studentId: string | null, weeks = 6) {
-  return useQuery({
-    queryKey: [...CHILD_KEY, "trends", studentId, weeks],
-    queryFn: async (): Promise<WeeklyTrendPoint[]> => {
-      const since = new Date();
-      since.setDate(since.getDate() - weeks * 7);
-
-      // The read model, so a paused or lapsed child's quizzes keep their
-      // subject (S-23).
-      const { data, error } = await supabase.rpc("student_scored_work", {
-        _student_id: studentId!,
-        _since: since.toISOString(),
-      });
-      if (error) throw new Error(error.message);
-
-      // Bucket by week start, averaging per subject.
-      const buckets: Record<string, Record<string, { sum: number; n: number }>> = {};
-      for (const a of data ?? []) {
-        if (a.kind !== "quiz" || !a.subject || a.pct === null) continue;
-        const subj = a.subject;
-        const week = toDateKey(mondayOf(new Date(a.scored_at)));
-        buckets[week] = buckets[week] ?? {};
-        buckets[week][subj] = buckets[week][subj] ?? { sum: 0, n: 0 };
-        buckets[week][subj].sum += Number(a.pct);
-        buckets[week][subj].n += 1;
-      }
-
-      // Emit a continuous run of weeks ending this week, so the x-axis is
-      // stable even when some weeks are quiet.
-      // Stepped and labelled in UK time, like the buckets above (S-25).
-      return trendWeeks(weeks).map(({ weekStart, label }) => {
-        const averages: Record<string, number> = {};
-        for (const [subj, { sum, n }] of Object.entries(buckets[weekStart] ?? {})) {
-          averages[subj] = Math.round(sum / n);
-        }
-        return { weekStart, label, averages };
-      });
-    },
-    enabled: !!studentId,
-  });
+  const select = useCallback((rows: ScoredWorkRow[]) => weeklyQuizAverages(rows, weeks), [weeks]);
+  return useQuery({ ...scoredWorkQuery(studentId), select });
 }
 
 export interface ChildEngagement {
@@ -188,11 +146,19 @@ export interface FeedbackItem {
   gradedAt: string;
 }
 
-/** The most recent pieces of real tutor feedback on the child's homework. */
+/**
+ * The most recent feedback on the child's marked tasks.
+ *
+ * Two reads, one of them shared: the comments from the submissions, and each
+ * sheet's subject and title from the scored work the predicted grades already
+ * read (an embed of resources is empty once the child's plan lapses, S-23).
+ * Returned in the shape of one query, so a caller treats it as one.
+ */
 export function useChildFeedback(studentId: string | null, limit = 4) {
-  return useQuery({
+  const work = useQuery(scoredWorkQuery(studentId));
+  const marked = useQuery({
     queryKey: [...CHILD_KEY, "feedback", studentId, limit],
-    queryFn: async (): Promise<FeedbackItem[]> => {
+    queryFn: async () => {
       const { data, error } = await supabase
         .from("homework_submissions")
         .select("id, feedback, grade, score_pct, graded_at")
@@ -202,40 +168,46 @@ export function useChildFeedback(studentId: string | null, limit = 4) {
         .order("graded_at", { ascending: false })
         .limit(limit);
       if (error) throw new Error(error.message);
-      if (!data || data.length === 0) return [];
-
-      // Each sheet's subject and title come from the read model: an embed of
-      // resources is empty once the child's plan lapses (S-23).
-      const scored = await supabase
-        .rpc("student_scored_work", { _student_id: studentId! })
-        .eq("kind", "homework")
-        .in(
-          "item_id",
-          data.map((s) => s.id),
-        );
-      if (scored.error) throw new Error(scored.error.message);
-      const sheetOf = new Map((scored.data ?? []).map((w) => [w.item_id, w]));
-
-      return data.flatMap((s) => {
-        const sheet = sheetOf.get(s.id);
-        const res =
-          sheet && sheet.title !== null ? { subject: sheet.subject, title: sheet.title } : null;
-        if (!res || !s.feedback || !s.graded_at) return [];
-        return [
-          {
-            id: s.id,
-            subject: res.subject,
-            homeworkTitle: res.title,
-            feedback: s.feedback,
-            grade: s.grade,
-            scorePct: s.score_pct,
-            gradedAt: s.graded_at,
-          },
-        ];
-      });
+      return data ?? [];
     },
     enabled: !!studentId,
   });
+
+  const data = useMemo((): FeedbackItem[] | undefined => {
+    if (!marked.data || !work.data) return undefined;
+    const sheetOf = new Map(
+      work.data.filter((w) => w.kind === "homework").map((w) => [w.item_id, w]),
+    );
+    return marked.data.flatMap((s) => {
+      const sheet = sheetOf.get(s.id);
+      if (!sheet?.subject || sheet.title === null || !s.feedback || !s.graded_at) return [];
+      return [
+        {
+          id: s.id,
+          subject: sheet.subject,
+          homeworkTitle: sheet.title,
+          feedback: s.feedback,
+          grade: s.grade,
+          scorePct: s.score_pct,
+          gradedAt: s.graded_at,
+        },
+      ];
+    });
+  }, [marked.data, work.data]);
+
+  const { refetch: refetchMarked } = marked;
+  const { refetch: refetchWork } = work;
+  const refetch = useCallback(
+    () => Promise.all([refetchMarked(), refetchWork()]),
+    [refetchMarked, refetchWork],
+  );
+
+  return {
+    data,
+    error: marked.error ?? work.error,
+    isLoading: marked.isLoading || work.isLoading,
+    refetch,
+  };
 }
 
 export interface ChildWeekSubject {
@@ -260,14 +232,19 @@ export function useChildWeek(studentId: string | null, enrolments: ChildEnrolmen
     queryKey: [...CHILD_KEY, "week", studentId, weekStart, enrolments.map((e) => e.subject)],
     queryFn: async (): Promise<ChildWeekSubject[]> => {
       const weeks = await Promise.all(
-        enrolments.map(async (e) => {
-          const week = await WeeklyPlanDAL.getPlan(studentId!, e.subject, weekStart);
-          if (!week || week.points.length === 0) return null;
-          const note = await WeeklyNotesDAL.getTutorNote(week.plan.id);
-          return { subject: e.subject, points: week.points, tutorNote: note?.note?.trim() || null };
-        }),
+        enrolments.map((e) => WeeklyPlanDAL.getPlan(studentId!, e.subject, weekStart)),
       );
-      return weeks.filter((w): w is ChildWeekSubject => w !== null);
+      const planned = enrolments.flatMap((e, i) => {
+        const week = weeks[i];
+        return week && week.points.length > 0 ? [{ subject: e.subject, week }] : [];
+      });
+      // Every subject's note in one read, rather than one per subject.
+      const notes = await WeeklyNotesDAL.getTutorNotes(planned.map((p) => p.week.plan.id));
+      return planned.map(({ subject, week }) => ({
+        subject,
+        points: week.points,
+        tutorNote: notes.get(week.plan.id)?.note?.trim() || null,
+      }));
     },
     enabled: !!studentId && enrolments.length > 0,
   });
@@ -284,15 +261,26 @@ export interface UpcomingSession {
  * The next live sessions on the child's course: their level, and each
  * subject's own exam board. No join link — a parent is told when their child's
  * lessons are, not handed the way in.
+ *
+ * `level` is undefined until the child's course has been read (null is a
+ * child with no level yet). Waiting for it means one read: started without
+ * it, the sessions were fetched once unfiltered and again when it arrived.
  */
 export function useChildUpcomingSessions(
   studentId: string | null,
   enrolments: ChildEnrolment[],
-  level: LevelV | null,
+  level: LevelV | null | undefined,
   limit = 3,
 ) {
   return useQuery({
-    queryKey: [...CHILD_KEY, "sessions", studentId, level, enrolments, limit],
+    queryKey: [
+      ...CHILD_KEY,
+      "sessions",
+      studentId,
+      level,
+      enrolments.map((e) => `${e.subject}:${e.board}`),
+      limit,
+    ],
     queryFn: async (): Promise<UpcomingSession[]> => {
       let q = supabase
         .from("resources")
@@ -322,6 +310,6 @@ export function useChildUpcomingSessions(
           starts_at: r.starts_at!,
         }));
     },
-    enabled: !!studentId && enrolments.length > 0,
+    enabled: !!studentId && enrolments.length > 0 && level !== undefined,
   });
 }

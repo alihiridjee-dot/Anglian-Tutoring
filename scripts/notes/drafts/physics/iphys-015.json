@@ -1,0 +1,410 @@
+{
+  "format": 1,
+  "concept_id": "iphys-015",
+  "subject": "physics",
+  "title": "Light-years, galaxies and the Hubble constant",
+  "key_idea": "Light takes time to travel across space, so astronomers measure huge distances in light-years. Galaxies are moving away from us, and the further away they are, the faster they move. The Hubble constant links speed and distance, and its inverse estimates the age of the Universe.",
+  "sections": [
+    {
+      "heading": "Light travel time and light-years",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Light travels very fast, but space is very large. This section covers how long light takes to cross it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The speed of light in a vacuum is 3.0 × 10⁸ m/s.",
+            "Light from the Sun takes about 500 s to reach the Earth.",
+            "For any distance, use speed = distance / time, rearranged to time = distance / speed."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Question",
+              "text": "Jupiter is 7.8 × 10¹¹ m from the Sun. How long does sunlight take to reach it?"
+            },
+            {
+              "lead": "Substitute",
+              "text": "t = s / v = 7.8 × 10¹¹ / 3.0 × 10⁸."
+            },
+            {
+              "lead": "Answer",
+              "text": "t = 2.6 × 10³ s."
+            }
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Light-year",
+              "meaning": "The distance travelled by light in a vacuum in one year."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A light-year is a unit of **distance**, not time.",
+            "(Supplement) One light-year is equal to 9.5 × 10¹⁵ m.",
+            "(Supplement) To show this: 1 year = 365 × 24 × 3600 = 3.15 × 10⁷ s, so distance = 3.0 × 10⁸ × 3.15 × 10⁷ ≈ 9.5 × 10¹⁵ m.",
+            "A star 4 light-years away has light that takes 4 years to reach us."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question on light travel time. A planet is a given distance from the Sun, and the student calculates how long sunlight takes to reach it.",
+            "question": "A planet is {d} million km from the Sun. Light travels at 3.0 × 10⁸ m/s. Calculate the time taken for light to travel from the Sun to the planet.",
+            "variables": [
+              {
+                "id": "d",
+                "min": 50,
+                "max": 800,
+                "step": 50
+              }
+            ],
+            "answer": {
+              "formula": "d * 1000000000 / 300000000",
+              "unit": "s",
+              "decimals": 0
+            },
+            "working": [
+              "Distance = {d} million km = {d} × 10⁹ m",
+              "t = s / v = ({d} × 10⁹) / (3.0 × 10⁸)",
+              "t = {answer} s"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Light travels at 3.0 × 10⁸ m/s, so time = distance / speed.",
+            "A light-year is the distance light travels in one year."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Galaxies and the Universe",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Stars are grouped into galaxies. This section covers how big these groups are."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Galaxy",
+              "meaning": "A large collection of billions of stars."
+            },
+            {
+              "term": "Milky Way",
+              "meaning": "The galaxy that contains the Sun and the Solar System."
+            },
+            {
+              "term": "Universe",
+              "meaning": "Space and all the billions of galaxies in it."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Sun is one star in the Milky Way.",
+            "The other stars in the Milky Way are much further from the Earth than the Sun is.",
+            "The diameter of the Milky Way is approximately 100 000 light-years.",
+            "The Milky Way is one of many billions of galaxies in the Universe.",
+            "In order of size: Solar System, galaxy, Universe."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A galaxy is billions of stars. The Milky Way contains the Sun.",
+            "The Universe contains billions of galaxies."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Speed and distance of galaxies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Astronomers cannot reach other galaxies. This section covers how they find a galaxy's speed and distance."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Redshift",
+              "meaning": "An increase in the wavelength of light from a galaxy that is moving away from us."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) The **speed** of a galaxy moving away is found from the change in wavelength of its starlight, due to redshift.",
+            "(Supplement) The **distance** of a far galaxy is found from the brightness of a supernova in that galaxy.",
+            "Galaxies further away show a bigger redshift, so they are moving away faster.",
+            "The speeds of galaxies are directly proportional to their distances. This shows the Universe is expanding."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Finding speed from wavelengths"
+        },
+        {
+          "type": "equation",
+          "label": "Redshift and speed",
+          "formula": "(λ − λ₀) / λ₀ = Δλ / λ₀ = v / c",
+          "where": [
+            "λ = wavelength observed on the Earth, in nm or m",
+            "λ₀ = reference wavelength measured in the laboratory, in the same unit",
+            "Δλ = change in wavelength, in the same unit",
+            "v = speed of the galaxy away from the Earth, in m/s",
+            "c = speed of light, 3.0 × 10⁸ m/s"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Data",
+              "text": "Laboratory hydrogen: λ₀ = 605 nm. Galaxy: λ = 683 nm."
+            },
+            {
+              "lead": "Change",
+              "text": "Δλ = 683 − 605 = 78 nm."
+            },
+            {
+              "lead": "Substitute",
+              "text": "v = c × Δλ / λ₀ = 3.0 × 10⁸ × 78 / 605."
+            },
+            {
+              "lead": "Answer",
+              "text": "v = 3.9 × 10⁷ m/s."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider for redshift. A laboratory wavelength of 656 nm is compared with the wavelength observed from a galaxy, and the galaxy's speed is found.",
+            "inputs": [
+              {
+                "id": "obs",
+                "label": "Wavelength observed from the galaxy",
+                "unit": "nm",
+                "min": 656,
+                "max": 920,
+                "step": 4,
+                "value": 667
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Change in wavelength",
+                "unit": "nm",
+                "formula": "obs - 656",
+                "decimals": 0
+              },
+              {
+                "label": "Speed of the galaxy away from us",
+                "unit": "m/s",
+                "formula": "300000000 * (obs - 656) / 656",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Redshift gives the speed of a galaxy. A supernova's brightness gives its distance.",
+            "Further galaxies move away faster, so the Universe is expanding.",
+            "Δλ / λ₀ = v / c."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The Hubble constant and the age of the Universe",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Speed and distance are linked by one constant. This section covers how to use it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Hubble constant (H₀)",
+              "meaning": "The ratio of the speed at which a galaxy is moving away from the Earth to its distance from the Earth."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Hubble constant",
+          "formula": "H₀ = v / d",
+          "where": [
+            "H₀ = Hubble constant, in per second (s⁻¹)",
+            "v = speed of the galaxy away from the Earth, in m/s",
+            "d = distance of the galaxy from the Earth, in m"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Supplement) The current estimate is H₀ = 2.2 × 10⁻¹⁸ per second.",
+            "Rearranged: d = v / H₀ and v = H₀ × d.",
+            "Use metres and seconds. To give a distance in light-years, divide it in metres by 9.5 × 10¹⁵."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The age of the Universe"
+        },
+        {
+          "type": "equation",
+          "label": "Estimate of the age of the Universe",
+          "formula": "d / v = 1 / H₀",
+          "where": [
+            "d / v = the time a galaxy has taken to reach its distance, in s",
+            "H₀ = Hubble constant, in per second"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Substitute",
+              "text": "Age = 1 / H₀ = 1 / (2.2 × 10⁻¹⁸)."
+            },
+            {
+              "lead": "In seconds",
+              "text": "Age = 4.5 × 10¹⁷ s."
+            },
+            {
+              "lead": "In years",
+              "text": "4.5 × 10¹⁷ / (3.15 × 10⁷) = 1.4 × 10¹⁰ years."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "All galaxies are moving apart. Running this backwards, they were once together.",
+            "This is evidence that all the matter in the Universe was present at a single point."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "H₀ = v / d, and the current estimate is 2.2 × 10⁻¹⁸ per second.",
+            "The age of the Universe is estimated as 1 / H₀, about 1.4 × 10¹⁰ years.",
+            "This supports the idea that all matter began at a single point."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define a light-year.",
+      "a": "The distance travelled by light in a vacuum in one year.",
+      "marks": 1
+    },
+    {
+      "q": "It takes light 490 s to travel from the Sun to the Earth. Calculate the distance. The speed of light is 3.0 × 10⁸ m/s.",
+      "a": "s = v × t = 3.0 × 10⁸ × 490 = 1.5 × 10¹¹ m.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) A galaxy is 1.2 × 10²⁶ m from the Earth. Calculate its speed away from the Earth. H₀ = 2.2 × 10⁻¹⁸ per second.",
+      "a": "v = H₀ × d = 2.2 × 10⁻¹⁸ × 1.2 × 10²⁶ = 2.6 × 10⁸ m/s.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 6.1.2.4",
+        "CAIE 6.2.2.1",
+        "CAIE 6.2.2.2S",
+        "CAIE 6.2.3.1",
+        "CAIE 6.2.3.7S",
+        "CAIE 6.2.3.8S",
+        "CAIE 6.2.3.9S",
+        "CAIE 6.2.3.10S",
+        "CAIE 6.2.3.11S"
+      ],
+      "worked_example": {
+        "exemplar_id": "9a6c1017-d342-4ecd-a466-7d884d972e36",
+        "source": "CAMBRIDGE jun 2023, Paper 43, Q10(a)",
+        "question": "Show that 1 light-year = 9.5 × 10¹⁵ m.",
+        "marks": 4,
+        "answer_points": [
+          "Distance = speed × time (v = s / t).",
+          "The speed of light is 3 × 10⁸ m/s.",
+          "One year is 365 × 24 × 3600 = 3.15 × 10⁷ s.",
+          "Distance = 3 × 10⁸ × 3.15 × 10⁷ = 9.5 × 10¹⁵ m."
+        ],
+        "tip": "One mark each for the equation, the speed of light, the year in seconds and the final multiplication."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 8.2",
+        "IGCSE 8.16P"
+      ],
+      "worked_example": {
+        "exemplar_id": "8620463d-b08a-4bc8-8f9f-9aec94d25a7c",
+        "source": "EDEXCEL jan 2021, Paper 2 (PR), Q6(b)",
+        "question": "Hydrogen gas in a laboratory on Earth emits light with a wavelength of 605 nm. A distant galaxy contains hydrogen which emits light of the same wavelength. The wavelength of the light from the distant galaxy is measured as 683 nm on Earth. Calculate the speed of the distant galaxy. The speed of light is 3.0 × 10⁸ m/s.",
+        "marks": 4,
+        "answer_points": [
+          "Change in wavelength = 683 − 605 = 78 nm.",
+          "Substitution: 78 / 605 = v / c.",
+          "Rearrangement: v = 3.0 × 10⁸ × (78 / 605).",
+          "v = 3.9 × 10⁷ m/s."
+        ],
+        "tip": "Divide by the laboratory (reference) wavelength, not the observed one."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "40ff99cd-cc11-4719-b3f8-19ee90a431dd",
+      "c387e96f-7238-4216-a7a1-4e1650de13d3",
+      "3d005fe1-d512-4213-97d2-de9c4b58533a",
+      "38cb4912-faf7-4285-a16d-676f08d9c2af",
+      "df554c5e-f15d-4f65-8c4b-e203922af144",
+      "0231e857-7a22-4d1f-8420-3b28b97df8c4",
+      "3dbd7efb-840c-4ec4-9dad-3e9ca4c3e4c2",
+      "f7cb7b85-93e6-46aa-ad76-82ef1338569f",
+      "28a9f7de-acea-4fa7-bfd2-79bc1e902b7f",
+      "473c4f8a-cfcb-4d4b-b12c-7ec35b9be10d",
+      "02b8f5cf-5e22-42aa-aa76-3e4d46ae606d"
+    ],
+    "exemplar_ids": [
+      "9a6c1017-d342-4ecd-a466-7d884d972e36",
+      "8620463d-b08a-4bc8-8f9f-9aec94d25a7c"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

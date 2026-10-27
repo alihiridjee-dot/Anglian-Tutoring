@@ -1,0 +1,358 @@
+{
+  "format": 1,
+  "concept_id": "achem-056",
+  "subject": "chemistry",
+  "title": "Chlorine, disproportionation and water treatment",
+  "key_idea": "In disproportionation, one element is both oxidised and reduced. Chlorine disproportionates in water to give HClO and ClO⁻, which kill bacteria. With cold dilute alkali it gives bleach, and with hot alkali it gives chlorate(V).",
+  "sections": [
+    {
+      "heading": "Disproportionation of chlorine",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chlorine can be oxidised and reduced in the same reaction. This section covers what disproportionation is and the oxidation numbers of chlorine."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Disproportionation",
+              "meaning": "A reaction in which the same element is both oxidised and reduced."
+            },
+            {
+              "term": "Chlorate(I)",
+              "meaning": "The ion ClO⁻, with chlorine at +1. Hypochlorite is the older name."
+            },
+            {
+              "term": "Chlorate(V)",
+              "meaning": "The ion ClO₃⁻, with chlorine at +5."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Species",
+            "Cl⁻",
+            "Cl₂",
+            "ClO⁻",
+            "ClO₃⁻"
+          ],
+          "rows": [
+            [
+              "Oxidation number of Cl",
+              "−1",
+              "0",
+              "+1",
+              "+5"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In each case below, chlorine at 0 goes both up and down in oxidation number."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Disproportionation is oxidation and reduction of the same element.",
+            "In chlorine reactions, Cl at 0 forms Cl⁻ (reduced) and ClO⁻ or ClO₃⁻ (oxidised)."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Chlorine with water, and water treatment",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chlorine dissolves in water and reacts with it. This section covers the reaction, what kills bacteria, and the benefits and risks."
+        },
+        {
+          "type": "equation",
+          "label": "Chlorine with water",
+          "formula": "Cl₂ + H₂O ⇌ HCl + HClO",
+          "where": [
+            "HClO: chloric(I) acid, the main disinfectant"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chlorine is oxidised from 0 to +1 in HClO and reduced from 0 to −1 in Cl⁻.",
+            "HClO ionises a little: HClO ⇌ H⁺ + ClO⁻.",
+            "HClO and ClO⁻ are the active species that **kill bacteria**.",
+            "In sunlight, chlorine and water can also form chloride ions and oxygen."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Benefits and risks"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Benefit**: chlorine kills bacteria and prevents diseases such as cholera and typhoid.",
+            "**Risk**: chlorine gas is toxic and must be stored and handled carefully.",
+            "**Risk**: chlorine can react with organic matter in water to form chlorinated hydrocarbons, which may be harmful.",
+            "Society weighs the benefits against the risks. The benefit to health is judged to outweigh the toxic effects."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Chlorine in water makes HClO and ClO⁻, which kill bacteria.",
+            "The reaction is a disproportionation.",
+            "The benefit of safe drinking water outweighs the risks, which are managed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Chlorine with sodium hydroxide",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The products depend on temperature. This section covers the two reactions with aqueous sodium hydroxide and their uses."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Conditions",
+            "Equation",
+            "Oxidation numbers of Cl"
+          ],
+          "rows": [
+            [
+              "Cold, dilute NaOH",
+              "Cl₂ + 2NaOH → NaCl + NaClO + H₂O",
+              "0 to −1 and +1"
+            ],
+            [
+              "Hot, concentrated NaOH",
+              "3Cl₂ + 6NaOH → 5NaCl + NaClO₃ + 3H₂O",
+              "0 to −1 and +5"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cold, dilute NaOH gives a solution of sodium chlorate(I). This is **bleach**, used to kill germs and remove colour.",
+            "Hot NaOH gives sodium chlorate(V), which is more oxidised.",
+            "Bromine reacts in the same way. Bromine with cold NaOH gives NaBr and NaBrO."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick the conditions to see the products of chlorine or bromine with sodium hydroxide or water and the oxidation numbers.",
+            "prompt": "Pick a reaction.",
+            "result_labels": [
+              "Products",
+              "Oxidation numbers"
+            ],
+            "options": [
+              {
+                "label": "Cl₂ + cold dilute NaOH",
+                "results": [
+                  "NaCl, NaClO and H₂O",
+                  "Cl: 0 to −1 and +1"
+                ]
+              },
+              {
+                "label": "Cl₂ + hot NaOH",
+                "results": [
+                  "NaCl, NaClO₃ and H₂O",
+                  "Cl: 0 to −1 and +5"
+                ]
+              },
+              {
+                "label": "Br₂ + cold dilute NaOH",
+                "results": [
+                  "NaBr, NaBrO and H₂O",
+                  "Br: 0 to −1 and +1"
+                ]
+              },
+              {
+                "label": "Br₂ + hot NaOH",
+                "results": [
+                  "NaBr, NaBrO₃ and H₂O",
+                  "Br: 0 to −1 and +5"
+                ]
+              },
+              {
+                "label": "Cl₂ + water",
+                "results": [
+                  "HCl and HClO",
+                  "Cl: 0 to −1 and +1"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Decide which reactions are disproportionation.",
+            "prompt": "Is the reaction a disproportionation?",
+            "groups": [
+              "Disproportionation",
+              "Not disproportionation"
+            ],
+            "items": [
+              {
+                "text": "Cl₂ + cold dilute NaOH",
+                "group": 0
+              },
+              {
+                "text": "Cl₂ + hot NaOH",
+                "group": 0
+              },
+              {
+                "text": "Cl₂ + H₂O",
+                "group": 0
+              },
+              {
+                "text": "2Na + Cl₂ → 2NaCl",
+                "group": 1
+              },
+              {
+                "text": "Cl₂ + 2KBr → 2KCl + Br₂",
+                "group": 1
+              },
+              {
+                "text": "Br₂ + cold dilute NaOH",
+                "group": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cold dilute NaOH gives chlorate(I) (bleach). Hot NaOH gives chlorate(V).",
+            "The same element is oxidised and reduced in both reactions."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write the equation for the reaction of chlorine with cold, dilute sodium hydroxide, and name the use of the solution.",
+      "a": "Cl₂ + 2NaOH → NaCl + NaClO + H₂O. The solution is used as bleach, to kill germs or remove colour.",
+      "marks": 3
+    },
+    {
+      "q": "Explain, using oxidation numbers, why the reaction of chlorine with water is a disproportionation.",
+      "a": "Chlorine goes from 0 in Cl₂ to −1 in HCl, which is reduction, and from 0 to +1 in HClO, which is oxidation. The same element is both oxidised and reduced.",
+      "marks": 3
+    },
+    {
+      "q": "Give one benefit and one risk of adding chlorine to drinking water.",
+      "a": "Benefit: it kills bacteria that cause disease. Risk: it can form chlorinated hydrocarbons, which may be harmful, or chlorine gas is toxic.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.3e",
+        "OCR 3.1.3f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers weighing up the decision to chlorinate water."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The decision balances the benefit of killing bacteria against the risk from chlorine gas and from chlorinated hydrocarbons.",
+                "Ethics matter: people have a right to choose what is in their water.",
+                "Other ways to purify drinking water include ozone and ultraviolet light. Each has its own costs, benefits and risks.",
+                "Analogous reactions use bromine in place of chlorine, with the same oxidation number changes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4B.12"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the oxidation of metals by the halogens, and hot alkali."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Halogens oxidise Group 1 and 2 metals: 2Na + Cl₂ → 2NaCl and Ca + Br₂ → CaBr₂.",
+                "The halogen goes from 0 to −1, so it is reduced. The metal is oxidised, from 0 to +1 or +2.",
+                "Chlorine with hot alkali is also a disproportionation, and gives chlorate(V) as above."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.3.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the uses of the chlorine solutions."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Chlorine in water treatment is used to disinfect drinking water and swimming pools.",
+                "The solution of NaCl and NaClO from cold dilute NaOH is used as household bleach and disinfectant.",
+                "In sunlight, chlorine and water form chloride ions and oxygen: 2Cl₂ + 2H₂O → 4H⁺ + 4Cl⁻ + O₂."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 11.4.1",
+        "CAIE 11.4.2"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "e1466933-78fb-4204-b381-9d19f679c708",
+      "d6ad54ff-7bc3-4e47-baf4-cfbec8d69239",
+      "b3ecb066-c737-461d-8f18-a730c630eb7c",
+      "772a84e8-408d-424b-9c1f-77b890173895",
+      "02a39fbe-1683-425f-b7e3-22c8837d16ac",
+      "918a1dab-7580-46ad-8932-967c250962bd"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

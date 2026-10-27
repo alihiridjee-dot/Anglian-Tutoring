@@ -1,0 +1,366 @@
+{
+  "format": 1,
+  "concept_id": "aphys-099",
+  "subject": "physics",
+  "title": "Communication systems",
+  "key_idea": "A communication system turns information into an electrical signal, modulates it onto a carrier, sends it along a transmission path, then reverses the process. Parallel LC circuits select a wanted frequency. AM and FM are two ways of modulating a carrier.",
+  "sections": [
+    {
+      "heading": "LC resonance filters",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A parallel LC circuit, an inductor and a capacitor side by side, responds strongly at one frequency. It is used to select a wanted signal."
+        },
+        {
+          "type": "equation",
+          "label": "Resonant frequency",
+          "formula": "f₀ = 1 ÷ (2π√(LC))",
+          "where": [
+            "f₀ = resonant frequency (Hz)",
+            "L = inductance (H)",
+            "C = capacitance (F)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only parallel resonance arrangements are required. The derivation is not required.",
+            "The circuit is like a **mass on a spring**. Inductance is the analogue of the mass and capacitance is the analogue of the spring.",
+            "Energy swings back and forth between the inductor's magnetic field and the capacitor's electric field, as a mass-spring system swaps kinetic and elastic energy."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Calculate the resonant frequency of a parallel LC circuit.",
+            "question": "A parallel LC circuit has L = {L} mH and C = {C} nF. Calculate the resonant frequency in kHz.",
+            "variables": [
+              {
+                "id": "L",
+                "min": 1,
+                "max": 10,
+                "step": 1
+              },
+              {
+                "id": "C",
+                "min": 10,
+                "max": 100,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "1 / (2 * 3.14159265 * sqrt(L * 0.001 * C * 0.000000001)) / 1000",
+              "unit": "kHz",
+              "decimals": 1
+            },
+            "working": [
+              "f₀ = 1 ÷ (2π√(LC))",
+              "L = {L} × 10⁻³ H and C = {C} × 10⁻⁹ F",
+              "f₀ = {answer} kHz"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Response curve and Q factor"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **energy (voltage) response curve** plots the energy or voltage across the circuit against frequency.",
+            "It has a peak at f₀. The current response curve is not required.",
+            "The **bandwidth** f_B is the width of the curve at the 50% energy points."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Q factor",
+          "formula": "Q = f₀ ÷ f_B",
+          "where": [
+            "Q = quality factor (no unit)",
+            "f₀ = resonant frequency (Hz)",
+            "f_B = bandwidth at the 50% energy points (Hz)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A high Q means a narrow, sharp peak, so the circuit selects one frequency well.",
+            "A low Q means a broad peak."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "f₀ = 1 ÷ (2π√(LC)) for a parallel LC circuit.",
+            "Q = f₀ ÷ f_B, using the width at the 50% energy points.",
+            "Inductance acts like mass and capacitance like a spring."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Principles of a communication system",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A real-time communication system is a chain of stages. Only the purpose of each stage is required."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "Block diagram of a communication system from information input through transducer, modulator, amplifier, transmitter, transmission path, receiver, amplifier, demodulator and output transducer to information output.",
+            "steps": [
+              "Information input",
+              "Input transducer",
+              "Modulator",
+              "Amplifier and transmitter",
+              "Transmission path",
+              "Receiver and amplifier",
+              "Demodulator and output transducer"
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Stage",
+            "Purpose"
+          ],
+          "rows": [
+            [
+              "Input transducer (e.g. microphone)",
+              "Changes the information into an electrical signal"
+            ],
+            [
+              "Modulator",
+              "Puts the information signal onto a carrier wave"
+            ],
+            [
+              "Amplifier",
+              "Increases the signal's power"
+            ],
+            [
+              "Transmitter (e.g. aerial)",
+              "Sends the signal into the transmission path"
+            ],
+            [
+              "Transmission path (e.g. radio waves)",
+              "Carries the signal to the receiver"
+            ],
+            [
+              "Receiver (e.g. aerial)",
+              "Picks up the signal and selects the wanted one"
+            ],
+            [
+              "Demodulator",
+              "Recovers the information signal from the carrier"
+            ],
+            [
+              "Output transducer (e.g. loudspeaker)",
+              "Changes the electrical signal back into the information"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The system turns information into a signal, sends it, then recovers it.",
+            "The modulator puts the information on a carrier and the demodulator takes it off."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Transmission media",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The transmission path can be a wire, an optic fibre or an electromagnetic wave."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Medium",
+            "Advantages",
+            "Disadvantages"
+          ],
+          "rows": [
+            [
+              "Metal wire",
+              "Cheap and simple to install",
+              "Low data rate; signal loss and noise over distance; easy to tap"
+            ],
+            [
+              "Optic fibre",
+              "Very high data rate; low loss; hard to tap",
+              "More costly to install and join"
+            ],
+            [
+              "Radio and microwave",
+              "No cable needed; reaches many receivers",
+              "Limited bandwidth; open to interception; affected by weather and obstacles"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "How radio waves travel"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Ground wave**: follows the surface of the Earth.",
+            "**Sky wave**: refracted and reflected by the ionosphere back to Earth, which allows long range.",
+            "Long-wavelength radiation **diffracts** around the Earth's surface.",
+            "Microwaves pass straight through the ionosphere, so a line of sight or a satellite is needed."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Satellite systems"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A satellite receives the signal on an up-link and sends it back on a down-link.",
+            "Up- and down-links use different frequencies, so the satellite's strong output does not de-sense its own receiver.",
+            "Satellite systems typically use microwave frequencies of a few GHz to over 10 GHz, for example about 6 GHz up and 4 GHz down."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Wire, optic fibre and radio differ in data rate, cost and security.",
+            "Sky waves, ground waves and diffraction carry radio beyond the horizon.",
+            "Satellite up- and down-links use different frequencies."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Time-division multiplexing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Multiplexing lets several signals share one transmission path."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In **time-division multiplexing** the path is divided into short time slots.",
+            "Each signal is sampled and sent in its own slot, one after another, in a repeating pattern.",
+            "The receiver separates the slots again and rebuilds each signal.",
+            "The sampling must be fast enough, and the transmitter and receiver must stay in step."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Several signals share one path by taking turns in short time slots.",
+            "The receiver must separate the slots and stay in step with the transmitter."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "AM and FM",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Modulation puts an information signal onto a high-frequency carrier wave. Circuit details and detailed mathematics are not required."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In **amplitude modulation (AM)** the carrier's amplitude varies with the information signal. Its frequency stays the same.",
+            "In **frequency modulation (FM)** the carrier's frequency varies with the information signal. Its amplitude stays the same.",
+            "From a graph of signal voltage against time, the carrier frequency is that of the fast oscillations, and the information frequency is that of the slow variation in amplitude (AM) or frequency (FM)."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Bandwidth"
+        },
+        {
+          "type": "equation",
+          "label": "AM bandwidth",
+          "formula": "bandwidth = 2f_M",
+          "where": [
+            "f_M = highest frequency of the information signal (Hz)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "FM bandwidth",
+          "formula": "bandwidth = 2(Δf + f_M)",
+          "where": [
+            "Δf = maximum change in carrier frequency (Hz)",
+            "f_M = highest frequency of the information signal (Hz)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "FM needs a wider bandwidth than AM for the same information signal.",
+            "The data capacity of a channel depends on its bandwidth: a wider bandwidth carries more data.",
+            "Bandwidth availability differs between media. Optic fibre has far more than a radio channel."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "AM varies the carrier amplitude and FM varies the carrier frequency.",
+            "AM bandwidth = 2f_M and FM bandwidth = 2(Δf + f_M)."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate the resonant frequency of a parallel LC circuit with L = 5.0 mH and C = 20 nF.",
+      "a": "f₀ = 1 ÷ (2π√(5.0 × 10⁻³ × 20 × 10⁻⁹)) = 1 ÷ (2π × 1.0 × 10⁻⁵) ≈ 1.6 × 10⁴ Hz (16 kHz).",
+      "marks": 3
+    },
+    {
+      "q": "A filter has f₀ = 1000 kHz and a bandwidth of 20 kHz at the 50% energy points. Calculate Q and state what it shows.",
+      "a": "Q = 1000 ÷ 20 = 50. The high value shows a narrow, sharp response that selects one frequency well.",
+      "marks": 3
+    },
+    {
+      "q": "An information signal has a highest frequency of 5.0 kHz. The carrier frequency changes by up to 15 kHz in FM. Calculate the bandwidth for AM and for FM.",
+      "a": "AM: 2 × 5.0 = 10 kHz. FM: 2 × (15 + 5.0) = 40 kHz.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.13.3.1",
+        "AQA 3.13.6.1",
+        "AQA 3.13.6.2",
+        "AQA 3.13.6.3",
+        "AQA 3.13.6.4"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "e423b96f-b4f8-4d12-ba48-273f5d49a07a",
+      "cec99d6f-f268-4b45-b7a0-63a7c98af33e",
+      "dd197691-4389-49de-b947-b738c8a8dd49",
+      "ecf97e02-cd42-47a3-9345-4cc7fe34abed",
+      "3c5289b1-94cc-4a8b-b735-fffc0156c0ae"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

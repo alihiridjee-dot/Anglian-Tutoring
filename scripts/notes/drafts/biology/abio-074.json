@@ -1,0 +1,439 @@
+{
+  "format": 1,
+  "concept_id": "abio-074",
+  "subject": "biology",
+  "title": "Principles of homeostasis and thermoregulation",
+  "key_idea": "Homeostasis keeps the internal environment within narrow limits using receptors, a coordination system and effectors. Negative feedback reverses changes, so levels return to normal. Endotherms control temperature physiologically and behaviourally; ectotherms rely mainly on behaviour.",
+  "sections": [
+    {
+      "heading": "Why organisms need communication",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A multicellular organism has many cells doing different jobs. This section covers why they must communicate and how cells signal."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Animals and plants must **respond** to changes in the external environment, such as light, temperature and predators.",
+            "They must also respond to changes in the internal environment, such as blood glucose, water potential and temperature.",
+            "Different organs must be **coordinated** so that they work together, for example the heart and lungs during exercise."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Cell signalling"
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Cell signalling",
+              "meaning": "One cell releasing a signal that changes the activity of another cell."
+            },
+            {
+              "term": "Adjacent signalling",
+              "meaning": "Signalling between cells next to each other, often through direct contact or short-range chemicals."
+            },
+            {
+              "term": "Distant signalling",
+              "meaning": "Signalling between cells far apart, using a chemical carried in the blood or by nerve impulses."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Adjacent cells can signal through direct contact or by releasing a chemical that diffuses a short distance.",
+            "Distant cells signal using hormones. These are secreted into the blood, carried round the body and detected by **target cells**.",
+            "Target cells have receptors that fit one signal molecule, so only they respond.",
+            "Nerve cells signal over long distances by electrical impulses, passing a chemical across each synapse."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Organisms must respond to external and internal changes.",
+            "Communication systems coordinate the activity of different organs.",
+            "Signals can pass between adjacent cells or between distant cells."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Homeostasis and feedback",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Homeostasis keeps the internal environment steady. This section covers why that matters and how feedback achieves it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Homeostasis",
+              "meaning": "Maintaining the internal environment within restricted limits, in a state of dynamic equilibrium."
+            },
+            {
+              "term": "Stimulus",
+              "meaning": "A change in the internal or external environment that is detected."
+            },
+            {
+              "term": "Receptor",
+              "meaning": "A cell or sensory structure that detects a stimulus and passes information on."
+            },
+            {
+              "term": "Effector",
+              "meaning": "A muscle or gland that carries out a response."
+            },
+            {
+              "term": "Negative feedback",
+              "meaning": "A change is detected and the response reverses it, returning the system to its original level."
+            },
+            {
+              "term": "Positive feedback",
+              "meaning": "A change is detected and the response increases it further, moving the system away from its starting level."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why a stable internal environment matters"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Core temperature** and blood pH affect enzyme activity. Too hot, or too far from the optimum pH, and enzymes denature. Too cold and reactions are slow.",
+            "**Blood glucose** must stay steady to supply respiratory substrate to cells.",
+            "Blood glucose also affects the water potential of the blood. Too high lowers it, so water leaves cells by osmosis. Too low and cells lack fuel."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The control loop"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "A negative feedback loop: stimulus, receptor, coordination system, effector, response, back to the stimulus.",
+            "steps": [
+              "Stimulus: change from set level",
+              "Receptor detects the change",
+              "Coordinator: nervous or endocrine system",
+              "Effector: muscle or gland responds",
+              "Response reverses the change"
+            ],
+            "loop": true
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Receptors detect internal and external stimuli and send information to a coordination system.",
+            "The coordination systems are the **nervous system** (fast, electrical) and the **endocrine system** (slower, hormonal).",
+            "Effectors are muscles and glands. Their response brings the level back towards normal."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Negative and positive feedback"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Negative feedback",
+            "Positive feedback"
+          ],
+          "rows": [
+            [
+              "Effect of the response",
+              "Reverses the change",
+              "Increases the change"
+            ],
+            [
+              "Result",
+              "Level returns to normal",
+              "Level moves further from normal"
+            ],
+            [
+              "Role",
+              "Keeps systems within narrow limits",
+              "Speeds up a process that must finish quickly"
+            ],
+            [
+              "Example",
+              "Control of body temperature and blood glucose",
+              "Oxytocin strengthening contractions in labour"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Negative feedback keeps conditions near a set point, with the level swinging slightly either side.",
+            "There are **separate mechanisms** for departures in each direction, for example one for a rise and one for a fall. This gives greater control.",
+            "Positive feedback is not used for homeostasis because it drives the system away from its normal level."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Homeostasis keeps temperature, pH, glucose and water potential within narrow limits.",
+            "Stimulus, receptor, coordinator and effector form the control loop.",
+            "Negative feedback reverses a change; positive feedback increases it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Temperature control",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Animals control body temperature in different ways. This section covers endotherms, ectotherms and their responses."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Endotherm",
+              "meaning": "An animal that keeps a stable body temperature using heat from its own metabolism."
+            },
+            {
+              "term": "Ectotherm",
+              "meaning": "An animal that gets most of its body heat from the environment."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Endotherms"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Peripheral temperature receptors** in the skin detect changes at the surface.",
+            "The **hypothalamus** detects the temperature of the blood and receives information from the skin receptors.",
+            "The hypothalamus sends impulses to effectors in the skin and muscles.",
+            "Physiological responses are automatic. Behavioural responses are chosen."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort responses into those that happen when the body is too hot and those that happen when it is too cold.",
+            "prompt": "Sort each response by when it happens.",
+            "groups": [
+              "Body too hot",
+              "Body too cold"
+            ],
+            "items": [
+              {
+                "text": "Vasodilation: skin arterioles widen",
+                "group": 0
+              },
+              {
+                "text": "Sweat glands secrete sweat",
+                "group": 0
+              },
+              {
+                "text": "Erector muscles relax so hairs lie flat",
+                "group": 0
+              },
+              {
+                "text": "Seeking shade",
+                "group": 0
+              },
+              {
+                "text": "Vasoconstriction: skin arterioles narrow",
+                "group": 1
+              },
+              {
+                "text": "Shivering by skeletal muscles",
+                "group": 1
+              },
+              {
+                "text": "Erector muscles contract so hairs stand up",
+                "group": 1
+              },
+              {
+                "text": "Putting on clothing",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Response",
+            "Too hot",
+            "Too cold"
+          ],
+          "rows": [
+            [
+              "Skin arterioles",
+              "Vasodilation: more blood near the surface, more heat lost",
+              "Vasoconstriction: less blood near the surface, less heat lost"
+            ],
+            [
+              "Sweat glands",
+              "Sweat secreted; evaporation cools the skin",
+              "Little or no sweat"
+            ],
+            [
+              "Skeletal muscles",
+              "No shivering",
+              "Shivering generates heat from respiration"
+            ],
+            [
+              "Hair erector muscles",
+              "Relax so hairs lie flat",
+              "Contract so hairs trap an insulating layer of air"
+            ],
+            [
+              "Behaviour",
+              "Move into shade, remove clothes, reduce activity",
+              "Move into the sun, put on clothes, huddle, be more active"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Ectotherms"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ectotherms have few physiological controls, so they rely on **behavioural responses**.",
+            "To warm up they bask in the sun, orient their body to the sun or lie on warm rock.",
+            "To cool down they move into shade, burrow or enter water.",
+            "Their body temperature and activity rise and fall with the environment, but they need far less food than endotherms."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The hypothalamus coordinates temperature control in endotherms, using skin and blood receptors.",
+            "Effectors in skin and muscles change heat loss and heat production.",
+            "Ectotherms control temperature mainly by behaviour."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Distinguish between a receptor and an effector.",
+      "a": "A receptor detects a stimulus and passes information on. An effector is a muscle or gland that carries out the response.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why negative feedback, not positive feedback, is used to control body temperature.",
+      "a": "Negative feedback reverses a change and returns the temperature to its normal level. Positive feedback would increase the change and move the temperature further from normal, so enzymes would denature.",
+      "marks": 3
+    },
+    {
+      "q": "A person in a cold room has narrowed skin arterioles. Explain how this helps them to keep warm.",
+      "a": "Vasoconstriction means less blood flows to the skin surface. Less heat is lost by radiation, so more heat is kept in the body core.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.6.4.1a",
+        "AQA 3.6.4.1b",
+        "AQA 3.6.4.1c",
+        "AQA 3.6.4.1d",
+        "AQA 3.6.4.1e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Interpreting feedback"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Be ready to read information on a named example and say whether it shows negative or positive feedback.",
+                "Negative feedback restores the system to its original level.",
+                "Separate mechanisms control departures in each direction. This gives a greater degree of control than one mechanism alone."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.11",
+        "EDEX 7.12"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Thermoregulation during exercise"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Respiration in contracting muscles releases heat, so blood temperature rises during exercise.",
+                "The **hypothalamus** detects the raised blood temperature and sends impulses to effectors.",
+                "Skin arterioles dilate and sweat glands secrete more sweat, so heat loss increases.",
+                "When temperature falls back, heat loss is reduced again. Body temperature fluctuates around a set point: a **dynamic equilibrium**.",
+                "Negative feedback keeps the temperature within narrow limits, so enzyme-controlled reactions in muscle cells keep working."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 14.1.1",
+        "CAIE 14.1.2"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.1a",
+        "OCR 5.1.1b",
+        "OCR 5.1.1c",
+        "OCR 5.1.1d"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "0bef6829-2955-412e-b9bb-889dd78531eb",
+      "e3d0571a-c464-42d0-8539-ba0545f3dbcb",
+      "962ce56c-913a-4c8d-949d-7e48ac573b61",
+      "d0e02468-9200-4fe4-9161-db801ea1c34e",
+      "1fcebce1-949a-46cf-8857-5d1500edd959",
+      "8d3d368c-06e4-4508-a50b-9de47d63e9a7",
+      "d554b096-8c2b-4b50-b17d-685e85f36e21",
+      "58bcb934-8932-4aa6-b0f1-762c4687fe50",
+      "df5c1e9c-9787-4aac-939b-1a30627e8e6c",
+      "7ce89df9-b04e-4c11-bcbd-303d8e5e29f9",
+      "66a524c8-c1c1-4e55-8625-cc27d01082c7",
+      "60d5c08c-2112-4db9-8366-711ac17a5142",
+      "283fa121-df81-4303-b055-bf8348bd15c3"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,465 @@
+{
+  "format": 1,
+  "concept_id": "achem-060",
+  "subject": "chemistry",
+  "title": "Ligands and complex ions",
+  "key_idea": "A complex ion is a central metal ion surrounded by ligands, each bonded by a lone pair in a coordinate bond. The coordination number sets the shape: six gives octahedral, four gives tetrahedral or square planar, two gives linear. Complexes can show cis-trans and optical isomerism.",
+  "sections": [
+    {
+      "heading": "Ligands and coordinate bonds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers what a ligand is and how ligands are classified by the number of bonds they make."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ligand",
+              "meaning": "A molecule or ion with a lone pair of electrons that it donates to a central metal atom or ion."
+            },
+            {
+              "term": "Coordinate bond",
+              "meaning": "A covalent bond where both shared electrons come from one atom. Also called a dative covalent bond."
+            },
+            {
+              "term": "Complex ion",
+              "meaning": "A central metal ion surrounded by ligands."
+            },
+            {
+              "term": "Coordination number",
+              "meaning": "The number of coordinate bonds to the central metal ion."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The metal ion accepts the lone pair into a vacant d orbital.",
+            "In [Cu(H₂O)₆]²⁺ the coordination number is 6, because there are six bonds to copper.",
+            "Coordination number counts bonds, not ligands. A bidentate ligand makes two bonds."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Types of ligand"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type",
+            "Bonds per ligand",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Monodentate",
+              "1 (one lone pair donated)",
+              "H₂O, NH₃, OH⁻, Cl⁻, CN⁻"
+            ],
+            [
+              "Bidentate",
+              "2",
+              "1,2-diaminoethane, NH₂CH₂CH₂NH₂ (en); ethanedioate, C₂O₄²⁻"
+            ],
+            [
+              "Multidentate",
+              "More than 2",
+              "EDTA⁴⁻ (six bonds)"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "H₂O, NH₃ and OH⁻ are monodentate because each uses one lone pair on one atom to bond.",
+            "A bidentate ligand has two atoms, each with a lone pair, that can both bond to the same metal ion.",
+            "EDTA⁴⁻ wraps round the metal ion using six lone pairs, so a single EDTA⁴⁻ gives six-fold coordination."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A ligand donates a lone pair, forming a coordinate bond.",
+            "Coordination number is the number of coordinate bonds.",
+            "Monodentate ligands make one bond, bidentate two, multidentate more."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Shapes of complex ions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The coordination number and the size of the ligand decide the shape. Pairs of ligands repel and sit as far apart as possible."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a complex ion to see its coordination number, shape and bond angle.",
+            "prompt": "Pick a complex",
+            "result_labels": [
+              "Coordination number",
+              "Shape",
+              "Bond angle",
+              "Why"
+            ],
+            "options": [
+              {
+                "label": "[Cu(H₂O)₆]²⁺",
+                "results": [
+                  "6",
+                  "Octahedral",
+                  "90°",
+                  "Six small ligands fit round the ion."
+                ]
+              },
+              {
+                "label": "[CuCl₄]²⁻",
+                "results": [
+                  "4",
+                  "Tetrahedral",
+                  "109.5°",
+                  "Large Cl⁻ ligands: only four fit."
+                ]
+              },
+              {
+                "label": "[Pt(NH₃)₂Cl₂]",
+                "results": [
+                  "4",
+                  "Square planar",
+                  "90°",
+                  "A platinum(II) complex, d⁸."
+                ]
+              },
+              {
+                "label": "[Ag(NH₃)₂]⁺",
+                "results": [
+                  "2",
+                  "Linear",
+                  "180°",
+                  "Two ligands, as far apart as possible."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Coordination number",
+            "Shape",
+            "Bond angle",
+            "Example"
+          ],
+          "rows": [
+            [
+              "6",
+              "Octahedral",
+              "90°",
+              "[Fe(H₂O)₆]³⁺, [Co(NH₃)₆]²⁺"
+            ],
+            [
+              "4",
+              "Tetrahedral",
+              "109.5°",
+              "[CoCl₄]²⁻, [CuCl₄]²⁻"
+            ],
+            [
+              "4",
+              "Square planar",
+              "90°",
+              "Pt(NH₃)₂Cl₂"
+            ],
+            [
+              "2",
+              "Linear",
+              "180°",
+              "[Ag(NH₃)₂]⁺"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Small ligands such as H₂O and NH₃ usually give six-fold, octahedral complexes.",
+            "Larger ligands such as Cl⁻ crowd the metal ion, so four fit, in a tetrahedral shape.",
+            "Square planar complexes are formed by some ions, for example platinum(II).",
+            "[Ag(NH₃)₂]⁺ is the linear complex in Tollens' reagent."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Writing the formula and charge"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Choose the ion and ligand.",
+              "text": "Fe³⁺ with Cl⁻ ligands, four-fold coordination."
+            },
+            {
+              "lead": "Count the ligands.",
+              "text": "Four Cl⁻ ligands."
+            },
+            {
+              "lead": "Add the charges.",
+              "text": "Metal +3, four ligands 4 × (−1) = −4. Overall −1: [FeCl₄]⁻."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Uncharged ligands such as H₂O and NH₃ add nothing, so the complex has the same charge as the metal ion, for example [Co(NH₃)₆]²⁺."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Six small ligands: octahedral, 90°. Four large ligands: tetrahedral, 109.5°.",
+            "Square planar is 90° and linear is 180°.",
+            "Overall charge = metal charge + sum of ligand charges."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Isomerism in complexes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Complexes with the same formula can have the ligands arranged differently. These are stereoisomers."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type",
+            "What differs",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Cis-trans (geometrical)",
+              "Like ligands next to each other (cis) or opposite (trans)",
+              "Pt(NH₃)₂Cl₂; [Co(NH₃)₄(H₂O)₂]²⁺"
+            ],
+            [
+              "Optical",
+              "Two forms that are non-superimposable mirror images",
+              "[Ni(NH₂CH₂CH₂NH₂)₃]²⁺"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Square planar Pt(NH₃)₂Cl₂: the cis form has both Cl on the same side. The trans form has them opposite.",
+            "Octahedral [Co(NH₃)₄(H₂O)₂]²⁺: the two H₂O are either next to each other (cis) or opposite (trans).",
+            "Optical isomers arise when three bidentate ligands wrap round a metal ion in an octahedral complex, as in [Ni(en)₃]²⁺.",
+            "The two optical isomers rotate plane-polarised light in opposite directions."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Cis-trans isomerism",
+              "meaning": "Stereoisomerism where like ligands are on the same side (cis) or on opposite sides (trans) of the central ion."
+            },
+            {
+              "term": "Optical isomers",
+              "meaning": "Non-superimposable mirror images of the same complex."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Cis-platin"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cis-platin is the cis isomer of Pt(NH₃)₂Cl₂, used as an anti-cancer drug.",
+            "It binds to DNA in cancer cells, which stops the cells dividing.",
+            "It is supplied as the cis isomer only. The trans isomer does not bind to DNA in the same way, so it is not effective as a drug."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cis-trans isomers differ in which side like ligands sit.",
+            "Optical isomers are non-superimposable mirror images.",
+            "Cis-platin binds to DNA and stops cell division."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define the term ligand.",
+      "a": "A molecule or ion with a lone pair of electrons that forms a coordinate (dative covalent) bond to a central metal atom or ion.",
+      "marks": 2
+    },
+    {
+      "q": "Give the formula, including charge, of the complex formed by Co²⁺ and four Cl⁻ ligands. State its shape and bond angle.",
+      "a": "[CoCl₄]²⁻. Tetrahedral, 109.5°.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why cis-platin is used as a single isomer in cancer treatment.",
+      "a": "Cis-platin binds to DNA, preventing cell division. The trans isomer does not bind in the same way, so it would not be effective.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.3.1d",
+        "OCR 5.3.1e",
+        "OCR 5.3.1f",
+        "OCR 5.3.1g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Be able to draw 3-D diagrams of isomers, using solid wedges and dashed lines for bonds that point towards and away from you.",
+                "An unfamiliar ligand is treated like any other: find the lone pairs, then count the bonds it can make to one ion.",
+                "Examples to know: octahedral [Cu(H₂O)₆]²⁺ and [Fe(H₂O)₆]³⁺, tetrahedral CuCl₄²⁻ and CoCl₄²⁻, square planar Pt(NH₃)₂Cl₂."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 15A.4",
+        "EDEX 15A.5",
+        "EDEX 15A.6",
+        "EDEX 15A.11",
+        "EDEX 15A.12",
+        "EDEX 15A.13",
+        "EDEX 15A.14",
+        "EDEX 15A.15",
+        "EDEX 15A.16",
+        "EDEX 15A.17"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Identify bidentate ligands such as NH₂CH₂CH₂NH₂ and multidentate ligands such as EDTA⁴⁻ from their structures, by finding atoms with lone pairs that can bond to the same ion.",
+                "H₂O, OH⁻ and NH₃ are monodentate, forming octahedral complexes with six-fold coordination.",
+                "Relatively large ligands such as Cl⁻ give tetrahedral complexes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.5.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Cis-trans isomerism is a special case of E-Z isomerism.",
+                "Octahedral complexes show cis-trans isomerism with monodentate ligands and optical isomerism with bidentate ligands.",
+                "Square planar complexes can show cis-trans isomerism. Cisplatin is the cis isomer."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 28.2.1",
+        "CAIE 28.2.2",
+        "CAIE 28.2.3",
+        "CAIE 28.2.4",
+        "CAIE 28.2.5",
+        "CAIE 28.2.6",
+        "CAIE 28.4.1",
+        "CAIE 28.4.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe complexes of copper(II) and cobalt(II) with water, ammonia, hydroxide and chloride ligands.",
+                "Examples of ligands: monodentate H₂O, NH₃, Cl⁻, CN⁻; bidentate en and C₂O₄²⁻; polydentate EDTA⁴⁻.",
+                "Cis-trans isomerism also appears in octahedral [Co(NH₃)₄(H₂O)₂]²⁺ and [Ni(en)₂(H₂O)₂]²⁺.",
+                "[Ni(en)₃]²⁺ and the cis form of [Ni(en)₂(H₂O)₂]²⁺ show optical isomerism."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Polarity"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A complex is polar if the bond dipoles do not cancel overall.",
+                "Cis isomers have like ligands on one side, so the dipoles add up and the complex is polar.",
+                "Trans isomers have like ligands opposite each other, so the dipoles cancel and the complex is non-polar."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "0c86408a-2b8a-4b70-91ff-972d68157e73",
+      "69503e62-b32c-42ee-8e7a-a46e843f8703",
+      "5cd4626e-9b22-43e2-8d6d-9880a3d81a72",
+      "a0a6a997-85cd-4d01-b991-1510630cad1f",
+      "89bf35c0-7764-4583-9bf7-0bc57453b107",
+      "08119ceb-f464-444d-9d94-8f173317ae66",
+      "52b7967c-5827-44d5-9483-0f28a76a827e",
+      "96d9606f-c658-46e0-b115-45ac9b46c048",
+      "2d06f5ee-2e6c-4b0e-846f-1cb600ddb200",
+      "79771ee3-66eb-4cbb-8554-b4f8c0cea452",
+      "f8d52370-3abe-4c17-a9bb-a0056b842aaf",
+      "309c7580-a186-4739-ac3b-de534a26b03e",
+      "5fb404f5-a0b8-4aea-8b46-a4f089c2e706",
+      "730ddba1-bc99-45cc-b533-7ff716394336",
+      "f739c46c-bb2a-4cea-9c68-db83d4caac9f",
+      "0a59575d-edae-4c76-b26b-9edddcbb9acf",
+      "f75659b5-051b-47c9-8d04-64ce319c1f4b",
+      "73818317-4b93-4306-a081-a795bb3980c3",
+      "73171255-0484-4a4d-967e-fca0c4532c76",
+      "c7dc10fe-1c09-4e0b-905e-f87382104b21",
+      "309026b4-892b-4fb1-9c7a-e6f87a43da7a",
+      "6da343a5-cf7e-4952-8d6e-d50cec1a0b16",
+      "4d003ae8-6192-45ea-a408-f62ddd49883a"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

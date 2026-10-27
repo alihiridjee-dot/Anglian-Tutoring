@@ -1,0 +1,346 @@
+{
+  "format": 1,
+  "concept_id": "achem-031",
+  "subject": "chemistry",
+  "title": "Rate-determining step and mechanisms",
+  "key_idea": "Many reactions happen in several steps. The slowest step, the rate-determining step, controls the overall rate. The rate equation shows which species are in or before that step, and so can be used to propose a mechanism.",
+  "sections": [
+    {
+      "heading": "Multi-step reactions and the rate-determining step",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The overall equation often hides several steps. This section covers the terms and the link to the rate equation."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Mechanism",
+              "meaning": "The series of steps by which reactants turn into products."
+            },
+            {
+              "term": "Rate-determining step",
+              "meaning": "The slowest step in the mechanism. It controls the overall rate."
+            },
+            {
+              "term": "Intermediate",
+              "meaning": "A species made in one step and used up in a later step. It is not in the overall equation."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The overall rate cannot be faster than the slowest step, like the slowest person in a queue.",
+            "Steps after the slow step are fast. They do not affect the rate.",
+            "The rate equation contains the species that are in the rate-determining step, or that react before it.",
+            "A species that only reacts after the slow step does not appear in the rate equation. Its order is zero."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The slowest step controls the rate.",
+            "The rate equation matches the species up to and including the slow step."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "From a mechanism to a rate equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Given a mechanism and its slow step, the rate equation can be predicted. This section covers a worked reasoning."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Step",
+            "Equation",
+            "Speed"
+          ],
+          "rows": [
+            [
+              "1",
+              "NO₂ + NO₂ → NO₃ + NO",
+              "Slow (rate-determining)"
+            ],
+            [
+              "2",
+              "NO₃ + CO → NO₂ + CO₂",
+              "Fast"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each species in the slow step appears in the rate equation, with an order equal to its number in that step.",
+            "Two NO₂ molecules react in step 1, so the rate = k[NO₂]².",
+            "CO reacts only in the fast step, so it is zero order and is not in the rate equation.",
+            "Adding the two steps and cancelling NO₃ gives the overall equation NO₂ + CO → NO + CO₂. NO₃ is an intermediate."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rate-determining step species set the orders.",
+            "Add the steps and cancel to check the overall equation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "From a rate equation to a mechanism",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Working the other way, the rate equation and the overall equation can suggest a mechanism. This section covers the method."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Use the rate equation.",
+              "text": "The species in it are in or before the slow step, in the numbers given by their orders."
+            },
+            {
+              "lead": "Write the slow step.",
+              "text": "Include exactly those species. If a product is made, it may be an intermediate."
+            },
+            {
+              "lead": "Add fast steps.",
+              "text": "Use fast steps so that the steps add up to the overall equation."
+            },
+            {
+              "lead": "Check.",
+              "text": "Cancel the intermediates. The result must match the overall equation. The mechanism is a proposal, not proved."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity: decide whether each species appears in the rate equation or not.",
+            "prompt": "For a reaction with slow step 2NO₂ → NO₃ + NO, followed by fast NO₃ + CO → NO₂ + CO₂, sort each species.",
+            "groups": [
+              "In the rate equation",
+              "Not in the rate equation"
+            ],
+            "items": [
+              {
+                "text": "NO₂",
+                "group": 0
+              },
+              {
+                "text": "CO",
+                "group": 1
+              },
+              {
+                "text": "NO₃ (intermediate)",
+                "group": 1
+              },
+              {
+                "text": "CO₂ (product)",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **catalyst** can appear in the rate equation even though it is not in the overall equation. It is used in one step and regenerated in a later step.",
+            "An intermediate is made and then used up. A catalyst is used and then remade."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Build the slow step from the rate equation.",
+            "An intermediate is made then used up. A catalyst is used then remade."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define the term rate-determining step.",
+      "a": "The slowest step in the mechanism, which controls the overall rate of the reaction.",
+      "marks": 1
+    },
+    {
+      "q": "A reaction A + B → C has the rate equation rate = k[A]. What does this show about the rate-determining step and about B?",
+      "a": "A is involved in the rate-determining step. B is not involved in it: B reacts in a fast step after the slow step.",
+      "marks": 2
+    },
+    {
+      "q": "Step 1 of a mechanism is the slow step: X + Y → Z. Step 2 is fast: Z + Y → P. Write the rate equation and identify the intermediate.",
+      "a": "rate = k[X][Y]. Z is the intermediate, because it is made in step 1 and used up in step 2.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.1i"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Predict a rate equation consistent with the rate-determining step, and suggest steps from the rate equation and the overall equation."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Write the rate equation using the species in the slow step.",
+                "Check that the suggested steps add to the balanced overall equation."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 16.9",
+        "EDEX 16.10",
+        "EDEX 16.11"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The rate equations for the hydrolysis of halogenoalkanes give evidence for the SN₁ and SN₂ mechanisms."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Feature",
+                "Tertiary halogenoalkane",
+                "Primary halogenoalkane"
+              ],
+              "rows": [
+                [
+                  "Rate equation",
+                  "rate = k[halogenoalkane]",
+                  "rate = k[halogenoalkane][OH⁻]"
+                ],
+                [
+                  "Order in OH⁻",
+                  "Zero",
+                  "First"
+                ],
+                [
+                  "Mechanism",
+                  "SN₁, in two steps",
+                  "SN₂, in one step"
+                ],
+                [
+                  "Slow step",
+                  "The halogenoalkane breaks into a carbocation and a halide ion.",
+                  "OH⁻ attacks the carbon and the halide leaves at the same time."
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "In SN₁ only the halogenoalkane is in the slow step. OH⁻ attacks the carbocation in a fast second step.",
+                "In SN₂ both the halogenoalkane and OH⁻ are in the one step, so both appear in the rate equation."
+              ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "sort",
+                "alt": "A sorting activity: decide whether each statement describes the SN₁ or the SN₂ hydrolysis of a halogenoalkane.",
+                "prompt": "Sort each statement into SN₁ or SN₂.",
+                "groups": [
+                  "SN₁",
+                  "SN₂"
+                ],
+                "items": [
+                  {
+                    "text": "rate = k[halogenoalkane]",
+                    "group": 0
+                  },
+                  {
+                    "text": "rate = k[halogenoalkane][OH⁻]",
+                    "group": 1
+                  },
+                  {
+                    "text": "Tertiary halogenoalkane",
+                    "group": 0
+                  },
+                  {
+                    "text": "Primary halogenoalkane",
+                    "group": 1
+                  },
+                  {
+                    "text": "Carbocation intermediate",
+                    "group": 0
+                  },
+                  {
+                    "text": "One step with no intermediate",
+                    "group": 1
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 26.1.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Be ready to work between a mechanism and the rate equation in five ways."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Suggest a mechanism that fits the rate equation and the overall equation.",
+                "Predict the order from a given mechanism and slow step.",
+                "Deduce a rate equation from a given mechanism and slow step.",
+                "Identify an intermediate or a catalyst in a mechanism.",
+                "Identify the rate-determining step from a rate equation and a mechanism."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "919bc0e4-77af-4b8e-a0e9-af1c61c63b94",
+      "a36dbc56-eb3a-4f94-9d30-447f60e5ed06",
+      "c87fa245-9689-4f6d-b40f-df2af21f29b1",
+      "313eee30-f786-4655-9559-4b7e7624460c",
+      "f781943e-137c-46c3-b399-a1e0e3d60977"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

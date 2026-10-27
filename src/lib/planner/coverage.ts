@@ -39,6 +39,19 @@ export interface PointActivity {
   hasQuiz: boolean;
 }
 
+/**
+ * Every task and quiz on the point is done this week. A point with neither has
+ * nothing to complete, so it never counts. One rule for the progress card and
+ * the weekly task list, so the two never disagree about the same point.
+ */
+export function practiceComplete(
+  a: PointActivity | undefined,
+  c: PointCoverage | undefined,
+): boolean {
+  if (!a || (!a.hasHomework && !a.hasQuiz)) return false;
+  return (!a.hasHomework || !!c?.homeworkDone) && (!a.hasQuiz || !!c?.quizDone);
+}
+
 /** One thing a student can actually open: a video, a homework, a quiz. */
 export interface PointWorkItem {
   /** Resource id — or, for a quiz, the MCQ set id the player route takes. */
@@ -292,7 +305,7 @@ export function verdictCopy(v: Verdict, s: WeekSummary): VerdictCopy {
     headline: "Keep going — a few still need work",
     sub: `${points(
       s.weak + s.notDone,
-    )} still shaky or not done. Carry them into next week to keep the focus.`,
+    )} still shaky or not done. Carry them forward to keep the focus.`,
     tone: "bg-rose-500/5 border-rose-500/20",
     accent: "text-rose-700 dark:text-rose-300",
   };

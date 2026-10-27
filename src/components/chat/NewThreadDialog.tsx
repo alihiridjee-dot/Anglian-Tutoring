@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
-import { Loader2, MessageSquarePlus, X } from "lucide-react";
+import { Lightbulb, Loader2, MessageSquarePlus, Users, X } from "lucide-react";
 import { toast } from "sonner";
-import { Spinner } from "@/components/Shared";
-import { useStartThread, useTutorDirectory } from "@/hooks/data/useChat";
+import { SciText, Spinner } from "@/components/Shared";
+import { useQuestionIdeas, useStartThread, useTutorDirectory } from "@/hooks/data/useChat";
 import { ContextPicker } from "@/components/chat/ContextPicker";
 import { ErrorNote } from "@/components/Shared";
 import { EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chat/chatContext";
+import type { QuestionIdea } from "@/lib/chat/questionIdeas";
+import { subjectTint } from "@/lib/curriculum/subjectTheme";
+import { cn } from "@/lib/utils";
 
 interface Props {
   /** Pre-attach something the student was already looking at. */
@@ -24,10 +27,14 @@ interface Props {
 /**
  * A student's new question.
  *
- * Three decisions, in the order people make them: who am I asking, what is it
- * about, and what do I want to say. The tutor list comes from the tutor_directory
- * RPC, so it is whoever currently holds the tutor role — no names are baked in,
- * and a new tutor appears here the moment their account is granted the role.
+ * A student asks the team: the thread names no tutor and every tutor is told.
+ * Then two decisions, in the order people make them: what is it about, and
+ * what do I want to say. Under the question box, questions about the topics
+ * they did worst on lately, written by DeepSeek, fill the form in one tap.
+ *
+ * A parent still picks a tutor. That list comes from the tutor_directory RPC,
+ * so it is whoever currently holds the tutor role — no names are baked in, and
+ * a new tutor appears here the moment their account is granted the role.
  */
 export function NewThreadDialog({ initialContext, about, onClose, onCreated }: Props) {
   const {
@@ -43,8 +50,24 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
   const [body, setBody] = useState("");
   const [context, setContext] = useState<ChatContextSelection>(initialContext ?? EMPTY_CONTEXT);
 
-  // Default to the first tutor so a student who doesn't care can just type and
-  // send; the picker is there for when they do.
+  // A student's question goes to the team. Only a parent names a tutor.
+  const toTeam = !about;
+  // Opened from a page, the question already has its topic.
+  const { data: ideas = [] } = useQuestionIdeas(toTeam && !initialContext);
+
+  const pickIdea = (idea: QuestionIdea) => {
+    setSubjectLine(idea.topic.slice(0, 140));
+    setBody(idea.question);
+    setContext({
+      kind: "spec_point",
+      specPointId: idea.specPointId,
+      subject: idea.subject,
+      label: `${idea.code} ${idea.topic}`,
+    });
+  };
+
+  // Default a parent to the first tutor so one who doesn't care can just type
+  // and send; the picker is there for when they do.
   useEffect(() => {
     if (!tutorId && tutors.length > 0) setTutorId(tutors[0].id);
   }, [tutors, tutorId]);
@@ -57,7 +80,7 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context.label]);
 
-  const canSend = !!tutorId && subjectLine.trim().length > 0 && body.trim().length > 0;
+  const canSend = (toTeam || !!tutorId) && subjectLine.trim().length > 0 && body.trim().length > 0;
 
   // The sheet holds the page still underneath it. Escape and a tap on the
   // backdrop both close it, unless a half-written question would be lost —
@@ -77,7 +100,7 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
     if (!canSend || start.isPending) return;
     start.mutate(
       {
-        tutorId,
+        tutorId: toTeam ? null : tutorId,
         subjectLine: subjectLine.trim(),
         body: body.trim(),
         subject: context.subject ?? null,
@@ -89,7 +112,11 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
       },
       {
         onSuccess: (threadId) => {
-          toast.success("Sent — your tutor will get back to you.");
+          toast.success(
+            toTeam
+              ? "Sent — the team will get back to you."
+              : "Sent — your tutor will get back to you.",
+          );
           onCreated(threadId);
         },
         onError: (err) => toast.error(err.message),
@@ -141,7 +168,13 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
             <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               {about ? "Who are you writing to?" : "Who are you asking?"}
             </label>
-            {tutorsPending ? (
+            {toTeam ? (
+              <div className="mt-2 flex">
+                <span className="inline-flex h-11 sm:pointer-fine:h-9 items-center gap-2 px-3.5 rounded-lg border border-primary bg-primary/10 text-sm font-semibold">
+                  <Users className="w-4 h-4 text-primary" aria-hidden /> The team
+                </span>
+              </div>
+            ) : tutorsPending ? (
               <Spinner label="Loading tutors" className="mt-2 py-3" />
             ) : tutors.length === 0 ? (
               // A failed read leaves the list empty too, but it isn't "no tutors".
@@ -198,9 +231,7 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
               onChange={(e) => setSubjectLine(e.target.value)}
               maxLength={140}
               placeholder={
-                about
-                  ? `e.g. How is ${about.name} getting on with chemistry?`
-                  : "e.g. I don't get why water moves out of the cell"
+                about ? `e.g. How is ${about.name} getting on with chemistry?` : "e.g. Osmosis"
               }
               className="mt-2 w-full h-11 rounded-xl border border-border bg-background px-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
             />
@@ -225,6 +256,9 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
               }
               className="mt-2 w-full rounded-xl border border-border bg-background p-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
             />
+            {ideas.length > 0 && (!body.trim() || ideas.some((i) => i.question === body)) && (
+              <QuestionIdeas ideas={ideas} picked={body} onPick={pickIdea} />
+            )}
           </div>
         </div>
 
@@ -244,6 +278,60 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
             {about ? "Send message" : "Send question"}
           </button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Questions about the topics a student did worst on, one tap from sent. Each
+ * wears its subject's tint; picking one fills the subject line, the question
+ * and the attached spec point, all still editable. Gone once they write their
+ * own question.
+ */
+function QuestionIdeas({
+  ideas,
+  picked,
+  onPick,
+}: {
+  ideas: QuestionIdea[];
+  picked: string;
+  onPick: (idea: QuestionIdea) => void;
+}) {
+  return (
+    <div className="mt-3">
+      <p className="eyebrow">Ask about a topic you found hard</p>
+      <div className="mt-2 space-y-2">
+        {ideas.map((idea) => {
+          const chosen = idea.question === picked;
+          return (
+            <button
+              key={idea.specPointId}
+              type="button"
+              onClick={() => onPick(idea)}
+              aria-pressed={chosen}
+              className={cn(
+                subjectTint(idea.subject),
+                "flex w-full min-h-11 items-start gap-3 rounded-xl border px-3 py-2.5 text-left transition",
+                chosen
+                  ? "border-[color:var(--tint)] bg-[color:color-mix(in_oklab,var(--tint)_8%,var(--card))]"
+                  : "border-border hover:border-[color:color-mix(in_oklab,var(--tint)_45%,transparent)]",
+              )}
+            >
+              <span className={cn("icon-tile size-8 shrink-0", chosen && "icon-tile-solid")}>
+                <Lightbulb className="w-4 h-4" aria-hidden />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-sm font-bold">
+                  <SciText text={idea.topic} />
+                </span>
+                <span className="block text-sm">
+                  <SciText text={idea.question} />
+                </span>
+              </span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );

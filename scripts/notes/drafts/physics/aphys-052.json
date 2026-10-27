@@ -1,0 +1,326 @@
+{
+  "format": 1,
+  "concept_id": "aphys-052",
+  "subject": "physics",
+  "title": "Fission, fusion and nuclear reactors",
+  "key_idea": "Fission splits a heavy nucleus and fusion joins light nuclei. Both release energy because the products have a higher binding energy per nucleon. A reactor controls a fission chain reaction. Fusion needs very high temperature and density.",
+  "sections": [
+    {
+      "heading": "Induced fission and the chain reaction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A slow neutron can make a heavy nucleus split. This section covers how that leads to a self-sustaining chain reaction."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nuclear fission",
+              "meaning": "The splitting of a large nucleus into two smaller nuclei, releasing energy and neutrons."
+            },
+            {
+              "term": "Thermal neutron",
+              "meaning": "A slow neutron, with about the same kinetic energy as the particles of the surroundings."
+            },
+            {
+              "term": "Critical mass",
+              "meaning": "The smallest mass of fissile material in which a chain reaction can sustain itself."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of an induced fission chain reaction in order.",
+            "prompt": "Put the stages of the chain reaction in order",
+            "steps": [
+              "A thermal neutron is absorbed by a uranium-235 nucleus",
+              "The nucleus becomes unstable and splits into two smaller nuclei",
+              "Two or three more neutrons and a large amount of energy are released",
+              "Some of these neutrons are slowed down by the moderator",
+              "The slow neutrons are absorbed by further uranium-235 nuclei"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each fission releases about 200 MeV, mainly as kinetic energy of the fragments.",
+            "On average, more than one neutron per fission is released, so the reaction can grow.",
+            "In a reactor, exactly one neutron per fission must cause another fission, so the rate stays steady.",
+            "If the sample is below the critical mass, too many neutrons escape and the reaction dies away."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fission is induced when a thermal neutron is absorbed by a heavy nucleus.",
+            "Neutrons released go on to cause further fission: a chain reaction.",
+            "A chain reaction needs at least the critical mass."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Inside a fission reactor",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A reactor core has four main parts. Each has a different job in controlling the reaction and using its energy."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort the statements into the correct reactor part: moderator, control rods or coolant.",
+            "prompt": "Sort each statement under the correct part of a reactor",
+            "groups": [
+              "Moderator",
+              "Control rods",
+              "Coolant"
+            ],
+            "items": [
+              {
+                "text": "Slows neutrons by elastic collisions",
+                "group": 0
+              },
+              {
+                "text": "Graphite is a common example",
+                "group": 0
+              },
+              {
+                "text": "Absorbs neutrons",
+                "group": 1
+              },
+              {
+                "text": "Made of boron or cadmium",
+                "group": 1
+              },
+              {
+                "text": "Lowered in to slow or stop the reaction",
+                "group": 1
+              },
+              {
+                "text": "Carries thermal energy away from the core",
+                "group": 2
+              },
+              {
+                "text": "Passes its energy to water to make steam",
+                "group": 2
+              },
+              {
+                "text": "Carbon dioxide gas is one example",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Fuel rods** hold the fissile fuel, usually uranium enriched in uranium-235.",
+            "The **moderator** slows fast neutrons to thermal speeds, because slow neutrons are far more likely to cause fission.",
+            "The **control rods** absorb neutrons. Lowering them reduces the rate of fission, and raising them increases it.",
+            "The **coolant** carries thermal energy from the core to a heat exchanger, which makes steam to drive turbines."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Safety and waste"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Thick concrete shielding around the core absorbs neutrons and γ radiation.",
+            "Fuel is moved by remote handling, and used fuel is cooled and stored under water first.",
+            "In an emergency, control rods drop fully in to shut the reactor down.",
+            "High-level waste stays radioactive for a very long time. It is sealed in containers and stored underground in stable rock.",
+            "Waste is judged by its activity and half-life, because the longer the half-life, the longer it must be stored."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Moderator slows neutrons, control rods absorb them, coolant removes energy.",
+            "Shielding, remote handling and emergency shut-down keep a reactor safe.",
+            "Long-lived waste needs secure storage for a long time."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Nuclear fusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Fusion joins two light nuclei into a heavier one. It releases energy only if the nuclei get very close."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nuclear fusion",
+              "meaning": "The joining of two light nuclei to form a heavier nucleus, releasing energy."
+            },
+            {
+              "term": "Plasma",
+              "meaning": "A very hot gas of nuclei and free electrons."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Fusion of hydrogen isotopes",
+          "formula": "²₁H + ³₁H → ⁴₂He + ¹₀n",
+          "where": [
+            "Nucleon number is 5 on both sides",
+            "Proton number is 2 on both sides"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Nuclei are positively charged, so they repel each other strongly.",
+            "They must be brought close enough for the strong nuclear force to take over.",
+            "This needs a very high temperature, around 10⁷ to 10⁸ K, so the nuclei have enough kinetic energy.",
+            "A very high density is needed so that collisions happen often enough to keep the reaction going.",
+            "No container can hold a plasma that hot. Magnetic fields confine it in a reactor, and gravity holds it in a star."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fusion joins light nuclei and releases energy because binding energy per nucleon rises.",
+            "It needs very high temperature to overcome the electrostatic repulsion.",
+            "It also needs very high density to make collisions frequent."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the function of the moderator in a thermal nuclear reactor.",
+      "a": "It slows the fast neutrons down by collisions, so they are more likely to be absorbed by uranium-235 and cause fission.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how the control rods keep the rate of fission steady.",
+      "a": "They absorb neutrons. Lowering them in absorbs more neutrons and reduces the reaction. Raising them absorbs fewer neutrons and increases it, so on average one neutron per fission causes another fission.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why fusion needs a very high temperature.",
+      "a": "The nuclei are positively charged and repel each other. They need a high kinetic energy to overcome the repulsion and get close enough to fuse.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.8.1.7",
+        "AQA 3.8.1.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Choosing materials"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Moderator: a material with nuclei of similar mass to a neutron, which absorbs few neutrons, such as graphite or water.",
+                "Control rods: a material that absorbs neutrons strongly, such as boron or cadmium.",
+                "Coolant: a fluid that carries energy well and absorbs few neutrons, such as water or carbon dioxide."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Moderation as collisions"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A simple model treats moderation as elastic collisions between neutrons and moderator nuclei.",
+                "A neutron loses most kinetic energy when it hits a nucleus of similar mass, as one snooker ball does when hitting another.",
+                "A neutron bouncing off a heavy nucleus loses very little."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Safety"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Fuel is handled remotely, the core is shielded, and emergency shut-down is available.",
+                "Waste is produced, handled remotely and stored safely.",
+                "Society must weigh the risks of nuclear power against its benefits."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 11.167"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 23.1.5"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.4.4g",
+        "OCR 6.4.4h",
+        "OCR 6.4.4i",
+        "OCR 6.4.4j"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Environmental impact and decisions"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Nuclear waste has an environmental impact because it stays radioactive for a long time and must be stored without leaking.",
+                "Nuclear power produces no carbon dioxide when running, which is a benefit.",
+                "When deciding whether to build a new power station, weigh up cost, safety, waste, energy supply and public opinion."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "aa8f963a-9b04-4bdd-b0fe-4bb8982ed913",
+      "1d4c8b56-9e5a-48d7-bf52-7b7d49b596f3",
+      "8042eb9d-b4a7-4420-9a10-3560f201fb3c",
+      "72576ca5-4fb3-4370-b9da-6c28ff718643",
+      "21e47a13-5a4c-40e8-b1df-37751959739f",
+      "2ace9fa8-8aad-4ac0-8a77-e3ca9959616b",
+      "0c955e11-f963-4585-90d3-17fa2e82bec6",
+      "88d5decd-d389-4bb8-a32d-111aae01db9f"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

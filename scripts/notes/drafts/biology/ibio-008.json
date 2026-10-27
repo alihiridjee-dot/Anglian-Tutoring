@@ -1,0 +1,345 @@
+{
+  "format": 1,
+  "concept_id": "ibio-008",
+  "subject": "biology",
+  "title": "Ventilation of the lungs and breathed air",
+  "key_idea": "Ventilation moves air in and out of the lungs. The diaphragm and the intercostal muscles change the volume and pressure of the thorax, and air moves down the pressure gradient. Expired air has less oxygen and more carbon dioxide and water vapour than inspired air.",
+  "sections": [
+    {
+      "heading": "The breathing system",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Air travels from the mouth and nose to the alveoli in the lungs. This section names each part and its job."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "The parts of the human breathing system, from the larynx to the alveoli, with the ribs, intercostal muscles and diaphragm. Tap each part to see what it does.",
+            "prompt": "Tap a part of the breathing system to see what it does.",
+            "parts": [
+              {
+                "name": "Larynx",
+                "detail": "The voice box, at the top of the trachea."
+              },
+              {
+                "name": "Trachea",
+                "detail": "The windpipe. It carries air to the lungs and has rings of cartilage in its wall."
+              },
+              {
+                "name": "Bronchi",
+                "detail": "Two tubes, one to each lung, that branch from the trachea."
+              },
+              {
+                "name": "Bronchioles",
+                "detail": "Smaller tubes that branch from the bronchi and end at the alveoli."
+              },
+              {
+                "name": "Alveoli",
+                "detail": "Tiny air sacs where oxygen and carbon dioxide are exchanged with the blood in the capillaries around them."
+              },
+              {
+                "name": "Lungs",
+                "detail": "The organs of gas exchange, inside the thorax."
+              },
+              {
+                "name": "Ribs",
+                "detail": "Bones that protect the lungs and move up and out, or down and in, as we breathe."
+              },
+              {
+                "name": "Intercostal muscles",
+                "detail": "Muscles between the ribs. External ones raise the ribcage and internal ones lower it."
+              },
+              {
+                "name": "Diaphragm",
+                "detail": "A sheet of muscle below the lungs that separates the thorax from the abdomen."
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Cartilage in the trachea"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The wall of the trachea contains rings of **cartilage**.",
+            "The rings support the trachea and keep the airway open.",
+            "Without them the trachea could collapse when the pressure inside falls."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Air passes through the trachea, bronchi and bronchioles to the alveoli.",
+            "Cartilage rings keep the trachea open."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How ventilation works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Supplement) Muscles change the volume of the thorax. A change in volume changes the pressure, and air moves to equalise it."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A table comparing inspiration and expiration. In inspiration the diaphragm contracts and flattens, the external intercostal muscles contract, the ribs move up and out, the thorax volume increases and the pressure falls, so air moves in. In expiration the diaphragm relaxes and rises, the internal intercostal muscles contract, the ribs move down and in, the volume decreases and the pressure rises, so air moves out.",
+            "items": [
+              "Inspiration (breathing in)",
+              "Expiration (breathing out)"
+            ],
+            "rows": [
+              {
+                "feature": "Diaphragm",
+                "values": [
+                  "Contracts and flattens",
+                  "Relaxes and rises into a dome"
+                ]
+              },
+              {
+                "feature": "Intercostal muscles",
+                "values": [
+                  "External contract, internal relax",
+                  "Internal contract, external relax"
+                ]
+              },
+              {
+                "feature": "Ribs",
+                "values": [
+                  "Move up and out",
+                  "Move down and in"
+                ]
+              },
+              {
+                "feature": "Volume of thorax",
+                "values": [
+                  "Increases",
+                  "Decreases"
+                ]
+              },
+              {
+                "feature": "Pressure in thorax",
+                "values": [
+                  "Decreases",
+                  "Increases"
+                ]
+              },
+              {
+                "feature": "Air",
+                "values": [
+                  "Moves in",
+                  "Moves out"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Air always moves from higher pressure to lower pressure.",
+            "In inspiration the pressure in the thorax falls below atmospheric pressure, so air is drawn in.",
+            "In expiration the pressure rises above atmospheric pressure, so air is pushed out."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Inspiration: diaphragm and external intercostals contract, volume increases, pressure falls.",
+            "Expiration: the opposite. Volume decreases and pressure rises."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Inspired and expired air",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The air breathed out is not the same as the air breathed in. The table compares the three gases that change."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Gas",
+            "Inspired air",
+            "Expired air"
+          ],
+          "rows": [
+            [
+              "Oxygen",
+              "About 21%",
+              "About 16%"
+            ],
+            [
+              "Carbon dioxide",
+              "About 0.04%",
+              "About 4%"
+            ],
+            [
+              "Water vapour",
+              "Varies, usually low",
+              "High (saturated)"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why they differ (Supplement)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Less oxygen: some diffuses into the blood and is used in **respiration**.",
+            "More carbon dioxide: it is made by respiration and diffuses from the blood into the alveoli.",
+            "More water vapour: water evaporates from the moist surfaces of the alveoli.",
+            "The percentage of nitrogen hardly changes."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Testing for carbon dioxide"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up.",
+              "text": "Connect two tubes of limewater to a mouthpiece, so that air breathed in is drawn through one tube and air breathed out is blown through the other."
+            },
+            {
+              "lead": "Breathe.",
+              "text": "Breathe in and out through the mouthpiece several times, in the same way for both tubes."
+            },
+            {
+              "lead": "Compare.",
+              "text": "Limewater turns cloudy with carbon dioxide. The tube for expired air turns cloudy faster, so expired air has more carbon dioxide."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Expired air has less oxygen, more carbon dioxide and more water vapour.",
+            "Limewater turns cloudy faster with expired air."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the function of the cartilage in the trachea.",
+      "a": "It supports the trachea and prevents it from collapsing, so the airway stays open.",
+      "marks": 2
+    },
+    {
+      "q": "(Supplement) Explain how inspiration occurs.",
+      "a": "The diaphragm contracts and flattens. The external intercostal muscles contract and lift the ribs up and out. The volume of the thorax increases and the pressure decreases, so air is drawn in.",
+      "marks": 4
+    },
+    {
+      "q": "Give the test for carbon dioxide and the result for expired air.",
+      "a": "Bubble the air through limewater. It turns cloudy, and faster for expired air than for inspired air.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 11.1.2",
+        "CAIE 11.1.3",
+        "CAIE 11.1.4",
+        "CAIE 11.1.6S",
+        "CAIE 11.1.7S",
+        "CAIE 11.1.8S",
+        "CAIE 11.1.9S"
+      ],
+      "worked_example": {
+        "exemplar_id": "a583e198-db1e-40e4-8698-9b448d6613de",
+        "source": "CAMBRIDGE jun 2025, Paper 42, Q1(a)(iii)",
+        "question": "Explain how inspiration occurs.",
+        "marks": 4,
+        "answer_points": [
+          "The diaphragm contracts and flattens (lowers).",
+          "The external intercostal muscles contract and the internal intercostal muscles relax.",
+          "The ribs are lifted up and out.",
+          "The volume in the thorax increases.",
+          "The pressure in the thorax decreases.",
+          "Air is drawn in to equalise the pressure with the atmosphere."
+        ],
+        "tip": "Any four score one mark each. Link the muscle action to the change in volume and pressure."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.46",
+        "IGCSE 2.47",
+        "IGCSE 2.50"
+      ],
+      "worked_example": {
+        "exemplar_id": "7149c34e-73aa-4040-b8a1-50cc9be42313",
+        "source": "EDEXCEL jun 2024, Paper 1 (BR), Q3(b)(iv)",
+        "question": "Describe a simple laboratory experiment to investigate the effect of exercise on the rate of carbon dioxide release from a human.",
+        "marks": 3,
+        "answer_points": [
+          "Use limewater or hydrogen carbonate indicator.",
+          "Measure the time taken for the limewater to go cloudy, or for the indicator to change colour.",
+          "Measure with and without exercise, or before and after exercise.",
+          "Keep the volume of limewater or indicator, the room temperature and the person the same.",
+          "Repeat and calculate a mean."
+        ],
+        "tip": "Any three score one mark each. Say what you measure and what you keep the same."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course names the pleural membranes and asks about the effect of exercise on breathing."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The **pleural membranes** cover the lungs and line the inside of the thorax, with a thin layer of fluid between them.",
+                "During exercise the muscles respire faster, so they need more oxygen and make more carbon dioxide.",
+                "Breathing rate and the volume of each breath increase to supply the oxygen and remove the carbon dioxide.",
+                "To investigate, count breaths per minute at rest and straight after exercise."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "1d889f7a-cc9a-4c31-a5d9-03289fa25383",
+      "0a06d33e-cd32-4f0b-8cbd-a311106ccecf",
+      "d8ad28c5-4dd1-4dee-b13d-7a87d8a81456",
+      "29eddb34-3685-426e-bde6-d68eb2df832d",
+      "7b4c12d4-595f-492b-b2ea-da4bed400e18",
+      "6949570d-5b9e-4b56-ab46-09661eaea6ff",
+      "318fa62c-bcb1-4132-a703-2828c49f8c76",
+      "6a2c44f8-a6ea-47c2-9851-123b3a6c2823",
+      "96fb4ba9-df64-4135-8473-a49c74d256e1"
+    ],
+    "exemplar_ids": [
+      "a583e198-db1e-40e4-8698-9b448d6613de",
+      "7149c34e-73aa-4040-b8a1-50cc9be42313"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

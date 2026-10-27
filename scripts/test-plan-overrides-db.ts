@@ -46,6 +46,7 @@ create table homework_submissions(student_id uuid, resource_id uuid, submitted_a
 create table mcq_attempts(user_id uuid, created_at timestamptz, point_scores jsonb, set_id uuid);
 create table mcq_sets(id uuid, spec_point_id uuid);
 create table mcq_questions(set_id uuid, spec_point_id uuid);
+create table student_breaks(student_id uuid, starts_on date, ends_on date, cancelled_at timestamptz);
 `);
 await db.exec(
   await readFile(
@@ -62,6 +63,15 @@ await db.exec(
       "../supabase/migrations/20261001125425_plan_override_tutor_check_definer.sql",
       import.meta.url,
     ),
+    "utf8",
+  ),
+);
+// The reorder as production runs it now: points from another course are not
+// re-sent (test-reorder-after-board-change-db.ts), and break weeks are left as
+// they are (test-reorder-on-a-break-db.ts). Everything below must hold.
+await db.exec(
+  await readFile(
+    new URL("../supabase/migrations/20261007112100_reorder_skips_break_weeks.sql", import.meta.url),
     "utf8",
   ),
 );

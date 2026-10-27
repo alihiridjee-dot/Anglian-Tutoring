@@ -1,0 +1,220 @@
+{
+  "format": 1,
+  "concept_id": "bio-059",
+  "subject": "biology",
+  "title": "Uses of glucose from photosynthesis",
+  "key_idea": "Plants use the glucose from photosynthesis in five ways. It is used for respiration, converted to starch, turned into fat or oil for storage, built into cellulose for cell walls, and combined with nitrate ions to make amino acids for proteins.",
+  "sections": [
+    {
+      "heading": "The five uses of glucose",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Glucose is the product of photosynthesis. Tap each use to see what the plant does with it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Starch",
+              "meaning": "An insoluble carbohydrate that plants make from glucose for storage."
+            },
+            {
+              "term": "Cellulose",
+              "meaning": "A substance made from glucose that strengthens the cell wall."
+            },
+            {
+              "term": "Amino acids",
+              "meaning": "The small molecules that join together to make proteins."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap each use of glucose in a plant to learn what it is for, then test yourself.",
+            "prompt": "Tap a use of glucose to see what it does.",
+            "parts": [
+              {
+                "name": "Respiration",
+                "detail": "Glucose is used in respiration, which releases energy for the plant's cells."
+              },
+              {
+                "name": "Starch",
+                "detail": "Excess glucose is converted to insoluble starch for storage."
+              },
+              {
+                "name": "Fat or oil",
+                "detail": "Glucose is used to produce fat or oil, which is stored."
+              },
+              {
+                "name": "Cellulose",
+                "detail": "Glucose is used to make cellulose, which strengthens the cell wall."
+              },
+              {
+                "name": "Amino acids and proteins",
+                "detail": "Glucose is combined with nitrate ions to make amino acids, which are used to make proteins."
+              }
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": ["Product", "What it is for"],
+          "rows": [
+            ["Energy (respiration)", "Releases energy for the plant's cells"],
+            ["Starch", "Insoluble storage"],
+            ["Fat or oil", "Storage"],
+            ["Cellulose", "Strengthens the cell wall"],
+            ["Amino acids", "Make proteins for growth"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Five uses: respiration, starch, fat or oil, cellulose, amino acids.",
+            "Starch, fat and oil are for storage.",
+            "Respiration releases energy. Energy is not made or produced."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making proteins",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Proteins need nitrogen, which glucose does not contain. Plants take it from the soil."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Plants absorb **nitrate ions** from the soil.",
+            "Nitrate ions are used with glucose to form amino acids.",
+            "The amino acids are used to make proteins, which are needed for growth.",
+            "Proteins include enzymes, and they are needed to make new cells."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Glucose + nitrate ions → amino acids → proteins.",
+            "Proteins are needed for growth."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Starch, glucose and light",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A leaf's glucose and starch show what the plant has recently done. This section covers how to explain the results."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In the light, the leaf photosynthesises and makes glucose.",
+            "Excess glucose is converted to starch for storage, so the leaf contains both.",
+            "In the dark, no new glucose is made.",
+            "The stored starch is converted back to glucose. The glucose is used for respiration, so the leaf has glucose but no starch.",
+            "A leaf with no light or no carbon dioxide cannot photosynthesise. No glucose is made, so no starch is made."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Photosynthesis makes glucose, not starch. Excess glucose is stored as starch.",
+            "In the dark, starch is converted to glucose and used for respiration."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two ways plants use the glucose produced by photosynthesis.",
+      "a": "Any two from: respiration, converted to starch, to produce or store fat or oil, to produce cellulose, to produce amino acids or protein.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how nitrate ions help a plant to grow.",
+      "a": "Nitrate ions are used with glucose to form amino acids. The amino acids are used to make proteins, which are needed for growth.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a leaf kept in the light for four days contains both glucose and starch.",
+      "a": "Glucose is made by photosynthesis. Excess glucose is converted to starch and stored.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4", "AQA T 4.4.1.3"],
+      "worked_example": {
+        "exemplar_id": "726c91f9-b0f7-4575-ab85-f3f58b0510fe",
+        "source": "AQA jun 2020, Paper 1 (H), Q04.7",
+        "question": "Students tested leaves for glucose and starch. A leaf from a plant kept in the light for two days and then in a cupboard with no light for two days gave a weak positive test for glucose and a negative test for starch.\n\nExplain why the leaf left in a cupboard with no light for two days did contain glucose but did not contain starch.",
+        "marks": 3,
+        "answer_points": [
+          "The starch (stores) have been converted to glucose.",
+          "The glucose can be used for respiration (or named metabolic reactions) to release energy.",
+          "There is no light to make new or more glucose by photosynthesis."
+        ],
+        "tip": "Do not say energy is produced or made. Say energy is released."
+      }
+    },
+    "cambridge_igcse": {
+      "spec_codes": ["CAIE 6.1.5", "CAIE 6.1.6"],
+      "worked_example": {
+        "exemplar_id": "266d9f50-785e-4c58-9055-7a2a59956e68",
+        "source": "CAMBRIDGE jun 2023, Paper 41, Q4(c)",
+        "question": "Outline how the carbohydrates made during photosynthesis are used in plants.",
+        "marks": 4,
+        "answer_points": [
+          "Glucose is used in respiration, to release energy.",
+          "Glucose is converted to starch, which is stored.",
+          "Glucose is converted to sucrose, which is transported in the phloem.",
+          "Sugar in nectar attracts insects.",
+          "Glucose is converted to cellulose, which is used to build cell walls."
+        ],
+        "tip": "Any four of the points earn the four marks."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This section covers two more uses of the sugars a plant makes, and the job of magnesium ions."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Glucose is converted to **sucrose**, which is transported in the phloem to other parts of the plant.",
+                "Sugar in **nectar** attracts insects, which pollinate the flowers.",
+                "**Magnesium ions** are needed to make chlorophyll. A plant short of magnesium has yellow leaves.",
+                "**Nitrate ions** are needed to make amino acids."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06",
+    "spec_point_ids": [
+      "ede48bc7-9830-43c5-950d-b9119f54207b",
+      "b8dee717-7e62-4e86-939f-4e3726cd34c7",
+      "1055e205-c06f-4646-bc87-91acb3a70dc2",
+      "4c9c29f5-e57b-4c35-82f4-f25175f8f5ec"
+    ],
+    "exemplar_ids": ["726c91f9-b0f7-4575-ab85-f3f58b0510fe", "266d9f50-785e-4c58-9055-7a2a59956e68"]
+  }
+}

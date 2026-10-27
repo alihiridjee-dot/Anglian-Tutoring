@@ -147,7 +147,7 @@ function ThreadRows({ threads, selectedId, onSelect, showCounterpart }: Props) {
                   )}
                   {t.lastMessage && (
                     <p className="mt-1 truncate text-xs text-muted-foreground">
-                      <SciText text={t.lastMessage} />
+                      <SciText text={t.lastMessage} oneLine />
                     </p>
                   )}
                 </div>

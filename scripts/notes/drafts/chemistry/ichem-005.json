@@ -1,0 +1,215 @@
+{
+  "format": 1,
+  "concept_id": "ichem-005",
+  "subject": "chemistry",
+  "title": "Extraction of iron: the blast furnace",
+  "key_idea": "Iron is extracted from hematite, which contains iron(III) oxide, in the blast furnace. Coke burns to give heat and carbon monoxide, which reduces the iron(III) oxide to iron. Limestone removes the silicon(IV) oxide impurity as slag.",
+  "sections": [
+    {
+      "heading": "The raw materials and the reactions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hematite, coke, limestone and hot air are fed into the blast furnace. This section covers the five reactions and what each does."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Hematite",
+              "meaning": "The iron ore. It contains iron(III) oxide, Fe₂O₃."
+            },
+            {
+              "term": "Coke",
+              "meaning": "A form of carbon. It is the fuel and the source of the reducing agent."
+            },
+            {
+              "term": "Slag",
+              "meaning": "Calcium silicate, CaSiO₃. It forms when calcium oxide reacts with silicon(IV) oxide."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Step",
+            "What happens",
+            "Equation"
+          ],
+          "rows": [
+            [
+              "1",
+              "Coke burns in hot air. This releases heat and makes carbon dioxide.",
+              "C + O₂ → CO₂"
+            ],
+            [
+              "2",
+              "Carbon dioxide is reduced by more carbon to carbon monoxide.",
+              "C + CO₂ → 2CO"
+            ],
+            [
+              "3",
+              "Carbon monoxide reduces iron(III) oxide to iron.",
+              "Fe₂O₃ + 3CO → 2Fe + 3CO₂"
+            ],
+            [
+              "4",
+              "Limestone decomposes when it is heated.",
+              "CaCO₃ → CaO + CO₂"
+            ],
+            [
+              "5",
+              "Calcium oxide reacts with silicon(IV) oxide to form slag.",
+              "CaO + SiO₂ → CaSiO₃"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Put the five reactions of the blast furnace into order.",
+            "prompt": "Put the stages of the blast furnace in order.",
+            "steps": [
+              "Coke burns in hot air to make carbon dioxide and heat",
+              "Carbon dioxide is reduced by coke to carbon monoxide",
+              "Carbon monoxide reduces iron(III) oxide to iron",
+              "Limestone decomposes to calcium oxide and carbon dioxide",
+              "Calcium oxide reacts with silicon(IV) oxide to make slag"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Coke burns to give heat. Carbon monoxide reduces iron(III) oxide.",
+            "Iron(III) oxide is reduced because it loses oxygen.",
+            "Waste gases include nitrogen and carbon dioxide."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Removing impurities with limestone",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The major impurity in the iron ore is silicon(IV) oxide. This section covers how limestone removes it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Limestone is calcium carbonate.",
+            "It is **thermally decomposed** to calcium oxide and carbon dioxide.",
+            "Calcium oxide is basic. Silicon(IV) oxide is acidic.",
+            "They react in an **acid–base reaction** to form calcium silicate, called slag.",
+            "Slag is molten and runs off separately from the iron."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Limestone decomposes to calcium oxide.",
+            "Calcium oxide and silicon(IV) oxide react to make slag.",
+            "The slag removal is an acid–base reaction."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why carbon can be used",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The method used to extract a metal depends on its position in the reactivity series. This section covers why carbon works for iron."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Carbon is more reactive than iron, so it can remove oxygen from iron(III) oxide.",
+            "Carbon is above iron, lead and copper in the reactivity series, and below aluminium.",
+            "Metals less reactive than carbon, such as iron and lead, can be extracted by heating their oxides with carbon.",
+            "Metals more reactive than carbon, such as aluminium, cannot be extracted this way, because carbon cannot displace them. They are extracted by electrolysis."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbon extraction works for metals less reactive than carbon.",
+            "More reactive metals, such as aluminium, need electrolysis."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the substance that reduces iron(III) oxide in the blast furnace.",
+      "a": "Carbon monoxide.",
+      "marks": 1
+    },
+    {
+      "q": "Write the equation for the reduction of iron(III) oxide by carbon monoxide.",
+      "a": "Fe₂O₃ + 3CO → 2Fe + 3CO₂",
+      "marks": 2
+    },
+    {
+      "q": "Explain why limestone is added to the blast furnace.",
+      "a": "It decomposes to calcium oxide. Calcium oxide reacts with silicon(IV) oxide to produce slag.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "cambridge_igcse": {
+      "spec_codes": [
+        "CAIE 9.6.2",
+        "CAIE 9.6.4S"
+      ],
+      "worked_example": {
+        "exemplar_id": "157f3602-e3b5-470e-8875-b7ef80180dfc",
+        "source": "CAMBRIDGE nov 2023, Paper 42, Q3(c)",
+        "question": "Iron is manufactured in a blast furnace. The major impurity in iron ore is silicon(IV) oxide. Limestone is added to the blast furnace to remove this impurity. Write two symbol equations to show how silicon(IV) oxide is removed. For each equation, state the type of chemical reaction that takes place.",
+        "marks": 4,
+        "answer_points": [
+          "CaCO₃ → CaO + CO₂",
+          "The type of reaction is thermal decomposition.",
+          "SiO₂ + CaO → CaSiO₃",
+          "The type of reaction is an acid–base reaction."
+        ],
+        "tip": "There is one mark for each equation and one for each type of reaction."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 2.23C"
+      ],
+      "worked_example": {
+        "exemplar_id": "6f938d6e-e1bc-42a0-82bf-753a8f288296",
+        "source": "EDEXCEL nov 2020, Paper 2 (C), Q3(b)",
+        "question": "This is the order of reactivity of four metals: aluminium (most reactive), iron, lead, copper (least reactive). The method used to obtain a metal from its oxide depends on the reactivity of the metal. Two possible methods are: Method 1, heating the metal oxide with carbon; Method 2, electrolysis. Explain which method should be used to obtain lead from lead(II) oxide, PbO. Include an equation for the formation of lead in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Method 1: heating lead(II) oxide with carbon.",
+          "Lead is less reactive than iron, and iron is obtained by carbon extraction. Carbon is more reactive than lead.",
+          "2PbO + C → 2Pb + CO₂"
+        ],
+        "tip": "The reverse argument is accepted. PbO + CO → Pb + CO₂ also scores the equation mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-06",
+    "spec_point_ids": [
+      "d5791b51-6c3b-4ccd-b6ef-cc4c93b35849",
+      "fd5ab5be-965f-4d18-a2b5-cbf99cafb946"
+    ],
+    "exemplar_ids": [
+      "157f3602-e3b5-470e-8875-b7ef80180dfc",
+      "6f938d6e-e1bc-42a0-82bf-753a8f288296"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

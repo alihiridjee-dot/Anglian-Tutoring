@@ -1,0 +1,122 @@
+[
+ {
+  "course": "aqa-alevel-biology",
+  "points": 255,
+  "topics": 8,
+  "min": 1.4,
+  "max": 4.71,
+  "mean": 1.93,
+  "before": "3.0x",
+  "after": "1.8x",
+  "spreadBefore": "1.6x",
+  "spreadAfter": "1.3x",
+  "heaviestWeek": "9.3 Energy transfers in and between organisms (A-level only) [AQA 3.5.2 RP9 AQA 3.5.3a AQA 3.5.3b AQA 3.5.3c AQA 3.5.3d]",
+  "lightestWeek": "5.2 Energy transfers in and between organisms (A-level only) [AQA 3.5.1a AQA 3.5.1b]",
+  "afterOneYear": "1.5x",
+  "weeks": 68,
+  "heaviest": [
+   {
+    "code": "AQA 3.2.1.1a",
+    "title": "Eukaryotic cell structure and organelle function",
+    "weight": 4.71
+   },
+   {
+    "code": "AQA 3.4.7a",
+    "title": "Comparing genetic diversity within and between species",
+    "weight": 4.32
+   },
+   {
+    "code": "AQA 3.5.1c",
+    "title": "Calvin cycle, rubisco and limiting factors of photosynthesis (A-level only)",
+    "weight": 4.32
+   },
+   {
+    "code": "AQA 3.5.2f",
+    "title": "Link reaction, Krebs cycle and oxidative phosphorylation (A-level only)",
+    "weight": 4.32
+   },
+   {
+    "code": "AQA 3.2.2 RP2",
+    "title": "Required practical 2: Mitosis in root tip squashes and mitotic index",
+    "weight": 4.27
+   },
+   {
+    "code": "AQA 3.1.7a",
+    "title": "Water",
+    "weight": 4.1
+   },
+   {
+    "code": "AQA 3.3.2e",
+    "title": "Ventilation and the mechanism of breathing",
+    "weight": 4.1
+   },
+   {
+    "code": "AQA 3.4.3d",
+    "title": "Process of meiosis",
+    "weight": 4.1
+   },
+   {
+    "code": "AQA 3.4.4c",
+    "title": "Principles of natural selection",
+    "weight": 4.03
+   },
+   {
+    "code": "AQA 3.8.2.3b",
+    "title": "Oncogenes, tumour suppressor genes and tumour development (A-level only)",
+    "weight": 3.88
+   }
+  ],
+  "lightest": [
+   {
+    "code": "AQA 3.8.4.2c",
+    "title": "Genetic counselling and personalised medicine (A-level only)",
+    "weight": 1.4
+   },
+   {
+    "code": "AQA 3.8.4.2a",
+    "title": "Labelled DNA probes and DNA hybridisation (A-level only)",
+    "weight": 1.4
+   },
+   {
+    "code": "AQA 3.8.4.1d",
+    "title": "Polymerase chain reaction (PCR) (A-level only)",
+    "weight": 1.4
+   },
+   {
+    "code": "AQA 3.8.4.1c",
+    "title": "Amplifying DNA fragments in vitro and in vivo (A-level only)",
+    "weight": 1.4
+   },
+   {
+    "code": "AQA 3.8.3d",
+    "title": "Automated, continuously updated sequencing methods (A-level only)",
+    "weight": 1.4
+   },
+   {
+    "code": "AQA 3.8.3a",
+    "title": "Genome sequencing projects (A-level only)",
+    "weight": 1.4
+   },
+   {
+    "code": "AQA 3.8.2.3a",
+    "title": "Benign and malignant tumours (A-level only)",
+    "weight": 1.4
+   },
+   {
+    "code": "AQA 3.8.2.2e",
+    "title": "RNA interference (RNAi) and translation (A-level only)",
+    "weight": 1.4
+   },
+   {
+    "code": "AQA 3.8.2.2d",
+    "title": "Epigenetics in the development and treatment of disease (A-level only)",
+    "weight": 1.4
+   },
+   {
+    "code": "AQA 3.8.2.2b",
+    "title": "Epigenetic control of gene expression (A-level only)",
+    "weight": 1.4
+   }
+  ]
+ }
+]

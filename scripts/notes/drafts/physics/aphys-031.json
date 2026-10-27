@@ -1,0 +1,255 @@
+{
+  "format": 1,
+  "concept_id": "aphys-031",
+  "subject": "physics",
+  "title": "Electromagnetic spectrum and polarisation",
+  "key_idea": "Electromagnetic waves are transverse and travel at c in free space. Their wavelengths run from radio waves to gamma rays. Only transverse waves can be plane-polarised, so polarisation is evidence that light is transverse.",
+  "sections": [
+    {
+      "heading": "The electromagnetic spectrum",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Electromagnetic waves are oscillating electric and magnetic fields. They need no medium, so they cross a vacuum."
+        },
+        {
+          "type": "list",
+          "items": [
+            "All electromagnetic waves are transverse.",
+            "All travel at the same speed in free space: c = 3.00 × 10⁸ m/s.",
+            "All can be reflected, refracted, diffracted and polarised.",
+            "They differ in wavelength and frequency, so they differ in how they are produced, absorbed and used.",
+            "For every region v = fλ gives c = fλ, so a shorter wavelength means a higher frequency."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Region",
+            "Approximate wavelength in free space"
+          ],
+          "rows": [
+            [
+              "Radio waves",
+              "Greater than about 10⁻¹ m (up to 10³ m and beyond)"
+            ],
+            [
+              "Microwaves",
+              "About 10⁻³ m to 10⁻¹ m"
+            ],
+            [
+              "Infrared",
+              "About 7 × 10⁻⁷ m to 10⁻³ m"
+            ],
+            [
+              "Visible light",
+              "About 4 × 10⁻⁷ m to 7 × 10⁻⁷ m"
+            ],
+            [
+              "Ultraviolet",
+              "About 10⁻⁸ m to 4 × 10⁻⁷ m"
+            ],
+            [
+              "X-rays",
+              "About 10⁻¹³ m to 10⁻⁸ m"
+            ],
+            [
+              "Gamma rays",
+              "Less than about 10⁻¹⁰ m"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Visible light is the range 400 nm to 700 nm. The eye detects violet at the short end and red at the long end.",
+            "Regions overlap at their edges; the boundaries are approximate."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Put the regions of the electromagnetic spectrum in order of increasing wavelength.",
+            "prompt": "Put these regions in order from the shortest wavelength to the longest.",
+            "steps": [
+              "Gamma rays",
+              "X-rays",
+              "Ultraviolet",
+              "Visible light",
+              "Infrared",
+              "Microwaves",
+              "Radio waves"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "All electromagnetic waves are transverse and travel at c in free space.",
+            "Visible light runs from 400 nm to 700 nm; gamma rays are the shortest, radio the longest."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Plane polarisation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A transverse wave can oscillate in any direction at right angles to its travel. Polarisation restricts it to one direction."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Plane-polarised wave",
+              "meaning": "A transverse wave in which the oscillations are all in one plane."
+            },
+            {
+              "term": "Unpolarised wave",
+              "meaning": "A transverse wave whose oscillations are in many planes at right angles to its travel."
+            },
+            {
+              "term": "Polariser",
+              "meaning": "A filter that lets through only the oscillations in one plane."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A polarising filter transmits only the component of the oscillation parallel to its transmission direction.",
+            "Two filters with transmission directions at right angles ('crossed') let no light through.",
+            "Rotating one of two filters in a beam changes the transmitted intensity. It falls from maximum to zero over 90° and is back at maximum after 180°.",
+            "Only transverse waves can be polarised. Sound cannot, because its oscillation is along its travel."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Polarisation is therefore evidence that light is a transverse wave.",
+            "Light reflected from water or glass is partly polarised, which is why polarising sunglasses reduce glare.",
+            "A metal grille polarises microwaves. A grille with its bars parallel to the electric field does not transmit the wave. Turned through 90°, it does.",
+            "Polaroid is a plastic that polarises light."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Plane-polarised means oscillating in one plane only.",
+            "Only transverse waves polarise, so polarisation shows that light is transverse."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two properties that all electromagnetic waves share.",
+      "a": "Any two of: they are transverse; they travel at the same speed in a vacuum (3.00 × 10⁸ m/s); they need no medium; they can be reflected, refracted, diffracted and polarised.",
+      "marks": 2
+    },
+    {
+      "q": "Visible light has wavelengths from 400 nm to 700 nm. Calculate the frequency of light of wavelength 500 nm.",
+      "a": "f = c / λ = 3.00 × 10⁸ / 500 × 10⁻⁹ = 6.0 × 10¹⁴ Hz.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why sound waves cannot be polarised but light can.",
+      "a": "Polarisation restricts oscillations to one plane at right angles to travel. Light is transverse so it can be restricted; sound is longitudinal and its oscillation is along the direction of travel, so there is no plane to restrict.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.82"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 7.4.1",
+        "CAIE 7.4.2",
+        "CAIE 7.4.3",
+        "CAIE 7.5.1",
+        "CAIE 7.5.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Malus's law gives the intensity of plane-polarised light after it passes through a polarising filter."
+            },
+            {
+              "type": "equation",
+              "label": "Malus's law",
+              "formula": "I = I₀ cos²θ",
+              "where": [
+                "I = transmitted intensity (W/m²)",
+                "I₀ = intensity of the plane-polarised light entering the filter (W/m²)",
+                "θ = angle between the plane of polarisation and the transmission direction of the filter"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "At θ = 0° all the intensity is transmitted. At θ = 90° none is transmitted.",
+                "For θ = 60°, cos² 60° = 0.25, so I = 0.25 I₀.",
+                "For a series of filters, apply the law at each filter in turn, using the new plane of polarisation each time.",
+                "Calculating the effect of a filter on unpolarised light is not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.4.1f",
+        "OCR 4.4.2a",
+        "OCR 4.4.2b",
+        "OCR 4.4.2c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Reflection, refraction, polarisation and diffraction can be shown with all waves, including water waves, sound, light and microwaves.",
+                "In a ripple tank, a flat dipper makes plane waves; barriers show reflection, a submerged block (shallower water) shows refraction and a gap shows diffraction.",
+                "Diffraction effects become significant when the wavelength is comparable to the gap width.",
+                "With microwaves, a metal grille between a transmitter and a receiver shows polarisation: the signal changes as the grille is rotated.",
+                "With light, rotate one polarising filter in front of another and watch the brightness change."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "36978e46-be03-4c9f-ab71-b2a81ec1db2f",
+      "10b81db7-fd15-4879-bac5-675394a09636",
+      "af9ea4cd-81f1-42f5-b696-a928353a31fb",
+      "85b205dc-40a6-4b9f-a42a-9f91ec6de1e6",
+      "d7f4161d-44d7-4fca-892f-85fbe7d09452",
+      "74b25a8e-2f95-4dd6-9c3d-3cb0072f7b82",
+      "3dc8d5b6-5311-45b5-a7ae-bf0d9832fae7",
+      "30714448-f016-4601-97d3-981a3f68ceca",
+      "b629c983-ee32-42cb-97b5-b44f75007076",
+      "2867d8a5-c227-41ed-8d31-3358a6cd7425"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

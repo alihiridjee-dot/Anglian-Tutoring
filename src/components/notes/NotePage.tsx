@@ -7,7 +7,7 @@ import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { usePinSubject } from "@/hooks/useActiveSubject";
 import { useNote } from "@/hooks/data/useNotes";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
-import { NOTE_BOARDS, type NoteBoard } from "@/lib/notes/noteFormat";
+import { NOTE_BOARDS, noteLayerFor, pickNoteLayer } from "@/lib/notes/noteFormat";
 
 export function NotePage() {
   // `strict: false` because this component is mounted twice — under the signed-in
@@ -17,7 +17,7 @@ export function NotePage() {
   const conceptId = params.conceptId ?? "";
   const demo = isDemoStudent();
   const { data: note, isLoading, error } = useNote(conceptId);
-  const { enrolments } = useEnrolments();
+  const { enrolments, level } = useEnrolments();
   const router = useRouter();
   // A note is about one subject: opening it moves the header slider there, and
   // switching subject from here goes to the curriculum for the new one.
@@ -25,11 +25,12 @@ export function NotePage() {
     router.navigate({ to: demo ? "/demo/student/curriculum" : "/curriculum" }),
   );
 
-  // Show the layer for the student's own board in this subject; fall back to
-  // whichever board the note has, so a note is never blank.
+  // Show the layer for the student's own course (board and level) in this
+  // subject. If the note has none, use another layer at the same level; a
+  // student is never shown a different level's codes or question.
   const enrolled = enrolments.find((e) => e.subject === note?.subject)?.board as string | undefined;
-  const boards = note ? NOTE_BOARDS.filter((b) => note.boards[b]) : [];
-  const board: NoteBoard | undefined = boards.find((b) => b === enrolled) ?? boards[0];
+  const layers = note ? NOTE_BOARDS.filter((b) => note.boards[b]) : [];
+  const board = pickNoteLayer(layers, noteLayerFor(enrolled, level), level);
 
   return (
     <AppLayout title="Revision Notes">
@@ -56,7 +57,7 @@ export function NotePage() {
             title="This note didn't load"
             body="Check your connection and refresh the page."
           />
-        ) : !note || !board ? (
+        ) : !note ? (
           <EmptyState
             title="This note isn't ready yet"
             body="It will appear here as soon as it's published."

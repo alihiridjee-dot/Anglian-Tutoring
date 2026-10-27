@@ -1,0 +1,220 @@
+code,title,weight,topic
+OXAQA 3.1.1a,"Non-contact forces (gravity, electrostatics, magnetism) and contact forces",1.4,Forces and their effects
+OXAQA 3.1.1b,Friction as a force that impedes motion and causes heating,1.4,Forces and their effects
+OXAQA 3.1.1c,Interacting pairs of objects produce forces that can be shown as vectors,1.4,Forces and their effects
+OXAQA 3.1.1d,Scalar and vector quantities and how vectors are represented,2.44,Forces and their effects
+OXAQA 3.1.1e,"Weight, mass and gravitational field strength (W = m × g)",2.49,Forces and their effects
+OXAQA 3.1.1fP,Elastic and inelastic distortion of an object by several forces,2.02,Forces and their effects
+OXAQA 3.1.1g,Elastic potential energy stored when a force stretches an elastic object,1.4,Forces and their effects
+OXAQA 3.1.1h,Force and extension for an elastic object (F = k × e),2.09,Forces and their effects
+OXAQA 3.1.2a,Distance–time graphs for an object moving in a straight line,1.4,Forces and their effects
+OXAQA 3.1.2b,The speed of the object can be calculated from the gradient of a distance–time graph,1.4,Forces and their effects
+OXAQA 3.1.2c,Velocity as speed in a given direction (v = s / t),1.62,Forces and their effects
+OXAQA 3.1.2d,Average speed of objects in non-uniform motion,1.4,Forces and their effects
+OXAQA 3.1.3a,Newton’s Third Law and the forces between interacting objects,1.4,Forces and their effects
+OXAQA 3.1.3b,Resultant force as a single force replacing several forces,2.33,Forces and their effects
+OXAQA 3.1.3c,A non-zero resultant force acting on an object causes it to accelerate,1.4,Forces and their effects
+OXAQA 3.1.3d,"Acceleration, deceleration and the average acceleration equation",2.29,Forces and their effects
+OXAQA 3.1.3e,Acceleration from the gradient of a velocity–time graph,1.4,Forces and their effects
+OXAQA 3.1.3f,Distance travelled from the area under a velocity–time graph,1.4,Forces and their effects
+OXAQA 3.1.3g,Newton’s First Law and objects with zero resultant force,2.06,Forces and their effects
+OXAQA 3.1.3h,"Resultant force, mass and acceleration (Newton’s Second Law)",1.98,Forces and their effects
+OXAQA 3.1.4aP,Momentum of a moving object (p = m × v),1.4,Forces and their effects
+OXAQA 3.1.4bP,Conservation of momentum in a closed system,1.78,Forces and their effects
+OXAQA 3.1.4cP,Force as the rate of change of momentum and how it explains safety features,2.27,Forces and their effects
+OXAQA 3.1.5a,Resistive forces balancing the driving force at a steady speed,1.4,Forces and their effects
+OXAQA 3.1.5b,"How vehicle speed affects braking force, deceleration and stopping distance",2.18,Forces and their effects
+OXAQA 3.1.5c,"Stopping distance, thinking distance, braking distance and reaction time",1.87,Forces and their effects
+OXAQA 3.1.5d,Work done by friction in braking reduces kinetic energy and heats the brakes,1.6,Forces and their effects
+OXAQA 3.1.5e,"Road, weather and vehicle conditions that affect braking distance",1.82,Forces and their effects
+OXAQA 3.1.6aP,Friction (drag) on an object moving through a fluid,1.4,Forces and their effects
+OXAQA 3.1.6bP,Terminal velocity of an object falling through a fluid,1.73,Forces and their effects
+OXAQA 3.1.6cP,"Parachutes, drag and velocity–time graphs for terminal velocity",1.82,Forces and their effects
+OXAQA 3.1.6dP,Streamlining reduces the drag force on an object so that its maximum velocity is increased,1.78,Forces and their effects
+OXAQA 3.1.7aP,Centre of mass and finding it for a thin irregular lamina,1.87,Forces and their effects
+OXAQA 3.1.7bP,Where the centre of mass lies when an object is freely suspended,1.4,Forces and their effects
+OXAQA 3.1.7cP,Centre of mass of symmetrical objects and its effect on stability,1.42,Forces and their effects
+OXAQA 3.1.8aP,Moment as the turning effect of a force (M = F × d),1.73,Forces and their effects
+OXAQA 3.1.8bP,Clockwise and anticlockwise moments balancing an object about a pivot,1.87,Forces and their effects
+OXAQA 3.1.8cP,Why an object topples when its weight acts outside its base,1.67,Forces and their effects
+OXAQA 3.1.8dP,Simple levers can be used as force multipliers,1.4,Forces and their effects
+OXAQA 3.2.1a,Work done by a force moving an object (W = F × d),1.69,Energy
+OXAQA 3.2.1b,"Energy transfer by work done, including against friction",1.96,Energy
+OXAQA 3.2.1c,Elastic potential energy stored in a stretched spring (Eₑ = ½ × k × e²),1.58,Energy
+OXAQA 3.2.1d,Gravitational potential energy of a raised object (Eₚ = m × g × h),1.8,Energy
+OXAQA 3.2.1e,Kinetic energy of a moving object (Eₖ = ½ × m × v²),3,Energy
+OXAQA 3.2.1f,"Power as the rate of energy transfer or work done (P = E / t, P = W / t)",1.82,Energy
+OXAQA 3.2.2a,"When a system changes, energy is transferred. A system is an object or group of objects",1.78,Energy
+OXAQA 3.2.2bP,Energy transfers between kinetic and gravitational potential in a pendulum,1.4,Energy
+OXAQA 3.2.2c,"Conservation of energy and useful transfer, storage and dissipation",1.4,Energy
+OXAQA 3.2.2d,When energy is transferred only part of it may be usefully transferred,1.58,Energy
+OXAQA 3.2.2e,Friction and air resistance are forces that dissipate energy by heating the surroundings,1.4,Energy
+OXAQA 3.2.2f,Calculating the efficiency of a device from energy or power,1.87,Energy
+OXAQA 3.2.2g,The energy flow in a system can be represented using Sankey diagrams,1.91,Energy
+OXAQA 3.2.3a,Fuels are a useful store of energy,1.56,Energy
+OXAQA 3.2.3b,Energy transferred to the surroundings and fuel efficiency,1.4,Energy
+OXAQA 3.2.3c,Energy sources and their implications for society and the environment,1.62,Energy
+OXAQA 3.2.3d,A range of technologies have been developed to provide energy in a renewable way,1.8,Energy
+OXAQA 3.3.1a,Waves as disturbances that transfer energy and information without matter,1.4,Waves
+OXAQA 3.3.1b,Transverse waves and oscillations perpendicular to energy transfer,1.4,Waves
+OXAQA 3.3.1c,Longitudinal waves and their compressions and rarefactions,1.4,Waves
+OXAQA 3.3.1d,Examples of transverse and longitudinal waves,1.4,Waves
+OXAQA 3.3.1e,"Reflection, transmission and absorption of waves at a boundary",1.4,Waves
+OXAQA 3.3.1f,Refraction due to velocity change and diffraction through gaps or at edges,2.42,Waves
+OXAQA 3.3.1g,"Describing waves by frequency, wavelength, period, amplitude and wavefront",1.42,Waves
+OXAQA 3.3.1h,"Relationship between wave speed, frequency and wavelength (v = f × λ)",1.4,Waves
+OXAQA 3.3.2a,Electromagnetic waves as transverse waves transferring energy to an absorber,1.4,Waves
+OXAQA 3.3.2b,"The continuous electromagnetic spectrum, its order and speed in a vacuum",2.16,Waves
+OXAQA 3.3.2c,Visible light is the part of the electromagnetic spectrum that is detected by our eyes,1.4,Waves
+OXAQA 3.3.2d,All objects emit and absorb infrared radiation,3.44,Waves
+OXAQA 3.3.2eP,Radiation emitted at higher frequencies as an object heats up,1.4,Waves
+OXAQA 3.3.2fP,Definition of black-body radiation,1.4,Waves
+OXAQA 3.3.2g,"Radio waves, microwaves, infrared and visible light can be used for communication",1.4,Waves
+OXAQA 3.3.2h,Electromagnetic waves have many practical applications,3.9,Waves
+OXAQA 3.3.2i,Hazards of excessive exposure to electromagnetic waves,3.77,Waves
+OXAQA 3.3.2j,"X-rays as short-wavelength, high-energy ionising radiation",1.4,Waves
+OXAQA 3.3.2k,"Properties of X-rays, including absorption by metal and bone",2.22,Waves
+OXAQA 3.3.2l,X-rays can be used to diagnose some medical conditions,1.62,Waves
+OXAQA 3.3.2m,Dangers of ionising radiation and precautions to limit exposure,1.58,Waves
+OXAQA 3.3.3a,Sound waves as longitudinal waves and the range of human hearing,1.71,Waves
+OXAQA 3.3.3b,Pitch and loudness of sound: frequency and amplitude,1.47,Waves
+OXAQA 3.3.3c,Sound waves can be reflected (echoes) and diffracted,1.4,Waves
+OXAQA 3.3.3dP,Ultrasound as sound waves above the range of human hearing,1.4,Waves
+OXAQA 3.3.3eP,Electronic production of ultrasound above the limit of human hearing,1.4,Waves
+OXAQA 3.3.3fP,Partial reflection of ultrasound at boundaries to find distances,1.64,Waves
+OXAQA 3.3.3g,"The distance, s, between interfaces in various media can be calculated using s = v × t",1.8,Waves
+OXAQA 3.3.3hP,"Medical uses of ultrasound, such as prenatal scanning and kidney stones",1.4,Waves
+OXAQA 3.3.4a,When waves are reflected the angle of incidence is equal to the angle of reflection,1.4,Waves
+OXAQA 3.3.4b,Definition of the normal at the point of incidence,1.4,Waves
+OXAQA 3.3.4c,"The image produced in a plane mirror is virtual, upright and laterally inverted",1.56,Waves
+OXAQA 3.3.5aP,Refraction of waves as they change speed in a new medium,1.64,Waves
+OXAQA 3.3.5bP,Refraction of light entering denser and less dense media,2.75,Waves
+OXAQA 3.3.5cP,Dispersion of light by a prism to form a spectrum,1.4,Waves
+OXAQA 3.3.5dP,Refractive index can be defined in terms of wave speed,1.62,Waves
+OXAQA 3.3.5eP,Refractive index from the angles of incidence and refraction,1.58,Waves
+OXAQA 3.3.5fP,Relationship between refractive index and critical angle,1.44,Waves
+OXAQA 3.3.5gP,Total internal reflection beyond the critical angle,1.42,Waves
+OXAQA 3.3.5hP,"Optical fibres: total internal reflection, uses and benefits",1.58,Waves
+OXAQA 3.3.6aP,A lens forms an image by refracting light,1.4,Waves
+OXAQA 3.3.6bP,"Convex (converging) lenses, principal focus and image formation",2.04,Waves
+OXAQA 3.3.6cP,"Concave (diverging) lenses, principal focus and image formation",1.78,Waves
+OXAQA 3.3.6dP,The distance from the lens to the principal focus is called the focal length,1.4,Waves
+OXAQA 3.3.6eP,"Describing an image: size, upright or inverted, real or virtual",1.53,Waves
+OXAQA 3.3.6fP,Ray diagrams are used to show the formation of images by convex and concave lenses,1.49,Waves
+OXAQA 3.3.6gP,Calculating lens magnification from image and object height,1.4,Waves
+OXAQA 3.3.6hP,Structures of the eye and how the ciliary muscle changes lens shape,4.16,Waves
+OXAQA 3.3.6iP,"Near point, far point and range of vision of the human eye",1.89,Waves
+OXAQA 3.3.6jP,Correcting long and short sight with convex and concave lenses,3.13,Waves
+OXAQA 3.3.6kP,"Uses of lasers, including cutting, cauterising and eye surgery",1.6,Waves
+OXAQA 3.3.6lP,Comparing the structure of the eye and the camera,2.6,Waves
+OXAQA 3.4.1a,"Kinetic theory explaining solids, liquids and gases",1.89,Particle model of matter
+OXAQA 3.4.1b,Specific heat capacity and the equation E = m × c × ∆θ,1.96,Particle model of matter
+OXAQA 3.4.1c,Specific latent heat of vaporisation and calculating energy needed,2.09,Particle model of matter
+OXAQA 3.4.1d,Specific latent heat of fusion and calculating energy needed,2.09,Particle model of matter
+OXAQA 3.4.1e,The melting point of a solid and the boiling point of a liquid are affected by impurities,2.07,Particle model of matter
+OXAQA 3.4.2a,Energy may be transferred by conduction and convection,2.73,Particle model of matter
+OXAQA 3.4.2b,Energy may be transferred by evaporation and condensation,1.69,Particle model of matter
+OXAQA 3.4.2c,Factors affecting how quickly an object transfers energy by heating,3.37,Particle model of matter
+OXAQA 3.4.2d,Temperature difference and the rate of energy transfer by heating,1.4,Particle model of matter
+OXAQA 3.4.2e,Most substances expand when heated,1.62,Particle model of matter
+OXAQA 3.5.1a,Electrical charges can move easily through some substances,1.4,Electricity and magnetism
+OXAQA 3.5.1bP,There may be an imbalance of charge in an object or area,2.33,Electricity and magnetism
+OXAQA 3.5.1c,Electric current as the rate of flow of charge: I = Q / t,1.47,Electricity and magnetism
+OXAQA 3.5.1d,Voltage of a source: energy supplied to drive charge round a circuit,1.4,Electricity and magnetism
+OXAQA 3.5.1e,Potential difference as energy transferred across a component,1.4,Electricity and magnetism
+OXAQA 3.5.1f,"Potential difference, energy transferred and charge: V = E / Q",1.93,Electricity and magnetism
+OXAQA 3.5.1g,Circuit diagrams use standard symbols,2.47,Electricity and magnetism
+OXAQA 3.5.1h,"Resistance, current and potential difference: V = I × R",2.18,Electricity and magnetism
+OXAQA 3.5.1i,Current and potential difference for a resistor at constant temperature,1.76,Electricity and magnetism
+OXAQA 3.5.1j,"Changing resistance of lamps, diodes, thermistors and LDRs",1.4,Electricity and magnetism
+OXAQA 3.5.1k,The resistance of a thermistor decreases as the temperature increases,1.44,Electricity and magnetism
+OXAQA 3.5.1l,The resistance of an LDR decreases as light intensity increases,1.56,Electricity and magnetism
+OXAQA 3.5.1m,The resistance of a filament lamp increases as the temperature of the filament increases,1.96,Electricity and magnetism
+OXAQA 3.5.1nP,"Forward and reverse resistance of a diode, and one-way current",2.33,Electricity and magnetism
+OXAQA 3.5.1o,An LED emits light when a current flows through it in the forward direction,1.71,Electricity and magnetism
+OXAQA 3.5.1p,The combined voltage of several sources in series is their sum,1.4,Electricity and magnetism
+OXAQA 3.5.1q,Joining components in series and in parallel,1.4,Electricity and magnetism
+OXAQA 3.5.1r,"Resistance, current and potential difference for components in series",2.42,Electricity and magnetism
+OXAQA 3.5.1s,"Resistance, current and potential difference for components in parallel",2.3,Electricity and magnetism
+OXAQA 3.5.1t,Heating effect of current in resistors and energy wasted in lamps,2.42,Electricity and magnetism
+OXAQA 3.5.2a,"Magnetic forces at the poles: like poles repel, unlike poles attract",2.2,Electricity and magnetism
+OXAQA 3.5.2b,Magnetic field as the space around a magnet where a force acts,2.36,Electricity and magnetism
+OXAQA 3.5.2c,Induced magnets: materials that become magnetic in a magnetic field,2.2,Electricity and magnetism
+OXAQA 3.5.2d,Earth's magnetic field and using a plotting compass to detect it,1.76,Electricity and magnetism
+OXAQA 3.5.2e,Magnetic field around a wire carrying an electric current,2.77,Electricity and magnetism
+OXAQA 3.5.2f,Solenoids strengthening the magnetic field of a current-carrying wire,1.53,Electricity and magnetism
+OXAQA 3.5.2g,"Magnetic field of a solenoid, iron cores and electromagnets",2.11,Electricity and magnetism
+OXAQA 3.6.1aP,Generator effect: inducing a potential difference across a conductor,2.46,Generating and distributing electricity and household use
+OXAQA 3.6.1bP,Inducing a potential difference across a coil with a moving magnet,2.06,Generating and distributing electricity and household use
+OXAQA 3.6.1cP,Induced current producing a magnetic field that opposes the magnet,1.51,Generating and distributing electricity and household use
+OXAQA 3.6.1dP,Reversing the magnet's motion or polarity reverses the induced current,1.51,Generating and distributing electricity and household use
+OXAQA 3.6.1eP,Factors affecting induced potential difference; alternators and dynamos,3.48,Generating and distributing electricity and household use
+OXAQA 3.6.1fP,Power stations use turbines to turn wire coils between magnets to generate electricity,1.4,Generating and distributing electricity and household use
+OXAQA 3.6.2aP,Parts of an electricity transmission and distribution system,1.62,Generating and distributing electricity and household use
+OXAQA 3.6.2bP,High distribution voltage reducing current and energy losses,1.42,Generating and distributing electricity and household use
+OXAQA 3.6.2cP,How a basic transformer works: primary and secondary coils on an iron core,2.78,Generating and distributing electricity and household use
+OXAQA 3.6.2dP,Step-up and step-down transformers in electricity distribution,2.88,Generating and distributing electricity and household use
+OXAQA 3.6.2eP,Potential difference and number of turns on transformer coils,1.64,Generating and distributing electricity and household use
+OXAQA 3.6.2fP,Power input equals power output for a 100% efficient transformer,2.13,Generating and distributing electricity and household use
+OXAQA 3.6.2gP,"Switch mode transformers: high frequency, small and low standby power",2.86,Generating and distributing electricity and household use
+OXAQA 3.6.3a,Direct current from cells and batteries,1.4,Generating and distributing electricity and household use
+OXAQA 3.6.3b,An alternating current (ac) is one that is repeatedly changing direction,1.98,Generating and distributing electricity and household use
+OXAQA 3.6.3c,"Mains electricity is an ac supply, which has a set frequency and voltage",1.4,Generating and distributing electricity and household use
+OXAQA 3.6.3d,Earthing as a safety feature for appliances with a metal body,1.71,Generating and distributing electricity and household use
+OXAQA 3.6.3e,Fuses and circuit breakers disconnecting a circuit in a fault,2.09,Generating and distributing electricity and household use
+OXAQA 3.6.3f,Earthing of metal-cased appliances and double insulation,1.89,Generating and distributing electricity and household use
+OXAQA 3.6.4a,The motor effect: force on a conductor in a magnetic field,2.2,Generating and distributing electricity and household use
+OXAQA 3.6.4b,Factors that increase the size of the motor effect force,2.28,Generating and distributing electricity and household use
+OXAQA 3.6.4c,Reversing the force direction and Fleming's left-hand rule,1.69,Generating and distributing electricity and household use
+OXAQA 3.6.4d,Rotation of a current-carrying coil as the basis of an electric motor,1.4,Generating and distributing electricity and household use
+OXAQA 3.6.5a,Electrical appliances are designed to transfer energy,1.4,Generating and distributing electricity and household use
+OXAQA 3.6.5b,Power as the rate of energy transfer: P = E / t,1.53,Generating and distributing electricity and household use
+OXAQA 3.6.5c,"Power, current and potential difference: P = I × V",2.11,Generating and distributing electricity and household use
+OXAQA 3.6.5d,"Energy transferred, potential difference and charge: E = V × Q",1.4,Generating and distributing electricity and household use
+OXAQA 3.6.5e,"Energy transferred by an appliance: power rating, time and kWh",1.87,Generating and distributing electricity and household use
+OXAQA 3.6.5f,Calculating energy in kW h and the cost of mains electricity,2.55,Generating and distributing electricity and household use
+OXAQA 3.7.1a,Size and structure of the atom: nucleus surrounded by electrons,2.04,Nuclear physics
+OXAQA 3.7.1b,Alpha scattering evidence for the distribution of mass in the atom,1.4,Nuclear physics
+OXAQA 3.7.1c,"Relative masses and charges of protons, neutrons and electrons",1.64,Nuclear physics
+OXAQA 3.7.1d,Equal numbers of protons and electrons give atoms no overall charge,1.4,Nuclear physics
+OXAQA 3.7.1e,Electrons arranged around the nucleus and formation of ions,1.42,Nuclear physics
+OXAQA 3.7.1f,"Isotopes, proton number and mass number of an atom",2.33,Nuclear physics
+OXAQA 3.7.2a,Unstable nuclei and random radioactive decay,1.58,Nuclear physics
+OXAQA 3.7.2b,Energy is emitted by changes in the nucleus,1.4,Nuclear physics
+OXAQA 3.7.2c,"Radiation emitted by unstable nuclei: alpha, beta, neutrons and gamma",2.09,Nuclear physics
+OXAQA 3.7.2d,Background radiation is around us all of the time. It comes from a range of sources,1.6,Nuclear physics
+OXAQA 3.7.2e,"Nature of alpha, beta and gamma radiation",1.76,Nuclear physics
+OXAQA 3.7.2f,Nuclear equations are used to represent radioactive decay,1.78,Nuclear physics
+OXAQA 3.7.2g,"Ionising power, penetration and range in air of alpha, beta and gamma",1.4,Nuclear physics
+OXAQA 3.7.2h,"Radioactive decay as a random process, and the half-life of an isotope",3,Nuclear physics
+OXAQA 3.7.2i,"Radioactive contamination and irradiation, and their hazards",2.73,Nuclear physics
+OXAQA 3.7.2j,Half-life values of radioactive isotopes and their radiation output,2.84,Nuclear physics
+OXAQA 3.7.3a,Nuclear fission is the splitting of a large and unstable nucleus and the release of energy,1.4,Nuclear physics
+OXAQA 3.7.3b,Uranium-235 and plutonium-239 as fissionable substances in reactors,1.47,Nuclear physics
+OXAQA 3.7.3c,"Nuclear fission: absorbing a neutron, splitting and releasing energy",2.16,Nuclear physics
+OXAQA 3.7.3d,Chain reactions and control rods in a nuclear reactor,2.22,Nuclear physics
+OXAQA 3.7.3e,Radioactive waste from nuclear reactions and its disposal,2.09,Nuclear physics
+OXAQA 3.7.4aP,Nuclear fusion is the joining of two light nuclei to form a heavier nucleus,1.4,Nuclear physics
+OXAQA 3.7.4bP,In this process some of the mass of the smaller nuclei is converted into energy,1.4,Nuclear physics
+OXAQA 3.7.4cP,Why nuclear fusion needs very high temperatures and pressures,1.47,Nuclear physics
+OXAQA 3.7.4dP,Nuclear fusion is the process by which energy is released in stars,1.4,Nuclear physics
+OXAQA 3.8.1a,Formation of stars and planets by gravitational attraction,1.64,Space physics
+OXAQA 3.8.1b,Hydrogen fusion in the main sequence period of a star's life,1.84,Space physics
+OXAQA 3.8.1c,The core of a star as the site of greatest temperature and fusion,1.4,Space physics
+OXAQA 3.8.1d,"Mass of a star, core temperature and the heaviest nuclei it can create",1.4,Space physics
+OXAQA 3.8.1e,Stars change over time,1.4,Space physics
+OXAQA 3.8.1f,What happens to a main sequence star when it runs out of hydrogen,1.49,Space physics
+OXAQA 3.8.1g,"Larger stars: red supergiant, supernova, then neutron star or black hole",2.29,Space physics
+OXAQA 3.8.1h,Life cycle of a smaller star such as the Sun: red giant to black dwarf,2,Space physics
+OXAQA 3.8.1i,Fusion in stars as the source of energy and all natural elements,2.73,Space physics
+OXAQA 3.8.2a,"The solar system: planets, moons, asteroids, dwarf planets and comets",2.13,Space physics
+OXAQA 3.8.2b,"The universe, galaxies and the Milky Way",2.2,Space physics
+OXAQA 3.8.2c,"Planets, moons and artificial satellites: geostationary and polar orbits",1.47,Space physics
+OXAQA 3.8.2d,Gravity as the centripetal force that keeps bodies in orbit,1.4,Space physics
+OXAQA 3.8.2e,Gravity changing the direction but not the speed of an orbiting body,1.84,Space physics
+OXAQA 3.8.2f,Weaker centripetal force and lower orbital speeds at greater separation,1.4,Space physics
+OXAQA 3.8.2g,"Orbital speed, orbital radius and stable orbits",2.71,Space physics
+OXAQA 3.8.3aP,Doppler effect: change in observed wavelength and frequency of waves,3.22,Space physics
+OXAQA 3.8.3bP,Red shift in light from distant galaxies and the expanding universe,2.6,Space physics
+OXAQA 3.8.3cP,Cosmic microwave background radiation (CMBR) from the early universe,1.47,Space physics
+OXAQA 3.8.3dP,The Big Bang theory and its explanation of CMBR,1.53,Space physics

@@ -1,0 +1,221 @@
+{
+  "format": 1,
+  "concept_id": "abio-033",
+  "subject": "biology",
+  "title": "Monoclonal antibodies",
+  "key_idea": "Monoclonal antibodies are identical antibodies, all made by one clone of cells, that bind to one specific antigen. They are made by fusing an antibody-producing B cell with a tumour cell. They are used to detect substances for diagnosis and to deliver drugs to particular cells.",
+  "sections": [
+    {
+      "heading": "What monoclonal antibodies are",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An antibody binds to just one antigen. Monoclonal antibodies are many copies of one antibody, so they are very specific."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Monoclonal antibody",
+              "meaning": "An antibody made by a single clone of cells. All the molecules are identical and bind to the same antigen."
+            },
+            {
+              "term": "Hybridoma",
+              "meaning": "A cell made by fusing a B cell that makes the wanted antibody with a tumour cell. It makes the antibody and divides without limit."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A B cell makes the right antibody but cannot be grown for long in culture.",
+            "A tumour cell divides without limit but makes no useful antibody.",
+            "A hybridoma has both properties."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Monoclonal antibodies are identical and bind one antigen.",
+            "A hybridoma is a B cell fused with a tumour cell."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The hybridoma method",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The steps below outline how monoclonal antibodies are produced."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of making monoclonal antibodies in order.",
+            "prompt": "Put the stages of the hybridoma method in order.",
+            "steps": [
+              "Inject a mouse with the antigen to be targeted.",
+              "Collect B cells that make the matching antibody from the mouse's spleen.",
+              "Fuse the B cells with tumour cells to make hybridoma cells.",
+              "Select the hybridoma cells that make the wanted antibody and let them divide.",
+              "Culture the clone in large fermenters.",
+              "Collect and purify the monoclonal antibody."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The method gives a continuous supply of one antibody.",
+            "Hybridoma cells are selected for the antibody they make."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using monoclonal antibodies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The antibody's specificity makes it useful for finding or hitting one molecule among many."
+        },
+        {
+          "type": "subheading",
+          "text": "Diagnosis"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Antibodies can be tagged with a dye or radioactive marker. They bind to a target antigen and show where it is.",
+            "Pregnancy tests use antibodies that bind to the hormone hCG in urine.",
+            "They can find a cancer by binding to antigens on tumour cells, or show up the site of a blood clot."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Treatment"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An antibody that binds to antigens on cancer cells can carry a drug or radioactive source straight to the tumour. Healthy cells are hardly harmed.",
+            "Antibodies can block receptors or signal molecules, for example to reduce an immune response.",
+            "Side effects are fewer than with drugs that act on all cells."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Monoclonal antibodies find one antigen, so they target diagnosis and treatment.",
+            "A drug attached to an antibody goes to the right cells."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why a hybridoma cell is used to make monoclonal antibodies.",
+      "a": "A hybridoma is formed by fusing a B cell, which makes the specific antibody, with a tumour cell, which divides without limit. The hybridoma therefore makes the wanted antibody and divides continuously, giving a large supply.",
+      "marks": 3
+    },
+    {
+      "q": "Outline the hybridoma method.",
+      "a": "Inject a mouse with the antigen. Collect B cells that make the specific antibody from the spleen. Fuse them with tumour cells to form hybridomas. Select hybridomas that make the wanted antibody and clone them. Culture in fermenters and purify the antibody.",
+      "marks": 5
+    },
+    {
+      "q": "Explain how monoclonal antibodies can be used to treat cancer.",
+      "a": "The antibody is chosen to bind to an antigen found on the surface of the cancer cells. A drug is attached to the antibody. The antibody binds only to the cancer cells, delivering the drug to them, so healthy cells are not harmed.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 11.2.2",
+        "CAIE 11.2.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Outline the method in terms of the mouse, the B cell and the tumour cell, as set out above.",
+                "Principles of diagnosis: an antibody tagged with a label binds only its antigen, so it shows where the antigen is or whether it is present.",
+                "Principles of treatment: antibodies carrying a drug bind to the target cells, or block a receptor, and deliver the effect only where it is wanted."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.4j",
+        "AQA 3.2.4l",
+        "AQA 3.2.4k"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Targeting medication and diagnosis"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A therapeutic drug is attached to an antibody to deliver it to specific cell types.",
+                "Antibodies are used in medical diagnosis. Details of commercial or scientific production are not required."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "The ELISA test"
+            },
+            {
+              "type": "list",
+              "items": [
+                "ELISA uses antibodies to detect a protein, such as an antigen or a hormone, in a sample. It can show whether a pathogen is present.",
+                "The antigen is attached to the surface of a well. A first antibody that binds to the antigen is added.",
+                "A second antibody, linked to an enzyme, binds to the first. The well is washed to remove unbound antibody.",
+                "A colourless substrate is added. The enzyme converts it to a coloured product, and more colour means more antigen."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Ethical issues"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use of animals to make antibodies, the cost of treatment, side effects, and fairness of access.",
+                "Evaluate evidence on the benefits and risks of using monoclonal antibodies."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "10d89409-3eff-43ca-88ca-05f803d177cf",
+      "6b2d34f4-0e86-49e8-88a5-bf389534132d",
+      "cab2e5e9-5df8-4a8b-a0e6-5b95350faaa8",
+      "be78792f-f43e-44d7-b5cf-8a4d02b5e7af"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

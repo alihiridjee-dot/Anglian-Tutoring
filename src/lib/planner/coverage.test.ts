@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import {
   laneOf,
+  practiceComplete,
   practiceInWeek,
   statusOf,
   statusOfPoint,
@@ -136,6 +137,15 @@ describe("verdictCopy", () => {
     ]);
     expect(verdictCopy(s.verdict, s).sub).toContain("1 point is");
   });
+
+  test("names no week to carry into, since a week further back carries into this one", () => {
+    const s = summarize([
+      { specPointId: "a", coverage: cov(), activity: act({ hasHomework: true }) },
+    ]);
+    const sub = verdictCopy(s.verdict, s).sub;
+    expect(sub).toContain("Carry them forward");
+    expect(sub).not.toContain("next week");
+  });
 });
 
 describe("laneOf", () => {
@@ -166,5 +176,23 @@ describe("weekly completion window", () => {
   });
   test("invalid timestamps cannot complete work", () => {
     expect(practiceInWeek("invalid", "2026-09-07")).toBe(false);
+  });
+});
+
+describe("practiceComplete", () => {
+  test("needs every attached task and quiz in", () => {
+    const both = act({ hasHomework: true, hasQuiz: true });
+    expect(practiceComplete(both, cov({ quizDone: true }))).toBe(false);
+    expect(practiceComplete(both, cov({ homeworkDone: true }))).toBe(false);
+    expect(practiceComplete(both, cov({ homeworkDone: true, quizDone: true }))).toBe(true);
+  });
+  test("only asks for what the point has", () => {
+    expect(practiceComplete(act({ hasQuiz: true }), cov({ quizDone: true }))).toBe(true);
+    expect(practiceComplete(act({ hasHomework: true }), cov({ homeworkDone: true }))).toBe(true);
+  });
+  test("a point with nothing to hand in is never done by itself", () => {
+    expect(practiceComplete(act(), cov({ homeworkDone: true, quizDone: true }))).toBe(false);
+    expect(practiceComplete(undefined, cov({ quizDone: true }))).toBe(false);
+    expect(practiceComplete(act({ hasQuiz: true }), undefined)).toBe(false);
   });
 });

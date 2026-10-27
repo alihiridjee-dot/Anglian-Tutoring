@@ -12,7 +12,7 @@ export function BreakWeek({ brk }: { brk: StudentBreak }) {
       <span className="icon-tile inline-flex w-11 h-11">
         <TreePalm className="w-5 h-5" />
       </span>
-      <h3 className="text-base">On a break</h3>
+      <h3 className="text-base font-bold">On a break</h3>
       <div className="flex flex-wrap justify-center gap-1.5">
         <span className="chip">{breakReasonLabel(brk.reason)}</span>
         <span className="chip">Back {breakDay(backOn(brk))}</span>

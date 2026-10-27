@@ -151,7 +151,8 @@ function pageHits(ctx: SearchContext, terms: string[]): SearchHit[] {
         // Real pages that aren't in the sidebar — the palette is the fastest
         // way to reach them, which is half the point of having one.
         ...(ctx.role === "parent" ? [] : [{ to: "/videos", label: "Videos", icon: PlayCircle }]),
-        { to: "/billing", label: "Billing", icon: CreditCard },
+        // Tutors never pay; their user menu leaves Billing out as well.
+        ...(ctx.isTutor ? [] : [{ to: "/billing", label: "Billing", icon: CreditCard }]),
         { to: "/profile", label: "Profile", icon: UserRound },
         { to: "/settings", label: "Settings", icon: Settings },
       ];

@@ -1,0 +1,259 @@
+{
+  "format": 1,
+  "concept_id": "achem-100",
+  "subject": "chemistry",
+  "title": "Organic and inorganic preparations",
+  "key_idea": "A preparation has the same stages each time: react the starting materials, separate the product from the mixture, purify it and test its purity. Know the technique used for each stage and why, for liquids and for solids, and the main points of the core preparations.",
+  "sections": [
+    {
+      "heading": "Preparing and purifying an organic liquid",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A liquid product is made, separated, dried and distilled. This section covers each stage and its purpose."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "React.",
+              "text": "Heat the reactants under reflux in Quickfit apparatus, so the volatile mixture boils for a long time without loss."
+            },
+            {
+              "lead": "Distil.",
+              "text": "Set the apparatus for distillation to collect the product, or to separate it from the reaction mixture, by its boiling point."
+            },
+            {
+              "lead": "Wash and extract.",
+              "text": "Transfer to a separating funnel. Add water or a solution to wash out acid or water-soluble impurities, shake, vent, and run off the lower layer."
+            },
+            {
+              "lead": "Dry.",
+              "text": "Add an anhydrous salt such as MgSO₄ or CaCl₂. Swirl until the liquid is clear and the solid no longer clumps, then decant or filter."
+            },
+            {
+              "lead": "Redistil.",
+              "text": "Distil again, collecting only the fraction that boils at the boiling point of the product."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Quickfit** apparatus has ground glass joints, so that flasks, condensers and still heads fit together without bungs.",
+            "Determine the boiling temperature of the product during the final distillation. It matches the data-book value if the liquid is pure.",
+            "Which layer is which depends on density. The aqueous layer is the lower layer if the organic liquid is less dense than water.",
+            "A drying agent removes traces of water. It must not react with the product."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reflux, then separate, wash, dry and redistil.",
+            "Collect only the fraction that boils at the product's boiling point."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Preparing and purifying an organic solid",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A solid product is filtered, recrystallised and tested by melting point. This section covers the stages in order."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of purifying a solid product by recrystallisation in order.",
+            "prompt": "Put the stages of purifying a solid by recrystallisation in order.",
+            "steps": [
+              "Dissolve the impure solid in the minimum amount of hot solvent",
+              "Filter the hot solution to remove insoluble impurities",
+              "Cool the filtrate so that crystals form",
+              "Filter off the crystals under reduced pressure",
+              "Wash the crystals with a little cold solvent",
+              "Dry the crystals and measure their melting point"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use the **minimum** amount of hot solvent, so that the product crystallises as the solution cools.",
+            "Soluble impurities stay in solution because there is little of each.",
+            "Filtration under reduced pressure uses a Buchner flask and funnel connected to a pump. It is fast and leaves the solid drier.",
+            "Wash with cold solvent so that the crystals do not dissolve.",
+            "A pure solid has a sharp melting point at the data-book value. An impure sample melts lower and over a range.",
+            "Calculate the percentage yield from the mass of pure product obtained. Some is always lost on transfer and recrystallisation."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Percentage yield",
+          "formula": "percentage yield = (actual mass ÷ theoretical mass) × 100",
+          "where": [
+            "actual mass of product in g",
+            "theoretical mass from the equation in g"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Recrystallise: minimum hot solvent, cool, filter, wash cold, dry.",
+            "Melting point shows purity: sharp for pure, low and wide for impure."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The core preparations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The core practicals apply these techniques to particular reactions. This section covers what each shows."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Practical",
+            "Key points"
+          ],
+          "rows": [
+            [
+              "Rates of hydrolysis of halogenoalkanes",
+              "Warm halogenoalkane with ethanol and aqueous silver nitrate in a water bath. Time the appearance of the precipitate. Iodoalkanes react fastest, because the C–I bond is weakest."
+            ],
+            [
+              "Oxidation of ethanol",
+              "Add acidified potassium dichromate(VI) to ethanol. Distil to collect ethanal, or reflux to form ethanoic acid. Orange turns green."
+            ],
+            [
+              "Chlorination of 2-methylpropan-2-ol",
+              "Shake the alcohol with concentrated hydrochloric acid in a separating funnel. Wash with sodium hydrogencarbonate, dry and distil to give 2-chloro-2-methylpropane."
+            ],
+            [
+              "Preparation of aspirin",
+              "Heat 2-hydroxybenzoic acid with ethanoic anhydride and acid catalyst. Cool, filter and recrystallise. Check purity by melting point."
+            ],
+            [
+              "Preparation of a transition metal complex",
+              "Mix solutions of the metal ion and the ligand, isolate the complex by filtration, wash and dry it, then calculate the yield."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heat flammable liquids with a water bath or electric heater, not a naked flame.",
+            "Reflux is used when a reaction is slow and the reagents or products are volatile.",
+            "In oxidation of an alcohol, distilling off the aldehyde as it forms stops further oxidation. Reflux gives the carboxylic acid."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Halogenoalkane hydrolysis rate depends on the carbon–halogen bond strength.",
+            "Distil to stop at the aldehyde and reflux to reach the acid."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why an organic liquid is dried with anhydrous magnesium sulfate before redistillation.",
+      "a": "To remove traces of water; the solid absorbs water so that it does not distil over or contaminate the product.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how a student can tell that a recrystallised solid is pure.",
+      "a": "Measure its melting point: a pure solid melts sharply at the data-book value, while an impure one melts at a lower temperature over a range.",
+      "marks": 2
+    },
+    {
+      "q": "State why the crystals are washed with cold solvent, not hot solvent, after filtration.",
+      "a": "Cold solvent removes the remaining impurities without dissolving the product; hot solvent would dissolve some of the crystals and lower the yield.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.3a",
+        "OCR 6.2.5a"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know the techniques and procedures in the specification for preparing and purifying organic compounds."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use Quickfit apparatus for distillation and heating under reflux.",
+                "Prepare and purify an organic liquid: use a separating funnel to remove an organic layer from an aqueous layer, dry with an anhydrous salt such as MgSO₄ or CaCl₂, and redistil.",
+                "Purify an organic solid by filtration under reduced pressure, recrystallisation and measurement of melting points."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6E.39",
+        "EDEX 18C.22",
+        "EDEX 6D.CP4",
+        "EDEX 6E.CP5",
+        "EDEX 6E.CP6",
+        "EDEX 18C.CP16",
+        "EDEX 15B.CP12"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know a longer list of purification techniques, and the reasons for them."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Heating under reflux, solvent extraction in a separating funnel, distillation, drying with an anhydrous salt and boiling temperature determination for a liquid.",
+                "Purification by washing, for example with sodium hydrogencarbonate solution to remove acid.",
+                "**Steam distillation** separates a compound that is immiscible with water, and decomposes or has a high boiling point. It distils below 100 °C with the steam.",
+                "Melting temperature determination, and boiling temperature determination, as tests of purity.",
+                "Know the core practicals: halogenoalkane hydrolysis rates, oxidation of ethanol, chlorination of 2-methylpropan-2-ol, preparation of aspirin and preparation of a transition metal complex."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "766cebd3-e1fd-4e3a-8092-10eb1ed6a96c",
+      "66fb4778-cddc-43fd-90d1-7c066e012b3d",
+      "3c32e525-100e-48ac-90c1-d471f0639b0b",
+      "0d2d6928-3619-4753-9ebc-1dd1dc39e8ef",
+      "c27fe6ef-d342-4710-97d1-86a634251421",
+      "eb420639-3c12-4849-8697-ee5cebda7293",
+      "45a694c1-bf3e-4db1-a8ae-d32264b432c7",
+      "bf42fb06-9cf6-40b8-8f93-6001decea475",
+      "32443815-ce2a-442c-b6a9-b82a71e0c13e"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

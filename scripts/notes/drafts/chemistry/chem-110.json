@@ -1,0 +1,200 @@
+{
+  "format": 1,
+  "concept_id": "chem-110",
+  "subject": "chemistry",
+  "title": "Hazard symbols and risk assessment",
+  "key_idea": "A hazard symbol warns of a danger and shows which precaution is needed. To evaluate risk in a practical, name the hazard, give a precaution that matches it and give the reason, such as use a fume cupboard so the toxic gas is not inhaled.",
+  "sections": [
+    {
+      "heading": "Hazard symbols",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A hazard symbol on a container warns of the danger of the contents. It also tells people which safe-working precautions to use in the laboratory."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Hazard",
+              "meaning": "Something that can cause harm, such as a toxic gas or a corrosive acid."
+            },
+            {
+              "term": "Risk",
+              "meaning": "How likely it is that the hazard will cause harm in a particular practical."
+            },
+            {
+              "term": "Precaution",
+              "meaning": "Something done to reduce the risk of harm."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Hazard", "What it means", "Example from practicals"],
+          "rows": [
+            [
+              "Toxic",
+              "Poisonous. It can harm you if breathed in, or if it touches the skin or eyes.",
+              "Chlorine gas, ammonia gas, barium chloride"
+            ],
+            [
+              "Corrosive",
+              "Burns or damages skin and eyes.",
+              "Concentrated hydrochloric acid, barium hydroxide, calcium hydroxide"
+            ],
+            [
+              "Irritant or hazardous to health",
+              "Can irritate the skin or harm health.",
+              "Calcium chloride, calcium hydroxide"
+            ],
+            [
+              "Hazardous to the environment",
+              "Harms living things if it escapes, for example by killing fish.",
+              "Potassium manganate(VII), chlorine"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A hazard symbol shows the danger and points to the precaution needed.",
+            "Toxic, corrosive, irritant and hazardous to the environment need different precautions."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Risks and precautions in a practical",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To evaluate the risk in a practical, name the hazard, then give a precaution that matches it. A good answer also gives the reason."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a hazard and see the precaution and the reason for it.",
+            "prompt": "Pick a hazard",
+            "result_labels": ["Precaution", "Reason"],
+            "options": [
+              {
+                "label": "Toxic gas, such as chlorine or ammonia",
+                "results": ["Use a fume cupboard", "The gas is toxic, so you do not inhale it"]
+              },
+              {
+                "label": "Toxic solid, such as barium chloride",
+                "results": [
+                  "Wear gloves, wear goggles, or use a fume cupboard",
+                  "Gloves: it does not contact the skin. Goggles: it does not contact the eyes. Fume cupboard: you do not inhale it"
+                ]
+              },
+              {
+                "label": "Corrosive acid or alkali",
+                "results": [
+                  "Wear goggles or gloves",
+                  "The substance is corrosive and burns the skin and eyes"
+                ]
+              },
+              {
+                "label": "Hazardous to health, such as calcium chloride",
+                "results": ["Wear goggles or gloves", "To protect the eyes and skin"]
+              },
+              {
+                "label": "Hazardous to the environment",
+                "results": [
+                  "Do not pour reactants or products down the drain",
+                  "The substance is hazardous to the environment"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Writing a precaution"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Hazard.",
+              "text": "Name the hazard, such as a toxic gas."
+            },
+            {
+              "lead": "Precaution.",
+              "text": "Give one precaution that matches it, such as use a fume cupboard."
+            },
+            {
+              "lead": "Reason.",
+              "text": "Link it to the harm it prevents, such as so you do not inhale the gas."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Match the precaution to the hazard. A fume cupboard is for toxic gases and vapours.",
+            "Gloves protect the skin. Goggles protect the eyes.",
+            "General safety, such as tying hair back, is not a precaution for a particular hazard."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Name a precaution that matches the hazard, then give the reason.",
+            "Fume cupboard for toxic gases. Goggles or gloves for corrosive substances.",
+            "Do not pour substances that are hazardous to the environment down the drain."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Chlorine is toxic. State one safety precaution when using chlorine in the laboratory.",
+      "a": "Use a fume cupboard.",
+      "marks": 1
+    },
+    {
+      "q": "Barium hydroxide is corrosive. Give one precaution and the reason for it.",
+      "a": "Wear goggles so the substance does not contact the eyes (or wear gloves to protect the skin).",
+      "marks": 2
+    },
+    {
+      "q": "Explain why reactants should not be poured down the drain when the substance is hazardous to the environment.",
+      "a": "The substance is hazardous to the environment, for example it could kill fish.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": ["EDEX 0.5", "EDEX 0.6"],
+      "worked_example": {
+        "exemplar_id": "d1732d4e-e1c7-42b5-9255-b2881b6daead",
+        "source": "EDEXCEL jun 2018, Paper 1 (F), Q5(c)",
+        "question": "Two compounds of barium are barium sulfide and barium chloride.\n\nBarium chloride is toxic.\n\nExplain one safety precaution that should be taken when using barium chloride.",
+        "marks": 2,
+        "answer_points": [
+          "Wear gloves, so that it does not contact the skin.",
+          "Or wear goggles, so that it does not contact the eyes.",
+          "Or use a fume cupboard, so that you do not inhale it."
+        ],
+        "tip": "Give one pair. The second mark depends on the first, and protective clothing alone is ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "29e0bab4-e33a-42f7-b80f-52713be27e9c",
+      "bc7b613c-bda4-4580-a8c7-67275c232bb4"
+    ],
+    "exemplar_ids": ["d1732d4e-e1c7-42b5-9255-b2881b6daead"],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
+  }
+}

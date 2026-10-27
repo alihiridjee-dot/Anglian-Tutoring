@@ -1,0 +1,415 @@
+{
+  "format": 1,
+  "concept_id": "abio-014",
+  "subject": "biology",
+  "title": "Cell membranes and cell signalling",
+  "key_idea": "Every cell membrane is a **phospholipid bilayer** with proteins and other molecules scattered through it. The parts can move, so the membrane is fluid. It controls what crosses and lets cells detect signals.",
+  "sections": [
+    {
+      "heading": "The fluid mosaic model",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how a membrane is built and why the bilayer forms."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Phospholipid",
+              "meaning": "A lipid with a hydrophilic phosphate head and two hydrophobic fatty acid tails."
+            },
+            {
+              "term": "Hydrophilic",
+              "meaning": "Attracted to water."
+            },
+            {
+              "term": "Hydrophobic",
+              "meaning": "Repelled by water."
+            },
+            {
+              "term": "Fluid mosaic model",
+              "meaning": "A membrane is a fluid bilayer of phospholipids with a mosaic of proteins that can move within it."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cells are surrounded by water, and the cytoplasm is mostly water.",
+            "The hydrophilic heads face outwards towards the water on both sides.",
+            "The hydrophobic tails face inwards, away from the water, and form the core of the membrane.",
+            "This gives a **phospholipid bilayer**, two layers thick.",
+            "Proteins sit in the bilayer. Some span it completely, and some sit on one surface only."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Fluid**: phospholipids and many proteins can move sideways, so the membrane can change shape.",
+            "**Mosaic**: the proteins are scattered through the bilayer like tiles in a mosaic.",
+            "All cell membranes have this same basic structure. This includes the cell-surface membrane and the membranes around organelles."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The bilayer forms because heads are hydrophilic and tails are hydrophobic.",
+            "Fluid means the parts can move. Mosaic means the proteins are scattered.",
+            "All membranes share the same basic structure."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Components and what they do",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each component has an arrangement and a job. Together they control stability, fluidity, permeability, transport, signalling and recognition."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Component",
+            "Arrangement",
+            "Role"
+          ],
+          "rows": [
+            [
+              "Phospholipids",
+              "Form the bilayer, with tails inwards",
+              "Make the barrier. Their tails stop water-soluble substances and ions crossing freely. They allow fluidity."
+            ],
+            [
+              "Cholesterol",
+              "Sits between phospholipid tails",
+              "Packs the tails together. It stabilises the membrane, reduces fluidity and reduces permeability to small ions."
+            ],
+            [
+              "Channel proteins",
+              "Span the bilayer, forming a water-filled pore",
+              "Let specific ions and polar molecules diffuse across."
+            ],
+            [
+              "Carrier proteins",
+              "Span the bilayer and change shape",
+              "Move specific molecules across, by facilitated diffusion or active transport."
+            ],
+            [
+              "Glycoproteins",
+              "Proteins with a carbohydrate chain, on the outer surface",
+              "Act as receptors for signals. They act as antigens for cell recognition."
+            ],
+            [
+              "Glycolipids",
+              "Lipids with a carbohydrate chain, on the outer surface",
+              "Act as receptors and antigens. They help cells stick together."
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Parts of a cell surface membrane, each with its job",
+            "prompt": "Tap a part of the membrane to see what it does.",
+            "parts": [
+              {
+                "name": "Phospholipid bilayer",
+                "detail": "Hydrophilic heads face the water and hydrophobic tails face inwards. It forms the barrier to water-soluble substances."
+              },
+              {
+                "name": "Cholesterol",
+                "detail": "Sits between the tails. It makes the membrane more stable and less fluid."
+              },
+              {
+                "name": "Channel protein",
+                "detail": "A water-filled pore that lets specific ions and polar molecules diffuse through."
+              },
+              {
+                "name": "Carrier protein",
+                "detail": "Changes shape to move a specific molecule across. It is used in facilitated diffusion and active transport."
+              },
+              {
+                "name": "Glycoprotein",
+                "detail": "A protein with a carbohydrate chain on the outer surface. It acts as a receptor or an antigen."
+              },
+              {
+                "name": "Glycolipid",
+                "detail": "A lipid with a carbohydrate chain on the outer surface. It acts as a receptor or an antigen."
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Cell surface receptors are proteins or glycoproteins with a binding site of one specific shape. Only a molecule that fits will bind."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Phospholipids make the barrier, and cholesterol makes it more stable and less fluid.",
+            "Channel and carrier proteins control transport of specific substances.",
+            "Carbohydrate chains on glycoproteins and glycolipids give receptors and antigens."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What membranes do in cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Membranes divide the cell into compartments and cover its surface. Their roles depend on where they are."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Partially permeable barriers**: between the cell and its environment, between organelles and the cytoplasm, and within organelles.",
+            "**Sites of chemical reactions**: enzymes and other proteins are held in a membrane, such as on the inner mitochondrial membrane.",
+            "**Sites of cell communication**: receptors on the surface detect signals from other cells.",
+            "Compartments keep reactions apart, so different conditions can exist in different parts of the cell."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Factors affecting membrane structure and permeability"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Temperature**: at low temperatures, phospholipids have little energy and the membrane is rigid. As temperature rises, they move more, so the membrane becomes more fluid and permeable.",
+            "At high temperatures, the bilayer is disrupted and proteins denature. Channels and carriers stop working properly, so the membrane leaks.",
+            "**Solvents**: organic solvents such as ethanol dissolve lipids. They disrupt the bilayer and make it more permeable."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A common practical uses beetroot. Its cells contain a red pigment that leaks out when the membrane is damaged. More pigment in the water means higher permeability."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Cut.",
+              "text": "Cut equal-sized beetroot pieces and rinse off pigment from cut cells."
+            },
+            {
+              "lead": "Vary one factor.",
+              "text": "Place pieces in water at different temperatures, or in different solvent concentrations."
+            },
+            {
+              "lead": "Wait.",
+              "text": "Leave for the same time. Control the volume of liquid and the size of pieces."
+            },
+            {
+              "lead": "Measure.",
+              "text": "Use a colorimeter, or compare colour against a standard. Higher absorbance means more leakage."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Membranes are partially permeable barriers, reaction sites and signalling sites.",
+            "Heat and solvents increase permeability by disrupting the bilayer and proteins.",
+            "Pigment leaking from beetroot measures permeability."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cell signalling",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cells communicate using chemical messengers. Receptors in the membrane let a target cell respond."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ligand",
+              "meaning": "A signalling molecule that binds to a specific receptor."
+            },
+            {
+              "term": "Target cell",
+              "meaning": "A cell with receptors for a particular ligand."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Secretion.",
+              "text": "A cell secretes a specific ligand, such as a hormone."
+            },
+            {
+              "lead": "Transport.",
+              "text": "The ligand travels to target cells, for example in the blood."
+            },
+            {
+              "lead": "Binding.",
+              "text": "The ligand binds to a complementary cell surface receptor on the target cell."
+            },
+            {
+              "lead": "Response.",
+              "text": "Binding triggers a specific response inside the cell."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only target cells respond, because only they have the right receptor.",
+            "Hormones and many drugs work by binding to membrane-bound receptors.",
+            "A drug can block a receptor, or copy the ligand and trigger a response."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A ligand is secreted, transported, then binds to a cell surface receptor.",
+            "Receptors are specific, so only target cells respond.",
+            "Hormones and drugs bind to the same kind of receptor."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why phospholipids form a bilayer in a cell membrane.",
+      "a": "The heads are hydrophilic and face the water on the outside and inside of the cell. The tails are hydrophobic and face inwards, away from water. This gives two layers with the tails in the middle."
+    },
+    {
+      "q": "Describe the role of cholesterol in a cell membrane.",
+      "a": "It sits between the phospholipid tails and packs them together. It makes the membrane more stable, less fluid and less permeable to small ions."
+    },
+    {
+      "q": "A student heats beetroot in water at 70 °C and the water turns red. Explain this result.",
+      "a": "The high temperature disrupts the phospholipid bilayer and denatures the membrane proteins. The membrane becomes more permeable, so pigment leaks out of the cells into the water."
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.3a",
+        "AQA 3.2.3b",
+        "AQA 3.2.3 RP4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The movement of substances across membranes is covered in the notes on diffusion, osmosis and active transport."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Glycoproteins and glycolipids are part of the fluid mosaic model, along with phospholipids and proteins.",
+                "A required practical investigates the effect of a named variable on the permeability of cell-surface membranes, such as temperature with beetroot."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The fluid mosaic model is an interpretation of data. Scientists built it from evidence and revised it as techniques improved."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Electron micrographs show membranes as two dark lines either side of a lighter band.",
+                "Early models placed a continuous layer of protein on both sides of the lipid. Later evidence showed proteins embedded in the bilayer.",
+                "Evidence that proteins move within the membrane supports the idea of a fluid mosaic.",
+                "A good model explains the data so far. It is changed if new data do not fit."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 4.1.1",
+        "CAIE 4.1.2",
+        "CAIE 4.1.3",
+        "CAIE 4.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe the arrangement of cholesterol, glycolipids and glycoproteins in cell surface membranes: cholesterol between the tails, and carbohydrate chains on the outer surface.",
+                "Link each component to a role: stability, fluidity, permeability, transport, cell signalling and cell recognition.",
+                "Cell recognition depends on cell surface antigens, which are glycoproteins or glycolipids.",
+                "Outline cell signalling in three stages: secretion of a ligand, transport to target cells, and binding to cell surface receptors."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.5a",
+        "OCR 2.1.5b",
+        "OCR 2.1.5c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Membranes are partially permeable barriers in three places: between the cell and its environment, between organelles and the cytoplasm, and within organelles.",
+                "Membrane-bound receptors are sites where hormones and drugs can bind.",
+                "For permeability, know the effects of both temperature and solvents, and how to investigate them."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "304a5637-af19-4884-8a67-54895a68b335",
+      "3578e5be-d180-43d9-a85e-198192e03160",
+      "fedbacf7-3c84-49ad-b42c-e1decbe9bbe3",
+      "8b4af284-556f-40c1-9582-74e7638ec18f",
+      "3189b7a1-2271-4076-b654-a033b79b8433",
+      "d2a7e023-d35c-4c90-8e82-05d1c98f735e",
+      "b652cb44-0589-43be-bd11-dd4a5a3dd89e",
+      "95aa3926-c728-4193-a13a-611db0b3c643",
+      "05bfa782-921a-4304-bf05-5c10ce2197a4",
+      "5aa224af-5458-42b5-aaf7-5df18a8f4cd7",
+      "92544e3e-24d9-42f7-9c47-80f474ed00b8"
+    ],
+    "exemplar_ids": []
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "format": 1,
+  "concept_id": "bio-113",
+  "subject": "biology",
+  "title": "Cloning and tissue culture",
+  "key_idea": "A clone is a genetically identical copy. Plants can be cloned quickly by taking cuttings or by tissue culture, where small groups of cells grow into new plants. Animals can be cloned by embryo transplants or by adult cell cloning. Clones have no variation, which is a risk.",
+  "sections": [
+    {
+      "heading": "Cloning plants",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plants are cloned by asexual reproduction, using mitosis. This section covers two methods."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Clone",
+              "meaning": "An organism that is genetically identical to its parent."
+            },
+            {
+              "term": "Cutting",
+              "meaning": "A piece cut from a parent plant, which grows into a new plant. An older, simpler method used by gardeners."
+            },
+            {
+              "term": "Tissue culture",
+              "meaning": "Growing small groups of cells from part of a plant into new plants."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "New plants made by cuttings or tissue culture are produced without gametes, so they are **genetically identical** to the parent.",
+            "A tissue culture plant can have a different feature, such as leaf colour, only through a **mutation** or disease."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Plant clones come from asexual reproduction, so they are genetically identical.",
+            "Cuttings are the simple method. Tissue culture uses small groups of cells."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The tissue culture method",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each condition in tissue culture has a reason. Put the stages in order, then learn why each is used."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Put the stages of tissue culture in order.",
+            "kind": "sequence",
+            "steps": [
+              "Scrape several groups of cells from the parent plant",
+              "Place the cells on sterile agar jelly with nutrients and hormones",
+              "Keep them in sterile conditions at a suitable temperature",
+              "The cells develop into tiny plantlets with roots and stems",
+              "Grow the plantlets in compost"
+            ],
+            "prompt": "Put tissue culture in order"
+          }
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Several groups of cells are taken",
+              "So several or many plants can be produced, one from each group."
+            ],
+            [
+              "Nutrients in the agar",
+              "For making proteins or chlorophyll, and for respiration to provide energy."
+            ],
+            [
+              "Hormones in the agar",
+              "So cells differentiate and roots and shoots develop."
+            ],
+            [
+              "Sterile conditions",
+              "To prevent the growth or entry of microorganisms, which cause decay or disease. The growth medium is sterilised, for example in an autoclave."
+            ],
+            [
+              "Suitable temperature, such as 20°C",
+              "For optimum growth, because enzymes work well."
+            ]
+          ],
+          "columns": [
+            "Step or condition",
+            "Reason"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cells, agar with nutrients and hormones, sterile conditions, then plantlets in compost.",
+            "Hormones make the cells differentiate into roots and shoots.",
+            "Sterile conditions stop microorganisms growing."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cloning animals, benefits and risks",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Animals can also be cloned. This section covers the two methods, then the benefits and risks of cloning."
+        },
+        {
+          "type": "subheading",
+          "text": "Embryo transplants"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cells are split apart from a developing animal embryo before they become specialised.",
+            "The identical embryos are transplanted into host mothers."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Adult cell cloning"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The nucleus is removed from an unfertilised egg cell.",
+            "The nucleus from an adult body cell, such as a skin cell, is put into the egg cell.",
+            "An electric shock makes the egg cell divide to form an embryo. Its cells have the same genetic information as the adult cell.",
+            "When the embryo is a ball of cells, it is put into the womb of an adult female to continue to develop."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Benefits and risks"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Benefits:** many plants can be produced quickly, all with the desired characteristics. Rare or endangered plants can be saved, and only a small amount of original tissue is needed. It also works for plants that are difficult to grow from seed.",
+            "**Risks:** clones have no variation, so they may all be affected by the same disease or a change in the environment. This reduces the gene pool."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Embryo transplants split an embryo. Adult cell cloning puts an adult nucleus into an egg.",
+            "Benefit: many identical copies with desired features, and endangered plants saved.",
+            "Risk: no variation."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Why do all the plants made from one plant by tissue culture have the same features?",
+      "a": "They are produced by asexual reproduction (mitosis) without gametes, so they are genetically identical clones.",
+      "marks": 2
+    },
+    {
+      "q": "Give a reason why the agar jelly in tissue culture contains hormones.",
+      "a": "So that the cells differentiate and roots and shoots develop.",
+      "marks": 1
+    },
+    {
+      "q": "Describe two advantages of producing plants by tissue culture.",
+      "a": "Any two from: many plants are produced, quicker than sexual reproduction, genetically identical with the desired characteristics, plants from rare or endangered plants, plants that are difficult to grow from seed.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 6.13"
+      ],
+      "worked_example": {
+        "exemplar_id": "e6e6ad2e-4c01-4687-af3f-14acfdbe5092",
+        "source": "AQA jun 2019, Paper 2 (H), Q05.6",
+        "question": "Commercially, hundreds of pink-flowered snapdragon plants can be produced from one pink-flowered plant using a tissue culture technique.\n\nGive a reason for each of the following steps:\n- Several groups of cells are scraped off the leaf.\n- Nutrients are added to the agar jelly.\n- Hormones are added to the agar jelly.\n- The plant cells are kept in sterile conditions.\n- The plant cells are kept at 20°C.",
+        "marks": 5,
+        "answer_points": [
+          "Several groups of cells, so many plants can be produced (each group gives a new plant).",
+          "Nutrients, for making protein or amino acids, chlorophyll, or for respiration.",
+          "Hormones, so differentiation occurs, or so roots and shoots develop.",
+          "Sterile conditions, to prevent the growth or entry of microorganisms, or to prevent decay or disease.",
+          "20°C, so there is optimum or good growth."
+        ],
+        "tip": "One mark for each step. Making energy and for growth are not enough."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 4.9B"
+      ],
+      "worked_example": {
+        "exemplar_id": "cd41e9e8-9c33-4ee7-9bb4-ffd38db27b3c",
+        "source": "EDEXCEL jun 2018, Paper 1 (F), Q10(a)(ii)",
+        "question": "A method of producing plants:\nStep 1. Cells taken from parent plant.\nStep 2. Cells placed on agar growth medium.\nStep 3. Cells develop into tiny plantlets.\nStep 4. Plantlets grown in compost.\n\nDescribe the advantages of producing plants by this method.",
+        "marks": 2,
+        "answer_points": [
+          "Many plants are produced.",
+          "It is quicker than sexual reproduction.",
+          "Genetically identical clones are produced, with the desired characteristics.",
+          "Plants can be produced from endangered or rare plants.",
+          "Plants that are difficult to grow from seed can be obtained."
+        ],
+        "tip": "Any two of these score one mark each."
+      }
+    },
+    "edexcel_igcse": {
+      "spec_codes": [
+        "IGCSE 3.7",
+        "IGCSE 5.17B",
+        "IGCSE 5.18B",
+        "IGCSE 5.19B",
+        "IGCSE 5.20B"
+      ],
+      "worked_example": {
+        "exemplar_id": "5a5fe936-ccaf-411c-a47c-a43b1a420d2f",
+        "source": "EDEXCEL jan 2021, Paper 2 (BR), Q5(b)",
+        "question": "Many mammals have been cloned since Dolly the sheep was produced by cloning in 1996.\nDescribe the stages used to clone a male dog.",
+        "marks": 5,
+        "answer_points": [
+          "Take a nucleus from a body cell (a diploid cell) of the male dog.",
+          "Insert the nucleus into an enucleated egg cell.",
+          "Use an electric shock.",
+          "The cell divides by mitosis.",
+          "The embryo is put into the uterus (womb).",
+          "A surrogate mother carries it."
+        ],
+        "tip": "Any five points score."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Asexual reproduction in plants"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Plants reproduce asexually by natural methods, such as **runners**. A runner is a stem that grows along the ground and forms a new plant.",
+                "Artificial methods include **cuttings**."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Micropropagation"
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Micropropagation",
+                  "meaning": "Another name for tissue culture: growing plants from small pieces of tissue."
+                },
+                {
+                  "term": "Explant",
+                  "meaning": "The small piece of plant tissue used to start the culture."
+                },
+                {
+                  "term": "In vitro",
+                  "meaning": "Grown in a container with a sterile medium, not in a living plant."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Cloning a mammal"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The nucleus put into the egg is diploid and comes from a mature body cell.",
+                "Dolly the sheep was cloned this way.",
+                "An egg cell with its nucleus removed is enucleated."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Cloned transgenic animals"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A transgenic animal has a gene from a different species, such as a human gene.",
+                "Cloning produces many of these animals.",
+                "Each one can make a human protein, which is collected from its milk."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "ee093666-8637-4caa-a722-d52bc568b841",
+      "0c1e6ef6-b9d6-4532-ad24-978840609648",
+      "0164b796-c546-4ec9-88a5-20362f07eeb4",
+      "5d7a0098-ce33-4b3a-9e1a-6159dc794b9e",
+      "4b446359-0485-462d-b628-18b2a81424fa",
+      "60920055-a67c-4930-b37e-9c67430424a2"
+    ],
+    "exemplar_ids": [
+      "e6e6ad2e-4c01-4687-af3f-14acfdbe5092",
+      "cd41e9e8-9c33-4ee7-9bb4-ffd38db27b3c",
+      "5a5fe936-ccaf-411c-a47c-a43b1a420d2f"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-06"
+  }
+}

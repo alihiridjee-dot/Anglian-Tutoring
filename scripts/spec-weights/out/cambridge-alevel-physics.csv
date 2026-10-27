@@ -1,0 +1,301 @@
+code,title,weight,topic
+CAIE 1.1.1,Numerical magnitude and unit of a physical quantity,1.4,Physical quantities and units
+CAIE 1.1.2,Reasonable estimates of physical quantities,1.4,Physical quantities and units
+CAIE 1.2.1,SI base quantities and their units,1.1,Physical quantities and units
+CAIE 1.2.2,Derived units as products or quotients of base units,1.4,Physical quantities and units
+CAIE 1.2.3,Checking homogeneity of equations using SI base units,1.5,Physical quantities and units
+CAIE 1.2.4,Prefixes and symbols for decimal multiples and submultiples,1.46,Physical quantities and units
+CAIE 1.3.1,"Systematic errors, zero errors and random errors",1.4,Physical quantities and units
+CAIE 1.3.2,Distinction between precision and accuracy,1.4,Physical quantities and units
+CAIE 1.3.3,Uncertainty in a derived quantity by simple addition,1.4,Physical quantities and units
+CAIE 1.4.1,Scalar and vector quantities,1.4,Physical quantities and units
+CAIE 1.4.2,Adding and subtracting coplanar vectors,1.4,Physical quantities and units
+CAIE 1.4.3,Representing a vector as two perpendicular components,1.4,Physical quantities and units
+CAIE 2.1.1,"Distance, displacement, speed, velocity and acceleration",1.4,Kinematics
+CAIE 2.1.2,"Graphical methods for distance, displacement, speed, velocity, acceleration",1.5,Kinematics
+CAIE 2.1.3,Displacement from the area under a velocity–time graph,1.4,Kinematics
+CAIE 2.1.4,Velocity from the gradient of a displacement–time graph,1.4,Kinematics
+CAIE 2.1.5,Acceleration from the gradient of a velocity–time graph,1.4,Kinematics
+CAIE 2.1.6,Deriving equations for uniformly accelerated motion,1.4,Kinematics
+CAIE 2.1.7,"Problems on uniform acceleration, including free fall without air resistance",1.44,Kinematics
+CAIE 2.1.8,Experiment to determine the acceleration of free fall,1.3,Kinematics
+CAIE 2.1.9,Uniform velocity with perpendicular uniform acceleration,1.3,Kinematics
+CAIE 3.1.1,Mass as resistance to change in motion,1.4,Dynamics
+CAIE 3.1.2,F = ma and the direction of acceleration and resultant force,1.1,Dynamics
+CAIE 3.1.3,Linear momentum as mass × velocity,1.4,Dynamics
+CAIE 3.1.4,Force as rate of change of momentum,1.4,Dynamics
+CAIE 3.1.5,Newton’s laws of motion,1,Dynamics
+CAIE 3.1.6,Weight as the effect of a gravitational field on a mass,1.61,Dynamics
+CAIE 3.2.1,"Frictional and viscous/drag forces, including air resistance",1.67,Dynamics
+CAIE 3.2.2,Motion in a uniform gravitational field with air resistance,1.3,Dynamics
+CAIE 3.2.3,Terminal (constant) velocity against a resistive force,1.4,Dynamics
+CAIE 3.3.1,Principle of conservation of momentum,1,Dynamics
+CAIE 3.3.2,Conservation of momentum in elastic and inelastic interactions,1.92,Dynamics
+CAIE 3.3.3,Elastic collisions: kinetic energy and relative speed,1.1,Dynamics
+CAIE 3.3.4,Momentum conserved while kinetic energy may change,1.4,Dynamics
+CAIE 4.1.1,Weight acting at the centre of gravity,1.4,"Forces, density and pressure"
+CAIE 4.1.2,Moment of a force,1.4,"Forces, density and pressure"
+CAIE 4.1.3,A couple as a pair of forces producing rotation only,1.4,"Forces, density and pressure"
+CAIE 4.1.4,Torque of a couple,1.4,"Forces, density and pressure"
+CAIE 4.2.1,Principle of moments,1,"Forces, density and pressure"
+CAIE 4.2.2,Equilibrium with no resultant force and no resultant torque,1.4,"Forces, density and pressure"
+CAIE 4.2.3,Vector triangle for coplanar forces in equilibrium,1.5,"Forces, density and pressure"
+CAIE 4.3.1,Defining and using density,1.4,"Forces, density and pressure"
+CAIE 4.3.2,Defining and using pressure,1.4,"Forces, density and pressure"
+CAIE 4.3.3,Deriving the hydrostatic pressure equation Δp = ρgΔh,1.4,"Forces, density and pressure"
+CAIE 4.3.4,Using the equation Δp = ρgΔh,1.5,"Forces, density and pressure"
+CAIE 4.3.5,Upthrust from a difference in hydrostatic pressure,1.4,"Forces, density and pressure"
+CAIE 4.3.6,Upthrust and Archimedes’ principle F = ρgV,1.8,"Forces, density and pressure"
+CAIE 5.1.1,Work done as force × displacement in the direction of the force,1.4,"Work, energy and power"
+CAIE 5.1.2,Principle of conservation of energy,1.1,"Work, energy and power"
+CAIE 5.1.3,Efficiency as useful energy output over total energy input,1.1,"Work, energy and power"
+CAIE 5.1.4,Using efficiency to solve problems,1.5,"Work, energy and power"
+CAIE 5.1.5,Power as work done per unit time,1.4,"Work, energy and power"
+CAIE 5.1.6,Solving problems using P = W / t,1.4,"Work, energy and power"
+CAIE 5.1.7,Deriving P = Fv and using it,1.4,"Work, energy and power"
+CAIE 5.2.1,Deriving ΔEP = mgΔh from W = Fs,1.4,"Work, energy and power"
+CAIE 5.2.2,Gravitational potential energy changes ΔEP = mgΔh,1.1,"Work, energy and power"
+CAIE 5.2.3,Deriving kinetic energy EK = ½mv²,1.4,"Work, energy and power"
+CAIE 5.2.4,Using kinetic energy EK = ½mv²,1.1,"Work, energy and power"
+CAIE 6.1.1,Deformation by tensile or compressive forces,1.4,Deformation of solids
+CAIE 6.1.2,"Load, extension, compression and limit of proportionality",1.4,Deformation of solids
+CAIE 6.1.3,Hooke’s law,1.1,Deformation of solids
+CAIE 6.1.4,Spring constant k = F / x,1.1,Deformation of solids
+CAIE 6.1.5,"Stress, strain and the Young modulus",1.4,Deformation of solids
+CAIE 6.1.6,Experiment to determine the Young modulus of a metal wire,1.3,Deformation of solids
+CAIE 6.2.1,"Elastic deformation, plastic deformation and elastic limit",1.4,Deformation of solids
+CAIE 6.2.2,Work done as the area under the force–extension graph,1.4,Deformation of solids
+CAIE 6.2.3,Elastic potential energy from the force–extension graph,1.4,Deformation of solids
+CAIE 6.2.4,Elastic potential energy EP = ½Fx = ½kx²,1.1,Deformation of solids
+CAIE 7.1.1,"Wave motion in ropes, springs and ripple tanks",1.3,Waves
+CAIE 7.1.2,"Displacement, amplitude, phase difference, period, frequency, wavelength, speed",1.4,Waves
+CAIE 7.1.3,Time-base and y-gain of a cathode-ray oscilloscope,1.4,Waves
+CAIE 7.1.4,Deriving the wave equation v = fλ,1.4,Waves
+CAIE 7.1.5,Using the wave equation v = fλ,1.1,Waves
+CAIE 7.1.6,Energy transfer by a progressive wave,1.4,Waves
+CAIE 7.1.7,Intensity = power/area and intensity ∝ (amplitude)²,1.1,Waves
+CAIE 7.2.1,Comparing transverse and longitudinal waves,1.8,Waves
+CAIE 7.2.2,Graphical representations of transverse and longitudinal waves,2,Waves
+CAIE 7.3.1,Observed frequency from a moving source of sound waves,1.71,Waves
+CAIE 7.3.2,Observed frequency fₒ = fₛv / (v ± vₛ),1.52,Waves
+CAIE 7.4.1,Electromagnetic waves are transverse with the same speed c,1,Waves
+CAIE 7.4.2,Wavelength ranges from radio waves to γ-rays,1.1,Waves
+CAIE 7.4.3,Visible wavelengths of 400–700 nm,1.1,Waves
+CAIE 7.5.1,Polarisation and transverse waves,1.4,Waves
+CAIE 7.5.2,Malus’s law and polarising filters,1.61,Waves
+CAIE 8.1.1,Principle of superposition,1.7,Superposition
+CAIE 8.1.2,"Stationary wave experiments with microwaves, strings and air columns",1.62,Superposition
+CAIE 8.1.3,"Formation of a stationary wave, nodes and antinodes",1.7,Superposition
+CAIE 8.1.4,Wavelength from the positions of nodes or antinodes,1.4,Superposition
+CAIE 8.2.1,Meaning of the term diffraction,1.7,Superposition
+CAIE 8.2.2,Diffraction experiments and the effect of gap width,1.58,Superposition
+CAIE 8.3.1,Interference and coherence,1.4,Superposition
+CAIE 8.3.2,"Two-source interference experiments: water waves, sound, light, microwaves",1.4,Superposition
+CAIE 8.3.3,Conditions for observing two-source interference fringes,1.4,Superposition
+CAIE 8.3.4,Double-slit interference λ = ax / D,1.1,Superposition
+CAIE 8.4.1,Diffraction grating equation d sin θ = nλ,1.1,Superposition
+CAIE 8.4.2,Using a diffraction grating to determine wavelength,1.3,Superposition
+CAIE 9.1.1,Electric current as a flow of charge carriers,1.4,Electricity
+CAIE 9.1.2,Quantised charge on charge carriers,1.4,Electricity
+CAIE 9.1.3,Charge and current Q = It,1.1,Electricity
+CAIE 9.1.4,Current in a conductor I = Anvq,1.5,Electricity
+CAIE 9.2.1,Potential difference as energy transferred per unit charge,1.4,Electricity
+CAIE 9.2.2,Potential difference V = W / Q,1.1,Electricity
+CAIE 9.2.3,"Electrical power P = VI, P = I²R and P = V² / R",1.1,Electricity
+CAIE 9.3.1,Defining resistance,1.4,Electricity
+CAIE 9.3.2,Resistance V = IR,1.1,Electricity
+CAIE 9.3.3,"I–V characteristics of a conductor, diode and filament lamp",1.4,Electricity
+CAIE 9.3.4,Why a filament lamp’s resistance rises with current,1.7,Electricity
+CAIE 9.3.5,Ohm’s law,1,Electricity
+CAIE 9.3.6,Resistivity R = ρL / A,1.1,Electricity
+CAIE 9.3.7,Light-dependent resistor and light intensity,1.4,Electricity
+CAIE 9.3.8,Thermistor resistance and temperature,1.4,Electricity
+CAIE 10.1.1,Recalling and using circuit symbols,1.1,D.C. circuits
+CAIE 10.1.2,Drawing and interpreting circuit diagrams,1.5,D.C. circuits
+CAIE 10.1.3,Electromotive force as energy transferred per unit charge,1.4,D.C. circuits
+CAIE 10.1.4,Difference between e.m.f. and potential difference,1.4,D.C. circuits
+CAIE 10.1.5,Internal resistance and terminal potential difference,1.4,D.C. circuits
+CAIE 10.2.1,Kirchhoff’s first law and conservation of charge,1.1,D.C. circuits
+CAIE 10.2.2,Kirchhoff’s second law and conservation of energy,1.1,D.C. circuits
+CAIE 10.2.3,Deriving the combined resistance of resistors in series,1.4,D.C. circuits
+CAIE 10.2.4,Using the formula for resistors in series,1.5,D.C. circuits
+CAIE 10.2.5,Deriving the combined resistance of resistors in parallel,1.4,D.C. circuits
+CAIE 10.2.6,Using the formula for resistors in parallel,1.5,D.C. circuits
+CAIE 10.2.7,Solving simple circuit problems with Kirchhoff’s laws,1.5,D.C. circuits
+CAIE 10.3.1,Principle of a potential divider circuit,1.4,D.C. circuits
+CAIE 10.3.2,Potentiometer for comparing potential differences,1.1,D.C. circuits
+CAIE 10.3.3,Galvanometer in null methods,1.4,D.C. circuits
+CAIE 10.3.4,Thermistors and light-dependent resistors in potential dividers,1.7,D.C. circuits
+CAIE 11.1.1,Existence and small size of the nucleus from α-particle scattering,1.4,Particle physics
+CAIE 11.1.2,"Nuclear atom: protons, neutrons and orbital electrons",1.3,Particle physics
+CAIE 11.1.3,Nucleon number and proton number,1.4,Particle physics
+CAIE 11.1.4,"Isotopes: same element, different numbers of neutrons",1.4,Particle physics
+CAIE 11.1.5,Notation ᴬZX for nuclides,1.4,Particle physics
+CAIE 11.1.6,Conservation of nucleon number and charge in nuclear processes,1.4,Particle physics
+CAIE 11.1.7,"Composition, mass and charge of α-, β- and γ-radiations",1.3,Particle physics
+CAIE 11.1.8,Antiparticles and the positron,1.4,Particle physics
+CAIE 11.1.9,Antineutrinos in β⁻ decay and neutrinos in β⁺ decay,1,Particle physics
+CAIE 11.1.10,Discrete α energies and continuous β energies,1.4,Particle physics
+CAIE 11.1.11,Radioactive decay equations for α- and β-decay,1.4,Particle physics
+CAIE 11.1.12,Unified atomic mass unit (u),1.5,Particle physics
+CAIE 11.2.1,Quarks as fundamental particles with six flavours,1.4,Particle physics
+CAIE 11.2.2,Charge of each quark flavour and its antiquark,1.21,Particle physics
+CAIE 11.2.3,Quark composition of protons and neutrons,1.1,Particle physics
+CAIE 11.2.4,Hadrons: baryons and mesons,1.4,Particle physics
+CAIE 11.2.5,Changes to quark composition in β⁻ and β⁺ decay,1.3,Particle physics
+CAIE 11.2.6,Electrons and neutrinos as leptons,1.1,Particle physics
+CAIE 12.1.1,The radian and angular displacement,1.4,Motion in a circle (A Level)
+CAIE 12.1.2,Angular speed,1.4,Motion in a circle (A Level)
+CAIE 12.1.3,Angular speed ω = 2π / T and v = rω,1.1,Motion in a circle (A Level)
+CAIE 12.2.1,Constant perpendicular force and centripetal acceleration,1.4,Motion in a circle (A Level)
+CAIE 12.2.2,Centripetal acceleration and constant angular speed,1.4,Motion in a circle (A Level)
+CAIE 12.2.3,Centripetal acceleration a = rω² and a = v² / r,1.1,Motion in a circle (A Level)
+CAIE 12.2.4,Centripetal force F = mrω² and F = mv² / r,1.1,Motion in a circle (A Level)
+CAIE 13.1.1,Gravitational field as force per unit mass,1.4,Gravitational fields (A Level)
+CAIE 13.1.2,Gravitational field lines,1.4,Gravitational fields (A Level)
+CAIE 13.2.1,Uniform sphere acting as a point mass at its centre,1.4,Gravitational fields (A Level)
+CAIE 13.2.2,Newton’s law of gravitation F = Gm₁m₂ / r²,1.1,Gravitational fields (A Level)
+CAIE 13.2.3,Circular orbits from gravitational force and centripetal acceleration,2,Gravitational fields (A Level)
+CAIE 13.2.4,"Geostationary orbit: 24-hour period, west to east, above the Equator",1.58,Gravitational fields (A Level)
+CAIE 13.3.1,Deriving g = GM / r² for a point mass,1.49,Gravitational fields (A Level)
+CAIE 13.3.2,Gravitational field strength g = GM / r²,1.1,Gravitational fields (A Level)
+CAIE 13.3.3,Why g is approximately constant near the Earth’s surface,1.4,Gravitational fields (A Level)
+CAIE 13.4.1,Gravitational potential as work done per unit mass from infinity,1.4,Gravitational fields (A Level)
+CAIE 13.4.2,Gravitational potential ϕ = −GM / r,1.5,Gravitational fields (A Level)
+CAIE 13.4.3,Gravitational potential energy EP = −GMm / r,1.4,Gravitational fields (A Level)
+CAIE 14.1.1,Energy transfer from higher to lower temperature,1.4,Temperature (A Level)
+CAIE 14.1.2,Thermal equilibrium at equal temperatures,1.4,Temperature (A Level)
+CAIE 14.2.1,Physical properties used to measure temperature,1.82,Temperature (A Level)
+CAIE 14.2.2,Thermodynamic temperature scale independent of any substance,1.4,Temperature (A Level)
+CAIE 14.2.3,Converting between kelvin and degrees Celsius,1.4,Temperature (A Level)
+CAIE 14.2.4,Absolute zero as the lowest possible temperature,1.4,Temperature (A Level)
+CAIE 14.3.1,Specific heat capacity,1.4,Temperature (A Level)
+CAIE 14.3.2,Specific latent heat of fusion and of vaporisation,1.4,Temperature (A Level)
+CAIE 15.1.1,Amount of substance as an SI base quantity (mol),1.4,Ideal gases (A Level)
+CAIE 15.1.2,Molar quantities and the Avogadro constant NA,1.52,Ideal gases (A Level)
+CAIE 15.2.1,Ideal gas defined by pV ∝ T,1.4,Ideal gases (A Level)
+CAIE 15.2.2,Equation of state pV = nRT and pV = NkT,1.34,Ideal gases (A Level)
+CAIE 15.2.3,Boltzmann constant k = R / NA,1.1,Ideal gases (A Level)
+CAIE 15.3.1,Basic assumptions of the kinetic theory of gases,1,Ideal gases (A Level)
+CAIE 15.3.2,"Gas pressure from molecular movement, pV = ⅓Nm⟨c²⟩",2.12,Ideal gases (A Level)
+CAIE 15.3.3,Root-mean-square speed,1.4,Ideal gases (A Level)
+CAIE 15.3.4,Average translational kinetic energy of a molecule (3/2)kT,1.84,Ideal gases (A Level)
+CAIE 16.1.1,Internal energy as random kinetic and potential energies,1.67,Thermodynamics (A Level)
+CAIE 16.1.2,Temperature rise and increase in internal energy,1.4,Thermodynamics (A Level)
+CAIE 16.2.1,"Work done by and on a gas, W = pΔV",1.39,Thermodynamics (A Level)
+CAIE 16.2.2,First law of thermodynamics ΔU = q + W,1.46,Thermodynamics (A Level)
+CAIE 17.1.1,Oscillation terms and period in terms of frequency and angular frequency,1.53,Oscillations (A Level)
+CAIE 17.1.2,Simple harmonic motion: acceleration proportional to displacement,1.4,Oscillations (A Level)
+CAIE 17.1.3,Acceleration a = −ω²x and its solution x = x₀ sin ωt,1.5,Oscillations (A Level)
+CAIE 17.1.4,Velocity equations v = v₀ cos ωt and v = ± ω√(x₀² − x²),1.5,Oscillations (A Level)
+CAIE 17.1.5,"Graphs of displacement, velocity and acceleration for simple harmonic motion",2,Oscillations (A Level)
+CAIE 17.2.1,Interchange of kinetic and potential energy in simple harmonic motion,1.3,Oscillations (A Level)
+CAIE 17.2.2,Total energy E = ½mω²x₀² in simple harmonic motion,1.1,Oscillations (A Level)
+CAIE 17.3.1,Resistive force and damping,1.4,Oscillations (A Level)
+CAIE 17.3.2,"Light, critical and heavy damping and displacement–time graphs",1.4,Oscillations (A Level)
+CAIE 17.3.3,Resonance at the natural frequency,1.4,Oscillations (A Level)
+CAIE 18.1.1,Electric field as force per unit positive charge,1.4,Electric fields (A Level)
+CAIE 18.1.2,Force on a charge in an electric field F = qE,1.1,Electric fields (A Level)
+CAIE 18.1.3,Electric field lines,1.4,Electric fields (A Level)
+CAIE 18.2.1,Uniform field between charged parallel plates E = ΔV / Δd,1.1,Electric fields (A Level)
+CAIE 18.2.2,Charged particles in a uniform electric field,1.3,Electric fields (A Level)
+CAIE 18.3.1,Spherical conductor as a point charge at its centre,1.4,Electric fields (A Level)
+CAIE 18.3.2,Coulomb’s law F = Q₁Q₂ / (4πε₀r²),1.1,Electric fields (A Level)
+CAIE 18.4.1,Electric field of a point charge E = Q / (4πε₀r²),1.1,Electric fields (A Level)
+CAIE 18.5.1,Electric potential as work done per unit positive charge,1.4,Electric fields (A Level)
+CAIE 18.5.2,Electric field as the negative of the potential gradient,1.1,Electric fields (A Level)
+CAIE 18.5.3,Electric potential of a point charge V = Q / (4πε₀r),1.5,Electric fields (A Level)
+CAIE 18.5.4,Electric potential energy EP = Qq / (4πε₀r),1.4,Electric fields (A Level)
+CAIE 19.1.1,Capacitance of spherical conductors and parallel plate capacitors,1.4,Capacitance (A Level)
+CAIE 19.1.2,Capacitance C = Q / V,1.1,Capacitance (A Level)
+CAIE 19.1.3,Deriving capacitors in series and in parallel,1.4,Capacitance (A Level)
+CAIE 19.1.4,Using the formulas for capacitors in series and in parallel,1.5,Capacitance (A Level)
+CAIE 19.2.1,Energy stored from the area under the potential–charge graph,1.4,Capacitance (A Level)
+CAIE 19.2.2,Energy stored in a capacitor W = ½QV = ½CV²,1.1,Capacitance (A Level)
+CAIE 19.3.1,"Discharge graphs of potential difference, charge and current",2,Capacitance (A Level)
+CAIE 19.3.2,Time constant τ = RC,1.1,Capacitance (A Level)
+CAIE 19.3.3,Exponential discharge of a capacitor x = x₀e^(−(t / RC)),1.52,Capacitance (A Level)
+CAIE 20.1.1,Magnetic field from moving charges or permanent magnets,1.4,Magnetic fields (A Level)
+CAIE 20.1.2,Magnetic field lines,1.4,Magnetic fields (A Level)
+CAIE 20.2.1,Force on a current-carrying conductor in a magnetic field,1.4,Magnetic fields (A Level)
+CAIE 20.2.2,F = BIL sin θ and Fleming’s left-hand rule,1.1,Magnetic fields (A Level)
+CAIE 20.2.3,Magnetic flux density as force per unit current per unit length,1.4,Magnetic fields (A Level)
+CAIE 20.3.1,Direction of the force on a moving charge,1.4,Magnetic fields (A Level)
+CAIE 20.3.2,Force on a moving charge F = BQv sin θ,1.1,Magnetic fields (A Level)
+CAIE 20.3.3,Hall voltage VH = BI / (ntq),1.4,Magnetic fields (A Level)
+CAIE 20.3.4,Using a Hall probe to measure magnetic flux density,1.4,Magnetic fields (A Level)
+CAIE 20.3.5,Charged particle moving perpendicular to a uniform magnetic field,1.3,Magnetic fields (A Level)
+CAIE 20.3.6,Velocity selection with electric and magnetic fields,1.7,Magnetic fields (A Level)
+CAIE 20.4.1,"Field patterns of a long straight wire, flat coil and long solenoid",1.4,Magnetic fields (A Level)
+CAIE 20.4.2,Ferrous core increasing the field of a solenoid,1.4,Magnetic fields (A Level)
+CAIE 20.4.3,Forces between current-carrying conductors,1.7,Magnetic fields (A Level)
+CAIE 20.5.1,Magnetic flux as flux density × perpendicular cross-sectional area,1.4,Magnetic fields (A Level)
+CAIE 20.5.2,Magnetic flux Φ = BA,1.1,Magnetic fields (A Level)
+CAIE 20.5.3,Magnetic flux linkage,1.4,Magnetic fields (A Level)
+CAIE 20.5.4,"Experiments on induced e.m.f.: cause, direction and magnitude",2.53,Magnetic fields (A Level)
+CAIE 20.5.5,Faraday’s and Lenz’s laws of electromagnetic induction,1.1,Magnetic fields (A Level)
+CAIE 21.1.1,"Period, frequency and peak value of an alternating current or voltage",1.4,Alternating currents (A Level)
+CAIE 21.1.2,Sinusoidal alternating current or voltage x = x₀ sin ωt,1.5,Alternating currents (A Level)
+CAIE 21.1.3,Mean power as half the maximum power in a resistive load,1.1,Alternating currents (A Level)
+CAIE 21.1.4,Root-mean-square and peak values Ir.m.s. = I₀ / √2,1.44,Alternating currents (A Level)
+CAIE 21.2.1,Half-wave and full-wave rectification compared graphically,1.4,Alternating currents (A Level)
+CAIE 21.2.2,Single diode for half-wave rectification,1.7,Alternating currents (A Level)
+CAIE 21.2.3,Four diodes (bridge rectifier) for full-wave rectification,1.7,Alternating currents (A Level)
+CAIE 21.2.4,Smoothing with a single capacitor: capacitance and load resistance,2,Alternating currents (A Level)
+CAIE 22.1.1,Particulate nature of electromagnetic radiation,1.4,Quantum physics (A Level)
+CAIE 22.1.2,Photon as a quantum of electromagnetic energy,1.4,Quantum physics (A Level)
+CAIE 22.1.3,Photon energy E = hf,1.1,Quantum physics (A Level)
+CAIE 22.1.4,The electronvolt as a unit of energy,1.5,Quantum physics (A Level)
+CAIE 22.1.5,Photon momentum p = E / c,1.4,Quantum physics (A Level)
+CAIE 22.2.1,Photoelectrons emitted from an illuminated metal surface,1.4,Quantum physics (A Level)
+CAIE 22.2.2,Threshold frequency and threshold wavelength,1.4,Quantum physics (A Level)
+CAIE 22.2.3,Photon energy and work function energy,1.7,Quantum physics (A Level)
+CAIE 22.2.4,Photoelectric equation hf = Φ + ½mvₘₐₓ²,1.1,Quantum physics (A Level)
+CAIE 22.2.5,Maximum kinetic energy and photoelectric current against intensity,1.7,Quantum physics (A Level)
+CAIE 22.3.1,Evidence for particulate and wave natures of electromagnetic radiation,1.44,Quantum physics (A Level)
+CAIE 22.3.2,Electron diffraction as evidence for the wave nature of particles,1.3,Quantum physics (A Level)
+CAIE 22.3.3,The de Broglie wavelength of a moving particle,1.4,Quantum physics (A Level)
+CAIE 22.3.4,The de Broglie relation λ = h / p,1.1,Quantum physics (A Level)
+CAIE 22.4.1,Discrete electron energy levels in isolated atoms,1.4,Quantum physics (A Level)
+CAIE 22.4.2,Emission and absorption line spectra,1.4,Quantum physics (A Level)
+CAIE 22.4.3,Photon energy from energy level changes hf = E₁ − E₂,1.1,Quantum physics (A Level)
+CAIE 23.1.1,Equivalence between energy and mass E = mc²,1.4,Nuclear physics (A Level)
+CAIE 23.1.2,Nuclear equations for simple nuclear reactions,1.4,Nuclear physics (A Level)
+CAIE 23.1.3,Mass defect and binding energy,1.4,Nuclear physics (A Level)
+CAIE 23.1.4,Binding energy per nucleon against nucleon number,1.4,Nuclear physics (A Level)
+CAIE 23.1.5,Nuclear fusion and nuclear fission,1.7,Nuclear physics (A Level)
+CAIE 23.1.6,Binding energy per nucleon in fusion and fission,1.7,Nuclear physics (A Level)
+CAIE 23.1.7,Energy released in nuclear reactions E = c²Δm,1.8,Nuclear physics (A Level)
+CAIE 23.2.1,Fluctuations in count rate and the random nature of decay,1.4,Nuclear physics (A Level)
+CAIE 23.2.2,Spontaneous and random radioactive decay,1.4,Nuclear physics (A Level)
+CAIE 23.2.3,Activity and decay constant A = λN,1.4,Nuclear physics (A Level)
+CAIE 23.2.4,Half-life,1.4,Nuclear physics (A Level)
+CAIE 23.2.5,Decay constant and half-life λ = 0.693 / t½,1.5,Nuclear physics (A Level)
+CAIE 23.2.6,Exponential decay x = x₀e^(−λt),1.49,Nuclear physics (A Level)
+CAIE 24.1.1,The e.m.f. generated by a piezo-electric crystal when its shape changes,1.4,Medical physics (A Level)
+CAIE 24.1.2,Ultrasound generation and detection by a piezoelectric transducer,1.4,Medical physics (A Level)
+CAIE 24.1.3,Ultrasound pulse reflection at boundaries between tissues,1.4,Medical physics (A Level)
+CAIE 24.1.4,Specific acoustic impedance Z = ρc,1.4,Medical physics (A Level)
+CAIE 24.1.5,Intensity reflection coefficient at a boundary between two media,1.5,Medical physics (A Level)
+CAIE 24.1.6,Attenuation of ultrasound I = I₀e^(−μx),1.1,Medical physics (A Level)
+CAIE 24.2.1,Producing X-rays and calculating their minimum wavelength,1.7,Medical physics (A Level)
+CAIE 24.2.2,"X-rays in imaging internal body structures, and contrast",1.4,Medical physics (A Level)
+CAIE 24.2.3,Attenuation of X-rays I = I₀e^(−μx),1.1,Medical physics (A Level)
+CAIE 24.2.4,Computed tomography (CT) scanning and 3D images,1.96,Medical physics (A Level)
+CAIE 24.3.1,Tracers containing radioactive nuclei,1.42,Medical physics (A Level)
+CAIE 24.3.2,Tracers decaying by β⁺ decay in PET scanning,1.1,Medical physics (A Level)
+CAIE 24.3.3,Annihilation of a particle and its antiparticle,1.4,Medical physics (A Level)
+CAIE 24.3.4,Positron annihilation producing gamma-ray photon pairs in PET scanning,1.86,Medical physics (A Level)
+CAIE 24.3.5,Energy of gamma-ray photons from electron-positron annihilation,1.8,Medical physics (A Level)
+CAIE 24.3.6,Detecting gamma-ray photons to image tracer concentration,1.71,Medical physics (A Level)
+CAIE 25.1.1,Luminosity as the total power of radiation from a star,1.4,Astronomy and cosmology (A Level)
+CAIE 25.1.2,Inverse square law for radiant flux intensity F = L / (4πd²),1.12,Astronomy and cosmology (A Level)
+CAIE 25.1.3,Standard candle as an object of known luminosity,1.4,Astronomy and cosmology (A Level)
+CAIE 25.1.4,Using standard candles to determine distances to galaxies,1.4,Astronomy and cosmology (A Level)
+CAIE 25.2.1,Wien’s displacement law λₘₐₓ ∝ 1 / T,1.1,Astronomy and cosmology (A Level)
+CAIE 25.2.2,Stefan–Boltzmann law L = 4πσr²T⁴,1.5,Astronomy and cosmology (A Level)
+CAIE 25.2.3,Estimating stellar radius with Wien’s and Stefan–Boltzmann laws,1.5,Astronomy and cosmology (A Level)
+CAIE 25.3.1,Increased wavelength in spectral lines of distant objects,1.4,Astronomy and cosmology (A Level)
+CAIE 25.3.2,Redshift Δλ / λ ≈ Δf / f ≈ v / c,1.52,Astronomy and cosmology (A Level)
+CAIE 25.3.3,Redshift and the expanding universe,1.7,Astronomy and cosmology (A Level)
+CAIE 25.3.4,Hubble’s law v ≈ H₀d and the Big Bang theory,1.14,Astronomy and cosmology (A Level)

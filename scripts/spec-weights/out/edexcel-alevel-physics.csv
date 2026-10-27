@@ -1,0 +1,192 @@
+code,title,weight,topic
+EDEX 1.1,Base and derived quantities and their SI units,1.05,Working as a physicist
+EDEX 1.2,Practical skills and techniques in familiar and unfamiliar experiments,1.4,Working as a physicist
+EDEX 1.3,Estimating values for physical quantities,1.6,Working as a physicist
+EDEX 1.4,Limitations of physical measurement,1.4,Working as a physicist
+EDEX 1.5,Communicating information and ideas using appropriate terminology,1.4,Working as a physicist
+EDEX 1.6,"Applications and implications of science, benefits and risks",1.4,Working as a physicist
+EDEX 1.7,Role of the scientific community in validating new knowledge,1.4,Working as a physicist
+EDEX 1.8,How society uses science to inform decision making,1.4,Working as a physicist
+EDEX 2.9,Equations for uniformly accelerated motion in one dimension,1.68,Mechanics
+EDEX 2.10,"Displacement-time, velocity-time and acceleration-time graphs",1.5,Mechanics
+EDEX 2.11,Quantities derived from slopes and areas of motion graphs,1.12,Mechanics
+EDEX 2.12,Scalar and vector quantities,1.4,Mechanics
+EDEX 2.13,Resolving a vector into two components,1.4,Mechanics
+EDEX 2.14,Resultant of two coplanar vectors,1.44,Mechanics
+EDEX 2.15,Independence of vertical and horizontal motion of a projectile,1.4,Mechanics
+EDEX 2.16,Free-body force diagrams,1.5,Mechanics
+EDEX 2.17,Newton’s first and second laws of motion and terminal velocity,2.12,Mechanics
+EDEX 2.18,Gravitational field strength and weight,1.5,Mechanics
+EDEX 2.19,Core practical 1: Acceleration of a freely-falling object,3.4,Mechanics
+EDEX 2.20,Newton’s third law of motion and force pairs,1.05,Mechanics
+EDEX 2.21,Momentum,1.4,Mechanics
+EDEX 2.22,Conservation of linear momentum in one dimension,1.14,Mechanics
+EDEX 2.23,Moment of a force,1.74,Mechanics
+EDEX 2.24,Centre of gravity and the principle of moments,1.52,Mechanics
+EDEX 2.25,Work done by a force,1.5,Mechanics
+EDEX 2.26,Kinetic energy of a body,1.5,Mechanics
+EDEX 2.27,Change in gravitational potential energy near the Earth’s surface,1.5,Mechanics
+EDEX 2.28,Conservation of energy,1.05,Mechanics
+EDEX 2.29,"Power, energy transferred and work done",1.5,Mechanics
+EDEX 2.30,Efficiency in terms of energy and power,1.5,Mechanics
+EDEX 3.31,Electric current as the rate of flow of charged particles,1.4,Electric circuits
+EDEX 3.32,Potential difference and the equation V = W/Q,1.4,Electric circuits
+EDEX 3.33,Resistance and Ohm’s law,1.4,Electric circuits
+EDEX 3.34,Current distribution and charge conservation,1.4,Electric circuits
+EDEX 3.35,Potential difference distribution and energy conservation,1.4,Electric circuits
+EDEX 3.36,Combining resistances in series and parallel,1.47,Electric circuits
+EDEX 3.37,Electrical power and energy equations,1.59,Electric circuits
+EDEX 3.38,Current-potential difference graphs for components,1.4,Electric circuits
+EDEX 3.39,Resistivity equation R = ρl/A,1.5,Electric circuits
+EDEX 3.40,Core practical 2: Electrical resistivity of a material,3.4,Electric circuits
+EDEX 3.41,Range of resistivities explained using I = nqvA,1.5,Electric circuits
+EDEX 3.42,Potential along a uniform current-carrying wire,1.4,Electric circuits
+EDEX 3.43,Potential divider circuits,1.4,Electric circuits
+EDEX 3.44,Potential dividers with thermistors and LDRs,2,Electric circuits
+EDEX 3.45,"Electromotive force, internal resistance and terminal potential difference",1.07,Electric circuits
+EDEX 3.46,Core practical 3: E.m.f. and internal resistance of an electrical cell,3.4,Electric circuits
+EDEX 3.47,Changes of resistance with temperature,1.62,Electric circuits
+EDEX 3.48,Changes of resistance with illumination,1.44,Electric circuits
+EDEX 4.49,Density,1.5,Materials
+EDEX 4.50,Upthrust and weight of fluid displaced,1.4,Materials
+EDEX 4.51,"Viscous drag, Stokes’ law and laminar flow",2.41,Materials
+EDEX 4.52,Core practical 4: Viscosity of a liquid using a falling ball,3.4,Materials
+EDEX 4.53,Hooke’s law and stiffness,1.5,Materials
+EDEX 4.54,"Stress, strain and the Young modulus",1.42,Materials
+EDEX 4.55,Force-extension and force-compression graphs,2.18,Materials
+EDEX 4.56,Stress-strain graphs and breaking stress,1.5,Materials
+EDEX 4.57,Core practical 5: Young modulus of a material,3.4,Materials
+EDEX 4.58,Elastic strain energy,2.24,Materials
+EDEX 5.59,"Amplitude, frequency, period, speed and wavelength",1.4,Waves and particle nature of light
+EDEX 5.60,The wave equation v = fλ,1.5,Waves and particle nature of light
+EDEX 5.61,Longitudinal waves,1.3,Waves and particle nature of light
+EDEX 5.62,Transverse waves,1.3,Waves and particle nature of light
+EDEX 5.63,"Graphs of transverse, longitudinal and standing waves",1.5,Waves and particle nature of light
+EDEX 5.64,Core practical 6: Speed of sound in air,3.4,Waves and particle nature of light
+EDEX 5.65,"Wavefront, coherence, path difference, superposition, interference, phase",1.05,Waves and particle nature of light
+EDEX 5.66,Phase difference and path difference,1.5,Waves and particle nature of light
+EDEX 5.67,"Standing (stationary) waves, nodes and antinodes",1.05,Waves and particle nature of light
+EDEX 5.68,Speed of a transverse wave on a string,1.5,Waves and particle nature of light
+EDEX 5.69,Core practical 7: Frequency of a vibrating string or wire,3.4,Waves and particle nature of light
+EDEX 5.70,Intensity of radiation,1.5,Waves and particle nature of light
+EDEX 5.71,Refractive index and refraction at an interface,1.09,Waves and particle nature of light
+EDEX 5.72,Critical angle,1.8,Waves and particle nature of light
+EDEX 5.73,Total internal reflection,1.9,Waves and particle nature of light
+EDEX 5.74,Measuring the refractive index of a solid material,1.4,Waves and particle nature of light
+EDEX 5.75,Focal length of converging and diverging lenses,1.4,Waves and particle nature of light
+EDEX 5.76,Ray diagrams for lenses,1.5,Waves and particle nature of light
+EDEX 5.77,Power of a lens,1.5,Waves and particle nature of light
+EDEX 5.78,Thin lenses in combination,1.4,Waves and particle nature of light
+EDEX 5.79,Real and virtual images,1.05,Waves and particle nature of light
+EDEX 5.80,Thin converging and diverging lens equation,1.5,Waves and particle nature of light
+EDEX 5.81,Magnification,1.05,Waves and particle nature of light
+EDEX 5.82,Plane polarisation,1.4,Waves and particle nature of light
+EDEX 5.83,Diffraction and Huygens’ construction,1.4,Waves and particle nature of light
+EDEX 5.84,Diffraction grating equation nλ = d sin θ,1.5,Waves and particle nature of light
+EDEX 5.85,Core practical 8: Wavelength of light using a diffraction grating,3.4,Waves and particle nature of light
+EDEX 5.86,Diffraction and the wave nature of electrons,1.4,Waves and particle nature of light
+EDEX 5.87,The de Broglie equation,1.5,Waves and particle nature of light
+EDEX 5.88,Transmission and reflection of waves at an interface,1.4,Waves and particle nature of light
+EDEX 5.89,Pulse-echo technique,1.64,Waves and particle nature of light
+EDEX 5.90,Wave model and photon model of electromagnetic radiation,1.44,Waves and particle nature of light
+EDEX 5.91,Photon energy and wave frequency: E = hf,1.5,Waves and particle nature of light
+EDEX 5.92,Absorption of a photon and photoelectron emission,1.4,Waves and particle nature of light
+EDEX 5.93,Threshold frequency and work function,1.4,Waves and particle nature of light
+EDEX 5.94,The electronvolt,1.5,Waves and particle nature of light
+EDEX 5.95,Photoelectric effect and the particle nature of electromagnetic radiation,1.4,Waves and particle nature of light
+EDEX 5.96,Atomic line spectra and energy level transitions,1.58,Waves and particle nature of light
+EDEX 6.97,Impulse and Newton’s second law of motion,1.4,Further mechanics
+EDEX 6.98,Core practical 9: Force and change of momentum,3.4,Further mechanics
+EDEX 6.99,Conservation of linear momentum in two dimensions,1.4,Further mechanics
+EDEX 6.100,Core practical 10: Collisions between small spheres using ICT,3.4,Further mechanics
+EDEX 6.101,Elastic and inelastic collisions,1.4,Further mechanics
+EDEX 6.102,Kinetic energy of a non-relativistic particle,1.4,Further mechanics
+EDEX 6.103,Angular displacement in radians and degrees,1.4,Further mechanics
+EDEX 6.104,Angular velocity,1.4,Further mechanics
+EDEX 6.105,Centripetal acceleration,1.5,Further mechanics
+EDEX 6.106,Centripetal force required for circular motion,1.4,Further mechanics
+EDEX 6.107,Centripetal force equations,1.5,Further mechanics
+EDEX 7.108,Electric field as a region where a charged particle experiences a force,1.4,Electric and magnetic fields
+EDEX 7.109,Electric field strength,1.4,Electric and magnetic fields
+EDEX 7.110,Force between two charges,1.5,Electric and magnetic fields
+EDEX 7.111,Electric field due to a point charge,1.5,Electric and magnetic fields
+EDEX 7.112,Relation between electric field and electric potential,1.05,Electric and magnetic fields
+EDEX 7.113,Electric field between parallel plates,1.5,Electric and magnetic fields
+EDEX 7.114,Electric potential in a radial field,1.5,Electric and magnetic fields
+EDEX 7.115,Field lines and equipotentials,1.5,Electric and magnetic fields
+EDEX 7.116,Capacitance,1.4,Electric and magnetic fields
+EDEX 7.117,Energy stored by a capacitor,2.06,Electric and magnetic fields
+EDEX 7.118,Charge and discharge curves and the time constant RC,1.5,Electric and magnetic fields
+EDEX 7.119,Core practical 11: Charging and discharging a capacitor,3.47,Electric and magnetic fields
+EDEX 7.120,Exponential discharge in a resistor-capacitor circuit and log equations,2.19,Electric and magnetic fields
+EDEX 7.121,"Magnetic flux density, flux and flux linkage",1.4,Electric and magnetic fields
+EDEX 7.122,Force on a charged particle in a magnetic field,1.5,Electric and magnetic fields
+EDEX 7.123,Force on a current-carrying conductor in a magnetic field,1.5,Electric and magnetic fields
+EDEX 7.124,Induced e.m.f. with relative motion of a coil and magnet,1.4,Electric and magnetic fields
+EDEX 7.125,Induced e.m.f. from a changing current in a linked coil,1.4,Electric and magnetic fields
+EDEX 7.126,Direction of an induced e.m.f. using Lenz’s law,1.4,Electric and magnetic fields
+EDEX 7.127,Magnitude of an induced e.m.f. using Faraday’s law,1.51,Electric and magnetic fields
+EDEX 7.128,"Frequency, period, peak value and root-mean-square value",1.4,Electric and magnetic fields
+EDEX 7.129,Root-mean-square potential difference and current,1.5,Electric and magnetic fields
+EDEX 8.130,Nucleon number and proton number,1.4,Nuclear and particle physics
+EDEX 8.131,Alpha particle scattering and the nuclear model of the atom,1.42,Nuclear and particle physics
+EDEX 8.132,Thermionic emission,1.4,Nuclear and particle physics
+EDEX 8.133,Particle accelerators (linac and cyclotron) and detectors,1.4,Nuclear and particle physics
+EDEX 8.134,Charged particle in a magnetic field: r = p/BQ,1.4,Nuclear and particle physics
+EDEX 8.135,"Conservation of charge, energy and momentum in particle interactions",1.7,Nuclear and particle physics
+EDEX 8.136,High energies and the structure of nucleons,3.4,Nuclear and particle physics
+EDEX 8.137,Creation and annihilation of matter and antimatter particles,1.5,Nuclear and particle physics
+EDEX 8.138,"MeV, GeV, MeV/c² and GeV/c² units",1.5,Nuclear and particle physics
+EDEX 8.139,Relativistic increase in particle lifetime,1.4,Nuclear and particle physics
+EDEX 8.140,"Standard quark-lepton model: baryons, mesons, leptons and photons",1.74,Nuclear and particle physics
+EDEX 8.141,Particles and antiparticles,1.12,Nuclear and particle physics
+EDEX 8.142,"Conservation of charge, baryon number and lepton number",1.4,Nuclear and particle physics
+EDEX 8.143,Writing and interpreting particle equations,1.4,Nuclear and particle physics
+EDEX 9.144,Equations ΔE = mcΔθ and ΔE = LΔm,1.5,Thermodynamics
+EDEX 9.145,Core practical 12: Thermistor as a thermostat in a potential divider,3.4,Thermodynamics
+EDEX 9.146,Core practical 13: Specific latent heat of a phase change,3.4,Thermodynamics
+EDEX 9.147,Internal energy,1.4,Thermodynamics
+EDEX 9.148,Absolute zero and average kinetic energy of molecules,1.4,Thermodynamics
+EDEX 9.149,Kinetic theory model: pV = ⅓Nm⟨c²⟩,1.4,Thermodynamics
+EDEX 9.150,Ideal gas equation pV = NkT,1.5,Thermodynamics
+EDEX 9.151,Core practical 14: Pressure and volume of a gas at fixed temperature,3.4,Thermodynamics
+EDEX 9.152,The equation ½m⟨c²⟩ = (3/2)kT,1.4,Thermodynamics
+EDEX 9.153,Black body radiators and radiation curves,1.4,Thermodynamics
+EDEX 9.154,Stefan-Boltzmann law,1.5,Thermodynamics
+EDEX 9.155,Wien’s law,1.5,Thermodynamics
+EDEX 10.156,"Intensity, luminosity and distance from the source",1.5,Space
+EDEX 10.157,Trigonometric parallax,1.4,Space
+EDEX 10.158,Standard candles and measurements of intensity,1.4,Space
+EDEX 10.159,Hertzsprung-Russell diagram,1.4,Space
+EDEX 10.160,Hertzsprung-Russell diagram and the life cycle of stars,1.4,Space
+EDEX 10.161,Doppler effect,1.4,Space
+EDEX 10.162,Redshift and v = H₀d,1.72,Space
+EDEX 10.163,"Age and fate of the universe, Hubble constant and dark matter",1.44,Space
+EDEX 11.164,Nuclear binding energy and mass deficit,1.44,Nuclear radiation
+EDEX 11.165,Atomic mass unit,1.5,Nuclear radiation
+EDEX 11.166,Nuclear fusion and fission and binding energy per nucleon,1.4,Nuclear radiation
+EDEX 11.167,Mechanism of nuclear fusion,1.42,Nuclear radiation
+EDEX 11.168,Background radiation,1.4,Nuclear radiation
+EDEX 11.169,"Nature, penetration, ionising ability and range of alpha, beta and gamma",1.4,Nuclear radiation
+EDEX 11.170,Nuclear equations,1.4,Nuclear radiation
+EDEX 11.171,Core practical 15: Absorption of gamma radiation by lead,3.4,Nuclear radiation
+EDEX 11.172,Spontaneous and random nature of nuclear decay,1.4,Nuclear radiation
+EDEX 11.173,Half-life and the equations for radioactive decay,1.87,Nuclear radiation
+EDEX 12.174,Gravitational field as a region where a mass experiences a force,1.4,Gravitational fields
+EDEX 12.175,Gravitational field strength,1.4,Gravitational fields
+EDEX 12.176,Newton’s law of universal gravitation,1.5,Gravitational fields
+EDEX 12.177,Gravitational field due to a point mass,1.4,Gravitational fields
+EDEX 12.178,Gravitational potential in a radial field,1.5,Gravitational fields
+EDEX 12.179,Comparing electric and gravitational fields,1.8,Gravitational fields
+EDEX 12.180,Orbital motion with Newton’s laws and universal gravitation,1.7,Gravitational fields
+EDEX 13.181,Condition for simple harmonic motion,1.42,Oscillations
+EDEX 13.182,Equations for a simple harmonic oscillator,1.86,Oscillations
+EDEX 13.183,Periods of a simple harmonic oscillator and a simple pendulum,1.5,Oscillations
+EDEX 13.184,Displacement-time graph for an oscillating object,1.54,Oscillations
+EDEX 13.185,Velocity-time graph for an oscillating object,1.54,Oscillations
+EDEX 13.186,Resonance,1.4,Oscillations
+EDEX 13.187,Core practical 16: Unknown mass from resonant frequencies,3.4,Oscillations
+EDEX 13.188,Conservation of energy in damped and undamped oscillating systems,1.4,Oscillations
+EDEX 13.189,Free and forced oscillations,1.4,Oscillations
+EDEX 13.190,"Forced oscillations, natural frequency and damping",1.4,Oscillations
+EDEX 13.191,Damping and plastic deformation of ductile materials,1.4,Oscillations

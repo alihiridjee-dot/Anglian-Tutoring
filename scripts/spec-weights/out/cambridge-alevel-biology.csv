@@ -1,0 +1,260 @@
+code,title,weight,topic
+CAIE 1.1.1,Temporary preparations for light microscopy,1.4,Cell structure
+CAIE 1.1.2,Drawing cells from slides and photomicrographs,1.5,Cell structure
+CAIE 1.1.3,Calculating magnification and actual size of specimens,1.8,Cell structure
+CAIE 1.1.4,Eyepiece graticule and stage micrometer measurements,1.5,Cell structure
+CAIE 1.1.5,Resolution and magnification in light and electron microscopy,1.4,Cell structure
+CAIE 1.2.1,Organelles and other structures in eukaryotic cells,4.68,Cell structure
+CAIE 1.2.2,Interpreting micrographs and drawings of plant and animal cells,1.3,Cell structure
+CAIE 1.2.3,Comparing plant and animal cell structure,1.8,Cell structure
+CAIE 1.2.4,ATP from respiration for energy-requiring processes,1,Cell structure
+CAIE 1.2.5,Key structural features of a prokaryotic cell,3.05,Cell structure
+CAIE 1.2.6,Comparing prokaryotic and eukaryotic cells,1.8,Cell structure
+CAIE 1.2.7,Viruses as non-cellular structures,1.18,Cell structure
+CAIE 2.1.1,"Benedict’s, iodine, emulsion and biuret tests",1.32,Biological molecules
+CAIE 2.1.2,Semi-quantitative Benedict’s test for reducing sugar concentration,1.52,Biological molecules
+CAIE 2.1.3,Test for non-reducing sugars using acid hydrolysis,1.3,Biological molecules
+CAIE 2.2.1,Ring forms of α-glucose and β-glucose,1.3,Biological molecules
+CAIE 2.2.2,"Monomer, polymer, macromolecule and saccharide definitions",1.4,Biological molecules
+CAIE 2.2.3,Covalent bonds joining smaller molecules into polymers,1,Biological molecules
+CAIE 2.2.4,Reducing sugars and non-reducing sugars,1,Biological molecules
+CAIE 2.2.5,Glycosidic bond formation by condensation,1.3,Biological molecules
+CAIE 2.2.6,Glycosidic bond breakage by hydrolysis,1.3,Biological molecules
+CAIE 2.2.7,Starch and glycogen: structure related to function,1.3,Biological molecules
+CAIE 2.2.8,Cellulose structure and the function of plant cell walls,1.3,Biological molecules
+CAIE 2.2.9,"Triglyceride structure: fatty acids, glycerol and ester bonds",1.09,Biological molecules
+CAIE 2.2.10,Triglyceride structure related to function,1.4,Biological molecules
+CAIE 2.2.11,Phospholipid structure: hydrophilic heads and hydrophobic tails,1.3,Biological molecules
+CAIE 2.3.1,General structure of amino acids and the peptide bond,1.3,Biological molecules
+CAIE 2.3.2,"Primary, secondary, tertiary and quaternary structure of proteins",1.7,Biological molecules
+CAIE 2.3.3,Interactions that hold protein molecules in shape,2.2,Biological molecules
+CAIE 2.3.4,Globular and fibrous proteins: solubility and roles,1,Biological molecules
+CAIE 2.3.5,Haemoglobin as a globular protein,1.57,Biological molecules
+CAIE 2.3.6,Haemoglobin structure related to function and the role of iron,1.4,Biological molecules
+CAIE 2.3.7,Collagen as a fibrous protein: molecules and fibres,1.3,Biological molecules
+CAIE 2.3.8,Collagen structure related to function,1.4,Biological molecules
+CAIE 2.4.1,Hydrogen bonding in water and its roles in organisms,1.88,Biological molecules
+CAIE 3.1.1,Enzymes as globular proteins: intracellular and extracellular,1,Enzymes
+CAIE 3.1.2,Enzyme mode of action: lock-and-key and induced-fit,1.81,Enzymes
+CAIE 3.1.3,Investigating progress of enzyme-catalysed reactions: catalase and amylase,4.2,Enzymes
+CAIE 3.1.4,Using a colorimeter to follow enzyme-catalysed reactions,1.4,Enzymes
+CAIE 3.2.1,Factors affecting the rate of enzyme-catalysed reactions,5.43,Enzymes
+CAIE 3.2.2,Vmax and the Michaelis–Menten constant (Km),1.79,Enzymes
+CAIE 3.2.3,Competitive and non-competitive reversible inhibitors,1.7,Enzymes
+CAIE 3.2.4,Immobilised enzymes in alginate compared with free enzymes,4.22,Enzymes
+CAIE 4.1.1,Fluid mosaic model of membrane structure,1.41,Cell membranes and transport
+CAIE 4.1.2,"Arrangement of cholesterol, glycolipids and glycoproteins",1.3,Cell membranes and transport
+CAIE 4.1.3,Roles of components of cell surface membranes,1.63,Cell membranes and transport
+CAIE 4.1.4,Main stages of cell signalling: ligands and receptors,2.39,Cell membranes and transport
+CAIE 4.2.1,"Diffusion, osmosis, active transport, endocytosis and exocytosis",1.3,Cell membranes and transport
+CAIE 4.2.2,Investigating diffusion and osmosis: plant tissue and Visking tubing,4.2,Cell membranes and transport
+CAIE 4.2.3,Surface area to volume ratios of simple 3-D shapes,1.49,Cell membranes and transport
+CAIE 4.2.4,Surface area to volume ratio and diffusion in agar blocks,4.2,Cell membranes and transport
+CAIE 4.2.5,Estimating the water potential of plant tissues,4.2,Cell membranes and transport
+CAIE 4.2.6,Water movement and water potential in plant and animal cells,2.03,Cell membranes and transport
+CAIE 5.1.1,Structure of a chromosome,2.4,The mitotic cell cycle
+CAIE 5.1.2,"Importance of mitosis: growth, replacement, repair, asexual reproduction",2.82,The mitotic cell cycle
+CAIE 5.1.3,"The mitotic cell cycle: interphase, mitosis and cytokinesis",2.06,The mitotic cell cycle
+CAIE 5.1.4,Telomeres and the loss of genes during DNA replication,1.4,The mitotic cell cycle
+CAIE 5.1.5,Stem cells in cell replacement and tissue repair,1.4,The mitotic cell cycle
+CAIE 5.1.6,Uncontrolled cell division and tumour formation,1.7,The mitotic cell cycle
+CAIE 5.2.1,"Behaviour of chromosomes, nuclear envelope and spindle in mitosis",1.72,The mitotic cell cycle
+CAIE 5.2.2,Identifying stages of mitosis from images and slides,1.6,The mitotic cell cycle
+CAIE 6.1.1,"Structure of nucleotides, including ATP",1.3,Nucleic acids and protein synthesis
+CAIE 6.1.2,Purine and pyrimidine bases,1.24,Nucleic acids and protein synthesis
+CAIE 6.1.3,Structure of the DNA double helix,2.54,Nucleic acids and protein synthesis
+CAIE 6.1.4,"Semi-conservative replication of DNA, with leading and lagging strands",2.67,Nucleic acids and protein synthesis
+CAIE 6.1.5,Structure of an RNA molecule: mRNA,1.3,Nucleic acids and protein synthesis
+CAIE 6.2.1,Genes as nucleotide sequences coding for polypeptides,1.02,Nucleic acids and protein synthesis
+CAIE 6.2.2,"Universal genetic code: triplets, start and stop codons",1.37,Nucleic acids and protein synthesis
+CAIE 6.2.3,Transcription and translation to construct polypeptides,2.86,Nucleic acids and protein synthesis
+CAIE 6.2.4,Transcribed (template) strand and non-transcribed strand,1.11,Nucleic acids and protein synthesis
+CAIE 6.2.5,Primary transcript modification: introns and exons,1.86,Nucleic acids and protein synthesis
+CAIE 6.2.6,Gene mutation: a change in base-pair sequence,1,Nucleic acids and protein synthesis
+CAIE 6.2.7,"Gene mutations by substitution, deletion and insertion",1.86,Nucleic acids and protein synthesis
+CAIE 7.1.1,"Plan diagrams of transverse sections of stems, roots and leaves",1.5,Transport in plants
+CAIE 7.1.2,"Distribution of xylem and phloem in stems, roots and leaves",1.3,Transport in plants
+CAIE 7.1.3,"Drawing xylem vessel elements, sieve tube elements and companion cells",1.5,Transport in plants
+CAIE 7.1.4,"Xylem, sieve tube and companion cell structure related to function",1.4,Transport in plants
+CAIE 7.2.1,Dissolved mineral ions and organic compounds transported in plants,1,Transport in plants
+CAIE 7.2.2,Water transport from soil to xylem: apoplast and symplast pathways,1.94,Transport in plants
+CAIE 7.2.3,Transpiration: evaporation and diffusion of water vapour,1.7,Transport in plants
+CAIE 7.2.4,"Cohesion-tension, adhesion and transpiration pull in the xylem",1.79,Transport in plants
+CAIE 7.2.5,Xerophytic leaves: annotated drawings and adaptations,1.4,Transport in plants
+CAIE 7.2.6,Assimilates moving from sources to sinks in phloem,1,Transport in plants
+CAIE 7.2.7,Companion cells loading assimilates: proton pumps and cotransporters,1.7,Transport in plants
+CAIE 7.2.8,Mass flow in phloem down a hydrostatic pressure gradient,1.7,Transport in plants
+CAIE 8.1.1,Mammalian circulatory system: closed double circulation,1.02,Transport in mammals
+CAIE 8.1.2,Main blood vessels of the pulmonary and systemic circulations,1.3,Transport in mammals
+CAIE 8.1.3,"Recognising arteries, veins and capillaries; plan diagrams",1.23,Transport in mammals
+CAIE 8.1.4,"Structure of arteries, veins and capillaries related to function",1.7,Transport in mammals
+CAIE 8.1.5,"Recognising and drawing red blood cells, monocytes, neutrophils, lymphocytes",1.1,Transport in mammals
+CAIE 8.1.6,Water as the main component of blood and tissue fluid,1.2,Transport in mammals
+CAIE 8.1.7,Functions and formation of tissue fluid,1,Transport in mammals
+CAIE 8.2.1,Red blood cells transporting oxygen and carbon dioxide,2.4,Transport in mammals
+CAIE 8.2.2,The chloride shift and its importance,1.3,Transport in mammals
+CAIE 8.2.3,Role of plasma in carbon dioxide transport,1.3,Transport in mammals
+CAIE 8.2.4,Oxygen dissociation curve of adult haemoglobin,1.3,Transport in mammals
+CAIE 8.2.5,Importance of the oxygen dissociation curve in lungs and respiring tissues,1.7,Transport in mammals
+CAIE 8.2.6,The Bohr shift and its importance,1.3,Transport in mammals
+CAIE 8.3.1,External and internal structure of the mammalian heart,1.3,Transport in mammals
+CAIE 8.3.2,Differences in thickness of heart walls,2.14,Transport in mammals
+CAIE 8.3.3,"Cardiac cycle: pressure changes, systole, diastole and valves",1.3,Transport in mammals
+CAIE 8.3.4,"Sinoatrial node, atrioventricular node and Purkyne tissue",1.74,Transport in mammals
+CAIE 9.1.1,Structure of the human gas exchange system,2.62,Gas exchange
+CAIE 9.1.2,"Distribution of cartilage, epithelia, goblet cells, muscle and capillaries",1.3,Gas exchange
+CAIE 9.1.3,Recognising gas exchange tissues in slides and micrographs,1.1,Gas exchange
+CAIE 9.1.4,"Recognising trachea, bronchi, bronchioles, alveoli; plan diagrams",1.17,Gas exchange
+CAIE 9.1.5,"Ciliated epithelial cells, goblet cells and mucous glands",1.3,Gas exchange
+CAIE 9.1.6,"Functions of cartilage, smooth muscle, elastic fibres and squamous epithelium",1.3,Gas exchange
+CAIE 9.1.7,Gas exchange between alveolar air and capillary blood,1.3,Gas exchange
+CAIE 10.1.1,Infectious diseases: pathogens and transmissibility,1,Infectious diseases
+CAIE 10.1.2,"Pathogens causing cholera, malaria, tuberculosis and HIV/AIDS",2.7,Infectious diseases
+CAIE 10.1.3,"Transmission of cholera, malaria, TB and HIV",1.7,Infectious diseases
+CAIE 10.1.4,"Preventing and controlling cholera, malaria, TB and HIV",2.12,Infectious diseases
+CAIE 10.2.1,How penicillin acts and why antibiotics do not affect viruses,1.4,Infectious diseases
+CAIE 10.2.2,Consequences of antibiotic resistance and steps to reduce its impact,1.9,Infectious diseases
+CAIE 11.1.1,Mode of action of phagocytes,1.3,Immunity
+CAIE 11.1.2,Antigens: self and non-self,1.7,Immunity
+CAIE 11.1.3,"Primary immune response: macrophages, B-lymphocytes and T-lymphocytes",2.16,Immunity
+CAIE 11.1.4,Memory cells in secondary response and long-term immunity,1.7,Immunity
+CAIE 11.2.1,Antibody structure related to function,1.4,Immunity
+CAIE 11.2.2,Hybridoma method for monoclonal antibody production,1.4,Immunity
+CAIE 11.2.3,Monoclonal antibodies in diagnosis and treatment of disease,1.4,Immunity
+CAIE 11.2.4,"Active, passive, natural and artificial immunity",1.3,Immunity
+CAIE 11.2.5,Vaccines: antigens that stimulate long-term immunity,1.7,Immunity
+CAIE 11.2.6,Vaccination programmes and control of infectious disease spread,1.7,Immunity
+CAIE 12.1.1,The need for energy in living organisms,1.44,Energy and respiration (A Level)
+CAIE 12.1.2,Features of ATP as the universal energy currency,1.3,Energy and respiration (A Level)
+CAIE 12.1.3,ATP synthesis: substrate-linked reactions and chemiosmosis,1.44,Energy and respiration (A Level)
+CAIE 12.1.4,Relative energy values of respiratory substrates,1.7,Energy and respiration (A Level)
+CAIE 12.1.5,Respiratory quotient (RQ) as a ratio of carbon dioxide to oxygen,1.16,Energy and respiration (A Level)
+CAIE 12.1.6,Calculating RQ values from respiration equations,1.8,Energy and respiration (A Level)
+CAIE 12.1.7,Investigating RQ with simple respirometers,1.3,Energy and respiration (A Level)
+CAIE 12.2.1,Sites of the four stages of aerobic respiration,2.26,Energy and respiration (A Level)
+CAIE 12.2.2,"Glycolysis: phosphorylation, splitting and oxidation to pyruvate",1.64,Energy and respiration (A Level)
+CAIE 12.2.3,Pyruvate entering mitochondria for the link reaction,1.7,Energy and respiration (A Level)
+CAIE 12.2.4,The link reaction and coenzyme A,1.3,Energy and respiration (A Level)
+CAIE 12.2.5,"The Krebs cycle: oxaloacetate, acetyl coenzyme A and citrate",1.64,Energy and respiration (A Level)
+CAIE 12.2.6,"Decarboxylation, dehydrogenation and coenzyme reduction in the Krebs cycle",1.7,Energy and respiration (A Level)
+CAIE 12.2.7,NAD and FAD transferring hydrogen to carriers,1.3,Energy and respiration (A Level)
+CAIE 12.2.8,Oxidative phosphorylation: electron transport and ATP synthase,4.09,Energy and respiration (A Level)
+CAIE 12.2.9,Mitochondrial structure related to function,1.3,Energy and respiration (A Level)
+CAIE 12.2.10,Anaerobic respiration: lactate and ethanol fermentation,1.4,Energy and respiration (A Level)
+CAIE 12.2.11,Why aerobic respiration yields more energy than anaerobic,2.03,Energy and respiration (A Level)
+CAIE 12.2.12,Rice adaptations for roots submerged in water,1.81,Energy and respiration (A Level)
+CAIE 12.2.13,Redox indicators and the rate of respiration of yeast,1.39,Energy and respiration (A Level)
+CAIE 12.2.14,Respirometers and the effect of temperature on respiration,1.3,Energy and respiration (A Level)
+CAIE 13.1.1,Chloroplast structure related to function,1.3,Photosynthesis (A Level)
+CAIE 13.1.2,ATP and reduced NADP: from light-dependent to light-independent stage,1.77,Photosynthesis (A Level)
+CAIE 13.1.3,"Thylakoids, grana and stroma: sites of the two stages",1.22,Photosynthesis (A Level)
+CAIE 13.1.4,Chloroplast pigments and light absorption in thylakoids,1.3,Photosynthesis (A Level)
+CAIE 13.1.5,Absorption spectra and action spectra,1.6,Photosynthesis (A Level)
+CAIE 13.1.6,Chromatography of chloroplast pigments and Rf values,1.3,Photosynthesis (A Level)
+CAIE 13.1.7,Cyclic and non-cyclic photophosphorylation,1,Photosynthesis (A Level)
+CAIE 13.1.8,Cyclic photophosphorylation: photosystem I only,2.36,Photosynthesis (A Level)
+CAIE 13.1.9,"Non-cyclic photophosphorylation: PSI, PSII, photolysis of water",2.85,Photosynthesis (A Level)
+CAIE 13.1.10,Photophosphorylation: electron transport chain and ATP synthase,3.23,Photosynthesis (A Level)
+CAIE 13.1.11,Three main stages of the Calvin cycle,2.97,Photosynthesis (A Level)
+CAIE 13.1.12,Calvin cycle intermediates used to make other molecules,1.07,Photosynthesis (A Level)
+CAIE 13.2.1,Limiting factors of photosynthesis,1,Photosynthesis (A Level)
+CAIE 13.2.2,"Effects of light intensity, carbon dioxide and temperature on photosynthesis",1.7,Photosynthesis (A Level)
+CAIE 13.2.3,Redox indicators and chloroplast suspensions: light intensity and wavelength,1.48,Photosynthesis (A Level)
+CAIE 13.2.4,"Whole plant investigations of limiting factors, including aquatic plants",1.37,Photosynthesis (A Level)
+CAIE 14.1.1,Meaning and importance of homeostasis in mammals,1.7,Homeostasis (A Level)
+CAIE 14.1.2,"Principles of homeostasis: stimuli, receptors, effectors, negative feedback",1.74,Homeostasis (A Level)
+CAIE 14.1.3,Urea production in the liver by deamination,1,Homeostasis (A Level)
+CAIE 14.1.4,Structure of the human kidney,2.73,Homeostasis (A Level)
+CAIE 14.1.5,Identifying the parts of a nephron in images,2.88,Homeostasis (A Level)
+CAIE 14.1.6,Urine formation: ultrafiltration and selective reabsorption,1.9,Homeostasis (A Level)
+CAIE 14.1.7,Bowman’s capsule and proximal convoluted tubule: structure and function,1.4,Homeostasis (A Level)
+CAIE 14.1.8,"Osmoregulation: hypothalamus, ADH, aquaporins and collecting ducts",1.3,Homeostasis (A Level)
+CAIE 14.1.9,Cell signalling: control of blood glucose by glucagon,4.22,Homeostasis (A Level)
+CAIE 14.1.10,Negative feedback control of blood glucose by insulin and glucagon,1.83,Homeostasis (A Level)
+CAIE 14.1.11,Test strips and biosensors for glucose: glucose oxidase and peroxidase,1.77,Homeostasis (A Level)
+CAIE 14.2.1,Stomatal responses: carbon dioxide uptake versus water loss,1.97,Homeostasis (A Level)
+CAIE 14.2.2,Daily rhythms of stomatal opening and closing,1.7,Homeostasis (A Level)
+CAIE 14.2.3,Guard cell structure and the mechanism of stomatal opening and closing,1.3,Homeostasis (A Level)
+CAIE 14.2.4,Abscisic acid and calcium ions in stomatal closure under water stress,1.32,Homeostasis (A Level)
+CAIE 15.1.1,"Endocrine system features: ADH, glucagon and insulin",1.3,Control and coordination (A Level)
+CAIE 15.1.2,Comparing the nervous system and the endocrine system,1.8,Control and coordination (A Level)
+CAIE 15.1.3,"Sensory, motor and intermediate neurones",1.3,Control and coordination (A Level)
+CAIE 15.1.4,Sensory receptor cells detecting stimuli and triggering impulses,1.4,Control and coordination (A Level)
+CAIE 15.1.5,Action potential in a sensory neurone: human taste bud chemoreceptor,1.34,Control and coordination (A Level)
+CAIE 15.1.6,"Resting potential, action potential and refractory period",2.25,Control and coordination (A Level)
+CAIE 15.1.7,Saltatory conduction in myelinated neurones,1.3,Control and coordination (A Level)
+CAIE 15.1.8,Refractory period and the frequency of impulses,1.7,Control and coordination (A Level)
+CAIE 15.1.9,Cholinergic synapse structure and function,1.3,Control and coordination (A Level)
+CAIE 15.1.10,"Neuromuscular junctions, T-tubule system and sarcoplasmic reticulum",1.3,Control and coordination (A Level)
+CAIE 15.1.11,Ultrastructure of striated muscle and sarcomere structure,1.3,Control and coordination (A Level)
+CAIE 15.1.12,Sliding filament model of muscular contraction,1.7,Control and coordination (A Level)
+CAIE 15.2.1,Rapid closure of the Venus fly trap,1.39,Control and coordination (A Level)
+CAIE 15.2.2,"Auxin, proton pumping and elongation growth",1.7,Control and coordination (A Level)
+CAIE 15.2.3,Gibberellin in the germination of barley,1.3,Control and coordination (A Level)
+CAIE 16.1.1,Haploid (n) and diploid (2n),1.7,Inheritance (A Level)
+CAIE 16.1.2,Homologous pairs of chromosomes,1.7,Inheritance (A Level)
+CAIE 16.1.3,The need for reduction division in meiosis,1.7,Inheritance (A Level)
+CAIE 16.1.4,Chromosome behaviour during meiosis and its main stages,2.08,Inheritance (A Level)
+CAIE 16.1.5,Identifying stages of meiosis from images,1.6,Inheritance (A Level)
+CAIE 16.1.6,Crossing over and random orientation in meiosis,1.7,Inheritance (A Level)
+CAIE 16.1.7,Random fusion of gametes at fertilisation,1.7,Inheritance (A Level)
+CAIE 16.2.1,"Genetic terms: gene, locus, allele, genotype and phenotype",1.7,Inheritance (A Level)
+CAIE 16.2.2,Genetic diagrams for monohybrid and dihybrid crosses,1.69,Inheritance (A Level)
+CAIE 16.2.3,Genetic diagrams for dihybrid crosses with autosomal linkage and epistasis,1.84,Inheritance (A Level)
+CAIE 16.2.4,Genetic diagrams for test crosses,1.6,Inheritance (A Level)
+CAIE 16.2.5,Chi-squared test for observed and expected results,1.61,Inheritance (A Level)
+CAIE 16.2.6,"Genes, proteins and phenotype: TYR, HBB, F8 and HTT",2.91,Inheritance (A Level)
+CAIE 16.2.7,Gibberellin and stem elongation: alleles Le and le,1.99,Inheritance (A Level)
+CAIE 16.3.1,Structural and regulatory genes; repressible and inducible enzymes,1.3,Inheritance (A Level)
+CAIE 16.3.2,Genetic control in a prokaryote: the lac operon,1.7,Inheritance (A Level)
+CAIE 16.3.3,Transcription factors and gene expression in eukaryotes,1.09,Inheritance (A Level)
+CAIE 16.3.4,"Gibberellin, DELLA protein repressors and gene activation",1.7,Inheritance (A Level)
+CAIE 17.1.1,Phenotypic variation: genetic and environmental factors,1.7,Selection and evolution (A Level)
+CAIE 17.1.2,Discontinuous and continuous variation,1.7,Selection and evolution (A Level)
+CAIE 17.1.3,Genetic basis of discontinuous and continuous variation,1.7,Selection and evolution (A Level)
+CAIE 17.1.4,The t-test to compare means of two samples,1.5,Selection and evolution (A Level)
+CAIE 17.2.1,Natural selection and the ‘struggle for existence’,2.12,Selection and evolution (A Level)
+CAIE 17.2.2,"Stabilising, disruptive and directional selection",1.7,Selection and evolution (A Level)
+CAIE 17.2.3,"Selection, founder effect and genetic drift: allele frequencies",1.7,Selection and evolution (A Level)
+CAIE 17.2.4,Antibiotic resistance in bacteria as natural selection,1.4,Selection and evolution (A Level)
+CAIE 17.2.5,Hardy–Weinberg principle: allele and genotype frequencies,1.79,Selection and evolution (A Level)
+CAIE 17.2.6,Principles of selective breeding (artificial selection),1.3,Selection and evolution (A Level)
+CAIE 17.2.7,"Selective breeding examples: wheat, rice, maize and dairy cattle",2.35,Selection and evolution (A Level)
+CAIE 17.3.1,Theory of evolution and the formation of new species,1.56,Selection and evolution (A Level)
+CAIE 17.3.2,DNA sequence data and evolutionary relationships,1.9,Selection and evolution (A Level)
+CAIE 17.3.3,Speciation by genetic isolation: allopatric and sympatric,2.14,Selection and evolution (A Level)
+CAIE 18.1.1,"Species concepts: biological, morphological and ecological",1.9,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.1.2,"Three domains: Archaea, Bacteria and Eukarya",1.3,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.1.3,Differences between Archaea and Bacteria,1.04,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.1.4,Taxonomic hierarchy of the Eukarya domain,1.3,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.1.5,"Features of Protoctista, Fungi, Plantae and Animalia",1.4,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.1.6,Classification of viruses by nucleic acid type,1.4,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.2.1,Ecosystem and niche defined,1.4,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.2.2,Biodiversity assessed at different levels,2.6,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.2.3,Importance of random sampling in measuring biodiversity,1.7,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.2.4,"Quadrats, transects and mark-release-recapture (Lincoln index)",1.74,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.2.5,Spearman’s rank and Pearson’s linear correlation,1.88,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.2.6,Simpson’s index of diversity (D),1.79,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.3.1,"Causes of extinction: climate change, competition, hunting, habitat loss",2.62,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.3.2,Reasons for maintaining biodiversity,1.4,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.3.3,"Conservation roles of zoos, botanic gardens, protected areas and seed banks",1.42,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.3.4,"Assisted reproduction in conservation: IVF, embryo transfer, surrogacy",1.3,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.3.5,Reasons for controlling invasive alien species,1.7,"Classification, biodiversity and conservation (A Level)"
+CAIE 18.3.6,Roles of the IUCN and CITES in conservation,1.49,"Classification, biodiversity and conservation (A Level)"
+CAIE 19.1.1,Recombinant DNA defined,1.4,Genetic technology (A Level)
+CAIE 19.1.2,Genetic engineering as deliberate manipulation of genetic material,1.92,Genetic technology (A Level)
+CAIE 19.1.3,Sources of genes for transfer into an organism,2.56,Genetic technology (A Level)
+CAIE 19.1.4,Enzymes and plasmids in transferring a gene into an organism,1.7,Genetic technology (A Level)
+CAIE 19.1.5,Why a promoter must be transferred with the desired gene,1.7,Genetic technology (A Level)
+CAIE 19.1.6,Marker genes coding for fluorescent products,1.7,Genetic technology (A Level)
+CAIE 19.1.7,Gene editing as a form of genetic engineering,1.7,Genetic technology (A Level)
+CAIE 19.1.8,Polymerase chain reaction (PCR) and Taq polymerase,1.3,Genetic technology (A Level)
+CAIE 19.1.9,Gel electrophoresis to separate DNA fragments,1.3,Genetic technology (A Level)
+CAIE 19.1.10,Microarrays in genome analysis and gene expression studies,1.4,Genetic technology (A Level)
+CAIE 19.1.11,Benefits of databases of nucleotide and amino acid sequences,1.4,Genetic technology (A Level)
+CAIE 19.2.1,"Recombinant human proteins: insulin, factor VIII, adenosine deaminase",1.7,Genetic technology (A Level)
+CAIE 19.2.2,"Genetic screening: BRCA1, BRCA2, Huntington’s disease, cystic fibrosis",1.4,Genetic technology (A Level)
+CAIE 19.2.3,Gene therapy for SCID and inherited eye diseases,1.4,Genetic technology (A Level)
+CAIE 19.2.4,Social and ethical considerations of genetic screening and gene therapy,1.9,Genetic technology (A Level)
+CAIE 19.3.1,"Genetic engineering and global food demand: GM salmon, soybean, cotton",2.03,Genetic technology (A Level)
+CAIE 19.3.2,Ethical and social implications of GMOs in food production,1.9,Genetic technology (A Level)

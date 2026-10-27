@@ -358,6 +358,58 @@ describe("generated set validation", () => {
       "Question 2 repeats question 1",
     );
   });
+  test("a key or table that would read as a jumble is sent back, saying what to fix", () => {
+    const key = [
+      "A dichotomous key is shown below.",
+      "",
+      "1a Has legs - go to 2",
+      "1b No legs - earthworm",
+      "2a Six legs - go to 3",
+      "2b Eight legs - spider",
+      "3a Has wings - bee",
+      "3b No wings - ant",
+      "",
+      "An organism has six legs and no wings. Which organism is it?",
+    ].join("\n");
+    const animals = { ...genetics, question: key, options: ["bee", "ant", "spider", "earthworm"] };
+    expect(validateQuestions({ questions: [animals] }, 1, "mcq")).toHaveLength(1);
+    const runOn = { ...animals, question: key.replace(/\n+/g, " ") };
+    expect(() => validateQuestions({ questions: [runOn] }, 1, "mcq")).toThrow(
+      "Question 1 runs its key into one line",
+    );
+
+    const results = [
+      "substance | melting point in °C | conducts when solid?",
+      "W | 1085 | yes",
+      "X | 770 | no",
+    ].join("\n");
+    const sheet = {
+      ...written,
+      prompt: `The results are shown.\n\n${results}\n\nWhich is a metal?`,
+    };
+    expect(validateQuestions({ questions: [sheet] }, 1, "written")).toHaveLength(1);
+    const ragged = {
+      ...sheet,
+      prompt: sheet.prompt.replace("W | 1085 | yes", "W | 1085 | yes | 9"),
+    };
+    expect(() => validateQuestions({ questions: [ragged] }, 1, "written")).toThrow(
+      "Question 1 has a table that can't be drawn",
+    );
+
+    // "Which row…?": the headings end the question and each option is a row.
+    const rows = {
+      ...genetics,
+      question: "Which row describes a solid?\n\narrangement | separation | motion",
+      options: [
+        "regular | touching | vibrate",
+        "random | touching | vibrate",
+        "regular | far apart | vibrate",
+        "random | far apart | move freely",
+      ],
+      correct_index: 0,
+    };
+    expect(validateQuestions({ questions: [rows] }, 1, "mcq")).toHaveLength(1);
+  });
   test("the schema lists the only marks and answer keys a question can have", () => {
     const item = (format: "mcq" | "written") =>
       (

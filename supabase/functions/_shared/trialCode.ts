@@ -7,6 +7,18 @@
 /** Days of free access a trial code unlocks. */
 export const TRIAL_DAYS = 14;
 
+/**
+ * Until this moment a trial code starts without a card (Ali, 7 Oct 2026: this
+ * week only). After it, Checkout asks for a card again, with no deploy needed.
+ * Midnight at the end of Sunday 11 October, UK time.
+ */
+export const NO_CARD_TRIALS_UNTIL = Date.parse("2026-10-12T00:00:00+01:00");
+
+/** Whether a trial started now takes a card up front. */
+export function trialNeedsCard(now = Date.now()): boolean {
+  return now >= NO_CARD_TRIALS_UNTIL;
+}
+
 // No 0/O, 1/I/L: a code is read off a phone and typed on a laptop.
 const ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
 const SHAPE = /^AE-[A-Z2-9]{4}-[A-Z2-9]{4}$/;
