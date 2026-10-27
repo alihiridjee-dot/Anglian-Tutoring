@@ -149,8 +149,9 @@ assert.equal(ANTHROPIC.calls.length, 0, "A second run paid for another model cal
 
 // 6. The rules that stop wrong science earning a mark reach the model on every
 //    call: false as written scores nothing, a wrong general claim is never the
-//    converse, one idea is one mark, and comments name the error in the
-//    student's own words rather than quietly correcting it.
+//    converse, one idea is one mark, a unit the question already names is not
+//    needed, comments name the error in the student's own words rather than
+//    quietly correcting it, and the summary's count of lost marks is right.
 world();
 ANTHROPIC.reply = () => ({ questions: [mark(Q1, 2), mark(Q2, 0)], summary: "" });
 await call();
@@ -160,8 +161,10 @@ for (const [rule, pattern] of [
   ["no guessing what the student meant", /Do not guess what the student meant/],
   ["a wrong general claim is not the converse", /wrong general claim never earns the mark/],
   ["one idea, one mark", /One idea earns one mark/],
+  ["a unit the question names is not needed", /question itself names the unit of the answer/],
   ["comments name a false statement", /scientifically false, name it and say why it is wrong/],
   ["comments keep the student's words", /never a corrected version/],
+  ["the summary counts lost marks right", /must match the marks you awarded/],
 ] as const) {
   assert.match(system, pattern, `The marking prompt lost a rule: ${rule}`);
 }
