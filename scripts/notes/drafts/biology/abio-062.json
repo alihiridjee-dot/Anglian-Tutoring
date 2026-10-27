@@ -15,11 +15,26 @@
         {
           "type": "definitions",
           "items": [
-            { "term": "Population", "meaning": "All the organisms of one species living in the same place at the same time." },
-            { "term": "Community", "meaning": "All the populations of different species living in the same place at the same time." },
-            { "term": "Habitat", "meaning": "The place where a population lives, with its own conditions." },
-            { "term": "Ecosystem", "meaning": "A community and the non-living (abiotic) components of its environment, interacting together." },
-            { "term": "Niche", "meaning": "The role of a species in its ecosystem: how it fits in with its biotic and abiotic surroundings." }
+            {
+              "term": "Population",
+              "meaning": "All the organisms of one species living in the same place at the same time."
+            },
+            {
+              "term": "Community",
+              "meaning": "All the populations of different species living in the same place at the same time."
+            },
+            {
+              "term": "Habitat",
+              "meaning": "The place where a population lives, with its own conditions."
+            },
+            {
+              "term": "Ecosystem",
+              "meaning": "A community and the non-living (abiotic) components of its environment, interacting together."
+            },
+            {
+              "term": "Niche",
+              "meaning": "The role of a species in its ecosystem: how it fits in with its biotic and abiotic surroundings."
+            }
           ]
         },
         {
@@ -52,16 +67,43 @@
             "kind": "sort",
             "alt": "Sort factors into abiotic and biotic.",
             "prompt": "Sort each factor into the correct group.",
-            "groups": ["Abiotic factor", "Biotic factor"],
+            "groups": [
+              "Abiotic factor",
+              "Biotic factor"
+            ],
             "items": [
-              { "text": "Temperature", "group": 0 },
-              { "text": "Light intensity", "group": 0 },
-              { "text": "Soil pH", "group": 0 },
-              { "text": "Rainfall", "group": 0 },
-              { "text": "Predation", "group": 1 },
-              { "text": "Competition for food", "group": 1 },
-              { "text": "Disease", "group": 1 },
-              { "text": "Availability of prey", "group": 1 }
+              {
+                "text": "Temperature",
+                "group": 0
+              },
+              {
+                "text": "Light intensity",
+                "group": 0
+              },
+              {
+                "text": "Soil pH",
+                "group": 0
+              },
+              {
+                "text": "Rainfall",
+                "group": 0
+              },
+              {
+                "text": "Predation",
+                "group": 1
+              },
+              {
+                "text": "Competition for food",
+                "group": 1
+              },
+              {
+                "text": "Disease",
+                "group": 1
+              },
+              {
+                "text": "Availability of prey",
+                "group": 1
+              }
             ]
           }
         },
@@ -93,8 +135,14 @@
         {
           "type": "definitions",
           "items": [
-            { "term": "Carrying capacity", "meaning": "The maximum population size of a species that an environment can support." },
-            { "term": "Limiting factor", "meaning": "A factor in short supply that stops a population growing any larger." }
+            {
+              "term": "Carrying capacity",
+              "meaning": "The maximum population size of a species that an environment can support."
+            },
+            {
+              "term": "Limiting factor",
+              "meaning": "A factor in short supply that stops a population growing any larger."
+            }
           ]
         },
         {
@@ -200,7 +248,16 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": ["AQA 3.7.4"],
+      "spec_codes": [
+        "AQA 3.7.4a",
+        "AQA 3.7.4b",
+        "AQA 3.7.4c",
+        "AQA 3.7.4e",
+        "AQA 3.7.4f",
+        "AQA 3.7.4g",
+        "AQA 3.7.4h",
+        "AQA 3.7.4i"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -219,13 +276,25 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": ["EDEX 5.1", "EDEX 5.2", "EDEX 5.3", "EDEX 5.4"]
+      "spec_codes": [
+        "EDEX 5.1",
+        "EDEX 5.2",
+        "EDEX 5.3",
+        "EDEX 5.4"
+      ]
     },
     "cambridge_alevel": {
-      "spec_codes": ["CAIE 18.2.1"]
+      "spec_codes": [
+        "CAIE 18.2.1"
+      ]
     },
     "ocr_alevel": {
-      "spec_codes": ["OCR 6.3.1a", "OCR 6.3.1d", "OCR 6.3.2a", "OCR 6.3.2b"],
+      "spec_codes": [
+        "OCR 6.3.1a",
+        "OCR 6.3.1d",
+        "OCR 6.3.2a",
+        "OCR 6.3.2b"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -248,7 +317,6 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
     "spec_point_ids": [
-      "c566fbfb-86dd-4689-b4f5-7115e4ddbe84",
       "02d62cad-b45b-4117-a8d3-6ba5a17d809e",
       "f7fbb0cc-8dd5-43d7-a705-830394702bd5",
       "a8517b66-6649-4a4a-96bc-e58eb891ceff",
@@ -257,7 +325,15 @@
       "7411624f-3a9d-4429-bec5-3d7b629c397a",
       "ed4b9e0d-7727-48cc-a995-d4fce1c91fe6",
       "15da01ce-67da-4730-b2b8-e55336f50b28",
-      "9f25cab2-b7c7-4bc8-81b4-5a2cf0accdec"
+      "9f25cab2-b7c7-4bc8-81b4-5a2cf0accdec",
+      "fa07afed-898e-432d-ba52-c284e03bf15a",
+      "4fc1dacc-86bc-4beb-8b73-f8d86b08ee10",
+      "23fd6d05-84a2-4054-a79c-056e06523c79",
+      "32866f6b-cde3-4a41-ae5d-fa3a239eab11",
+      "839c2f50-476c-4850-9647-54d213bd0b90",
+      "d08c9069-0fbe-478c-be7c-54e73d94178e",
+      "69d52053-47e8-4d33-aae7-e8ebeab40e9e",
+      "da94fbc6-8351-4fd2-b6cf-edd1c702805a"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",

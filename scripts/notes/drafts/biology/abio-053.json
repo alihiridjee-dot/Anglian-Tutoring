@@ -154,7 +154,9 @@
   "boards": {
     "aqa_alevel": {
       "spec_codes": [
-        "AQA 3.1.6"
+        "AQA 3.1.6a",
+        "AQA 3.1.6b",
+        "AQA 3.1.6c"
       ]
     },
     "edexcel_alevel": {
@@ -179,11 +181,13 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
     "spec_point_ids": [
-      "c228e71e-9614-4263-850b-f73e33ca8cbe",
       "cdace6a3-aed8-4f6a-ad73-db921ff8949b",
       "795be7a8-d9cd-4914-8c17-eac7bac279eb",
       "25a5f480-12db-4f1c-bdf3-aa276e16001b",
-      "cad67040-3099-4269-887d-c23686317586"
+      "cad67040-3099-4269-887d-c23686317586",
+      "65479a9f-ef18-4754-9355-c758335e5d7f",
+      "5a9255f0-cfb2-4f3b-8ecf-286ada8c2dc8",
+      "b02e261a-ed92-45e4-b1cb-8788dae44aed"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",

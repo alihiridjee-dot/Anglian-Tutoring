@@ -8,16 +8,31 @@
     {
       "heading": "Passive transport: diffusion",
       "blocks": [
-        { "type": "paragraph", "text": "Passive transport needs no ATP. Particles move down a concentration gradient because of their own kinetic energy." },
+        {
+          "type": "paragraph",
+          "text": "Passive transport needs no ATP. Particles move down a concentration gradient because of their own kinetic energy."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Diffusion", "meaning": "The net movement of particles from a region of higher concentration to a region of lower concentration, down a concentration gradient." },
-            { "term": "Simple diffusion", "meaning": "Diffusion directly through the phospholipid bilayer." },
-            { "term": "Facilitated diffusion", "meaning": "Diffusion through channel proteins or carrier proteins." }
+            {
+              "term": "Diffusion",
+              "meaning": "The net movement of particles from a region of higher concentration to a region of lower concentration, down a concentration gradient."
+            },
+            {
+              "term": "Simple diffusion",
+              "meaning": "Diffusion directly through the phospholipid bilayer."
+            },
+            {
+              "term": "Facilitated diffusion",
+              "meaning": "Diffusion through channel proteins or carrier proteins."
+            }
           ]
         },
-        { "type": "subheading", "text": "Simple diffusion" },
+        {
+          "type": "subheading",
+          "text": "Simple diffusion"
+        },
         {
           "type": "list",
           "items": [
@@ -26,7 +41,10 @@
             "Water is small enough to cross slowly between the phospholipids."
           ]
         },
-        { "type": "subheading", "text": "Facilitated diffusion" },
+        {
+          "type": "subheading",
+          "text": "Facilitated diffusion"
+        },
         {
           "type": "list",
           "items": [
@@ -49,16 +67,37 @@
     {
       "heading": "What affects the rate of transport",
       "blocks": [
-        { "type": "paragraph", "text": "Several factors change how fast substances cross a membrane." },
+        {
+          "type": "paragraph",
+          "text": "Several factors change how fast substances cross a membrane."
+        },
         {
           "type": "table",
-          "columns": ["Factor", "Effect on rate"],
+          "columns": [
+            "Factor",
+            "Effect on rate"
+          ],
           "rows": [
-            ["Steeper concentration gradient", "Faster diffusion. A bigger difference gives a greater net movement."],
-            ["Larger surface area of membrane", "Faster. More membrane means more room for particles to cross."],
-            ["Thinner exchange surface", "Faster, because the diffusion distance is shorter."],
-            ["More channel or carrier proteins", "Faster facilitated diffusion, up to the point where all are in use."],
-            ["Higher temperature", "Faster, because particles have more kinetic energy."]
+            [
+              "Steeper concentration gradient",
+              "Faster diffusion. A bigger difference gives a greater net movement."
+            ],
+            [
+              "Larger surface area of membrane",
+              "Faster. More membrane means more room for particles to cross."
+            ],
+            [
+              "Thinner exchange surface",
+              "Faster, because the diffusion distance is shorter."
+            ],
+            [
+              "More channel or carrier proteins",
+              "Faster facilitated diffusion, up to the point where all are in use."
+            ],
+            [
+              "Higher temperature",
+              "Faster, because particles have more kinetic energy."
+            ]
           ]
         },
         {
@@ -78,7 +117,10 @@
     {
       "heading": "Active transport and co-transport",
       "blocks": [
-        { "type": "paragraph", "text": "Active transport moves substances against their concentration gradient. It needs energy from ATP." },
+        {
+          "type": "paragraph",
+          "text": "Active transport moves substances against their concentration gradient. It needs energy from ATP."
+        },
         {
           "type": "list",
           "items": [
@@ -89,7 +131,10 @@
             "Rate depends on how many carriers there are and how much ATP is available. Respiration inhibitors stop it."
           ]
         },
-        { "type": "subheading", "text": "Co-transport" },
+        {
+          "type": "subheading",
+          "text": "Co-transport"
+        },
         {
           "type": "paragraph",
           "text": "Co-transport moves two substances at once using one carrier protein. The absorption of glucose in the ileum is the standard example."
@@ -97,10 +142,22 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Sodium out.", "text": "Active transport removes sodium ions from the epithelial cell into the blood. This keeps sodium concentration inside the cell low." },
-            { "lead": "Sodium in.", "text": "Sodium ions diffuse from the gut lumen into the cell down a gradient, through a co-transporter protein." },
-            { "lead": "Glucose with it.", "text": "The same protein carries glucose in, against its gradient. The glucose is carried along with the sodium ions." },
-            { "lead": "Glucose out.", "text": "Glucose then diffuses into the blood through a different protein, by facilitated diffusion." }
+            {
+              "lead": "Sodium out.",
+              "text": "Active transport removes sodium ions from the epithelial cell into the blood. This keeps sodium concentration inside the cell low."
+            },
+            {
+              "lead": "Sodium in.",
+              "text": "Sodium ions diffuse from the gut lumen into the cell down a gradient, through a co-transporter protein."
+            },
+            {
+              "lead": "Glucose with it.",
+              "text": "The same protein carries glucose in, against its gradient. The glucose is carried along with the sodium ions."
+            },
+            {
+              "lead": "Glucose out.",
+              "text": "Glucose then diffuses into the blood through a different protein, by facilitated diffusion."
+            }
           ]
         },
         {
@@ -116,12 +173,21 @@
     {
       "heading": "Bulk transport",
       "blocks": [
-        { "type": "paragraph", "text": "Large molecules and whole cells move in or out of cells in vesicles. This also needs ATP." },
+        {
+          "type": "paragraph",
+          "text": "Large molecules and whole cells move in or out of cells in vesicles. This also needs ATP."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Endocytosis", "meaning": "Bulk transport into a cell. The membrane folds in around the material and pinches off as a vesicle." },
-            { "term": "Exocytosis", "meaning": "Bulk transport out of a cell. A vesicle fuses with the cell-surface membrane and releases its contents." }
+            {
+              "term": "Endocytosis",
+              "meaning": "Bulk transport into a cell. The membrane folds in around the material and pinches off as a vesicle."
+            },
+            {
+              "term": "Exocytosis",
+              "meaning": "Bulk transport out of a cell. A vesicle fuses with the cell-surface membrane and releases its contents."
+            }
           ]
         },
         {
@@ -139,16 +205,43 @@
             "kind": "sort",
             "alt": "Sorting transport processes by whether they use ATP",
             "prompt": "Sort each process or feature into the right group.",
-            "groups": ["Passive: no ATP", "Active: needs ATP"],
+            "groups": [
+              "Passive: no ATP",
+              "Active: needs ATP"
+            ],
             "items": [
-              { "text": "Simple diffusion of oxygen", "group": 0 },
-              { "text": "Facilitated diffusion through a channel protein", "group": 0 },
-              { "text": "Movement down a concentration gradient", "group": 0 },
-              { "text": "Facilitated diffusion through a carrier protein", "group": 0 },
-              { "text": "Active transport by a carrier protein", "group": 1 },
-              { "text": "Endocytosis", "group": 1 },
-              { "text": "Exocytosis", "group": 1 },
-              { "text": "Movement against a concentration gradient", "group": 1 }
+              {
+                "text": "Simple diffusion of oxygen",
+                "group": 0
+              },
+              {
+                "text": "Facilitated diffusion through a channel protein",
+                "group": 0
+              },
+              {
+                "text": "Movement down a concentration gradient",
+                "group": 0
+              },
+              {
+                "text": "Facilitated diffusion through a carrier protein",
+                "group": 0
+              },
+              {
+                "text": "Active transport by a carrier protein",
+                "group": 1
+              },
+              {
+                "text": "Endocytosis",
+                "group": 1
+              },
+              {
+                "text": "Exocytosis",
+                "group": 1
+              },
+              {
+                "text": "Movement against a concentration gradient",
+                "group": 1
+              }
             ]
           }
         },
@@ -165,7 +258,10 @@
     {
       "heading": "Investigating diffusion in model cells",
       "blocks": [
-        { "type": "paragraph", "text": "Model cells show how size and conditions change the rate of diffusion." },
+        {
+          "type": "paragraph",
+          "text": "Model cells show how size and conditions change the rate of diffusion."
+        },
         {
           "type": "list",
           "items": [
@@ -201,7 +297,10 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": ["AQA 3.2.3"],
+      "spec_codes": [
+        "AQA 3.2.3c",
+        "AQA 3.2.3d"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -220,7 +319,9 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": ["EDEX 2.4"],
+      "spec_codes": [
+        "EDEX 2.4"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -238,7 +339,9 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": ["CAIE 4.2.1"],
+      "spec_codes": [
+        "CAIE 4.2.1"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -255,7 +358,9 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": ["OCR 2.1.5d"],
+      "spec_codes": [
+        "OCR 2.1.5d"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -280,10 +385,11 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
     "spec_point_ids": [
-      "77c103ea-4f7e-4bae-b5ba-2631d8d0e7e3",
       "0c61aa4b-1e96-4f70-b146-4dd0ae79a5b7",
       "25dcae69-c3f0-4396-99c3-12608ccd349c",
-      "ee1e64b5-bd56-4818-8c5c-e69055124c43"
+      "ee1e64b5-bd56-4818-8c5c-e69055124c43",
+      "b6378a49-db3e-40cf-9ade-081c37f574f5",
+      "6e73e801-bc9b-474a-8ff2-56a23fe82142"
     ],
     "exemplar_ids": []
   }

@@ -284,7 +284,8 @@
   "boards": {
     "aqa_alevel": {
       "spec_codes": [
-        "AQA 3.6.1.1"
+        "AQA 3.6.1.1b",
+        "AQA 3.6.1.1c"
       ],
       "extra": [
         {
@@ -437,7 +438,9 @@
       "65ef585d-730f-4af7-b407-216c8e1ba1cf",
       "4b8432f7-2509-446b-8ea5-ed8db571da66",
       "5fd6b376-33d0-436f-9820-da95b3083655",
-      "1eb414a6-5335-4418-944d-2b609164a4ab"
+      "1eb414a6-5335-4418-944d-2b609164a4ab",
+      "5a7dfcb4-2753-4093-b1f3-00c341f54162",
+      "8ce2a4e7-78f7-46ee-8a5c-e9bdf98044db"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",

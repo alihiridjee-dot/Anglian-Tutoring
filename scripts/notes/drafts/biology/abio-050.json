@@ -164,7 +164,8 @@
           "items": [
             "Archaea and Bacteria differ in the lipids in their cell membranes, in their ribosomal RNA and in their cell walls.",
             "Bacterial cell walls contain peptidoglycan. Archaeal cell walls do not contain peptidoglycan.",
-            "Archaeal membrane lipids have ether bonds and branched chains. Bacterial lipids have ester bonds and unbranched chains.","Archaeal ribosomal RNA is more similar to that of eukaryotes than to that of bacteria.",
+            "Archaeal membrane lipids have ether bonds and branched chains. Bacterial lipids have ester bonds and unbranched chains.",
+            "Archaeal ribosomal RNA is more similar to that of eukaryotes than to that of bacteria.",
             "The five-kingdom system has one kingdom (Prokaryotae) for all prokaryotes. The three-domain system splits them into two."
           ]
         },
@@ -226,7 +227,10 @@
   "boards": {
     "aqa_alevel": {
       "spec_codes": [
-        "AQA 3.4.5"
+        "AQA 3.4.5a",
+        "AQA 3.4.5b",
+        "AQA 3.4.5c",
+        "AQA 3.4.5d"
       ],
       "extra": [
         {
@@ -323,7 +327,6 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
     "spec_point_ids": [
-      "0bfcfb04-39aa-4ab0-901b-a96914d9f041",
       "9cbb0f1d-e42b-40a7-8099-d6bb7e0fe68d",
       "cb937d32-bd07-4f6a-8a5c-155c9687d2a0",
       "62251fcc-bb5e-4edd-b8df-dd71b3a9b22e",
@@ -335,7 +338,11 @@
       "5bd904b9-ba89-443c-a8ad-c123524d7185",
       "b46839eb-293f-4f4d-8e33-ab2de479fa5b",
       "52e08163-832b-4049-bda1-cbe54fb9fb02",
-      "93255893-a988-4454-8183-e1c146a1f2d6"
+      "93255893-a988-4454-8183-e1c146a1f2d6",
+      "01891792-15b9-4ab6-b8aa-f30b13fb9f68",
+      "3311117d-5ba6-4cdc-a40e-4f15c1796592",
+      "aa9341e3-922f-40e1-a5dc-5ff58094fa02",
+      "aed8ac62-271b-4cde-a62c-28bd8467b208"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",

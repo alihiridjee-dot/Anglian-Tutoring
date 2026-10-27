@@ -8,14 +8,29 @@
     {
       "heading": "The fluid mosaic model",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers how a membrane is built and why the bilayer forms." },
+        {
+          "type": "paragraph",
+          "text": "This section covers how a membrane is built and why the bilayer forms."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Phospholipid", "meaning": "A lipid with a hydrophilic phosphate head and two hydrophobic fatty acid tails." },
-            { "term": "Hydrophilic", "meaning": "Attracted to water." },
-            { "term": "Hydrophobic", "meaning": "Repelled by water." },
-            { "term": "Fluid mosaic model", "meaning": "A membrane is a fluid bilayer of phospholipids with a mosaic of proteins that can move within it." }
+            {
+              "term": "Phospholipid",
+              "meaning": "A lipid with a hydrophilic phosphate head and two hydrophobic fatty acid tails."
+            },
+            {
+              "term": "Hydrophilic",
+              "meaning": "Attracted to water."
+            },
+            {
+              "term": "Hydrophobic",
+              "meaning": "Repelled by water."
+            },
+            {
+              "term": "Fluid mosaic model",
+              "meaning": "A membrane is a fluid bilayer of phospholipids with a mosaic of proteins that can move within it."
+            }
           ]
         },
         {
@@ -49,17 +64,48 @@
     {
       "heading": "Components and what they do",
       "blocks": [
-        { "type": "paragraph", "text": "Each component has an arrangement and a job. Together they control stability, fluidity, permeability, transport, signalling and recognition." },
+        {
+          "type": "paragraph",
+          "text": "Each component has an arrangement and a job. Together they control stability, fluidity, permeability, transport, signalling and recognition."
+        },
         {
           "type": "table",
-          "columns": ["Component", "Arrangement", "Role"],
+          "columns": [
+            "Component",
+            "Arrangement",
+            "Role"
+          ],
           "rows": [
-            ["Phospholipids", "Form the bilayer, with tails inwards", "Make the barrier. Their tails stop water-soluble substances and ions crossing freely. They allow fluidity."],
-            ["Cholesterol", "Sits between phospholipid tails", "Packs the tails together. It stabilises the membrane, reduces fluidity and reduces permeability to small ions."],
-            ["Channel proteins", "Span the bilayer, forming a water-filled pore", "Let specific ions and polar molecules diffuse across."],
-            ["Carrier proteins", "Span the bilayer and change shape", "Move specific molecules across, by facilitated diffusion or active transport."],
-            ["Glycoproteins", "Proteins with a carbohydrate chain, on the outer surface", "Act as receptors for signals. They act as antigens for cell recognition."],
-            ["Glycolipids", "Lipids with a carbohydrate chain, on the outer surface", "Act as receptors and antigens. They help cells stick together."]
+            [
+              "Phospholipids",
+              "Form the bilayer, with tails inwards",
+              "Make the barrier. Their tails stop water-soluble substances and ions crossing freely. They allow fluidity."
+            ],
+            [
+              "Cholesterol",
+              "Sits between phospholipid tails",
+              "Packs the tails together. It stabilises the membrane, reduces fluidity and reduces permeability to small ions."
+            ],
+            [
+              "Channel proteins",
+              "Span the bilayer, forming a water-filled pore",
+              "Let specific ions and polar molecules diffuse across."
+            ],
+            [
+              "Carrier proteins",
+              "Span the bilayer and change shape",
+              "Move specific molecules across, by facilitated diffusion or active transport."
+            ],
+            [
+              "Glycoproteins",
+              "Proteins with a carbohydrate chain, on the outer surface",
+              "Act as receptors for signals. They act as antigens for cell recognition."
+            ],
+            [
+              "Glycolipids",
+              "Lipids with a carbohydrate chain, on the outer surface",
+              "Act as receptors and antigens. They help cells stick together."
+            ]
           ]
         },
         {
@@ -69,16 +115,37 @@
             "alt": "Parts of a cell surface membrane, each with its job",
             "prompt": "Tap a part of the membrane to see what it does.",
             "parts": [
-              { "name": "Phospholipid bilayer", "detail": "Hydrophilic heads face the water and hydrophobic tails face inwards. It forms the barrier to water-soluble substances." },
-              { "name": "Cholesterol", "detail": "Sits between the tails. It makes the membrane more stable and less fluid." },
-              { "name": "Channel protein", "detail": "A water-filled pore that lets specific ions and polar molecules diffuse through." },
-              { "name": "Carrier protein", "detail": "Changes shape to move a specific molecule across. It is used in facilitated diffusion and active transport." },
-              { "name": "Glycoprotein", "detail": "A protein with a carbohydrate chain on the outer surface. It acts as a receptor or an antigen." },
-              { "name": "Glycolipid", "detail": "A lipid with a carbohydrate chain on the outer surface. It acts as a receptor or an antigen." }
+              {
+                "name": "Phospholipid bilayer",
+                "detail": "Hydrophilic heads face the water and hydrophobic tails face inwards. It forms the barrier to water-soluble substances."
+              },
+              {
+                "name": "Cholesterol",
+                "detail": "Sits between the tails. It makes the membrane more stable and less fluid."
+              },
+              {
+                "name": "Channel protein",
+                "detail": "A water-filled pore that lets specific ions and polar molecules diffuse through."
+              },
+              {
+                "name": "Carrier protein",
+                "detail": "Changes shape to move a specific molecule across. It is used in facilitated diffusion and active transport."
+              },
+              {
+                "name": "Glycoprotein",
+                "detail": "A protein with a carbohydrate chain on the outer surface. It acts as a receptor or an antigen."
+              },
+              {
+                "name": "Glycolipid",
+                "detail": "A lipid with a carbohydrate chain on the outer surface. It acts as a receptor or an antigen."
+              }
             ]
           }
         },
-        { "type": "paragraph", "text": "Cell surface receptors are proteins or glycoproteins with a binding site of one specific shape. Only a molecule that fits will bind." },
+        {
+          "type": "paragraph",
+          "text": "Cell surface receptors are proteins or glycoproteins with a binding site of one specific shape. Only a molecule that fits will bind."
+        },
         {
           "type": "key-points",
           "items": [
@@ -92,7 +159,10 @@
     {
       "heading": "What membranes do in cells",
       "blocks": [
-        { "type": "paragraph", "text": "Membranes divide the cell into compartments and cover its surface. Their roles depend on where they are." },
+        {
+          "type": "paragraph",
+          "text": "Membranes divide the cell into compartments and cover its surface. Their roles depend on where they are."
+        },
         {
           "type": "list",
           "items": [
@@ -102,7 +172,10 @@
             "Compartments keep reactions apart, so different conditions can exist in different parts of the cell."
           ]
         },
-        { "type": "subheading", "text": "Factors affecting membrane structure and permeability" },
+        {
+          "type": "subheading",
+          "text": "Factors affecting membrane structure and permeability"
+        },
         {
           "type": "list",
           "items": [
@@ -118,10 +191,22 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Cut.", "text": "Cut equal-sized beetroot pieces and rinse off pigment from cut cells." },
-            { "lead": "Vary one factor.", "text": "Place pieces in water at different temperatures, or in different solvent concentrations." },
-            { "lead": "Wait.", "text": "Leave for the same time. Control the volume of liquid and the size of pieces." },
-            { "lead": "Measure.", "text": "Use a colorimeter, or compare colour against a standard. Higher absorbance means more leakage." }
+            {
+              "lead": "Cut.",
+              "text": "Cut equal-sized beetroot pieces and rinse off pigment from cut cells."
+            },
+            {
+              "lead": "Vary one factor.",
+              "text": "Place pieces in water at different temperatures, or in different solvent concentrations."
+            },
+            {
+              "lead": "Wait.",
+              "text": "Leave for the same time. Control the volume of liquid and the size of pieces."
+            },
+            {
+              "lead": "Measure.",
+              "text": "Use a colorimeter, or compare colour against a standard. Higher absorbance means more leakage."
+            }
           ]
         },
         {
@@ -137,21 +222,42 @@
     {
       "heading": "Cell signalling",
       "blocks": [
-        { "type": "paragraph", "text": "Cells communicate using chemical messengers. Receptors in the membrane let a target cell respond." },
+        {
+          "type": "paragraph",
+          "text": "Cells communicate using chemical messengers. Receptors in the membrane let a target cell respond."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Ligand", "meaning": "A signalling molecule that binds to a specific receptor." },
-            { "term": "Target cell", "meaning": "A cell with receptors for a particular ligand." }
+            {
+              "term": "Ligand",
+              "meaning": "A signalling molecule that binds to a specific receptor."
+            },
+            {
+              "term": "Target cell",
+              "meaning": "A cell with receptors for a particular ligand."
+            }
           ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Secretion.", "text": "A cell secretes a specific ligand, such as a hormone." },
-            { "lead": "Transport.", "text": "The ligand travels to target cells, for example in the blood." },
-            { "lead": "Binding.", "text": "The ligand binds to a complementary cell surface receptor on the target cell." },
-            { "lead": "Response.", "text": "Binding triggers a specific response inside the cell." }
+            {
+              "lead": "Secretion.",
+              "text": "A cell secretes a specific ligand, such as a hormone."
+            },
+            {
+              "lead": "Transport.",
+              "text": "The ligand travels to target cells, for example in the blood."
+            },
+            {
+              "lead": "Binding.",
+              "text": "The ligand binds to a complementary cell surface receptor on the target cell."
+            },
+            {
+              "lead": "Response.",
+              "text": "Binding triggers a specific response inside the cell."
+            }
           ]
         },
         {
@@ -189,12 +295,19 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": ["AQA 3.2.3"],
+      "spec_codes": [
+        "AQA 3.2.3a",
+        "AQA 3.2.3b",
+        "AQA 3.2.3 RP4"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
           "blocks": [
-            { "type": "paragraph", "text": "The movement of substances across membranes is covered in the notes on diffusion, osmosis and active transport." },
+            {
+              "type": "paragraph",
+              "text": "The movement of substances across membranes is covered in the notes on diffusion, osmosis and active transport."
+            },
             {
               "type": "list",
               "items": [
@@ -207,12 +320,17 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": ["EDEX 2.2"],
+      "spec_codes": [
+        "EDEX 2.2"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
           "blocks": [
-            { "type": "paragraph", "text": "The fluid mosaic model is an interpretation of data. Scientists built it from evidence and revised it as techniques improved." },
+            {
+              "type": "paragraph",
+              "text": "The fluid mosaic model is an interpretation of data. Scientists built it from evidence and revised it as techniques improved."
+            },
             {
               "type": "list",
               "items": [
@@ -227,7 +345,12 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": ["CAIE 4.1.1", "CAIE 4.1.2", "CAIE 4.1.3", "CAIE 4.1.4"],
+      "spec_codes": [
+        "CAIE 4.1.1",
+        "CAIE 4.1.2",
+        "CAIE 4.1.3",
+        "CAIE 4.1.4"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -246,7 +369,11 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": ["OCR 2.1.5a", "OCR 2.1.5b", "OCR 2.1.5c"],
+      "spec_codes": [
+        "OCR 2.1.5a",
+        "OCR 2.1.5b",
+        "OCR 2.1.5c"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -278,7 +405,10 @@
       "3189b7a1-2271-4076-b654-a033b79b8433",
       "d2a7e023-d35c-4c90-8e82-05d1c98f735e",
       "b652cb44-0589-43be-bd11-dd4a5a3dd89e",
-      "95aa3926-c728-4193-a13a-611db0b3c643"
+      "95aa3926-c728-4193-a13a-611db0b3c643",
+      "05bfa782-921a-4304-bf05-5c10ce2197a4",
+      "5aa224af-5458-42b5-aaf7-5df18a8f4cd7",
+      "92544e3e-24d9-42f7-9c47-80f474ed00b8"
     ],
     "exemplar_ids": []
   }

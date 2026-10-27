@@ -420,7 +420,7 @@
     },
     "aqa_alevel": {
       "spec_codes": [
-        "AQA 3.5.1"
+        "AQA 3.5.1 RP7"
       ],
       "extra": [
         {
@@ -453,7 +453,8 @@
       "bec81a91-2691-40e0-9459-7d4024ad0ede",
       "8fb09a0f-44a9-48d2-bd25-a7d68a63a6d8",
       "6cbbff56-63b6-4e99-b68d-826796fb4389",
-      "c650f33e-4df0-4523-93f5-d4bdd40f7b19"
+      "c650f33e-4df0-4523-93f5-d4bdd40f7b19",
+      "ce90201f-3f43-44d6-8582-dc70b2df3b2e"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",

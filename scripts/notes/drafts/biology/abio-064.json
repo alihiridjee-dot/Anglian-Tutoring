@@ -23,9 +23,18 @@
         {
           "type": "definitions",
           "items": [
-            { "term": "Gross primary production (GPP)", "meaning": "The chemical energy store in plant biomass in a given area or volume." },
-            { "term": "Net primary production (NPP)", "meaning": "The chemical energy store in plant biomass after respiratory losses to the environment are taken into account." },
-            { "term": "Productivity", "meaning": "The rate of production: biomass in a given area in a given time, for example kJ ha⁻¹ year⁻¹." }
+            {
+              "term": "Gross primary production (GPP)",
+              "meaning": "The chemical energy store in plant biomass in a given area or volume."
+            },
+            {
+              "term": "Net primary production (NPP)",
+              "meaning": "The chemical energy store in plant biomass after respiratory losses to the environment are taken into account."
+            },
+            {
+              "term": "Productivity",
+              "meaning": "The rate of production: biomass in a given area in a given time, for example kJ ha⁻¹ year⁻¹."
+            }
           ]
         },
         {
@@ -109,10 +118,24 @@
             "alt": "Calculate the efficiency of a transfer between trophic levels.",
             "question": "A herbivore takes in {intake} kJ of energy from plants. {gained} kJ becomes herbivore biomass. Calculate the percentage efficiency of the transfer.",
             "variables": [
-              { "id": "intake", "min": 2000, "max": 5000, "step": 500 },
-              { "id": "gained", "min": 100, "max": 400, "step": 50 }
+              {
+                "id": "intake",
+                "min": 2000,
+                "max": 5000,
+                "step": 500
+              },
+              {
+                "id": "gained",
+                "min": 100,
+                "max": 400,
+                "step": 50
+              }
             ],
-            "answer": { "formula": "gained / intake * 100", "unit": "%", "decimals": 1 },
+            "answer": {
+              "formula": "gained / intake * 100",
+              "unit": "%",
+              "decimals": 1
+            },
             "working": [
               "efficiency = (biomass transferred ÷ biomass intake) × 100",
               "efficiency = ({gained} ÷ {intake}) × 100",
@@ -186,7 +209,17 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": ["AQA 3.5.3"],
+      "spec_codes": [
+        "AQA 3.5.3a",
+        "AQA 3.5.3b",
+        "AQA 3.5.3c",
+        "AQA 3.5.3d",
+        "AQA 3.5.3e",
+        "AQA 3.5.3f",
+        "AQA 3.5.3g",
+        "AQA 3.5.3h",
+        "AQA 3.5.3i"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -205,10 +238,15 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": ["EDEX 5.10", "EDEX 5.11"]
+      "spec_codes": [
+        "EDEX 5.10",
+        "EDEX 5.11"
+      ]
     },
     "ocr_alevel": {
-      "spec_codes": ["OCR 6.3.1b"],
+      "spec_codes": [
+        "OCR 6.3.1b"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -231,10 +269,18 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
     "spec_point_ids": [
-      "6352b72a-a2a3-45f3-92c9-f0efd3150109",
       "3f0f61c2-f455-4c12-8759-48d441789eb7",
       "36cfcfa8-0cc8-45d3-9bec-17438b5ce900",
-      "131145c3-2f2d-4258-9feb-eef5788f06d5"
+      "131145c3-2f2d-4258-9feb-eef5788f06d5",
+      "6dcd6170-fae2-4590-8928-bf59d95841d4",
+      "d2b62db4-be0a-42d3-97a4-0eadd4f41956",
+      "fff1b223-fe39-49fa-87e8-a0bf5904ff92",
+      "b19b0964-aa86-415a-b6e0-c7ce936cfc38",
+      "041a7932-56c3-4c69-81ce-7ef321918c1f",
+      "5ede9882-09eb-4c74-98ae-bb00b1839661",
+      "fb1338ca-c18c-4b6d-bfc3-5568235f5c79",
+      "84d9498f-7587-4817-ba72-1b6f642aeb3d",
+      "e21bb37a-4231-4628-92e8-38ebde81a6ff"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",

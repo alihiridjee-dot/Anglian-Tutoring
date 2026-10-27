@@ -15,8 +15,14 @@
         {
           "type": "definitions",
           "items": [
-            { "term": "Saprobiont", "meaning": "A decomposer, mostly bacteria and fungi, that feeds on dead organic matter by external digestion." },
-            { "term": "Decomposition", "meaning": "The breakdown of dead organic matter into simple inorganic substances." }
+            {
+              "term": "Saprobiont",
+              "meaning": "A decomposer, mostly bacteria and fungi, that feeds on dead organic matter by external digestion."
+            },
+            {
+              "term": "Decomposition",
+              "meaning": "The breakdown of dead organic matter into simple inorganic substances."
+            }
           ]
         },
         {
@@ -62,12 +68,32 @@
         },
         {
           "type": "table",
-          "columns": ["Process", "What happens", "Bacteria involved"],
+          "columns": [
+            "Process",
+            "What happens",
+            "Bacteria involved"
+          ],
           "rows": [
-            ["Nitrogen fixation", "Nitrogen gas is converted to ammonia or ammonium ions", "Free-living (Azotobacter) or in root nodules (Rhizobium)"],
-            ["Ammonification", "Saprobionts break down proteins and urea in dead matter and waste into ammonia and ammonium ions", "Saprobiotic bacteria and fungi"],
-            ["Nitrification", "Ammonium ions are oxidised to nitrite (Nitrosomonas), then nitrite is oxidised to nitrate (Nitrobacter)", "Nitrifying bacteria"],
-            ["Denitrification", "Nitrate is converted to nitrogen gas, in waterlogged soil with little oxygen", "Denitrifying bacteria"]
+            [
+              "Nitrogen fixation",
+              "Nitrogen gas is converted to ammonia or ammonium ions",
+              "Free-living (Azotobacter) or in root nodules (Rhizobium)"
+            ],
+            [
+              "Ammonification",
+              "Saprobionts break down proteins and urea in dead matter and waste into ammonia and ammonium ions",
+              "Saprobiotic bacteria and fungi"
+            ],
+            [
+              "Nitrification",
+              "Ammonium ions are oxidised to nitrite (Nitrosomonas), then nitrite is oxidised to nitrate (Nitrobacter)",
+              "Nitrifying bacteria"
+            ],
+            [
+              "Denitrification",
+              "Nitrate is converted to nitrogen gas, in waterlogged soil with little oxygen",
+              "Denitrifying bacteria"
+            ]
           ]
         },
         {
@@ -134,7 +160,12 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": ["AQA 3.5.4"],
+      "spec_codes": [
+        "AQA 3.5.4a",
+        "AQA 3.5.4b",
+        "AQA 3.5.4c",
+        "AQA 3.5.4d"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -155,7 +186,11 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": ["EDEX 5.21", "EDEX 6.1", "EDEX 6.2"],
+      "spec_codes": [
+        "EDEX 5.21",
+        "EDEX 6.1",
+        "EDEX 6.2"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -176,7 +211,9 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": ["OCR 6.3.1c"],
+      "spec_codes": [
+        "OCR 6.3.1c"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -198,11 +235,14 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
     "spec_point_ids": [
-      "4ee831ef-98fe-4bb6-8be1-1303f341115d",
       "beef33dc-c013-449d-bf21-a5f7afaa7fa7",
       "3f097ccd-2f07-48ba-9851-6d37a5f4dac2",
       "f69e377b-2394-435b-a5a2-b25b3830cbbc",
-      "d1ca22db-b8bb-4a32-a8be-93a4da76f0a6"
+      "d1ca22db-b8bb-4a32-a8be-93a4da76f0a6",
+      "66daec1f-8625-41d9-9dfb-bfd00ebf3d70",
+      "9f78103d-5ef3-4322-baee-05b0cf98833a",
+      "7bb21e99-38f3-4c92-b5d5-96b984bebbc3",
+      "87c05225-feb3-487e-be32-3413d49f7625"
     ],
     "exemplar_ids": [],
     "checked_by": "sonnet-science-check",

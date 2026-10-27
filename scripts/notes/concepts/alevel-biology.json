@@ -19,15 +19,21 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "1b2bd594-e810-4375-98ec-3c0448f8ac0b",
+          "id": "91addc54-0116-4e85-9067-fd066f0c6f7c",
           "board": "aqa_alevel",
-          "code": "AQA 3.1.7",
+          "code": "AQA 3.1.7a",
           "primary": true
         },
         {
-          "id": "de9dd7c4-f59c-4283-a338-47c99a3b7200",
+          "id": "880ea992-5ee0-4e5b-83e4-fa6636118a5e",
           "board": "aqa_alevel",
-          "code": "AQA 3.1.8",
+          "code": "AQA 3.1.8a",
+          "primary": true
+        },
+        {
+          "id": "fc90881f-fc79-4836-b468-4472db6af81d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.8b",
           "primary": true
         },
         {
@@ -84,15 +90,81 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "36966244-3bad-4e7c-b697-acff4b102aa0",
+          "id": "25e6ea4b-2d55-4aeb-bace-0c309e2d76d5",
           "board": "aqa_alevel",
-          "code": "AQA 3.1.1",
+          "code": "AQA 3.1.1a",
           "primary": true
         },
         {
-          "id": "db0f1ba7-2486-4b3c-a92a-fdd975b8ec25",
+          "id": "a940a06b-3422-4ed9-981e-4f3db5c12e5c",
           "board": "aqa_alevel",
-          "code": "AQA 3.1.2",
+          "code": "AQA 3.1.1b",
+          "primary": true
+        },
+        {
+          "id": "395a1cc4-12fa-4f5a-93d5-f878b58bc47a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.1c",
+          "primary": true
+        },
+        {
+          "id": "798d5ed2-de7e-4e1f-b24f-5f67d33223a8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.1d",
+          "primary": true
+        },
+        {
+          "id": "6b0e57ab-3539-4ec8-8c6b-d7178d96845d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.1e",
+          "primary": true
+        },
+        {
+          "id": "1db667c0-d54e-4181-a01b-7ba0be624ac4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.1f",
+          "primary": true
+        },
+        {
+          "id": "d2128f7a-08d7-46c8-b71e-07758657e253",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2a",
+          "primary": true
+        },
+        {
+          "id": "f2ddbdcc-ce1f-4b60-aca8-9cdc5a370ad0",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2b",
+          "primary": true
+        },
+        {
+          "id": "bc43f914-85a7-4dfd-998a-4fd0b5b08dfd",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2c",
+          "primary": true
+        },
+        {
+          "id": "1d95c37d-cd99-4a5c-88cd-803bc8affb7a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2d",
+          "primary": true
+        },
+        {
+          "id": "95b3d45d-2991-40ed-9183-6ef1d2df445a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2e",
+          "primary": true
+        },
+        {
+          "id": "c98fc889-bc00-47a2-babf-1d1e91539739",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2f",
+          "primary": true
+        },
+        {
+          "id": "f01372c5-7ef6-41e9-8177-15e2087e35ea",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2g",
           "primary": true
         },
         {
@@ -203,9 +275,45 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "241beffc-3af3-42f8-be27-5d5e09d3e578",
+          "id": "91e32eac-141e-4811-bce7-59bbe3fd374d",
           "board": "aqa_alevel",
-          "code": "AQA 3.1.3",
+          "code": "AQA 3.1.3a",
+          "primary": true
+        },
+        {
+          "id": "678716e2-6797-460c-a72d-39b6d8682ab4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.3b",
+          "primary": true
+        },
+        {
+          "id": "9907b740-f037-44a8-b386-2e274eda4ef1",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.3c",
+          "primary": true
+        },
+        {
+          "id": "e275f41f-ea00-41c1-a813-0a3ac290ef17",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.3d",
+          "primary": true
+        },
+        {
+          "id": "93ecf75c-e5de-4383-b234-3905893ba3b2",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.3e",
+          "primary": true
+        },
+        {
+          "id": "87368223-c69e-4097-95fa-5f1aaab29bc3",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.3f",
+          "primary": true
+        },
+        {
+          "id": "8c3f3b9e-cf5b-4bf5-999e-a327f93e769f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.3g",
           "primary": true
         },
         {
@@ -262,9 +370,39 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "3e123633-a284-4ad8-9b1d-07b2a2d33c1e",
+          "id": "27d449bc-b595-40d3-b4b1-3ce9a4063a59",
           "board": "aqa_alevel",
-          "code": "AQA 3.1.4.1",
+          "code": "AQA 3.1.4.1a",
+          "primary": true
+        },
+        {
+          "id": "87186593-edcc-4a9a-8567-e686ebb3706e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.1b",
+          "primary": true
+        },
+        {
+          "id": "df9be928-5829-42cd-883b-84894373171b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.1c",
+          "primary": true
+        },
+        {
+          "id": "a63d4130-6e29-40d5-9cba-be616f516fb5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.1d",
+          "primary": true
+        },
+        {
+          "id": "7dd78cbc-f9be-44cc-8ac5-dd679ffe1a33",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.1e",
+          "primary": true
+        },
+        {
+          "id": "3686c5db-64cc-4be4-9bf2-4adf474fa0b5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.1f",
           "primary": true
         },
         {
@@ -410,9 +548,21 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "82fd35fc-e3fd-4727-8531-d174cbc62215",
+          "id": "4ca11ba9-ffda-4e0a-8d53-542607794635",
           "board": "aqa_alevel",
-          "code": "AQA 3.1.4.2",
+          "code": "AQA 3.1.4.2a",
+          "primary": true
+        },
+        {
+          "id": "5690126a-5a40-497c-9301-9e4e2a5a2c07",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.2b",
+          "primary": true
+        },
+        {
+          "id": "626eff1e-5c86-4e8a-9f6a-e0e11ba5576e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.2c",
           "primary": true
         },
         {
@@ -463,9 +613,15 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "82fd35fc-e3fd-4727-8531-d174cbc62215",
+          "id": "e603c3da-199d-461a-883e-425b97a1b2fe",
           "board": "aqa_alevel",
-          "code": "AQA 3.1.4.2",
+          "code": "AQA 3.1.4.2 RP1",
+          "primary": true
+        },
+        {
+          "id": "626eff1e-5c86-4e8a-9f6a-e0e11ba5576e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.2c",
           "primary": false
         },
         {
@@ -522,9 +678,27 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "3eda2855-ccbe-4159-b268-04edef812289",
+          "id": "44bcea64-eccf-4579-8337-d4977424462a",
           "board": "aqa_alevel",
-          "code": "AQA 3.2.1.3",
+          "code": "AQA 3.2.1.3a",
+          "primary": true
+        },
+        {
+          "id": "b32fe61a-667a-4fce-b0f6-552d068b7189",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.3b",
+          "primary": true
+        },
+        {
+          "id": "19e31fea-2a1f-425f-a35f-1b8ed5997901",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.3c",
+          "primary": true
+        },
+        {
+          "id": "271d46b9-9856-45eb-9deb-f44ead019d07",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.3d",
           "primary": true
         },
         {
@@ -605,9 +779,15 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "5ce4eaf1-a1ee-4e16-b592-fe23b6c98d95",
+          "id": "937f427d-0e51-49e4-86cb-0a80a2c24791",
           "board": "aqa_alevel",
-          "code": "AQA 3.2.1.1",
+          "code": "AQA 3.2.1.1a",
+          "primary": true
+        },
+        {
+          "id": "fc40cf0a-7510-4e7f-98d9-97fb57fd9963",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.1b",
           "primary": true
         },
         {
@@ -700,9 +880,21 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "241ead09-5122-401c-afd3-f2ed085b4ba9",
+          "id": "3f8a6f6e-f59c-4b0c-94f0-9c5ad392e72c",
           "board": "aqa_alevel",
-          "code": "AQA 3.2.1.2",
+          "code": "AQA 3.2.1.2a",
+          "primary": true
+        },
+        {
+          "id": "b2ce4df6-b29b-45e4-8ec7-b6762809f4a2",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.2b",
+          "primary": true
+        },
+        {
+          "id": "c5c9c031-fbf7-449d-bf7c-62c1df761e9e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.2c",
           "primary": true
         },
         {
@@ -753,9 +945,51 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "4c131db5-eee1-4a36-ad50-a0f01f125fd2",
+          "id": "de4dbbf4-41e2-41a5-bb3b-121a61d3a6f4",
           "board": "aqa_alevel",
-          "code": "AQA 3.2.2",
+          "code": "AQA 3.2.2a",
+          "primary": true
+        },
+        {
+          "id": "fa7b1e17-21da-4969-b258-290c179112e7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2b",
+          "primary": true
+        },
+        {
+          "id": "19892094-98de-40d0-8740-07a1b51cc1c2",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2c",
+          "primary": true
+        },
+        {
+          "id": "73d27649-a3f0-463f-90f5-b86a6eaae2e4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2d",
+          "primary": true
+        },
+        {
+          "id": "a6f29d6b-1069-4cc1-ba88-3b9b03aa3bb4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2e",
+          "primary": true
+        },
+        {
+          "id": "016c144f-e1ef-47fc-9142-3193bf9d7c88",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2f",
+          "primary": true
+        },
+        {
+          "id": "9eca41c8-4f31-4f9d-99df-a739e3fdbd1b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2g",
+          "primary": true
+        },
+        {
+          "id": "5104c03f-f3a2-4c4c-9c44-998759071a19",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2 RP2",
           "primary": true
         },
         {
@@ -848,9 +1082,21 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "5fcd42cc-311d-4d6e-b2fa-e8c9a8f1c571",
+          "id": "72dca493-061c-47f9-856e-3bf6fc4ce68b",
           "board": "aqa_alevel",
-          "code": "AQA 3.4.3",
+          "code": "AQA 3.4.3b",
+          "primary": true
+        },
+        {
+          "id": "88420f22-5d23-447d-a0c1-587e899dc8c6",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.3c",
+          "primary": true
+        },
+        {
+          "id": "29a606e9-177a-48cf-ba30-ef97320ff2d2",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.3d",
           "primary": true
         },
         {
@@ -937,9 +1183,27 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "6a002c33-dd59-42ee-b268-bba1d17c0856",
+          "id": "4e71d331-16f6-4841-8c7a-841443fec213",
           "board": "aqa_alevel",
-          "code": "AQA 3.8.2.1",
+          "code": "AQA 3.8.2.1a",
+          "primary": true
+        },
+        {
+          "id": "dee65ba5-af6b-43f8-93a3-628b79b9f10f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.1b",
+          "primary": true
+        },
+        {
+          "id": "6b84eb03-5e8f-4689-bf58-8cd4d7ef00e8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.1c",
+          "primary": true
+        },
+        {
+          "id": "b19d45f3-6c02-4ed7-ba55-995785a44184",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.1d",
           "primary": true
         },
         {
@@ -1008,10 +1272,22 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "77c103ea-4f7e-4bae-b5ba-2631d8d0e7e3",
+          "id": "05bfa782-921a-4304-bf05-5c10ce2197a4",
           "board": "aqa_alevel",
-          "code": "AQA 3.2.3",
-          "primary": false
+          "code": "AQA 3.2.3a",
+          "primary": true
+        },
+        {
+          "id": "5aa224af-5458-42b5-aaf7-5df18a8f4cd7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.3b",
+          "primary": true
+        },
+        {
+          "id": "92544e3e-24d9-42f7-9c47-80f474ed00b8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.3 RP4",
+          "primary": true
         },
         {
           "id": "304a5637-af19-4884-8a67-54895a68b335",
@@ -1073,9 +1349,15 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "77c103ea-4f7e-4bae-b5ba-2631d8d0e7e3",
+          "id": "b6378a49-db3e-40cf-9ade-081c37f574f5",
           "board": "aqa_alevel",
-          "code": "AQA 3.2.3",
+          "code": "AQA 3.2.3c",
+          "primary": true
+        },
+        {
+          "id": "6e73e801-bc9b-474a-8ff2-56a23fe82142",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.3d",
           "primary": true
         },
         {
@@ -1108,6 +1390,18 @@
       "separate_only": false,
       "spec_points": [
         {
+          "id": "577ebf28-f582-40df-b3ea-455e6f82a866",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.3 RP3",
+          "primary": true
+        },
+        {
+          "id": "b6378a49-db3e-40cf-9ade-081c37f574f5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.3c",
+          "primary": false
+        },
+        {
           "id": "92d63d05-bb09-46af-ae99-8cf0e986488f",
           "board": "edexcel_alevel",
           "code": "EDEX 2.3",
@@ -1136,12 +1430,6 @@
           "board": "ocr_alevel",
           "code": "OCR 2.1.5e",
           "primary": true
-        },
-        {
-          "id": "77c103ea-4f7e-4bae-b5ba-2631d8d0e7e3",
-          "board": "aqa_alevel",
-          "code": "AQA 3.2.3",
-          "primary": false
         }
       ]
     },
@@ -1155,9 +1443,15 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "657b3675-c8cc-442e-b4b3-0c544e004c80",
+          "id": "17fc057b-ad04-4fc3-96d5-78c88cbad8d1",
           "board": "aqa_alevel",
-          "code": "AQA 3.3.1",
+          "code": "AQA 3.3.1a",
+          "primary": true
+        },
+        {
+          "id": "64c5f7d3-99f5-49d6-a94a-09e5d20bfeba",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.1b",
           "primary": true
         },
         {
@@ -1196,10 +1490,22 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "c6d2d9ab-36c8-4784-b4d6-1dd0e59b8184",
+          "id": "15b1bba5-984c-4989-8fc2-b0ee12ae4335",
           "board": "aqa_alevel",
-          "code": "AQA 3.3.2",
-          "primary": false
+          "code": "AQA 3.3.2c",
+          "primary": true
+        },
+        {
+          "id": "7d753be8-7dc8-4ff5-8027-f5c4bfbd7938",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.2d",
+          "primary": true
+        },
+        {
+          "id": "9142b125-0723-440e-b1e3-34a1612c960f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.2e",
+          "primary": true
         },
         {
           "id": "1b3acbd5-3c27-4345-a532-311af827a464",
@@ -1285,9 +1591,15 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "c6d2d9ab-36c8-4784-b4d6-1dd0e59b8184",
+          "id": "faa6d21c-71da-4ef6-a06e-bd922656fd8d",
           "board": "aqa_alevel",
-          "code": "AQA 3.3.2",
+          "code": "AQA 3.3.2a",
+          "primary": true
+        },
+        {
+          "id": "fcb9c9b5-da0b-45f2-be60-4ff230ca9996",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.2b",
           "primary": true
         },
         {
@@ -1314,9 +1626,21 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "dbef2b0a-f29e-4782-8301-8d181ba04c3b",
+          "id": "84614c53-8ce2-43d1-8d33-2e8104dd75f0",
           "board": "aqa_alevel",
-          "code": "AQA 3.3.3",
+          "code": "AQA 3.3.3a",
+          "primary": true
+        },
+        {
+          "id": "d3026fe3-5f2e-48ca-9697-dac9c0fdd410",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.3b",
+          "primary": true
+        },
+        {
+          "id": "5d50b449-a25c-45eb-b5a6-7ac5c660568b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.3c",
           "primary": true
         }
       ]
@@ -1331,9 +1655,27 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "2450573e-9579-421b-845d-65862221457e",
+          "id": "86c96b88-58e2-4dfe-b123-b8cdaf70a9a5",
           "board": "aqa_alevel",
-          "code": "AQA 3.3.4.1",
+          "code": "AQA 3.3.4.1d",
+          "primary": true
+        },
+        {
+          "id": "b19c85e2-fdf4-4810-892f-8066365b75d9",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1f",
+          "primary": true
+        },
+        {
+          "id": "0dc247b2-6940-4feb-a97f-87258f230e0e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1g",
+          "primary": true
+        },
+        {
+          "id": "753508b9-d555-4d98-b2bd-97d65c97f1a7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1 RP5",
           "primary": true
         },
         {
@@ -1420,6 +1762,12 @@
       "separate_only": false,
       "spec_points": [
         {
+          "id": "d985a100-b15b-44b7-8cc4-aed965e1ff84",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1e",
+          "primary": true
+        },
+        {
           "id": "09d04fcb-21fc-44bf-acc0-404cc9a8431e",
           "board": "edexcel_alevel",
           "code": "EDEX 1.4",
@@ -1454,12 +1802,6 @@
           "board": "ocr_alevel",
           "code": "OCR 3.1.2f",
           "primary": true
-        },
-        {
-          "id": "2450573e-9579-421b-845d-65862221457e",
-          "board": "aqa_alevel",
-          "code": "AQA 3.3.4.1",
-          "primary": false
         }
       ]
     },
@@ -1473,9 +1815,15 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "fb3e152f-60ab-4ce1-808f-0d971ea7ce98",
+          "id": "c06e8911-3254-4139-84cb-23ba78a489fe",
           "board": "aqa_alevel",
-          "code": "AQA 3.6.1.3",
+          "code": "AQA 3.6.1.3a",
+          "primary": true
+        },
+        {
+          "id": "96ba891e-e456-4f2c-a9fb-0e52d24b9d82",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.3b",
           "primary": true
         },
         {
@@ -1526,6 +1874,24 @@
       "separate_only": false,
       "spec_points": [
         {
+          "id": "f46256c1-8892-471e-8c52-e3a4dfb40350",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1a",
+          "primary": true
+        },
+        {
+          "id": "30025c4a-9238-4b61-9394-f812d3117791",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1b",
+          "primary": true
+        },
+        {
+          "id": "7583724a-3d11-434b-b914-8962f3020494",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1c",
+          "primary": true
+        },
+        {
           "id": "7fd6c49e-2c54-4e1b-861d-58175aee3931",
           "board": "cambridge_alevel",
           "code": "CAIE 8.2.1",
@@ -1572,12 +1938,6 @@
           "board": "ocr_alevel",
           "code": "OCR 3.1.2j",
           "primary": true
-        },
-        {
-          "id": "2450573e-9579-421b-845d-65862221457e",
-          "board": "aqa_alevel",
-          "code": "AQA 3.3.4.1",
-          "primary": false
         }
       ]
     },
@@ -1727,9 +2087,9 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "7ca9c5a1-f365-43f2-b6cc-98085c0f684c",
+          "id": "e50c1d7a-3ee4-40d5-85db-4d0c1fa2d742",
           "board": "aqa_alevel",
-          "code": "AQA 3.3.4.2",
+          "code": "AQA 3.3.4.2a",
           "primary": true
         },
         {
@@ -1810,6 +2170,12 @@
       "separate_only": false,
       "spec_points": [
         {
+          "id": "a5c6d413-5c60-436d-b169-7e5210c9ccf4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.2b",
+          "primary": true
+        },
+        {
           "id": "3bab469e-bb0b-412e-8f76-f1f7d3471522",
           "board": "cambridge_alevel",
           "code": "CAIE 7.2.1",
@@ -1838,12 +2204,6 @@
           "board": "ocr_alevel",
           "code": "OCR 3.1.3f",
           "primary": true
-        },
-        {
-          "id": "7ca9c5a1-f365-43f2-b6cc-98085c0f684c",
-          "board": "aqa_alevel",
-          "code": "AQA 3.3.4.2",
-          "primary": false
         }
       ]
     },
@@ -1856,6 +2216,24 @@
       "higher_only": false,
       "separate_only": false,
       "spec_points": [
+        {
+          "id": "b08f04c6-1b4b-404d-9ffe-c432d7463d76",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4h",
+          "primary": true
+        },
+        {
+          "id": "8b55542c-f570-423a-82ee-731d51496bf4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4i",
+          "primary": true
+        },
+        {
+          "id": "edcdb828-c429-4a3a-a584-6c6c98f2a53f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4b",
+          "primary": false
+        },
         {
           "id": "50005aa7-f7b7-426e-b1c0-7e2f8376d238",
           "board": "cambridge_alevel",
@@ -1897,12 +2275,6 @@
           "board": "edexcel_alevel",
           "code": "EDEX 6.6",
           "primary": true
-        },
-        {
-          "id": "2931c469-7943-4668-84ca-d2807245d2ef",
-          "board": "aqa_alevel",
-          "code": "AQA 3.2.4",
-          "primary": false
         }
       ]
     },
@@ -1963,9 +2335,33 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "2931c469-7943-4668-84ca-d2807245d2ef",
+          "id": "9bba385b-88a8-4764-a728-c3a14a7d0016",
           "board": "aqa_alevel",
-          "code": "AQA 3.2.4",
+          "code": "AQA 3.2.4a",
+          "primary": true
+        },
+        {
+          "id": "edcdb828-c429-4a3a-a584-6c6c98f2a53f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4b",
+          "primary": true
+        },
+        {
+          "id": "27b25bf2-7410-4e13-99c4-b5de421be822",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4c",
+          "primary": true
+        },
+        {
+          "id": "f92e14c4-07c9-4d62-b8fb-4dcccd770126",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4d",
+          "primary": true
+        },
+        {
+          "id": "576757b1-2b3e-4eb8-8cc1-5242a0821e10",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4e",
           "primary": true
         },
         {
@@ -2046,6 +2442,24 @@
       "separate_only": false,
       "spec_points": [
         {
+          "id": "488aec1b-f5d1-4cf7-bf1b-359f7baa130e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4f",
+          "primary": true
+        },
+        {
+          "id": "e6e2ed71-aef7-4cd7-9ca7-8a73d0a6caec",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4g",
+          "primary": true
+        },
+        {
+          "id": "85418ca5-af3a-4db4-ba01-d7a4df235a9a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4k",
+          "primary": true
+        },
+        {
           "id": "bc758a5e-7e8c-42c0-9321-1410369b24d5",
           "board": "edexcel_alevel",
           "code": "EDEX 6.12",
@@ -2086,12 +2500,6 @@
           "board": "ocr_alevel",
           "code": "OCR 4.1.1l",
           "primary": true
-        },
-        {
-          "id": "2931c469-7943-4668-84ca-d2807245d2ef",
-          "board": "aqa_alevel",
-          "code": "AQA 3.2.4",
-          "primary": false
         }
       ]
     },
@@ -2105,6 +2513,24 @@
       "separate_only": false,
       "spec_points": [
         {
+          "id": "cab2e5e9-5df8-4a8b-a0e6-5b95350faaa8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4j",
+          "primary": true
+        },
+        {
+          "id": "be78792f-f43e-44d7-b5cf-8a4d02b5e7af",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4l",
+          "primary": true
+        },
+        {
+          "id": "85418ca5-af3a-4db4-ba01-d7a4df235a9a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4k",
+          "primary": false
+        },
+        {
           "id": "10d89409-3eff-43ca-88ca-05f803d177cf",
           "board": "cambridge_alevel",
           "code": "CAIE 11.2.2",
@@ -2115,12 +2541,6 @@
           "board": "cambridge_alevel",
           "code": "CAIE 11.2.3",
           "primary": true
-        },
-        {
-          "id": "2931c469-7943-4668-84ca-d2807245d2ef",
-          "board": "aqa_alevel",
-          "code": "AQA 3.2.4",
-          "primary": false
         }
       ]
     },
@@ -2187,9 +2607,33 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "f5e54f45-208a-42c2-9211-f0b0213db069",
+          "id": "75b2313d-6f58-4ad2-a268-17d8b8821c7f",
           "board": "aqa_alevel",
-          "code": "AQA 3.1.5.1",
+          "code": "AQA 3.1.5.1a",
+          "primary": true
+        },
+        {
+          "id": "1e04ecc1-bb81-4477-be42-20c7fba382db",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.5.1b",
+          "primary": true
+        },
+        {
+          "id": "724030a7-e15e-4ed1-b57d-ed03c7f6bf71",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.5.1c",
+          "primary": true
+        },
+        {
+          "id": "3baac9fb-bdcc-4ed8-bb7b-8f0aad7aa1b5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.5.1d",
+          "primary": true
+        },
+        {
+          "id": "b0a4962f-b3c4-4632-b1fe-17caff1fcdea",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.5.1e",
           "primary": true
         },
         {
@@ -2252,9 +2696,15 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "8cbd76c9-645d-4f6a-9c7e-13fbe13490fd",
+          "id": "3148fbec-0560-4e52-ac9e-da6ae4b47c14",
           "board": "aqa_alevel",
-          "code": "AQA 3.1.5.2",
+          "code": "AQA 3.1.5.2a",
+          "primary": true
+        },
+        {
+          "id": "749e1639-6882-4805-a2a4-09524b86032e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.5.2b",
           "primary": true
         },
         {
@@ -2287,9 +2737,45 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "ee2e7698-37c0-4387-8836-a8db8c30c79c",
+          "id": "06c73afa-4eb5-4a69-aa7b-5838bb096917",
           "board": "aqa_alevel",
-          "code": "AQA 3.4.1",
+          "code": "AQA 3.4.1a",
+          "primary": true
+        },
+        {
+          "id": "be02863c-1e78-49b6-8f2c-7f6568fc8864",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.1b",
+          "primary": true
+        },
+        {
+          "id": "2813606f-d598-4613-8e33-738eaf8d8e1a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.1c",
+          "primary": true
+        },
+        {
+          "id": "dd53fc90-f46b-4a5e-aa0a-4eb320beb520",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.1d",
+          "primary": true
+        },
+        {
+          "id": "5f66b250-f504-43c9-8bac-6312beaf351f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.1e",
+          "primary": true
+        },
+        {
+          "id": "18e91483-be91-4a11-b543-e44336eb1847",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.1f",
+          "primary": true
+        },
+        {
+          "id": "e893fd17-ea40-4ab4-9526-8bcaea26b88d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.1g",
           "primary": true
         },
         {
@@ -2334,9 +2820,27 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "d702029c-9317-4a21-831f-61ce7119689e",
+          "id": "c4b0d9fd-961c-4410-883d-bd394d820cc6",
           "board": "aqa_alevel",
-          "code": "AQA 3.4.2",
+          "code": "AQA 3.4.2a",
+          "primary": true
+        },
+        {
+          "id": "e19e6fcc-b708-4f3e-b75d-b4a870b63dbe",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.2b",
+          "primary": true
+        },
+        {
+          "id": "813dffb9-8ecc-462e-87b5-1ee83ec271af",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.2c",
+          "primary": true
+        },
+        {
+          "id": "981e6047-4136-4a4e-8534-76082d0fcc56",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.2d",
           "primary": true
         },
         {
@@ -2387,9 +2891,21 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "cd0fc131-0322-47d5-9cf3-06b3209f4b84",
+          "id": "8e5059e2-47df-41f5-8416-d7b23e92f069",
           "board": "aqa_alevel",
-          "code": "AQA 3.8.1",
+          "code": "AQA 3.4.3a",
+          "primary": true
+        },
+        {
+          "id": "a09e1d71-d767-483b-84b0-a2bb19da262a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.1a",
+          "primary": true
+        },
+        {
+          "id": "67e97f7d-7e94-4bc9-8899-bfed2e214ad7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.1b",
           "primary": true
         },
         {
@@ -2415,12 +2931,6 @@
           "board": "ocr_alevel",
           "code": "OCR 6.1.1a",
           "primary": true
-        },
-        {
-          "id": "5fcd42cc-311d-4d6e-b2fa-e8c9a8f1c571",
-          "board": "aqa_alevel",
-          "code": "AQA 3.4.3",
-          "primary": false
         }
       ]
     },
@@ -2434,10 +2944,22 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "70102e8d-ffa4-4db7-b2f6-3a2be717ad24",
+          "id": "7ed954a0-4840-4009-a7a6-a73bb746efda",
           "board": "aqa_alevel",
-          "code": "AQA 3.8.2.2",
+          "code": "AQA 3.8.2.2a",
           "primary": true
+        },
+        {
+          "id": "fa061ac7-35bb-45ce-9026-e87896778f46",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.2e",
+          "primary": true
+        },
+        {
+          "id": "cf2bb868-7a0c-47d4-bf78-163065f0c5f5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.2b",
+          "primary": false
         },
         {
           "id": "928966a2-1ab6-4983-a91d-141f1f3130d7",
@@ -2493,9 +3015,33 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "79270739-d725-4279-b2de-c7737efc6512",
+          "id": "cf2bb868-7a0c-47d4-bf78-163065f0c5f5",
           "board": "aqa_alevel",
-          "code": "AQA 3.8.2.3",
+          "code": "AQA 3.8.2.2b",
+          "primary": true
+        },
+        {
+          "id": "d9934644-f208-4ff4-a43f-1ad8147fdcc8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.2c",
+          "primary": true
+        },
+        {
+          "id": "f6d92205-2b69-45cd-b03b-61af28e711c8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.2d",
+          "primary": true
+        },
+        {
+          "id": "ace6fe73-b924-4ded-b5c3-454d84bd882f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.3a",
+          "primary": true
+        },
+        {
+          "id": "37e449c2-2b09-4a86-b2c0-8248b0cf26ab",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.3b",
           "primary": true
         },
         {
@@ -2503,12 +3049,6 @@
           "board": "edexcel_alevel",
           "code": "EDEX 3.14",
           "primary": true
-        },
-        {
-          "id": "70102e8d-ffa4-4db7-b2f6-3a2be717ad24",
-          "board": "aqa_alevel",
-          "code": "AQA 3.8.2.2",
-          "primary": false
         }
       ]
     },
@@ -2545,9 +3085,33 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "93697759-d023-4ffb-865b-65795cf7ed03",
+          "id": "481ca962-be27-44cd-811a-4c7884d106bc",
           "board": "aqa_alevel",
-          "code": "AQA 3.7.1",
+          "code": "AQA 3.7.1a",
+          "primary": true
+        },
+        {
+          "id": "2b57a3b6-3626-4450-a11d-ca40bf0f5b45",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.1b",
+          "primary": true
+        },
+        {
+          "id": "5fab4b9a-c9d0-4ecf-99f2-963bf38aa458",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.1c",
+          "primary": true
+        },
+        {
+          "id": "626d1e4f-72f7-44ef-8281-327ea8f08103",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.1d",
+          "primary": true
+        },
+        {
+          "id": "1ab3b617-a8d4-413f-9893-6cd02c12a362",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.1e",
           "primary": true
         },
         {
@@ -2586,6 +3150,18 @@
       "separate_only": false,
       "spec_points": [
         {
+          "id": "393f6b9a-83f1-4d70-925d-07e4709bfa0c",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.1f",
+          "primary": true
+        },
+        {
+          "id": "1ab3b617-a8d4-413f-9893-6cd02c12a362",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.1e",
+          "primary": false
+        },
+        {
           "id": "f73eb487-f7f3-4751-b549-d92966ab17f1",
           "board": "edexcel_alevel",
           "code": "EDEX 3.8",
@@ -2614,12 +3190,6 @@
           "board": "ocr_alevel",
           "code": "OCR 6.1.2c",
           "primary": true
-        },
-        {
-          "id": "93697759-d023-4ffb-865b-65795cf7ed03",
-          "board": "aqa_alevel",
-          "code": "AQA 3.7.1",
-          "primary": false
         }
       ]
     },
@@ -2698,9 +3268,21 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "ec49c5e7-3f31-41ad-8dbc-3f1401428a20",
+          "id": "74c45eae-ace3-44c7-869d-a71a42bea489",
           "board": "aqa_alevel",
-          "code": "AQA 3.8.4.2",
+          "code": "AQA 3.8.4.2a",
+          "primary": true
+        },
+        {
+          "id": "6daf5ad9-a552-444b-8a11-da84adf565b0",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.2b",
+          "primary": true
+        },
+        {
+          "id": "08665a87-f658-4b60-ad4c-7bbb667dd8ca",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.2c",
           "primary": true
         },
         {
@@ -2745,9 +3327,39 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "3846b089-2f1d-46ed-b3a9-8d69336be1a4",
+          "id": "714911ee-772f-47df-bb58-75282ba7d781",
           "board": "aqa_alevel",
-          "code": "AQA 3.4.4",
+          "code": "AQA 3.4.4a",
+          "primary": true
+        },
+        {
+          "id": "772d6964-2d23-4f5b-8e07-6003c8ecff4d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.4b",
+          "primary": true
+        },
+        {
+          "id": "5a0a281c-5f25-4a63-9a63-a15b92a190bc",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.4c",
+          "primary": true
+        },
+        {
+          "id": "07d1455f-3ea7-497f-95d5-8fda811b48f1",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.4d",
+          "primary": true
+        },
+        {
+          "id": "6dc5c3e1-e396-4891-b22f-ae91e7155717",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.4e",
+          "primary": true
+        },
+        {
+          "id": "aebc74f7-22d4-43ca-b9f3-1a1ac6557ed6",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.4 RP6",
           "primary": true
         },
         {
@@ -2846,9 +3458,33 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "6bc086f1-b298-4718-9ea2-a986e3319e38",
+          "id": "3a9ff228-722e-4fda-b5f4-7dd49d60dfa9",
           "board": "aqa_alevel",
-          "code": "AQA 3.7.2",
+          "code": "AQA 3.7.2a",
+          "primary": true
+        },
+        {
+          "id": "3e1bc3d5-ea49-4249-8031-ffbd83cd96f3",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.2b",
+          "primary": true
+        },
+        {
+          "id": "10be4129-b8fe-4ed7-91c0-46292de73cf7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.2c",
+          "primary": true
+        },
+        {
+          "id": "f5b5f86c-ecd9-4445-83a8-9887c9c370bf",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.2d",
+          "primary": true
+        },
+        {
+          "id": "0ca5fffa-01e4-4037-86d5-79dd394ab195",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.2e",
           "primary": true
         },
         {
@@ -2893,9 +3529,51 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "86fb2dde-1aee-42d6-a81d-c54bce3a87b3",
+          "id": "e1ea89a2-366a-4d14-83d5-abfab3036635",
           "board": "aqa_alevel",
-          "code": "AQA 3.7.3",
+          "code": "AQA 3.7.3a",
+          "primary": true
+        },
+        {
+          "id": "a5be8524-96fc-49bb-9be2-d4b10def797d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3b",
+          "primary": true
+        },
+        {
+          "id": "e33cbf3c-25c4-4ed1-a1d3-c726e2b2497a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3c",
+          "primary": true
+        },
+        {
+          "id": "7abafa9a-76e4-49ee-98e2-b33ed499e60f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3d",
+          "primary": true
+        },
+        {
+          "id": "5f3ffda2-8ea9-46bc-8e17-ee69a7e7df04",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3e",
+          "primary": true
+        },
+        {
+          "id": "5288682c-f48c-4944-87be-822c13bf2f84",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3f",
+          "primary": true
+        },
+        {
+          "id": "8b4b6223-b70f-4457-9114-6410030febea",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3g",
+          "primary": true
+        },
+        {
+          "id": "d89b8125-9fd0-4173-8c0e-c0968e41e7ae",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3h",
           "primary": true
         },
         {
@@ -2934,9 +3612,27 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "0bfcfb04-39aa-4ab0-901b-a96914d9f041",
+          "id": "01891792-15b9-4ab6-b8aa-f30b13fb9f68",
           "board": "aqa_alevel",
-          "code": "AQA 3.4.5",
+          "code": "AQA 3.4.5a",
+          "primary": true
+        },
+        {
+          "id": "3311117d-5ba6-4cdc-a40e-4f15c1796592",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.5b",
+          "primary": true
+        },
+        {
+          "id": "aa9341e3-922f-40e1-a5dc-5ff58094fa02",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.5c",
+          "primary": true
+        },
+        {
+          "id": "aed8ac62-271b-4cde-a62c-28bd8467b208",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.5d",
           "primary": true
         },
         {
@@ -3023,15 +3719,45 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "5404e0ce-ed79-4e27-8bf9-0ac63a13e8ee",
+          "id": "62241e6d-35a9-4fb5-aeeb-27cf63367654",
           "board": "aqa_alevel",
-          "code": "AQA 3.4.6",
+          "code": "AQA 3.4.6a",
           "primary": true
         },
         {
-          "id": "087d030f-5ade-4020-b45b-74c8aa919338",
+          "id": "bfac95ea-058a-4080-9a43-449abc05a644",
           "board": "aqa_alevel",
-          "code": "AQA 3.4.7",
+          "code": "AQA 3.4.6b",
+          "primary": true
+        },
+        {
+          "id": "0dcf1a03-d298-462b-99f9-8121ac415dba",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.6c",
+          "primary": true
+        },
+        {
+          "id": "59ca8717-b652-4e5a-a496-6cd247346e26",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.6d",
+          "primary": true
+        },
+        {
+          "id": "e5b748ce-ab66-4cc1-8628-68f02ec8b5dc",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.6e",
+          "primary": true
+        },
+        {
+          "id": "72a8050c-9627-434a-8441-14091067ec2e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.7a",
+          "primary": true
+        },
+        {
+          "id": "6cecbd82-e650-499c-b722-bc670c9970a4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.7b",
           "primary": true
         },
         {
@@ -3195,9 +3921,21 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "c228e71e-9614-4263-850b-f73e33ca8cbe",
+          "id": "65479a9f-ef18-4754-9355-c758335e5d7f",
           "board": "aqa_alevel",
-          "code": "AQA 3.1.6",
+          "code": "AQA 3.1.6a",
+          "primary": true
+        },
+        {
+          "id": "5a9255f0-cfb2-4f3b-8ecf-286ada8c2dc8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.6b",
+          "primary": true
+        },
+        {
+          "id": "b02e261a-ed92-45e4-b1cb-8788dae44aed",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.6c",
           "primary": true
         },
         {
@@ -3235,6 +3973,12 @@
       "higher_only": false,
       "separate_only": false,
       "spec_points": [
+        {
+          "id": "ce90201f-3f43-44d6-8582-dc70b2df3b2e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.1 RP7",
+          "primary": true
+        },
         {
           "id": "5039ea96-f2c6-4a05-a2bb-5f48a7a5f342",
           "board": "edexcel_alevel",
@@ -3294,12 +4038,6 @@
           "board": "ocr_alevel",
           "code": "OCR 5.2.1c",
           "primary": true
-        },
-        {
-          "id": "9618fa13-1a08-4a42-ab41-cf10d386b089",
-          "board": "aqa_alevel",
-          "code": "AQA 3.5.1",
-          "primary": false
         }
       ]
     },
@@ -3313,10 +4051,22 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "9618fa13-1a08-4a42-ab41-cf10d386b089",
+          "id": "a9fd96b4-aed4-441b-a9b6-9b31a470f1a0",
           "board": "aqa_alevel",
-          "code": "AQA 3.5.1",
+          "code": "AQA 3.5.1a",
           "primary": true
+        },
+        {
+          "id": "8983cbaa-9915-4a49-b764-c3f6e172bdec",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.1 RP8",
+          "primary": true
+        },
+        {
+          "id": "5f1b7d08-0457-4480-9ab5-cb851d9b2c5b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.1b",
+          "primary": false
         },
         {
           "id": "793eb9d3-9d7a-4f4d-b8f8-f487feadc03a",
@@ -3372,6 +4122,18 @@
       "separate_only": false,
       "spec_points": [
         {
+          "id": "5f1b7d08-0457-4480-9ab5-cb851d9b2c5b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.1b",
+          "primary": true
+        },
+        {
+          "id": "3c3bd2cf-4de7-4b3a-a448-d249adee100e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.1c",
+          "primary": true
+        },
+        {
           "id": "248dbceb-2bb3-4ec4-bde9-eae468c49df0",
           "board": "edexcel_alevel",
           "code": "EDEX 5.8",
@@ -3400,12 +4162,6 @@
           "board": "ocr_alevel",
           "code": "OCR 5.2.1f",
           "primary": true
-        },
-        {
-          "id": "9618fa13-1a08-4a42-ab41-cf10d386b089",
-          "board": "aqa_alevel",
-          "code": "AQA 3.5.1",
-          "primary": false
         }
       ]
     },
@@ -3418,6 +4174,12 @@
       "higher_only": false,
       "separate_only": false,
       "spec_points": [
+        {
+          "id": "3c3bd2cf-4de7-4b3a-a448-d249adee100e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.1c",
+          "primary": false
+        },
         {
           "id": "d8c1056e-e021-49dc-9446-4ebebbd95956",
           "board": "cambridge_alevel",
@@ -3447,12 +4209,6 @@
           "board": "ocr_alevel",
           "code": "OCR 5.2.1g",
           "primary": true
-        },
-        {
-          "id": "9618fa13-1a08-4a42-ab41-cf10d386b089",
-          "board": "aqa_alevel",
-          "code": "AQA 3.5.1",
-          "primary": false
         }
       ]
     },
@@ -3466,9 +4222,39 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "c6804261-70b6-4849-a11d-6e4bb3d153d8",
+          "id": "4aca4155-c875-4f6e-9562-cca114b13e05",
           "board": "aqa_alevel",
-          "code": "AQA 3.5.2",
+          "code": "AQA 3.5.2a",
+          "primary": true
+        },
+        {
+          "id": "eba6698d-b8bc-46c8-9f9c-bd149ada7fe7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2b",
+          "primary": true
+        },
+        {
+          "id": "cb15c71d-ca6b-4d82-99e9-7287de366ffd",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2c",
+          "primary": true
+        },
+        {
+          "id": "05f4b564-c78c-4828-b1d2-fa9227c6e2b8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2e",
+          "primary": true
+        },
+        {
+          "id": "e10f14f7-8c38-4112-8d93-4182cb6be9c6",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2f",
+          "primary": true
+        },
+        {
+          "id": "81d33927-90b2-43fe-a150-79f09d7539b9",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2 RP9",
           "primary": true
         },
         {
@@ -3591,6 +4377,12 @@
       "separate_only": false,
       "spec_points": [
         {
+          "id": "e10f14f7-8c38-4112-8d93-4182cb6be9c6",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2f",
+          "primary": false
+        },
+        {
           "id": "34615c28-3698-4fa4-a0b9-b85066628d18",
           "board": "edexcel_alevel",
           "code": "EDEX 7.6",
@@ -3619,12 +4411,6 @@
           "board": "ocr_alevel",
           "code": "OCR 5.2.2h",
           "primary": true
-        },
-        {
-          "id": "c6804261-70b6-4849-a11d-6e4bb3d153d8",
-          "board": "aqa_alevel",
-          "code": "AQA 3.5.2",
-          "primary": false
         }
       ]
     },
@@ -3637,6 +4423,12 @@
       "higher_only": false,
       "separate_only": false,
       "spec_points": [
+        {
+          "id": "811a1dea-7f74-4a30-a6c9-7819720a851f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2d",
+          "primary": true
+        },
         {
           "id": "60d45fbd-41d6-4955-b796-32de4f8ed03e",
           "board": "edexcel_alevel",
@@ -3666,12 +4458,6 @@
           "board": "ocr_alevel",
           "code": "OCR 5.2.2i",
           "primary": true
-        },
-        {
-          "id": "c6804261-70b6-4849-a11d-6e4bb3d153d8",
-          "board": "aqa_alevel",
-          "code": "AQA 3.5.2",
-          "primary": false
         }
       ]
     },
@@ -3750,9 +4536,51 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "c566fbfb-86dd-4689-b4f5-7115e4ddbe84",
+          "id": "fa07afed-898e-432d-ba52-c284e03bf15a",
           "board": "aqa_alevel",
-          "code": "AQA 3.7.4",
+          "code": "AQA 3.7.4a",
+          "primary": true
+        },
+        {
+          "id": "4fc1dacc-86bc-4beb-8b73-f8d86b08ee10",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4b",
+          "primary": true
+        },
+        {
+          "id": "23fd6d05-84a2-4054-a79c-056e06523c79",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4c",
+          "primary": true
+        },
+        {
+          "id": "32866f6b-cde3-4a41-ae5d-fa3a239eab11",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4e",
+          "primary": true
+        },
+        {
+          "id": "839c2f50-476c-4850-9647-54d213bd0b90",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4f",
+          "primary": true
+        },
+        {
+          "id": "d08c9069-0fbe-478c-be7c-54e73d94178e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4g",
+          "primary": true
+        },
+        {
+          "id": "69d52053-47e8-4d33-aae7-e8ebeab40e9e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4h",
+          "primary": true
+        },
+        {
+          "id": "da94fbc6-8351-4fd2-b6cf-edd1c702805a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4i",
           "primary": true
         },
         {
@@ -3821,6 +4649,18 @@
       "separate_only": false,
       "spec_points": [
         {
+          "id": "df750488-bf75-4cbe-918e-8b6396150b61",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4d",
+          "primary": true
+        },
+        {
+          "id": "72350d32-e429-41fb-a876-388f530ddf06",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4 RP12",
+          "primary": true
+        },
+        {
           "id": "10db45a1-b4d8-4ce5-aa3f-c86be42c845f",
           "board": "cambridge_alevel",
           "code": "CAIE 18.2.3",
@@ -3843,12 +4683,6 @@
           "board": "ocr_alevel",
           "code": "OCR 6.3.1e",
           "primary": true
-        },
-        {
-          "id": "c566fbfb-86dd-4689-b4f5-7115e4ddbe84",
-          "board": "aqa_alevel",
-          "code": "AQA 3.7.4",
-          "primary": false
         }
       ]
     },
@@ -3862,9 +4696,57 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "6352b72a-a2a3-45f3-92c9-f0efd3150109",
+          "id": "6dcd6170-fae2-4590-8928-bf59d95841d4",
           "board": "aqa_alevel",
-          "code": "AQA 3.5.3",
+          "code": "AQA 3.5.3a",
+          "primary": true
+        },
+        {
+          "id": "d2b62db4-be0a-42d3-97a4-0eadd4f41956",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3b",
+          "primary": true
+        },
+        {
+          "id": "fff1b223-fe39-49fa-87e8-a0bf5904ff92",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3c",
+          "primary": true
+        },
+        {
+          "id": "b19b0964-aa86-415a-b6e0-c7ce936cfc38",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3d",
+          "primary": true
+        },
+        {
+          "id": "041a7932-56c3-4c69-81ce-7ef321918c1f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3e",
+          "primary": true
+        },
+        {
+          "id": "5ede9882-09eb-4c74-98ae-bb00b1839661",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3f",
+          "primary": true
+        },
+        {
+          "id": "fb1338ca-c18c-4b6d-bfc3-5568235f5c79",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3g",
+          "primary": true
+        },
+        {
+          "id": "84d9498f-7587-4817-ba72-1b6f642aeb3d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3h",
+          "primary": true
+        },
+        {
+          "id": "e21bb37a-4231-4628-92e8-38ebde81a6ff",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3i",
           "primary": true
         },
         {
@@ -3897,9 +4779,27 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "4ee831ef-98fe-4bb6-8be1-1303f341115d",
+          "id": "66daec1f-8625-41d9-9dfb-bfd00ebf3d70",
           "board": "aqa_alevel",
-          "code": "AQA 3.5.4",
+          "code": "AQA 3.5.4a",
+          "primary": true
+        },
+        {
+          "id": "9f78103d-5ef3-4322-baee-05b0cf98833a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.4b",
+          "primary": true
+        },
+        {
+          "id": "7bb21e99-38f3-4c92-b5d5-96b984bebbc3",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.4c",
+          "primary": true
+        },
+        {
+          "id": "87c05225-feb3-487e-be32-3413d49f7625",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.4d",
           "primary": true
         },
         {
@@ -3979,9 +4879,27 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "3e74efe0-9e30-44b6-8434-145e7aa97e3e",
+          "id": "e2bc60d8-522a-4f6d-9016-2f23df7ae6c2",
           "board": "aqa_alevel",
-          "code": "AQA 3.6.1.2",
+          "code": "AQA 3.6.1.2a",
+          "primary": true
+        },
+        {
+          "id": "ad120ec6-a81a-4c66-aff5-a20d36d8a3ef",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.2b",
+          "primary": true
+        },
+        {
+          "id": "f00cfc40-c1fd-4a80-b394-adcdf5d9450d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.2c",
+          "primary": true
+        },
+        {
+          "id": "3516765d-b3b6-462f-a37e-7b034d2c327a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.2d",
           "primary": true
         },
         {
@@ -4038,9 +4956,39 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "300bcbf1-e0ce-4329-a037-00c90a96785d",
+          "id": "a45a6fb5-6d9e-4952-8aaf-6d12b5f82501",
           "board": "aqa_alevel",
-          "code": "AQA 3.6.2.1",
+          "code": "AQA 3.6.2.1a",
+          "primary": true
+        },
+        {
+          "id": "12d320da-a618-42a3-937c-ad03da049377",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.1b",
+          "primary": true
+        },
+        {
+          "id": "f3c81be1-16ba-4b44-86b5-5eb3f37ee1b7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.1c",
+          "primary": true
+        },
+        {
+          "id": "9a447033-b283-4c31-8955-9d49d080137c",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.1d",
+          "primary": true
+        },
+        {
+          "id": "4ec2ff86-d23f-4944-8bb5-9d962d3fb336",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.1e",
+          "primary": true
+        },
+        {
+          "id": "18de8d9c-5862-406e-b40d-a308c5a3db40",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.1f",
           "primary": true
         },
         {
@@ -4085,9 +5033,21 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "2684b468-7c3e-4096-b3b5-2638e0e4e2c5",
+          "id": "340f2fb9-d49b-4b75-8fec-113c90c268f5",
           "board": "aqa_alevel",
-          "code": "AQA 3.6.2.2",
+          "code": "AQA 3.6.2.2a",
+          "primary": true
+        },
+        {
+          "id": "75e9e4ec-dba9-404d-ab4e-6867937bb279",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.2b",
+          "primary": true
+        },
+        {
+          "id": "3b16916d-5c5d-41e7-b008-97bfb2551cde",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.2c",
           "primary": true
         },
         {
@@ -4132,9 +5092,27 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "a9b1f967-1004-44ab-abb9-b53d2cd1b5ec",
+          "id": "5b921fc5-46a4-4137-96bf-ae33478db4cf",
           "board": "aqa_alevel",
-          "code": "AQA 3.6.1.1",
+          "code": "AQA 3.6.1.1a",
+          "primary": true
+        },
+        {
+          "id": "2bb44e29-147b-4766-87e4-c0598c63a7d5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.1d",
+          "primary": true
+        },
+        {
+          "id": "5f8ff5da-9630-4cf8-9a55-fb9a21cd984b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.1e",
+          "primary": true
+        },
+        {
+          "id": "6dd65d31-7d81-4f55-9152-0d9c52145f89",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.1 RP10",
           "primary": true
         },
         {
@@ -4244,9 +5222,39 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "339cda3c-2667-46a1-bc1a-05389dce9536",
+          "id": "b85230e3-06ee-42a1-af7d-79106f3c1124",
           "board": "aqa_alevel",
-          "code": "AQA 3.6.3",
+          "code": "AQA 3.6.3a",
+          "primary": true
+        },
+        {
+          "id": "aa9e64d6-41de-42d6-9f5e-cf2ea20b2027",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.3b",
+          "primary": true
+        },
+        {
+          "id": "6b0e1a64-be65-4367-894e-ae496c1849a4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.3c",
+          "primary": true
+        },
+        {
+          "id": "da1a072d-f22a-4b42-9391-8ae8fd7e9972",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.3d",
+          "primary": true
+        },
+        {
+          "id": "3cec92c6-6c28-4fa4-b3a6-46db36bd99f1",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.3e",
+          "primary": true
+        },
+        {
+          "id": "944b1011-f64b-4e6e-b249-0a2b0ff4d430",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.3f",
           "primary": true
         },
         {
@@ -4332,9 +5340,33 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "df72d83c-0503-47d2-9c51-30cb5292ef52",
+          "id": "df5c1e9c-9787-4aac-939b-1a30627e8e6c",
           "board": "aqa_alevel",
-          "code": "AQA 3.6.4.1",
+          "code": "AQA 3.6.4.1a",
+          "primary": true
+        },
+        {
+          "id": "7ce89df9-b04e-4c11-bcbd-303d8e5e29f9",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.1b",
+          "primary": true
+        },
+        {
+          "id": "66a524c8-c1c1-4e55-8625-cc27d01082c7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.1c",
+          "primary": true
+        },
+        {
+          "id": "60d5c08c-2112-4db9-8366-711ac17a5142",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.1d",
+          "primary": true
+        },
+        {
+          "id": "283fa121-df81-4303-b055-bf8348bd15c3",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.1e",
           "primary": true
         },
         {
@@ -4397,9 +5429,51 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "985426e3-13ef-48ad-a418-b4b5c359b648",
+          "id": "31e0020e-0950-4e53-aca3-0d8bd795dcd9",
           "board": "aqa_alevel",
-          "code": "AQA 3.6.4.2",
+          "code": "AQA 3.6.4.2a",
+          "primary": true
+        },
+        {
+          "id": "c810f032-b6f9-4f21-817d-65ae98e998de",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2b",
+          "primary": true
+        },
+        {
+          "id": "dd61f0fc-caed-4805-b20d-dbebd0cc2b3f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2c",
+          "primary": true
+        },
+        {
+          "id": "4bd9e1b1-30fe-4c11-932f-e925c0037e6f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2d",
+          "primary": true
+        },
+        {
+          "id": "20e2bcfe-a26e-448b-b6c4-a933f05864d3",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2e",
+          "primary": true
+        },
+        {
+          "id": "e5b502d2-d71e-4e03-aee1-2745fbd55a1e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2f",
+          "primary": true
+        },
+        {
+          "id": "debea751-922e-4479-9512-55783840c253",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2g",
+          "primary": true
+        },
+        {
+          "id": "ad4d235b-07ee-4724-8a9c-1b73d411b47f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2 RP11",
           "primary": true
         },
         {
@@ -4515,9 +5589,21 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "0869b857-562b-4b33-b43d-37139a90f049",
+          "id": "bb22f9c0-e98b-4f84-92fb-030c5cc3815f",
           "board": "aqa_alevel",
-          "code": "AQA 3.6.4.3",
+          "code": "AQA 3.6.4.3a",
+          "primary": true
+        },
+        {
+          "id": "bd56741d-d3d3-40ca-b52f-066113ae59e8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.3b",
+          "primary": true
+        },
+        {
+          "id": "eec2f39d-c31b-4ea0-b014-0d79125a172f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.3c",
           "primary": true
         },
         {
@@ -4573,6 +5659,18 @@
       "higher_only": false,
       "separate_only": false,
       "spec_points": [
+        {
+          "id": "5a7dfcb4-2753-4093-b1f3-00c341f54162",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.1b",
+          "primary": true
+        },
+        {
+          "id": "8ce2a4e7-78f7-46ee-8a5c-e9bdf98044db",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.1c",
+          "primary": true
+        },
         {
           "id": "edbfb557-ba32-4856-90f6-08ad096c62f5",
           "board": "edexcel_alevel",
@@ -4632,12 +5730,6 @@
           "board": "ocr_alevel",
           "code": "OCR 5.1.5f",
           "primary": true
-        },
-        {
-          "id": "a9b1f967-1004-44ab-abb9-b53d2cd1b5ec",
-          "board": "aqa_alevel",
-          "code": "AQA 3.6.1.1",
-          "primary": false
         }
       ]
     },
@@ -4651,9 +5743,27 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "cdd25448-8a8a-465f-b882-c2ec049bd140",
+          "id": "bc23f930-ba89-4bed-8427-80631ead5b62",
           "board": "aqa_alevel",
-          "code": "AQA 3.8.3",
+          "code": "AQA 3.8.3a",
+          "primary": true
+        },
+        {
+          "id": "e9d88ba7-f00b-4d83-bb9b-a9c83a782ce5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.3b",
+          "primary": true
+        },
+        {
+          "id": "11aada2a-07c2-442a-99e8-41a09296dc0d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.3c",
+          "primary": true
+        },
+        {
+          "id": "3f3eca57-99f3-4d8a-ac18-ddd01ce9b6fa",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.3d",
           "primary": true
         },
         {
@@ -4698,10 +5808,28 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "ee6a8782-e834-400f-8907-6377ef6b3fe0",
+          "id": "0a41af38-dc40-4979-99ca-5c31329ce4d0",
           "board": "aqa_alevel",
-          "code": "AQA 3.8.4.3",
+          "code": "AQA 3.8.4.3a",
           "primary": true
+        },
+        {
+          "id": "7c71ce83-c756-4699-b37d-5a862ad0284f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.3b",
+          "primary": true
+        },
+        {
+          "id": "3a0bb1cd-b4d6-414a-99ae-6a0939c30f0a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.3c",
+          "primary": true
+        },
+        {
+          "id": "76427d4f-d479-4c95-86b6-5b71954ee13c",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.1d",
+          "primary": false
         },
         {
           "id": "38d2c20e-b062-4f58-8869-48bd24515d43",
@@ -4757,9 +5885,33 @@
       "separate_only": false,
       "spec_points": [
         {
-          "id": "93880d1d-b8ae-447a-9ca9-9ca1e7226660",
+          "id": "578e6034-7686-411f-ac0b-7cb8f063971b",
           "board": "aqa_alevel",
-          "code": "AQA 3.8.4.1",
+          "code": "AQA 3.8.4.1a",
+          "primary": true
+        },
+        {
+          "id": "a25abe32-dae0-4639-8b31-bba584cca3eb",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.1b",
+          "primary": true
+        },
+        {
+          "id": "b79e1f1d-fea2-4f98-842c-8bb49474cd52",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.1c",
+          "primary": true
+        },
+        {
+          "id": "76427d4f-d479-4c95-86b6-5b71954ee13c",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.1d",
+          "primary": true
+        },
+        {
+          "id": "16419fa6-849b-4856-b06a-0d53d43bc8a4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.1e",
           "primary": true
         },
         {
@@ -4834,6 +5986,12 @@
       "separate_only": false,
       "spec_points": [
         {
+          "id": "578e6034-7686-411f-ac0b-7cb8f063971b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.1a",
+          "primary": false
+        },
+        {
           "id": "eb410971-82fa-4095-94ce-b8220a9d915d",
           "board": "edexcel_alevel",
           "code": "EDEX 8.18",
@@ -4868,12 +6026,6 @@
           "board": "ocr_alevel",
           "code": "OCR 6.1.3h",
           "primary": true
-        },
-        {
-          "id": "93880d1d-b8ae-447a-9ca9-9ca1e7226660",
-          "board": "aqa_alevel",
-          "code": "AQA 3.8.4.1",
-          "primary": false
         }
       ]
     },
