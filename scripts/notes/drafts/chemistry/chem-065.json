@@ -237,7 +237,22 @@
           "(The most reactive metal has the highest voltage and the least reactive the most negative voltage.)"
         ],
         "tip": "Two marks for the order and one for the justification. Naming the metals instead of the symbols is allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Evaluate a cell or battery by comparing its **cost**, how long it lasts before it needs replacing or recharging, and whether it can be recharged.",
+                "To compare metals fairly, change only the metal. Keep the same electrolyte, the same concentration and the same temperature.",
+                "To test the **concentration** of the electrolyte, use the same two metals and the same volume of solution each time. Dilute the solution with water, measuring both volumes with a measuring cylinder."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.25C"],

@@ -384,7 +384,60 @@
           "To colourless."
         ],
         "tip": "One mark each for the reagent, the starting colour and the final colour. Colourless to orange earns only 1 mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "In an addition reaction the small molecule splits, and one part bonds to each carbon atom of the former double bond."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Added to ethene",
+                "Where the atoms join",
+                "Product"
+              ],
+              "rows": [
+                [
+                  "Hydrogen, H₂",
+                  "One H on each carbon atom",
+                  "Ethane, CH₃–CH₃"
+                ],
+                [
+                  "Water, H₂O",
+                  "H on one carbon atom, OH on the other",
+                  "Ethanol, CH₃–CH₂–OH"
+                ],
+                [
+                  "Chlorine, Cl₂",
+                  "One Cl on each carbon atom",
+                  "CH₂Cl–CH₂Cl"
+                ],
+                [
+                  "Bromine, Br₂",
+                  "One Br on each carbon atom",
+                  "CH₂Br–CH₂Br"
+                ],
+                [
+                  "Iodine, I₂",
+                  "One I on each carbon atom",
+                  "CH₂I–CH₂I"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "In a displayed formula the C=C becomes a single bond, and every carbon atom still has four bonds.",
+                "Hydrogen, water and the halogens add to propene, butene and pentene in the same way."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -435,6 +488,27 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Ethene and bromine, in structural formulae",
+              "formula": "CH₂=CH₂ + Br₂ → CH₂Br–CH₂Br",
+              "where": [
+                "The double bond becomes a single bond.",
+                "One bromine atom bonds to each carbon atom."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Bromine water may be described as **orange or yellow**.",
+                "A saturated hydrocarbon, such as an alkane or poly(ethene), has only single bonds, so the colour stays **unchanged**."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -452,7 +526,43 @@
           "Ethene: the bromine water is decolourised (turns colourless)."
         ],
         "tip": "One mark for each hydrocarbon."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The same rules predict the product of an addition reaction for any alkene, not only ethene."
+            },
+            {
+              "type": "equation",
+              "label": "Alkene and hydrogen",
+              "formula": "CₙH₂ₙ + H₂ → CₙH₂ₙ₊₂",
+              "where": [
+                "n is the number of carbon atoms in the alkene.",
+                "The product is the alkane with the same number of carbon atoms."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Alkene and bromine",
+              "formula": "CₙH₂ₙ + Br₂ → CₙH₂ₙBr₂",
+              "where": [
+                "n is the number of carbon atoms in the alkene.",
+                "One bromine atom bonds to each carbon atom of the former double bond."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Propene and hydrogen give propane, C₃H₈.",
+                "Pentene and bromine give C₅H₁₀Br₂. Propene and bromine give CH₃CHBr–CH₂Br."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

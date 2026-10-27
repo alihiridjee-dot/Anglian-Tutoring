@@ -464,6 +464,21 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Exchange surfaces in different organs",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Lungs**: many alveoli give a large surface area. The alveolus and capillary walls are one cell thick and close together, so the diffusion path is short. A network of capillaries gives a good blood supply.",
+                "**Small intestine**: villi, with microvilli on their cells, give a large surface area. The walls of the villi and capillaries are one cell thick. The small intestine is long, which gives more time for absorption.",
+                "Cells in the small intestine have many mitochondria. They release energy for the active transport of sugars.",
+                "**Gills**: filaments give a large surface area. The filament and capillary walls are one cell thick, and the water flows close to the blood.",
+                "**Plants**: root hair cells have a large surface area. Leaves exchange gases through stomata, which guard cells open and close to control gas exchange and water loss."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -528,6 +543,39 @@
                   "Longer diffusion distance",
                   "Rate decreases"
                 ]
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Separate science) Calculating with Fick's law",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Fick's law compares rates. A calculation scales a known rate by how much each factor has changed."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find each factor.",
+                  "text": "For each quantity, divide the new value by the old value."
+                },
+                {
+                  "lead": "Combine.",
+                  "text": "Multiply the surface area factor by the concentration difference factor, then divide by the thickness factor."
+                },
+                {
+                  "lead": "Scale.",
+                  "text": "Multiply the original rate by the combined factor."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "If the surface area and the membrane thickness both double, the factors cancel and the rate does not change.",
+                "If the surface area is trebled and the thickness is halved, the rate is multiplied by 3 ÷ 0.5 = 6."
               ]
             }
           ]

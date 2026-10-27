@@ -187,7 +187,22 @@
           "So more heat energy goes to the water, or less heat energy escapes."
         ],
         "tip": "The second mark depends on the first. Say what you add and why it helps."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Mass of alcohol used is higher than expected",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Heat is lost to the surroundings, so more alcohol must burn to give the same temperature rise.",
+                "The alcohol may not burn completely, so less heat is released from each gram.",
+                "Some alcohol may **evaporate** from the burner. The mass lost is then more than the mass that burned."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel_igcse": {
       "spec_codes": ["IGCSE 3.2"]

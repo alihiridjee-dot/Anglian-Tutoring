@@ -192,7 +192,21 @@
           "Also accepted: it contains hydrochloric acid, or it kills microorganisms."
         ],
         "tip": "One mark for the term and one mark for a reason. Name the acid or link the pH to the enzyme."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Bile neutralises the hydrochloric acid from the stomach. This gives the correct pH for the enzymes in the small intestine.",
+                "The alkaline conditions and the large surface area of the fat droplets both increase the rate of fat breakdown by **lipase**."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

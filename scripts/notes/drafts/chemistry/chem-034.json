@@ -169,7 +169,22 @@
           "Aluminium is limiting because 37.0 mol is less than the 2 × 18.75 = 37.5 mol needed (1)"
         ],
         "tip": "Saying that the iron oxide is in excess, because 18.75 mol is more than the 18.5 mol needed, also scores the last mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A solid left over at the end is the **excess** reactant. If marble chips or zinc oxide remain, the acid was the **limiting reactant**.",
+                "The same amount in moles of limiting reactant makes the same final amount of product, however fast the reaction goes. Marble chips of different sizes reacting with the same amount of acid give the same final volume of gas.",
+                "On a graph of product against time, the line goes flat when the limiting reactant is used up."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.52"],
@@ -198,7 +213,22 @@
           "Mass of MgCO₃ used = 8.43 + 0.82 = 9.25 g (1)"
         ],
         "tip": "The correct answer, 9.25 g, scores all four marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A solid left over at the end is the **excess** reactant. If marble chips or zinc oxide remain, the acid was the **limiting reactant**.",
+                "The same amount in moles of limiting reactant makes the same final amount of product, however fast the reaction goes. Marble chips of different sizes reacting with the same amount of acid give the same final volume of gas.",
+                "On a graph of product against time, the line goes flat when the limiting reactant is used up."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 3.3.5S"]

@@ -263,7 +263,22 @@
           "It is pumped into the aorta, through a valve. Valves prevent backflow."
         ],
         "tip": "This is a levelled answer. The top level needs the flow from right to left through the lungs, including valves, linked to the pulmonary artery and pulmonary vein."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The **atria** have thinner walls than the **ventricles**. They contract to push blood a short distance, down into the ventricles.",
+                "The ventricles have thicker, muscular walls. They contract to pump blood out of the heart.",
+                "When the muscular wall of a ventricle contracts, it puts pressure on the blood and pushes it out through an artery."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -281,7 +296,39 @@
           "Also allowed: a stronger contraction or force."
         ],
         "tip": "Assume the answer is about the left ventricle if it is not stated. A statement about the right ventricle pumping blood to the lungs is also allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know the muscle in the heart wall, and the name and position of each valve."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Cardiac muscle",
+                  "meaning": "The muscle in the wall of the heart. It contracts to pump the blood and is supplied by the coronary arteries."
+                },
+                {
+                  "term": "Tricuspid valve",
+                  "meaning": "Between the right atrium and the right ventricle."
+                },
+                {
+                  "term": "Bicuspid valve",
+                  "meaning": "Between the left atrium and the left ventricle. It is also called the mitral valve."
+                },
+                {
+                  "term": "Semi-lunar valves",
+                  "meaning": "At the start of the pulmonary artery and the aorta. They stop blood flowing back into the ventricles."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

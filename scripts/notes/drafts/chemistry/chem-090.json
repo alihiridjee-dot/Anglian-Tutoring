@@ -258,7 +258,43 @@
           "The precipitate is soluble in excess sodium hydroxide solution."
         ],
         "tip": "The result marks depend on the correct test. The white precipitate alone does not prove aluminium; the dissolving in excess does."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Copper(II) sulfate with sodium hydroxide",
+              "formula": "CuSO₄(aq) + 2NaOH(aq) → Cu(OH)₂(s) + Na₂SO₄(aq)",
+              "where": [
+                "Cu(OH)₂: copper(II) hydroxide, the blue precipitate",
+                "(s): the solid precipitate; (aq): in solution"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "No equation is needed for aluminium hydroxide dissolving in excess sodium hydroxide solution."
+            },
+            {
+              "type": "subheading",
+              "text": "(Higher tier) Ionic equations"
+            },
+            {
+              "type": "paragraph",
+              "text": "Only the metal ion and hydroxide ions appear. The number of hydroxide ions equals the charge on the metal ion, so the charges balance."
+            },
+            {
+              "type": "equation",
+              "label": "Insoluble metal hydroxides",
+              "formula": "Al³⁺(aq) + 3OH⁻(aq) → Al(OH)₃(s)\nCa²⁺(aq) + 2OH⁻(aq) → Ca(OH)₂(s)\nMg²⁺(aq) + 2OH⁻(aq) → Mg(OH)₂(s)\nCu²⁺(aq) + 2OH⁻(aq) → Cu(OH)₂(s)\nFe²⁺(aq) + 2OH⁻(aq) → Fe(OH)₂(s)\nFe³⁺(aq) + 3OH⁻(aq) → Fe(OH)₃(s)",
+              "where": [
+                "OH⁻: hydroxide ion, from the sodium hydroxide solution"
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 9.3C"],
@@ -289,6 +325,24 @@
                 "Add sodium hydroxide solution to the sample and warm.",
                 "A pungent gas, ammonia, is released.",
                 "The gas turns damp litmus paper blue, because it is alkaline."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Write each test as a balanced ionic equation with state symbols. The number of hydroxide ions in a precipitate equals the charge on the metal ion."
+            },
+            {
+              "type": "equation",
+              "label": "Ionic equations for the sodium hydroxide tests",
+              "formula": "Al³⁺(aq) + 3OH⁻(aq) → Al(OH)₃(s)\nCa²⁺(aq) + 2OH⁻(aq) → Ca(OH)₂(s)\nCu²⁺(aq) + 2OH⁻(aq) → Cu(OH)₂(s)\nFe²⁺(aq) + 2OH⁻(aq) → Fe(OH)₂(s)\nFe³⁺(aq) + 3OH⁻(aq) → Fe(OH)₃(s)\nNH₄⁺(aq) + OH⁻(aq) → NH₃(g) + H₂O(l)",
+              "where": [
+                "OH⁻: hydroxide ion, from the sodium hydroxide solution",
+                "(s): solid precipitate; (aq): in solution; (g): gas; (l): liquid"
               ]
             }
           ]
@@ -457,6 +511,6 @@
       "5a786efa-1eaf-4f92-8af2-e128ed067d90"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

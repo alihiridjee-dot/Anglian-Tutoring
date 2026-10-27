@@ -240,7 +240,34 @@
           "Convert to kilograms: 84.5 kg"
         ],
         "tip": "Alternatively, find the total moles first (429.04), then multiply by 197 and convert to kilograms."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Amounts in moles can be used for atoms, molecules, ions, **electrons**, formulae and equations.",
+                "To find moles of molecules from moles of atoms, divide by the number of atoms in one molecule. One mole of carbon atoms makes 1 ÷ 70 mol of C₇₀ molecules."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Moles from a number of particles",
+              "formula": "number of moles = number of particles ÷ (6.02 × 10²³)",
+              "where": [
+                "number of moles is in mol.",
+                "number of particles is the number of atoms, molecules or ions."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Example: a nanotube of 2380 carbon atoms is 2380 ÷ (6.02 × 10²³) = 3.95 × 10⁻²¹ mol of carbon."
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.50", "EDEX 1.51"],
@@ -256,7 +283,27 @@
           "= 1.5351 × 10²³ (1)"
         ],
         "tip": "A correct final answer of 1.5351 × 10²³ scores all four marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Moles from a number of particles",
+              "formula": "number of moles = number of particles ÷ (6.02 × 10²³)",
+              "where": [
+                "number of moles is in mol.",
+                "number of particles is the number of atoms, molecules, formulae or ions."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "To find the mass of a given number of particles, find the moles first. Then multiply the moles by Mr to get the mass in grams."
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C3.1g", "OCR C3.1h"],
@@ -271,7 +318,21 @@
           "To 3 significant figures = 2.41 × 10²⁴ (1)"
         ],
         "tip": "The answer 2.41 × 10²⁴ on the answer line scores all three marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The mole can also be defined using carbon-12: one **mole** of a substance contains as many particles as there are atoms in 12 g of carbon-12. So the Avogadro constant is the number of atoms in 12 g of carbon-12. Both definitions are accepted.",
+                "The mass of one atom is its Ar in grams divided by 6.02 × 10²³. For chromium, 52.0 ÷ (6.02 × 10²³) = 8.64 × 10⁻²³ g."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 3.3.2S", "CAIE 3.3.3S"],
@@ -362,6 +423,6 @@
       "31baa827-0a5a-4c8f-a9ee-228fcc39ed5f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

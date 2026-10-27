@@ -232,7 +232,23 @@
           "The environment, for example diet, lifestyle, climate or temperature."
         ],
         "tip": "Any two of the three causes score one mark each."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Acquired characteristic",
+                  "meaning": "A characteristic caused by an organism's environment, such as a scar. It is a result of environmental variation."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [

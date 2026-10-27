@@ -227,7 +227,22 @@
           "Some particles were repelled by the positive charge of the nucleus (deflected or reflected is also accepted)."
         ],
         "tip": "One mark for the set-up and one mark for each result. Do not say that most particles were repelled."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Thomson** discovered the **electron**, the first subatomic particle to be found.",
+                "**Rutherford** proposed the idea of the **nuclear atom** to explain the alpha particle scattering results.",
+                "**Bohr** placed the electrons in **shells** (energy levels) at set distances from the nucleus."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {

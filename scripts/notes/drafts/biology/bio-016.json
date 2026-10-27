@@ -280,7 +280,23 @@
           "Growth: tape the lid on correctly, incubate the dish upside down at 25 °C."
         ],
         "tip": "Marks are by level. The top level needs the preparation of the plate, the transfer of bacteria, and sterile technique, in a logical order."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Bacteria can be grown in a **nutrient broth** solution or as colonies on an agar gel plate.",
+                "The culture must be uncontaminated when testing disinfectants or antibiotics. Then any clear area is caused by the chemical being tested, not by other microorganisms.",
+                "The area of a colony is found in the same way as a clear zone: use πr², with the radius as half the diameter.",
+                "(Higher tier) Give large numbers of bacteria in **standard form**. A division every 20 minutes for 8 hours is n = 480 ÷ 20 = 24, so 1 × 2²⁴ = 16 777 216 = 1.7 × 10⁷ bacteria."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.17B", "EDEX 5.19B", "EDEX 5.18B"],
@@ -295,7 +311,23 @@
           "Answer to 1 decimal place: 63.6 mm²."
         ],
         "tip": "Full marks for the correct answer without working. If the diameter is used by mistake, one or two marks can still be given."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Wash hands, wear gloves and clean the bench with ethanol or another disinfectant before starting.",
+                "Autoclaving the agar and Petri dishes destroys unwanted microorganisms. They then cannot compete with the culture for nutrients or affect its growth.",
+                "Keep Petri dishes and culture vials covered, and remove a lid for as short a time as possible.",
+                "The area of a bacterial culture is found in the same way as a clear zone: use πr², with the radius as half the diameter."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 6.3p"],
@@ -311,7 +343,55 @@
           "After a few days look to see if there is a clear area around the disc."
         ],
         "tip": "Any three score one mark each. Putting antibiotic straight onto the bacteria or Petri dish is ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Aseptic technique: more detail",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Wipe the work surface with **alcohol** to disinfect it before starting.",
+                "Glassware and the growth medium are sterilised in an **autoclave** before use.",
+                "Move filter paper discs with sterile forceps, to prevent contamination by other microorganisms."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Practical: testing antimicrobials on a bacterial lawn",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Make the lawn.",
+                  "text": "Spread bacteria evenly over the sterile agar with a loop or spreader, or pour a liquid culture over it. Lift the lid only slightly."
+                },
+                {
+                  "lead": "Add the discs.",
+                  "text": "Soak a filter paper disc in each antimicrobial and place it on the lawn. Include a control disc with no antimicrobial."
+                },
+                {
+                  "lead": "Incubate.",
+                  "text": "Leave the dish in an incubator for the same time for every disc."
+                },
+                {
+                  "lead": "Compare.",
+                  "text": "Look for a clear area around each disc. A larger clear area means the antimicrobial killed more bacteria."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "To compare two antimicrobials fairly, test them at the same concentrations and on the same type of bacteria.",
+                "Repeating with different concentrations, or with more than one type of bacteria, makes the comparison stronger."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 21.1.1"],

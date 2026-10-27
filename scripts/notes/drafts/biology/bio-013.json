@@ -324,7 +324,35 @@
           "Blot or dry the outside of the cubes before the final mass is measured."
         ],
         "tip": "Any three score one mark each."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Practical: measuring length instead of mass",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The change in a potato chip can be followed by its length instead of its mass. Cut chips of the same size and measure each with a ruler before and after."
+            },
+            {
+              "type": "equation",
+              "label": "Percentage change in length",
+              "formula": "percentage change in length = (change in length ÷ starting length) × 100",
+              "where": [
+                "change in length = final length − starting length, in mm.",
+                "starting length is in mm."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A chip that is longer has gained water. A chip that stays the same length has the same **water potential** as the solution, so there is no net gain or loss of water.",
+                "Write a decrease in length as a negative percentage.",
+                "Length is quick and easy to measure, but it ignores changes in width. Measuring **mass** or volume shows the total change."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 3.2.5"],

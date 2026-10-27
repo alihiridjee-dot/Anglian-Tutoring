@@ -287,7 +287,21 @@
           "With different numbers of neutrons."
         ],
         "tip": "The question asks for subatomic particles, so name protons and neutrons. References to electrons are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An ion is written with its charge at the top right of the symbol. A particle with 16 protons, 16 neutrons and 18 electrons is ³²₁₆S²⁻.",
+                "Isotopes have the same symbol and the same atomic number, but different mass numbers, such as ³⁵₁₇Cl and ³⁷₁₇Cl."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -324,7 +338,21 @@
           "Li⁺ has mass number 7 (3 + 4)."
         ],
         "tip": "All three correct scores 2 marks. One or two correct scores 1 mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In the standard notation for an ion, the charge goes at the top right of the symbol. ¹⁹₉F⁻ has 9 protons, 10 neutrons and 10 electrons.",
+                "Isotopes have the same atomic number and different mass numbers. ¹²₆C has 6 neutrons and ¹⁴₆C has 8 neutrons."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

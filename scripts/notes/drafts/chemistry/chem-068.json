@@ -254,7 +254,39 @@
           "Control variables: concentration of the hydrochloric acid, volume of the hydrochloric acid, and total volume of sodium thiosulfate solution."
         ],
         "tip": "This is a levels question. Marks go for the key steps in a logical order and for naming the control variables."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Required practical: concentration and rate",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Start with a **hypothesis**, a testable prediction with a reason. For example, a higher concentration of acid gives a faster reaction, because there are more particles in the same volume, so collisions are more frequent."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Measure.",
+                  "text": "Pour a measured volume of hydrochloric acid into a conical flask."
+                },
+                {
+                  "lead": "React.",
+                  "text": "Add a weighed piece of magnesium. Put in the stopper, with a delivery tube to a gas syringe, as quickly as possible to reduce loss of gas. Start the timer."
+                },
+                {
+                  "lead": "Record.",
+                  "text": "Record the volume of gas at set time intervals, or the time to collect a fixed volume."
+                },
+                {
+                  "lead": "Repeat.",
+                  "text": "Repeat with other concentrations of acid. Keep the temperature, the volume of acid and the mass and form of magnesium the same. Repeat each one and find a mean."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.1", "EDEX 7.2"],
@@ -269,7 +301,57 @@
           "Stop the timer when the cross is obscured."
         ],
         "tip": "The second and third marks depend on placing the flask over a cross."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Core practical: gas from marble chips and acid",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put a measured volume of dilute hydrochloric acid in a conical flask. Add a weighed mass of marble chips, connect the gas syringe at once and start the stopwatch."
+                },
+                {
+                  "lead": "Measure.",
+                  "text": "Record the volume of carbon dioxide at regular times, for example every minute, until no more gas is made."
+                },
+                {
+                  "lead": "Change one condition.",
+                  "text": "Repeat with a different concentration of acid, a different temperature (in a water bath) or a different size of chips. Keep every other variable the same."
+                },
+                {
+                  "lead": "Analyse.",
+                  "text": "Plot volume against time for each run. A steeper line means a faster rate. The gradient of a tangent gives the rate at one time."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Core practical: disappearing cross at different temperatures",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Warm.",
+                  "text": "Warm a measured volume of sodium thiosulfate solution to a chosen temperature in a water bath. Record the temperature."
+                },
+                {
+                  "lead": "Time.",
+                  "text": "Add a measured volume of hydrochloric acid and start the stopwatch. Stop it when the cross can no longer be seen."
+                },
+                {
+                  "lead": "Repeat.",
+                  "text": "Repeat at other temperatures with the same volumes and concentrations. Plot the time taken against the temperature."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C5.2a"],
@@ -284,7 +366,35 @@
           "Mean rate = 1.67 × 10⁻³ g/s."
         ],
         "tip": "The answer 1.67 × 10⁻³ g/s scores all 3 marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Practical: marble chips or magnesium with acid",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put a measured volume of dilute hydrochloric acid in a conical flask. Add a weighed mass of marble chips or magnesium and start the stopwatch."
+                },
+                {
+                  "lead": "Measure.",
+                  "text": "Either time how long the solid takes to react completely, or collect the gas and record its volume at regular times. A gas syringe or an upturned burette measures the gas."
+                },
+                {
+                  "lead": "Change one condition.",
+                  "text": "Repeat with a different temperature, concentration or surface area. Keep every other variable the same."
+                },
+                {
+                  "lead": "Analyse.",
+                  "text": "A shorter reaction time means a faster reaction. For gas volumes, plot volume against time. A steeper line means a faster reaction."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 6.2.3", "CAIE 6.2.8S"],

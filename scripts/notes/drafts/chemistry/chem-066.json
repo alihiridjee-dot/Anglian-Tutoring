@@ -199,7 +199,21 @@
           "Disadvantage, any one from: hydrogen is made from fossil fuels or non-renewable resources; hydrogen is difficult to store; hydrogen is flammable or explosive; costs more to refuel; costs more to manufacture; not many hydrogen filling stations."
         ],
         "tip": "One mark for the advantage and one for the disadvantage."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Hydrogen is a gas, so a vehicle needs a large volume of it to travel a long way. This is why hydrogen is **difficult to store**.",
+                "The volume can be reduced by storing the hydrogen under higher **pressure**, by cooling it to a liquid, or by absorbing it in a solid."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.26C", "EDEX 5.27C"],

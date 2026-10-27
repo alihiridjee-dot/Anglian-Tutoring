@@ -250,7 +250,23 @@
           "So collisions are more frequent."
         ],
         "tip": "One mark each: the rate, the energy of the particles, and the frequency of collisions."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In simple collision theory the rate is **proportional** to the frequency of collisions. Twice as many collisions each second gives twice the rate.",
+                "Doubling the concentration of a solution or the pressure of a gas doubles the number of particles in the same volume. Collisions are twice as frequent, so the rate doubles. Halving either one halves the rate.",
+                "Doubling the surface area of a solid exposes twice as many particles to the other reactant, so the rate doubles.",
+                "Temperature does not follow this pattern, because it also changes the energy of the collisions."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.3", "EDEX 7.4"],

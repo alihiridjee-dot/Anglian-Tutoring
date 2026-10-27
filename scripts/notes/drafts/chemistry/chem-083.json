@@ -254,6 +254,25 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "(Higher tier) Polyamides",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A polyamide is a condensation polymer made in the same way as a polyester, from different monomers."
+            },
+            {
+              "type": "list",
+              "items": [
+                "One monomer has two **–NH₂** groups. The other has two **–COOH** groups, or two –COCl groups.",
+                "The small molecule lost is water with –COOH groups, and hydrogen chloride, HCl, with –COCl groups.",
+                "The block diagram has the same alternating pattern as a polyester: –[diamine]–[diacid]–[diamine]–[diacid]–.",
+                "A polymer chain contains a very large number of repeating units.",
+                "In the nylon practical, the thread is wound around a glass rod as it is drawn out."
+              ]
+            }
+          ]
         }
       ]
     },

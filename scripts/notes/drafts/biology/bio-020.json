@@ -214,7 +214,34 @@
           "Enzyme-substrate complexes cannot form."
         ],
         "tip": "Any three points score one mark each. Mentioning lock and key is allowed. Saying the enzyme is denatured loses the active site shape, fit and complex points."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Metabolism",
+                  "meaning": "All the chemical reactions in a cell or the body."
+                },
+                {
+                  "term": "Enzyme-substrate complex",
+                  "meaning": "The enzyme and substrate joined together, with the substrate bound to the active site."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Enzymes control metabolic processes, such as respiration.",
+                "A drug or other chemical can stop an enzyme working. It blocks the active site, or changes the shape of the active site, so the substrate no longer fits."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

@@ -221,7 +221,21 @@
           "= 90 (1)"
         ],
         "tip": "The correct answer, 90, scores all four marks even without working."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Finding a use for a waste product raises the atom economy. The waste product becomes a **useful product**, so more of the reactant mass ends up as useful product.",
+                "Fermentation of sucrose makes ethanol and carbon dioxide. If the carbon dioxide is sold, for example for fizzy drinks, it is no longer waste and the atom economy rises."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C5.1i", "OCR C5.1j", "OCR C5.1k"],

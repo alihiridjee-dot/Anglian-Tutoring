@@ -185,7 +185,22 @@
           "Carbon dioxide is emitted during disposal at the end of the car's useful life."
         ],
         "tip": "One mark for each stage other than use and operation."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Raw materials: say whether the source is **renewable** (trees) or finite (crude oil, ores). Mining and quarrying pollute. Growing trees needs land that could grow food, and clearing land can reduce biodiversity.",
+                "Manufacture and transport: a heavier product takes more energy to transport. The energy often comes from burning fossil fuels, which releases carbon dioxide.",
+                "Disposal: burning releases carbon dioxide and, for some polymers, toxins, but the energy released can be used to generate electricity."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 4.11", "EDEX 4.12"]
@@ -204,7 +219,22 @@
           "Overall cost per container is less for aluminium, because the mass is so much smaller."
         ],
         "tip": "Any three. The comparison must be stated, not just the figures."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Compare the figures: say which is higher or lower. Quoting a value on its own is not credited.",
+                "Energy and cost are often given **per kilogram**, but a container has a small mass. Multiply by the mass to compare containers, so a lighter container can cost less overall even if its cost per kilogram is higher.",
+                "A lifetime total adds the stages together. Carbon dioxide saved by recycling at the end of life is subtracted, and is often shown as a negative figure."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {

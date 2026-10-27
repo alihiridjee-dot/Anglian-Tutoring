@@ -249,7 +249,21 @@
           "Sperm B swims faster or a greater distance."
         ],
         "tip": "Any three score one mark each. Build the chain: middle section, mitochondria, energy, swimming."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "After a sperm enters, the **cell membrane** of the egg cell changes so that no other sperm can enter. Only one sperm fertilises the egg, which keeps the chromosome number correct.",
+                "**Ciliated epithelial cells** line the trachea. Mucus traps pathogens, and the **cilia** move the mucus away from the lungs."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 2.1c"],

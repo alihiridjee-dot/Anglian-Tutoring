@@ -311,7 +311,25 @@
           "Judgement: none of the compounds contains both nitrogen and potassium, so a mixture is needed, such as A and B."
         ],
         "tip": "Marked in levels: reasons logically linked to a judgement reach the top level."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The percentages of nitrogen, phosphorus and potassium in a fertiliser do not add up to 100%, because the compounds contain other elements as well. Add them to find the total of the essential elements.",
+                "A fertiliser with no nitrogen, such as potassium chloride, is not made using ammonia.",
+                "Ammonium phosphate contains nitrogen and phosphorus. Potassium nitrate contains nitrogen and potassium.",
+                "Treating phosphate rock with phosphoric acid gives triple superphosphate, also named calcium dihydrogenphosphate.",
+                "Ammonium nitrate is also used in explosives and sports injury packs.",
+                "A conclusion by a scientist who works for the company may not be valid: the scientist may be biased, the work may not be peer reviewed, or other scientists may not have repeated it."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -331,7 +349,24 @@
           "Or: the laboratory preparation uses titration and crystallisation."
         ],
         "tip": "One mark for a similarity and one for a difference."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Ammonium sulfate and ammonium nitrate are **soluble** in water.",
+                "A fertiliser supplies nutrients to promote plant growth. It does not kill pests or weeds, or protect plants from disease.",
+                "A label may give phosphorus as P₂O₅. When asked which element is missing, write the element, phosphorus, not the oxide.",
+                "Laboratory and industrial preparation of ammonium sulfate are both exothermic, so both give out heat.",
+                "In industry the ammonia is a gas. In the laboratory it is a solution."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -351,7 +386,37 @@
           "Not suitable industrially: a burette and other apparatus cannot be used for large quantities, and a steam bath is very difficult to use on a large scale."
         ],
         "tip": "One mark each. The last mark explains why it is not suitable on a large scale."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Nitrogen is needed to make proteins and chlorophyll, so plants without enough nitrogen have yellow leaves.",
+                "To choose a fertiliser, link each symptom to its element, then compare the percentages of those elements in the table.",
+                "Both the industrial and the laboratory preparation of ammonium sulfate have an atom economy of 100%, because there is only one product."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Industry compared with the laboratory",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Industry, advantages:** it is continuous, so it runs all the time with fewer workers. It is large scale and quick, and it can use by-products of other processes.",
+                "**Industry, disadvantage:** the ammonia and the sulfuric acid are first made from raw materials, in several integrated stages.",
+                "**Laboratory, advantages:** one stage, and small scale. **Laboratory, disadvantages:** a batch process, and slow.",
+                "The laboratory method does not scale up. A burette cannot handle large volumes, and large volumes of liquid are hard to heat and crystallise.",
+                "Ammonia solution gives off ammonia gas, which has a sharp, irritating smell. Work in a fume cupboard or a well-ventilated room, or use low concentrations."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

@@ -267,7 +267,35 @@
           "Na⁺ and O²⁻ ions form (sodium ions and oxide ions), with full outer shells."
         ],
         "tip": "One mark each. Say what each atom does with its electrons, then give the ratio and the ions formed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Oxides in water",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A soluble metal oxide, such as sodium oxide, forms an alkaline solution with a high pH.",
+                "A soluble non-metal oxide, such as phosphorus oxide, forms an acidic solution with a low pH.",
+                "Magnesium oxide is only slightly soluble, so some solid remains and the solution is weakly alkaline.",
+                "Silicon dioxide is insoluble in water, so the solid remains and the mixture is neutral (pH 7)."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Reactions and position in the table",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A non-metal reacts by gaining an electron. It gains the electron more easily higher up a group, because its atoms have fewer shells. The outer shell is closer to the nucleus with less shielding, so the attraction for the incoming electron is stronger.",
+                "To predict whether an unfamiliar element reacts with metals, use its position. An element towards the right of the table, or in the same group as oxygen or sulfur, is a non-metal. It gains electrons from a metal."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -299,7 +327,23 @@
           "Particle D has more protons than electrons, so it is an ion."
         ],
         "tip": "One mark for each particle. Use the numbers of outer electrons, protons and electrons."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Physical property",
+                  "meaning": "A feature of a substance that can be observed or measured, such as its appearance, state or melting point."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

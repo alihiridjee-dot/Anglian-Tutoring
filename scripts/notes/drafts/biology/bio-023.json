@@ -275,7 +275,21 @@
           "Which are acidic, lowering the pH of the mixture, or making the mixture more acidic."
         ],
         "tip": "One mark for each link in the chain: lipase, fatty acids, lower pH."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Enzymes also catalyse **synthesis**, the building up of carbohydrates, proteins and lipids from small molecules.",
+                "For example, an enzyme in plant root cells joins glucose molecules together to make starch."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [

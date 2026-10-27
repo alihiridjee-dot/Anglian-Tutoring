@@ -214,7 +214,22 @@
           "The plants are harvested and burned, leaving copper or metal compounds."
         ],
         "tip": "The two marks are awarded independently."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Phytoextraction** is the name this course uses for phytomining. Plants absorb metal ions through their roots and concentrate them. The plants are harvested, dried and burned to leave an ash that contains metal compounds.",
+                "Disadvantages: it only reaches metal near the ground surface, the ash needs further processing to obtain the metal, and burning the plants may release harmful gases.",
+                "Advantage: plants take in carbon dioxide as they grow, so the method can be described as **carbon neutral**."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -233,7 +248,22 @@
           "It does not destroy the landscape as mining does."
         ],
         "tip": "One mark for each advantage, up to two."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Phytoextraction** is the name this course uses for phytomining. Plants absorb metal ions through their roots and concentrate them. The plants are harvested, dried and burned to leave an ash that contains metal compounds.",
+                "Bioleaching: the bacteria occur naturally and need no special treatment.",
+                "Bioleaching does not release sulfur dioxide into the atmosphere."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel_igcse": {
       "spec_codes": [

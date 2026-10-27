@@ -144,7 +144,26 @@
           "So it is not passed or spread from person to person."
         ],
         "tip": "Two linked marks: what does not cause it, and what that means for spread."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Epidemiological data",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Questions on health data ask how far the data can be trusted."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Data about a disease come from a **sample** of the population, not from everyone. The data are more **valid** if the sample is large, the study lasts a long time and other factors are controlled.",
+                "Reported numbers of cases may be inaccurate. Not all cases are reported or recorded, tests can give false positives or false negatives, and population sizes are estimates.",
+                "Survey data may be less valid because people underestimate or overestimate their habits, such as drinking alcohol, or change them over time."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.1", "EDEX 5.2", "EDEX 5.3"],
@@ -174,7 +193,21 @@
           "Non-communicable disease: type 2 diabetes."
         ],
         "tip": "Four correct gives 3 marks, two or three correct gives 2 marks and one correct gives 1 mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Communicable diseases are caused by viruses, bacteria, fungi or protists.",
+                "AIDS is caused by a virus. Crown gall disease in plants is caused by a bacterium. Barley powdery mildew in plants is caused by a fungus."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 10.1.2"]

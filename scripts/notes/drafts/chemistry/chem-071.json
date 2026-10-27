@@ -243,7 +243,22 @@
           "With a lower activation energy."
         ],
         "tip": "Reactants adsorbing onto the surface of the catalyst so that bonds are weakened earns 1 mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A substance is probably a **catalyst** if the reaction is faster with it and it shows no change in appearance. For example, copper powder speeds up the reaction of zinc with dilute sulfuric acid.",
+                "A catalyst changes only the rate. The same total volume of product is made with or without it.",
+                "Write that a catalyst is **not used up**. Do not write that it takes no part in the reaction."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 6.2.2", "CAIE 6.2.7S", "CAIE 6.2.6S", "CAIE 10.3.8S"],

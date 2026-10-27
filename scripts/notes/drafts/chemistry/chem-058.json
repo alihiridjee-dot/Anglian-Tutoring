@@ -236,7 +236,26 @@
           "Add this to the increase in mass of the electrode."
         ],
         "tip": "One mark for each step, in a sensible order."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Required practical: mass of copper over time",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The mass of copper on the negative electrode can be measured at different times."
+            },
+            {
+              "type": "list",
+              "items": [
+                "At a constant current, the mass of copper **increases with time**.",
+                "With inert electrodes, the copper ions in the solution get used up. So the increase in each interval can get smaller, until the mass stays constant. It does not always rise by the same amount every minute.",
+                "The mass can differ from the expected value if the concentration or volume of the solution is different, or if the solution contains **impurities**."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.30", "EDEX 3.31"],
@@ -251,7 +270,27 @@
           "Solution: the same number of ions enter and leave the solution."
         ],
         "tip": "One mark for each observation."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Core practical: results with copper electrodes",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "With copper electrodes, both electrodes change in mass."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Weigh both electrodes before the electrolysis. Rinse and dry them, then weigh them again afterwards.",
+                "The positive electrode loses mass. The negative electrode gains about the same mass.",
+                "The reaction at the negative electrode is the **reverse** of the reaction at the positive electrode.",
+                "To deposit more copper in the same time, increase the current or the voltage. Three times the mass needs three times the current."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C3.4e"],

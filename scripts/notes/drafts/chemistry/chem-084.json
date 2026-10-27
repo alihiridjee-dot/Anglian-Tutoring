@@ -230,7 +230,21 @@
           "Starch: sugars (glucose or monosaccharide is allowed)."
         ],
         "tip": "One mark for each correct monomer."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The four nucleotides in DNA are named after their bases: adenine, thymine, cytosine and guanine.",
+                "Asked what the monomers in DNA are called, answer nucleotides, not a base name."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

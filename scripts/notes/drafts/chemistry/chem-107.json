@@ -168,7 +168,30 @@
           "The use of hydrogen (methane) releases carbon dioxide, which contributes to climate change."
         ],
         "tip": "Any three of these points."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The equation has only one product, so the **atom economy** of the forward reaction is 100%.",
+                "Demand for ammonia has also grown because it is used to make nitric acid, drugs, dyes and explosives."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Volume of air needed",
+              "formula": "volume of air = volume of nitrogen × 100 ÷ percentage of nitrogen in air",
+              "where": [
+                "volume in dm³",
+                "air is about 80% nitrogen"
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [

@@ -238,7 +238,21 @@
           "Protons and electrons, in either order"
         ],
         "tip": "One mark for each sentence. Atomic number depends only on protons, and mass number also depends on neutrons."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The radius of a nucleus is about 1 × 10⁻¹⁴ m.",
+                "On a scale model where the nucleus is a ball of radius 1 cm, the atom has a radius of about 100 m. That is the size of a sports arena."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -276,7 +290,21 @@
           "The relative mass of electrons is 0.0005, or very small in comparison."
         ],
         "tip": "Compare the particles in the nucleus with the electrons, using relative masses."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The relative mass of an electron is 0.0005. This is very small compared with a proton, but it is not zero.",
+                "Two sizes that differ by a factor of 10ⁿ differ by **n orders of magnitude**. A width of 1 × 10⁻³ m is seven orders of magnitude larger than a width of 1 × 10⁻¹⁰ m."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

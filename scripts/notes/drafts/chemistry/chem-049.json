@@ -235,7 +235,22 @@
           "Separate the crystals and dry them on filter paper in a warm place."
         ],
         "tip": "Level 3 needs a sequence including at least two of: filter, crystallise (heating and cooling), separate and dry."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Core practical: hydrated copper sulfate crystals",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The crystals are **hydrated** copper sulfate. Water is part of the crystal structure.",
+                "Heating the solution to dryness would drive off this water. Stop heating when the solution is concentrated and crystals start to form.",
+                "For the final drying, leave the crystals on a watch glass in a warm place so that the water on their surface evaporates. Do not heat them directly."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C3.3d"],

@@ -321,7 +321,43 @@
           "Where the OH⁻ ions are oxidised (lose electrons)."
         ],
         "tip": "One mark for each step. 'Discharged' is ignored, so say oxidised or lose electrons."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Required practical: electrolysing aqueous solutions",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Predict.",
+                  "text": "Predict the product at each electrode, from the reactivity of the metal compared with hydrogen and whether there is a halide ion. This is the hypothesis."
+                },
+                {
+                  "lead": "Set up.",
+                  "text": "Pour the solution into a beaker. Use two inert electrodes, such as graphite, connected to a direct current supply."
+                },
+                {
+                  "lead": "Observe.",
+                  "text": "Bubbles show a gas. A solid, or a colour change on the electrode, shows a metal."
+                },
+                {
+                  "lead": "Repeat.",
+                  "text": "Use a different solution each time, then compare the products with the prediction."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Inert electrodes conduct electricity and do not react. Graphite and platinum are suitable.",
+                "Chlorine is toxic. Do the electrolysis in a fume cupboard or a well-ventilated room.",
+                "Less chlorine than hydrogen is collected, because chlorine dissolves in water."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.25"],
@@ -351,6 +387,18 @@
                 "Oxygen forms at the positive electrode.",
                 "The volume of hydrogen is twice the volume of oxygen, a ratio of 2 : 1.",
                 "Graphite electrodes are used because they are inert and conduct electricity."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Acidified water is an **electrolyte** because it contains H⁺ and SO₄²⁻ ions that are free to move.",
+                "To measure the volume of each gas, collect it in a measuring cylinder, burette or gas syringe, or use a Hofmann voltameter. A test-tube only collects the gas."
               ]
             }
           ]

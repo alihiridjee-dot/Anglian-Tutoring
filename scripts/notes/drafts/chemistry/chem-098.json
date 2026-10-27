@@ -196,7 +196,21 @@
         "marks": 3,
         "answer_points": ["Colourless.", "Odourless.", "Toxic."],
         "tip": "One mark for each correct property, in any order."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Water is released as **water vapour**, not liquid water, because the fuel burns at a temperature above the boiling point of water, 100 °C.",
+                "Compare fuels by what they contain. The fuel with the higher percentage of carbon makes more carbon dioxide per kilogram. The fuel with the higher percentage of sulfur makes more sulfur dioxide."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 8.8", "EDEX 8.9", "EDEX 8.10"],
@@ -210,7 +224,22 @@
           "This stops oxygen being carried by the haemoglobin or blood, so less oxygen reaches the brain."
         ],
         "tip": "The two marks need an explanation linking both points."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Problems in appliances",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Closing the **air-hole** of a Bunsen burner lets in less oxygen, so combustion is incomplete and carbon monoxide and soot can form.",
+                "Opening the air-hole lets in more oxygen, so combustion is complete and makes carbon dioxide and water.",
+                "Soot makes buildings dirty and can aggravate asthma and other respiratory problems."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C6.3f"],

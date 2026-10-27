@@ -234,7 +234,23 @@
           "OR by active transport, from a low concentration to a high concentration (against the concentration gradient, using energy)."
         ],
         "tip": "Name the roots, then link the process to the direction of movement. Osmosis is rejected."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Root hair cells: how each adaptation helps",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A long, thin projection gives a large **surface area**, so more water and mineral ions can be absorbed at once.",
+                "A thin cell wall gives a short distance for water and mineral ions to travel, so uptake is faster.",
+                "Many **mitochondria** release energy by aerobic respiration. The energy is needed for the active transport of mineral ions.",
+                "Water is taken up by osmosis. Mineral ions are taken up by active transport, even when the soil solution is very dilute."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 2.1a", "OCR 2.2f"],
@@ -245,6 +261,20 @@
             {
               "type": "paragraph",
               "text": "Active transport uses carrier proteins in the cell membrane. They bind to the substance and move it across, using energy from respiration."
+            }
+          ]
+        },
+        {
+          "heading": "Root hair cells: how each adaptation helps",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A long, thin projection gives a large **surface area**, so more water and mineral ions can be absorbed at once.",
+                "A thin cell wall gives a short distance for water and mineral ions to travel, so uptake is faster.",
+                "Many **mitochondria** release energy by aerobic respiration. The energy is needed for the active transport of mineral ions.",
+                "Water is taken up by osmosis. Mineral ions are taken up by active transport, even when the soil solution is very dilute."
+              ]
             }
           ]
         }

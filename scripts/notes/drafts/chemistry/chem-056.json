@@ -225,7 +225,28 @@
           "Cathode: Cr³⁺ + 3e⁻ → Cr (1 mark for the formulae, 1 mark for balancing)."
         ],
         "tip": "Correct multiples are allowed. Cr − 3e⁻ → Cr³⁺ is also allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) A metal anode that is not inert",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Higher tier) If the anode is a metal that is not inert, its atoms lose electrons and the metal dissolves. This is oxidation, and the anode loses mass."
+            },
+            {
+              "type": "equation",
+              "label": "Copper anode (oxidation)",
+              "formula": "Cu → Cu²⁺ + 2e⁻",
+              "where": [
+                "Cu is a copper atom in the anode",
+                "Cu²⁺ is a copper ion that dissolves in the solution",
+                "e⁻ is an electron, on the right because it is lost"
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 4.1.11S", "CAIE 4.1.8S"],

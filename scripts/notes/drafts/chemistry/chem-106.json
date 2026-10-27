@@ -242,7 +242,30 @@
           "Give a justified conclusion."
         ],
         "tip": "Marked in levels: logically linked reasons and a simple judgement reach the top level for 4 marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "More examples of **composites**: glass fibres (reinforcement) in polyester (matrix) for a surfboard skin, wood particles in poly(ethene) for a building material, and steel bars in pre-stressed concrete.",
+                "A composite skin makes a surfboard harder, stronger, tougher, more rigid and waterproof.",
+                "Plain concrete is cheaper and lighter than pre-stressed concrete, so it is used for garden path slabs that do not carry vehicles.",
+                "Thermosoftening polymers are also called **thermoplastic** polymers.",
+                "Compare the melting point of a polymer with the temperature it will meet. A polymer that melts below it is unsuitable, for example for pipes carrying steam. A thermosetting polymer will not melt, so it suits fire-fighting uniforms."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Mass of an object of the same size in a different material",
+              "formula": "new mass = (density of the new material ÷ density of the original material) × original mass",
+              "where": ["density of each material in g/cm³", "mass in kg"]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 9.38C", "EDEX 9.39C"],
@@ -257,7 +280,23 @@
           "Or: the ceramic will not melt, or the cup will not distort and will keep its shape."
         ],
         "tip": "Mark one property and its linked reason. Incorrect extra properties are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Glass is **transparent**, so it is used for spectacles.",
+                "Clay ceramics do not react with water or dissolve in it, so they suit mugs, containers and washbasins.",
+                "Concrete is a composite of cement, sand and stone. Changing the mixing ratio changes its **compressive strength**: with less stone, the concrete is stronger.",
+                "To find a mass from a mixing ratio, divide the known mass by its ratio number, then multiply by the ratio number of the other material. In a mix of sand : stone of 2 : 3, 5000 kg of sand goes with 7500 kg of stone."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C6.1r", "OCR C6.1s"],
@@ -273,7 +312,40 @@
           "B is the strongest."
         ],
         "tip": "One mark for B, then any two reasons. The mark is for the reason, not just quoting a table value."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Tensile strength",
+                  "meaning": "The load a material can take before it breaks."
+                },
+                {
+                  "term": "Softening temperature",
+                  "meaning": "The temperature at which a polymer starts to go soft and lose its shape. It is below the melting point."
+                },
+                {
+                  "term": "Maximum usable temperature",
+                  "meaning": "The highest temperature at which a polymer can be used."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "For a cup for hot drinks, choose the polymer that will not soften or melt at the temperature of the drink, so the cup holds its shape. A high softening temperature must be linked to this reason.",
+                "Use cost as well as properties. An aircraft wing needs a low density and no corrosion, and the metal must not cost too much.",
+                "A protective vest needs a low density to be easy to wear, high strength so it is not penetrated, flexibility to allow movement, and no corrosion so it lasts longer.",
+                "To say how many times higher one value is than another, round both to 1 significant figure, then divide the larger by the smaller."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {

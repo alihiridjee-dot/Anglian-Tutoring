@@ -312,7 +312,74 @@
           "Pat the crystals dry between filter papers, or dry them in an oven."
         ],
         "tip": "Any three score one mark each. If no other marks are scored, the word crystallisation alone gets one mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In fractional distillation, heat the mixture to a temperature above the lower boiling point and below the higher one. Only the liquid with the lower boiling point evaporates and reaches the top of the column.",
+                "Sodium chloride is a giant lattice of ions with strong electrostatic attraction between them. A lot of energy is needed to separate the ions, so its boiling point is very high.",
+                "Water is simple molecular, with weak forces between its molecules. Little energy is needed to make it boil, so distillation separates water from sodium chloride."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Core practical: composition of inks",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ink is a mixture of coloured substances dissolved in water. Distillation collects the water. Paper chromatography separates the coloured substances."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Heat.",
+                  "text": "Heat the ink in a flask with a Bunsen burner, spirit burner, electric heater or heating mantle."
+                },
+                {
+                  "lead": "Evaporate.",
+                  "text": "The water evaporates. The coloured substances stay in the flask."
+                },
+                {
+                  "lead": "Condense.",
+                  "text": "Cooling water runs into the bottom of the condenser. The vapour cools and turns to liquid water, which collects in a beaker."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Separate science) Concentrated ethanol from fermentation",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Remove the yeast.",
+                  "text": "Filter the fermentation mixture, or decant the liquid, to leave a dilute ethanol solution."
+                },
+                {
+                  "lead": "Set up.",
+                  "text": "Put the solution in a flask with a fractionating column, a thermometer at the top and a condenser."
+                },
+                {
+                  "lead": "Heat.",
+                  "text": "Heat to above the boiling point of ethanol and below the boiling point of water."
+                },
+                {
+                  "lead": "Collect.",
+                  "text": "Ethanol vapour reaches the top first. It condenses in the condenser, and the concentrated ethanol is collected."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -331,7 +398,22 @@
           "The solid sodium chloride stays in the flask and the pure water condenses."
         ],
         "tip": "Keep to the order: filter, then distil. The wrong order scores at most 3 marks, and each method needs its reason."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "To filter, fold the filter paper and put it in the funnel. Pour the mixture through the funnel into a conical flask. The insoluble solid stays on the filter paper and the filtrate collects in the flask.",
+                "A **fractionating column** has a large surface area. It improves the separation of liquids compared with simple distillation.",
+                "Of two liquids, the one with stronger forces between its molecules has the higher boiling point, so it distils later."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
