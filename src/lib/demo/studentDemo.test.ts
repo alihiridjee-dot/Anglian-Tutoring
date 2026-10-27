@@ -1,6 +1,6 @@
-import { describe, expect, test } from "bun:test";
+import { describe, expect, setSystemTime, test } from "bun:test";
 import { gradeFromPct, summariseAnalytics } from "@/lib/profile/analytics";
-import { DAY_MS, LIVE_TAIL_MS } from "@/lib/live/liveSessions";
+import { DAY_MS, LIVE_TAIL_MS, MINUTE_MS } from "@/lib/live/liveSessions";
 import {
   DEMO_ANALYTICS,
   DEMO_ANSWERS,
@@ -15,6 +15,7 @@ import {
   DEMO_SCORED_WORK,
   DEMO_SUBJECTS,
   DEMO_SUBMISSIONS,
+  lesson,
 } from "./studentDemo";
 
 describe("the showcase's marked tasks", () => {
@@ -93,7 +94,31 @@ describe("the showcase's curriculum", () => {
 });
 
 describe("the showcase's live lessons", () => {
-  test("each subject has a lesson to come with a join link, and one from the last week", () => {
+  // The next lesson hasn't finished and is at most a week away. The last one
+  // has finished and is the same slot a week before, so while a lesson runs it
+  // started a week and up to a lesson ago (still listed: see `lesson`).
+  function expectWeekly(subject: string, next: string, last: string, now: number) {
+    const start = (iso: string) => new Date(iso).getTime();
+    const weekBefore = new Date(next);
+    weekBefore.setDate(weekBefore.getDate() - 7);
+    expect({
+      subject,
+      at: new Date(now).toISOString(),
+      nextToCome: start(next) + LIVE_TAIL_MS > now,
+      nextWithinAWeek: start(next) - now <= 7 * DAY_MS,
+      lastFinished: start(last) + LIVE_TAIL_MS <= now,
+      lastIsTheWeekBefore: start(last) === weekBefore.getTime(),
+    }).toEqual({
+      subject,
+      at: new Date(now).toISOString(),
+      nextToCome: true,
+      nextWithinAWeek: true,
+      lastFinished: true,
+      lastIsTheWeekBefore: true,
+    });
+  }
+
+  test("each subject has a lesson to come with a join link, and last week's", () => {
     const now = Date.now();
     const finished = (s: (typeof DEMO_LIVE)[number]) =>
       new Date(s.starts_at).getTime() + LIVE_TAIL_MS <= now;
@@ -107,8 +132,32 @@ describe("the showcase's live lessons", () => {
         last: 1,
       });
       expect(next[0].join_url).toBeTruthy();
-      expect(new Date(next[0].starts_at).getTime() - now).toBeLessThanOrEqual(7 * DAY_MS);
-      expect(now - new Date(last[0].starts_at).getTime()).toBeLessThanOrEqual(7 * DAY_MS);
+      expectWeekly(subject, next[0].starts_at, last[0].starts_at, now);
+    }
+  });
+
+  test("so they do at every time of day, all week", () => {
+    // Each subject's slot, read off the lesson booked now.
+    const slots = DEMO_LIVE.filter((s) => s.join_url).map((s) => {
+      const d = new Date(s.starts_at);
+      return { subject: s.subject, slot: [d.getDay(), d.getHours(), d.getMinutes()] as const };
+    });
+    expect(slots.length).toBe(DEMO_SUBJECTS.length);
+    // Every five minutes for a week, on a UK clock, from Sunday 25 October 2026
+    // when the clocks went back: that week, last week's lessons are an hour
+    // further off. `bun test` runs in UTC unless TZ is set, so that is restored.
+    const tz = process.env.TZ;
+    process.env.TZ = "Europe/London";
+    const from = new Date(2026, 9, 25).getTime();
+    try {
+      for (let now = from; now < from + 7 * DAY_MS; now += 5 * MINUTE_MS) {
+        setSystemTime(now);
+        for (const { subject, slot } of slots)
+          expectWeekly(subject, lesson(...slot, "next"), lesson(...slot, "last"), now);
+      }
+    } finally {
+      setSystemTime();
+      process.env.TZ = tz ?? "Etc/UTC";
     }
   });
 });
