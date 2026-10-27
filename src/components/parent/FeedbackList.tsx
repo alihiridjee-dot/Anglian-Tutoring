@@ -1,4 +1,4 @@
-import { Award } from "lucide-react";
+import { Award, ChevronDown, Loader2 } from "lucide-react";
 import type { FeedbackItem } from "@/hooks/data/useChildProgress";
 import { subjectLabel, subjectTint } from "@/lib/curriculum/subjectTheme";
 import { SciText, SectionHeading } from "@/components/Shared";
@@ -25,15 +25,45 @@ function timeAgo(iso: string): string {
   });
 }
 
+/** The comment and its mark: the part of a card a reader came for. */
+function FeedbackBody({ f }: { f: FeedbackItem }) {
+  return (
+    <>
+      {/* The comment is the point of the card: normal text, not
+          grey italics. */}
+      <p className="mt-2 text-sm leading-relaxed">
+        “<SciText text={f.feedback} />”
+      </p>
+      {(f.grade || f.scorePct != null) && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {f.grade && <span className="chip">Grade {f.grade}</span>}
+          {f.scorePct != null && <span className="chip">{f.scorePct}%</span>}
+        </div>
+      )}
+    </>
+  );
+}
+
 /**
  * Feedback on marked tasks, straight from the submissions. Titled "Task
  * feedback", not "Tutor feedback": the AI marker writes it and a tutor may or
  * may not have checked it, so the heading claims no author. Only work
  * whose mark has been released — `graded_at` is stamped at release — so a
  * parent never reads a comment before their child can.
+ *
+ * The newest comment is open; older ones fold to one row each (subject, task,
+ * mark) that opens on tap, so weeks of feedback don't stack into a wall.
+ * `older` pages further back; the showcase passes none.
  */
-export function FeedbackList({ items }: { items: FeedbackItem[] }) {
+export function FeedbackList({
+  items,
+  older,
+}: {
+  items: FeedbackItem[];
+  older?: { hasOlder: boolean; loading: boolean; onShowOlder: () => void };
+}) {
   if (items.length === 0) return null;
+  const [newest, ...rest] = items;
 
   return (
     <div className="premium-card p-4 sm:p-6">
@@ -44,32 +74,59 @@ export function FeedbackList({ items }: { items: FeedbackItem[] }) {
       </SectionHeading>
 
       <ul className="mt-5 space-y-3">
-        {items.map((f) => (
-          <li
-            key={f.id}
-            className={`pop-card pop-card-flat rounded-xl p-4 ${subjectTint(f.subject)}`}
-          >
-            <div className="flex items-start justify-between gap-2">
-              <div className="min-w-0">
-                <span className="chip">{subjectLabel(f.subject)}</span>
-                <p className="mt-1.5 text-sm font-semibold break-words">{f.homeworkTitle}</p>
-              </div>
-              <span className="chip shrink-0">{timeAgo(f.gradedAt)}</span>
+        <li className={`pop-card pop-card-flat rounded-xl p-4 ${subjectTint(newest.subject)}`}>
+          <div className="flex items-start justify-between gap-2">
+            <div className="min-w-0">
+              <span className="chip">{subjectLabel(newest.subject)}</span>
+              <p className="mt-1.5 text-sm font-semibold break-words">{newest.homeworkTitle}</p>
             </div>
-            {/* The comment is the point of the card: normal text, not
-                grey italics. */}
-            <p className="mt-2 text-sm leading-relaxed">
-              “<SciText text={f.feedback} />”
-            </p>
-            {(f.grade || f.scorePct != null) && (
-              <div className="mt-3 flex flex-wrap gap-2">
-                {f.grade && <span className="chip">Grade {f.grade}</span>}
-                {f.scorePct != null && <span className="chip">{f.scorePct}%</span>}
-              </div>
-            )}
-          </li>
-        ))}
+            <span className="chip shrink-0">{timeAgo(newest.gradedAt)}</span>
+          </div>
+          <FeedbackBody f={newest} />
+        </li>
+        {rest.map((f) => {
+          const mark = f.grade ? `Grade ${f.grade}` : f.scorePct != null ? `${f.scorePct}%` : null;
+          return (
+            <li
+              key={f.id}
+              className={`pop-card pop-card-flat rounded-xl ${subjectTint(f.subject)}`}
+            >
+              <details className="group">
+                <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 p-4 [&::-webkit-details-marker]:hidden">
+                  {/* Stacked like the open card's header: in the narrow side
+                      column a chip beside the title left the title no room. */}
+                  <div className="min-w-0 flex-1">
+                    <span className="chip">{subjectLabel(f.subject)}</span>
+                    <p className="mt-1.5 text-sm font-semibold break-words">{f.homeworkTitle}</p>
+                  </div>
+                  {/* Open, the mark is in the body below. */}
+                  {mark && <span className="chip shrink-0 group-open:hidden">{mark}</span>}
+                  <ChevronDown
+                    className="size-4 shrink-0 transition group-open:rotate-180"
+                    aria-hidden
+                  />
+                </summary>
+                <div className="px-4 pb-4">
+                  <span className="chip">{timeAgo(f.gradedAt)}</span>
+                  <FeedbackBody f={f} />
+                </div>
+              </details>
+            </li>
+          );
+        })}
       </ul>
+
+      {older?.hasOlder && (
+        <button
+          type="button"
+          onClick={older.onShowOlder}
+          disabled={older.loading}
+          className="btn-soft mx-auto mt-4 flex h-10 items-center gap-2 rounded-lg px-4 text-sm font-semibold"
+        >
+          {older.loading && <Loader2 className="size-4 animate-spin" aria-hidden />}
+          Show older
+        </button>
+      )}
     </div>
   );
 }
