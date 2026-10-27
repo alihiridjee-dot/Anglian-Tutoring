@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { currentWeekKey } from "@/lib/planner/week";
@@ -147,18 +147,24 @@ export interface FeedbackItem {
 }
 
 /**
- * The most recent feedback on the child's marked tasks.
+ * The most recent feedback on the child's marked tasks, a page at a time:
+ * `showOlder` widens the read by another `pageSize`, so weeks of comments stay
+ * reachable without all of them loading up front.
  *
  * Two reads, one of them shared: the comments from the submissions, and each
  * sheet's subject and title from the scored work the predicted grades already
  * read (an embed of resources is empty once the child's plan lapses, S-23).
  * Returned in the shape of one query, so a caller treats it as one.
  */
-export function useChildFeedback(studentId: string | null, limit = 4) {
+export function useChildFeedback(studentId: string | null, pageSize = 4) {
+  // Keyed to the child, so flipping to a sibling starts from one page again.
+  const [shown, setShown] = useState({ studentId, limit: pageSize });
+  const limit = shown.studentId === studentId ? shown.limit : pageSize;
   const work = useQuery(scoredWorkQuery(studentId));
   const marked = useQuery({
     queryKey: [...CHILD_KEY, "feedback", studentId, limit],
     queryFn: async () => {
+      // One row past the page says whether there is anything older.
       const { data, error } = await supabase
         .from("homework_submissions")
         .select("id, feedback, grade, score_pct, graded_at")
@@ -166,11 +172,14 @@ export function useChildFeedback(studentId: string | null, limit = 4) {
         .not("feedback", "is", null)
         .not("graded_at", "is", null)
         .order("graded_at", { ascending: false })
-        .limit(limit);
+        .limit(limit + 1);
       if (error) throw new Error(error.message);
       return data ?? [];
     },
     enabled: !!studentId,
+    // The list already drawn stays while the longer one loads, but never
+    // another child's.
+    placeholderData: (prev, prevQuery) => (prevQuery?.queryKey[2] === studentId ? prev : undefined),
   });
 
   const data = useMemo((): FeedbackItem[] | undefined => {
@@ -178,7 +187,7 @@ export function useChildFeedback(studentId: string | null, limit = 4) {
     const sheetOf = new Map(
       work.data.filter((w) => w.kind === "homework").map((w) => [w.item_id, w]),
     );
-    return marked.data.flatMap((s) => {
+    return marked.data.slice(0, limit).flatMap((s) => {
       const sheet = sheetOf.get(s.id);
       if (!sheet?.subject || sheet.title === null || !s.feedback || !s.graded_at) return [];
       return [
@@ -193,7 +202,12 @@ export function useChildFeedback(studentId: string | null, limit = 4) {
         },
       ];
     });
-  }, [marked.data, work.data]);
+  }, [marked.data, work.data, limit]);
+
+  const showOlder = useCallback(
+    () => setShown({ studentId, limit: limit + pageSize }),
+    [studentId, limit, pageSize],
+  );
 
   const { refetch: refetchMarked } = marked;
   const { refetch: refetchWork } = work;
@@ -207,6 +221,9 @@ export function useChildFeedback(studentId: string | null, limit = 4) {
     error: marked.error ?? work.error,
     isLoading: marked.isLoading || work.isLoading,
     refetch,
+    hasOlder: marked.isPlaceholderData || (marked.data?.length ?? 0) > limit,
+    loadingOlder: marked.isPlaceholderData,
+    showOlder,
   };
 }
 

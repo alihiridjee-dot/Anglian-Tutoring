@@ -330,7 +330,18 @@ export function ParentDashboard({ demo }: { demo?: PortalData } = {}) {
                 )}
                 {data.feedback.length > 0 && (
                   <div data-tour="parent-feedback">
-                    <FeedbackList items={data.feedback} />
+                    <FeedbackList
+                      items={data.feedback}
+                      older={
+                        demo
+                          ? undefined
+                          : {
+                              hasOlder: feedbackQ.hasOlder,
+                              loading: feedbackQ.loadingOlder,
+                              onShowOlder: feedbackQ.showOlder,
+                            }
+                      }
+                    />
                   </div>
                 )}
               </div>

@@ -27,7 +27,7 @@ export function StudentPerformance({ record }: { record: StudentRecord }) {
     level: record.profile.level,
     joinedAt: record.profile.created_at,
   });
-  const feedbackQ = useChildFeedback(studentId, 8);
+  const feedbackQ = useChildFeedback(studentId);
   const { rows: analytics, loading } = analyticsQ;
   const trends = trendsQ.data ?? [];
   const engagement = engagementQ.data;
@@ -54,7 +54,14 @@ export function StudentPerformance({ record }: { record: StudentRecord }) {
       <TrendsChart points={trends} subjects={subjects} />
       <div className="grid gap-6 lg:grid-cols-2">
         {engagement && <EngagementStats engagement={engagement} />}
-        <FeedbackList items={feedback} />
+        <FeedbackList
+          items={feedback}
+          older={{
+            hasOlder: feedbackQ.hasOlder,
+            loading: feedbackQ.loadingOlder,
+            onShowOlder: feedbackQ.showOlder,
+          }}
+        />
       </div>
     </div>
   );
