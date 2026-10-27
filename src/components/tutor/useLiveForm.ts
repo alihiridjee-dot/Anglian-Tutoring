@@ -4,7 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
-import { createZoomMeeting } from "@/lib/live/zoom.functions";
+import { createZoomMeeting, type ZoomHost } from "@/lib/live/zoom.functions";
 import { scheduledInviteText } from "@/lib/live/whatsappShare";
 import { generateSessionBlurb } from "@/lib/live/sessionBlurb.functions";
 
@@ -33,11 +33,22 @@ export function useLiveForm({ taxonomy }: LiveFormProps) {
   // The meeting "Auto Zoom" made, so deleting the session can cancel it. A
   // pasted link's meeting belongs to whoever made it, and is never cancelled.
   const [zoomMeeting, setZoomMeeting] = useState<{ id: string; joinUrl: string } | null>(null);
+  const [zoomHost, setZoomHostState] = useState<ZoomHost>("ali");
   const [loading, setLoading] = useState(false);
   const [generatingLink, setGeneratingLink] = useState(false);
   const [generatingBlurb, setGeneratingBlurb] = useState(false);
   const [broadcastWhatsApp, setBroadcastWhatsApp] = useState(true);
   const genBlurb = useServerFn(generateSessionBlurb);
+
+  // A link Auto Zoom made belongs to the old host's Zoom, so switching host
+  // clears it and the next Auto Zoom makes the meeting on the new host's.
+  const setZoomHost = (host: ZoomHost) => {
+    setZoomHostState(host);
+    if (zoomMeeting && zoomMeeting.joinUrl === joinUrl) {
+      setJoinUrl("");
+      setZoomMeeting(null);
+    }
+  };
 
   // Provisions a real Zoom meeting via the zoom-meeting edge function and drops
   // the returned join URL into the form. Needs a title and start time so the
@@ -53,6 +64,7 @@ export function useLiveForm({ taxonomy }: LiveFormProps) {
       const meeting = await createZoomMeeting({
         topic: title,
         startTime: new Date(startsAt).toISOString(),
+        host: zoomHost,
       });
       setJoinUrl(meeting.join_url);
       setZoomMeeting({ id: meeting.id, joinUrl: meeting.join_url });
@@ -160,6 +172,8 @@ export function useLiveForm({ taxonomy }: LiveFormProps) {
     setStartsAt,
     joinUrl,
     setJoinUrl,
+    zoomHost,
+    setZoomHost,
     loading,
     generatingLink,
     generatingBlurb,
