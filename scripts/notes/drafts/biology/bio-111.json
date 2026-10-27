@@ -3,7 +3,7 @@
   "concept_id": "bio-111",
   "subject": "biology",
   "title": "Genetic engineering",
-  "key_idea": "Genetic engineering modifies the genome of an organism by introducing a gene from another organism. A gene is cut out with a restriction enzyme, joined into a plasmid with ligase, and carried into a host cell. Bacteria can be engineered to make human insulin.",
+  "key_idea": "Genetic engineering modifies the genome of an organism by introducing a gene from another organism. (Higher tier) A gene is cut out with a restriction enzyme, joined into a plasmid with ligase, and carried into a host cell. Bacteria can be engineered to make human insulin.",
   "sections": [
     {
       "heading": "What genetic engineering is",
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "heading": "The stages of genetic engineering",
+      "heading": "The stages of genetic engineering (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -134,7 +134,7 @@
       "marks": 1
     },
     {
-      "q": "Explain how a human gene can be inserted into a bacterial plasmid.",
+      "q": "(Higher tier) Explain how a human gene can be inserted into a bacterial plasmid.",
       "a": "Cut the gene out and cut the plasmid with the same restriction enzyme, leaving complementary sticky ends. Join them together with ligase.",
       "marks": 3
     },
@@ -166,7 +166,7 @@
         {
           "blocks": [
             {
-              "text": "(AQA: Higher tier) You must describe the main steps of genetic engineering.",
+              "text": "(Higher tier) You must describe the main steps of genetic engineering.",
               "type": "paragraph"
             },
             {
@@ -179,7 +179,7 @@
               ]
             }
           ],
-          "heading": "Higher tier: the main steps"
+          "heading": "The main steps (Higher tier)"
         },
         {
           "blocks": [
@@ -254,7 +254,7 @@
               ]
             }
           ],
-          "heading": "Host bacteria and antibiotic markers"
+          "heading": "Host bacteria and antibiotic markers (Higher tier)"
         }
       ]
     },

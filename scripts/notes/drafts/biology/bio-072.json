@@ -66,7 +66,7 @@
           "items": [
             {
               "term": "Vasodilation",
-              "meaning": "The blood vessels (capillaries) supplying the skin widen, so more blood flows through them."
+              "meaning": "(Edexcel: Higher tier) The blood vessels (capillaries) supplying the skin widen, so more blood flows through them."
             },
             {
               "term": "Sweating",
@@ -88,7 +88,7 @@
         },
         {
           "type": "subheading",
-          "text": "Vasodilation"
+          "text": "Vasodilation (Edexcel: Higher tier)"
         },
         {
           "type": "list",
@@ -102,7 +102,7 @@
           "type": "key-points",
           "items": [
             "Sweat evaporates and takes heat from the body.",
-            "Vasodilation brings more blood near the skin surface, so more heat is lost."
+            "(Edexcel: Higher tier) Vasodilation brings more blood near the skin surface, so more heat is lost."
           ]
         }
       ]
@@ -117,7 +117,7 @@
         {
           "type": "list",
           "items": [
-            "**Vasoconstriction**: the capillaries in the skin narrow, so less blood flows near the surface and less heat is lost.",
+            "(Edexcel: Higher tier) **Vasoconstriction**: the capillaries in the skin narrow, so less blood flows near the surface and less heat is lost.",
             "Sweating is reduced or stops, so less heat is taken away by evaporation.",
             "The hairs in the skin become erect (stand on end), which traps an insulating layer of air.",
             "**Shivering**: skeletal muscles contract rapidly. Respiration in the muscles releases heat, so the body warms up."
@@ -182,7 +182,7 @@
   ],
   "checks": [
     {
-      "q": "Explain how vasodilation helps to cool the body.",
+      "q": "(Edexcel: Higher tier) Explain how vasodilation helps to cool the body.",
       "a": "More blood flows near the surface of the skin, so more heat is lost from the blood, which cools the body.",
       "marks": 3
     },

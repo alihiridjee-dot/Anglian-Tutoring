@@ -3,10 +3,10 @@
   "concept_id": "bio-053",
   "subject": "biology",
   "title": "Detecting and identifying plant diseases",
-  "key_idea": "Plant diseases can be recognised by signs such as discoloured leaves, spots and stunted growth. These can also be caused by a lack of mineral ions. The cause is identified in the field and in the laboratory, so the correct treatment can be used.",
+  "key_idea": "(Edexcel and OCR: Higher tier) Plant diseases can be recognised by signs such as discoloured leaves, spots and stunted growth. These can also be caused by a lack of mineral ions. The cause is identified in the field and in the laboratory, so the correct treatment can be used.",
   "sections": [
     {
-      "heading": "Signs of plant disease",
+      "heading": "Signs of plant disease (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -99,7 +99,7 @@
       ]
     },
     {
-      "heading": "Identifying plant diseases",
+      "heading": "Identifying plant diseases (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -173,12 +173,12 @@
       "marks": 2
     },
     {
-      "q": "Describe two ways a gardener could identify a plant disease.",
+      "q": "(Higher tier) Describe two ways a gardener could identify a plant disease.",
       "a": "Any two from: use a gardening manual, website or app; take the plant to a laboratory or expert; use a testing kit containing monoclonal antibodies.",
       "marks": 2
     },
     {
-      "q": "Give two reasons why a farmer should identify a plant disease as soon as possible.",
+      "q": "(Higher tier) Give two reasons why a farmer should identify a plant disease as soon as possible.",
       "a": "To choose the correct treatment, and to stop or limit the spread of the pathogen (limiting the loss of the crop).",
       "marks": 2
     }

@@ -153,9 +153,11 @@ against the live weights, not by a model of them.
   or split. Merges are generally right; a few split boundaries are approximate,
   so two adjacent points may share a correct total while the division between
   them is a guess. Topic totals are unaffected.
-- **OCR higher tier is not detected.** OCR marks HT-only statements in bold type,
-  which plain-text extraction cannot see. Every other board's HT marker is
-  textual and is picked up.
+- **Edexcel and OCR Higher tier was invisible until 17 Oct 2026.** Both boards
+  mark HT-only statements in bold type, which plain-text extraction cannot see,
+  so the live weights carry no HT bonus for them. Their descriptions now end in
+  the same `(HT only)` marker as AQA's (`scripts/spec-tiers/`), so a re-score
+  would pick it up for those 175 points.
 - **Re-check the parse when a spec is reissued.** The AQA parser stops at "4.8
   Key ideas"; an earlier version stopped too late and the final section absorbed
   the appendix that re-lists all ten required practicals, scoring "Role of
