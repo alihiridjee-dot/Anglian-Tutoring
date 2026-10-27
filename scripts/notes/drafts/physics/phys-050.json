@@ -316,7 +316,8 @@
                 "A person standing on a bed exerts a greater pressure than when lying on it. The weight is the same, but the area of contact is smaller.",
                 "At the same air pressure, a smaller window feels a smaller force, because F = p × A.",
                 "(Higher tier) A denser liquid has more mass, and so more weight, in the same column above a point. This gives a bigger force on the same area, so a greater pressure.",
-                "(Higher tier) There is no area in p = h × ρ × g. So the pressure at a depth does not depend on the area of the surface or the width of the container.",
+                "The pressure at a given depth does not depend on the area of the surface or the width of the container.",
+                "(Higher tier) This is because there is no area in p = h × ρ × g.",
                 "A graph of total pressure against depth is a straight line that does not pass through the origin. It cuts the pressure axis at **atmospheric pressure**."
               ]
             }
@@ -421,7 +422,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

@@ -252,7 +252,7 @@
             {
               "type": "list",
               "items": [
-                "In the laboratory, push a magnet into a coil connected to a sensitive centre-zero meter, then pull it out. Doing this repeatedly makes the needle swing either side of zero, an **alternating current**.",
+                "In the laboratory, push a magnet into a coil connected to a sensitive centre-zero meter, then pull it out. Doing this repeatedly makes the needle swing either side of zero, showing an **alternating current**.",
                 "In large-scale generation, a turbine keeps a magnet and coils of wire rotating relative to each other. The field lines are cut all the time, so a current is induced continuously."
               ]
             }
@@ -350,6 +350,6 @@
       "fd879616-98c2-4ab8-8709-ac6a1f7842e8"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

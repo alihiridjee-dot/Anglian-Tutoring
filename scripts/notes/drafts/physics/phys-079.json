@@ -316,7 +316,7 @@
               "type": "list",
               "items": [
                 "The surface is the **independent variable**, the time for the pin to fall is the **dependent variable** and the distance from the heater is a control variable.",
-                "The main hazard is the infrared heater. With boiling water in a cube, reduce the risk by standing up, using slightly cooler water and not touching the cube."
+                "In this method the main hazard is the infrared heater. With boiling water in a cube, reduce the risk by standing up, using slightly cooler water and not touching the cube."
               ]
             }
           ]
@@ -378,6 +378,6 @@
       "949f6942-e066-416a-9f1a-30ae7d8ef4b8"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

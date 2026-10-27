@@ -320,7 +320,7 @@
                 "Straight wire: point the right thumb along the current. The fingers curl in the direction of the field. This is the **right-hand grip rule**.",
                 "Solenoid: curl the right fingers in the direction of the current in the turns. The thumb points to the **north pole** end.",
                 "A solenoid enhances the magnetic effect because the fields of the individual turns add together inside the coil.",
-                "The strength of a solenoid's field also depends on the cross-sectional area of the coil and the material of its core."
+                "The magnetic effect of a solenoid also depends on the cross-sectional area of the coil and the material of its core."
               ]
             }
           ]
@@ -466,6 +466,6 @@
       "7dc47772-8b1f-4ee1-838b-1d81ed91fa61"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

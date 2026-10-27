@@ -184,7 +184,7 @@
           ]
         },
         {
-          "heading": "Detail this course asks for",
+          "heading": "(Separate science) Detail this course asks for",
           "blocks": [
             {
               "type": "paragraph",
@@ -367,6 +367,6 @@
       "02279700-c535-489a-ac0c-6cc3989e6cfe"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

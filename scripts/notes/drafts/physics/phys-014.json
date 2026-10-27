@@ -312,7 +312,7 @@
               "type": "list",
               "items": [
                 "Keep the current small and switch off between readings, so the current does not heat the component.",
-                "The resistance decreases as the temperature or the light intensity increases."
+                "A thermistor's resistance decreases as its temperature increases. An LDR's resistance decreases as the light intensity increases."
               ]
             }
           ]
@@ -367,7 +367,7 @@
               "type": "list",
               "items": [
                 "Keep the current small and switch the circuit off between readings, so the current does not heat the component.",
-                "The resistance decreases as the temperature or the light intensity increases."
+                "A thermistor's resistance decreases as its temperature increases. An LDR's resistance decreases as the light intensity increases."
               ]
             }
           ]
@@ -445,6 +445,6 @@
       "3ca57c51-a02c-4241-b477-4c2526a3ff91"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-18"
+    "checked_at": "2026-10-27"
   }
 }

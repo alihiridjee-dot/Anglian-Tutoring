@@ -311,7 +311,7 @@
               "items": [
                 {
                   "lead": "Convert the speed.",
-                  "text": "A car reaches 60 mph in about 9 s. Using 1 m/s = 2.24 mph, 60 ÷ 2.24 = about 27 m/s."
+                  "text": "A car accelerates from rest to 60 mph in about 9 s. Using 1 m/s = 2.24 mph, 60 ÷ 2.24 = about 27 m/s."
                 },
                 {
                   "lead": "Divide by the time.",
@@ -367,6 +367,6 @@
       "e4f5606f-b077-4a90-a3d6-301da040e09d"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

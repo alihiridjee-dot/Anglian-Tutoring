@@ -241,13 +241,13 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "The ray bends because the light changes speed when it moves between air and glass."
+              "text": "(Higher tier) The ray bends because the light changes speed when it moves between air and glass."
             },
             {
               "type": "list",
               "items": [
-                "Light travels more slowly in glass than in air. It **slows down** as it enters the block, so it bends towards the normal.",
-                "As it leaves the block, it speeds up again and bends **away from the normal**.",
+                "(Higher tier) Light travels more slowly in glass than in air. It **slows down** as it enters the block, so it bends towards the normal.",
+                "(Higher tier) As it leaves the block, it speeds up again and bends **away from the normal**.",
                 "The two sides of a rectangular block are parallel, so the ray that leaves the block is parallel to the ray that went in."
               ]
             }
@@ -393,6 +393,6 @@
       "a8a13184-1176-427d-917e-958a4e712a0a"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

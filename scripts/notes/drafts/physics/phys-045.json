@@ -316,7 +316,8 @@
               "type": "list",
               "items": [
                 "For a fixed mass, **weight** is directly proportional to **gravitational field strength**.",
-                "Double g and the weight doubles. Halve g and the weight halves."
+                "Double g and the weight doubles. Halve g and the weight halves.",
+                "Recall that **g** is 10 m/s² in free fall near the Earth, which is the same as 10 N/kg. A question may not give it."
               ]
             }
           ]
@@ -474,6 +475,6 @@
       "d1e12dcb-a8bb-4f34-892d-8da8f10a1d4e"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

@@ -293,8 +293,8 @@
             {
               "type": "list",
               "items": [
-                "The frequency does not change, so wavelength is **directly proportional** to speed: wavelength = speed ÷ frequency.",
-                "For example, a sound of wavelength 80 cm in air enters water, where its speed is 4 times greater. Its wavelength in water is 80 × 4 = 320 cm."
+                "The frequency does not change, so wavelength is **directly proportional** to speed.",
+                "For example, a sound of wavelength 80 cm in air enters water, where its speed increases by a factor of 4. Its wavelength in water is 80 × 4 = 320 cm."
               ]
             }
           ]
@@ -325,8 +325,8 @@
             {
               "type": "list",
               "items": [
-                "The frequency does not change, so wavelength is **directly proportional** to speed: wavelength = speed ÷ frequency.",
-                "For example, a sound of wavelength 80 cm in air enters water, where its speed is 4 times greater. Its wavelength in water is 80 × 4 = 320 cm.",
+                "The frequency does not change, so wavelength is **directly proportional** to speed.",
+                "For example, a sound of wavelength 80 cm in air enters water, where its speed increases by a factor of 4. Its wavelength in water is 80 × 4 = 320 cm.",
                 "(Higher tier) As a person gets older, the highest frequency they can hear **decreases**.",
                 "(Higher tier) This is because the small hairs (cilia) in the cochlea become damaged, so high frequencies no longer start nerve impulses."
               ]
@@ -394,6 +394,6 @@
       "6371da5a-57fa-4a50-b7ef-e4b85001f84e"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

@@ -240,7 +240,8 @@
               "items": [
                 "**Iron** is magnetised easily and loses its magnetism easily. It is used for temporary magnets, such as the core of an electromagnet.",
                 "An iron rod in a coil picks up iron filings when the current is switched on. The filings fall off when it is switched off.",
-                "**Steel** keeps its magnetism. It is used for permanent magnets, not temporary ones."
+                "**Steel** keeps its magnetism. It is used for permanent magnets, not temporary ones.",
+                "**Cobalt** and **nickel** are used in alloys, with iron, to make strong permanent magnets."
               ]
             }
           ]
@@ -378,6 +379,6 @@
       "859ccc5b-0a8a-4786-89ed-03dea55310a5"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

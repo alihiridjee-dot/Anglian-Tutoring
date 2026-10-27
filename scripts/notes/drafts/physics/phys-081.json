@@ -210,7 +210,7 @@
               "type": "list",
               "items": [
                 "A plotting compass shows the **direction** of the field and gives a drawn record. Iron filings show only the shape of the pattern.",
-                "A dipping compass shows an **angle of dip** that changes from horizontal at the equator to vertical at the poles. This matches the field of a bar magnet, so it is evidence that the Earth's core is magnetic."
+                "The way a dipping compass's **angle of dip** changes between the equator and the poles matches the field around a bar magnet. This is evidence that the Earth's core is magnetic."
               ]
             }
           ]
@@ -313,6 +313,6 @@
       "f359e8aa-1c66-4a41-8a83-27457d72b487"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

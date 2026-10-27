@@ -228,7 +228,7 @@
             {
               "type": "list",
               "items": [
-                "The mass hanger must not hit the floor before the trolley passes the second light gate. Move the second gate closer to the first or shorten the string.",
+                "The mass hanger must not hit the floor before the trolley passes the second light gate, or the resultant force and the acceleration drop to zero. Move the second gate closer to the first or shorten the string.",
                 "Raising the end of the runway further makes a component of the trolley's weight act along the runway. The resultant force increases, so the acceleration increases.",
                 "Repeat each run and calculate the mean to reduce the effect of **random errors**."
               ]
@@ -279,6 +279,6 @@
       "76c374e3-778b-4a08-8939-d358de72609b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

@@ -314,7 +314,8 @@
               "type": "list",
               "items": [
                 "In a loudspeaker or headphones, the **frequency** of the sound depends on the frequency of the alternating current.",
-                "The **amplitude** of the sound depends on the amplitude of the alternating current. A bigger current gives a bigger force on the coil, so the cone vibrates further."
+                "The **amplitude** of the sound depends on the amplitude of the alternating current. A bigger current gives a bigger force on the coil, so the cone vibrates further.",
+                "In a microphone, the **amplitude** of the induced current depends on the amplitude of the sound."
               ]
             }
           ]
@@ -443,6 +444,6 @@
       "bdcef167-1412-4d52-8fb6-038278e9327b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

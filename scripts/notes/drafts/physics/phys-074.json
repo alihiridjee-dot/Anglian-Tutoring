@@ -222,13 +222,14 @@
           ]
         },
         {
-          "heading": "(Higher tier) Why microwaves and infrared suit their uses",
+          "heading": "(Higher tier) Why microwaves, infrared and ultraviolet suit their uses",
           "blocks": [
             {
               "type": "list",
               "items": [
                 "Some microwaves are not absorbed by the Earth's atmosphere. They pass through it, so they can carry signals to and from **satellites**.",
-                "Electric heaters and cookers emit **infrared**. The person or the food absorbs it, which transfers thermal energy and warms them up."
+                "Electric heaters and cookers emit **infrared**. The person or the food absorbs it, which transfers thermal energy and warms them up.",
+                "Skin absorbs **ultraviolet**, which makes it produce more dark pigment. So ultraviolet lamps are used for sun tanning."
               ]
             }
           ]
@@ -364,6 +365,6 @@
       "4b649497-f3a8-4982-be77-50de66fb60ef"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

@@ -488,8 +488,7 @@
               "type": "list",
               "items": [
                 "In short sight, rays from a distant object are focused in front of the retina.",
-                "A **concave lens** spreads the rays out before they enter the eye, so they focus on the retina.",
-                "Long sight is corrected with a convex lens and short sight with a concave lens."
+                "A **concave lens** spreads the rays out before they enter the eye, so they focus on the retina."
               ]
             }
           ]
@@ -619,6 +618,6 @@
       "fbd1967e-e836-4cc4-9156-ef1a2a4a6975"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

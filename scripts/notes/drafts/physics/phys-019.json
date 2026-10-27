@@ -277,6 +277,20 @@
                 "A motor, such as a whisk, increases the **kinetic store** of its moving parts. The thermal store of the motor and the surroundings also increases.",
                 "A heater or kettle increases the **thermal store** of its element and of the water or air it heats."
               ]
+            },
+            {
+              "type": "subheading",
+              "text": "Power, potential difference and current"
+            },
+            {
+              "type": "equation",
+              "label": "Power from potential difference and current",
+              "formula": "power = potential difference × current    (P = V I)",
+              "where": [
+                "power, P, in watts, W",
+                "potential difference, V, in volts, V",
+                "current, I, in amperes, A"
+              ]
             }
           ]
         }
@@ -488,7 +502,7 @@
       "0f95120d-906d-4577-93fb-c7ac93ad0ffd"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "exemplar_ids": [
       "fe316077-a58d-4baa-92ac-89b56edb4901",
       "365547a9-a0b5-4b58-bfb1-43153b9ac417",

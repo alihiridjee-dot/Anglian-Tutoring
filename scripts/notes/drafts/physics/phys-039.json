@@ -265,12 +265,12 @@
           ]
         },
         {
-          "heading": "(Separate science) Detail this course asks for",
+          "heading": "Detail this course asks for",
           "blocks": [
             {
               "type": "list",
               "items": [
-                "Waste from nuclear power stations has a **long half-life**, so it stays hazardous for a very long time.",
+                "(Separate science) Waste from nuclear power stations has a **long half-life**, so it stays hazardous for a very long time.",
                 "To reduce the hazard, the waste is stored in sealed metal containers or cooling ponds, covered in concrete or buried, and moved in secure containers."
               ]
             }
@@ -306,7 +306,7 @@
             {
               "type": "list",
               "items": [
-                "A source with a **short half-life** has a high activity at first. Time, distance and shielding matter most then, and its activity soon falls to a safe level.",
+                "A source with a **short half-life** has a high activity at first. Time, distance and shielding matter most then, and its activity falls quickly.",
                 "A source with a **long half-life** stays hazardous for a long time, so it must be stored safely for a long time. Nuclear waste is sealed in metal containers, covered in concrete or buried."
               ]
             }
@@ -445,6 +445,6 @@
       "97943716-c9d3-464f-ba5f-315381cf8abb"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-18"
+    "checked_at": "2026-10-27"
   }
 }

@@ -238,9 +238,9 @@
             {
               "type": "list",
               "items": [
-                "Burning **bio-fuels** such as wood causes air pollution. Using wood as a fuel can lead to deforestation and destruction of habitats. They are described as carbon neutral.",
+                "Burning **bio-fuels** such as wood causes air pollution. Using wood as a fuel can lead to deforestation and destruction of habitats. Bio-fuels are described as carbon neutral.",
                 "Soot and particulates from burning fossil fuels cause **global dimming** and breathing problems.",
-                "A gas-fired power station releases less carbon dioxide per kilogram of fuel than a coal-fired one, and no sulfur dioxide or particulates.",
+                "For the same energy generated, a gas-fired power station releases less carbon dioxide than a coal-fired one, and no sulfur dioxide or particulates.",
                 "Science can identify the environmental problems an energy resource causes. It cannot always solve them, because of **political, social, ethical or economic** considerations.",
                 "For example, generating all electricity from renewables will take many years. So many generators are needed that it is very expensive."
               ]
@@ -435,7 +435,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "a8e6bb33-445e-477e-8e46-2fa0b75aeeee",

@@ -289,7 +289,7 @@
               "type": "list",
               "items": [
                 "Earthquakes produce seismic waves that are **infrasound**. Detecting them at different places on the Earth is how the Earth's core is explored.",
-                "Infrasound detectors can also pick up meteors and other seismic activity.",
+                "Infrasound detectors can also pick up meteors and seismic activity.",
                 "Some animals, such as elephants and whales, communicate using infrasound."
               ]
             }
@@ -446,6 +446,6 @@
       "866af461-72cc-4f73-97c6-a5735be8907c"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

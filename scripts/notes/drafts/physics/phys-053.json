@@ -339,7 +339,7 @@
                 "A displacement is given as a **magnitude** and a **direction**, for example a distance in metres and a compass direction.",
                 "On a route that is not straight, the total distance travelled is greater than the magnitude of the displacement.",
                 "It is not only moving objects that have varying speed. The speed of sound and the speed of the wind also vary.",
-                "To draw a distance–time graph from measurements, plot time on the x-axis and distance on the y-axis, then draw a line through the points."
+                "To draw a distance–time graph from measurements, plot time on the x-axis and distance on the y-axis, then draw a straight line or smooth curve of best fit."
               ]
             }
           ]
@@ -520,6 +520,6 @@
       "a3ad4156-ba58-4e45-9bab-83a08bc170a1"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

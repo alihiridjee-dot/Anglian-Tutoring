@@ -277,6 +277,11 @@
                   "K"
                 ],
                 [
+                  "Amount of substance",
+                  "mole",
+                  "mol"
+                ],
+                [
                   "Force, weight",
                   "newton",
                   "N"
@@ -310,6 +315,11 @@
                   "Resistance",
                   "ohm",
                   "Ω"
+                ],
+                [
+                  "Magnetic flux density",
+                  "tesla",
+                  "T"
                 ],
                 [
                   "Pressure",
@@ -585,6 +595,6 @@
       "9616b40a-d89c-4c22-a559-6b7fd8a8ec1f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }
