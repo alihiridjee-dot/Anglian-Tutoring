@@ -29,6 +29,16 @@ describe("a submission found on the page", () => {
     expect(needsMarkingStart(marked, NOW)).toBe(false);
   });
 
+  test("marked but held for a tutor (no clock): leave it", () => {
+    const held = {
+      submitted_at: minutesAgo(1),
+      graded_at: null,
+      release_at: null,
+      ai_marked_at: minutesAgo(0),
+    };
+    expect(needsMarkingStart(held, NOW)).toBe(false);
+  });
+
   test("unmarked but older than the window: it waits for a tutor", () => {
     const old = new Date(NOW - RESTART_WINDOW_MS - 1).toISOString();
     expect(needsMarkingStart({ submitted_at: old, graded_at: null, release_at: null }, NOW)).toBe(

@@ -28,9 +28,13 @@ type SubmissionStatus = "PENDING_REVIEW" | "GRADED";
  * automatic. It used to measure the tutor's backlog — how long work had sat
  * ignored — which was the right pressure when nothing happened until someone
  * acted. Now something does happen: every submission is marked on arrival and
- * publishes itself a day later whether or not anyone looked. So the number that
- * matters is not how long this has been waiting, it is how long is left to
- * change it.
+ * publishes itself half an hour later whether or not anyone looked. So the
+ * number that matters is not how long this has been waiting, it is how long is
+ * left to change it.
+ *
+ * The exception is a paper the marker held: marked, but with no clock, because
+ * it doubted one of its own marks or gave one it could not tie to the
+ * student's words. That waits for a tutor like unmarked work does.
  */
 type Urgency = "urgent" | "soon" | "fresh";
 
@@ -71,9 +75,9 @@ function minutesToRelease(s: Submission): number | null {
 
 function urgencyOf(s: Submission): Urgency {
   const left = minutesToRelease(s);
-  // Nothing staged: the model never marked it, so it needs a person and there
-  // is no clock running. That is the most urgent thing in the queue, because
-  // nothing will happen to it otherwise.
+  // No clock running: the model never marked it, or marked it and held it for
+  // a person. That is the most urgent thing in the queue, because nothing will
+  // happen to it otherwise.
   if (left == null) return "urgent";
   if (left <= 5) return "urgent";
   if (left <= 15) return "soon";
@@ -483,6 +487,7 @@ function MarkSubmissionCard({
                   {marking.scorePct != null ? ` (${marking.scorePct}%)` : ""}
                 </p>
                 <AnswerMarkingList
+                  held={marking.held}
                   questions={marking.questions}
                   answers={marking.answers}
                   marks={marking.marks}
@@ -599,7 +604,9 @@ function UrgencyBadge({ sub }: { sub: Submission }) {
 
   const text =
     left == null
-      ? "No marks yet"
+      ? sub.ai_marked_at
+        ? "Held for you"
+        : "No marks yet"
       : left <= 0
         ? "Publishing now"
         : `Publishes in ${Math.ceil(left)} min`;

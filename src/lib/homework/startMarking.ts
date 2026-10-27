@@ -39,12 +39,20 @@ export function startMarking(
   void invoke(submissionId).catch(() => undefined);
 }
 
-/** A submission the marker hasn't reached: not marked, not staged, and recent. */
+/**
+ * A submission the marker hasn't reached: not marked, not staged, not held for
+ * a tutor, and recent.
+ */
 export function needsMarkingStart(
-  submission: { submitted_at: string; graded_at: string | null; release_at: string | null },
+  submission: {
+    submitted_at: string;
+    graded_at: string | null;
+    release_at: string | null;
+    ai_marked_at?: string | null;
+  },
   now = Date.now(),
 ): boolean {
-  if (submission.graded_at || submission.release_at) return false;
+  if (submission.graded_at || submission.release_at || submission.ai_marked_at) return false;
   return now - new Date(submission.submitted_at).getTime() < RESTART_WINDOW_MS;
 }
 

@@ -32,4 +32,11 @@ export type SubmissionRow = {
    * ignored for a day.
    */
   release_at: string | null;
+  /**
+   * When the marker finished. Set with no `release_at` means it held the paper
+   * for a tutor, so the page says a person is checking it rather than
+   * promising marks "shortly". Optional because older readers and the demo
+   * fixtures never carried it.
+   */
+  ai_marked_at?: string | null;
 };

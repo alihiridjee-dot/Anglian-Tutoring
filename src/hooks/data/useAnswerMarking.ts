@@ -28,8 +28,12 @@ import { toSciNotation } from "@/lib/platform/sciNotation";
  */
 export type QuestionMark = { marks: string; feedback: string };
 
-/** One entry of the staged proposal held in `homework_ai_marks.marks`. */
-type StagedMark = { question_id: string; marks: number; feedback: string };
+/**
+ * One entry of the staged proposal held in `homework_ai_marks.marks`. `held`
+ * is the marker's reason this question stopped the paper publishing itself:
+ * its own doubt, or a mark it gave for words that are not in the answer.
+ */
+type StagedMark = { question_id: string; marks: number; feedback: string; held?: string };
 
 export function useAnswerMarking(
   resourceId: string | undefined,
@@ -41,6 +45,7 @@ export function useAnswerMarking(
   const [answers, setAnswers] = useState<Record<string, HomeworkAnswer>>({});
   const [marks, setMarks] = useState<Record<string, QuestionMark>>({});
   const [summary, setSummary] = useState<string | null>(null);
+  const [held, setHeld] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState<Error | null>(null);
@@ -100,10 +105,12 @@ export function useAnswerMarking(
       const asked = new Map(qs.map((q) => [q.id, `${q.prompt}\n${q.mark_scheme ?? ""}`]));
       const map: Record<string, HomeworkAnswer> = {};
       const initial: Record<string, QuestionMark> = {};
+      const reasons: Record<string, string> = {};
       for (const a of aRes.data ?? []) {
         const row = a as HomeworkAnswer;
         map[row.question_id] = row;
         const proposal = graded ? undefined : staged.get(row.question_id);
+        if (proposal?.held) reasons[row.question_id] = proposal.held;
         initial[row.question_id] = {
           marks:
             row.awarded_marks != null
@@ -121,6 +128,7 @@ export function useAnswerMarking(
       setQuestions(qs);
       setAnswers(map);
       setMarks(initial);
+      setHeld(reasons);
       setSummary(graded || !sRes.data?.summary ? null : toSciNotation(sRes.data.summary));
       setLoaded(true);
       setLoading(false);
@@ -199,6 +207,8 @@ export function useAnswerMarking(
     setMark,
     /** The proposed overall comment, offered as a starting point for feedback. */
     summary,
+    /** Why the marker held a question for the tutor, by question id. */
+    held,
     loading,
     /** The questions or answers failed to load; `retry` asks again. */
     error,

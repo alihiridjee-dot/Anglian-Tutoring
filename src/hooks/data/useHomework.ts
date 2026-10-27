@@ -225,7 +225,7 @@ export function useHomeworkSubmissions({
       const { data, error } = await supabase
         .from("homework_submissions")
         .select(
-          "id, resource_id, student_id, notes, submitted_at, score_pct, feedback, graded_at, acknowledged_at, release_at",
+          "id, resource_id, student_id, notes, submitted_at, score_pct, feedback, graded_at, acknowledged_at, release_at, ai_marked_at",
         )
         .eq("student_id", userId);
       if (error) throw error;
@@ -296,7 +296,7 @@ export function useHomeworkSheet({
         const { data: sub, error: subError } = await supabase
           .from("homework_submissions")
           .select(
-            "id, resource_id, student_id, notes, submitted_at, score_pct, feedback, graded_at, acknowledged_at, release_at",
+            "id, resource_id, student_id, notes, submitted_at, score_pct, feedback, graded_at, acknowledged_at, release_at, ai_marked_at",
           )
           .eq("resource_id", homeworkId)
           .eq("student_id", userId)
