@@ -1,0 +1,224 @@
+{
+  "format": 1,
+  "concept_id": "abio-071",
+  "subject": "biology",
+  "title": "Brain development and research",
+  "key_idea": "Brain scans show structure or activity. The visual cortex has a critical period when it needs normal input to develop. Animal research gives knowledge but raises ethical questions. Both nature and nurture shape the brain.",
+  "sections": [
+    {
+      "heading": "Brain imaging",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Scans let doctors and researchers see the brain without surgery. Each method shows something different."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Scan",
+            "How it works",
+            "Used for"
+          ],
+          "rows": [
+            [
+              "CT (computed tomography)",
+              "X-rays taken from many angles build a 3D picture of structure",
+              "Quick diagnosis of bleeding, tumours and damage after injury or stroke"
+            ],
+            [
+              "MRI (magnetic resonance imaging)",
+              "Strong magnetic fields and radio waves make hydrogen atoms in tissue give a signal",
+              "Detailed pictures of brain structure, with good contrast between soft tissues"
+            ],
+            [
+              "fMRI (functional MRI)",
+              "Detects changes in blood flow and oxygen use in active areas",
+              "Showing which areas are active during a task"
+            ],
+            [
+              "PET (positron emission tomography)",
+              "A radioactive tracer, such as glucose, is injected and its gamma rays are detected",
+              "Showing which areas use more glucose, so are more active, and finding disease"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "CT and MRI show structure. fMRI and PET show function.",
+            "MRI and fMRI do not use ionising radiation. CT and PET do, so the dose must be justified."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "CT and MRI show structure. fMRI and PET show activity.",
+            "Active brain areas use more oxygen and glucose, which fMRI and PET detect."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Visual development and animal research",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some brain pathways need experience to develop. There is a critical period when this must happen."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In mammals, the visual cortex develops during a critical period early in life, if both eyes receive normal input.",
+            "Connections that are used are strengthened. Those that are not used are lost.",
+            "If vision is blocked in one eye during this period, the brain cannot develop normal sight in that eye, even if the eye itself is healthy.",
+            "The same deprivation in an adult does not cause permanent damage."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hubel and Wiesel sewed shut one eye of kittens and monkeys at different ages.",
+            "If the eye was closed during the critical period, the animal did not develop normal vision in that eye after it was reopened.",
+            "Neurones in the visual cortex responded to the open eye only.",
+            "Their work showed the importance of early visual experience in children, for example in treating a squint or cataracts early."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The critical period is a time when the visual cortex must receive input to develop properly.",
+            "Hubel and Wiesel's experiments with kittens and monkeys showed this."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Ethics of animal research",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Animal models help to find out how the human brain works, but raise moral questions."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Standpoint",
+            "View"
+          ],
+          "rows": [
+            [
+              "Utilitarian",
+              "Actions are right if they give the greatest benefit to the greatest number. Animal suffering may be justified if it leads to treatments that help many people"
+            ],
+            [
+              "Animal rights",
+              "Animals have a right not to be harmed or used as a means to an end, so experiments on them are wrong whatever the benefit"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Animal research can give benefits to humans but causes suffering.",
+            "Discuss using at least two ethical standpoints."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Habituation and learning",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Habituation is a simple form of learning. An animal stops responding to a stimulus that is harmless and repeated."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Repeated stimulation reduces the response of the neurone at the synapse.",
+            "Fewer calcium ions enter the presynaptic knob, so less neurotransmitter is released.",
+            "This saves energy, because the animal does not waste effort on responses to harmless stimuli, and lets it react to new ones."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Habituation is a reduced response to a repeated, harmless stimulus.",
+            "It is due to less neurotransmitter being released at the synapse."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Nature and nurture",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Brain development depends on both genes (nature) and experience (nurture). Scientists use several methods to separate them."
+        },
+        {
+          "type": "list",
+          "items": [
+            "New-born babies: abilities present at birth, such as recognising faces or a mother's voice, are more likely to be inherited, though some may be learned in the womb.",
+            "Animal experiments: the environment can be controlled, for example raising animals in the dark.",
+            "Individuals with damaged brain areas: loss of a function shows what that region controls.",
+            "Twin studies: identical twins share all genes. Differences between them are due to the environment, and similarities between twins raised apart suggest genes.",
+            "Cross-cultural studies: abilities found in every culture are more likely to be inherited. Differences point to learning."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Nature is the effect of genes. Nurture is the effect of the environment.",
+            "Twin, animal and cross-cultural studies help to separate the two."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State one difference between a CT scan and a PET scan.",
+      "a": "A CT scan shows the structure of the brain, using X-rays. A PET scan shows activity, using a radioactive tracer that is taken up by active tissue.",
+      "marks": 2
+    },
+    {
+      "q": "Explain what is meant by the critical period in the development of vision.",
+      "a": "A time early in life when the visual cortex needs normal input from both eyes to develop. If vision is blocked then, the connections do not form properly and sight is permanently impaired.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why identical twins raised apart are used to study nature and nurture.",
+      "a": "They have identical genes, so any differences between them are due to the environment, and similarities suggest a genetic influence.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.9",
+        "EDEX 8.10",
+        "EDEX 8.11",
+        "EDEX 8.12",
+        "EDEX 8.13",
+        "EDEX 8.19"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "d29d97bc-6755-4c5d-84c8-8ceafb1ba2bb",
+      "0846dc35-05f4-44c9-83ae-3bea8180870f",
+      "6d7f6e0f-3eb9-4b9a-baa4-9d9c910c334f",
+      "39970938-7dcd-4df2-800d-78ad2043b9dc",
+      "5110f4aa-e7e9-4210-aa4c-b19db8c710b0",
+      "7c9e87f6-63e8-4d53-9e3a-6c5b76a06288"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

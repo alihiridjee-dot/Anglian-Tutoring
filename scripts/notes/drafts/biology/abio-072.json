@@ -1,0 +1,422 @@
+{
+  "format": 1,
+  "concept_id": "abio-072",
+  "subject": "biology",
+  "title": "Muscle contraction",
+  "key_idea": "Skeletal muscles pull on bones in antagonistic pairs. A nerve impulse triggers calcium release, and actin and myosin filaments slide past each other using ATP. Fast and slow twitch fibres suit different activities.",
+  "sections": [
+    {
+      "heading": "Muscles, bones and movement",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Skeletal muscles pull on bones to move them. The skeleton is incompressible, so it acts as a firm lever."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tendons join muscle to bone. They are inelastic, so they transmit the force of the muscle to the bone.",
+            "Ligaments join bone to bone and hold joints together. They are slightly elastic.",
+            "Muscles can only pull, not push, so they work in antagonistic pairs.",
+            "When one muscle contracts the other relaxes. A flexor bends a joint and an extensor straightens it.",
+            "At the elbow, the biceps is the flexor and the triceps is the extensor."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Muscles pull on bones through tendons.",
+            "Antagonistic pairs work in opposite directions: one contracts while the other relaxes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Structure of skeletal muscle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A skeletal muscle is made of bundles of muscle fibres. Each fibre contains many myofibrils."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A muscle fibre is a single, very long cell with many nuclei. Its membrane is the sarcolemma and its cytoplasm is the sarcoplasm.",
+            "It contains many mitochondria and a specialised endoplasmic reticulum called the sarcoplasmic reticulum.",
+            "The sarcolemma folds inwards to form T-tubules, which carry the action potential deep into the fibre.",
+            "Myofibrils are made of repeating units called sarcomeres, each made of thick myosin and thin actin filaments."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Sarcomere",
+              "meaning": "The unit of a myofibril between two Z-lines. It is the unit of contraction."
+            },
+            {
+              "term": "Actin",
+              "meaning": "The thin protein filament. Tropomyosin lies along it."
+            },
+            {
+              "term": "Myosin",
+              "meaning": "The thick protein filament, with heads that bind to actin."
+            },
+            {
+              "term": "A-band",
+              "meaning": "The dark band that contains myosin. It stays the same length when the muscle contracts."
+            },
+            {
+              "term": "I-band",
+              "meaning": "The light band with actin only. It gets shorter when the muscle contracts."
+            },
+            {
+              "term": "H-zone",
+              "meaning": "The centre of the A-band with myosin only. It gets shorter when the muscle contracts."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A muscle is made of fibres, which are made of myofibrils, which are made of sarcomeres.",
+            "Actin and myosin filaments overlap in a pattern of dark and light bands."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Stimulating contraction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The motor neurone and the sarcoplasmic reticulum together switch the muscle on."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Action potential",
+              "text": "It arrives at the neuromuscular junction and acetylcholine is released."
+            },
+            {
+              "lead": "Depolarisation",
+              "text": "Acetylcholine binds to receptors and the sarcolemma depolarises."
+            },
+            {
+              "lead": "T-tubules",
+              "text": "The action potential spreads along the sarcolemma and down the T-tubules into the fibre."
+            },
+            {
+              "lead": "Calcium release",
+              "text": "The sarcoplasmic reticulum opens its calcium ion channels and Ca²⁺ floods into the sarcoplasm."
+            },
+            {
+              "lead": "Contraction",
+              "text": "Calcium ions trigger the sliding of filaments."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The neuromuscular junction releases acetylcholine onto the sarcolemma.",
+            "T-tubules carry the action potential to the sarcoplasmic reticulum, which releases Ca²⁺."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The sliding filament model",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The filaments do not shorten. They slide past each other, so the sarcomere gets shorter."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Rest",
+              "text": "Tropomyosin covers the myosin binding sites on actin."
+            },
+            {
+              "lead": "Calcium binds",
+              "text": "Ca²⁺ binds to troponin, which moves tropomyosin and exposes the binding sites."
+            },
+            {
+              "lead": "Cross-bridge",
+              "text": "A myosin head with ADP and Pi attached binds to actin, forming an actinomyosin bridge."
+            },
+            {
+              "lead": "Power stroke",
+              "text": "The head tilts, pulling the actin towards the centre of the sarcomere. ADP and Pi are released."
+            },
+            {
+              "lead": "Detach",
+              "text": "A new ATP binds to the head, which detaches from actin."
+            },
+            {
+              "lead": "Reset",
+              "text": "ATPase hydrolyses ATP, which provides energy to return the head to its original position, ready to bind again."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity: put the steps of muscle contraction in order.",
+            "prompt": "Put the steps of one cycle of contraction in order",
+            "steps": [
+              "Calcium ions bind and tropomyosin moves away from the binding sites",
+              "The myosin head binds to actin, forming a cross-bridge",
+              "The head tilts and pulls the actin filament along",
+              "ATP binds and the head detaches from actin",
+              "ATP is hydrolysed and the head returns to its original position"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "When the muscle contracts, the I-band and H-zone get shorter and the Z-lines move closer.",
+            "The A-band stays the same length.",
+            "When Ca²⁺ is removed back into the sarcoplasmic reticulum, tropomyosin covers the sites again and the muscle relaxes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Myosin heads pull actin filaments towards the centre of the sarcomere.",
+            "ATP is needed to detach the head and reset it.",
+            "The I-band and H-zone shorten. The A-band does not."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Supplying ATP",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Muscle contraction needs a lot of ATP, and a muscle holds only a small store of it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Aerobic respiration in the many mitochondria makes most ATP in long, steady exercise.",
+            "Anaerobic glycolysis makes ATP quickly but makes lactate.",
+            "Phosphocreatine (creatine phosphate) is stored in muscle. It gives its phosphate to ADP to make ATP very quickly, without needing oxygen.",
+            "The store lasts only a few seconds, so it helps in short, intense exercise."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Phosphocreatine regenerates ATP quickly and anaerobically.",
+            "Mitochondria supply most ATP in prolonged activity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Fast and slow twitch fibres",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Muscles contain two main types of fibre. They suit different kinds of activity."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Slow twitch",
+            "Fast twitch"
+          ],
+          "rows": [
+            [
+              "Contraction",
+              "Slow, long-lasting",
+              "Fast, powerful, short"
+            ],
+            [
+              "Used for",
+              "Endurance, posture, such as marathon running",
+              "Short bursts, such as sprinting and weight-lifting"
+            ],
+            [
+              "Respiration",
+              "Mainly aerobic",
+              "Mainly anaerobic"
+            ],
+            [
+              "Mitochondria",
+              "Many",
+              "Few"
+            ],
+            [
+              "Myoglobin",
+              "Lots, so they look red",
+              "Little, so they look pale"
+            ],
+            [
+              "Capillaries",
+              "Many",
+              "Fewer"
+            ],
+            [
+              "Glycogen and phosphocreatine",
+              "Less",
+              "More"
+            ],
+            [
+              "Location",
+              "Legs and back, where posture is kept",
+              "Eyelids and arm muscles such as the biceps"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Slow twitch fibres are for endurance and use aerobic respiration.",
+            "Fast twitch fibres are for short, powerful contractions and use anaerobic respiration."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how the sarcoplasmic reticulum and T-tubules stimulate contraction.",
+      "a": "The action potential travels along the sarcolemma and down the T-tubules into the fibre. This causes the sarcoplasmic reticulum to release Ca²⁺ into the sarcoplasm, which allows actin and myosin to interact.",
+      "marks": 3
+    },
+    {
+      "q": "Describe the roles of calcium ions, tropomyosin and ATP in the sliding filament model.",
+      "a": "Ca²⁺ binds to troponin and moves tropomyosin, exposing binding sites on actin. Myosin heads bind and pull actin. ATP is needed to detach the heads and, when hydrolysed by ATPase, to reset them.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why the I-band gets shorter but the A-band stays the same length during contraction.",
+      "a": "The actin and myosin filaments do not change length. Actin slides between the myosin filaments, so the area with actin only (I-band) becomes smaller, but the length of the myosin filaments (A-band) stays the same.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.6.3a",
+        "AQA 3.6.3b",
+        "AQA 3.6.3c",
+        "AQA 3.6.3d",
+        "AQA 3.6.3e",
+        "AQA 3.6.3f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The ultrastructure of a myofibril should be described, including the sarcomere, Z-lines, I-band, A-band and H-zone.",
+                "The role of troponin is not required for this course: concentrate on calcium ions and tropomyosin in the cycle of actinomyosin bridge formation.",
+                "ATP and phosphocreatine have roles in contraction: phosphocreatine phosphorylates ADP to ATP in anaerobic conditions, and ATP is used to detach heads.",
+                "The structure, location and general properties of slow and fast skeletal muscle fibres are as in the shared table."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.1",
+        "EDEX 7.2",
+        "EDEX 7.10"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know how muscles, tendons, the skeleton and ligaments interact to enable movement, including extensors and flexors.",
+                "The sliding filament theory should include the role of actin, myosin, troponin, tropomyosin, Ca²⁺, ATP and ATPase.",
+                "Know the structure of a muscle fibre and the structural and physiological differences between fast and slow twitch fibres."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 15.1.10",
+        "CAIE 15.1.11",
+        "CAIE 15.1.12"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe the roles of neuromuscular junctions, the T-tubule system and sarcoplasmic reticulum in stimulating contraction in striated muscle.",
+                "Describe the ultrastructure of striated muscle with reference to the sarcomere, using electron micrographs and diagrams: Z-line, M-line (the middle of the sarcomere, where myosin filaments are joined), I-band, A-band and H-zone.",
+                "Explain the sliding filament model including troponin, tropomyosin, Ca²⁺ and ATP."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.5l"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the structural and functional differences between skeletal, involuntary (smooth) and cardiac muscle: skeletal is striated, voluntary and multinucleate. Smooth muscle has no striations and is involuntary. Cardiac muscle is striated, involuntary and branched, and does not tire.",
+                "Examine stained sections or photomicrographs of skeletal muscle, and recognise the banding pattern.",
+                "Know how the supply of ATP is maintained in muscle by creatine phosphate."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "a9515269-5ffe-42ea-b236-8cec5290f5a5",
+      "39215867-d5a9-44fa-b11e-361f8504edbb",
+      "27ce4138-10b3-49cc-aa21-5d90ab0fc917",
+      "6ea35aa6-0d7e-4db4-b4fb-8cfecd4dc83b",
+      "bca47801-ba53-4c05-940c-68b41f2f1313",
+      "c76a6734-99d2-4065-8292-6198c1782f6d",
+      "4eb55188-d591-4351-82ff-634ec6b11d16",
+      "b85230e3-06ee-42a1-af7d-79106f3c1124",
+      "aa9e64d6-41de-42d6-9f5e-cf2ea20b2027",
+      "6b0e1a64-be65-4367-894e-ae496c1849a4",
+      "da1a072d-f22a-4b42-9391-8ae8fd7e9972",
+      "3cec92c6-6c28-4fa4-b3a6-46db36bd99f1",
+      "944b1011-f64b-4e6e-b249-0a2b0ff4d430"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

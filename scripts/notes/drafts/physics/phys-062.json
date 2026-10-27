@@ -206,7 +206,7 @@
         },
         {
           "type": "subheading",
-          "text": "Estimating the force on a car"
+          "text": "Estimating the force on a car (Higher tier)"
         },
         {
           "type": "list",
@@ -265,7 +265,7 @@
           "items": [
             "Large decelerations can overheat the brakes and cause a loss of control.",
             "A large deceleration means a large force on the people in the vehicle.",
-            "Estimate a force with F = ma, using a sensible mass for the vehicle."
+            "(Higher tier) Estimate a force with F = ma, using a sensible mass for the vehicle."
           ]
         }
       ]
@@ -305,12 +305,12 @@
       },
       "extra": [
         {
-          "heading": "Estimating forces (AQA: Higher tier)",
+          "heading": "Estimating forces (Higher tier)",
           "blocks": [
             {
               "type": "list",
               "items": [
-                "(AQA: Higher tier) Estimate the force on a road vehicle with F = ma.",
+                "(Higher tier) Estimate the force on a road vehicle with F = ma.",
                 "Use a sensible mass for the vehicle and a deceleration typical of an emergency stop."
               ]
             }

@@ -1,0 +1,242 @@
+{
+  "format": 1,
+  "concept_id": "abio-020",
+  "subject": "biology",
+  "title": "Digestion and absorption",
+  "key_idea": "Digestion uses hydrolysis to break large molecules into small ones that can cross cell membranes. The products are absorbed in the ileum, by co-transport for amino acids and monosaccharides, and by micelles for lipids.",
+  "sections": [
+    {
+      "heading": "Digestion of carbohydrates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Large biological molecules are too big to cross cell membranes. Digestion hydrolyses them into smaller molecules that can be absorbed."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Hydrolysis",
+              "meaning": "A reaction in which a bond is broken by adding water."
+            },
+            {
+              "term": "Amylase",
+              "meaning": "An enzyme that hydrolyses the glycosidic bonds in starch to give maltose."
+            },
+            {
+              "term": "Membrane-bound disaccharidase",
+              "meaning": "An enzyme in the cell-surface membrane of ileum epithelial cells that hydrolyses a disaccharide into monosaccharides."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Starch.",
+              "text": "Salivary amylase, and then pancreatic amylase in the small intestine, hydrolyse starch to maltose."
+            },
+            {
+              "lead": "Maltose.",
+              "text": "Maltase, bound to the membrane of epithelial cells, hydrolyses maltose to two glucose molecules."
+            },
+            {
+              "lead": "Other sugars.",
+              "text": "Sucrase hydrolyses sucrose to glucose and fructose. Lactase hydrolyses lactose to glucose and galactose."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Digestion is hydrolysis.",
+            "Amylase makes maltose from starch.",
+            "Membrane-bound disaccharidases produce monosaccharides at the surface of the epithelial cell."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Digestion of lipids",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Lipids are insoluble in water, so they need bile salts as well as an enzyme."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Lipase** is made in the pancreas. It hydrolyses the ester bonds in triglycerides to give monoglycerides and fatty acids.",
+            "**Bile salts** are made in the liver and stored in the gall bladder. They emulsify lipids.",
+            "Emulsification breaks large droplets into many smaller ones. This greatly increases the surface area, so lipase can act faster."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Lipase hydrolyses triglycerides to monoglycerides and fatty acids.",
+            "Bile salts emulsify lipids and increase the surface area for lipase."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Digestion of proteins",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Three types of peptidase work together to hydrolyse peptide bonds."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "The enzymes that digest carbohydrates, lipids and proteins",
+            "prompt": "Tap an enzyme to see what it does.",
+            "parts": [
+              {
+                "name": "Amylase",
+                "detail": "Hydrolyses starch to maltose. Made in the salivary glands and the pancreas."
+              },
+              {
+                "name": "Membrane-bound disaccharidases",
+                "detail": "Hydrolyse disaccharides, such as maltose, sucrose and lactose, to monosaccharides. Found on the epithelial cell membrane."
+              },
+              {
+                "name": "Lipase",
+                "detail": "Hydrolyses triglycerides to monoglycerides and fatty acids. Made in the pancreas."
+              },
+              {
+                "name": "Endopeptidases",
+                "detail": "Hydrolyse peptide bonds within a polypeptide, which makes shorter chains and creates more ends."
+              },
+              {
+                "name": "Exopeptidases",
+                "detail": "Hydrolyse peptide bonds at the ends of a polypeptide, removing single amino acids."
+              },
+              {
+                "name": "Membrane-bound dipeptidases",
+                "detail": "Hydrolyse a dipeptide into two amino acids. Found on the epithelial cell membrane."
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Endopeptidases** hydrolyse peptide bonds inside the polypeptide chain. They break it into shorter chains.",
+            "**Exopeptidases** hydrolyse peptide bonds at the ends of the chains, removing one amino acid at a time.",
+            "**Membrane-bound dipeptidases** hydrolyse dipeptides into amino acids at the surface of the epithelial cell.",
+            "Endopeptidases increase the number of ends, so exopeptidases have more places to act."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Endopeptidases cut inside the chain and exopeptidases cut at the ends.",
+            "Dipeptidases finish the job at the epithelial cell surface."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Absorption in the ileum",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The cells lining the ileum absorb the products of digestion. The mechanism depends on the molecule."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Product",
+            "How it is absorbed"
+          ],
+          "rows": [
+            [
+              "Monosaccharides, such as glucose",
+              "Co-transport with sodium ions, by a carrier protein. Glucose then leaves the cell by facilitated diffusion."
+            ],
+            [
+              "Amino acids",
+              "Co-transport with sodium ions, by carrier proteins."
+            ],
+            [
+              "Monoglycerides and fatty acids",
+              "Carried in micelles, then diffuse across the membrane."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Co-transport"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sodium ions are actively transported out of the epithelial cell into the blood. This lowers the sodium concentration in the cell.",
+            "Sodium ions then diffuse into the cell from the gut, down their gradient, through a co-transporter protein.",
+            "Glucose or an amino acid is carried into the cell on the same protein, even if it must move against its own gradient.",
+            "The solute then diffuses into the blood, which keeps the concentration in the cell lower than in the gut."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Micelles and lipid absorption"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bile salts surround monoglycerides and fatty acids and form tiny droplets called micelles.",
+            "Micelles carry the products to the membrane of the epithelial cell, and release them.",
+            "Monoglycerides and fatty acids are lipid-soluble, so they diffuse through the phospholipid bilayer.",
+            "Micelles keep a high concentration of lipid products next to the membrane, which maintains the gradient."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sugars and amino acids are absorbed by co-transport with sodium ions.",
+            "Lipid products are carried by micelles and diffuse across the membrane."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain the roles of endopeptidases and exopeptidases in the digestion of proteins.",
+      "a": "Endopeptidases hydrolyse peptide bonds within the polypeptide, producing shorter chains and more ends. Exopeptidases hydrolyse bonds at the ends of the chains, removing single amino acids."
+    },
+    {
+      "q": "Describe the role of bile salts in the digestion and absorption of lipids.",
+      "a": "They emulsify lipids into smaller droplets, which increases the surface area for lipase. They also form micelles with monoglycerides and fatty acids, which carry them to the epithelial cell membrane."
+    },
+    {
+      "q": "Explain why glucose can be absorbed from the ileum when its concentration in the gut is lower than in the cell.",
+      "a": "Glucose is absorbed by co-transport with sodium ions. Sodium ions diffuse in down their gradient through a carrier protein, which carries glucose in with them. The sodium gradient is maintained by active transport of sodium out of the cell."
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.3a",
+        "AQA 3.3.3b",
+        "AQA 3.3.3c"
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "84614c53-8ce2-43d1-8d33-2e8104dd75f0",
+      "d3026fe3-5f2e-48ca-9697-dac9c0fdd410",
+      "5d50b449-a25c-45eb-b5a6-7ac5c660568b"
+    ],
+    "exemplar_ids": []
+  }
+}

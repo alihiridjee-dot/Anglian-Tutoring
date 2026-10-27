@@ -1,0 +1,284 @@
+{
+  "format": 1,
+  "concept_id": "abio-006",
+  "subject": "biology",
+  "title": "How enzymes work",
+  "key_idea": "Enzymes are globular proteins that act as biological catalysts. A substrate fits the active site, forming an enzyme-substrate complex, and the enzyme lowers the activation energy of the reaction. The active site's tertiary structure makes each enzyme specific.",
+  "sections": [
+    {
+      "heading": "Enzymes as biological catalysts",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Enzymes catalyse the reactions of metabolism. This section covers what they are and where they work."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Catalyst",
+              "meaning": "A substance that speeds up a reaction without being used up."
+            },
+            {
+              "term": "Active site",
+              "meaning": "The region of an enzyme where the substrate binds and the reaction takes place."
+            },
+            {
+              "term": "Substrate",
+              "meaning": "The molecule an enzyme acts on."
+            },
+            {
+              "term": "Enzyme-substrate complex",
+              "meaning": "The temporary structure formed when a substrate is bound to the active site."
+            },
+            {
+              "term": "Activation energy",
+              "meaning": "The minimum energy needed to start a reaction."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Enzymes are **globular proteins**. Their folded tertiary structure forms the active site.",
+            "**Intracellular enzymes** work inside cells. Catalase breaks down hydrogen peroxide, a toxic product of metabolism, inside cells.",
+            "**Extracellular enzymes** are made in cells and secreted to work outside. Amylase digests starch in the gut.",
+            "Enzymes catalyse reactions at every level, from cell to whole organism. They affect **structure** (for example by building collagen and cell walls) and **function** (for example respiration and digestion)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Enzymes are globular proteins that catalyse metabolic reactions.",
+            "Intracellular enzymes work inside cells; extracellular enzymes are secreted."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Activation energy and the enzyme-substrate complex",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A reaction needs a minimum energy to start. An enzyme provides a route with a lower activation energy."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Energy against progress of reaction. The uncatalysed reaction has a high peak. The enzyme-catalysed reaction has a lower peak. Both start and end at the same energy levels.",
+            "x": {
+              "label": "Progress of reaction",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                10
+              ]
+            },
+            "y": {
+              "label": "Energy"
+            },
+            "series": [
+              {
+                "name": "Without enzyme",
+                "points": [
+                  [
+                    0,
+                    0.4
+                  ],
+                  [
+                    2,
+                    0.45
+                  ],
+                  [
+                    5,
+                    0.9
+                  ],
+                  [
+                    8,
+                    0.3
+                  ],
+                  [
+                    10,
+                    0.25
+                  ]
+                ]
+              },
+              {
+                "name": "With enzyme",
+                "points": [
+                  [
+                    0,
+                    0.4
+                  ],
+                  [
+                    2,
+                    0.42
+                  ],
+                  [
+                    5,
+                    0.6
+                  ],
+                  [
+                    8,
+                    0.3
+                  ],
+                  [
+                    10,
+                    0.25
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The substrate binds to the active site, forming an **enzyme-substrate complex**.",
+            "Bonds in the substrate are strained or held in the correct position, so the reaction needs less energy.",
+            "The substrate is converted to product, forming an **enzyme-product complex**.",
+            "The product leaves, and the enzyme is unchanged and free to bind another substrate."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of enzyme action in order.",
+            "prompt": "Put the stages of enzyme action in order.",
+            "steps": [
+              "Substrate collides with the active site",
+              "Enzyme-substrate complex forms",
+              "Substrate is converted to product",
+              "Enzyme-product complex forms",
+              "Product leaves the active site"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Enzymes lower the activation energy; they do not change the energy of reactants or products.",
+            "The enzyme is not used up and can be reused."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Specificity and models of enzyme action",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each enzyme normally catalyses one reaction. The shape and charges of its active site decide this."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The active site has a specific shape, set by the tertiary structure of the enzyme.",
+            "Only a substrate with a **complementary** shape and charges can bind. This is **specificity**.",
+            "A different primary structure gives a different tertiary structure and a different active site."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Model",
+            "How the active site behaves",
+            "Explains"
+          ],
+          "rows": [
+            [
+              "Lock-and-key",
+              "The active site is a fixed shape, exactly complementary to the substrate.",
+              "Why enzymes are specific."
+            ],
+            [
+              "Induced-fit",
+              "The active site is flexible. It changes shape slightly as the substrate binds, so the R groups fit closely and strain the substrate's bonds.",
+              "Specificity, and also how binding lowers activation energy. Better fits the evidence."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The lock-and-key model came first. It was changed to the induced-fit model as new evidence showed that active sites are flexible.",
+            "Models of science change when new evidence does not fit the old model."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Specificity comes from the complementary shape of the active site.",
+            "Induced-fit is the current model: the active site moulds to the substrate."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how an enzyme lowers the activation energy of a reaction.",
+      "a": "The substrate binds to the active site, forming an enzyme-substrate complex. This holds the substrate in position and strains its bonds, so less energy is needed to start the reaction.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why an enzyme is specific to one substrate.",
+      "a": "The enzyme's tertiary structure gives the active site a particular shape. Only a substrate with a complementary shape fits and forms an enzyme-substrate complex.",
+      "marks": 2
+    },
+    {
+      "q": "Describe one difference between the lock-and-key and induced-fit models.",
+      "a": "In lock-and-key the active site is rigid and already complementary to the substrate. In induced-fit the active site changes shape slightly when the substrate binds, so it fits more closely.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.4.2a",
+        "AQA 3.1.4.2b",
+        "AQA 3.1.4.2c"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.10"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 3.1.1",
+        "CAIE 3.1.2"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.4a",
+        "OCR 2.1.4b",
+        "OCR 2.1.4c"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "82de60ac-d4e4-40a8-ab26-321aef9cb457",
+      "99766984-137d-47a2-913d-ed1997587b29",
+      "d550681c-b248-4afd-a561-f45827470c87",
+      "81fe583d-c629-4a29-8889-ee2f8948867c",
+      "daf78054-e1aa-4c60-b26b-af34abdc18e8",
+      "d83da4e1-b530-4412-a020-c6445d50a86e",
+      "4ca11ba9-ffda-4e0a-8d53-542607794635",
+      "5690126a-5a40-497c-9301-9e4e2a5a2c07",
+      "626eff1e-5c86-4e8a-9f6a-e0e11ba5576e"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

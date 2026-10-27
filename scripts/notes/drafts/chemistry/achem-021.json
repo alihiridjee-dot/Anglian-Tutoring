@@ -1,0 +1,284 @@
+{
+  "format": 1,
+  "concept_id": "achem-021",
+  "subject": "chemistry",
+  "title": "Bond enthalpies",
+  "key_idea": "Breaking bonds takes in energy and making bonds gives out energy. **Mean bond enthalpies** let you estimate ΔH for a reaction of gases as the energy to break the bonds in the reactants minus the energy released making the bonds in the products. The answer is approximate.",
+  "sections": [
+    {
+      "heading": "Bond breaking and bond making",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "All chemical reactions break some bonds and make others. The balance between the two decides whether the reaction is exothermic or endothermic."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Bond enthalpy",
+              "meaning": "The enthalpy change when 1 mol of a particular bond is broken in gaseous molecules. It is always positive."
+            },
+            {
+              "term": "Mean bond enthalpy",
+              "meaning": "The average enthalpy change to break 1 mol of a bond, taken over a range of different molecules containing that bond."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Breaking bonds is endothermic. Energy is taken in to pull the atoms apart.",
+            "Making bonds is exothermic. The same amount of energy is given out when the bond forms.",
+            "Exothermic reaction: more energy is released making the new bonds than is needed to break the old ones.",
+            "Endothermic reaction: more energy is needed to break the old bonds than is released making the new ones.",
+            "Bond enthalpies are for gases, because the molecules must be separate for the bond to be broken without other forces."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Bond breaking is endothermic. Bond making is exothermic.",
+            "Bond enthalpy values are positive and refer to gaseous molecules.",
+            "The overall sign of ΔH depends on which is bigger."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating ΔH from mean bond enthalpies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Add up the bonds broken and the bonds made, using the balanced equation. Multiply each bond enthalpy by how many of that bond there are."
+        },
+        {
+          "type": "equation",
+          "label": "Enthalpy change from bond enthalpies",
+          "formula": "ΔH = Σ(bonds broken) − Σ(bonds made)",
+          "where": [
+            "ΔH in kJ mol⁻¹",
+            "Σ(bonds broken) = total bond enthalpy of the reactants, in kJ mol⁻¹",
+            "Σ(bonds made) = total bond enthalpy of the products, in kJ mol⁻¹"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Draw every bond.",
+              "text": "Show the full structure of each molecule, so that no bond is missed."
+            },
+            {
+              "lead": "Add up the bonds broken.",
+              "text": "H₂ + Cl₂ breaks one H–H (436) and one Cl–Cl (243): 679 kJ mol⁻¹."
+            },
+            {
+              "lead": "Add up the bonds made.",
+              "text": "2HCl makes two H–Cl bonds (432 each): 864 kJ mol⁻¹."
+            },
+            {
+              "lead": "Subtract.",
+              "text": "ΔH = 679 − 864 = −185 kJ mol⁻¹. It is exothermic."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating ΔH for the reaction of hydrogen with chlorine from bond enthalpies.",
+            "question": "H₂(g) + Cl₂(g) → 2HCl(g). Bond enthalpies: H–H 436, Cl–Cl **{c}**, H–Cl **{h}** kJ mol⁻¹. Calculate ΔH.",
+            "variables": [
+              {
+                "id": "c",
+                "min": 240,
+                "max": 244,
+                "step": 1
+              },
+              {
+                "id": "h",
+                "min": 425,
+                "max": 435,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "436 + c - 2 * h",
+              "unit": "kJ mol⁻¹",
+              "decimals": 0
+            },
+            "working": [
+              "Bonds broken = 436 + {c}",
+              "Bonds made = 2 × {h}",
+              "ΔH = broken − made = **{answer}** kJ mol⁻¹"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Working backwards"
+        },
+        {
+          "type": "list",
+          "items": [
+            "If ΔH is given and one bond enthalpy is missing, write the equation ΔH = broken − made with the unknown in it, then solve.",
+            "Check the sign of your answer against what you expect: a reaction that releases heat must give a negative ΔH."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ΔH = bonds broken − bonds made.",
+            "Count every bond, using the number shown in the balanced equation.",
+            "A negative answer means exothermic; a positive answer means endothermic."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why bond enthalpy values are only approximate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Values from mean bond enthalpies differ from values found using Hess's law, which uses the real substances."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A mean value is an average over many molecules. The actual bond enthalpy in a particular molecule may be different.",
+            "For example, the C–H bond has a different enthalpy in methane than in ethane, so the mean is not exact for either.",
+            "The calculation assumes every substance is a gas. In liquid or solid substances, there are also attractions between molecules, which are ignored.",
+            "Some bond energies are exact. The bond in a diatomic molecule such as H₂ or Cl₂ occurs in only one molecule, so it has one definite value.",
+            "Hess's law uses measured values for the actual compounds, so it gives more reliable results."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mean values are averages, so the answer is only an estimate.",
+            "Exact values exist for bonds in diatomic molecules.",
+            "Hess's law with formation or combustion data is more accurate."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define mean bond enthalpy.",
+      "a": "The average enthalpy change when 1 mol of a bond is broken in gaseous molecules, averaged over a range of different compounds.",
+      "marks": 2
+    },
+    {
+      "q": "Use bond enthalpies (C–H 413, O=O 498, C=O 805, O–H 464 kJ mol⁻¹) to calculate ΔH for CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(g).",
+      "a": "Bonds broken: 4 × 413 + 2 × 498 = 1652 + 996 = 2648. Bonds made: 2 × 805 + 4 × 464 = 1610 + 1856 = 3466. ΔH = 2648 − 3466 = −818 kJ mol⁻¹.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a value of ΔH calculated from mean bond enthalpies differs from one found using enthalpies of formation.",
+      "a": "Mean bond enthalpies are averages for a bond in many different molecules, not the actual value in these molecules. They also assume gaseous substances. Formation data are measured for the actual compounds.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.2.1f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Average bond enthalpy is the breaking of 1 mol of bonds in gaseous molecules. A formal definition is not required.",
+                "Understand that an actual bond enthalpy may differ from the average value."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.9",
+        "EDEX 8.10",
+        "EDEX 8.11"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Be able to calculate a mean bond enthalpy from an enthalpy change of reaction. Rearrange ΔH = broken − made and solve for the unknown bond.",
+                "Explain the limitations of the method: mean values, and the need for gaseous substances."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.4.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use mean bond enthalpies to calculate an approximate ΔH for reactions in the gaseous phase.",
+                "Explain why this value differs from the one found using Hess's law: mean values are averages, and Hess's law uses the actual substances in their real states."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 5.1.4",
+        "CAIE 5.1.5",
+        "CAIE 5.1.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Bond energies are written as positive values for bond breaking. Use them to calculate ΔHr.",
+                "Some bond energies are exact, and some are averages. Be ready to say which is which."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "2219ffa6-9f90-486a-bbaa-7c780f1bf4f4",
+      "0a53ba07-ed63-49e8-a98d-4c3357a40270",
+      "01a7ef6f-0114-4ffb-8a5e-7fcb5b1577ef",
+      "363dc9e4-0b85-406c-b91b-13ca64f160ac",
+      "20e37458-1fcf-4467-9e0c-f54a2bee3dfb",
+      "09498c51-3d1b-417f-b099-cf8eabaf2752",
+      "84837b95-3650-42a8-b541-30e54d90c8a0",
+      "4c6e57d0-9760-40ad-97c9-239f730b257a"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -3,7 +3,7 @@
   "concept_id": "phys-031",
   "subject": "physics",
   "title": "Gas pressure, volume and doing work on a gas",
-  "key_idea": "(Separate science) A gas can be compressed or expanded by pressure changes. At constant temperature, **pressure × volume = constant**. (AQA: Higher tier) Doing work on a gas, such as pumping a bicycle tyre, increases its internal energy and its temperature.",
+  "key_idea": "(Separate science) A gas can be compressed or expanded by pressure changes. At constant temperature, **pressure × volume = constant**. (Higher tier) Doing work on a gas, such as pumping a bicycle tyre, increases its internal energy and its temperature.",
   "sections": [
     {
       "heading": "Pressure on surfaces and compressing gases",
@@ -177,7 +177,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science, Higher tier for AQA) Compressing a gas quickly transfers energy to it and can raise its temperature."
+          "text": "(Higher tier, Separate science) Compressing a gas quickly transfers energy to it and can raise its temperature."
         },
         {
           "type": "definitions",
@@ -221,7 +221,7 @@
       "marks": 3
     },
     {
-      "q": "Explain why the air in a bicycle pump gets warm when the pump is used.",
+      "q": "(Higher tier) Explain why the air in a bicycle pump gets warm when the pump is used.",
       "a": "Work is done on the air. This increases the kinetic energy of the air particles, so the temperature increases.",
       "marks": 2
     }

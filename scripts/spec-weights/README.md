@@ -96,7 +96,9 @@ bun run scripts/spec-weights/score_db.ts --check   # also re-score the weighted 
 ```
 
 AQA courses (any level) are content sections and use the section rules; every
-other board is one statement per point and uses the statement rules. Three
+other board is one statement per point and uses the statement rules. The one
+exception is AQA A level Biology, re-cut on 18 Oct 2026 into one point per
+statement (`AQA 3.1.2a`, practicals `AQA 3.1.4.2 RP1`): it uses the statement rules. Three
 differences from the PDF scripts: "be able to" is skipped to find the command
 word, inline sub-items `(a)`, `(ii)` count like bullets, and maths/apparatus
 skill tags are not scored (the descriptions leave them out). `--check` re-scores
@@ -106,8 +108,8 @@ over 68 teaching weeks (two years).
 
 First loaded 6 Oct 2026 for 29 courses (5,822 points). Two things weights
 cannot fix: every topic gets at least one week, so a tiny topic is a light week;
-and AQA A level Biology's 53 whole-section points leave empty weeks in a
-two-year plan.
+and (until the 18 Oct 2026 re-cut into 255 statement points) AQA A level
+Biology's 53 whole-section points left empty weeks in a two-year plan.
 
 ## Loading them
 
@@ -151,9 +153,11 @@ against the live weights, not by a model of them.
   or split. Merges are generally right; a few split boundaries are approximate,
   so two adjacent points may share a correct total while the division between
   them is a guess. Topic totals are unaffected.
-- **OCR higher tier is not detected.** OCR marks HT-only statements in bold type,
-  which plain-text extraction cannot see. Every other board's HT marker is
-  textual and is picked up.
+- **Edexcel and OCR Higher tier was invisible until 17 Oct 2026.** Both boards
+  mark HT-only statements in bold type, which plain-text extraction cannot see,
+  so the live weights carry no HT bonus for them. Their descriptions now end in
+  the same `(HT only)` marker as AQA's (`scripts/spec-tiers/`), so a re-score
+  would pick it up for those 175 points.
 - **Re-check the parse when a spec is reissued.** The AQA parser stops at "4.8
   Key ideas"; an earlier version stopped too late and the final section absorbed
   the appendix that re-lists all ten required practicals, scoring "Role of

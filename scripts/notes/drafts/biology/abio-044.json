@@ -1,0 +1,431 @@
+{
+  "format": 1,
+  "concept_id": "abio-044",
+  "subject": "biology",
+  "title": "Dihybrid crosses, linkage, epistasis and chi-squared",
+  "key_idea": "A dihybrid cross follows two genes at once. Independent genes give a 9 : 3 : 3 : 1 ratio, and linkage or epistasis changes that ratio. Sex-linked genes lie on the X chromosome. The chi-squared test decides whether observed results fit the ratio expected.",
+  "sections": [
+    {
+      "heading": "Dihybrid crosses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A dihybrid cross follows two genes on different chromosomes. The genes are inherited independently, because homologous pairs line up and separate at random in meiosis."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each parent makes four types of gamete when heterozygous at both loci.",
+            "For RrYy the gametes are RY, Ry, rY and ry, in equal numbers.",
+            "Use a 4 × 4 Punnett square, giving 16 combinations.",
+            "RrYy × RrYy gives 9 round yellow : 3 round green : 3 wrinkled yellow : 1 wrinkled green."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example R is round and Y is yellow, and both are dominant."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Cross",
+            "Offspring phenotype ratio"
+          ],
+          "rows": [
+            [
+              "RrYy × RrYy (both heterozygous)",
+              "9 : 3 : 3 : 1"
+            ],
+            [
+              "RrYy × rryy (test cross)",
+              "1 : 1 : 1 : 1"
+            ],
+            [
+              "RRYY × rryy (pure-breeding parents)",
+              "All RrYy, then 9 : 3 : 3 : 1 in the next generation"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Two heterozygous parents give 9 : 3 : 3 : 1 when the genes are on different chromosomes.",
+            "A dihybrid test cross gives 1 : 1 : 1 : 1.",
+            "Write out every gamete before filling in the square."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Sex linkage",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A **sex-linked** gene is on a sex chromosome, usually the X. The Y chromosome carries very few of the same genes."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Females are XX and have two alleles. Males are XY and have only one allele for an X-linked gene.",
+            "A recessive X-linked allele shows in every male who has it, because there is no second allele to mask it.",
+            "A female shows the trait only if she has two copies. A heterozygous female is a carrier.",
+            "A father passes his X to his daughters and his Y to his sons, so he never passes an X-linked allele to a son.",
+            "Haemophilia and red-green colour blindness are X-linked recessive conditions."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In the cross below, Xᴴ is the normal allele and Xʰ is the recessive allele. Pick a mother and a father."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor for an X-linked recessive condition. Pick the parents and see the daughters, the sons and the chance that a child is affected.",
+            "prompt": "Pick the parents' genotypes",
+            "result_labels": [
+              "Daughters",
+              "Sons",
+              "Chance a child is affected"
+            ],
+            "options": [
+              {
+                "label": "Carrier mother (XᴴXʰ) × unaffected father (XᴴY)",
+                "results": [
+                  "All unaffected; half are carriers",
+                  "Half unaffected, half affected",
+                  "1 in 4"
+                ]
+              },
+              {
+                "label": "Carrier mother (XᴴXʰ) × affected father (XʰY)",
+                "results": [
+                  "Half carriers, half affected",
+                  "Half unaffected, half affected",
+                  "1 in 2"
+                ]
+              },
+              {
+                "label": "Affected mother (XʰXʰ) × unaffected father (XᴴY)",
+                "results": [
+                  "All carriers",
+                  "All affected",
+                  "1 in 2"
+                ]
+              },
+              {
+                "label": "Unaffected mother (XᴴXᴴ) × affected father (XʰY)",
+                "results": [
+                  "All carriers",
+                  "All unaffected",
+                  "None affected"
+                ]
+              },
+              {
+                "label": "Affected mother (XʰXʰ) × affected father (XʰY)",
+                "results": [
+                  "All affected",
+                  "All affected",
+                  "All affected"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Males have one X, so one recessive allele is enough to show the trait.",
+            "Sons get their X from their mother only.",
+            "More males than females are affected by X-linked recessive conditions."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Autosomal linkage",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Genes on the same autosome are **linked**. They are on the same chromosome, so they are inherited together."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A heterozygote with alleles A and B on one chromosome and a and b on the other makes mostly AB and ab gametes. These are the parental types.",
+            "Crossing over between the two loci in prophase I makes a few Ab and aB gametes. These are the recombinants.",
+            "In a test cross, the parental phenotypes are far more common than the recombinant phenotypes.",
+            "The closer two loci are, the less often crossing over separates them, so the fewer recombinants there are."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A ratio of offspring that is not 1 : 1 : 1 : 1 in a test cross, with two phenotypes much more common than the other two, points to linkage."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Linked genes are on the same chromosome and are inherited together.",
+            "Crossing over makes the few recombinant offspring.",
+            "Two common phenotypes and two rare ones suggest linkage."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Epistasis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In **epistasis**, an allele at one locus affects or masks the expression of alleles at a second locus. The two genes may be on different chromosomes, but they do not act separately."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Example: in mice, gene C makes pigment and gene A decides the pattern of colour.",
+            "A mouse with genotype cc makes no pigment, so it is albino whatever alleles it has at the A locus.",
+            "A cross of two heterozygotes (AaCc × AaCc) gives 9 agouti : 3 black : 4 albino, instead of 9 : 3 : 3 : 1.",
+            "The 16 combinations still add up, but the albino classes look the same, so fewer phenotypes appear."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Other epistatic crosses give ratios such as 9 : 7 or 12 : 3 : 1. A modified ratio that still totals 16 suggests epistasis."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Epistasis: one gene masks or modifies the expression of another.",
+            "The ratio is a modified version of 9 : 3 : 3 : 1, still adding to 16.",
+            "Always work out the genotypes with a Punnett square before naming the phenotypes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The chi-squared test",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Real results never match the expected ratio exactly. The chi-squared test checks whether the difference is just chance."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Null hypothesis.",
+              "text": "State that there is no significant difference between the observed and expected results."
+            },
+            {
+              "lead": "Expected numbers.",
+              "text": "Share the total in the expected ratio. For 3 : 1 and 160 offspring, expect 120 and 40."
+            },
+            {
+              "lead": "Calculate χ².",
+              "text": "Use the formula below, for every class, and add the answers."
+            },
+            {
+              "lead": "Degrees of freedom.",
+              "text": "Number of classes minus 1."
+            },
+            {
+              "lead": "Compare.",
+              "text": "Find the critical value at probability 0.05 (5%) in the table you are given."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Chi-squared",
+          "formula": "χ² = Σ (O − E)² ÷ E",
+          "where": [
+            "O = observed number in a class",
+            "E = expected number in that class",
+            "Σ = the sum over all classes"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "If χ² is **greater than** the critical value, reject the null hypothesis. The difference is significant: it is unlikely (less than 5%) to be due to chance alone.",
+            "If χ² is **less than** the critical value, accept the null hypothesis. The difference is not significant and could be due to chance.",
+            "Use counts, never percentages, in the formula."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Try one with new numbers. A 3 : 1 ratio has two classes, so there is 1 degree of freedom."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A chi-squared practice question with new numbers each time, for an expected 3 : 1 ratio.",
+            "question": "A cross is expected to give a 3 : 1 ratio. The observed offspring are {a} with the dominant phenotype and {b} with the recessive phenotype. Calculate χ² to 2 decimal places.",
+            "variables": [
+              {
+                "id": "a",
+                "min": 130,
+                "max": 170,
+                "step": 1
+              },
+              {
+                "id": "b",
+                "min": 40,
+                "max": 60,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "(a - 0.75 * (a + b)) * (a - 0.75 * (a + b)) / (0.75 * (a + b)) + (b - 0.25 * (a + b)) * (b - 0.25 * (a + b)) / (0.25 * (a + b))",
+              "decimals": 2,
+              "tolerance_percent": 1
+            },
+            "working": [
+              "Total = {a} + {b}. Expected dominant = three quarters of the total. Expected recessive = one quarter of the total.",
+              "For each class, work out (O − E)² ÷ E.",
+              "Add the two values: χ² = {answer}.",
+              "Degrees of freedom = 1. Compare with the critical value 3.84 at p = 0.05."
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Degrees of freedom",
+            "Critical value at p = 0.05"
+          ],
+          "rows": [
+            [
+              "1",
+              "3.84"
+            ],
+            [
+              "2",
+              "5.99"
+            ],
+            [
+              "3",
+              "7.82"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Null hypothesis: no significant difference between observed and expected.",
+            "χ² greater than the critical value at 0.05: reject the null hypothesis.",
+            "Degrees of freedom = number of classes − 1."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Two plants heterozygous for two independent genes are crossed. State the expected phenotype ratio of the offspring.",
+      "a": "9 : 3 : 3 : 1 (two dominant features : one dominant, one recessive : the other dominant, recessive : both recessive).",
+      "marks": 1
+    },
+    {
+      "q": "A woman is a carrier of haemophilia, an X-linked recessive condition. Her partner is unaffected. Explain why their sons are more likely than their daughters to be affected.",
+      "a": "The mother passes on either the Xʰ allele or the Xᴴ allele, each with probability one half. A son gets his X only from his mother, and has no second X to mask a recessive allele, so half the sons are affected. A daughter also gets the father's Xᴴ, which masks the recessive allele, so she is unaffected, though she may be a carrier.",
+      "marks": 4
+    },
+    {
+      "q": "A student expects a 3 : 1 ratio and gets 84 dominant and 36 recessive offspring. χ² = 1.6. The critical value is 3.84 at p = 0.05. State and explain the conclusion.",
+      "a": "Degrees of freedom = 1. χ² (1.6) is less than 3.84, so the null hypothesis is accepted. There is no significant difference between observed and expected results; the difference is likely due to chance.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.1f",
+        "AQA 3.7.1e"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A locus (plural loci) is the location of a gene on a chromosome. You need to link loci to linkage and sex linkage."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Linked genes are at different loci on the same chromosome, so they stay together unless crossing over separates them.",
+                "In sex linkage the locus is on a sex chromosome, so the inheritance pattern differs between males and females.",
+                "Recombinant gametes from linked loci are always fewer than parental types when the loci are close."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 16.2.3",
+        "CAIE 16.2.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You must construct genetic diagrams for dihybrid crosses with autosomal linkage and with epistasis.",
+                "You do not need to learn the expected ratios for the different types of epistasis. Work them out from the genotypes in the question.",
+                "The formula for χ² is provided in the exam."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.2b",
+        "OCR 6.1.2c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use phenotypic ratios to identify the pattern: 9 : 3 : 3 : 1 suggests independent genes, two common and two rare classes suggest linkage, and fewer than four phenotype classes that still total 16 parts suggest epistasis.",
+                "Genetic diagrams must cover monogenic inheritance, dihybrid inheritance, multiple alleles, sex linkage and codominance.",
+                "The formula χ² = Σ (fₒ − fₑ)² ÷ fₑ is provided. Here fₒ is the observed frequency and fₑ the expected frequency."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "f73eb487-f7f3-4751-b549-d92966ab17f1",
+      "22161438-c914-4b59-95d8-b70770b1e7ff",
+      "58767acd-9a6d-4550-8304-c49b6ccd06e1",
+      "26c934da-8d2d-445b-a6e4-46fe8ad8ae7a",
+      "404b9835-c329-4a27-97c6-04670f405c3d",
+      "393f6b9a-83f1-4d70-925d-07e4709bfa0c"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,313 @@
+{
+  "format": 1,
+  "concept_id": "abio-030",
+  "subject": "biology",
+  "title": "Non-specific defences",
+  "key_idea": "Non-specific defences act the same way against every pathogen. Barriers keep pathogens out, and blood clotting seals wounds. If pathogens get in, inflammation and phagocytes attack them straight away. These defences also start the slower specific immune response.",
+  "sections": [
+    {
+      "heading": "Barriers and routes of entry",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The first line of defence stops pathogens entering the body at all. This section covers the routes in and the barriers across them."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Route of entry",
+            "Barrier or defence"
+          ],
+          "rows": [
+            [
+              "Skin (cuts, bites, grazes)",
+              "Tough keratinised outer layer; sebum makes the surface slightly acidic; skin flora compete with pathogens; clotting seals breaks."
+            ],
+            [
+              "Gas exchange system (breathing in)",
+              "Mucus traps microorganisms and cilia move it up to be swallowed or coughed out. Coughing and sneezing expel it."
+            ],
+            [
+              "Gut (food and drink)",
+              "Stomach acid kills many pathogens; lysozyme in saliva and mucus; gut flora compete with pathogens."
+            ],
+            [
+              "Eyes and urinary tract",
+              "Tears contain lysozyme; urine flow flushes the urethra."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Gut and skin flora** are harmless bacteria that use up space and nutrients. Pathogens struggle to compete with them.",
+            "Mucous membranes line the airways and gut. They produce mucus that traps pathogens.",
+            "Expulsive reflexes such as coughing, sneezing and vomiting force pathogens out."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pathogens enter through breaks in the skin, the airways, the gut and other openings.",
+            "Barriers are physical (skin, mucus), chemical (acid, lysozyme) and biological (flora)."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Blood clotting and wound repair",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When the skin is cut, platelets stop blood loss and close the route in. A clot also forms a scaffold for repair."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Damaged tissue and platelets release substances.",
+            "These start a cascade of enzyme-controlled reactions.",
+            "The cascade converts soluble fibrinogen into insoluble **fibrin**.",
+            "Fibrin forms a network of fibres that traps platelets and red blood cells and forms a clot.",
+            "The clot dries into a scab, which keeps pathogens out while new tissue grows."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Repair follows. Cells at the edges divide to replace lost tissue, and the scab falls away when the skin has healed."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Platelets release substances that start a cascade ending in fibrin.",
+            "Fibrin traps cells to form a clot, then a scab."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Inflammation, lysozyme and interferon",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "If pathogens get past the barriers, damaged and infected cells send out chemical signals. These trigger inflammation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mast cells and damaged cells release **histamine** and cytokines.",
+            "Blood vessels widen and become leakier. More blood flows to the area, so it is red, warm and swollen.",
+            "More tissue fluid leaks out, bringing phagocytes and proteins to the site.",
+            "Phagocytes attack the pathogens, and the swelling usually goes down as the infection clears."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Two further chemicals protect cells."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Lysozyme** is an enzyme in tears, saliva and mucus, and inside phagocytes. It breaks down bacterial cell walls, so the bacteria burst.",
+            "**Interferon** is released by virus-infected cells. It makes nearby cells produce enzymes that stop viral replication."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Inflammation brings blood, fluid and phagocytes to the infected site.",
+            "Lysozyme breaks bacterial cell walls; interferon blocks viral replication."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Phagocytes and phagocytosis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Phagocytes are white blood cells that engulf and digest pathogens. The two main kinds are neutrophils and macrophages."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Neutrophil",
+              "meaning": "A short-lived phagocyte with a lobed nucleus. Made in the bone marrow and the first to arrive at an infection."
+            },
+            {
+              "term": "Macrophage",
+              "meaning": "A larger, longer-lived phagocyte that develops from a monocyte. It lives in tissues and presents antigens."
+            },
+            {
+              "term": "Phagocytosis",
+              "meaning": "Engulfing a pathogen in a vesicle and digesting it."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of phagocytosis in order.",
+            "prompt": "Put the stages of phagocytosis in the right order.",
+            "steps": [
+              "The phagocyte is attracted to chemicals from the pathogen and attaches to it.",
+              "The cell surface membrane extends around the pathogen and engulfs it in a vesicle called a phagosome.",
+              "Lysosomes fuse with the phagosome and release lysozyme and other digestive enzymes.",
+              "The enzymes digest the pathogen.",
+              "The useful products are absorbed into the cytoplasm."
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "A macrophage also places pieces of the pathogen on its own surface membrane. These antigens activate the specific immune response, so the macrophage is an antigen-presenting cell."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Phagocytes engulf pathogens into a phagosome, and lysosome enzymes digest them.",
+            "Neutrophils arrive first; macrophages also present antigens to T cells."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how a phagocyte destroys a bacterium.",
+      "a": "The phagocyte attaches to the bacterium and engulfs it by extending its cell surface membrane around it, forming a phagosome. Lysosomes fuse with the phagosome and release enzymes, including lysozyme. The enzymes digest the bacterium.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why a cut area becomes red and swollen.",
+      "a": "Damaged cells and mast cells release histamine. This makes blood vessels widen and become leakier. More blood flows to the area, making it red and warm. More fluid leaks out into the tissues, making it swollen. Phagocytes arrive with the fluid.",
+      "marks": 4
+    },
+    {
+      "q": "Explain how skin and clotting protect the body from pathogens.",
+      "a": "Skin is a physical barrier with a keratinised outer layer, and skin flora compete with pathogens. If skin is cut, platelets release substances that start a cascade making fibrin from fibrinogen. Fibrin forms a mesh that traps cells and forms a clot, which seals the wound and stops pathogens entering.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6.7",
+        "EDEX 6.11"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the major routes of entry: broken skin, the airways, the gut, the urinary and reproductive tracts, and the eyes.",
+                "Stomach acid (low pH) kills most bacteria that are swallowed in food and drink.",
+                "Gut and skin flora protect by competing for space and nutrients and by producing substances that harm pathogens.",
+                "The non-specific responses to learn are inflammation, lysozyme action, interferon and phagocytosis."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 11.1.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Mode of action of macrophages and neutrophils"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Both are phagocytes. They move to infected tissue, attracted by chemicals from pathogens and damaged cells.",
+                "Neutrophils are made in bone marrow, have a lobed nucleus and live for a short time. They squeeze out of capillaries into infected tissue.",
+                "Macrophages are larger and longer-lived. They develop from monocytes, and some stay in tissues such as the lungs and liver.",
+                "Both engulf the pathogen, enclose it in a phagosome, and digest it with enzymes from lysosomes.",
+                "Macrophages then display antigens and so start the specific response."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.1.1c",
+        "OCR 4.1.1d",
+        "OCR 4.1.1e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Phagocytes: structure, opsonins and cytokines"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Neutrophils have a multi-lobed nucleus and granular cytoplasm full of lysosomes.",
+                "Macrophages have a large, rounded or kidney-shaped nucleus. They are antigen-presenting cells.",
+                "**Opsonins** are proteins that bind to pathogens and make them easier to engulf, because phagocytes have receptors for them.",
+                "**Cytokines** are signalling proteins. They attract more phagocytes to the area and help to activate other immune cells.",
+                "The vesicle made during engulfing is the phagosome. Lysosomes fuse with it and release enzymes."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Blood smears"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Stain a thin smear of blood on a slide and view it under a light microscope.",
+                "Red blood cells are the most numerous. They are small, with no nucleus.",
+                "White cells are larger. Neutrophils show a lobed nucleus with pale pink granular cytoplasm; lymphocytes have a large round nucleus and little cytoplasm.",
+                "Draw what you see in clear outline. Label nucleus and cytoplasm, and add a scale bar or magnification."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Plant defences against pathogens"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Plants make chemicals that harm pathogens, such as antibacterial and antifungal compounds, and some toxins.",
+                "**Callose** is deposited between the cell wall and cell membrane and in sieve plates. It blocks the spread of the pathogen to nearby cells and in the phloem.",
+                "Cells around an infection may die quickly, which starves the pathogen.",
+                "Physical barriers include the waxy cuticle and the cell wall, and stomata can close to keep pathogens out."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "afea4b25-b071-4306-bab2-4e6505e7d7ec",
+      "26975b57-1a73-4680-9789-e5a29db24153",
+      "1d6ad66c-6314-4100-8262-2be52e0b1c38",
+      "fab308da-e26c-425d-87fd-bbb9df74048a",
+      "7a75558e-d384-44e7-bcc4-f4b7341a7410",
+      "69c1a1b5-4cf1-4ad7-a954-33e98bb6302c"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

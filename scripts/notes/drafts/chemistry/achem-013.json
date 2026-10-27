@@ -1,0 +1,231 @@
+{
+  "format": 1,
+  "concept_id": "achem-013",
+  "subject": "chemistry",
+  "title": "Shapes of molecules and ions",
+  "key_idea": "Pairs of electrons in the outer shell repel each other and arrange themselves as far apart as possible. The number of bonding pairs and lone pairs round the central atom gives the shape. Lone pairs repel more than bonding pairs, so they squeeze the bond angles.",
+  "sections": [
+    {
+      "heading": "Electron pair repulsion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each pair of electrons in the outer shell of the central atom forms a charge cloud. This section covers how the clouds repel."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bonding pairs and lone pairs are charge clouds that repel each other.",
+            "They move as far apart as possible to minimise the repulsion.",
+            "A double or triple bond counts as one charge cloud in the same direction, because its electrons are shared between the same two atoms.",
+            "The shape is named from the positions of the atoms only, not the lone pairs."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Order of repulsion"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lone pair–lone pair repulsion is the greatest.",
+            "Lone pair–bonding pair repulsion is smaller.",
+            "Bonding pair–bonding pair repulsion is the smallest."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Each lone pair therefore reduces the bond angle by about 2.5° compared with the ideal angle."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Electron pairs repel and spread out as far as possible.",
+            "Lone pair repulsion is greater than bonding pair repulsion.",
+            "Name the shape from the atoms only."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The shapes and bond angles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The number of electron pairs sets the basic arrangement, and lone pairs change the shape name. This table covers up to six pairs."
+        },
+        {
+          "type": "table",
+          "columns": ["Pairs (bonding + lone)", "Shape", "Bond angle", "Example"],
+          "rows": [
+            ["2 + 0", "Linear", "180°", "BeCl₂, CO₂"],
+            ["3 + 0", "Trigonal planar", "120°", "BCl₃, BF₃"],
+            ["2 + 1", "Non-linear (bent)", "About 119°", "SO₂"],
+            ["4 + 0", "Tetrahedral", "109.5°", "CH₄, NH₄⁺"],
+            ["3 + 1", "Pyramidal", "107°", "NH₃"],
+            ["2 + 2", "Non-linear (bent)", "104.5°", "H₂O"],
+            ["5 + 0", "Trigonal bipyramidal", "120° and 90°", "PCl₅, PF₅"],
+            ["6 + 0", "Octahedral", "90°", "SF₆"],
+            ["4 + 2", "Square planar", "90°", "XeF₄"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In NH₃ there are three bonding pairs and one lone pair. The lone pair squeezes the angle from 109.5° to 107°.",
+            "In H₂O there are two bonding pairs and two lone pairs. The two lone pairs squeeze the angle to 104.5°.",
+            "In NH₄⁺ there are four bonding pairs and no lone pair, so the ion is a regular tetrahedron with all angles 109.5°."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick a molecule or ion to see its electron pairs, shape and bond angle.",
+            "prompt": "Pick a molecule or ion",
+            "result_labels": ["Bonding pairs and lone pairs", "Shape", "Bond angle"],
+            "options": [
+              { "label": "BeCl₂", "results": ["2 bonding, 0 lone", "Linear", "180°"], "explanation": "Be has two bonding pairs and no lone pair, so they sit opposite each other." },
+              { "label": "BCl₃", "results": ["3 bonding, 0 lone", "Trigonal planar", "120°"], "explanation": "Three pairs spread evenly in a flat plane." },
+              { "label": "CH₄", "results": ["4 bonding, 0 lone", "Tetrahedral", "109.5°"], "explanation": "Four equal pairs spread evenly in three dimensions." },
+              { "label": "NH₃", "results": ["3 bonding, 1 lone", "Pyramidal", "107°"], "explanation": "The lone pair repels the bonding pairs more strongly and squeezes the angle." },
+              { "label": "H₂O", "results": ["2 bonding, 2 lone", "Non-linear", "104.5°"], "explanation": "Two lone pairs squeeze the angle further than one." },
+              { "label": "NH₄⁺", "results": ["4 bonding, 0 lone", "Tetrahedral", "109.5°"], "explanation": "The dative bond uses the lone pair, leaving four equal bonding pairs." },
+              { "label": "PCl₅", "results": ["5 bonding, 0 lone", "Trigonal bipyramidal", "120° and 90°"], "explanation": "Three bonds lie in a plane at 120° and two lie above and below at 90°." },
+              { "label": "SF₆", "results": ["6 bonding, 0 lone", "Octahedral", "90°"], "explanation": "Six equal pairs point to the corners of an octahedron." }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Learn the shape and angle for each number of bonding and lone pairs.",
+            "Each lone pair reduces the angle by about 2.5°.",
+            "Draw shapes in three dimensions, using solid, wedge and dashed bonds."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Predicting the shape of an unfamiliar species",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The same method works for any simple molecule or ion. This section gives the steps."
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Find the central atom", "text": "This is usually the atom that forms the most bonds." },
+            { "lead": "Count its outer electrons", "text": "Add one for each single bond it makes (count a double or triple bond as one charge cloud instead), and adjust for any charge: add one for each negative charge and subtract one for each positive charge." },
+            { "lead": "Divide by two", "text": "This gives the total number of electron pairs." },
+            { "lead": "Subtract the bonding pairs", "text": "The remainder is the number of lone pairs." },
+            { "lead": "Match the arrangement", "text": "Use the table. Lone pairs change the name of the shape and lower the angle." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "For example, in PH₃ the P atom has 5 outer electrons plus 3 from the bonds, which is 4 pairs. Three are bonding and one is a lone pair, so the shape is pyramidal and the angle is about 107°."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Count pairs, then use the table.",
+            "Analogous species have the same shape: PH₃ is like NH₃ and H₃O⁺ is like NH₃."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why the bond angle in NH₃ is smaller than in CH₄.",
+      "a": "NH₃ has three bonding pairs and one lone pair. The lone pair repels the bonding pairs more than bonding pairs repel each other, so the angle is reduced from 109.5° to 107°.",
+      "marks": 3
+    },
+    {
+      "q": "State the shape of SF₆ and the bond angle, and explain why.",
+      "a": "Octahedral, 90°. There are six bonding pairs and no lone pairs, and they repel equally and spread as far apart as possible.",
+      "marks": 3
+    },
+    {
+      "q": "Predict the shape of the CO₂ molecule and the O=C=O bond angle.",
+      "a": "Linear, 180°. The carbon atom has two double bonds, which are two charge clouds that repel as far apart as possible.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": ["OCR 2.2.2g", "OCR 2.2.2h"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Draw three-dimensional diagrams of the shapes, using solid lines, wedges and dashes.",
+                "Know the bond angles of the common examples: CH₄ is 109.5°, NH₃ is 107° and H₂O is 104.5°."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 2A.10", "EDEX 2A.11", "EDEX 2A.12"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Examples include BeCl₂, BCl₃, CH₄, NH₃, NH₄⁺, H₂O, CO₂, PCl₅(g) and SF₆(g).",
+                "Apply the same ideas to the simple organic molecules in the course, for example the carbon atoms in alkanes (tetrahedral, 109.5°) and alkenes (trigonal planar, 120°)."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.1.3.5"]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 3.5.1", "CAIE 3.5.2"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know these examples with their shapes and angles: BF₃ (trigonal planar, 120°), CO₂ (linear, 180°), CH₄ (tetrahedral, 109.5°), NH₃ (pyramidal, 107°), H₂O (non-linear, 104.5°), SF₆ (octahedral, 90°) and PF₅ (trigonal bipyramidal, 120° and 90°).",
+                "Predict the shapes of analogous molecules and ions, such as NH₄⁺ and PH₃."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "1f4859a1-3815-424b-a6c7-809584ca29bf",
+      "bdcc50e4-c637-44f0-9bfa-0cc7f6e640d8",
+      "bf506845-15f5-480a-b173-0dc697a063a9",
+      "bb99f87a-e9da-4364-8cb0-23c923975765",
+      "5709ddd0-b82a-4c7b-b7ec-16435c0cbeb5",
+      "efa3d0f2-df97-44a4-92f8-f5370380f384",
+      "28219468-4077-4250-a7b8-1ab145482876",
+      "75148d38-6c6f-4bba-b117-7bacb9989e2b"
+    ],
+    "exemplar_ids": []
+  }
+}

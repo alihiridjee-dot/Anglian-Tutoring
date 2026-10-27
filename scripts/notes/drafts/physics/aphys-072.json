@@ -1,0 +1,744 @@
+{
+  "format": 1,
+  "concept_id": "aphys-072",
+  "subject": "physics",
+  "title": "Charging and discharging capacitors",
+  "key_idea": "A capacitor charges and discharges through a resistor exponentially, not at a steady rate. The time constant τ = RC says how fast. After one time constant a discharging capacitor has fallen to about 37% of its starting value.",
+  "sections": [
+    {
+      "heading": "Charge flow when charging and discharging",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A capacitor charges and discharges through a circuit by electrons flowing in the wires. No electrons cross the insulator between the plates."
+        },
+        {
+          "type": "subheading",
+          "text": "Charging"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Electrons arrive",
+              "text": "Electrons flow from the negative terminal of the supply onto the plate joined to it. That plate becomes negative."
+            },
+            {
+              "lead": "Electrons leave",
+              "text": "The same number of electrons leave the other plate and flow to the positive terminal. That plate becomes positive."
+            },
+            {
+              "lead": "Current falls",
+              "text": "As charge builds up, the p.d. across the capacitor opposes the supply. The current falls to zero when the two are equal."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Discharging"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Electrons return",
+              "text": "With the supply removed, electrons flow from the negative plate round the circuit, through the resistor, to the positive plate."
+            },
+            {
+              "lead": "Current falls",
+              "text": "The current is in the opposite direction to charging. It falls as the p.d. across the capacitor falls."
+            },
+            {
+              "lead": "Neutral",
+              "text": "The flow stops when both plates are neutral and the p.d. is zero."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Charging and discharging are flows of electrons through the circuit, not across the gap.",
+            "The current is largest at the start and falls to zero."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Graphs of charging and discharging",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A resistor limits the current, so the capacitor charges and discharges gradually. The graphs are exponential curves."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Quantity",
+            "Charging",
+            "Discharging"
+          ],
+          "rows": [
+            [
+              "Charge Q on the capacitor",
+              "Rises from 0 to Q₀",
+              "Falls from Q₀ to 0"
+            ],
+            [
+              "P.d. V across the capacitor",
+              "Rises from 0 to V₀",
+              "Falls from V₀ to 0"
+            ],
+            [
+              "Current I",
+              "Falls from I₀ to 0",
+              "Falls from I₀ to 0, in the opposite direction"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Two exponential curves against time in units of RC. Charging: charge or p.d. across the capacitor rises from zero and levels off at its final value. Discharging: charge, p.d. or current falls from its starting value towards zero.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 5,
+              "ticks": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "unit": "× RC"
+            },
+            "y": {
+              "label": "Fraction of final or starting value"
+            },
+            "series": [
+              {
+                "name": "Charging (Q or V across the capacitor)",
+                "points": [
+                  [
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.25,
+                    0.221
+                  ],
+                  [
+                    0.5,
+                    0.393
+                  ],
+                  [
+                    0.75,
+                    0.528
+                  ],
+                  [
+                    1.0,
+                    0.632
+                  ],
+                  [
+                    1.25,
+                    0.713
+                  ],
+                  [
+                    1.5,
+                    0.777
+                  ],
+                  [
+                    1.75,
+                    0.826
+                  ],
+                  [
+                    2.0,
+                    0.865
+                  ],
+                  [
+                    2.25,
+                    0.895
+                  ],
+                  [
+                    2.5,
+                    0.918
+                  ],
+                  [
+                    2.75,
+                    0.936
+                  ],
+                  [
+                    3.0,
+                    0.95
+                  ],
+                  [
+                    3.25,
+                    0.961
+                  ],
+                  [
+                    3.5,
+                    0.97
+                  ],
+                  [
+                    3.75,
+                    0.976
+                  ],
+                  [
+                    4.0,
+                    0.982
+                  ],
+                  [
+                    4.25,
+                    0.986
+                  ],
+                  [
+                    4.5,
+                    0.989
+                  ],
+                  [
+                    4.75,
+                    0.991
+                  ],
+                  [
+                    5.0,
+                    0.993
+                  ]
+                ]
+              },
+              {
+                "name": "Discharging (Q, V or I)",
+                "points": [
+                  [
+                    0.0,
+                    1.0
+                  ],
+                  [
+                    0.25,
+                    0.779
+                  ],
+                  [
+                    0.5,
+                    0.607
+                  ],
+                  [
+                    0.75,
+                    0.472
+                  ],
+                  [
+                    1.0,
+                    0.368
+                  ],
+                  [
+                    1.25,
+                    0.287
+                  ],
+                  [
+                    1.5,
+                    0.223
+                  ],
+                  [
+                    1.75,
+                    0.174
+                  ],
+                  [
+                    2.0,
+                    0.135
+                  ],
+                  [
+                    2.25,
+                    0.105
+                  ],
+                  [
+                    2.5,
+                    0.082
+                  ],
+                  [
+                    2.75,
+                    0.064
+                  ],
+                  [
+                    3.0,
+                    0.05
+                  ],
+                  [
+                    3.25,
+                    0.039
+                  ],
+                  [
+                    3.5,
+                    0.03
+                  ],
+                  [
+                    3.75,
+                    0.024
+                  ],
+                  [
+                    4.0,
+                    0.018
+                  ],
+                  [
+                    4.25,
+                    0.014
+                  ],
+                  [
+                    4.5,
+                    0.011
+                  ],
+                  [
+                    4.75,
+                    0.009
+                  ],
+                  [
+                    5.0,
+                    0.007
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 1,
+                "label": "t = RC"
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The gradient of a Q–t graph is the current, I = ΔQ/Δt. It is steepest at the start.",
+            "The area under an I–t graph is the charge that has flowed.",
+            "The curves never quite reach their final value: they approach it."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Charge and p.d. rise (charging) or fall (discharging) exponentially.",
+            "Current falls exponentially in both cases.",
+            "Gradient of Q–t is current. Area under I–t is charge."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The time constant",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The time constant says how quickly the capacitor charges or discharges. It depends on the resistor and the capacitor."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Time constant, τ",
+              "meaning": "The product of the resistance and the capacitance in the circuit. It is measured in seconds."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Time constant",
+          "formula": "τ = RC",
+          "where": [
+            "τ = time constant (s)",
+            "R = resistance in the circuit (Ω)",
+            "C = capacitance (F)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "When discharging, τ is the time for Q, V or I to fall to 1/e of its starting value, about 37%.",
+            "When charging, τ is the time for Q or V to rise to about 63% of its final value.",
+            "A larger R or a larger C makes τ longer, so charging and discharging take longer."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "τ = RC, in seconds.",
+            "After one time constant a discharging capacitor has 37% of its initial charge left."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Exponential equations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The curves follow exponential equations. The letter e is the base of natural logarithms, 2.718…"
+        },
+        {
+          "type": "equation",
+          "label": "Discharging",
+          "formula": "x = x₀ e^(−t/RC)",
+          "where": [
+            "x = Q, V or I at time t",
+            "x₀ = value at t = 0",
+            "t = time (s)",
+            "RC = time constant (s)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Charging charge or p.d.",
+          "formula": "x = x₀ (1 − e^(−t/RC))",
+          "where": [
+            "x = Q or V at time t",
+            "x₀ = final value of Q or V",
+            "t = time (s)",
+            "RC = time constant (s)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "When charging, the current still decays: I = I₀ e^(−t/RC), where I₀ = V₀/R.",
+            "The p.d. across the resistor follows the same decay as the current, because V = IR."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Where the V and I equations come from"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Start",
+              "text": "Q = Q₀ e^(−t/RC) for a discharging capacitor."
+            },
+            {
+              "lead": "Divide by C",
+              "text": "Since V = Q/C, V = V₀ e^(−t/RC)."
+            },
+            {
+              "lead": "Rate of change",
+              "text": "Current is the rate at which charge flows, so I = −ΔQ/Δt. The gradient of Q = Q₀ e^(−t/RC) gives I = I₀ e^(−t/RC), with I₀ = Q₀/RC = V₀/R."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Using logarithms"
+        },
+        {
+          "type": "equation",
+          "label": "Logarithmic form",
+          "formula": "ln x = ln x₀ − t / RC",
+          "where": [
+            "x = Q, V or I",
+            "ln = natural logarithm"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Plot ln x against t. The graph is a straight line.",
+            "The gradient is −1/RC, so RC = −1 ÷ gradient.",
+            "The intercept on the ln x axis is ln x₀."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider activity. Change the resistance, the capacitance and the time and see the time constant and how far a capacitor has charged or discharged.",
+            "inputs": [
+              {
+                "id": "r",
+                "label": "Resistance",
+                "unit": "kΩ",
+                "min": 10,
+                "max": 200,
+                "step": 10,
+                "value": 100
+              },
+              {
+                "id": "c",
+                "label": "Capacitance",
+                "unit": "μF",
+                "min": 10,
+                "max": 470,
+                "step": 10,
+                "value": 100
+              },
+              {
+                "id": "t",
+                "label": "Time after the switch is closed",
+                "unit": "s",
+                "min": 0,
+                "max": 60,
+                "step": 1,
+                "value": 10
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Time constant RC",
+                "unit": "s",
+                "formula": "r*c/1000",
+                "decimals": 1
+              },
+              {
+                "label": "Discharging: value left",
+                "unit": "% of start",
+                "formula": "100*2.718281828^(-t/(r*c/1000))",
+                "decimals": 1
+              },
+              {
+                "label": "Charging: value reached",
+                "unit": "% of final",
+                "formula": "100*(1-2.718281828^(-t/(r*c/1000)))",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Discharge: x = x₀e^(−t/RC). Charge: x = x₀(1 − e^(−t/RC)).",
+            "Taking logs gives ln x = ln x₀ − t/RC, a straight line with gradient −1/RC."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Half-life and the constant-ratio property",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every exponential decay has the same shape. In equal time intervals the quantity falls by the same fraction."
+        },
+        {
+          "type": "list",
+          "items": [
+            "After each time T½ the quantity halves. After each time RC it is multiplied by 1/e, about 0.37.",
+            "This is the constant-ratio property of an exponential decay graph."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set x = ½x₀",
+              "text": "½ = e^(−T½/RC)."
+            },
+            {
+              "lead": "Take logs",
+              "text": "ln 2 = T½ / RC."
+            },
+            {
+              "lead": "Result",
+              "text": "T½ = RC ln 2 = 0.69 RC."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Time to halve",
+          "formula": "T½ = 0.69 RC",
+          "where": [
+            "T½ = time for Q, V or I to halve (s)",
+            "RC = time constant (s)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Measure the time for a value on the graph to halve, then divide by 0.69 to find RC.",
+            "The same T½ is found whichever starting point on the curve you choose."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Equal times give equal fractions.",
+            "T½ = 0.69RC."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating charge and discharge",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The investigation measures how the p.d. across a capacitor changes with time while it discharges through a resistor."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Build the circuit",
+              "text": "Join a capacitor, a resistor and a switch to a d.c. supply. Put a voltmeter across the capacitor. An ammeter in series measures the current."
+            },
+            {
+              "lead": "Charge",
+              "text": "Charge the capacitor fully."
+            },
+            {
+              "lead": "Discharge",
+              "text": "Switch to discharge through the resistor and record the p.d. at regular times."
+            },
+            {
+              "lead": "Analyse",
+              "text": "Plot V against t and ln V against t. Find RC from the gradient of the straight line, −1/RC."
+            },
+            {
+              "lead": "Compare",
+              "text": "Check the result against the value of R × C. Repeat with different R or C."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A data logger takes many readings a second, which suits small time constants.",
+            "An oscilloscope or data logger shows the whole curve on a screen.",
+            "With meters and a stopwatch, use a large R and C so that RC is several seconds.",
+            "An electrolytic capacitor is polarised: connect it the correct way round."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Record p.d. at regular times and plot ln V against t.",
+            "The gradient of the straight line is −1/RC."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A 220 μF capacitor discharges through a 47 kΩ resistor. Calculate the time constant.",
+      "a": "τ = RC = 47 × 10³ × 220 × 10⁻⁶ = 10.3 s (about 10 s).",
+      "marks": 2
+    },
+    {
+      "q": "A capacitor charged to 6.0 V discharges through a resistor with a time constant of 8.0 s. Calculate the p.d. after 12 s.",
+      "a": "V = V₀ e^(−t/RC) = 6.0 × e^(−12/8.0) = 6.0 × 0.223 = 1.3 V.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how a graph of ln V against t is used to find the time constant of a discharging capacitor.",
+      "a": "Plot ln V against t. It is a straight line with a negative gradient. The gradient equals −1/RC, so RC = −1 ÷ gradient.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.4.4"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.118",
+        "EDEX 7.119",
+        "EDEX 7.120"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 19.3.1",
+        "CAIE 19.3.2",
+        "CAIE 19.3.3"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.1b",
+        "OCR 6.1.3a",
+        "OCR 6.1.3b",
+        "OCR 6.1.3c",
+        "OCR 6.1.3d",
+        "OCR 6.1.3e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Modelling a discharge step by step"
+            },
+            {
+              "type": "paragraph",
+              "text": "The change in charge in a short time Δt is found from the current at that moment."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Start from the circuit",
+                  "text": "I = V/R and V = Q/C, so I = Q/(CR)."
+                },
+                {
+                  "lead": "Rate of change",
+                  "text": "The charge falls as it flows away: ΔQ/Δt = −Q/(CR)."
+                },
+                {
+                  "lead": "Choose values",
+                  "text": "Set Q₀, R, C and a small time step Δt in a spreadsheet."
+                },
+                {
+                  "lead": "Row by row",
+                  "text": "ΔQ = −Q ÷ (CR) × Δt. The new Q is the old Q plus ΔQ. Fill down."
+                },
+                {
+                  "lead": "Plot",
+                  "text": "Graph Q against t. A smaller Δt gives a curve closer to the exponential."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "On a graph of Q against t, the gradient of the tangent at any point is −Q/(CR).",
+                "The same spreadsheet idea works for a charging capacitor."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "The equation ΔQ/Δt = −Q/(CR) says the rate of discharge is proportional to the charge left.",
+                "This is why the decay is exponential."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "ad70ed70-47a4-474a-bb90-7c19f30fd118",
+      "350e1436-2218-4527-a9d1-9af0cefd3c49",
+      "3c752f50-4903-4df5-b286-dd35b4bba8e8",
+      "047cc34d-70d5-4c17-ac5c-6a262923cda0",
+      "66b84f69-5c83-4437-a3b1-b6b8e8f5086d",
+      "6c4496f0-eb33-40bb-a243-29d3c791d6c8",
+      "a96788aa-3392-48c0-9b30-d3cb5b0687bb",
+      "f1272bbd-f578-405e-864f-f7ba9e135eb4",
+      "3fd1fab4-9f79-4230-bbba-4a6482a3157c",
+      "fd9f0d43-84c3-4d6e-90ba-427739640c26",
+      "810b28d8-f6f8-4d41-820b-408350dbf8f1",
+      "ed4aa5c1-e499-487b-b530-0c0beaae3f2b",
+      "2bcae596-bc39-448f-89f0-9bc70ff450a7"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

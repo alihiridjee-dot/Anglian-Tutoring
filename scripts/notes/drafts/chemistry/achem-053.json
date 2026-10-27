@@ -1,0 +1,344 @@
+{
+  "format": 1,
+  "concept_id": "achem-053",
+  "subject": "chemistry",
+  "title": "Thermal stability and flame tests",
+  "key_idea": "Group 2 carbonates and nitrates decompose on heating, and become more stable down the group. A small, highly charged cation polarises the anion and weakens it. Flame colours come from excited electrons falling back to lower energy levels.",
+  "sections": [
+    {
+      "heading": "Thermal decomposition of Group 2 carbonates and nitrates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Heating breaks these compounds into an oxide and a gas. This section covers the products and the equations."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Compound",
+            "Equation",
+            "Gas seen"
+          ],
+          "rows": [
+            [
+              "Carbonate",
+              "MCO₃ → MO + CO₂",
+              "CO₂ turns limewater milky"
+            ],
+            [
+              "Nitrate",
+              "2M(NO₃)₂ → 2MO + 4NO₂ + O₂",
+              "Brown NO₂ and O₂, which relights a glowing splint"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The oxide is a white solid.",
+            "Nitrates also give off brown fumes of nitrogen dioxide.",
+            "Carbonates and nitrates of Group 2 all decompose, but at different temperatures."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Group 2 carbonates give an oxide and carbon dioxide.",
+            "Group 2 nitrates give an oxide, nitrogen dioxide and oxygen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The trend in thermal stability",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Thermal stability **increases** down Group 2. Magnesium carbonate decomposes easily and barium carbonate needs much stronger heating."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Thermal stability",
+              "meaning": "How much heating a compound can take before it decomposes."
+            },
+            {
+              "term": "Polarisation",
+              "meaning": "Distortion of the electron cloud of an anion by a nearby cation."
+            },
+            {
+              "term": "Charge density",
+              "meaning": "Charge divided by size. A small ion with a high charge has a high charge density."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A cation with a high charge density attracts the electron cloud of a large anion and **polarises** it.",
+            "The polarised anion has a weakened bond. Heat then breaks it: CO₃²⁻ gives O²⁻ and CO₂, and NO₃⁻ gives O²⁻, NO₂ and O₂.",
+            "Down the group the cation radius increases and the charge density falls. The cation polarises the anion less.",
+            "The anion is distorted less, so more heat is needed to decompose the compound."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Large anions such as carbonate and nitrate are polarised easily, because their electron clouds are spread out."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Smaller, more highly charged cations polarise the anion more.",
+            "Down Group 2 the cations are larger, so polarisation falls and stability rises.",
+            "Carbonates and nitrates of Group 2 become harder to decompose down the group."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write the equation for the thermal decomposition of calcium nitrate.",
+      "a": "2Ca(NO₃)₂ → 2CaO + 4NO₂ + O₂",
+      "marks": 2
+    },
+    {
+      "q": "Explain why barium carbonate is more thermally stable than magnesium carbonate.",
+      "a": "Ba²⁺ is larger than Mg²⁺, so it has a lower charge density. It polarises the carbonate ion less, so the C–O bond is weakened less and more heat is needed to decompose it.",
+      "marks": 3
+    },
+    {
+      "q": "Describe what is seen when calcium nitrate is heated strongly, and name the gases.",
+      "a": "Brown fumes of nitrogen dioxide and a colourless gas, oxygen, that relights a glowing splint. A white solid, calcium oxide, remains.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4A.6",
+        "EDEX 4A.7",
+        "EDEX 4A.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers Group 1 compounds, flame colours and the practical methods."
+            },
+            {
+              "type": "subheading",
+              "text": "Group 1 compounds"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Group 1 carbonates are very stable. Only lithium carbonate decomposes in a Bunsen flame: Li₂CO₃ → Li₂O + CO₂.",
+                "Lithium nitrate decomposes like a Group 2 nitrate: 4LiNO₃ → 2Li₂O + 4NO₂ + O₂.",
+                "Sodium to caesium nitrates give a nitrite and oxygen: 2NaNO₃ → 2NaNO₂ + O₂.",
+                "Group 1 ions have a 1+ charge and a larger radius, so they polarise the anion much less than Group 2 ions. Lithium is the smallest and polarises most."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The same argument applies to both groups. Group 1 compounds are more stable than Group 2 compounds in the same period."
+            },
+            {
+              "type": "subheading",
+              "text": "Flame colours and electron transitions"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Heat gives energy to electrons in the metal ion, which move to higher energy levels. They are **excited**.",
+                "The electrons fall back to lower levels and release the energy as light.",
+                "Each metal has its own energy gaps, so each gives light of its own colour."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Energy of the light emitted",
+              "formula": "ΔE = hν",
+              "where": [
+                "ΔE: energy gap between the two levels, in J",
+                "h: Planck constant, 6.63 × 10⁻³⁴ J s",
+                "ν: frequency of the light, in Hz"
+              ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "predictor",
+                "alt": "A predictor. Pick a metal ion to see the colour of its flame.",
+                "prompt": "Pick a metal ion.",
+                "result_labels": [
+                  "Flame colour",
+                  "Where the colour comes from"
+                ],
+                "options": [
+                  {
+                    "label": "Lithium",
+                    "results": [
+                      "crimson",
+                      "Electron transitions release light in the red region"
+                    ],
+                    "scene": {
+                      "kind": "flame",
+                      "colour": "crimson"
+                    }
+                  },
+                  {
+                    "label": "Sodium",
+                    "results": [
+                      "yellow",
+                      "Electron transitions release yellow light"
+                    ],
+                    "scene": {
+                      "kind": "flame",
+                      "colour": "yellow"
+                    }
+                  },
+                  {
+                    "label": "Potassium",
+                    "results": [
+                      "lilac",
+                      "Electron transitions release lilac light"
+                    ],
+                    "scene": {
+                      "kind": "flame",
+                      "colour": "lilac"
+                    }
+                  },
+                  {
+                    "label": "Calcium",
+                    "results": [
+                      "brick red",
+                      "Electron transitions release orange-red light"
+                    ],
+                    "scene": {
+                      "kind": "flame",
+                      "colour": "brick-red"
+                    }
+                  },
+                  {
+                    "label": "Strontium",
+                    "results": [
+                      "red",
+                      "Electron transitions release red light"
+                    ],
+                    "scene": {
+                      "kind": "flame",
+                      "colour": "red"
+                    }
+                  },
+                  {
+                    "label": "Barium",
+                    "results": [
+                      "apple green",
+                      "Electron transitions release green light"
+                    ],
+                    "scene": {
+                      "kind": "flame",
+                      "colour": "pale-green"
+                    }
+                  },
+                  {
+                    "label": "Magnesium",
+                    "results": [
+                      "no colour",
+                      "Its transitions do not give visible light in a Bunsen flame"
+                    ],
+                    "scene": {
+                      "kind": "flame",
+                      "colour": "colourless"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "heading": "Experimental methods",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Two simple experiments show these patterns."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Thermal decomposition",
+                  "text": "Heat a small amount of the carbonate or nitrate in a dry test tube with a Bunsen burner."
+                },
+                {
+                  "lead": "Test the gas",
+                  "text": "Pass the gas through limewater for CO₂. Hold a glowing splint in the tube for O₂. Look for brown fumes for NO₂."
+                },
+                {
+                  "lead": "Compare",
+                  "text": "Time how long each compound takes to give the gas. The compound that takes longest is the most stable."
+                },
+                {
+                  "lead": "Flame test",
+                  "text": "Dip a clean nichrome wire in concentrated hydrochloric acid and heat it until it gives no colour. Dip it in the sample. Hold it in the edge of a blue flame and note the colour."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use the same mass of each compound and the same heating, so the comparison is fair.",
+                "Concentrated hydrochloric acid cleans the wire and makes chlorides, which are volatile."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 10.1.3",
+        "CAIE 27.1.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers how to use the trend to make a prediction."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The size of the cation matters because the anion is large. A small cation brings its charge close to the anion and distorts it strongly.",
+                "BaCO₃ and Ba(NO₃)₂ need the highest temperatures of the Group 2 compounds. MgCO₃ and Mg(NO₃)₂ decompose at the lowest.",
+                "A cation larger than barium, such as radium, would give carbonates and nitrates that are more stable still."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "3555585f-b07f-4190-828a-73f58f6a775c",
+      "d4a60760-3c4b-4c28-8c0e-e435aade7a36",
+      "9ec3a31e-47da-4a3c-a91e-a7d9e13fca5d",
+      "6eb59354-6721-4e67-9450-68dc9fe6dd8e",
+      "2b48e61d-cf8f-4ad7-895b-66de4f88e96a"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

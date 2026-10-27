@@ -3,7 +3,7 @@
   "concept_id": "bio-074",
   "subject": "biology",
   "title": "Control of blood glucose",
-  "key_idea": "The pancreas monitors blood glucose concentration. If it is too high, insulin moves glucose into cells and liver and muscle store it as glycogen. If it is too low, glucagon turns glycogen back into glucose. This is negative feedback.",
+  "key_idea": "The pancreas monitors blood glucose concentration. If it is too high, insulin moves glucose into cells and liver and muscle store it as glycogen. (Higher tier) If it is too low, glucagon turns glycogen back into glucose. This is negative feedback.",
   "sections": [
     {
       "heading": "Why blood glucose is controlled",
@@ -25,7 +25,7 @@
             },
             {
               "term": "Glucagon",
-              "meaning": "A hormone from the pancreas that raises blood glucose concentration."
+              "meaning": "(Higher tier) A hormone from the pancreas that raises blood glucose concentration."
             },
             {
               "term": "Negative feedback",
@@ -84,7 +84,7 @@
       ]
     },
     {
-      "heading": "When blood glucose is too low",
+      "heading": "When blood glucose is too low (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -121,7 +121,7 @@
       ]
     },
     {
-      "heading": "Negative feedback",
+      "heading": "Negative feedback (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -187,7 +187,7 @@
       "marks": 3
     },
     {
-      "q": "Which hormone raises blood glucose concentration, and what does it do?",
+      "q": "(Higher tier) Which hormone raises blood glucose concentration, and what does it do?",
       "a": "Glucagon. It causes glycogen to be converted into glucose, which is released into the blood.",
       "marks": 2
     },
@@ -222,7 +222,7 @@
               "type": "list",
               "items": [
                 "All students: insulin, and glucose moving into cells and being stored as glycogen.",
-                "(AQA: Higher tier) Glucagon, and explaining how glucagon and insulin work together by negative feedback."
+                "(Higher tier) Glucagon, and explaining how glucagon and insulin work together by negative feedback."
               ]
             }
           ]

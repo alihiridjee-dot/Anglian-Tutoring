@@ -1,0 +1,277 @@
+{
+  "format": 1,
+  "concept_id": "achem-017",
+  "subject": "chemistry",
+  "title": "Metallic bonding and giant structures",
+  "key_idea": "Metallic bonding is the attraction between positive metal ions and delocalised electrons. Substances have one of four structure types: giant ionic, giant metallic, giant covalent or simple molecular. The type of particle and the forces between them predict the physical properties.",
+  "sections": [
+    {
+      "heading": "Metallic bonding",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Metal atoms lose their outer electrons, which move freely through the structure. This section covers the bonding and its effect on properties."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Metallic bonding", "meaning": "The strong electrostatic attraction between positive metal ions and delocalised electrons." },
+            { "term": "Delocalised electrons", "meaning": "Outer electrons that are free to move through the whole structure." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The positive ions are arranged in a giant metallic lattice.",
+            "Metals conduct electricity because the delocalised electrons are mobile and carry charge.",
+            "Metals have high melting points because the attraction is strong and in all directions.",
+            "Metals are malleable and ductile, because layers of ions can slide over each other while the electrons keep the lattice bonded.",
+            "Metals are insoluble, because the attraction between the ions and electrons is too strong for solvents to overcome."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "What makes the bonding stronger"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A higher charge on the metal ion, which means more delocalised electrons per atom.",
+            "A smaller ion, so the electrons are closer to the nuclei.",
+            "So Mg, with Mg²⁺ and two delocalised electrons per atom, has a higher melting point than Na, with Na⁺ and one."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metallic bonding is the attraction between metal cations and delocalised electrons.",
+            "Mobile electrons explain electrical conductivity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The four types of structure",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every solid has one of four types of structure. This section covers each type and the examples to know."
+        },
+        {
+          "type": "table",
+          "columns": ["Structure", "Particles", "Held together by", "Examples"],
+          "rows": [
+            ["Giant ionic", "Ions", "Ionic bonds in all directions", "NaCl, MgO"],
+            ["Giant metallic", "Metal cations and delocalised electrons", "Metallic bonds", "Mg, Cu"],
+            ["Giant covalent (macromolecular)", "Atoms", "Covalent bonds throughout", "Diamond, graphite, graphene, silicon, SiO₂"],
+            ["Simple molecular", "Molecules", "Covalent bonds within molecules and weak intermolecular forces between", "I₂, ice, C₆₀"]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Giant covalent structures of carbon"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In diamond each C atom forms four covalent bonds in a tetrahedral network. It is very hard, has a very high melting point and does not conduct.",
+            "In graphite each C atom forms three covalent bonds in flat hexagonal layers. The fourth electron is delocalised between the layers, so graphite conducts electricity along the layers.",
+            "The layers in graphite are held by weak London forces, so they slide over each other and graphite is soft.",
+            "Graphene is a single layer of graphite. It is very strong, conducts electricity well and is almost transparent, so it is useful in electronics and strong lightweight materials.",
+            "Silicon and silicon(IV) oxide have diamond-like networks of covalent bonds, so they have very high melting points. SiO₂ does not conduct. Silicon is a semiconductor, so it conducts only slightly."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Simple molecular structures"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In iodine, I₂ molecules are held in a lattice by London forces.",
+            "In ice, H₂O molecules are held in an open lattice by hydrogen bonds.",
+            "Only the weak intermolecular forces are overcome when these melt or boil, not the covalent bonds."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "There are four types: ionic, metallic, giant covalent and simple molecular.",
+            "Graphite conducts because of delocalised electrons between layers.",
+            "Simple molecular substances melt by overcoming weak forces between molecules."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Predicting physical properties",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The structure tells you the particles and the forces between them. This section covers how to predict properties and explain data."
+        },
+        {
+          "type": "table",
+          "columns": ["Property", "Giant ionic", "Giant metallic", "Giant covalent", "Simple molecular"],
+          "rows": [
+            ["Melting point", "High", "High", "Very high", "Low"],
+            ["Conducts when solid", "No", "Yes", "No (graphite and graphene yes)", "No"],
+            ["Conducts when liquid", "Yes", "Yes", "No (not usually melted)", "No"],
+            ["Soluble in water", "Many are", "No", "No", "Mostly not, unless polar or hydrogen bonding"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Melting a substance means overcoming the forces holding its particles in the lattice. The stronger these forces, the higher the melting point.",
+            "A substance that conducts as a solid is a metal or graphite. One that conducts only when molten or dissolved is ionic.",
+            "A low melting point and no conduction points to a simple molecular substance.",
+            "A very high melting point and no conduction in any state points to a giant covalent substance."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick a substance to see its structure, melting point, electrical conductivity and solubility in water.",
+            "prompt": "Pick a substance",
+            "result_labels": ["Structure", "Melting point", "Conducts electricity", "Soluble in water"],
+            "options": [
+              { "label": "Sodium chloride", "results": ["Giant ionic", "High", "Only when molten or dissolved", "Yes"], "explanation": "Strong attraction between ions in all directions. The ions are fixed in the solid." },
+              { "label": "Magnesium", "results": ["Giant metallic", "High", "Yes, solid and liquid", "No"], "explanation": "Delocalised electrons are mobile in the solid and the liquid." },
+              { "label": "Diamond", "results": ["Giant covalent", "Very high", "No", "No"], "explanation": "Every electron is held in a covalent bond, so none is free to move." },
+              { "label": "Graphite", "results": ["Giant covalent (layers)", "Very high", "Yes, along the layers", "No"], "explanation": "A delocalised electron from each atom moves between the layers." },
+              { "label": "Iodine", "results": ["Simple molecular", "Low", "No", "No"], "explanation": "Weak London forces between I₂ molecules are easily overcome." },
+              { "label": "Ice", "results": ["Simple molecular", "Low", "No", "Not applicable"], "explanation": "Hydrogen bonds between molecules are overcome on melting, but there are no mobile charges." }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Say what particles are present, what holds them and which forces are overcome.",
+            "Conduction needs mobile charged particles: ions or electrons.",
+            "Use the data to deduce the structure."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why graphite conducts electricity but diamond does not.",
+      "a": "In graphite each carbon atom uses three electrons in bonds, and the fourth is delocalised and free to move between the layers. In diamond all four outer electrons are used in covalent bonds, so no electrons are free to move.",
+      "marks": 3
+    },
+    {
+      "q": "A solid has a low melting point and does not conduct electricity in any state. State and explain the structure type.",
+      "a": "Simple molecular. It is made of molecules with weak intermolecular forces between them, which are easily overcome, and it has no mobile ions or electrons.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why magnesium has a higher melting point than sodium.",
+      "a": "Magnesium forms 2+ ions and has two delocalised electrons per atom, and the ions are smaller. The attraction between the ions and the delocalised electrons is stronger, so more energy is needed to overcome it.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": ["OCR 2.2.2n", "OCR 2.2.2o", "OCR 3.1.1d", "OCR 3.1.1e", "OCR 3.1.1f"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use bonding to explain the strength and conductivity of graphene, and its applications and benefits.",
+                "Explain the properties in terms of the types of particle in the lattice, the relative strength of forces and bonds, and the mobility of the particles.",
+                "No details of cubic or hexagonal packing in metals are required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 2A.22", "EDEX 2B.23", "EDEX 2B.24", "EDEX 2B.25", "EDEX 2B.26", "EDEX 2B.27"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Be ready to deduce the structure and bonding of an unknown substance from data such as melting point, conductivity in each state and solubility.",
+                "Explain predictions in terms of the particles (atoms, molecules, ions or electrons), the structure and any intermolecular forces."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.1.3.3", "AQA 3.1.3.4"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the crystal structures of diamond, graphite, ice, iodine, magnesium and sodium chloride, and be able to draw diagrams of them with a specified number of particles.",
+                "Sodium chloride: alternate Na⁺ and Cl⁻ ions in a square grid. Magnesium: a regular grid of Mg²⁺ ions with delocalised electrons between them. Diamond: each carbon atom bonded to four others. Graphite: flat hexagonal layers of carbon atoms, with weak forces between the layers. Iodine: I₂ molecules in a regular lattice. Ice: H₂O molecules joined by hydrogen bonds in an open lattice.",
+                "Explain the energy changes at changes of state: energy is needed to overcome the forces between particles, which are ionic, metallic or covalent bonds in giant structures and only intermolecular forces in molecular substances."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 3.3.1", "CAIE 4.2.1", "CAIE 4.2.2", "CAIE 4.2.3"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the lattices of sodium chloride and magnesium oxide (giant ionic), iodine, C₆₀ and ice (simple molecular), SiO₂, graphite and diamond (giant molecular) and copper (giant metallic).",
+                "Buckminsterfullerene, C₆₀, is a simple molecular substance, so it has a low melting point and does not conduct.",
+                "Deduce the structure and bonding type from information given about a substance."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "d0fdcabe-f621-4874-a12c-3566926a97b3",
+      "f063b522-49ee-4137-a1fc-94b43950a3cb",
+      "891d98c3-deed-478f-8266-6a35dfdee3d4",
+      "658b6501-6aa3-4e8e-98c7-d67166d2f5cb",
+      "57af4e93-daf2-4f63-9aba-3cbced679ea1",
+      "f302d322-12df-4498-a6c3-11776a2df1c5",
+      "a361a4bf-10d2-4ab4-b621-4f5ff75a48e3",
+      "11bae207-f1c6-4c2b-bd45-655dd7632c58",
+      "b7ade67a-5af2-47ce-bc63-6f0145cf740f",
+      "96361c6e-995f-4163-bd8d-79e8ca2109ab",
+      "74653355-bc9e-40cd-b20b-37397267052d",
+      "2ef118ad-a9ac-4cd5-a666-eb8e41c396aa",
+      "fba08a1d-00af-410b-a360-afb5647ddc48",
+      "0a4b58aa-7cc6-4ffc-be0f-3f005b805b4d",
+      "49b0094d-9cf8-4d8d-8d03-4cc874354f37",
+      "ee10deee-3c16-470a-a84f-9b58e03cf4f0",
+      "861b4f64-63d3-4432-8a7a-21fec072eeca"
+    ],
+    "exemplar_ids": []
+  }
+}

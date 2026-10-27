@@ -1,0 +1,524 @@
+{
+  "format": 1,
+  "concept_id": "achem-064",
+  "subject": "chemistry",
+  "title": "Reactions of metal ions in aqueous solution",
+  "key_idea": "Metal ions in water exist as hexaaqua complexes. Sodium hydroxide and ammonia remove H⁺ from the water ligands, giving hydroxide precipitates. Some precipitates dissolve in excess: by amphoteric behaviour in excess NaOH, or by ligand exchange in excess NH₃. Ions with a higher charge density are more acidic.",
+  "sections": [
+    {
+      "heading": "Metal-aqua ions and their acidity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In water, metal ions are surrounded by six water ligands. Some of these complexes behave as acids."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Aqua ion",
+            "Colour of solution"
+          ],
+          "rows": [
+            [
+              "[Cu(H₂O)₆]²⁺",
+              "Blue"
+            ],
+            [
+              "[Fe(H₂O)₆]²⁺",
+              "Pale green"
+            ],
+            [
+              "[Fe(H₂O)₆]³⁺",
+              "Yellow-brown"
+            ],
+            [
+              "[Cr(H₂O)₆]³⁺",
+              "Green"
+            ],
+            [
+              "[Co(H₂O)₆]²⁺",
+              "Pink"
+            ],
+            [
+              "[Mn(H₂O)₆]²⁺",
+              "Pale pink"
+            ],
+            [
+              "[Al(H₂O)₆]³⁺",
+              "Colourless"
+            ]
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Acid behaviour of an aqua ion",
+          "formula": "[Fe(H₂O)₆]³⁺ + H₂O ⇌ [Fe(H₂O)₅(OH)]²⁺ + H₃O⁺",
+          "where": [
+            "A water ligand loses H⁺ to a water molecule in the solution."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Solutions of 3+ ions are **more acidic** than solutions of 2+ ions. For example, Fe³⁺(aq) has a lower pH than Fe²⁺(aq).",
+            "A 3+ ion has a higher charge and a smaller radius, so a higher **charge/size ratio**.",
+            "It attracts the lone pairs on the water ligands more strongly. This weakens the O–H bonds, so H⁺ is released more easily."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Aqua ions are [M(H₂O)₆]²⁺ or [M(H₂O)₆]³⁺.",
+            "3+ aqua ions are more acidic than 2+ ions.",
+            "Cause: a higher charge/size ratio polarises O–H bonds in the water ligands more."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactions with sodium hydroxide and ammonia",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Both reagents are bases. A few drops remove H⁺ from the water ligands and give an uncharged hydroxide precipitate."
+        },
+        {
+          "type": "equation",
+          "label": "Precipitation with hydroxide ions",
+          "formula": "[Cu(H₂O)₆]²⁺ + 2OH⁻ → Cu(OH)₂(H₂O)₄ + 2H₂O",
+          "where": [
+            "The simpler form Cu²⁺(aq) + 2OH⁻(aq) → Cu(OH)₂(s) is also accepted.",
+            "With ammonia, NH₃ acts as the base: it takes H⁺ from the ligand to form NH₄⁺."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a metal ion and see what happens with a few drops and then excess sodium hydroxide and ammonia.",
+            "prompt": "Pick a metal ion",
+            "result_labels": [
+              "NaOH, a few drops",
+              "NaOH, in excess",
+              "NH₃, a few drops",
+              "NH₃, in excess"
+            ],
+            "options": [
+              {
+                "label": "Cu²⁺(aq)",
+                "results": [
+                  "Pale blue precipitate",
+                  "No change",
+                  "Pale blue precipitate",
+                  "Precipitate dissolves: deep blue solution"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "NaOH",
+                      "colour": "colourless",
+                      "precipitate": "pale-blue"
+                    },
+                    {
+                      "label": "NaOH excess",
+                      "colour": "colourless",
+                      "precipitate": "pale-blue"
+                    },
+                    {
+                      "label": "NH₃",
+                      "colour": "colourless",
+                      "precipitate": "pale-blue"
+                    },
+                    {
+                      "label": "NH₃ excess",
+                      "colour": "blue"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Fe²⁺(aq)",
+                "results": [
+                  "Green precipitate, turns brown in air",
+                  "No change",
+                  "Green precipitate, turns brown in air",
+                  "No change"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "NaOH",
+                      "colour": "colourless",
+                      "precipitate": "green"
+                    },
+                    {
+                      "label": "NaOH excess",
+                      "colour": "colourless",
+                      "precipitate": "green"
+                    },
+                    {
+                      "label": "NH₃",
+                      "colour": "colourless",
+                      "precipitate": "green"
+                    },
+                    {
+                      "label": "NH₃ excess",
+                      "colour": "colourless",
+                      "precipitate": "green"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Fe³⁺(aq)",
+                "results": [
+                  "Orange-brown precipitate",
+                  "No change",
+                  "Orange-brown precipitate",
+                  "No change"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "NaOH",
+                      "colour": "colourless",
+                      "precipitate": "brown"
+                    },
+                    {
+                      "label": "NaOH excess",
+                      "colour": "colourless",
+                      "precipitate": "brown"
+                    },
+                    {
+                      "label": "NH₃",
+                      "colour": "colourless",
+                      "precipitate": "brown"
+                    },
+                    {
+                      "label": "NH₃ excess",
+                      "colour": "colourless",
+                      "precipitate": "brown"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Cr³⁺(aq)",
+                "results": [
+                  "Green precipitate",
+                  "Precipitate dissolves: dark green solution",
+                  "Green precipitate",
+                  "Precipitate dissolves slowly: purple solution"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "NaOH",
+                      "colour": "colourless",
+                      "precipitate": "green"
+                    },
+                    {
+                      "label": "NaOH excess",
+                      "colour": "green"
+                    },
+                    {
+                      "label": "NH₃",
+                      "colour": "colourless",
+                      "precipitate": "green"
+                    },
+                    {
+                      "label": "NH₃ excess",
+                      "colour": "purple"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Al³⁺(aq)",
+                "results": [
+                  "White precipitate",
+                  "Precipitate dissolves: colourless solution",
+                  "White precipitate",
+                  "No change"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "NaOH",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    },
+                    {
+                      "label": "NaOH excess",
+                      "colour": "colourless"
+                    },
+                    {
+                      "label": "NH₃",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    },
+                    {
+                      "label": "NH₃ excess",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Co²⁺(aq)",
+                "results": [
+                  "Blue precipitate",
+                  "No change",
+                  "Blue precipitate",
+                  "Precipitate dissolves: brown solution"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "NaOH",
+                      "colour": "colourless",
+                      "precipitate": "blue"
+                    },
+                    {
+                      "label": "NaOH excess",
+                      "colour": "colourless",
+                      "precipitate": "blue"
+                    },
+                    {
+                      "label": "NH₃",
+                      "colour": "colourless",
+                      "precipitate": "blue"
+                    },
+                    {
+                      "label": "NH₃ excess",
+                      "colour": "brown"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Mn²⁺(aq)",
+                "results": [
+                  "Off-white precipitate, turns brown in air",
+                  "No change",
+                  "Off-white precipitate, turns brown in air",
+                  "No change"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "NaOH",
+                      "colour": "colourless",
+                      "precipitate": "cream"
+                    },
+                    {
+                      "label": "NaOH excess",
+                      "colour": "colourless",
+                      "precipitate": "cream"
+                    },
+                    {
+                      "label": "NH₃",
+                      "colour": "colourless",
+                      "precipitate": "cream"
+                    },
+                    {
+                      "label": "NH₃ excess",
+                      "colour": "colourless",
+                      "precipitate": "cream"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Of these ions, only Cr(OH)₃ and Al(OH)₃ dissolve in excess NaOH.",
+            "Only Cu(OH)₂, Co(OH)₂ and Cr(OH)₃ dissolve in excess NH₃. Al(OH)₃ does not.",
+            "Iron(II) and manganese(II) hydroxides darken in air as they are oxidised."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A few drops of base give a hydroxide precipitate.",
+            "Learn which precipitates dissolve in excess NaOH and which in excess NH₃.",
+            "Fe²⁺ green and Fe³⁺ orange-brown identify the iron ions."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Amphoteric behaviour and ligand exchange",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A precipitate can dissolve in excess for two different reasons. The equations show which."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Amphoteric",
+              "meaning": "Able to react with both acids and bases. An amphoteric hydroxide dissolves in both."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Amphoteric: excess NaOH removes more H⁺ (acid-base)",
+          "formula": "Cr(OH)₃(H₂O)₃ + 3OH⁻ → [Cr(OH)₆]³⁻ + 3H₂O",
+          "where": [
+            "Ligands stay the same number: water becomes hydroxide by losing H⁺.",
+            "Al(OH)₃(H₂O)₃ + OH⁻ → [Al(OH)₄(H₂O)₂]⁻ + H₂O."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Ligand exchange: excess NH₃ replaces water (substitution)",
+          "formula": "Cu(OH)₂(H₂O)₄ + 4NH₃ → [Cu(NH₃)₄(H₂O)₂]²⁺ + 2OH⁻ + 2H₂O",
+          "where": [
+            "NH₃ replaces water ligands and the hydroxide leaves."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Amphoteric: H⁺ is removed from ligands. The ligands change from H₂O to OH⁻.",
+            "Ligand exchange: one ligand is swapped for a different ligand, here NH₃ for H₂O.",
+            "Chromium(III) hydroxide shows both: amphoteric with NaOH, ligand exchange with NH₃, giving [Cr(NH₃)₆]³⁺."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Reaction with carbonate ions"
+        },
+        {
+          "type": "list",
+          "items": [
+            "M²⁺ ions (Fe, Cu) give a precipitate of the metal carbonate: FeCO₃ is green and CuCO₃ is blue-green.",
+            "M³⁺ ions (Al, Fe) are acidic enough to react with carbonate ions and give carbon dioxide as well as a hydroxide precipitate.",
+            "For example, 2[Al(H₂O)₆]³⁺ + 3CO₃²⁻ → 2Al(OH)₃(H₂O)₃ + 3CO₂ + 3H₂O. Bubbles and a white precipitate."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Amphoteric: hydroxide dissolves in excess base by losing more H⁺.",
+            "Ligand exchange: NH₃ replaces water ligands.",
+            "3+ ions with carbonate give CO₂ and a hydroxide precipitate."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what you see when aqueous sodium hydroxide is added slowly, then in excess, to aqueous copper(II) sulfate.",
+      "a": "A pale blue precipitate forms. It does not dissolve in excess sodium hydroxide.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a solution of Fe³⁺(aq) is more acidic than a solution of Fe²⁺(aq).",
+      "a": "Fe³⁺ has a higher charge and a smaller radius, so a higher charge/size ratio. It polarises the O–H bonds of the water ligands more, so H⁺ is released more easily.",
+      "marks": 3
+    },
+    {
+      "q": "Write an equation showing that chromium(III) hydroxide is amphoteric.",
+      "a": "Cr(OH)₃(H₂O)₃ + 3OH⁻ → [Cr(OH)₆]³⁻ + 3H₂O",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.3.1j",
+        "OCR 5.3.1l"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The ions are Cu²⁺, Fe²⁺, Fe³⁺, Mn²⁺ and Cr³⁺, with aqueous NaOH and aqueous NH₃.",
+                "Write ionic equations. For precipitation, both Cu²⁺(aq) with Cu(OH)₂(s) and [Cu(H₂O)₆]²⁺ with Cu(OH)₂(H₂O)₄ are acceptable.",
+                "With excess NaOH only Cr(OH)₃ reacts further, forming [Cr(OH)₆]³⁻.",
+                "With excess NH₃ only Cr(OH)₃ and Cu(OH)₂ react further, forming [Cr(NH₃)₆]³⁺ and [Cu(NH₃)₄(H₂O)₂]²⁺.",
+                "An unfamiliar reaction can be sorted as ligand substitution, precipitation or redox, from the colours, the reagents and any change in oxidation number."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 15B.24",
+        "EDEX 15B.25"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The ions are Cr³⁺, Fe²⁺, Fe³⁺, Co²⁺ and Cu²⁺, with aqueous NaOH and aqueous NH₃, including in excess.",
+                "Record observations and write equations for each.",
+                "Write ionic equations that show the difference between ligand exchange (NH₃ replacing H₂O) and amphoteric behaviour (hydroxide dissolving in excess OH⁻)."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The aqua ions are limited to [M(H₂O)₆]²⁺ with M = Fe and Cu, and [M(H₂O)₆]³⁺ with M = Al and Fe.",
+                "The test-tube reactions are with OH⁻, NH₃ and CO₃²⁻.",
+                "Aluminium hydroxide is the main amphoteric example: it dissolves in both acids and bases.",
+                "These reactions are done as simple test-tube experiments to identify transition metal ions in aqueous solution."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "3297bcfd-d676-461e-b7f3-a3d8f4869ad6",
+      "71ad61d0-7cc4-4d5b-9f1f-2b25a2fa2e15",
+      "13c15a0b-cfcd-4b1c-926a-c49eb0f67d36",
+      "3329dd48-5cd3-4869-92d8-a5d2f0942eb7",
+      "b092fc8e-9298-4e03-af66-8f9163759363"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

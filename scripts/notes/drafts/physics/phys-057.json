@@ -3,7 +3,7 @@
   "concept_id": "phys-057",
   "subject": "physics",
   "title": "Newton's second law and inertia",
-  "key_idea": "The resultant force on an object equals its mass times its acceleration, F = m × a. Acceleration is proportional to force and inversely proportional to mass. (AQA: Higher tier) Inertial mass measures how hard it is to change an object's velocity.",
+  "key_idea": "The resultant force on an object equals its mass times its acceleration, F = m × a. Acceleration is proportional to force and inversely proportional to mass. (Higher tier) Inertial mass measures how hard it is to change an object's velocity.",
   "sections": [
     {
       "heading": "Newton's second law",
@@ -182,7 +182,7 @@
       ]
     },
     {
-      "heading": "Inertia and inertial mass (AQA: Higher tier)",
+      "heading": "Inertia and inertial mass (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -222,9 +222,9 @@
         {
           "type": "key-points",
           "items": [
-            "(AQA: Higher tier) Inertia is the tendency to keep the same velocity.",
-            "(AQA: Higher tier) Inertial mass = force ÷ acceleration.",
-            "(AQA: Higher tier) Bigger inertial mass means a bigger force for the same acceleration."
+            "(Higher tier) Inertia is the tendency to keep the same velocity.",
+            "(Higher tier) Inertial mass = force ÷ acceleration.",
+            "(Higher tier) Bigger inertial mass means a bigger force for the same acceleration."
           ]
         }
       ]
@@ -242,7 +242,7 @@
       "marks": 2
     },
     {
-      "q": "(AQA: Higher tier) Explain why a lorry needs a bigger force than a car to get the same acceleration.",
+      "q": "(Higher tier) Explain why a lorry needs a bigger force than a car to get the same acceleration.",
       "a": "The lorry has a bigger (inertial) mass, so by F = m × a it needs a bigger force.",
       "marks": 2
     }
@@ -269,7 +269,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(AQA: Higher tier) Inertial mass is a measure of how difficult it is to change the velocity of an object. It is defined as the ratio of force over acceleration."
+              "text": "(Higher tier) Inertial mass is a measure of how difficult it is to change the velocity of an object. It is defined as the ratio of force over acceleration."
             },
             {
               "type": "paragraph",

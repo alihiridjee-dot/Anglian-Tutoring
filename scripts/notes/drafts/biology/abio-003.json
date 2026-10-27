@@ -1,0 +1,329 @@
+{
+  "format": 1,
+  "concept_id": "abio-003",
+  "subject": "biology",
+  "title": "Lipids",
+  "key_idea": "Triglycerides are a glycerol joined to three fatty acids by ester bonds. They are hydrophobic and store energy. Phospholipids replace one fatty acid with a phosphate group, so they have a hydrophilic head and hydrophobic tails, and form membranes.",
+  "sections": [
+    {
+      "heading": "Triglycerides",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Triglycerides and phospholipids are two groups of lipid. This section covers how a triglyceride is built."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Glycerol",
+              "meaning": "A small molecule with three –OH groups, to which fatty acids bond."
+            },
+            {
+              "term": "Fatty acid",
+              "meaning": "A hydrocarbon chain with a carboxyl group (RCOOH). R is the hydrocarbon chain."
+            },
+            {
+              "term": "Ester bond",
+              "meaning": "The covalent bond between glycerol and a fatty acid, formed by condensation."
+            },
+            {
+              "term": "Hydrophobic",
+              "meaning": "Repelled by water. Non-polar molecules are hydrophobic."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **triglyceride** is formed by the condensation of one glycerol and three fatty acids.",
+            "Each condensation reaction between an –OH of glycerol and the –COOH of a fatty acid forms an **ester bond** and releases a molecule of water.",
+            "Three ester bonds form, so three molecules of water are released.",
+            "Hydrolysis breaks the ester bonds, using three molecules of water, and gives glycerol and three fatty acids."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Saturated and unsaturated fatty acids"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Saturated",
+            "Unsaturated"
+          ],
+          "rows": [
+            [
+              "C–C bonds in the R group",
+              "All single bonds",
+              "At least one C=C double bond"
+            ],
+            [
+              "Hydrogen atoms",
+              "Holds the maximum number of hydrogens",
+              "Fewer hydrogens"
+            ],
+            [
+              "Shape of the chain",
+              "Straight, so molecules pack closely",
+              "Kinked at each double bond, so they pack less closely"
+            ],
+            [
+              "At room temperature",
+              "Usually solid (fats)",
+              "Usually liquid (oils)"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Triglyceride = glycerol + 3 fatty acids, joined by 3 ester bonds.",
+            "Condensation forms ester bonds and releases water.",
+            "Unsaturated fatty acids have C=C double bonds; saturated ones do not."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Triglycerides: structure and function",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Triglycerides are non-polar, hydrophobic molecules. Their structure explains each of their roles."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Role",
+            "How the structure suits it"
+          ],
+          "rows": [
+            [
+              "Energy store",
+              "Long hydrocarbon chains hold many C–H bonds, so they release a lot of energy per gram, about twice as much as carbohydrate."
+            ],
+            [
+              "Insoluble, so osmotically inactive",
+              "Hydrophobic molecules do not dissolve, so they do not affect the water potential of a cell."
+            ],
+            [
+              "Source of metabolic water",
+              "Oxidation of the many hydrogens releases a lot of water, useful for desert animals."
+            ],
+            [
+              "Insulation and protection",
+              "A poor conductor of heat, so a layer under the skin reduces heat loss. It also cushions organs."
+            ],
+            [
+              "Buoyancy",
+              "Less dense than water, so it helps aquatic animals float."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Triglycerides are compact, hydrophobic, high-energy stores.",
+            "Insolubility means they do not change water potential."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Phospholipids",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A phospholipid is like a triglyceride, but one fatty acid is substituted by a phosphate-containing group."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of a triglyceride and a phospholipid: what they are made of, their polarity and their behaviour in water.",
+            "items": [
+              "Triglyceride",
+              "Phospholipid"
+            ],
+            "rows": [
+              {
+                "feature": "Made of",
+                "values": [
+                  "Glycerol + 3 fatty acids",
+                  "Glycerol + 2 fatty acids + phosphate group"
+                ]
+              },
+              {
+                "feature": "Polarity",
+                "values": [
+                  "Non-polar, hydrophobic throughout",
+                  "Hydrophilic (polar) phosphate head; hydrophobic (non-polar) fatty acid tails"
+                ]
+              },
+              {
+                "feature": "In water",
+                "values": [
+                  "Does not mix; forms a separate layer",
+                  "Forms a bilayer or a micelle, with tails facing inwards"
+                ]
+              },
+              {
+                "feature": "Main role",
+                "values": [
+                  "Energy store, insulation",
+                  "Structure of cell membranes"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The phosphate head is **hydrophilic**: it is polar and attracted to water.",
+            "The fatty acid tails are **hydrophobic**: they are non-polar and repelled by water.",
+            "In water, phospholipids arrange themselves with heads facing the water and tails facing away from it, forming a **phospholipid bilayer**.",
+            "The bilayer is the basis of cell membranes. Its hydrophobic centre is a barrier to water-soluble substances such as ions and polar molecules.",
+            "Unsaturated tails make the membrane more fluid, because the kinks stop close packing."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Phospholipid = glycerol + 2 fatty acids + phosphate group.",
+            "Hydrophilic head and hydrophobic tails make a bilayer in water."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The emulsion test for lipids",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Lipids do not dissolve in water but do dissolve in ethanol. The emulsion test uses this."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Dissolve.",
+              "text": "Shake the sample with ethanol so that any lipid dissolves."
+            },
+            {
+              "lead": "Add water.",
+              "text": "Pour the ethanol into water. If lipid is present, it comes out of solution."
+            },
+            {
+              "lead": "Look.",
+              "text": "A cloudy white emulsion shows lipid. A clear solution means none."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Positive emulsion test: cloudy white emulsion.",
+            "It works because lipids dissolve in ethanol but not in water."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how a triglyceride is formed from glycerol and fatty acids.",
+      "a": "Three fatty acids each join to glycerol by a condensation reaction. A molecule of water is removed each time and an ester bond forms between the OH of glycerol and the COOH of the fatty acid, giving three ester bonds.",
+      "marks": 3
+    },
+    {
+      "q": "Explain the difference between a saturated and an unsaturated fatty acid, and why unsaturated fats are often liquid.",
+      "a": "A saturated fatty acid has only single C–C bonds; an unsaturated one has at least one C=C double bond. The double bond kinks the chain, so molecules pack less closely and have a lower melting point, so they are liquid.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why phospholipids form a bilayer in water.",
+      "a": "The phosphate head is hydrophilic and faces the water. The fatty acid tails are hydrophobic and face away from the water, towards each other. This gives a bilayer with a hydrophobic centre.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.2h",
+        "OCR 2.1.2i",
+        "OCR 2.1.2j"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Cholesterol"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Cholesterol is a small lipid with a ring structure. It has a short hydrophilic region (an –OH group) and a large hydrophobic region.",
+                "In eukaryotic cell membranes it fits between phospholipids. Its hydrophilic end is near the phosphate heads and its hydrophobic region is between the tails.",
+                "It regulates the fluidity of the membrane: it stops it becoming too fluid at high temperature and too rigid at low temperature.",
+                "Most prokaryotic cell membranes do not contain cholesterol.",
+                "It is also used to make steroid hormones, bile salts and vitamin D."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.3a",
+        "AQA 3.1.3b",
+        "AQA 3.1.3c",
+        "AQA 3.1.3d",
+        "AQA 3.1.3e",
+        "AQA 3.1.3f",
+        "AQA 3.1.3g"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.14"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 2.2.9",
+        "CAIE 2.2.10",
+        "CAIE 2.2.11"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "bbe84002-2498-4574-979f-9238b615ad54",
+      "a7243855-648e-480d-82d8-8f446532e607",
+      "01fdc0d5-04ec-463f-b0ba-860f0cddd877",
+      "bdaf2c77-ead4-4cf4-8579-9cd290349daa",
+      "fcfd9780-6b0b-4351-ae7c-4b0789ab6ba9",
+      "69f5d43d-869e-4275-81c7-16a048cceeb2",
+      "10287a5a-9a5a-4dcb-b8b7-fae79ec5ffe8",
+      "91e32eac-141e-4811-bce7-59bbe3fd374d",
+      "678716e2-6797-460c-a72d-39b6d8682ab4",
+      "9907b740-f037-44a8-b386-2e274eda4ef1",
+      "e275f41f-ea00-41c1-a813-0a3ac290ef17",
+      "93ecf75c-e5de-4383-b234-3905893ba3b2",
+      "87368223-c69e-4097-95fa-5f1aaab29bc3",
+      "8c3f3b9e-cf5b-4bf5-999e-a327f93e769f"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "format": 1,
+  "concept_id": "abio-023",
+  "subject": "biology",
+  "title": "Control of the heartbeat and ECGs",
+  "key_idea": "Cardiac muscle is **myogenic**: it starts its own contractions. The **sinoatrial node** sets the rhythm. A wave of electrical activity spreads through the atria, is delayed at the **atrioventricular node**, then passes down the Purkyne tissue to the ventricles. The brain adjusts the rate.",
+  "sections": [
+    {
+      "heading": "How the heart beats on its own",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The heartbeat does not need a nerve signal to start. This section covers how the electrical wave is started and spread through the heart."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Myogenic",
+              "meaning": "Able to contract and relax without a nerve impulse. Cardiac muscle is myogenic."
+            },
+            {
+              "term": "Sinoatrial node (SAN)",
+              "meaning": "A small patch of muscle cells in the wall of the right atrium that starts each heartbeat. It is the pacemaker."
+            },
+            {
+              "term": "Atrioventricular node (AVN)",
+              "meaning": "A patch of cells between the atria and ventricles that passes the wave on after a short delay."
+            },
+            {
+              "term": "Bundle of His and Purkyne tissue",
+              "meaning": "Fibres that carry the wave down the septum and up through the walls of the ventricles."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "An activity: put the steps of the heart's electrical conduction in order.",
+            "prompt": "Put these steps of the conduction of the wave of excitation into order.",
+            "steps": [
+              "The SAN sends out a wave of electrical activity across the atria",
+              "The atria contract (atrial systole)",
+              "A layer of non-conducting tissue stops the wave passing directly to the ventricles",
+              "The AVN picks up the wave and passes it on after a short delay",
+              "The wave passes down the bundle of His and the Purkyne tissue to the base of the ventricles",
+              "The ventricles contract from the base upwards (ventricular systole)"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A band of tissue between the atria and ventricles does not conduct. The wave can only cross through the AVN.",
+            "The **delay** at the AVN lets the atria finish contracting and the ventricles fill before they contract.",
+            "The Purkyne tissue carries the wave to the base of the heart, so the ventricles contract from the bottom up and push blood out through the arteries."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The SAN starts the wave of electrical activity, so the heart sets its own rhythm.",
+            "The AVN delays the wave so the atria empty before the ventricles contract.",
+            "The Purkyne tissue spreads the wave quickly through the ventricles."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Electrocardiograms",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An **electrocardiogram (ECG)** is a recording of the heart's electrical activity, made with electrodes on the skin. Doctors use it to spot heart problems."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Part of the trace",
+            "What it shows"
+          ],
+          "rows": [
+            [
+              "P wave",
+              "Wave of excitation spreading over the atria, just before they contract."
+            ],
+            [
+              "QRS complex",
+              "Wave of excitation spreading through the ventricles, just before they contract. It is the tall spike."
+            ],
+            [
+              "T wave",
+              "The ventricles recovering and relaxing (repolarising)."
+            ],
+            [
+              "Gap between P and the start of QRS",
+              "The delay at the AVN."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Abnormal traces"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Condition",
+            "What the trace looks like",
+            "What is happening"
+          ],
+          "rows": [
+            [
+              "Tachycardia",
+              "Normal pattern but the peaks are close together. Above 100 beats per minute at rest.",
+              "The heart beats too fast."
+            ],
+            [
+              "Bradycardia",
+              "Normal pattern but the peaks are far apart. Below 60 beats per minute at rest.",
+              "The heart beats too slowly."
+            ],
+            [
+              "Fibrillation",
+              "Rapid, irregular, jagged line with no clear P waves or QRS complexes.",
+              "The muscle contracts in an uncoordinated way and the chamber cannot pump blood effectively."
+            ],
+            [
+              "Ectopic heartbeat",
+              "An extra early beat followed by a longer pause, so the rhythm is normal apart from one beat.",
+              "A beat starts somewhere other than the SAN."
+            ]
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Heart rate from an ECG",
+          "formula": "heart rate = 60 ÷ time for one cardiac cycle",
+          "where": [
+            "heart rate, in beats per minute",
+            "time for one cardiac cycle, in s, measured between two matching peaks"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "P wave: atria. QRS: ventricles contract. T wave: ventricles recover.",
+            "Tachycardia is too fast, bradycardia is too slow, fibrillation is uncoordinated, and an ectopic beat comes early.",
+            "ECGs help to diagnose heart conditions and cardiovascular disease."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Changing the heart rate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The SAN sets a resting rate, but the body changes it to match demand. Nerves and hormones change how fast the SAN fires."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Chemoreceptors",
+              "meaning": "Receptors in the carotid arteries and aorta that detect changes in blood pH, which falls as carbon dioxide rises."
+            },
+            {
+              "term": "Pressure receptors (baroreceptors)",
+              "meaning": "Receptors in the carotid arteries and aorta wall that detect changes in blood pressure."
+            },
+            {
+              "term": "Medulla oblongata",
+              "meaning": "The part of the brain that controls heart rate, using centres that speed up or slow down the heart."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Change detected",
+            "Nerve and effect"
+          ],
+          "rows": [
+            [
+              "Blood carbon dioxide rises or pH falls (during exercise)",
+              "Chemoreceptors send impulses to the medulla. The medulla sends more impulses along sympathetic nerves to the SAN. The heart rate increases."
+            ],
+            [
+              "Blood pressure too high",
+              "Pressure receptors send impulses to the medulla. The medulla sends impulses along the parasympathetic (vagus) nerve to the SAN. The heart rate slows."
+            ],
+            [
+              "Blood pressure too low",
+              "Fewer impulses from the pressure receptors. More impulses along sympathetic nerves speed the heart up."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The nerves are part of the **autonomic nervous system**. You do not control them consciously.",
+            "The SAN, which is the effector, changes the rate at which it fires.",
+            "Hormones such as adrenaline are released in excitement or stress. Adrenaline binds to receptors on the SAN and increases the heart rate."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Chemoreceptors detect carbon dioxide and pH. Pressure receptors detect blood pressure.",
+            "The medulla uses sympathetic nerves to speed the heart up and parasympathetic nerves to slow it down.",
+            "Adrenaline speeds the heart up by acting on the SAN."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain the importance of the delay at the atrioventricular node.",
+      "a": "The delay allows the atria to finish contracting and empty their blood into the ventricles. The ventricles then contract only once they are full, so the cycle is coordinated.",
+      "marks": 2
+    },
+    {
+      "q": "A patient has an ECG with a jagged, irregular trace and no clear QRS complexes. Name this condition and explain what is happening.",
+      "a": "Fibrillation. The heart muscle is contracting in a rapid, uncoordinated way, so the chambers cannot pump blood effectively.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how the heart rate is increased during exercise.",
+      "a": "Muscles produce more carbon dioxide, so blood pH falls. Chemoreceptors detect this and send impulses to the medulla. The medulla sends more impulses along the sympathetic nerves to the SAN, which fires more often, so heart rate increases.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.6.1.3a",
+        "AQA 3.6.1.3b"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.2g",
+        "OCR 3.1.2h",
+        "OCR 5.1.5k"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You need only these abnormal rhythms: tachycardia, bradycardia, fibrillation and ectopic heartbeat.",
+                "You can monitor pulse rate before, during and after exercise, or use a sensor to record the heart's electrical activity.",
+                "Pulse rate rises during exercise and then falls back. Fitter people recover to their resting rate faster."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.8",
+        "EDEX 7.9"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Cardiac output and ventilation"
+            },
+            {
+              "type": "equation",
+              "label": "Cardiac output",
+              "formula": "cardiac output = heart rate × stroke volume",
+              "where": [
+                "cardiac output, in cm³ per minute",
+                "heart rate, in beats per minute",
+                "stroke volume, in cm³"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "During exercise, cardiac output and ventilation rate both rise. Oxygen is delivered to the muscles faster and carbon dioxide is removed faster.",
+                "The cardiovascular control centre in the medulla controls the heart rate, using the nerves in the table above.",
+                "The ventilation centre in the medulla controls breathing. It also receives impulses from chemoreceptors that detect a fall in pH.",
+                "The ventilation centre sends impulses to the intercostal muscles and diaphragm, so breathing becomes faster and deeper.",
+                "ECGs help to diagnose cardiovascular disease, because the shape of the trace changes when the heart is damaged or its conduction is faulty."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 8.3.4"
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "3ec08567-ce91-4f2f-85c5-46e538e31635",
+      "633e5408-ae53-433f-9f1a-1912d2c9df19",
+      "83b46d08-54fd-45eb-80d4-f26c4a9780b3",
+      "03cbbec8-1af3-499c-9a4e-2740aa658465",
+      "eb63fb79-5456-4894-a86d-cd44a9bcfadf",
+      "17676266-4a1e-4c6e-abdc-45ccadbd0c8e",
+      "c06e8911-3254-4139-84cb-23ba78a489fe",
+      "96ba891e-e456-4f2c-a9fb-0e52d24b9d82"
+    ],
+    "exemplar_ids": []
+  }
+}

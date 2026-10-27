@@ -1,0 +1,157 @@
+{
+  "format": 1,
+  "concept_id": "abio-073",
+  "subject": "biology",
+  "title": "Exercise, sport and health",
+  "key_idea": "Too much and too little exercise both carry health risks. Medical technology lets more people take part in sport. The use of performance-enhancing substances raises ethical questions with more than one point of view.",
+  "sections": [
+    {
+      "heading": "Exercising too much or too little",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Exercise has benefits, but both extremes carry risks. Data are used to judge the size of those risks."
+        },
+        {
+          "type": "subheading",
+          "text": "Too much exercise"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Wear and tear on joints: repeated stress damages cartilage, which can lead to osteoarthritis.",
+            "Suppression of the immune system: very heavy training can lower white cell activity, making infection more likely."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Too little exercise"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Increased risk of obesity.",
+            "Increased risk of cardiovascular disease.",
+            "Increased risk of type 2 diabetes."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Interpreting the data"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A correlation shows two things change together. It does not prove that one causes the other.",
+            "A causal relationship needs a mechanism, and evidence from controlled studies.",
+            "Look for other factors that could explain a link, such as diet, age or smoking, and for the size of the sample."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Too much exercise risks joint damage and a weaker immune system.",
+            "Too little exercise raises the risk of obesity, cardiovascular disease and diabetes.",
+            "A correlation is not the same as a cause."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Medical technology in sport",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Modern medicine lets people with injuries and disabilities take part in sport."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Keyhole surgery uses small cuts and a camera, so there is less tissue damage, less scarring and quicker recovery. An athlete can return to training sooner.",
+            "Prostheses, such as running blades, replace a lost limb and let people with disabilities compete.",
+            "Some argue that a prosthesis could give an unfair advantage, so the technology must be judged carefully."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Keyhole surgery speeds recovery.",
+            "Prostheses allow people with disabilities to take part in sport."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Performance-enhancing substances",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some athletes take drugs to improve performance. People hold different ethical positions on this."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Position",
+            "Argument"
+          ],
+          "rows": [
+            [
+              "Against use",
+              "It is cheating and unfair to others. It risks the athlete's health. It sets a bad example to young people"
+            ],
+            [
+              "For use",
+              "Athletes should be free to choose what to do with their own bodies. Allowing it for everyone would make the competition fair. Testing is costly and not always reliable"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Discuss at least two positions with reasons.",
+            "Fairness, health risks and personal choice are the main arguments."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two disadvantages of exercising too little.",
+      "a": "Increased risk of obesity, cardiovascular disease and type 2 diabetes (any two).",
+      "marks": 2
+    },
+    {
+      "q": "A study shows people who exercise less have more heart disease. Explain why this does not prove that lack of exercise causes it.",
+      "a": "It is a correlation only. Other factors such as diet, smoking or age could cause both, and the study may not have controlled them.",
+      "marks": 2
+    },
+    {
+      "q": "Evaluate one argument for and one against allowing performance-enhancing drugs in sport.",
+      "a": "For: if everyone can use them the competition is fair, and athletes can choose for themselves. Against: it is cheating and unfair to those who do not use them, and the drugs can damage health.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.13",
+        "EDEX 7.14",
+        "EDEX 7.15"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "11a05a68-d50c-4ae2-bb8a-87c787a141cd",
+      "c0187cd7-3f73-4a0d-a7a0-21cdcb587190",
+      "3fe398e3-7f73-4734-bb46-6d120032e36a"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

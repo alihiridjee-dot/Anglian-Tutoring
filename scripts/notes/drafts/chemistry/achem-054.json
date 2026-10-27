@@ -1,0 +1,508 @@
+{
+  "format": 1,
+  "concept_id": "achem-054",
+  "subject": "chemistry",
+  "title": "The halogens",
+  "key_idea": "The halogens are diatomic molecules whose boiling points rise down the group as London forces strengthen. Their oxidising power falls down the group, so a more reactive halogen displaces a less reactive halide. The hydrogen halides become less stable from HF to HI.",
+  "sections": [
+    {
+      "heading": "Properties of the halogens",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The halogens are the Group 17 elements. This section covers their structure, state, volatility, electronegativity and bond strength."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each halogen exists as a **diatomic molecule**, X₂, held by one covalent bond.",
+            "The outer shell is s²p⁵. Halogen atoms gain one electron in many redox reactions to form 1− ions."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Halogen",
+            "Colour and state at room temperature",
+            "Boiling point (°C)",
+            "Electronegativity"
+          ],
+          "rows": [
+            [
+              "F₂",
+              "Pale yellow gas",
+              "−188",
+              "4.0"
+            ],
+            [
+              "Cl₂",
+              "Pale green gas",
+              "−34",
+              "3.0"
+            ],
+            [
+              "Br₂",
+              "Red-brown liquid, orange vapour",
+              "59",
+              "2.8"
+            ],
+            [
+              "I₂",
+              "Grey-black solid, purple vapour",
+              "184",
+              "2.5"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Boiling point and volatility"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The molecules are simple molecular. Boiling overcomes **instantaneous dipole–induced dipole forces** (London forces) between molecules, not the covalent bonds.",
+            "Down the group the molecules have more electrons, so the London forces are stronger.",
+            "More energy is needed to separate the molecules. Boiling points rise and volatility falls.",
+            "Melting points rise in the same way, which is why the state changes from gas (F₂, Cl₂) to liquid (Br₂) to solid (I₂)."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Electronegativity"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Electronegativity **decreases** down the group.",
+            "Each atom has an extra shell and more shielding, so the bonding pair is further from the nucleus and attracted less."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Bond strength"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The X–X bond gets weaker from Cl₂ to I₂: Cl–Cl 242, Br–Br 193 and I–I 151 kJ/mol.",
+            "The atoms get larger, so the shared pair is further from both nuclei and the overlap is poorer.",
+            "F–F (158 kJ/mol) is weaker than Cl–Cl. The F atoms are so small that the lone pairs on the two atoms repel."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Boiling point rises down the group because London forces get stronger.",
+            "Electronegativity falls down the group.",
+            "Bond strength falls from Cl₂ to I₂. F₂ is weaker than Cl₂."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Oxidising power and displacement reactions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The halogens are oxidising agents. This section covers how oxidising power changes and how displacement shows it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Oxidising power **decreases** down the group.",
+            "A halogen atom takes in an electron to its outer shell. A smaller atom has less shielding and the electron is nearer the nucleus, so it is attracted more strongly.",
+            "Chlorine forms Cl⁻ more easily than bromine forms Br⁻ or iodine forms I⁻."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A more reactive halogen displaces a less reactive one from a solution of its halide."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Reaction",
+            "Ionic equation"
+          ],
+          "rows": [
+            [
+              "Chlorine and bromide",
+              "Cl₂ + 2Br⁻ → 2Cl⁻ + Br₂"
+            ],
+            [
+              "Chlorine and iodide",
+              "Cl₂ + 2I⁻ → 2Cl⁻ + I₂"
+            ],
+            [
+              "Bromine and iodide",
+              "Br₂ + 2I⁻ → 2Br⁻ + I₂"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Halogen",
+            "In water",
+            "In cyclohexane"
+          ],
+          "rows": [
+            [
+              "Cl₂",
+              "Pale green or colourless",
+              "Pale green"
+            ],
+            [
+              "Br₂",
+              "Orange or yellow",
+              "Orange"
+            ],
+            [
+              "I₂",
+              "Brown",
+              "Purple"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Adding cyclohexane and shaking makes the colour clearer. The halogen is more soluble in the organic layer."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick a halogen added to a halide solution to see whether it reacts and the colours seen.",
+            "prompt": "Pick a halogen and a halide solution.",
+            "result_labels": [
+              "Does it react?",
+              "Colour in water",
+              "Colour with cyclohexane",
+              "Ionic equation"
+            ],
+            "options": [
+              {
+                "label": "Cl₂ added to Br⁻",
+                "results": [
+                  "Yes",
+                  "Orange",
+                  "Orange",
+                  "Cl₂ + 2Br⁻ → 2Cl⁻ + Br₂"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Water layer",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Cyclohexane layer",
+                      "colour": "orange"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Cl₂ added to I⁻",
+                "results": [
+                  "Yes",
+                  "Brown",
+                  "Purple",
+                  "Cl₂ + 2I⁻ → 2Cl⁻ + I₂"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Water layer",
+                      "colour": "brown"
+                    },
+                    {
+                      "label": "Cyclohexane layer",
+                      "colour": "purple"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Br₂ added to I⁻",
+                "results": [
+                  "Yes",
+                  "Brown",
+                  "Purple",
+                  "Br₂ + 2I⁻ → 2Br⁻ + I₂"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Water layer",
+                      "colour": "brown"
+                    },
+                    {
+                      "label": "Cyclohexane layer",
+                      "colour": "purple"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Br₂ added to Cl⁻",
+                "results": [
+                  "No",
+                  "Orange",
+                  "Orange",
+                  "No reaction"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Water layer",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Cyclohexane layer",
+                      "colour": "orange"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "I₂ added to Br⁻",
+                "results": [
+                  "No",
+                  "Brown",
+                  "Purple",
+                  "No reaction"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Water layer",
+                      "colour": "brown"
+                    },
+                    {
+                      "label": "Cyclohexane layer",
+                      "colour": "purple"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "I₂ added to Cl⁻",
+                "results": [
+                  "No",
+                  "Brown",
+                  "Purple",
+                  "No reaction"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Water layer",
+                      "colour": "brown"
+                    },
+                    {
+                      "label": "Cyclohexane layer",
+                      "colour": "purple"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Oxidising power falls down the group: Cl₂ > Br₂ > I₂.",
+            "A more reactive halogen displaces a less reactive halide.",
+            "Solvent colours: bromine orange, iodine purple."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Hydrogen halides",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Halogens react with hydrogen to form hydrogen halides. This section covers how readily they form and how stable they are."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fluorine reacts explosively with hydrogen, even in the dark and at low temperature.",
+            "Chlorine reacts explosively in sunlight, and bromine reacts only on heating.",
+            "Iodine reacts slowly and reversibly on heating.",
+            "The reactivity with hydrogen **decreases** down the group, in line with oxidising power.",
+            "The H–X bond formed is weaker down the group, so the reaction is less exothermic and less vigorous."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Hydrogen halide",
+            "HF",
+            "HCl",
+            "HBr",
+            "HI"
+          ],
+          "rows": [
+            [
+              "H–X bond enthalpy (kJ/mol)",
+              "568",
+              "431",
+              "366",
+              "299"
+            ],
+            [
+              "Thermal stability",
+              "Highest",
+              "Falls",
+              "Falls",
+              "Lowest"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Thermal stability falls down the group because the H–X bond gets longer and weaker. HI breaks down on heating into H₂ and purple iodine vapour."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reaction with hydrogen gets less vigorous down the group.",
+            "The H–X bond weakens from HF to HI, so thermal stability falls."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why the boiling points of the halogens increase from chlorine to iodine.",
+      "a": "The halogens are simple molecules, so London (instantaneous dipole–induced dipole) forces are overcome. Larger molecules have more electrons, so the forces are stronger and more energy is needed.",
+      "marks": 3
+    },
+    {
+      "q": "Chlorine water is added to potassium iodide solution, followed by cyclohexane. Describe what is seen and write the ionic equation.",
+      "a": "The aqueous layer turns brown. The cyclohexane layer turns purple. Cl₂ + 2I⁻ → 2Cl⁻ + I₂",
+      "marks": 3
+    },
+    {
+      "q": "Explain why bromine is a weaker oxidising agent than chlorine.",
+      "a": "The bromine atom is larger and has more shielding. The incoming electron is further from the nucleus and attracted less, so Br₂ gains electrons less readily.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.3a",
+        "OCR 3.1.3b",
+        "OCR 3.1.3c",
+        "OCR 3.1.3d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the halogen reactions as electron transfer, with oxidation numbers."
+            },
+            {
+              "type": "list",
+              "items": [
+                "In each displacement, the halogen is **reduced**: its oxidation number falls from 0 to −1.",
+                "The halide is **oxidised**: its oxidation number rises from −1 to 0.",
+                "Cl₂ + 2e⁻ → 2Cl⁻ and 2Br⁻ → Br₂ + 2e⁻ are the two half-equations of the first displacement.",
+                "A full equation includes the spectator ion: Cl₂ + 2KBr → 2KCl + Br₂."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The trend in reactivity follows how easily 1− ions form. This depends on attraction, atomic radius and shielding, as in the explanation above."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4B.9",
+        "EDEX 4B.10",
+        "EDEX 4B.11",
+        "EDEX 4B.14"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers using the trend to predict fluorine, astatine and their compounds."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Fluorine is the strongest oxidising agent in the group and the most electronegative element. It displaces chlorine, bromine and iodine from their halides.",
+                "Fluorine is a pale yellow gas that reacts with water, and with almost everything.",
+                "Astatine is predicted to be a black solid at room temperature, with a boiling point above that of iodine.",
+                "Astatine would be the weakest oxidising agent of the group. It would not displace iodine from iodide.",
+                "HAt would be the least stable hydrogen halide and the strongest reducing agent among the hydrogen halides.",
+                "Silver astatide would be expected to be a precipitate that is even less soluble than AgI."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.3.1"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 11.1.1",
+        "CAIE 11.1.2",
+        "CAIE 11.1.3",
+        "CAIE 11.2.1",
+        "CAIE 11.2.2",
+        "CAIE 11.2.3"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "4f5449d9-5443-4f5e-b16f-4be6d07ea012",
+      "e6c3137d-ce1d-4e05-8b02-5d9e6c6b5097",
+      "5220b621-458f-41be-bee0-931de6f9b441",
+      "fe65dcb5-02b9-40ed-851c-a2f7bd71e7dc",
+      "d93fe478-f6a3-4d6a-a89a-113b918a7bc8",
+      "582474b3-85d8-4e44-8994-b295bfdf8f65",
+      "e9ce96ef-2856-42e9-be60-11c06d8870f2",
+      "b5475c65-0f79-44ee-9305-e9d0375ee273",
+      "29334bd7-4361-46e6-bc15-aaa85950f2ff",
+      "284339e1-25b3-459f-ba10-a79352a71fac",
+      "630aecb5-3a74-42f8-876b-f360e2e113d7",
+      "cc1977e2-d4ba-4cbc-9a18-03653e90c2dc",
+      "135414c8-3390-4554-b12c-bac079fe81b4",
+      "c717eaad-d7db-4073-828e-c4753359f4ec",
+      "d3a23174-29d2-47b7-9169-a1ebc39da7d7"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

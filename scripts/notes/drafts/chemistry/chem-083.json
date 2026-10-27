@@ -3,14 +3,14 @@
   "concept_id": "chem-083",
   "subject": "chemistry",
   "title": "Condensation polymerisation",
-  "key_idea": "(AQA: Higher tier) (Separate science) Condensation polymerisation uses monomers with two functional groups each. They join in a chain and usually lose a small molecule such as water each time a link forms. A diol and a dicarboxylic acid make a polyester.",
+  "key_idea": "(Higher tier, Separate science) Condensation polymerisation uses monomers with two functional groups each. They join in a chain and usually lose a small molecule such as water each time a link forms. A diol and a dicarboxylic acid make a polyester.",
   "sections": [
     {
       "heading": "How condensation polymers form",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) (Separate science) Condensation polymerisation involves monomers with two functional groups. When they react they join together and usually lose a small molecule such as water."
+          "text": "(Higher tier, Separate science) Condensation polymerisation involves monomers with two functional groups. When they react they join together and usually lose a small molecule such as water."
         },
         {
           "type": "definitions",
@@ -121,7 +121,7 @@
         {
           "type": "key-points",
           "items": [
-            "(AQA: Higher tier) Condensation monomers have two functional groups each.",
+            "(Higher tier) Condensation monomers have two functional groups each.",
             "A diol and a dicarboxylic acid make a polyester and water.",
             "One water molecule forms for every ester link."
           ]
@@ -131,17 +131,17 @@
   ],
   "checks": [
     {
-      "q": "(AQA: Higher tier) What is made, apart from a polyester, when a diol reacts with a dicarboxylic acid?",
+      "q": "(Higher tier) What is made, apart from a polyester, when a diol reacts with a dicarboxylic acid?",
       "a": "Water, one molecule for each ester link formed.",
       "marks": 1
     },
     {
-      "q": "(AQA: Higher tier) Why is the formation of a polyester called condensation polymerisation?",
+      "q": "(Higher tier) Why is the formation of a polyester called condensation polymerisation?",
       "a": "The monomers join together and lose a small molecule (water) each time a link forms.",
       "marks": 2
     },
     {
-      "q": "(AQA: Higher tier) Give two differences between the monomers of addition polymers and condensation polymers.",
+      "q": "(Higher tier) Give two differences between the monomers of addition polymers and condensation polymers.",
       "a": "Addition monomers are all the same and have a C=C. Condensation monomers are two different molecules, each with two functional groups.",
       "marks": 2
     }

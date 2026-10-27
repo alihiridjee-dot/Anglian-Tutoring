@@ -1,0 +1,270 @@
+{
+  "format": 1,
+  "concept_id": "abio-060",
+  "subject": "biology",
+  "title": "Anaerobic respiration",
+  "key_idea": "Without oxygen, the electron transport chain stops and cells make ATP only by glycolysis. Pyruvate is converted to lactate in mammals or to ethanol and carbon dioxide in yeast. This regenerates NAD so glycolysis can continue, but it yields far less ATP than aerobic respiration.",
+  "sections": [
+    {
+      "heading": "Lactate and ethanol fermentation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In anaerobic conditions glycolysis still happens, but the link reaction, Krebs cycle and oxidative phosphorylation stop. Reduced NAD must be oxidised or glycolysis would stop too."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of lactate fermentation in mammals and ethanol fermentation in yeast.",
+            "items": [
+              "Mammals (lactate)",
+              "Yeast (ethanol)"
+            ],
+            "rows": [
+              {
+                "feature": "Starting point",
+                "values": [
+                  "Pyruvate from glycolysis",
+                  "Pyruvate from glycolysis"
+                ]
+              },
+              {
+                "feature": "Reduced NAD",
+                "values": [
+                  "Gives hydrogen to pyruvate, regenerating NAD",
+                  "Gives hydrogen to ethanal, regenerating NAD"
+                ]
+              },
+              {
+                "feature": "Steps",
+                "values": [
+                  "Pyruvate → lactate (one step)",
+                  "Pyruvate → ethanal + CO₂, then ethanal → ethanol"
+                ]
+              },
+              {
+                "feature": "Products",
+                "values": [
+                  "Lactate",
+                  "Ethanol and carbon dioxide"
+                ]
+              },
+              {
+                "feature": "Reversible?",
+                "values": [
+                  "Yes, lactate can be converted back to pyruvate",
+                  "No, ethanol cannot be converted back"
+                ]
+              },
+              {
+                "feature": "Net ATP per glucose",
+                "values": [
+                  "2 (from glycolysis)",
+                  "2 (from glycolysis)"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "In both cases the aim is to regenerate NAD, so that glycolysis can carry on and make a little ATP.",
+            "Lactate dehydrogenase catalyses the change in mammals.",
+            "Decarboxylation of pyruvate in yeast releases carbon dioxide, which is why yeast makes bubbles in dough and brewing."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mammals: pyruvate + reduced NAD → lactate + NAD.",
+            "Yeast: pyruvate → ethanal + CO₂, then ethanal + reduced NAD → ethanol + NAD.",
+            "Regenerating NAD lets glycolysis continue."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What happens to lactate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Lactate lowers pH and causes muscle fatigue if it builds up. After exercise it is removed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lactate is carried in the blood to the liver.",
+            "In the liver it is converted back to pyruvate.",
+            "Pyruvate is either oxidised in aerobic respiration, which needs oxygen, or converted to glycogen.",
+            "The extra oxygen needed to oxidise it is the oxygen debt, which is why breathing stays fast after hard exercise."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Lactate goes in the blood to the liver.",
+            "It is converted to pyruvate, then respired or stored as glycogen.",
+            "Oxygen is needed afterwards to oxidise it: the oxygen debt."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why aerobic respiration yields more ATP",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Aerobic respiration makes about 30 ATP per glucose. Anaerobic respiration makes only 2."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Anaerobic respiration stops after glycolysis, so only 2 ATP are made by substrate-level phosphorylation.",
+            "Reduced NAD from glycolysis is used to make lactate or ethanol, so it is not available for oxidative phosphorylation.",
+            "In aerobic respiration, reduced NAD and reduced FAD from the link reaction and Krebs cycle go to the electron transport chain, where most ATP is made.",
+            "Lactate and ethanol still contain a lot of chemical energy, because they are not fully oxidised."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The benefit of anaerobic respiration is that it makes ATP quickly without oxygen. Muscles can keep contracting during short bursts of intense exercise, and yeast can survive without oxygen."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Anaerobic: net 2 ATP. Aerobic: about 30 ATP.",
+            "Most ATP comes from oxidative phosphorylation, which needs oxygen.",
+            "Anaerobic respiration still lets cells make ATP when oxygen is short."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Rice growing in water",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Rice grows with its roots submerged in water, where oxygen is scarce. Three adaptations help it survive."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Aerenchyma: air spaces in the roots and stems carry oxygen from the leaves down to the roots.",
+            "Ethanol fermentation in the roots lets rice make ATP without oxygen.",
+            "Faster growth of stems lifts the leaves above the water, where they can take in oxygen and carbon dioxide."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Aerenchyma carries oxygen to submerged roots.",
+            "Roots use ethanol fermentation when oxygen runs out.",
+            "Fast stem growth keeps leaves above the water."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why pyruvate is converted to lactate in anaerobic conditions.",
+      "a": "Reduced NAD cannot be oxidised by the electron transport chain without oxygen. Converting pyruvate to lactate oxidises reduced NAD to NAD. NAD is then available for glycolysis, which can continue to make a small amount of ATP.",
+      "marks": 3
+    },
+    {
+      "q": "Describe what happens to lactate after a period of anaerobic respiration in a mammal.",
+      "a": "Lactate is carried in the blood to the liver. It is converted back to pyruvate, which is respired aerobically or converted to glycogen.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why anaerobic respiration yields much less ATP than aerobic respiration.",
+      "a": "Anaerobic respiration stops after glycolysis, which gives a net 2 ATP. The reduced NAD is used to make lactate or ethanol, so oxidative phosphorylation does not happen. Aerobic respiration passes the hydrogen to the electron transport chain, which makes far more ATP.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7.7"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 12.2.10",
+        "CAIE 12.2.11",
+        "CAIE 12.2.12"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Outline anaerobic respiration in mammals (lactate fermentation) and in yeast (ethanol fermentation).",
+                "Explain why the energy yield is much greater in aerobic conditions. A detailed account of the total ATP yield from aerobic respiration of glucose is not expected.",
+                "Explain how rice is adapted to grow with its roots submerged in water, limited to aerenchyma in the roots, ethanol fermentation in the roots and faster growth of stems."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.2i"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe anaerobic respiration in mammals and yeast, the benefits of being able to respire anaerobically, and why the ATP yield is much lower.",
+                "Plan practical investigations into respiration rates in yeast under aerobic and anaerobic conditions. For anaerobic conditions, cover the yeast suspension with a layer of oil to exclude oxygen. Measure the rate by counting bubbles or collecting the volume of carbon dioxide in a set time."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.2d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "If respiration is only anaerobic, pyruvate can be converted to ethanol or lactate using reduced NAD.",
+                "The oxidised NAD produced in this way can be used in further glycolysis."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "60d45fbd-41d6-4955-b796-32de4f8ed03e",
+      "ab01f70c-af2d-4c02-8157-056eefc2bae2",
+      "12d0104d-7302-4ba9-be2b-a184b98110bd",
+      "e2fe3c02-35c6-4375-80a4-39f3c5cdf9e3",
+      "128ee24c-56be-48a0-9e84-9a1dc5c9a4ab",
+      "811a1dea-7f74-4a30-a6c9-7819720a851f"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,322 @@
+{
+  "format": 1,
+  "concept_id": "achem-047",
+  "subject": "chemistry",
+  "title": "Predicting feasibility from electrode potentials",
+  "key_idea": "A reaction is thermodynamically feasible when Eᶿcell is positive. Eᶿ values also rank oxidising and reducing agents. A feasible reaction may still not happen, because it can be too slow or the conditions are not standard.",
+  "sections": [
+    {
+      "heading": "Using Eᶿ values to predict reactions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Eᶿ values show which species gain electrons more easily. This section covers how to use them to predict direction, polarity and feasibility."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The half-cell with the **more positive** Eᶿ is reduced. It is the positive electrode.",
+            "The half-cell with the **more negative** Eᶿ is oxidised. It is the negative electrode.",
+            "Eᶿcell = Eᶿ(reduced) − Eᶿ(oxidised). If Eᶿcell is positive, the reaction is feasible.",
+            "In a simple cell, electrons flow in the external wire from the negative electrode to the positive electrode."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the half-equations.",
+              "text": "Write both with their Eᶿ values, as reductions."
+            },
+            {
+              "lead": "Pick the one reduced.",
+              "text": "The more positive Eᶿ is reduced. Reverse the other half-equation."
+            },
+            {
+              "lead": "Add them.",
+              "text": "Cancel the electrons to give the overall equation."
+            },
+            {
+              "lead": "Calculate Eᶿcell.",
+              "text": "Eᶿ(more positive) − Eᶿ(more negative). A positive value means feasible."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a reaction and see whether it is feasible from the electrode potentials.",
+            "prompt": "Pick a reaction.",
+            "result_labels": [
+              "Reduced (positive)",
+              "Oxidised (negative)",
+              "Eᶿcell",
+              "Feasible?"
+            ],
+            "options": [
+              {
+                "label": "Zn(s) + Cu²⁺(aq)",
+                "results": [
+                  "Cu²⁺/Cu, +0.34 V",
+                  "Zn²⁺/Zn, −0.76 V",
+                  "+1.10 V",
+                  "Yes"
+                ],
+                "explanation": "Eᶿcell is positive, so zinc displaces copper."
+              },
+              {
+                "label": "Cu(s) + Zn²⁺(aq)",
+                "results": [
+                  "Zn²⁺/Zn, −0.76 V",
+                  "Cu²⁺/Cu, +0.34 V",
+                  "−1.10 V",
+                  "No"
+                ],
+                "explanation": "Eᶿcell is negative, so copper does not displace zinc."
+              },
+              {
+                "label": "2Fe³⁺(aq) + 2I⁻(aq)",
+                "results": [
+                  "Fe³⁺/Fe²⁺, +0.77 V",
+                  "I₂/I⁻, +0.54 V",
+                  "+0.23 V",
+                  "Yes"
+                ],
+                "explanation": "Fe³⁺ oxidises I⁻ to I₂, so Eᶿcell is positive."
+              },
+              {
+                "label": "2Fe²⁺(aq) + Br₂(aq)",
+                "results": [
+                  "Br₂/Br⁻, +1.07 V",
+                  "Fe³⁺/Fe²⁺, +0.77 V",
+                  "+0.30 V",
+                  "Yes"
+                ],
+                "explanation": "Bromine is a stronger oxidising agent than Fe³⁺."
+              },
+              {
+                "label": "Fe²⁺(aq) + Ag⁺(aq)",
+                "results": [
+                  "Ag⁺/Ag, +0.80 V",
+                  "Fe³⁺/Fe²⁺, +0.77 V",
+                  "+0.03 V",
+                  "Yes, but only just"
+                ],
+                "explanation": "A very small positive Eᶿcell. The reaction does not go far."
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Oxidising and reducing power"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The more positive the Eᶿ, the stronger the oxidising agent on the left of the half-equation.",
+            "The more negative the Eᶿ, the stronger the reducing agent on the right of the half-equation.",
+            "Example: MnO₄⁻/Mn²⁺ is +1.51 V, so MnO₄⁻ is a stronger oxidising agent than Cl₂ (+1.36 V)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A positive Eᶿcell means the reaction is feasible.",
+            "The more positive Eᶿ is, the stronger the oxidising agent.",
+            "Electrons flow from the negative to the positive electrode."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Disproportionation and electrode potentials",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Eᶿ values show when a species can react with itself. A species disproportionates if it is both a strong enough oxidising agent and reducing agent."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cu⁺ + e⁻ ⇌ Cu, Eᶿ = +0.52 V.",
+            "Cu²⁺ + e⁻ ⇌ Cu⁺, Eᶿ = +0.15 V.",
+            "Cu⁺ is reduced in the first half-equation and oxidised in the second.",
+            "Eᶿcell = +0.52 − (+0.15) = +0.37 V. This is positive, so 2Cu⁺ → Cu + Cu²⁺ is feasible."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "If the Eᶿ for the species reduced is more positive than for the species oxidised, it disproportionates.",
+            "Copper(I) disproportionates in aqueous solution."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why predictions can be wrong",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Eᶿ values only tell you about thermodynamics under standard conditions. This section covers the limits."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Kinetic inhibition**: a reaction with a positive Eᶿcell can have a very high activation energy, so it is too slow to see. Example: manganate(VII) and water.",
+            "**Non-standard conditions**: the real concentration, temperature or pressure can differ from standard values, which shifts E and may change the sign of Ecell.",
+            "Eᶿcell says nothing about the rate of a reaction."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Eᶿcell, entropy and the equilibrium constant"
+        },
+        {
+          "type": "paragraph",
+          "text": "A positive Eᶿcell is the same as a positive total entropy change. It is also linked to the size of the equilibrium constant."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Eᶿcell is directly proportional to the total entropy change and to ln K.",
+            "A large positive Eᶿcell means a large K, so the reaction goes almost to completion."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A feasible reaction can still be slow, because of kinetic inhibition.",
+            "Conditions that are not standard change E.",
+            "Eᶿcell is proportional to ln K and to the total entropy change."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Use Eᶿ(Ag⁺/Ag) = +0.80 V and Eᶿ(Cu²⁺/Cu) = +0.34 V to decide whether copper reacts with silver nitrate solution.",
+      "a": "Eᶿcell = +0.80 − (+0.34) = +0.46 V. This is positive, so copper displaces silver and the reaction is feasible.",
+      "marks": 2
+    },
+    {
+      "q": "Give two reasons why a reaction with a positive Eᶿcell may not occur as predicted.",
+      "a": "The reaction may be too slow because of a high activation energy (kinetic inhibition). The conditions may not be standard, for example a different concentration or temperature.",
+      "marks": 2
+    },
+    {
+      "q": "Eᶿ(Cl₂/Cl⁻) = +1.36 V and Eᶿ(Br₂/Br⁻) = +1.07 V. Which is the stronger oxidising agent and which halide ion is the stronger reducing agent?",
+      "a": "Cl₂ is the stronger oxidising agent (more positive Eᶿ). Br⁻ is the stronger reducing agent than Cl⁻.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.3i"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 14.10",
+        "EDEX 14.11",
+        "EDEX 14.12",
+        "EDEX 14.14"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 24.2.5",
+        "CAIE 24.2.6",
+        "CAIE 24.2.8",
+        "CAIE 24.2.9",
+        "CAIE 24.2.10"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Effect of concentration on E"
+            },
+            {
+              "type": "paragraph",
+              "text": "The position of the equilibrium Mⁿ⁺ + ne⁻ ⇌ M shifts when the ion concentration changes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A higher concentration of the oxidised ion shifts the equilibrium to the right. E becomes more positive.",
+                "A lower concentration of the oxidised ion shifts it to the left. E becomes more negative."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "The Nernst equation"
+            },
+            {
+              "type": "equation",
+              "label": "Nernst equation at 298 K",
+              "formula": "E = Eᶿ + (0.059 / z) × log([oxidised species] / [reduced species])",
+              "where": [
+                "E is the electrode potential in V and Eᶿ is the standard value in V.",
+                "z is the number of electrons in the half-equation.",
+                "A pure solid, such as Cu(s), is left out."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Cu²⁺(aq) + 2e⁻ ⇌ Cu(s): E = +0.34 + (0.059/2) × log[Cu²⁺].",
+                "If [Cu²⁺] = 0.010 mol/dm³, then log = −2 and E = 0.34 − 0.059 = +0.28 V.",
+                "Fe³⁺(aq) + e⁻ ⇌ Fe²⁺(aq): E = +0.77 + 0.059 × log([Fe³⁺]/[Fe²⁺])."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Eᶿcell and free energy change"
+            },
+            {
+              "type": "equation",
+              "label": "Free energy change",
+              "formula": "ΔGᶿ = −n × Eᶿcell × F",
+              "where": [
+                "ΔGᶿ is the standard free energy change in J/mol.",
+                "n is the number of moles of electrons transferred in the equation.",
+                "Eᶿcell is in V and F is the Faraday constant, 96 500 C/mol."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "A positive Eᶿcell gives a negative ΔGᶿ, so the reaction is feasible. Example: Zn + Cu²⁺, n = 2, Eᶿcell = +1.10 V, ΔGᶿ = −2 × 1.10 × 96 500 = −212 kJ/mol."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "73569367-3de7-4034-8ed2-a1a68c12f26d",
+      "b2d7f9c2-2d81-4b74-90b5-3e3c4c69172d",
+      "e75dbad3-873f-4f7c-bd52-56966b8f5c94",
+      "ecd306d3-8df0-46db-8ba9-1e962f96ec03",
+      "053c0161-9c55-4f8c-a791-407f6d7ce754",
+      "00674ba3-b738-4969-9f85-0d611ab6948f",
+      "ceaca068-3118-459d-a736-ff8c5da1109f",
+      "50dc6cf7-e0cf-48f6-a79f-27d834f49959",
+      "c56d91e5-7cbf-4fba-a2f1-19276c251d82",
+      "aa621a3e-f4fc-488e-a97c-9c23648a1fa0"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

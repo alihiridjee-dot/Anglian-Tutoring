@@ -1,0 +1,286 @@
+{
+  "format": 1,
+  "concept_id": "achem-034",
+  "subject": "chemistry",
+  "title": "The equilibrium constant Kc",
+  "key_idea": "Kc is the ratio of equilibrium concentrations of products to reactants, each raised to the power of its coefficient in the balanced equation. It is found by writing the expression, substituting equilibrium concentrations and working out the units. Its size shows how far a reaction goes.",
+  "sections": [
+    {
+      "heading": "Writing a Kc expression",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Kc is deduced directly from the balanced equation for the reversible reaction. Square brackets mean concentration in mol dm⁻³."
+        },
+        {
+          "type": "equation",
+          "label": "Kc for aA + bB ⇌ cC + dD",
+          "formula": "Kc = [C]ᶜ[D]ᵈ / ([A]ᵃ[B]ᵇ)",
+          "where": [
+            "[X] = equilibrium concentration of X in mol dm⁻³",
+            "a, b, c, d = coefficients in the balanced equation"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Products go on the top and reactants on the bottom.",
+            "Each concentration is raised to the power of its coefficient.",
+            "Use the equation exactly as written. Reversing it gives 1 ÷ Kc.",
+            "For a heterogeneous equilibrium, leave out solids and liquids, because their concentrations are constant.",
+            "Example: CaCO₃(s) ⇌ CaO(s) + CO₂(g) has Kc = [CO₂]."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Units of Kc"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Substitute",
+              "text": "Put mol dm⁻³ in place of each concentration in the expression."
+            },
+            {
+              "lead": "Cancel",
+              "text": "Cancel the units on top and bottom."
+            },
+            {
+              "lead": "Write",
+              "text": "What is left is the unit. If nothing is left, Kc has no units."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "For N₂O₄ ⇌ 2NO₂, Kc = [NO₂]² ÷ [N₂O₄]. The units are (mol dm⁻³)² ÷ mol dm⁻³ = mol dm⁻³."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Kc = products over reactants, each to the power of its coefficient.",
+            "Leave solids and liquids out of heterogeneous expressions.",
+            "Work out units by cancelling."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating Kc",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Kc is calculated from equilibrium concentrations at constant temperature. If you are given moles, divide by the volume in dm³ first."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating Kc for H₂ + I₂ ⇌ 2HI from equilibrium concentrations.",
+            "question": "At equilibrium, H₂(g) + I₂(g) ⇌ 2HI(g) has [H₂] = **{h} mol dm⁻³**, [I₂] = **{i} mol dm⁻³** and [HI] = **{hi} mol dm⁻³**. Calculate Kc.",
+            "variables": [
+              {
+                "id": "h",
+                "min": 0.1,
+                "max": 0.3,
+                "step": 0.05
+              },
+              {
+                "id": "i",
+                "min": 0.1,
+                "max": 0.3,
+                "step": 0.05
+              },
+              {
+                "id": "hi",
+                "min": 0.4,
+                "max": 1.0,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "hi * hi / (h * i)",
+              "decimals": 1
+            },
+            "working": [
+              "Kc = [HI]² ÷ ([H₂][I₂])",
+              "Kc = {hi}² ÷ ({h} × {i})",
+              "Kc = **{answer}** (no units, because the powers cancel)"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "From amounts to equilibrium concentrations"
+        },
+        {
+          "type": "paragraph",
+          "text": "When you are given starting moles and one equilibrium amount, work out the rest from the equation, then divide by the volume."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Start",
+              "text": "0.50 mol N₂O₄ in 2.0 dm³ forms 0.20 mol NO₂ at equilibrium."
+            },
+            {
+              "lead": "Change",
+              "text": "0.20 mol NO₂ needs 0.10 mol N₂O₄ (2 : 1), so 0.40 mol N₂O₄ is left."
+            },
+            {
+              "lead": "Concentrations",
+              "text": "[N₂O₄] = 0.40 ÷ 2.0 = 0.20 mol dm⁻³. [NO₂] = 0.20 ÷ 2.0 = 0.10 mol dm⁻³."
+            },
+            {
+              "lead": "Kc",
+              "text": "Kc = 0.10² ÷ 0.20 = 0.050 mol dm⁻³."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "To find an unknown equilibrium amount instead, rearrange the Kc expression for it."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Convert moles to concentration by dividing by the volume in dm³.",
+            "Use a change table: start, change, equilibrium.",
+            "Kc can be used in reverse to find an unknown concentration."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What the size of Kc tells you",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The magnitude of Kc gives a qualitative estimate of the position of equilibrium at that temperature."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Size of Kc",
+            "Position of equilibrium"
+          ],
+          "rows": [
+            [
+              "Much greater than 1",
+              "Far to the right: mostly products"
+            ],
+            [
+              "Close to 1",
+              "Significant amounts of both reactants and products"
+            ],
+            [
+              "Much less than 1",
+              "Far to the left: mostly reactants"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A large Kc means the reaction goes almost to completion.",
+            "A small Kc means very little product forms."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write the expression for Kc for 2SO₂(g) + O₂(g) ⇌ 2SO₃(g) and state its units.",
+      "a": "Kc = [SO₃]² ÷ ([SO₂]²[O₂]). Units: mol⁻¹ dm³ (dm³ mol⁻¹).",
+      "marks": 2
+    },
+    {
+      "q": "Write the expression for Kc for C(s) + CO₂(g) ⇌ 2CO(g).",
+      "a": "Kc = [CO]² ÷ [CO₂]. The solid carbon is left out.",
+      "marks": 2
+    },
+    {
+      "q": "In a 1.0 dm³ vessel at equilibrium there are 0.20 mol PCl₅, 0.40 mol PCl₃ and 0.40 mol Cl₂ in PCl₅ ⇌ PCl₃ + Cl₂. Calculate Kc, with units.",
+      "a": "Kc = [PCl₃][Cl₂] ÷ [PCl₅] = (0.40 × 0.40) ÷ 0.20 = 0.80 mol dm⁻³.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.2.3f",
+        "OCR 3.2.3g",
+        "OCR 5.1.2b",
+        "OCR 5.1.2c"
+      ],
+      "extra": [
+        {
+          "heading": "Finding the quantities present at equilibrium",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Take a small sample from the equilibrium mixture and stop the reaction at once, by cooling it rapidly or by adding it to ice-cold water.",
+                "Analyse the sample by titration. For example, titrate the acid in an ester equilibrium mixture with standard sodium hydroxide, using a suitable indicator.",
+                "Use the titre to find the moles of one species, then work out the others from the equation and the starting amounts.",
+                "Leave the mixture long enough to reach equilibrium before taking the sample."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 10.4"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.6.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Kc is worked out for homogeneous systems at constant temperature.",
+                "Its value is not changed by a change in concentration or by adding a catalyst.",
+                "You should be able to predict the qualitative effect of a change of temperature on Kc: it rises for an endothermic reaction and falls for an exothermic reaction as temperature increases."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 7.1.4",
+        "CAIE 7.1.8"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "24d21130-e4fa-4df8-a95e-c338febf3e25",
+      "3b085fde-f534-4dbc-8eaa-adc32d9b30d0",
+      "8c247665-8b7f-402b-8ce3-d619750e0068",
+      "06d249ce-11df-4329-8f4b-5abdc9b15669",
+      "6f3e762d-5a74-4a09-80f5-31280bcb6805",
+      "01b5db5a-3bde-477b-9eac-d6d3ffba96e8",
+      "844e11f4-608b-4930-908a-22019bef13ed",
+      "df03ebff-f3f1-48e6-bd4a-d4512af31351"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,473 @@
+{
+  "format": 1,
+  "concept_id": "abio-067",
+  "subject": "biology",
+  "title": "Receptors and neurones",
+  "key_idea": "Neurones carry impulses between receptors, the central nervous system and effectors. Receptors act as transducers: they convert a stimulus into a generator potential, which can trigger an action potential. Myelination makes conduction faster.",
+  "sections": [
+    {
+      "heading": "Types of neurone",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Neurones carry electrical impulses around the body. There are three types, each with its own job."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Neurone",
+            "Job",
+            "Structure"
+          ],
+          "rows": [
+            [
+              "Sensory",
+              "Carries impulses from a receptor to the central nervous system",
+              "One long dendron brings impulses to the cell body, which sits in a side branch. A shorter axon carries them on"
+            ],
+            [
+              "Relay (intermediate)",
+              "Connects sensory neurones to motor neurones inside the central nervous system",
+              "Short, with many branched processes"
+            ],
+            [
+              "Motor",
+              "Carries impulses from the central nervous system to an effector",
+              "Cell body in the central nervous system. A long axon runs to the effector, with many short dendrites at the cell body"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "All neurones have a cell body containing the nucleus, with cytoplasm rich in mitochondria and rough endoplasmic reticulum.",
+            "Dendrites and dendrons carry impulses towards the cell body. An axon carries them away from it.",
+            "A relay neurone is the link that lets a sensory neurone pass a message on to a motor neurone."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sensory neurones carry impulses towards the central nervous system.",
+            "Motor neurones carry impulses to effectors.",
+            "Relay neurones connect the two inside the central nervous system."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Myelination",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Many axons are wrapped in a fatty insulating layer. This changes how fast the impulse travels."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Schwann cell",
+              "meaning": "A cell that wraps around the axon many times, forming the myelin sheath."
+            },
+            {
+              "term": "Myelin sheath",
+              "meaning": "A fatty layer around the axon that electrically insulates it."
+            },
+            {
+              "term": "Node of Ranvier",
+              "meaning": "A short gap between neighbouring Schwann cells where the axon membrane is exposed."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Schwann cells wrap their membranes round the axon, so the sheath is made of many layers of lipid-rich membrane.",
+            "Ions cannot cross the myelin, so the impulse can only be generated at the nodes of Ranvier.",
+            "A myelinated neurone conducts impulses much faster than a non-myelinated one of the same size.",
+            "Non-myelinated neurones have no sheath, so the impulse passes along the whole length of the membrane."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Myelinated",
+            "Non-myelinated"
+          ],
+          "rows": [
+            [
+              "Insulating sheath",
+              "Present",
+              "Absent"
+            ],
+            [
+              "Where impulses are generated",
+              "At the nodes only",
+              "All along the axon"
+            ],
+            [
+              "Speed",
+              "Fast",
+              "Slow"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Schwann cells form the myelin sheath.",
+            "Myelin insulates the axon, so impulses jump between nodes of Ranvier.",
+            "Myelinated neurones conduct faster than non-myelinated ones."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Receptors as transducers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A sensory receptor detects a stimulus and converts its energy into an electrical signal. This makes it a transducer."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each type of receptor responds only to one kind of stimulus, such as pressure, light or a chemical.",
+            "The stimulus changes the permeability of the receptor cell membrane to ions.",
+            "This changes the potential difference across the membrane and produces a generator potential.",
+            "If the generator potential reaches the threshold, it triggers an action potential in the sensory neurone.",
+            "A bigger stimulus gives a bigger generator potential, and so more action potentials per second."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Receptor",
+              "meaning": "A cell or structure that detects a specific stimulus."
+            },
+            {
+              "term": "Transducer",
+              "meaning": "Something that converts one form of energy into another. A receptor converts a stimulus into an electrical signal."
+            },
+            {
+              "term": "Generator potential",
+              "meaning": "A change in membrane potential in a receptor cell caused by a stimulus."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Receptors are specific to one type of stimulus.",
+            "A receptor acts as a transducer, converting a stimulus into a generator potential.",
+            "An action potential starts only if the generator potential reaches the threshold."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The Pacinian corpuscle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Pacinian corpuscle is a pressure receptor found in the skin. It is the standard example of how a receptor works."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The sensory neurone ending sits in the centre, surrounded by layers of connective tissue separated by gel.",
+            "Its membrane contains stretch-mediated sodium ion channels.",
+            "Pressure deforms the layers, which stretches the membrane and opens the channels."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Pressure applied",
+              "text": "The corpuscle is deformed and the neurone membrane stretches."
+            },
+            {
+              "lead": "Channels open",
+              "text": "Stretch-mediated sodium ion channels widen."
+            },
+            {
+              "lead": "Na⁺ enters",
+              "text": "Sodium ions diffuse into the neurone, depolarising the membrane."
+            },
+            {
+              "lead": "Generator potential",
+              "text": "If it reaches the threshold, an action potential passes along the sensory neurone."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The Pacinian corpuscle detects pressure.",
+            "Stretching opens sodium ion channels, so Na⁺ enters and depolarises the membrane.",
+            "A generator potential at threshold triggers an action potential."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Receptors for light and taste",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The retina and the tongue show two more ways that receptors turn stimuli into impulses."
+        },
+        {
+          "type": "subheading",
+          "text": "Rod cells and cone cells"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rods contain the pigment rhodopsin, made of opsin bound to retinal.",
+            "In the dark, sodium ion channels in the rod are open, so Na⁺ enters and the cell is depolarised.",
+            "Light splits rhodopsin into retinal and opsin. This closes the cation channels, so less Na⁺ enters.",
+            "The rod becomes hyperpolarised, which reduces release of neurotransmitter onto the bipolar neurone.",
+            "That change in release leads to action potentials in the optic neurone."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Rods",
+            "Cones"
+          ],
+          "rows": [
+            [
+              "Sensitivity to light",
+              "High, so they work in dim light",
+              "Low, so they need bright light"
+            ],
+            [
+              "Colour",
+              "Black and white vision only",
+              "Three types give colour vision"
+            ],
+            [
+              "Visual acuity",
+              "Low, because many rods share one neurone",
+              "High, because each cone has its own neurone"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity: decide whether each feature belongs to rod cells or cone cells.",
+            "prompt": "Sort each feature into rods or cones",
+            "groups": [
+              "Rods",
+              "Cones"
+            ],
+            "items": [
+              {
+                "text": "Work in dim light",
+                "group": 0
+              },
+              {
+                "text": "Contain rhodopsin",
+                "group": 0
+              },
+              {
+                "text": "Many share one neurone",
+                "group": 0
+              },
+              {
+                "text": "Black and white vision",
+                "group": 0
+              },
+              {
+                "text": "Three types for colour",
+                "group": 1
+              },
+              {
+                "text": "Need bright light",
+                "group": 1
+              },
+              {
+                "text": "High visual acuity",
+                "group": 1
+              },
+              {
+                "text": "Each has its own neurone",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Taste buds"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Chemical binds",
+              "text": "A chemical from food binds to a receptor on a taste bud chemoreceptor cell."
+            },
+            {
+              "lead": "Channels open",
+              "text": "Ion channels open and ions move across the membrane."
+            },
+            {
+              "lead": "Generator potential",
+              "text": "The membrane potential changes."
+            },
+            {
+              "lead": "Action potential",
+              "text": "If the threshold is reached, an action potential is sent along the sensory neurone."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "In rods, light closes sodium channels and hyperpolarises the cell.",
+            "Rods give sensitivity in dim light. Cones give colour and detail.",
+            "Taste chemoreceptors work through a generator potential, as the Pacinian corpuscle does."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the structure and function of a motor neurone.",
+      "a": "Cell body in the central nervous system with many short dendrites. A long axon carries impulses away from the cell body to an effector such as a muscle or gland.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why impulses travel faster along a myelinated neurone.",
+      "a": "Myelin (made by Schwann cells) insulates the axon so ions cannot cross the membrane. Impulses are generated only at the nodes of Ranvier and jump from node to node, instead of along the whole membrane.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how pressure on a Pacinian corpuscle leads to an action potential.",
+      "a": "Pressure deforms the corpuscle and stretches the membrane. Stretch-mediated sodium ion channels open and Na⁺ diffuses in. This depolarises the membrane, producing a generator potential. If it reaches the threshold, an action potential is triggered.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.6.1.2a",
+        "AQA 3.6.1.2b",
+        "AQA 3.6.1.2c",
+        "AQA 3.6.1.2d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The retina has to be explained in enough detail for three things."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Sensitivity to light: rods are more sensitive than cones because many rods connect to one bipolar neurone, so their generator potentials add up (summation). Rhodopsin is also broken down by less light than the pigments in cones.",
+                "Visual acuity: cones give higher acuity because each cone has its own connection to the optic nerve, so the brain can tell nearby points of light apart. Rods give low acuity because many share one neurone.",
+                "Sensitivity to colour: there are three types of cone, each with a different optical pigment sensitive to a different range of wavelengths. Rods have one pigment, so they cannot tell colours apart."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.1",
+        "EDEX 8.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The sensory neurone, relay neurone and motor neurone should be described with the role of Schwann cells and myelination, as in the shared note.",
+                "Detecting light: in the dark, the cation channels in the rod are open and Na⁺ enters. Light converts rhodopsin to opsin and retinal. This closes the channels, so the rod is hyperpolarised and less transmitter is released. The change leads to action potentials in the optic neurones."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 15.1.3",
+        "CAIE 15.1.4",
+        "CAIE 15.1.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Sensory neurone: a single long dendron from the receptor, with the cell body in a side branch. Motor neurone: cell body in the central nervous system, long axon to the effector. Intermediate neurones connect them.",
+                "Sensory receptor cells detect stimuli and trigger impulses in the sensory neurone by producing a generator potential.",
+                "Taste bud chemoreceptor: a chemical binds to its receptor, ion channels open, the membrane depolarises, and a generator potential at the threshold triggers an action potential in the sensory neurone."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.3a",
+        "OCR 5.1.3b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Receptors respond to specific types of stimulus and act as transducers, for example the Pacinian corpuscle for pressure.",
+                "Know the differences between myelinated and non-myelinated neurones in structure (sheath, Schwann cells, nodes) and function (speed, saltatory conduction)."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "d9264cbe-a58d-4120-9ac2-e0564080f18d",
+      "9068fe32-3b00-4463-bf13-dc7fc1858868",
+      "2b010bdb-a67e-4775-82f0-6eb1c8405f9b",
+      "dd5179b0-a374-425b-beee-8d7faf823e12",
+      "ff353ef1-402a-489b-89bf-00592603c148",
+      "853d4352-a66c-4d41-a70e-0f0c2f65bf9e",
+      "79640730-0b4a-42aa-88df-c4b2f97d48cd",
+      "e2bc60d8-522a-4f6d-9016-2f23df7ae6c2",
+      "ad120ec6-a81a-4c66-aff5-a20d36d8a3ef",
+      "f00cfc40-c1fd-4a80-b394-adcdf5d9450d",
+      "3516765d-b3b6-462f-a37e-7b034d2c327a"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

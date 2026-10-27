@@ -1,0 +1,366 @@
+{
+  "format": 1,
+  "concept_id": "aphys-013",
+  "subject": "physics",
+  "title": "Moments, couples and equilibrium",
+  "key_idea": "The moment of a force is the force times the perpendicular distance from the pivot. A body is in equilibrium when there is no resultant force and no resultant moment, so the clockwise moments equal the anticlockwise moments about any point.",
+  "sections": [
+    {
+      "heading": "Moment of a force and centre of gravity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A force can turn an object about a point. This section covers the moment of a force and where the weight of an object acts."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Moment of a force",
+              "meaning": "The force multiplied by the perpendicular distance from the pivot to the line of action of the force."
+            },
+            {
+              "term": "Line of action",
+              "meaning": "The straight line along which a force acts."
+            },
+            {
+              "term": "Centre of gravity",
+              "meaning": "The single point through which the whole weight of an object may be taken to act."
+            },
+            {
+              "term": "Centre of mass",
+              "meaning": "The point at which the whole mass of an object may be taken to be concentrated."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Moment of a force",
+          "formula": "moment = F × x",
+          "where": [
+            "moment = turning effect about the pivot (N m)",
+            "F = force (N)",
+            "x = perpendicular distance from the pivot to the line of action of the force (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A moment is clockwise or anticlockwise about a chosen point.",
+            "The distance must be measured at right angles to the force. If the force is at an angle θ to the rod, the perpendicular distance is d sin θ.",
+            "A longer spanner gives a greater moment for the same force.",
+            "The centre of gravity of a uniform regular solid is at its centre. In a uniform gravitational field it is at the same point as the centre of mass.",
+            "The weight of an object can be drawn as one force acting at its centre of gravity."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Finding the centre of gravity experimentally"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Hang",
+              "text": "Hang an irregular flat card from a pin so it swings freely."
+            },
+            {
+              "lead": "Plumb line",
+              "text": "Hang a plumb line from the pin. Mark where it crosses the card."
+            },
+            {
+              "lead": "Repeat",
+              "text": "Hang the card from two more holes and mark each line."
+            },
+            {
+              "lead": "Intersection",
+              "text": "The lines cross at the centre of gravity. The card balances on a pin placed there."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Moment = force × perpendicular distance from the pivot.",
+            "The weight of an object acts through its centre of gravity.",
+            "A hanging object comes to rest with its centre of gravity vertically below the pivot."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Couples and torque",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some forces turn an object without moving it as a whole. This section covers the couple."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Couple",
+              "meaning": "A pair of equal and opposite coplanar forces whose lines of action do not coincide. It produces rotation only."
+            },
+            {
+              "term": "Torque of a couple",
+              "meaning": "One of the forces multiplied by the perpendicular distance between the lines of action of the forces."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Torque of a couple",
+          "formula": "torque = F × d",
+          "where": [
+            "torque = turning effect of the couple (N m)",
+            "F = size of one of the forces (N)",
+            "d = perpendicular distance between the lines of action of the forces (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The two forces are equal and opposite, so the resultant force is zero. The object does not accelerate in a straight line.",
+            "The forces do not act along the same line, so they have a resultant torque and cause rotation only.",
+            "Examples are turning a steering wheel with two hands, a tap or a key.",
+            "The torque of a couple is the same about any point, because the total moment of the two forces is the same about every point."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A couple is two equal, opposite, parallel forces. It gives rotation without translation.",
+            "Torque of a couple = one force × the perpendicular distance between the forces."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The principle of moments and equilibrium",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An object that is not accelerating and not turning is in equilibrium. This section covers the conditions for this."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Principle of moments",
+              "meaning": "For a body in equilibrium, the sum of the clockwise moments about any point equals the sum of the anticlockwise moments about that point."
+            },
+            {
+              "term": "Equilibrium",
+              "meaning": "There is no resultant force and no resultant torque on the body."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Forces in equilibrium: the resultant force is zero, so there is no linear acceleration.",
+            "Moments in equilibrium: the resultant moment is zero about any point, so there is no angular acceleration.",
+            "Choose a pivot where an unknown force acts. That force then has no moment about it, which removes it from the equation."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Question",
+              "text": "A uniform 2.0 m plank of weight 40 N is pivoted at its centre. A 60 N child sits 0.80 m to the left of the pivot. How far to the right must an 80 N adult sit?"
+            },
+            {
+              "lead": "Moments",
+              "text": "Clockwise = anticlockwise: 80 × d = 60 × 0.80"
+            },
+            {
+              "lead": "Answer",
+              "text": "d = 48 / 80 = 0.60 m"
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice calculation. Use the principle of moments to find a distance on a balanced beam.",
+            "question": "A beam is balanced on a pivot. A {F1} N weight hangs {d1} m to the left of the pivot. A {F2} N weight hangs on the right. How far from the pivot must it hang? Ignore the weight of the beam.",
+            "variables": [
+              {
+                "id": "F1",
+                "min": 20,
+                "max": 40,
+                "step": 10
+              },
+              {
+                "id": "d1",
+                "min": 0.2,
+                "max": 0.8,
+                "step": 0.1
+              },
+              {
+                "id": "F2",
+                "min": 20,
+                "max": 40,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "F1 * d1 / F2",
+              "unit": "m",
+              "decimals": 2
+            },
+            "working": [
+              "Clockwise moments = anticlockwise moments",
+              "{F2} × d = {F1} × {d1}",
+              "d = {answer} m"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Three coplanar forces"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Three coplanar forces are in equilibrium if their resultant is zero and their lines of action pass through one point.",
+            "Drawn tip to tail, the three vectors form a closed triangle, called the triangle of forces.",
+            "The triangle can be drawn to scale, or the sides found using trigonometry.",
+            "If the triangle does not close, there is a resultant force."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Equilibrium needs zero resultant force and zero resultant moment.",
+            "Principle of moments: clockwise moments = anticlockwise moments about any point.",
+            "Three forces in equilibrium make a closed vector triangle."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the principle of moments.",
+      "a": "For a body in equilibrium, the sum of the clockwise moments about any point equals the sum of the anticlockwise moments about the same point.",
+      "marks": 2
+    },
+    {
+      "q": "Two forces of 15 N, equal and opposite, act on a wheel at opposite ends of a diameter of 0.40 m. Calculate the torque of the couple.",
+      "a": "Torque = F × d = 15 × 0.40 = 6.0 N m.",
+      "marks": 2
+    },
+    {
+      "q": "State the two conditions for a body to be in equilibrium.",
+      "a": "The resultant force on it is zero, and the resultant torque (moment) about any point is zero.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.1.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The position of the centre of mass of a uniform regular solid is at its centre.",
+                "Moment of a couple is the force multiplied by the perpendicular distance between the lines of action of the forces."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.23",
+        "EDEX 2.24"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use the centre of gravity of an extended body.",
+                "Apply the principle of moments to an extended body in equilibrium, with x measured perpendicular to the line of action about the axis of rotation."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 4.1.1",
+        "CAIE 4.1.2",
+        "CAIE 4.1.3",
+        "CAIE 4.1.4",
+        "CAIE 4.2.1",
+        "CAIE 4.2.2",
+        "CAIE 4.2.3"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.2.3a",
+        "OCR 3.2.3b",
+        "OCR 3.2.3c",
+        "OCR 3.2.3d",
+        "OCR 3.2.3e",
+        "OCR 3.2.3f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Torque of a couple is written as torque = Fd.",
+                "Know the difference between centre of mass and centre of gravity, and how to find the centre of gravity by experiment.",
+                "Equilibrium of an object under forces and torques, and the condition for three coplanar forces with a triangle of forces."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "695323f6-e98a-45da-9cbc-16189cb116a8",
+      "77cc635b-2dd9-4b67-98cf-acb606f41358",
+      "a78c1e77-5f61-4eb9-b708-2ab9b1476604",
+      "c743030f-e944-4ccd-8e34-fa56cf23e45f",
+      "220e7064-27d4-497a-82c6-3fb0cadfc9fd",
+      "d66d93da-6ba2-4df3-81f8-dc5246452853",
+      "92546212-b03b-46d7-a1df-e4db08766d94",
+      "a661a8f3-d2ba-4692-abab-03108f9017ce",
+      "c57277af-ad76-467c-8a72-0839ba380d03",
+      "9a37bfe0-7b7b-46bd-8344-ede490df6439",
+      "196cf0bf-1e2b-4ded-8332-d9bb456cb1aa",
+      "f41c657c-ed62-4b75-9b6a-129cda49b793",
+      "c5f810dd-3602-40e1-ab3d-8cdf8a406b20",
+      "80543b20-820a-4481-abc4-8250ec713226",
+      "cfbfb554-71d2-4e7f-ba2f-4a27ea09ae60",
+      "2d7712bb-8939-42be-ace6-7ca0f38074cc"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "format": 1,
+  "concept_id": "abio-069",
+  "subject": "biology",
+  "title": "Synapses and drugs",
+  "key_idea": "A synapse passes a signal using a chemical, not an electrical impulse. At a cholinergic synapse, calcium ions trigger release of acetylcholine, which opens sodium channels in the next neurone. Drugs change this process at specific steps.",
+  "sections": [
+    {
+      "heading": "The structure of a synapse",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A synapse is the junction between two neurones. The gap between them is the synaptic cleft, about 20 nm wide."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Presynaptic neurone",
+              "meaning": "The neurone that sends the signal. Its end swells into a synaptic knob."
+            },
+            {
+              "term": "Postsynaptic neurone",
+              "meaning": "The neurone that receives the signal."
+            },
+            {
+              "term": "Neurotransmitter",
+              "meaning": "A chemical released at a synapse that carries the signal across the cleft."
+            },
+            {
+              "term": "Cholinergic synapse",
+              "meaning": "A synapse that uses the neurotransmitter acetylcholine."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The synaptic knob contains many mitochondria, to make ATP, and vesicles full of acetylcholine.",
+            "The presynaptic membrane has voltage-gated calcium ion channels.",
+            "The postsynaptic membrane has receptors for acetylcholine, which are linked to sodium ion channels.",
+            "The cleft contains the enzyme acetylcholinesterase, which breaks acetylcholine down."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A synapse has a presynaptic knob, a cleft and a postsynaptic membrane.",
+            "Acetylcholine is stored in vesicles in the knob.",
+            "Acetylcholinesterase in the cleft breaks acetylcholine down."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Transmission across a cholinergic synapse",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An action potential cannot cross the cleft. A chemical signal carries the message instead."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity: put the events of transmission across a cholinergic synapse in order.",
+            "prompt": "Put the events at a cholinergic synapse in order",
+            "steps": [
+              "An action potential arrives at the presynaptic knob",
+              "Voltage-gated calcium ion channels open and Ca²⁺ diffuses in",
+              "Vesicles fuse with the presynaptic membrane and release acetylcholine",
+              "Acetylcholine diffuses across the cleft and binds to receptors",
+              "Sodium ion channels open and Na⁺ enters the postsynaptic neurone",
+              "The membrane depolarises and an action potential starts if the threshold is reached",
+              "Acetylcholinesterase breaks down acetylcholine and the products are reabsorbed"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The breakdown of acetylcholine stops the signal continuing and allows the sodium channels to close.",
+            "The products are taken back into the presynaptic knob and acetylcholine is resynthesised using ATP from mitochondria."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Calcium ions entering the knob cause vesicles to release acetylcholine.",
+            "Acetylcholine binding opens sodium channels in the postsynaptic membrane.",
+            "Acetylcholinesterase stops the signal by breaking acetylcholine down."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What synapses allow",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The structure of the synapse explains several features of nerve transmission."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Unidirectionality: only the presynaptic knob has vesicles of neurotransmitter, and only the postsynaptic membrane has receptors. So the impulse can pass in one direction only.",
+            "Spatial summation: several presynaptic neurones release neurotransmitter onto one postsynaptic neurone. Together they reach the threshold when one alone could not.",
+            "Temporal summation: one presynaptic neurone fires many times in quick succession. The neurotransmitter builds up and reaches the threshold.",
+            "Inhibition: at inhibitory synapses, the neurotransmitter opens chloride ion channels (and potassium ion channels). Cl⁻ enters and K⁺ leaves, so the membrane is hyperpolarised and an action potential is less likely.",
+            "Excitatory synapses make an action potential more likely. The effects of both types are added together."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Synapses make transmission unidirectional.",
+            "Summation lets several small inputs add up to reach the threshold.",
+            "Inhibitory synapses hyperpolarise the postsynaptic membrane."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The neuromuscular junction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A neuromuscular junction is a synapse between a motor neurone and a muscle fibre."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Cholinergic synapse between neurones",
+            "Neuromuscular junction"
+          ],
+          "rows": [
+            [
+              "Neurotransmitter",
+              "Acetylcholine",
+              "Always acetylcholine"
+            ],
+            [
+              "Postsynaptic membrane",
+              "Smooth",
+              "Folded, giving a larger surface area, with more receptors"
+            ],
+            [
+              "Result",
+              "May be excitatory or inhibitory",
+              "Always excitatory"
+            ],
+            [
+              "Effect",
+              "A new action potential in a neurone",
+              "An action potential in the muscle fibre, causing contraction"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A neuromuscular junction is a cholinergic synapse onto a muscle fibre.",
+            "It is always excitatory and has a folded postsynaptic membrane."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Drugs and chemical imbalances",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Drugs affect synapses by changing how much neurotransmitter is released, bound or broken down."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A drug may mimic a neurotransmitter, so it binds to the receptors and causes a response.",
+            "A drug may block the receptors, so the neurotransmitter cannot bind and there is no response.",
+            "A drug may inhibit the enzyme that breaks down the neurotransmitter, so it stays in the cleft and keeps the postsynaptic neurone stimulated.",
+            "A drug may stimulate or block release of the neurotransmitter, or block its reabsorption.",
+            "Use the information given to predict and explain the effect of a drug on the synapse."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Drugs can mimic, block, increase or reduce the action of a neurotransmitter.",
+            "Say which step at the synapse the drug changes, then what happens to the postsynaptic membrane."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the role of calcium ions in transmission across a cholinergic synapse.",
+      "a": "The action potential opens voltage-gated calcium ion channels in the presynaptic membrane. Ca²⁺ diffuses in. This causes vesicles to fuse with the membrane and release acetylcholine into the cleft.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why transmission across a synapse is unidirectional.",
+      "a": "Neurotransmitter is released only from the presynaptic knob, because only that side has vesicles. Receptors are only on the postsynaptic membrane. So the signal can only pass from the presynaptic to the postsynaptic neurone.",
+      "marks": 2
+    },
+    {
+      "q": "A drug blocks acetylcholinesterase. Predict and explain the effect on the postsynaptic neurone.",
+      "a": "Acetylcholine is not broken down, so it stays in the cleft. It keeps binding to receptors and keeps sodium channels open. The postsynaptic neurone is repeatedly depolarised and fires continuously or more often.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.6.2.2a",
+        "AQA 3.6.2.2b",
+        "AQA 3.6.2.2c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Compare a cholinergic synapse and a neuromuscular junction: the neuromuscular junction has more receptors, a folded postsynaptic membrane, and always leads to an action potential in the muscle. A synapse between neurones may be excitatory or inhibitory, and may not reach the threshold.",
+                "Be ready to use information given to predict and explain a drug's effects. You do not have to recall the names or modes of action of individual drugs."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.4",
+        "EDEX 8.14",
+        "EDEX 8.15"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Dopamine and Parkinson's disease: low dopamine in parts of the brain causes tremor and slow movement. L-Dopa is converted into dopamine in the brain, so it is used in treatment.",
+                "Serotonin and depression: low serotonin at synapses is linked to depression. Drugs that prevent its reabsorption keep more in the cleft. New drugs are developed by understanding such imbalances.",
+                "MDMA (Ecstasy): it causes release of serotonin and blocks its reabsorption, so there is a flood of serotonin in the synapse. This gives feelings of pleasure, but later the supply is depleted.",
+                "Acetylcholine is the neurotransmitter you must be able to describe, but other transmitters also work at synapses."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 15.1.9"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Describe the structure of a cholinergic synapse and explain how it works, including the role of calcium ions in vesicle fusion, as in the shared note."
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.3d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the structure of a cholinergic synapse and the action of neurotransmitters at it.",
+                "Know the importance of synapses in summation, and the difference between excitatory and inhibitory synapses."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "eb032ec1-23dc-4524-ac21-376eb57f254c",
+      "69f8da21-85aa-41d9-b9f8-b9fd8122b652",
+      "0221ec9b-f359-47de-a1e9-f40843caf530",
+      "3d7aeefb-691e-4a56-826a-1d6e54b991d1",
+      "70c17bbd-dda5-4403-8a35-0d10df3236fd",
+      "340f2fb9-d49b-4b75-8fec-113c90c268f5",
+      "75e9e4ec-dba9-404d-ab4e-6867937bb279",
+      "3b16916d-5c5d-41e7-b008-97bfb2551cde"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

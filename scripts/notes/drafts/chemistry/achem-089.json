@@ -1,0 +1,472 @@
+{
+  "format": 1,
+  "concept_id": "achem-089",
+  "subject": "chemistry",
+  "title": "Organic synthesis routes",
+  "key_idea": "A synthesis route is a chain of familiar reactions. Name the functional groups, work backwards from the target, and state the reagent and condition for each step.",
+  "sections": [
+    {
+      "heading": "Reading a molecule",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A larger molecule often carries several functional groups. Each group reacts in its own way, so naming the groups first tells you how the whole molecule behaves. This section covers spotting groups and predicting what they do."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Functional group",
+            "What it does"
+          ],
+          "rows": [
+            [
+              "Alkene, C=C",
+              "Electrophilic addition. Decolourises bromine water. Reduced by H₂ and nickel."
+            ],
+            [
+              "Haloalkane, C–X",
+              "Nucleophilic substitution (OH⁻, CN⁻, NH₃). Elimination with ethanolic OH⁻."
+            ],
+            [
+              "Alcohol, –OH",
+              "Oxidised if primary or secondary. Dehydrated to an alkene. Forms esters."
+            ],
+            [
+              "Aldehyde, –CHO",
+              "Oxidised to a carboxylic acid. Reduced to a primary alcohol. Gives a silver mirror with Tollens' reagent."
+            ],
+            [
+              "Ketone, C=O",
+              "Not easily oxidised. Reduced to a secondary alcohol. Both aldehydes and ketones react with 2,4-DNP."
+            ],
+            [
+              "Carboxylic acid, –COOH",
+              "Acidic. Releases CO₂ with carbonates. Forms esters with alcohols."
+            ],
+            [
+              "Ester, –COO–",
+              "Hydrolysed by acid or alkali."
+            ],
+            [
+              "Amine, –NH₂",
+              "Basic and a nucleophile. Reacts with acids and acyl chlorides."
+            ],
+            [
+              "Nitrile, –C≡N",
+              "Hydrolysed to a carboxylic acid. Reduced to an amine."
+            ],
+            [
+              "Phenol, –OH on a ring",
+              "Weakly acidic, but does not release CO₂ from carbonates."
+            ],
+            [
+              "Arene (benzene ring)",
+              "Electrophilic substitution, for example nitration or halogenation."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "List every group first, then deal with each one separately.",
+            "Look for groups that would interfere. A reagent meant for one group may also react with another.",
+            "Properties follow from the groups too: a carboxylic acid group makes the molecule acidic, and an amine group makes it basic."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Name each functional group before predicting anything.",
+            "Each group reacts as it would in a simple molecule, unless another group gets in the way."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The reaction toolkit",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A synthesis route is a chain of steps, each one a reaction you already know. This section collects the conversions that appear in routes."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Change",
+            "Reagent",
+            "Conditions"
+          ],
+          "rows": [
+            [
+              "Alkane → haloalkane",
+              "Cl₂ or Br₂",
+              "UV light"
+            ],
+            [
+              "Alkene → haloalkane",
+              "HBr (or HCl)",
+              "Room temperature"
+            ],
+            [
+              "Alkene → alcohol",
+              "Steam, H₃PO₄ catalyst",
+              "High temperature and pressure"
+            ],
+            [
+              "Alkene → alkane",
+              "H₂, nickel",
+              "Heat"
+            ],
+            [
+              "Haloalkane → alcohol",
+              "NaOH(aq)",
+              "Heat under reflux"
+            ],
+            [
+              "Haloalkane → alkene",
+              "NaOH in ethanol",
+              "Heat under reflux"
+            ],
+            [
+              "Haloalkane → nitrile",
+              "KCN in ethanol",
+              "Heat under reflux"
+            ],
+            [
+              "Haloalkane → amine",
+              "Excess NH₃ in ethanol",
+              "Heat in a sealed tube"
+            ],
+            [
+              "Alcohol → alkene",
+              "Concentrated H₂SO₄ or H₃PO₄",
+              "Heat"
+            ],
+            [
+              "Primary alcohol → aldehyde",
+              "K₂Cr₂O₇ / H₂SO₄",
+              "Distil as it forms"
+            ],
+            [
+              "Primary alcohol → carboxylic acid",
+              "K₂Cr₂O₇ / H₂SO₄",
+              "Heat under reflux"
+            ],
+            [
+              "Secondary alcohol → ketone",
+              "K₂Cr₂O₇ / H₂SO₄",
+              "Heat under reflux"
+            ],
+            [
+              "Aldehyde or ketone → alcohol",
+              "NaBH₄",
+              "Aqueous or alcoholic solution"
+            ],
+            [
+              "Aldehyde or ketone → hydroxynitrile",
+              "HCN, KCN catalyst",
+              "Gentle warming"
+            ],
+            [
+              "Carboxylic acid + alcohol → ester",
+              "Concentrated H₂SO₄ catalyst",
+              "Heat under reflux"
+            ],
+            [
+              "Nitrile → amine",
+              "H₂, nickel",
+              "Heat"
+            ],
+            [
+              "Nitrile → carboxylic acid",
+              "Dilute HCl",
+              "Heat under reflux"
+            ],
+            [
+              "Benzene → nitrobenzene",
+              "Concentrated HNO₃ and H₂SO₄",
+              "Below 55 °C"
+            ],
+            [
+              "Nitrobenzene → phenylamine",
+              "Tin and concentrated HCl, then NaOH",
+              "Heat under reflux"
+            ],
+            [
+              "Ester → carboxylic acid and alcohol",
+              "Dilute acid (or NaOH(aq), then acidify)",
+              "Heat under reflux"
+            ],
+            [
+              "Acyl chloride → amide",
+              "NH₃ or a primary amine",
+              "Room temperature"
+            ],
+            [
+              "Benzene → alkylbenzene or phenyl ketone",
+              "Haloalkane or acyl chloride, AlCl₃ catalyst",
+              "Anhydrous conditions"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use only reactions on this table or in your own course.",
+            "Some routes give an extra reagent in the question. Apply it in the same way as the ones you know."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Learn each conversion as reagent plus condition, not just reagent.",
+            "Conditions decide the product: distil for an aldehyde, reflux for an acid."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Planning a route",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A route turns a starting material into a target in two or more steps. This section covers how to plan one, and how to judge it."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Compare",
+              "text": "Write down the functional groups in the start and in the target. Note any change in the number of carbons."
+            },
+            {
+              "lead": "Work backwards",
+              "text": "Ask which compound gives the target in one step. Then ask what gives that compound."
+            },
+            {
+              "lead": "Join the ends",
+              "text": "Check that your chain of steps links to the starting material."
+            },
+            {
+              "lead": "Add reagents",
+              "text": "Write the reagent and condition for every step, and name any intermediate."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A change in carbon number needs a C–C forming step, such as KCN.",
+            "A change of functional group but not carbon number needs a conversion step from the toolkit."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a target molecule and see a two-step route with reagents.",
+            "prompt": "Pick a synthesis",
+            "result_labels": [
+              "Step 1",
+              "Step 2",
+              "Why this order"
+            ],
+            "options": [
+              {
+                "label": "Propene to propanone",
+                "results": [
+                  "Steam with H₃PO₄ catalyst gives propan-2-ol",
+                  "K₂Cr₂O₇ / H₂SO₄, heat under reflux, gives propanone",
+                  "The alcohol must be secondary before it can be oxidised to a ketone."
+                ]
+              },
+              {
+                "label": "Ethene to ethanoic acid",
+                "results": [
+                  "Steam with H₃PO₄ catalyst gives ethanol",
+                  "K₂Cr₂O₇ / H₂SO₄, heat under reflux, gives ethanoic acid",
+                  "Reflux gives full oxidation of the primary alcohol to the acid."
+                ]
+              },
+              {
+                "label": "Bromoethane to propylamine",
+                "results": [
+                  "KCN in ethanol, reflux, gives propanenitrile",
+                  "H₂ with nickel gives propylamine",
+                  "The nitrile step adds the carbon and then becomes the amine."
+                ]
+              },
+              {
+                "label": "Benzene to phenylamine",
+                "results": [
+                  "Concentrated HNO₃ and H₂SO₄ below 55 °C gives nitrobenzene",
+                  "Sn and concentrated HCl under reflux, then NaOH, gives phenylamine",
+                  "Nitration puts a nitrogen group on the ring, and reduction turns it into –NH₂."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate an overall percentage yield for a two-step route.",
+            "question": "Step 1 of a route has a yield of {a}% and step 2 has a yield of {b}%. What is the overall percentage yield?",
+            "variables": [
+              {
+                "id": "a",
+                "min": 60,
+                "max": 95,
+                "step": 5
+              },
+              {
+                "id": "b",
+                "min": 50,
+                "max": 90,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "a * b / 100",
+              "unit": "%",
+              "decimals": 1
+            },
+            "working": [
+              "Overall yield = ({a} / 100) × ({b} / 100) × 100",
+              "= {answer} %"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Plan backwards from the target, then check forwards from the start.",
+            "Overall yield falls with every extra step, which is why short routes are better."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe a two-step synthesis of butanoic acid from 1-bromopropane.",
+      "a": "Step 1: KCN in ethanol, heat under reflux, giving butanenitrile. Step 2: heat under reflux with dilute HCl to give butanoic acid.",
+      "marks": 4
+    },
+    {
+      "q": "A molecule contains both a C=C bond and a –COOH group. State one test for each group.",
+      "a": "C=C: shake with bromine water, which decolourises. –COOH: add sodium carbonate, which fizzes and releases CO₂.",
+      "marks": 2
+    },
+    {
+      "q": "Step 1 of a route has a yield of 80% and step 2 has a yield of 60%. Calculate the overall yield.",
+      "a": "0.80 × 0.60 × 100 = 48%.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.3b",
+        "OCR 4.2.3c",
+        "OCR 6.2.5b",
+        "OCR 6.2.5c"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 18C.19"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.14"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Chemists design a synthesis to be efficient and to cause as little harm as possible. A route is judged on more than yield."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**No solvent** where possible. A solvent-free process needs no separation and gives no solvent waste.",
+                "**Non-hazardous starting materials**, so that fewer risks arise for workers and for the environment.",
+                "**Fewer steps**. Each extra step needs energy, uses reagents and lowers the overall yield.",
+                "**High atom economy**. Fewer atoms from the reactants end up as waste."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Percentage atom economy",
+              "formula": "atom economy = (Mᵣ of desired product ÷ sum of Mᵣ of all products) × 100",
+              "where": [
+                "Mᵣ: relative formula mass"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Routes can be up to four steps long. Each step should come from a reaction in the specification."
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 21.1.1",
+        "CAIE 21.1.2",
+        "CAIE 21.1.3",
+        "CAIE 36.1.1",
+        "CAIE 36.1.2",
+        "CAIE 36.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A route may be given to you to analyse. Take it one step at a time."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Name the **type of reaction** at each step, such as nucleophilic substitution, electrophilic addition, oxidation, reduction, condensation or hydrolysis.",
+                "State the **reagent** and the condition used.",
+                "Suggest a possible **by-product**. For example, elimination can compete with substitution, giving an alkene as well as an alcohol.",
+                "Over-oxidation is another: a primary alcohol may become a carboxylic acid when only an aldehyde was wanted."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "0da97880-d19f-4aed-9697-954e667026e3",
+      "501dbfd3-6bef-4c40-915e-2bd1ff5316a1",
+      "600af8b8-b0e0-4d93-a084-62fe349ef87c",
+      "ad8590bf-c4be-40a5-b88e-9d14dcacb2bb",
+      "0767437c-7146-4cd6-a5d1-40861a7e84b7",
+      "8e2ef938-57fc-4445-8848-f710a004c022",
+      "68e99057-c31f-4e05-8e08-9164c21d4513",
+      "8b3744c4-80f5-4f76-b3fb-83e7fa633a4e",
+      "d70a24c5-9fe2-4455-97e4-65f47d96f29c",
+      "50ffdb4a-c76e-460c-bb9a-8dd878e75137",
+      "49d3820a-9a46-412d-aa5b-7668a986abfb",
+      "8be00f85-8683-48b3-a8d3-37f84832c10d"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "format": 1,
+  "concept_id": "achem-035",
+  "subject": "chemistry",
+  "title": "Partial pressures and Kp",
+  "key_idea": "For gaseous equilibria, Kp is written using partial pressures instead of concentrations. A partial pressure is the mole fraction of a gas multiplied by the total pressure. Kp has units that depend on the equation, and solids are left out.",
+  "sections": [
+    {
+      "heading": "Mole fraction and partial pressure",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a mixture of gases, each gas contributes part of the total pressure. That part is its partial pressure."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Mole fraction",
+              "meaning": "The moles of one gas divided by the total moles of gas in the mixture."
+            },
+            {
+              "term": "Partial pressure",
+              "meaning": "The pressure a gas would exert if it alone occupied the container: its mole fraction × the total pressure."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Mole fraction",
+          "formula": "mole fraction of X = moles of X ÷ total moles of gas",
+          "where": [
+            "mole fraction has no units"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Partial pressure",
+          "formula": "p(X) = mole fraction of X × total pressure",
+          "where": [
+            "p(X) = partial pressure of X, in Pa, kPa or atm",
+            "total pressure in the same unit"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The mole fractions of all the gases add up to 1.",
+            "The partial pressures add up to the total pressure."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise finding a partial pressure from moles of gas and total pressure.",
+            "question": "A mixture contains **{n} mol** of gas X out of **{t} mol** of gas in total, at a total pressure of **{P} kPa**. Calculate the partial pressure of X.",
+            "variables": [
+              {
+                "id": "n",
+                "min": 0.2,
+                "max": 0.8,
+                "step": 0.2
+              },
+              {
+                "id": "t",
+                "min": 1.0,
+                "max": 2.0,
+                "step": 0.5
+              },
+              {
+                "id": "P",
+                "min": 100,
+                "max": 500,
+                "step": 100
+              }
+            ],
+            "answer": {
+              "formula": "n / t * P",
+              "unit": "kPa",
+              "decimals": 1
+            },
+            "working": [
+              "Mole fraction of X = {n} ÷ {t}",
+              "p(X) = ({n} ÷ {t}) × {P}",
+              "p(X) = **{answer}** kPa"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Partial pressure = mole fraction × total pressure.",
+            "Mole fractions add to 1 and partial pressures add to the total pressure."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Writing and using Kp",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Kp is the equilibrium constant calculated from partial pressures for a gas-phase system at constant temperature."
+        },
+        {
+          "type": "equation",
+          "label": "Kp for aA(g) + bB(g) ⇌ cC(g) + dD(g)",
+          "formula": "Kp = p(C)ᶜ p(D)ᵈ / (p(A)ᵃ p(B)ᵇ)",
+          "where": [
+            "p(X) = equilibrium partial pressure of X",
+            "a, b, c, d = coefficients in the balanced equation"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The layout is the same as Kc: products over reactants, each to the power of its coefficient.",
+            "In a heterogeneous equilibrium, only gases appear. Solids and liquids are left out.",
+            "Example: CaCO₃(s) ⇌ CaO(s) + CO₂(g) has Kp = p(CO₂).",
+            "Units come from cancelling, for example atm⁻¹ or Pa². Some Kp values have no units."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Calculating Kp"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Moles",
+              "text": "At equilibrium, a 3.0 atm mixture of N₂O₄ ⇌ 2NO₂ contains 0.40 mol N₂O₄ and 0.20 mol NO₂."
+            },
+            {
+              "lead": "Mole fractions",
+              "text": "Total = 0.60 mol. x(N₂O₄) = 0.667 and x(NO₂) = 0.333."
+            },
+            {
+              "lead": "Partial pressures",
+              "text": "p(N₂O₄) = 0.667 × 3.0 = 2.0 atm. p(NO₂) = 0.333 × 3.0 = 1.0 atm."
+            },
+            {
+              "lead": "Kp",
+              "text": "Kp = p(NO₂)² ÷ p(N₂O₄) = 1.0² ÷ 2.0 = 0.50 atm."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Kp uses partial pressures of gases only.",
+            "Find mole fractions, then partial pressures, then substitute.",
+            "Work out the units by cancelling."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Effects of changes on Kp",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Temperature changes the value of Kp.",
+            "Total pressure changes the position of equilibrium, but not the value of Kp.",
+            "A catalyst makes equilibrium arrive sooner, but does not change Kp.",
+            "A pressure rise moves the position to the side with fewer moles of gas, until the ratio equals Kp again."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Only temperature changes Kp.",
+            "Pressure can shift the position without altering Kp."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A gas mixture contains 2.0 mol N₂ and 6.0 mol H₂ at a total pressure of 400 kPa. Calculate the partial pressure of H₂.",
+      "a": "Mole fraction of H₂ = 6.0 ÷ 8.0 = 0.75. p(H₂) = 0.75 × 400 = 300 kPa.",
+      "marks": 2
+    },
+    {
+      "q": "Write the expression for Kp for N₂(g) + 3H₂(g) ⇌ 2NH₃(g).",
+      "a": "Kp = p(NH₃)² ÷ (p(N₂) × p(H₂)³).",
+      "marks": 1
+    },
+    {
+      "q": "Write the expression for Kp for C(s) + CO₂(g) ⇌ 2CO(g) and give its units if pressures are in atm.",
+      "a": "Kp = p(CO)² ÷ p(CO₂), with the solid left out. Units: atm.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.2a",
+        "OCR 5.1.2d",
+        "OCR 5.1.2e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Solids and liquids have constant concentrations, so they are left out of heterogeneous Kc and Kp expressions.",
+                "Calculations of Kc and Kp, or related quantities, include working out the units.",
+                "You will not be asked to solve a quadratic equation."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 11.1",
+        "EDEX 11.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Give partial pressures in atm, so Kp units are written in atm.",
+                "Calculate Kc and Kp from experimental data for both homogeneous and heterogeneous systems, with units where appropriate."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.10"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Predict the qualitative effect of temperature and pressure on the position of equilibrium.",
+                "Predict the qualitative effect of temperature on the value of Kp: it rises for an endothermic reaction and falls for an exothermic reaction as temperature increases.",
+                "A catalyst can change the rate of reaching equilibrium, but not the value of the equilibrium constant."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 7.1.5",
+        "CAIE 7.1.6",
+        "CAIE 7.1.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You do not need the relationship between Kp and Kc.",
+                "Kc and Kp calculations will not need quadratic equations."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "9a2150ba-a5d0-4bb8-98ca-0a3d3df0664d",
+      "a57fe3cc-7526-49d8-8604-78eab1dbfa4a",
+      "fcc2e1f4-c4cd-4795-9501-ae998e575909",
+      "c94b052b-31e9-4fba-bc8c-cd9c34907ede",
+      "2ba6e2e1-bb51-4735-91f9-248505f6820c",
+      "28c03fba-ec4c-4316-bc09-2568a5c30e66",
+      "0ef4f8bd-0384-4f09-ad98-6a2c71027b0f",
+      "30938593-4a10-47ed-ba56-a0a086404f32",
+      "f06627cb-96c9-4cc1-af44-80b39b6859e5"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

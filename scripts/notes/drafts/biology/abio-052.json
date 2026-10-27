@@ -1,0 +1,341 @@
+{
+  "format": 1,
+  "concept_id": "abio-052",
+  "subject": "biology",
+  "title": "Conservation",
+  "key_idea": "Species become extinct mainly because of human activity. Biodiversity is worth keeping for ecological, economic, aesthetic and ethical reasons. It is protected in the wild (in situ) and outside it (ex situ), under international agreements, and by managing resources sustainably.",
+  "sections": [
+    {
+      "heading": "Why species become extinct",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A species becomes extinct when its last individual dies. Several causes often act together."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Climate change**: habitats change faster than species can adapt or migrate. Rising temperature and sea level shrink habitats.",
+            "**Competition**: a new or invasive species competes for food and space and may be better adapted, so the native species declines.",
+            "**Hunting by humans**: over-hunting or over-harvesting removes individuals faster than they can reproduce.",
+            "**Degradation and loss of habitat**: clearing land, pollution and building remove the places where species live."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Small populations are especially at risk. They have low genetic diversity, so they cannot adapt to change and may suffer from inbreeding."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Causes of extinction include climate change, competition, hunting and habitat loss.",
+            "Habitat loss is the main cause.",
+            "Small populations have little genetic diversity and so are at higher risk."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why maintain biodiversity?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "There are four main kinds of reason to conserve species and habitats."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Reason",
+            "Explanation"
+          ],
+          "rows": [
+            [
+              "Ecological",
+              "Species depend on each other. Losing a keystone species can damage the whole community. Wild species hold alleles that may be needed in the future (a genetic resource)."
+            ],
+            [
+              "Economic",
+              "Species give food, medicines and materials. Healthy soil and ecosystems support farming and tourism. Continuous monoculture depletes the soil."
+            ],
+            [
+              "Aesthetic",
+              "People value protected landscapes and wildlife for their beauty and for recreation."
+            ],
+            [
+              "Ethical and social",
+              "Many people believe all species have a right to exist, and that future generations should inherit biodiversity."
+            ]
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Conservation",
+              "meaning": "Managing a resource or habitat so that it is used sustainably and kept for the future."
+            },
+            {
+              "term": "Preservation",
+              "meaning": "Protecting an area from all human interference, leaving it untouched."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reasons are ecological, economic, aesthetic and ethical.",
+            "Conservation allows sustainable use. Preservation allows none.",
+            "Wild species are a genetic resource for crop and animal breeding."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "In situ and ex situ conservation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "**In situ** conservation protects species in their natural habitat. **Ex situ** conservation protects them away from it."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Method",
+            "What it does"
+          ],
+          "rows": [
+            [
+              "National parks, nature reserves and marine conservation zones (in situ)",
+              "Protect whole habitats and the species in them. Hunting, building and fishing are restricted."
+            ],
+            [
+              "Zoos (ex situ)",
+              "Breed endangered species in captivity, reintroduce them to the wild, do scientific research and educate the public."
+            ],
+            [
+              "Botanic gardens (ex situ)",
+              "Grow rare plants, research them and educate the public."
+            ],
+            [
+              "Seed banks (ex situ)",
+              "Store seeds from many species at low temperature and low humidity, to keep genetic diversity safe. Seeds can be grown later."
+            ],
+            [
+              "Frozen zoos (ex situ)",
+              "Store frozen sperm, eggs and embryos of endangered animals."
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity: decide whether each conservation method is in situ or ex situ.",
+            "prompt": "Sort each method into in situ or ex situ conservation",
+            "groups": [
+              "In situ",
+              "Ex situ"
+            ],
+            "items": [
+              {
+                "text": "A marine conservation zone",
+                "group": 0
+              },
+              {
+                "text": "A seed bank",
+                "group": 1
+              },
+              {
+                "text": "A wildlife reserve",
+                "group": 0
+              },
+              {
+                "text": "A captive breeding programme in a zoo",
+                "group": 1
+              },
+              {
+                "text": "A national park",
+                "group": 0
+              },
+              {
+                "text": "A botanic garden",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Evaluating zoos**: captive breeding increases numbers and reintroduction can restore wild populations. But captive animals may lose wild behaviour, breeding stock can be small and inbred, and it is expensive.",
+            "**Evaluating seed banks**: they hold huge numbers of species in little space and keep genetic diversity safe. But seeds of some species cannot be stored, and the plants are not growing in their habitat or evolving with it.",
+            "Assisted reproduction helps endangered mammals: **IVF**, **embryo transfer** and **surrogacy** (a different species or a related female carries the embryo)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "In situ protects the species where it lives. Ex situ protects it elsewhere.",
+            "Zoos, seed banks and botanic gardens store genetic diversity and educate the public.",
+            "Each method has benefits and limits, so conservation uses several together."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Agreements, invasive species and sustainable resources",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Conservation also needs laws and agreements, because species cross borders."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**CITES** controls international trade in endangered species and in products made from them.",
+            "The **IUCN** assesses and lists the conservation status of species and advises governments.",
+            "The Convention on Biological Diversity (Rio) commits countries to conserve biodiversity and to use it sustainably.",
+            "Local schemes, such as the Countryside Stewardship Scheme, pay farmers to manage land for wildlife.",
+            "**Invasive alien species** are controlled because they compete with native species, prey on them or bring disease, and so can cause extinctions and economic damage."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Timber: manage forest by selective felling or coppicing, and replant (reforestation), so that the forest is not lost.",
+            "Fishing: use net mesh sizes that let young fish escape, set quotas and close fishing grounds in breeding seasons, so stocks can recover.",
+            "Biofuels are renewable and can reduce fossil fuel use, but growing them can compete with food crops and destroy habitats.",
+            "Human needs and conservation are in conflict, so resources must be managed so both are met."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "International agreements such as CITES control trade and protect species across borders.",
+            "Invasive species are controlled because they harm native species.",
+            "Sustainable management of timber and fish means taking no more than can be replaced."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why a seed bank is a useful way of conserving plant species.",
+      "a": "It stores seeds of many species in a small space, at low temperature and humidity, so they stay viable. It protects genetic diversity against loss of habitat, and seeds can be grown later to reintroduce the species.",
+      "marks": 3
+    },
+    {
+      "q": "Give two reasons for controlling an invasive alien species.",
+      "a": "Any two from: it competes with native species for food and space; it preys on native species; it brings disease; it can cause extinctions and reduce biodiversity; it can damage crops or the economy.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how fishing can be managed sustainably.",
+      "a": "Use nets with a large mesh size so young fish escape and breed; set quotas for each species; close fishing grounds in the breeding season. Fish stocks can then recover, so fishing can continue.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4.16",
+        "EDEX 5.22"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Evaluate zoos and seed banks on: scientific research, captive breeding programmes, reintroduction programmes and education.",
+                "Reforestation and the use of sustainable resources, including biofuels, are examples of managing the conflict between human needs and conservation."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 18.3.1",
+        "CAIE 18.3.2",
+        "CAIE 18.3.3",
+        "CAIE 18.3.4",
+        "CAIE 18.3.5",
+        "CAIE 18.3.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explain extinction as a result of climate change, competition, hunting by humans and degradation and loss of habitats.",
+                "Outline the roles of zoos, botanic gardens, conserved areas (national parks and marine parks), frozen zoos and seed banks.",
+                "Assisted reproduction is limited to IVF, embryo transfer and surrogacy.",
+                "Explain reasons for controlling invasive alien species.",
+                "Outline the roles of the International Union for Conservation of Nature (IUCN) and the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES)."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.1g",
+        "OCR 4.2.1h",
+        "OCR 4.2.1i",
+        "OCR 6.3.2c",
+        "OCR 6.3.2d",
+        "OCR 6.3.2e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Ecological reasons: protecting keystone species (interdependence of organisms) and maintaining a genetic resource.",
+                "Economic reason: reducing soil depletion from continuous monoculture. Aesthetic reason: protecting landscapes.",
+                "In situ: marine conservation zones and wildlife reserves. Ex situ: seed banks, botanic gardens and zoos.",
+                "Agreements: the Convention on International Trade in Endangered Species (CITES), the Rio Convention on Biological Diversity (CBD) and the Countryside Stewardship Scheme (CSS).",
+                "Know the reasons for, and differences between, conservation and preservation, including economic, social and ethical reasons.",
+                "Management of ecosystems for sustainable resources is limited to timber production and fishing.",
+                "Describe how the conflict between conservation or preservation and human needs is balanced, the effects of human activities on animal and plant populations, and how these are controlled."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "9a27bbd0-6722-48ad-bd29-196d5d526296",
+      "84b5f98b-cbf1-4b73-997f-f9b2640c13e0",
+      "240c0cd0-faf4-4b3c-b3d0-09e118473a6a",
+      "6d2e89f3-0c9a-431a-b3ca-d15466bd2876",
+      "5b14f7e3-dec8-40e8-adc8-6fa84e46db9b",
+      "769ff894-2bf3-4867-a705-c5800dbbcc61",
+      "848e4342-d638-4f6c-bfad-f3cc2ef47e7a",
+      "23424c5f-8fcb-4d16-ad7f-0accbeddc663",
+      "ead1ece1-0af1-4489-a209-3bc698ab6857",
+      "0e2eab9b-a9e1-4aba-a776-63165d35cfe6",
+      "d33e3073-c1af-4c07-a1c8-9567e5ec6b4c",
+      "487c0183-a9ee-4e9b-91dc-7e95bb5e6a53",
+      "1f497d67-8fbd-42d8-bd7d-903607e4dc99",
+      "aff5ba77-b65c-4003-a08b-1b2fe6c901fd"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

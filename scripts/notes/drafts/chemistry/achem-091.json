@@ -1,0 +1,341 @@
+{
+  "format": 1,
+  "concept_id": "achem-091",
+  "subject": "chemistry",
+  "title": "Infrared spectroscopy",
+  "key_idea": "Bonds absorb infrared radiation at characteristic wavenumbers. An IR spectrum shows which bonds, and so which functional groups, a compound contains.",
+  "sections": [
+    {
+      "heading": "How bonds absorb infrared",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Covalent bonds are not rigid. They stretch and bend all the time. This section covers why infrared radiation is absorbed and what an IR spectrum shows."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Infrared (IR) radiation",
+              "meaning": "Electromagnetic radiation with a lower frequency than visible light, but one that matches the vibration of covalent bonds."
+            },
+            {
+              "term": "Wavenumber",
+              "meaning": "The number of waves per centimetre, in cm⁻¹. IR spectra are plotted against wavenumber."
+            },
+            {
+              "term": "Transmittance",
+              "meaning": "The percentage of radiation that passes through the sample. A dip is an absorption."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A bond absorbs IR radiation when the radiation's frequency matches the bond's natural vibration frequency.",
+            "The bond then vibrates with more energy.",
+            "Each type of bond (O–H, C=O, C–H) absorbs at its own **characteristic wavenumber**, depending on the atoms and the bond strength.",
+            "The spectrum is a plot of transmittance against wavenumber. Each trough is an absorption by a bond."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A bond absorbs IR when the radiation's frequency matches the bond's vibration.",
+            "Different bonds absorb at different wavenumbers, so troughs identify bonds."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reading an IR spectrum",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Use a data sheet to match each strong absorption to a bond. This section covers the bonds in the functional groups you need."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Bond",
+            "Where it is found",
+            "Wavenumber / cm⁻¹"
+          ],
+          "rows": [
+            [
+              "O–H",
+              "Alcohols, broad",
+              "3230–3550"
+            ],
+            [
+              "O–H",
+              "Carboxylic acids, very broad",
+              "2500–3300"
+            ],
+            [
+              "N–H",
+              "Amines",
+              "3300–3500"
+            ],
+            [
+              "C–H",
+              "Alkanes, alkenes, arenes",
+              "2850–3100"
+            ],
+            [
+              "C–H",
+              "Aldehydes, as well as the C=O",
+              "2700–2900"
+            ],
+            [
+              "C≡N",
+              "Nitriles",
+              "2200–2260"
+            ],
+            [
+              "C=O",
+              "Aldehydes, ketones, acids, esters",
+              "1680–1750"
+            ],
+            [
+              "C=C",
+              "Alkenes",
+              "1620–1680"
+            ],
+            [
+              "C–O",
+              "Alcohols, esters, acids",
+              "1000–1300"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Almost every organic compound shows C–H absorption near 3000 cm⁻¹, so it does not help to tell them apart.",
+            "A strong, sharp peak at about 1700 cm⁻¹ shows **C=O**. Aldehyde, ketone, acid and ester all show it.",
+            "A broad peak at about 3300 cm⁻¹ shows an **alcohol** O–H.",
+            "A carboxylic acid has both C=O and a very broad O–H, which stretches under the C–H peaks.",
+            "A C=O peak with no broad O–H peak points to an aldehyde, ketone or ester."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a compound and see its main IR absorptions.",
+            "prompt": "Pick a compound",
+            "result_labels": [
+              "Above 2500 cm⁻¹",
+              "Near 1700 cm⁻¹",
+              "Other key absorption"
+            ],
+            "options": [
+              {
+                "label": "Ethanol",
+                "results": [
+                  "Broad O–H at 3230–3550",
+                  "None",
+                  "C–O at 1000–1300"
+                ]
+              },
+              {
+                "label": "Ethanal",
+                "results": [
+                  "C–H at 2700–2900 as well as 2850–3000",
+                  "C=O, strong, 1680–1750",
+                  "None other"
+                ]
+              },
+              {
+                "label": "Propanone",
+                "results": [
+                  "C–H only, 2850–3000",
+                  "C=O, strong, 1680–1750",
+                  "None other"
+                ]
+              },
+              {
+                "label": "Ethanoic acid",
+                "results": [
+                  "Very broad O–H, 2500–3300",
+                  "C=O, strong, 1680–1750",
+                  "C–O at 1000–1300"
+                ]
+              },
+              {
+                "label": "Ethylamine",
+                "results": [
+                  "N–H at 3300–3500",
+                  "None",
+                  "C–H at 2850–3100"
+                ]
+              },
+              {
+                "label": "But-1-ene",
+                "results": [
+                  "C–H at 2850–3100",
+                  "None. C=C is at 1620–1680",
+                  "C=C at 1620–1680"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Predicting a spectrum"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "List the bonds",
+              "text": "Write down every bond type in the molecule."
+            },
+            {
+              "lead": "Match",
+              "text": "Find each bond's wavenumber range on the data sheet."
+            },
+            {
+              "lead": "Check",
+              "text": "Note whether any O–H is broad, and whether any C=O is present."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Look first for the O–H region, then for C=O near 1700, then for C=C.",
+            "Broad O–H plus C=O means carboxylic acid.",
+            "Use ranges from the data sheet to name each peak."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Infrared and the atmosphere",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some gases in the atmosphere absorb IR. This section covers why that matters for climate."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gases whose molecules contain **C=O**, **O–H** or **C–H** bonds absorb IR. Examples are CO₂, H₂O and CH₄.",
+            "The Earth's surface emits IR radiation. These gases absorb some of it before it escapes to space.",
+            "The absorbed energy is re-emitted in all directions, which warms the lower atmosphere.",
+            "Rising levels of these gases are linked to global warming. This is the main reason for efforts to reduce fossil fuel use and cut energy demand."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "CO₂, H₂O and CH₄ absorb IR because their bonds vibrate.",
+            "More of these gases traps more heat."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "An IR spectrum has a strong peak at 1715 cm⁻¹ and a very broad absorption from 2500 to 3300 cm⁻¹. Which functional group is present?",
+      "a": "A carboxylic acid: C=O at about 1700 cm⁻¹ and a very broad O–H.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a molecule's bonds absorb infrared radiation.",
+      "a": "The frequency of the IR matches the natural vibration frequency of the bond. The bond absorbs the energy and vibrates more.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why methane is a greenhouse gas.",
+      "a": "Its C–H bonds absorb IR radiation emitted from the Earth's surface, which warms the atmosphere.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.4a",
+        "OCR 4.2.4b",
+        "OCR 4.2.4c",
+        "OCR 4.2.4d",
+        "OCR 4.2.4e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "IR spectroscopy is used to monitor air quality and to test breath."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Air pollution**: CO and NO from car exhausts absorb IR at known wavenumbers, so their amounts can be measured in the air.",
+                "**Breathalysers**: ethanol in the breath absorbs IR through its C–H and O–H bonds. The amount of absorption gives the concentration of ethanol.",
+                "In examinations, the IR absorption data are provided on the data sheet."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 7B.2"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.6.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Spectra are used to identify bonds, to identify a substance and to spot impurities."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The part of the spectrum below about 1500 cm⁻¹ is the **fingerprint region**. It contains many absorptions unique to each molecule.",
+                "A sample is identified by comparing its whole spectrum with a database of known spectra.",
+                "A peak in the spectrum that does not belong to the pure compound shows an **impurity**. For example, a broad O–H absorption in a sample of an ester points to water or alcohol."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 22.1.1"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "db39f3f9-3920-4fba-8e2d-bc3c6a6fed91",
+      "22e7bbf3-bd7e-4cd7-8abc-076bd33e09ca",
+      "e4ad7421-803a-42ac-826c-c330d8268522",
+      "ec0209cd-8c40-4079-a311-010a999dcea8",
+      "3efe1a15-ec90-42e8-be33-c7f7f00dd59d",
+      "02b42ee5-4f17-4613-8224-aa6b82508721",
+      "a3a6a7eb-1ea3-4246-8e4c-b81ce20d2cc0",
+      "98f50ac4-3b4d-416a-a8a1-1df6b98e873d"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

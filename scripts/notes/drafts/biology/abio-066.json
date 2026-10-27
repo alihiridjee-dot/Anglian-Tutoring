@@ -1,0 +1,187 @@
+{
+  "format": 1,
+  "concept_id": "abio-066",
+  "subject": "biology",
+  "title": "Climate change",
+  "key_idea": "Records show that atmospheric carbon dioxide and global temperature have risen together. Human activity releases greenhouse gases that enhance the greenhouse effect. Models predict future change but have limits, and the effects on organisms include shifts in distribution and life cycles.",
+  "sections": [
+    {
+      "heading": "Evidence for climate change",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Scientists use several types of evidence to study past and present climate. Each has strengths and limits."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Carbon dioxide records**: direct measurements of the atmosphere, and bubbles of ancient air trapped in ice cores.",
+            "**Temperature records**: thermometer measurements over the last 150 years or so.",
+            "**Pollen in peat bogs**: peat preserves pollen in layers. The species of pollen show which plants grew, and so what the climate was.",
+            "**Dendrochronology**: tree rings. Wide rings show good growth in warm, wet years; narrow rings show poor growth.",
+            "Older records come from these indirect (proxy) sources, so they are less precise than modern measurements."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Two variables that change together show a **correlation**. A correlation does not prove one causes the other. A causal link needs a known mechanism."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Carbon dioxide concentration and global temperature both rising over time.",
+            "x": { "label": "Year", "min": 1900, "max": 2020, "ticks": [1900, 1930, 1960, 1990, 2020] },
+            "y": { "label": "Relative level" },
+            "series": [
+              { "name": "Atmospheric carbon dioxide", "points": [[1900, 0.1], [1930, 0.15], [1960, 0.3], [1990, 0.6], [2020, 0.95]] },
+              { "name": "Global mean temperature", "points": [[1900, 0.15], [1930, 0.25], [1960, 0.3], [1990, 0.55], [2020, 0.9]] }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Evidence comes from CO₂ records, temperature records, pollen in peat and tree rings.",
+            "Correlation shows a link; a mechanism is needed to show cause."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The greenhouse effect",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some gases in the atmosphere trap heat, which keeps the Earth warm. Human activity has increased their concentrations."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Short-wave radiation from the Sun passes through the atmosphere and warms the Earth's surface.",
+            "The surface emits longer-wavelength infrared radiation.",
+            "**Greenhouse gases** such as carbon dioxide and methane absorb this and re-emit it, so heat is trapped and the Earth warms.",
+            "This natural greenhouse effect is needed for life. The enhanced effect raises temperatures further."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Anthropogenic (human) climate change comes from activities that raise greenhouse gases."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Burning fossil fuels and deforestation release **carbon dioxide**.",
+            "Cattle, rice paddies and landfill release **methane**.",
+            "Cutting down forests also removes trees that take in carbon dioxide."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbon dioxide and methane absorb infrared radiation and trap heat.",
+            "Fossil fuels, deforestation and farming add to the greenhouse gases."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Predictions and their limits",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Scientists extrapolate data and build models to predict future climate. These predictions are useful but uncertain."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Extrapolation** extends a trend beyond the measured data, for example a rising CO₂ line.",
+            "Models combine many factors, such as emissions, oceans and clouds, to predict future temperature.",
+            "Models have limits: the climate is very complex, some factors are poorly understood, and the input data and assumptions may be incomplete.",
+            "Predictions depend on how much people reduce emissions, which cannot be known in advance."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Extrapolated data feed models of future climate.",
+            "Models have limitations, so predictions carry uncertainty."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Effects on organisms, and who reaches conclusions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Changes in temperature, rainfall patterns and seasonal cycles affect where organisms live and how they develop."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Distribution**: species move towards the poles or up mountains as their habitat warms. Some cannot move and decline.",
+            "**Development and life cycles**: warmer springs can bring earlier flowering, leaf burst, egg laying and insect emergence.",
+            "A mismatch can arise if the timing of a predator's or pollinator's life cycle no longer matches its food supply.",
+            "Changing rainfall patterns bring drought or flooding, which alter plant growth and the animals that depend on it."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Scientific conclusions on controversial issues can depend on who reaches them. Examples are what should be done to cut emissions, and how far humans are causing climate change."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A group funded by an industry may emphasise evidence that suits its interests.",
+            "Check whether the source is independent, peer reviewed and based on sufficient data."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Climate change alters distribution, development and life cycles.",
+            "Evaluate who produced a conclusion and whether it is unbiased."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how tree rings are used as evidence of past climate.",
+      "a": "Each year a tree lays down a ring. Wider rings show better growth in warm, wet years and narrower rings show poorer growth, so ring width gives a record of past climate.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how carbon dioxide and methane contribute to the greenhouse effect.",
+      "a": "They absorb infrared radiation emitted from the Earth's surface and re-emit it, so heat is trapped in the atmosphere and temperature rises.",
+      "marks": 3
+    },
+    {
+      "q": "Suggest two limitations of models used to predict future climate.",
+      "a": "Any two from: the climate system is very complex; some factors are not well understood; data are incomplete or uncertain; future human emissions cannot be known; extrapolation assumes the trend continues.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 5.12", "EDEX 5.13", "EDEX 5.14", "EDEX 5.15", "EDEX 5.20"]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "365424d8-74ff-4bcc-9211-e7961c112d06",
+      "217722ec-8e06-4a84-815c-ea676045dfd0",
+      "a381cb9f-f535-447d-b6f7-a679d0d745a3",
+      "42cfd817-f30d-4bad-9c1c-d75dbd287602",
+      "5e7bc122-9666-4500-b1c7-861203d18071"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,349 @@
+{
+  "format": 1,
+  "concept_id": "achem-093",
+  "subject": "chemistry",
+  "title": "Chromatography",
+  "key_idea": "Chromatography separates a mixture because its components are shared differently between a stationary and a mobile phase. Rf values in TLC and retention times in GC identify the components.",
+  "sections": [
+    {
+      "heading": "How chromatography separates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chromatography separates the components of a mixture. This section covers the two phases and why substances separate."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Stationary phase",
+              "meaning": "The phase that stays in place. It is a solid, or a liquid held on a solid support."
+            },
+            {
+              "term": "Mobile phase",
+              "meaning": "The phase that moves through or over the stationary phase, carrying the mixture with it. It is a liquid solvent or a gas."
+            },
+            {
+              "term": "Retention",
+              "meaning": "How strongly a substance is held back by the stationary phase."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each component of the mixture is shared between the mobile and the stationary phase.",
+            "A component that is **more soluble in the mobile phase** moves faster and further.",
+            "A component that is **held more strongly by the stationary phase** moves more slowly.",
+            "Different components have different balances between the two phases, so they separate."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Separation depends on the balance between solubility in the mobile phase and retention by the stationary phase.",
+            "The more strongly a substance is held, the slower it travels."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Thin-layer chromatography",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In thin-layer chromatography (TLC), a plate coated with a thin layer of solid is the stationary phase. This section covers how a plate is used and read."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Spot",
+              "text": "Draw a pencil line (the baseline) near the bottom of the plate and put a small spot of each sample on it."
+            },
+            {
+              "lead": "Develop",
+              "text": "Stand the plate in a shallow layer of solvent, below the baseline, in a covered container."
+            },
+            {
+              "lead": "Stop",
+              "text": "Remove the plate when the solvent is near the top and mark the solvent front straight away."
+            },
+            {
+              "lead": "Show",
+              "text": "If the spots are colourless, make them visible with UV light or a chemical developing agent."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pencil is used because it does not dissolve in the solvent.",
+            "A lid keeps the air saturated with solvent vapour, so the solvent front moves evenly."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rf value",
+          "formula": "Rf = distance moved by the spot ÷ distance moved by the solvent front",
+          "where": [
+            "Both distances are measured from the baseline, in the same units",
+            "Rf has no units and is always between 0 and 1"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The same compound gives the same Rf value under the same conditions.",
+            "Compare Rf values with standards run on the same plate to identify the components.",
+            "A compound with a **higher Rf** is more soluble in the solvent, or held less strongly by the plate, than one with a lower Rf.",
+            "If a sample gives two spots, it is a mixture of at least two compounds."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate an Rf value from two distances measured on a TLC plate.",
+            "question": "A spot moves {a} cm from the baseline. The solvent front moves {b} cm. Calculate the Rf value.",
+            "variables": [
+              {
+                "id": "a",
+                "min": 1,
+                "max": 5.5,
+                "step": 0.5
+              },
+              {
+                "id": "b",
+                "min": 6,
+                "max": 9,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "a / b",
+              "decimals": 2
+            },
+            "working": [
+              "Rf = distance moved by spot ÷ distance moved by solvent front",
+              "Rf = {a} ÷ {b} = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rf = distance moved by spot ÷ distance moved by solvent front.",
+            "Match the Rf values with standards to identify a substance."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Column and gas chromatography",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Column chromatography packs the stationary phase into a tube, and the mobile phase flows through it. This section covers gas chromatography, GC, which separates volatile substances."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In **GC**, the stationary phase is a high-boiling-point liquid or solid held in a long column. The mobile phase is an unreactive carrier gas such as helium or nitrogen.",
+            "The sample is vaporised and carried through the heated column.",
+            "Each component leaves the column at its own **retention time**, the time from injection to the peak.",
+            "A detector at the end records a peak for each component."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Retention time",
+              "meaning": "The time a substance takes to pass through the column. It is the same under the same conditions."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Compare retention times with those of known standards to identify the components.",
+            "The **area under each peak** is proportional to the amount of that component, so it shows the proportion of each in the mixture.",
+            "The percentage composition of a component is its peak area as a percentage of the total peak area.",
+            "A longer retention time means the component interacts more strongly with the stationary phase."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Percentage composition from a chromatogram",
+          "formula": "% of component = (peak area of component ÷ total peak area) × 100",
+          "where": [
+            "Peak areas are in the same units"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "GC can be linked to a mass spectrometer (GC–MS). The chromatograph separates the components, and each is then identified from its mass spectrum."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Retention time identifies a component; peak area gives how much there is.",
+            "GC–MS separates the mixture, then identifies each component."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A spot travels 3.6 cm and the solvent front travels 7.2 cm. Calculate the Rf value.",
+      "a": "Rf = 3.6 ÷ 7.2 = 0.50.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why two amino acids with different Rf values separate on a TLC plate.",
+      "a": "They are shared differently between the stationary phase and the solvent. The one that is more soluble in the solvent, or held less strongly by the plate, moves further and has a higher Rf.",
+      "marks": 3
+    },
+    {
+      "q": "A gas chromatogram has two peaks with areas of 30 and 90. Calculate the percentage of the first component.",
+      "a": "30 ÷ (30 + 90) × 100 = 25%.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.3.1a",
+        "OCR 6.3.1b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A calibration curve turns peak areas into concentrations."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Prepare",
+                  "text": "Make solutions of the substance at several known concentrations."
+                },
+                {
+                  "lead": "Run",
+                  "text": "Run each standard under the same conditions and record the peak area."
+                },
+                {
+                  "lead": "Plot",
+                  "text": "Plot peak area against concentration to give the calibration curve."
+                },
+                {
+                  "lead": "Read",
+                  "text": "Read the concentration of the unknown from the curve, using its peak area."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "This is called an external calibration, as the standards are run separately. Peak integration values are given in the exam."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 19C.6",
+        "EDEX 19C.7",
+        "EDEX 19C.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**HPLC**, high performance liquid chromatography, is a type of column chromatography. A liquid is forced through the column under high pressure.",
+                "GC and HPLC separate substances because they have different retention times in the column.",
+                "Either can be used together with mass spectrometry in forensics, and in drug testing in sport."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.16"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Column chromatography (CC)**: a column is packed with a solid and a solvent moves down it.",
+                "**Gas chromatography (GC)**: the column holds a solid, or a solid coated with a liquid. A gas is passed through it under pressure at a high temperature.",
+                "Separation by TLC is a required practical. Spots can be seen under UV light or after a developing agent, and an Rf value is calculated for each."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 37.1.1",
+        "CAIE 37.1.2",
+        "CAIE 37.1.3",
+        "CAIE 37.2.1",
+        "CAIE 37.2.2",
+        "CAIE 37.2.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "For TLC, the stationary phase is a solid such as aluminium oxide on a solid support. The mobile phase is a polar or non-polar solvent.",
+                "The **baseline** is where the sample is spotted, and the **solvent front** is how far the solvent has travelled.",
+                "In gas–liquid chromatography, the stationary phase is a high-boiling-point non-polar liquid on a solid support. The mobile phase is an unreactive gas.",
+                "A polar compound is held more by a polar stationary phase and moves less far. A non-polar compound is more soluble in a non-polar solvent and moves further."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "b9ea47d5-6bb2-4d50-8a2d-e3678625d92b",
+      "a31341e4-e5c9-4cb3-8e17-c1b3235b6c4e",
+      "11c1bf20-07ad-4fca-b8c5-dbddcd0e2601",
+      "c4500281-05c6-48fb-bf24-bf727e1033a9",
+      "2f572302-164c-4b50-9c92-323720f400e1",
+      "57626cf5-dea8-4053-acef-5f7f937c54ab",
+      "ed313d4f-f3e6-49c4-97d9-b9a5791b62b1",
+      "d05f59c4-9ec2-4f64-9099-9b0103b1ba6a",
+      "85d2be22-0863-4712-b206-43df6566808c",
+      "67f8721d-1018-46e9-9c2e-bbba82d528b7",
+      "eb16ee5d-0f45-4d6f-b728-a69142439904",
+      "4a6a5998-220b-4cf2-9c4d-0746383022d0"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

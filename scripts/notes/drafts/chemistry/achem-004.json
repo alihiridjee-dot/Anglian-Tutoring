@@ -1,0 +1,271 @@
+{
+  "format": 1,
+  "concept_id": "achem-004",
+  "subject": "chemistry",
+  "title": "Ionisation energies",
+  "key_idea": "**Ionisation energy** measures how strongly an atom holds its outer electron. It depends on nuclear charge, distance, shielding and the sub-shell the electron is in. Patterns in ionisation energies are evidence for **shells** and **sub-shells**.",
+  "sections": [
+    {
+      "heading": "Defining ionisation energy",
+      "blocks": [
+        { "type": "paragraph", "text": "Ionisation energy is the energy needed to remove electrons from atoms. This section covers the definitions, the equations and what controls the size of the energy." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "First ionisation energy", "meaning": "The energy needed to remove one electron from each atom in one mole of gaseous atoms, to form one mole of gaseous 1+ ions." },
+            { "term": "Successive ionisation energies", "meaning": "The energies needed to remove the second, third and later electrons, one at a time, from one mole of gaseous ions." }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "First ionisation energy",
+          "formula": "X(g) → X⁺(g) + e⁻",
+          "where": ["state symbols (g) are essential", "for magnesium: Mg(g) → Mg⁺(g) + e⁻", "measured in kJ mol⁻¹"]
+        },
+        {
+          "type": "equation",
+          "label": "Second ionisation energy",
+          "formula": "X⁺(g) → X²⁺(g) + e⁻",
+          "where": ["for magnesium: Mg⁺(g) → Mg²⁺(g) + e⁻", "for the third: X²⁺(g) → X³⁺(g) + e⁻"]
+        },
+        { "type": "subheading", "text": "What controls the size" },
+        {
+          "type": "paragraph",
+          "text": "The energy is needed to pull the outer electron away from the attraction of the nucleus. A stronger attraction gives a larger ionisation energy."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Nuclear charge:** more protons give a stronger attraction.",
+            "**Distance (atomic radius):** an electron further from the nucleus is held more weakly.",
+            "**Shielding:** inner electrons repel the outer electron and weaken the attraction. More inner shells mean more shielding.",
+            "**Sub-shell:** an electron in a higher energy sub-shell, such as p compared with s, is easier to remove.",
+            "**Spin-pair repulsion:** two electrons in the same orbital repel each other, so one is easier to remove."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "First ionisation energy: X(g) → X⁺(g) + e⁻, per mole, in kJ mol⁻¹.",
+            "Ionisation energy is the attraction between the nucleus and the outer electron.",
+            "It rises with nuclear charge and falls with distance, shielding and repulsion between paired electrons."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Trends across a period and down a group",
+      "blocks": [
+        { "type": "paragraph", "text": "First ionisation energy follows clear patterns in the Periodic Table. Each can be explained using the factors above." },
+        { "type": "subheading", "text": "Down a group" },
+        {
+          "type": "list",
+          "items": [
+            "First ionisation energy **decreases** down a group.",
+            "Each element has an extra shell, so the outer electron is further from the nucleus.",
+            "There are more inner electrons, so shielding is greater.",
+            "These effects outweigh the larger nuclear charge, so the attraction on the outer electron is weaker."
+          ]
+        },
+        { "type": "subheading", "text": "Across a period" },
+        {
+          "type": "list",
+          "items": [
+            "First ionisation energy **generally increases** across a period.",
+            "The nuclear charge increases and the electrons are added to the same shell, so shielding stays about the same.",
+            "The atomic radius gets smaller, so the outer electron is held more strongly."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A graph of first ionisation energy against atomic number from sodium to argon. It rises generally, with small dips at aluminium and sulfur.",
+            "x": { "label": "Atomic number", "min": 11, "max": 18, "ticks": [11, 12, 13, 14, 15, 16, 17, 18] },
+            "y": { "label": "First ionisation energy" },
+            "series": [
+              {
+                "name": "Period 3",
+                "points": [[11, 0.31], [12, 0.46], [13, 0.36], [14, 0.49], [15, 0.63], [16, 0.62], [17, 0.78], [18, 0.95]]
+              }
+            ],
+            "markers": [
+              { "x": 13, "label": "Al: 3p electron" },
+              { "x": 16, "label": "S: paired 3p electrons" }
+            ]
+          }
+        },
+        { "type": "subheading", "text": "The small dips" },
+        {
+          "type": "table",
+          "columns": ["Dip", "Reason"],
+          "rows": [
+            ["Be to B, Mg to Al", "The outer electron is in a p sub-shell, which has higher energy than the s sub-shell and is partly shielded by the s electrons. It is easier to remove."],
+            ["N to O, P to S", "The fourth p electron has to pair up in an orbital with another electron. Repulsion between the pair makes it easier to remove."]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Down a group: more shells and shielding, larger radius, so the energy falls.",
+            "Across a period: more protons and a smaller radius, so the energy generally rises.",
+            "Dips at the start of the p block and when electrons first pair up in p."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Successive ionisation energies",
+      "blocks": [
+        { "type": "paragraph", "text": "Removing electrons one after another from the same atom needs more and more energy. Big jumps show where one shell ends and the next begins." },
+        {
+          "type": "list",
+          "items": [
+            "Each electron comes from a more positive ion, so the attraction is stronger and the energy rises.",
+            "There is a **big jump** when the next electron comes from a shell closer to the nucleus. It is less shielded and held much more tightly.",
+            "The number of electrons removed before a big jump is the number in the outer shell, so it gives the group of the element.",
+            "The number of electrons between jumps gives the number in each shell."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A graph of the logarithm of successive ionisation energy against the number of electrons removed for sodium. There is a big jump after the first electron and another after the ninth.",
+            "x": { "label": "Number of electrons removed", "min": 1, "max": 11, "ticks": [1, 3, 5, 7, 9, 11] },
+            "y": { "label": "log of ionisation energy" },
+            "series": [
+              {
+                "name": "Sodium",
+                "points": [[1, 0.07], [2, 0.39], [3, 0.45], [4, 0.49], [5, 0.54], [6, 0.57], [7, 0.6], [8, 0.64], [9, 0.65], [10, 0.88], [11, 0.9]]
+              }
+            ],
+            "markers": [
+              { "x": 2, "label": "Now in shell 2" },
+              { "x": 10, "label": "Now in shell 1" }
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Find the big jumps.", "text": "Sodium has a jump after 1 electron and another after 9." },
+            { "lead": "Count between them.", "text": "The shells hold 2, 8 and 1 electrons, counting from the nucleus." },
+            { "lead": "Give the group.", "text": "One electron in the outer shell means Group 1." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Successive ionisation energies always increase.",
+            "A big jump marks the move to an inner shell.",
+            "The jumps give the electrons in each shell, and the group of the element."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write an equation, with state symbols, for the second ionisation energy of calcium.",
+      "a": "Ca⁺(g) → Ca²⁺(g) + e⁻",
+      "marks": 1
+    },
+    {
+      "q": "Explain why the first ionisation energy of magnesium is greater than that of calcium.",
+      "a": "Calcium has an extra shell, so its outer electron is further from the nucleus and there is more shielding. The attraction between the nucleus and the outer electron is weaker, so less energy is needed.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the first ionisation energy of oxygen is lower than that of nitrogen.",
+      "a": "In oxygen two electrons share one 2p orbital. They repel each other, so one electron is easier to remove than in nitrogen, where every 2p orbital has a single electron.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": ["OCR 3.1.1c"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Learn the definition of first ionisation energy: the removal of 1 mole of electrons from 1 mole of gaseous atoms. A definition of successive ionisation energies is not required.",
+                "Explain the trend across Periods 2 and 3 and down a group in terms of attraction, nuclear charge and atomic radius.",
+                "Explain the small decreases between Be and B, from the s and p sub-shell energies, and between N and O, from p-orbital repulsion.",
+                "Trends in ionisation energy support the Bohr model of the atom."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 1.11", "EDEX 1.12", "EDEX 1.13", "EDEX 1.14"]
+    },
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.1.1.3"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            { "type": "paragraph", "text": "Use ionisation energies as evidence for electron configuration in Period 3 (Na to Ar) and Group 2 (Be to Ba)." },
+            {
+              "type": "list",
+              "items": [
+                "**Group 2:** the first ionisation energy falls from Be to Ba. This is evidence for electrons in shells, because each element has one more shell than the one above.",
+                "**Period 3, Mg to Al:** the energy drops. This is evidence for sub-shells, because the 3p electron is higher in energy than the 3s electrons.",
+                "**Period 3, P to S:** the energy drops. This is evidence that electrons pair up in p orbitals, and repel each other.",
+                "**Successive ionisation energies:** the big jumps are evidence for the number of shells and the electrons in each."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 1.4.1", "CAIE 1.4.2", "CAIE 1.4.3", "CAIE 1.4.4", "CAIE 1.4.5", "CAIE 1.4.6", "CAIE 1.4.7", "CAIE 1.4.8"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "State that ionisation energies are due to the attraction between the nucleus and the outer electron.",
+                "Factors to explain: nuclear charge, atomic or ionic radius, shielding by inner shells and sub-shells, and spin-pair repulsion.",
+                "Deduce the electronic configuration of an element from its successive ionisation energies.",
+                "Deduce the position of an element in the Periodic Table: the number of electrons removed before the first big jump is the number of outer electrons, which gives the group (1 for Group 1, 2 for Group 2, 3 for Group 13)."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "7b3f660d-e99f-48e8-8593-01ca9bef60ee",
+      "64546a28-fdc1-4cec-b82f-f9e478b21395",
+      "66a47fa5-6bd7-4b66-ac68-b28abc7a2f10",
+      "e78a0023-a4d7-4bb8-a18a-bfe13c5e5bdd",
+      "31d2ad19-58dd-4c2e-b074-141daaab7f9a",
+      "fb4b1f6d-8e37-47cf-9009-afbb8700ad02",
+      "237f4d43-6f77-41bb-953f-bd989dd041ae",
+      "c02473fd-563e-45d2-ab03-398d4c2a38e6",
+      "6ee79ba9-0aa7-49da-bc4f-c1ced21b4097",
+      "1aaf4773-685e-4b14-a8ed-60a5a5246f03",
+      "a491719a-4591-4558-8555-6e11e182e359",
+      "bd79926f-f571-4343-bea3-82ae4b7d9b6d",
+      "f2dded58-361b-47b8-9ad1-dc51aace3e82"
+    ],
+    "exemplar_ids": []
+  }
+}

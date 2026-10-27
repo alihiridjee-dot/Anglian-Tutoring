@@ -1,0 +1,409 @@
+{
+  "format": 1,
+  "concept_id": "abio-046",
+  "subject": "biology",
+  "title": "Cystic fibrosis and genetic screening",
+  "key_idea": "Cystic fibrosis is a recessive condition caused by a faulty protein in cell surface membranes, which makes mucus thick and sticky. It affects the lungs, digestion and fertility. Genetic screening finds carriers and affected embryos or fetuses, but it raises social and ethical issues.",
+  "sections": [
+    {
+      "heading": "What causes cystic fibrosis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cystic fibrosis (CF) is a genetic disease caused by a mutation in the CFTR gene on chromosome 7. The allele is recessive, so a person needs two copies to be affected."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The CFTR gene codes for a channel protein in the cell surface membrane of epithelial cells.",
+            "The channel carries chloride ions out of the cell.",
+            "In CF, the mutation gives a faulty or missing channel protein, so chloride ions are not secreted properly.",
+            "Water then does not move out of the cells by osmosis into the mucus, so the mucus becomes **thick and sticky**.",
+            "People with one normal allele and one CF allele are carriers. They are healthy, but they can pass the allele on."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Two carriers have a 1 in 4 chance of an affected child, a 1 in 2 chance of a carrier child and a 1 in 4 chance of an unaffected non-carrier."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "CF is caused by a faulty channel protein, so the mucus is thick and sticky.",
+            "The allele is recessive: two carriers have a 1 in 4 chance of an affected child.",
+            "Carriers have no symptoms."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How cystic fibrosis affects the body",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Thick mucus blocks tubes in several organ systems. Three are important."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "System",
+            "What happens",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Gaseous exchange",
+              "Thick mucus builds up in the airways and cilia cannot move it. Bacteria are trapped and multiply.",
+              "Repeated chest infections, damaged lungs, a smaller surface area for gas exchange, breathlessness"
+            ],
+            [
+              "Digestive",
+              "Mucus blocks the pancreatic duct, so digestive enzymes cannot reach the small intestine.",
+              "Poor digestion and absorption of fats and other food, poor growth, malnutrition"
+            ],
+            [
+              "Reproductive",
+              "In males, the tubes (vas deferens) that carry sperm are blocked or missing. In females, thick mucus in the cervix blocks sperm.",
+              "Reduced fertility, or infertility"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Lungs: mucus traps bacteria, causing infections and poor gas exchange.",
+            "Pancreas: blocked duct means enzymes do not reach the intestine.",
+            "Reproductive system: sperm are blocked in males and in females, so fertility is reduced."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Genetic screening",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "**Genetic screening** tests DNA for particular alleles. It can be used at different stages."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Testing adults to find out whether they are **carriers** of an allele, such as the CF allele.",
+            "Testing embryos made by IVF before they are placed in the uterus (pre-implantation genetic diagnosis, PGD).",
+            "Testing a fetus during pregnancy (prenatal testing).",
+            "Testing babies and adults for alleles that increase the risk of disease."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Advantages"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Carriers can make informed decisions about having children.",
+            "Treatment or lifestyle changes can start early.",
+            "Affected embryos can be avoided, so disease is not passed on.",
+            "Couples can prepare for the needs of an affected child."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Screening finds alleles in carriers, embryos, fetuses or at-risk adults.",
+            "It lets people make informed decisions and begin treatment early."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Social and ethical issues",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Screening gives information, but it does not tell people what to do with it. People disagree because they hold different ethical viewpoints."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Statements about genetic screening are sorted into arguments in favour and concerns.",
+            "prompt": "Is each statement an argument in favour of screening, or a concern about it?",
+            "groups": [
+              "In favour",
+              "A concern"
+            ],
+            "items": [
+              {
+                "text": "Parents can prepare for an affected child",
+                "group": 0
+              },
+              {
+                "text": "Embryos or fetuses may be destroyed, which some people believe is wrong",
+                "group": 1
+              },
+              {
+                "text": "Early treatment can improve a person's health",
+                "group": 0
+              },
+              {
+                "text": "Results could be used by employers or insurers",
+                "group": 1
+              },
+              {
+                "text": "A positive test for an untreatable condition may cause anxiety",
+                "group": 1
+              },
+              {
+                "text": "Carriers can choose whether to risk passing an allele on",
+                "group": 0
+              },
+              {
+                "text": "Screening could lead to people with a condition being seen as less valuable",
+                "group": 1
+              },
+              {
+                "text": "A result can tell relatives that they may be carriers",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Some people think all human life is valuable from fertilisation, so destroying an embryo is wrong.",
+            "Others think it is more important to prevent suffering, so selecting unaffected embryos is right.",
+            "Who has a right to the results? Genetic information about one person may affect the whole family.",
+            "Tests are not perfect. False positives and false negatives can cause harm.",
+            "Screening costs money, so access may depend on wealth."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ethical issues: destroying embryos, privacy of results, anxiety, and cost.",
+            "A fair answer gives views on both sides.",
+            "Use the viewpoint named in the question."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how a mutation in the CFTR gene leads to thick, sticky mucus.",
+      "a": "The mutation gives a faulty or missing channel protein in the cell surface membrane. Chloride ions are not transported out of the epithelial cells properly. Water does not move out by osmosis, so the mucus is thick and sticky.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why cystic fibrosis can cause poor growth.",
+      "a": "Thick mucus blocks the pancreatic duct, so digestive enzymes cannot reach the small intestine. Food is not digested and absorbed fully, so the body gets fewer nutrients for growth.",
+      "marks": 3
+    },
+    {
+      "q": "Two healthy parents have a child with cystic fibrosis. State the genotype of the parents and the probability that their next child is affected. Give one ethical concern about screening for CF in embryos.",
+      "a": "Both parents are heterozygous carriers (for example Ff). The chance of the next child being affected is 1 in 4 (25%). Concern: embryos with the CF allele are discarded, which some people believe is wrong; or the test may be wrong; or it could lead to discrimination.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.8.4.2a",
+        "AQA 3.8.4.2b",
+        "AQA 3.8.4.2c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "DNA probes and hybridisation"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **DNA probe** is a short single-stranded piece of DNA with a base sequence complementary to a specific allele.",
+                "The probe is labelled, with a radioactive marker or a fluorescent dye, so it can be seen.",
+                "The sample DNA is cut up, separated into single strands, and mixed with the probe.",
+                "If the allele is present, the probe attaches to it by complementary base pairing. This is **DNA hybridisation**.",
+                "Unattached probe is washed away. A signal shows where the probe is bound, and so the allele has been located."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Using the information"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Probes can screen patients for heritable conditions, drug responses or health risks.",
+                "Genetic counselling helps people understand the results, the risks to their children and their choices.",
+                "In personalised medicine, a patient's alleles are used to choose the drug and dose most likely to work for them, with fewer side effects."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "You may be given screening data and asked to evaluate it. Look at how accurate the test is, the risk if the allele is present, and the benefit of knowing."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.14",
+        "EDEX 2.15",
+        "EDEX 2.16"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Prenatal testing"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Test",
+                "When",
+                "What is taken",
+                "Notes"
+              ],
+              "rows": [
+                [
+                  "Chorionic villus sampling (CVS)",
+                  "From about 11 weeks",
+                  "A sample of cells from the chorionic villi, in the placenta",
+                  "Earlier result, but slightly higher risk of miscarriage"
+                ],
+                [
+                  "Amniocentesis",
+                  "From about 15 weeks",
+                  "A sample of amniotic fluid containing fetal cells",
+                  "Later result, small risk of miscarriage"
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The fetal cells are tested for the allele or for chromosome changes. Both tests carry some risk to the fetus."
+            },
+            {
+              "type": "subheading",
+              "text": "Pre-implantation genetic diagnosis (PGD)"
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "sequence",
+                "alt": "The steps of pre-implantation genetic diagnosis in order.",
+                "prompt": "Put the steps of PGD in order.",
+                "steps": [
+                  "Eggs are collected and fertilised outside the body (IVF)",
+                  "The embryos grow to about eight cells",
+                  "One cell is removed from each embryo",
+                  "The cell's DNA is tested for the faulty allele",
+                  "Only unaffected embryos are placed in the uterus"
+                ]
+              }
+            },
+            {
+              "type": "paragraph",
+              "text": "PGD avoids the decision to end a pregnancy, but it needs IVF, which is costly and may not succeed."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Implications of prenatal screening: parents may need to decide whether to end an affected pregnancy.",
+                "A positive result can cause stress. There is also a risk to the fetus from the test itself.",
+                "Discuss the issues from different viewpoints: religious, those based on rights of the fetus, rights of the parents, and the cost to society."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 19.2.2",
+        "CAIE 19.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Advantages of screening: three examples"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Condition",
+                "What is screened",
+                "Advantage of screening"
+              ],
+              "rows": [
+                [
+                  "Breast cancer",
+                  "Mutant alleles of BRCA1 or BRCA2, which increase the risk of breast and ovarian cancer",
+                  "Regular checks, early treatment, or preventive surgery can reduce the risk of dying from cancer"
+                ],
+                [
+                  "Huntington's disease",
+                  "The dominant HTT allele with extra repeats, which causes late-onset nerve damage",
+                  "Informs family-planning decisions before symptoms start, as there is no cure"
+                ],
+                [
+                  "Cystic fibrosis",
+                  "Carriers of the recessive CF allele, and embryos or fetuses",
+                  "Carriers can decide whether to risk an affected child; early diagnosis starts treatment sooner"
+                ]
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Gene therapy"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Gene therapy** inserts a functional allele into the cells of a patient who has a faulty allele, often using a virus as a vector.",
+                "Somatic gene therapy changes body cells; the change is not passed to children.",
+                "Germline therapy changes gametes or embryos; the change is inherited, which many people think is more serious.",
+                "Concerns: safety and long-term effects, cost, who decides which conditions to treat, and the risk of moving from treating disease to choosing traits."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Discuss the social and ethical issues of screening and gene therapy with reasons on both sides, not a one-sided list."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "4804e260-35aa-48e6-bd8c-0c4b56e51d0b",
+      "71059e9e-81ac-49fa-822c-61ab3f286984",
+      "3149bc3d-64ac-42b0-b014-b88275c8b6ae",
+      "212fdcd2-cae8-4a50-8938-edc445662653",
+      "47a958f0-8e9f-4b95-b0e5-7d45ab75d7fd",
+      "74c45eae-ace3-44c7-869d-a71a42bea489",
+      "6daf5ad9-a552-444b-8a11-da84adf565b0",
+      "08665a87-f658-4b60-ad4c-7bbb667dd8ca"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

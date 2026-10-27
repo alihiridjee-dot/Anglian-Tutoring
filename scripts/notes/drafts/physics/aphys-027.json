@@ -1,0 +1,347 @@
+{
+  "format": 1,
+  "concept_id": "aphys-027",
+  "subject": "physics",
+  "title": "Potential dividers and potentiometers",
+  "key_idea": "A potential divider is two resistors in series that share a supply p.d. in proportion to their resistances. Replacing one with a thermistor or LDR makes the output depend on temperature or light. A potentiometer is a uniform wire along which the potential falls steadily, used to compare p.d.s.",
+  "sections": [
+    {
+      "heading": "The potential divider",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two resistors in series carry the same current, so the supply p.d. is shared in the ratio of their resistances. Taking the output across one of them gives a fraction of the input."
+        },
+        {
+          "type": "equation",
+          "label": "Potential divider",
+          "formula": "Vout = R₂ / (R₁ + R₂) × Vin",
+          "where": [
+            "Vout = p.d. across R₂ (V)",
+            "Vin = supply p.d. across both resistors (V)",
+            "R₁, R₂ = resistances in series (Ω)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Ratio of the p.d.s",
+          "formula": "V₁ / V₂ = R₁ / R₂"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Current",
+              "text": "The same current flows through both: I = Vin / (R₁ + R₂)."
+            },
+            {
+              "lead": "Output",
+              "text": "Vout = I R₂ = R₂ Vin / (R₁ + R₂)."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the supply p.d. and the two resistances to see the output p.d. across the second resistor.",
+            "inputs": [
+              {
+                "id": "Vin",
+                "label": "Supply p.d.",
+                "unit": "V",
+                "min": 1,
+                "max": 12,
+                "step": 1,
+                "value": 9
+              },
+              {
+                "id": "R1",
+                "label": "R₁",
+                "unit": "kΩ",
+                "min": 1,
+                "max": 20,
+                "step": 1,
+                "value": 10
+              },
+              {
+                "id": "R2",
+                "label": "R₂",
+                "unit": "kΩ",
+                "min": 1,
+                "max": 20,
+                "step": 1,
+                "value": 5
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Output p.d. across R₂",
+                "unit": "V",
+                "formula": "R2 / (R1 + R2) * Vin",
+                "decimals": 2
+              },
+              {
+                "label": "p.d. across R₁",
+                "unit": "V",
+                "formula": "R1 / (R1 + R2) * Vin",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Supplying a constant or variable p.d."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Two fixed resistors give a **constant** output p.d., smaller than the supply.",
+            "A **variable resistor** connected across the supply, with the output taken from the sliding contact, gives a p.d. that can be varied smoothly from zero to the full supply.",
+            "Connecting a load across the output lowers the output p.d., because the load is in parallel with R₂."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Vout = R₂ / (R₁ + R₂) × Vin, and V₁ / V₂ = R₁ / R₂.",
+            "The larger resistor takes the larger share of the p.d.",
+            "A load across the output reduces Vout."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Thermistors and LDRs in potential dividers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Replace one resistor with a sensor and the output p.d. now depends on temperature or light."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Condition",
+            "Sensor resistance",
+            "p.d. across the sensor",
+            "p.d. across the fixed resistor"
+          ],
+          "rows": [
+            [
+              "Hotter (thermistor) or brighter (LDR)",
+              "Falls",
+              "Falls",
+              "Rises"
+            ],
+            [
+              "Cooler (thermistor) or darker (LDR)",
+              "Rises",
+              "Rises",
+              "Falls"
+            ]
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Sensor changes",
+              "text": "A rise in temperature lowers the resistance of an NTC thermistor."
+            },
+            {
+              "lead": "Share changes",
+              "text": "A smaller share of the supply p.d. is across the thermistor."
+            },
+            {
+              "lead": "Output changes",
+              "text": "A larger share is across the fixed resistor, so its p.d. rises."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The output can drive a switching circuit, for example to turn a heater off when a room is warm enough.",
+            "Swapping the positions of the sensor and the fixed resistor reverses the direction of the change.",
+            "A variable resistor in place of the fixed one sets the temperature or light level at which the circuit switches."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The p.d. across a resistor rises when its share of the total resistance rises.",
+            "A sensor's resistance falls with heat or light, so its share of the p.d. falls."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Potential along a wire and the potentiometer",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A uniform wire carrying a steady current has the same resistance per unit length. The p.d. between two points on it is proportional to the distance between them."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A driver cell sends a steady current through a long uniform wire.",
+            "The potential falls at a constant rate along the wire, so a graph of potential against distance is a straight line.",
+            "A sliding contact therefore picks off any p.d. from zero to the p.d. across the whole wire.",
+            "This arrangement is a potentiometer, which is a potential divider with a continuously variable ratio."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Comparing p.d.s by a null method"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Connect",
+              "text": "Join the source to be measured, in series with a galvanometer, between one end of the wire and a sliding contact."
+            },
+            {
+              "lead": "Find the balance",
+              "text": "Slide the contact until the galvanometer reads zero. Measure the length L from the end of the wire."
+            },
+            {
+              "lead": "Repeat",
+              "text": "Replace the source with a second one and find its balance length."
+            },
+            {
+              "lead": "Compare",
+              "text": "The two p.d.s are in the ratio of the balance lengths: V₁ / V₂ = L₁ / L₂."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "At balance the galvanometer shows zero current, so the source delivers no current and there are no lost volts.",
+            "A null method compares quantities by finding a point of zero reading, which makes it very accurate. The galvanometer only needs to detect zero, not to be calibrated.",
+            "The driver cell must give a larger p.d. across the whole wire than any p.d. being compared, and the cells must face the same way."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "On a uniform wire, p.d. is proportional to length.",
+            "At balance there is no current through the galvanometer, so V₁ / V₂ = L₁ / L₂."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A 6.0 kΩ resistor and a 3.0 kΩ resistor are in series across a 12 V supply. Calculate the p.d. across the 3.0 kΩ resistor.",
+      "a": "Vout = 3.0 ÷ (6.0 + 3.0) × 12 = 4.0 V.",
+      "marks": 2
+    },
+    {
+      "q": "A thermistor is in series with a fixed resistor across a battery. Explain how the p.d. across the fixed resistor changes as the thermistor is warmed.",
+      "a": "Its resistance falls, so the total resistance falls and the current rises. The thermistor takes a smaller share of the supply p.d. and the fixed resistor takes a larger share, so its p.d. rises.",
+      "marks": 3
+    },
+    {
+      "q": "A cell of e.m.f. 1.50 V balances at 62.0 cm on a potentiometer wire. A second cell balances at 41.0 cm. Calculate its e.m.f.",
+      "a": "E₂ / E₁ = L₂ / L₁, so E₂ = 1.50 × 41.0 ÷ 62.0 = 0.99 V.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.1.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Examples must include variable resistors, thermistors and LDRs in the divider.",
+                "The use of the potentiometer as a measuring instrument is not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.42",
+        "EDEX 3.43",
+        "EDEX 3.44"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 10.3.1",
+        "CAIE 10.3.2",
+        "CAIE 10.3.3",
+        "CAIE 10.3.4"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.3.3a",
+        "OCR 4.3.3b",
+        "OCR 4.3.3c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You must know how to investigate and design a sensor circuit."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Build",
+                  "text": "Connect a thermistor or LDR in series with a fixed resistor across a supply, with a voltmeter across one of them."
+                },
+                {
+                  "lead": "Vary the input",
+                  "text": "Change the temperature (using a water bath and thermometer) or the light level, and record Vout each time."
+                },
+                {
+                  "lead": "Design",
+                  "text": "Choose the fixed resistor so that Vout crosses the switching p.d. at the temperature or light level you want, using Vout = R₂ / (R₁ + R₂) × Vin."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "f8e2b87b-1137-467a-9670-e4a0076917bc",
+      "f301b15e-a585-4464-805b-15dcb516b578",
+      "bb43172c-027b-4384-8fe6-f5052ef2f921",
+      "ee5c1804-0155-4f12-977b-11d2f23ae0b1",
+      "e886b870-2c55-4121-8be2-d9dcdab569f2",
+      "0fc2841f-46e9-47d3-9644-5b3f12986709",
+      "63e056c0-27d0-41a7-a66e-6b58f7216fef",
+      "814111c7-3165-44e5-8822-7d93571019f5",
+      "c3403295-a802-426c-abd7-b3062dd30c46",
+      "05ae0e30-502a-4aeb-9ad2-a7a5ecfe3c98",
+      "d5655145-5853-4c59-9274-c368567f6cd8"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

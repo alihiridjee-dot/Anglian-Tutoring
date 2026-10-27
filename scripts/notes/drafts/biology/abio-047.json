@@ -1,0 +1,451 @@
+{
+  "format": 1,
+  "concept_id": "abio-047",
+  "subject": "biology",
+  "title": "Natural and artificial selection",
+  "key_idea": "Natural selection happens because organisms vary, more are born than survive, and the best adapted leave more offspring. Their alleles become more common over generations. Artificial selection works the same way, but humans choose which organisms breed.",
+  "sections": [
+    {
+      "heading": "How natural selection works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Natural selection changes the alleles in a population over many generations. It needs genetic diversity, which is the number of different alleles of genes in a population."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Adaptation",
+              "meaning": "A feature that helps an organism survive and reproduce in its environment."
+            },
+            {
+              "term": "Niche",
+              "meaning": "The role of a species in its habitat: how it feeds, where it lives and how it interacts with other species."
+            },
+            {
+              "term": "Selection pressure",
+              "meaning": "A factor, such as predation, disease or competition, that makes some individuals more likely to survive than others."
+            },
+            {
+              "term": "Evolution",
+              "meaning": "A change in the allele frequencies in a population over time."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Variation.",
+              "text": "Random mutation makes new alleles. Meiosis and random fertilisation shuffle alleles into new combinations."
+            },
+            {
+              "lead": "Struggle for existence.",
+              "text": "Populations can produce many offspring, which compete for limited resources. Predation, disease and competition kill many of them."
+            },
+            {
+              "lead": "Differential survival.",
+              "text": "Individuals with an advantageous allele are more likely to survive and reproduce. Many mutations are harmful, but in some environments a new allele helps its owner."
+            },
+            {
+              "lead": "Inheritance.",
+              "text": "The advantageous allele is passed to the next generation."
+            },
+            {
+              "lead": "Change over time.",
+              "text": "Over many generations the advantageous allele increases in frequency in the population."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Anatomical** adaptations are structural features, such as a thick layer of blubber.",
+            "**Physiological** adaptations are processes inside the body, such as making a toxin or producing concentrated urine.",
+            "**Behavioural** adaptations are ways an organism acts, such as migrating or courtship displays.",
+            "Unrelated groups can show similar anatomical features because they face similar selection pressures in similar niches."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Selection needs variation, competition and inheritance of the advantageous allele.",
+            "Evolution is a change in allele frequency, not a change in one individual.",
+            "Adaptations may be anatomical, physiological or behavioural."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Types of selection",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The environment can act on a feature that varies continuously, such as height or birth weight. The effect on the population depends on which phenotypes it favours."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type",
+            "Which phenotype is favoured",
+            "Effect on the population"
+          ],
+          "rows": [
+            [
+              "Stabilising",
+              "The average",
+              "Extremes are removed, the mean stays the same and the range narrows."
+            ],
+            [
+              "Directional",
+              "One extreme",
+              "The mean moves towards that extreme."
+            ],
+            [
+              "Disruptive",
+              "Both extremes",
+              "Two peaks form and the average is selected against."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Stabilising selection example: human birth weight. Very small and very large babies are less likely to survive, so medium weights are most common.",
+            "Directional selection example: antibiotic resistance in bacteria. Resistant bacteria survive treatment and the population shifts towards resistance.",
+            "Disruptive selection can happen when the environment has two very different habitats, or two food types, so intermediates do worse."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Pick an environmental change to see which type of selection it produces."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor linking an environmental situation to the type of selection, the effect on the mean and the effect on the range.",
+            "prompt": "Pick a situation",
+            "result_labels": [
+              "Type of selection",
+              "Effect on the mean",
+              "Effect on the range"
+            ],
+            "options": [
+              {
+                "label": "Very small and very large babies die more often than medium ones",
+                "results": [
+                  "Stabilising",
+                  "Stays the same",
+                  "Gets narrower"
+                ]
+              },
+              {
+                "label": "A new antibiotic kills all but the most resistant bacteria",
+                "results": [
+                  "Directional",
+                  "Moves towards high resistance",
+                  "Shifts, as sensitive bacteria are removed"
+                ]
+              },
+              {
+                "label": "Beetles live on dark soil and on pale sand, and medium-coloured beetles are most easily seen by predators",
+                "results": [
+                  "Disruptive",
+                  "Medium colour becomes rare",
+                  "Two peaks form, at dark and pale"
+                ]
+              },
+              {
+                "label": "The climate becomes colder and larger bodies keep heat better",
+                "results": [
+                  "Directional",
+                  "Moves towards larger size",
+                  "Shifts towards the larger end"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stabilising selection favours the mean and reduces the range.",
+            "Directional selection moves the mean towards one extreme.",
+            "Disruptive selection favours both extremes and can lead to two populations."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evidence for evolution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Charles Darwin and Alfred Russel Wallace each worked out the theory of evolution by natural selection. Darwin published it with evidence from many organisms he had observed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Fossils** show how species changed over time. Fossils in rock layers show a sequence of forms and show species that are now extinct.",
+            "**DNA evidence**: the more closely related two species are, the more similar their DNA base sequences.",
+            "**Molecular evidence**: the more closely related two species are, the more similar the amino acid sequences of their proteins, such as cytochrome c.",
+            "Genomics compares whole genomes and proteomics compares the proteins an organism makes. Both give evidence that supports the theory."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "New evidence is validated by the scientific community. Scientists publish in journals, where other experts review the work (peer review), and present at conferences."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fossils, DNA sequences and protein sequences all support evolution.",
+            "Darwin and Wallace both contributed to the theory.",
+            "Peer review and conferences check new evidence before it is accepted."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Resistance in microorganisms and insects",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Evolution in other species affects human populations. Antibiotic and pesticide resistance are both natural selection in action."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Mutation.",
+              "text": "A random mutation in one bacterium gives it an allele for resistance."
+            },
+            {
+              "lead": "Selection.",
+              "text": "The antibiotic kills the non-resistant bacteria. The resistant bacterium survives with less competition."
+            },
+            {
+              "lead": "Reproduction.",
+              "text": "It reproduces and passes the allele to its offspring. Resistance can also pass to other bacteria on plasmids."
+            },
+            {
+              "lead": "Spread.",
+              "text": "The resistant allele becomes more frequent and the antibiotic stops working."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Insects evolve resistance to pesticides in the same way: resistant insects survive spraying and breed.",
+            "Resistant microorganisms and insects make infections and crop pests harder for humans to control.",
+            "Using antibiotics only when needed, and finishing the course, reduces selection for resistance."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Resistance alleles arise by random mutation before the drug is used.",
+            "The drug is the selection pressure; it does not cause the mutation.",
+            "Resistance becomes more frequent as resistant individuals leave more offspring."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Artificial selection",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In **selective breeding**, humans choose which organisms breed. The principle is the same as natural selection, but the selection pressure is human choice."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Choose.",
+              "text": "Select parents with the desired characteristics, such as high yield or disease resistance."
+            },
+            {
+              "lead": "Breed.",
+              "text": "Breed them together and collect the offspring."
+            },
+            {
+              "lead": "Select again.",
+              "text": "Choose the best offspring and breed from them."
+            },
+            {
+              "lead": "Repeat.",
+              "text": "Repeat for many generations until the desired feature is common."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "It produces useful varieties of crops and livestock, such as high-yielding crops and cattle that give more milk.",
+            "It reduces genetic diversity, because the population has fewer alleles.",
+            "Less diversity means a disease or a change in the environment may affect the whole population."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Artificial selection: humans choose the parents, generation after generation.",
+            "It increases the frequency of chosen alleles and lowers genetic diversity."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how a population of bacteria becomes resistant to an antibiotic.",
+      "a": "A random mutation gives one bacterium an allele for resistance. The antibiotic kills non-resistant bacteria, so the resistant one survives and reproduces. It passes on the allele, so the allele becomes more frequent in the population.",
+      "marks": 4
+    },
+    {
+      "q": "Human birth weights are mostly around the mean. Name this type of selection and explain why it happens.",
+      "a": "Stabilising selection. Babies with very low or very high birth weight are less likely to survive, so alleles for medium weights are passed on and the mean stays the same while the range narrows.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how selective breeding could produce a cow that gives more milk.",
+      "a": "Choose cows with the highest milk yield and breed them with bulls from high-yielding mothers. Select the offspring with the highest yields and breed from them. Repeat over many generations.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.4a",
+        "AQA 3.4.4b",
+        "AQA 3.4.4c",
+        "AQA 3.4.4d",
+        "AQA 3.4.4e",
+        "AQA 3.4.4 RP6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You must be able to use unfamiliar information to explain how selection produces change in a population, and to interpret data on the effect of selection.",
+                "Required practical 6: use aseptic techniques to investigate the effect of antimicrobial substances on microbial growth. Keep tools sterile and work near a flame so that only the bacteria under test grow.",
+                "Adaptation and selection are major factors in evolution and in the diversity of living organisms."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4.3",
+        "EDEX 4.4",
+        "EDEX 5.17",
+        "EDEX 5.18"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Be ready to discuss examples of behavioural, physiological and anatomical adaptation, and to link each to the niche of the organism.",
+                "Evolution through gene mutation: a mutation gives a new allele, selection acts on it, and the change in allele frequency is evolution.",
+                "The scientific community validates new evidence through journals, peer review and conferences, including evidence from proteomics and genomics."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 17.2.1",
+        "CAIE 17.2.2",
+        "CAIE 17.2.4",
+        "CAIE 17.2.6",
+        "CAIE 17.2.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Natural selection is a 'struggle for existence': populations can produce many offspring that compete for resources, and the best adapted are most likely to survive and pass on their alleles.",
+                "Wheat and rice: cross a crop variety with a related plant that has a disease-resistance allele, select the resistant offspring, then breed them with the high-yielding variety to combine resistance with good yield.",
+                "Maize: inbreeding and hybridisation produce vigorous, uniform varieties. Inbreeding gives uniform lines, and crossing two inbred lines gives vigorous hybrids.",
+                "Dairy cattle: milk yield is improved by breeding from cows and bulls with high-yielding relatives."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.2e",
+        "OCR 4.2.2g",
+        "OCR 4.2.2h",
+        "OCR 4.2.2i",
+        "OCR 6.1.2h"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Natural selection affects a population over time: genetic variation, selection pressure and reproductive success or failure raise the proportion with the advantageous characteristic.",
+                "Evolution in some species affects humans: pesticide resistance in insects and drug resistance in microorganisms.",
+                "Ethical considerations of artificial selection: animal welfare, reduced genetic diversity and extreme breeding, such as some dog breeds that have health problems.",
+                "Keep a resource of genetic material, including wild types, for use in selective breeding.",
+                "Examples of selective breeding are needed in both plants and animals."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "87075061-1fff-4fe5-8e1b-fbc225c75b33",
+      "ca4867e2-48dd-4993-b223-4fd71ea23b86",
+      "95b46e78-12e4-44db-9374-8996de40d906",
+      "7d3a4ab0-7e51-48e3-a755-56f081e262ec",
+      "67d88346-08cf-42a1-a63a-b9d9095602bd",
+      "110baf57-691a-4905-b982-c9b919379000",
+      "54afb453-f381-4a48-8c20-0e6f939352ce",
+      "4e3ac8c0-944d-4402-a34a-ff4cd2821827",
+      "2ae44dde-8104-4a1e-b0b2-07e6fddd7be0",
+      "2bc96302-86b3-4f9c-99ab-1d0b55b1609e",
+      "c372a1b3-129e-497f-b83a-17735450d9dd",
+      "50146ea8-4fc9-438c-91ab-7de9af1023bf",
+      "87309dcc-caf9-4a6d-9f3f-c184c9506605",
+      "da865ee9-c21d-4636-901d-9f9f58d1308c",
+      "714911ee-772f-47df-bb58-75282ba7d781",
+      "772d6964-2d23-4f5b-8e07-6003c8ecff4d",
+      "5a0a281c-5f25-4a63-9a63-a15b92a190bc",
+      "07d1455f-3ea7-497f-95d5-8fda811b48f1",
+      "6dc5c3e1-e396-4891-b22f-ae91e7155717",
+      "aebc74f7-22d4-43ca-b9f3-1a1ac6557ed6"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

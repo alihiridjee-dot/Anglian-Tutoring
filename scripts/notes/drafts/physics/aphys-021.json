@@ -1,0 +1,321 @@
+{
+  "format": 1,
+  "concept_id": "aphys-021",
+  "subject": "physics",
+  "title": "Required practicals: mechanics and materials",
+  "key_idea": "These practicals measure g from a falling object, the Young modulus of a wire, and, for some courses, viscosity, force and change of momentum, and collisions. Each one needs a clear method, a graph with a useful gradient, and a sensible estimate of the uncertainty.",
+  "sections": [
+    {
+      "heading": "Measuring the acceleration of free fall",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Drop an object from a measured height and time the fall. A free-falling object accelerates at g."
+        },
+        {
+          "type": "equation",
+          "label": "Distance fallen from rest",
+          "formula": "s = ½gt²",
+          "where": [
+            "s = distance fallen, in m",
+            "g = acceleration of free fall, in m/s²",
+            "t = time of fall, in s"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up",
+              "text": "Hold a small dense ball with an electromagnet at the top. Place a trapdoor switch, linked to a timer, on the floor below."
+            },
+            {
+              "lead": "Height",
+              "text": "Measure the height s from the bottom of the ball to the trapdoor with a metre rule or tape."
+            },
+            {
+              "lead": "Release",
+              "text": "Switch off the electromagnet. The timer starts at the same moment and stops when the ball hits the trapdoor."
+            },
+            {
+              "lead": "Repeat",
+              "text": "Repeat each height several times and take the mean time. Then change the height."
+            },
+            {
+              "lead": "Plot",
+              "text": "Plot s against t². The graph is a straight line through the origin with gradient g/2."
+            },
+            {
+              "lead": "Calculate",
+              "text": "g = 2 × gradient."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider for a ball dropped from a chosen height. It shows the time recorded and the value of g calculated from it, and how a small delay in the timing lowers the calculated g.",
+            "inputs": [
+              {
+                "id": "s",
+                "label": "Height of drop",
+                "unit": "m",
+                "min": 0.5,
+                "max": 2,
+                "step": 0.1,
+                "value": 1
+              },
+              {
+                "id": "d",
+                "label": "Delay in timing (timer reads too long)",
+                "unit": "ms",
+                "min": 0,
+                "max": 30,
+                "step": 1,
+                "value": 0
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Time recorded",
+                "unit": "s",
+                "formula": "sqrt(2 * s / 9.81) + d / 1000",
+                "decimals": 3
+              },
+              {
+                "label": "g calculated",
+                "unit": "m/s²",
+                "formula": "2 * s / ((sqrt(2 * s / 9.81) + d / 1000) * (sqrt(2 * s / 9.81) + d / 1000))",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a small, dense ball so that air resistance is small.",
+            "Using several heights and a graph is better than one height, because it averages random errors and shows up anomalous results.",
+            "The time is squared, so a percentage uncertainty in t is **doubled** in g.",
+            "A delay in the switch or timer is a systematic error. It makes the calculated g too low. Plotting √s against t gives a straight line with gradient √(g/2), and the delay shows as an intercept."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Time the fall from rest over different heights.",
+            "Plot s against t². The gradient is g/2."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring the Young modulus of a wire",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Stretch a long, thin wire with known loads. Measure the extension and the wire's diameter."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up",
+              "text": "Fix a long thin wire to a firm support. Hang a weight hanger on the other end and mark a point on the wire next to a ruler."
+            },
+            {
+              "lead": "Measure",
+              "text": "Measure the original length L with a metre rule. Measure the diameter d at several places with a micrometer."
+            },
+            {
+              "lead": "Load",
+              "text": "Add equal masses. After each, record the new position of the marker. Extension = new length − original length."
+            },
+            {
+              "lead": "Graph",
+              "text": "Plot force F against extension ΔL. The straight part has gradient F/ΔL."
+            },
+            {
+              "lead": "Calculate",
+              "text": "E = gradient × L / A, where A = πd² / 4."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Measure the diameter in several places and in two directions, and take the mean. The area depends on d², so d is the biggest source of uncertainty.",
+            "Use loads that stay within the limit of proportionality, so that the wire is not permanently stretched.",
+            "Hang a small initial load first, so that the wire is straight before the first reading.",
+            "A long wire gives a larger extension that is easier to measure."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure L, the diameter and the extension for a range of loads.",
+            "E = gradient of the force–extension graph × L / A."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "In an experiment to find g, a ball is dropped from several heights s and the time t is measured. State the graph you would plot and how g is found.",
+      "a": "Plot s against t². The graph is a straight line through the origin with gradient g/2, so g = 2 × gradient.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the diameter of a wire must be measured carefully in an experiment to find the Young modulus.",
+      "a": "The area A is proportional to d², so a given percentage uncertainty in d gives double that percentage uncertainty in A and in E. The diameter is therefore usually the largest source of uncertainty.",
+      "marks": 3
+    },
+    {
+      "q": "Give two ways to improve the accuracy of an experiment to find the Young modulus of a wire.",
+      "a": "Any two from: use a longer wire so the extension is larger; measure the diameter at several places and take a mean; use a micrometer for the diameter; use a range of loads and a graph; stay within the limit of proportionality.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.19",
+        "EDEX 4.52",
+        "EDEX 4.57",
+        "EDEX 6.98",
+        "EDEX 6.100"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Viscosity of a liquid with a falling ball"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up",
+                  "text": "Fill a tall transparent tube with the liquid. Mark two lines well below the surface, far enough down that the ball has reached terminal velocity."
+                },
+                {
+                  "lead": "Measure",
+                  "text": "Measure the distance between the marks. Measure the ball's diameter with a micrometer."
+                },
+                {
+                  "lead": "Time",
+                  "text": "Drop the ball and time it between the marks with a stopwatch. Repeat and take a mean."
+                },
+                {
+                  "lead": "Speed",
+                  "text": "Terminal velocity v = distance ÷ time."
+                }
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Viscosity from terminal velocity",
+              "formula": "η = 2r²(ρₛ − ρₗ)g / (9v)",
+              "where": [
+                "η = viscosity of the liquid, in Pa s",
+                "r = radius of the ball, in m",
+                "ρₛ = density of the ball, in kg/m³",
+                "ρₗ = density of the liquid, in kg/m³",
+                "v = terminal velocity, in m/s"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "At terminal velocity the weight equals the upthrust plus the viscous drag.",
+                "Use balls of different radius and plot v against r². The graph is a straight line through the origin.",
+                "Viscosity falls as the temperature rises, so keep the temperature constant and record it."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Force and change of momentum"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up",
+                  "text": "Pull a trolley along a track with a string over a pulley and a hanging mass. Put light gates on the track."
+                },
+                {
+                  "lead": "Measure",
+                  "text": "Record the speeds at the gates and the time between them. Δp = m(v − u), where m is the total mass of trolley and hanger."
+                },
+                {
+                  "lead": "Vary",
+                  "text": "Change the force by moving masses from the trolley to the hanger so the total mass stays the same."
+                },
+                {
+                  "lead": "Plot",
+                  "text": "Plot the force against Δp/Δt. The graph is a straight line through the origin with gradient 1, showing F = Δp/Δt."
+                }
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Collisions between small spheres using ICT"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Record",
+                  "text": "Film a collision of two ball bearings on a table top from above, with a ruler in view and a known frame rate."
+                },
+                {
+                  "lead": "Analyse",
+                  "text": "Use software to find the position of each ball in every frame. The software gives the velocity from the change in position over the frame time."
+                },
+                {
+                  "lead": "Compare",
+                  "text": "Calculate the total momentum and total kinetic energy before and after the collision."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "If total momentum is the same, momentum has been conserved. Resolve into components for a two-dimensional collision.",
+                "If total kinetic energy is the same, the collision is elastic.",
+                "The camera must be directly above, and the table level, so that the velocities are measured correctly."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 2.1.8",
+        "CAIE 6.1.6"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "90771a79-dd21-43c5-a200-6990e148e227",
+      "89f72a52-ca61-4f49-ab6e-d0f970e6264d",
+      "0e1e90cd-fff6-442f-a3a2-eb163a0d7670",
+      "dff9e3ac-a196-4c19-9727-0ba864e5d321",
+      "447244cd-e51d-4c99-96a5-5285b0b6cb86",
+      "1dbeccf0-4d05-4aef-b2d0-c73947f5dd04",
+      "382f34b5-662b-41ff-ad56-977a48b978ad"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

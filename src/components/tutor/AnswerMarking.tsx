@@ -62,6 +62,7 @@ export function AnswerMarkingList({
                 <MarkScheme
                   scheme={q.mark_scheme}
                   context={notation}
+                  compact
                   className="mt-1 text-muted-foreground"
                 />
               </details>

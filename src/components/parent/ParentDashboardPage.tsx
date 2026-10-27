@@ -284,7 +284,7 @@ export function ParentDashboard({ demo }: { demo?: PortalData } = {}) {
       ) : !demo && childSubjects.length === 0 ? (
         <EmptyState
           title={`${childName} isn't enrolled yet`}
-          body="Their grades, attendance and tutor feedback appear here once they're enrolled in a subject."
+          body="Their grades, attendance and task feedback appear here once they're enrolled in a subject."
           mascot="books"
         />
       ) : (

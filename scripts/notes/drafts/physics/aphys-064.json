@@ -1,0 +1,381 @@
+{
+  "format": 1,
+  "concept_id": "aphys-064",
+  "subject": "physics",
+  "title": "Gravitational fields and Newton's law of gravitation",
+  "key_idea": "A gravitational field is a region where a mass feels a force because of another mass. Its strength is the force on each kilogram, g = F/m. Newton's law gives the force between point masses, and from it g = GM/r² for a point mass.",
+  "sections": [
+    {
+      "heading": "Gravitational fields",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section defines a field, shows how to draw one and defines gravitational field strength."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Force field",
+              "meaning": "A region in which a body experiences a non-contact force."
+            },
+            {
+              "term": "Gravitational field",
+              "meaning": "A region in which a mass experiences a force because of another mass."
+            },
+            {
+              "term": "Gravitational field strength, g",
+              "meaning": "The force acting per unit mass on a small test mass placed at that point."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gravitational fields are due to objects having **mass**.",
+            "The field is a **vector**: it has a size and a direction, the direction a mass would be pulled.",
+            "Gravity is a universal force that acts between all matter, and it is always attractive.",
+            "Field strength is measured in N/kg, which is the same as m/s²."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Gravitational field strength",
+          "formula": "g = F / m",
+          "where": [
+            "g = gravitational field strength (N/kg)",
+            "F = gravitational force on the mass (N)",
+            "m = the mass in the field (kg)"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Field lines"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Field lines show the direction of the force on a mass placed in the field.",
+            "Arrows point in the direction a mass would move, so they point towards the centre of a planet.",
+            "The closer together the lines, the stronger the field.",
+            "Around a sphere the field is **radial**: lines point straight in towards the centre.",
+            "Near the surface of a planet the lines are almost parallel and equally spaced, so the field is **uniform**."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A gravitational field is a region where a mass feels a force.",
+            "g = F/m is the force per unit mass, in N/kg.",
+            "Field lines point towards the mass; closer lines mean a stronger field."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Newton's law of gravitation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every mass attracts every other mass. Newton's law gives the size of that force between two point masses."
+        },
+        {
+          "type": "equation",
+          "label": "Newton's law of gravitation",
+          "formula": "F = G m₁ m₂ / r²",
+          "where": [
+            "F = gravitational force between the masses (N)",
+            "G = gravitational constant (6.67 × 10⁻¹¹ N m² kg⁻²)",
+            "m₁, m₂ = the two masses (kg)",
+            "r = distance between their centres (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The force is proportional to the **product of the masses**.",
+            "The force is inversely proportional to the **square of the distance**: double r and F falls to a quarter.",
+            "The two masses pull on each other with equal and opposite forces."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The law is for point masses. A uniform sphere acts as if all its mass were at its centre, for any point outside it, so r is measured from the centre."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "F = Gm₁m₂/r²: an inverse-square law, always attractive.",
+            "r is the distance between the centres of the masses.",
+            "A uniform sphere acts as a point mass at its centre."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Field strength of a point mass",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Combining the definition of g with Newton's law gives the field strength at distance r from a point mass M."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Start",
+              "text": "Place a small test mass m at distance r from the mass M."
+            },
+            {
+              "lead": "Force",
+              "text": "Newton's law gives F = GMm/r²."
+            },
+            {
+              "lead": "Per unit mass",
+              "text": "Use g = F/m, so g = (GMm/r²) ÷ m."
+            },
+            {
+              "lead": "Cancel",
+              "text": "The test mass m cancels, leaving g = GM/r²."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Field strength of a point mass",
+          "formula": "g = G M / r²",
+          "where": [
+            "g = gravitational field strength (N/kg)",
+            "G = gravitational constant (6.67 × 10⁻¹¹ N m² kg⁻²)",
+            "M = mass producing the field (kg)",
+            "r = distance from the centre of M (m)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing gravitational field strength from a planet of chosen mass at a chosen distance from its centre.",
+            "inputs": [
+              {
+                "id": "M",
+                "label": "Mass of planet",
+                "unit": "× 10²⁴ kg",
+                "min": 1,
+                "max": 10,
+                "step": 0.1,
+                "value": 5.97
+              },
+              {
+                "id": "r",
+                "label": "Distance from centre",
+                "unit": "× 10⁶ m",
+                "min": 6.4,
+                "max": 40,
+                "step": 0.1,
+                "value": 6.4
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Field strength g",
+                "unit": "N/kg",
+                "formula": "6.67 * 10 * M / (r*r)",
+                "decimals": 2
+              },
+              {
+                "label": "Weight of a 70 kg person",
+                "unit": "N",
+                "formula": "70 * 6.67 * 10 * M / (r*r)",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of the field strength at the surface of a planet, with new numbers each time.",
+            "question": "A planet has mass {M} × 10²⁴ kg and radius {r} × 10⁶ m. Calculate the gravitational field strength at its surface. (G = 6.67 × 10⁻¹¹ N m² kg⁻²)",
+            "variables": [
+              {
+                "id": "M",
+                "min": 1,
+                "max": 10,
+                "step": 0.5
+              },
+              {
+                "id": "r",
+                "min": 3,
+                "max": 10,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "6.67 * 10 * M / (r*r)",
+              "unit": "N/kg",
+              "decimals": 1,
+              "tolerance_percent": 3
+            },
+            "working": [
+              "g = GM/r²",
+              "g = (6.67 × 10⁻¹¹ × {M} × 10²⁴) ÷ ({r} × 10⁶)²",
+              "g = {answer} N/kg"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Near the Earth's surface"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Earth's radius is about 6400 km, so a change in height of a few kilometres changes r by a tiny fraction.",
+            "Then g = GM/r² hardly changes, so g is approximately constant at about 9.8 N/kg.",
+            "This field strength is numerically equal to the acceleration of free fall."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "g = GM/r² for a point mass, or for a uniform sphere outside it.",
+            "g falls as 1/r²: double the distance and g falls to a quarter.",
+            "Near the surface g is approximately constant, as small height changes barely change r."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define gravitational field strength.",
+      "a": "The force per unit mass acting on a small test mass at that point (g = F/m).",
+      "marks": 1
+    },
+    {
+      "q": "Two point masses are a distance r apart. State what happens to the force between them when the distance is tripled and one mass is doubled.",
+      "a": "F is proportional to m₁m₂/r². Doubling a mass doubles F; tripling r divides it by 9. The force becomes 2/9 of its original value.",
+      "marks": 3
+    },
+    {
+      "q": "Derive g = GM/r² for the field strength at distance r from a point mass M.",
+      "a": "Force on a test mass m is F = GMm/r². Field strength is force per unit mass, g = F/m. Substituting and cancelling m gives g = GM/r².",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.1",
+        "AQA 3.7.2.1",
+        "AQA 3.7.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Force fields arise from the interaction of mass, of static charge, and between moving charges. The direction of a field vector must be worked out by inspection."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Similarity: both gravitational and electrostatic forces have inverse-square laws, with field lines, the potential concept and equipotential surfaces.",
+                "Difference: masses always attract, but charges may attract or repel."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 12.174",
+        "EDEX 12.175",
+        "EDEX 12.176",
+        "EDEX 12.177"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 13.1.1",
+        "CAIE 13.1.2",
+        "CAIE 13.2.1",
+        "CAIE 13.2.2",
+        "CAIE 13.3.1",
+        "CAIE 13.3.2",
+        "CAIE 13.3.3"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.4.1a",
+        "OCR 5.4.1b",
+        "OCR 5.4.1c",
+        "OCR 5.4.1d",
+        "OCR 5.4.1e",
+        "OCR 5.4.2a",
+        "OCR 5.4.2b",
+        "OCR 5.4.2c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "OCR writes the law with a minus sign. The sign shows that the force and the field point towards the mass, in the direction of decreasing r."
+            },
+            {
+              "type": "equation",
+              "label": "Signed forms",
+              "formula": "F = −GMm / r²   and   g = −GM / r²",
+              "where": [
+                "The negative sign means attraction: the vector points inwards"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Gravitational fields are one of several forms of field that give rise to a force. Electric fields are another, and they are compared later."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "eb9996d0-3d1a-4aa8-875e-6f5779f6b605",
+      "71f0f586-deba-460e-bc95-2dcc83bc9415",
+      "e410cabb-a3c5-44c5-9655-ce46bd6cfa21",
+      "4efae6c9-828b-40f7-afec-0aae32667a7b",
+      "c5a13d38-fa3c-4d26-b5a4-b1f549eb5d73",
+      "a5fd62ed-d279-4912-83b6-7a0905a3402c",
+      "492914b0-fa5d-4032-abd1-b4a631e3838b",
+      "3f2f443f-dd8d-4ae9-a8da-e9495876920d",
+      "ae743a20-4ce7-4221-998b-eba33e8e2d8a",
+      "f7cdbfc0-72b9-47b6-bc08-0b5960e643ee",
+      "766b150b-b7c9-44d7-a567-5fbb05b075a0",
+      "19c5bfa7-c13e-4da7-9233-1f7322b19b70",
+      "ecf633fa-885e-460b-94f8-a7bd37db7004",
+      "e3e79502-ffc4-43e5-b02b-cff3a61d80d2",
+      "9edfb27d-ec03-44c8-a793-26ac113bd1ef",
+      "945f83df-2c13-4a24-8532-6bedd8852699",
+      "b416cdae-75a9-46c4-b551-72ea3d4a8a19",
+      "c20431a6-1303-48cc-92b0-0b34095c3eca",
+      "fa42b3e9-79d0-45e7-8568-e0e997d0ab0a",
+      "3bc8935d-77b3-418e-9064-c0c0cee932ff",
+      "34f6ef97-25b1-4d72-8ce4-b5aba3547808",
+      "ee51c0ca-a218-467d-8457-799107cc72f8"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

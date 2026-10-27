@@ -1,4 +1,4 @@
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { CheckCircle2, ListChecks, Circle } from "lucide-react";
 import { type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import {
@@ -15,6 +15,8 @@ import { SectionHeading, Meter } from "@/components/Shared";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { HomeworkChip, NoteChip, QuizChip, VideoChip } from "./WorkChips";
 import { useSpecPointNotes, type SpecPointNote } from "@/hooks/data/useNotes";
+import { useEntryState } from "@/hooks/useEntryState";
+import { landOn } from "@/lib/shell/returnSpot";
 
 /**
  * "Weekly task list" — the week as a single checklist.
@@ -60,6 +62,7 @@ export function DoNowPanel({
   subject,
   editable,
   onToggle,
+  loading = false,
 }: {
   points: PlanPoint[];
   activity: Activity;
@@ -70,6 +73,9 @@ export function DoNowPanel({
   /** Past weeks are read-only — you can look, but you can't tick history. */
   editable: boolean;
   onToggle: (specPointId: string, done: boolean) => void;
+  /** The week's work or attempts are still on their way: nothing is shown yet,
+   *  so no point reads as untouched by mistake, but its notes are already read. */
+  loading?: boolean;
 }) {
   const [playing, setPlaying] = useState<{ item: PointWorkItem } | null>(null);
   const { data: notes } = useSpecPointNotes(points.map((p) => p.spec_point_id));
@@ -86,12 +92,29 @@ export function DoNowPanel({
   // who opens the dashboard with no plan of their own still has somewhere to go.
   const next = points.find((p) => !isDone(p)) ?? null;
 
-  if (total === 0) return null;
+  // Handing a task in lands on `#weekly-task-list` (see BuiltInHomework), well
+  // below the fold: bring the list into view once the week has finished
+  // loading, so nothing drawn in above pushes it away and its ticks are fresh.
+  // Once per visit, so Back to the dashboard returns to what was clicked.
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [arrived, setArrived] = useEntryState("weekly-task-list.arrived", false);
+  const shown = !loading && total > 0;
+  useEffect(() => {
+    if (!shown || arrived || window.location.hash !== "#weekly-task-list") return;
+    setArrived(true);
+    if (cardRef.current) landOn(cardRef.current);
+  }, [shown, arrived, setArrived]);
+
+  if (loading || total === 0) return null;
 
   const embed = playing ? parseVideoUrl(playing.item.videoUrl) : null;
 
   return (
-    <div className={`rounded-2xl premium-card p-4 sm:p-5 mb-4 ${SUBJECT_TINT[subject] ?? ""}`}>
+    <div
+      ref={cardRef}
+      id="weekly-task-list"
+      className={`rounded-2xl premium-card p-4 sm:p-5 mb-4 ${SUBJECT_TINT[subject] ?? ""}`}
+    >
       <div className="flex items-start gap-2.5">
         <span className="icon-tile inline-flex w-9 h-9 shrink-0">
           <ListChecks className="w-5 h-5" />

@@ -1,0 +1,370 @@
+{
+  "format": 1,
+  "concept_id": "aphys-023",
+  "subject": "physics",
+  "title": "Potential difference, energy and power",
+  "key_idea": "Potential difference is the energy transferred per unit charge, so W = VQ. The same idea gives eV = ½mv² for an accelerated charge and the power equations P = VI, P = I²R and P = V²/R. The kilowatt-hour is a unit of energy.",
+  "sections": [
+    {
+      "heading": "Potential difference and the volt",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A charge moving through a component transfers energy. Potential difference measures how much energy each coulomb transfers."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Potential difference (p.d.)",
+              "meaning": "The energy transferred per unit charge as charge moves between two points. Electrical energy is changed to other forms."
+            },
+            {
+              "term": "Volt (V)",
+              "meaning": "The unit of p.d. One volt is one joule of energy transferred per coulomb of charge: 1 V = 1 J/C."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Potential difference",
+          "formula": "V = W / Q",
+          "where": [
+            "V = potential difference (V)",
+            "W = energy transferred (J)",
+            "Q = charge that moves (C)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Energy transferred by a charge",
+          "formula": "W = V Q",
+          "where": [
+            "W = energy transferred (J)",
+            "V = potential difference (V)",
+            "Q = charge (C)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A source of e.m.f. E does work W = EQ on the charge that it drives round a circuit.",
+            "The difference between e.m.f. and p.d. is covered in the note on e.m.f. and internal resistance."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the energy transferred when a charge moves through a potential difference.",
+            "question": "A charge of {Q} C passes through a component with a potential difference of {V} V across it. Calculate the energy transferred.",
+            "variables": [
+              {
+                "id": "Q",
+                "min": 2,
+                "max": 40,
+                "step": 2
+              },
+              {
+                "id": "V",
+                "min": 3,
+                "max": 24,
+                "step": 3
+              }
+            ],
+            "answer": {
+              "formula": "V * Q",
+              "unit": "J",
+              "decimals": 0
+            },
+            "working": [
+              "W = V Q",
+              "W = {V} × {Q}",
+              "W = {answer} J"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "p.d. is energy transferred per unit charge: V = W / Q.",
+            "1 V = 1 J/C.",
+            "W = VQ gives the energy transferred."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Accelerating charged particles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A charged particle accelerated through a p.d. gains kinetic energy equal to the energy transferred to it."
+        },
+        {
+          "type": "equation",
+          "label": "Charge accelerated from rest through a p.d.",
+          "formula": "e V = ½ m v²",
+          "where": [
+            "e = charge on the particle (C), for an electron 1.6 × 10⁻¹⁹ C",
+            "V = accelerating potential difference (V)",
+            "m = mass of the particle (kg)",
+            "v = final speed (m/s)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The energy transferred is W = eV. It becomes kinetic energy, ½mv².",
+            "This works for electrons and for any other charged particle. Use that particle's own charge and mass.",
+            "The speed rises with the square root of the p.d., so quadrupling V only doubles v."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the accelerating potential difference to see the speed gained by an electron starting from rest.",
+            "inputs": [
+              {
+                "id": "V",
+                "label": "Accelerating p.d.",
+                "unit": "V",
+                "min": 100,
+                "max": 5000,
+                "step": 100,
+                "value": 1000
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Kinetic energy gained",
+                "unit": "× 10⁻¹⁶ J",
+                "formula": "1.6 * V / 1000",
+                "decimals": 2
+              },
+              {
+                "label": "Speed gained",
+                "unit": "× 10⁷ m/s",
+                "formula": "sqrt(2 * 1.6 * V / 9.11 / 100)",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Energy gained = eV, all as kinetic energy for a charge starting from rest.",
+            "v = √(2eV / m), so a lighter particle reaches a higher speed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Electrical power and energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Power is the rate of energy transfer. Combining P = VI with V = IR gives two more forms."
+        },
+        {
+          "type": "equation",
+          "label": "Electrical power",
+          "formula": "P = V I",
+          "where": [
+            "P = power (W)",
+            "V = potential difference (V)",
+            "I = current (A)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Energy transferred in a time t",
+          "formula": "W = V I t",
+          "where": [
+            "W = energy (J)",
+            "V = potential difference (V)",
+            "I = current (A)",
+            "t = time (s)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Start",
+              "text": "W = VQ and Q = It, so W = VIt."
+            },
+            {
+              "lead": "Divide by t",
+              "text": "P = W / t = VI."
+            },
+            {
+              "lead": "Replace V",
+              "text": "Using V = IR gives P = I²R. Use this when the current is known."
+            },
+            {
+              "lead": "Replace I",
+              "text": "Using I = V / R gives P = V²/R. Use this when the p.d. is known."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the power dissipated in a resistor from the current and resistance.",
+            "question": "A current of {I} A flows in a resistor of resistance {R} Ω. Calculate the power dissipated in the resistor.",
+            "variables": [
+              {
+                "id": "I",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5
+              },
+              {
+                "id": "R",
+                "min": 2,
+                "max": 50,
+                "step": 2
+              }
+            ],
+            "answer": {
+              "formula": "I ^ 2 * R",
+              "unit": "W",
+              "decimals": 1
+            },
+            "working": [
+              "P = I²R",
+              "P = {I}² × {R}",
+              "P = {answer} W"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "P = VI = I²R = V²/R.",
+            "W = VIt is the energy transferred in time t.",
+            "Choose the form that uses the two quantities you are given."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The kilowatt-hour and the cost of energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Electricity suppliers charge for energy in kilowatt-hours, not joules."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Kilowatt-hour (kW h)",
+              "meaning": "The energy transferred by a 1 kW device in 1 hour: 1 kW h = 3.6 × 10⁶ J."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Energy in kilowatt-hours",
+          "formula": "energy (kW h) = power (kW) × time (h)",
+          "where": [
+            "power in kilowatts",
+            "time in hours"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Cost",
+          "formula": "cost = energy (kW h) × price per kW h"
+        },
+        {
+          "type": "list",
+          "items": [
+            "To convert kW h to joules, multiply by 3.6 × 10⁶.",
+            "A 3 kW heater on for 2 hours transfers 6 kW h. At 30p per kW h it costs £1.80."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "1 kW h = 3.6 × 10⁶ J.",
+            "Cost = kilowatts × hours × price per kW h."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define potential difference and state what one volt means.",
+      "a": "The energy transferred per unit charge as it moves between two points. One volt is one joule per coulomb.",
+      "marks": 2
+    },
+    {
+      "q": "An electron is accelerated from rest through 2500 V. Calculate its final speed. (e = 1.6 × 10⁻¹⁹ C, m = 9.11 × 10⁻³¹ kg)",
+      "a": "eV = ½mv², so v = √(2eV/m) = √(2 × 1.6 × 10⁻¹⁹ × 2500 / 9.11 × 10⁻³¹) = 2.96 × 10⁷ m/s.",
+      "marks": 3
+    },
+    {
+      "q": "A 2.3 kW kettle is used for 6.0 minutes. Electricity costs 28p per kW h. Calculate the cost of the energy used.",
+      "a": "Time = 0.10 h. Energy = 2.3 × 0.10 = 0.23 kW h. Cost = 0.23 × 28 = 6.4p.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 3.32",
+        "EDEX 3.37"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 9.2.1",
+        "CAIE 9.2.2",
+        "CAIE 9.2.3"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.2a",
+        "OCR 4.2.2d",
+        "OCR 4.2.2e",
+        "OCR 4.2.5a",
+        "OCR 4.2.5b",
+        "OCR 4.2.5c"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.1.1"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "b831444b-f1ed-4666-bdf0-462a3ca5fd9a",
+      "fed0e4a9-03e1-4b97-bd3d-3f4f114cddb8",
+      "959403a2-2841-45b1-b02a-f98a3ee9146f",
+      "5ea8a41d-6a97-4b36-b8b9-d5e180cbc37d",
+      "75b0381c-2e8a-4004-b3b1-423484911d4c",
+      "706fc71f-2175-44f0-95cf-1bf726ad645b",
+      "2a8a62b8-9a9b-4bf7-a6e0-560ac83c46ae",
+      "cb3b5c90-4c26-46f0-8506-a28ea3aecf61",
+      "35e3c1d7-afbb-4708-89cb-b7a792b3869a",
+      "008a0ccc-fea5-41ee-b99c-5243fd2a74c2",
+      "0fd2e46d-9a7a-453b-af01-4359adfbf098"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

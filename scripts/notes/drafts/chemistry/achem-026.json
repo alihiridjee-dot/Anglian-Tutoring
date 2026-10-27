@@ -1,0 +1,356 @@
+{
+  "format": 1,
+  "concept_id": "achem-026",
+  "subject": "chemistry",
+  "title": "Collision theory and measuring rates",
+  "key_idea": "A reaction happens only when particles collide with at least the activation energy. Most collisions are not effective. The rate rises when effective collisions become more frequent, and it is found by measuring how a quantity changes with time.",
+  "sections": [
+    {
+      "heading": "Collision theory and activation energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Particles must collide before they can react. This section covers which collisions lead to a reaction."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Rate of reaction",
+              "meaning": "The change in the amount or concentration of a reactant or product per unit time."
+            },
+            {
+              "term": "Activation energy, Eₐ",
+              "meaning": "The minimum energy colliding particles must have for a collision to be effective."
+            },
+            {
+              "term": "Effective collision",
+              "meaning": "A collision with at least the activation energy, in which the bonds break and products form."
+            },
+            {
+              "term": "Non-effective collision",
+              "meaning": "A collision with less than the activation energy. The particles bounce apart unchanged."
+            },
+            {
+              "term": "Frequency of collisions",
+              "meaning": "The number of collisions per second."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Most collisions do not lead to a reaction, because most particles do not have enough energy.",
+            "Bonds must be broken before new bonds can form. Breaking them needs energy.",
+            "Only particles with energy of at least Eₐ react when they collide.",
+            "The particles must also collide with a suitable orientation."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reactions need collisions with energy of at least Eₐ.",
+            "Most collisions are non-effective.",
+            "Rate depends on the frequency of effective collisions."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Concentration, pressure and surface area",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Changing a condition changes how often particles collide. This section covers three of those conditions."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Change",
+            "Effect on particles",
+            "Effect on rate"
+          ],
+          "rows": [
+            [
+              "Higher concentration",
+              "More particles in each unit volume, so they are closer together.",
+              "More frequent collisions, so more effective collisions each second. Rate increases."
+            ],
+            [
+              "Higher gas pressure",
+              "The same gas particles squeezed into a smaller volume. This is a higher concentration.",
+              "More frequent collisions. Rate increases."
+            ],
+            [
+              "Larger surface area of a solid",
+              "More particles of the solid exposed to the other reactant.",
+              "More frequent collisions at the surface. Rate increases."
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In each case the proportion of particles with energy of at least Eₐ is unchanged. Only the frequency of collisions changes. Temperature and catalysts change the energy factor and are covered in later notes."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a change to a reaction and see its effect on collision frequency, on the fraction of particles with energy of at least the activation energy, and on the rate.",
+            "prompt": "Pick a change to the reaction conditions",
+            "result_labels": [
+              "Frequency of collisions",
+              "Fraction of particles with energy ≥ Eₐ",
+              "Rate of reaction"
+            ],
+            "options": [
+              {
+                "label": "Increase the concentration",
+                "results": [
+                  "Increases",
+                  "Unchanged",
+                  "Increases"
+                ],
+                "explanation": "More particles in the same volume collide more often. Each particle still has the same chance of having enough energy."
+              },
+              {
+                "label": "Increase the pressure of a gas",
+                "results": [
+                  "Increases",
+                  "Unchanged",
+                  "Increases"
+                ],
+                "explanation": "The gas particles are closer together, so collisions are more frequent."
+              },
+              {
+                "label": "Use a powder instead of lumps",
+                "results": [
+                  "Increases",
+                  "Unchanged",
+                  "Increases"
+                ],
+                "explanation": "More of the solid is exposed, so more collisions happen at its surface."
+              },
+              {
+                "label": "Increase the temperature",
+                "results": [
+                  "Increases",
+                  "Increases",
+                  "Increases"
+                ],
+                "explanation": "Particles move faster and a larger fraction has energy of at least Eₐ. This second effect is the bigger one."
+              },
+              {
+                "label": "Add a catalyst",
+                "results": [
+                  "Unchanged",
+                  "Increases",
+                  "Increases"
+                ],
+                "explanation": "The catalyst lowers Eₐ, so a larger fraction of collisions is effective."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Concentration and pressure change the frequency of collisions.",
+            "Gas pressure acts like concentration.",
+            "More frequent collisions give more effective collisions per second."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring and calculating rate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Rate is found by following a quantity as it changes with time. This section covers the methods and the calculations."
+        },
+        {
+          "type": "equation",
+          "label": "Mean rate of reaction",
+          "formula": "mean rate = change in concentration ÷ time taken",
+          "where": [
+            "change in concentration in mol/dm³",
+            "time taken in s",
+            "rate in mol/dm³/s"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Methods"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Mass change**: a gas escapes from the flask, so the mass falls. Use a balance.",
+            "**Gas volume**: collect the gas in a gas syringe and read the volume at set times.",
+            "**Time taken**: time how long a fixed change takes, such as a mark disappearing. The rate is proportional to 1 ÷ time.",
+            "Concentration can also be followed by titration or colorimetry."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "From a graph"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Plot the quantity measured against time.",
+            "The rate at a time t is the **gradient of the tangent** to the curve at t.",
+            "The initial rate is the gradient of the tangent at time zero. It is the steepest part of the curve for a reactant used up.",
+            "A steeper gradient means a faster reaction."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of mean rate from a fall in concentration over a time, with new numbers each time.",
+            "question": "The concentration of a reactant falls by {drop} mol/dm³ in {t} s. Calculate the mean rate of reaction.",
+            "variables": [
+              {
+                "id": "drop",
+                "min": 0.1,
+                "max": 0.5,
+                "step": 0.05
+              },
+              {
+                "id": "t",
+                "min": 10,
+                "max": 100,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "drop / t",
+              "unit": "mol/dm³/s",
+              "decimals": 4
+            },
+            "working": [
+              "Mean rate = change in concentration ÷ time",
+              "Mean rate = {drop} ÷ {t} = {answer} mol/dm³/s"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rate is the change in a quantity per unit time.",
+            "At a given time, rate is the gradient of the tangent.",
+            "Mass, gas volume and time are the common measurements."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define activation energy.",
+      "a": "The minimum energy that colliding particles must have for a collision to be effective (to lead to a reaction).",
+      "marks": 1
+    },
+    {
+      "q": "Explain why increasing the pressure of a gas increases the rate of a reaction.",
+      "a": "The same number of particles occupy a smaller volume, so the concentration is higher. The particles collide more frequently, so there are more effective collisions per second.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how to find the rate of reaction at 40 s from a graph of gas volume against time.",
+      "a": "Draw a tangent to the curve at 40 s. Measure its gradient (change in volume ÷ change in time). The gradient is the rate at 40 s.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.2.2a",
+        "OCR 3.2.2b",
+        "OCR 3.2.2e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Be ready to describe the techniques used to investigate rate, including how mass, gas volume and time are measured."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Say what is measured, with what apparatus, and at what intervals.",
+                "State what is kept constant so the test is fair.",
+                "Say which graph is plotted and how the rate is read from it."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 9.1",
+        "EDEX 9.2",
+        "EDEX 9.3"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.5.1",
+        "AQA 3.1.5.4"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 8.1.1",
+        "CAIE 8.1.2",
+        "CAIE 8.1.3",
+        "CAIE 8.2.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Use the terms precisely: frequency of collisions, effective collisions and non-effective collisions."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Explain a change in rate as a change in the frequency of effective collisions.",
+                "Use experimental data, such as a concentration change over a time, to calculate a rate."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "d6fdc7ad-fccc-4d3d-9ee4-35876f76dfe9",
+      "0f37accd-9fc5-49c9-be20-ac0358d8f9f2",
+      "5e1ce87f-d781-48a3-8636-7bdb4eb964ff",
+      "5f222231-3a35-41f1-b390-8b631039070e",
+      "0f9583d8-1eee-4500-9187-aa5c7acc277c",
+      "5673ccdc-5924-42fd-8210-b07512b0508a",
+      "f075eeba-8114-4ed2-bb4c-e6f7805bd092",
+      "e001c255-33d7-430a-a05d-51dfc0f08c57",
+      "c96d9c71-473a-47d1-ac43-5fd4e0328840",
+      "31741072-8f2c-4a88-8e68-99467b056c72",
+      "69ce99a1-3436-414b-93e1-ea141da81c95",
+      "871aea58-3e0b-40d9-a9f3-4b0daaef9400"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

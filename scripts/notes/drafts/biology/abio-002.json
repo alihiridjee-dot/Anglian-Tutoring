@@ -1,0 +1,430 @@
+{
+  "format": 1,
+  "concept_id": "abio-002",
+  "subject": "biology",
+  "title": "Carbohydrates",
+  "key_idea": "Carbohydrates are built from sugar monomers joined by glycosidic bonds in condensation reactions, and split by hydrolysis. Glucose forms two isomers, α and β. Starch and glycogen store energy, while cellulose gives strength to plant cell walls.",
+  "sections": [
+    {
+      "heading": "Monomers, polymers and the reactions that join them",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The biochemistry of all living things is similar. Large molecules are built from small repeating units, using the same two reactions."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Monomer",
+              "meaning": "A small molecule that can join to many others to make a polymer."
+            },
+            {
+              "term": "Polymer",
+              "meaning": "A molecule made from a large number of monomers joined together."
+            },
+            {
+              "term": "Macromolecule",
+              "meaning": "A very large molecule, such as a polysaccharide, protein or nucleic acid."
+            },
+            {
+              "term": "Monosaccharide",
+              "meaning": "A single sugar unit, such as glucose, galactose or fructose."
+            },
+            {
+              "term": "Disaccharide",
+              "meaning": "Two monosaccharides joined by one glycosidic bond."
+            },
+            {
+              "term": "Polysaccharide",
+              "meaning": "Many monosaccharides joined by glycosidic bonds."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Monosaccharides, amino acids and nucleotides are examples of monomers.",
+            "A **condensation reaction** joins two molecules with a covalent bond and eliminates a molecule of water.",
+            "A **hydrolysis reaction** breaks that bond. It uses a molecule of water.",
+            "The covalent bonds hold the monomers together strongly in the polymer."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Polymers are made from monomers by condensation.",
+            "Condensation releases water; hydrolysis uses water."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Monosaccharides and disaccharides",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Monosaccharides are the monomers of carbohydrates. They are soluble, sweet-tasting and form crystals."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type",
+            "Carbon atoms",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Hexose",
+              "6 (C₆H₁₂O₆)",
+              "Glucose, galactose, fructose"
+            ],
+            [
+              "Pentose",
+              "5",
+              "Ribose (in RNA and ATP)"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Glucose isomers"
+        },
+        {
+          "type": "paragraph",
+          "text": "Glucose has two **isomers**: same atoms, different arrangement. They differ only in the groups on carbon 1 of the ring."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of alpha glucose and beta glucose: the position of the OH group on carbon 1, the polymers each forms, and how adjacent units are arranged.",
+            "items": [
+              "α-glucose",
+              "β-glucose"
+            ],
+            "rows": [
+              {
+                "feature": "OH group on carbon 1 (right-hand carbon of the ring)",
+                "values": [
+                  "Below the ring",
+                  "Above the ring"
+                ]
+              },
+              {
+                "feature": "H on carbon 1",
+                "values": [
+                  "Above the ring",
+                  "Below the ring"
+                ]
+              },
+              {
+                "feature": "Polysaccharides formed",
+                "values": [
+                  "Starch and glycogen",
+                  "Cellulose"
+                ]
+              },
+              {
+                "feature": "Neighbouring units in a chain",
+                "values": [
+                  "All point the same way",
+                  "Every other unit is inverted"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Glycosidic bonds"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A condensation reaction between two monosaccharides forms a **glycosidic bond** and releases water.",
+            "Maltose = glucose + glucose.",
+            "Sucrose = glucose + fructose.",
+            "Lactose = glucose + galactose.",
+            "Hydrolysis of the glycosidic bond (adding water, with acid or an enzyme) gives the monosaccharides back."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "α- and β-glucose differ in the position of the OH and H on carbon 1.",
+            "Disaccharides form by condensation, with a glycosidic bond.",
+            "Maltose, sucrose and lactose each contain glucose."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Polysaccharides: starch, glycogen and cellulose",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Polysaccharides are formed by the condensation of many glucose units. Their structure suits their function."
+        },
+        {
+          "type": "subheading",
+          "text": "Starch"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Made of **α-glucose**. It is a mixture of two polysaccharides, amylose and amylopectin.",
+            "**Amylose** is an unbranched chain with 1,4 glycosidic bonds. It coils into a helix, which is compact.",
+            "**Amylopectin** has 1,4 bonds and also 1,6 bonds, which make branches.",
+            "Starch is the energy store in plant cells. It is insoluble, so it does not change the water potential of the cell.",
+            "The helix is compact, so a lot of glucose is stored in a small space.",
+            "Branches in amylopectin give many free ends, so enzymes can hydrolyse it quickly to release glucose."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Glycogen"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Made of **α-glucose**, with 1,4 and 1,6 bonds. It is more highly branched than amylopectin, with shorter chains.",
+            "It is the energy store in animal cells, found as granules in liver and muscle.",
+            "Very many free ends mean glucose can be released very rapidly, to meet the high demand of animal cells.",
+            "It is compact and insoluble, like starch."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Cellulose"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Made of **β-glucose**. Every other glucose is inverted, so the chains are straight and unbranched.",
+            "Many hydrogen bonds form between parallel chains. Each is weak, but together they make strong **microfibrils**, which group into fibres.",
+            "Cellulose forms the cell wall of plant cells. The fibres have high tensile strength, so the wall resists the pressure of water entering the cell by osmosis.",
+            "The cell wall stops the cell bursting and gives the cell a fixed shape."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Features are sorted into starch, glycogen and cellulose.",
+            "prompt": "Sort each feature into the polysaccharide it describes.",
+            "groups": [
+              "Starch",
+              "Glycogen",
+              "Cellulose"
+            ],
+            "items": [
+              {
+                "text": "Contains both amylose and amylopectin",
+                "group": 0
+              },
+              {
+                "text": "Energy store in plant cells",
+                "group": 0
+              },
+              {
+                "text": "Most highly branched, so glucose is released fastest",
+                "group": 1
+              },
+              {
+                "text": "Granules in animal liver and muscle cells",
+                "group": 1
+              },
+              {
+                "text": "Straight chains with every other unit inverted",
+                "group": 2
+              },
+              {
+                "text": "Hydrogen bonds join chains into microfibrils",
+                "group": 2
+              },
+              {
+                "text": "Gives plant cell walls tensile strength",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Starch and glycogen: α-glucose, compact, insoluble stores of glucose.",
+            "Branching gives many ends for fast hydrolysis; glycogen is the most branched.",
+            "Cellulose: β-glucose, straight chains, hydrogen-bonded microfibrils, strong."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Biochemical tests for carbohydrates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Benedict's solution and iodine solution identify sugars and starch. The full methods are in the note on testing for biological molecules."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Glucose, fructose and maltose are **reducing sugars**. They give a positive Benedict's test, going from blue to green, yellow, orange and brick red when heated.",
+            "Sucrose is a **non-reducing sugar**. It stays blue in Benedict's test until it is hydrolysed by boiling with dilute acid. The acid is then neutralised with alkali before Benedict's solution is added again.",
+            "Iodine in potassium iodide solution turns from orange-brown to blue-black with starch."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reducing sugars: glucose, fructose and maltose. Non-reducing: sucrose.",
+            "Hydrolysing sucrose releases reducing sugars, so the test turns positive."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how a molecule of maltose is formed from glucose, and name the bond.",
+      "a": "A condensation reaction between two α-glucose molecules; a molecule of water is removed; a (1,4) glycosidic bond forms.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how the structure of glycogen makes it suitable as a store of glucose in animal cells.",
+      "a": "It is a polymer of α-glucose, so it is a store of glucose. It is insoluble and compact, so it does not affect water potential and stores a lot in a small space. It is highly branched, with many free ends, so enzymes hydrolyse it rapidly to release glucose.",
+      "marks": 4
+    },
+    {
+      "q": "Explain how the structure of cellulose gives strength to a plant cell wall.",
+      "a": "Cellulose is made of β-glucose with every other unit inverted, giving straight, unbranched chains. Many hydrogen bonds form between the chains to form microfibrils, which are strong. Fibres arranged in the wall resist the pressure of water entering the cell, so it does not burst.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.12",
+        "EDEX 1.13",
+        "EDEX 4.9"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Energy provision and storage"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Monosaccharides such as glucose are the immediate source of energy, used in respiration.",
+                "Disaccharides such as sucrose are the form in which sugar is transported in plants. Lactose is the sugar in milk.",
+                "Starch (amylose and amylopectin) stores energy in plants. Glycogen stores energy in animals and fungi.",
+                "Compare how the two store: both are made of α-glucose and are branched, but glycogen has shorter chains and more branches."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.2b",
+        "OCR 2.1.2d",
+        "OCR 2.1.2e",
+        "OCR 2.1.2f",
+        "OCR 2.1.2g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Hexose and pentose"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **hexose** has six carbon atoms in the molecule. Glucose is an example, with a ring of five carbons and one oxygen and a sixth carbon outside the ring.",
+                "A **pentose** has five carbon atoms. Ribose is an example, with a ring of four carbons and one oxygen and a fifth carbon outside the ring.",
+                "Glucose is soluble, because its many OH groups are polar and form hydrogen bonds with water. This is why it is easily transported."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.1a",
+        "AQA 3.1.1b",
+        "AQA 3.1.1c",
+        "AQA 3.1.1d",
+        "AQA 3.1.1e",
+        "AQA 3.1.1f",
+        "AQA 3.1.2a",
+        "AQA 3.1.2b",
+        "AQA 3.1.2c",
+        "AQA 3.1.2d",
+        "AQA 3.1.2e",
+        "AQA 3.1.2f",
+        "AQA 3.1.2g"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 2.2.1",
+        "CAIE 2.2.2",
+        "CAIE 2.2.3",
+        "CAIE 2.2.4",
+        "CAIE 2.2.5",
+        "CAIE 2.2.6",
+        "CAIE 2.2.7",
+        "CAIE 2.2.8"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "bef53df2-e37e-4f03-889a-2daf91bd521c",
+      "29e5368e-93bf-44d8-b0f3-72115fc58634",
+      "01855edb-800a-4711-86f9-a23b11dce012",
+      "8358fe2e-7384-415e-92b2-064564040aed",
+      "106648b3-eb38-49af-88d2-0adb8daefd07",
+      "ee17671a-0693-4d13-95b4-60472bc22bd2",
+      "541de4bb-8904-4071-8b29-3e9ce44ca860",
+      "589bac22-7794-45bf-a497-ea06ca9907e6",
+      "fa9bfc28-750a-4c6f-9e6e-8aa5af36e241",
+      "1d0e31ce-00bc-462e-a73d-60b7afdde671",
+      "a76df835-a7b6-45e2-b928-1e2d55712e78",
+      "384804e1-eb5f-42c1-9a5d-64222e47fa0a",
+      "33fded75-42f3-45b5-9ab5-856bde576f83",
+      "05bc550f-85a1-4ee9-b0ac-7b3c5d581da2",
+      "11bffb69-67d1-46b5-a8c3-2f9ba6f893b7",
+      "01cd5381-2345-48f5-a5bf-29055d4d744e",
+      "25e6ea4b-2d55-4aeb-bace-0c309e2d76d5",
+      "a940a06b-3422-4ed9-981e-4f3db5c12e5c",
+      "395a1cc4-12fa-4f5a-93d5-f878b58bc47a",
+      "798d5ed2-de7e-4e1f-b24f-5f67d33223a8",
+      "6b0e57ab-3539-4ec8-8c6b-d7178d96845d",
+      "1db667c0-d54e-4181-a01b-7ba0be624ac4",
+      "d2128f7a-08d7-46c8-b71e-07758657e253",
+      "f2ddbdcc-ce1f-4b60-aca8-9cdc5a370ad0",
+      "bc43f914-85a7-4dfd-998a-4fd0b5b08dfd",
+      "1d95c37d-cd99-4a5c-88cd-803bc8affb7a",
+      "95b3d45d-2991-40ed-9183-6ef1d2df445a",
+      "c98fc889-bc00-47a2-babf-1d1e91539739",
+      "f01372c5-7ef6-41e9-8177-15e2087e35ea"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

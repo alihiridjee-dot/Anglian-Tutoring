@@ -1,0 +1,440 @@
+{
+  "format": 1,
+  "concept_id": "achem-098",
+  "subject": "chemistry",
+  "title": "Practical apparatus and techniques",
+  "key_idea": "Each technique has a correct way to be set up and used, and a hazard to control. Know which apparatus measures which quantity, how titration, heating under reflux, distillation, filtration and recrystallisation are done, and how to handle hazardous substances safely.",
+  "sections": [
+    {
+      "heading": "Measuring and heating",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Choose apparatus to match the quantity and the precision needed. This section covers measurements and heating methods."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Quantity",
+            "Apparatus"
+          ],
+          "rows": [
+            [
+              "Mass",
+              "Balance, reading to 0.001 g or 0.01 g"
+            ],
+            [
+              "Time",
+              "Stopwatch, or a data logger for fast or long reactions"
+            ],
+            [
+              "Volume of liquid",
+              "Pipette (fixed volume, most precise), burette (variable volume), measuring cylinder (least precise)"
+            ],
+            [
+              "Volume of gas",
+              "Gas syringe, or an upturned measuring cylinder or burette over water"
+            ],
+            [
+              "Temperature",
+              "Thermometer or temperature probe on a data logger"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **water bath** heats evenly to a set temperature below 100 °C. It is safe for flammable liquids.",
+            "An **electric heater** (heating mantle or hot plate) is used for flammable liquids, because there is no naked flame.",
+            "A **sand bath** heats gently and evenly to temperatures above 100 °C.",
+            "Never heat a closed system, and never heat a flammable liquid with a Bunsen flame."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A pipette is the most precise way to deliver a fixed volume of liquid.",
+            "Use a water bath, electric heater or sand bath for even, safe heating."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring pH, and titration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Acid–base work depends on measuring pH and finding end points. This section covers pH measurement, titration and standard solutions."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Measure pH with a pH chart and indicator paper, a pH meter or a pH probe on a data logger.",
+            "Calibrate a pH meter with buffer solutions of known pH before use. Rinse the probe with distilled water between solutions.",
+            "A pH meter or probe is more precise than indicator paper, and can follow pH during a titration."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Making a standard solution"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Weigh.",
+              "text": "Weigh the solid by difference into a weighing bottle or beaker, and record the mass."
+            },
+            {
+              "lead": "Dissolve.",
+              "text": "Dissolve it in a small volume of distilled water in a beaker."
+            },
+            {
+              "lead": "Transfer.",
+              "text": "Pour into a volumetric flask through a funnel. Rinse the beaker and funnel into the flask."
+            },
+            {
+              "lead": "Make up.",
+              "text": "Add distilled water until the bottom of the meniscus is on the mark. Add the last drops with a dropping pipette."
+            },
+            {
+              "lead": "Mix.",
+              "text": "Stopper the flask and invert it several times."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Titration"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Pipette.",
+              "text": "Fill the pipette to the mark with the solution of unknown or known concentration and run it into a conical flask."
+            },
+            {
+              "lead": "Add indicator.",
+              "text": "Add a few drops of a suitable indicator."
+            },
+            {
+              "lead": "Titrate.",
+              "text": "Run the solution from the burette into the flask, swirling. Slow to drop by drop near the end point."
+            },
+            {
+              "lead": "Record.",
+              "text": "Read the burette at eye level to the bottom of the meniscus. Repeat until two titres agree within 0.10 cm³ (concordant)."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Strong acid with strong alkali: either methyl orange or phenolphthalein can be used.",
+            "Weak acid with strong alkali: phenolphthalein, because the end point is above pH 7.",
+            "Strong acid with weak alkali: methyl orange, because the end point is below pH 7.",
+            "Weak acid with weak alkali: no indicator gives a sharp change. Use a pH meter."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use a volumetric flask for an accurate standard solution, with the meniscus on the mark.",
+            "Match the indicator to the strengths of the acid and alkali."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Organic techniques: reflux, distillation and purification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Organic preparations need heating, separating and purifying steps. This section covers the glassware and the purpose of each step."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Heating under reflux** keeps a volatile mixture boiling without losing it. A condenser stands vertically above the flask, and the vapour condenses and runs back.",
+            "**Distillation** separates liquids by boiling point. The condenser is set sloping down, with the thermometer bulb level with the side arm.",
+            "Set glassware up using a retort stand and clamps. Add anti-bumping granules to the flask, and never seal the apparatus.",
+            "Water enters a condenser at the bottom and leaves at the top, so the jacket stays full.",
+            "A **separating funnel** separates two immiscible liquids. Shake, vent, let the layers settle, and run off the lower layer.",
+            "**Filtration** removes a solid. Use fluted filter paper for speed, or filtration under reduced pressure (a Buchner flask and funnel) to dry the solid quickly."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Recrystallisation of a solid"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Dissolve the impure solid in the minimum amount of hot solvent.",
+            "Filter hot to remove insoluble impurities, then cool so that crystals form and soluble impurities stay in solution.",
+            "Filter off the crystals under reduced pressure, wash with a little cold solvent and dry.",
+            "Test purity with a **melting point apparatus**. A pure solid melts sharply at the data-book value. An impure one melts lower and over a range."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reflux heats without loss. Distillation separates by boiling point.",
+            "Recrystallisation purifies a solid, and melting point tests its purity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Chromatography, electrochemical cells and rates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some techniques separate mixtures or measure electrical or rate data. This section covers chromatography, cells and rate experiments."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In thin layer or paper chromatography, draw the baseline in pencil, spot the samples on it and place the plate in solvent below the baseline. Remove it before the solvent reaches the top, mark the solvent front and dry it.",
+            "Colourless spots are shown with a locating agent or ultraviolet light.",
+            "To set up an **electrochemical cell**, place each metal in a solution of its own ions, join the solutions with a salt bridge, and measure the voltage with a high-resistance voltmeter.",
+            "Measure rates by at least two methods: an initial rate method, such as a clock reaction, and a continuous monitoring method, such as collecting gas or following colour change."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rf value",
+          "formula": "Rf = distance moved by the spot ÷ distance moved by the solvent front",
+          "where": [
+            "both distances measured from the baseline, in the same unit"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Handling hazardous substances"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Wear eye protection. Use gloves for corrosive or irritant substances.",
+            "Use a fume cupboard for toxic, irritant or volatile substances.",
+            "Keep flammable liquids away from naked flames.",
+            "Dilute concentrated acids by adding acid slowly to water, with stirring.",
+            "Identify the hazards before starting and use the smallest quantities and lowest concentrations that work."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap each technique to see what it is used for and the key detail to remember.",
+            "prompt": "Tap a technique to learn what it is for, then test yourself.",
+            "parts": [
+              {
+                "name": "Volumetric flask",
+                "detail": "Makes an accurate standard solution. Fill until the bottom of the meniscus is on the mark, then invert to mix."
+              },
+              {
+                "name": "Pipette",
+                "detail": "Delivers a fixed volume of solution accurately into a conical flask, for example 25.0 cm³."
+              },
+              {
+                "name": "Burette",
+                "detail": "Delivers a variable volume in a titration. Read at eye level to the bottom of the meniscus."
+              },
+              {
+                "name": "Reflux",
+                "detail": "Heats a volatile mixture for a long time without loss. The vapour condenses and returns to the flask."
+              },
+              {
+                "name": "Distillation",
+                "detail": "Separates liquids by boiling point. The thermometer bulb is level with the side arm of the still head."
+              },
+              {
+                "name": "Separating funnel",
+                "detail": "Separates two immiscible liquids. Run off the lower layer and keep the one you need."
+              },
+              {
+                "name": "Recrystallisation",
+                "detail": "Purifies a solid. Dissolve in minimum hot solvent, cool, filter and wash with cold solvent."
+              },
+              {
+                "name": "Melting point apparatus",
+                "detail": "Tests the purity of a solid. A pure solid melts sharply at a fixed temperature."
+              },
+              {
+                "name": "Chromatography",
+                "detail": "Separates a mixture on a plate or paper. Compare Rf values with known substances."
+              },
+              {
+                "name": "Salt bridge",
+                "detail": "Completes the circuit of an electrochemical cell by letting ions move between the half-cells."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure rate by an initial rate method and by continuous monitoring.",
+            "A salt bridge joins the half-cells and a high-resistance voltmeter measures the voltage."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A student makes up a standard solution in a volumetric flask. Give two details of good technique.",
+      "a": "Rinse the beaker and funnel into the flask so that all the solid is transferred; add distilled water until the bottom of the meniscus is on the mark (adding the last drops with a dropping pipette); stopper and invert to mix.",
+      "marks": 2
+    },
+    {
+      "q": "Give the reason for using phenolphthalein in the titration of ethanoic acid with sodium hydroxide.",
+      "a": "The end point lies above pH 7 (the pH changes sharply in the range of phenolphthalein, 8.3–10), because ethanoic acid is weak and sodium hydroxide is strong.",
+      "marks": 2
+    },
+    {
+      "q": "A pure solid and an impure sample of the same solid are tested in a melting point apparatus. State the difference expected.",
+      "a": "The pure solid melts sharply at the data-book temperature; the impure sample melts at a lower temperature and over a range.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 1.1.2a",
+        "OCR 1.2.1b",
+        "OCR 1.2.1j",
+        "OCR 1.2.2a",
+        "OCR 1.2.2b",
+        "OCR 1.2.2c",
+        "OCR 1.2.2d",
+        "OCR 1.2.2e",
+        "OCR 1.2.2f",
+        "OCR 1.2.2g",
+        "OCR 1.2.2h",
+        "OCR 1.2.2i",
+        "OCR 1.2.2j",
+        "OCR 1.2.2k",
+        "OCR 1.2.2l"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know the full list of techniques the course expects, and how to use them safely."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use a wide range of apparatus and techniques correctly, safely and with the hazards identified.",
+                "Use apparatus to record mass, time, volume of liquids and gases, and temperature.",
+                "Use a water bath, electric heater or sand bath for heating.",
+                "Measure pH using pH charts, a pH meter or a pH probe on a data logger.",
+                "Titrate with a burette and pipette, distil and heat under reflux, carry out qualitative tests for ions and organic functional groups, and filter with fluted filter paper or under reduced pressure.",
+                "Use acid–base indicators in titrations of weak and strong acids with weak and strong alkalis.",
+                "Purify a solid product by recrystallisation and a liquid product with a separating funnel.",
+                "Use melting point apparatus, thin layer or paper chromatography, and electrochemical cells with voltage measurement.",
+                "Handle corrosive, irritant, flammable and toxic substances safely.",
+                "Measure rates of reaction by at least two methods, for example an initial rate method such as a clock reaction and a continuous monitoring method."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.15"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know how to relate equations to observations in simple test tube reactions."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Type of reaction",
+                "Equation",
+                "Observation"
+              ],
+              "rows": [
+                [
+                  "Displacement",
+                  "Cl₂(aq) + 2Br⁻(aq) → 2Cl⁻(aq) + Br₂(aq)",
+                  "Colourless solution turns orange"
+                ],
+                [
+                  "Displacement",
+                  "Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s)",
+                  "Blue solution fades; brown solid forms"
+                ],
+                [
+                  "Acid with metal",
+                  "Mg(s) + 2H⁺(aq) → Mg²⁺(aq) + H₂(g)",
+                  "Effervescence; metal dissolves"
+                ],
+                [
+                  "Acid with carbonate",
+                  "CO₃²⁻(aq) + 2H⁺(aq) → CO₂(g) + H₂O(l)",
+                  "Effervescence; gas turns limewater milky"
+                ],
+                [
+                  "Precipitation",
+                  "Ag⁺(aq) + Cl⁻(aq) → AgCl(s)",
+                  "White precipitate"
+                ],
+                [
+                  "Precipitation",
+                  "Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)",
+                  "White precipitate"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Write the ionic equation with state symbols, and also the full equation with formulae for the whole compounds.",
+                "Leave out spectator ions from an ionic equation."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "1f3c1c8f-04f8-4f47-a655-ae1aed69aad4",
+      "8f90de05-45e3-40f4-9ceb-9823b410c75b",
+      "8d5369e8-b81a-4395-be81-a725d9b43d02",
+      "fc0dd967-2196-4fe6-b524-f22d397ba656",
+      "aea7cf9e-144d-415b-8858-d0732caf43f7",
+      "2f244796-0262-4213-aff7-2309ab5081e4",
+      "890191d1-bf66-4880-8465-9f99871eb893",
+      "e840960c-7197-4597-8b57-e7f58dff6089",
+      "24a8839f-8c3b-41ee-ad02-491334e9bb67",
+      "73b36886-7b41-4b69-a807-2f798feea204",
+      "65d1ad07-9a5e-483f-a85c-e750c81fe818",
+      "6f735162-ed92-47fb-85ff-afe5ffbb97e9",
+      "77e895cf-d33c-44dd-992f-fde1004e417b",
+      "5d4a85d5-14d2-4d3c-9da3-97c9cf5809e6",
+      "25111dec-bc08-4427-8ac7-1efce74fe6e4",
+      "b408e2f1-deb4-440e-8368-7823ae1c1f85"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

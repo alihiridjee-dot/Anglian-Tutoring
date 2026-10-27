@@ -218,7 +218,7 @@
         },
         {
           "type": "subheading",
-          "text": "Limitations of the particle model (Higher tier for AQA)"
+          "text": "Limitations of the particle model (Higher tier)"
         },
         {
           "type": "list",
@@ -236,7 +236,7 @@
           "type": "key-points",
           "items": [
             "Compare the temperature with the melting and boiling points to name the state.",
-            "The model leaves out forces and treats all particles as identical solid spheres.",
+            "(Higher tier) The model leaves out forces and treats all particles as identical solid spheres.",
             "A boiling point belongs to a large number of particles, not to one."
           ]
         }

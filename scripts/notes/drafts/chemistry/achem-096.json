@@ -1,0 +1,347 @@
+{
+  "format": 1,
+  "concept_id": "achem-096",
+  "subject": "chemistry",
+  "title": "Planning, risk and evaluating experiments",
+  "key_idea": "A good experiment tests one idea fairly, with the right apparatus, and with the risks controlled. Every measurement has an uncertainty, which you can calculate as a percentage. Evaluating means judging the results, spotting anomalies and limits, and suggesting specific improvements.",
+  "sections": [
+    {
+      "heading": "Planning an experiment",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Planning turns a question into a method that can answer it. This section covers choosing apparatus, controlling variables and checking the method suits the aim."
+        },
+        {
+          "type": "list",
+          "items": [
+            "State the aim and the quantity that must be measured to answer it.",
+            "Choose apparatus and techniques that suit the quantities and the precision needed. Use chemistry from the course to justify the choice.",
+            "The **independent variable** is the one you change. The **dependent variable** is the one you measure.",
+            "**Control variables** are kept the same so that only the independent variable can affect the result. Examples are temperature, volumes, concentrations, mass of solid and particle size.",
+            "Plan enough values of the independent variable, with repeats, to show a trend."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Control variable",
+              "meaning": "A quantity kept constant so that it cannot affect the result."
+            },
+            {
+              "term": "Valid method",
+              "meaning": "A method that measures what it claims to measure, with other variables controlled."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Before using a method, check that it meets the expected outcome. Ask whether it measures the right quantity, to a suitable precision, and whether the data collected can answer the question."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change one variable, measure one, and control the rest.",
+            "Choose apparatus to match the precision the question needs."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Risk, hazards and precautions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A hazard is something that can cause harm. This section covers how to assess a risk and choose control measures."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Hazard",
+              "meaning": "A substance or process that can cause harm, such as a corrosive acid or a flammable liquid."
+            },
+            {
+              "term": "Risk",
+              "meaning": "The chance that the hazard causes harm in the way it is used."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Look up the hazard data for each reagent and product, and note the hazard symbol and the way it can cause harm.",
+            "Choose a control measure that deals with that hazard. Use a smaller amount or a lower concentration, a fume cupboard for toxic or irritant vapours, or eye protection for corrosive liquids.",
+            "Use a water bath or electric heater, not a naked flame, for flammable liquids.",
+            "Add concentrated acids slowly and with cooling. Do not heat a closed system.",
+            "Dispose of waste correctly, for example heavy metal solutions in a labelled waste bottle."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "When choosing between two procedures, select the one that gives the product or data needed with the lower risk, and justify it using the hazard data."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Match each hazard to a specific precaution.",
+            "Justify a procedure using hazard data and the chemistry involved."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Uncertainty, error and precision",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every measurement is only as good as the apparatus. This section covers uncertainty, percentage uncertainty and how to reduce it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Uncertainty",
+              "meaning": "The margin either side of a measured value within which the true value is expected to lie, such as ±0.05 cm³."
+            },
+            {
+              "term": "Precision",
+              "meaning": "How close repeated measurements are to each other."
+            },
+            {
+              "term": "Accuracy",
+              "meaning": "How close a measurement is to the true value."
+            },
+            {
+              "term": "Anomaly",
+              "meaning": "A result that does not fit the pattern of the others."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each piece of apparatus has an uncertainty, shown on it or taken as half of the smallest division. Examples are ±0.05 cm³ for a burette reading and ±0.001 g for a balance.",
+            "A titre is the difference between two burette readings, so double the uncertainty of one reading.",
+            "A **random error** makes repeated results scatter either way. Repeating and averaging reduces it.",
+            "A **systematic error** shifts every result the same way, such as a balance that is not zeroed. Repeating does not remove it."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Percentage uncertainty",
+          "formula": "% uncertainty = (uncertainty ÷ measured value) × 100",
+          "where": [
+            "uncertainty in the same unit as the measured value",
+            "measured value in its unit"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of the percentage uncertainty in a titre from burette readings, with new numbers each time.",
+            "question": "A burette reading has an uncertainty of ±0.05 cm³. A titre is the difference between two readings and has a volume of {v} cm³. Calculate the percentage uncertainty in the titre.",
+            "variables": [
+              {
+                "id": "v",
+                "min": 10,
+                "max": 30,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "0.10 / v * 100",
+              "unit": "%",
+              "decimals": 2
+            },
+            "working": [
+              "Uncertainty in titre = 2 × 0.05 = ±0.10 cm³",
+              "% uncertainty = (0.10 ÷ {v}) × 100 = {answer} %"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The percentage uncertainty falls when the measured quantity is larger, because the same uncertainty is a smaller fraction.",
+            "To minimise it, measure larger amounts, use apparatus with a smaller uncertainty, or use a method with fewer separate readings.",
+            "The percentage error compares a result with an accepted value: (difference from accepted value ÷ accepted value) × 100.",
+            "When quantities are added or subtracted, add their absolute uncertainties. When they are multiplied or divided, add their percentage uncertainties."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Percentage uncertainty = uncertainty ÷ value × 100.",
+            "Use bigger measurements or better apparatus to reduce it.",
+            "Random error is reduced by repeats. Systematic error is not."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evaluating results and methods",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Evaluation is judging how far the data can be trusted. This section covers drawing conclusions, anomalies, limitations and improvements."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A conclusion must follow from the data and answer the aim. Do not claim more than the results show.",
+            "Compare repeats. Results that agree closely are precise. A result that is far from the rest is an **anomaly** and is repeated or excluded with a reason.",
+            "Compare the result with an accepted value to judge accuracy, and decide whether the difference is larger than the combined uncertainty.",
+            "A limitation is a weakness in the procedure, such as heat loss in calorimetry, gas escaping before collection, or a colour change that is hard to judge."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "An improvement must be specific and linked to a limitation. Say what to change and what effect it has on the result."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Limitation",
+            "Specific improvement"
+          ],
+          "rows": [
+            [
+              "Heat lost to the surroundings",
+              "Use a lid and insulation, and extrapolate the temperature graph back to the time of mixing"
+            ],
+            [
+              "Large percentage uncertainty in a small volume",
+              "Use a larger volume or a more precise piece of apparatus"
+            ],
+            [
+              "Few data points",
+              "Take more values of the independent variable and repeat each"
+            ],
+            [
+              "Subjective end point",
+              "Use a pH meter or a colorimeter instead of judging colour by eye"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Conclusions must be supported by the data.",
+            "Name the limitation, then give the specific change that fixes it."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why measuring a larger volume with the same piece of apparatus gives a smaller percentage uncertainty.",
+      "a": "The absolute uncertainty of the apparatus stays the same. Percentage uncertainty is uncertainty ÷ volume × 100, so dividing by a larger volume gives a smaller percentage.",
+      "marks": 2
+    },
+    {
+      "q": "A balance reads to ±0.001 g. A student weighs 0.250 g of solid. Calculate the percentage uncertainty.",
+      "a": "0.001 ÷ 0.250 × 100 = 0.4 %.",
+      "marks": 2
+    },
+    {
+      "q": "In a calorimetry experiment the temperature rise is lower than the accepted value. Suggest one limitation and one specific improvement.",
+      "a": "Limitation: heat lost to the surroundings. Improvement: use a lid and insulation (for example a lagged cup), or extrapolate the cooling curve back to the time of mixing.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 1.1.1a",
+        "OCR 1.1.1b",
+        "OCR 1.1.1c",
+        "OCR 1.1.4a",
+        "OCR 1.1.4b",
+        "OCR 1.1.4c",
+        "OCR 1.1.4d",
+        "OCR 1.1.4e",
+        "OCR 1.2.1a",
+        "OCR 1.2.1h",
+        "OCR 1.2.1i"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know how to approach practical problems in context, and how to use and cite sources."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Apply investigative approaches to a practical problem set in an unfamiliar context, using the chemistry from the course.",
+                "Use research skills, online and offline: websites, textbooks and other printed scientific sources.",
+                "Judge a source by who wrote it, whether it can be checked, and how recent it is.",
+                "Cite every source correctly, giving enough detail for a reader to find it again.",
+                "Identify anomalies in measurements and give the limitations of a procedure and the apparatus."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.12",
+        "EDEX 5.13",
+        "EDEX 5.16",
+        "EDEX 18C.21"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know how to select and justify procedures for reactions of functional groups, using hazard data."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Select a procedure for a reaction such as oxidation, esterification or hydrolysis, and justify the choice from the chemistry and the hazards.",
+                "Use hazard data to identify control measures. For example, use a heating mantle or water bath for flammable organic liquids, and a fume cupboard for volatile or toxic vapours.",
+                "Calculate measurement uncertainties and measurement errors in results, and comment on sources of error in the procedure.",
+                "Know how to minimise percentage error and percentage uncertainty by choice of quantities and apparatus."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "876665b3-28ef-4c09-8e4d-34c8f2f711f7",
+      "e710ef4a-da28-4c16-878f-7d230bfe8d89",
+      "322cbf63-0f6b-4cad-8588-290d5b6e6aab",
+      "ebd2a29a-a1be-4b46-885d-b4a8aa5380c3",
+      "0bdcb470-5256-4829-9d01-33386f02bbd9",
+      "e5f789f4-a563-4b83-ac5c-8daa06a2d8e1",
+      "a4eb37e1-6c5c-41b1-96e5-00019f696555",
+      "cd4431cc-cbd9-4b86-8f9c-49d13e7d4358",
+      "cb20a2a2-c273-453c-99f3-4b39a8978627",
+      "7e1218f6-6d21-4219-a742-8be60ae5a51b",
+      "5e403100-7b5a-4bde-8ad1-e41ea46d5cbe",
+      "2a4c0a1b-a77e-4ce9-9f5a-13feddfb87a1",
+      "d0a48a7b-96c4-4e9e-91bd-9b1af4e4f225",
+      "8970a390-3f31-45bf-89a2-d59d0cd41f86",
+      "9bde86f6-ba47-4929-881c-221c50a2146f"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

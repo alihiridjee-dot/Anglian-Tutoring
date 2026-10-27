@@ -1,0 +1,345 @@
+{
+  "format": 1,
+  "concept_id": "aphys-053",
+  "subject": "physics",
+  "title": "Temperature and internal energy",
+  "key_idea": "Energy flows from hot to cold until two regions are in thermal equilibrium. The kelvin scale starts at absolute zero. Internal energy is the sum of the random kinetic and potential energies of the molecules.",
+  "sections": [
+    {
+      "heading": "Temperature and thermal equilibrium",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Thermal energy moves between regions at different temperatures. This section covers the direction of the transfer and what equilibrium means."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Thermal energy is transferred from a region of **higher temperature** to a region of lower temperature.",
+            "The transfer continues until both regions are at the same temperature.",
+            "Regions at equal temperature are in **thermal equilibrium**: there is no net transfer of energy between them.",
+            "If A is in thermal equilibrium with B, and B is in thermal equilibrium with C, then A is in thermal equilibrium with C. This is why a thermometer works."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Thermal equilibrium",
+              "meaning": "Two regions at the same temperature, with no net energy transfer between them."
+            },
+            {
+              "term": "Temperature",
+              "meaning": "The property that decides the direction of net thermal energy transfer between two regions."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Net energy flows from higher to lower temperature.",
+            "Equal temperature means thermal equilibrium and no net energy transfer."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring temperature",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Temperature is measured on the thermodynamic scale, which does not depend on any one substance. This section covers the kelvin scale and converting from degrees Celsius."
+        },
+        {
+          "type": "subheading",
+          "text": "The thermodynamic scale"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The thermodynamic (absolute) scale of temperature does not depend on the property of any particular substance.",
+            "Its unit is the kelvin (K).",
+            "The lowest possible temperature is 0 K, called **absolute zero**."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Converting between kelvin and degrees Celsius",
+          "formula": "T / K = θ / °C + 273.15",
+          "where": [
+            "T is the thermodynamic temperature in kelvin (K)",
+            "θ is the temperature in degrees Celsius (°C)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A change of 1 K is the same size as a change of 1 °C. Temperatures in gas calculations must always be in kelvin."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Convert a temperature from degrees Celsius to kelvin.",
+            "question": "A gas is at {theta} °C. Calculate its thermodynamic temperature in kelvin.",
+            "variables": [
+              {
+                "id": "theta",
+                "min": -50,
+                "max": 150,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "theta + 273.15",
+              "unit": "K",
+              "decimals": 2
+            },
+            "working": [
+              "T = θ + 273.15",
+              "T = {theta} + 273.15",
+              "T = {answer} K"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The thermodynamic scale is independent of any substance and starts at absolute zero.",
+            "T / K = θ / °C + 273.15."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Internal energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every body has energy stored in its molecules. This section covers what that energy is made of and how it changes with temperature."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Internal energy",
+              "meaning": "The sum of the random distribution of kinetic and potential energies of the molecules of a system."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **kinetic** energy comes from the random motion of the molecules.",
+            "The **potential** energy comes from the forces between the molecules.",
+            "Internal energy is determined by the state of the system.",
+            "When the temperature of an object rises, its internal energy increases.",
+            "At absolute zero a substance has its minimum internal energy."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Internal energy is the sum of random kinetic and potential energies.",
+            "A rise in temperature means an increase in internal energy."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Two blocks, one at 80 °C and one at 20 °C, are placed in contact and kept isolated. Describe what happens to the energy and state what is true when thermal equilibrium is reached.",
+      "a": "Net energy is transferred from the 80 °C block to the 20 °C block. At thermal equilibrium the blocks are at the same temperature and there is no net transfer of energy.",
+      "marks": 2
+    },
+    {
+      "q": "Define internal energy and explain why it increases when a solid is heated and its temperature rises.",
+      "a": "Internal energy is the sum of the random distribution of kinetic and potential energies of the molecules. A temperature rise means the molecules' kinetic energy increases, so the internal energy increases.",
+      "marks": 3
+    },
+    {
+      "q": "Convert 37 °C to kelvin, and state the value of absolute zero in kelvin.",
+      "a": "37 + 273.15 = 310.15 K (310 K). Absolute zero is 0 K.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 9.147",
+        "EDEX 9.148"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Absolute zero and molecular energy"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The average kinetic energy of the molecules is proportional to the absolute temperature T.",
+                "Doubling the temperature in kelvin doubles the average kinetic energy of the molecules.",
+                "At absolute zero the average kinetic energy is at its minimum."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 14.1.1",
+        "CAIE 14.1.2",
+        "CAIE 14.2.1",
+        "CAIE 14.2.2",
+        "CAIE 14.2.3",
+        "CAIE 14.2.4",
+        "CAIE 16.1.1",
+        "CAIE 16.1.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A thermometer uses a physical property that varies with temperature. Examples of such properties are listed below."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The **density** of a liquid.",
+                "The **volume** of a gas at constant pressure.",
+                "The **resistance** of a metal.",
+                "The e.m.f. of a thermocouple."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.1a",
+        "OCR 5.1.1b",
+        "OCR 5.1.1c",
+        "OCR 5.1.1d",
+        "OCR 5.1.2a",
+        "OCR 5.1.2b",
+        "OCR 5.1.2c",
+        "OCR 5.1.2d",
+        "OCR 5.1.2e",
+        "OCR 5.1.2f",
+        "OCR 5.1.2g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Temperatures may be given in degrees Celsius or in kelvin, and the approximation T / K ≈ θ / °C + 273 is accepted."
+            },
+            {
+              "type": "subheading",
+              "text": "Solids, liquids and gases"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "State",
+                "Spacing",
+                "Ordering",
+                "Motion"
+              ],
+              "rows": [
+                [
+                  "Solid",
+                  "Close together",
+                  "Regular, fixed pattern",
+                  "Vibrate about fixed positions"
+                ],
+                [
+                  "Liquid",
+                  "Close together",
+                  "No regular pattern",
+                  "Move past each other randomly"
+                ],
+                [
+                  "Gas",
+                  "Far apart",
+                  "No pattern",
+                  "Rapid random motion in straight lines between collisions"
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The simple kinetic model explains each state in terms of the spacing, ordering and motion of its atoms or molecules."
+            },
+            {
+              "type": "subheading",
+              "text": "Brownian motion"
+            },
+            {
+              "type": "list",
+              "items": [
+                "In a smoke cell, smoke particles are lit from the side and viewed through a microscope.",
+                "The particles are seen as bright specks that move in random zigzag paths.",
+                "Air molecules are too small to see, but they collide with the smoke particles at random.",
+                "At any instant more molecules hit one side, so there is a small net force and the particle changes direction.",
+                "This is evidence that molecules are in continuous, random motion."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Change of phase"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The temperature stays constant while a substance changes phase.",
+                "The energy supplied changes the potential energy of the molecules as the bonds are broken or formed.",
+                "The kinetic energy does not change, so the internal energy still changes."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "ba1bea6d-9dc1-46dc-bfa9-28fb08ef449c",
+      "e81dd5ba-dcd3-47ed-a4bb-4da8d0ae7dc2",
+      "2424a2af-9da2-4e2a-84dc-51b0014cf1a0",
+      "2076e893-751a-4be5-8bb0-1f1c0d2d503e",
+      "8f63df0f-077a-423e-a0c6-9d9b6c674b9d",
+      "076d431b-cff5-4842-ab62-725da25a4506",
+      "28ddc49f-abd6-47cf-bd1a-6de8831e02f9",
+      "875cba90-4609-462f-aab0-335f4e848914",
+      "8c2c52e5-7e58-4266-901c-dd1baa938b95",
+      "0051798d-126e-4d9c-b35b-887e39167e82",
+      "72a68552-015b-4337-88c3-ab5c40d2eabd",
+      "a5f00a50-b1b5-4462-8bfb-2c4095cdd4a7",
+      "ec0fbaba-4ac9-4854-969e-9d242a0d9f5e",
+      "242d003b-0889-4b8f-8947-221d99304a1f",
+      "d2413a2d-5f20-4642-893e-7607cb03514f",
+      "6ecff9e7-f496-4403-ad10-93c688bd4ff7",
+      "e3157fda-890c-4f18-be15-8243ac14afa2",
+      "18cc40b2-44e0-421e-b42d-403f4cc85744",
+      "7610fe33-c292-47c9-baaf-ee2d55042a16",
+      "1afdb991-65b1-4a16-b4a7-44241b26ba12",
+      "3c3c7201-5261-47ff-ad45-b0a14180df3c"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,309 @@
+{
+  "format": 1,
+  "concept_id": "abio-026",
+  "subject": "biology",
+  "title": "Plant transport tissues and fibres",
+  "key_idea": "Large plants need transport systems because diffusion is too slow over long distances. **Xylem** carries water and mineral ions up the plant. **Phloem** carries sugars and other organic substances to where they are needed. Both run together in vascular bundles.",
+  "sections": [
+    {
+      "heading": "Why plants need transport systems",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A small, thin plant can supply its cells by diffusion. A large plant cannot, and it also has two exchange surfaces that are far apart: the roots and the leaves."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A large, multicellular plant has a small surface area to volume ratio (**SA:V**). Its surface cannot supply all the cells inside.",
+            "Roots take in water and mineral ions from the soil. Leaves make sugars by photosynthesis. These have to be moved to every part of the plant.",
+            "Diffusion is too slow over the distances in a tall plant.",
+            "Growing regions and storage organs use a lot of sugar for respiration and growth, so the metabolic demand of cells is high."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Large plants have a small SA:V, so diffusion alone is too slow.",
+            "Roots and leaves are far apart, so water, minerals and sugars must be moved between them."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Xylem, phloem and where they are",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Xylem and phloem are the two vascular tissues. Each is made of several cell types that are adapted to their job."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Xylem vessel element",
+              "meaning": "A dead, hollow cell with a wall thickened with lignin. Joined end to end to form a long tube."
+            },
+            {
+              "term": "Sieve tube element",
+              "meaning": "A living cell with very little cytoplasm and no nucleus, joined end to end. The end walls have pores to form sieve plates."
+            },
+            {
+              "term": "Companion cell",
+              "meaning": "A living cell beside each sieve tube element, with a nucleus, dense cytoplasm and many mitochondria."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Cell",
+            "Structure",
+            "How it suits its function"
+          ],
+          "rows": [
+            [
+              "Xylem vessel",
+              "Dead, with no cell contents. The end walls are broken down to make a continuous tube. The walls are lignified in rings, spirals or networks. Pits in the walls have no lignin.",
+              "Open tube lets water flow without obstruction. Lignin is strong and waterproof, so it stops the vessel collapsing under tension and gives support. Pits let water move sideways into neighbouring cells."
+            ],
+            [
+              "Phloem sieve tube element",
+              "Living, with little cytoplasm, no nucleus and few organelles. Sieve plates at the ends.",
+              "Sugars and other assimilates flow through the pores with little resistance. The lack of a nucleus leaves more room for transport."
+            ],
+            [
+              "Companion cell",
+              "Living, with a large nucleus, dense cytoplasm and many mitochondria. Plasmodesmata link it to the sieve tube element.",
+              "Mitochondria make ATP for active loading of sucrose into the sieve tube. The companion cell keeps the sieve tube element alive."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Where the tissues are in a herbaceous dicot"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Organ",
+            "Position of xylem and phloem"
+          ],
+          "rows": [
+            [
+              "Root",
+              "Xylem forms a star or X shape in the centre. Phloem lies between the arms of the xylem. The vascular tissue is surrounded by a layer called the endodermis. The central position resists the pulling forces on the root."
+            ],
+            [
+              "Stem",
+              "Vascular bundles are arranged in a ring near the outside. In each bundle the xylem is on the inside and the phloem is on the outside. This gives strength against bending."
+            ],
+            [
+              "Leaf",
+              "The vascular bundle lies in the midrib and in the veins. The xylem is on the upper side and the phloem on the lower side. The veins branch so every cell is close to a vein."
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity: sort statements about xylem and phloem.",
+            "prompt": "Sort each statement into xylem or phloem.",
+            "groups": [
+              "Xylem",
+              "Phloem"
+            ],
+            "items": [
+              {
+                "text": "Carries water and mineral ions",
+                "group": 0
+              },
+              {
+                "text": "Carries sucrose and amino acids",
+                "group": 1
+              },
+              {
+                "text": "Vessel elements are dead and hollow",
+                "group": 0
+              },
+              {
+                "text": "Sieve tube elements are living cells",
+                "group": 1
+              },
+              {
+                "text": "Walls strengthened with lignin",
+                "group": 0
+              },
+              {
+                "text": "Has companion cells with many mitochondria",
+                "group": 1
+              },
+              {
+                "text": "Has sieve plates",
+                "group": 1
+              },
+              {
+                "text": "Has pits in the side walls",
+                "group": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Xylem vessels are dead, lignified, hollow tubes. They carry water and mineral ions and support the plant.",
+            "Sieve tube elements are living cells with sieve plates. Companion cells supply their energy.",
+            "In stems, xylem is on the inside of the bundle. In roots, xylem is in the centre."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why a large plant needs a transport system.",
+      "a": "A large plant has a small surface area to volume ratio, so diffusion is too slow to supply cells deep inside it. Water and minerals are taken up by the roots but needed in the leaves, and sugars are made in the leaves but needed in the roots, so they must be moved over long distances.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how a xylem vessel is adapted for transporting water.",
+      "a": "It is dead and hollow with no end walls, so water flows in a continuous column with little resistance. The walls are thickened with lignin, which is strong and waterproof, so the vessel does not collapse under tension. Pits allow water to leave sideways.",
+      "marks": 3
+    },
+    {
+      "q": "Describe the roles of the companion cell in the phloem.",
+      "a": "The companion cell has many mitochondria that make ATP, which is used to load sucrose into the sieve tube element. It has a nucleus and dense cytoplasm and keeps the sieve tube element alive. Plasmodesmata link the two cells.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.3a",
+        "OCR 3.1.3b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Examining the vascular tissue"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Cut thin sections of stem and stain them. Viewed under the microscope, xylem and phloem take up different colours, so their positions can be drawn.",
+                "Cut a stem lengthways and across. Soak it in a dye solution to show the position and structure of the xylem vessels, which carry the dye.",
+                "In a transverse section the vessels look like rings. In a longitudinal section they look like long tubes, and you can see the thickening in spirals or rings.",
+                "Draw outlines of the tissue regions only and label them."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4.10",
+        "EDEX 4.11",
+        "EDEX 4.15"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Fibres, cell walls and sustainability"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Tissue",
+                "Position in the stem",
+                "Function"
+              ],
+              "rows": [
+                [
+                  "Sclerenchyma fibres",
+                  "Around the outside of the vascular bundles and in the cortex",
+                  "Support only. Dead cells with thick lignified walls and a narrow lumen."
+                ],
+                [
+                  "Xylem vessels",
+                  "Inside each vascular bundle, towards the centre of the stem",
+                  "Support, and transport of water and mineral ions."
+                ],
+                [
+                  "Phloem",
+                  "Outside each vascular bundle, towards the edge of the stem",
+                  "Translocation of organic solutes such as sucrose."
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Cellulose molecules join in bundles to form **microfibrils**. These are arranged in layers at different angles, which gives the cell wall great tensile strength.",
+                "**Secondary thickening** is the extra layers of cellulose and lignin laid down inside the wall. It makes xylem vessels and sclerenchyma fibres strong and rigid.",
+                "Sclerenchyma fibres are long, strong and flexible. Humans use them in rope, textiles, paper and building materials.",
+                "Plant fibres and starch can replace oil-based plastics, for example in packaging. These products are renewable and biodegradable, and growing the plants takes in carbon dioxide.",
+                "This contributes to sustainability because it reduces the use of oil, which is a non-renewable resource, and reduces plastic waste."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 7.1.1",
+        "CAIE 7.1.2",
+        "CAIE 7.1.3",
+        "CAIE 7.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Plan diagrams and drawings"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A plan diagram shows the tissues and their positions in a transverse section of a stem, root or leaf. Do not draw individual cells.",
+                "Use a sharp pencil, clear continuous lines and no shading. Label the xylem, phloem and other tissues, and give the diagram a title and a magnification.",
+                "Draw xylem vessel elements, sieve tube elements and companion cells from micrographs, in cell detail, and label their features.",
+                "In an electron micrograph, a sieve tube element has a large lumen, a sieve plate and little cytoplasm, and the companion cell next to it is dense with many mitochondria."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "10fcfbf8-baee-4e71-802f-03a9f6299adb",
+      "831c6e02-9547-4c29-bfe1-bca0b6d2ed89",
+      "8a37a305-1d73-4db1-9846-0ec7f90c9c80",
+      "9f9acd5a-b3bc-420e-9f18-885f04eb7de7",
+      "96cad76e-8c85-40a5-8c75-f5a2af06b8c4",
+      "3458553d-ad33-4545-a5d4-753b7a3e020d",
+      "ccf9affd-738c-4226-94ce-e23b17b0ee47",
+      "636d9456-65bc-497d-8dbc-cceef69af856",
+      "10ee21ae-66dc-433c-b64b-482dfc785890"
+    ],
+    "exemplar_ids": []
+  }
+}

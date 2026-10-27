@@ -1,0 +1,278 @@
+{
+  "format": 1,
+  "concept_id": "achem-045",
+  "subject": "chemistry",
+  "title": "Redox titrations",
+  "key_idea": "A redox titration finds an unknown concentration by reacting a solution with an oxidising or reducing agent of known concentration. Manganate(VII) is its own indicator. Iodine is titrated with thiosulfate, using starch near the end point. The calculation uses the mole ratio from the redox equation.",
+  "sections": [
+    {
+      "heading": "Titrating with manganate(VII)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Potassium manganate(VII) is a strong oxidising agent that is purple. This section covers the method and the equations."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Self-indicating",
+              "meaning": "The reagent changes colour itself at the end point, so no indicator is added."
+            },
+            {
+              "term": "End point",
+              "meaning": "The point where the reaction is just complete."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Put the manganate(VII) solution in the burette and the reducing agent, with excess dilute sulfuric acid, in the conical flask.",
+            "Add the manganate(VII) until one drop gives a permanent pale pink.",
+            "The purple MnO₄⁻ is reduced to almost colourless Mn²⁺, so the colour disappears until the reaction is complete.",
+            "Read the burette at the top of the meniscus, because the dark solution is hard to see through.",
+            "Use dilute sulfuric acid. Hydrochloric acid would be oxidised by manganate(VII). Nitric acid is itself an oxidising agent.",
+            "Repeat until the titres agree within 0.10 cm³."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Reaction",
+            "Ionic equation"
+          ],
+          "rows": [
+            [
+              "Fe²⁺",
+              "MnO₄⁻ + 8H⁺ + 5Fe²⁺ → Mn²⁺ + 4H₂O + 5Fe³⁺"
+            ],
+            [
+              "Ethanedioate, C₂O₄²⁻",
+              "2MnO₄⁻ + 16H⁺ + 5C₂O₄²⁻ → 2Mn²⁺ + 8H₂O + 10CO₂"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The ethanedioate reaction is slow at first, so the flask is warmed to about 60 °C. The Mn²⁺ formed then acts as a catalyst."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Manganate(VII) is self-indicating. The end point is the first permanent pale pink.",
+            "Use dilute sulfuric acid, never hydrochloric or nitric acid.",
+            "The ratio is 1 MnO₄⁻ : 5 Fe²⁺ and 2 MnO₄⁻ : 5 C₂O₄²⁻."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Titrating iodine with thiosulfate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Many oxidising agents can be measured by making them release iodine from iodide ions. The iodine is then titrated with sodium thiosulfate."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Add excess iodide.",
+              "text": "Add excess potassium iodide solution to the oxidising agent. Iodine forms, giving a brown solution."
+            },
+            {
+              "lead": "Titrate.",
+              "text": "Add sodium thiosulfate from the burette until the brown fades to pale yellow."
+            },
+            {
+              "lead": "Add starch.",
+              "text": "Add starch indicator near the end point. The solution turns blue-black."
+            },
+            {
+              "lead": "Finish.",
+              "text": "Continue to add thiosulfate drop by drop until the blue-black disappears and the solution is colourless."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Iodine with thiosulfate",
+          "formula": "I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻",
+          "where": [
+            "I₂ is iodine and S₂O₃²⁻ is the thiosulfate ion.",
+            "The ratio is 1 I₂ : 2 S₂O₃²⁻."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Starch is added late because, if the solution holds a lot of iodine, the starch–iodine complex does not release the iodine easily.",
+            "The thiosulfate is the reducing agent. It goes to the tetrathionate ion, S₄O₆²⁻."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Iodine is titrated with thiosulfate in the ratio 1 : 2.",
+            "Add starch near the end point. Blue-black to colourless is the end point."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Redox titration calculations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every titration calculation follows the same route: moles of the known solution, then the mole ratio, then the unknown."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Moles of the known.",
+              "text": "Moles = concentration (mol/dm³) × volume (dm³)."
+            },
+            {
+              "lead": "Use the ratio.",
+              "text": "Use the equation. For manganate(VII) and Fe²⁺, moles of Fe²⁺ = 5 × moles of MnO₄⁻."
+            },
+            {
+              "lead": "Find the unknown.",
+              "text": "Concentration = moles ÷ volume (dm³). Scale up for the original sample if it was diluted."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise a manganate(VII) titration calculation with new numbers each time.",
+            "question": "25.0 cm³ of an acidified Fe²⁺ solution needs **{v}** cm³ of 0.0200 mol/dm³ MnO₄⁻ for the end point. Calculate the concentration of Fe²⁺ in mol/dm³.",
+            "variables": [
+              {
+                "id": "v",
+                "min": 16,
+                "max": 30,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "5 * 0.02 * v / 25",
+              "unit": "mol/dm³",
+              "decimals": 4
+            },
+            "working": [
+              "Moles of MnO₄⁻ = 0.0200 × {v} ÷ 1000",
+              "Moles of Fe²⁺ = 5 × moles of MnO₄⁻",
+              "Concentration of Fe²⁺ = moles ÷ 0.0250 dm³ = **{answer}** mol/dm³"
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "In a non-structured question you are not told these steps. Write the equation, find the ratio and set out the moles yourself."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Convert cm³ to dm³ by dividing by 1000.",
+            "The mole ratio comes from the balanced equation.",
+            "Check that the answer scales back to the original sample."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the colour change at the end point when Fe²⁺ is titrated with acidified manganate(VII), and explain why no indicator is needed.",
+      "a": "Colourless or pale yellow to permanent pale pink. The manganate(VII) is purple and is reduced to almost colourless Mn²⁺, so it acts as its own indicator.",
+      "marks": 2
+    },
+    {
+      "q": "A 25.0 cm³ sample of iodine solution needs 20.0 cm³ of 0.100 mol/dm³ sodium thiosulfate. Calculate the concentration of the iodine.",
+      "a": "Moles of S₂O₃²⁻ = 0.100 × 0.0200 = 2.00 × 10⁻³. Moles of I₂ = 1.00 × 10⁻³. Concentration = 1.00 × 10⁻³ ÷ 0.0250 = 0.0400 mol/dm³.",
+      "marks": 3
+    },
+    {
+      "q": "Why is starch added only near the end point of an iodine–thiosulfate titration?",
+      "a": "With a lot of iodine, the starch–iodine complex forms and does not release the iodine easily. This would make the end point late and inaccurate.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.3d",
+        "OCR 5.2.3e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You may meet unfamiliar redox systems. Work out the mole ratio from the electrons transferred, using oxidation numbers or half-equations.",
+                "Non-structured calculations can be examined for both acid–base and redox titrations."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 14.18",
+        "EDEX 14.19"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 28.2.9",
+        "CAIE 28.2.10"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Copper(II) ions oxidise iodide ions. The iodine formed is then titrated with thiosulfate, which gives a way to find the concentration of Cu²⁺."
+            },
+            {
+              "type": "list",
+              "items": [
+                "2Cu²⁺ + 4I⁻ → 2CuI + I₂. Copper(II) is reduced to copper(I). A white precipitate of copper(I) iodide forms in the brown solution.",
+                "Then I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻.",
+                "The ratio is 2 Cu²⁺ : 1 I₂ : 2 S₂O₃²⁻. So moles of Cu²⁺ = moles of S₂O₃²⁻."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "For any other redox system you are given suitable data. Write the half-equations, combine them and use the mole ratio."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "9b0aa60d-828d-4bcf-9c37-f1307b7ca745",
+      "d506c28d-f3d9-43da-85cf-df6897310257",
+      "7179a578-6e76-4f4a-b64d-6f7431263b5c",
+      "da8dca88-6996-432c-8fbf-d8bcdfcf52f4",
+      "e8087f9f-e721-419f-b392-ae0bb1e9e3d5",
+      "8fe7b77d-4a5e-4129-a7e5-3dc64f9a9c35"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

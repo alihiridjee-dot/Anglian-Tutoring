@@ -1,0 +1,356 @@
+{
+  "format": 1,
+  "concept_id": "abio-057",
+  "subject": "biology",
+  "title": "Limiting factors of photosynthesis",
+  "key_idea": "The rate of photosynthesis is set by the factor in shortest supply: light intensity, carbon dioxide concentration or temperature. Raising a limiting factor raises the rate until another factor becomes limiting. Each factor changes the levels of GP, RuBP and TP in a predictable way.",
+  "sections": [
+    {
+      "heading": "What a limiting factor is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A **limiting factor** is the factor that is in shortest supply and so sets the rate of photosynthesis. Increasing it raises the rate, until another factor becomes limiting."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light intensity limits the light-dependent stage, because it controls how much ATP and reduced NADP are made.",
+            "Carbon dioxide concentration limits the light-independent stage, because it is the substrate for rubisco.",
+            "Temperature limits the rate of the enzyme-controlled steps, including rubisco.",
+            "Water, mineral ions and the amount of chlorophyll can also limit photosynthesis."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The limiting factor is the one in shortest supply.",
+            "Light, CO₂ and temperature are the three main limiting factors.",
+            "On a graph, the rate rises until it levels off, then another factor is limiting."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Effects of light, carbon dioxide and temperature",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each factor has a different effect on the rate, and on the levels of chemicals in the Calvin cycle."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light intensity: the rate rises as more light makes more ATP and reduced NADP, then it levels off when CO₂ or temperature limits instead.",
+            "Carbon dioxide: the rate rises as more CO₂ is fixed by rubisco, then it levels off when light or temperature limits.",
+            "Temperature: the rate rises as molecules gain kinetic energy and enzymes work faster. Above the optimum the enzymes, including rubisco, denature and the rate falls steeply.",
+            "Low temperatures slow the enzyme-controlled stage, but the light-dependent stage depends on light, so it is much less affected."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A line graph of the rate of photosynthesis against light intensity at two carbon dioxide concentrations. Both rise then level off, the higher carbon dioxide concentration levelling at a higher rate.",
+            "x": {
+              "label": "Light intensity",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "unit": "arbitrary units"
+            },
+            "y": {
+              "label": "Rate of photosynthesis"
+            },
+            "series": [
+              {
+                "name": "Low CO₂ concentration",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0.25
+                  ],
+                  [
+                    4,
+                    0.4
+                  ],
+                  [
+                    6,
+                    0.42
+                  ],
+                  [
+                    8,
+                    0.42
+                  ],
+                  [
+                    10,
+                    0.42
+                  ]
+                ]
+              },
+              {
+                "name": "High CO₂ concentration",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    0.25
+                  ],
+                  [
+                    4,
+                    0.5
+                  ],
+                  [
+                    6,
+                    0.75
+                  ],
+                  [
+                    8,
+                    0.9
+                  ],
+                  [
+                    10,
+                    0.92
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Where a curve is rising, the factor on the x axis is limiting.",
+            "Where it is flat, another factor is limiting.",
+            "High temperatures denature enzymes and the rate falls."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Effects on GP, RuBP and TP",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A change in a limiting factor changes the amounts of GP, RuBP and TP in the stroma. Pick a condition to see the effect."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick a condition and see what happens to GP, RuBP and triose phosphate.",
+            "prompt": "Pick a change in conditions",
+            "result_labels": [
+              "GP",
+              "RuBP",
+              "TP",
+              "Reason"
+            ],
+            "options": [
+              {
+                "label": "Carbon dioxide concentration falls",
+                "results": [
+                  "Falls",
+                  "Rises",
+                  "Falls",
+                  "Less CO₂ is fixed, so less RuBP is used and less GP is made. RuBP is still regenerated from TP."
+                ]
+              },
+              {
+                "label": "Light intensity falls",
+                "results": [
+                  "Rises",
+                  "Falls",
+                  "Falls",
+                  "Less ATP and reduced NADP, so GP is not reduced to TP, and without TP and ATP RuBP is not regenerated. GP builds up."
+                ]
+              },
+              {
+                "label": "Temperature falls",
+                "results": [
+                  "Forms more slowly",
+                  "Used and regenerated more slowly",
+                  "Forms more slowly",
+                  "Rubisco and the other enzymes work more slowly, so every step of the cycle slows and less is made in a given time."
+                ]
+              },
+              {
+                "label": "Stomata close (water stress)",
+                "results": [
+                  "Falls",
+                  "Rises",
+                  "Falls",
+                  "Less CO₂ enters the leaf, so the effect is the same as low carbon dioxide."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Low CO₂: RuBP builds up, GP and TP fall.",
+            "Low light: GP builds up, RuBP and TP fall.",
+            "Water stress closes stomata, so CO₂ becomes limiting."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating photosynthesis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Photosynthesis is measured with whole plants or with chloroplast suspensions."
+        },
+        {
+          "type": "subheading",
+          "text": "Whole plants and aquatic plants"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use an aquatic plant such as Elodea in water. Count the bubbles of oxygen, or collect the gas, in a set time.",
+            "Change the light intensity by moving a lamp, and use distance to calculate intensity (it is proportional to 1 ÷ distance²).",
+            "Change the CO₂ concentration with different concentrations of sodium hydrogencarbonate solution.",
+            "Change temperature with a water bath, and use a heat shield or an LED lamp so the lamp does not change the temperature.",
+            "Control the other factors, and repeat the readings to calculate a mean."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Redox indicators and chloroplast suspensions"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A suspension of chloroplasts is mixed with a redox indicator such as DCPIP (blue) or methylene blue.",
+            "In the light, electrons from the light-dependent stage reduce the indicator, which loses its colour.",
+            "A faster colour change means a faster rate. Time the change, or use a colorimeter.",
+            "Vary light intensity by distance, or wavelength by using coloured filters.",
+            "A tube covered in foil, kept in the dark, is the control."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Count bubbles or measure gas volume for whole aquatic plants.",
+            "DCPIP loses its blue colour as it is reduced by electrons from the chloroplasts.",
+            "Control every factor except the one being changed."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why the rate of photosynthesis levels off as light intensity increases.",
+      "a": "Another factor becomes limiting, such as carbon dioxide concentration or temperature. Increasing light no longer increases the rate because the enzymes of the Calvin cycle cannot work faster, or there is not enough carbon dioxide to be fixed.",
+      "marks": 2
+    },
+    {
+      "q": "A plant is moved from light to darkness. Describe and explain what happens to the amounts of GP and RuBP.",
+      "a": "GP increases and RuBP decreases. No ATP or reduced NADP is made, so GP cannot be reduced to triose phosphate and RuBP cannot be regenerated. Carbon dioxide still combines with the RuBP that remains, making GP.",
+      "marks": 4
+    },
+    {
+      "q": "Explain how closing stomata in hot, dry weather reduces the rate of photosynthesis.",
+      "a": "Less carbon dioxide enters the leaf, so less is fixed by rubisco. RuBP builds up and less GP and triose phosphate are made, so the rate falls.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 13.2.1",
+        "CAIE 13.2.2",
+        "CAIE 13.2.3",
+        "CAIE 13.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "State that light intensity, carbon dioxide concentration and temperature are examples of limiting factors.",
+                "Describe and carry out investigations with redox indicators such as DCPIP and methylene blue, and a suspension of chloroplasts, to show the effects of light intensity and light wavelength.",
+                "Describe and carry out investigations with whole plants, including aquatic plants, to show the effects of light intensity, carbon dioxide concentration and temperature."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.1g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explain the implications of water stress: stomata close, so less CO₂ enters the leaf and photosynthesis slows.",
+                "Predict the effect of changing CO₂ concentration, light intensity or temperature on the rate and on the levels of GP, RuBP and TP.",
+                "Plan practical investigations into factors affecting the rate of photosynthesis."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.1c"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Identify the environmental factors that limit the rate of photosynthesis.",
+                "Evaluate data on common agricultural practices used to overcome limiting factors. In a greenhouse a grower can add carbon dioxide, supply artificial light, and control temperature with heating and ventilation.",
+                "In an evaluation, compare the extra yield with the cost of the extra heating, lighting or carbon dioxide."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "d8c1056e-e021-49dc-9446-4ebebbd95956",
+      "ddc0182f-a7bc-4a55-a7dd-77ae49f89ff0",
+      "241ce6ed-6acb-4d82-b1bd-a8fef20b9a6a",
+      "4381be64-23a5-413f-96ef-df33ffd9c793",
+      "e2335fe2-cda9-49aa-9f5a-ecb0c8857c74"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,483 @@
+{
+  "format": 1,
+  "concept_id": "aphys-088",
+  "subject": "physics",
+  "title": "Nuclear medicine: tracers, gamma cameras and PET",
+  "key_idea": "A radioactive tracer collects in an organ and gives out gamma rays that a gamma camera or PET scanner detects. The tracer must last long enough to scan but not much longer, so the effective half-life matters. PET uses positron annihilation, which makes pairs of gamma photons.",
+  "sections": [
+    {
+      "heading": "Radioactive tracers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A tracer is a substance containing radioactive nuclei that is introduced into the body and absorbed by the tissue being studied. Its radiation is detected from outside the body."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The tracer is chemically attached (labelled) to a compound that the target organ takes up, so the radiation shows where the compound goes.",
+            "It must be a **gamma emitter**, because gamma rays pass out of the body. Alpha and beta radiation would be absorbed inside the patient, giving a dose without helping the image.",
+            "The gamma energy must be high enough to escape the body, but low enough to be detected by the camera. About 100 to 200 keV works well.",
+            "The half-life must be short, so the dose is small and the tracer soon decays, but long enough to prepare the tracer and take the scan.",
+            "It should not be toxic, and the body should get rid of it soon after the scan."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Tracer",
+            "Radiation",
+            "Half-life",
+            "Used for"
+          ],
+          "rows": [
+            [
+              "Technetium-99m",
+              "Gamma only, 140 keV",
+              "6 hours",
+              "Many organs, depending on the compound it is attached to"
+            ],
+            [
+              "Fluorine-18",
+              "β⁺ (positrons)",
+              "110 minutes",
+              "PET scans, attached to a glucose-like compound"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A tracer is a radioactive substance that goes to an organ and is detected from outside.",
+            "Good tracers emit gamma rays, have a short half-life and attach to a compound the organ takes up.",
+            "Technetium-99m is the most widely used gamma tracer. Fluorine-18 is used for PET."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Physical, biological and effective half-life",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A tracer in the body disappears in two ways: its nuclei decay, and the body removes it. Each has a half-life."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Physical half-life, T(P)",
+              "meaning": "The time for the number of radioactive nuclei (and so the activity) of a sample to halve through decay."
+            },
+            {
+              "term": "Biological half-life, T(B)",
+              "meaning": "The time for the body to remove half of the substance from a given part of the body."
+            },
+            {
+              "term": "Effective half-life, T(E)",
+              "meaning": "The time for the activity of the radioactive substance in the body to halve, because of decay and removal together."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Effective half-life",
+          "formula": "1 ÷ T(E) = 1 ÷ T(B) + 1 ÷ T(P)",
+          "where": [
+            "T(E) = effective half-life",
+            "T(B) = biological half-life",
+            "T(P) = physical half-life",
+            "All three in the same unit of time"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The two processes work together, so the effective half-life is always shorter than the shorter of the two other half-lives.",
+            "If one half-life is much longer than the other, the effective half-life is close to the shorter one."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Work out the effective half-life of a tracer from its physical and biological half-lives.",
+            "question": "A tracer has a physical half-life of {tp} hours and a biological half-life of {tb} hours. Calculate its effective half-life.",
+            "variables": [
+              {
+                "id": "tp",
+                "min": 5,
+                "max": 15,
+                "step": 1
+              },
+              {
+                "id": "tb",
+                "min": 10,
+                "max": 40,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "1 / (1 / tp + 1 / tb)",
+              "unit": "hours",
+              "decimals": 1,
+              "tolerance_percent": 3
+            },
+            "working": [
+              "1 ÷ T(E) = 1 ÷ {tp} + 1 ÷ {tb}",
+              "T(E) = {answer} hours"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Physical half-life is about decay. Biological half-life is about removal by the body.",
+            "1 ÷ T(E) = 1 ÷ T(B) + 1 ÷ T(P), so T(E) is shorter than both."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The gamma camera",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A gamma camera makes an image of where a tracer has collected. It detects single gamma photons from the patient and works out where each one came from."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Collimator",
+              "text": "A lead block with many long, narrow, parallel holes. Only photons travelling along the holes get through, so the position on the crystal matches the position in the body."
+            },
+            {
+              "lead": "Scintillator",
+              "text": "A sodium iodide crystal absorbs each gamma photon and gives out a flash of light."
+            },
+            {
+              "lead": "Photomultiplier tubes",
+              "text": "An array of tubes turns the light flash into an electrical pulse. The tube nearest the flash gives the largest pulse."
+            },
+            {
+              "lead": "Computer",
+              "text": "It compares the pulses from the tubes to find where the flash was and counts the flashes at each position."
+            },
+            {
+              "lead": "Display",
+              "text": "The image shows how many photons came from each region, so it shows the concentration of the tracer."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Put the parts of a gamma camera in the order that a gamma photon passes through them.",
+            "prompt": "Put these stages of the gamma camera in order.",
+            "steps": [
+              "Gamma photon from the patient",
+              "Lead collimator",
+              "Scintillator crystal",
+              "Photomultiplier tubes",
+              "Computer",
+              "Display"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a **photomultiplier tube**, light hits a photocathode and releases electrons by the photoelectric effect.",
+            "The electrons are accelerated to a chain of electrodes (dynodes). Each electron that hits a dynode releases several more, so the signal is multiplied many times, up to about a million.",
+            "Without the collimator, photons from all directions would reach the crystal and the image would be blurred."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Collimator, scintillator, photomultiplier tubes and computer make the image.",
+            "The collimator only lets through photons travelling straight, which keeps the image sharp.",
+            "The image shows where the tracer has collected."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "PET scanning",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Positron emission tomography (PET) uses a tracer that decays by β⁺ emission. It images the places where the tracer is concentrated by detecting the gamma rays made when positrons annihilate."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Tracer",
+              "text": "A β⁺ emitter, such as fluorine-18 attached to a glucose-like compound, is injected. It collects in tissue that uses a lot of glucose, such as a tumour or the active brain."
+            },
+            {
+              "lead": "Annihilation",
+              "text": "A positron travels only a short distance in tissue before it meets an electron. The two annihilate, and their mass is turned into a pair of gamma photons."
+            },
+            {
+              "lead": "Opposite directions",
+              "text": "The two photons leave in opposite directions, so they can be detected by two detectors on opposite sides of the patient."
+            },
+            {
+              "lead": "Ring of detectors",
+              "text": "Detectors around the patient detect the photons, and a computer works out the line along which each annihilation happened."
+            },
+            {
+              "lead": "Image",
+              "text": "Many lines are combined to form an image of the concentration of the tracer in the tissue."
+            }
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Annihilation",
+              "meaning": "A particle and its antiparticle meet and their mass is converted into energy, usually as gamma photons."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A positron meets an electron and they annihilate to make two gamma photons going in opposite directions.",
+            "A ring of detectors and a computer build an image of the tracer."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State three properties that make technetium-99m suitable as a medical tracer.",
+      "a": "It emits gamma radiation only, which leaves the body and is not absorbed inside it. Its half-life of 6 hours is short enough for a small dose, but long enough for the scan. It can be attached to a compound that goes to a particular organ.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the effective half-life of a tracer in the body is shorter than both its physical half-life and its biological half-life.",
+      "a": "The activity of the tracer in the body falls both because nuclei decay and because the body removes the tracer. Both processes act together, so the activity falls faster than with either alone, and 1 ÷ T(E) = 1 ÷ T(P) + 1 ÷ T(B) gives a smaller value than either.",
+      "marks": 3
+    },
+    {
+      "q": "Describe the job of the collimator and the photomultiplier tubes in a gamma camera.",
+      "a": "The collimator has long narrow holes which only let through photons travelling in a straight line, so each position on the crystal matches a position in the body. The photomultiplier tubes convert the flash of light from the crystal into an amplified electrical pulse, and the computer compares the pulses to find the position of the flash.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.10.6.1",
+        "AQA 3.10.6.2",
+        "AQA 3.10.6.3",
+        "AQA 3.10.6.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Other tracers"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Tracer",
+                "Radiation",
+                "Half-life",
+                "Notes"
+              ],
+              "rows": [
+                [
+                  "Technetium-99m",
+                  "Gamma, 140 keV",
+                  "6 hours",
+                  "Can be labelled with many compounds, so it is used for many organs."
+                ],
+                [
+                  "Iodine-131",
+                  "Beta and gamma, 364 keV",
+                  "8 days",
+                  "Taken up by the thyroid gland. It also gives beta radiation, so it gives a larger dose."
+                ],
+                [
+                  "Indium-111",
+                  "Gamma, 171 keV and 245 keV",
+                  "2.8 days",
+                  "Can be attached to antibodies or blood cells, and its longer half-life allows slower processes to be followed."
+                ]
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "The molybdenum–technetium generator"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Technetium-99m has a half-life of only 6 hours, so it cannot be delivered from far away or stored for long.",
+                "Hospitals instead receive molybdenum-99, which has a half-life of about 66 hours and decays to technetium-99m.",
+                "Saline solution is passed through the generator to wash out the technetium-99m that has formed, when it is needed.",
+                "This gives hospitals a fresh supply of a short-lived tracer for several days."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Comparing imaging methods"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Method",
+                "Resolution",
+                "Convenience",
+                "Safety"
+              ],
+              "rows": [
+                [
+                  "X-ray and CT",
+                  "High resolution, CT also shows soft tissue",
+                  "Quick. CT equipment is expensive.",
+                  "Ionising radiation. CT gives a large dose."
+                ],
+                [
+                  "Ultrasound",
+                  "Limited by the wavelength. Poor for bone and gas.",
+                  "Cheap, portable, real time.",
+                  "No ionising radiation."
+                ],
+                [
+                  "MR scanner",
+                  "High resolution in soft tissue",
+                  "Expensive, noisy and slow. Needs the patient to keep still.",
+                  "No ionising radiation. Metal implants are a hazard."
+                ],
+                [
+                  "Gamma camera",
+                  "Lower resolution, shows function not structure",
+                  "Needs a supply of tracer. Scan takes a long time.",
+                  "Ionising radiation from the tracer."
+                ],
+                [
+                  "PET",
+                  "Lower resolution, shows function",
+                  "Very expensive, and the tracer needs to be made nearby.",
+                  "Ionising radiation from the tracer."
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 24.3.1",
+        "CAIE 24.3.2",
+        "CAIE 24.3.3",
+        "CAIE 24.3.4",
+        "CAIE 24.3.5",
+        "CAIE 24.3.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for: annihilation and the photon energy",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "In annihilation, mass–energy and momentum are both conserved."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The electron and positron are almost at rest, so their total momentum is almost zero.",
+                "To conserve momentum, the two photons must travel in opposite directions and have equal energies.",
+                "The total energy is the rest energy of the two particles, 2mc², so each photon has an energy of mc²."
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Energy",
+                  "text": "E = mc² = 9.11 × 10⁻³¹ × (3.00 × 10⁸)² = 8.2 × 10⁻¹⁴ J."
+                },
+                {
+                  "lead": "Convert to eV",
+                  "text": "8.2 × 10⁻¹⁴ ÷ 1.60 × 10⁻¹⁹ = 5.1 × 10⁵ eV, which is 0.51 MeV for each photon."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The photons leave the body and are detected in a ring of detectors.",
+                "The computer compares the arrival times at the detectors. A small difference in arrival time places the annihilation along the line between the two detectors.",
+                "Processing many events gives an image of the concentration of the tracer in the tissue."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.5.2a",
+        "OCR 6.5.2b",
+        "OCR 6.5.2c",
+        "OCR 6.5.2d",
+        "OCR 6.5.2e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for: diagnosis and cost",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Gamma camera:** an area that takes up too little tracer (a cold spot) can show an organ that is not working. An area that takes up too much (a hot spot) can show a tumour or an infection.",
+                "**PET:** fluorine-18 attached to glucose shows which tissue is most active. Tumours and active parts of the brain take up more, so they show up brightly.",
+                "A PET scanner is very expensive to buy and run. The fluorine-18 has a half-life of only 110 minutes, so a cyclotron nearby must make it.",
+                "A hospital must weigh the cost, the staff training and the number of patients who would benefit against the benefits of an earlier and more accurate diagnosis."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "f493e958-6cf3-4d01-b325-2a31c50319a5",
+      "9417042e-7dbf-41f7-8e61-efde7e655f11",
+      "e142cd2c-bc13-4c05-a510-c5c691157c8e",
+      "3a4a1044-97be-4736-8ef6-4025e39af4d3",
+      "7ce8355b-920f-45a7-a96b-e9f4cc43f470",
+      "58e02ced-6dbe-4bee-a99e-73943bddccb2",
+      "dadcf0cf-0d5c-4809-8878-4fcadab1b8b3",
+      "3d36bb93-9c83-416e-91b8-abb8f0efa11e",
+      "a1662bed-4633-4cf8-aac4-c493c80f5aea",
+      "374e74c0-0d79-4534-9c23-3868fd960c43",
+      "029087f1-ab7f-4deb-a3b5-8256593cca5e",
+      "1717954f-e0a1-4b23-8705-56e98bbdd354",
+      "59861d92-c24b-401f-baee-c92932829479",
+      "0e2de107-234c-4af5-b419-0cb0dc46d2d2",
+      "b64420db-bd4b-455a-a975-c359e270d606"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

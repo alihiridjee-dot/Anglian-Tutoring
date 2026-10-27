@@ -1,0 +1,299 @@
+{
+  "format": 1,
+  "concept_id": "aphys-037",
+  "subject": "physics",
+  "title": "Diffraction and diffraction gratings",
+  "key_idea": "Waves spread out through gaps and round obstacles, most when the gap is about one wavelength. A diffraction grating with slit spacing d gives sharp maxima at angles where d sin θ = nλ.",
+  "sections": [
+    {
+      "heading": "Diffraction at a gap",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Waves spread out when they pass through a gap or round the edge of an obstacle. This is diffraction, and all waves do it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Diffraction",
+              "meaning": "The spreading of a wave as it passes through a gap or round an obstacle."
+            },
+            {
+              "term": "Huygens' construction",
+              "meaning": "Every point on a wavefront acts as a source of secondary wavelets. The new wavefront is the line that touches the wavelets."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The effect is greatest when the gap is about the same size as the wavelength.",
+            "A gap much wider than λ gives little spreading: the wave goes through almost straight, with a shadow at the sides.",
+            "A narrower gap, or a longer wavelength, gives more spreading.",
+            "The wavelength and frequency do not change. Only the direction does."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Wavefront",
+              "text": "A plane wavefront reaches a gap."
+            },
+            {
+              "lead": "Wavelets",
+              "text": "Each point in the gap sends out secondary wavelets in all forward directions."
+            },
+            {
+              "lead": "New wavefront",
+              "text": "The wavelets overlap. Near the edges there is no wavelet to join the line, so the new wavefront curves and spreads into the shadow."
+            },
+            {
+              "lead": "Obstacle",
+              "text": "Behind an obstacle, wavelets from points beside its edge spread into the shadow region, so the wave bends round it."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Ripple tanks show this: water waves of fixed wavelength pass through a gap whose width is varied."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Diffraction is greatest when the gap is comparable to λ.",
+            "Huygens' construction treats each point on a wavefront as a source of wavelets."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Single slits",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Light through a single narrow slit forms a pattern on a screen. It has a wide, bright central maximum with fainter maxima either side."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The central maximum is wider and much brighter than the others.",
+            "A narrower slit gives a wider central maximum.",
+            "A longer wavelength gives a wider central maximum.",
+            "With white light the central maximum is white, and the fringes at the sides are coloured, with red furthest out."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Narrower slit or longer wavelength means a wider central maximum.",
+            "White light gives a white centre with coloured edges."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The diffraction grating",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A diffraction grating has many equally spaced slits. It gives sharp, bright maxima at precise angles."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Spacing",
+              "text": "Neighbouring slits are a distance d apart, where d = 1 / (lines per metre)."
+            },
+            {
+              "lead": "Path difference",
+              "text": "At angle θ, light from adjacent slits differs in path by d sin θ."
+            },
+            {
+              "lead": "Maximum",
+              "text": "The waves from all slits add in phase when this path difference is a whole number of wavelengths, nλ."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Grating equation",
+          "formula": "d sin θ = nλ",
+          "where": [
+            "d = slit spacing (m)",
+            "θ = angle from the straight-through direction to the nth maximum",
+            "n = order of the maximum (0, 1, 2, ...)",
+            "λ = wavelength (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The n = 0 maximum is straight on. Orders n = 1, 2, ... lie symmetrically on both sides.",
+            "The highest order seen is the largest whole number n with nλ < d, because sin θ cannot exceed 1.",
+            "A grating with more lines per millimetre has a smaller d, so the maxima are further apart.",
+            "Longer wavelengths are diffracted through larger angles, so white light is split into a spectrum of each order."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Find sin of the angle to a grating maximum.",
+            "question": "A grating has {N} lines per mm. Light of wavelength {lam} nm falls normally on it. Calculate sin θ for the order n = {n} maximum.",
+            "variables": [
+              {
+                "id": "N",
+                "min": 200,
+                "max": 500,
+                "step": 100
+              },
+              {
+                "id": "lam",
+                "min": 400,
+                "max": 700,
+                "step": 50
+              },
+              {
+                "id": "n",
+                "min": 1,
+                "max": 2,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "n * lam * N * 0.000001",
+              "decimals": 3
+            },
+            "working": [
+              "d = 1 / ({N} × 10³) m",
+              "sin θ = nλ / d",
+              "sin θ = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gratings give sharper and brighter maxima than a double slit, so wavelengths can be measured more precisely.",
+            "Gratings split light into spectra for finding which elements are in a star or a lamp, and for measuring wavelengths."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "d sin θ = nλ, with d = 1 / lines per metre.",
+            "A grating gives sharp maxima that are good for measuring wavelength."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what happens to the central maximum of a single-slit diffraction pattern when the slit is made narrower.",
+      "a": "The central maximum becomes wider (and less bright).",
+      "marks": 1
+    },
+    {
+      "q": "A grating has 300 lines per mm. Light of wavelength 600 nm is incident normally. Calculate the angle of the first-order maximum.",
+      "a": "d = 1 / 300 000 = 3.33 × 10⁻⁶ m. sin θ = λ / d = 600 × 10⁻⁹ / 3.33 × 10⁻⁶ = 0.18, so θ = 10.4°.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a diffraction grating is better than a double slit for measuring a wavelength.",
+      "a": "The maxima are much sharper and brighter, so their angles can be measured more precisely.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Derive d sin θ = nλ: the path difference between light from adjacent slits is d sin θ, and a maximum needs this to be nλ.",
+                "A plane transmission grating is used at normal incidence. The use of a spectrometer is not needed.",
+                "The graph of intensity against angle for a single slit is not required."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.83",
+        "EDEX 5.84"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 8.2.1",
+        "CAIE 8.2.2",
+        "CAIE 8.4.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know experiments that show diffraction, such as water waves in a ripple tank through a gap.",
+                "State the effect of gap width relative to wavelength: a gap much larger than λ gives almost no spreading; a gap about λ spreads waves widely."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.5.2g",
+        "OCR 5.5.2h"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use a transmission grating to determine the wavelength of light: shine a laser normally on it, measure the distance from the grating to the screen and the distance from the centre to a maximum.",
+                "Find θ from tan θ = (distance along the screen) ÷ (distance to the screen), then use d sin θ = nλ.",
+                "Proof of the grating equation is not required. A spectrometer is not needed."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "8b1ce6ef-7cd5-4d06-9add-00e7213cda2a",
+      "837ad8e3-1342-40c3-b530-4da7a4a95dc9",
+      "9bdc4f89-1bd4-4d35-b128-d502a5e53158",
+      "29a26883-487e-448e-92d7-6e0e9e7c3374",
+      "1420d42b-4ce2-4d01-8983-2ca6f48943a7",
+      "150cee00-6beb-4c1a-9f3b-2f12f834336b",
+      "400d9ce0-71e4-431d-842e-9bc25006b548",
+      "192c4b3d-d88e-4580-a9a1-efbfffbc47cc"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

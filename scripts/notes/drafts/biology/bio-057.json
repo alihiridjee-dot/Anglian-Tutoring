@@ -3,14 +3,14 @@
   "concept_id": "bio-057",
   "subject": "biology",
   "title": "Interacting limiting factors and the inverse square law",
-  "key_idea": "(AQA: Higher tier) Several limiting factors act together, and any one of them may be the one limiting photosynthesis. Light intensity falls with the square of the distance from the source. Greenhouse growers add heat, light or carbon dioxide only while the extra profit pays for the cost.",
+  "key_idea": "(Higher tier) Several limiting factors act together, and any one of them may be the one limiting photosynthesis. Light intensity falls with the square of the distance from the source. Greenhouse growers add heat, light or carbon dioxide only while the extra profit pays for the cost.",
   "sections": [
     {
-      "heading": "How limiting factors interact (AQA: Higher tier)",
+      "heading": "How limiting factors interact (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Light, carbon dioxide and temperature all act at once. This section covers how to decide which one is limiting from a graph."
+          "text": "(Higher tier) Light, carbon dioxide and temperature all act at once. This section covers how to decide which one is limiting from a graph."
         },
         {
           "type": "list",
@@ -108,11 +108,11 @@
       ]
     },
     {
-      "heading": "The inverse square law for light (AQA: Higher tier)",
+      "heading": "The inverse square law for light (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Light spreads out as it travels, so a plant further from a lamp receives much less light."
+          "text": "(Higher tier) Light spreads out as it travels, so a plant further from a lamp receives much less light."
         },
         {
           "type": "equation",
@@ -196,11 +196,11 @@
       ]
     },
     {
-      "heading": "Limiting factors in greenhouses (AQA: Higher tier)",
+      "heading": "Limiting factors in greenhouses (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Growers can control the conditions in a greenhouse, but each change costs money."
+          "text": "(Higher tier) Growers can control the conditions in a greenhouse, but each change costs money."
         },
         {
           "type": "list",

@@ -1,0 +1,219 @@
+{
+  "format": 1,
+  "concept_id": "achem-043",
+  "subject": "chemistry",
+  "title": "Partition coefficient",
+  "key_idea": "The partition coefficient, Kpc, is the ratio of the concentrations of a solute in two immiscible solvents at equilibrium. It depends on the polarity of the solute and of each solvent.",
+  "sections": [
+    {
+      "heading": "What the partition coefficient is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A solute shaken with two solvents that do not mix will distribute itself between them. The ratio of its concentrations settles at a constant value."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Partition coefficient, Kpc",
+              "meaning": "The ratio of the concentrations of a solute in two immiscible solvents, at equilibrium, at a given temperature."
+            },
+            {
+              "term": "Immiscible",
+              "meaning": "Describes liquids that do not mix, such as water and hexane."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Partition coefficient",
+          "formula": "Kpc = [X] in solvent 1 ÷ [X] in solvent 2",
+          "where": [
+            "Kpc = partition coefficient (no unit if the concentration units match)",
+            "[X] = concentration of the solute at equilibrium (mol/dm³ or g/dm³)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The ratio is constant at a constant temperature.",
+            "The solute must be in the same physical state, and the same molecular form, in both solvents. It must not associate or dissociate in one of them.",
+            "State which solvent is on top of the fraction. Kpc for solvent 2 ÷ solvent 1 is the reciprocal."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Kpc is a ratio of concentrations in two immiscible solvents.",
+            "It applies when the solute is in the same state in both."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculations with Kpc",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Use the expression to find a concentration, or to find how much solute ends up in each layer."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up",
+              "text": "Let the mass in one solvent be m, so the other holds the total minus m."
+            },
+            {
+              "lead": "Concentrations",
+              "text": "Divide each mass by the volume of its solvent."
+            },
+            {
+              "lead": "Solve",
+              "text": "Put the concentrations into Kpc and solve for m."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "X has Kpc = 8.0 for ether ÷ water. 1.0 g of X in 100 cm³ water is shaken with 50 cm³ ether. Then 2m ÷ (1.0 − m) = 8.0, so m = 0.80 g is in the ether."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question using a partition coefficient to find a concentration.",
+            "question": "A solute has Kpc = {k} (ether ÷ water). Its concentration in the water layer is {w} g/dm³. Calculate its concentration in the ether layer.",
+            "variables": [
+              {
+                "id": "k",
+                "min": 2,
+                "max": 10,
+                "step": 0.5
+              },
+              {
+                "id": "w",
+                "min": 1,
+                "max": 5,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "k*w",
+              "unit": "g/dm³",
+              "decimals": 1
+            },
+            "working": [
+              "Kpc = [ether] ÷ [water].",
+              "[ether] = Kpc × [water] = {k} × {w} = {answer} g/dm³."
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Several small extractions remove more solute than one large one of the same total volume.",
+            "In the example, two extractions with 25 cm³ of ether remove 0.89 g, compared with 0.80 g from one 50 cm³ extraction."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Kpc = concentration in solvent 1 ÷ concentration in solvent 2.",
+            "Repeated extractions with small portions are more effective."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Factors that affect Kpc",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Kpc is large when the solute is much more soluble in one solvent. This depends on polarity."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A polar or ionic solute dissolves better in a polar solvent such as water. It can form hydrogen bonds or ion-dipole attractions with water.",
+            "A non-polar solute dissolves better in a non-polar solvent such as hexane. It forms instantaneous dipole-induced dipole forces.",
+            "Kpc is therefore large for a solute whose polarity matches one solvent and not the other.",
+            "Temperature also changes Kpc, so it is quoted at a stated temperature."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Solute",
+            "Likely to prefer",
+            "Reason"
+          ],
+          "rows": [
+            [
+              "Iodine, I₂",
+              "Hexane or other organic solvent",
+              "Non-polar, so it is not attracted to polar water"
+            ],
+            [
+              "Sodium chloride",
+              "Water",
+              "Ionic, so it forms ion-dipole attractions with water"
+            ],
+            [
+              "Glucose",
+              "Water",
+              "Its many OH groups hydrogen bond to water"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Polar solutes prefer polar solvents. Non-polar solutes prefer non-polar solvents.",
+            "Temperature changes Kpc."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by the partition coefficient of a solute between two solvents.",
+      "a": "The ratio of the concentration of the solute in one solvent to its concentration in the other solvent, at equilibrium and constant temperature (the two solvents being immiscible).",
+      "marks": 2
+    },
+    {
+      "q": "Kpc for a compound between ether and water is 12 (ether ÷ water). The concentration in water is 0.050 mol/dm³. Calculate its concentration in ether.",
+      "a": "[ether] = 12 × 0.050 = 0.60 mol/dm³.",
+      "marks": 2
+    },
+    {
+      "q": "Suggest why iodine has a large Kpc for hexane ÷ water.",
+      "a": "Iodine is non-polar. It dissolves well in non-polar hexane through instantaneous dipole-induced dipole forces and poorly in polar water.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 25.2.1",
+        "CAIE 25.2.2",
+        "CAIE 25.2.3"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "d9b3f8e7-2642-4eec-8f2b-964262247c1e",
+      "83c06afd-03cd-4384-ab5a-33a39e2406ae",
+      "d24d04af-f05b-4176-ab42-e75782772397"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

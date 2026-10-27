@@ -1,0 +1,368 @@
+{
+  "format": 1,
+  "concept_id": "aphys-055",
+  "subject": "physics",
+  "title": "The gas laws and the ideal gas equation",
+  "key_idea": "The gas laws link pressure, volume and temperature for a fixed mass of gas, and combine into pV = nRT or pV = NkT. Temperature must be in kelvin. An ideal gas obeys these equations at all pressures and temperatures.",
+  "sections": [
+    {
+      "heading": "Amount of substance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gas calculations count particles in moles. This section covers the mole, the Avogadro constant and molar mass."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Mole",
+              "meaning": "The amount of substance containing the same number of particles as there are atoms in 12 g of carbon-12. Amount of substance is an SI base quantity, with unit mol."
+            },
+            {
+              "term": "Avogadro constant, N_A",
+              "meaning": "The number of particles in one mole: 6.02 × 10²³ mol⁻¹."
+            },
+            {
+              "term": "Molar mass, M",
+              "meaning": "The mass of one mole of a substance, in kg mol⁻¹ or g mol⁻¹."
+            },
+            {
+              "term": "Molecular mass, m",
+              "meaning": "The mass of one molecule: m = M / N_A."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Number of particles",
+          "formula": "N = nN_A",
+          "where": [
+            "N is the number of particles",
+            "n is the amount of substance (mol)",
+            "N_A is the Avogadro constant (mol⁻¹)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "One mole of any substance contains N_A particles of that substance."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "One mole contains 6.02 × 10²³ particles.",
+            "Molar mass is per mole; molecular mass is per molecule."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The gas laws",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The gas laws are experimental relationships between pressure p, volume V, thermodynamic temperature T and the mass of the gas."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Law",
+            "Statement",
+            "Held constant"
+          ],
+          "rows": [
+            [
+              "Boyle's law",
+              "pV is constant (p ∝ 1/V)",
+              "Temperature and mass of gas"
+            ],
+            [
+              "Charles's law",
+              "V / T is constant (V ∝ T)",
+              "Pressure and mass of gas"
+            ],
+            [
+              "Pressure law",
+              "p / T is constant (p ∝ T)",
+              "Volume and mass of gas"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Temperature T must be in **kelvin** for these relationships to hold.",
+            "Together they give pV ∝ T for a fixed mass of gas.",
+            "A gas that obeys pV ∝ T at all pressures and temperatures is called an **ideal gas**.",
+            "A graph of pressure against temperature in °C is a straight line. Extended back, it meets the temperature axis at about −273 °C. This leads to the idea of **absolute zero**."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Pressure against temperature in degrees Celsius for a fixed volume of gas. A straight line that, extended backwards, reaches zero pressure at about minus 273 degrees Celsius.",
+            "x": {
+              "label": "Temperature",
+              "min": -300,
+              "max": 100,
+              "ticks": [
+                -300,
+                -200,
+                -100,
+                0,
+                100
+              ],
+              "unit": "°C"
+            },
+            "y": {
+              "label": "Pressure"
+            },
+            "series": [
+              {
+                "name": "Fixed volume of gas",
+                "points": [
+                  [
+                    -273,
+                    0
+                  ],
+                  [
+                    0,
+                    0.7
+                  ],
+                  [
+                    100,
+                    0.96
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": -273,
+                "label": "Absolute zero"
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Boyle: pV constant. Charles: V / T constant. Pressure law: p / T constant.",
+            "Use kelvin, and keep the mass of gas fixed.",
+            "Extending a p–θ graph back to zero pressure gives absolute zero."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The ideal gas equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The three laws combine into one equation of state. It links the pressure, volume and temperature of a gas to the amount of gas."
+        },
+        {
+          "type": "equation",
+          "label": "Equation of state (moles)",
+          "formula": "pV = nRT",
+          "where": [
+            "p is the pressure (Pa)",
+            "V is the volume (m³)",
+            "n is the amount of gas (mol)",
+            "R is the molar gas constant, 8.31 J mol⁻¹ K⁻¹",
+            "T is the thermodynamic temperature (K)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Equation of state (molecules)",
+          "formula": "pV = NkT",
+          "where": [
+            "N is the number of molecules",
+            "k is the Boltzmann constant, 1.38 × 10⁻²³ J K⁻¹"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "The Boltzmann constant",
+          "formula": "k = R / N_A",
+          "where": [
+            "k is the gas constant per molecule (J K⁻¹)",
+            "R is the molar gas constant (J mol⁻¹ K⁻¹)",
+            "N_A is the Avogadro constant (mol⁻¹)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The two forms agree because N = nN_A, so NkT = nN_A × (R / N_A) × T = nRT."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider that changes the amount of gas, its temperature and its volume to show the pressure from the ideal gas equation.",
+            "inputs": [
+              {
+                "id": "n",
+                "label": "Amount of gas",
+                "unit": "mol",
+                "min": 0.5,
+                "max": 3,
+                "step": 0.5,
+                "value": 1
+              },
+              {
+                "id": "T",
+                "label": "Temperature",
+                "unit": "K",
+                "min": 200,
+                "max": 600,
+                "step": 10,
+                "value": 300
+              },
+              {
+                "id": "V",
+                "label": "Volume",
+                "unit": "dm³",
+                "min": 5,
+                "max": 50,
+                "step": 1,
+                "value": 25
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Pressure",
+                "unit": "kPa",
+                "formula": "n * 8.31 * T / V",
+                "decimals": 0,
+                "bar": true
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "pV = nRT and pV = NkT describe an ideal gas.",
+            "Use pascals, cubic metres and kelvin in the equation.",
+            "k = R / N_A links the two forms."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A sample contains 0.25 mol of helium. Calculate the number of atoms in the sample. The Avogadro constant is 6.02 × 10²³ mol⁻¹.",
+      "a": "N = nN_A = 0.25 × 6.02 × 10²³ = 1.5 × 10²³ atoms.",
+      "marks": 2
+    },
+    {
+      "q": "A gas at 300 K and a pressure of 1.0 × 10⁵ Pa occupies 2.0 × 10⁻³ m³. Calculate the amount of gas in moles. R = 8.31 J mol⁻¹ K⁻¹.",
+      "a": "n = pV / RT = (1.0 × 10⁵ × 2.0 × 10⁻³) / (8.31 × 300) = 0.080 mol.",
+      "marks": 3
+    },
+    {
+      "q": "A fixed volume of gas is heated from 300 K to 450 K. Its initial pressure is 1.0 × 10⁵ Pa. Calculate the final pressure.",
+      "a": "p / T is constant, so p = 1.0 × 10⁵ × 450 / 300 = 1.5 × 10⁵ Pa.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.6.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Work done and required practical"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The work done by a gas expanding at constant pressure is pΔV.",
+                "Boyle's law: trap a fixed mass of air in a sealed tube above oil. Change the pressure with a pump and read it from a gauge.",
+                "Read the volume from the length of the air column. Wait each time for the temperature to settle.",
+                "A graph of p against 1 / V is a straight line through the origin.",
+                "Charles's law: trap a column of air in a capillary tube with a drop of acid, and put it in a water bath of known temperature.",
+                "Read the length of the air column as the water temperature changes. Keep the whole column under water and stir the bath.",
+                "A graph of length against temperature in °C is a straight line. Extended back, it meets the temperature axis at about −273 °C."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 9.150"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 15.1.1",
+        "CAIE 15.1.2",
+        "CAIE 15.2.1",
+        "CAIE 15.2.2",
+        "CAIE 15.2.3"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.4a",
+        "OCR 5.1.4d",
+        "OCR 5.1.4g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Investigating the gas laws"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Boyle's law: change the volume of a fixed mass of gas and read the pressure. Check that pV is constant.",
+                "Pressure law: keep a fixed volume of gas in a flask in a water bath, with a pressure gauge.",
+                "Record the pressure at several temperatures and wait for the gas to reach each temperature.",
+                "Plot pressure against temperature in °C. Extend the line back to zero pressure to estimate absolute zero."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The estimate comes out close to −273 °C. The extended line is an extrapolation, because a real gas liquefies before it reaches that temperature."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "3fb9c8ff-dd6a-491c-a586-d4a974ed76e3",
+      "5e688701-65e7-46ed-82df-a5180e6c4a95",
+      "7eee2af5-90ba-4dee-8d87-bfc277efc3a8",
+      "2346aa6e-d6b6-415b-a5f4-6d34df457975",
+      "0eeb731e-ef92-4647-81c1-7998d5693e39",
+      "8b7b274e-8075-442f-85bc-881805f4d387",
+      "19d1e4b7-5ea6-4cff-84f2-6904df9c7343",
+      "e813fb3f-2193-4b20-9795-d5a0bd6fc6c2",
+      "604efa88-b43f-4186-8b13-c47f56f0631b",
+      "e19d10df-f71d-4b32-89c4-dc3a0607fb53"
+    ],
+    "exemplar_ids": []
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "format": 1,
+  "concept_id": "achem-014",
+  "subject": "chemistry",
+  "title": "Sigma and pi bonds and hybridisation",
+  "key_idea": "A sigma bond forms by direct overlap of orbitals along the line between two nuclei. A pi bond forms by sideways overlap of p orbitals above and below that line. Mixing s and p orbitals gives sp³, sp² and sp hybrid orbitals, which set the shape round an atom.",
+  "sections": [
+    {
+      "heading": "Sigma and pi bonds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Covalent bonds form when atomic orbitals overlap. This section covers the two ways that overlap can happen."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Sigma (σ) bond", "meaning": "A bond formed by the direct, end-on overlap of orbitals between the bonding atoms." },
+            { "term": "Pi (π) bond", "meaning": "A bond formed by the sideways overlap of adjacent p orbitals, above and below the σ bond." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Every single bond is one σ bond.",
+            "A double bond is one σ bond and one π bond.",
+            "A triple bond is one σ bond and two π bonds.",
+            "A π bond has electron density above and below the line between the nuclei, not along it.",
+            "Sideways overlap is weaker than direct overlap, so a π bond is easier to break than a σ bond."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Molecule", "σ bonds", "π bonds"],
+          "rows": [
+            ["H₂", "1", "0"],
+            ["C₂H₆", "7", "0"],
+            ["C₂H₄", "5", "1"],
+            ["HCN", "2", "2"],
+            ["N₂", "1", "2"]
+          ]
+        },
+        { "type": "subheading", "text": "How the bonds form in these molecules" },
+        {
+          "type": "list",
+          "items": [
+            "**H₂:** the two 1s orbitals overlap directly to form one σ bond.",
+            "**C₂H₆:** each C–H σ bond is an sp³ orbital overlapping an s orbital. The C–C σ bond is two sp³ orbitals overlapping directly.",
+            "**C₂H₄:** the C=C σ bond is two sp² orbitals overlapping directly. The π bond is the sideways overlap of the two unhybridised p orbitals.",
+            "**HCN:** the C–H and C≡N σ bonds use sp orbitals on carbon. The two π bonds are two sideways overlaps of p orbitals, at right angles to each other.",
+            "**N₂:** one σ bond from direct overlap, and two π bonds from sideways overlap of p orbitals at right angles."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "σ bonds are direct overlap. π bonds are sideways overlap of p orbitals.",
+            "A double bond is one σ and one π. A triple bond is one σ and two π."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Hybridisation and shape",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hybridisation mixes s and p orbitals into new orbitals of equal energy. This section covers the three types and the shapes they give."
+        },
+        {
+          "type": "table",
+          "columns": ["Hybridisation", "Orbitals mixed", "Shape", "Bond angle", "Example"],
+          "rows": [
+            ["sp³", "One s and three p", "Tetrahedral", "109.5°", "C in CH₄ and C₂H₆"],
+            ["sp²", "One s and two p", "Trigonal planar", "120°", "C in C₂H₄"],
+            ["sp", "One s and one p", "Linear", "180°", "C in HCN and C₂H₂"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In sp³ hybridisation all four orbitals form σ bonds.",
+            "In sp² hybridisation the three hybrid orbitals form σ bonds. The remaining unhybridised p orbital overlaps sideways to form a π bond.",
+            "In sp hybridisation the two hybrid orbitals form σ bonds. Two unhybridised p orbitals form two π bonds.",
+            "In ethene the six atoms all lie in the same flat plane, so the molecule is **planar**. The π bond stops the C=C bond rotating."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort the carbon atoms by their hybridisation.",
+            "prompt": "What is the hybridisation of the carbon atom?",
+            "groups": ["sp³", "sp²", "sp"],
+            "items": [
+              { "text": "C in methane, CH₄", "group": 0 },
+              { "text": "Each C in ethane, C₂H₆", "group": 0 },
+              { "text": "Each C in ethene, C₂H₄", "group": 1 },
+              { "text": "C in HCN", "group": 2 },
+              { "text": "C in CO₂", "group": 2 },
+              { "text": "C in the carbonyl group, C=O, of propanone", "group": 1 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The number of σ bonds plus lone pairs gives the hybridisation: four is sp³, three is sp² and two is sp.",
+            "sp³ is tetrahedral, sp² is trigonal planar and sp is linear.",
+            "π bonds are formed only from unhybridised p orbitals."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State how the σ and π bonds in a C=C double bond are formed.",
+      "a": "The σ bond is formed by direct overlap of orbitals between the carbon atoms. The π bond is formed by sideways overlap of adjacent p orbitals above and below the σ bond.",
+      "marks": 2
+    },
+    {
+      "q": "State the number of σ bonds and π bonds in HCN, and the hybridisation of the carbon atom.",
+      "a": "Two σ bonds and two π bonds. The carbon atom is sp hybridised.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why ethene is planar and has bond angles of about 120°.",
+      "a": "Each carbon atom is sp² hybridised and forms three σ bonds, which are trigonal planar at 120°. The unhybridised p orbitals overlap sideways to form the π bond, which holds the atoms in one plane.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 3.4.2", "CAIE 13.3.2", "CAIE 13.3.3", "CAIE 13.3.4"]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "86b3ff31-e56c-4517-a51b-c34c5cf22129",
+      "d06e8cf7-fa6c-4727-b8ae-337351f5afc3",
+      "8ebdd3e6-6e57-4d25-9c15-b63255851bf3",
+      "061485cb-d7e6-4c81-a728-1b6ecb518d53"
+    ],
+    "exemplar_ids": []
+  }
+}

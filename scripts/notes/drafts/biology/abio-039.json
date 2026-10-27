@@ -1,0 +1,330 @@
+{
+  "format": 1,
+  "concept_id": "abio-039",
+  "subject": "biology",
+  "title": "Gene mutations",
+  "key_idea": "A gene mutation is a change in the sequence of base pairs in DNA. Substitution, insertion and deletion can change the amino acids in a polypeptide. An insertion or deletion usually shifts the reading frame and has a bigger effect than a substitution.",
+  "sections": [
+    {
+      "heading": "What a gene mutation is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A gene mutation changes the base sequence of a gene. This section covers how mutations arise."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **gene mutation** is a change in the sequence of base pairs in a DNA molecule. It may result in an altered polypeptide.",
+            "Mutations can arise spontaneously during DNA replication, when a wrong base is paired.",
+            "The mutation rate is increased by **mutagenic agents** (mutagens), such as ionising radiation, ultraviolet light and some chemicals.",
+            "Mutation changes the genetic diversity of a population."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A gene mutation is a change in base sequence.",
+            "Mutations occur spontaneously, mostly in replication, and mutagens increase their rate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Types of gene mutation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mutations are named by what happens to the bases."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type",
+            "What happens",
+            "Effect on the code"
+          ],
+          "rows": [
+            [
+              "Substitution",
+              "One base is replaced by another",
+              "Changes one triplet only"
+            ],
+            [
+              "Insertion (addition)",
+              "One or more bases are added",
+              "A frame shift if the number is not a multiple of three"
+            ],
+            [
+              "Deletion",
+              "One or more bases are lost",
+              "A frame shift if the number is not a multiple of three"
+            ],
+            [
+              "Inversion",
+              "A sequence of bases is reversed",
+              "Changes the triplets within that sequence"
+            ],
+            [
+              "Duplication",
+              "A sequence of bases is repeated",
+              "Adds extra triplets or shifts the frame"
+            ],
+            [
+              "Translocation",
+              "A sequence of bases moves to a different position in the DNA",
+              "Changes where the sequence is read, so genes may be disrupted"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Substitution"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only one triplet is changed, so at most one amino acid changes.",
+            "A **silent** mutation gives a different triplet for the same amino acid, because the code is degenerate. The polypeptide is unchanged.",
+            "A **missense** mutation changes one amino acid. The effect depends on where it is.",
+            "A **nonsense** mutation turns an amino acid triplet into a stop triplet, which shortens the polypeptide."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Insertion and deletion"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Adding or removing a base changes every triplet after it, because the code is non-overlapping and read in threes. This is a **frame shift**.",
+            "Every amino acid downstream of the mutation can change, so the polypeptide is usually very different.",
+            "Inserting or deleting three bases in a row, or a multiple of three, adds or removes amino acids but keeps the frame the same for the rest of the gene."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Choose a type of mutation and see the effect on the polypeptide.",
+            "prompt": "Pick a mutation to a gene whose mRNA reads AAA GCC UUU GGG",
+            "result_labels": [
+              "New sequence",
+              "Effect on the polypeptide"
+            ],
+            "options": [
+              {
+                "label": "Substitution: AAA to AAG",
+                "results": [
+                  "AAG GCC UUU GGG",
+                  "No change: both triplets code for the same amino acid (silent)"
+                ],
+                "explanation": "The genetic code is degenerate."
+              },
+              {
+                "label": "Substitution: GCC to GAC",
+                "results": [
+                  "AAA GAC UUU GGG",
+                  "One amino acid is different (missense). The rest is unchanged"
+                ],
+                "explanation": "Only one triplet is changed."
+              },
+              {
+                "label": "Deletion of the first A",
+                "results": [
+                  "AAG CCU UUG GG",
+                  "Frame shift: every triplet after the mutation is changed"
+                ],
+                "explanation": "The bases are read in threes from the start."
+              },
+              {
+                "label": "Insertion of a G after the first triplet",
+                "results": [
+                  "AAA GGC CUU UGG G",
+                  "Frame shift: every triplet after the insertion is changed"
+                ],
+                "explanation": "One extra base moves every later triplet along by one."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Substitution changes one triplet; because the code is degenerate it may change nothing.",
+            "Insertion or deletion of a number of bases that is not a multiple of three causes a frame shift.",
+            "A frame shift usually has a bigger effect than a substitution."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Effects on protein structure and function",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A mutation matters only if it changes the polypeptide. This section links base changes to protein function."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Base sequence.",
+              "text": "A different base or number of bases changes the mRNA codons."
+            },
+            {
+              "lead": "Amino acid sequence.",
+              "text": "Different amino acids may be joined, so the primary structure changes."
+            },
+            {
+              "lead": "Bonding and folding.",
+              "text": "Different R groups form different hydrogen, ionic and disulfide bonds, so the tertiary structure changes."
+            },
+            {
+              "lead": "Function.",
+              "text": "The shape of an enzyme's active site or another binding site changes, so the protein may no longer work."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **harmful** mutation stops the protein working, as in cystic fibrosis, where the CFTR protein is faulty.",
+            "A **neutral** mutation has no effect on the phenotype, for example a silent substitution.",
+            "A **beneficial** mutation gives the organism an advantage, such as an enzyme that works better or a new allele that gives resistance to a disease. It may then be selected for."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Meiosis also produces variation, which is covered in another note."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mutation changes the base sequence, then the amino acid sequence, then the protein's shape and function.",
+            "The effect can be harmful, neutral or beneficial."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why a substitution mutation does not always change the amino acid sequence of a polypeptide.",
+      "a": "The genetic code is degenerate: most amino acids are coded for by more than one triplet. A substitution may produce a new triplet that codes for the same amino acid, so the polypeptide is unchanged.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the deletion of a single base usually has a greater effect on a polypeptide than a substitution.",
+      "a": "Deleting a base causes a frame shift. Every triplet after the deletion is read differently, so many amino acids change. A substitution changes only one triplet and so at most one amino acid.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how a change in the base sequence of a gene could stop an enzyme working.",
+      "a": "The mRNA codons change, so a different amino acid sequence (primary structure) is made. Different R groups form different bonds, so the tertiary structure and active site shape change. The substrate can no longer bind to form enzyme–substrate complexes.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.3a",
+        "AQA 3.8.1a",
+        "AQA 3.8.1b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Gene mutations include addition, deletion, substitution, inversion, duplication and translocation of bases.",
+                "Gene mutations occur spontaneously, and mutagenic agents increase the rate.",
+                "Be able to relate the nature of a gene mutation to its effect on the encoded polypeptide, including whether the mutation changes only one triplet or causes a frame shift for all downstream triplets."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.12"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Errors in DNA replication can give rise to mutations.",
+                "Cystic fibrosis results from one of a number of possible mutations in the gene for the CFTR protein, a channel for chloride ions in the cell surface membrane.",
+                "The most common mutation is a deletion of three bases, which removes one amino acid. The protein folds incorrectly and does not reach the membrane.",
+                "Other mutations are substitutions, insertions and deletions at different places in the same gene. Different mutations give different effects."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 6.2.6",
+        "CAIE 6.2.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Outline how substitution, deletion and insertion of nucleotides may each affect the polypeptide.",
+                "A substitution may be silent, cause one amino acid to change or create a stop codon.",
+                "A deletion or insertion of a nucleotide changes the reading frame, so the amino acids after it are different."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.1a"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Substitution, insertion or deletion of one or more nucleotides, and the possible effects.",
+                "Effects on protein production and function may be beneficial, neutral or harmful. Give an example of each, with a reason."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "81abe151-2258-49c5-a8e5-50f62906ff34",
+      "6d4ffa9a-e1b8-4989-803b-936d3f3a5087",
+      "67ad708c-ce35-40fc-a13b-09ca56288df8",
+      "1a65bd34-9a7f-4e39-9541-a1f74433f148",
+      "8e5059e2-47df-41f5-8416-d7b23e92f069",
+      "a09e1d71-d767-483b-84b0-a2bb19da262a",
+      "67e97f7d-7e94-4bc9-8899-bfed2e214ad7"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

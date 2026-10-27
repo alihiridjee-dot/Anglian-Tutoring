@@ -1,0 +1,226 @@
+{
+  "format": 1,
+  "concept_id": "achem-008",
+  "subject": "chemistry",
+  "title": "The ideal gas equation",
+  "key_idea": "Gas pressure comes from particles colliding with the container wall. An ideal gas has particles of zero volume with no forces between them. Its pressure, volume, amount and temperature are linked by pV = nRT, with every quantity in SI units.",
+  "sections": [
+    {
+      "heading": "Where gas pressure comes from",
+      "blocks": [
+        { "type": "paragraph", "text": "Gas particles move randomly at high speed. This section covers how that motion produces pressure." },
+        {
+          "type": "list",
+          "items": [
+            "Particles collide with the walls of the container.",
+            "Each collision exerts a tiny force on the wall.",
+            "Pressure is the total force of these collisions per unit area of wall.",
+            "More frequent or harder collisions mean higher pressure, for example at higher temperature or in a smaller volume."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pressure comes from particles hitting the container wall.",
+            "Pressure is force per unit area."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The ideal gas",
+      "blocks": [
+        { "type": "paragraph", "text": "An ideal gas is a model that makes the equation exact. Real gases behave almost ideally at high temperature and low pressure." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Ideal gas", "meaning": "A gas whose particles have zero volume and no intermolecular forces of attraction." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The particles are treated as points, with no volume of their own.",
+            "There are no forces of attraction between the particles.",
+            "Collisions with the walls are perfectly elastic: no kinetic energy is lost.",
+            "Real gases deviate when particles are close together (high pressure) or slow (low temperature), because the particles then have volume and attract each other."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ideal gas: zero particle volume, no intermolecular forces.",
+            "Real gases act most ideally at high temperature and low pressure."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using pV = nRT",
+      "blocks": [
+        { "type": "paragraph", "text": "The ideal gas equation links pressure, volume, amount and temperature. Use SI units throughout." },
+        {
+          "type": "equation",
+          "label": "Ideal gas equation",
+          "formula": "pV = nRT",
+          "where": [
+            "p = pressure (Pa)",
+            "V = volume (m³)",
+            "n = amount of gas (mol)",
+            "R = gas constant (8.31 J K⁻¹ mol⁻¹)",
+            "T = temperature (K)"
+          ]
+        },
+        { "type": "subheading", "text": "Convert to SI units first" },
+        {
+          "type": "table",
+          "columns": ["Quantity", "Given as", "Change to"],
+          "rows": [
+            ["Pressure", "kPa", "× 1000 to Pa"],
+            ["Volume", "cm³", "÷ 1 000 000 to m³"],
+            ["Volume", "dm³", "÷ 1000 to m³"],
+            ["Temperature", "°C", "+ 273 to K"]
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Convert.", "text": "0.0500 mol of gas at 27 °C and 101 kPa. T = 300 K, p = 101 000 Pa." },
+            { "lead": "Rearrange.", "text": "V = nRT ÷ p." },
+            { "lead": "Calculate.", "text": "V = (0.0500 × 8.31 × 300) ÷ 101 000 = 1.23 × 10⁻³ m³ = 1.23 dm³." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Slider showing how the volume of 0.050 mol of an ideal gas changes with temperature and pressure.",
+            "inputs": [
+              { "id": "n", "label": "Amount of gas", "unit": "mol", "min": 0.01, "max": 0.2, "step": 0.01, "value": 0.05 },
+              { "id": "T", "label": "Temperature", "unit": "K", "min": 250, "max": 500, "step": 10, "value": 300 },
+              { "id": "p", "label": "Pressure", "unit": "kPa", "min": 50, "max": 300, "step": 10, "value": 100 }
+            ],
+            "outputs": [{ "label": "Volume", "unit": "dm³", "formula": "n * 8.31 * T / p", "decimals": 2 }]
+          }
+        },
+        { "type": "subheading", "text": "Finding the relative molecular mass" },
+        {
+          "type": "paragraph", "text": "Measure the mass of a gas or volatile liquid, then its volume, pressure and temperature. Find n from pV = nRT, then use the molar mass."
+        },
+        {
+          "type": "equation",
+          "label": "Molar mass of a gas",
+          "formula": "M = m ÷ n",
+          "where": ["M = molar mass (g mol⁻¹), equal in value to Mᵣ", "m = mass (g)", "n = amount from pV = nRT (mol)"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the relative molecular mass of a gas from its mass, pressure, volume and temperature.",
+            "question": "{m} g of a gas occupies 500 cm³ at {T} K and 101 kPa. Calculate its relative molecular mass. (R = 8.31 J K⁻¹ mol⁻¹)",
+            "variables": [
+              { "id": "m", "min": 0.5, "max": 2.5, "step": 0.1 },
+              { "id": "T", "min": 290, "max": 400, "step": 10 }
+            ],
+            "answer": { "formula": "m * 8.31 * T / (101000 * 0.0005)", "decimals": 0, "tolerance_percent": 2 },
+            "working": ["p = 101 000 Pa, V = 500 ÷ 1 000 000 = 5.00 × 10⁻⁴ m³", "n = pV ÷ RT = (101 000 × 5.00 × 10⁻⁴) ÷ (8.31 × {T})", "Mᵣ = m ÷ n = {answer}"]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Convert to Pa, m³ and K before using pV = nRT.",
+            "Rearrange for the quantity you need.",
+            "Mᵣ = mass ÷ n, with n found from pV = nRT."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how a gas exerts pressure on the walls of its container.",
+      "a": "Gas particles move randomly and collide with the walls. Each collision exerts a force, and the force of many collisions per unit area is the pressure.",
+      "marks": 2
+    },
+    {
+      "q": "State two assumptions made about an ideal gas.",
+      "a": "The particles have zero volume. There are no intermolecular forces of attraction between the particles.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the amount, in mol, of gas in a 2.00 dm³ flask at 25 °C and 100 kPa. (R = 8.31 J K⁻¹ mol⁻¹)",
+      "a": "V = 2.00 × 10⁻³ m³, p = 100 000 Pa, T = 298 K. n = pV ÷ RT = (100 000 × 2.00 × 10⁻³) ÷ (8.31 × 298) = 0.0808 mol.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": ["OCR 2.1.3f"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The value of R is given on the data sheet.",
+                "Express all quantities in SI units before substituting."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.1.2.3"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use pV = nRT with the variables in SI units.",
+                "You do not need to recall the value of the gas constant, R."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 4.1.1", "CAIE 4.1.2", "CAIE 4.1.3"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "State the ideal gas equation as well as using it.",
+                "Use it in calculations that find Mᵣ, from the mass, volume, temperature and pressure of a gas."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "898b84bc-15ff-41f7-a664-e87ecb8b6ebc",
+      "2c696a14-f1e9-4b18-bdaf-f645ef706942",
+      "cc6b8064-bbcd-41fe-bfe8-1f842bb9949e",
+      "29729e78-bd34-4eb9-ac81-79a32d6d5efa",
+      "5bc004f2-66c7-4667-ba7b-c31d1c684752"
+    ],
+    "exemplar_ids": []
+  }
+}

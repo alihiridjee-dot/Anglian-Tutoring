@@ -1,0 +1,268 @@
+{
+  "format": 1,
+  "concept_id": "achem-020",
+  "subject": "chemistry",
+  "title": "Hess's law and enthalpy cycles",
+  "key_idea": "**Hess's law** says the enthalpy change of a reaction is the same whichever route is taken, because energy is conserved. So an enthalpy change that cannot be measured directly can be found by going round an enthalpy cycle using formation or combustion data.",
+  "sections": [
+    {
+      "heading": "Hess's law and enthalpy cycles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some reactions are too slow, too dangerous or too incomplete to measure. Hess's law lets you work out their ΔH from other values that can be measured."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Hess's law",
+              "meaning": "The total enthalpy change for a reaction is independent of the route taken, provided the starting and finishing conditions are the same."
+            },
+            {
+              "term": "Enthalpy cycle",
+              "meaning": "A diagram with the direct route on one side and an indirect route, through other substances, on the other."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hess's law is the conservation of energy applied to chemical change. Energy cannot be created or destroyed.",
+            "Direct route: reactants to products, with ΔrH.",
+            "Indirect route: reactants to a common set of substances, then on to the products.",
+            "Both routes start and end at the same place, so their total enthalpy changes are equal."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Working round any cycle"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Draw the cycle.",
+              "text": "Put the balanced equation along the top, with reactants on the left and products on the right."
+            },
+            {
+              "lead": "Add the third corner.",
+              "text": "Use the elements (for formation data) or the combustion products (for combustion data)."
+            },
+            {
+              "lead": "Label the arrows.",
+              "text": "Each arrow carries its ΔH, multiplied by the number of moles in the equation."
+            },
+            {
+              "lead": "Follow the arrows.",
+              "text": "Going with an arrow adds its ΔH. Going against an arrow reverses its sign."
+            },
+            {
+              "lead": "Set the routes equal.",
+              "text": "Direct route = indirect route. Solve for the unknown."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hess's law: the enthalpy change is the same by any route.",
+            "Follow an arrow: add its ΔH. Go against it: change the sign.",
+            "Multiply each ΔH by the moles in the balanced equation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using enthalpies of formation and combustion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The two common cycles give a pair of ready-made equations. Each is a sum of products minus a sum of reactants, but the order is reversed for combustion."
+        },
+        {
+          "type": "equation",
+          "label": "Using enthalpies of formation",
+          "formula": "ΔrH = ΣΔfH(products) − ΣΔfH(reactants)",
+          "where": [
+            "ΔrH = enthalpy change of reaction, in kJ mol⁻¹",
+            "ΣΔfH = sum of (moles × enthalpy of formation) for each substance"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Using enthalpies of combustion",
+          "formula": "ΔrH = ΣΔcH(reactants) − ΣΔcH(products)",
+          "where": [
+            "ΔrH = enthalpy change of reaction, in kJ mol⁻¹",
+            "ΣΔcH = sum of (moles × enthalpy of combustion) for each substance"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Formation cycle: the reactants break down into elements, then the elements build the products. The arrow into the elements is reversed, hence the minus sign.",
+            "Combustion cycle: reactants and products both burn to the same oxides. The arrow from the products is reversed, hence the minus sign.",
+            "ΔfH of an element in its standard state is zero, so leave it out of the sum."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Worked example, using formation data: CaCO₃(s) → CaO(s) + CO₂(g), with ΔfH of −1207, −635 and −394 kJ mol⁻¹."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Products.",
+              "text": "ΣΔfH(products) = (−635) + (−394) = −1029 kJ mol⁻¹."
+            },
+            {
+              "lead": "Reactants.",
+              "text": "ΣΔfH(reactants) = −1207 kJ mol⁻¹."
+            },
+            {
+              "lead": "Subtract.",
+              "text": "ΔrH = −1029 − (−1207) = +178 kJ mol⁻¹. The reaction is endothermic."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise using enthalpies of formation to find an enthalpy change of reaction for the decomposition of calcium carbonate.",
+            "question": "CaCO₃(s) → CaO(s) + CO₂(g). The enthalpies of formation are CaCO₃ −{a} kJ mol⁻¹, CaO −{b} kJ mol⁻¹ and CO₂ −{c} kJ mol⁻¹. Calculate ΔrH.",
+            "variables": [
+              {
+                "id": "a",
+                "min": 1200,
+                "max": 1215,
+                "step": 1
+              },
+              {
+                "id": "b",
+                "min": 630,
+                "max": 640,
+                "step": 1
+              },
+              {
+                "id": "c",
+                "min": 390,
+                "max": 395,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "a - b - c",
+              "unit": "kJ mol⁻¹",
+              "decimals": 0
+            },
+            "working": [
+              "ΣΔfH(products) = −{b} + −{c}",
+              "ΣΔfH(reactants) = −{a}",
+              "ΔrH = products − reactants = **{answer}** kJ mol⁻¹"
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "The same method works for an unfamiliar cycle. Label every arrow, then follow the two routes between the same pair of corners."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Formation: ΔrH = Σproducts − Σreactants.",
+            "Combustion: ΔrH = Σreactants − Σproducts.",
+            "Multiply by moles, and leave out elements (ΔfH = 0)."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State Hess's law.",
+      "a": "The enthalpy change for a reaction is the same whichever route is taken, provided the initial and final conditions are the same.",
+      "marks": 1
+    },
+    {
+      "q": "Calculate ΔrH for C₂H₄(g) + H₂(g) → C₂H₆(g), given ΔcH of C₂H₄ = −1411, H₂ = −286 and C₂H₆ = −1560 kJ mol⁻¹.",
+      "a": "ΔrH = Σ ΔcH(reactants) − Σ ΔcH(products) = (−1411 + −286) − (−1560) = −137 kJ mol⁻¹.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why ΔfH of oxygen, O₂(g), is left out when ΔrH is calculated from enthalpies of formation.",
+      "a": "Oxygen is an element in its standard state, so its enthalpy of formation is zero and adds nothing to the sum.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.2.1g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A definition of Hess's law is not required, but you must apply it. Unfamiliar enthalpy cycles are supplied in the question.",
+                "Use the principle of conservation of energy to find enthalpy changes from a cycle you are given."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.7",
+        "EDEX 8.8"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.4.3"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 5.2.1",
+        "CAIE 5.2.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Construct simple energy cycles yourself, and use them to find enthalpy changes that cannot be found by direct experiment.",
+                "Cycles can use bond energy data as well as formation and combustion data."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "d98d69c8-2aa9-4ced-a75a-413c1ba19262",
+      "826ae47e-0d22-4f9c-a9b1-4a292046af3d",
+      "248aa101-f0cf-4568-bc4b-790eae383017",
+      "b7a17fef-5cb1-465c-8338-09f8bdaf8b9f",
+      "f0292c24-9746-450b-8b05-5abd783cf4d7",
+      "5e56b670-50b2-4b39-8f1e-6e1f0a7d655c"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

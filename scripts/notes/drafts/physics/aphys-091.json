@@ -1,0 +1,255 @@
+{
+  "format": 1,
+  "concept_id": "aphys-091",
+  "subject": "physics",
+  "title": "Non-flow processes and p-V diagrams",
+  "key_idea": "A fixed amount of gas in a closed cylinder can change in four ways: isothermal, adiabatic, constant pressure and constant volume. The first law links each to heat, internal energy and work. The work done is the area under the curve on a p–V diagram.",
+  "sections": [
+    {
+      "heading": "The gas and the first law",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A non-flow process keeps the same gas in a closed cylinder. This section covers the equation of state and the first law used on every process."
+        },
+        {
+          "type": "equation",
+          "label": "Equation of state of an ideal gas",
+          "formula": "pV = nRT",
+          "where": [
+            "p = pressure (Pa)",
+            "V = volume (m³)",
+            "n = amount of gas (mol)",
+            "R = molar gas constant, 8.31 J mol⁻¹ K⁻¹",
+            "T = temperature (K)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "First law of thermodynamics",
+          "formula": "Q = ΔU + W",
+          "where": [
+            "Q = heat transferred to the gas (J)",
+            "ΔU = increase in internal energy of the gas (J)",
+            "W = work done by the gas on its surroundings (J)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heat **into** the gas makes Q positive. Heat out makes Q negative.",
+            "When the gas expands it does work, so W is positive. When it is compressed, W is negative.",
+            "The internal energy of an ideal gas is the kinetic energy of its molecules, so it depends only on temperature.",
+            "If the temperature is constant, ΔU = 0. If the temperature rises, ΔU is positive."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "pV = nRT for a fixed amount of ideal gas.",
+            "Q = ΔU + W, with W the work done by the gas.",
+            "ΔU depends on the change in temperature only."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The four processes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each process fixes one thing. That fixed quantity decides what the first law reduces to."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Isothermal",
+              "meaning": "A change at constant temperature. Heat flows in or out to keep T the same."
+            },
+            {
+              "term": "Adiabatic",
+              "meaning": "A change with no heat transfer to or from the surroundings, Q = 0. Usually it is fast, or the cylinder is insulated."
+            },
+            {
+              "term": "Constant pressure",
+              "meaning": "A change in which the pressure stays the same while volume and temperature change."
+            },
+            {
+              "term": "Constant volume",
+              "meaning": "A change in which the gas cannot expand, so no work is done."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Process",
+            "Rule",
+            "First law gives"
+          ],
+          "rows": [
+            [
+              "Isothermal",
+              "pV = constant",
+              "ΔU = 0, so Q = W"
+            ],
+            [
+              "Adiabatic",
+              "pVᵞ = constant",
+              "Q = 0, so W = −ΔU"
+            ],
+            [
+              "Constant pressure",
+              "W = pΔV",
+              "Q = ΔU + pΔV"
+            ],
+            [
+              "Constant volume",
+              "W = 0",
+              "Q = ΔU"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In pVᵞ = constant, γ is a constant for the gas. It is about 1.4 for air."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Isothermal expansion:** the gas does work and takes in the same amount of heat. Temperature stays the same.",
+            "**Adiabatic expansion:** the gas does work using its own internal energy, so it **cools**.",
+            "**Adiabatic compression:** work done on the gas raises its internal energy, so it **warms**.",
+            "**Constant volume:** heat in only raises the temperature and pressure."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Work done at constant pressure",
+          "formula": "W = pΔV",
+          "where": [
+            "W = work done by the gas (J)",
+            "p = pressure (Pa)",
+            "ΔV = change in volume (m³)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Work out the work done by a gas expanding at constant pressure, with new numbers each time.",
+            "question": "A gas expands by {dV} dm³ at a constant pressure of {p} kPa. Calculate the work it does, in joules.",
+            "variables": [
+              {
+                "id": "p",
+                "min": 100,
+                "max": 400,
+                "step": 50
+              },
+              {
+                "id": "dV",
+                "min": 1,
+                "max": 6,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "p * dV",
+              "unit": "J",
+              "decimals": 0
+            },
+            "working": [
+              "Using kPa × dm³ gives joules.",
+              "W = pΔV = {p} × {dV} = {answer} J"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Isothermal: pV constant and ΔU = 0.",
+            "Adiabatic: pVᵞ constant and Q = 0.",
+            "Constant pressure: W = pΔV. Constant volume: W = 0."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The p–V diagram",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A p–V diagram plots pressure against volume. The shape of each line shows the process, and the area gives the work."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Constant pressure is a **horizontal** line.",
+            "Constant volume is a **vertical** line, with no area under it, so W = 0.",
+            "An isothermal change is a curve of pV = constant.",
+            "An adiabatic change is a curve that falls more steeply than the isothermal through the same point."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **area under the graph** is the work done by the gas.",
+            "When the gas expands the work done is positive. In a compression it is negative.",
+            "Estimate the area by counting squares or splitting it into shapes.",
+            "For a cycle that returns to its start, the work done per cycle is the **area of the loop**."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A loop traced clockwise is a net output of work. Expressions for work are only needed for the constant-pressure case, W = pΔV."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Work done is the area below the line on a p–V diagram.",
+            "Net work per cycle is the area enclosed by the loop.",
+            "Horizontal is constant pressure, vertical is constant volume."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A gas at a constant pressure of 2.0 × 10⁵ Pa expands from 3.0 × 10⁻³ m³ to 5.0 × 10⁻³ m³. Calculate the work done by the gas.",
+      "a": "W = pΔV = 2.0 × 10⁵ × (5.0 × 10⁻³ − 3.0 × 10⁻³) = 4.0 × 10² J (400 J).",
+      "marks": 2
+    },
+    {
+      "q": "An ideal gas expands isothermally and takes in 250 J of heat. State the work done by the gas and explain your answer.",
+      "a": "250 J. The temperature is constant, so ΔU = 0, and the first law Q = ΔU + W gives W = Q = 250 J.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the temperature of a gas rises when it is compressed adiabatically.",
+      "a": "No heat is transferred, so Q = 0 and ΔU = −W. Work is done on the gas, so W is negative and ΔU is positive. The internal energy rises, so the temperature rises.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.11.2.2",
+        "AQA 3.11.2.3"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c2081878-fdea-40f7-beb6-70531d9e12de",
+      "7ae5ac6b-7f0f-43e1-bf73-d295f8590fe4"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

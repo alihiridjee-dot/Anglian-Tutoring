@@ -86,7 +86,7 @@
         },
         {
           "type": "subheading",
-          "text": "The argument in four steps"
+          "text": "(Edexcel: Higher tier) The argument in four steps"
         },
         {
           "type": "steps",
@@ -180,7 +180,7 @@
         },
         {
           "type": "subheading",
-          "text": "(AQA: Higher tier) The transformer equation"
+          "text": "(Higher tier) The transformer equation"
         },
         {
           "type": "equation",
@@ -197,7 +197,7 @@
           "diagram": {
             "kind": "practice",
             "alt": "Calculate the current in the secondary coil of a step-down transformer using Vp x Ip = Vs x Is.",
-            "question": "(AQA: Higher tier) The potential difference across the primary coil is {Vp} V and the current in it is {Ip} A. The potential difference across the secondary coil is {Vs} V. Calculate the current in the secondary coil.",
+            "question": "(Higher tier) The potential difference across the primary coil is {Vp} V and the current in it is {Ip} A. The potential difference across the secondary coil is {Vs} V. Calculate the current in the secondary coil.",
             "variables": [
               {
                 "id": "Vp",

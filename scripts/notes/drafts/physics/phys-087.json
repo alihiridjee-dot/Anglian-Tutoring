@@ -6,7 +6,7 @@
   "key_idea": "A transformer changes the size of an alternating p.d. An a.c. in the primary coil makes a changing field in the iron core, which induces a p.d. in the secondary coil. The turns ratio gives the p.d.s, and for 100% efficiency power out equals power in.",
   "sections": [
     {
-      "heading": "How a transformer works",
+      "heading": "How a transformer works (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -73,7 +73,7 @@
       ]
     },
     {
-      "heading": "The turns ratio equation",
+      "heading": "The turns ratio equation (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -172,7 +172,7 @@
       ]
     },
     {
-      "heading": "Power, current and the National Grid",
+      "heading": "Power, current and the National Grid (AQA and OCR: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -295,17 +295,17 @@
   ],
   "checks": [
     {
-      "q": "Explain why a transformer does not work with a direct current.",
+      "q": "(Higher tier) Explain why a transformer does not work with a direct current.",
       "a": "The direct current is steady, so the magnetic field in the core does not change. No potential difference is induced in the secondary coil.",
       "marks": 2
     },
     {
-      "q": "A transformer has 200 turns on the primary coil and 50 turns on the secondary coil. The primary p.d. is 120 V. Calculate the secondary p.d.",
+      "q": "(Higher tier) A transformer has 200 turns on the primary coil and 50 turns on the secondary coil. The primary p.d. is 120 V. Calculate the secondary p.d.",
       "a": "Vₛ = Vₚ × Nₛ ÷ Nₚ = 120 × 50 ÷ 200 = 30 V.",
       "marks": 2
     },
     {
-      "q": "A transformer that is 100% efficient has 230 V and 0.50 A in the primary coil. The secondary p.d. is 11.5 V. Calculate the secondary current.",
+      "q": "(AQA and OCR: Higher tier) A transformer that is 100% efficient has 230 V and 0.50 A in the primary coil. The secondary p.d. is 11.5 V. Calculate the secondary current.",
       "a": "Iₛ = Vₚ × Iₚ ÷ Vₛ = 230 × 0.50 ÷ 11.5 = 10 A.",
       "marks": 2
     }

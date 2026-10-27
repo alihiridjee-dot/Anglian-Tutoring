@@ -1,0 +1,259 @@
+{
+  "format": 1,
+  "concept_id": "abio-082",
+  "subject": "biology",
+  "title": "Gene therapy and GMOs",
+  "key_idea": "Gene therapy treats a genetic disease by giving cells a working allele. Genetically modified organisms carry a gene from another species and are used in medicine and food production. Both bring benefits, risks and ethical questions.",
+  "sections": [
+    {
+      "heading": "Gene therapy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gene therapy treats a genetic disease by altering the genes in a patient's cells. It often adds a working allele to cells that carry a faulty one."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Somatic cell gene therapy",
+              "meaning": "Altering body cells. The change affects only the patient and is not passed to children."
+            },
+            {
+              "term": "Germ line gene therapy",
+              "meaning": "Altering gametes or early embryo cells. The change is inherited by future generations."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A working copy of the allele is placed in a **vector**, often a modified virus or a liposome.",
+            "The vector carries the allele into the patient's cells, which then make the missing protein.",
+            "**SCID** (severe combined immunodeficiency) is caused by a faulty allele, so the immune system does not work. Working alleles are put into the patient's white blood cells or their precursors.",
+            "**Inherited eye diseases** can be treated by injecting the vector into the eye, where the cells make a working protein.",
+            "Somatic therapy may need repeating, because treated cells die and are replaced by untreated ones.",
+            "Germ line therapy is currently banned in many countries, because the effects on later generations cannot be predicted."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Somatic and germ line gene therapy compared.",
+            "items": [
+              "Somatic cell therapy",
+              "Germ line therapy"
+            ],
+            "rows": [
+              {
+                "feature": "Cells treated",
+                "values": [
+                  "Body cells",
+                  "Gametes or early embryo"
+                ]
+              },
+              {
+                "feature": "Inherited by children",
+                "values": [
+                  "No",
+                  "Yes"
+                ]
+              },
+              {
+                "feature": "Treatment repeated",
+                "values": [
+                  "Often needed",
+                  "Not needed in later generations"
+                ]
+              },
+              {
+                "feature": "Ethical concern",
+                "values": [
+                  "Lower",
+                  "Higher: changes the human gene pool"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gene therapy gives cells a working allele, for example in SCID and inherited eye diseases.",
+            "Somatic therapy is not inherited; germ line therapy is."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "GMOs in food production",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Genetic engineering may help to meet the global demand for food by improving the quality and productivity of crop plants and farmed animals."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**GM salmon** carry a growth hormone gene, so they grow faster and reach market size sooner.",
+            "**Herbicide-resistant soybean** can be sprayed with herbicide that kills weeds but not the crop, so yields are higher.",
+            "**Insect-resistant cotton** contains a gene for a toxin that kills pests, so less insecticide is needed.",
+            "Other aims include crops that tolerate drought or have a higher nutritional value."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "GM crops and animals can increase yield and reduce losses to pests and weeds.",
+            "Examples are GM salmon, herbicide-resistant soybean and insect-resistant cotton."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Risks, benefits and ethics",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "GMOs raise social, economic and ethical questions. Evaluate both sides."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Benefits",
+            "Risks and objections"
+          ],
+          "rows": [
+            [
+              "Higher yield and more food for a growing population",
+              "Gene flow to wild relatives, for example herbicide resistance spreading to weeds"
+            ],
+            [
+              "Less pesticide used",
+              "Harm to non-target insects and loss of biodiversity"
+            ],
+            [
+              "Improved nutrition and longer shelf life",
+              "Possible allergic reactions or unknown long-term effects on health"
+            ],
+            [
+              "Drugs made by GM organisms (pharming)",
+              "Animal welfare concerns about modified animals"
+            ],
+            [
+              "Resistant crops reduce losses in poor regions",
+              "Patents make seed costly, so farmers depend on a few companies"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Weigh the benefit to food supply and health against environmental, health and economic risks.",
+            "Patenting and seed cost affect poorer farmers."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Distinguish between somatic cell gene therapy and germ line gene therapy.",
+      "a": "Somatic therapy changes body cells, so the change is not passed to offspring. Germ line therapy changes gametes or embryo cells, so the change is inherited by future generations.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how gene therapy could be used to treat SCID.",
+      "a": "A working allele is inserted into a vector such as a modified virus. The vector delivers the allele to the patient's white blood cells or their precursors. The cells then make the missing protein, so the immune system can work.",
+      "marks": 3
+    },
+    {
+      "q": "Discuss the use of insect-resistant GM cotton.",
+      "a": "A gene for an insect toxin gives resistance, so less insecticide is needed and yield rises. Against this, the toxin might harm non-target insects, insects may evolve resistance, and the seed may be expensive for poor farmers.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 8.18"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Be ready to give both **risks** and **benefits** of GMOs for a given example, and to reach a balanced judgement.",
+                "Consider risks to human health, to the environment and to farmers' livelihoods, and benefits to food supply and medicine."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 19.2.3",
+        "CAIE 19.3.1",
+        "CAIE 19.3.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Gene therapy examples to learn: **SCID** and **inherited eye diseases**.",
+                "Food examples to learn: GM salmon, herbicide resistance in soybean and insect resistance in cotton.",
+                "Discuss ethical and social implications: affordability and ownership of the technology, consumer choice and labelling, effects on farmers in developing countries and on the environment."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.3g",
+        "OCR 6.1.3h"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Give ethical issues, both positive and negative, for GM animals (including humans), plants and microorganisms.",
+                "**Insect resistance in GM soya**: it reduces the need for insecticide, but resistance may spread.",
+                "**GM pathogens for research**: they help to study disease, but could be dangerous if released or misused.",
+                "**Pharming**: GM animals that produce pharmaceuticals, such as a human protein in milk. This gives cheap drugs but raises animal welfare issues.",
+                "**Patenting and technology transfer**: companies patent GM seed. Making seed available to poor farmers may be difficult unless the technology is shared or the price is kept low."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "eb410971-82fa-4095-94ce-b8220a9d915d",
+      "b150cd0b-4d99-490e-a8d7-86bf28709500",
+      "59fb3c05-6915-4e29-9fca-9399d13eac25",
+      "58e537de-4744-4e86-a670-e38d19618e8f",
+      "870c49cd-b632-4812-9cd7-1cf722c38335",
+      "e66f6b39-e7ea-44bc-905f-da2505afc13d"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

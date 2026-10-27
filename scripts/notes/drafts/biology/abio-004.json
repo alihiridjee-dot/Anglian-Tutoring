@@ -1,0 +1,367 @@
+{
+  "format": 1,
+  "concept_id": "abio-004",
+  "subject": "biology",
+  "title": "Proteins",
+  "key_idea": "Proteins are polymers of amino acids joined by peptide bonds. The order of amino acids (primary structure) decides how the chain folds, held by hydrogen bonds, ionic bonds, disulfide bridges and hydrophobic interactions. Shape decides function: globular proteins work, fibrous proteins support.",
+  "sections": [
+    {
+      "heading": "Amino acids and peptide bonds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Amino acids are the monomers from which proteins are made. All twenty common amino acids have the same basic structure."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "The general structure of an amino acid. Tap each part to see what it is and what it does.",
+            "prompt": "Tap each part of an amino acid.",
+            "parts": [
+              {
+                "name": "Central carbon",
+                "detail": "The carbon atom to which the four other groups are bonded."
+              },
+              {
+                "name": "Amine group (–NH₂)",
+                "detail": "A basic group. It forms a peptide bond with the carboxyl group of the next amino acid."
+              },
+              {
+                "name": "Carboxyl group (–COOH)",
+                "detail": "An acidic group. It forms a peptide bond with the amine group of the next amino acid."
+              },
+              {
+                "name": "Hydrogen atom",
+                "detail": "The same in every amino acid."
+              },
+              {
+                "name": "R group (side chain)",
+                "detail": "The only part that differs between the twenty amino acids. It decides the properties of the amino acid."
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **condensation reaction** between the carboxyl group of one amino acid and the amine group of another forms a **peptide bond** and releases water.",
+            "Two amino acids joined make a **dipeptide**. Many joined make a **polypeptide**.",
+            "A functional protein may contain one or more polypeptides.",
+            "Hydrolysis breaks a peptide bond, using water."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Amino acids differ only in their R group.",
+            "Peptide bonds form by condensation between –COOH and –NH₂."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Four levels of protein structure",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A protein's function depends on its three-dimensional shape. That shape is built up in four levels."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "Four levels of protein structure in order: primary, secondary, tertiary and quaternary.",
+            "steps": [
+              "Primary: sequence of amino acids",
+              "Secondary: α-helix or β-pleated sheet",
+              "Tertiary: folding of the whole polypeptide",
+              "Quaternary: more than one polypeptide"
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Level",
+            "What it is",
+            "Held by"
+          ],
+          "rows": [
+            [
+              "Primary",
+              "The sequence of amino acids in a polypeptide.",
+              "Peptide bonds"
+            ],
+            [
+              "Secondary",
+              "Regular coiling into an α-helix or folding into a β-pleated sheet.",
+              "Hydrogen bonds between the C=O and N–H groups of the chain"
+            ],
+            [
+              "Tertiary",
+              "Further folding of a single polypeptide into a specific 3D shape.",
+              "Hydrogen bonds, ionic bonds, disulfide bridges and hydrophobic interactions between R groups"
+            ],
+            [
+              "Quaternary",
+              "Two or more polypeptides combined, sometimes with a non-protein group.",
+              "The same bonds as tertiary, between polypeptides"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Bonds that hold the shape"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Hydrogen bonds**: many, individually weak. Broken by heat and by changes in pH.",
+            "**Ionic bonds**: between oppositely charged R groups. Stronger than hydrogen bonds. Broken by changes in pH.",
+            "**Disulfide bridges**: covalent bonds between the sulfur atoms of two cysteine R groups. Strong, and broken only by reducing agents.",
+            "**Hydrophobic interactions**: non-polar R groups cluster in the centre, away from water, which pulls the chain into shape."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Primary structure decides every higher level.",
+            "Hydrogen bonds, ionic bonds, disulfide bridges and hydrophobic interactions hold the tertiary shape.",
+            "A change in the primary structure can change the function."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Globular and fibrous proteins",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Proteins have a variety of functions. Their shape decides which, and it falls into two types."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Globular",
+            "Fibrous"
+          ],
+          "rows": [
+            [
+              "Shape",
+              "Compact, rounded and folded",
+              "Long and rope-like"
+            ],
+            [
+              "Solubility",
+              "Generally soluble: hydrophilic R groups on the outside, hydrophobic on the inside",
+              "Generally insoluble: many non-polar R groups on the outside"
+            ],
+            [
+              "Role",
+              "Physiological: enzymes, hormones, transport",
+              "Structural: strength and support"
+            ],
+            [
+              "Examples",
+              "Haemoglobin, insulin, enzymes",
+              "Collagen, keratin, elastin"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Haemoglobin"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A globular protein with quaternary structure: **four polypeptides**, two α-globin and two β-globin chains.",
+            "Each chain has a **haem group** containing an iron ion (Fe²⁺). A non-protein group like this is called a prosthetic group.",
+            "Each haem group binds one molecule of oxygen, so one haemoglobin carries four.",
+            "Hydrophilic R groups on the outside make it soluble in the cytoplasm of red blood cells. The shape lets oxygen bind in the lungs and be released in tissues."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Collagen"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A fibrous protein. Three polypeptide chains wind around each other in a **triple helix**.",
+            "Every third amino acid is glycine, which is very small, so the chains can pack tightly.",
+            "Hydrogen bonds between the chains, and covalent cross-links between molecules, make it very strong.",
+            "Collagen molecules lie side by side and overlap with staggered ends. They form **fibrils** and then **fibres**, so there is no weak point where all the ends meet.",
+            "High tensile strength suits it to tendons, skin, bone and artery walls."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Globular proteins are soluble and carry out physiological roles.",
+            "Haemoglobin: four polypeptides, each with a haem group containing Fe²⁺.",
+            "Collagen: a triple helix with cross-links, so strong and insoluble."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The biuret test for protein",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The biuret test detects peptide bonds. The full method is in the note on testing for biological molecules."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Add sodium hydroxide, then a few drops of dilute copper(II) sulfate.",
+            "Blue means no protein. Purple (lilac) means protein is present."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Biuret reagent turns purple with protein.",
+            "It reacts with peptide bonds, so it detects any protein."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Draw the general structure of an amino acid, naming each group, and state which part differs between amino acids.",
+      "a": "A central carbon bonded to an amine group (NH₂), a carboxyl group (COOH), a hydrogen atom and an R group. Only the R group differs.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how the tertiary structure of a protein is held in shape.",
+      "a": "Hydrogen bonds between R groups; ionic bonds between oppositely charged R groups; disulfide bridges (covalent) between cysteine residues; hydrophobic interactions between non-polar R groups in the centre of the molecule.",
+      "marks": 4
+    },
+    {
+      "q": "Explain how the structure of collagen makes it suitable for its function in tendons.",
+      "a": "Three polypeptides form a triple helix, with glycine as every third residue allowing close packing. Hydrogen bonds and covalent cross-links join chains and molecules, giving high tensile strength. Molecules are staggered in fibres, so there is no weak point. It is insoluble, so it does not dissolve.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.2k",
+        "OCR 2.1.2l",
+        "OCR 2.1.2m",
+        "OCR 2.1.2n",
+        "OCR 2.1.2o"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Conjugated proteins and named globular proteins"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A **conjugated protein** is a globular protein with a non-protein part, a **prosthetic group**. Haemoglobin is an example: its prosthetic group is haem.",
+                "**Insulin** is a globular hormone made of two polypeptide chains joined by disulfide bridges. It is soluble, so it is carried in the blood plasma, and its shape fits receptors on target cells.",
+                "A named enzyme such as **amylase** or **catalase** is a globular protein. Its tertiary structure forms a specific active site."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Fibrous proteins"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Protein",
+                "Property",
+                "Function"
+              ],
+              "rows": [
+                [
+                  "Collagen",
+                  "Strong and flexible but not stretchy",
+                  "Strength in tendons, bone, skin and artery walls"
+                ],
+                [
+                  "Keratin",
+                  "Strong and insoluble, with many disulfide bridges",
+                  "Hair, nails, skin surface and horn"
+                ],
+                [
+                  "Elastin",
+                  "Stretches and then recoils",
+                  "Walls of arteries, lung tissue and skin, which must stretch and spring back"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.4.1a",
+        "AQA 3.1.4.1b",
+        "AQA 3.1.4.1c",
+        "AQA 3.1.4.1d",
+        "AQA 3.1.4.1e",
+        "AQA 3.1.4.1f"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.9"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 2.3.1",
+        "CAIE 2.3.2",
+        "CAIE 2.3.3",
+        "CAIE 2.3.4",
+        "CAIE 2.3.5",
+        "CAIE 2.3.6",
+        "CAIE 2.3.7",
+        "CAIE 2.3.8"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "e54188ee-6603-4995-987f-f5b53bb393f9",
+      "11ad109b-8d57-4e8b-aaf7-7e6b94014bf1",
+      "b1198f9c-71f9-4507-a315-4e1810ca4044",
+      "d7e70d64-7292-4631-93bd-c28d1683f2b4",
+      "03a4cc40-2cf1-4b7e-a5cb-13bd4b870f6a",
+      "51665329-3f8a-4129-bc98-5133c272ed9f",
+      "8d5fba49-2ea9-492a-b819-da8b6dc4f576",
+      "e9e9b128-1e81-4259-855d-3f2c33f074a4",
+      "e3fdb9e2-19fb-4c7a-bc18-5053dd3892fd",
+      "8f11b146-c5a9-4065-86a5-aac3e896f02b",
+      "73489dd9-7f0c-4796-a74a-af8beafdb426",
+      "223b77ca-5681-4e33-8160-ca009348702c",
+      "83747c54-6cc9-46f6-8e09-630ae0ea77e8",
+      "bfee0a15-de48-4753-a6e6-4ccda599820d",
+      "27d449bc-b595-40d3-b4b1-3ce9a4063a59",
+      "87186593-edcc-4a9a-8567-e686ebb3706e",
+      "df9be928-5829-42cd-883b-84894373171b",
+      "a63d4130-6e29-40d5-9cba-be616f516fb5",
+      "7dd78cbc-f9be-44cc-8ac5-dd679ffe1a33",
+      "3686c5db-64cc-4be4-9bf2-4adf474fa0b5"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

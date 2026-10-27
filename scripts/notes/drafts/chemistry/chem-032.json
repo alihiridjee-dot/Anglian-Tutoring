@@ -3,7 +3,7 @@
   "concept_id": "chem-032",
   "subject": "chemistry",
   "title": "Reacting masses from equations",
-  "key_idea": "The big numbers in a balanced equation show how many moles of each substance react. To find an unknown mass: convert the known mass to moles, use the equation ratio, then convert the moles of the unknown back to a mass.",
+  "key_idea": "(AQA and OCR: Higher tier) The big numbers in a balanced equation show how many moles of each substance react. To find an unknown mass: convert the known mass to moles, use the equation ratio, then convert the moles of the unknown back to a mass.",
   "sections": [
     {
       "heading": "Reading an equation in moles",
@@ -177,7 +177,7 @@
         {
           "blocks": [
             {
-              "text": "(AQA: Higher tier) For AQA, this topic is Higher tier only.",
+              "text": "(Higher tier) For AQA, this topic is Higher tier only.",
               "type": "paragraph"
             }
           ],
@@ -233,25 +233,7 @@
           "To 3 significant figures = 11.6 g (1)"
         ],
         "tip": "The ratio of H₂SO₄ to K₂SO₄ is 1 : 1, so the Mr values can be used directly."
-      },
-      "extra": [
-        {
-          "blocks": [
-            {
-              "text": "For OCR, reacting-mass questions are set in Foundation papers as well. Scaling the masses from the equation is enough.",
-              "type": "paragraph"
-            },
-            {
-              "type": "list",
-              "items": [
-                "From Cu + Cl₂ → CuCl₂: 63.5 g of Cu makes 134.5 g of CuCl₂.",
-                "0.635 g is one hundredth of 63.5 g, so it makes 134.5 ÷ 100 = 1.345 g of CuCl₂."
-              ]
-            }
-          ],
-          "heading": "Foundation tier"
-        }
-      ]
+      }
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 3.2.3", "CAIE 3.3.5S"],

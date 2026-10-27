@@ -1,0 +1,313 @@
+{
+  "format": 1,
+  "concept_id": "achem-048",
+  "subject": "chemistry",
+  "title": "Storage cells and fuel cells",
+  "key_idea": "A storage cell makes electricity from a redox reaction between chemicals stored inside it, and it can be recharged if the reaction is reversible. A fuel cell is supplied with a fuel and oxygen continuously, so it never needs recharging.",
+  "sections": [
+    {
+      "heading": "Storage cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cells turn chemical energy into electrical energy. This section covers non-rechargeable and rechargeable cells and how to use electrode data on them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Non-rechargeable cell",
+              "meaning": "A cell whose reaction is irreversible. It stops when the reactants are used up."
+            },
+            {
+              "term": "Rechargeable cell",
+              "meaning": "A cell whose reaction can be reversed by passing a current through it in the opposite direction."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each electrode reaction is a half-equation with an Eᶿ value. The more positive electrode is the positive terminal.",
+            "The emf of the cell is Eᶿ(positive) − Eᶿ(negative).",
+            "Oxidation happens at the negative electrode. Reduction happens at the positive electrode.",
+            "On recharging, the electrode reactions run in reverse and the cell is restored."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The lithium cell"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Positive electrode: Li⁺ + CoO₂ + e⁻ → Li⁺[CoO₂]⁻",
+            "Negative electrode: Li → Li⁺ + e⁻",
+            "Overall: Li + CoO₂ → Li⁺[CoO₂]⁻",
+            "Electrons flow through the external circuit from the lithium electrode to the cobalt oxide electrode. Li⁺ ions move through the electrolyte.",
+            "Lithium has a very negative Eᶿ, so lithium cells give a high voltage."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Use the data.",
+              "text": "Write each half-equation with its Eᶿ."
+            },
+            {
+              "lead": "Find the electrodes.",
+              "text": "The more negative Eᶿ is the negative electrode and is oxidised."
+            },
+            {
+              "lead": "Combine.",
+              "text": "Add the half-equations, cancel the electrons and subtract Eᶿ values to get the emf."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A rechargeable cell has reversible electrode reactions.",
+            "The negative electrode is oxidised and the positive electrode is reduced.",
+            "The emf is Eᶿ(positive) − Eᶿ(negative)."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Fuel cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A fuel cell uses the energy from a fuel reacting with oxygen to make a voltage. This section covers the hydrogen–oxygen cell."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The fuel and oxygen are fed in continuously. The cell does not need recharging.",
+            "Hydrogen is common. Methanol and other hydrogen-rich fuels are also used.",
+            "The only product of a hydrogen–oxygen cell is water.",
+            "Electrons flow from the hydrogen electrode (negative) to the oxygen electrode (positive) through the external circuit."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Electrolyte",
+            "Negative electrode",
+            "Positive electrode"
+          ],
+          "rows": [
+            [
+              "Acidic",
+              "H₂ → 2H⁺ + 2e⁻",
+              "O₂ + 4H⁺ + 4e⁻ → 2H₂O"
+            ],
+            [
+              "Alkaline",
+              "H₂ + 2OH⁻ → 2H₂O + 2e⁻",
+              "O₂ + 2H₂O + 4e⁻ → 4OH⁻"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In both cells the overall reaction is 2H₂ + O₂ → 2H₂O. Each electrode is a porous surface with a catalyst, such as platinum, so the gases can react."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort statements into non-rechargeable cells, rechargeable cells and fuel cells.",
+            "prompt": "Sort each statement into the right type of cell.",
+            "groups": [
+              "Non-rechargeable cell",
+              "Rechargeable cell",
+              "Fuel cell"
+            ],
+            "items": [
+              {
+                "text": "The reaction cannot be reversed",
+                "group": 0
+              },
+              {
+                "text": "The cell stops when the reactants are used up",
+                "group": 0
+              },
+              {
+                "text": "A current in the reverse direction restores the reactants",
+                "group": 1
+              },
+              {
+                "text": "It can be used many times, with charging in between",
+                "group": 1
+              },
+              {
+                "text": "Hydrogen and oxygen are supplied continuously",
+                "group": 2
+              },
+              {
+                "text": "The only product is water",
+                "group": 2
+              },
+              {
+                "text": "It never needs electrical recharging",
+                "group": 2
+              },
+              {
+                "text": "It is thrown away once the reactants are used up",
+                "group": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A fuel cell is supplied with fuel and oxygen. It does not need recharging.",
+            "In an acidic cell, H⁺ forms at the negative electrode. In an alkaline cell, OH⁻ is used there.",
+            "Overall: 2H₂ + O₂ → 2H₂O."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Benefits and risks to society",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every cell has benefits and risks. This section covers those for rechargeable and fuel cells."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type of cell",
+            "Benefits",
+            "Risks"
+          ],
+          "rows": [
+            [
+              "Rechargeable cells",
+              "They can be reused many times. They are light and store a lot of energy.",
+              "Lithium and cobalt must be mined. Disposal and fires are risks if the cell is damaged or overheated."
+            ],
+            [
+              "Hydrogen fuel cells",
+              "The only product is water. They are efficient and do not need recharging.",
+              "Hydrogen is flammable and hard to store. It is often made from fossil fuels, which release CO₂."
+            ],
+            [
+              "Non-rechargeable cells",
+              "They are cheap and need no charger.",
+              "They are used once and thrown away. Their metals are lost as waste."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fuel cells make only water, but the hydrogen has to be produced and stored.",
+            "Rechargeable cells reduce waste but need mined metals."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write the half-equation at the negative electrode of an alkaline hydrogen–oxygen fuel cell.",
+      "a": "H₂ + 2OH⁻ → 2H₂O + 2e⁻",
+      "marks": 1
+    },
+    {
+      "q": "State one difference between a fuel cell and a rechargeable cell.",
+      "a": "A fuel cell is supplied continuously with a fuel and oxygen and does not need recharging. A rechargeable cell holds its chemicals inside and must be recharged with an electric current.",
+      "marks": 1
+    },
+    {
+      "q": "A cell has electrode reactions with Eᶿ = +0.80 V and Eᶿ = −0.44 V. Identify the negative electrode and calculate the emf.",
+      "a": "The −0.44 V electrode is negative and is oxidised. Emf = +0.80 − (−0.44) = +1.24 V.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.3j",
+        "OCR 5.2.3k"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Details of storage cells, equations and electrode potential data are provided in the exam. You apply the principles to them.",
+                "You do not need to recall fuel cells or their equations. You explain what happens at each electrode from the data given."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 14.15",
+        "EDEX 14.16",
+        "EDEX 14.17"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the electrode reactions of the hydrogen–oxygen fuel cell with both acidic and alkaline electrolytes.",
+                "Know that methanol and other hydrogen-rich fuels are used in fuel cells."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.11.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Learn the simplified lithium cell reactions given above. You use electrode data to deduce the reactions in non-rechargeable and rechargeable cells.",
+                "Explain how the electrode reactions generate an electric current: oxidation releases electrons at the negative electrode, they flow round the external circuit, and reduction uses them at the positive electrode.",
+                "Fuel cells generate a current and do not need electrical recharging."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "58d695cd-32d5-4b1d-b8d0-0123d767dbaa",
+      "1ee9bcce-e836-4cfc-9de1-1afeb956fa4e",
+      "ccd1ed0f-64aa-455c-8202-885dda583605",
+      "0295d01e-8508-4d1e-a876-4812e5e5f8f5",
+      "4a4f4ee3-dc97-41b1-8a0b-23f385b58afc",
+      "4ab3802f-8f07-4de6-b8cd-fd870fb65361"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -3,7 +3,7 @@
   "concept_id": "phys-063",
   "subject": "physics",
   "title": "Momentum and conservation of momentum",
-  "key_idea": "**Momentum** is mass × velocity. It is a property of every moving object, and it has a direction. In a closed system, the total momentum before an event equals the total momentum after it. This is **conservation of momentum**.",
+  "key_idea": "(Higher tier) **Momentum** is mass × velocity. It is a property of every moving object, and it has a direction. In a closed system, the total momentum before an event equals the total momentum after it. This is **conservation of momentum**.",
   "sections": [
     {
       "heading": "Momentum",

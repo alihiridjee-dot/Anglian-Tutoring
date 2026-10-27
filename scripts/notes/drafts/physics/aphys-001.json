@@ -1,0 +1,548 @@
+{
+  "format": 1,
+  "concept_id": "aphys-001",
+  "subject": "physics",
+  "title": "SI units, prefixes and estimation",
+  "key_idea": "Every physical quantity is a number multiplied by a unit. All units come from a few SI base units, and prefixes scale them by powers of ten. Checking that both sides of an equation have the same base units tests it, and estimates keep answers sensible.",
+  "sections": [
+    {
+      "heading": "Quantities and SI units",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A physical quantity is always a numerical magnitude and a unit together. This section covers the base units and how derived units are built from them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Base quantity",
+              "meaning": "One of the quantities the SI system is built on, each with its own base unit."
+            },
+            {
+              "term": "Derived unit",
+              "meaning": "A unit written as a product or quotient of base units."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A bare number such as 12 is not a complete measurement of a quantity like speed or force.",
+            "A quantity such as speed is written as 12 m s⁻¹: a magnitude of 12 and a unit of m s⁻¹.",
+            "The SI system uses base units so that every measurement can be compared."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Base quantity",
+            "Base unit",
+            "Symbol"
+          ],
+          "rows": [
+            [
+              "mass",
+              "kilogram",
+              "kg"
+            ],
+            [
+              "length",
+              "metre",
+              "m"
+            ],
+            [
+              "time",
+              "second",
+              "s"
+            ],
+            [
+              "electric current",
+              "ampere",
+              "A"
+            ],
+            [
+              "temperature",
+              "kelvin",
+              "K"
+            ],
+            [
+              "amount of substance",
+              "mole",
+              "mol"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Derived units"
+        },
+        {
+          "type": "paragraph",
+          "text": "Write a derived unit by combining base units. Divide by a unit by giving it a negative power."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Quantity",
+            "Derived unit",
+            "In base units"
+          ],
+          "rows": [
+            [
+              "speed",
+              "m s⁻¹",
+              "m s⁻¹"
+            ],
+            [
+              "density",
+              "kg m⁻³",
+              "kg m⁻³"
+            ],
+            [
+              "momentum",
+              "kg m s⁻¹",
+              "kg m s⁻¹"
+            ],
+            [
+              "force",
+              "newton (N)",
+              "kg m s⁻²"
+            ],
+            [
+              "energy",
+              "joule (J)",
+              "kg m² s⁻²"
+            ],
+            [
+              "power",
+              "watt (W)",
+              "kg m² s⁻³"
+            ],
+            [
+              "charge",
+              "coulomb (C)",
+              "A s"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort units into SI base units and derived units.",
+            "prompt": "Sort each unit into the right group.",
+            "groups": [
+              "SI base unit",
+              "Derived unit"
+            ],
+            "items": [
+              {
+                "text": "kilogram (kg)",
+                "group": 0
+              },
+              {
+                "text": "metre (m)",
+                "group": 0
+              },
+              {
+                "text": "ampere (A)",
+                "group": 0
+              },
+              {
+                "text": "kelvin (K)",
+                "group": 0
+              },
+              {
+                "text": "newton (N)",
+                "group": 1
+              },
+              {
+                "text": "joule (J)",
+                "group": 1
+              },
+              {
+                "text": "watt (W)",
+                "group": 1
+              },
+              {
+                "text": "coulomb (C)",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A physical quantity is a number and a unit.",
+            "Derived units are products or quotients of base units, for example N = kg m s⁻²."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Prefixes and unit conversions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prefixes write very large or very small values neatly. Each stands for a power of ten."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Prefix",
+            "Symbol",
+            "Multiplier"
+          ],
+          "rows": [
+            [
+              "pico",
+              "p",
+              "10⁻¹²"
+            ],
+            [
+              "nano",
+              "n",
+              "10⁻⁹"
+            ],
+            [
+              "micro",
+              "μ",
+              "10⁻⁶"
+            ],
+            [
+              "milli",
+              "m",
+              "10⁻³"
+            ],
+            [
+              "centi",
+              "c",
+              "10⁻²"
+            ],
+            [
+              "deci",
+              "d",
+              "10⁻¹"
+            ],
+            [
+              "kilo",
+              "k",
+              "10³"
+            ],
+            [
+              "mega",
+              "M",
+              "10⁶"
+            ],
+            [
+              "giga",
+              "G",
+              "10⁹"
+            ],
+            [
+              "tera",
+              "T",
+              "10¹²"
+            ]
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Replace the prefix",
+              "text": "Swap the prefix for its power of ten: 4.7 nm = 4.7 × 10⁻⁹ m."
+            },
+            {
+              "lead": "Check the power",
+              "text": "For a squared or cubed unit, the prefix is squared or cubed too: 1 cm² = (10⁻²)² m² = 10⁻⁴ m²."
+            },
+            {
+              "lead": "Write it in standard form",
+              "text": "Give the answer as a number between 1 and 10 multiplied by a power of ten."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "1 MW = 10⁶ W, so 2.5 MW = 2.5 × 10⁶ W.",
+            "1 μm = 10⁻⁶ m, so 350 μm = 3.5 × 10⁻⁴ m.",
+            "Convert to SI base units before you substitute into an equation."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Prefixes from pico (10⁻¹²) to tera (10¹²) scale any unit.",
+            "A prefix on a squared or cubed unit is squared or cubed as well."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Checking equations for homogeneity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An equation is homogeneous when every term has the same base units. A correct equation must be homogeneous."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the base units",
+              "text": "Replace each quantity by its SI base units, on both sides."
+            },
+            {
+              "lead": "Simplify",
+              "text": "Combine the powers of each base unit on each side."
+            },
+            {
+              "lead": "Compare",
+              "text": "Both sides must match. Terms that are added or subtracted must also match each other."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "For v² = u² + 2as: v² is m² s⁻², u² is m² s⁻² and as is (m s⁻²)(m) = m² s⁻². All three terms match.",
+            "For T = 2π√(l/g): √(m ÷ m s⁻²) = √(s²) = s, which is the unit of period T.",
+            "Numbers such as 2, ½ and π have no units, so homogeneity cannot check them.",
+            "A homogeneous equation can still be wrong. It only shows the equation is not impossible."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reduce each side of an equation to base units and compare them.",
+            "Homogeneity cannot check numerical constants."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Estimating physical quantities",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An estimate is an approximate value found from known typical values. An order of magnitude is the nearest power of ten."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Quantity",
+            "Typical value"
+          ],
+          "rows": [
+            [
+              "mass of an adult",
+              "70 kg"
+            ],
+            [
+              "height of a room",
+              "3 m"
+            ],
+            [
+              "walking speed",
+              "1.5 m s⁻¹"
+            ],
+            [
+              "speed of a car on a motorway",
+              "30 m s⁻¹"
+            ],
+            [
+              "density of water",
+              "1000 kg m⁻³"
+            ],
+            [
+              "diameter of an atom",
+              "10⁻¹⁰ m"
+            ],
+            [
+              "wavelength of visible light",
+              "4 × 10⁻⁷ m to 7 × 10⁻⁷ m"
+            ],
+            [
+              "mains voltage",
+              "230 V"
+            ]
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Choose values",
+              "text": "Pick sensible round numbers for each quantity, such as 70 kg or 3 m."
+            },
+            {
+              "lead": "Calculate",
+              "text": "Use the correct equation with those values."
+            },
+            {
+              "lead": "Round and check",
+              "text": "Give one or two significant figures. Decide if the answer is reasonable."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Example: a 70 kg student climbs 3 m in 10 s, taking g as 10 m s⁻². Power = mgh ÷ t = (70 × 10 × 3) ÷ 10 = 210 W, so about 200 W."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use round, typical values and give the answer to one or two significant figures.",
+            "Always check that the order of magnitude is reasonable."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Show that the unit of power, the watt, can be written as kg m² s⁻³.",
+      "a": "Power = energy ÷ time. Energy (J) is kg m² s⁻², so W = kg m² s⁻² ÷ s = kg m² s⁻³.",
+      "marks": 2
+    },
+    {
+      "q": "Convert 0.45 μm to metres, giving your answer in standard form.",
+      "a": "0.45 × 10⁻⁶ m = 4.5 × 10⁻⁷ m.",
+      "marks": 2
+    },
+    {
+      "q": "A student suggests v = u + at². Use base units to show that this equation cannot be correct.",
+      "a": "v is m s⁻¹ and u is m s⁻¹, but at² is (m s⁻²)(s²) = m. The terms have different units, so the equation is not homogeneous.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.1",
+        "AQA 3.1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You also use the prefix femto (f), which is 10⁻¹⁵. You convert between units of the same quantity, including joules, electronvolts and kilowatt hours."
+            },
+            {
+              "type": "list",
+              "items": [
+                "1 eV = 1.60 × 10⁻¹⁹ J, so to convert joules to eV divide by 1.60 × 10⁻¹⁹.",
+                "1 kW h = 1000 W × 3600 s = 3.6 × 10⁶ J.",
+                "The candela is not needed, and you do not need to recall the definitions of the base quantities."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 1.1",
+        "EDEX 1.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explain the difference between a base quantity (such as length) and a derived quantity (such as speed), and give the SI unit of each.",
+                "Use your estimate to solve a problem. Give the answer to one or two significant figures and say whether it is reasonable."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 1.1.1",
+        "CAIE 1.1.2",
+        "CAIE 1.2.1",
+        "CAIE 1.2.2",
+        "CAIE 1.2.3",
+        "CAIE 1.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Recall the five base quantities and units: mass (kg), length (m), time (s), current (A) and temperature (K).",
+                "Express a derived unit as products or quotients of base units, for the quantities you meet in the syllabus.",
+                "Use the prefix deci (d, 10⁻¹) as well as pico to tera."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 2.1.1a",
+        "OCR 2.1.1b",
+        "OCR 2.1.2a",
+        "OCR 2.1.2b",
+        "OCR 2.1.2c",
+        "OCR 2.1.2d",
+        "OCR 2.1.2e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Amount of substance, in mol, is also a base quantity.",
+                "Know the units of every quantity you meet in the course, and write them in base units. Momentum is kg m s⁻¹ and density is kg m⁻³.",
+                "Use the conventional symbols for the prefixes pico to tera."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "7b38af78-95af-47b2-b472-e904fbee1715",
+      "9bef0aa2-685d-4cf7-b29a-17710449e06c",
+      "593d30eb-038e-4bbf-a205-11ee95e8ab66",
+      "02ad9199-c3c8-4909-b290-cb5e1a88a85c",
+      "989d457c-2d10-4bc9-b1af-8412ca4f1d4c",
+      "aa8d6769-276e-4d5b-a8d6-c4709c54b05d",
+      "9190dd0e-c7e1-45e1-987b-e3d1f3eb3abf",
+      "20b87efa-5fe7-4580-9e06-7f1702bb6027",
+      "01acef54-3287-4557-b32b-90bf2e0bb1ae",
+      "b211e7b9-bf0c-47c6-af98-c631d597f7ca",
+      "f0b08c04-aba7-42c2-a1ac-36f27ac6316e",
+      "fae43b6e-5f25-4591-9a6e-7d0ea0ebcdb5",
+      "bfb5c7a0-dbb5-4bad-9d63-d7045a9c1e7e",
+      "de5f0893-24ff-46b1-bee4-489fd80ac178",
+      "635d9074-9cc2-43cd-b566-89594f77559a",
+      "fc3f5e17-2c89-4fbc-9fdc-74c3750cc4c5",
+      "c2a66eba-bd85-4eaa-a758-7a06e91b49b7"
+    ],
+    "exemplar_ids": []
+  }
+}

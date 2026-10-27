@@ -1,0 +1,390 @@
+{
+  "format": 1,
+  "concept_id": "abio-043",
+  "subject": "biology",
+  "title": "Monohybrid inheritance",
+  "key_idea": "A gene has different forms called alleles. The genotype is the alleles an organism carries; the phenotype is how they show, together with the environment. Alleles can be dominant, recessive or codominant, and a genetic diagram predicts the offspring of a cross.",
+  "sections": [
+    {
+      "heading": "Genetic terms",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every genetics question uses the same vocabulary. This section defines it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Gene",
+              "meaning": "A length of DNA at a particular place on a chromosome that codes for a polypeptide."
+            },
+            {
+              "term": "Locus",
+              "meaning": "The position of a gene on a chromosome."
+            },
+            {
+              "term": "Allele",
+              "meaning": "One of the different forms of a gene. There may be many alleles of one gene."
+            },
+            {
+              "term": "Genotype",
+              "meaning": "The genetic constitution of an organism: the alleles it carries."
+            },
+            {
+              "term": "Phenotype",
+              "meaning": "The expression of the genotype and its interaction with the environment."
+            },
+            {
+              "term": "Homozygous",
+              "meaning": "Having two identical alleles at a locus in a diploid organism."
+            },
+            {
+              "term": "Heterozygous",
+              "meaning": "Having two different alleles at a locus in a diploid organism."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A diploid organism has two copies of each chromosome, so it has two alleles at each locus. One comes from each parent."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Genotype is the alleles; phenotype is how they are expressed.",
+            "Homozygous means two identical alleles; heterozygous means two different alleles.",
+            "A gene can have more than two alleles in a population, but one individual carries only two."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Dominant, recessive and codominant alleles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Alleles differ in how they show in a heterozygote. There are three patterns."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **dominant** allele is expressed in the phenotype when only one copy is present.",
+            "A **recessive** allele is expressed only when two copies are present, so there is no dominant allele to mask it.",
+            "**Codominant** alleles are both expressed in the phenotype of a heterozygote. Neither masks the other."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Multiple alleles: the ABO blood groups"
+        },
+        {
+          "type": "paragraph",
+          "text": "The ABO gene has three alleles: Iᴬ, Iᴮ and i. Iᴬ and Iᴮ are codominant. Both are dominant to i."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Phenotype (blood group)",
+            "Possible genotypes"
+          ],
+          "rows": [
+            [
+              "A",
+              "IᴬIᴬ or Iᴬi"
+            ],
+            [
+              "B",
+              "IᴮIᴮ or Iᴮi"
+            ],
+            [
+              "AB",
+              "IᴬIᴮ (both expressed)"
+            ],
+            [
+              "O",
+              "ii"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Dominant: expressed with one copy. Recessive: needs two copies.",
+            "Codominant alleles are both expressed in a heterozygote.",
+            "ABO shows multiple alleles and codominance together."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Monohybrid crosses and genetic diagrams",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A monohybrid cross follows one gene. A fully labelled genetic diagram shows the parents, their gametes, the offspring genotypes and the offspring phenotypes."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Parental phenotypes and genotypes.",
+              "text": "Choose a letter for each allele. Write the genotype of each parent."
+            },
+            {
+              "lead": "Gametes.",
+              "text": "Each gamete carries one allele, because meiosis separates the pair. Write the gametes in circles."
+            },
+            {
+              "lead": "Offspring genotypes.",
+              "text": "Join each gamete from one parent to each gamete from the other, for example in a Punnett square."
+            },
+            {
+              "lead": "Offspring phenotypes.",
+              "text": "Say what each genotype looks like. Give the ratio, or the probability, of each phenotype."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Use the cross below to see the ratios for yourself."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "punnett",
+            "alt": "A Punnett square tool. Choose a genotype for each parent, with R for round seeds and r for wrinkled seeds, and see the offspring genotypes and phenotypes.",
+            "alleles": {
+              "dominant": "R",
+              "recessive": "r"
+            },
+            "phenotypes": {
+              "dominant": "Round seeds",
+              "recessive": "Wrinkled seeds"
+            },
+            "parent_options": [
+              [
+                "RR",
+                "Rr",
+                "rr"
+              ],
+              [
+                "RR",
+                "Rr",
+                "rr"
+              ]
+            ],
+            "parent_labels": [
+              "Parent 1",
+              "Parent 2"
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Cross",
+            "Offspring genotypes",
+            "Offspring phenotypes"
+          ],
+          "rows": [
+            [
+              "Heterozygous × heterozygous (Rr × Rr)",
+              "1 RR : 2 Rr : 1 rr",
+              "3 dominant : 1 recessive"
+            ],
+            [
+              "Heterozygous × homozygous recessive (Rr × rr)",
+              "1 Rr : 1 rr",
+              "1 dominant : 1 recessive"
+            ],
+            [
+              "Homozygous dominant × anything",
+              "All carry at least one R",
+              "All dominant"
+            ],
+            [
+              "Codominant heterozygotes (IᴬIᴮ × IᴬIᴮ)",
+              "1 IᴬIᴬ : 2 IᴬIᴮ : 1 IᴮIᴮ",
+              "1 A : 2 AB : 1 B"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "These ratios are probabilities. Real offspring numbers are rarely exactly in the ratio, because fertilisation is random."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Parents, gametes, offspring genotypes, offspring phenotypes: label every stage.",
+            "Heterozygous × heterozygous gives 3 : 1 for a dominant and recessive pair.",
+            "Ratios are probabilities, not guarantees."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The test cross",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An organism with the dominant phenotype could be homozygous or heterozygous. A **test cross** finds out which."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cross the organism of unknown genotype with a homozygous recessive organism.",
+            "If any offspring show the recessive phenotype, the unknown parent was heterozygous. The expected ratio is 1 : 1.",
+            "If all the offspring show the dominant phenotype, the unknown parent was probably homozygous dominant.",
+            "A large number of offspring is needed to be confident the parent was homozygous."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Test cross: unknown dominant phenotype × homozygous recessive.",
+            "Any recessive offspring means the parent was heterozygous.",
+            "Only dominant offspring suggests homozygous, more strongly with more offspring."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Distinguish between genotype and phenotype.",
+      "a": "Genotype is the alleles an organism carries (its genetic constitution). Phenotype is the expression of the genotype and its interaction with the environment.",
+      "marks": 2
+    },
+    {
+      "q": "A woman with blood group A (genotype Iᴬi) and a man with blood group B (genotype Iᴮi) have a child. State the possible blood groups of the child and the probability of blood group O.",
+      "a": "Gametes: Iᴬ or i from the mother, Iᴮ or i from the father. Offspring: IᴬIᴮ (AB), Iᴬi (A), Iᴮi (B), ii (O), each equally likely. Possible groups A, B, AB and O. Probability of O = 1 in 4 (25%).",
+      "marks": 4
+    },
+    {
+      "q": "A plant with the dominant phenotype is crossed with a homozygous recessive plant. The offspring are 52 with the dominant phenotype and 48 with the recessive phenotype. State the genotype of the first plant and explain your answer.",
+      "a": "It is heterozygous. The offspring are in a ratio of about 1 : 1. Recessive offspring must have received a recessive allele from each parent, so the first plant carried one recessive allele. If it were homozygous dominant, all the offspring would show the dominant phenotype.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.7.1a",
+        "AQA 3.7.1b",
+        "AQA 3.7.1c",
+        "AQA 3.7.1d",
+        "AQA 3.7.1e"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.13"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Incomplete dominance"
+            },
+            {
+              "type": "paragraph",
+              "text": "With **incomplete dominance** neither allele is fully dominant. The heterozygote has a phenotype between the two homozygotes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Example: a red-flowered plant crossed with a white-flowered plant gives all pink offspring.",
+                "Crossing two pink plants gives 1 red : 2 pink : 1 white.",
+                "This differs from codominance, where both alleles are seen separately in the heterozygote."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Pedigree diagrams"
+            },
+            {
+              "type": "paragraph",
+              "text": "A pedigree shows who in a family has a trait. Squares are males, circles are females and shaded symbols are affected."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Two unaffected parents with an affected child: the trait is recessive, and both parents are heterozygous carriers.",
+                "Two affected parents with an unaffected child: the trait is dominant, and both parents are heterozygous.",
+                "An affected child needs the affected allele from a parent, so check each parent in turn.",
+                "Give the genotype of each person where it can be worked out, and say which individuals could be either."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 16.2.1",
+        "CAIE 16.2.2",
+        "CAIE 16.2.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "F1",
+                  "meaning": "The first filial generation: the offspring of the parental cross."
+                },
+                {
+                  "term": "F2",
+                  "meaning": "The second filial generation: the offspring when F1 individuals are crossed with each other."
+                },
+                {
+                  "term": "Linkage",
+                  "meaning": "Genes on the same chromosome that tend to be inherited together."
+                },
+                {
+                  "term": "Test cross",
+                  "meaning": "A cross between an organism of unknown genotype and a homozygous recessive organism."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Pure-breeding parents (RR × rr) give an F1 that is all Rr.",
+                "Crossing F1 with F1 gives an F2 of 3 dominant : 1 recessive.",
+                "Genetic diagrams must also cope with codominance, multiple alleles and sex linkage, using the same four stages.",
+                "Dihybrid crosses and sex linkage are covered in the next note."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "37920a76-350f-4b47-a419-d402492e8d8e",
+      "fa7650ab-50a2-40f0-9718-3b271f09d07c",
+      "83962e6d-8439-4f3d-9112-f29990d80368",
+      "d77df401-1717-40a5-bd20-dd0cc5c06b19",
+      "481ca962-be27-44cd-811a-4c7884d106bc",
+      "2b57a3b6-3626-4450-a11d-ca40bf0f5b45",
+      "5fab4b9a-c9d0-4ecf-99f2-963bf38aa458",
+      "626d1e4f-72f7-44ef-8281-327ea8f08103",
+      "1ab3b617-a8d4-413f-9893-6cd02c12a362"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

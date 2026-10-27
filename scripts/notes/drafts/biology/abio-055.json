@@ -1,0 +1,338 @@
+{
+  "format": 1,
+  "concept_id": "abio-055",
+  "subject": "biology",
+  "title": "The light-dependent reactions",
+  "key_idea": "Light excites electrons in chlorophyll. The electrons pass along an electron transport chain, and the energy they release makes ATP by chemiosmosis and reduces NADP. Water is split to replace the electrons, releasing oxygen.",
+  "sections": [
+    {
+      "heading": "Photosystems and photoactivation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The light-dependent stage takes place in the thylakoid membranes. Light is absorbed by pigments grouped in photosystems."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Photosystem I (PSI) and photosystem II (PSII) each have a reaction centre of chlorophyll a.",
+            "Light energy is absorbed by the pigments and passed to the reaction centre.",
+            "Electrons in chlorophyll gain energy and are excited. They leave the chlorophyll, which is photoionised (also called photoactivation).",
+            "A primary electron acceptor takes the energetic electrons and passes them to an electron transport chain."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Photoionisation",
+              "meaning": "Light makes electrons leave chlorophyll, leaving it positively charged."
+            },
+            {
+              "term": "NADP",
+              "meaning": "A coenzyme that accepts hydrogen to become reduced NADP, which carries it to the Calvin cycle."
+            },
+            {
+              "term": "Photophosphorylation",
+              "meaning": "Making ATP from ADP and Pi using energy from light."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Light excites electrons in chlorophyll a at the reaction centre.",
+            "Energetic electrons leave the chlorophyll and enter the electron transport chain.",
+            "The light-dependent stage happens in the thylakoid membranes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Non-cyclic photophosphorylation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Non-cyclic photophosphorylation uses both photosystems. It makes ATP and reduced NADP, and it releases oxygen."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "PSII absorbs light.",
+              "text": "Electrons are excited and leave chlorophyll, which is photoionised."
+            },
+            {
+              "lead": "Photolysis.",
+              "text": "An oxygen-evolving complex splits water: 2H₂O → 4H⁺ + 4e⁻ + O₂. The electrons replace those lost from PSII. Oxygen is released and the protons stay in the thylakoid space."
+            },
+            {
+              "lead": "Electron transport.",
+              "text": "Electrons pass down the electron transport chain, releasing energy as they go."
+            },
+            {
+              "lead": "Proton pumping.",
+              "text": "The energy is used to move protons from the stroma into the thylakoid space, so a proton gradient builds up."
+            },
+            {
+              "lead": "PSI absorbs light.",
+              "text": "Electrons are re-excited and leave PSI. The electrons from PSII replace them."
+            },
+            {
+              "lead": "Reduction of NADP.",
+              "text": "Electrons from PSI, with protons, reduce NADP to reduced NADP in the stroma. The hydrogen in it comes from water."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Both photosystems are used: PSII first, then PSI.",
+            "Photolysis of water supplies electrons, protons and oxygen.",
+            "Products: ATP, reduced NADP and oxygen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Chemiosmosis and ATP synthesis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "ATP is made by chemiosmosis. The proton gradient across the thylakoid membrane stores the energy that drives ATP synthase."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Energy from the electrons moves protons from the stroma into the thylakoid space, against their concentration gradient.",
+            "Protons from photolysis also build up in the thylakoid space.",
+            "The thylakoid membrane is impermeable to protons, so a high concentration builds up inside.",
+            "Protons flow back into the stroma down their gradient through ATP synthase, by facilitated diffusion.",
+            "The energy released is used by ATP synthase to join ADP and Pi into ATP."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A proton gradient forms across the thylakoid membrane.",
+            "Protons flow through ATP synthase back into the stroma.",
+            "The flow provides the energy to make ATP."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cyclic photophosphorylation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In cyclic photophosphorylation only photosystem I is used. The electrons from PSI return to PSI, so there is no photolysis."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light excites electrons in PSI, which leave the chlorophyll.",
+            "The electrons pass along an electron transport chain and back to PSI.",
+            "The energy released pumps protons across the thylakoid membrane, and ATP is made by chemiosmosis.",
+            "No NADP is reduced and no oxygen is released.",
+            "It makes extra ATP when the Calvin cycle needs more ATP than reduced NADP."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort statements into cyclic and non-cyclic photophosphorylation.",
+            "prompt": "Sort each statement into the type of photophosphorylation it describes",
+            "groups": [
+              "Cyclic only",
+              "Non-cyclic only",
+              "Both"
+            ],
+            "items": [
+              {
+                "text": "Only photosystem I is involved",
+                "group": 0
+              },
+              {
+                "text": "Electrons return to photosystem I",
+                "group": 0
+              },
+              {
+                "text": "Water is split and oxygen is released",
+                "group": 1
+              },
+              {
+                "text": "Reduced NADP is produced",
+                "group": 1
+              },
+              {
+                "text": "Both photosystems are involved",
+                "group": 1
+              },
+              {
+                "text": "ATP is made by chemiosmosis",
+                "group": 2
+              },
+              {
+                "text": "Chlorophyll is photoionised",
+                "group": 2
+              },
+              {
+                "text": "Electrons pass along an electron transport chain",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cyclic: PSI only, ATP only, electrons recycled.",
+            "Non-cyclic: PSII and PSI, ATP, reduced NADP and oxygen.",
+            "Both make ATP by chemiosmosis."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Links to the light-independent stage",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The products of the light-dependent stage are used in the stroma. They carry the energy captured from light into the Calvin cycle."
+        },
+        {
+          "type": "list",
+          "items": [
+            "ATP supplies the energy to the Calvin cycle.",
+            "Reduced NADP supplies the hydrogen (reducing power) to reduce GP to triose phosphate.",
+            "Oxygen is a waste product, released or used in respiration.",
+            "Together, ATP and reduced NADP let carbon dioxide be built into complex organic molecules."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ATP and reduced NADP pass from the thylakoids to the stroma.",
+            "They provide energy and hydrogen for the Calvin cycle."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the role of photolysis of water in the light-dependent stage.",
+      "a": "Water is split by light into protons, electrons and oxygen. The electrons replace those lost from photosystem II. The protons build up in the thylakoid space and add to the proton gradient. Their hydrogen ends up in reduced NADP. Oxygen is released as a by-product.",
+      "marks": 4
+    },
+    {
+      "q": "Explain how a proton gradient across the thylakoid membrane leads to the synthesis of ATP.",
+      "a": "Energy released by electrons moving down the electron transport chain is used to pump protons into the thylakoid space. The protons then flow down their concentration gradient back to the stroma through ATP synthase. The energy released is used to join ADP and Pi to make ATP.",
+      "marks": 4
+    },
+    {
+      "q": "Give two differences between cyclic and non-cyclic photophosphorylation.",
+      "a": "Cyclic uses only PSI, non-cyclic uses PSI and PSII. Cyclic makes only ATP, non-cyclic makes ATP and reduced NADP. Only non-cyclic involves photolysis of water and releases oxygen.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.1a",
+        "AQA 3.5.1 RP8",
+        "AQA 3.5.1b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Chlorophyll absorbs light, leading to photoionisation of chlorophyll.",
+                "Some of the energy from the electrons released is conserved in ATP and reduced NADP.",
+                "Name the theory: the chemiosmotic theory describes ATP synthesis using electron transfer down the chain and protons crossing the chloroplast membranes.",
+                "The enzyme ATP synthase is embedded in the thylakoid membranes.",
+                "Required practical 8: investigate the effect of a named factor, such as light intensity, on the rate of dehydrogenase activity in chloroplast extracts. The electron acceptor, for example DCPIP, is reduced and loses its colour as the chloroplasts release electrons."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.7"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 13.1.2",
+        "CAIE 13.1.7",
+        "CAIE 13.1.8",
+        "CAIE 13.1.9",
+        "CAIE 13.1.10"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "State that both cyclic and non-cyclic photophosphorylation occur in the light-dependent stage.",
+                "In cyclic photophosphorylation you must say: only PSI is involved, photoactivation of chlorophyll occurs and ATP is synthesised.",
+                "In non-cyclic photophosphorylation you must say: PSI and PSII are both involved, photoactivation occurs, the oxygen-evolving complex catalyses photolysis of water, and ATP and reduced NADP are synthesised.",
+                "Details of the electron carriers and of ATP synthase are not expected.",
+                "Protons return to the stroma from the thylakoid space by facilitated diffusion through ATP synthase.",
+                "The energy in ATP and reduced NADP from the light-dependent stage is used in the Calvin cycle to produce complex organic molecules."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.1d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explain how light energy is harvested and used to make chemicals (ATP and reduced NADP) that act as a source of energy for other metabolic processes.",
+                "Refer to electron carriers, and to both cyclic and non-cyclic photophosphorylation.",
+                "Explain the role of water: it is the source of electrons that replace those lost from PSII, the source of the hydrogen in reduced NADP and the source of oxygen."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "793eb9d3-9d7a-4f4d-b8f8-f487feadc03a",
+      "401fd5ee-f586-497a-9e2c-62ac466d9ef5",
+      "46422c1c-d6ce-454a-9aed-2c707f0a4804",
+      "f7b38cc5-52ca-4622-9624-b4c6f8358969",
+      "e129bf3c-7f67-4120-a2b8-ed39e34f9df8",
+      "1f1d8151-1b30-417b-953e-0c8800396ce4",
+      "df3b6c87-5ba8-49b8-b302-5fadefe65a53",
+      "a9fd96b4-aed4-441b-a9b6-9b31a470f1a0",
+      "8983cbaa-9915-4a49-b764-c3f6e172bdec"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -21,7 +21,7 @@
             },
             {
               "term": "Complementary bases",
-              "meaning": "Bases that pair across the two strands: A with T, and C with G."
+              "meaning": "(AQA: Higher tier) Bases that pair across the two strands: A with T, and C with G."
             },
             {
               "term": "Hydrogen bond",
@@ -36,7 +36,7 @@
             "Each nucleotide also has one of four **bases**: A (adenine), C (cytosine), G (guanine) or T (thymine).",
             "There are four different nucleotides, one for each base.",
             "The sugars and phosphates make the backbone of each strand.",
-            "The two strands are linked by pairs of bases, held together by weak hydrogen bonds."
+            "(AQA: Higher tier) The two strands are linked by pairs of bases, held together by weak hydrogen bonds."
           ]
         },
         {
@@ -61,13 +61,13 @@
           "items": [
             "A nucleotide is a sugar, a phosphate and one base.",
             "There are four bases: A, C, G and T.",
-            "A pairs with T and C with G."
+            "(AQA: Higher tier) A pairs with T and C with G."
           ]
         }
       ]
     },
     {
-      "heading": "Working with base pairs",
+      "heading": "Working with base pairs (AQA: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -160,7 +160,7 @@
       ]
     },
     {
-      "heading": "The genetic code and protein shape",
+      "heading": "The genetic code and protein shape (Edexcel and OCR: Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -172,8 +172,8 @@
             "A group of **three bases** is called a triplet (codon).",
             "Each triplet codes for **one amino acid**.",
             "The order of the triplets decides the **sequence** of amino acids in the protein.",
-            "The chain of amino acids folds into a specific **shape**.",
-            "The shape decides what the protein can do, such as an enzyme's active site fitting its substrate."
+            "(Higher tier) The chain of amino acids folds into a specific **shape**.",
+            "(Higher tier) The shape decides what the protein can do, such as an enzyme's active site fitting its substrate."
           ]
         },
         {
@@ -200,7 +200,7 @@
         },
         {
           "type": "subheading",
-          "text": "If the code changes"
+          "text": "If the code changes (Higher tier)"
         },
         {
           "type": "list",
@@ -216,7 +216,7 @@
           "items": [
             "Three bases (a triplet) code for one amino acid.",
             "The order of bases decides the order of amino acids, and so the shape of the protein.",
-            "Change the code and the protein may no longer work."
+            "(Higher tier) Change the code and the protein may no longer work."
           ]
         }
       ]
@@ -229,12 +229,12 @@
       "marks": 3
     },
     {
-      "q": "One strand of DNA has the base sequence T T G A. Write the complementary strand.",
+      "q": "(AQA: Higher tier) One strand of DNA has the base sequence T T G A. Write the complementary strand.",
       "a": "A A C T.",
       "marks": 2
     },
     {
-      "q": "Explain how a change of one base in a gene could stop the enzyme it codes for working.",
+      "q": "(Higher tier) Explain how a change of one base in a gene could stop the enzyme it codes for working.",
       "a": "It gives a different triplet, which codes for a different amino acid. This changes the shape of the enzyme's active site, so the substrate no longer fits.",
       "marks": 3
     }

@@ -1,0 +1,323 @@
+{
+  "format": 1,
+  "concept_id": "achem-037",
+  "subject": "chemistry",
+  "title": "Brønsted-Lowry acids and bases",
+  "key_idea": "A Brønsted-Lowry acid is a proton donor and a base is a proton acceptor. Acid-base reactions are proton transfers, and each acid has a conjugate base that differs by one H⁺.",
+  "sections": [
+    {
+      "heading": "Acids, bases and proton transfer",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section defines acids and bases by what happens to protons. A proton here is an H⁺ ion."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Brønsted-Lowry acid",
+              "meaning": "A species that donates a proton (H⁺)."
+            },
+            {
+              "term": "Brønsted-Lowry base",
+              "meaning": "A species that accepts a proton (H⁺)."
+            },
+            {
+              "term": "Acid-base reaction",
+              "meaning": "A reaction in which a proton is transferred from an acid to a base."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A base needs a lone pair of electrons to bond to the proton it accepts.",
+            "In water, an acid HA donates H⁺ to H₂O and forms H₃O⁺ ions. This is usually written as H⁺(aq).",
+            "Water can act as an acid or as a base, depending on what it reacts with.",
+            "Acid-base reactions in solution are usually **equilibria**, because the proton transfer can go in both directions."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "An acid in water",
+          "formula": "HA(aq) + H₂O(l) ⇌ H₃O⁺(aq) + A⁻(aq)",
+          "where": [
+            "HA = the acid, which donates H⁺",
+            "H₂O = the base, which accepts H⁺"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "A base in water",
+          "formula": "NH₃(aq) + H₂O(l) ⇌ NH₄⁺(aq) + OH⁻(aq)",
+          "where": [
+            "NH₃ = the base, which accepts H⁺",
+            "H₂O = the acid, which donates H⁺"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An acid donates a proton. A base accepts a proton.",
+            "Every acid-base reaction is a transfer of H⁺.",
+            "In water, H₂O acts as a base with acids and as an acid with bases."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Conjugate acid-base pairs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every acid-base equilibrium contains two conjugate pairs. This section shows how to find them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Conjugate base",
+              "meaning": "What is left when an acid has donated a proton."
+            },
+            {
+              "term": "Conjugate acid",
+              "meaning": "What is formed when a base has accepted a proton."
+            },
+            {
+              "term": "Conjugate acid-base pair",
+              "meaning": "Two species that differ by one H⁺."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Find the species that loses H⁺: that is the acid. Its partner on the other side is its conjugate base.",
+            "Find the species that gains H⁺: that is the base. Its partner on the other side is its conjugate acid.",
+            "The acid in each pair has one more H⁺ than its base, so its charge is one unit more positive."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Acid",
+            "Conjugate base"
+          ],
+          "rows": [
+            [
+              "HCl",
+              "Cl⁻"
+            ],
+            [
+              "CH₃COOH",
+              "CH₃COO⁻"
+            ],
+            [
+              "H₂CO₃",
+              "HCO₃⁻"
+            ],
+            [
+              "NH₄⁺",
+              "NH₃"
+            ],
+            [
+              "H₃O⁺",
+              "H₂O"
+            ],
+            [
+              "H₂O",
+              "OH⁻"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺, the pairs are CH₃COOH / CH₃COO⁻ and H₃O⁺ / H₂O."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A sorting activity. Sort the species in the ethanoic acid equilibrium into acids and bases.",
+            "prompt": "In CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺, sort each species by its role in the direction given.",
+            "groups": [
+              "Acid (donates H⁺)",
+              "Base (accepts H⁺)"
+            ],
+            "items": [
+              {
+                "text": "CH₃COOH (forward reaction)",
+                "group": 0
+              },
+              {
+                "text": "H₂O (forward reaction)",
+                "group": 1
+              },
+              {
+                "text": "H₃O⁺ (reverse reaction)",
+                "group": 0
+              },
+              {
+                "text": "CH₃COO⁻ (reverse reaction)",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Conjugate pairs differ by one H⁺.",
+            "An acid-base equilibrium has two conjugate pairs.",
+            "A species can be an acid in one pair and a base in another, as water is."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define a Brønsted-Lowry acid and a Brønsted-Lowry base.",
+      "a": "An acid is a proton (H⁺) donor; a base is a proton acceptor.",
+      "marks": 2
+    },
+    {
+      "q": "For the equilibrium NH₃ + H₂O ⇌ NH₄⁺ + OH⁻, identify the two conjugate acid-base pairs.",
+      "a": "NH₄⁺ (acid) / NH₃ (base) and H₂O (acid) / OH⁻ (base).",
+      "marks": 2
+    },
+    {
+      "q": "Write an ionic equation for the reaction of magnesium carbonate with dilute hydrochloric acid.",
+      "a": "MgCO₃(s) + 2H⁺(aq) → Mg²⁺(aq) + H₂O(l) + CO₂(g)",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.3a",
+        "OCR 5.1.3b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "The role of H⁺ in the reactions of acids"
+            },
+            {
+              "type": "paragraph",
+              "text": "Acids show their reactions through H⁺(aq). Ionic equations leave out the spectator ions."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Acid reacts with",
+                "Ionic equation",
+                "Products"
+              ],
+              "rows": [
+                [
+                  "A metal, e.g. magnesium",
+                  "Mg(s) + 2H⁺(aq) → Mg²⁺(aq) + H₂(g)",
+                  "Salt and hydrogen"
+                ],
+                [
+                  "A metal oxide",
+                  "CuO(s) + 2H⁺(aq) → Cu²⁺(aq) + H₂O(l)",
+                  "Salt and water"
+                ],
+                [
+                  "An alkali",
+                  "H⁺(aq) + OH⁻(aq) → H₂O(l)",
+                  "Salt and water"
+                ],
+                [
+                  "A carbonate, e.g. calcium carbonate",
+                  "CaCO₃(s) + 2H⁺(aq) → Ca²⁺(aq) + H₂O(l) + CO₂(g)",
+                  "Salt, water and carbon dioxide"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "With a metal, H⁺ is **reduced** to H₂ and the metal is oxidised.",
+                "With an oxide, alkali or carbonate, H⁺ is the proton donor and the oxide, hydroxide or carbonate ion is the proton acceptor."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Mono-, di- and tribasic acids"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Type",
+                "Example",
+                "Protons donated per molecule"
+              ],
+              "rows": [
+                [
+                  "Monobasic",
+                  "HCl, CH₃COOH, HNO₃",
+                  "1"
+                ],
+                [
+                  "Dibasic",
+                  "H₂SO₄",
+                  "2"
+                ],
+                [
+                  "Tribasic",
+                  "H₃PO₄",
+                  "3"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 12.1",
+        "EDEX 12.2",
+        "EDEX 12.3"
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.12.1"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 7.2.3",
+        "CAIE 25.1.1",
+        "CAIE 25.1.2"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "968d290d-cb3c-4dad-9617-a2154199aa0c",
+      "d74c35ec-f92a-42b2-8eb2-69804305867d",
+      "2ef92844-a0c5-4e0a-9773-99fe0fb0da57",
+      "3cf46305-8e99-4fb0-b915-a6143db6c8df",
+      "0717ffc9-2514-40ed-99d5-ed00c7e70611",
+      "382d37fb-0fa5-42e2-84e2-e2102f6624ff",
+      "7851953f-560d-45bd-9afe-3b4d06c6a097",
+      "8b732d62-a3fa-4927-a0c5-aa9ab17ff82d",
+      "cd14d913-834d-474d-870c-0c47b4cc5b65"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

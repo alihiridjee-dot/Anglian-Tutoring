@@ -1,0 +1,481 @@
+{
+  "format": 1,
+  "concept_id": "achem-085",
+  "subject": "chemistry",
+  "title": "Amino acids, proteins and DNA",
+  "key_idea": "Amino acids have an amine group and a carboxylic acid group, so they are both acidic and basic and form zwitterions. They join by peptide bonds to make proteins, which fold and work as enzymes. DNA is a polymer of nucleotides held as a double helix by hydrogen bonds.",
+  "sections": [
+    {
+      "heading": "Amino acids and zwitterions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An α-amino acid has an amine group and a carboxylic acid group on the same carbon atom. This section covers its acid–base behaviour and reactions."
+        },
+        {
+          "type": "equation",
+          "label": "General formula of an α-amino acid",
+          "formula": "RCH(NH₂)COOH",
+          "where": [
+            "R: a side chain, e.g. H in glycine, CH₃ in alanine",
+            "NH₂: basic amine group",
+            "COOH: acidic carboxylic acid group"
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Zwitterion",
+              "meaning": "An ion with both a positive and a negative charge, e.g. ⁺H₃NCH₂COO⁻. It has no overall charge."
+            },
+            {
+              "term": "Isoelectric point",
+              "meaning": "The pH at which an amino acid is a zwitterion with no net charge, so it does not move in an electric field."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The COOH group donates H⁺ to the NH₂ group on the same molecule, forming the zwitterion.",
+            "In solid form and in neutral solution, amino acids are mainly zwitterions. This explains their high melting points and solubility in water.",
+            "Because they can both donate and accept H⁺, amino acids are **amphoteric**."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Ions formed in acid and in alkali"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Solution",
+            "What happens",
+            "Glycine species"
+          ],
+          "rows": [
+            [
+              "Strongly acidic (low pH)",
+              "COO⁻ gains H⁺. Overall charge is positive.",
+              "⁺H₃NCH₂COOH"
+            ],
+            [
+              "At the isoelectric point",
+              "Zwitterion. Overall charge is zero.",
+              "⁺H₃NCH₂COO⁻"
+            ],
+            [
+              "Strongly alkaline (high pH)",
+              "NH₃⁺ loses H⁺. Overall charge is negative.",
+              "H₂NCH₂COO⁻"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Reactions of the two groups"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Carboxylic acid group + alkali**: gives a carboxylate salt and water, e.g. H₂NCH₂COO⁻Na⁺.",
+            "**Carboxylic acid group + alcohol** (with an acid catalyst, heated): gives an ester, e.g. with ethanol, H₂NCH₂COOCH₂CH₃.",
+            "**Amine group + acid**: the nitrogen accepts H⁺ to give an ammonium salt, e.g. ⁺H₃NCH₂COOH Cl⁻."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Amino acids have a basic NH₂ group and an acidic COOH group, and exist as zwitterions.",
+            "Low pH gives a positive ion; high pH gives a negative ion.",
+            "COOH reacts with alkalis and alcohols; NH₂ reacts with acids."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Peptide bonds and protein structure",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Amino acids join by condensation to form peptides and proteins. This section covers the peptide bond and the four levels of protein structure."
+        },
+        {
+          "type": "equation",
+          "label": "Forming a dipeptide",
+          "formula": "H₂NCH₂COOH + H₂NCH(CH₃)COOH → H₂NCH₂CONHCH(CH₃)COOH + H₂O",
+          "where": [
+            "Glycine + alanine → the dipeptide Gly–Ala",
+            "–CONH– is the peptide (amide) bond",
+            "One molecule of water is lost for each bond"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **peptide bond** forms between the COOH of one amino acid and the NH₂ of the next.",
+            "Two amino acids make a dipeptide, three a tripeptide, and many a polypeptide.",
+            "A protein is a sequence of amino acids joined by peptide links.",
+            "To draw a tripeptide, join the amino acids end to end, with a –CONH– link between each pair."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Levels of structure"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Level",
+            "What it is",
+            "What holds it"
+          ],
+          "rows": [
+            [
+              "Primary",
+              "The sequence of amino acids",
+              "Peptide bonds"
+            ],
+            [
+              "Secondary",
+              "Regular shapes: the α-helix and the β-pleated sheet",
+              "Hydrogen bonds between N–H and C=O groups of the peptide links"
+            ],
+            [
+              "Tertiary",
+              "The overall 3-D folding of the chain",
+              "Hydrogen bonds, S–S bonds between cysteine units, and other attractions between side chains"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hydrogen bonds can form between N–H (δ+ H) and C=O (δ− O) because N and O are highly electronegative.",
+            "A **disulfide (S–S) bridge** is a covalent bond between the sulfur atoms of two cysteine side chains. It holds the folded shape in place.",
+            "Heating or extreme pH breaks the weaker bonds and changes the shape of a protein."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A peptide bond is –CONH–, formed by condensation.",
+            "Primary = sequence; secondary = helix or sheet by hydrogen bonds; tertiary = 3-D shape by hydrogen bonds and S–S bonds.",
+            "Hydrolysis of the peptide link gives back the amino acids."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Separating and identifying amino acids",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Heating a protein with aqueous acid (or alkali) hydrolyses every peptide bond. This section covers how the amino acids are separated and identified."
+        },
+        {
+          "type": "subheading",
+          "text": "Thin-layer chromatography"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A spot of the mixture is placed on a plate coated with a solid, and a solvent moves up the plate.",
+            "Amino acids are colourless, so the plate is sprayed with **ninhydrin** or viewed under **ultraviolet light** to locate the spots.",
+            "Each amino acid travels a different distance, because it is held by the plate and dissolved by the solvent to different extents.",
+            "Compare the Rf value of each spot with known values to identify the amino acid."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rf value",
+          "formula": "Rf = distance moved by the spot ÷ distance moved by the solvent",
+          "where": [
+            "Both distances are measured from the start line, in the same units",
+            "Rf has no unit and is always less than 1"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate an Rf value from two distances measured on a chromatogram.",
+            "question": "On a chromatogram, an amino acid spot moved {spot} cm and the solvent front moved {solvent} cm. Calculate the Rf value.",
+            "variables": [
+              {
+                "id": "spot",
+                "min": 1,
+                "max": 7.5,
+                "step": 0.5
+              },
+              {
+                "id": "solvent",
+                "min": 8,
+                "max": 12,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "spot / solvent",
+              "decimals": 2
+            },
+            "working": [
+              "Rf = distance moved by spot ÷ distance moved by solvent",
+              "Rf = {spot} ÷ {solvent}",
+              "Rf = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Electrophoresis"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Amino acids and dipeptides are placed on a gel or paper in a buffer at a set pH, and a voltage is applied.",
+            "Below its isoelectric point, a species is positive and moves towards the **negative** electrode.",
+            "Above its isoelectric point, it is negative and moves towards the **positive** electrode.",
+            "At its isoelectric point it has no net charge and does not move."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a pH and see what glycine does in an electric field.",
+            "prompt": "Pick the pH of the buffer for glycine, whose isoelectric point is about pH 6.",
+            "result_labels": [
+              "Main species",
+              "Movement in an electric field"
+            ],
+            "options": [
+              {
+                "label": "pH 1 (strongly acidic)",
+                "results": [
+                  "⁺H₃NCH₂COOH, positive",
+                  "Towards the negative electrode"
+                ],
+                "explanation": "In acid the COO⁻ group has gained H⁺, leaving a net positive charge."
+              },
+              {
+                "label": "pH 6 (isoelectric point)",
+                "results": [
+                  "⁺H₃NCH₂COO⁻, zwitterion",
+                  "Does not move"
+                ],
+                "explanation": "The positive and negative charges cancel, so there is no net charge."
+              },
+              {
+                "label": "pH 12 (strongly alkaline)",
+                "results": [
+                  "H₂NCH₂COO⁻, negative",
+                  "Towards the positive electrode"
+                ],
+                "explanation": "In alkali the NH₃⁺ group has lost H⁺, leaving a net negative charge."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hydrolysis of a protein gives its amino acids, which can be separated by chromatography.",
+            "Rf = distance moved by spot ÷ distance moved by solvent; ninhydrin or UV light shows the spots.",
+            "In electrophoresis, charge depends on pH relative to the isoelectric point."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Enzymes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Enzymes are proteins that act as biological catalysts. This section covers how they work and how drugs can block them."
+        },
+        {
+          "type": "list",
+          "items": [
+            "An enzyme has an **active site**: a region with a specific 3-D shape and arrangement of groups.",
+            "The substrate molecule binds to the active site. This lowers the activation energy of the reaction.",
+            "The active site is **stereospecific**: it fits only one enantiomer of a chiral substrate or drug, because the other enantiomer has the wrong 3-D shape.",
+            "An **enzyme inhibitor** is a drug that fits into the active site and blocks it, so the substrate cannot bind.",
+            "Computers can model the active site to help design drug molecules that fit it."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Enzymes are protein catalysts with a stereospecific active site.",
+            "A drug can act as an inhibitor by blocking the active site.",
+            "Only one enantiomer of a substrate or drug fits the active site."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "DNA and anticancer drugs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "DNA stores genetic information as a sequence of bases. This section covers its structure and how the anticancer drug cisplatin acts on it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nucleotide",
+              "meaning": "A phosphate group bonded to 2-deoxyribose (a pentose sugar), which is bonded to a base."
+            },
+            {
+              "term": "Bases",
+              "meaning": "Adenine (A), cytosine (C), guanine (G) and thymine (T)."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A strand of DNA is a polymer of nucleotides.",
+            "The phosphate group of one nucleotide bonds covalently to the sugar of the next, giving a **sugar–phosphate backbone** with bases hanging off the sugars.",
+            "Two complementary strands form a **double helix**.",
+            "Hydrogen bonds between bases join the strands: A pairs with T (two bonds) and C pairs with G (three bonds).",
+            "The bases fit because each pair has matching positions of N–H, C=O and N lone pairs, so the strands are complementary."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Cisplatin"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cisplatin is a Pt(II) complex, cis-Pt(NH₃)₂Cl₂, used as an anticancer drug.",
+            "The Cl⁻ ligands are replaced by the DNA base guanine. A bond forms between platinum and a nitrogen atom on guanine (a ligand replacement reaction).",
+            "The bound platinum distorts the DNA and stops it being copied, so **DNA replication** is prevented and the cancer cell cannot divide.",
+            "Healthy cells that divide quickly are also affected, which causes adverse effects such as hair loss, sickness and kidney damage.",
+            "Society must weigh the benefit of treating cancer against these effects."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A nucleotide is phosphate + 2-deoxyribose + base; strands have a sugar–phosphate backbone.",
+            "Hydrogen bonds between complementary base pairs hold the double helix together.",
+            "Cisplatin binds to guanine by ligand replacement and prevents DNA replication."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Draw or describe the form in which alanine, CH₃CH(NH₂)COOH, exists (a) in strongly acidic solution and (b) in strongly alkaline solution.",
+      "a": "(a) CH₃CH(NH₃⁺)COOH: the NH₂ group is protonated and the COOH group is unchanged. (b) CH₃CH(NH₂)COO⁻: the COOH group has lost H⁺ and the NH₂ group is unchanged.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how the amino acids in a protein can be separated and identified.",
+      "a": "Hydrolyse the protein by heating with aqueous acid. Run the mixture by thin-layer chromatography. Locate the spots with ninhydrin or ultraviolet light, then calculate Rf values and compare them with known values.",
+      "marks": 4
+    },
+    {
+      "q": "Explain how cisplatin prevents DNA replication in cancer cells, and why it has adverse effects.",
+      "a": "The chloride ligands in cisplatin are replaced by nitrogen atoms on guanine bases in DNA, forming bonds from platinum to nitrogen. This stops the DNA being copied, so the cell cannot divide. It also affects healthy cells that are dividing, which causes adverse effects.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.2.2a"
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 18B.16",
+        "EDEX 18B.17"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers the effect of amino acids on plane-polarised light, and the link between condensation polymerisation and peptide bonds."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Every 2-amino acid except glycine has a chiral carbon (four different groups), so it exists as two optical isomers.",
+                "A solution of a single optical isomer rotates the plane of plane-polarised monochromatic light. The two isomers rotate it in opposite directions.",
+                "Peptide bonds form by **condensation polymerisation** of amino acids, losing one water molecule per bond.",
+                "Hydrolysis of the peptide bonds gives back the 2-amino acids, which are separated by chromatography."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.13.1",
+        "AQA 3.3.13.2",
+        "AQA 3.3.13.3",
+        "AQA 3.3.13.4",
+        "AQA 3.3.13.5"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 34.4.1",
+        "CAIE 34.4.2",
+        "CAIE 34.4.3"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This part covers amino acids with extra acidic or basic groups, and how to interpret electrophoresis of mixtures."
+            },
+            {
+              "type": "list",
+              "items": [
+                "An amino acid with a second COOH group (e.g. aspartic acid) has a **lower** isoelectric point. It is negative at pH 7.",
+                "An amino acid with a second basic group (e.g. lysine) has a **higher** isoelectric point. It is positive at pH 7.",
+                "A dipeptide has one free NH₂ end and one free COOH end, so it behaves like a simple amino acid: positive at low pH, negative at high pH.",
+                "In a mixture at one pH, species with different charges move in different directions or at different speeds, so they separate into spots.",
+                "Predict the direction by comparing the pH with each isoelectric point: pH below the isoelectric point means positive, so it moves to the negative electrode."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c72bfab8-3d00-4e21-8428-c10124a9562a",
+      "c6bdb406-fca9-41a4-bfc6-9373a40f94cf",
+      "16db9ec9-b1d4-4bdf-b2d4-178e5a744dea",
+      "2b151fc2-531c-45c3-a735-a45b168902ce",
+      "5355bab0-47b8-40be-9102-66bf68841803",
+      "950e3c89-4ebb-4930-a3dd-78ba1f8c52bd",
+      "3937bc90-751d-4a73-bb79-c566624918a5",
+      "7c82f2e4-8afb-41ff-a5be-e10de0803c20",
+      "7e79356a-8cdc-4f7b-989d-c4fccc048bd6",
+      "74e2b36b-b419-4a78-9667-cd2bac2d68b6",
+      "9d19474b-65cc-4979-aed9-bfce2ba2eb67"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

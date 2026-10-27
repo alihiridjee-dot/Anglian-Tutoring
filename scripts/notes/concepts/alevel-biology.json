@@ -1,0 +1,6547 @@
+{
+  "subject": "biology",
+  "level": "alevel",
+  "boards": [
+    "aqa_alevel",
+    "cambridge_alevel",
+    "edexcel_alevel",
+    "ocr_alevel"
+  ],
+  "note": "A-level concepts. Each has its own note, never shared with GCSE or IGCSE. Merged by conceptMap.ts. Each A-level spec point is primary in exactly one concept.",
+  "concepts": [
+    {
+      "id": "abio-001",
+      "group": "Biological molecules and enzymes",
+      "title": "Water and inorganic ions",
+      "scope": "Hydrogen bonding and the properties of water that matter to life, the elements in biological molecules, and the roles of key inorganic ions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "91addc54-0116-4e85-9067-fd066f0c6f7c",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.7a",
+          "primary": true
+        },
+        {
+          "id": "880ea992-5ee0-4e5b-83e4-fa6636118a5e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.8a",
+          "primary": true
+        },
+        {
+          "id": "fc90881f-fc79-4836-b468-4472db6af81d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.8b",
+          "primary": true
+        },
+        {
+          "id": "78266afa-c4db-4a2b-b2ce-7bf0060ae1e6",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.2",
+          "primary": true
+        },
+        {
+          "id": "19fdca9b-d7c9-4eeb-a16c-baaeecf789a0",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.12",
+          "primary": true
+        },
+        {
+          "id": "6c04c4a8-9d03-42ad-ad83-7c1c8dc2fd74",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.4.1",
+          "primary": true
+        },
+        {
+          "id": "8b042f15-a429-49c8-ae2b-21475a637c6d",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.1.6",
+          "primary": true
+        },
+        {
+          "id": "5b70e23f-e55e-4ad9-983e-bff782a01995",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2a",
+          "primary": true
+        },
+        {
+          "id": "ec41ff5c-47d5-4b56-b442-638aa0f547eb",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2c",
+          "primary": true
+        },
+        {
+          "id": "9374de3a-717d-486d-ba3a-2e7e90a3ce17",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2p",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-002",
+      "group": "Biological molecules and enzymes",
+      "title": "Carbohydrates",
+      "scope": "Monomers and polymers, alpha and beta glucose, ribose, condensation and hydrolysis of glycosidic bonds, and how starch, glycogen and cellulose suit their functions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "25e6ea4b-2d55-4aeb-bace-0c309e2d76d5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.1a",
+          "primary": true
+        },
+        {
+          "id": "a940a06b-3422-4ed9-981e-4f3db5c12e5c",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.1b",
+          "primary": true
+        },
+        {
+          "id": "395a1cc4-12fa-4f5a-93d5-f878b58bc47a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.1c",
+          "primary": true
+        },
+        {
+          "id": "798d5ed2-de7e-4e1f-b24f-5f67d33223a8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.1d",
+          "primary": true
+        },
+        {
+          "id": "6b0e57ab-3539-4ec8-8c6b-d7178d96845d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.1e",
+          "primary": true
+        },
+        {
+          "id": "1db667c0-d54e-4181-a01b-7ba0be624ac4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.1f",
+          "primary": true
+        },
+        {
+          "id": "d2128f7a-08d7-46c8-b71e-07758657e253",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2a",
+          "primary": true
+        },
+        {
+          "id": "f2ddbdcc-ce1f-4b60-aca8-9cdc5a370ad0",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2b",
+          "primary": true
+        },
+        {
+          "id": "bc43f914-85a7-4dfd-998a-4fd0b5b08dfd",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2c",
+          "primary": true
+        },
+        {
+          "id": "1d95c37d-cd99-4a5c-88cd-803bc8affb7a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2d",
+          "primary": true
+        },
+        {
+          "id": "95b3d45d-2991-40ed-9183-6ef1d2df445a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2e",
+          "primary": true
+        },
+        {
+          "id": "c98fc889-bc00-47a2-babf-1d1e91539739",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2f",
+          "primary": true
+        },
+        {
+          "id": "f01372c5-7ef6-41e9-8177-15e2087e35ea",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.2g",
+          "primary": true
+        },
+        {
+          "id": "bef53df2-e37e-4f03-889a-2daf91bd521c",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.12",
+          "primary": true
+        },
+        {
+          "id": "29e5368e-93bf-44d8-b0f3-72115fc58634",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.13",
+          "primary": true
+        },
+        {
+          "id": "01855edb-800a-4711-86f9-a23b11dce012",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.9",
+          "primary": true
+        },
+        {
+          "id": "8358fe2e-7384-415e-92b2-064564040aed",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.2.1",
+          "primary": true
+        },
+        {
+          "id": "106648b3-eb38-49af-88d2-0adb8daefd07",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.2.2",
+          "primary": true
+        },
+        {
+          "id": "ee17671a-0693-4d13-95b4-60472bc22bd2",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.2.3",
+          "primary": true
+        },
+        {
+          "id": "541de4bb-8904-4071-8b29-3e9ce44ca860",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.2.4",
+          "primary": true
+        },
+        {
+          "id": "589bac22-7794-45bf-a497-ea06ca9907e6",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.2.5",
+          "primary": true
+        },
+        {
+          "id": "fa9bfc28-750a-4c6f-9e6e-8aa5af36e241",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.2.6",
+          "primary": true
+        },
+        {
+          "id": "1d0e31ce-00bc-462e-a73d-60b7afdde671",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.2.7",
+          "primary": true
+        },
+        {
+          "id": "a76df835-a7b6-45e2-b928-1e2d55712e78",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.2.8",
+          "primary": true
+        },
+        {
+          "id": "384804e1-eb5f-42c1-9a5d-64222e47fa0a",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2b",
+          "primary": true
+        },
+        {
+          "id": "33fded75-42f3-45b5-9ab5-856bde576f83",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2d",
+          "primary": true
+        },
+        {
+          "id": "05bc550f-85a1-4ee9-b0ac-7b3c5d581da2",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2e",
+          "primary": true
+        },
+        {
+          "id": "11bffb69-67d1-46b5-a8c3-2f9ba6f893b7",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2f",
+          "primary": true
+        },
+        {
+          "id": "01cd5381-2345-48f5-a5bf-29055d4d744e",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-003",
+      "group": "Biological molecules and enzymes",
+      "title": "Lipids",
+      "scope": "Triglycerides and phospholipids: structure, ester bonds, saturated versus unsaturated fatty acids, and how structure relates to function.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "91e32eac-141e-4811-bce7-59bbe3fd374d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.3a",
+          "primary": true
+        },
+        {
+          "id": "678716e2-6797-460c-a72d-39b6d8682ab4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.3b",
+          "primary": true
+        },
+        {
+          "id": "9907b740-f037-44a8-b386-2e274eda4ef1",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.3c",
+          "primary": true
+        },
+        {
+          "id": "e275f41f-ea00-41c1-a813-0a3ac290ef17",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.3d",
+          "primary": true
+        },
+        {
+          "id": "93ecf75c-e5de-4383-b234-3905893ba3b2",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.3e",
+          "primary": true
+        },
+        {
+          "id": "87368223-c69e-4097-95fa-5f1aaab29bc3",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.3f",
+          "primary": true
+        },
+        {
+          "id": "8c3f3b9e-cf5b-4bf5-999e-a327f93e769f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.3g",
+          "primary": true
+        },
+        {
+          "id": "bbe84002-2498-4574-979f-9238b615ad54",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.14",
+          "primary": true
+        },
+        {
+          "id": "a7243855-648e-480d-82d8-8f446532e607",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.2.9",
+          "primary": true
+        },
+        {
+          "id": "01fdc0d5-04ec-463f-b0ba-860f0cddd877",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.2.10",
+          "primary": true
+        },
+        {
+          "id": "bdaf2c77-ead4-4cf4-8579-9cd290349daa",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.2.11",
+          "primary": true
+        },
+        {
+          "id": "fcfd9780-6b0b-4351-ae7c-4b0789ab6ba9",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2h",
+          "primary": true
+        },
+        {
+          "id": "69f5d43d-869e-4275-81c7-16a048cceeb2",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2i",
+          "primary": true
+        },
+        {
+          "id": "10287a5a-9a5a-4dcb-b8b7-fae79ec5ffe8",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2j",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-004",
+      "group": "Biological molecules and enzymes",
+      "title": "Proteins",
+      "scope": "Amino acids and peptide bonds, the four levels of protein structure and the bonds that hold them, and globular versus fibrous proteins such as haemoglobin and collagen.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "27d449bc-b595-40d3-b4b1-3ce9a4063a59",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.1a",
+          "primary": true
+        },
+        {
+          "id": "87186593-edcc-4a9a-8567-e686ebb3706e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.1b",
+          "primary": true
+        },
+        {
+          "id": "df9be928-5829-42cd-883b-84894373171b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.1c",
+          "primary": true
+        },
+        {
+          "id": "a63d4130-6e29-40d5-9cba-be616f516fb5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.1d",
+          "primary": true
+        },
+        {
+          "id": "7dd78cbc-f9be-44cc-8ac5-dd679ffe1a33",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.1e",
+          "primary": true
+        },
+        {
+          "id": "3686c5db-64cc-4be4-9bf2-4adf474fa0b5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.1f",
+          "primary": true
+        },
+        {
+          "id": "e54188ee-6603-4995-987f-f5b53bb393f9",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.9",
+          "primary": true
+        },
+        {
+          "id": "11ad109b-8d57-4e8b-aaf7-7e6b94014bf1",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.3.1",
+          "primary": true
+        },
+        {
+          "id": "b1198f9c-71f9-4507-a315-4e1810ca4044",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.3.2",
+          "primary": true
+        },
+        {
+          "id": "d7e70d64-7292-4631-93bd-c28d1683f2b4",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.3.3",
+          "primary": true
+        },
+        {
+          "id": "03a4cc40-2cf1-4b7e-a5cb-13bd4b870f6a",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.3.4",
+          "primary": true
+        },
+        {
+          "id": "51665329-3f8a-4129-bc98-5133c272ed9f",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.3.5",
+          "primary": true
+        },
+        {
+          "id": "8d5fba49-2ea9-492a-b819-da8b6dc4f576",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.3.6",
+          "primary": true
+        },
+        {
+          "id": "e9e9b128-1e81-4259-855d-3f2c33f074a4",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.3.7",
+          "primary": true
+        },
+        {
+          "id": "e3fdb9e2-19fb-4c7a-bc18-5053dd3892fd",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.3.8",
+          "primary": true
+        },
+        {
+          "id": "8f11b146-c5a9-4065-86a5-aac3e896f02b",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2k",
+          "primary": true
+        },
+        {
+          "id": "73489dd9-7f0c-4796-a74a-af8beafdb426",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2l",
+          "primary": true
+        },
+        {
+          "id": "223b77ca-5681-4e33-8160-ca009348702c",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2m",
+          "primary": true
+        },
+        {
+          "id": "83747c54-6cc9-46f6-8e09-630ae0ea77e8",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2n",
+          "primary": true
+        },
+        {
+          "id": "bfee0a15-de48-4753-a6e6-4ccda599820d",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2o",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-005",
+      "group": "Biological molecules and enzymes",
+      "title": "Testing for biological molecules and chromatography",
+      "scope": "Qualitative and semi-quantitative tests for sugars, starch, lipids and proteins, colorimetry and calibration curves, and paper and thin layer chromatography.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b39f25bf-9797-42ea-a7c1-579164e3f6c9",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.1.1",
+          "primary": true
+        },
+        {
+          "id": "56aef77c-1540-4277-a8ac-b7b689875800",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.1.2",
+          "primary": true
+        },
+        {
+          "id": "52625db2-9c15-4fd3-b014-abc960d7c4c9",
+          "board": "cambridge_alevel",
+          "code": "CAIE 2.1.3",
+          "primary": true
+        },
+        {
+          "id": "5776fbfa-9c4f-445c-b342-559acb40c4b4",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2q",
+          "primary": true
+        },
+        {
+          "id": "40fd749e-c4fa-4822-8b57-2eb32bd795ba",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2r",
+          "primary": true
+        },
+        {
+          "id": "25fa9ef9-c30b-4a84-9e0f-24e40c8b0478",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.2s",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-006",
+      "group": "Biological molecules and enzymes",
+      "title": "How enzymes work",
+      "scope": "Enzymes as globular catalysts, intracellular and extracellular enzymes, activation energy, specificity, and the lock-and-key and induced-fit models.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4ca11ba9-ffda-4e0a-8d53-542607794635",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.2a",
+          "primary": true
+        },
+        {
+          "id": "5690126a-5a40-497c-9301-9e4e2a5a2c07",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.2b",
+          "primary": true
+        },
+        {
+          "id": "626eff1e-5c86-4e8a-9f6a-e0e11ba5576e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.2c",
+          "primary": true
+        },
+        {
+          "id": "82de60ac-d4e4-40a8-ab26-321aef9cb457",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.10",
+          "primary": true
+        },
+        {
+          "id": "99766984-137d-47a2-913d-ed1997587b29",
+          "board": "cambridge_alevel",
+          "code": "CAIE 3.1.1",
+          "primary": true
+        },
+        {
+          "id": "d550681c-b248-4afd-a561-f45827470c87",
+          "board": "cambridge_alevel",
+          "code": "CAIE 3.1.2",
+          "primary": true
+        },
+        {
+          "id": "81fe583d-c629-4a29-8889-ee2f8948867c",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.4a",
+          "primary": true
+        },
+        {
+          "id": "daf78054-e1aa-4c60-b26b-af34abdc18e8",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.4b",
+          "primary": true
+        },
+        {
+          "id": "d83da4e1-b530-4412-a020-c6445d50a86e",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.4c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-007",
+      "group": "Biological molecules and enzymes",
+      "title": "Factors affecting enzyme activity",
+      "scope": "How temperature, pH, enzyme and substrate concentration change rate, Vmax and Km, cofactors and coenzymes, and competitive and non-competitive inhibition.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e603c3da-199d-461a-883e-425b97a1b2fe",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.2 RP1",
+          "primary": true
+        },
+        {
+          "id": "626eff1e-5c86-4e8a-9f6a-e0e11ba5576e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.4.2c",
+          "primary": false
+        },
+        {
+          "id": "24526010-6df5-4159-bee2-a8686440fdf0",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.16",
+          "primary": true
+        },
+        {
+          "id": "3b9bbc17-dcd7-4b26-bebc-bddcee7df66f",
+          "board": "cambridge_alevel",
+          "code": "CAIE 3.2.1",
+          "primary": true
+        },
+        {
+          "id": "14b89544-c1a6-4825-884d-c2b0950019cf",
+          "board": "cambridge_alevel",
+          "code": "CAIE 3.2.2",
+          "primary": true
+        },
+        {
+          "id": "88baf2af-2957-4f38-80bf-4f032870276a",
+          "board": "cambridge_alevel",
+          "code": "CAIE 3.2.3",
+          "primary": true
+        },
+        {
+          "id": "a55a4e68-9e9d-4784-b525-6df3ccdd6e93",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.4d",
+          "primary": true
+        },
+        {
+          "id": "c4ecf857-4a0e-4c1b-b491-992e097a3e01",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.4e",
+          "primary": true
+        },
+        {
+          "id": "44d2734c-eeaa-4148-a29a-3418f376f0e0",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.4f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-008",
+      "group": "Cells",
+      "title": "Microscopy",
+      "scope": "Light and electron microscopes, slide preparation and staining, biological drawings, magnification and resolution, and measuring with an eyepiece graticule.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "44bcea64-eccf-4579-8337-d4977424462a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.3a",
+          "primary": true
+        },
+        {
+          "id": "b32fe61a-667a-4fce-b0f6-552d068b7189",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.3b",
+          "primary": true
+        },
+        {
+          "id": "19e31fea-2a1f-425f-a35f-1b8ed5997901",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.3c",
+          "primary": true
+        },
+        {
+          "id": "271d46b9-9856-45eb-9deb-f44ead019d07",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.3d",
+          "primary": true
+        },
+        {
+          "id": "3eda2138-8230-4cae-8a16-b15fdc6ce456",
+          "board": "cambridge_alevel",
+          "code": "CAIE 1.1.1",
+          "primary": true
+        },
+        {
+          "id": "f97ff381-395d-405e-abc5-f7ebd2719316",
+          "board": "cambridge_alevel",
+          "code": "CAIE 1.1.2",
+          "primary": true
+        },
+        {
+          "id": "2070b334-1f2f-4baa-8693-7c68530ce32f",
+          "board": "cambridge_alevel",
+          "code": "CAIE 1.1.3",
+          "primary": true
+        },
+        {
+          "id": "2c461791-e71d-43e8-827b-1923410d5996",
+          "board": "cambridge_alevel",
+          "code": "CAIE 1.1.4",
+          "primary": true
+        },
+        {
+          "id": "64d552f4-1792-40fc-89ac-047bcc077a46",
+          "board": "cambridge_alevel",
+          "code": "CAIE 1.1.5",
+          "primary": true
+        },
+        {
+          "id": "dfedc182-8732-4d75-b762-27615101e803",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.1a",
+          "primary": true
+        },
+        {
+          "id": "5bb67fd0-8715-452b-8f8a-918b5309e397",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.1b",
+          "primary": true
+        },
+        {
+          "id": "03736705-1409-4d46-be3f-f54b3fc4471c",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.1c",
+          "primary": true
+        },
+        {
+          "id": "7585bcb4-fc6b-4a2d-8eb5-c3a070b0ec1b",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.1d",
+          "primary": true
+        },
+        {
+          "id": "56c9d025-3e79-46aa-bc64-510d632bb2cb",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.1e",
+          "primary": true
+        },
+        {
+          "id": "553bec56-3207-4f13-b82b-dc403c8cc94d",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.1f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-009",
+      "group": "Cells",
+      "title": "Eukaryotic cell ultrastructure",
+      "scope": "Organelles of animal and plant cells, recognising them in electron micrographs, the cytoskeleton, and how the rER and Golgi produce and secrete proteins.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "937f427d-0e51-49e4-86cb-0a80a2c24791",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.1a",
+          "primary": true
+        },
+        {
+          "id": "fc40cf0a-7510-4e7f-98d9-97fb57fd9963",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.1b",
+          "primary": true
+        },
+        {
+          "id": "0c5d3399-cc11-419e-a196-8121c46e1186",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.1",
+          "primary": true
+        },
+        {
+          "id": "710667b6-fb4e-41b4-801c-c0b74597bac0",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.2",
+          "primary": true
+        },
+        {
+          "id": "379de9a3-9edc-4d65-a5f8-6d942419b821",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.3",
+          "primary": true
+        },
+        {
+          "id": "b369e770-9660-41e4-b6f7-6b85bca7a377",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.5",
+          "primary": true
+        },
+        {
+          "id": "984354a8-b550-4bf0-b26f-6eb106d8834f",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.7",
+          "primary": true
+        },
+        {
+          "id": "a00975a0-6012-4aa6-9f27-798a24d06d83",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.8",
+          "primary": true
+        },
+        {
+          "id": "9ac42e85-5e05-4b38-9e5d-c26dc84ee28a",
+          "board": "cambridge_alevel",
+          "code": "CAIE 1.2.1",
+          "primary": true
+        },
+        {
+          "id": "cf54a3e9-e9b6-45a2-b500-96ac7b8f6d0f",
+          "board": "cambridge_alevel",
+          "code": "CAIE 1.2.2",
+          "primary": true
+        },
+        {
+          "id": "c0111471-615d-43cf-b9e6-0ffb8210ef5d",
+          "board": "cambridge_alevel",
+          "code": "CAIE 1.2.3",
+          "primary": true
+        },
+        {
+          "id": "9d6f487e-66fc-40d1-b624-de70d218f02c",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.1g",
+          "primary": true
+        },
+        {
+          "id": "f18e4470-c56b-4e15-be72-b9a6b47a890e",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.1h",
+          "primary": true
+        },
+        {
+          "id": "e134e9af-3fef-4e9a-81a7-64735c9eeec4",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.1i",
+          "primary": true
+        },
+        {
+          "id": "1501bc53-5b96-44d0-81e2-35f059f3844c",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.1j",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-010",
+      "group": "Cells",
+      "title": "Prokaryotic cells and viruses",
+      "scope": "The structure of prokaryotic cells compared with eukaryotic cells, and viruses as non-cellular particles.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3f8a6f6e-f59c-4b0c-94f0-9c5ad392e72c",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.2a",
+          "primary": true
+        },
+        {
+          "id": "b2ce4df6-b29b-45e4-8ec7-b6762809f4a2",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.2b",
+          "primary": true
+        },
+        {
+          "id": "c5c9c031-fbf7-449d-bf7c-62c1df761e9e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.1.2c",
+          "primary": true
+        },
+        {
+          "id": "998284a2-ebf2-412a-9efc-ef47686c375d",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.4",
+          "primary": true
+        },
+        {
+          "id": "a63adf56-b597-4077-9672-8bd3b0aab25d",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.5",
+          "primary": true
+        },
+        {
+          "id": "6c12f4da-dbec-4391-8e07-f05fbe26fde9",
+          "board": "cambridge_alevel",
+          "code": "CAIE 1.2.5",
+          "primary": true
+        },
+        {
+          "id": "7a7d5d54-4e01-443e-8094-2bdc4ace0679",
+          "board": "cambridge_alevel",
+          "code": "CAIE 1.2.6",
+          "primary": true
+        },
+        {
+          "id": "b3b53cb2-962b-4251-8a66-439c60f5f5ce",
+          "board": "cambridge_alevel",
+          "code": "CAIE 1.2.7",
+          "primary": true
+        },
+        {
+          "id": "d420f478-ee68-40f8-953c-e780a33be1b0",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.1k",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-011",
+      "group": "Cells",
+      "title": "The cell cycle and mitosis",
+      "scope": "Chromosome structure, the stages of the cell cycle and mitosis, cell cycle regulation, telomeres, binary fission and how uncontrolled division causes tumours.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "de4dbbf4-41e2-41a5-bb3b-121a61d3a6f4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2a",
+          "primary": true
+        },
+        {
+          "id": "fa7b1e17-21da-4969-b258-290c179112e7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2b",
+          "primary": true
+        },
+        {
+          "id": "19892094-98de-40d0-8740-07a1b51cc1c2",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2c",
+          "primary": true
+        },
+        {
+          "id": "73d27649-a3f0-463f-90f5-b86a6eaae2e4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2d",
+          "primary": true
+        },
+        {
+          "id": "a6f29d6b-1069-4cc1-ba88-3b9b03aa3bb4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2e",
+          "primary": true
+        },
+        {
+          "id": "016c144f-e1ef-47fc-9142-3193bf9d7c88",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2f",
+          "primary": true
+        },
+        {
+          "id": "9eca41c8-4f31-4f9d-99df-a739e3fdbd1b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2g",
+          "primary": true
+        },
+        {
+          "id": "5104c03f-f3a2-4c4c-9c44-998759071a19",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.2 RP2",
+          "primary": true
+        },
+        {
+          "id": "c6b5d0c4-6aa0-4931-ae47-13a0c1352675",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.10",
+          "primary": true
+        },
+        {
+          "id": "b4bbeb2c-6f40-4d5c-af51-b81631a1908f",
+          "board": "cambridge_alevel",
+          "code": "CAIE 5.1.1",
+          "primary": true
+        },
+        {
+          "id": "bcfaaaed-0cef-4101-bd42-561c8978820d",
+          "board": "cambridge_alevel",
+          "code": "CAIE 5.1.2",
+          "primary": true
+        },
+        {
+          "id": "6443e545-966e-406c-8bb1-9052583cc0c5",
+          "board": "cambridge_alevel",
+          "code": "CAIE 5.1.3",
+          "primary": true
+        },
+        {
+          "id": "cca0f6b0-3d10-45ba-a885-0deaf6b98dce",
+          "board": "cambridge_alevel",
+          "code": "CAIE 5.1.4",
+          "primary": true
+        },
+        {
+          "id": "3093304f-c66c-4e19-bca2-469c43a1c4c8",
+          "board": "cambridge_alevel",
+          "code": "CAIE 5.1.6",
+          "primary": true
+        },
+        {
+          "id": "c5bef2b5-173f-4e39-9a2f-e6be475b57a1",
+          "board": "cambridge_alevel",
+          "code": "CAIE 5.2.1",
+          "primary": true
+        },
+        {
+          "id": "1428272f-469a-42cf-81c2-9162fbc65e60",
+          "board": "cambridge_alevel",
+          "code": "CAIE 5.2.2",
+          "primary": true
+        },
+        {
+          "id": "50ed7fb0-def0-4655-abad-9265812edf28",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.6a",
+          "primary": true
+        },
+        {
+          "id": "5c0a3d77-8970-4f24-9c4c-d081b2431af0",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.6b",
+          "primary": true
+        },
+        {
+          "id": "e670a622-b39d-4459-9e95-a5fb23d06db2",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.6c",
+          "primary": true
+        },
+        {
+          "id": "2900f1d1-2683-4220-a4e8-eb146df0b42c",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.6d",
+          "primary": true
+        },
+        {
+          "id": "418bfb72-907f-4753-b154-262f3b10ea75",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.6e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-012",
+      "group": "Cells",
+      "title": "Meiosis, gametes and fertilisation",
+      "scope": "Haploid and diploid cells, the stages of meiosis, how crossing over, independent assortment and random fertilisation create variation, and mammalian gametes and fertilisation.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "72dca493-061c-47f9-856e-3bf6fc4ce68b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.3b",
+          "primary": true
+        },
+        {
+          "id": "88420f22-5d23-447d-a0c1-587e899dc8c6",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.3c",
+          "primary": true
+        },
+        {
+          "id": "29a606e9-177a-48cf-ba30-ef97320ff2d2",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.3d",
+          "primary": true
+        },
+        {
+          "id": "23931300-4874-44a4-aaa6-a7d959a8765d",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.6",
+          "primary": true
+        },
+        {
+          "id": "29622d8a-c7bc-4fd7-a3bd-df347e2172d6",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.7",
+          "primary": true
+        },
+        {
+          "id": "db6c8c86-24c1-4185-8c59-362f07231d36",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.9",
+          "primary": true
+        },
+        {
+          "id": "6885b2ec-5a9e-497f-bc3e-264eb36e07c8",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.1.1",
+          "primary": true
+        },
+        {
+          "id": "3337acca-3472-441d-a917-b663876fe0fa",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.1.2",
+          "primary": true
+        },
+        {
+          "id": "a547ba22-00b0-413e-ac0a-969d0cf28788",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.1.3",
+          "primary": true
+        },
+        {
+          "id": "678e568b-838b-492e-8fb9-39e24df80adc",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.1.4",
+          "primary": true
+        },
+        {
+          "id": "1b1d50d7-e42d-4051-a70a-bddd13baa169",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.1.5",
+          "primary": true
+        },
+        {
+          "id": "e6179e5d-fb64-4fbf-b55d-72d65f2ab955",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.1.6",
+          "primary": true
+        },
+        {
+          "id": "52a9f076-39c7-454b-8eb1-2c7bd46eb4f8",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.1.7",
+          "primary": true
+        },
+        {
+          "id": "9baa320f-57a2-468f-9ea8-425043cb07f6",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.6f",
+          "primary": true
+        },
+        {
+          "id": "aacc5cb2-7c5f-4c07-b6ce-ba32ec21b915",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.6g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-013",
+      "group": "Cells",
+      "title": "Stem cells and cell specialisation",
+      "scope": "Totipotent, pluripotent and multipotent stem cells, differentiation into specialised cells, tissues, organs and systems, and stem cell therapies.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4e71d331-16f6-4841-8c7a-841443fec213",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.1a",
+          "primary": true
+        },
+        {
+          "id": "dee65ba5-af6b-43f8-93a3-628b79b9f10f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.1b",
+          "primary": true
+        },
+        {
+          "id": "6b84eb03-5e8f-4689-bf58-8cd4d7ef00e8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.1c",
+          "primary": true
+        },
+        {
+          "id": "b19d45f3-6c02-4ed7-ba55-995785a44184",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.1d",
+          "primary": true
+        },
+        {
+          "id": "7aa8539c-3571-4808-a925-7bef2dbd31ac",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.11",
+          "primary": true
+        },
+        {
+          "id": "129455df-68ea-466b-8133-011072db9162",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.13",
+          "primary": true
+        },
+        {
+          "id": "d04057f5-ef3a-443b-be85-8bef8617cd4f",
+          "board": "cambridge_alevel",
+          "code": "CAIE 5.1.5",
+          "primary": true
+        },
+        {
+          "id": "b782dfc3-b35f-478c-a2fa-32c4f044b4a3",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.6h",
+          "primary": true
+        },
+        {
+          "id": "21d5a1a8-86e3-4c56-bdad-b1652e072a07",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.6i",
+          "primary": true
+        },
+        {
+          "id": "2e84b5b2-68bb-43dc-af28-6b4875121b21",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.6j",
+          "primary": true
+        },
+        {
+          "id": "36c53877-b0da-4fc4-8f72-d5e110a0f3c7",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.6k",
+          "primary": true
+        },
+        {
+          "id": "3b73e30e-073e-4217-8fbf-b9231979119d",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.6l",
+          "primary": true
+        },
+        {
+          "id": "9a38d68d-d1b8-4111-bff6-4a9c4c8af2eb",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.6m",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-014",
+      "group": "Membranes and exchange",
+      "title": "Cell membranes and cell signalling",
+      "scope": "The fluid mosaic model, the roles of phospholipids, cholesterol, glycoproteins and proteins, factors affecting permeability, and receptors in cell signalling.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "05bfa782-921a-4304-bf05-5c10ce2197a4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.3a",
+          "primary": true
+        },
+        {
+          "id": "5aa224af-5458-42b5-aaf7-5df18a8f4cd7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.3b",
+          "primary": true
+        },
+        {
+          "id": "92544e3e-24d9-42f7-9c47-80f474ed00b8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.3 RP4",
+          "primary": true
+        },
+        {
+          "id": "304a5637-af19-4884-8a67-54895a68b335",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.2",
+          "primary": true
+        },
+        {
+          "id": "3578e5be-d180-43d9-a85e-198192e03160",
+          "board": "cambridge_alevel",
+          "code": "CAIE 4.1.1",
+          "primary": true
+        },
+        {
+          "id": "fedbacf7-3c84-49ad-b42c-e1decbe9bbe3",
+          "board": "cambridge_alevel",
+          "code": "CAIE 4.1.2",
+          "primary": true
+        },
+        {
+          "id": "8b4af284-556f-40c1-9582-74e7638ec18f",
+          "board": "cambridge_alevel",
+          "code": "CAIE 4.1.3",
+          "primary": true
+        },
+        {
+          "id": "3189b7a1-2271-4076-b654-a033b79b8433",
+          "board": "cambridge_alevel",
+          "code": "CAIE 4.1.4",
+          "primary": true
+        },
+        {
+          "id": "d2a7e023-d35c-4c90-8e82-05d1c98f735e",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.5a",
+          "primary": true
+        },
+        {
+          "id": "b652cb44-0589-43be-bd11-dd4a5a3dd89e",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.5b",
+          "primary": true
+        },
+        {
+          "id": "95aa3926-c728-4193-a13a-611db0b3c643",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.5c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-015",
+      "group": "Membranes and exchange",
+      "title": "Diffusion, active transport and bulk transport",
+      "scope": "Simple and facilitated diffusion, active transport and co-transport, endocytosis and exocytosis, and the role of carrier and channel proteins.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b6378a49-db3e-40cf-9ade-081c37f574f5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.3c",
+          "primary": true
+        },
+        {
+          "id": "6e73e801-bc9b-474a-8ff2-56a23fe82142",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.3d",
+          "primary": true
+        },
+        {
+          "id": "0c61aa4b-1e96-4f70-b146-4dd0ae79a5b7",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.4",
+          "primary": true
+        },
+        {
+          "id": "25dcae69-c3f0-4396-99c3-12608ccd349c",
+          "board": "cambridge_alevel",
+          "code": "CAIE 4.2.1",
+          "primary": true
+        },
+        {
+          "id": "ee1e64b5-bd56-4818-8c5c-e69055124c43",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.5d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-016",
+      "group": "Membranes and exchange",
+      "title": "Osmosis and water potential",
+      "scope": "Water potential, osmosis in plant and animal cells, and estimating the water potential of plant tissue.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "577ebf28-f582-40df-b3ea-455e6f82a866",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.3 RP3",
+          "primary": true
+        },
+        {
+          "id": "b6378a49-db3e-40cf-9ade-081c37f574f5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.3c",
+          "primary": false
+        },
+        {
+          "id": "92d63d05-bb09-46af-ae99-8cf0e986488f",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.3",
+          "primary": true
+        },
+        {
+          "id": "322f19fe-c307-49d7-ac9b-bf4f220328df",
+          "board": "cambridge_alevel",
+          "code": "CAIE 4.2.2",
+          "primary": true
+        },
+        {
+          "id": "c5fec759-fa6c-46d0-bb6d-c05c96795b59",
+          "board": "cambridge_alevel",
+          "code": "CAIE 4.2.5",
+          "primary": true
+        },
+        {
+          "id": "971b6acb-b7c6-4508-a8f9-66a1450d57e3",
+          "board": "cambridge_alevel",
+          "code": "CAIE 4.2.6",
+          "primary": true
+        },
+        {
+          "id": "ea876ce0-b963-4a7e-be15-21fceffabb5a",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.5e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-017",
+      "group": "Membranes and exchange",
+      "title": "Surface area to volume ratio and exchange surfaces",
+      "scope": "Why larger organisms need specialised exchange surfaces and transport systems, and the features of an efficient exchange surface.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "17fc057b-ad04-4fc3-96d5-78c88cbad8d1",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.1a",
+          "primary": true
+        },
+        {
+          "id": "64c5f7d3-99f5-49d6-a94a-09e5d20bfeba",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.1b",
+          "primary": true
+        },
+        {
+          "id": "e2e021f3-7c9d-4cb3-a528-c8e548ea6249",
+          "board": "cambridge_alevel",
+          "code": "CAIE 4.2.3",
+          "primary": true
+        },
+        {
+          "id": "6e8ff4c4-43f4-457e-a7a7-b349fda665ba",
+          "board": "cambridge_alevel",
+          "code": "CAIE 4.2.4",
+          "primary": true
+        },
+        {
+          "id": "eadcd471-3229-4180-a9dc-611ab6131463",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.1a",
+          "primary": true
+        },
+        {
+          "id": "6abe3b69-3807-4967-a223-0a3627e6d057",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.1b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-018",
+      "group": "Membranes and exchange",
+      "title": "Gas exchange in mammals",
+      "scope": "The structure of the human gas exchange system and its tissues, Fick's law, ventilation, and measuring lung volumes with a spirometer.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "15b1bba5-984c-4989-8fc2-b0ee12ae4335",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.2c",
+          "primary": true
+        },
+        {
+          "id": "7d753be8-7dc8-4ff5-8027-f5c4bfbd7938",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.2d",
+          "primary": true
+        },
+        {
+          "id": "9142b125-0723-440e-b1e3-34a1612c960f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.2e",
+          "primary": true
+        },
+        {
+          "id": "1b3acbd5-3c27-4345-a532-311af827a464",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.1",
+          "primary": true
+        },
+        {
+          "id": "dd7299d7-03ed-47dc-bdf8-16c39a6632ea",
+          "board": "cambridge_alevel",
+          "code": "CAIE 9.1.1",
+          "primary": true
+        },
+        {
+          "id": "ea09e00d-c197-4045-8451-41b8af790dcd",
+          "board": "cambridge_alevel",
+          "code": "CAIE 9.1.2",
+          "primary": true
+        },
+        {
+          "id": "5da3304a-e7fc-4fdd-a6a5-79beabc74fae",
+          "board": "cambridge_alevel",
+          "code": "CAIE 9.1.3",
+          "primary": true
+        },
+        {
+          "id": "86777410-1721-45fd-9b44-421960d380b8",
+          "board": "cambridge_alevel",
+          "code": "CAIE 9.1.4",
+          "primary": true
+        },
+        {
+          "id": "9818706b-25d1-4b14-b617-76e5ca15b464",
+          "board": "cambridge_alevel",
+          "code": "CAIE 9.1.5",
+          "primary": true
+        },
+        {
+          "id": "3ba9b777-36de-4ce2-a2a5-a374719f9912",
+          "board": "cambridge_alevel",
+          "code": "CAIE 9.1.6",
+          "primary": true
+        },
+        {
+          "id": "c68ad6da-d9d4-4bef-85e7-4acaa4cb8740",
+          "board": "cambridge_alevel",
+          "code": "CAIE 9.1.7",
+          "primary": true
+        },
+        {
+          "id": "9ec49c90-7495-4590-a8f4-26ca34158e7f",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.1c",
+          "primary": true
+        },
+        {
+          "id": "64555eeb-3077-4328-a7b2-e7a3eaeaef07",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.1d",
+          "primary": true
+        },
+        {
+          "id": "62dadb6f-7935-4c7c-87d5-a1110422d1ba",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.1e",
+          "primary": true
+        },
+        {
+          "id": "f09296a0-994a-4aa5-9f98-a814df553497",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.1h",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-019",
+      "group": "Membranes and exchange",
+      "title": "Gas exchange in fish, insects and plants",
+      "scope": "Ventilation and gas exchange in bony fish and insects, and gas exchange in leaves, with adaptations that limit water loss.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "faa6d21c-71da-4ef6-a06e-bd922656fd8d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.2a",
+          "primary": true
+        },
+        {
+          "id": "fcb9c9b5-da0b-45f2-be60-4ff230ca9996",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.2b",
+          "primary": true
+        },
+        {
+          "id": "8135e0a6-0548-4f35-a1a8-b8e05f53b192",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.1f",
+          "primary": true
+        },
+        {
+          "id": "1b83cbd0-54b9-40df-81cc-aa6daf8298df",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.1g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-020",
+      "group": "Membranes and exchange",
+      "title": "Digestion and absorption",
+      "scope": "The digestion of carbohydrates, lipids and proteins by enzymes, and how the products are absorbed across the ileum.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "84614c53-8ce2-43d1-8d33-2e8104dd75f0",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.3a",
+          "primary": true
+        },
+        {
+          "id": "d3026fe3-5f2e-48ca-9697-dac9c0fdd410",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.3b",
+          "primary": true
+        },
+        {
+          "id": "5d50b449-a25c-45eb-b5a6-7ac5c660568b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.3c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-021",
+      "group": "Mass transport",
+      "title": "Circulatory systems, blood vessels and tissue fluid",
+      "scope": "Open, closed, single and double circulation, the structure of arteries, veins and capillaries, blood cells, and the formation of tissue fluid.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "86c96b88-58e2-4dfe-b123-b8cdaf70a9a5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1d",
+          "primary": true
+        },
+        {
+          "id": "b19c85e2-fdf4-4810-892f-8066365b75d9",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1f",
+          "primary": true
+        },
+        {
+          "id": "0dc247b2-6940-4feb-a97f-87258f230e0e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1g",
+          "primary": true
+        },
+        {
+          "id": "753508b9-d555-4d98-b2bd-97d65c97f1a7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1 RP5",
+          "primary": true
+        },
+        {
+          "id": "9362dc9e-3b39-409a-a5d6-2c85c1e80276",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.1",
+          "primary": true
+        },
+        {
+          "id": "49531fda-5fbf-4bce-812f-35ab2c536c8c",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.3",
+          "primary": true
+        },
+        {
+          "id": "9e24c726-5b36-4f99-a95e-d93af022b92c",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.1.1",
+          "primary": true
+        },
+        {
+          "id": "956909e4-0444-4b0d-a0bd-7ce813a1e1b7",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.1.2",
+          "primary": true
+        },
+        {
+          "id": "07927d15-6eed-4eb6-b31c-ef2dc0d57f49",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.1.3",
+          "primary": true
+        },
+        {
+          "id": "2da78858-39de-48c7-b05f-3a1cb0675411",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.1.4",
+          "primary": true
+        },
+        {
+          "id": "73d00bb4-7785-4dda-99c8-848aa4e9e6c1",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.1.5",
+          "primary": true
+        },
+        {
+          "id": "966fb3c3-d957-4c28-aa54-35a6a689cbd2",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.1.7",
+          "primary": true
+        },
+        {
+          "id": "cce53957-7744-4a5f-89c6-0a0cdeff41ac",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.2a",
+          "primary": true
+        },
+        {
+          "id": "fee8a16d-686f-465e-8b9a-ecb1819abc54",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.2b",
+          "primary": true
+        },
+        {
+          "id": "ad887165-ce32-4c5b-b0fd-7884864c724e",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.2c",
+          "primary": true
+        },
+        {
+          "id": "39692d17-424d-4149-9c26-ad782a52fbe3",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.2d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-022",
+      "group": "Mass transport",
+      "title": "The heart and the cardiac cycle",
+      "scope": "The structure of the mammalian heart, pressure and volume changes in the cardiac cycle, and how valves control blood flow.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "d985a100-b15b-44b7-8cc4-aed965e1ff84",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1e",
+          "primary": true
+        },
+        {
+          "id": "09d04fcb-21fc-44bf-acc0-404cc9a8431e",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.4",
+          "primary": true
+        },
+        {
+          "id": "4bc45cff-340e-4b8f-bfe8-234fa74ae6cc",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.3.1",
+          "primary": true
+        },
+        {
+          "id": "1a793a08-bcd9-4a18-9c2d-0bdd5d26c1c6",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.3.2",
+          "primary": true
+        },
+        {
+          "id": "c38559ed-172a-4841-908d-805b20148905",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.3.3",
+          "primary": true
+        },
+        {
+          "id": "246ac9ee-ded7-44ae-bb40-a6935e6e69f7",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.2e",
+          "primary": true
+        },
+        {
+          "id": "a9a75e0d-b9ba-40af-8832-5d49488fc7e2",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.2f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-023",
+      "group": "Mass transport",
+      "title": "Control of the heartbeat and ECGs",
+      "scope": "The SAN, AVN and Purkyne fibres, ECG traces, cardiac output, and how nerves and hormones change heart rate and breathing.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c06e8911-3254-4139-84cb-23ba78a489fe",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.3a",
+          "primary": true
+        },
+        {
+          "id": "96ba891e-e456-4f2c-a9fb-0e52d24b9d82",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.3b",
+          "primary": true
+        },
+        {
+          "id": "03cbbec8-1af3-499c-9a4e-2740aa658465",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.8",
+          "primary": true
+        },
+        {
+          "id": "eb63fb79-5456-4894-a86d-cd44a9bcfadf",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.9",
+          "primary": true
+        },
+        {
+          "id": "17676266-4a1e-4c6e-abdc-45ccadbd0c8e",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.3.4",
+          "primary": true
+        },
+        {
+          "id": "3ec08567-ce91-4f2f-85c5-46e538e31635",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.2g",
+          "primary": true
+        },
+        {
+          "id": "633e5408-ae53-433f-9f1a-1912d2c9df19",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.2h",
+          "primary": true
+        },
+        {
+          "id": "83b46d08-54fd-45eb-80d4-f26c4a9780b3",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.5k",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-024",
+      "group": "Mass transport",
+      "title": "Haemoglobin and gas transport",
+      "scope": "How haemoglobin carries oxygen, the oxygen dissociation curve, the Bohr shift, fetal haemoglobin, and carbon dioxide transport and the chloride shift.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "f46256c1-8892-471e-8c52-e3a4dfb40350",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1a",
+          "primary": true
+        },
+        {
+          "id": "30025c4a-9238-4b61-9394-f812d3117791",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1b",
+          "primary": true
+        },
+        {
+          "id": "7583724a-3d11-434b-b914-8962f3020494",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.1c",
+          "primary": true
+        },
+        {
+          "id": "7fd6c49e-2c54-4e1b-861d-58175aee3931",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.2.1",
+          "primary": true
+        },
+        {
+          "id": "5730f648-bda3-4cc7-9d5c-e7dd689f094e",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.2.2",
+          "primary": true
+        },
+        {
+          "id": "bfbd533b-59e9-473c-be12-273426b44565",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.2.3",
+          "primary": true
+        },
+        {
+          "id": "ed40970e-3a1c-4937-8353-9720e3c272d3",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.2.4",
+          "primary": true
+        },
+        {
+          "id": "7b8fa58e-c534-4faf-b038-d04340a120a2",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.2.5",
+          "primary": true
+        },
+        {
+          "id": "a48cbe6a-e6b3-4d56-a126-6862f8fc2803",
+          "board": "cambridge_alevel",
+          "code": "CAIE 8.2.6",
+          "primary": true
+        },
+        {
+          "id": "7c2799d6-82e6-4bec-9be3-7e92e509abe4",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.2i",
+          "primary": true
+        },
+        {
+          "id": "f462f748-fc3c-492d-8ebb-7f95fadaed74",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.2j",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-025",
+      "group": "Mass transport",
+      "title": "Cardiovascular disease and health risk",
+      "scope": "Atherosclerosis, blood clotting, risk factors including cholesterol and diet, treatments, and how to interpret health risk data and studies.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "9bad18e2-c132-4037-8f0f-7b9b0780367c",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.5",
+          "primary": true
+        },
+        {
+          "id": "0eff5e61-5a2c-4821-adba-e0103bff3b61",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.6",
+          "primary": true
+        },
+        {
+          "id": "33563363-3f85-4124-bfc6-cf8e0db3de7c",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.7",
+          "primary": true
+        },
+        {
+          "id": "6b19ac41-0ba9-430a-b496-2f23717c22ad",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.8",
+          "primary": true
+        },
+        {
+          "id": "0f5f4fa2-7406-4f8b-90e8-c3f45bc6cbcb",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.9",
+          "primary": true
+        },
+        {
+          "id": "d4fe43aa-a2fa-4486-902a-0be1f32a3054",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.10",
+          "primary": true
+        },
+        {
+          "id": "8687618a-7d96-4332-a1fe-95b9bd251028",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.11",
+          "primary": true
+        },
+        {
+          "id": "8e16fbd3-6a7e-4554-994e-357954029b97",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.15",
+          "primary": true
+        },
+        {
+          "id": "f6d8c725-2aa5-4546-9bbc-714e854a5e3e",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.16",
+          "primary": true
+        },
+        {
+          "id": "728917c8-2bc5-4835-b254-66228c57ac67",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.18",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-026",
+      "group": "Mass transport",
+      "title": "Plant transport tissues and fibres",
+      "scope": "Why plants need transport systems, the structure and distribution of xylem, phloem and sclerenchyma, and the uses of plant fibres and starch.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3458553d-ad33-4545-a5d4-753b7a3e020d",
+          "board": "cambridge_alevel",
+          "code": "CAIE 7.1.1",
+          "primary": true
+        },
+        {
+          "id": "ccf9affd-738c-4226-94ce-e23b17b0ee47",
+          "board": "cambridge_alevel",
+          "code": "CAIE 7.1.2",
+          "primary": true
+        },
+        {
+          "id": "636d9456-65bc-497d-8dbc-cceef69af856",
+          "board": "cambridge_alevel",
+          "code": "CAIE 7.1.3",
+          "primary": true
+        },
+        {
+          "id": "10ee21ae-66dc-433c-b64b-482dfc785890",
+          "board": "cambridge_alevel",
+          "code": "CAIE 7.1.4",
+          "primary": true
+        },
+        {
+          "id": "10fcfbf8-baee-4e71-802f-03a9f6299adb",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.3a",
+          "primary": true
+        },
+        {
+          "id": "831c6e02-9547-4c29-bfe1-bca0b6d2ed89",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.3b",
+          "primary": true
+        },
+        {
+          "id": "8a37a305-1d73-4db1-9846-0ec7f90c9c80",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.10",
+          "primary": true
+        },
+        {
+          "id": "9f9acd5a-b3bc-420e-9f18-885f04eb7de7",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.11",
+          "primary": true
+        },
+        {
+          "id": "96cad76e-8c85-40a5-8c75-f5a2af06b8c4",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.15",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-027",
+      "group": "Mass transport",
+      "title": "Water transport and transpiration",
+      "scope": "Water uptake and the apoplast and symplast pathways, transpiration and the cohesion-tension theory, stomata and guard cells, and xerophyte adaptations.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e50c1d7a-3ee4-40d5-85db-4d0c1fa2d742",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.2a",
+          "primary": true
+        },
+        {
+          "id": "e27937b1-3164-499b-b66b-f14c2fd548e4",
+          "board": "cambridge_alevel",
+          "code": "CAIE 7.2.2",
+          "primary": true
+        },
+        {
+          "id": "af5c21ca-2865-4076-91af-e1b6eb4dc570",
+          "board": "cambridge_alevel",
+          "code": "CAIE 7.2.3",
+          "primary": true
+        },
+        {
+          "id": "61a5c86e-6b9f-4738-a2b4-248721127d75",
+          "board": "cambridge_alevel",
+          "code": "CAIE 7.2.4",
+          "primary": true
+        },
+        {
+          "id": "e756ddde-71d1-48a4-9f70-a1470d8d8c86",
+          "board": "cambridge_alevel",
+          "code": "CAIE 7.2.5",
+          "primary": true
+        },
+        {
+          "id": "ca575bc9-c6a9-4737-af12-d2cb267465e5",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.2.1",
+          "primary": true
+        },
+        {
+          "id": "40102cff-0d1f-4d65-a845-bdae84331cbd",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.2.2",
+          "primary": true
+        },
+        {
+          "id": "e875b769-495c-4e41-89dc-cc2bf952e4a3",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.2.3",
+          "primary": true
+        },
+        {
+          "id": "163b2e6e-13e0-4df5-ab06-9bf9e80a06b4",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.2.4",
+          "primary": true
+        },
+        {
+          "id": "b79e4b70-fc0f-44d3-b94a-ad916ce91ad3",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.3c",
+          "primary": true
+        },
+        {
+          "id": "2d2fe71a-fa4b-417c-9aa8-f627904089e6",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.3d",
+          "primary": true
+        },
+        {
+          "id": "d7e0e8e6-1540-4464-968c-57e4a305b750",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.3e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-028",
+      "group": "Mass transport",
+      "title": "Translocation in the phloem",
+      "scope": "Movement of assimilates from source to sink, active loading by companion cells, and the mass flow hypothesis.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a5c6d413-5c60-436d-b169-7e5210c9ccf4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.3.4.2b",
+          "primary": true
+        },
+        {
+          "id": "3bab469e-bb0b-412e-8f76-f1f7d3471522",
+          "board": "cambridge_alevel",
+          "code": "CAIE 7.2.1",
+          "primary": true
+        },
+        {
+          "id": "f2dc7b75-b28f-4ef2-b5a3-9bd5d62d3d2a",
+          "board": "cambridge_alevel",
+          "code": "CAIE 7.2.6",
+          "primary": true
+        },
+        {
+          "id": "1faae6b5-fbdc-46da-8d14-b047c563d0a6",
+          "board": "cambridge_alevel",
+          "code": "CAIE 7.2.7",
+          "primary": true
+        },
+        {
+          "id": "436d41be-ae71-436b-8cdb-892f0ba14f4c",
+          "board": "cambridge_alevel",
+          "code": "CAIE 7.2.8",
+          "primary": true
+        },
+        {
+          "id": "138519e7-09cf-4c6f-92e2-f2b83c7b1556",
+          "board": "ocr_alevel",
+          "code": "OCR 3.1.3f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-029",
+      "group": "Disease and immunity",
+      "title": "Pathogens and disease transmission",
+      "scope": "Types of pathogen, the diseases they cause including cholera, malaria, TB and HIV, how they spread and how their spread is controlled.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b08f04c6-1b4b-404d-9ffe-c432d7463d76",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4h",
+          "primary": true
+        },
+        {
+          "id": "8b55542c-f570-423a-82ee-731d51496bf4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4i",
+          "primary": true
+        },
+        {
+          "id": "edcdb828-c429-4a3a-a584-6c6c98f2a53f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4b",
+          "primary": false
+        },
+        {
+          "id": "50005aa7-f7b7-426e-b1c0-7e2f8376d238",
+          "board": "cambridge_alevel",
+          "code": "CAIE 10.1.1",
+          "primary": true
+        },
+        {
+          "id": "393c070c-a27a-41f7-8876-d51d46063e6a",
+          "board": "cambridge_alevel",
+          "code": "CAIE 10.1.2",
+          "primary": true
+        },
+        {
+          "id": "0f8d4c75-4c90-4c05-a00d-a02f66c10d47",
+          "board": "cambridge_alevel",
+          "code": "CAIE 10.1.3",
+          "primary": true
+        },
+        {
+          "id": "6310a4ed-f51e-4f14-9609-7261ba8d7e1d",
+          "board": "cambridge_alevel",
+          "code": "CAIE 10.1.4",
+          "primary": true
+        },
+        {
+          "id": "2757ea68-2e6d-4a3e-8fc4-afcb4ffda7d7",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1a",
+          "primary": true
+        },
+        {
+          "id": "00562071-ef5f-4024-b1ff-76be5411ac4b",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1b",
+          "primary": true
+        },
+        {
+          "id": "c0ab4a99-a319-45e8-9a04-4ed74abc1a2c",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.6",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-030",
+      "group": "Disease and immunity",
+      "title": "Non-specific defences",
+      "scope": "Physical and chemical barriers, inflammation, phagocytosis, and defences of plants against pathogens.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "afea4b25-b071-4306-bab2-4e6505e7d7ec",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.7",
+          "primary": true
+        },
+        {
+          "id": "26975b57-1a73-4680-9789-e5a29db24153",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.11",
+          "primary": true
+        },
+        {
+          "id": "1d6ad66c-6314-4100-8262-2be52e0b1c38",
+          "board": "cambridge_alevel",
+          "code": "CAIE 11.1.1",
+          "primary": true
+        },
+        {
+          "id": "fab308da-e26c-425d-87fd-bbb9df74048a",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1c",
+          "primary": true
+        },
+        {
+          "id": "7a75558e-d384-44e7-bcc4-f4b7341a7410",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1d",
+          "primary": true
+        },
+        {
+          "id": "69c1a1b5-4cf1-4ad7-a954-33e98bb6302c",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-031",
+      "group": "Disease and immunity",
+      "title": "The specific immune response",
+      "scope": "Antigens, B and T lymphocytes, antibodies and their actions, primary and secondary responses, memory cells and autoimmune disease.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "9bba385b-88a8-4764-a728-c3a14a7d0016",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4a",
+          "primary": true
+        },
+        {
+          "id": "edcdb828-c429-4a3a-a584-6c6c98f2a53f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4b",
+          "primary": true
+        },
+        {
+          "id": "27b25bf2-7410-4e13-99c4-b5de421be822",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4c",
+          "primary": true
+        },
+        {
+          "id": "f92e14c4-07c9-4d62-b8fb-4dcccd770126",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4d",
+          "primary": true
+        },
+        {
+          "id": "576757b1-2b3e-4eb8-8cc1-5242a0821e10",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4e",
+          "primary": true
+        },
+        {
+          "id": "97e376e5-3269-49b7-b648-a13972cb811b",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.8",
+          "primary": true
+        },
+        {
+          "id": "e4002289-5dc6-4144-bf4a-8502a2403080",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.9",
+          "primary": true
+        },
+        {
+          "id": "b4e0c28b-7580-4a5d-8b6e-d48a3c0cabb2",
+          "board": "cambridge_alevel",
+          "code": "CAIE 11.1.2",
+          "primary": true
+        },
+        {
+          "id": "855f1da8-2a3b-46f4-9478-dfdb31426cd6",
+          "board": "cambridge_alevel",
+          "code": "CAIE 11.1.3",
+          "primary": true
+        },
+        {
+          "id": "05d8e113-ffb9-411d-b6d7-a79e92a90d53",
+          "board": "cambridge_alevel",
+          "code": "CAIE 11.1.4",
+          "primary": true
+        },
+        {
+          "id": "eef163da-cc13-4406-8ba0-ec1e73dfa3ce",
+          "board": "cambridge_alevel",
+          "code": "CAIE 11.2.1",
+          "primary": true
+        },
+        {
+          "id": "63f6659a-ef60-4f10-acfd-97b8e3d73d71",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1f",
+          "primary": true
+        },
+        {
+          "id": "2238c832-a39e-4e1d-9d9c-ad5af58ae7eb",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1g",
+          "primary": true
+        },
+        {
+          "id": "accfbe51-04dc-4665-83b8-54e88fa20f14",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1h",
+          "primary": true
+        },
+        {
+          "id": "e4460354-4ec2-480d-af0e-7a15c5a20848",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1i",
+          "primary": true
+        },
+        {
+          "id": "ce32e57f-3c75-4968-aef4-d4d17fd5b2fa",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1k",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-032",
+      "group": "Disease and immunity",
+      "title": "Vaccination and types of immunity",
+      "scope": "Active, passive, natural and artificial immunity, how vaccines and vaccination programmes work, and the evolutionary race between pathogens and hosts.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "488aec1b-f5d1-4cf7-bf1b-359f7baa130e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4f",
+          "primary": true
+        },
+        {
+          "id": "e6e2ed71-aef7-4cd7-9ca7-8a73d0a6caec",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4g",
+          "primary": true
+        },
+        {
+          "id": "85418ca5-af3a-4db4-ba01-d7a4df235a9a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4k",
+          "primary": true
+        },
+        {
+          "id": "bc758a5e-7e8c-42c0-9321-1410369b24d5",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.12",
+          "primary": true
+        },
+        {
+          "id": "9704b71a-335e-4d72-a674-7b10332389fd",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.13",
+          "primary": true
+        },
+        {
+          "id": "3fdc0677-918c-4264-8cfe-2bf7ee654e80",
+          "board": "cambridge_alevel",
+          "code": "CAIE 11.2.4",
+          "primary": true
+        },
+        {
+          "id": "810cbe19-49b6-4bde-bb8f-0679f9a3cf06",
+          "board": "cambridge_alevel",
+          "code": "CAIE 11.2.5",
+          "primary": true
+        },
+        {
+          "id": "d1340955-b5a4-47a8-b08c-9958932ef230",
+          "board": "cambridge_alevel",
+          "code": "CAIE 11.2.6",
+          "primary": true
+        },
+        {
+          "id": "b2c03832-9622-4dc3-a1de-c09f85777216",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1j",
+          "primary": true
+        },
+        {
+          "id": "fedc6ab6-a709-46f9-9774-7c26ad8e4401",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1l",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-033",
+      "group": "Disease and immunity",
+      "title": "Monoclonal antibodies",
+      "scope": "How monoclonal antibodies are made by the hybridoma method and used in diagnosis, treatment and ELISA tests.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "cab2e5e9-5df8-4a8b-a0e6-5b95350faaa8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4j",
+          "primary": true
+        },
+        {
+          "id": "be78792f-f43e-44d7-b5cf-8a4d02b5e7af",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4l",
+          "primary": true
+        },
+        {
+          "id": "85418ca5-af3a-4db4-ba01-d7a4df235a9a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.2.4k",
+          "primary": false
+        },
+        {
+          "id": "10d89409-3eff-43ca-88ca-05f803d177cf",
+          "board": "cambridge_alevel",
+          "code": "CAIE 11.2.2",
+          "primary": true
+        },
+        {
+          "id": "6b2d34f4-0e86-49e8-88a5-bf389534132d",
+          "board": "cambridge_alevel",
+          "code": "CAIE 11.2.3",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-034",
+      "group": "Disease and immunity",
+      "title": "Antibiotics and medicines",
+      "scope": "How antibiotics work, antibiotic resistance and hospital infections, sources of new medicines and how drugs are tested.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "fc8cae80-52b8-4287-a824-f70f253c87d1",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.13",
+          "primary": true
+        },
+        {
+          "id": "91e6725b-73c7-496c-940d-bf11b5471434",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.14",
+          "primary": true
+        },
+        {
+          "id": "0682bffa-244e-43ea-a924-1a2d6fc29477",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.15",
+          "primary": true
+        },
+        {
+          "id": "12fcc536-bb32-455c-a896-66af84a61064",
+          "board": "cambridge_alevel",
+          "code": "CAIE 10.2.1",
+          "primary": true
+        },
+        {
+          "id": "c1d41b7b-bdd7-402d-a33e-92cfe5950021",
+          "board": "cambridge_alevel",
+          "code": "CAIE 10.2.2",
+          "primary": true
+        },
+        {
+          "id": "3c7fae42-4513-47f3-ab90-1f83777717e9",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1m",
+          "primary": true
+        },
+        {
+          "id": "08c81238-d3bc-4cf4-b58b-f6bff4cc4d89",
+          "board": "ocr_alevel",
+          "code": "OCR 4.1.1n",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-035",
+      "group": "DNA and gene expression",
+      "title": "Nucleotides and the structure of DNA and RNA",
+      "scope": "Nucleotide structure, phosphodiester bonds, base pairing in the DNA double helix, RNA structure and DNA purification.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "75b2313d-6f58-4ad2-a268-17d8b8821c7f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.5.1a",
+          "primary": true
+        },
+        {
+          "id": "1e04ecc1-bb81-4477-be42-20c7fba382db",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.5.1b",
+          "primary": true
+        },
+        {
+          "id": "724030a7-e15e-4ed1-b57d-ed03c7f6bf71",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.5.1c",
+          "primary": true
+        },
+        {
+          "id": "3baac9fb-bdcc-4ed8-bb7b-8f0aad7aa1b5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.5.1d",
+          "primary": true
+        },
+        {
+          "id": "b0a4962f-b3c4-4632-b1fe-17caff1fcdea",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.5.1e",
+          "primary": true
+        },
+        {
+          "id": "8c278294-6d50-4ca9-8f40-e88b9fade157",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.5",
+          "primary": true
+        },
+        {
+          "id": "18be9c80-f97f-4302-9120-2d0936fcdac7",
+          "board": "cambridge_alevel",
+          "code": "CAIE 6.1.1",
+          "primary": true
+        },
+        {
+          "id": "239386fd-c242-43e4-9cc5-59cf19ca0cfe",
+          "board": "cambridge_alevel",
+          "code": "CAIE 6.1.2",
+          "primary": true
+        },
+        {
+          "id": "41301ec5-b665-43d4-8b17-36bc74bc1fbb",
+          "board": "cambridge_alevel",
+          "code": "CAIE 6.1.3",
+          "primary": true
+        },
+        {
+          "id": "5f39d928-031e-4b31-8b80-62a1156fc107",
+          "board": "cambridge_alevel",
+          "code": "CAIE 6.1.5",
+          "primary": true
+        },
+        {
+          "id": "f947e551-eb3d-4c88-a066-ab5738fd3d22",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.3a",
+          "primary": true
+        },
+        {
+          "id": "11c93d96-d0cd-4ece-97c5-b9c260a5c388",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.3b",
+          "primary": true
+        },
+        {
+          "id": "f021f41c-93c4-48d2-b4f3-2e2d5839e293",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.3d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-036",
+      "group": "DNA and gene expression",
+      "title": "DNA replication",
+      "scope": "Semi-conservative replication, the roles of DNA helicase and DNA polymerase, and the Meselson and Stahl evidence.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3148fbec-0560-4e52-ac9e-da6ae4b47c14",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.5.2a",
+          "primary": true
+        },
+        {
+          "id": "749e1639-6882-4805-a2a4-09524b86032e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.5.2b",
+          "primary": true
+        },
+        {
+          "id": "7ed4199c-4000-461b-b3da-3865a5866f63",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.11",
+          "primary": true
+        },
+        {
+          "id": "b8154843-4c8c-44ee-95be-812ea7784786",
+          "board": "cambridge_alevel",
+          "code": "CAIE 6.1.4",
+          "primary": true
+        },
+        {
+          "id": "5e06829b-48eb-4511-835c-0243b470c03c",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.3e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-037",
+      "group": "DNA and gene expression",
+      "title": "Genes, chromosomes and the genetic code",
+      "scope": "What a gene is, how DNA is packaged in chromosomes, and the triplet, non-overlapping, degenerate and universal genetic code.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "06c73afa-4eb5-4a69-aa7b-5838bb096917",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.1a",
+          "primary": true
+        },
+        {
+          "id": "be02863c-1e78-49b6-8f2c-7f6568fc8864",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.1b",
+          "primary": true
+        },
+        {
+          "id": "2813606f-d598-4613-8e33-738eaf8d8e1a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.1c",
+          "primary": true
+        },
+        {
+          "id": "dd53fc90-f46b-4a5e-aa0a-4eb320beb520",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.1d",
+          "primary": true
+        },
+        {
+          "id": "5f66b250-f504-43c9-8bac-6312beaf351f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.1e",
+          "primary": true
+        },
+        {
+          "id": "18e91483-be91-4a11-b543-e44336eb1847",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.1f",
+          "primary": true
+        },
+        {
+          "id": "e893fd17-ea40-4ab4-9526-8bcaea26b88d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.1g",
+          "primary": true
+        },
+        {
+          "id": "b573ff82-d2b8-4188-bdfd-1bc3ea74b24a",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.7",
+          "primary": true
+        },
+        {
+          "id": "aa4b4d68-45a4-48f7-bb81-753978ae473c",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.8",
+          "primary": true
+        },
+        {
+          "id": "ad2a8448-aa58-4971-b6bc-7950d1a0d9ad",
+          "board": "cambridge_alevel",
+          "code": "CAIE 6.2.1",
+          "primary": true
+        },
+        {
+          "id": "43d3063f-fb84-4e31-97a9-3e7ff095b699",
+          "board": "cambridge_alevel",
+          "code": "CAIE 6.2.2",
+          "primary": true
+        },
+        {
+          "id": "7898aa81-6272-43fe-91f8-12b2f8c0cd4d",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.3f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-038",
+      "group": "DNA and gene expression",
+      "title": "Transcription and translation",
+      "scope": "How mRNA is transcribed and spliced, and how ribosomes and tRNA translate it into a polypeptide.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c4b0d9fd-961c-4410-883d-bd394d820cc6",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.2a",
+          "primary": true
+        },
+        {
+          "id": "e19e6fcc-b708-4f3e-b75d-b4a870b63dbe",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.2b",
+          "primary": true
+        },
+        {
+          "id": "813dffb9-8ecc-462e-87b5-1ee83ec271af",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.2c",
+          "primary": true
+        },
+        {
+          "id": "981e6047-4136-4a4e-8534-76082d0fcc56",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.2d",
+          "primary": true
+        },
+        {
+          "id": "3fa20021-e9c3-4cfc-a320-4b4789d576c6",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.6",
+          "primary": true
+        },
+        {
+          "id": "15b4d702-884d-4a72-aee2-e10b29289349",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.10",
+          "primary": true
+        },
+        {
+          "id": "0969952a-5296-4281-8496-f7165f4f26f9",
+          "board": "cambridge_alevel",
+          "code": "CAIE 6.2.3",
+          "primary": true
+        },
+        {
+          "id": "1bc15197-57b5-4e01-8040-c18a8c2ca31c",
+          "board": "cambridge_alevel",
+          "code": "CAIE 6.2.4",
+          "primary": true
+        },
+        {
+          "id": "c94baf11-85e3-4d92-b8a0-b71389e966b8",
+          "board": "cambridge_alevel",
+          "code": "CAIE 6.2.5",
+          "primary": true
+        },
+        {
+          "id": "9f67c619-e6fb-4a52-a65c-3eba105057a1",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.3g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-039",
+      "group": "DNA and gene expression",
+      "title": "Gene mutations",
+      "scope": "Substitution, insertion and deletion mutations, mutagens, and how mutations change protein structure and function.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "8e5059e2-47df-41f5-8416-d7b23e92f069",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.3a",
+          "primary": true
+        },
+        {
+          "id": "a09e1d71-d767-483b-84b0-a2bb19da262a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.1a",
+          "primary": true
+        },
+        {
+          "id": "67e97f7d-7e94-4bc9-8899-bfed2e214ad7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.1b",
+          "primary": true
+        },
+        {
+          "id": "81abe151-2258-49c5-a8e5-50f62906ff34",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.12",
+          "primary": true
+        },
+        {
+          "id": "6d4ffa9a-e1b8-4989-803b-936d3f3a5087",
+          "board": "cambridge_alevel",
+          "code": "CAIE 6.2.6",
+          "primary": true
+        },
+        {
+          "id": "67ad708c-ce35-40fc-a13b-09ca56288df8",
+          "board": "cambridge_alevel",
+          "code": "CAIE 6.2.7",
+          "primary": true
+        },
+        {
+          "id": "1a65bd34-9a7f-4e39-9541-a1f74433f148",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.1a",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-040",
+      "group": "DNA and gene expression",
+      "title": "Control of gene expression",
+      "scope": "Structural and regulatory genes, the lac operon, transcription factors, gibberellin and DELLA proteins, and post-transcriptional control including RNAi.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "7ed954a0-4840-4009-a7a6-a73bb746efda",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.2a",
+          "primary": true
+        },
+        {
+          "id": "fa061ac7-35bb-45ce-9026-e87896778f46",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.2e",
+          "primary": true
+        },
+        {
+          "id": "cf2bb868-7a0c-47d4-bf78-163065f0c5f5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.2b",
+          "primary": false
+        },
+        {
+          "id": "928966a2-1ab6-4983-a91d-141f1f3130d7",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.12",
+          "primary": true
+        },
+        {
+          "id": "fedaabf8-85b0-451f-8794-9929573711ea",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.16",
+          "primary": true
+        },
+        {
+          "id": "a47c96ff-4370-4afd-a6d2-868faf41b45c",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.3.1",
+          "primary": true
+        },
+        {
+          "id": "8476f403-15e4-43b9-9da2-4d497d16ee88",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.3.2",
+          "primary": true
+        },
+        {
+          "id": "742f3b07-d5d1-470c-831e-88817da12ea1",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.3.3",
+          "primary": true
+        },
+        {
+          "id": "73f1ecca-301b-4752-b536-57cc501eaa31",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.3.4",
+          "primary": true
+        },
+        {
+          "id": "6a71df0c-acf6-4cfd-93a0-6e69f8ca0319",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.1b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-041",
+      "group": "DNA and gene expression",
+      "title": "Epigenetics and cancer",
+      "scope": "DNA methylation and histone modification, how environment changes gene expression, and the role of oncogenes and tumour suppressor genes in cancer.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "cf2bb868-7a0c-47d4-bf78-163065f0c5f5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.2b",
+          "primary": true
+        },
+        {
+          "id": "d9934644-f208-4ff4-a43f-1ad8147fdcc8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.2c",
+          "primary": true
+        },
+        {
+          "id": "f6d92205-2b69-45cd-b03b-61af28e711c8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.2d",
+          "primary": true
+        },
+        {
+          "id": "ace6fe73-b924-4ded-b5c3-454d84bd882f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.3a",
+          "primary": true
+        },
+        {
+          "id": "37e449c2-2b09-4a86-b2c0-8248b0cf26ab",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.2.3b",
+          "primary": true
+        },
+        {
+          "id": "44d63814-38a1-4e07-9a77-66e3cf057e3f",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.14",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-042",
+      "group": "DNA and gene expression",
+      "title": "Genetic control of body plans",
+      "scope": "Homeobox genes controlling body plans, and how mitosis and apoptosis shape body form.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "ac25c08d-af29-4f2c-8dc8-406e1fb29c4a",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.1c",
+          "primary": true
+        },
+        {
+          "id": "654cbe17-2cd1-42ec-ba69-6dc31ea4b0be",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.1d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-043",
+      "group": "Inheritance and variation",
+      "title": "Monohybrid inheritance",
+      "scope": "Genes, alleles, genotype and phenotype, dominance and codominance, multiple alleles, and genetic diagrams for monohybrid and test crosses.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "481ca962-be27-44cd-811a-4c7884d106bc",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.1a",
+          "primary": true
+        },
+        {
+          "id": "2b57a3b6-3626-4450-a11d-ca40bf0f5b45",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.1b",
+          "primary": true
+        },
+        {
+          "id": "5fab4b9a-c9d0-4ecf-99f2-963bf38aa458",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.1c",
+          "primary": true
+        },
+        {
+          "id": "626d1e4f-72f7-44ef-8281-327ea8f08103",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.1d",
+          "primary": true
+        },
+        {
+          "id": "1ab3b617-a8d4-413f-9893-6cd02c12a362",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.1e",
+          "primary": true
+        },
+        {
+          "id": "37920a76-350f-4b47-a419-d402492e8d8e",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.13",
+          "primary": true
+        },
+        {
+          "id": "fa7650ab-50a2-40f0-9718-3b271f09d07c",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.2.1",
+          "primary": true
+        },
+        {
+          "id": "83962e6d-8439-4f3d-9112-f29990d80368",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.2.2",
+          "primary": true
+        },
+        {
+          "id": "d77df401-1717-40a5-bd20-dd0cc5c06b19",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.2.4",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-044",
+      "group": "Inheritance and variation",
+      "title": "Dihybrid crosses, linkage, epistasis and chi-squared",
+      "scope": "Dihybrid inheritance, sex linkage, autosomal linkage and epistasis, and using the chi-squared test to compare observed and expected ratios.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "393f6b9a-83f1-4d70-925d-07e4709bfa0c",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.1f",
+          "primary": true
+        },
+        {
+          "id": "1ab3b617-a8d4-413f-9893-6cd02c12a362",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.1e",
+          "primary": false
+        },
+        {
+          "id": "f73eb487-f7f3-4751-b549-d92966ab17f1",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.8",
+          "primary": true
+        },
+        {
+          "id": "22161438-c914-4b59-95d8-b70770b1e7ff",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.2.3",
+          "primary": true
+        },
+        {
+          "id": "58767acd-9a6d-4550-8304-c49b6ccd06e1",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.2.5",
+          "primary": true
+        },
+        {
+          "id": "26c934da-8d2d-445b-a6e4-46fe8ad8ae7a",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.2b",
+          "primary": true
+        },
+        {
+          "id": "404b9835-c329-4a27-97c6-04670f405c3d",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.2c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-045",
+      "group": "Inheritance and variation",
+      "title": "Variation: genes, environment and phenotype",
+      "scope": "Continuous and discontinuous variation, polygenic inheritance, how genes and the environment shape phenotype, and examples of genes affecting proteins.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3f219e74-6a1b-40f8-8bf5-0bbe41043b1a",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.15",
+          "primary": true
+        },
+        {
+          "id": "ae22e996-ebd4-48f9-a389-fc1b362556c2",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.2.6",
+          "primary": true
+        },
+        {
+          "id": "60e27c94-b4b7-49cd-b2b6-1fb99ad287ca",
+          "board": "cambridge_alevel",
+          "code": "CAIE 16.2.7",
+          "primary": true
+        },
+        {
+          "id": "303eb7e1-0e9c-4805-b56d-2dcfbfd39624",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.1.1",
+          "primary": true
+        },
+        {
+          "id": "669798f5-baf5-45d3-9769-5e1f7db42209",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.1.2",
+          "primary": true
+        },
+        {
+          "id": "ef61136c-2196-43ca-a1e1-75262353d545",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.1.3",
+          "primary": true
+        },
+        {
+          "id": "2cff151b-fc0a-4c06-8d35-f9680858a737",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.2f",
+          "primary": true
+        },
+        {
+          "id": "53cd0d3b-024d-478c-b39b-2aa3094f2e4b",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.2a",
+          "primary": true
+        },
+        {
+          "id": "3d87d7e1-8893-4129-9048-af25a99e2096",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.2d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-046",
+      "group": "Inheritance and variation",
+      "title": "Cystic fibrosis and genetic screening",
+      "scope": "How cystic fibrosis affects the body, carrier and prenatal screening, DNA probes, and the ethical issues of screening and gene therapy.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "74c45eae-ace3-44c7-869d-a71a42bea489",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.2a",
+          "primary": true
+        },
+        {
+          "id": "6daf5ad9-a552-444b-8a11-da84adf565b0",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.2b",
+          "primary": true
+        },
+        {
+          "id": "08665a87-f658-4b60-ad4c-7bbb667dd8ca",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.2c",
+          "primary": true
+        },
+        {
+          "id": "4804e260-35aa-48e6-bd8c-0c4b56e51d0b",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.14",
+          "primary": true
+        },
+        {
+          "id": "71059e9e-81ac-49fa-822c-61ab3f286984",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.15",
+          "primary": true
+        },
+        {
+          "id": "3149bc3d-64ac-42b0-b014-b88275c8b6ae",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.16",
+          "primary": true
+        },
+        {
+          "id": "212fdcd2-cae8-4a50-8938-edc445662653",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.2.2",
+          "primary": true
+        },
+        {
+          "id": "47a958f0-8e9f-4b95-b0e5-7d45ab75d7fd",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.2.4",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-047",
+      "group": "Evolution and biodiversity",
+      "title": "Natural and artificial selection",
+      "scope": "Adaptation, natural selection and its types, evidence for evolution, antibiotic resistance as an example, and selective breeding.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "714911ee-772f-47df-bb58-75282ba7d781",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.4a",
+          "primary": true
+        },
+        {
+          "id": "772d6964-2d23-4f5b-8e07-6003c8ecff4d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.4b",
+          "primary": true
+        },
+        {
+          "id": "5a0a281c-5f25-4a63-9a63-a15b92a190bc",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.4c",
+          "primary": true
+        },
+        {
+          "id": "07d1455f-3ea7-497f-95d5-8fda811b48f1",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.4d",
+          "primary": true
+        },
+        {
+          "id": "6dc5c3e1-e396-4891-b22f-ae91e7155717",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.4e",
+          "primary": true
+        },
+        {
+          "id": "aebc74f7-22d4-43ca-b9f3-1a1ac6557ed6",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.4 RP6",
+          "primary": true
+        },
+        {
+          "id": "87075061-1fff-4fe5-8e1b-fbc225c75b33",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.3",
+          "primary": true
+        },
+        {
+          "id": "ca4867e2-48dd-4993-b223-4fd71ea23b86",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.4",
+          "primary": true
+        },
+        {
+          "id": "95b46e78-12e4-44db-9374-8996de40d906",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.17",
+          "primary": true
+        },
+        {
+          "id": "7d3a4ab0-7e51-48e3-a755-56f081e262ec",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.18",
+          "primary": true
+        },
+        {
+          "id": "67d88346-08cf-42a1-a63a-b9d9095602bd",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.2.1",
+          "primary": true
+        },
+        {
+          "id": "110baf57-691a-4905-b982-c9b919379000",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.2.2",
+          "primary": true
+        },
+        {
+          "id": "54afb453-f381-4a48-8c20-0e6f939352ce",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.2.4",
+          "primary": true
+        },
+        {
+          "id": "4e3ac8c0-944d-4402-a34a-ff4cd2821827",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.2.6",
+          "primary": true
+        },
+        {
+          "id": "2ae44dde-8104-4a1e-b0b2-07e6fddd7be0",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.2.7",
+          "primary": true
+        },
+        {
+          "id": "2bc96302-86b3-4f9c-99ab-1d0b55b1609e",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.2e",
+          "primary": true
+        },
+        {
+          "id": "c372a1b3-129e-497f-b83a-17735450d9dd",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.2g",
+          "primary": true
+        },
+        {
+          "id": "50146ea8-4fc9-438c-91ab-7de9af1023bf",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.2h",
+          "primary": true
+        },
+        {
+          "id": "87309dcc-caf9-4a6d-9f3f-c184c9506605",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.2i",
+          "primary": true
+        },
+        {
+          "id": "da865ee9-c21d-4636-901d-9f9f58d1308c",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.2h",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-048",
+      "group": "Evolution and biodiversity",
+      "title": "Population genetics and the Hardy-Weinberg principle",
+      "scope": "Gene pools and allele frequencies, genetic drift and the founder effect, and using the Hardy-Weinberg equation.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3a9ff228-722e-4fda-b5f4-7dd49d60dfa9",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.2a",
+          "primary": true
+        },
+        {
+          "id": "3e1bc3d5-ea49-4249-8031-ffbd83cd96f3",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.2b",
+          "primary": true
+        },
+        {
+          "id": "10be4129-b8fe-4ed7-91c0-46292de73cf7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.2c",
+          "primary": true
+        },
+        {
+          "id": "f5b5f86c-ecd9-4445-83a8-9887c9c370bf",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.2d",
+          "primary": true
+        },
+        {
+          "id": "0ca5fffa-01e4-4037-86d5-79dd394ab195",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.2e",
+          "primary": true
+        },
+        {
+          "id": "a99d2b0d-90db-4456-8ac4-7792ec1abd22",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.5",
+          "primary": true
+        },
+        {
+          "id": "75938dc9-ec7d-49f7-93de-bac15ae30ac6",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.2.3",
+          "primary": true
+        },
+        {
+          "id": "12132720-ce43-46a0-8f0f-f205888a97f3",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.2.5",
+          "primary": true
+        },
+        {
+          "id": "76cd7ba7-35ba-4edb-864b-13948a756288",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.2e",
+          "primary": true
+        },
+        {
+          "id": "0b02cc2e-cda3-4b5a-95ee-eb81f11de878",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.2f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-049",
+      "group": "Evolution and biodiversity",
+      "title": "Speciation",
+      "scope": "How geographical and reproductive isolation lead to allopatric and sympatric speciation.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e1ea89a2-366a-4d14-83d5-abfab3036635",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3a",
+          "primary": true
+        },
+        {
+          "id": "a5be8524-96fc-49bb-9be2-d4b10def797d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3b",
+          "primary": true
+        },
+        {
+          "id": "e33cbf3c-25c4-4ed1-a1d3-c726e2b2497a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3c",
+          "primary": true
+        },
+        {
+          "id": "7abafa9a-76e4-49ee-98e2-b33ed499e60f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3d",
+          "primary": true
+        },
+        {
+          "id": "5f3ffda2-8ea9-46bc-8e17-ee69a7e7df04",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3e",
+          "primary": true
+        },
+        {
+          "id": "5288682c-f48c-4944-87be-822c13bf2f84",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3f",
+          "primary": true
+        },
+        {
+          "id": "8b4b6223-b70f-4457-9114-6410030febea",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3g",
+          "primary": true
+        },
+        {
+          "id": "d89b8125-9fd0-4173-8c0e-c0968e41e7ae",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.3h",
+          "primary": true
+        },
+        {
+          "id": "f73f1881-8b36-4c8a-a32f-f66200c6ed0e",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.19",
+          "primary": true
+        },
+        {
+          "id": "3d2c7773-9f94-4e4c-90bf-8c0d1682ebea",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.3.1",
+          "primary": true
+        },
+        {
+          "id": "6aa46539-7c2f-4b89-a87e-e2a28e08c46f",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.3.3",
+          "primary": true
+        },
+        {
+          "id": "8245dc2a-a255-43cc-8b48-f22f7e3d2895",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.2g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-050",
+      "group": "Evolution and biodiversity",
+      "title": "Classification and phylogeny",
+      "scope": "Species concepts, the taxonomic hierarchy, binomial names, the three domains and five kingdoms, and using DNA and protein sequences to find relationships.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "01891792-15b9-4ab6-b8aa-f30b13fb9f68",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.5a",
+          "primary": true
+        },
+        {
+          "id": "3311117d-5ba6-4cdc-a40e-4f15c1796592",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.5b",
+          "primary": true
+        },
+        {
+          "id": "aa9341e3-922f-40e1-a5dc-5ff58094fa02",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.5c",
+          "primary": true
+        },
+        {
+          "id": "aed8ac62-271b-4cde-a62c-28bd8467b208",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.5d",
+          "primary": true
+        },
+        {
+          "id": "9cbb0f1d-e42b-40a7-8099-d6bb7e0fe68d",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.6",
+          "primary": true
+        },
+        {
+          "id": "cb937d32-bd07-4f6a-8a5c-155c9687d2a0",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.3.2",
+          "primary": true
+        },
+        {
+          "id": "62251fcc-bb5e-4edd-b8df-dd71b3a9b22e",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.1.1",
+          "primary": true
+        },
+        {
+          "id": "310d7608-2fc2-489f-b10a-1f404e606aaf",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.1.2",
+          "primary": true
+        },
+        {
+          "id": "1b651447-0df2-4abb-b685-e56e8a363007",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.1.3",
+          "primary": true
+        },
+        {
+          "id": "56f252fc-2f9d-4e1c-910e-7efc065703e8",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.1.4",
+          "primary": true
+        },
+        {
+          "id": "9b995301-2221-4119-8b02-da1b13ea3751",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.1.5",
+          "primary": true
+        },
+        {
+          "id": "499bf3fe-2d21-4149-99bb-cbc3958d21c8",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.1.6",
+          "primary": true
+        },
+        {
+          "id": "5bd904b9-ba89-443c-a8ad-c123524d7185",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.2a",
+          "primary": true
+        },
+        {
+          "id": "b46839eb-293f-4f4d-8e33-ab2de479fa5b",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.2b",
+          "primary": true
+        },
+        {
+          "id": "52e08163-832b-4049-bda1-cbe54fb9fb02",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.2c",
+          "primary": true
+        },
+        {
+          "id": "93255893-a988-4454-8183-e1c146a1f2d6",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.2d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-051",
+      "group": "Evolution and biodiversity",
+      "title": "Measuring biodiversity",
+      "scope": "Biodiversity at habitat, species and genetic level, species richness and evenness, Simpson's index, heterozygosity and the threat from human activity.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "62241e6d-35a9-4fb5-aeeb-27cf63367654",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.6a",
+          "primary": true
+        },
+        {
+          "id": "bfac95ea-058a-4080-9a43-449abc05a644",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.6b",
+          "primary": true
+        },
+        {
+          "id": "0dcf1a03-d298-462b-99f9-8121ac415dba",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.6c",
+          "primary": true
+        },
+        {
+          "id": "59ca8717-b652-4e5a-a496-6cd247346e26",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.6d",
+          "primary": true
+        },
+        {
+          "id": "e5b748ce-ab66-4cc1-8628-68f02ec8b5dc",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.6e",
+          "primary": true
+        },
+        {
+          "id": "72a8050c-9627-434a-8441-14091067ec2e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.7a",
+          "primary": true
+        },
+        {
+          "id": "6cecbd82-e650-499c-b722-bc670c9970a4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.4.7b",
+          "primary": true
+        },
+        {
+          "id": "8bfd9ffc-b8d9-4459-a709-e01ecdf3f969",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.1",
+          "primary": true
+        },
+        {
+          "id": "c2a78abb-b86e-471a-90dd-4dcf916a9d48",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.2",
+          "primary": true
+        },
+        {
+          "id": "a7c07c58-b999-4ea7-ac87-4a09dd4ae892",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.2.2",
+          "primary": true
+        },
+        {
+          "id": "6b47590a-4008-423f-b253-876b2f321053",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.2.6",
+          "primary": true
+        },
+        {
+          "id": "01391ea5-64a4-441c-be43-7b183e9b6176",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.1a",
+          "primary": true
+        },
+        {
+          "id": "47aa9f85-0341-4781-a787-967db7650b28",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.1c",
+          "primary": true
+        },
+        {
+          "id": "987eea8a-e3f9-4250-ad5b-7feec95112b2",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.1d",
+          "primary": true
+        },
+        {
+          "id": "7df2b2ca-960d-4dd3-8f69-1341ac105bcd",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.1e",
+          "primary": true
+        },
+        {
+          "id": "e43adfe9-5faf-4552-a8ec-8377192486ea",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.1f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-052",
+      "group": "Evolution and biodiversity",
+      "title": "Conservation",
+      "scope": "Causes of extinction, reasons to conserve, in situ and ex situ conservation, seed banks and zoos, international agreements, and managing ecosystems sustainably.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "9a27bbd0-6722-48ad-bd29-196d5d526296",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.16",
+          "primary": true
+        },
+        {
+          "id": "84b5f98b-cbf1-4b73-997f-f9b2640c13e0",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.22",
+          "primary": true
+        },
+        {
+          "id": "240c0cd0-faf4-4b3c-b3d0-09e118473a6a",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.3.1",
+          "primary": true
+        },
+        {
+          "id": "6d2e89f3-0c9a-431a-b3ca-d15466bd2876",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.3.2",
+          "primary": true
+        },
+        {
+          "id": "5b14f7e3-dec8-40e8-adc8-6fa84e46db9b",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.3.3",
+          "primary": true
+        },
+        {
+          "id": "769ff894-2bf3-4867-a705-c5800dbbcc61",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.3.4",
+          "primary": true
+        },
+        {
+          "id": "848e4342-d638-4f6c-bfad-f3cc2ef47e7a",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.3.5",
+          "primary": true
+        },
+        {
+          "id": "23424c5f-8fcb-4d16-ad7f-0accbeddc663",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.3.6",
+          "primary": true
+        },
+        {
+          "id": "ead1ece1-0af1-4489-a209-3bc698ab6857",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.1g",
+          "primary": true
+        },
+        {
+          "id": "0e2eab9b-a9e1-4aba-a776-63165d35cfe6",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.1h",
+          "primary": true
+        },
+        {
+          "id": "d33e3073-c1af-4c07-a1c8-9567e5ec6b4c",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.1i",
+          "primary": true
+        },
+        {
+          "id": "487c0183-a9ee-4e9b-91dc-7e95bb5e6a53",
+          "board": "ocr_alevel",
+          "code": "OCR 6.3.2c",
+          "primary": true
+        },
+        {
+          "id": "1f497d67-8fbd-42d8-bd7d-903607e4dc99",
+          "board": "ocr_alevel",
+          "code": "OCR 6.3.2d",
+          "primary": true
+        },
+        {
+          "id": "aff5ba77-b65c-4003-a08b-1b2fe6c901fd",
+          "board": "ocr_alevel",
+          "code": "OCR 6.3.2e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-053",
+      "group": "Photosynthesis and respiration",
+      "title": "ATP",
+      "scope": "The structure of ATP, its hydrolysis and synthesis, and why it is the universal energy currency.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "65479a9f-ef18-4754-9355-c758335e5d7f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.6a",
+          "primary": true
+        },
+        {
+          "id": "5a9255f0-cfb2-4f3b-8ecf-286ada8c2dc8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.6b",
+          "primary": true
+        },
+        {
+          "id": "b02e261a-ed92-45e4-b1cb-8788dae44aed",
+          "board": "aqa_alevel",
+          "code": "AQA 3.1.6c",
+          "primary": true
+        },
+        {
+          "id": "cdace6a3-aed8-4f6a-ad73-db921ff8949b",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.6",
+          "primary": true
+        },
+        {
+          "id": "795be7a8-d9cd-4914-8c17-eac7bac279eb",
+          "board": "cambridge_alevel",
+          "code": "CAIE 1.2.4",
+          "primary": true
+        },
+        {
+          "id": "25a5f480-12db-4f1c-bdf3-aa276e16001b",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.1.2",
+          "primary": true
+        },
+        {
+          "id": "cad67040-3099-4269-887d-c23686317586",
+          "board": "ocr_alevel",
+          "code": "OCR 2.1.3c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-054",
+      "group": "Photosynthesis and respiration",
+      "title": "Chloroplasts and photosynthetic pigments",
+      "scope": "The overall reaction of photosynthesis, chloroplast structure, pigments, absorption and action spectra, and separating pigments by chromatography.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "ce90201f-3f43-44d6-8582-dc70b2df3b2e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.1 RP7",
+          "primary": true
+        },
+        {
+          "id": "5039ea96-f2c6-4a05-a2bb-5f48a7a5f342",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.5",
+          "primary": true
+        },
+        {
+          "id": "210c8df5-85f3-4e13-960a-4ea110d414b5",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.9",
+          "primary": true
+        },
+        {
+          "id": "46e4909e-0224-419f-8a43-80ba0c382014",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.1.1",
+          "primary": true
+        },
+        {
+          "id": "74ffbeda-a282-4184-ac7c-0b67d739d9d2",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.1.3",
+          "primary": true
+        },
+        {
+          "id": "4ed0353f-f0e7-4cc9-9032-b5586343ddce",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.1.4",
+          "primary": true
+        },
+        {
+          "id": "3e8a5fbc-bd76-4871-83b4-bf8b85ff924b",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.1.5",
+          "primary": true
+        },
+        {
+          "id": "bec81a91-2691-40e0-9459-7d4024ad0ede",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.1.6",
+          "primary": true
+        },
+        {
+          "id": "8fb09a0f-44a9-48d2-bd25-a7d68a63a6d8",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.1a",
+          "primary": true
+        },
+        {
+          "id": "6cbbff56-63b6-4e99-b68d-826796fb4389",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.1b",
+          "primary": true
+        },
+        {
+          "id": "c650f33e-4df0-4523-93f5-d4bdd40f7b19",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.1c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-055",
+      "group": "Photosynthesis and respiration",
+      "title": "The light-dependent reactions",
+      "scope": "Photosystems, photolysis, cyclic and non-cyclic photophosphorylation, and the production of ATP and reduced NADP by chemiosmosis.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a9fd96b4-aed4-441b-a9b6-9b31a470f1a0",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.1a",
+          "primary": true
+        },
+        {
+          "id": "8983cbaa-9915-4a49-b764-c3f6e172bdec",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.1 RP8",
+          "primary": true
+        },
+        {
+          "id": "5f1b7d08-0457-4480-9ab5-cb851d9b2c5b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.1b",
+          "primary": false
+        },
+        {
+          "id": "793eb9d3-9d7a-4f4d-b8f8-f487feadc03a",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.7",
+          "primary": true
+        },
+        {
+          "id": "401fd5ee-f586-497a-9e2c-62ac466d9ef5",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.1.2",
+          "primary": true
+        },
+        {
+          "id": "46422c1c-d6ce-454a-9aed-2c707f0a4804",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.1.7",
+          "primary": true
+        },
+        {
+          "id": "f7b38cc5-52ca-4622-9624-b4c6f8358969",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.1.8",
+          "primary": true
+        },
+        {
+          "id": "e129bf3c-7f67-4120-a2b8-ed39e34f9df8",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.1.9",
+          "primary": true
+        },
+        {
+          "id": "1f1d8151-1b30-417b-953e-0c8800396ce4",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.1.10",
+          "primary": true
+        },
+        {
+          "id": "df3b6c87-5ba8-49b8-b302-5fadefe65a53",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.1d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-056",
+      "group": "Photosynthesis and respiration",
+      "title": "The Calvin cycle",
+      "scope": "Carbon fixation by rubisco, the reduction of GP to triose phosphate, regeneration of RuBP, and uses of triose phosphate.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "5f1b7d08-0457-4480-9ab5-cb851d9b2c5b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.1b",
+          "primary": true
+        },
+        {
+          "id": "3c3bd2cf-4de7-4b3a-a448-d249adee100e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.1c",
+          "primary": true
+        },
+        {
+          "id": "248dbceb-2bb3-4ec4-bde9-eae468c49df0",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.8",
+          "primary": true
+        },
+        {
+          "id": "5961bf0a-23da-40ff-b51d-f1c0b70bb48a",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.1.11",
+          "primary": true
+        },
+        {
+          "id": "35213df7-8c9d-4a09-ba93-f9e1d99e4a4d",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.1.12",
+          "primary": true
+        },
+        {
+          "id": "b81b3c63-87da-4846-8ee0-61aacd20c1a9",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.1e",
+          "primary": true
+        },
+        {
+          "id": "78e46e42-371f-4360-b0ce-ea936242a9f8",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.1f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-057",
+      "group": "Photosynthesis and respiration",
+      "title": "Limiting factors of photosynthesis",
+      "scope": "How light intensity, carbon dioxide concentration and temperature limit the rate, and how to investigate them.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3c3bd2cf-4de7-4b3a-a448-d249adee100e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.1c",
+          "primary": false
+        },
+        {
+          "id": "d8c1056e-e021-49dc-9446-4ebebbd95956",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.2.1",
+          "primary": true
+        },
+        {
+          "id": "ddc0182f-a7bc-4a55-a7dd-77ae49f89ff0",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.2.2",
+          "primary": true
+        },
+        {
+          "id": "241ce6ed-6acb-4d82-b1bd-a8fef20b9a6a",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.2.3",
+          "primary": true
+        },
+        {
+          "id": "4381be64-23a5-413f-96ef-df33ffd9c793",
+          "board": "cambridge_alevel",
+          "code": "CAIE 13.2.4",
+          "primary": true
+        },
+        {
+          "id": "e2335fe2-cda9-49aa-9f5a-ecb0c8857c74",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.1g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-058",
+      "group": "Photosynthesis and respiration",
+      "title": "Glycolysis, the link reaction and the Krebs cycle",
+      "scope": "Why organisms need energy, mitochondrial structure, and the stages, sites and products of glycolysis, the link reaction and the Krebs cycle.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4aca4155-c875-4f6e-9562-cca114b13e05",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2a",
+          "primary": true
+        },
+        {
+          "id": "eba6698d-b8bc-46c8-9f9c-bd149ada7fe7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2b",
+          "primary": true
+        },
+        {
+          "id": "cb15c71d-ca6b-4d82-99e9-7287de366ffd",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2c",
+          "primary": true
+        },
+        {
+          "id": "05f4b564-c78c-4828-b1d2-fa9227c6e2b8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2e",
+          "primary": true
+        },
+        {
+          "id": "e10f14f7-8c38-4112-8d93-4182cb6be9c6",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2f",
+          "primary": true
+        },
+        {
+          "id": "81d33927-90b2-43fe-a150-79f09d7539b9",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2 RP9",
+          "primary": true
+        },
+        {
+          "id": "57844198-c184-484a-8dc1-dfa0a2163b8f",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.3",
+          "primary": true
+        },
+        {
+          "id": "9644e78d-0c08-4528-a72e-2a2d2403ccb1",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.4",
+          "primary": true
+        },
+        {
+          "id": "d8358e44-1c0e-41af-a971-a6b03c52679b",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.5",
+          "primary": true
+        },
+        {
+          "id": "390053ca-c826-4aeb-9815-c8b66be84cb9",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.1.1",
+          "primary": true
+        },
+        {
+          "id": "6d15d67a-7d37-4491-bfda-5783a543bfd9",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.1",
+          "primary": true
+        },
+        {
+          "id": "08c1b19c-6dea-475c-8be4-327986505c4e",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.2",
+          "primary": true
+        },
+        {
+          "id": "038b3d68-dcd3-42ac-9fdb-dbfdad664ff3",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.3",
+          "primary": true
+        },
+        {
+          "id": "dc7ef58d-00fa-40dc-91c1-dee43f539564",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.4",
+          "primary": true
+        },
+        {
+          "id": "f5d11b77-90ca-4261-9cde-c373adc769dc",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.5",
+          "primary": true
+        },
+        {
+          "id": "5b51f2f1-ea94-4407-ba59-f5a1f76c8e21",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.6",
+          "primary": true
+        },
+        {
+          "id": "4c033265-f6e5-4274-8704-d46626c2b079",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.7",
+          "primary": true
+        },
+        {
+          "id": "5f48e30c-3372-4842-a0ef-5b25b9669c15",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.9",
+          "primary": true
+        },
+        {
+          "id": "bd0288e9-a2ee-4389-9314-056ebb9e91f0",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.2a",
+          "primary": true
+        },
+        {
+          "id": "a16c553f-4a91-4528-a9a4-2e2e2cefb0df",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.2b",
+          "primary": true
+        },
+        {
+          "id": "4028f011-bc6f-4edd-8f08-c54da22302df",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.2c",
+          "primary": true
+        },
+        {
+          "id": "a0ae78dd-1f8f-4b1c-806c-097db87289d8",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.2d",
+          "primary": true
+        },
+        {
+          "id": "94426a61-86c8-4798-83fa-a20c98507a85",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.2e",
+          "primary": true
+        },
+        {
+          "id": "591c7bee-3712-43da-8807-cfd1d70d0454",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.2f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-059",
+      "group": "Photosynthesis and respiration",
+      "title": "Oxidative phosphorylation",
+      "scope": "The electron transport chain, chemiosmosis and ATP synthase, and the role of oxygen as the final electron acceptor.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e10f14f7-8c38-4112-8d93-4182cb6be9c6",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2f",
+          "primary": false
+        },
+        {
+          "id": "34615c28-3698-4fa4-a0b9-b85066628d18",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.6",
+          "primary": true
+        },
+        {
+          "id": "db7859cc-147f-4299-a666-5c19a644112b",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.1.3",
+          "primary": true
+        },
+        {
+          "id": "0d620dbc-4913-4cdf-b9ef-0d4eefb4278e",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.8",
+          "primary": true
+        },
+        {
+          "id": "4d67e3e1-9008-4b90-be7a-a39758814d12",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.2g",
+          "primary": true
+        },
+        {
+          "id": "64e3419f-cfa4-4e1c-b9ad-c507b5e5a92d",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.2h",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-060",
+      "group": "Photosynthesis and respiration",
+      "title": "Anaerobic respiration",
+      "scope": "Lactate and ethanol fermentation, what happens to lactate, why aerobic respiration yields more ATP, and rice adaptations to flooding.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "811a1dea-7f74-4a30-a6c9-7819720a851f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.2d",
+          "primary": true
+        },
+        {
+          "id": "60d45fbd-41d6-4955-b796-32de4f8ed03e",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.7",
+          "primary": true
+        },
+        {
+          "id": "ab01f70c-af2d-4c02-8157-056eefc2bae2",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.10",
+          "primary": true
+        },
+        {
+          "id": "12d0104d-7302-4ba9-be2b-a184b98110bd",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.11",
+          "primary": true
+        },
+        {
+          "id": "e2fe3c02-35c6-4375-80a4-39f3c5cdf9e3",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.12",
+          "primary": true
+        },
+        {
+          "id": "128ee24c-56be-48a0-9e84-9a1dc5c9a4ab",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.2i",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-061",
+      "group": "Photosynthesis and respiration",
+      "title": "Respiratory substrates, RQ and respiration rate",
+      "scope": "Energy values of respiratory substrates, the respiratory quotient, and measuring respiration with respirometers and redox indicators.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "39174455-fb98-46b7-8d0d-a6c3811ebae3",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.1.4",
+          "primary": true
+        },
+        {
+          "id": "dfdf6faa-e64d-46ea-8ab9-5caa241ee3a5",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.1.5",
+          "primary": true
+        },
+        {
+          "id": "7a9ddcf4-50cd-4dd3-bd30-cc009e802d1f",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.1.6",
+          "primary": true
+        },
+        {
+          "id": "48922f4d-36d5-4b75-bcae-8f66c483fd96",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.1.7",
+          "primary": true
+        },
+        {
+          "id": "5f758a95-e7b2-46aa-95e2-257310ea3ead",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.13",
+          "primary": true
+        },
+        {
+          "id": "f702e0f6-d28f-45e8-ad8b-70f961198e39",
+          "board": "cambridge_alevel",
+          "code": "CAIE 12.2.14",
+          "primary": true
+        },
+        {
+          "id": "2504b017-e400-4702-93a3-b833260849c8",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.2j",
+          "primary": true
+        },
+        {
+          "id": "46a12f29-bec6-43a6-aaec-29f52a3b7332",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.2k",
+          "primary": true
+        },
+        {
+          "id": "332a37b6-6ef6-45b1-adfc-f966219d5cbe",
+          "board": "ocr_alevel",
+          "code": "OCR 5.2.2l",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-062",
+      "group": "Ecosystems",
+      "title": "Ecosystems, populations and succession",
+      "scope": "Ecosystems, niches, biotic and abiotic factors, competition and predation, carrying capacity, and succession to a climax community.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "fa07afed-898e-432d-ba52-c284e03bf15a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4a",
+          "primary": true
+        },
+        {
+          "id": "4fc1dacc-86bc-4beb-8b73-f8d86b08ee10",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4b",
+          "primary": true
+        },
+        {
+          "id": "23fd6d05-84a2-4054-a79c-056e06523c79",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4c",
+          "primary": true
+        },
+        {
+          "id": "32866f6b-cde3-4a41-ae5d-fa3a239eab11",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4e",
+          "primary": true
+        },
+        {
+          "id": "839c2f50-476c-4850-9647-54d213bd0b90",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4f",
+          "primary": true
+        },
+        {
+          "id": "d08c9069-0fbe-478c-be7c-54e73d94178e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4g",
+          "primary": true
+        },
+        {
+          "id": "69d52053-47e8-4d33-aae7-e8ebeab40e9e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4h",
+          "primary": true
+        },
+        {
+          "id": "da94fbc6-8351-4fd2-b6cf-edd1c702805a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4i",
+          "primary": true
+        },
+        {
+          "id": "02d62cad-b45b-4117-a8d3-6ba5a17d809e",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.1",
+          "primary": true
+        },
+        {
+          "id": "f7fbb0cc-8dd5-43d7-a705-830394702bd5",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.2",
+          "primary": true
+        },
+        {
+          "id": "a8517b66-6649-4a4a-96bc-e58eb891ceff",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.3",
+          "primary": true
+        },
+        {
+          "id": "02bf2260-02bc-400a-9d93-b4fa46ff50a2",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.4",
+          "primary": true
+        },
+        {
+          "id": "42dce831-e4bb-431e-b309-ae86b7469034",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.2.1",
+          "primary": true
+        },
+        {
+          "id": "7411624f-3a9d-4429-bec5-3d7b629c397a",
+          "board": "ocr_alevel",
+          "code": "OCR 6.3.1a",
+          "primary": true
+        },
+        {
+          "id": "ed4b9e0d-7727-48cc-a995-d4fce1c91fe6",
+          "board": "ocr_alevel",
+          "code": "OCR 6.3.1d",
+          "primary": true
+        },
+        {
+          "id": "15da01ce-67da-4730-b2b8-e55336f50b28",
+          "board": "ocr_alevel",
+          "code": "OCR 6.3.2a",
+          "primary": true
+        },
+        {
+          "id": "9f25cab2-b7c7-4bc8-81b4-5a2cf0accdec",
+          "board": "ocr_alevel",
+          "code": "OCR 6.3.2b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-063",
+      "group": "Ecosystems",
+      "title": "Sampling and estimating populations",
+      "scope": "Random and systematic sampling with quadrats and transects, and estimating population size by mark-release-recapture.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "df750488-bf75-4cbe-918e-8b6396150b61",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4d",
+          "primary": true
+        },
+        {
+          "id": "72350d32-e429-41fb-a876-388f530ddf06",
+          "board": "aqa_alevel",
+          "code": "AQA 3.7.4 RP12",
+          "primary": true
+        },
+        {
+          "id": "10db45a1-b4d8-4ce5-aa3f-c86be42c845f",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.2.3",
+          "primary": true
+        },
+        {
+          "id": "d1a3671b-358a-4ec6-aef4-9a3d712897f8",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.2.4",
+          "primary": true
+        },
+        {
+          "id": "df2852a1-65ad-456b-ac1a-f7e3e3bb4d30",
+          "board": "ocr_alevel",
+          "code": "OCR 4.2.1b",
+          "primary": true
+        },
+        {
+          "id": "1660b9ab-a883-439b-af16-1ac09ac365b2",
+          "board": "ocr_alevel",
+          "code": "OCR 6.3.1e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-064",
+      "group": "Ecosystems",
+      "title": "Energy transfer and productivity",
+      "scope": "Gross and net primary productivity, energy transfer between trophic levels, and how farming practices increase efficiency.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "6dcd6170-fae2-4590-8928-bf59d95841d4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3a",
+          "primary": true
+        },
+        {
+          "id": "d2b62db4-be0a-42d3-97a4-0eadd4f41956",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3b",
+          "primary": true
+        },
+        {
+          "id": "fff1b223-fe39-49fa-87e8-a0bf5904ff92",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3c",
+          "primary": true
+        },
+        {
+          "id": "b19b0964-aa86-415a-b6e0-c7ce936cfc38",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3d",
+          "primary": true
+        },
+        {
+          "id": "041a7932-56c3-4c69-81ce-7ef321918c1f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3e",
+          "primary": true
+        },
+        {
+          "id": "5ede9882-09eb-4c74-98ae-bb00b1839661",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3f",
+          "primary": true
+        },
+        {
+          "id": "fb1338ca-c18c-4b6d-bfc3-5568235f5c79",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3g",
+          "primary": true
+        },
+        {
+          "id": "84d9498f-7587-4817-ba72-1b6f642aeb3d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3h",
+          "primary": true
+        },
+        {
+          "id": "e21bb37a-4231-4628-92e8-38ebde81a6ff",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.3i",
+          "primary": true
+        },
+        {
+          "id": "3f0f61c2-f455-4c12-8759-48d441789eb7",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.10",
+          "primary": true
+        },
+        {
+          "id": "36cfcfa8-0cc8-45d3-9bec-17438b5ce900",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.11",
+          "primary": true
+        },
+        {
+          "id": "131145c3-2f2d-4258-9feb-eef5788f06d5",
+          "board": "ocr_alevel",
+          "code": "OCR 6.3.1b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-065",
+      "group": "Ecosystems",
+      "title": "Nutrient cycles and decomposition",
+      "scope": "The carbon and nitrogen cycles, the role of microorganisms and decomposition, using decomposition to estimate time of death, and fertilisers and eutrophication.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "66daec1f-8625-41d9-9dfb-bfd00ebf3d70",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.4a",
+          "primary": true
+        },
+        {
+          "id": "9f78103d-5ef3-4322-baee-05b0cf98833a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.4b",
+          "primary": true
+        },
+        {
+          "id": "7bb21e99-38f3-4c92-b5d5-96b984bebbc3",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.4c",
+          "primary": true
+        },
+        {
+          "id": "87c05225-feb3-487e-be32-3413d49f7625",
+          "board": "aqa_alevel",
+          "code": "AQA 3.5.4d",
+          "primary": true
+        },
+        {
+          "id": "beef33dc-c013-449d-bf21-a5f7afaa7fa7",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.21",
+          "primary": true
+        },
+        {
+          "id": "3f097ccd-2f07-48ba-9851-6d37a5f4dac2",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.1",
+          "primary": true
+        },
+        {
+          "id": "f69e377b-2394-435b-a5a2-b25b3830cbbc",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.2",
+          "primary": true
+        },
+        {
+          "id": "d1ca22db-b8bb-4a32-a8be-93a4da76f0a6",
+          "board": "ocr_alevel",
+          "code": "OCR 6.3.1c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-066",
+      "group": "Ecosystems",
+      "title": "Climate change",
+      "scope": "Evidence for climate change, the greenhouse effect, the limits of models, and effects on plants and animals.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "365424d8-74ff-4bcc-9211-e7961c112d06",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.12",
+          "primary": true
+        },
+        {
+          "id": "217722ec-8e06-4a84-815c-ea676045dfd0",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.13",
+          "primary": true
+        },
+        {
+          "id": "a381cb9f-f535-447d-b6f7-a679d0d745a3",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.14",
+          "primary": true
+        },
+        {
+          "id": "42cfd817-f30d-4bad-9c1c-d75dbd287602",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.15",
+          "primary": true
+        },
+        {
+          "id": "5e7bc122-9666-4500-b1c7-861203d18071",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.20",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-067",
+      "group": "Nerves, muscles and coordination",
+      "title": "Receptors and neurones",
+      "scope": "Sensory, relay and motor neurones, myelination, and how receptors such as the Pacinian corpuscle, taste buds and rod cells turn stimuli into impulses.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e2bc60d8-522a-4f6d-9016-2f23df7ae6c2",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.2a",
+          "primary": true
+        },
+        {
+          "id": "ad120ec6-a81a-4c66-aff5-a20d36d8a3ef",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.2b",
+          "primary": true
+        },
+        {
+          "id": "f00cfc40-c1fd-4a80-b394-adcdf5d9450d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.2c",
+          "primary": true
+        },
+        {
+          "id": "3516765d-b3b6-462f-a37e-7b034d2c327a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.2d",
+          "primary": true
+        },
+        {
+          "id": "d9264cbe-a58d-4120-9ac2-e0564080f18d",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.1",
+          "primary": true
+        },
+        {
+          "id": "9068fe32-3b00-4463-bf13-dc7fc1858868",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.5",
+          "primary": true
+        },
+        {
+          "id": "2b010bdb-a67e-4775-82f0-6eb1c8405f9b",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.1.3",
+          "primary": true
+        },
+        {
+          "id": "dd5179b0-a374-425b-beee-8d7faf823e12",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.1.4",
+          "primary": true
+        },
+        {
+          "id": "ff353ef1-402a-489b-89bf-00592603c148",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.1.5",
+          "primary": true
+        },
+        {
+          "id": "853d4352-a66c-4d41-a70e-0f0c2f65bf9e",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.3a",
+          "primary": true
+        },
+        {
+          "id": "79640730-0b4a-42aa-88df-c4b2f97d48cd",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.3b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-068",
+      "group": "Nerves, muscles and coordination",
+      "title": "Nerve impulses",
+      "scope": "Resting and action potentials, the refractory period, saltatory conduction, and factors affecting conduction speed.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a45a6fb5-6d9e-4952-8aaf-6d12b5f82501",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.1a",
+          "primary": true
+        },
+        {
+          "id": "12d320da-a618-42a3-937c-ad03da049377",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.1b",
+          "primary": true
+        },
+        {
+          "id": "f3c81be1-16ba-4b44-86b5-5eb3f37ee1b7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.1c",
+          "primary": true
+        },
+        {
+          "id": "9a447033-b283-4c31-8955-9d49d080137c",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.1d",
+          "primary": true
+        },
+        {
+          "id": "4ec2ff86-d23f-4944-8bb5-9d962d3fb336",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.1e",
+          "primary": true
+        },
+        {
+          "id": "18de8d9c-5862-406e-b40d-a308c5a3db40",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.1f",
+          "primary": true
+        },
+        {
+          "id": "3b4b8215-4e30-47c1-86ee-03834a7b1d3e",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.3",
+          "primary": true
+        },
+        {
+          "id": "41fcd722-7dba-42f0-80e1-6e1ac4be871c",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.1.6",
+          "primary": true
+        },
+        {
+          "id": "11442192-509b-40b2-904b-8aa1528ab854",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.1.7",
+          "primary": true
+        },
+        {
+          "id": "73219676-1115-45c6-b6a1-99a5eeae4041",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.1.8",
+          "primary": true
+        },
+        {
+          "id": "fe03e505-dcb3-4f59-b3a4-5cfe8a6aea53",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.3c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-069",
+      "group": "Nerves, muscles and coordination",
+      "title": "Synapses and drugs",
+      "scope": "Cholinergic synapses, summation and inhibition, and how drugs and chemical imbalances affect synaptic transmission.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "340f2fb9-d49b-4b75-8fec-113c90c268f5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.2a",
+          "primary": true
+        },
+        {
+          "id": "75e9e4ec-dba9-404d-ab4e-6867937bb279",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.2b",
+          "primary": true
+        },
+        {
+          "id": "3b16916d-5c5d-41e7-b008-97bfb2551cde",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.2.2c",
+          "primary": true
+        },
+        {
+          "id": "eb032ec1-23dc-4524-ac21-376eb57f254c",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.4",
+          "primary": true
+        },
+        {
+          "id": "69f8da21-85aa-41d9-b9f8-b9fd8122b652",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.14",
+          "primary": true
+        },
+        {
+          "id": "0221ec9b-f359-47de-a1e9-f40843caf530",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.15",
+          "primary": true
+        },
+        {
+          "id": "3d7aeefb-691e-4a56-826a-1d6e54b991d1",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.1.9",
+          "primary": true
+        },
+        {
+          "id": "70c17bbd-dda5-4403-8a35-0d10df3236fd",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.3d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-070",
+      "group": "Nerves, muscles and coordination",
+      "title": "The nervous system, brain and responses",
+      "scope": "Organisation of the nervous system, regions of the brain, reflexes, taxes and kineses, the pupil reflex, and nervous versus hormonal coordination.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "5b921fc5-46a4-4137-96bf-ae33478db4cf",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.1a",
+          "primary": true
+        },
+        {
+          "id": "2bb44e29-147b-4766-87e4-c0598c63a7d5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.1d",
+          "primary": true
+        },
+        {
+          "id": "5f8ff5da-9630-4cf8-9a55-fb9a21cd984b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.1e",
+          "primary": true
+        },
+        {
+          "id": "6dd65d31-7d81-4f55-9152-0d9c52145f89",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.1 RP10",
+          "primary": true
+        },
+        {
+          "id": "ab961ffd-8c67-48ee-af02-3a0984bed74b",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.2",
+          "primary": true
+        },
+        {
+          "id": "fff66807-26c1-46bf-adbc-11ff41a61093",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.7",
+          "primary": true
+        },
+        {
+          "id": "d4fd1803-0d5a-44ce-a723-ca3e091b62ac",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.8",
+          "primary": true
+        },
+        {
+          "id": "e653196a-5381-49c2-8818-bac17d13fed3",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.1.2",
+          "primary": true
+        },
+        {
+          "id": "0adefaf4-8a7e-4ef0-94e9-3d6871b1dc9b",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.5g",
+          "primary": true
+        },
+        {
+          "id": "75f897c7-070d-4815-bc05-af25e6ea4654",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.5h",
+          "primary": true
+        },
+        {
+          "id": "a07e82b7-2a11-4e0f-b7f9-70cb3dd7d1f2",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.5i",
+          "primary": true
+        },
+        {
+          "id": "1c41dfd3-e204-4ae9-9c4e-7b36a997e52b",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.5j",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-071",
+      "group": "Nerves, muscles and coordination",
+      "title": "Brain development and research",
+      "scope": "Brain imaging, the critical period in vision, animal models and their ethics, habituation, and nature versus nurture in brain development.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "d29d97bc-6755-4c5d-84c8-8ceafb1ba2bb",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.9",
+          "primary": true
+        },
+        {
+          "id": "0846dc35-05f4-44c9-83ae-3bea8180870f",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.10",
+          "primary": true
+        },
+        {
+          "id": "6d7f6e0f-3eb9-4b9a-baa4-9d9c910c334f",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.11",
+          "primary": true
+        },
+        {
+          "id": "39970938-7dcd-4df2-800d-78ad2043b9dc",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.12",
+          "primary": true
+        },
+        {
+          "id": "5110f4aa-e7e9-4210-aa4c-b19db8c710b0",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.13",
+          "primary": true
+        },
+        {
+          "id": "7c9e87f6-63e8-4d53-9e3a-6c5b76a06288",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.19",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-072",
+      "group": "Nerves, muscles and coordination",
+      "title": "Muscle contraction",
+      "scope": "Skeletal muscle structure, the neuromuscular junction, the sliding filament model, and fast and slow twitch fibres.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b85230e3-06ee-42a1-af7d-79106f3c1124",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.3a",
+          "primary": true
+        },
+        {
+          "id": "aa9e64d6-41de-42d6-9f5e-cf2ea20b2027",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.3b",
+          "primary": true
+        },
+        {
+          "id": "6b0e1a64-be65-4367-894e-ae496c1849a4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.3c",
+          "primary": true
+        },
+        {
+          "id": "da1a072d-f22a-4b42-9391-8ae8fd7e9972",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.3d",
+          "primary": true
+        },
+        {
+          "id": "3cec92c6-6c28-4fa4-b3a6-46db36bd99f1",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.3e",
+          "primary": true
+        },
+        {
+          "id": "944b1011-f64b-4e6e-b249-0a2b0ff4d430",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.3f",
+          "primary": true
+        },
+        {
+          "id": "a9515269-5ffe-42ea-b236-8cec5290f5a5",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.1",
+          "primary": true
+        },
+        {
+          "id": "39215867-d5a9-44fa-b11e-361f8504edbb",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.2",
+          "primary": true
+        },
+        {
+          "id": "27ce4138-10b3-49cc-aa21-5d90ab0fc917",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.10",
+          "primary": true
+        },
+        {
+          "id": "6ea35aa6-0d7e-4db4-b4fb-8cfecd4dc83b",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.1.10",
+          "primary": true
+        },
+        {
+          "id": "bca47801-ba53-4c05-940c-68b41f2f1313",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.1.11",
+          "primary": true
+        },
+        {
+          "id": "c76a6734-99d2-4065-8292-6198c1782f6d",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.1.12",
+          "primary": true
+        },
+        {
+          "id": "4eb55188-d591-4351-82ff-634ec6b11d16",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.5l",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-073",
+      "group": "Nerves, muscles and coordination",
+      "title": "Exercise, sport and health",
+      "scope": "Effects of too much or too little exercise, medical technology in sport, and ethics of performance-enhancing drugs.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "11a05a68-d50c-4ae2-bb8a-87c787a141cd",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.13",
+          "primary": true
+        },
+        {
+          "id": "c0187cd7-3f73-4a0d-a7a0-21cdcb587190",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.14",
+          "primary": true
+        },
+        {
+          "id": "3fe398e3-7f73-4734-bb46-6d120032e36a",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.15",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-074",
+      "group": "Homeostasis and plant responses",
+      "title": "Principles of homeostasis and thermoregulation",
+      "scope": "Negative and positive feedback, cell signalling, and temperature control in ectotherms and endotherms.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "df5c1e9c-9787-4aac-939b-1a30627e8e6c",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.1a",
+          "primary": true
+        },
+        {
+          "id": "7ce89df9-b04e-4c11-bcbd-303d8e5e29f9",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.1b",
+          "primary": true
+        },
+        {
+          "id": "66a524c8-c1c1-4e55-8625-cc27d01082c7",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.1c",
+          "primary": true
+        },
+        {
+          "id": "60d5c08c-2112-4db9-8366-711ac17a5142",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.1d",
+          "primary": true
+        },
+        {
+          "id": "283fa121-df81-4303-b055-bf8348bd15c3",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.1e",
+          "primary": true
+        },
+        {
+          "id": "0bef6829-2955-412e-b9bb-889dd78531eb",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.11",
+          "primary": true
+        },
+        {
+          "id": "e3d0571a-c464-42d0-8539-ba0545f3dbcb",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.12",
+          "primary": true
+        },
+        {
+          "id": "962ce56c-913a-4c8d-949d-7e48ac573b61",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.1.1",
+          "primary": true
+        },
+        {
+          "id": "d0e02468-9200-4fe4-9161-db801ea1c34e",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.1.2",
+          "primary": true
+        },
+        {
+          "id": "1fcebce1-949a-46cf-8857-5d1500edd959",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.1a",
+          "primary": true
+        },
+        {
+          "id": "8d3d368c-06e4-4508-a50b-9de47d63e9a7",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.1b",
+          "primary": true
+        },
+        {
+          "id": "d554b096-8c2b-4b50-b17d-685e85f36e21",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.1c",
+          "primary": true
+        },
+        {
+          "id": "58bcb934-8932-4aa6-b0f1-762c4687fe50",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.1d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-075",
+      "group": "Homeostasis and plant responses",
+      "title": "Hormones and blood glucose",
+      "scope": "The endocrine system and adrenal glands, insulin and glucagon, second messengers, diabetes and its treatment, and glucose biosensors.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "31e0020e-0950-4e53-aca3-0d8bd795dcd9",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2a",
+          "primary": true
+        },
+        {
+          "id": "c810f032-b6f9-4f21-817d-65ae98e998de",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2b",
+          "primary": true
+        },
+        {
+          "id": "dd61f0fc-caed-4805-b20d-dbebd0cc2b3f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2c",
+          "primary": true
+        },
+        {
+          "id": "4bd9e1b1-30fe-4c11-932f-e925c0037e6f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2d",
+          "primary": true
+        },
+        {
+          "id": "20e2bcfe-a26e-448b-b6c4-a933f05864d3",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2e",
+          "primary": true
+        },
+        {
+          "id": "e5b502d2-d71e-4e03-aee1-2745fbd55a1e",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2f",
+          "primary": true
+        },
+        {
+          "id": "debea751-922e-4479-9512-55783840c253",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2g",
+          "primary": true
+        },
+        {
+          "id": "ad4d235b-07ee-4724-8a9c-1b73d411b47f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.2 RP11",
+          "primary": true
+        },
+        {
+          "id": "d2883f46-936a-49c5-8342-d6fd8152433b",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.1.9",
+          "primary": true
+        },
+        {
+          "id": "680d152b-7885-400e-8ca0-878ffe0a1abb",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.1.10",
+          "primary": true
+        },
+        {
+          "id": "ed5206b6-1136-4ce4-9533-908e66527603",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.1.11",
+          "primary": true
+        },
+        {
+          "id": "bd561149-a3ad-45d4-8b05-49b70671cdb4",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.1.1",
+          "primary": true
+        },
+        {
+          "id": "afaa2963-4f4d-4934-a11f-976e2bea7773",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.4a",
+          "primary": true
+        },
+        {
+          "id": "ac2d4a17-51d0-4382-b39c-8d89b51aac17",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.4b",
+          "primary": true
+        },
+        {
+          "id": "f2d89089-ef63-4b18-830b-84794267d9f0",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.4c",
+          "primary": true
+        },
+        {
+          "id": "324ddd42-18b0-4881-9778-bb3c90b06fcc",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.4d",
+          "primary": true
+        },
+        {
+          "id": "d7421329-56d2-4431-89f6-5ed6a543fab5",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.4e",
+          "primary": true
+        },
+        {
+          "id": "88c9cb6e-b8b0-403b-afa1-3b7dac0a975d",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.4f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-076",
+      "group": "Homeostasis and plant responses",
+      "title": "The liver and excretion",
+      "scope": "Excretion, the liver and deamination, kidney failure and its treatment, and urine in diagnosis.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a64c7df1-f818-4118-b449-e93f3bf04dd7",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.1.3",
+          "primary": true
+        },
+        {
+          "id": "95b774df-f2fc-4fdb-8618-f1fe59f62a97",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.2a",
+          "primary": true
+        },
+        {
+          "id": "e17707f8-5f18-4bd2-93ff-21c099b9d522",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.2b",
+          "primary": true
+        },
+        {
+          "id": "0a4b4bb0-8455-435a-9b1a-81895c96dba0",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.2e",
+          "primary": true
+        },
+        {
+          "id": "6d882c1e-06ef-491f-9455-f1ea374c0492",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.2f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-077",
+      "group": "Homeostasis and plant responses",
+      "title": "The kidney and osmoregulation",
+      "scope": "Nephron structure, ultrafiltration and selective reabsorption, the loop of Henle, and control of blood water potential by ADH.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "bb22f9c0-e98b-4f84-92fb-030c5cc3815f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.3a",
+          "primary": true
+        },
+        {
+          "id": "bd56741d-d3d3-40ca-b52f-066113ae59e8",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.3b",
+          "primary": true
+        },
+        {
+          "id": "eec2f39d-c31b-4ea0-b014-0d79125a172f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.4.3c",
+          "primary": true
+        },
+        {
+          "id": "7ee10adc-d35a-43f9-9e6b-b73c5146aaf4",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.1.4",
+          "primary": true
+        },
+        {
+          "id": "dac10bed-ce69-4f6f-a4a7-10b65a12b8a7",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.1.5",
+          "primary": true
+        },
+        {
+          "id": "76dc9212-4d02-4f79-9b64-17a7d3c64b12",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.1.6",
+          "primary": true
+        },
+        {
+          "id": "ce2dba4a-81df-4e89-8fd1-7aa9cd4eff1f",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.1.7",
+          "primary": true
+        },
+        {
+          "id": "fa3a3a61-d8cf-48df-a766-863b4e7937d5",
+          "board": "cambridge_alevel",
+          "code": "CAIE 14.1.8",
+          "primary": true
+        },
+        {
+          "id": "8e0daf18-56f6-43d6-9969-38e2ef24fb6b",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.2c",
+          "primary": true
+        },
+        {
+          "id": "5f32215c-066e-435e-8934-7934062ad68d",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.2d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-078",
+      "group": "Homeostasis and plant responses",
+      "title": "Plant responses and hormones",
+      "scope": "Tropisms, auxin, gibberellins, abscisic acid and phytochrome, rapid responses such as the Venus fly trap, and commercial uses of plant hormones.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "5a7dfcb4-2753-4093-b1f3-00c341f54162",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.1b",
+          "primary": true
+        },
+        {
+          "id": "8ce2a4e7-78f7-46ee-8a5c-e9bdf98044db",
+          "board": "aqa_alevel",
+          "code": "AQA 3.6.1.1c",
+          "primary": true
+        },
+        {
+          "id": "edbfb557-ba32-4856-90f6-08ad096c62f5",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.6",
+          "primary": true
+        },
+        {
+          "id": "f00f50a4-142e-466b-8974-900e1fb921cb",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.2.1",
+          "primary": true
+        },
+        {
+          "id": "cf583b07-5833-42a1-8ec0-5265174df4ef",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.2.2",
+          "primary": true
+        },
+        {
+          "id": "42b9a0fe-8b7c-4eb7-8d89-6dd59647c7c0",
+          "board": "cambridge_alevel",
+          "code": "CAIE 15.2.3",
+          "primary": true
+        },
+        {
+          "id": "5fdad034-860c-44d3-868d-777ca926123c",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.5a",
+          "primary": true
+        },
+        {
+          "id": "038ba67f-0a3e-43b0-b9f7-58f764376a54",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.5b",
+          "primary": true
+        },
+        {
+          "id": "65ef585d-730f-4af7-b407-216c8e1ba1cf",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.5c",
+          "primary": true
+        },
+        {
+          "id": "4b8432f7-2509-446b-8ea5-ed8db571da66",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.5d",
+          "primary": true
+        },
+        {
+          "id": "5fd6b376-33d0-436f-9820-da95b3083655",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.5e",
+          "primary": true
+        },
+        {
+          "id": "1eb414a6-5335-4418-944d-2b609164a4ab",
+          "board": "ocr_alevel",
+          "code": "OCR 5.1.5f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-079",
+      "group": "Genetic technology and biotechnology",
+      "title": "Genome sequencing and bioinformatics",
+      "scope": "DNA sequencing methods, genome projects, comparing genomes and proteomes, microarrays, sequence databases and personalised medicine.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "bc23f930-ba89-4bed-8427-80631ead5b62",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.3a",
+          "primary": true
+        },
+        {
+          "id": "e9d88ba7-f00b-4d83-bb9b-a9c83a782ce5",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.3b",
+          "primary": true
+        },
+        {
+          "id": "11aada2a-07c2-442a-99e8-41a09296dc0d",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.3c",
+          "primary": true
+        },
+        {
+          "id": "3f3eca57-99f3-4d8a-ac18-ddd01ce9b6fa",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.3d",
+          "primary": true
+        },
+        {
+          "id": "4328aa1c-e069-48c4-91b4-abdc76b94b3c",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.16",
+          "primary": true
+        },
+        {
+          "id": "6669d005-ee39-4d19-b6de-679de7ec1acf",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.1.10",
+          "primary": true
+        },
+        {
+          "id": "1eacf6a8-bae4-4902-abf3-87c47eecc9e2",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.1.11",
+          "primary": true
+        },
+        {
+          "id": "b306798f-7c01-4134-a658-7bc2b952a43c",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.3a",
+          "primary": true
+        },
+        {
+          "id": "b0c23de2-5106-4073-b1e6-e1e7e5d16b5f",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.3b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-080",
+      "group": "Genetic technology and biotechnology",
+      "title": "PCR, electrophoresis and DNA profiling",
+      "scope": "Amplifying DNA by PCR, separating fragments by gel electrophoresis, and using DNA profiles for identification and relationships.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "0a41af38-dc40-4979-99ca-5c31329ce4d0",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.3a",
+          "primary": true
+        },
+        {
+          "id": "7c71ce83-c756-4699-b37d-5a862ad0284f",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.3b",
+          "primary": true
+        },
+        {
+          "id": "3a0bb1cd-b4d6-414a-99ae-6a0939c30f0a",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.3c",
+          "primary": true
+        },
+        {
+          "id": "76427d4f-d479-4c95-86b6-5b71954ee13c",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.1d",
+          "primary": false
+        },
+        {
+          "id": "38d2c20e-b062-4f58-8869-48bd24515d43",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.3",
+          "primary": true
+        },
+        {
+          "id": "67accd59-dabe-4225-afa3-66fd829d9448",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.4",
+          "primary": true
+        },
+        {
+          "id": "38700893-9329-4b5f-b851-859740d63f86",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.1.8",
+          "primary": true
+        },
+        {
+          "id": "ddeac56e-83d5-4d3f-8827-78b01115e262",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.1.9",
+          "primary": true
+        },
+        {
+          "id": "5934823d-a54a-4bc5-af4f-69e3e86ad3d5",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.3c",
+          "primary": true
+        },
+        {
+          "id": "c22831a0-0fb0-4e4d-9dc3-7cff8880a364",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.3d",
+          "primary": true
+        },
+        {
+          "id": "81d77acf-5e34-4d4b-be8c-e4fa9052f20e",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.3e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-081",
+      "group": "Genetic technology and biotechnology",
+      "title": "Recombinant DNA technology",
+      "scope": "Isolating genes, restriction enzymes, ligase, vectors, promoters and marker genes, gene editing, and making recombinant proteins.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "578e6034-7686-411f-ac0b-7cb8f063971b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.1a",
+          "primary": true
+        },
+        {
+          "id": "a25abe32-dae0-4639-8b31-bba584cca3eb",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.1b",
+          "primary": true
+        },
+        {
+          "id": "b79e1f1d-fea2-4f98-842c-8bb49474cd52",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.1c",
+          "primary": true
+        },
+        {
+          "id": "76427d4f-d479-4c95-86b6-5b71954ee13c",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.1d",
+          "primary": true
+        },
+        {
+          "id": "16419fa6-849b-4856-b06a-0d53d43bc8a4",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.1e",
+          "primary": true
+        },
+        {
+          "id": "a8861253-6d5d-4505-9635-7c2bdb111fe8",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.17",
+          "primary": true
+        },
+        {
+          "id": "0b9fa89d-ba51-457e-99f5-0981e7c6c314",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.1.1",
+          "primary": true
+        },
+        {
+          "id": "cda3bfb2-9345-4682-b0d0-a93d1f0851a8",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.1.2",
+          "primary": true
+        },
+        {
+          "id": "916308dc-924b-43ed-8c83-f6461b95f2a0",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.1.3",
+          "primary": true
+        },
+        {
+          "id": "51404d1d-2eff-4f96-b7eb-9073cc2d6e5b",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.1.4",
+          "primary": true
+        },
+        {
+          "id": "4672e4e4-291b-4bff-9e92-d238dccef3fd",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.1.5",
+          "primary": true
+        },
+        {
+          "id": "a68b68e2-08f7-4381-96b0-ef58e85150ff",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.1.6",
+          "primary": true
+        },
+        {
+          "id": "ba308e08-f684-4261-ab65-39f694ce820d",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.1.7",
+          "primary": true
+        },
+        {
+          "id": "e6eaf925-c8f7-40fc-825d-a83c79a4af52",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.2.1",
+          "primary": true
+        },
+        {
+          "id": "bc236e29-5044-4357-8451-27fe102b2e51",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.3f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-082",
+      "group": "Genetic technology and biotechnology",
+      "title": "Gene therapy and GMOs",
+      "scope": "Gene therapy, genetically modified crops and animals for food, and the ethical and social issues they raise.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "578e6034-7686-411f-ac0b-7cb8f063971b",
+          "board": "aqa_alevel",
+          "code": "AQA 3.8.4.1a",
+          "primary": false
+        },
+        {
+          "id": "eb410971-82fa-4095-94ce-b8220a9d915d",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.18",
+          "primary": true
+        },
+        {
+          "id": "b150cd0b-4d99-490e-a8d7-86bf28709500",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.2.3",
+          "primary": true
+        },
+        {
+          "id": "59fb3c05-6915-4e29-9fca-9399d13eac25",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.3.1",
+          "primary": true
+        },
+        {
+          "id": "58e537de-4744-4e86-a670-e38d19618e8f",
+          "board": "cambridge_alevel",
+          "code": "CAIE 19.3.2",
+          "primary": true
+        },
+        {
+          "id": "870c49cd-b632-4812-9cd7-1cf722c38335",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.3g",
+          "primary": true
+        },
+        {
+          "id": "e66f6b39-e7ea-44bc-905f-da2505afc13d",
+          "board": "ocr_alevel",
+          "code": "OCR 6.1.3h",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-083",
+      "group": "Genetic technology and biotechnology",
+      "title": "Cloning",
+      "scope": "Natural and artificial cloning in plants and animals, including cuttings, tissue culture, embryo twinning and SCNT.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "990628bf-d974-47bd-8fa7-f1cce5ab463c",
+          "board": "ocr_alevel",
+          "code": "OCR 6.2.1a",
+          "primary": true
+        },
+        {
+          "id": "8703dee0-a100-4c48-a91c-1c8b20940260",
+          "board": "ocr_alevel",
+          "code": "OCR 6.2.1b",
+          "primary": true
+        },
+        {
+          "id": "ff4c6ecb-07c6-426a-aeb1-8071f8527415",
+          "board": "ocr_alevel",
+          "code": "OCR 6.2.1c",
+          "primary": true
+        },
+        {
+          "id": "65ed8a92-0081-4ada-9d1b-c51e73be1ebe",
+          "board": "ocr_alevel",
+          "code": "OCR 6.2.1d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-084",
+      "group": "Genetic technology and biotechnology",
+      "title": "Microorganisms and enzymes in biotechnology",
+      "scope": "Culturing microorganisms aseptically, batch and continuous fermentation, growth curves, food production, and immobilised enzymes.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "1270e661-38b6-4313-866c-1cfc21130f14",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.14",
+          "primary": true
+        },
+        {
+          "id": "e2144dfa-7e79-41a5-a814-844a3f016be0",
+          "board": "ocr_alevel",
+          "code": "OCR 6.2.1e",
+          "primary": true
+        },
+        {
+          "id": "d8fd817b-3298-44f6-9d3f-e2e0e7858a8f",
+          "board": "ocr_alevel",
+          "code": "OCR 6.2.1f",
+          "primary": true
+        },
+        {
+          "id": "85469ba4-1731-40e0-bcfe-9ac7b5d9656f",
+          "board": "ocr_alevel",
+          "code": "OCR 6.2.1g",
+          "primary": true
+        },
+        {
+          "id": "d80171ba-5ccc-4ef2-966f-ce4a16a0cd1b",
+          "board": "ocr_alevel",
+          "code": "OCR 6.2.1h",
+          "primary": true
+        },
+        {
+          "id": "8033d460-221e-4805-99ad-afa0b2805004",
+          "board": "ocr_alevel",
+          "code": "OCR 6.2.1i",
+          "primary": true
+        },
+        {
+          "id": "c261682b-1590-40a5-be88-abb3e9a22668",
+          "board": "cambridge_alevel",
+          "code": "CAIE 3.2.4",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-085",
+      "group": "Practical skills",
+      "title": "Planning and evaluating experiments",
+      "scope": "Designing investigations, identifying and controlling variables, safety and ethics, keeping records, research and citations, and evaluating methods and results.",
+      "kind": "skills",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "16960571-27ab-4ec2-a4b2-619ff642058b",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.1a",
+          "primary": true
+        },
+        {
+          "id": "3c938427-4013-413a-bf79-42178ea6548b",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.1b",
+          "primary": true
+        },
+        {
+          "id": "07fb2634-79f1-4c6c-a2f3-97136f37ef8d",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.1c",
+          "primary": true
+        },
+        {
+          "id": "116cb055-fd48-49ad-b545-de13281f1beb",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.4a",
+          "primary": true
+        },
+        {
+          "id": "4640ec48-79f3-48ba-b8c8-c4573bfae060",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.4b",
+          "primary": true
+        },
+        {
+          "id": "7b5350c3-4d06-4380-9d0f-69bff12c4506",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.4c",
+          "primary": true
+        },
+        {
+          "id": "24a0b54d-23e4-42a9-bffb-1ad800f12d2a",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.4d",
+          "primary": true
+        },
+        {
+          "id": "9bff6ca7-6e85-4c76-a1af-e4083caec6f0",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.4e",
+          "primary": true
+        },
+        {
+          "id": "6db9dd85-a72d-4638-b044-148111674f29",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.1a",
+          "primary": true
+        },
+        {
+          "id": "aeae3d72-e5f9-49a7-997d-b85244593d82",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.1b",
+          "primary": true
+        },
+        {
+          "id": "22d23d04-bca0-41ba-bf36-fb9967269997",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.1c",
+          "primary": true
+        },
+        {
+          "id": "01240f3c-3daa-43a4-8b7d-9e0c75edc7d4",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.1d",
+          "primary": true
+        },
+        {
+          "id": "ba3a8e22-54f2-4c89-bcb7-26bdbfdd5304",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.1e",
+          "primary": true
+        },
+        {
+          "id": "e9bc771a-5c52-4b40-a374-56fc11dab69d",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.1f",
+          "primary": true
+        },
+        {
+          "id": "a71ce5c3-bf6b-46a7-a345-fc781f22ea0b",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.1h",
+          "primary": true
+        },
+        {
+          "id": "e6542ae2-cb6f-4092-a0d1-8af3ed1826ac",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.1i",
+          "primary": true
+        },
+        {
+          "id": "8b201abf-e093-4ffd-a891-63de4a54c38a",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.2h",
+          "primary": true
+        },
+        {
+          "id": "db3e6ef1-6762-4859-a599-1775161eeecc",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.17",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-086",
+      "group": "Practical skills",
+      "title": "Data handling and statistics",
+      "scope": "Units, significant figures, graphs, processing data, and choosing and using statistical tests such as the t-test and correlation coefficients.",
+      "kind": "skills",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "ac7b1c84-8478-456a-8597-2c306ecd0df8",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.2b",
+          "primary": true
+        },
+        {
+          "id": "d2b0dacb-a2ac-4918-bc7d-9e519023f72d",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.2c",
+          "primary": true
+        },
+        {
+          "id": "fb9087c0-3ca3-4af8-b913-6a1fa1d288c5",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.3a",
+          "primary": true
+        },
+        {
+          "id": "086324be-86b4-44a0-b98c-d6a671d4228c",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.3b",
+          "primary": true
+        },
+        {
+          "id": "893948f4-bd7d-40df-8cf8-cde339413cd5",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.3c",
+          "primary": true
+        },
+        {
+          "id": "c1f49978-7d8e-4558-af02-90b1bab9b1b6",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.3d",
+          "primary": true
+        },
+        {
+          "id": "89cbe921-1e15-41bd-b920-dfece669a549",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.1g",
+          "primary": true
+        },
+        {
+          "id": "7e097745-41de-4abd-9718-539b8e6b5a1c",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.2l",
+          "primary": true
+        },
+        {
+          "id": "d07a8d92-c4fd-4edd-9fed-78dab65fba66",
+          "board": "cambridge_alevel",
+          "code": "CAIE 17.1.4",
+          "primary": true
+        },
+        {
+          "id": "82bf0859-e9d7-4843-b600-650138471918",
+          "board": "cambridge_alevel",
+          "code": "CAIE 18.2.5",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-087",
+      "group": "Practical skills",
+      "title": "Laboratory techniques and apparatus",
+      "scope": "Using measuring apparatus, colorimeters, potometers, serial dilutions, microscopes, chromatography, electrophoresis, aseptic technique and dissection.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c28b846d-43e7-4ea5-a1b6-9a104e6c13c7",
+          "board": "ocr_alevel",
+          "code": "OCR 1.1.2a",
+          "primary": true
+        },
+        {
+          "id": "e7293f14-84b5-4ef0-a594-40a70cd19782",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.1j",
+          "primary": true
+        },
+        {
+          "id": "003445c9-301c-4e94-9aca-824c89c30b92",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.2a",
+          "primary": true
+        },
+        {
+          "id": "527358dc-8afb-42ad-9c8c-b4f57ebc8481",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.2b",
+          "primary": true
+        },
+        {
+          "id": "0d0062e0-2e54-4a51-a771-401a86f35970",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.2c",
+          "primary": true
+        },
+        {
+          "id": "1a1b04c1-0eb5-4aa5-be79-6d810d132940",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.2d",
+          "primary": true
+        },
+        {
+          "id": "51c6d0bc-6edd-4e24-9943-173f4d0e9a6e",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.2e",
+          "primary": true
+        },
+        {
+          "id": "ebc3e317-1c94-4c52-a6e5-028ef4f725c6",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.2f",
+          "primary": true
+        },
+        {
+          "id": "d779801e-8b7e-4cd2-8a01-d260815f776e",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.2g",
+          "primary": true
+        },
+        {
+          "id": "3ca62e44-9910-449e-b9ce-ccd104a195ad",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.2i",
+          "primary": true
+        },
+        {
+          "id": "8a0cd25f-86f4-4a65-9d20-22923769dfda",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.2j",
+          "primary": true
+        },
+        {
+          "id": "f930d58a-75db-483e-982d-2af1b3d3fa61",
+          "board": "ocr_alevel",
+          "code": "OCR 1.2.2k",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-088",
+      "group": "Practical skills",
+      "title": "Core practicals: biochemistry and enzymes",
+      "scope": "Vitamin C content, enzyme concentration and initial rate, temperature and Q10, and following enzyme reactions with catalase, amylase and a colorimeter.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "10250da8-7a94-4268-9f9c-68708419e908",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.CP2",
+          "primary": true
+        },
+        {
+          "id": "9858c9a3-32c8-41af-b6da-266de770053f",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.CP4",
+          "primary": true
+        },
+        {
+          "id": "b9f7bd57-057a-4300-988f-52b2ea7b82dd",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.CP12",
+          "primary": true
+        },
+        {
+          "id": "28935153-21e7-4532-9b0c-16fb7be5bdff",
+          "board": "cambridge_alevel",
+          "code": "CAIE 3.1.3",
+          "primary": true
+        },
+        {
+          "id": "9e46402c-0650-4bd4-9e3c-699fc02181ee",
+          "board": "cambridge_alevel",
+          "code": "CAIE 3.1.4",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-089",
+      "group": "Practical skills",
+      "title": "Core practicals: cells and physiology",
+      "scope": "Daphnia heart rate, membrane permeability, root tip squash, respiration rate, spirometer traces and habituation.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "ddea7c7a-963e-4613-90fd-738201351036",
+          "board": "edexcel_alevel",
+          "code": "EDEX 1.CP1",
+          "primary": true
+        },
+        {
+          "id": "cf65cc1f-53a0-4df9-8490-219730efba9b",
+          "board": "edexcel_alevel",
+          "code": "EDEX 2.CP3",
+          "primary": true
+        },
+        {
+          "id": "a5eca6db-ac8b-4611-85f1-9c49206756de",
+          "board": "edexcel_alevel",
+          "code": "EDEX 3.CP5",
+          "primary": true
+        },
+        {
+          "id": "ac32eb53-e83f-4270-8516-b0beb7ab1b88",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.CP16",
+          "primary": true
+        },
+        {
+          "id": "d4ec5ca0-1efb-407f-9339-6a37913d46bf",
+          "board": "edexcel_alevel",
+          "code": "EDEX 7.CP17",
+          "primary": true
+        },
+        {
+          "id": "ee89157d-0087-4927-8662-97d0f2f08d45",
+          "board": "edexcel_alevel",
+          "code": "EDEX 8.CP18",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "abio-090",
+      "group": "Practical skills",
+      "title": "Core practicals: plants, microbes and ecology",
+      "scope": "Plant tissues and fibres, mineral deficiencies, antimicrobial properties and antibiotics, the Hill reaction, development and temperature, gel electrophoresis and field ecology.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "646bbabc-c366-443b-a9e8-b7541376069e",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.CP6",
+          "primary": true
+        },
+        {
+          "id": "7e1177c9-8008-4d48-b679-478ecb4a9218",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.CP7",
+          "primary": true
+        },
+        {
+          "id": "190d82ef-9436-4ca3-8b4f-31965de18297",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.CP8",
+          "primary": true
+        },
+        {
+          "id": "3e0dc737-f55d-4006-8e89-85aa66ae1c75",
+          "board": "edexcel_alevel",
+          "code": "EDEX 4.CP9",
+          "primary": true
+        },
+        {
+          "id": "cc3caae7-9b1b-4510-b2a1-a6ecb08edd4c",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.CP10",
+          "primary": true
+        },
+        {
+          "id": "b072a7ec-ad1b-4930-aa9c-40ff85c5a491",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.CP11",
+          "primary": true
+        },
+        {
+          "id": "e1c23504-d84e-4f65-8e19-16ce48725d2a",
+          "board": "edexcel_alevel",
+          "code": "EDEX 5.CP13",
+          "primary": true
+        },
+        {
+          "id": "1b73473a-fc49-4c76-80ef-c3beaa86f422",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.CP14",
+          "primary": true
+        },
+        {
+          "id": "cd7953a6-37c0-4995-9a2b-5447464a7723",
+          "board": "edexcel_alevel",
+          "code": "EDEX 6.CP15",
+          "primary": true
+        }
+      ]
+    }
+  ]
+}

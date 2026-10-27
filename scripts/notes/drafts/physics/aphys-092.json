@@ -1,0 +1,365 @@
+{
+  "format": 1,
+  "concept_id": "aphys-092",
+  "subject": "physics",
+  "title": "Heat engines and the second law",
+  "key_idea": "A heat engine turns some of the heat from a hot source into work and must reject the rest to a cold sink. Indicator diagrams let us find an engine's power and efficiency. The second law sets a maximum efficiency that depends only on the two temperatures.",
+  "sections": [
+    {
+      "heading": "Petrol and diesel engine cycles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Both engines run a four-stroke cycle in each cylinder. This section covers the strokes and the diagrams that describe them."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A sequencing activity. Put the four strokes of a four-stroke engine cycle in the correct order.",
+            "prompt": "Put the four strokes in order.",
+            "steps": [
+              "Induction: the piston moves down and draws the mixture or air in.",
+              "Compression: the piston moves up and compresses the gas.",
+              "Power: the burning gas expands and pushes the piston down.",
+              "Exhaust: the piston moves up and pushes the burnt gas out."
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Petrol engine:** a mixture of air and fuel is compressed, then a spark ignites it.",
+            "**Diesel engine:** only air is compressed, to a much higher pressure. Fuel is injected into the hot air and ignites without a spark."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Theoretical cycle",
+              "meaning": "An idealised cycle made of adiabatic, constant-volume and constant-pressure lines with sharp corners."
+            },
+            {
+              "term": "Indicator diagram",
+              "meaning": "A p–V graph measured on a real engine. It is a rounded loop."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Stage",
+            "Theoretical petrol cycle",
+            "Theoretical diesel cycle"
+          ],
+          "rows": [
+            [
+              "Compression",
+              "adiabatic",
+              "adiabatic"
+            ],
+            [
+              "Heating (burning)",
+              "constant volume",
+              "constant pressure"
+            ],
+            [
+              "Expansion (power)",
+              "adiabatic",
+              "adiabatic"
+            ],
+            [
+              "Cooling (exhaust)",
+              "constant volume",
+              "constant volume"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The real indicator diagram has rounded corners and a smaller loop than the theoretical one.",
+            "The reasons include heat lost to the cylinder walls, the valves opening and closing over a period of time, and burning that is not instant.",
+            "The area of the loop is the work done by the gas in one cycle."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Induction, compression, power, exhaust.",
+            "A diesel engine ignites by compression, a petrol engine by a spark.",
+            "The indicator diagram of a real engine is smaller and rounder than the theoretical one."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Power and efficiency of an engine",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The indicator diagram gives the power the gas produces. The shaft gives the power delivered. Their difference is lost to friction."
+        },
+        {
+          "type": "equation",
+          "label": "Input power",
+          "formula": "input power = calorific value × fuel flow rate",
+          "where": [
+            "Calorific value = energy released per kg of fuel (J/kg)",
+            "Fuel flow rate = mass of fuel used per second (kg/s)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Indicated power",
+          "formula": "indicated power = (area of p–V loop) × (cycles per second) × (number of cylinders)",
+          "where": [
+            "Area of loop = work per cycle (J)",
+            "A four-stroke cycle takes two turns of the crankshaft, so cycles per second = shaft turns per second ÷ 2."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Output or brake power",
+          "formula": "P = Tω",
+          "where": [
+            "P = brake power (W)",
+            "T = torque at the output shaft (N m)",
+            "ω = angular speed of the shaft (rad/s)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Friction power",
+          "formula": "friction power = indicated power − brake power"
+        },
+        {
+          "type": "subheading",
+          "text": "Three efficiencies"
+        },
+        {
+          "type": "equation",
+          "label": "Overall efficiency",
+          "formula": "overall efficiency = brake power ÷ input power"
+        },
+        {
+          "type": "equation",
+          "label": "Thermal efficiency",
+          "formula": "thermal efficiency = indicated power ÷ input power"
+        },
+        {
+          "type": "equation",
+          "label": "Mechanical efficiency",
+          "formula": "mechanical efficiency = brake power ÷ indicated power"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Thermal efficiency tells you how well the **fuel energy** becomes work in the gas.",
+            "Mechanical efficiency tells you how much of that work survives friction in the engine.",
+            "Overall efficiency = thermal efficiency × mechanical efficiency."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Questions can use other cycles. They are interpretative and give all the information needed."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Indicated power comes from the loop area, the cycle rate and the cylinders.",
+            "Brake power is Tω. Friction power is the difference.",
+            "Overall = brake ÷ input. Thermal = indicated ÷ input. Mechanical = brake ÷ indicated."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The second law and the limit on efficiency",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The first law alone would allow an engine that turns all its heat into work. In practice no such engine exists."
+        },
+        {
+          "type": "list",
+          "items": [
+            "An engine that took heat from one reservoir and turned all of it into work obeys the first law, but it is **impossible**.",
+            "The **second law** says a heat engine must work between a hot source and a cold sink.",
+            "It takes heat Q_H from the source, does work W and rejects heat Q_C to the sink."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Efficiency of a heat engine",
+          "formula": "efficiency = W ÷ Q_H = (Q_H − Q_C) ÷ Q_H",
+          "where": [
+            "W = work done (J)",
+            "Q_H = heat taken from the source (J)",
+            "Q_C = heat rejected to the sink (J)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Maximum theoretical efficiency",
+          "formula": "maximum efficiency = (T_H − T_C) ÷ T_H",
+          "where": [
+            "T_H = temperature of the source (K)",
+            "T_C = temperature of the sink (K)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider activity. Change the source and sink temperatures and read the maximum theoretical efficiency of an engine.",
+            "inputs": [
+              {
+                "id": "TH",
+                "label": "Source temperature",
+                "unit": "K",
+                "min": 400,
+                "max": 1200,
+                "step": 50,
+                "value": 800
+              },
+              {
+                "id": "TC",
+                "label": "Sink temperature",
+                "unit": "K",
+                "min": 280,
+                "max": 380,
+                "step": 10,
+                "value": 300
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Maximum efficiency",
+                "unit": "%",
+                "formula": "(TH - TC) / TH * 100",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Temperatures must be in **kelvin**.",
+            "A hotter source or a colder sink raises the maximum efficiency.",
+            "The maximum can never reach 100%, because T_C cannot be zero."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why real engines do worse"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Friction between moving parts wastes work.",
+            "Heat is lost through the cylinder walls and in the hot exhaust.",
+            "Real processes are not perfectly reversible, and combustion may be incomplete.",
+            "The gas does not follow the ideal cycle exactly."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Combined heat and power schemes use the heat rejected to the sink, for example to heat buildings. This makes use of both W and Q_H."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A heat engine needs a source and a sink, and must reject heat.",
+            "Maximum efficiency = (T_H − T_C) ÷ T_H, in kelvin.",
+            "Real engines fall short because of friction and heat losses."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Heat pumps and refrigerators",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A reversed heat engine uses work to move heat from cold to hot. The same principle drives refrigerators and heat pumps."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **refrigerator** takes heat Q_C from a cold space and rejects Q_H to the warmer room. Its purpose is to cool the cold space.",
+            "A **heat pump** moves heat from the cold outside to the warm inside. Its purpose is to heat the warm space.",
+            "Work W is put in, so Q_H = Q_C + W."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Coefficient of performance of a refrigerator",
+          "formula": "COP_ref = Q_C ÷ W = Q_C ÷ (Q_H − Q_C) = T_C ÷ (T_H − T_C)"
+        },
+        {
+          "type": "equation",
+          "label": "Coefficient of performance of a heat pump",
+          "formula": "COPₕₚ = Q_H ÷ W = Q_H ÷ (Q_H − Q_C) = T_H ÷ (T_H − T_C)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The temperature forms of the COP give the **maximum** values.",
+            "COP is not limited to 1: a good heat pump delivers several joules of heat for each joule of work.",
+            "The smaller the temperature difference, the larger the COP."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reversed engines move heat from cold to hot using work.",
+            "COP of a refrigerator is Q_C ÷ W. COP of a heat pump is Q_H ÷ W.",
+            "A smaller temperature difference gives a higher COP."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "An engine uses fuel of calorific value 4.4 × 10⁷ J/kg at 2.0 × 10⁻³ kg/s. Its indicated power is 30 kW and its brake power is 24 kW. Calculate its thermal, mechanical and overall efficiencies.",
+      "a": "Input power = 4.4 × 10⁷ × 2.0 × 10⁻³ = 8.8 × 10⁴ W. Thermal = 30 ÷ 88 = 0.34. Mechanical = 24 ÷ 30 = 0.80. Overall = 24 ÷ 88 = 0.27.",
+      "marks": 4
+    },
+    {
+      "q": "A heat engine takes in heat from a source at 900 K and rejects heat to a sink at 300 K. Calculate its maximum theoretical efficiency.",
+      "a": "(T_H − T_C) ÷ T_H = (900 − 300) ÷ 900 = 0.67 (67%).",
+      "marks": 2
+    },
+    {
+      "q": "A heat pump delivers 3.0 kJ of heat to a room for every 1.0 kJ of work supplied. Calculate its coefficient of performance and the heat it takes from outside.",
+      "a": "COP = Q_H ÷ W = 3.0 ÷ 1.0 = 3.0. Q_C = Q_H − W = 3.0 − 1.0 = 2.0 kJ.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.11.2.4",
+        "AQA 3.11.2.5",
+        "AQA 3.11.2.6"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "7b6fc2ee-4e20-4ced-8c12-c86970c15c7c",
+      "4b56ea9f-f3e4-46e1-93c2-350f3e1ed06d",
+      "7777edab-050c-482c-b7d7-2e2edfe1eb47"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

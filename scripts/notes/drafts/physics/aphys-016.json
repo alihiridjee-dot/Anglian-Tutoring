@@ -1,0 +1,345 @@
+{
+  "format": 1,
+  "concept_id": "aphys-016",
+  "subject": "physics",
+  "title": "Work, kinetic and potential energy",
+  "key_idea": "Work done is the energy transferred by a force. It equals force × distance moved in the direction of the force. Energy is never created or destroyed, so work done changes kinetic energy and gravitational potential energy by the same amount.",
+  "sections": [
+    {
+      "heading": "Work done by a force",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A force does work when it moves something. This section covers the size of the work and its link to energy."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Work done",
+              "meaning": "The energy transferred when a force moves an object. It is force × displacement in the direction of the force."
+            },
+            {
+              "term": "Joule (J)",
+              "meaning": "The unit of work and energy. One joule is the work done when a force of 1 N moves an object 1 m in the direction of the force."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Work done",
+          "formula": "W = Fs cos θ",
+          "where": [
+            "W = work done, in J",
+            "F = force, in N",
+            "s = displacement, in m",
+            "θ = angle between the force and the displacement"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Only the component of the force **along the movement** does work: F cos θ.",
+            "If the force is along the movement, θ = 0° and W = Fs.",
+            "If the force is at 90° to the movement, W = 0. A force at right angles does no work.",
+            "The energy transferred to an object is equal to the work done on it."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Work done = Fs cos θ, in joules.",
+            "Only the component of force along the displacement does work.",
+            "Energy transferred = work done."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Conservation of energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Energy can be transferred from one form to another, but the total stays the same."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **principle of conservation of energy**: energy cannot be created or destroyed. It can only be transferred from one form to another.",
+            "The total energy of a closed system is constant.",
+            "Common forms include kinetic, gravitational potential, elastic, thermal, chemical and electrical energy.",
+            "Work done by a force is one way of transferring energy.",
+            "Not all energy ends up as useful energy. Some is transferred to the surroundings as thermal energy."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Total energy is conserved.",
+            "Energy is transferred between forms, for example by work done."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Kinetic and gravitational potential energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Moving objects have kinetic energy. Raised objects have gravitational potential energy."
+        },
+        {
+          "type": "equation",
+          "label": "Kinetic energy",
+          "formula": "Eₖ = ½mv²",
+          "where": [
+            "Eₖ = kinetic energy, in J",
+            "m = mass, in kg",
+            "v = speed, in m/s"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Change in gravitational potential energy",
+          "formula": "ΔEₚ = mgΔh",
+          "where": [
+            "ΔEₚ = change in gravitational potential energy, in J",
+            "m = mass, in kg",
+            "g = gravitational field strength, 9.81 N/kg near the Earth's surface",
+            "Δh = change in height, in m"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The formula for ΔEₚ holds in a uniform gravitational field, so for heights that are small compared with the radius of the Earth."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider showing an object falling from a height. The gravitational potential energy lost equals the kinetic energy gained, so the speed at the bottom depends on the height.",
+            "inputs": [
+              {
+                "id": "m",
+                "label": "Mass",
+                "unit": "kg",
+                "min": 0.5,
+                "max": 10,
+                "step": 0.5,
+                "value": 2
+              },
+              {
+                "id": "h",
+                "label": "Height fallen",
+                "unit": "m",
+                "min": 1,
+                "max": 50,
+                "step": 1,
+                "value": 10
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Gravitational potential energy lost",
+                "unit": "J",
+                "formula": "m * 9.81 * h",
+                "decimals": 1
+              },
+              {
+                "label": "Kinetic energy gained (no air resistance)",
+                "unit": "J",
+                "formula": "m * 9.81 * h",
+                "decimals": 1
+              },
+              {
+                "label": "Speed at the bottom",
+                "unit": "m/s",
+                "formula": "sqrt(2 * 9.81 * h)",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "When an object falls with no resistive forces, potential energy lost = kinetic energy gained.",
+            "Equating them gives ½mv² = mgΔh, so v = √(2gΔh). The mass cancels.",
+            "When an object rises, kinetic energy is transferred to gravitational potential energy."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Eₖ = ½mv² and ΔEₚ = mgΔh.",
+            "Without resistive forces, potential energy lost equals kinetic energy gained."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Where the formulae come from",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Both formulae follow from W = Fs and the equations of motion."
+        },
+        {
+          "type": "subheading",
+          "text": "Gravitational potential energy"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Lift",
+              "text": "Lift a mass m slowly through a height Δh. The lifting force equals the weight, F = mg."
+            },
+            {
+              "lead": "Work",
+              "text": "Work done = Fs = mg × Δh."
+            },
+            {
+              "lead": "Store",
+              "text": "This work is stored as gravitational potential energy, so ΔEₚ = mgΔh."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Kinetic energy"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Accelerate",
+              "text": "A constant resultant force F accelerates a mass m from rest to speed v over a distance s. F = ma."
+            },
+            {
+              "lead": "Motion",
+              "text": "From the equations of motion, v² = 2as, so s = v² / 2a."
+            },
+            {
+              "lead": "Work",
+              "text": "Work done = Fs = ma × v² / 2a = ½mv²."
+            },
+            {
+              "lead": "Store",
+              "text": "This work becomes kinetic energy, so Eₖ = ½mv²."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ΔEₚ = mgΔh comes from W = Fs with F = mg.",
+            "Eₖ = ½mv² comes from W = Fs with F = ma and v² = 2as."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A rope pulls a sledge 12 m along level ground with a force of 80 N at 30° above the horizontal. Calculate the work done by the rope.",
+      "a": "W = Fs cos θ = 80 × 12 × cos 30° = 830 J (831 J).",
+      "marks": 2
+    },
+    {
+      "q": "A 0.40 kg ball is dropped from a height of 5.0 m. Ignoring air resistance, calculate its speed just before it hits the ground.",
+      "a": "mgΔh = ½mv². v = √(2gΔh) = √(2 × 9.81 × 5.0) = 9.9 m/s.",
+      "marks": 3
+    },
+    {
+      "q": "Show that the work done in lifting a mass m through a height Δh at constant speed is mgΔh.",
+      "a": "At constant speed the lifting force equals the weight, F = mg. Work done = force × distance moved in the direction of the force = mg × Δh.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.1.8"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Be ready to use energy conservation both in calculations and in explanations, with work done against resistive forces."
+            },
+            {
+              "type": "list",
+              "items": [
+                "If a resistive force R acts over a distance s, the energy transferred to thermal energy is Rs.",
+                "For a falling object with air resistance: potential energy lost = kinetic energy gained + work done against resistive forces.",
+                "A common method is to find the work done against resistance from the energy that is missing: mgΔh − ½mv²."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.25",
+        "EDEX 2.26",
+        "EDEX 2.27",
+        "EDEX 2.28"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 5.1.1",
+        "CAIE 5.1.2",
+        "CAIE 5.2.1",
+        "CAIE 5.2.2",
+        "CAIE 5.2.3",
+        "CAIE 5.2.4"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.3.1a",
+        "OCR 3.3.1b",
+        "OCR 3.3.1c",
+        "OCR 3.3.1d",
+        "OCR 3.3.1e",
+        "OCR 3.3.2a",
+        "OCR 3.3.2b",
+        "OCR 3.3.2c"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "3b76dcdc-4b5e-4862-bd02-f30202e8b4f3",
+      "ae4c6011-f834-4831-bf5a-be133a380e83",
+      "991a28a8-de3c-4174-a98b-d5a691a51284",
+      "4ce093f7-935e-4926-babe-8764b0cca7fd",
+      "e8d802c7-24b7-4e51-a8a1-6494f9893158",
+      "97077c2e-3794-4d5a-aacd-5c3a3997b8e5",
+      "24bfd83a-953a-4ce4-bb45-27636b2bcad4",
+      "7f4cdcd0-7ab9-4ffd-aca1-b10d185e690f",
+      "8fbb6fb9-daf0-4f8a-a5e9-e39dde59232e",
+      "73d6ca91-389f-42f8-ae43-bc2d77002696",
+      "e7f0c607-ffa7-444f-9e08-29399dd06c02",
+      "8ad87506-3ee0-4797-8103-b6749d407a5a",
+      "82e6f932-f4d6-43ce-8c77-3c586367aab2",
+      "5f21fa0c-4746-4733-ae52-e457a5a0bb56",
+      "38fa5a9e-16f3-4a09-bfed-afb065dc1a3e",
+      "63a4da7b-27f8-4c04-baff-310d611a1564",
+      "932e8f2e-afaa-4b05-9257-65e557a924f0",
+      "ca2c4c67-5ec7-4945-ad41-d72389e67496",
+      "fac5fa44-82e8-4d20-836b-cac44a292942"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

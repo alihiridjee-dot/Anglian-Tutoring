@@ -1,0 +1,289 @@
+{
+  "format": 1,
+  "concept_id": "abio-064",
+  "subject": "biology",
+  "title": "Energy transfer and productivity",
+  "key_idea": "Plants capture light energy as chemical energy in biomass. Gross primary production minus respiratory losses gives net primary production, which is all that is available to other trophic levels. Energy is lost at every transfer, so farming aims to cut these losses.",
+  "sections": [
+    {
+      "heading": "Biomass and primary production",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In any ecosystem, plants make organic compounds from carbon dioxide by photosynthesis. Most of the sugars are used as respiratory substrates. The rest make other biological molecules, which form the plant's biomass."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Biomass is measured as the mass of carbon, or the dry mass of tissue, per given area.",
+            "Dry mass is found by heating a sample at a low temperature until its mass is constant, so all water has gone.",
+            "The chemical energy store in dry biomass can be estimated by **calorimetry**: burning the sample and measuring the heat released."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Gross primary production (GPP)",
+              "meaning": "The chemical energy store in plant biomass in a given area or volume."
+            },
+            {
+              "term": "Net primary production (NPP)",
+              "meaning": "The chemical energy store in plant biomass after respiratory losses to the environment are taken into account."
+            },
+            {
+              "term": "Productivity",
+              "meaning": "The rate of production: biomass in a given area in a given time, for example kJ ha⁻¹ year⁻¹."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Net primary production",
+          "formula": "NPP = GPP − R",
+          "where": [
+            "NPP = net primary production (kJ ha⁻¹ year⁻¹)",
+            "GPP = gross primary production (kJ ha⁻¹ year⁻¹)",
+            "R = energy lost by the plants in respiration (kJ ha⁻¹ year⁻¹)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "NPP is available for plant growth and reproduction. It is also available to other trophic levels, such as herbivores and decomposers."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "GPP is the total energy captured in plant biomass; NPP is what is left after respiration.",
+            "NPP is the energy available to the rest of the food chain."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Production by consumers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Consumers get energy from the food they eat, but they do not keep all of it. Some is lost in waste and some in respiration."
+        },
+        {
+          "type": "equation",
+          "label": "Net production of consumers",
+          "formula": "N = I − (F + R)",
+          "where": [
+            "N = net production of the consumer",
+            "I = chemical energy store in the ingested food",
+            "F = chemical energy lost in faeces and urine",
+            "R = energy lost in respiration"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Secondary productivity is the rate at which consumers make biomass, measured in the same units as primary productivity.",
+            "Much of the food a consumer takes in is not digested, so it is lost in faeces.",
+            "Respiration releases energy for movement and keeping warm, and most of it is lost as heat."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A consumer's net production is food ingested minus the energy lost in faeces, urine and respiration.",
+            "Secondary productivity is the rate of this production in a given area and time."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Efficiency of energy transfer",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Only a small fraction of the energy or biomass at one trophic level reaches the next. Efficiency measures how much is transferred."
+        },
+        {
+          "type": "equation",
+          "label": "Efficiency of transfer",
+          "formula": "efficiency (%) = (biomass transferred ÷ biomass intake) × 100",
+          "where": [
+            "biomass transferred = biomass (or energy) passed to the next trophic level",
+            "biomass intake = biomass (or energy) taken in from the level before"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the efficiency of a transfer between trophic levels.",
+            "question": "A herbivore takes in {intake} kJ of energy from plants. {gained} kJ becomes herbivore biomass. Calculate the percentage efficiency of the transfer.",
+            "variables": [
+              {
+                "id": "intake",
+                "min": 2000,
+                "max": 5000,
+                "step": 500
+              },
+              {
+                "id": "gained",
+                "min": 100,
+                "max": 400,
+                "step": 50
+              }
+            ],
+            "answer": {
+              "formula": "gained / intake * 100",
+              "unit": "%",
+              "decimals": 1
+            },
+            "working": [
+              "efficiency = (biomass transferred ÷ biomass intake) × 100",
+              "efficiency = ({gained} ÷ {intake}) × 100",
+              "efficiency = {answer}%"
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Transfers between trophic levels are usually inefficient, because energy is lost at each stage."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Not all of the biomass is eaten: roots, bones and shells are left.",
+            "Some of what is eaten is not digested and is lost in faeces.",
+            "Energy is lost as heat in respiration and in urine.",
+            "Biomass transfers can be measured by finding the dry mass, or energy content, of each trophic level."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Efficiency = (transferred ÷ intake) × 100.",
+            "Energy is lost between trophic levels through uneaten parts, faeces, urine and respiration."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Farming and energy transfer",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Farming practices aim to raise the efficiency of energy transfer, so more of the energy ends up in food for humans."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Simplify food webs**: use herbicides and pesticides to remove weeds and pests. Less energy is lost to food chains that do not lead to humans.",
+            "**Reduce respiratory losses**: keep livestock in smaller spaces or indoors, with limited movement and kept warm, so less energy goes into movement and heat.",
+            "These methods raise yield but raise ethical and environmental concerns, such as animal welfare and loss of biodiversity."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Farmers raise efficiency by removing competitors and pests and by cutting the respiratory losses of livestock.",
+            "Gains in yield have to be weighed against animal welfare and effects on the environment."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "The GPP of a field is 200 kJ m⁻² year⁻¹ and plant respiration loses 80 kJ m⁻² year⁻¹. Calculate the NPP.",
+      "a": "NPP = GPP − R = 200 − 80 = 120 kJ m⁻² year⁻¹.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why only a small percentage of the energy at one trophic level is passed to the next.",
+      "a": "Some of the biomass is not eaten, some is not digested and is lost in faeces, and some energy is lost in urine and as heat from respiration, so less is used to make new biomass.",
+      "marks": 3
+    },
+    {
+      "q": "Describe two ways in which farmers increase the efficiency of energy transfer.",
+      "a": "Use pesticides or herbicides to simplify the food web, so less energy goes to other food chains; keep livestock indoors with limited movement or in warm conditions, so less energy is lost in respiration.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.5.3a",
+        "AQA 3.5.3b",
+        "AQA 3.5.3c",
+        "AQA 3.5.3d",
+        "AQA 3.5.3e",
+        "AQA 3.5.3f",
+        "AQA 3.5.3g",
+        "AQA 3.5.3h",
+        "AQA 3.5.3i"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Biomass can be measured as mass of carbon or dry mass of tissue per given area.",
+                "The chemical energy store in dry biomass is estimated using calorimetry.",
+                "Calculate the net production of consumers using N = I − (F + R).",
+                "Productivity is measured in units such as kJ ha⁻¹ year⁻¹."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.10",
+        "EDEX 5.11"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.3.1b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know how biomass transfers between trophic levels can be measured.",
+                "Use efficiency = (biomass transferred ÷ biomass intake) × 100.",
+                "Know how human activities can manipulate the transfer of biomass through ecosystems, such as in farming."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "3f0f61c2-f455-4c12-8759-48d441789eb7",
+      "36cfcfa8-0cc8-45d3-9bec-17438b5ce900",
+      "131145c3-2f2d-4258-9feb-eef5788f06d5",
+      "6dcd6170-fae2-4590-8928-bf59d95841d4",
+      "d2b62db4-be0a-42d3-97a4-0eadd4f41956",
+      "fff1b223-fe39-49fa-87e8-a0bf5904ff92",
+      "b19b0964-aa86-415a-b6e0-c7ce936cfc38",
+      "041a7932-56c3-4c69-81ce-7ef321918c1f",
+      "5ede9882-09eb-4c74-98ae-bb00b1839661",
+      "fb1338ca-c18c-4b6d-bfc3-5568235f5c79",
+      "84d9498f-7587-4817-ba72-1b6f642aeb3d",
+      "e21bb37a-4231-4628-92e8-38ebde81a6ff"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

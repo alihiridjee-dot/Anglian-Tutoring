@@ -9,7 +9,7 @@ IGCSE Physics (4PH1) had no videos at all.
 
 ```bash
 set -a && . ./.env && set +a
-python3 scripts/videos/export_points.py         # DB → out/points.json (points with no video)
+python3 scripts/videos/export_points.py         # DB → out/points.json (points with no video); --set alevel for A level
 python3 scripts/videos/harvest.py --fallbacks   # YouTube search → out/cache/
 python3 scripts/videos/match.py                 # rank + oEmbed → out/assignments.json
 python3 scripts/videos/make_batches.py          # → out/review/batch-NN.txt

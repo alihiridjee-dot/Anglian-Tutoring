@@ -19,6 +19,7 @@ import { needsMarkingStart, startMarking } from "@/lib/homework/startMarking";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { usePinSubject } from "@/hooks/useActiveSubject";
 import { useNoCopy } from "@/hooks/useNoCopy";
+import { ExamKit } from "@/components/examKit/ExamKit";
 import { cn } from "@/lib/utils";
 
 export function HomeworkSheetPage() {
@@ -101,112 +102,127 @@ export function HomeworkSheetPage() {
     breaks,
   });
 
+  // A brief set for every board takes the student's own; a tutor previewing
+  // it has none, and gets the sheets every board shares.
+  const board = hw.board ?? enrolments.find((e) => e.subject === hw.subject)?.board ?? null;
+
   return (
     <AppLayout title={hw.title}>
-      {/* The quiz page's width, so the answer boxes don't run the width of a
-          wide screen. */}
+      {/* The exam kit takes the room a wide screen leaves beside the sheet. */}
       <div
-        ref={sheet}
         className={cn(
-          "max-w-3xl",
+          "xl:flex xl:items-start xl:gap-8",
+          // Room to scroll the last answer and Submit clear of the exam kit's
+          // button, which sits over the page's bottom corner below `xl`.
+          questions.length > 0 && "max-xl:pb-20",
           SUBJECT_TINT[hw.subject] ?? "tint-primary",
-          !isTutor && "select-none [-webkit-touch-callout:none] print:hidden",
         )}
       >
-        <BackLink />
+        {/* The quiz page's width, so the answer boxes don't run the width of a
+          wide screen. */}
+        <div
+          ref={sheet}
+          className={cn(
+            "max-w-3xl min-w-0 xl:w-3xl xl:shrink-0",
+            !isTutor && "select-none [-webkit-touch-callout:none] print:hidden",
+          )}
+        >
+          <BackLink />
 
-        {/* Laid out like the front of an exam paper: the title, one plain line
+          {/* Laid out like the front of an exam paper: the title, one plain line
             under it, and the total marks boxed in the corner. The subject needs
             no label — the header slider names it and the tint is its colour. */}
-        <div className="mt-4 flex items-center justify-between gap-4">
-          <div className="min-w-0">
-            <h1 className="font-display text-2xl font-extrabold sm:text-3xl">{hw.title}</h1>
-            <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1.5">
-              <span>
-                {questions.length > 0 &&
-                  `${questions.length} question${questions.length === 1 ? "" : "s"} · `}
-                {hw.origin === "tutor"
-                  ? isTutor
-                    ? "Set by a tutor"
-                    : "Set by your tutor"
-                  : "Practice"}
-                {/* A deadline is only news while it can still be missed. Once
+          <div className="mt-4 flex items-center justify-between gap-4">
+            <div className="min-w-0">
+              <h1 className="font-display text-2xl font-extrabold sm:text-3xl">{hw.title}</h1>
+              <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1.5">
+                <span>
+                  {questions.length > 0 &&
+                    `${questions.length} question${questions.length === 1 ? "" : "s"} · `}
+                  {hw.origin === "tutor"
+                    ? isTutor
+                      ? "Set by a tutor"
+                      : "Set by your tutor"
+                    : "Practice"}
+                  {/* A deadline is only news while it can still be missed. Once
                     the work is in, "Due 3rd September" beside a mark reads as a
                     reproach for something the student already did. */}
-                {hw.due_at &&
-                  !submission &&
-                  (!overdue || isTutor) &&
-                  ` · Due ${plannerDateLabel(new Date(hw.due_at))}`}
-              </span>
-              {/* Overdue is the student's news; a tutor has nothing to hand in. */}
-              {hw.due_at && !submission && overdue && !isTutor && (
-                <span className="chip tint-rose inline-flex items-center gap-1">
-                  <Clock className="size-3" aria-hidden />
-                  Overdue {plannerDateLabel(new Date(hw.due_at))}
+                  {hw.due_at &&
+                    !submission &&
+                    (!overdue || isTutor) &&
+                    ` · Due ${plannerDateLabel(new Date(hw.due_at))}`}
                 </span>
-              )}
+                {/* Overdue is the student's news; a tutor has nothing to hand in. */}
+                {hw.due_at && !submission && overdue && !isTutor && (
+                  <span className="chip tint-rose inline-flex items-center gap-1">
+                    <Clock className="size-3" aria-hidden />
+                    Overdue {plannerDateLabel(new Date(hw.due_at))}
+                  </span>
+                )}
+              </div>
             </div>
+            {questions.length > 0 && <MarksBox marks={totalMarks} size="lg" />}
           </div>
-          {questions.length > 0 && <MarksBox marks={totalMarks} size="lg" />}
-        </div>
 
-        {hw.instructions && (
-          <p className="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed whitespace-pre-wrap">
-            <SciText text={hw.instructions} />
-          </p>
-        )}
-
-        {isTutor && !demo && (
-          <p className="premium-card text-muted-foreground mt-5 p-4 text-sm">
-            This is the sheet as a student sees it, with the mark schemes shown. Marking happens in
-            the queue on the{" "}
-            <Link to="/homework" className="font-semibold underline">
-              Tasks &amp; Grades
-            </Link>{" "}
-            page.
-          </p>
-        )}
-
-        {/* The mark, once it has been released. */}
-        {marked && submission && (
-          <div className="mt-6">
-            <MarkPanel submission={submission} readonly={demo} onChanged={reload} />
-          </div>
-        )}
-
-        {/* Handed in, still inside its review window. */}
-        {submission && !marked && (
-          <div className="mt-6">
-            <AwaitingMark releaseAt={submission.release_at} />
-          </div>
-        )}
-
-        <div className="mt-8">
-          {questions.length === 0 ? (
-            <EmptyState
-              mascot="books"
-              title="Nothing to answer here"
-              body={
-                isTutor
-                  ? "This task has no questions on it yet. Add them with Edit in the task library."
-                  : "This task has no questions on it yet. Your tutor may still be putting it together — check back, or ask them about it."
-              }
-            />
-          ) : (
-            <BuiltInHomework
-              hw={hw}
-              questions={questions}
-              userId={userId}
-              submission={submission ?? undefined}
-              answers={answers}
-              onChanged={reload}
-              // The showcase answers like a student (the form keeps it local);
-              // a tutor signed in to this browser doesn't make it a preview.
-              readonly={isTutor && !demo}
-              showMarkScheme={isTutor}
-            />
+          {hw.instructions && (
+            <p className="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed whitespace-pre-wrap">
+              <SciText text={hw.instructions} />
+            </p>
           )}
+
+          {isTutor && !demo && (
+            <p className="premium-card text-muted-foreground mt-5 p-4 text-sm">
+              This is the sheet as a student sees it, with the mark schemes shown. Marking happens
+              in the queue on the{" "}
+              <Link to="/homework" className="font-semibold underline">
+                Tasks &amp; Grades
+              </Link>{" "}
+              page.
+            </p>
+          )}
+
+          {/* The mark, once it has been released. */}
+          {marked && submission && (
+            <div className="mt-6">
+              <MarkPanel submission={submission} readonly={demo} onChanged={reload} />
+            </div>
+          )}
+
+          {/* Handed in, still inside its review window. */}
+          {submission && !marked && (
+            <div className="mt-6">
+              <AwaitingMark releaseAt={submission.release_at} />
+            </div>
+          )}
+
+          <div className="mt-8">
+            {questions.length === 0 ? (
+              <EmptyState
+                mascot="books"
+                title="Nothing to answer here"
+                body={
+                  isTutor
+                    ? "This task has no questions on it yet. Add them with Edit in the task library."
+                    : "This task has no questions on it yet. Your tutor may still be putting it together — check back, or ask them about it."
+                }
+              />
+            ) : (
+              <BuiltInHomework
+                hw={hw}
+                questions={questions}
+                userId={userId}
+                submission={submission ?? undefined}
+                answers={answers}
+                onChanged={reload}
+                // The showcase answers like a student (the form keeps it local);
+                // a tutor signed in to this browser doesn't make it a preview.
+                readonly={isTutor && !demo}
+                showMarkScheme={isTutor}
+              />
+            )}
+          </div>
         </div>
+        {questions.length > 0 && <ExamKit subject={hw.subject} board={board} level={hw.level} />}
       </div>
     </AppLayout>
   );

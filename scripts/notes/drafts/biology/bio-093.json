@@ -29,7 +29,7 @@
             },
             {
               "term": "Non-coding DNA",
-              "meaning": "The parts of DNA that do not code for a protein. Only about 1% of human DNA codes for proteins."
+              "meaning": "(Higher tier) The parts of DNA that do not code for a protein. Only about 1% of human DNA codes for proteins."
             }
           ]
         },
@@ -46,14 +46,14 @@
           "type": "key-points",
           "items": [
             "A mutation is a change in DNA.",
-            "It can be in coding DNA or in non-coding DNA.",
+            "(Higher tier) It can be in coding DNA or in non-coding DNA.",
             "Copying errors and radiation can cause mutations."
           ]
         }
       ]
     },
     {
-      "heading": "Mutations in coding DNA",
+      "heading": "Mutations in coding DNA (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -107,7 +107,7 @@
       ]
     },
     {
-      "heading": "Mutations in non-coding DNA",
+      "heading": "Mutations in non-coding DNA (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
@@ -187,12 +187,12 @@
       "marks": 1
     },
     {
-      "q": "Explain how a change in one amino acid in an enzyme could stop the enzyme working.",
+      "q": "(Higher tier) Explain how a change in one amino acid in an enzyme could stop the enzyme working.",
       "a": "A different protein shape is made. The active site is changed, so the substrate does not fit or bind.",
       "marks": 3
     },
     {
-      "q": "Describe how a mutation in the non-coding region of a gene can lead to less protein being made.",
+      "q": "(Higher tier) Describe how a mutation in the non-coding region of a gene can lead to less protein being made.",
       "a": "RNA polymerase binds less well (or cannot bind), so less mRNA is made.",
       "marks": 2
     }

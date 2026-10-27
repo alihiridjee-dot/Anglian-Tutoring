@@ -1,0 +1,488 @@
+{
+  "format": 1,
+  "concept_id": "abio-018",
+  "subject": "biology",
+  "title": "Gas exchange in mammals",
+  "key_idea": "Air passes down the trachea, bronchi and bronchioles to the alveoli. Gases diffuse across the thin alveolar wall into the blood. Ventilation keeps fresh air flowing so that the gradient stays steep.",
+  "sections": [
+    {
+      "heading": "Gas exchange surfaces and Fick's law",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers what makes a surface good at gas exchange and how the rate of diffusion is worked out."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A large surface area gives more room for gases to cross.",
+            "A thin surface gives a short diffusion distance.",
+            "A large difference in concentration gives a steep gradient, so net diffusion is faster."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Fick's law of diffusion",
+          "formula": "rate of diffusion ∝ (surface area × difference in concentration) ÷ thickness of the exchange surface",
+          "where": [
+            "surface area, in m²",
+            "difference in concentration between the two sides",
+            "thickness (diffusion distance), in µm"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change area, gradient and thickness to see the relative rate of diffusion",
+            "inputs": [
+              {
+                "id": "area",
+                "label": "Surface area",
+                "unit": "m²",
+                "min": 10,
+                "max": 100,
+                "step": 10,
+                "value": 50
+              },
+              {
+                "id": "gradient",
+                "label": "Difference in concentration",
+                "unit": "arbitrary units",
+                "min": 1,
+                "max": 10,
+                "step": 1,
+                "value": 5
+              },
+              {
+                "id": "thickness",
+                "label": "Thickness of surface",
+                "unit": "µm",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5,
+                "value": 1
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Relative rate of diffusion",
+                "unit": "units",
+                "formula": "area * gradient / thickness",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Doubling the surface area doubles the rate.",
+            "Doubling the concentration difference doubles the rate.",
+            "Doubling the thickness halves the rate."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rate rises with surface area and concentration difference.",
+            "Rate falls as the surface gets thicker.",
+            "Ventilation and blood flow keep the concentration difference high."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Structure of the gas exchange system",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Air travels down the trachea, the bronchi and the bronchioles to the alveoli, which are surrounded by a capillary network."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ciliated epithelium",
+              "meaning": "Lining cells with cilia that beat to move mucus upwards, away from the lungs."
+            },
+            {
+              "term": "Goblet cell",
+              "meaning": "A cell that makes and secretes mucus, which traps dust and microorganisms."
+            },
+            {
+              "term": "Squamous epithelium",
+              "meaning": "A layer of flat, very thin cells, as in the alveolar wall."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Region",
+            "What is in the wall",
+            "Job"
+          ],
+          "rows": [
+            [
+              "Trachea",
+              "C-shaped rings of cartilage, smooth muscle, elastic fibres, ciliated epithelium and goblet cells",
+              "Cartilage keeps the airway open when pressure is low. Cilia and mucus clear trapped particles."
+            ],
+            [
+              "Bronchi",
+              "Cartilage in smaller pieces, smooth muscle, elastic fibres, ciliated epithelium and goblet cells",
+              "As in the trachea, with branches into each lung."
+            ],
+            [
+              "Bronchioles",
+              "No cartilage, smooth muscle, elastic fibres and a thinner epithelium",
+              "Smooth muscle contracts to narrow the tube and relaxes to widen it. This controls airflow."
+            ],
+            [
+              "Alveoli",
+              "Squamous epithelium and a few elastic fibres, with capillaries around them",
+              "Gas exchange. Elastic fibres stretch to fill and recoil to push air out."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cartilage supports the airway and stops it collapsing.",
+            "Smooth muscle changes the width of the airway.",
+            "Elastic fibres stretch when air flows in, and recoil to help push air out.",
+            "Goblet cells and cilia together protect the lungs from infection."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Air passes trachea, bronchi, bronchioles, alveoli.",
+            "Cartilage supports, smooth muscle narrows, and elastic fibres recoil.",
+            "Goblet cells make mucus and cilia move it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The alveolus and gas exchange",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The alveolus and the capillary next to it are adapted for rapid diffusion."
+        },
+        {
+          "type": "list",
+          "items": [
+            "There are millions of alveoli, which gives a very large total surface area.",
+            "The alveolar wall is a single layer of squamous epithelium, and the capillary wall is also one cell thick. The diffusion distance is very short.",
+            "Capillaries surround each alveolus, and the blood flow carries oxygen away and brings carbon dioxide.",
+            "Breathing replaces the air, so oxygen is high and carbon dioxide is low in the alveolus."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Oxygen.",
+              "text": "Oxygen diffuses from the alveolar air, across the alveolar epithelium and capillary wall, into the blood. It is carried by haemoglobin in red blood cells."
+            },
+            {
+              "lead": "Carbon dioxide.",
+              "text": "Carbon dioxide diffuses from the blood into the alveolar air, and is breathed out."
+            },
+            {
+              "lead": "Gradient.",
+              "text": "Blood flow and ventilation keep the gradient steep for both gases."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alveoli are numerous, with a one-cell-thick wall.",
+            "Oxygen diffuses into the blood and carbon dioxide diffuses out.",
+            "Ventilation and blood flow maintain the gradients."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Ventilation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Breathing changes the volume of the thorax. This changes the pressure, so air moves in or out."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "The order of events in inspiration",
+            "prompt": "Put the steps of inspiration in the right order.",
+            "steps": [
+              "External intercostal muscles contract and the diaphragm contracts",
+              "Ribs move up and out, and the diaphragm flattens",
+              "Volume of the thorax increases",
+              "Pressure in the lungs falls below atmospheric pressure",
+              "Air flows into the lungs"
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Inspiration",
+            "Expiration"
+          ],
+          "rows": [
+            [
+              "External intercostal muscles",
+              "Contract",
+              "Relax"
+            ],
+            [
+              "Diaphragm",
+              "Contracts and flattens",
+              "Relaxes and domes upwards"
+            ],
+            [
+              "Rib cage",
+              "Moves up and out",
+              "Moves down and in"
+            ],
+            [
+              "Volume of thorax",
+              "Increases",
+              "Decreases"
+            ],
+            [
+              "Pressure in lungs",
+              "Falls below atmospheric",
+              "Rises above atmospheric"
+            ],
+            [
+              "Air movement",
+              "Into the lungs",
+              "Out of the lungs"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Normal expiration is passive. The ribs fall and the elastic lung tissue recoils.",
+            "In forced expiration, the internal intercostal muscles contract to pull the ribs down and in. The abdominal muscles push the diaphragm up.",
+            "The internal and external intercostal muscles are antagonistic, so one set relaxes while the other contracts."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Inspiration: muscles contract, thorax volume rises, pressure falls, air flows in.",
+            "Normal expiration is passive, using elastic recoil.",
+            "Internal intercostals are used for forced expiration."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Lung volumes and the spirometer",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A spirometer records the volume of air breathed in and out. It can also measure oxygen uptake."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Tidal volume",
+              "meaning": "The volume of air breathed in or out in one normal breath."
+            },
+            {
+              "term": "Vital capacity",
+              "meaning": "The greatest volume of air that can be breathed out after the deepest possible breath in."
+            },
+            {
+              "term": "Breathing rate",
+              "meaning": "The number of breaths per minute."
+            },
+            {
+              "term": "Oxygen uptake",
+              "meaning": "The volume of oxygen absorbed into the blood per unit time."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Ventilation rate",
+          "formula": "ventilation rate = tidal volume × breathing rate",
+          "where": [
+            "ventilation rate, in dm³ per minute",
+            "tidal volume, in dm³",
+            "breathing rate, in breaths per minute"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a spirometer trace, the height of each wave is the tidal volume, and the number of waves per minute is the breathing rate.",
+            "A person breathes through a mouthpiece from a chamber of oxygen. Soda lime absorbs the carbon dioxide breathed out.",
+            "The total volume in the chamber falls as oxygen is used. The slope of the trace gives the rate of oxygen uptake.",
+            "Exercise raises the tidal volume and the breathing rate, so oxygen uptake rises."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ventilation rate is tidal volume multiplied by breathing rate.",
+            "Vital capacity is the greatest volume breathed out after the deepest breath in.",
+            "Oxygen uptake is found from the slope of the spirometer trace."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A person has a tidal volume of 0.5 dm³ and takes 14 breaths per minute. Calculate the ventilation rate.",
+      "a": "0.5 × 14 = 7 dm³ per minute."
+    },
+    {
+      "q": "Explain how the structure of the alveolus makes gas exchange rapid.",
+      "a": "The wall is one cell thick, so the diffusion distance is short. There are millions of alveoli, giving a large surface area. Capillaries surround them and blood flow maintains a steep gradient. Ventilation brings fresh air."
+    },
+    {
+      "q": "Describe how air is drawn into the lungs during inspiration.",
+      "a": "The external intercostal muscles and the diaphragm contract. The ribs move up and out and the diaphragm flattens. The volume of the thorax increases and the pressure in the lungs falls below atmospheric pressure, so air flows in."
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.3.2c",
+        "AQA 3.3.2d",
+        "AQA 3.3.2e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The gross structure of the gas exchange system, the alveolar epithelium and the mechanism of breathing are examined in this course. Gas exchange in other organisms is in the next note."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Know the gross structure limited to the alveoli, bronchioles, bronchi, trachea and lungs.",
+                "Explain the role of the diaphragm and the antagonistic external and internal intercostal muscles in causing pressure changes in the thoracic cavity."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 2.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Properties of gas exchange surfaces: a large surface area to volume ratio, a thin surface, and a difference in concentration.",
+                "Calculate the rate of diffusion using Fick's law, from surface area, concentration difference and thickness.",
+                "Explain how the structure of the mammalian lung is adapted for rapid gas exchange."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 9.1.1",
+        "CAIE 9.1.2",
+        "CAIE 9.1.3",
+        "CAIE 9.1.4",
+        "CAIE 9.1.5",
+        "CAIE 9.1.6",
+        "CAIE 9.1.7"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Describe the structure of the system: lungs, trachea, bronchi, bronchioles, alveoli and the capillary network.",
+                "Describe where cartilage, ciliated epithelium, goblet cells, squamous epithelium of alveoli, smooth muscle and capillaries are found, and what each does.",
+                "Ciliated cells, goblet cells and mucous glands maintain health: mucus traps particles and pathogens, and cilia move the mucus away from the lungs.",
+                "Recognise these tissues, and the trachea, bronchi, bronchioles and alveoli, in slides, photomicrographs and electron micrographs.",
+                "Make plan diagrams of transverse sections of the walls of the trachea and a bronchus. A plan diagram shows tissue layers as outlines, with no individual cells.",
+                "Describe gas exchange between alveolar air and capillary blood."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 3.1.1c",
+        "OCR 3.1.1d",
+        "OCR 3.1.1e",
+        "OCR 3.1.1h"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Know the distribution and functions of cartilage, ciliated epithelium, goblet cells, smooth muscle and elastic fibres in the trachea, bronchi, bronchioles and alveoli.",
+                "Explain ventilation using the rib cage, the internal and external intercostal muscles and the diaphragm.",
+                "Analyse and interpret primary and secondary data on vital capacity, tidal volume, breathing rate and oxygen uptake, such as from a spirometer or data logger.",
+                "Examine microscope slides to show the histology of exchange surfaces."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "1b3acbd5-3c27-4345-a532-311af827a464",
+      "dd7299d7-03ed-47dc-bdf8-16c39a6632ea",
+      "ea09e00d-c197-4045-8451-41b8af790dcd",
+      "5da3304a-e7fc-4fdd-a6a5-79beabc74fae",
+      "86777410-1721-45fd-9b44-421960d380b8",
+      "9818706b-25d1-4b14-b617-76e5ca15b464",
+      "3ba9b777-36de-4ce2-a2a5-a374719f9912",
+      "c68ad6da-d9d4-4bef-85e7-4acaa4cb8740",
+      "9ec49c90-7495-4590-a8f4-26ca34158e7f",
+      "64555eeb-3077-4328-a7b2-e7a3eaeaef07",
+      "62dadb6f-7935-4c7c-87d5-a1110422d1ba",
+      "f09296a0-994a-4aa5-9f98-a814df553497",
+      "15b1bba5-984c-4989-8fc2-b0ee12ae4335",
+      "7d753be8-7dc8-4ff5-8027-f5c4bfbd7938",
+      "9142b125-0723-440e-b1e3-34a1612c960f"
+    ],
+    "exemplar_ids": []
+  }
+}

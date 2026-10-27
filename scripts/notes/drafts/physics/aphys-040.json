@@ -1,0 +1,417 @@
+{
+  "format": 1,
+  "concept_id": "aphys-040",
+  "subject": "physics",
+  "title": "The photoelectric effect",
+  "key_idea": "When light of high enough frequency hits a metal, it releases electrons. Each photon gives all its energy to one electron. The effect only makes sense if light comes in photons.",
+  "sections": [
+    {
+      "heading": "What happens at the metal surface",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In the photoelectric effect, electromagnetic radiation shining on a metal surface releases electrons from it. The electrons released are called photoelectrons."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Photoelectric effect",
+              "meaning": "The emission of electrons from a metal surface when electromagnetic radiation of high enough frequency is incident on it."
+            },
+            {
+              "term": "Photoelectron",
+              "meaning": "An electron released from a metal surface by the absorption of a photon."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each photon is absorbed by just one electron, in a one-to-one interaction.",
+            "The electron takes all of the photon's energy.",
+            "Electrons near the surface escape most easily."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A simple demonstration uses a zinc plate on a gold-leaf electroscope."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Charge the plate negatively. The gold leaf rises because it is repelled by the plate.",
+            "Shine ultraviolet radiation on the zinc. The leaf falls as electrons are emitted and the charge leaks away.",
+            "Visible light does not make the leaf fall, however bright it is."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A photon is absorbed by a single electron, which can then leave the metal.",
+            "The emitted electrons are called photoelectrons."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Work function and threshold frequency",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An electron needs a minimum energy to escape the surface. If the photon energy is below this, no electron is emitted."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Work function, φ",
+              "meaning": "The minimum energy needed to remove an electron from the surface of a metal."
+            },
+            {
+              "term": "Threshold frequency, f₀",
+              "meaning": "The minimum frequency of radiation that causes photoelectric emission from a metal."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Threshold frequency",
+          "formula": "hf₀ = φ",
+          "where": [
+            "h = Planck constant (J s)",
+            "f₀ = threshold frequency (Hz)",
+            "φ = work function (J)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "If f < f₀, no photoelectrons are emitted. This is true however intense the radiation is.",
+            "If f > f₀, photoelectrons are emitted at once.",
+            "Different metals have different work functions, so different threshold frequencies."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Photoelectric emission needs hf ≥ φ.",
+            "Below the threshold frequency there is no emission at any intensity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Einstein's photoelectric equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Energy is conserved. The photon energy pays for the escape, and any energy left over becomes kinetic energy."
+        },
+        {
+          "type": "equation",
+          "label": "Photoelectric equation",
+          "formula": "hf = φ + Eₖ(max)",
+          "where": [
+            "hf = energy of one photon (J)",
+            "φ = work function (J)",
+            "Eₖ(max) = maximum kinetic energy of a photoelectron (J)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The maximum kinetic energy can also be written ½mvₘₐₓ², where m is the electron mass and vₘₐₓ its greatest speed."
+        },
+        {
+          "type": "equation",
+          "label": "Maximum kinetic energy",
+          "formula": "Eₖ(max) = ½mvₘₐₓ²",
+          "where": [
+            "m = electron mass, 9.11 × 10⁻³¹ kg",
+            "vₘₐₓ = maximum speed (m/s)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The kinetic energy is a maximum because electrons deeper in the metal lose some energy before they escape.",
+            "Eₖ(max) rises linearly with f. It is zero at the threshold frequency.",
+            "A graph of Eₖ(max) against f has gradient h and an x-intercept at f₀."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider for the photoelectric effect. Choose a metal and a frequency, then read the maximum kinetic energy of the photoelectrons.",
+            "inputs": [
+              {
+                "id": "f",
+                "label": "Frequency",
+                "unit": "× 10¹⁴ Hz",
+                "min": 3,
+                "max": 12,
+                "step": 0.5,
+                "value": 8
+              },
+              {
+                "id": "w",
+                "label": "Metal (work function)",
+                "choices": [
+                  {
+                    "label": "Caesium, 2.1 eV",
+                    "value": 2.1
+                  },
+                  {
+                    "label": "Sodium, 2.3 eV",
+                    "value": 2.3
+                  },
+                  {
+                    "label": "Zinc, 4.3 eV",
+                    "value": 4.3
+                  }
+                ]
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Photon energy",
+                "unit": "eV",
+                "formula": "0.414 * f",
+                "decimals": 2
+              },
+              {
+                "label": "Maximum kinetic energy",
+                "unit": "eV",
+                "formula": "max(0, 0.414 * f - w)",
+                "decimals": 2,
+                "bar": true
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "hf = φ + Eₖ(max).",
+            "Eₖ(max) depends on the frequency and the metal, not the intensity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Intensity and the particle model",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Intensity is the energy delivered per second per unit area. At a fixed frequency, more intensity means more photons each second."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each photon is absorbed by one electron, so doubling the photons per second doubles the electrons released per second.",
+            "The photoelectric current is therefore proportional to intensity, for frequency above the threshold.",
+            "Each photon still has the same energy, so Eₖ(max) does not change with intensity."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The photoelectric effect is evidence for the particle nature of radiation. The wave model cannot explain it."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Observation",
+            "Wave model predicts",
+            "Photon model explains"
+          ],
+          "rows": [
+            [
+              "Threshold frequency",
+              "Any frequency works if the wave is intense enough",
+              "A photon below f₀ has too little energy for any one electron"
+            ],
+            [
+              "Emission is immediate",
+              "Electrons should take time to build up energy",
+              "One photon gives one electron all its energy at once"
+            ],
+            [
+              "Eₖ(max) independent of intensity",
+              "Brighter wave should give more energy",
+              "Brighter beam means more photons, not more energy per photon"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Photoelectric current is proportional to intensity above f₀.",
+            "Eₖ(max) is independent of intensity.",
+            "The effect is evidence for photons."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why no electrons are emitted from a metal when the radiation is below the threshold frequency, however intense it is.",
+      "a": "Each photon is absorbed by one electron. Below the threshold frequency a photon's energy hf is less than the work function, so no electron can escape. More intensity means more photons, but each still has too little energy.",
+      "marks": 3
+    },
+    {
+      "q": "Light of frequency 8.0 × 10¹⁴ Hz hits a metal of work function 2.5 × 10⁻¹⁹ J. Calculate the maximum kinetic energy of the photoelectrons. (h = 6.63 × 10⁻³⁴ J s)",
+      "a": "hf = 6.63 × 10⁻³⁴ × 8.0 × 10¹⁴ = 5.3 × 10⁻¹⁹ J. Eₖ(max) = hf − φ = 5.3 × 10⁻¹⁹ − 2.5 × 10⁻¹⁹ = 2.8 × 10⁻¹⁹ J.",
+      "marks": 3
+    },
+    {
+      "q": "The intensity of the radiation is doubled at a fixed frequency above f₀. State the effect on the photoelectric current and on Eₖ(max).",
+      "a": "The photoelectric current doubles. Eₖ(max) is unchanged.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.2.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The kinetic energy of the fastest photoelectrons can be linked to a stopping potential."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Stopping potential",
+                  "meaning": "The potential difference that just stops the fastest photoelectrons reaching the collector."
+                }
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Stopping potential",
+              "formula": "Eₖ(max) = eVₛ",
+              "where": [
+                "e = electron charge (C)",
+                "Vₛ = stopping potential (V)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Raising the retarding potential until the current stops gives Vₛ.",
+                "The experimental method for finding the stopping potential is not required."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Stopping potential measures Eₖ(max): Eₖ(max) = eVₛ.",
+                "A larger stopping potential means faster photoelectrons."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.92",
+        "EDEX 5.93",
+        "EDEX 5.95"
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 22.2.1",
+        "CAIE 22.2.2",
+        "CAIE 22.2.3",
+        "CAIE 22.2.4",
+        "CAIE 22.2.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The threshold can also be stated as a wavelength. It is the longest wavelength that causes emission."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Threshold wavelength, λ₀",
+                  "meaning": "The maximum wavelength of radiation that causes photoelectric emission."
+                }
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Threshold wavelength",
+              "formula": "φ = hc/λ₀",
+              "where": [
+                "λ₀ = threshold wavelength (m)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Wavelength longer than λ₀ means no emission.",
+                "Wavelength shorter than λ₀ means emission."
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Emission needs f ≥ f₀, or equivalently λ ≤ λ₀.",
+                "A long wavelength means low photon energy."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.5.2a",
+        "OCR 4.5.2b",
+        "OCR 4.5.2c",
+        "OCR 4.5.2d",
+        "OCR 4.5.2e",
+        "OCR 4.5.2f"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "27b335fe-5961-46f3-98a5-63e45a7b33ed",
+      "8b88bfda-4ba6-4656-b1c5-162906e79c65",
+      "ff37dcd1-9a62-45c0-91bc-fefda89fd3ca",
+      "3dcc7fee-6f2b-4b8b-9777-3d0d53fbfe62",
+      "f1ab63dc-902e-49f9-a36e-c7e977139632",
+      "074b7f03-4d46-4eb3-8d79-6dcca9750995",
+      "562cc117-91e6-47c2-9696-592d6653964e",
+      "8ff8c735-95fb-4a3c-8717-f2c669f6bd88",
+      "c5cd071f-7150-4977-bb39-08efd123824b",
+      "e59515e9-4027-472c-b644-1256d93ef432",
+      "5fc0538b-8fd9-4780-b555-e08c790a809f",
+      "c84b9db4-6fb5-4eb8-88b0-e5bfc3842317",
+      "585d964e-a78b-4a9a-aebb-22e1d5d3d525",
+      "aa62ac2a-f601-4fe6-ac05-673e2a4935ad",
+      "ccb9af6c-2124-4832-b736-91c4e6b30701"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,396 @@
+{
+  "format": 1,
+  "concept_id": "abio-051",
+  "subject": "biology",
+  "title": "Measuring biodiversity",
+  "key_idea": "Biodiversity is the variety of life, measured in habitats, species and genes. Species richness counts the species. An index of diversity also uses how many individuals each species has. Human activity is reducing biodiversity.",
+  "sections": [
+    {
+      "heading": "Biodiversity at different levels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Biodiversity can be considered from a small local habitat to the whole Earth. Over time the variety of life has become extensive, but human activity now threatens it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Biodiversity",
+              "meaning": "The variety of life: the number and range of habitats, species and genetic variation."
+            },
+            {
+              "term": "Species richness",
+              "meaning": "The number of different species in a community."
+            },
+            {
+              "term": "Species evenness",
+              "meaning": "How close in number the individuals of each species are. A community is even if no species dominates."
+            },
+            {
+              "term": "Endemism",
+              "meaning": "A species being found naturally in only one geographical area, and nowhere else."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Level",
+            "What it covers",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Habitat",
+              "The number and range of different habitats and ecosystems",
+              "Sand dunes, woodland, meadows, streams"
+            ],
+            [
+              "Species",
+              "The number of species and their relative abundance",
+              "Many species of similar number is more diverse than one dominant species"
+            ],
+            [
+              "Genetic",
+              "The variation in alleles within each species",
+              "Different breeds within a species"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Biodiversity covers habitats, species and genes.",
+            "Species richness is the number of species. Evenness is how equal their numbers are.",
+            "A community with a few common species and many rare ones is less diverse than one with the same species in equal numbers."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring species diversity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Counting species gives species richness, but it ignores how many of each there are. An index of diversity uses both."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Sample.",
+              "text": "Use random quadrats, or transects, to avoid bias. Larger samples give more reliable results."
+            },
+            {
+              "lead": "Identify and count.",
+              "text": "Record the number of each species and the total number of individuals."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "Use an index of diversity formula, and compare habitats."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Index of diversity (d)",
+          "formula": "d = N(N − 1) ÷ Σn(n − 1)",
+          "where": [
+            "N = total number of organisms of all species",
+            "n = total number of organisms of each species",
+            "Σ = the sum over all species"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Try the calculation with three species. A higher value means more species and a more even spread."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "An index of diversity practice question with three species and new numbers each time.",
+            "question": "A habitat has three species. There are {a}, {b} and {c} individuals of each. Calculate the index of diversity to 2 decimal places.",
+            "variables": [
+              {
+                "id": "a",
+                "min": 4,
+                "max": 30,
+                "step": 1
+              },
+              {
+                "id": "b",
+                "min": 4,
+                "max": 30,
+                "step": 1
+              },
+              {
+                "id": "c",
+                "min": 4,
+                "max": 30,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "(a + b + c) * (a + b + c - 1) / (a * (a - 1) + b * (b - 1) + c * (c - 1))",
+              "decimals": 2,
+              "tolerance_percent": 1
+            },
+            "working": [
+              "N = {a} + {b} + {c}.",
+              "Σn(n − 1) = {a} × ({a} − 1) + {b} × ({b} − 1) + {c} × ({c} − 1).",
+              "d = N(N − 1) ÷ Σn(n − 1) = {answer}."
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Simpson's index of diversity (D) is a second way to measure diversity. It is always between 0 and 1."
+        },
+        {
+          "type": "equation",
+          "label": "Simpson's index of diversity (D)",
+          "formula": "D = 1 − Σ(n ÷ N)²",
+          "where": [
+            "n = number of individuals of one species",
+            "N = total number of individuals of all species",
+            "Σ = the sum over all species"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Example: 6 buttercups, 3 clover and 1 daisy. Σ(n ÷ N)² = 0.36 + 0.09 + 0.01 = 0.46, so D = 0.54."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A high value (d, or D close to 1) means high diversity: many species, with similar numbers of each.",
+            "A low value (d small, or D close to 0) means low diversity, which is typical of a habitat dominated by one or two species.",
+            "Low diversity makes a community unstable and more easily damaged by environmental change."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An index of diversity uses species number and the number of individuals in each species.",
+            "Sample randomly, and use large samples.",
+            "High diversity means many species in similar numbers."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Genetic diversity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Genetic diversity within or between species can be measured by comparing characteristics or, more directly, the molecules that are coded for."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The frequency of measurable or observable characteristics.",
+            "The base sequence of DNA.",
+            "The base sequence of mRNA.",
+            "The amino acid sequence of the proteins encoded by the DNA and mRNA.",
+            "Gene technology has changed the methods: we now investigate DNA sequences directly, instead of inferring DNA differences from observable features."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Heterozygosity index (H)",
+          "formula": "H = number of heterozygotes ÷ number of individuals in the population",
+          "where": [
+            "H is between 0 and 1",
+            "A high H means high genetic diversity"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Genetic diversity is now measured by comparing DNA, mRNA or protein sequences.",
+            "More differences in sequence means greater genetic diversity.",
+            "A population with a small gene pool has low genetic diversity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Human activity and biodiversity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Human activity is the main cause of the loss of biodiversity now."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Agriculture reduces biodiversity. Fields are cleared of hedgerows and woodland, and a single crop is grown (monoculture).",
+            "Herbicides, pesticides and fertilisers remove or poison species.",
+            "Human population growth needs more land for housing, food and resources, which destroys habitats.",
+            "Climate change alters habitats faster than many species can adapt or move."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "There is a balance between conservation and farming. Farmers need to produce food at a profit, while conserving species requires habitats to be protected."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Farming, population growth and climate change reduce biodiversity.",
+            "Monoculture replaces many species with one.",
+            "Food production must be balanced against conservation."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Distinguish between species richness and species evenness.",
+      "a": "Species richness is the number of different species in a community. Species evenness is how similar the numbers of individuals of each species are.",
+      "marks": 2
+    },
+    {
+      "q": "A field contains 6 buttercups, 3 clover and 1 daisy. Calculate the index of diversity, d = N(N − 1) ÷ Σn(n − 1).",
+      "a": "N = 10, so N(N − 1) = 90. Σn(n − 1) = 6×5 + 3×2 + 1×0 = 36. d = 90 ÷ 36 = 2.5.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how replacing woodland with a single arable crop reduces biodiversity.",
+      "a": "Monoculture provides few habitats and little food variety, so fewer species can survive, reducing species richness. Pesticides and herbicides kill other species, and the removal of habitats reduces the number of individuals.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.4.6a",
+        "AQA 3.4.6b",
+        "AQA 3.4.6c",
+        "AQA 3.4.6d",
+        "AQA 3.4.6e",
+        "AQA 3.4.7a",
+        "AQA 3.4.7b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Interpret data on similarities and differences in the base sequences of DNA and in the amino acid sequences of proteins, to suggest relationships between organisms within a species and between species.",
+                "Quantitative investigations of variation within a species: collect data from random samples, calculate a mean and the standard deviation of that mean, and interpret them.",
+                "You will not be required to calculate standard deviations in written papers.",
+                "Knowledge of gene technologies will not be tested."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4.1",
+        "EDEX 4.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Understand the terms biodiversity and endemism.",
+                "Within a habitat, biodiversity is measured using species richness. Within a species, it is measured using genetic diversity, by calculating the heterozygosity index H.",
+                "Compare biodiversity in different habitats with the index of diversity D = N(N − 1) ÷ Σn(n − 1)."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 18.2.2",
+        "CAIE 18.2.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Simpson's index of diversity (D) is calculated with D = 1 − Σ(n ÷ N)². The formula is provided.",
+                "Explain that biodiversity is assessed at three levels: the number and range of ecosystems and habitats, the number of species and their relative abundance, and the genetic variation within each species."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.2.1a",
+        "OCR 4.2.1c",
+        "OCR 4.2.1d",
+        "OCR 4.2.1e",
+        "OCR 4.2.1f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Proportion of polymorphic gene loci",
+              "formula": "proportion of polymorphic gene loci = number of polymorphic gene loci ÷ total number of loci",
+              "where": [
+                "A polymorphic locus has more than one allele in the population"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Simpson's Index of Diversity (D) is calculated with D = 1 − Σ(n ÷ N)². The formula is provided, so you need not recall it. Interpret both high and low values.",
+                "Genetic diversity calculations are for isolated populations such as zoos (captive breeding), rare breeds and pedigree animals.",
+                "Habitats to know: sand dunes, woodland, meadows and streams. Genetic biodiversity is shown by different breeds within a species.",
+                "Factors affecting biodiversity: human population growth, agriculture (monoculture) and climate change."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "8bfd9ffc-b8d9-4459-a709-e01ecdf3f969",
+      "c2a78abb-b86e-471a-90dd-4dcf916a9d48",
+      "a7c07c58-b999-4ea7-ac87-4a09dd4ae892",
+      "6b47590a-4008-423f-b253-876b2f321053",
+      "01391ea5-64a4-441c-be43-7b183e9b6176",
+      "47aa9f85-0341-4781-a787-967db7650b28",
+      "987eea8a-e3f9-4250-ad5b-7feec95112b2",
+      "7df2b2ca-960d-4dd3-8f69-1341ac105bcd",
+      "e43adfe9-5faf-4552-a8ec-8377192486ea",
+      "62241e6d-35a9-4fb5-aeeb-27cf63367654",
+      "bfac95ea-058a-4080-9a43-449abc05a644",
+      "0dcf1a03-d298-462b-99f9-8121ac415dba",
+      "59ca8717-b652-4e5a-a496-6cd247346e26",
+      "e5b748ce-ab66-4cc1-8628-68f02ec8b5dc",
+      "72a8050c-9627-434a-8441-14091067ec2e",
+      "6cecbd82-e650-499c-b722-bc670c9970a4"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

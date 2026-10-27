@@ -1,0 +1,525 @@
+{
+  "format": 1,
+  "concept_id": "achem-040",
+  "subject": "chemistry",
+  "title": "pH titration curves and indicators",
+  "key_idea": "A pH curve plots pH against volume of base added. Its shape depends on whether the acid and base are strong or weak. An indicator is suitable when its colour change range lies within the steep part of the curve.",
+  "sections": [
+    {
+      "heading": "Shapes of pH curves",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the four combinations of strong and weak acid with strong and weak base. Each curve is for a monoprotic acid and a monoprotic base."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Equivalence point",
+              "meaning": "The point where the acid and base have reacted in exactly the amounts in the equation."
+            },
+            {
+              "term": "End point",
+              "meaning": "The point where the indicator changes colour."
+            },
+            {
+              "term": "Vertical section",
+              "meaning": "The steep rise in pH around the equivalence point, from one drop of titrant."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Two pH curves against volume of base added. The strong acid curve starts low, rises steeply at 25 cm³ and levels at high pH. The weak acid curve starts higher, rises gently, then rises steeply at 25 cm³.",
+            "x": {
+              "label": "Volume of base added",
+              "unit": "cm³",
+              "min": 0,
+              "max": 50,
+              "ticks": [
+                0,
+                10,
+                20,
+                25,
+                30,
+                40,
+                50
+              ]
+            },
+            "y": {
+              "label": "pH (shape only)"
+            },
+            "series": [
+              {
+                "name": "Strong acid + strong base",
+                "points": [
+                  [
+                    0,
+                    0.08
+                  ],
+                  [
+                    10,
+                    0.12
+                  ],
+                  [
+                    20,
+                    0.2
+                  ],
+                  [
+                    24,
+                    0.3
+                  ],
+                  [
+                    24.5,
+                    0.35
+                  ],
+                  [
+                    25,
+                    0.5
+                  ],
+                  [
+                    25.5,
+                    0.8
+                  ],
+                  [
+                    30,
+                    0.9
+                  ],
+                  [
+                    50,
+                    0.95
+                  ]
+                ]
+              },
+              {
+                "name": "Weak acid + strong base",
+                "points": [
+                  [
+                    0,
+                    0.25
+                  ],
+                  [
+                    5,
+                    0.38
+                  ],
+                  [
+                    12.5,
+                    0.45
+                  ],
+                  [
+                    20,
+                    0.52
+                  ],
+                  [
+                    24.5,
+                    0.6
+                  ],
+                  [
+                    25,
+                    0.68
+                  ],
+                  [
+                    25.5,
+                    0.82
+                  ],
+                  [
+                    30,
+                    0.9
+                  ],
+                  [
+                    50,
+                    0.95
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 25,
+                "label": "Equivalence"
+              }
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Combination",
+            "Start pH",
+            "Vertical section",
+            "pH at equivalence"
+          ],
+          "rows": [
+            [
+              "Strong acid + strong base",
+              "About 1",
+              "About 3 to 11",
+              "7"
+            ],
+            [
+              "Weak acid + strong base",
+              "About 3",
+              "About 7 to 11",
+              "Above 7, about 8.5 to 9"
+            ],
+            [
+              "Strong acid + weak base",
+              "About 1",
+              "About 3 to 7",
+              "Below 7, about 5"
+            ],
+            [
+              "Weak acid + weak base",
+              "About 3",
+              "None, or very short",
+              "About 7, no sharp change"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A weak acid starts at a higher pH, as it is only partly dissociated.",
+            "The equivalence pH is above 7 when the salt formed has a basic anion (weak acid + strong base). It is below 7 when the salt has an acidic cation (strong acid + weak base).",
+            "A weak acid + weak base curve has no sharp vertical section, so no indicator is suitable. A pH meter must be used."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Strong acid curves start low. Weak acid curves start higher.",
+            "The equivalence pH depends on which of the acid and base is strong.",
+            "Weak acid + weak base has no vertical section."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Choosing an indicator",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An indicator is itself a weak acid, written HIn. Its two forms have different colours."
+        },
+        {
+          "type": "equation",
+          "label": "An indicator in solution",
+          "formula": "HIn(aq) ⇌ H⁺(aq) + In⁻(aq)",
+          "where": [
+            "HIn = the acid form, with one colour",
+            "In⁻ = the conjugate base form, with a different colour"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In acid, the added H⁺ shifts the equilibrium left, so the HIn colour shows.",
+            "In alkali, OH⁻ removes H⁺, the equilibrium shifts right, and the In⁻ colour shows.",
+            "The colour changes over a narrow pH range, where both forms are present.",
+            "A suitable indicator changes colour completely within the vertical section of the curve."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Indicator",
+            "Colour change range (pH)",
+            "Colour in acid",
+            "Colour in alkali"
+          ],
+          "rows": [
+            [
+              "Methyl orange",
+              "3.1 to 4.4",
+              "Red",
+              "Yellow"
+            ],
+            [
+              "Bromothymol blue",
+              "6.0 to 7.6",
+              "Yellow",
+              "Blue"
+            ],
+            [
+              "Phenolphthalein",
+              "8.3 to 10.0",
+              "Colourless",
+              "Pink"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick an acid and base combination to see the pH at equivalence and a suitable indicator.",
+            "prompt": "Pick the acid and base being titrated",
+            "result_labels": [
+              "Vertical section",
+              "pH at equivalence",
+              "Suitable indicator"
+            ],
+            "options": [
+              {
+                "label": "Strong acid + strong base",
+                "results": [
+                  "About 3 to 11",
+                  "7",
+                  "Methyl orange, bromothymol blue or phenolphthalein"
+                ],
+                "explanation": "The vertical section is long, so all three change colour within it."
+              },
+              {
+                "label": "Weak acid + strong base",
+                "results": [
+                  "About 7 to 11",
+                  "About 8.5 to 9",
+                  "Phenolphthalein"
+                ],
+                "explanation": "Methyl orange changes colour before the vertical section, so it is not suitable."
+              },
+              {
+                "label": "Strong acid + weak base",
+                "results": [
+                  "About 3 to 7",
+                  "About 5",
+                  "Methyl orange"
+                ],
+                "explanation": "Phenolphthalein changes colour after the vertical section, so it is not suitable."
+              },
+              {
+                "label": "Weak acid + weak base",
+                "results": [
+                  "None, or very short",
+                  "About 7",
+                  "None. Use a pH meter."
+                ],
+                "explanation": "The pH changes too gradually for any indicator to give a sharp end point."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A weak-acid indicator HIn ⇌ H⁺ + In⁻ changes colour as the equilibrium shifts.",
+            "Choose an indicator whose range falls within the vertical section.",
+            "No indicator is suitable for a weak acid with a weak base."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Titration calculations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A titration finds an unknown concentration. This section covers the calculation."
+        },
+        {
+          "type": "equation",
+          "label": "Amount in solution",
+          "formula": "n = c × V",
+          "where": [
+            "n = amount (mol)",
+            "c = concentration (mol/dm³)",
+            "V = volume (dm³)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Moles",
+              "text": "Find moles of the known solution from c × V, with V in dm³."
+            },
+            {
+              "lead": "Ratio",
+              "text": "Use the equation to find moles of the other reactant."
+            },
+            {
+              "lead": "Unknown",
+              "text": "Divide moles by volume in dm³ to find the concentration."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "25.0 cm³ of NaOH needs 20.0 cm³ of 0.100 mol/dm³ HCl. n(HCl) = 0.00200 mol, which is 1 : 1, so [NaOH] = 0.00200 ÷ 0.0250 = 0.0800 mol/dm³."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Convert cm³ to dm³ by dividing by 1000.",
+            "Use the balanced equation for the mole ratio."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Sketch the pH curve when 0.100 mol/dm³ ethanoic acid is titrated with 0.100 mol/dm³ sodium hydroxide, and state a suitable indicator.",
+      "a": "Starts at about pH 3. Rises gradually (buffer region), then a vertical section at the equivalence volume from about pH 7 to 11. Levels off at about pH 13. Phenolphthalein is suitable (changes colour within the vertical section).",
+      "marks": 4
+    },
+    {
+      "q": "Explain why methyl orange is not suitable for a weak acid with a strong base.",
+      "a": "Methyl orange changes colour at pH 3.1 to 4.4, which is before the vertical section; the colour change would happen well before the equivalence point.",
+      "marks": 2
+    },
+    {
+      "q": "Explain, using an equilibrium, why an indicator changes colour when alkali is added.",
+      "a": "HIn ⇌ H⁺ + In⁻. Alkali removes H⁺, so the equilibrium shifts right and the colour of In⁻ shows.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.3n",
+        "OCR 5.1.3o"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Measuring pH with a pH meter"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Calibrate the meter with buffer solutions of known pH, such as pH 4, 7 and 10.",
+                "Rinse the probe with deionised water between solutions.",
+                "Stir the solution and wait for a steady reading before recording the pH.",
+                "In a titration, add the titrant in small portions and record pH against volume. Add smaller portions near the vertical section."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Indicator colour in terms of equilibrium"
+            },
+            {
+              "type": "paragraph",
+              "text": "Explain colour changes using HIn ⇌ H⁺ + In⁻. At the end point [HIn] = [In⁻], and the colour is a mix of the two."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 12.16",
+        "EDEX 12.17",
+        "EDEX 12.22",
+        "EDEX 12.23"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "A weak acid-strong base curve: buffer action and Ka"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The gently sloping region before the vertical section is a **buffer region**. The weak acid and its salt are both present, so added OH⁻ changes pH very little.",
+                "At half-equivalence, half the weak acid has been neutralised, so [HA] = [A⁻].",
+                "Then Ka = [H⁺][A⁻] ÷ [HA] = [H⁺], so pH = pKa at half the equivalence volume."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "If the equivalence volume is 25.0 cm³, read the pH at 12.5 cm³ to get pKa."
+            },
+            {
+              "type": "subheading",
+              "text": "Enthalpy of neutralisation"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Strong acid + strong base gives about −57 kJ/mol, since the reaction is H⁺ + OH⁻ → H₂O.",
+                "A weak acid gives a less exothermic value, because energy is needed to dissociate the acid as the H⁺ is used up."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.12.5"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Practical: weak acid with strong base, and strong acid with weak base"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Record pH against volume of base added with a pH meter, taking smaller steps near the vertical section.",
+                "Plot the curve, read the equivalence volume from the middle of the vertical section, and use n = c × V.",
+                "Sketch and explain the shape of each of the four combinations."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Use the curve to select an indicator whose colour change range falls within the vertical section."
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 7.2.9",
+        "CAIE 7.2.10"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You are asked to sketch the curves for strong and weak acids with strong and weak alkalis, and to select an indicator from data given.",
+                "pKa values are not used to select indicators."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "4e89b1c0-74af-4afb-bd55-a5db9470a243",
+      "923d8de6-d6ae-4edd-bfc7-04acd57680e9",
+      "f1644555-2c4e-4f65-ac04-7d78ae5b5d89",
+      "4f4f94dc-452c-400d-a2cb-e664959580bb",
+      "161c948c-f6a9-4c88-b684-ff8355ada26c",
+      "6145a17b-f0ff-4dc1-bbaf-db45b74c9ccc",
+      "51907a1a-334b-4365-8afe-541086be73a5",
+      "45b99854-29ed-48d8-91bc-4f5660b89a44",
+      "e0d72b00-ff71-4461-9f07-2b1991186271"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

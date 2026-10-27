@@ -1,0 +1,259 @@
+{
+  "format": 1,
+  "concept_id": "abio-080",
+  "subject": "biology",
+  "title": "PCR, electrophoresis and DNA profiling",
+  "key_idea": "PCR makes millions of copies of a small DNA sample. Gel electrophoresis separates DNA fragments by length. Together they allow DNA profiling, which uses the pattern of fragments to identify individuals and show relationships.",
+  "sections": [
+    {
+      "heading": "The polymerase chain reaction (PCR)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "PCR is an in vitro method that amplifies a chosen piece of DNA. It copies DNA in a machine, without using living cells."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Primer",
+              "meaning": "A short single-stranded DNA sequence that is complementary to the start of the section to be copied."
+            },
+            {
+              "term": "Taq polymerase",
+              "meaning": "A DNA polymerase from a heat-tolerant bacterium. It is not denatured by the high temperatures used in PCR."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The mixture contains the DNA sample, primers, Taq polymerase and free nucleotides. It is taken through repeated temperature cycles."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "The steps in one cycle of PCR.",
+            "prompt": "Put the steps of one PCR cycle in order.",
+            "steps": [
+              "Heat to about 95 °C: hydrogen bonds break and the DNA separates into single strands",
+              "Cool to about 55 °C: primers anneal to the complementary sequences at the ends",
+              "Heat to about 72 °C: Taq polymerase adds nucleotides to build new complementary strands",
+              "The cycle repeats, doubling the amount of DNA each time"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The amount of DNA doubles with each cycle, so 30 cycles can give about a billion copies from one molecule.",
+            "Taq polymerase is used because it is not denatured at 95 °C, so it does not need to be added again each cycle.",
+            "The primers make sure that only the chosen section is copied."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "PCR repeats three temperature steps: separate the strands, anneal primers, extend with Taq polymerase.",
+            "Each cycle doubles the DNA."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Gel electrophoresis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gel electrophoresis separates DNA fragments, or proteins, by size. It works on charged molecules."
+        },
+        {
+          "type": "list",
+          "items": [
+            "DNA fragments are cut with restriction enzymes or copied by PCR.",
+            "The samples are placed in wells at one end of a gel, in a buffer solution.",
+            "An electric current is passed through the gel. DNA is negatively charged because of its phosphate groups, so it moves towards the positive electrode.",
+            "Short fragments move through the gel faster and travel further. Long fragments travel less far.",
+            "The fragments form bands. DNA is made visible with a fluorescent stain or a radioactive or fluorescent probe.",
+            "Fragments of known length run alongside, so the size of unknown fragments can be estimated."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Proteins can also be separated by electrophoresis. The principle is the same, with separation by size and charge."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "DNA moves to the positive electrode, and smaller fragments travel further.",
+            "Bands show the fragments present in each sample."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "DNA profiling and its uses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A genome contains many variable number tandem repeats (VNTRs), short sequences repeated different numbers of times. People differ in how many repeats they have."
+        },
+        {
+          "type": "list",
+          "items": [
+            "DNA is extracted from a sample and the regions containing VNTRs are copied by PCR.",
+            "The fragments are separated by gel electrophoresis, making a pattern of bands called a DNA profile.",
+            "The probability of two individuals having the same VNTRs is very low. Identical twins are the exception.",
+            "Related people share some bands: each band in a child comes from the mother or the father.",
+            "More bands that match means a closer genetic relationship."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Uses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Forensic science**: matching DNA from a crime scene to a suspect.",
+            "**Paternity and relationships**: showing who a child's parents are.",
+            "**Medical diagnosis and disease risk**: identifying alleles or repeat patterns linked to inherited disease.",
+            "**Animal and plant breeding**: checking parentage and finding genetic variability within a population, so that breeders avoid inbreeding."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A DNA profile is a pattern of bands from VNTRs, and it is highly specific to an individual.",
+            "Matching bands show shared ancestry, which makes profiling useful for identification and relationships."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why Taq polymerase is used in PCR.",
+      "a": "It is heat-tolerant, so it is not denatured at about 95 °C when the DNA strands are separated. It can therefore be used for many cycles without being replaced.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how gel electrophoresis separates DNA fragments.",
+      "a": "DNA is negatively charged, so it moves through the gel towards the positive electrode when a current is applied. Smaller fragments move faster and further, so the fragments separate into bands by size.",
+      "marks": 3
+    },
+    {
+      "q": "A child's DNA profile has four bands. Two match the mother's and two match the man claimed to be the father. Explain what this suggests.",
+      "a": "Each band in the child comes from one parent. All four bands are accounted for by the mother and the man, so he is very likely the father.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.8.4.3a",
+        "AQA 3.8.4.3b",
+        "AQA 3.8.4.3c",
+        "AQA 3.8.4.1d"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Be ready to **interpret** a gel of DNA fragments: compare bands between samples and work out which individuals are related.",
+                "Genetic fingerprinting analyses DNA fragments that have been cloned by PCR.",
+                "It can be used to determine **genetic variability within a population**, as well as individual relationships."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6.3",
+        "EDEX 6.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "DNA profiling is used to identify individuals and to work out genetic relationships between plants and animals.",
+                "PCR is used to amplify the DNA before the profile is made, because crime scene and other samples are often very small."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 19.1.8",
+        "CAIE 19.1.9"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "PCR is used to **clone** and amplify DNA: the identical copies are made in vitro.",
+                "Explain the role of each part: primers give a start point for DNA polymerase, free nucleotides are the building blocks, and Taq polymerase builds the new strands.",
+                "The gel is a mesh. Fragments of different lengths move at different rates, so they separate. A set of fragments of known length is run as a ladder to estimate sizes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 6.1.3c",
+        "OCR 6.1.3d",
+        "OCR 6.1.3e"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "DNA profiling is used in forensics and for analysis of **disease risk**.",
+                "Electrophoresis is used for separating nucleic acid fragments or proteins.",
+                "You should be able to describe the practical method of electrophoresis."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "38d2c20e-b062-4f58-8869-48bd24515d43",
+      "67accd59-dabe-4225-afa3-66fd829d9448",
+      "38700893-9329-4b5f-b851-859740d63f86",
+      "ddeac56e-83d5-4d3f-8827-78b01115e262",
+      "5934823d-a54a-4bc5-af4f-69e3e86ad3d5",
+      "c22831a0-0fb0-4e4d-9dc3-7cff8880a364",
+      "81d77acf-5e34-4d4b-be8c-e4fa9052f20e",
+      "0a41af38-dc40-4979-99ca-5c31329ce4d0",
+      "7c71ce83-c756-4699-b37d-5a862ad0284f",
+      "3a0bb1cd-b4d6-414a-99ae-6a0939c30f0a"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

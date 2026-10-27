@@ -16,6 +16,10 @@ export const getRouter = () => {
       },
     },
   });
+  // The planner is costly to build and visited again and again in a session,
+  // so it is kept for half an hour after its page closes (five minutes by
+  // default): coming back shows it at once while it refreshes. Memory only.
+  queryClient.setQueryDefaults(["planner"], { gcTime: 30 * 60_000 });
 
   const router = createRouter({
     routeTree,

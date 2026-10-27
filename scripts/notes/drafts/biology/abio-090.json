@@ -1,0 +1,263 @@
+{
+  "format": 1,
+  "concept_id": "abio-090",
+  "subject": "biology",
+  "title": "Core practicals: plants, microbes and ecology",
+  "key_idea": "These core practicals cover plant tissues and fibres, mineral deficiencies, antimicrobial tests, field ecology, temperature and development, the Hill reaction and gel electrophoresis. Each is a fair test with controls and safe handling. Know the method, the variables and how to interpret the result.",
+  "sections": [
+    {
+      "heading": "Plant tissues, fibres and mineral deficiencies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Three core practicals investigate the structure and needs of plants: the tissues in a stem, the strength of fibres and the effect of missing minerals."
+        },
+        {
+          "type": "subheading",
+          "text": "Identifying tissues in a stem"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cut a thin transverse section of a stem and stain it, for example with toluidine blue, which colours lignin blue-green.",
+            "Use a light microscope. Start on low power, then use high power.",
+            "**Xylem vessels** are wide, thick-walled tubes with lignin, found in vascular bundles towards the inside of the bundle.",
+            "**Phloem sieve tubes** have thinner walls and are found towards the outside of the bundle, next to companion cells.",
+            "**Sclerenchyma fibres** have very thick lignified walls and are found in a cap outside the phloem, giving support.",
+            "Make a labelled drawing, recording where each tissue is."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Plant mineral deficiencies"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Grow seedlings in solutions that lack one mineral each, and compare them with a complete solution as a control.",
+            "Nitrate deficiency stunts growth and causes yellow older leaves. Magnesium deficiency causes yellow leaves (chlorosis) as chlorophyll cannot be made.",
+            "Control light, temperature, volume of solution, and the number and type of seedlings.",
+            "Measure growth with a mean height, leaf area or dry mass, and observe leaf colour.",
+            "Aerate the solution, or the roots will lack oxygen."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Tensile strength of plant fibres"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hang masses from a fibre until it breaks. Add the mass in equal steps.",
+            "Tensile strength is the force a fibre can withstand before breaking, per unit of cross-sectional area.",
+            "Use fibres of the same length and thickness, and the same part of the plant, or compare them by the cross-sectional area.",
+            "Repeat several times and use a mean.",
+            "Fibres from different plants or parts of a plant differ in strength, because of their structure and lignin content.",
+            "Use a safety screen or clamp, and keep feet out from under falling masses."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stain and look at a stem section to find xylem, phloem and sclerenchyma.",
+            "Compare deficient plants with a complete solution as a control."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Microbes, antimicrobials and aseptic technique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two practicals test substances against bacteria. Both need aseptic technique to protect the user and the culture."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Spread a lawn of bacteria on an agar plate with a sterile spreader.",
+            "Place discs soaked in plant extracts or antibiotics on the lawn, with a control disc soaked in sterile water.",
+            "Tape the lid on without sealing it, and incubate upside down at around 25 °C. Do not use higher temperatures, which favour pathogens.",
+            "A clear zone around a disc is where bacteria have been killed or stopped growing.",
+            "A larger clear zone means a more effective substance. Compare using the area, πr², rather than the diameter.",
+            "Measure the diameter of each clear zone across the centre of the disc, halve it to get the radius, and take a mean of repeats."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Area of a clear zone",
+          "formula": "area = πr²",
+          "where": [
+            "r = the radius of the clear zone, in mm",
+            "area = in mm²"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Control the concentration of each extract, the volume and size of the disc, the depth of agar, and the incubation time and temperature.",
+            "Different antibiotics have different effects, because bacteria differ in cell wall structure, so some are more affected than others.",
+            "Take care with a cultured microbe: wash hands, wear gloves, disinfect, and sterilise used plates by autoclaving."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Include a control disc and compare clear zones by their area.",
+            "Aseptic technique and incubation at about 25 °C keep the practical safe."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Ecology, development and photosynthesis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These practicals measure living things in the field or in the lab, and the light reactions in isolated chloroplasts."
+        },
+        {
+          "type": "subheading",
+          "text": "Ecology of a habitat"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **quadrat** is a square frame used to sample plants in a small area. Count the number of individuals or estimate the percentage cover.",
+            "Place quadrats at random positions, using random numbers as coordinates, to avoid bias.",
+            "A **transect** is a line along which samples are taken, to show how distribution changes across a gradient, such as from a path into woodland. Use quadrats at regular intervals along it.",
+            "Measure abiotic factors suited to the habitat, such as light intensity, soil moisture, temperature and pH.",
+            "**Abundance** is how many of a species there are; **distribution** is where they are found.",
+            "Use enough quadrats to give reliable data, and calculate a mean abundance."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Temperature and development"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Measure the effect of temperature on growth or development, for example the growth rate of seedlings or the hatching rate of brine shrimp eggs.",
+            "Keep the organisms at different temperatures in incubators or water baths, and measure the number hatched or height at set times.",
+            "Control the number of eggs or seeds, light, water and salinity.",
+            "Development speeds up with temperature, up to an optimum, then falls as enzymes denature."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The Hill reaction"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chloroplasts are isolated by grinding leaves in cold, buffered, isotonic solution and centrifuging.",
+            "The cold keeps enzymes active and slows damage. The buffer holds pH. The isotonic solution prevents osmotic damage.",
+            "DCPIP is a blue dye that is reduced, becoming colourless, as it takes up electrons and hydrogen released in the light-dependent reaction.",
+            "The time taken or a colorimeter reading shows the rate of the light reaction.",
+            "Use controls: chloroplasts in the dark, boiled chloroplasts, and no chloroplasts, to show that light and working chloroplasts are needed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Random sampling avoids bias; a transect samples along a gradient.",
+            "In the Hill reaction, DCPIP loses its blue colour as it is reduced."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Gel electrophoresis of DNA",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gel electrophoresis separates DNA fragments by length, as in DNA profiling."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of gel electrophoresis in order.",
+            "prompt": "Put these steps of gel electrophoresis in order.",
+            "steps": [
+              "Cut the DNA into fragments with restriction enzymes",
+              "Load the samples into wells at the negative end of the gel",
+              "Run an electric current through the gel",
+              "Stain the DNA so the bands can be seen",
+              "Compare the bands with known fragment sizes"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "DNA is negatively charged because of its phosphate groups, so it moves towards the positive electrode.",
+            "Shorter fragments move faster and further through the gel, so fragments are separated by length.",
+            "Include a lane of fragments of known lengths, the DNA ladder, as a comparison.",
+            "The buffer conducts current and keeps pH steady. Keep the gel covered with buffer.",
+            "Handle the gel and stains safely and wear gloves, because some stains are hazardous."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "DNA moves to the positive electrode, with the shortest fragments going furthest.",
+            "A ladder lets the lengths of unknown fragments be estimated."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "In an antibiotic practical, explain why a disc soaked in sterile water is included on the plate.",
+      "a": "It acts as a control; to show that the paper disc and water do not themselves stop bacterial growth; so any clear zone is due to the antibiotic.",
+      "marks": 2
+    },
+    {
+      "q": "A clear zone has a radius of 6 mm. Calculate its area.",
+      "a": "πr² = π × 6²; = 113 mm² (113.1, accept 3.14 × 36 = 113.04).",
+      "marks": 2
+    },
+    {
+      "q": "Explain why DNA fragments of different lengths are separated during gel electrophoresis.",
+      "a": "DNA is negatively charged; so moves towards the positive electrode; shorter fragments move through the gel more easily, so travel further in the same time.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 4.CP6",
+        "EDEX 4.CP7",
+        "EDEX 4.CP8",
+        "EDEX 4.CP9",
+        "EDEX 5.CP10",
+        "EDEX 5.CP11",
+        "EDEX 5.CP13",
+        "EDEX 6.CP14",
+        "EDEX 6.CP15"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "646bbabc-c366-443b-a9e8-b7541376069e",
+      "7e1177c9-8008-4d48-b679-478ecb4a9218",
+      "190d82ef-9436-4ca3-8b4f-31965de18297",
+      "3e0dc737-f55d-4006-8e89-85aa66ae1c75",
+      "cc3caae7-9b1b-4510-b2a1-a6ecb08edd4c",
+      "b072a7ec-ad1b-4930-aa9c-40ff85c5a491",
+      "e1c23504-d84e-4f65-8e19-16ce48725d2a",
+      "1b73473a-fc49-4c76-80ef-c3beaa86f422",
+      "cd7953a6-37c0-4995-9a2b-5447464a7723"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

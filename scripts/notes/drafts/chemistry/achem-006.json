@@ -1,0 +1,255 @@
+{
+  "format": 1,
+  "concept_id": "achem-006",
+  "subject": "chemistry",
+  "title": "Empirical and molecular formulae",
+  "key_idea": "The empirical formula is the simplest whole-number ratio of atoms in a compound. The molecular formula is the actual number of atoms. Find the empirical formula from masses or percentages, then scale it up using the relative molecular mass.",
+  "sections": [
+    {
+      "heading": "Empirical and molecular formulae",
+      "blocks": [
+        { "type": "paragraph", "text": "Two formulae describe the same compound in different ways. This section covers what each one shows and how they are related." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Empirical formula", "meaning": "The simplest whole-number ratio of atoms of each element in a compound." },
+            { "term": "Molecular formula", "meaning": "The actual number and type of atoms of each element in one molecule." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Compound", "Molecular formula", "Empirical formula"],
+          "rows": [
+            ["Ethane", "C₂H₆", "CH₃"],
+            ["Benzene", "C₆H₆", "CH"],
+            ["Glucose", "C₆H₁₂O₆", "CH₂O"],
+            ["Ethene", "C₂H₄", "CH₂"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The molecular formula is a whole-number multiple of the empirical formula.",
+            "For some compounds the two are the same, such as H₂O and CH₄.",
+            "Ionic compounds are only given an empirical formula, because they have no molecules.",
+            "You can also read both formulae from a structural, displayed or skeletal formula by counting the atoms."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Empirical formula: simplest ratio.",
+            "Molecular formula: actual atoms in one molecule.",
+            "Molecular formula = n × empirical formula."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating an empirical formula",
+      "blocks": [
+        { "type": "paragraph", "text": "Experimental data gives masses or percentages by mass. Convert them to moles, then to a whole-number ratio." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Write the masses.", "text": "A percentage by mass can be treated as the mass in 100 g." },
+            { "lead": "Divide by molar mass.", "text": "This gives the amount in moles of each element." },
+            { "lead": "Divide by the smallest.", "text": "Divide every amount by the smallest amount." },
+            { "lead": "Make whole numbers.", "text": "If a ratio is 1.5, multiply everything by 2. If it is 1.33, multiply by 3." }
+          ]
+        },
+        { "type": "subheading", "text": "Worked calculation" },
+        { "type": "paragraph", "text": "A compound contains 40.0% carbon, 6.7% hydrogen and 53.3% oxygen by mass." },
+        {
+          "type": "table",
+          "columns": ["Step", "C", "H", "O"],
+          "rows": [
+            ["Mass in 100 g (g)", "40.0", "6.7", "53.3"],
+            ["Amount (mol)", "40.0 ÷ 12.0 = 3.33", "6.7 ÷ 1.0 = 6.7", "53.3 ÷ 16.0 = 3.33"],
+            ["Divide by smallest", "1", "2", "1"]
+          ]
+        },
+        { "type": "paragraph", "text": "The empirical formula is CH₂O." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for finding an empirical formula in order.",
+            "prompt": "Put the steps for finding an empirical formula in order.",
+            "steps": [
+              "Write the mass (or percentage) of each element",
+              "Divide each mass by its molar mass to get moles",
+              "Divide every amount by the smallest amount",
+              "Multiply to get whole numbers if needed",
+              "Write the empirical formula"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Convert mass to moles, then to a ratio.",
+            "A ratio such as 1.5 must be multiplied up to whole numbers.",
+            "Do not round 1.33 or 1.5 to a whole number."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Finding the molecular formula",
+      "blocks": [
+        { "type": "paragraph", "text": "The molecular formula needs the relative molecular mass as well as the empirical formula." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Empirical formula mass.", "text": "For CH₂O: 12.0 + 2.0 + 16.0 = 30.0." },
+            { "lead": "Divide.", "text": "If Mᵣ is 180.0, then 180.0 ÷ 30.0 = 6." },
+            { "lead": "Multiply.", "text": "The molecular formula is 6 × CH₂O = C₆H₁₂O₆." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mᵣ can come from a mass spectrum or from a gas measurement.",
+            "For a gas or volatile liquid, use pV = nRT to find the amount, then Mᵣ = mass ÷ amount."
+          ]
+        },
+        { "type": "subheading", "text": "Hydrated salts" },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Hydrated", "meaning": "A crystal that contains water as part of its structure." },
+            { "term": "Anhydrous", "meaning": "A substance containing no water of crystallisation." },
+            { "term": "Water of crystallisation", "meaning": "Water molecules bonded into the crystal structure of a salt, shown after a dot: CuSO₄·5H₂O." }
+          ]
+        },
+        { "type": "paragraph", "text": "Heat the salt to drive off the water. The mass lost is the water. Treat the water as one of the 'elements' in the ratio." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Masses.", "text": "4.99 g of hydrated copper(II) sulfate loses 1.80 g on heating. Anhydrous CuSO₄ left: 3.19 g." },
+            { "lead": "Moles.", "text": "CuSO₄: 3.19 ÷ 159.6 = 0.0200 mol. H₂O: 1.80 ÷ 18.0 = 0.100 mol." },
+            { "lead": "Ratio.", "text": "0.100 ÷ 0.0200 = 5, so x = 5 and the formula is CuSO₄·5H₂O." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mᵣ ÷ empirical formula mass gives the multiplier.",
+            "Hydrated salts: find the ratio of salt to water in moles.",
+            "Water of crystallisation is written after a dot."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define the terms empirical formula and molecular formula.",
+      "a": "Empirical formula: the simplest whole-number ratio of atoms of each element in a compound. Molecular formula: the actual number of atoms of each element in a molecule.",
+      "marks": 2
+    },
+    {
+      "q": "A hydrocarbon contains 85.7% carbon by mass and has Mᵣ = 56.0. Find its empirical and molecular formulae.",
+      "a": "Hydrogen = 14.3%. C: 85.7 ÷ 12.0 = 7.14; H: 14.3 ÷ 1.0 = 14.3. Ratio 1 : 2, so the empirical formula is CH₂ (mass 14.0). 56.0 ÷ 14.0 = 4, so the molecular formula is C₄H₈.",
+      "marks": 4
+    },
+    {
+      "q": "6.15 g of hydrated magnesium sulfate, MgSO₄·xH₂O, gives 3.01 g of anhydrous MgSO₄ on heating. Find x. (Mᵣ of MgSO₄ = 120.4; H₂O = 18.0.)",
+      "a": "Water lost = 3.14 g. Moles of H₂O = 3.14 ÷ 18.0 = 0.174. Moles of MgSO₄ = 3.01 ÷ 120.4 = 0.0250. Ratio = 0.174 ÷ 0.0250 ≈ 7, so x = 7.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": ["OCR 2.1.3b", "OCR 2.1.3c", "OCR 2.1.3d"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You must use the terms, but you are not asked to give formal definitions of empirical and molecular formula.",
+                "Calculate empirical formulae from elemental analysis data, such as the masses of CO₂ and H₂O formed on burning a compound.",
+                "Calculate the formula of a hydrated salt from percentage composition, mass composition or experimental results."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 5.4", "EDEX 5.5"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use experimental data to calculate empirical formulae, from masses or percentage composition by mass.",
+                "Calculate molecular formulae using pV = nRT for gases and volatile liquids: find n, then Mᵣ = mass ÷ n."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": ["AQA 3.1.2.4"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Calculate empirical formula from composition by mass or percentage by mass.",
+                "Calculate molecular formula from the empirical formula and the relative molecular mass."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 2.3.3", "CAIE 2.3.4", "CAIE 2.3.5", "CAIE 13.1.6"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Deduce the molecular and empirical formula of an organic compound from its structural, displayed or skeletal formula.",
+                "In a skeletal formula, each line end or corner is a carbon atom. Add hydrogen atoms until each carbon has four bonds.",
+                "Example: cyclohexane drawn as a hexagon is C₆H₁₂, with empirical formula CH₂."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c6539f51-70f4-4bce-a9e3-369a303d6d78",
+      "017f68bd-cb3e-4f17-beff-fb598ed48601",
+      "b09d0667-dbc9-4172-9945-b5e78d2e401c",
+      "b34025a4-2b11-427b-9f71-5d5395997d25",
+      "0d8d8b24-e211-4b82-aaf9-a16fabb0859c",
+      "ccd6bea3-2d4f-47bd-ac9e-a8efa9af8b1e",
+      "9797c07a-3a80-40ef-b893-728c226d429c",
+      "ea5cac4a-969b-49b0-960b-fee2874fd905",
+      "81aa6cc3-9acd-497c-8ac9-f9a0503a658a",
+      "7d70e37b-6b88-4afe-bd7a-609385c6cb05"
+    ],
+    "exemplar_ids": []
+  }
+}

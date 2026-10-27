@@ -1,6 +1,6 @@
 import { EmptyState, ErrorNote } from "@/components/Shared";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { progressQuery, invalidatePlanner } from "@/lib/planner/queries";
+import { stateQuery, invalidatePlanner } from "@/lib/planner/queries";
 import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
@@ -77,9 +77,13 @@ export function CoveredLedger({
     board: (active?.board ?? "aqa") as BoardV,
     level,
   };
-  // The planner's own progress read: refetched whenever a homework or quiz
-  // lands (invalidatePlanner), so ticks and due counts follow the work.
-  const progress = useQuery({ ...progressQuery(params), enabled: !!active });
+  // The planner's own read of the course: refetched whenever a homework or
+  // quiz lands (invalidatePlanner), so ticks and due counts follow the work.
+  const progress = useQuery({
+    ...stateQuery(params),
+    select: (state) => state.progress,
+    enabled: !!active,
+  });
   const data = progress.data ?? [];
   // Reviews come due with the clock, not only with new work.
   const now = new Date(useNow(60_000));

@@ -1,0 +1,290 @@
+{
+  "format": 1,
+  "concept_id": "aphys-033",
+  "subject": "physics",
+  "title": "Lenses",
+  "key_idea": "A converging lens focuses parallel rays at its principal focus; a diverging lens spreads them. Lens power is 1 / f, and 1/u + 1/v = 1/f locates the image. Real images can be projected; virtual images cannot.",
+  "sections": [
+    {
+      "heading": "Focal length and power",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A lens changes the direction of light by refraction at its two curved surfaces. The two types do opposite jobs."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Converging lens",
+              "meaning": "A lens, thicker in the middle, that brings parallel rays to a point called the principal focus."
+            },
+            {
+              "term": "Diverging lens",
+              "meaning": "A lens, thinner in the middle, that spreads parallel rays so they seem to come from a point behind the lens."
+            },
+            {
+              "term": "Focal length (f)",
+              "meaning": "The distance from the centre of the lens to the principal focus."
+            },
+            {
+              "term": "Power (P)",
+              "meaning": "A measure of how strongly a lens bends light. It is 1 / f."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A converging lens has a real principal focus on the far side. Its focal length is positive.",
+            "A diverging lens has a virtual principal focus on the same side as the incoming light. Its focal length is negative."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Power of a lens",
+          "formula": "P = 1 / f",
+          "where": [
+            "P = power (dioptres, D)",
+            "f = focal length (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A short focal length means a powerful lens.",
+            "One dioptre is a power of 1 m⁻¹. A lens of focal length 0.25 m has power +4.0 D."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Lenses in combination"
+        },
+        {
+          "type": "equation",
+          "label": "Thin lenses in contact",
+          "formula": "P = P₁ + P₂ + P₃ + ...",
+          "where": [
+            "P = total power (D)",
+            "P₁, P₂, P₃ = powers of the separate lenses (D)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Powers add for thin lenses placed together. A diverging lens contributes a negative power."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "P = 1 / f, with f in metres.",
+            "Powers of thin lenses in contact add."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Ray diagrams and images",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A ray diagram locates the image of one point on an object. Draw two of these three rays from the top of the object. Where they meet is the image of that point."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Parallel ray",
+              "text": "A ray parallel to the axis is refracted through the principal focus (converging lens)."
+            },
+            {
+              "lead": "Central ray",
+              "text": "A ray through the centre of the lens goes straight on."
+            },
+            {
+              "lead": "Focal ray",
+              "text": "A ray through the principal focus on the object side leaves parallel to the axis."
+            }
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Real image",
+              "meaning": "An image formed where rays actually meet. It can be shown on a screen."
+            },
+            {
+              "term": "Virtual image",
+              "meaning": "An image formed where rays only appear to come from. It cannot be shown on a screen."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Object position (converging lens)",
+            "Image"
+          ],
+          "rows": [
+            [
+              "Beyond 2f",
+              "Real, inverted, smaller"
+            ],
+            [
+              "Between f and 2f",
+              "Real, inverted, larger"
+            ],
+            [
+              "Closer than f",
+              "Virtual, upright, larger, on the same side as the object"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A diverging lens always gives a virtual, upright, smaller image, closer to the lens than the object.",
+            "A magnifying glass is a converging lens with the object inside the focal length."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A real image can be projected onto a screen; a virtual image cannot.",
+            "Inside the focal length, a converging lens gives a virtual, magnified image."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The lens equation and magnification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The lens equation links the object distance u, image distance v and focal length f. Use the real-is-positive convention."
+        },
+        {
+          "type": "equation",
+          "label": "Thin lens equation",
+          "formula": "1/u + 1/v = 1/f",
+          "where": [
+            "u = object distance from the lens (m)",
+            "v = image distance from the lens (m)",
+            "f = focal length (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Distances to real objects and real images are positive.",
+            "f is positive for a converging lens and negative for a diverging lens.",
+            "A negative v means a virtual image, on the same side as the object."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Magnification",
+          "formula": "m = image height / object height = v / u",
+          "where": [
+            "m = magnification (no unit)",
+            "v = image distance (m)",
+            "u = object distance (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The size of m is what matters: m > 1 means a magnified image, m < 1 a diminished one.",
+            "With the real-is-positive convention, v is negative for a virtual image, so v / u is negative."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Use the lens equation to find an image distance.",
+            "question": "An object is {u} cm from a converging lens of focal length {f} cm. Calculate the image distance.",
+            "variables": [
+              {
+                "id": "u",
+                "min": 25,
+                "max": 60,
+                "step": 5
+              },
+              {
+                "id": "f",
+                "min": 10,
+                "max": 20,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "1 / (1 / f - 1 / u)",
+              "unit": "cm",
+              "decimals": 1
+            },
+            "working": [
+              "1/v = 1/f − 1/u",
+              "1/v = 1/{f} − 1/{u}",
+              "v = {answer} cm"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "1/u + 1/v = 1/f, with real distances positive.",
+            "m = v / u = image height ÷ object height."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A converging lens has a focal length of 20 cm. Calculate its power.",
+      "a": "P = 1 / f = 1 / 0.20 = +5.0 D.",
+      "marks": 2
+    },
+    {
+      "q": "An object is 30 cm from a converging lens of focal length 10 cm. Calculate the image distance and the magnification.",
+      "a": "1/v = 1/10 − 1/30 = 2/30, so v = 15 cm. m = v / u = 15 / 30 = 0.50.",
+      "marks": 3
+    },
+    {
+      "q": "State the difference between a real image and a virtual image.",
+      "a": "A real image is formed where rays actually meet and can be shown on a screen. A virtual image is where rays only seem to come from and cannot be shown on a screen.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 5.75",
+        "EDEX 5.76",
+        "EDEX 5.77",
+        "EDEX 5.78",
+        "EDEX 5.79",
+        "EDEX 5.80",
+        "EDEX 5.81"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "d5437c7f-e554-49df-baf0-1e48ac40f2ad",
+      "1e07f49f-5364-418a-a575-4e156bd7cfde",
+      "8885d2aa-0e26-4972-8228-51b13d03d305",
+      "a236cf9a-4d3a-4c15-9e4f-2e39ee0488ef",
+      "a9199749-d724-45c4-8a76-0c9116d636d4",
+      "1393a09e-11fc-445b-b7de-659f2fe0a9bb",
+      "d273c8c9-bf95-4131-a424-3b473468b4b2"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

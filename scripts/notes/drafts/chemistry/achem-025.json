@@ -1,0 +1,376 @@
+{
+  "format": 1,
+  "concept_id": "achem-025",
+  "subject": "chemistry",
+  "title": "Gibbs free energy and feasibility",
+  "key_idea": "The **Gibbs free energy change**, ΔG = ΔH − TΔS, combines enthalpy and entropy. A reaction is feasible when ΔG is zero or negative. Temperature changes the balance. Feasible does not mean fast: a reaction with a negative ΔG may still not happen if its rate is too slow.",
+  "sections": [
+    {
+      "heading": "The Gibbs equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Enthalpy and entropy both affect whether a reaction can happen. The Gibbs equation puts them together in a single quantity measured in kJ mol⁻¹."
+        },
+        {
+          "type": "equation",
+          "label": "Gibbs free energy change",
+          "formula": "ΔG = ΔH − TΔS",
+          "where": [
+            "ΔG = free energy change, in kJ mol⁻¹",
+            "ΔH = enthalpy change of the system, in kJ mol⁻¹",
+            "T = temperature, in K",
+            "ΔS = entropy change of the system, in kJ K⁻¹ mol⁻¹ (divide J K⁻¹ mol⁻¹ by 1000)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "TΔS is a temperature-dependent term. It becomes more important as the temperature rises.",
+            "Feasible (spontaneous) reaction: ΔG is zero or negative.",
+            "Not feasible: ΔG is positive.",
+            "−ΔG ÷ T is the total entropy change, so ΔG < 0 is the same as ΔS(total) > 0.",
+            "The units of ΔS must match ΔH. Convert J to kJ before using the equation."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ΔG = ΔH − TΔS.",
+            "ΔG ≤ 0: the reaction is feasible.",
+            "Convert ΔS from J to kJ before using the equation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How temperature affects feasibility",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Because T multiplies ΔS, the signs of ΔH and ΔS decide whether temperature can change the answer."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "ΔH",
+            "ΔS",
+            "Feasible?"
+          ],
+          "rows": [
+            [
+              "Negative",
+              "Positive",
+              "At all temperatures: ΔG is always negative"
+            ],
+            [
+              "Positive",
+              "Negative",
+              "At no temperature: ΔG is always positive"
+            ],
+            [
+              "Negative",
+              "Negative",
+              "Only at low temperatures, where ΔH outweighs TΔS"
+            ],
+            [
+              "Positive",
+              "Positive",
+              "Only at high temperatures, where TΔS outweighs ΔH"
+            ]
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Temperature at which a reaction becomes feasible",
+          "formula": "T = ΔH ÷ ΔS",
+          "where": [
+            "T = the temperature at which ΔG = 0, in K",
+            "ΔH in kJ mol⁻¹",
+            "ΔS in kJ K⁻¹ mol⁻¹"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Move the enthalpy change, entropy change and temperature to see the free energy change and the total entropy change.",
+            "inputs": [
+              {
+                "id": "dH",
+                "label": "Enthalpy change, ΔH",
+                "unit": "kJ mol⁻¹",
+                "min": -100,
+                "max": 200,
+                "step": 5,
+                "value": 178
+              },
+              {
+                "id": "dS",
+                "label": "Entropy change of the system, ΔS",
+                "unit": "J K⁻¹ mol⁻¹",
+                "min": -200,
+                "max": 300,
+                "step": 10,
+                "value": 160
+              },
+              {
+                "id": "T",
+                "label": "Temperature, T",
+                "unit": "K",
+                "min": 100,
+                "max": 2000,
+                "step": 50,
+                "value": 300
+              }
+            ],
+            "outputs": [
+              {
+                "label": "ΔG = ΔH − TΔS",
+                "unit": "kJ mol⁻¹",
+                "formula": "dH - T * dS / 1000",
+                "decimals": 1
+              },
+              {
+                "label": "Total entropy change",
+                "unit": "J K⁻¹ mol⁻¹",
+                "formula": "dS - dH * 1000 / T",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Worked example: CaCO₃(s) → CaO(s) + CO₂(g), with ΔH = +178 kJ mol⁻¹ and ΔS = +160 J K⁻¹ mol⁻¹."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Convert the units.",
+              "text": "ΔS = 160 ÷ 1000 = 0.160 kJ K⁻¹ mol⁻¹."
+            },
+            {
+              "lead": "Set ΔG to zero.",
+              "text": "T = ΔH ÷ ΔS = 178 ÷ 0.160 = 1113 K."
+            },
+            {
+              "lead": "Say which side is feasible.",
+              "text": "Both ΔH and ΔS are positive, so the reaction is feasible above 1113 K."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise finding the temperature at which a reaction becomes feasible from its enthalpy and entropy changes.",
+            "question": "A reaction has ΔH = **{h} kJ mol⁻¹** and ΔS = **{s} J K⁻¹ mol⁻¹**. Calculate the temperature, in K, above which it becomes feasible.",
+            "variables": [
+              {
+                "id": "h",
+                "min": 100,
+                "max": 200,
+                "step": 10
+              },
+              {
+                "id": "s",
+                "min": 100,
+                "max": 250,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "h * 1000 / s",
+              "unit": "K",
+              "decimals": 0
+            },
+            "working": [
+              "ΔG = 0 when T = ΔH ÷ ΔS",
+              "T = ({h} × 1000) ÷ {s}",
+              "T = **{answer}** K"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Same signs for ΔH and ΔS: temperature decides feasibility.",
+            "At the changeover temperature, ΔG = 0 and T = ΔH ÷ ΔS.",
+            "Positive ΔH and ΔS: feasible at high T. Negative ΔH and ΔS: feasible at low T."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Limits of feasibility predictions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "ΔG says whether a reaction can happen. It says nothing about how fast it happens, so it must be read together with the kinetics."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A negative ΔG means the reaction is thermodynamically feasible. It does not mean it will happen at a measurable rate.",
+            "Many feasible reactions have a high activation energy, so very few particles collide with enough energy. The reaction is too slow to see.",
+            "Example: diamond turning into graphite has a negative ΔG, but at room temperature it is far too slow.",
+            "A catalyst or a higher temperature can speed up a feasible reaction. A catalyst does not change ΔG.",
+            "A reaction with a positive ΔG at standard conditions may happen at a different temperature, or with conditions that are not standard.",
+            "The value of ΔG is calculated for standard conditions. Real conditions can give a different answer."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Negative ΔG: feasible, but no information about rate.",
+            "High activation energy can stop a feasible reaction.",
+            "A catalyst changes the rate, not ΔG."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate ΔG at 298 K for a reaction with ΔH = −92 kJ mol⁻¹ and ΔS = −199 J K⁻¹ mol⁻¹. State whether it is feasible.",
+      "a": "ΔG = −92 − 298 × (−0.199) = −92 + 59.3 = −32.7 kJ mol⁻¹. ΔG is negative, so the reaction is feasible.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the reaction in the previous question is not feasible at high temperatures.",
+      "a": "ΔS is negative, so −TΔS is positive and grows with temperature. At high temperatures it outweighs the negative ΔH and ΔG becomes positive.",
+      "marks": 2
+    },
+    {
+      "q": "A reaction has a negative ΔG but does not occur at room temperature. Explain why.",
+      "a": "The reaction has a high activation energy, so it is too slow at room temperature. ΔG shows that it is feasible, not how fast it goes.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.2.2d",
+        "OCR 5.2.2e",
+        "OCR 5.2.2f"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Explain that feasibility depends on TΔS as well as on ΔH, and do related calculations with the Gibbs equation.",
+                "Explain the limitations of ΔG predictions in terms of kinetics."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 13B.18",
+        "EDEX 13B.19",
+        "EDEX 13B.20",
+        "EDEX 13B.21",
+        "EDEX 13B.22"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Free energy and the equilibrium constant",
+              "formula": "ΔG = −RT ln K",
+              "where": [
+                "R = gas constant, 8.31 J K⁻¹ mol⁻¹",
+                "T = temperature, in K",
+                "K = equilibrium constant",
+                "ΔG in J mol⁻¹ here"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A reaction that is feasible (ΔG negative) has ln K positive, so K is large and the products are favoured.",
+                "A reaction that is not feasible (ΔG positive) has ln K negative, so K is small.",
+                "ΔG = 0 gives ln K = 0, so K = 1.",
+                "A reaction with a negative ΔG may not occur in practice because of kinetic factors, such as a high activation energy."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.8.2"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Derivation of ΔG = ΔH − TΔS is not required.",
+                "A reaction is feasible when ΔG is zero or negative.",
+                "Be able to calculate entropy changes from absolute entropy values, work out how ΔG varies with temperature, and find the temperature at which a reaction becomes feasible."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 23.4.1",
+        "CAIE 23.4.2",
+        "CAIE 23.4.3",
+        "CAIE 23.4.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "State and use the Gibbs equation with standard values, ΔG⦵ = ΔH⦵ − TΔS⦵.",
+                "Predict the effect of a change in temperature on feasibility when given standard enthalpy and entropy changes."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "8d2698ae-0e1e-4c60-b221-b9c0e9e15741",
+      "d2355d64-0a52-4d1c-8e17-50172d471f63",
+      "7a87eec7-7425-4b03-adac-1e7e01ffe3b1",
+      "05b6f49b-acd9-4b97-8f63-b07a5ba2b9f6",
+      "cd91ec35-6f3c-465a-8b85-20aa688e8bd1",
+      "74cf1a33-98ab-4c2a-9879-405fa9111f54",
+      "db18b2f7-925f-420b-9ecd-36aa9874d70f",
+      "939313ab-20c0-4040-bb5a-c5d9847ee890",
+      "352ea3e1-2378-493b-939f-ac4d916aea92",
+      "259f2a48-f543-4c78-a6a5-2c663afb6020",
+      "03d46338-8691-45b4-9451-32b2109b3b87",
+      "95dd6279-b282-4e23-9009-c26249f9d455",
+      "f9f90af9-3268-4406-9363-9fd483dbed60"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

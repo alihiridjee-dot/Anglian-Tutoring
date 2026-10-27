@@ -1,0 +1,277 @@
+{
+  "format": 1,
+  "concept_id": "achem-010",
+  "subject": "chemistry",
+  "title": "Acids, neutralisation and titrations",
+  "key_idea": "Acids release H⁺ ions in water and alkalis release OH⁻ ions. Strong acids dissociate fully, weak acids only partly. Neutralisation is H⁺ + OH⁻ → H₂O, and a titration uses it to find an unknown concentration.",
+  "sections": [
+    {
+      "heading": "Common acids and alkalis",
+      "blocks": [
+        { "type": "paragraph", "text": "Learn the names and formulae of these acids and alkalis, and the ion each releases." },
+        {
+          "type": "table",
+          "columns": ["Name", "Formula", "Ion released in water"],
+          "rows": [
+            ["Hydrochloric acid", "HCl", "H⁺"],
+            ["Sulfuric acid", "H₂SO₄", "H⁺ (two per molecule)"],
+            ["Nitric acid", "HNO₃", "H⁺"],
+            ["Ethanoic acid", "CH₃COOH", "H⁺"],
+            ["Sodium hydroxide", "NaOH", "OH⁻"],
+            ["Potassium hydroxide", "KOH", "OH⁻"],
+            ["Ammonia", "NH₃", "OH⁻ (by reacting with water)"]
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Acid", "meaning": "A substance that releases H⁺ ions in aqueous solution." },
+            { "term": "Alkali", "meaning": "A water-soluble base that releases OH⁻ ions in aqueous solution." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Acids release H⁺. Alkalis release OH⁻.",
+            "Sulfuric acid can release two H⁺ per molecule.",
+            "Learn the formulae of the four acids and three alkalis."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Strong and weak acids",
+      "blocks": [
+        { "type": "paragraph", "text": "Strength is about how far an acid dissociates, not how concentrated it is." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Strong acid", "meaning": "An acid that is fully dissociated in aqueous solution, e.g. HCl → H⁺ + Cl⁻." },
+            { "term": "Weak acid", "meaning": "An acid that is only partially dissociated in aqueous solution, e.g. CH₃COOH ⇌ CH₃COO⁻ + H⁺." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Strong bases such as NaOH and KOH are fully dissociated. Weak bases such as NH₃ are partially dissociated.",
+            "Strength is not concentration. A dilute solution of a strong acid can have fewer H⁺ ions than a concentrated solution of a weak one."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Test at equal concentration", "Strong acid", "Weak acid"],
+          "rows": [
+            ["pH (meter or universal indicator)", "Lower, about 1", "Higher, about 3"],
+            ["Conductivity", "Higher: more ions", "Lower: fewer ions"],
+            ["Reaction with a reactive metal such as magnesium", "Faster, more bubbles", "Slower, fewer bubbles"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The total amount of gas from the same moles of each acid is the same in the end, because the weak acid keeps dissociating as H⁺ is used up."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Strong: fully dissociated. Weak: partially dissociated.",
+            "Strong acids have lower pH, higher conductivity and react faster.",
+            "Strength and concentration are different things."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Neutralisation and salts",
+      "blocks": [
+        { "type": "paragraph", "text": "Neutralisation is the reaction of an acid with a base. Every neutralisation makes a salt." },
+        {
+          "type": "equation",
+          "label": "Ionic equation for neutralisation",
+          "formula": "H⁺(aq) + OH⁻(aq) → H₂O(l)",
+          "where": ["This is true for any acid with any alkali."]
+        },
+        {
+          "type": "table",
+          "columns": ["Reaction", "Products", "Example"],
+          "rows": [
+            ["Acid + alkali", "Salt + water", "HCl + NaOH → NaCl + H₂O"],
+            ["Acid + metal oxide", "Salt + water", "H₂SO₄ + CuO → CuSO₄ + H₂O"],
+            ["Acid + carbonate", "Salt + water + carbon dioxide", "2HCl + CaCO₃ → CaCl₂ + H₂O + CO₂"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A salt is formed when the H⁺ of an acid is replaced by a metal or ammonium ion.",
+            "Hydrochloric acid makes chlorides, sulfuric acid makes sulfates and nitric acid makes nitrates.",
+            "Write full equations with state symbols, then ionic equations by cancelling spectator ions."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Neutralisation: H⁺(aq) + OH⁻(aq) → H₂O(l).",
+            "Acid + base makes a salt; carbonates also make CO₂.",
+            "The salt name comes from the acid and the base."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Titrations",
+      "blocks": [
+        { "type": "paragraph", "text": "A titration finds the exact volume of one solution that reacts with a fixed volume of another. This section covers the method and the calculation." },
+        { "type": "subheading", "text": "Preparing a standard solution" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Weigh.", "text": "Weigh the solid in a weighing bottle. Dissolve it in a beaker with distilled water." },
+            { "lead": "Transfer.", "text": "Pour into a volumetric flask. Rinse the beaker and funnel into the flask." },
+            { "lead": "Make up.", "text": "Add water to the mark, with the bottom of the meniscus on the line. Stopper and invert to mix." }
+          ]
+        },
+        { "type": "subheading", "text": "Carrying out the titration" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Measure.", "text": "Pipette 25.0 cm³ of one solution into a conical flask. Add a few drops of indicator." },
+            { "lead": "Add.", "text": "Run the other solution in from a burette, swirling, until the indicator just changes colour at the end point." },
+            { "lead": "Repeat.", "text": "Do a rough titration first, then repeat until two titres agree within 0.10 cm³. Use the mean of the concordant results." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Indicator", "In acid", "In alkali"],
+          "rows": [
+            ["Methyl orange", "Red", "Yellow"],
+            ["Phenolphthalein", "Colourless", "Pink"]
+          ]
+        },
+        { "type": "subheading", "text": "Calculation" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Moles of the known solution.", "text": "n = c × V. 22.50 cm³ of 0.100 mol dm⁻³ HCl: n = 0.100 × 0.02250 = 2.25 × 10⁻³ mol." },
+            { "lead": "Use the equation ratio.", "text": "HCl + NaOH → NaCl + H₂O is 1 : 1, so n(NaOH) = 2.25 × 10⁻³ mol." },
+            { "lead": "Concentration of the unknown.", "text": "c = n ÷ V = 2.25 × 10⁻³ ÷ 0.0250 = 0.0900 mol dm⁻³." },
+            { "lead": "Convert if asked.", "text": "g dm⁻³ = 0.0900 × 40.0 = 3.60 g dm⁻³." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the concentration of sodium hydroxide from a titration.",
+            "question": "25.0 cm³ of sodium hydroxide is neutralised by {v} cm³ of 0.100 mol dm⁻³ hydrochloric acid. HCl + NaOH → NaCl + H₂O. Calculate the concentration of the sodium hydroxide in mol dm⁻³.",
+            "variables": [{ "id": "v", "min": 18, "max": 30, "step": 0.5 }],
+            "answer": { "formula": "0.1 * v / 25", "unit": "mol dm⁻³", "decimals": 4, "tolerance_percent": 1 },
+            "working": ["n(HCl) = 0.100 × {v} ÷ 1000 mol", "Ratio 1 : 1, so n(NaOH) is the same", "c = n ÷ 0.0250 dm³ = {answer} mol dm⁻³"]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Concordant titres agree within 0.10 cm³.",
+            "n = c × V for the known solution, then the ratio, then c = n ÷ V.",
+            "Check the ratio in the equation; it is not always 1 : 1."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain the difference between a strong acid and a weak acid. Give an example of each.",
+      "a": "A strong acid is fully dissociated in aqueous solution, e.g. hydrochloric acid. A weak acid is only partially dissociated, e.g. ethanoic acid.",
+      "marks": 2
+    },
+    {
+      "q": "Write the ionic equation for the neutralisation of hydrochloric acid with sodium hydroxide.",
+      "a": "H⁺(aq) + OH⁻(aq) → H₂O(l)",
+      "marks": 1
+    },
+    {
+      "q": "25.0 cm³ of sulfuric acid is neutralised by 30.0 cm³ of 0.200 mol dm⁻³ sodium hydroxide. H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O. Calculate the concentration of the acid.",
+      "a": "n(NaOH) = 0.200 × 0.0300 = 6.00 × 10⁻³ mol. n(H₂SO₄) = 3.00 × 10⁻³ mol. c = 3.00 × 10⁻³ ÷ 0.0250 = 0.120 mol dm⁻³.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": ["OCR 2.1.4a", "OCR 2.1.4b", "OCR 2.1.4c", "OCR 2.1.4d", "OCR 2.1.4e"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Neutralisation of acids with carbonates, metal oxides and alkalis (water-soluble bases), including full equations.",
+                "Explain strong and weak acids qualitatively, in terms of relative dissociation.",
+                "Titration calculations may be structured, with steps given, or non-structured. They may use familiar or unfamiliar acids and bases."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": ["EDEX 5.11"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Calculate solution concentrations in mol dm⁻³ and g dm⁻³.",
+                "Use a range of acids, alkalis and indicators in titrations.",
+                "Both phenolphthalein and methyl orange are expected as indicators."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": ["CAIE 7.2.1", "CAIE 7.2.2", "CAIE 7.2.4", "CAIE 7.2.6", "CAIE 7.2.7", "CAIE 7.2.8"],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Names and formulae are limited to hydrochloric, sulfuric, nitric and ethanoic acids, and sodium hydroxide, potassium hydroxide and ammonia.",
+                "Explain the differences between strong and weak acids using a reactive metal, the pH value (pH meter or universal indicator) and conductivity.",
+                "Neutralisation is when H⁺(aq) and OH⁻(aq) form H₂O(l), and a salt is formed."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "82df3f38-d4a8-4c40-ac8f-85a151bf57f4",
+      "7bcf5fb4-cc5c-4844-ac34-b9369cf696fe",
+      "4d5d2a7a-1ef2-4471-ae43-8c3fdb014911",
+      "58ee28a0-035c-4967-9267-bb9bf4f4937d",
+      "70448c0a-a68b-4516-97b6-c742f0a9e634",
+      "88ba816c-4f8e-4387-902c-dae8eb8c906a",
+      "50b9cbb4-ef35-4f73-b98f-f3b3fe922564",
+      "879447f0-05f9-4cef-a169-f0d2a277d2bd",
+      "3fe11750-2021-45ac-aec0-6ef3fad93526",
+      "51de10ba-ac4f-493c-8ee1-cb86867b30a3",
+      "9bd5bfc4-a619-4da8-93cf-22375b90571b",
+      "02d03a33-63fa-4633-b2ea-bc6dfd5357ca"
+    ],
+    "exemplar_ids": []
+  }
+}

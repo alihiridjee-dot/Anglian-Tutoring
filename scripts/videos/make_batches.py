@@ -48,7 +48,8 @@ def main() -> None:
         chunk = rows[start:start + args.size]
         text, ids = [], {}
         for i, r in enumerate(chunk, 1):
-            course = {"cambridge": "Cambridge IGCSE", "edexcel": "Edexcel IGCSE"}[r["board"]]
+            course = "{} {}".format({"cambridge": "Cambridge", "edexcel": "Edexcel", "aqa": "AQA", "ocr": "OCR"}[r["board"]],
+                                    {"igcse": "IGCSE", "alevel": "A Level", "gcse": "GCSE"}[r["level"]])
             text.append(f'### {i}. {r["code"]} ({course} {r["subject"].title()}) | spec_point_id: {r["spec_point_id"]}')
             text.append(f'Point: {r["point"]}')
             if r.get("point_description") and r["point_description"] != r["point"]:

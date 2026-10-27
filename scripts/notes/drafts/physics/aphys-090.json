@@ -1,0 +1,449 @@
+{
+  "format": 1,
+  "concept_id": "aphys-090",
+  "subject": "physics",
+  "title": "Rotational dynamics",
+  "key_idea": "Rotation follows the same pattern as straight-line motion. Moment of inertia plays the part of mass, torque the part of force and angular momentum the part of momentum. Every straight-line equation has a rotational partner.",
+  "sections": [
+    {
+      "heading": "Moment of inertia",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Moment of inertia measures how hard it is to change the rotation of an object. This section covers what sets its size."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Moment of inertia, I",
+              "meaning": "How strongly an object resists a change in its rotation about a given axis. Unit: kg m²."
+            },
+            {
+              "term": "Axis of rotation",
+              "meaning": "The line the object turns about. I depends on which axis is used."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Moment of inertia of a point mass",
+          "formula": "I = mr²",
+          "where": [
+            "I = moment of inertia (kg m²)",
+            "m = mass (kg)",
+            "r = distance from the axis (m)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Moment of inertia of an extended object",
+          "formula": "I = Σmr²",
+          "where": [
+            "Add mr² for every small piece of the object.",
+            "Each piece has its own r from the axis."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Expressions for the moment of inertia of particular shapes are given in a question when they are needed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A larger **mass** gives a larger I.",
+            "The way the mass is spread matters. Mass far from the axis adds much more than mass near it, because r is squared.",
+            "A hoop with all its mass at the rim has a larger I than a disc of the same mass and radius.",
+            "The same object has a different I about a different axis."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "I = Σmr², so distance from the axis counts most.",
+            "I depends on the mass, how it is distributed and the axis chosen.",
+            "I is the rotational equivalent of mass."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Rotational kinetic energy and flywheels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A spinning object stores kinetic energy. A flywheel is a heavy wheel built to store it."
+        },
+        {
+          "type": "equation",
+          "label": "Rotational kinetic energy",
+          "formula": "Eₖ = ½Iω²",
+          "where": [
+            "Eₖ = kinetic energy (J)",
+            "I = moment of inertia (kg m²)",
+            "ω = angular speed (rad/s)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "A slider activity. Change the moment of inertia and the angular speed of a flywheel and read the energy it stores.",
+            "inputs": [
+              {
+                "id": "I",
+                "label": "Moment of inertia",
+                "unit": "kg m²",
+                "min": 0.5,
+                "max": 20,
+                "step": 0.5,
+                "value": 5
+              },
+              {
+                "id": "w",
+                "label": "Angular speed",
+                "unit": "rad/s",
+                "min": 10,
+                "max": 300,
+                "step": 10,
+                "value": 100
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Stored energy",
+                "unit": "kJ",
+                "formula": "0.5 * I * w * w / 1000",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Energy stored rises with **I**, so a flywheel has a large mass concentrated near the rim.",
+            "Energy stored rises with **ω²**, so doubling the speed gives four times the energy.",
+            "The speed is limited by the strength of the material. The rim must not break apart."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Uses of flywheels"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Smoothing torque and speed:** in a piston engine the torque is delivered in pulses. The flywheel absorbs energy during the power stroke and returns it between strokes, so the speed stays steady.",
+            "**Storing energy in vehicles:** a flywheel stores energy when the vehicle brakes and gives it back when it accelerates.",
+            "**Production machines:** a small motor spins a flywheel up slowly. The energy is then released in a short burst, for example to drive a press or punch."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Eₖ = ½Iω² depends on the square of the angular speed.",
+            "Storage capacity rises with I and with ω.",
+            "Flywheels smooth speed and torque, and store and release energy."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Describing rotational motion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Angles replace distances. This section defines the quantities and gives the equations for uniform angular acceleration."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Angular displacement, θ",
+              "meaning": "The angle turned through, in radians."
+            },
+            {
+              "term": "Angular speed, ω",
+              "meaning": "The rate of change of angle, in rad/s. It has size only."
+            },
+            {
+              "term": "Angular velocity",
+              "meaning": "Angular speed with a direction, the sense of the rotation."
+            },
+            {
+              "term": "Angular acceleration, α",
+              "meaning": "The rate of change of angular velocity, in rad/s²."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Angular speed",
+          "formula": "ω = Δθ ÷ Δt",
+          "where": [
+            "Δθ = change in angle (rad)",
+            "Δt = time taken (s)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Angular acceleration",
+          "formula": "α = Δω ÷ Δt",
+          "where": [
+            "Δω = change in angular speed (rad/s)",
+            "Δt = time taken (s)"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Graphs"
+        },
+        {
+          "type": "list",
+          "items": [
+            "On an angle–time graph the gradient is the angular speed.",
+            "On an angular speed–time graph the gradient is the angular acceleration.",
+            "The area under an angular speed–time graph is the angle turned through.",
+            "A straight line on the ω–t graph means uniform angular acceleration. A curve means non-uniform angular acceleration."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Equations for uniform angular acceleration"
+        },
+        {
+          "type": "equation",
+          "label": "The four equations",
+          "formula": "ω₂ = ω₁ + αt\nθ = ((ω₁ + ω₂) ÷ 2)t\nθ = ω₁t + αt² ÷ 2\nω₂² = ω₁² + 2αθ",
+          "where": [
+            "ω₁ = starting angular speed (rad/s)",
+            "ω₂ = final angular speed (rad/s)",
+            "α = angular acceleration (rad/s²)",
+            "θ = angle turned (rad)",
+            "t = time (s)"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Straight-line motion",
+            "Rotational motion"
+          ],
+          "rows": [
+            [
+              "displacement s",
+              "angular displacement θ"
+            ],
+            [
+              "velocity v",
+              "angular velocity ω"
+            ],
+            [
+              "acceleration a",
+              "angular acceleration α"
+            ],
+            [
+              "mass m",
+              "moment of inertia I"
+            ],
+            [
+              "force F",
+              "torque T"
+            ],
+            [
+              "momentum mv",
+              "angular momentum Iω"
+            ],
+            [
+              "kinetic energy ½mv²",
+              "kinetic energy ½Iω²"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gradient of θ–t is ω. Gradient of ω–t is α. Area under ω–t is θ.",
+            "The four uniform-acceleration equations match v = u + at and the rest.",
+            "Each straight-line quantity has a rotational analogue."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Torque, angular momentum, work and power",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Torque changes rotation. This section links torque to angular acceleration and angular momentum, then to work and power."
+        },
+        {
+          "type": "equation",
+          "label": "Torque from a force",
+          "formula": "T = Fr",
+          "where": [
+            "T = torque (N m)",
+            "F = force (N)",
+            "r = perpendicular distance from the axis to the line of the force (m)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Torque and angular acceleration",
+          "formula": "T = Iα",
+          "where": [
+            "T = resultant torque (N m)",
+            "I = moment of inertia (kg m²)",
+            "α = angular acceleration (rad/s²)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question. Work out the angular acceleration of a wheel from the torque and moment of inertia, with new numbers each time.",
+            "question": "A resultant torque of {T} N m acts on a wheel of moment of inertia {I} kg m². Calculate its angular acceleration.",
+            "variables": [
+              {
+                "id": "T",
+                "min": 2,
+                "max": 40,
+                "step": 2
+              },
+              {
+                "id": "I",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "T / I",
+              "unit": "rad/s²",
+              "decimals": 1
+            },
+            "working": [
+              "α = T ÷ I",
+              "α = {T} ÷ {I} = {answer} rad/s²"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Angular momentum"
+        },
+        {
+          "type": "equation",
+          "label": "Angular momentum",
+          "formula": "angular momentum = Iω",
+          "where": [
+            "I = moment of inertia (kg m²)",
+            "ω = angular speed (rad/s)",
+            "Unit: kg m² s⁻¹ (kg m² rad/s)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Angular momentum is **conserved** when no external torque acts.",
+            "If I falls, ω must rise. A skater pulling in their arms spins faster.",
+            "A diver tucking in does the same, and spins faster in the air.",
+            "A torque acting for a time gives an **angular impulse**."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Angular impulse",
+          "formula": "TΔt = Δ(Iω)",
+          "where": [
+            "T = constant torque (N m)",
+            "Δt = time the torque acts (s)",
+            "Δ(Iω) = change in angular momentum"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Work and power"
+        },
+        {
+          "type": "equation",
+          "label": "Work done by a torque",
+          "formula": "W = Tθ",
+          "where": [
+            "W = work done (J)",
+            "T = torque (N m)",
+            "θ = angle turned (rad)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Power of a torque",
+          "formula": "P = Tω",
+          "where": [
+            "P = power (W)",
+            "T = torque (N m)",
+            "ω = angular speed (rad/s)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rotating machinery always has frictional torque. The torque that accelerates the machine is the driving torque minus the frictional torque."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "T = Fr and T = Iα. The resultant torque sets the angular acceleration.",
+            "Iω stays constant if no external torque acts.",
+            "W = Tθ and P = Tω. Frictional torque must be allowed for."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A flywheel has moment of inertia 2.4 kg m² and turns at 150 rad/s. Calculate the energy it stores.",
+      "a": "Eₖ = ½Iω² = ½ × 2.4 × 150² = 2.7 × 10⁴ J (27 kJ).",
+      "marks": 2
+    },
+    {
+      "q": "A resultant torque of 12 N m acts on a wheel of moment of inertia 0.60 kg m², starting from rest. Calculate its angular speed after 3.0 s.",
+      "a": "α = T ÷ I = 12 ÷ 0.60 = 20 rad/s². ω = ω₁ + αt = 0 + 20 × 3.0 = 60 rad/s.",
+      "marks": 3
+    },
+    {
+      "q": "A skater spins at 2.0 rad/s with moment of inertia 3.2 kg m². She pulls her arms in and her moment of inertia falls to 1.6 kg m². Calculate her new angular speed and explain why it changes.",
+      "a": "Angular momentum is conserved: 3.2 × 2.0 = 1.6 × ω, so ω = 4.0 rad/s. No external torque acts, so Iω is constant; when I falls, ω rises.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.11.1.1",
+        "AQA 3.11.1.2",
+        "AQA 3.11.1.3",
+        "AQA 3.11.1.4",
+        "AQA 3.11.1.5",
+        "AQA 3.11.1.6"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "c507fba5-ebaa-48c7-9b6e-049ffb7cfc7e",
+      "3270fb2d-d9e3-44fd-b7e3-5f625c4e4894",
+      "32c54b83-499c-4fb3-a4be-4fe3d4bdd469",
+      "fec001c9-fea6-45ff-94e4-4e0cd430491d",
+      "27ca32b0-fbc0-451c-9d56-920f4382c604",
+      "c13c404a-7424-4fc6-b02e-130c1ee505f8"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

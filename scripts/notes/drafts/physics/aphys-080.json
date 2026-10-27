@@ -1,0 +1,517 @@
+{
+  "format": 1,
+  "concept_id": "aphys-080",
+  "subject": "physics",
+  "title": "Stellar classification and the life cycle of stars",
+  "key_idea": "Stars can be sorted by temperature and luminosity on a Hertzsprung–Russell diagram. A star forms from a cloud of gas and dust, spends most of its life on the main sequence, then ends as a white dwarf, a neutron star or a black hole, depending on its mass.",
+  "sections": [
+    {
+      "heading": "The Hertzsprung–Russell diagram",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Hertzsprung–Russell (HR) diagram plots stars by luminosity and surface temperature. Stars fall into groups, and each group is a stage in a star's life."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The vertical axis is luminosity, or equivalently absolute magnitude, with the most luminous at the top.",
+            "The horizontal axis is surface temperature, and it runs backwards: the hottest stars are on the left.",
+            "Luminosity is often plotted on a scale that increases by powers of ten."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Region of the diagram",
+            "Temperature",
+            "Luminosity",
+            "What the stars are"
+          ],
+          "rows": [
+            [
+              "Main sequence",
+              "From hot to cool, along a diagonal band",
+              "From high to low along the band",
+              "Stars fusing hydrogen into helium in their cores. Most stars, including the Sun."
+            ],
+            [
+              "Red giants",
+              "Cool",
+              "High",
+              "Very large, because a cool surface must be large to give a high luminosity."
+            ],
+            [
+              "Super red giants",
+              "Cool",
+              "Very high",
+              "The largest stars, at the top right."
+            ],
+            [
+              "White dwarfs",
+              "Hot",
+              "Low",
+              "Small, because a hot but dim star has little surface area."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The path of a star like the Sun"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Sun lies in the middle of the main sequence, at a temperature of about 5800 K.",
+            "A forming star starts as a cool, luminous object to the right of the main sequence and moves onto it.",
+            "As a red giant it moves up and to the right, becoming cooler and more luminous.",
+            "It then moves left to hotter temperatures and down to the white dwarf region, where it fades."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The HR diagram plots luminosity against surface temperature, with temperature decreasing to the right.",
+            "Main sequence stars fuse hydrogen. Red giants are cool and luminous. White dwarfs are hot and dim.",
+            "A Sun-like star moves from the main sequence to the red giant region, then to the white dwarf region."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The formation of a star",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Stars form from interstellar dust and gas, mostly hydrogen. Gravity draws the cloud together."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Collapse",
+              "text": "A region of the cloud, called a nebula, is pulled together by gravity."
+            },
+            {
+              "lead": "Heating",
+              "text": "As it falls inward the gravitational potential energy becomes thermal energy, so the temperature rises. This hot, dense ball is a protostar."
+            },
+            {
+              "lead": "Fusion",
+              "text": "When the core is hot and dense enough, hydrogen nuclei fuse into helium and the star joins the main sequence."
+            },
+            {
+              "lead": "Balance",
+              "text": "Gravity pulls the star inwards. Gas pressure and radiation pressure from the fusion push outwards. The star is stable when they are equal."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A main sequence star stays in this balance for most of its life. A more massive star burns its fuel faster, so it lives for a shorter time."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A star forms by the gravitational collapse of interstellar dust and gas.",
+            "The collapse heats the core until hydrogen fuses into helium.",
+            "A stable star has gravity balanced by gas pressure and radiation pressure."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The life cycle of a low-mass star",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A low-mass star like the Sun ends as a white dwarf. The sequence below shows how."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "A self-test: put the stages in the life of a Sun-like star in the correct order.",
+            "prompt": "Put the stages in the life of a Sun-like star in order.",
+            "steps": [
+              "A cloud of interstellar dust and gas collapses under gravity",
+              "A protostar heats up until hydrogen fusion begins",
+              "The star is stable on the main sequence, fusing hydrogen into helium",
+              "Hydrogen in the core runs out and the star swells into a red giant",
+              "The outer layers drift off as a planetary nebula",
+              "The hot core remains as a white dwarf, which slowly cools"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "When the core hydrogen is used up, fusion stops there and the core contracts and heats.",
+            "Hydrogen fuses in a shell around the core, and the outer layers expand and cool, so the star becomes a red giant.",
+            "The outer layers are thrown off into space, forming a glowing planetary nebula.",
+            "The core left behind is a white dwarf."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "White dwarf",
+              "meaning": "The hot, dense core of a dead low-mass star. It is about the size of the Earth, and no longer fuses. It slowly cools."
+            },
+            {
+              "term": "Electron degeneracy pressure",
+              "meaning": "The outward pressure from electrons that cannot be squeezed into the same quantum states. It stops a white dwarf collapsing further."
+            },
+            {
+              "term": "Chandrasekhar limit",
+              "meaning": "The maximum mass of a stable white dwarf, about 1.4 times the mass of the Sun."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A low-mass star becomes a red giant, throws off a planetary nebula, then becomes a white dwarf.",
+            "Electron degeneracy pressure holds a white dwarf up.",
+            "A core heavier than the Chandrasekhar limit, 1.4 solar masses, cannot become a white dwarf."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The life cycle of a massive star",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A massive star is much hotter and burns out faster. Its death is violent."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Swell",
+              "text": "When its core hydrogen is used up the star expands into a red supergiant."
+            },
+            {
+              "lead": "Collapse",
+              "text": "Once the core can no longer release energy by fusion, it collapses suddenly."
+            },
+            {
+              "lead": "Explode",
+              "text": "The collapse rebounds and blasts the outer layers into space in a supernova."
+            },
+            {
+              "lead": "Remnant",
+              "text": "The core that remains is a neutron star or a black hole, depending on its mass."
+            }
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Supernova",
+              "meaning": "The explosion of a massive star at the end of its life. It briefly shines as brightly as a whole galaxy."
+            },
+            {
+              "term": "Neutron star",
+              "meaning": "A remnant made almost entirely of neutrons, only about 10 km in radius and of enormous density."
+            },
+            {
+              "term": "Black hole",
+              "meaning": "A remnant so dense that its escape velocity is greater than the speed of light, so not even light escapes."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A core that is too heavy for electron degeneracy pressure collapses further, as electrons and protons combine into neutrons.",
+            "If the remnant is heavier still, even neutrons cannot hold it up, and it becomes a black hole.",
+            "Heavy elements made in the star are scattered by the supernova and later form new stars and planets."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A massive star becomes a red supergiant, then explodes as a supernova.",
+            "The remnant is a neutron star or, if heavier, a black hole.",
+            "A black hole has an escape velocity greater than the speed of light."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the position on the Hertzsprung–Russell diagram of a white dwarf, and explain why it must be small.",
+      "a": "A white dwarf is at the bottom left: it has a high surface temperature but a low luminosity. Luminosity depends on surface area and temperature, so a hot star with low luminosity must have a small surface area, so it is small.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a main sequence star is stable.",
+      "a": "Hydrogen fuses to helium in the core. The gravitational force inwards is balanced by the outward gas pressure and radiation pressure. Because these are equal, the star neither collapses nor expands.",
+      "marks": 3
+    },
+    {
+      "q": "State two differences between the end of a low-mass star and the end of a massive star.",
+      "a": "A low-mass star becomes a red giant, ejects a planetary nebula and leaves a white dwarf. A massive star becomes a red supergiant, explodes as a supernova and leaves a neutron star or a black hole. The core of a massive star exceeds the Chandrasekhar limit, so electron degeneracy pressure cannot support it.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.9.2.4",
+        "AQA 3.9.2.5",
+        "AQA 3.9.2.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for: spectral classes",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Stars are classed by the absorption lines in their spectra, which depend on the surface temperature. The classes run from hot to cool as O, B, A, F, G, K, M."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Spectral class",
+                "Intrinsic colour",
+                "Temperature / K",
+                "Prominent absorption lines"
+              ],
+              "rows": [
+                [
+                  "O",
+                  "blue",
+                  "25 000 – 50 000",
+                  "He⁺, He, H"
+                ],
+                [
+                  "B",
+                  "blue",
+                  "11 000 – 25 000",
+                  "He, H"
+                ],
+                [
+                  "A",
+                  "blue-white",
+                  "7 500 – 11 000",
+                  "H (strongest), ionised metals"
+                ],
+                [
+                  "F",
+                  "white",
+                  "6 000 – 7 500",
+                  "ionised metals"
+                ],
+                [
+                  "G",
+                  "yellow-white",
+                  "5 000 – 6 000",
+                  "ionised and neutral metals"
+                ],
+                [
+                  "K",
+                  "orange",
+                  "3 500 – 5 000",
+                  "neutral metals"
+                ],
+                [
+                  "M",
+                  "red",
+                  "< 3 500",
+                  "neutral atoms, TiO"
+                ]
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Why the hydrogen lines depend on temperature"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The hydrogen Balmer absorption lines are produced by electrons that start in the n = 2 energy level.",
+                "In a cool star almost all the hydrogen atoms are in the ground state, so few have an electron in n = 2 and the Balmer lines are weak.",
+                "In a very hot star the hydrogen is ionised, so there are again few atoms to absorb.",
+                "The Balmer lines are strongest at around 10 000 K, in class A."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "On the HR diagram the axes run from absolute magnitude –10 to +15 and from 50 000 K to 2500 K, or the spectral classes OBAFGKM."
+            }
+          ]
+        },
+        {
+          "heading": "Detail this course asks for: supernovae, neutron stars and black holes",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A supernova shows a rapid increase in absolute magnitude: the star suddenly becomes far brighter.",
+                "A neutron star is made of neutrons and has a density about the same as that of an atomic nucleus.",
+                "A black hole has an escape velocity greater than c.",
+                "Gamma ray bursts come from the collapse of a supergiant star to form a neutron star or black hole.",
+                "A supernova or a gamma ray burst gives out, over a short time, about as much energy as the Sun will give out in its whole lifetime."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Type Ia supernovae as standard candles"
+            },
+            {
+              "type": "list",
+              "items": [
+                "A type Ia supernova reaches almost the same peak luminosity each time, so it is a standard candle.",
+                "Its light curve rises quickly to a peak and then fades over weeks and months.",
+                "Comparing the known peak luminosity with the intensity received gives the distance to its galaxy.",
+                "Distant type Ia supernovae look fainter than expected. This suggests the expansion of the Universe is accelerating, which is attributed to dark energy.",
+                "This is controversial, as the conclusion depends on the supernovae being reliable standard candles and on dust not dimming them."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Supermassive black holes and the Schwarzschild radius"
+            },
+            {
+              "type": "paragraph",
+              "text": "Supermassive black holes sit at the centre of galaxies. The event horizon is the boundary within which nothing can escape."
+            },
+            {
+              "type": "equation",
+              "label": "Schwarzschild radius",
+              "formula": "Rₛ ≈ 2GM ÷ c²",
+              "where": [
+                "Rₛ = radius of the event horizon (m)",
+                "G = gravitational constant, 6.67 × 10⁻¹¹ N m² kg⁻²",
+                "M = mass of the black hole (kg)",
+                "c = speed of light, 3.0 × 10⁸ m/s"
+              ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "practice",
+                "alt": "A practice calculation of the Schwarzschild radius of a black hole from its mass in solar masses.",
+                "question": "A black hole has a mass of {M} solar masses. One solar mass is 1.99 × 10³⁰ kg. Calculate the radius of its event horizon in kilometres.",
+                "variables": [
+                  {
+                    "id": "M",
+                    "min": 3,
+                    "max": 30,
+                    "step": 1
+                  }
+                ],
+                "answer": {
+                  "formula": "2 * 6.67 * 1.99 / 9 * M",
+                  "unit": "km",
+                  "decimals": 1
+                },
+                "working": [
+                  "Rₛ = 2GM ÷ c²",
+                  "Rₛ = 2 × 6.67 × 10⁻¹¹ × {M} × 1.99 × 10³⁰ ÷ (3.0 × 10⁸)²",
+                  "Rₛ = {answer} km"
+                ]
+              }
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Type Ia supernovae are standard candles, and their distances point to an accelerating Universe.",
+                "A neutron star has about nuclear density. A black hole has an escape velocity above c.",
+                "Rₛ ≈ 2GM ÷ c² gives the radius of the event horizon."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 10.159",
+        "EDEX 10.160"
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.5.1a",
+        "OCR 5.5.1b",
+        "OCR 5.5.1c",
+        "OCR 5.5.1d",
+        "OCR 5.5.1e",
+        "OCR 5.5.1f",
+        "OCR 5.5.1g"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for: the objects in space",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Planet",
+                  "meaning": "A large body that orbits a star."
+                },
+                {
+                  "term": "Planetary satellite",
+                  "meaning": "A smaller body that orbits a planet, such as a moon."
+                },
+                {
+                  "term": "Comet",
+                  "meaning": "A small body of ice and dust that orbits a star on a very elongated path."
+                },
+                {
+                  "term": "Solar system",
+                  "meaning": "A star with the planets, satellites, comets and other bodies that orbit it."
+                },
+                {
+                  "term": "Galaxy",
+                  "meaning": "A very large group of stars, gas and dust held together by gravity."
+                },
+                {
+                  "term": "Universe",
+                  "meaning": "Everything that exists: all of space, matter and radiation."
+                }
+              ]
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "Satellites orbit planets, planets orbit stars, and stars are grouped in galaxies.",
+                "The Universe contains all the galaxies."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "9435bdff-6e73-42d1-89cc-418d647f82b6",
+      "f31ef296-a52a-4bb1-ad62-551324cdf07a",
+      "403da77d-53ce-4b7f-85f1-942c43382cb7",
+      "6d89df69-0769-45fd-a0ff-fff64b2cd74e",
+      "cfd66e8e-878c-4549-b281-51c030a6b2b8",
+      "ca0ee807-417d-4200-b460-53fa02eba123",
+      "598a4596-8bff-4cba-80f7-244161f99e6c",
+      "3eea6442-80b0-438c-93d4-ece41692f7f9",
+      "5cce63c4-d32c-476a-ae95-700ae1b5be45",
+      "c7595899-ae0c-46a9-959c-3f2e6f1764db",
+      "5d1cc370-4805-422b-b428-c0e1387c9d2e",
+      "6c057473-705f-467e-9c20-d5c6855ebf65"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "format": 1,
+  "concept_id": "aphys-089",
+  "subject": "physics",
+  "title": "Radiotherapy with X-rays and implants",
+  "key_idea": "Radiotherapy uses ionising radiation to kill cancer cells. High-energy X-rays from outside the body are aimed at the tumour from many directions. Beta-emitting implants are placed inside the tumour, so the radiation is absorbed close by. Both aim to keep the dose to healthy cells low.",
+  "sections": [
+    {
+      "heading": "Treating a tumour with high-energy X-rays",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "External radiotherapy uses a beam of high-energy X-rays aimed at a tumour from outside the body. The photons ionise atoms in the cells, which damages their DNA so that the cells cannot divide."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The photons have energies of the order of MeV, much higher than diagnostic X-rays, so they penetrate deep into the body.",
+            "Cancer cells divide quickly, so they are more likely to be damaged and killed than healthy cells.",
+            "The beam also passes through healthy tissue, which can be damaged. The aim is to give a large dose to the tumour and a small dose to everything else."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Limiting the exposure of healthy cells"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Many directions:** the source rotates around the patient, so the beam always passes through the tumour but spreads the dose over a large area of healthy tissue.",
+            "**Shaped beam:** collimators and lead shielding shape the beam to match the outline of the tumour.",
+            "**Accurate aim:** scans are used to plan the position of the tumour, and the patient is held still.",
+            "**Fractions:** the treatment is given in small doses over several days or weeks, so healthy cells have time to repair themselves between them.",
+            "**Higher energy:** high-energy photons deposit less of their energy near the skin, so the surface is protected."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "High-energy X-rays kill cells by ionising them and damaging their DNA.",
+            "A rotating source, a shaped beam and divided doses spare healthy tissue."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Treating a tumour with implants",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Internal radiotherapy places a small radioactive source inside or next to the tumour. The source is a beta emitter, so nearly all of its radiation is absorbed close to it."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor. Pick a type of radiation and see whether it is suitable for an implant in a tumour.",
+            "prompt": "Pick a type of radiation to see if it suits an implant.",
+            "result_labels": [
+              "Range in tissue",
+              "Leaves the body?",
+              "Suitable for an implant?"
+            ],
+            "options": [
+              {
+                "label": "Alpha",
+                "results": [
+                  "A fraction of a millimetre",
+                  "No",
+                  "No. It cannot get out of the casing of the implant to reach the tumour."
+                ],
+                "explanation": "Alpha particles are stopped by a thin layer of material, including the wall of the implant itself."
+              },
+              {
+                "label": "Beta",
+                "results": [
+                  "A few millimetres",
+                  "No",
+                  "Yes. The dose goes to the tumour and little reaches healthy tissue."
+                ],
+                "explanation": "Beta particles pass out of the implant but are absorbed within a few millimetres of tissue."
+              },
+              {
+                "label": "Gamma",
+                "results": [
+                  "Passes through the body",
+                  "Yes",
+                  "No. Most of it would pass out of the tumour and expose healthy tissue and other people."
+                ],
+                "explanation": "Gamma rays are very penetrating, so little of the energy is absorbed in the tumour."
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The implant is a small seed, wire or bead that stays in place, so the source does not spread round the body.",
+            "The source has a half-life of days, so most of the dose is delivered within a reasonably short time. It is either removed after treatment or left in place to decay.",
+            "Radiation is delivered continuously at the tumour, without the patient having to be positioned beneath a machine."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Beta emitters are used because beta radiation has a short range in tissue.",
+            "Alpha cannot leave the implant. Gamma passes through the body and gives little dose to the tumour."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Comparing the two treatments",
+      "blocks": [
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of external treatment with high-energy X-rays and internal treatment with beta-emitting implants.",
+            "items": [
+              "High-energy X-rays",
+              "Beta implant"
+            ],
+            "rows": [
+              {
+                "feature": "Source",
+                "values": [
+                  "Machine outside the body",
+                  "Radioactive source placed in the body"
+                ]
+              },
+              {
+                "feature": "Radiation",
+                "values": [
+                  "High-energy photons that pass through the body",
+                  "Beta particles absorbed within a few millimetres"
+                ]
+              },
+              {
+                "feature": "Sparing healthy cells",
+                "values": [
+                  "Beam from many directions, shaped to the tumour, given in fractions",
+                  "The short range keeps the dose inside the tumour"
+                ]
+              },
+              {
+                "feature": "Suited to",
+                "values": [
+                  "Tumours deep in the body, treated from outside",
+                  "Tumours that can be reached by the implant"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Both methods kill cancer cells by ionisation and try to keep the dose to healthy cells small.",
+            "X-rays reduce the dose to healthy tissue with geometry, and implants do it with the short range of beta radiation."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe two ways of limiting the dose to healthy tissue when using an external beam of high-energy X-rays.",
+      "a": "The source is rotated so the beam passes through the tumour from many directions and spreads the dose over healthy tissue. The beam is shaped to the tumour, or the treatment is given in fractions so healthy cells can repair between doses.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a beta emitter is used for an implant in a tumour, rather than an alpha emitter or a gamma emitter.",
+      "a": "Beta radiation can leave the implant but is absorbed within a few millimetres, so the dose goes to the tumour and little reaches healthy tissue. Alpha would be absorbed by the implant itself. Gamma is very penetrating and would pass through, giving a small dose to the tumour and exposing healthy tissue.",
+      "marks": 3
+    },
+    {
+      "q": "State why radiation kills cancer cells.",
+      "a": "The radiation ionises atoms and molecules in the cells and damages their DNA, so they cannot divide or work.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.10.6.4",
+        "AQA 3.10.6.5"
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "5b67df2d-6389-499b-86df-0fa0242d8c85",
+      "0c2c2faf-f365-4e90-bf6b-5589197f014b"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

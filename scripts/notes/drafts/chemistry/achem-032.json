@@ -1,0 +1,308 @@
+{
+  "format": 1,
+  "concept_id": "achem-032",
+  "subject": "chemistry",
+  "title": "The Arrhenius equation",
+  "key_idea": "The rate constant k rises sharply with temperature, because more collisions have energy of at least Eₐ. The Arrhenius equation, k = Ae^(−Eₐ/RT), describes this. A graph of ln k against 1/T is a straight line, and its gradient gives the activation energy.",
+  "sections": [
+    {
+      "heading": "Temperature and the rate constant",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Rate = k[A]ᵐ[B]ⁿ changes with temperature only through k. This section covers why k increases with temperature."
+        },
+        {
+          "type": "list",
+          "items": [
+            "As temperature rises, the proportion of molecules with energy of at least Eₐ increases (see the Maxwell–Boltzmann distribution).",
+            "More collisions are effective, so k is larger and the rate is greater.",
+            "The relationship is exponential, not linear. A small rise in temperature can make k much larger.",
+            "The orders of reaction do not change with temperature."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "k increases with temperature.",
+            "The effect is exponential."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The Arrhenius equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Arrhenius equation links k, temperature and activation energy. This section covers its two forms."
+        },
+        {
+          "type": "equation",
+          "label": "Arrhenius equation",
+          "formula": "k = Ae^(−Eₐ/RT)",
+          "where": [
+            "k, the rate constant",
+            "A, the pre-exponential factor (Arrhenius constant)",
+            "Eₐ, the activation energy in J/mol",
+            "R, the gas constant, 8.31 J/K/mol",
+            "T, the temperature in K"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Logarithmic form",
+          "formula": "ln k = −Eₐ/RT + ln A",
+          "where": [
+            "ln k plotted on the y axis",
+            "1/T plotted on the x axis",
+            "gradient = −Eₐ/R",
+            "intercept = ln A"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The temperature must be in kelvin.",
+            "Eₐ is in J/mol in the equation. Convert from kJ/mol by multiplying by 1000.",
+            "The equation and the value of R are given when they are needed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "k = Ae^(−Eₐ/RT) shows k rising with T.",
+            "ln k = −Eₐ/RT + ln A is a straight line of the form y = mx + c."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Finding activation energy from a graph",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Measure k at several temperatures, then plot ln k against 1/T. This section covers the graph and the calculation."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A straight line sloping downwards: ln k against 1 over T. The line has a negative gradient equal to minus the activation energy divided by R.",
+            "x": {
+              "label": "1/T",
+              "min": 0.0028,
+              "max": 0.0036,
+              "ticks": [
+                0.0028,
+                0.003,
+                0.0032,
+                0.0034,
+                0.0036
+              ],
+              "unit": "K⁻¹"
+            },
+            "y": {
+              "label": "ln k"
+            },
+            "series": [
+              {
+                "name": "ln k against 1/T",
+                "points": [
+                  [
+                    0.0028,
+                    0.9
+                  ],
+                  [
+                    0.0036,
+                    0.1
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Convert.",
+              "text": "Convert each temperature to kelvin and work out 1/T. Work out ln k for each k."
+            },
+            {
+              "lead": "Plot.",
+              "text": "Plot ln k (y axis) against 1/T (x axis). The points lie on a straight line with a negative gradient."
+            },
+            {
+              "lead": "Gradient.",
+              "text": "Calculate the gradient of the line (change in y ÷ change in x)."
+            },
+            {
+              "lead": "Eₐ.",
+              "text": "Eₐ = −gradient × R. Convert to kJ/mol by dividing by 1000."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation of activation energy from the gradient of an Arrhenius plot, with new numbers each time.",
+            "question": "The gradient of a graph of ln k against 1/T is −{g} K. Use R = 8.31 J/K/mol to calculate the activation energy in kJ/mol.",
+            "variables": [
+              {
+                "id": "g",
+                "min": 4000,
+                "max": 15000,
+                "step": 500
+              }
+            ],
+            "answer": {
+              "formula": "g * 8.31 / 1000",
+              "unit": "kJ/mol",
+              "decimals": 1
+            },
+            "working": [
+              "gradient = −Eₐ/R, so Eₐ = −gradient × R",
+              "Eₐ = {g} × 8.31 ÷ 1000 = {answer} kJ/mol"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Plot ln k against 1/T.",
+            "Eₐ = −gradient × R."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why the rate constant increases when the temperature increases.",
+      "a": "A greater proportion of molecules has energy of at least the activation energy. More collisions are effective, so k increases.",
+      "marks": 2
+    },
+    {
+      "q": "State the gradient and the intercept of a graph of ln k against 1/T.",
+      "a": "Gradient = −Eₐ/R. Intercept = ln A.",
+      "marks": 2
+    },
+    {
+      "q": "The gradient of a graph of ln k against 1/T is −6000 K. Calculate Eₐ in kJ/mol. R = 8.31 J/K/mol.",
+      "a": "Eₐ = 6000 × 8.31 = 49 860 J/mol = 49.9 kJ/mol.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 5.1.1j",
+        "OCR 5.1.1k"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Know that the pre-exponential factor A is the symbol in the equation. An explanation of A is not required."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Determine Eₐ and A graphically from ln k against 1/T.",
+                "R is provided on the data sheet, as are the equations."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 16.12"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Use graphical methods to find the activation energy from experimental data."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The Arrhenius equation is given if needed.",
+                "Plot the graph, draw a line of best fit and find its gradient from a large triangle."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 26.1.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Describe qualitatively the effect of temperature change on the rate constant, and so the rate."
+            },
+            {
+              "type": "list",
+              "items": [
+                "State that k increases as temperature increases.",
+                "Link this to the greater frequency of effective collisions and a larger proportion of molecules above Eₐ."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.1.9.1"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Be able to perform calculations using k = Ae^(−Eₐ/RT) as well as the graph."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Substitute values of A, Eₐ and T into the equation to find k.",
+                "Rearrange to find Eₐ or A from values of k at known temperatures. With k₁ at T₁ and k₂ at T₂, subtracting the two logarithmic forms gives ln(k₂ ÷ k₁) = (Eₐ ÷ R) × (1/T₁ − 1/T₂).",
+                "The equations and R are given when they are required."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "9109319e-b43b-4b14-8af2-6efb07337993",
+      "9eedebd1-b4bb-4781-836a-243ccda5c789",
+      "f3ea2185-3ab2-4e5a-bb87-343647d6b991",
+      "cfa6b8e9-a555-49c5-9fb0-83c99a65de29"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}

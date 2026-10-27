@@ -1,0 +1,444 @@
+{
+  "format": 1,
+  "concept_id": "abio-029",
+  "subject": "biology",
+  "title": "Pathogens and disease transmission",
+  "key_idea": "A pathogen is an organism or virus that causes an infectious disease, and infectious diseases can be passed from one host to another. Pathogens are bacteria, viruses, protoctists and fungi. Each spreads by its own route, and control measures target that route.",
+  "sections": [
+    {
+      "heading": "Pathogens and infectious disease",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section names the main types of pathogen and the diseases they cause."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Pathogen",
+              "meaning": "An organism or virus that causes disease."
+            },
+            {
+              "term": "Infectious disease",
+              "meaning": "A disease caused by a pathogen that can be passed from one host to another. Also called a communicable or transmissible disease."
+            },
+            {
+              "term": "Vector",
+              "meaning": "An organism that carries a pathogen from one host to another without usually being harmed."
+            },
+            {
+              "term": "Spore",
+              "meaning": "A tough, resting reproductive structure, produced by fungi and some bacteria, that spreads in air, water or soil."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Disease",
+            "Type of pathogen",
+            "Host"
+          ],
+          "rows": [
+            [
+              "Cholera",
+              "Bacterium",
+              "Human"
+            ],
+            [
+              "Tuberculosis (TB)",
+              "Bacterium",
+              "Human, and other mammals such as cattle"
+            ],
+            [
+              "Malaria",
+              "Protoctist (single-celled eukaryote)",
+              "Human, with a mosquito as vector"
+            ],
+            [
+              "HIV/AIDS",
+              "Virus",
+              "Human"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bacteria are prokaryotes. They release toxins or damage tissues as they multiply.",
+            "Viruses are not cells. They can reproduce only inside a host cell.",
+            "Protoctists are eukaryotes. Some live inside host cells or blood.",
+            "Fungi grow as thread-like hyphae and spread by spores."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Infectious diseases are caused by pathogens and are transmissible.",
+            "Bacteria, viruses, protoctists and fungi can all be pathogens.",
+            "Cholera and TB are bacterial, malaria is protoctist, HIV is viral."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How pathogens are transmitted",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Transmission is the way a pathogen passes from one host to the next. Each of the four diseases has a different route."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Disease",
+            "How it spreads"
+          ],
+          "rows": [
+            [
+              "Cholera",
+              "Drinking water or eating food contaminated with the faeces of an infected person. The bacteria survive in water."
+            ],
+            [
+              "Malaria",
+              "A female Anopheles mosquito acts as a vector. It picks up the parasite when it feeds on infected blood and passes it on when it feeds again."
+            ],
+            [
+              "TB",
+              "Droplets in the air when an infected person coughs or sneezes. Mycobacterium bovis can also pass in unpasteurised milk from infected cattle."
+            ],
+            [
+              "HIV",
+              "Exchange of body fluids: unprotected sex, shared needles, infected blood, and from mother to child across the placenta, at birth or in breast milk."
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Conditions in the environment and society make transmission easier."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Overcrowding and poor ventilation help airborne spread, as in TB.",
+            "Poor sanitation and unclean water help the spread of cholera.",
+            "Warm, wet climates and standing water suit mosquitoes, so malaria is common there.",
+            "Poverty, poor nutrition and lack of health care weaken defences and delay treatment."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cholera spreads in water and food, TB in droplets, malaria by a vector, HIV in body fluids.",
+            "Climate, crowding and sanitation change how easily a pathogen spreads."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Preventing and controlling the spread",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Control measures break the chain of transmission. Each has biological, social and economic sides to weigh up."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Disease",
+            "Biological measures",
+            "Social and economic factors"
+          ],
+          "rows": [
+            [
+              "Cholera",
+              "Clean water supply, sewage treatment, hygiene, oral rehydration therapy for patients, vaccine in outbreaks.",
+              "Water and sewage systems are expensive. Poor countries and conflict zones struggle to build them."
+            ],
+            [
+              "Malaria",
+              "Drain breeding sites, insecticide-treated bed nets, insecticide spraying, drugs for prevention and treatment.",
+              "Nets and drugs cost money. Mosquitoes and parasites evolve resistance. Spraying harms other wildlife."
+            ],
+            [
+              "TB",
+              "BCG vaccine, a long course of several antibiotics, pasteurising milk, testing cattle, tracing contacts.",
+              "Treatment lasts about six months, so patients may stop early, which breeds resistance. Overcrowded housing spreads TB."
+            ],
+            [
+              "HIV",
+              "Condoms, screening donated blood, needle exchange, antiretroviral drugs, drugs for pregnant mothers.",
+              "Education and testing are needed. Stigma stops people being tested. Drugs are costly for poorer countries."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Prevention tackles the route of transmission: water, air, vector or body fluids.",
+            "Cost, education and attitudes decide whether a measure works in a community.",
+            "Drug resistance makes long-term control harder."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "HIV: structure and how it infects cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "HIV is a retrovirus. It infects helper T cells, which co-ordinate the immune response."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The core holds two strands of RNA and the enzyme **reverse transcriptase**.",
+            "A protein coat called the capsid surrounds the core.",
+            "An outer lipid envelope, taken from the last host cell, carries attachment proteins.",
+            "The attachment proteins bind to a CD4 receptor on a helper T cell."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of HIV replication in a helper T cell in order.",
+            "prompt": "Put the stages of HIV replication in the right order.",
+            "steps": [
+              "The attachment protein binds to a CD4 receptor on a helper T cell.",
+              "The capsid enters the cell and releases the viral RNA and reverse transcriptase.",
+              "Reverse transcriptase makes a DNA copy of the viral RNA.",
+              "The viral DNA is inserted into the host cell's DNA.",
+              "The host cell makes viral proteins and RNA from the viral DNA.",
+              "New viruses are assembled and bud off from the cell surface."
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Helper T cells are destroyed as new viruses are released. Fewer helper T cells means fewer B cells and killer T cells can be activated."
+        },
+        {
+          "type": "paragraph",
+          "text": "After several years the immune system is so weak that infections it would normally defeat cause disease. This stage is AIDS. People die from these opportunistic infections and cancers, not from HIV itself."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "HIV carries RNA and reverse transcriptase, and attaches to CD4 on helper T cells.",
+            "Loss of helper T cells weakens the whole immune response.",
+            "AIDS is the stage when opportunistic infections take hold."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the type of pathogen that causes each of cholera, malaria, tuberculosis and HIV/AIDS.",
+      "a": "Cholera: bacterium (Vibrio cholerae). Malaria: protoctist (Plasmodium). Tuberculosis: bacterium (Mycobacterium). HIV/AIDS: a virus (human immunodeficiency virus).",
+      "marks": 4
+    },
+    {
+      "q": "Explain how malaria is transmitted, and suggest two ways of controlling its spread.",
+      "a": "A female Anopheles mosquito (the vector) feeds on an infected person and takes up the parasite. When it feeds on another person it passes the parasite into their blood. Control: use insecticide-treated bed nets; drain standing water where mosquitoes breed; spray insecticide; use drugs to prevent infection.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why infection with HIV eventually leaves a person unable to fight other infections.",
+      "a": "HIV attaches to CD4 receptors on helper T cells and enters them. It uses reverse transcriptase to make DNA, which is inserted into the host DNA, and the cell makes new viruses. The helper T cells are destroyed, so B cells and killer T cells are not activated. The immune system fails and opportunistic infections occur (AIDS).",
+      "marks": 5
+    }
+  ],
+  "boards": {
+    "cambridge_alevel": {
+      "spec_codes": [
+        "CAIE 10.1.1",
+        "CAIE 10.1.2",
+        "CAIE 10.1.3",
+        "CAIE 10.1.4"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The full names of the pathogens, and the factors to weigh when planning control."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Disease",
+                "Pathogen"
+              ],
+              "rows": [
+                [
+                  "Cholera",
+                  "Vibrio cholerae"
+                ],
+                [
+                  "Malaria",
+                  "Plasmodium falciparum, P. malariae, P. ovale and P. vivax"
+                ],
+                [
+                  "TB",
+                  "Mycobacterium tuberculosis and Mycobacterium bovis"
+                ],
+                [
+                  "HIV/AIDS",
+                  "Human immunodeficiency virus (HIV)"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Biological factors: the route of transmission, whether a vaccine or cure exists, and drug resistance.",
+                "Social factors: education, hygiene practices, culture, stigma, and willingness to be tested or treated.",
+                "Economic factors: the cost of clean water, drugs, vaccines and health workers, and how much a country can pay.",
+                "The life cycle of the malarial parasite is not needed."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr_alevel": {
+      "spec_codes": [
+        "OCR 4.1.1a",
+        "OCR 4.1.1b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Pathogens that infect plants as well as animals."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Type of pathogen",
+                "Animal examples",
+                "Plant examples"
+              ],
+              "rows": [
+                [
+                  "Bacteria",
+                  "Tuberculosis (TB)",
+                  "Ring rot (potatoes)"
+                ],
+                [
+                  "Viruses",
+                  "HIV/AIDS (human), influenza (animals)",
+                  "Tobacco mosaic virus"
+                ],
+                [
+                  "Protoctista",
+                  "Malaria",
+                  "Potato and tomato late blight"
+                ],
+                [
+                  "Fungi",
+                  "Athlete's foot (humans)",
+                  "Black sigatoka (bananas)"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Plant pathogens spread by vectors such as insects, by wind-blown or water-borne spores, and by contact between plants or on tools.",
+                "Climate matters: warm, humid conditions favour fungal spores and insect vectors.",
+                "Social factors matter: crowded housing, travel, farming practices and monoculture help pathogens spread.",
+                "Binomial names are not needed."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel_alevel": {
+      "spec_codes": [
+        "EDEX 6.6"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "How TB infects human cells"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Inhaled Mycobacterium tuberculosis reaches the alveoli of the lungs.",
+                "Macrophages engulf the bacteria, but the bacteria resist digestion and multiply inside the macrophages.",
+                "The immune system walls the infected cells into small nodules called tubercles. Lung tissue is damaged.",
+                "Bacteria can break out and spread through the lungs and to other organs, especially if the immune system is weak.",
+                "Symptoms: persistent cough, coughing up blood, weight loss, fever and night sweats. Without treatment lung damage can be fatal."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "How HIV leads to death"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The stages of HIV infection run from infection, through a long symptom-free period, to AIDS.",
+                "As helper T cells fall, the person suffers repeated infections, weight loss and some cancers.",
+                "Death is usually from opportunistic infections, including TB."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "aqa_alevel": {
+      "spec_codes": [
+        "AQA 3.2.4h",
+        "AQA 3.2.4i",
+        "AQA 3.2.4b"
+      ],
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "HIV replicates inside helper T cells. This is how it reduces the number of helper T cells.",
+                "Antibiotics do not work on HIV. They target bacterial cell walls or ribosomes, and a virus has neither, because it has no metabolism of its own.",
+                "HIV mutates quickly, so its surface antigens vary. This makes a vaccine hard to produce."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-11",
+    "spec_point_ids": [
+      "50005aa7-f7b7-426e-b1c0-7e2f8376d238",
+      "393c070c-a27a-41f7-8876-d51d46063e6a",
+      "0f8d4c75-4c90-4c05-a00d-a02f66c10d47",
+      "6310a4ed-f51e-4f14-9609-7261ba8d7e1d",
+      "2757ea68-2e6d-4a3e-8fc4-afcb4ffda7d7",
+      "00562071-ef5f-4024-b1ff-76be5411ac4b",
+      "c0ab4a99-a319-45e8-9a04-4ed74abc1a2c",
+      "b08f04c6-1b4b-404d-9ffe-c432d7463d76",
+      "8b55542c-f570-423a-82ee-731d51496bf4"
+    ],
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-11"
+  }
+}
