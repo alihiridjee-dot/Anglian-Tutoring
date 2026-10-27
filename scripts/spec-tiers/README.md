@@ -43,7 +43,14 @@ Work in a scratch folder; every script reads and writes the current directory.
 
 ## Known gaps
 
-- OCR Chemistry `C4.2a` and `C5.1f` (Higher tier) are not in the database at all.
+- OCR Chemistry `C4.2a` and `C5.1f` (Higher tier) were missing: the July ingest skipped any
+  code followed by "(Combined Science …)". Added 27 Oct 2026 (weights 1.30 / 1.70 in
+  `spec-weights/out/ocr-gcse-chemistry.csv`); they have no note link, video or tagged
+  past-paper question yet. Backup and undo: `papers/backups/ocr-c42a-c51f-*-2026-10-27.*`.
+- The spec weights were scored before these markers existed, so no Edexcel or OCR point has the
+  Higher-tier bonus yet. A re-score moves students' weekly plans, so Ali deferred it until after
+  the GCSE launch (27 Oct). `score_db.ts` reads descriptions only, so AQA's title-only markers
+  (about 45 titles, plus the momentum section) would still miss the bonus.
 - OCR Biology's nine PAG points (`OCR 7.1`–`7.9`) are practical groups, not spec statements.
 - Trilogy / Combined Science specs were not read; our AQA Trilogy points already carry
   AQA's own markers, and there are no Edexcel or OCR combined courses in the database.
