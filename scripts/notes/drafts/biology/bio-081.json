@@ -3,14 +3,14 @@
   "concept_id": "bio-081",
   "subject": "biology",
   "title": "Hormone interactions in the menstrual cycle",
-  "key_idea": "(AQA: Higher tier) The four hormones act on each other. FSH stimulates oestrogen, high oestrogen stimulates LH, and LH causes ovulation. Oestrogen inhibits FSH, and progesterone inhibits FSH and LH, so no more eggs mature.",
+  "key_idea": "(Higher tier) The four hormones act on each other. FSH stimulates oestrogen, high oestrogen stimulates LH, and LH causes ovulation. Oestrogen inhibits FSH, and progesterone inhibits FSH and LH, so no more eggs mature.",
   "sections": [
     {
       "heading": "How the hormones interact",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Each hormone either stimulates or inhibits another. The basic job of each hormone is in the previous note."
+          "text": "(Higher tier) Each hormone either stimulates or inhibits another. The basic job of each hormone is in the previous note."
         },
         {
           "type": "definitions",
@@ -87,7 +87,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Graphs show each hormone level across the cycle. This graph shows the typical shapes, not exact values."
+          "text": "(Higher tier) Graphs show each hormone level across the cycle. This graph shows the typical shapes, not exact values."
         },
         {
           "type": "diagram",
@@ -280,7 +280,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) If an egg is fertilised, the lining of the uterus must be kept. The hormone levels stay different from a normal cycle."
+          "text": "(Higher tier) If an egg is fertilised, the lining of the uterus must be kept. The hormone levels stay different from a normal cycle."
         },
         {
           "type": "list",

@@ -3,14 +3,14 @@
   "concept_id": "phys-084",
   "subject": "physics",
   "title": "Electric motors and loudspeakers",
-  "key_idea": "(AQA: Higher tier) A coil carrying a current in a magnetic field has forces on its two sides in opposite directions, so it rotates. This is the basis of an electric motor. (Separate science) A loudspeaker uses the motor effect to turn a changing current into a vibrating cone.",
+  "key_idea": "(Higher tier) A coil carrying a current in a magnetic field has forces on its two sides in opposite directions, so it rotates. This is the basis of an electric motor. (Separate science) A loudspeaker uses the motor effect to turn a changing current into a vibrating cone.",
   "sections": [
     {
       "heading": "How an electric motor works",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) A coil of wire carrying a current in a magnetic field tends to rotate. This is the basis of an electric motor. It uses the motor effect."
+          "text": "(Higher tier) A coil of wire carrying a current in a magnetic field tends to rotate. This is the basis of an electric motor. It uses the motor effect."
         },
         {
           "type": "steps",
@@ -92,7 +92,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) Loudspeakers and headphones use the motor effect. They turn variations in current into pressure variations in sound waves."
+          "text": "(Higher tier) Loudspeakers and headphones use the motor effect. They turn variations in current into pressure variations in sound waves."
         },
         {
           "type": "diagram",

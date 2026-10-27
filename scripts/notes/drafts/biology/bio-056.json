@@ -266,11 +266,11 @@
       },
       "extra": [
         {
-          "heading": "Interacting factors and greenhouses (AQA: Higher tier)",
+          "heading": "Interacting factors and greenhouses (Higher tier)",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(AQA: Higher tier) Any one factor may be the limiting factor, and which one it is can change. This section covers graphs with more than one factor, light distance and greenhouses."
+              "text": "(Higher tier) Any one factor may be the limiting factor, and which one it is can change. This section covers graphs with more than one factor, light distance and greenhouses."
             },
             {
               "type": "list",
@@ -282,7 +282,7 @@
             },
             {
               "type": "equation",
-              "label": "Light intensity and distance (AQA: Higher tier)",
+              "label": "Light intensity and distance (Higher tier)",
               "formula": "light intensity ∝ 1 ÷ distance²",
               "where": [
                 "distance is from the lamp to the plant",

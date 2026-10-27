@@ -3,14 +3,14 @@
   "concept_id": "chem-056",
   "subject": "chemistry",
   "title": "Half equations at the electrodes",
-  "key_idea": "(AQA: Higher tier) A half equation shows what happens to one ion at one electrode. At the cathode, positive ions gain electrons, which is reduction. At the anode, negative ions lose electrons, which is oxidation. Both the atoms and the charges must balance.",
+  "key_idea": "(Higher tier) A half equation shows what happens to one ion at one electrode. At the cathode, positive ions gain electrons, which is reduction. At the anode, negative ions lose electrons, which is oxidation. Both the atoms and the charges must balance.",
   "sections": [
     {
       "heading": "Reduction and oxidation at the electrodes",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) This section covers what happens to ions at each electrode."
+          "text": "(Higher tier) This section covers what happens to ions at each electrode."
         },
         {
           "type": "definitions",
@@ -51,7 +51,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) This section covers how to write and balance a half equation."
+          "text": "(Higher tier) This section covers how to write and balance a half equation."
         },
         {
           "type": "equation",

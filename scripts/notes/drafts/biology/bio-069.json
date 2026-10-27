@@ -3,7 +3,7 @@
   "concept_id": "bio-069",
   "subject": "biology",
   "title": "Studying the brain and treating nervous system damage",
-  "key_idea": "Scientists study the brain using patients with damage, electrical stimulation and scans such as CT and PET. The skull and the brain's complexity make it hard to study. Brain and spinal damage is hard to treat because nerves do not repair. (Separate science)",
+  "key_idea": "(Higher tier) Scientists study the brain using patients with damage, electrical stimulation and scans such as CT and PET. The skull and the brain's complexity make it hard to study. Brain and spinal damage is hard to treat because nerves do not repair. (Separate science)",
   "sections": [
     {
       "heading": "How scientists investigate the brain",
@@ -164,11 +164,11 @@
       },
       "extra": [
         {
-          "heading": "fMRI scans (AQA: Higher tier)",
+          "heading": "fMRI scans (Higher tier)",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(AQA: Higher tier) A traditional MRI scanner needs the person to stay completely still. A functional MRI (fMRI) scanner lets the person move while it images brain activity."
+              "text": "(Higher tier) A traditional MRI scanner needs the person to stay completely still. A functional MRI (fMRI) scanner lets the person move while it images brain activity."
             },
             {
               "type": "list",

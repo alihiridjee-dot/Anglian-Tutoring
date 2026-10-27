@@ -3,14 +3,14 @@
   "concept_id": "chem-044",
   "subject": "chemistry",
   "title": "Redox in terms of electrons",
-  "key_idea": "(AQA: Higher tier) Oxidation is the loss of electrons and reduction is the gain of electrons. Displacement reactions are redox reactions, and ionic equations show only the particles that change.",
+  "key_idea": "(Higher tier) Oxidation is the loss of electrons and reduction is the gain of electrons. Displacement reactions are redox reactions, and ionic equations show only the particles that change.",
   "sections": [
     {
       "heading": "Oxidation and reduction as electron transfer",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) This section covers oxidation and reduction in terms of electrons and half equations."
+          "text": "(Higher tier) This section covers oxidation and reduction in terms of electrons and half equations."
         },
         {
           "type": "definitions",
@@ -102,7 +102,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) In a displacement reaction a more reactive metal transfers electrons to the ions of a less reactive metal."
+          "text": "(Higher tier) In a displacement reaction a more reactive metal transfers electrons to the ions of a less reactive metal."
         },
         {
           "type": "definitions",
@@ -161,7 +161,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) The same ideas apply to metals reacting with acids and to halogen displacement."
+          "text": "(Higher tier) The same ideas apply to metals reacting with acids and to halogen displacement."
         },
         {
           "type": "list",

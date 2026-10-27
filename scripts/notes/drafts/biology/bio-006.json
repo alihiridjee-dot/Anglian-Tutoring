@@ -3,7 +3,7 @@
   "concept_id": "bio-006",
   "subject": "biology",
   "title": "Magnification calculations and units",
-  "key_idea": "Magnification links the size of an image to the real size of the object. To use the equation you must put both sizes in the same unit and convert between mm, µm and nm. Very small and very large numbers are written in standard form.",
+  "key_idea": "Magnification links the size of an image to the real size of the object. To use the equation you must put both sizes in the same unit and convert between mm, µm and nm. (Edexcel: Higher tier) Very small and very large numbers are written in standard form.",
   "sections": [
     {
       "heading": "Calculating magnification",
@@ -138,23 +138,23 @@
           "items": [
             {
               "term": "Standard form",
-              "meaning": "A number written as A × 10ⁿ, where A is between 1 and 10."
+              "meaning": "(Edexcel: Higher tier) A number written as A × 10ⁿ, where A is between 1 and 10."
             }
           ]
         },
         {
           "type": "list",
           "items": [
-            "Big numbers have a positive power: 6000 µm = 6 × 10³ µm.",
-            "Small numbers have a negative power: 0.04 mm = 4 × 10⁻² mm.",
-            "6 mm in micrometres is 6 × 10³ µm, not 6 × 10⁻³ µm."
+            "(Edexcel: Higher tier) Big numbers have a positive power: 6000 µm = 6 × 10³ µm.",
+            "(Edexcel: Higher tier) Small numbers have a negative power: 0.04 mm = 4 × 10⁻² mm.",
+            "(Edexcel: Higher tier) 6 mm in micrometres is 6 × 10³ µm, not 6 × 10⁻³ µm."
           ]
         },
         {
           "type": "key-points",
           "items": [
             "1 mm = 1000 µm and 1 µm = 1000 nm.",
-            "Small numbers in standard form have a negative power of ten.",
+            "(Edexcel: Higher tier) Small numbers in standard form have a negative power of ten.",
             "Check your answer is sensible: cells are tens of micrometres across."
           ]
         }
