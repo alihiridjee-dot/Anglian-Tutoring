@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { BrandMark } from "@/components/auth/AuthShell";
+import { validatePassword } from "@/lib/auth/validation";
 
 export const Route = createFileRoute("/reset-password")({
   head: () => ({
@@ -51,8 +52,9 @@ function ResetPasswordPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password.length < 6) {
-      toast.error("Password must be at least 6 characters");
+    const problem = validatePassword(password);
+    if (problem) {
+      toast.error(problem);
       return;
     }
     if (password !== confirm) {
@@ -115,7 +117,6 @@ function ResetPasswordPage() {
                 type="password"
                 autoComplete="new-password"
                 required
-                minLength={6}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="mt-1 w-full h-10 rounded-lg bg-secondary border border-border px-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
@@ -133,7 +134,6 @@ function ResetPasswordPage() {
                 type="password"
                 autoComplete="new-password"
                 required
-                minLength={6}
                 value={confirm}
                 onChange={(e) => setConfirm(e.target.value)}
                 className="mt-1 w-full h-10 rounded-lg bg-secondary border border-border px-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"

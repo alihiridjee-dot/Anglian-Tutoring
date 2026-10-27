@@ -143,7 +143,11 @@ function MessagesPage() {
               </button>
               <div className="min-h-0 flex-1">
                 {selected && userId ? (
+                  // Keyed by thread: an AI draft or a send still in flight
+                  // when the tutor switches finishes in the old, unmounted
+                  // view instead of filling the next student's reply box.
                   <ThreadView
+                    key={selected.id}
                     thread={selected}
                     viewerId={userId}
                     isTutor={isTutor}

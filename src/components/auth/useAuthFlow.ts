@@ -10,6 +10,7 @@ import {
   rememberSsoIntent,
   type SsoProvider,
 } from "@/lib/auth/ssoIntent";
+import { validatePassword } from "@/lib/auth/validation";
 
 // Supabase's Email OTP Length is a project setting (6–10); this project is set
 // to 8, and the digit boxes have to match it exactly.
@@ -87,6 +88,15 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // New passwords follow the profile page's rule. Sign-in doesn't, so an
+    // account made when the floor was 6 still gets in.
+    if (mode === "signup") {
+      const problem = validatePassword(password);
+      if (problem) {
+        toast.error(problem);
+        return;
+      }
+    }
     setLoading(true);
     try {
       if (mode === "signup") {
