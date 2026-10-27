@@ -143,7 +143,21 @@
         "marks": 1,
         "answer_points": ["The cerebral cortex."],
         "tip": "Cerebrum and cerebral hemisphere(s) are also allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The brain controls **complex behaviour**.",
+                "It is made of **billions of interconnected neurones**, and different regions carry out different functions."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 2.10B"],

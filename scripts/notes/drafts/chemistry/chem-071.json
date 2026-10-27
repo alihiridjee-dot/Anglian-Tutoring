@@ -252,7 +252,7 @@
               "type": "list",
               "items": [
                 "A substance is probably a **catalyst** if the reaction is faster with it and it shows no change in appearance. For example, copper powder speeds up the reaction of zinc with dilute sulfuric acid.",
-                "A catalyst changes only the rate. The same total volume of product is made with or without it.",
+                "A catalyst changes only the rate. The same total amount of product is made with or without it.",
                 "Write that a catalyst is **not used up**. Do not write that it takes no part in the reaction."
               ]
             }
@@ -385,6 +385,6 @@
       "d4b69e7d-2c0b-4389-b7ba-e3ad3fe5a0f7"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

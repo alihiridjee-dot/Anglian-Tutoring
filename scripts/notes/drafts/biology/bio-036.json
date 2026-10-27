@@ -217,7 +217,23 @@
           "Function: both transport liquids throughout the plant."
         ],
         "tip": "For the top level you must refer to both structure and function, and make clear how they are similar or different."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Nitrate ions are used to make proteins for growth. Magnesium ions are used to make chlorophyll. Damaged roots absorb fewer of both, so photosynthesis and growth fall.",
+                "Uptake that is faster with oxygen shows **active transport**, which needs energy from respiration.",
+                "Uptake that carries on without oxygen shows that some ions enter by diffusion.",
+                "Roots also anchor the plant in the soil."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.7", "EDEX 6.8"],
@@ -248,6 +264,19 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Mineral ions enter by **diffusion** from a high to a low concentration, or by **active transport** from a low to a high concentration. Osmosis moves water only.",
+                "Root hair cells also help to anchor the plant in the soil.",
+                "Mitochondria in the living cells of phloem release the energy used to move sucrose."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -264,7 +293,21 @@
           "The plant might wilt, grow slower or photosynthesise less."
         ],
         "tip": "\"Plant survival\" is ignored. Give the effect on the plant."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Lignin** makes the walls of xylem waterproof as well as strong, so water stays inside the vessel.",
+                "The pores in the end walls of phloem cells form **sieve plates**. Cell sap passes through them from one cell to the next."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

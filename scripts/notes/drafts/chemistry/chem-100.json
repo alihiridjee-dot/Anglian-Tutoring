@@ -281,7 +281,7 @@
                 "Making polymers uses crude oil, which is finite, and cracking needs a lot of energy. Generating that energy may release carbon dioxide.",
                 "Sorting polymers by hand takes time, containers may need washing first, and some polymers cannot be recycled.",
                 "Polymers are hard to break down into their **monomers**, and recycling can need a lot of energy.",
-                "Burning polymers releases carbon dioxide as well as toxic gases. Polymer litter on land and in the sea can harm wildlife."
+                "Burning polymers also releases carbon dioxide, a greenhouse gas. Polymer litter on land and in the sea can harm wildlife."
               ]
             }
           ]
@@ -410,7 +410,7 @@
       "2f615415-7375-4616-88bb-d19bccd8870c"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   },
   "format": 1,
   "subject": "chemistry"

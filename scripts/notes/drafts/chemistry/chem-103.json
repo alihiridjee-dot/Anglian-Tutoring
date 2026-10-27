@@ -193,7 +193,7 @@
             {
               "type": "list",
               "items": [
-                "Raw materials: say whether the source is **renewable** (trees) or finite (crude oil, ores). Mining and quarrying pollute. Growing trees needs land that could grow food, and clearing land can reduce biodiversity.",
+                "Raw materials: say whether the source is **renewable** (trees, for paper bags) or finite (crude oil for plastic bags, or ores). Mining and quarrying pollute. Growing trees needs land that could grow food, and clearing land can reduce biodiversity.",
                 "Manufacture and transport: a heavier product takes more energy to transport. The energy often comes from burning fossil fuels, which releases carbon dioxide.",
                 "Disposal: burning releases carbon dioxide and, for some polymers, toxins, but the energy released can be used to generate electricity."
               ]
@@ -254,6 +254,6 @@
       "2b380ca1-1be8-418a-bbcc-b2f84376aaf0"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-27"
   }
 }

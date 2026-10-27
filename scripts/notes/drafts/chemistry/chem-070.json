@@ -258,9 +258,9 @@
             {
               "type": "list",
               "items": [
-                "In simple collision theory the rate is **proportional** to the frequency of collisions. Twice as many collisions each second gives twice the rate.",
-                "Doubling the concentration of a solution or the pressure of a gas doubles the number of particles in the same volume. Collisions are twice as frequent, so the rate doubles. Halving either one halves the rate.",
-                "Doubling the surface area of a solid exposes twice as many particles to the other reactant, so the rate doubles.",
+                "In simple collision theory, at a fixed temperature, the rate is **proportional** to the frequency of collisions. Twice as many collisions each second gives twice the rate.",
+                "So in this simple model, doubling the concentration of one reactant in solution doubles the rate. Halving it halves the rate.",
+                "Doubling the surface area of a solid exposes twice as many particles to the other reactant, so in this simple model the rate doubles.",
                 "Temperature does not follow this pattern, because it also changes the energy of the collisions."
               ]
             }
@@ -371,6 +371,6 @@
       "a435b42f-509f-4d8c-95de-e3438d3ba677"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

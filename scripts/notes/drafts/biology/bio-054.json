@@ -141,7 +141,23 @@
           "Bark on trees that falls off: physical."
         ],
         "tip": "All three correct score 2 marks. Two correct score 1 mark. One correct scores 0."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Bark",
+                  "meaning": "Layers of dead cells around the stem of a tree, which fall off."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.9B", "EDEX 5.10B"],

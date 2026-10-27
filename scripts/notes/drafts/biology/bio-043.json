@@ -199,7 +199,27 @@
         "marks": 1,
         "answer_points": ["A protist.", "Not a bacterium, a fungus or a virus."],
         "tip": "Only a protist scores the mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Chalara ash dieback",
+                  "meaning": "A fungal disease of ash trees. It causes leaf loss and bark lesions."
+                },
+                {
+                  "term": "Lesion",
+                  "meaning": "A patch of damaged tissue."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 6.3f"],
@@ -215,7 +235,22 @@
           "Non-communicable disease: type 2 diabetes."
         ],
         "tip": "Four correct placements score 3 marks, two or three correct score 2 marks, and one correct scores 1 mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Barley powdery mildew is a plant disease caused by the fungus **Erysiphe graminis**.",
+                "**Athlete's foot** is a human fungal infection. The fungus infects the skin on the feet and grows in moist conditions.",
+                "To reduce the risk of athlete's foot: dry the feet thoroughly, do not share socks, shoes or towels, do not walk barefoot in public areas, and use a **fungicide**."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {

@@ -260,7 +260,44 @@
           "From the CNS (brain or spinal cord) to a muscle or effector."
         ],
         "tip": "Each approach is worth three linked marks: the feature, what it does, and why it helps. Other features that score are branches, many mitochondria, an insulating sheath and being narrow."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Required practical: reaction time",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Student A holds a ruler vertically just above student B's open thumb and finger. Student B rests their arm on a bench."
+                },
+                {
+                  "lead": "Drop.",
+                  "text": "Drop the ruler without warning. Student B catches it as fast as possible."
+                },
+                {
+                  "lead": "Record.",
+                  "text": "Note the distance on the ruler where it was caught and convert it to a reaction time. A shorter distance means a shorter reaction time."
+                },
+                {
+                  "lead": "Repeat and compare.",
+                  "text": "Repeat at least three times, ignore anomalous results and calculate a mean. Test with and without the factor, for example caffeine, and compare the means."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The factor tested is the independent variable. The dependent variable is reaction time.",
+                "**Control variables**: same people, age and sex, same hand, same starting position and finger gap, time of day, sleep and previous caffeine.",
+                "After caffeine, wait for it to be absorbed and reach the brain before retesting.",
+                "Improve the method with a ruler with mm divisions, more repeats and more people, or a computer reaction timer."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 2.13"],
@@ -318,7 +355,21 @@
           "The endocrine system is slower acting. Its responses are longer-lived. It communicates via the blood but the nervous system uses neurones."
         ],
         "tip": "Any two differences from the list score. The slower-acting and longer-lived points can be given the other way round for the nervous system."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The nervous system **goes to all parts of the body**, so it can detect stimuli and control effectors anywhere.",
+                "It has **many links** between neurones, so information from the different sensory receptors can be passed to the CNS and on to the effectors."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

@@ -289,8 +289,8 @@
             {
               "type": "list",
               "items": [
-                "A non-metal reacts by gaining an electron. It gains the electron more easily higher up a group, because its atoms have fewer shells. The outer shell is closer to the nucleus with less shielding, so the attraction for the incoming electron is stronger.",
-                "To predict whether an unfamiliar element reacts with metals, use its position. An element towards the right of the table, or in the same group as oxygen or sulfur, is a non-metal. It gains electrons from a metal."
+                "A non-metal reacts with a metal by gaining electrons. It gains electrons more easily higher up a group, because its atoms have fewer shells. The outer shell is closer to the nucleus with less shielding, so the attraction for incoming electrons is stronger.",
+                "To predict whether an unfamiliar element reacts with metals, use its position. An element towards the right of the table, or in the same group as oxygen or sulfur, is likely to be a non-metal, which gains electrons from a metal."
               ]
             }
           ]
@@ -337,7 +337,7 @@
               "items": [
                 {
                   "term": "Physical property",
-                  "meaning": "A feature of a substance that can be observed or measured, such as its appearance, state or melting point."
+                  "meaning": "A feature of a substance that can be observed or measured without making a new substance, such as its appearance, state or melting point."
                 }
               ]
             }
@@ -396,7 +396,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

@@ -354,7 +354,7 @@
                 "To get as much product as possible, choose conditions that shift the position to the **right**: add more reactant or remove product.",
                 "Lower the temperature if the forward reaction is exothermic. Raise it if the forward reaction is endothermic.",
                 "Raise the pressure if the products have fewer gas molecules than the reactants.",
-                "Data can identify the reaction. A yield that falls as the temperature rises shows the forward reaction is **exothermic**. A yield that rises as the pressure rises shows fewer gas molecules on the product side."
+                "Data can show what kind of reaction it is. A yield that falls as the temperature rises shows the forward reaction is **exothermic**. A yield that rises as the pressure rises shows fewer gas molecules on the product side."
               ]
             }
           ]
@@ -418,6 +418,6 @@
       "054d9ab1-4bbf-4377-b48d-de6a74478c8f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

@@ -276,7 +276,27 @@
           "The probability is 1 in 4 (25%, 0.25 or 1:3)."
         ],
         "tip": "One mark for each point. A correct derivation from incorrect gametes can still score."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Reading a family pedigree",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A pedigree is a family tree. It shows who has a characteristic and how it passes down the generations."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Squares are males and circles are females. Shaded shapes show people with the characteristic.",
+                "Two parents with the characteristic who have a child without it: the allele is **dominant**, and both parents are heterozygous.",
+                "A person without a characteristic caused by a dominant allele is homozygous recessive. Check every genotype you write against the person's parents and children.",
+                "For the chance that the next child has the characteristic, put the parents' genotypes into a Punnett square."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -293,7 +313,27 @@
           "So some offspring have two recessive alleles (pp) and are homozygous recessive."
         ],
         "tip": "One mark for the parents' genotypes and one for the offspring that inherit two recessive alleles."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Reading a family pedigree",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A pedigree is a family tree. It shows who has a characteristic and how it passes down the generations."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Squares are males and circles are females. Shaded shapes show people with the characteristic.",
+                "Two parents with the characteristic who have a child without it: the allele is **dominant**, and both parents are heterozygous.",
+                "A person without a characteristic caused by a dominant allele is homozygous recessive. Check every genotype you write against the person's parents and children.",
+                "For the chance that the next child has the characteristic, put the parents' genotypes into a Punnett square."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [

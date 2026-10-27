@@ -265,7 +265,7 @@
               "type": "list",
               "items": [
                 "Cut the carbon dioxide released when a product is made by using **less material** or by using **recycled material**.",
-                "**Carbon capture** is also credited: it stops carbon dioxide escaping into the atmosphere."
+                "**Carbon capture** also cuts emissions: it stops carbon dioxide escaping into the atmosphere."
               ]
             }
           ]
@@ -273,7 +273,22 @@
       ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 8.26"]
+      "spec_codes": ["EDEX 8.26"],
+      "extra": [
+        {
+          "heading": "Today's atmosphere",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Dry air today is about **78% nitrogen** and **21% oxygen**.",
+                "Argon is the third most common gas.",
+                "There are small amounts of carbon dioxide and other noble gases. Air also contains water vapour."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C6.3e"],
@@ -366,7 +381,7 @@
       "3b73afe0-51f3-47ee-83dc-89f2da180955"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   },
   "format": 1,
   "subject": "chemistry"

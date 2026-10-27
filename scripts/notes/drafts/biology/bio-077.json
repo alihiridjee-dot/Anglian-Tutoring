@@ -183,7 +183,23 @@
           "By active transport, against the concentration gradient."
         ],
         "tip": "Marked in levels. Name the glomerulus, Bowman's capsule and PCT in order, and link each to protein or glucose."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Ultrafiltration",
+                  "meaning": "Filtering the blood under high pressure in the glomerulus, so small molecules pass into the Bowman's capsule."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [

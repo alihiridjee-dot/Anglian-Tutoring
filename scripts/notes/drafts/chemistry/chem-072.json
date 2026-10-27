@@ -290,7 +290,7 @@
               "type": "list",
               "items": [
                 "Heat a hydrated salt until its mass stops changing. Then the reaction is complete and no more water vapour is made.",
-                "The energy transferred is in proportion to the mass that reacts. The reverse reaction transfers the same amount of energy for the same mass."
+                "The energy transferred is in proportion to the mass that reacts. Adding water back to the anhydrous salt that was made releases the same amount of energy."
               ]
             },
             {
@@ -531,6 +531,6 @@
       "0e35ed3b-6f74-4189-9947-18d49662b293"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

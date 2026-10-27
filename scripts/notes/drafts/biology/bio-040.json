@@ -256,7 +256,23 @@
           "OR treat infected people with antibiotics (1), which reduces the number of infected people (1)."
         ],
         "tip": "One mark for the measure and one for the linked reason. Regular hand washing, wearing a mask or isolating an infected person are also accepted."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Chalara ash dieback is caused by a **fungus** and spreads through the air.",
+                "Stomach ulcers can be caused by a bacterium called Helicobacter. It spreads by **oral transmission**, which means it is taken in through the mouth.",
+                "A doctor treating an infected patient can wash their hands after contact, wear gloves or protective clothes and a mask, and sterilise equipment before and after use.",
+                "When digging up diseased crop plants, wear gloves and protective footwear, sterilise equipment, avoid touching healthy plants and remove all the affected plants."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -290,6 +306,36 @@
                 "Testing for the pathogen's **antigens** shows which pathogen is present.",
                 "**DNA testing** identifies the pathogen from its genetic material.",
                 "Infected plants can then be removed before the pathogen spreads."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Estimating the number of cases",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Number of infected cases",
+              "formula": "number infected = total number × percentage infected ÷ 100",
+              "where": [
+                "total number of plants, animals or people",
+                "percentage infected, in %"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Divide by the area or the population to compare places, such as infected tulips per hectare or cases per million people."
+            }
+          ]
+        },
+        {
+          "heading": "Visual identification of plant disease",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Look for symptoms on the plant, such as lesions, a mosaic pattern or colour changes on the leaves or flowers.",
+                "Match the symptoms to a known disease. Then remove infected plants early so the pathogen cannot spread."
               ]
             }
           ]

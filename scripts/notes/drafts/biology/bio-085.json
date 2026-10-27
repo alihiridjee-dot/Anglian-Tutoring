@@ -190,7 +190,59 @@
           "So the plant produces more glucose (1)."
         ],
         "tip": "Each step leads to the next. Starch, sugar or carbohydrate is accepted instead of glucose."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Required practical: seedlings, light and gravity",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This method tests gravity on newly germinated seedlings. The main note gives the method for light."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Measure",
+                  "text": "Measure the length of the root of each seedling."
+                },
+                {
+                  "lead": "Set up",
+                  "text": "Pin the seedlings to a cork mat and surround them with damp blotting paper. This gives enough water and stops water affecting the direction of root growth."
+                },
+                {
+                  "lead": "Control",
+                  "text": "Keep one set still, so gravity acts in one direction. Rotate the other set slowly, so gravity acts evenly on all sides."
+                },
+                {
+                  "lead": "Dark",
+                  "text": "Leave both sets in a dark cupboard, so light does not affect the direction of growth."
+                },
+                {
+                  "lead": "Record",
+                  "text": "After the same time, draw and label each seedling to show its appearance, and measure each root again."
+                },
+                {
+                  "lead": "Analyse",
+                  "text": "Calculate the mean change in root length for each set. Leave out an anomalous result before calculating the mean."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "(Higher tier) **Ethene** controls cell division as well as the ripening of fruit.",
+                "Covering the tip of a shoot with aluminium foil stops light reaching it, and the shoot does not bend towards the light. The **tip** is needed for the response to light."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -207,7 +259,21 @@
           "This causes cell elongation, so the shoot bends towards the light (1)."
         ],
         "tip": "Any three of the four points score. Name the hormone, say where it goes, and say what it does to the cells."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Auxin is found in the **tip** of a shoot, and the tip controls growth. A shoot with its tip removed does not grow. Putting the tip back restores growth.",
+                "To test whether a chemical from the tip causes growth, place agar or mica between the tip and the shoot. A shoot with its tip left on is the control."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -226,7 +292,21 @@
           "This causes more cell elongation on the lower side of the stem (1)."
         ],
         "tip": "Describe the result first, then explain it with auxin."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A shoot is **negatively gravitropic**: it grows away from gravity. A root grows towards gravity, so it is positively gravitropic.",
+                "(Higher tier) **Gibberellins** also stimulate flowers to open."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

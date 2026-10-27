@@ -189,7 +189,32 @@
           "Repeat the measurements and calculate a mean."
         ],
         "tip": "Controlling temperature, light intensity or the pondweed is ignored in this question. The marks are for equilibrating, collecting and timing the gas, and repeating."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Required practical: temperature, light and safety",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A lamp that gets warm heats the water. Photosynthesis is controlled by **enzymes**, so a change in **temperature** changes the number of bubbles. Use a cool LED lamp or a water bath to keep the temperature constant.",
+                "Change the light intensity by moving the lamp, by using bulbs of different power, or with a dimmer switch.",
+                "A hot lamp can burn skin. Glassware can break and cut. Electricity near water can cause a shock. Scissors or a scalpel used to cut the pondweed can cut skin."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Rate from the volume of gas",
+              "formula": "rate = volume of oxygen collected ÷ time",
+              "where": [
+                "rate, in cm³ per minute",
+                "volume of oxygen collected, in cm³",
+                "time, in minutes"
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.5"],
@@ -222,6 +247,19 @@
                 "Algae are held in small balls and placed in an indicator solution.",
                 "The light intensity is changed, for example by moving a lamp to different distances.",
                 "Photosynthesis uses up carbon dioxide, so the indicator changes colour. The faster the colour change, the faster the rate of photosynthesis."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Core practical: controlling the variables",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use a darkened room, so no other light reaches the plant. Use the same lamp at every distance.",
+                "A **light meter** measures the light intensity at the plant directly.",
+                "Place a **heat shield** between the lamp and the plant. Use a thermometer, and add cold water if the temperature rises."
               ]
             }
           ]
@@ -259,6 +297,50 @@
                 "Record the time it takes for the discs to rise to the top of the syringe.",
                 "To investigate light intensity, use a lamp at different distances from the syringe.",
                 "Use the inverse square law to calculate the light intensity."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Practical: other methods and improvements",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Cabomba is a water plant that can be used in place of pondweed.",
+                "A **colour change** of an indicator can also show the rate. Algae held in alginate beads use up carbon dioxide as they photosynthesise, so the indicator changes colour faster as the rate rises.",
+                "A **heat sink** between the lamp and the plant absorbs heat, so the water temperature stays constant.",
+                "To find the optimum temperature more precisely, record the rate at narrower temperature intervals close to the highest rate."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Practical: testing a leaf for starch after light is excluded",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Destarch.",
+                  "text": "Keep the plant in the dark for at least 12 hours, so the leaves use up their starch."
+                },
+                {
+                  "lead": "Exclude light.",
+                  "text": "Cover part of a leaf with foil or black paper and put the plant in bright light."
+                },
+                {
+                  "lead": "Soften.",
+                  "text": "Dip the leaf in boiling water."
+                },
+                {
+                  "lead": "Remove chlorophyll.",
+                  "text": "Heat the leaf in ethanol in a water bath, with the Bunsen burner off. Wear safety glasses."
+                },
+                {
+                  "lead": "Test.",
+                  "text": "Rinse the leaf and add iodine solution. Blue-black shows starch. The covered part stays orange-brown, because it could not photosynthesise."
+                }
               ]
             }
           ]

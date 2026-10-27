@@ -228,7 +228,21 @@
           "It contains U instead of T, so A pairs with U."
         ],
         "tip": "Any four of the five points score. Name the enzyme, and give the base difference."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "RNA polymerase binds to **non-coding DNA** located in front of the gene.",
+                "It then makes the mRNA from the **coding DNA** of the gene."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [

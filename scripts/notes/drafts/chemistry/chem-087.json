@@ -250,7 +250,8 @@
               "type": "list",
               "items": [
                 "A mixture can show fewer spots than it has compounds. Two compounds may have the **same Rf value** in that solvent, or a compound may be colourless.",
-                "The compounds in a mixture may separate in one solvent and not in another. A pure compound gives a single spot in every solvent.",
+                "A compound that is **insoluble** in the solvent does not move from the start line.",
+                "The compounds in a mixture may separate in one solvent and not in another, so a different solvent can show more spots.",
                 "To move the spots further apart, use a **different solvent** or let the solvent front travel further.",
                 "A dye that is more attracted to the paper, or less soluble in the solvent, has a smaller Rf value.",
                 "Rf is a **ratio**, so it does not change with how far the solvent front is allowed to travel."
@@ -296,14 +297,14 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "An ink is a mixture of coloured substances dissolved in water. Simple distillation separates the water from the coloured substances."
+              "text": "The ink is a mixture of coloured substances dissolved in water. Simple distillation separates the water from the coloured substances."
             },
             {
               "type": "steps",
               "items": [
                 {
                   "lead": "Heat.",
-                  "text": "Heat the ink in a flask so the water evaporates. An electric heater or heating mantle can be used instead of a Bunsen burner."
+                  "text": "Heat the ink in a flask with a Bunsen burner until the water boils."
                 },
                 {
                   "lead": "Condense.",
@@ -464,6 +465,6 @@
       "6f789992-46d7-4408-967f-1afe512507fa"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

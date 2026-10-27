@@ -323,7 +323,7 @@
                 },
                 {
                   "lead": "Analyse.",
-                  "text": "Plot volume against time for each run. A steeper line means a faster rate. The gradient of a tangent gives the rate at one time."
+                  "text": "Plot volume against time for each run. A steeper line means a faster rate."
                 }
               ]
             }
@@ -337,11 +337,11 @@
               "items": [
                 {
                   "lead": "Warm.",
-                  "text": "Warm a measured volume of sodium thiosulfate solution to a chosen temperature in a water bath. Record the temperature."
+                  "text": "Warm a measured volume of sodium thiosulfate solution in a conical flask to a chosen temperature in a water bath. Record the temperature."
                 },
                 {
                   "lead": "Time.",
-                  "text": "Add a measured volume of hydrochloric acid and start the stopwatch. Stop it when the cross can no longer be seen."
+                  "text": "Stand the flask on a cross. Add a measured volume of hydrochloric acid and start the stopwatch. Stop it when the cross can no longer be seen."
                 },
                 {
                   "lead": "Repeat.",
@@ -528,6 +528,6 @@
       "90b93268-59fe-44f2-9d0c-938b9c5e8d39"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

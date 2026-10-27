@@ -200,7 +200,30 @@
           "More respiration requires more oxygen."
         ],
         "tip": "Each linked step is one mark. Do not stop at saying that oxygen consumption rises."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Osmoregulation and animal cells",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Osmoregulation",
+                  "meaning": "Controlling the water content of the body so that cells neither gain nor lose too much water."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "If the blood has too much water, water enters animal cells by **osmosis**. The cells swell and may burst.",
+                "If the blood has too little water, water leaves the cells by osmosis. The cells shrink."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 3.3a"],
@@ -215,7 +238,21 @@
           "Effectors respond to restore the variable to the fixed point."
         ],
         "tip": "Any two of the points above score. A specific answer about temperature or thyroxine is also allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Metabolic reactions** are the chemical reactions in cells, such as respiration.",
+                "A constant internal environment allows metabolic reactions to proceed at **appropriate rates**, because the enzymes that control them have their optimum conditions."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 14.4.1", "CAIE 14.4.3S", "CAIE 14.1.3"],

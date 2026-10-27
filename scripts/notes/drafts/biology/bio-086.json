@@ -228,7 +228,22 @@
           "Selective weedkillers do not kill grass plants (1). Any three points score."
         ],
         "tip": "Name the hormone, say which plants it acts on and what it does to them."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Killing weeds reduces competition for resources such as light, water and minerals. The crop grows better, so the yield rises.",
+                "Gibberellins stimulate germination in dormant seeds. They start the breakdown of **starch** in the seed.",
+                "Growers produce **seedless fruit** because it is nicer to eat."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 3.2i"],
@@ -244,7 +259,23 @@
           "Selective weedkillers and rooting powders: auxin (1)."
         ],
         "tip": "Each hormone can be used more than once, so check every gap on its own."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Parthenocarpic fruit development",
+                  "meaning": "The development of seedless fruit, caused by spraying a plant hormone onto flowers."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {

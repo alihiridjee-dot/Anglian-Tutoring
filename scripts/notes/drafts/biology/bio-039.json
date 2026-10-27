@@ -170,6 +170,19 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Uses of sugar in the plant",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Sugar is used in respiration to release energy. Do not write that it makes energy.",
+                "Sugar can be stored as **starch**, **fat** or oil.",
+                "Sugar is also used to make cellulose and amino acids for growth. Amino acids make proteins."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -197,6 +210,18 @@
               "items": [
                 "Mark schemes credit **active transport** as the way sugar is moved in the phloem.",
                 "Diffusion is also accepted in the description of how sugar moves."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Phloem is made of living **sieve cells**. They carry sucrose to the sinks, in both directions.",
+                "Sucrose does not move by osmosis. Osmosis is the movement of water only."
               ]
             }
           ]

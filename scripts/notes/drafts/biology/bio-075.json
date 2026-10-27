@@ -278,6 +278,31 @@
               "text": "Besides BMI and waist-to-hip ratio, age, diet, exercise regime, ethnicity and genetic makeup also affect the probability of developing type 2 diabetes."
             }
           ]
+        },
+        {
+          "heading": "How type 2 diabetes is controlled",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A **carbohydrate-controlled diet** means less glucose enters the blood after a meal. Blood glucose does not rise too high or too quickly for the insulin to cope.",
+                "**Exercise** makes the muscles use more glucose in respiration, so blood glucose falls.",
+                "Losing body mass makes the cells respond better to insulin."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Limits of BMI",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "BMI uses only body mass and height, so it cannot tell muscle from fat.",
+                "An athlete can have a **high BMI** because of muscle. Their waist-to-hip ratio is low, and so is their chance of developing type 2 diabetes."
+              ]
+            }
+          ]
         }
       ]
     },

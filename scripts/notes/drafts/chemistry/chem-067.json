@@ -298,18 +298,8 @@
                 "A graph of the mass or concentration of a **reactant** against time slopes downwards. It is steepest at the start and flattens when the reaction stops.",
                 "If a gas escapes from a flask, the mass of the flask and contents falls and then levels off in the same way.",
                 "The rate for one time interval is the quantity made in that interval divided by the length of the interval.",
-                "Units may be written as cm³ s⁻¹ or cm³ min⁻¹. These mean the same as cm³/s and cm³/min."
-              ]
-            },
-            {
-              "type": "equation",
-              "label": "Rate at one time",
-              "formula": "rate = change in quantity ÷ change in time",
-              "where": [
-                "Draw a tangent to the curve at that time and find its gradient.",
-                "Change in quantity is read from the vertical axis, in g or cm³.",
-                "Change in time is read from the horizontal axis, in s.",
-                "Rate is in g/s or cm³/s."
+                "Units may be written as cm³ s⁻¹ or cm³ min⁻¹. These mean the same as cm³/s and cm³/min.",
+                "(Higher tier) Finding the rate at one time from the **gradient of a tangent** is Higher tier on this course."
               ]
             }
           ]
@@ -349,24 +339,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "The gradient of a graph of quantity against time is the rate of reaction."
-            },
-            {
-              "type": "equation",
-              "label": "Gradient of a rate graph",
-              "formula": "gradient = change in quantity ÷ change in time",
-              "where": [
-                "Change in quantity is read from the vertical axis, in g or cm³.",
-                "Change in time is read from the horizontal axis, in s.",
-                "Gradient is the rate, in g/s or cm³/s."
-              ]
-            },
-            {
-              "type": "list",
-              "items": [
-                "A steeper line has a larger gradient, so the reaction is faster.",
-                "A curve has a different gradient at each point. Draw a **tangent** at the time asked for and find its gradient to give the rate at that moment."
-              ]
+              "text": "On this course, finding the **gradient** of a straight line or of a tangent to a curve is not Higher tier only. Every student may be asked to use it to find a rate."
             }
           ]
         }
@@ -392,6 +365,6 @@
       "198ed042-e1e2-4154-84ad-5699caa9de7c"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

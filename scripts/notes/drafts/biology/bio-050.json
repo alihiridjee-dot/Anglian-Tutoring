@@ -194,7 +194,21 @@
           "A large trial, a long duration or control variables."
         ],
         "tip": "This is a levelled question. Cover healthy volunteers first, then patients, with a reason for each stage."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Healthy volunteers** are used first because the risk to them is lower than to a patient, whose condition could get worse. Side effects are also easier to identify in healthy people.",
+                "A double blind trial avoids **bias** in the results, because the doctors do not know who has the drug."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -212,7 +226,21 @@
           "Double-blind trials (a placebo and the drug)."
         ],
         "tip": "Any three of these points score one mark each. Named animals are accepted."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A double blind trial reduces **bias** by the doctor.",
+                "Comparing the drug group with the placebo group shows whether a **side effect** is caused by the drug itself."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -229,7 +257,21 @@
           "It identifies or eliminates any psychological effect, because some people believe they feel better when they are not."
         ],
         "tip": "One mark for each point. A placebo contains no active drug."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Some people object to testing medicines on animals. They think it is **cruel** or unethical, and animals may not react to a medicine in the same way as humans.",
+                "Peer review can include other scientists repeating the work. This checks that the results can be **reproduced** and that the conclusions are valid."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

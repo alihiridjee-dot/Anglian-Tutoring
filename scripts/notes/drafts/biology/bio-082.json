@@ -212,7 +212,23 @@
           "Sterilisation prevents the passage of sperm or egg. With the rhythm method, there is no egg available for fertilisation."
         ],
         "tip": "Name each method and say how it prevents pregnancy. Link every method to its reason."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A further advantage of the pill is that it can help to treat acne or period pain.",
+                "A skin patch lasts longer than the pill, so there is no need to remember it every day. The hormone passes straight into the blood, so vomiting does not stop it working.",
+                "A condom works immediately, is easier to get and has fewer side effects than hormonal methods.",
+                "A new method still in trials has unknown side effects and an unknown effectiveness. This makes it difficult to judge against existing methods."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.6", "EDEX 7.7"],
@@ -228,7 +244,22 @@
           "LH causes ovulation, so with no LH ovulation is prevented. If eggs are not matured and released they cannot be fertilised (1)."
         ],
         "tip": "Four linked points score four marks. Thicker cervical mucus preventing sperm reaching the egg can score two."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The **combined pill** contains both oestrogen and progesterone, as artificial versions of the natural hormones.",
+                "Hormonal contraception also thins the lining of the uterus, so an embryo is less likely to implant.",
+                "A barrier method can be used as well as a hormonal method. It protects against STIs and gives extra protection against pregnancy."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 3.2e"],
@@ -244,7 +275,23 @@
           "It thickens (or produces) mucus (1)."
         ],
         "tip": "Any four points score. Naming the hormone and its effect together can score two marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Relative effectiveness of contraceptives",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Effectiveness is compared using the number of pregnancies per year in women using the method. The fewer the pregnancies, the more **effective** the method.",
+                "Hormonal methods are generally more reliable than barrier methods. Barrier methods are more awkward to use correctly, so they vary more in how reliable they are.",
+                "A method that needs no daily action, such as an implant, fails less often than the pill. Pill failures are mostly due to incorrect use, such as forgetting to take it.",
+                "The pill is popular because it is reliable, easy to use and easy to stop. **Sterilisation** is permanent, so couples without children rarely choose it."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {

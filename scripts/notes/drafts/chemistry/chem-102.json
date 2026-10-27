@@ -224,7 +224,7 @@
               "items": [
                 "**Phytoextraction** is the name this course uses for phytomining. Plants absorb metal ions through their roots and concentrate them. The plants are harvested, dried and burned to leave an ash that contains metal compounds.",
                 "Disadvantages: it only reaches metal near the ground surface, the ash needs further processing to obtain the metal, and burning the plants may release harmful gases.",
-                "Advantage: plants take in carbon dioxide as they grow, so the method can be described as **carbon neutral**."
+                "Advantage: the carbon dioxide released when the plants are burned was taken in as they grew, so the method can be described as **carbon neutral**."
               ]
             }
           ]
@@ -287,7 +287,7 @@
       "5047f0a6-d23e-4f76-8a18-81254b079392"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   },
   "format": 1,
   "subject": "chemistry"

@@ -258,7 +258,21 @@
           "Or: body cells have two of each chromosome (pairs of chromosomes)."
         ],
         "tip": "Any two points score. Sperm cells, gametes and sex cells are all accepted."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Red-green colour blindness** in humans is a characteristic controlled by a single gene, like fur colour in mice.",
+                "The alleles a person has (the **genotype**) work at a molecular level to develop characteristics. These are expressed as the **phenotype**."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [

@@ -194,7 +194,21 @@
           "To neutralise acid, or reduce acidity (accept: the stomach contains acid, or to increase pH)."
         ],
         "tip": "Saying it makes the stomach more alkaline is ignored. Link it to the acid."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Cholera** is a bacterial disease that causes **diarrhoea**.",
+                "**Tuberculosis** is a bacterial disease that causes **lung damage**."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -210,7 +224,23 @@
           "Crown gall disease: bacteria."
         ],
         "tip": "Learn the type of pathogen for each named disease in the specification."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Agrobacterium tumefaciens",
+                  "meaning": "The bacterium that causes crown gall disease in plants."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

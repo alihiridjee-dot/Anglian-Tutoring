@@ -160,7 +160,49 @@
           "Uneven thickness of the guard cell walls leads to bulging."
         ],
         "tip": "Any three points score one mark each."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Water enters root hair cells by osmosis, from the dilute solution in the soil to the more concentrated solution in the root cells.",
+                "Water moves from the xylem into leaf cells by osmosis, because the leaf cell contents are more concentrated than the xylem.",
+                "Water evaporates from the leaf cells. Water vapour leaves through the stomata by diffusion.",
+                "Water molecules stick together (**cohesion**), so evaporation from the leaves pulls water up the xylem as a continuous column."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Practical: counting stomata with a leaf peel",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Make the peel",
+                  "text": "Paint a thin layer of clear nail varnish on the leaf surface and leave it to dry. Peel it off. It holds an impression of the surface cells."
+                },
+                {
+                  "lead": "Mount",
+                  "text": "Place the peel flat on a slide under a coverslip. The coverslip keeps the peel flat and protects the lens."
+                },
+                {
+                  "lead": "Count",
+                  "text": "View it with a light microscope and count the stomata."
+                },
+                {
+                  "lead": "Compare",
+                  "text": "Repeat for the upper and lower surfaces of the leaf. Most stomata are on the lower surface."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 2.2g"],
@@ -177,7 +219,21 @@
           "The guard cells curve, forming an opening."
         ],
         "tip": "Any four points score one mark each."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Epidermal cells do not photosynthesise, so they have less sugar and a higher water potential than guard cells. Water moves from the epidermal cells into the guard cells by osmosis.",
+                "Transpiration has a cooling effect on the leaves, because evaporating water takes heat from the leaf."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 8.3.1", "CAIE 8.3.2", "CAIE 8.2.3"],
