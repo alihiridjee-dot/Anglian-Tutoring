@@ -20,7 +20,8 @@ import {
   roadmapQuery,
   stateQuery,
 } from "@/lib/planner/queries";
-import { weekIsForAnotherCourse } from "@/lib/planner/weekCut";
+import { weekIsForAnotherCourse, weekMayBeWritten } from "@/lib/planner/weekCut";
+import { useViewer } from "@/hooks/useViewer";
 import { type SubjectPause } from "@/lib/planner/subjectPauses";
 import { breakCovering, type StudentBreak } from "@/lib/planner/breaks";
 import { pastWeekGap, type PastWeekGap } from "@/lib/planner/pastWeek";
@@ -64,6 +65,8 @@ export function useWeekPlan(params: {
   refreshKey?: number;
 }): WeekPlanState {
   const client = useQueryClient();
+  // The route guard's answer for whoever is looking (null in the showcase).
+  const viewer = useViewer();
   const { studentId, subject, board, level, weekStart, isCurrent, withCoverage } = params;
   const weekKey = [...courseKey(params), "week", weekStart];
   const week = useQuery({
@@ -84,14 +87,20 @@ export function useWeekPlan(params: {
         state = await read();
         return state.week;
       };
-      // A paused subject is read, never planned: no week is built and nothing
-      // is added to one until the student can use it again. The database
-      // refuses those writes too; this is so the planner doesn't try.
-      if (state.pause) return saved;
-      // A break week is read, never planned, in the same way (student_breaks).
-      if (breakCovering(state.breaks, weekStart)) return saved;
-      // Everything below writes, and only the student's own look may.
-      if ((await getSessionUserId()) !== studentId) return saved;
+      // Everything below writes, and only the student's own look may. A paused
+      // subject, a break week (student_breaks) and a student behind the
+      // paywall are read, never planned: no week is built and nothing is
+      // added to one until the student can use it again.
+      if (
+        !weekMayBeWritten({
+          viewerId: await getSessionUserId(),
+          studentId,
+          hasAccess: viewer?.hasAccess,
+          paused: !!state.pause,
+          onBreak: !!breakCovering(state.breaks, weekStart),
+        })
+      )
+        return saved;
       /**
        * A saved review with nothing behind it is repaired before the week is
        * read, not left sitting there.

@@ -44,6 +44,31 @@ export function weekIsForAnotherCourse(
   return plan.board !== course.board || plan.level !== course.level;
 }
 
+/**
+ * May this look at the week write it: build it, re-cut it or top it up?
+ *
+ * Only the student's own look may, and never while the subject is stopped
+ * (paused, lapsed, ended or removed), the week is in a break, or the student
+ * is behind the paywall. The database refuses all of those writes itself
+ * (`refuse_planning_while_paused`, `refuse_planning_on_a_break`); this is so
+ * the planner doesn't try. A lapse the hourly pause check hasn't recorded yet
+ * is caught by the paywall's own answer.
+ *
+ * `hasAccess` is the route guard's answer, and only a definite `false` locks:
+ * "couldn't tell" must not stop a paying student's week being built.
+ */
+export function weekMayBeWritten(look: {
+  viewerId: string | null;
+  studentId: string;
+  hasAccess: boolean | null | undefined;
+  paused: boolean;
+  onBreak: boolean;
+}): boolean {
+  return (
+    look.viewerId === look.studentId && look.hasAccess !== false && !look.paused && !look.onBreak
+  );
+}
+
 /** What a week is cut to: its points, the lane each was chosen for, and why. */
 export interface WeekSelection {
   specPointIds: string[];
