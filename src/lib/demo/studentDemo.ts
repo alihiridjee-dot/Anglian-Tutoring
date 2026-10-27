@@ -87,6 +87,8 @@ export type DemoAnswer = {
   answer_text: string | null;
   awarded_marks: number | null;
   feedback: string | null;
+  /** The words that earned the marks, as `homework_answers.credited` holds them. */
+  credited?: { quote: string; point: string; marks: number }[];
 };
 
 // Dates are generated relative to "now" so the demo never looks stale.
@@ -550,6 +552,14 @@ export const DEMO_ANSWERS: Record<string, DemoAnswer> = {
     awarded_marks: 2,
     feedback:
       "Both marks: the rate falls, and you gave the reason. In the exam, write 'light intensity decreases' rather than 'the light is weaker', as that is the wording mark schemes use.",
+    credited: [
+      { quote: "The rate goes down", point: "The rate of photosynthesis decreases", marks: 1 },
+      {
+        quote: "the light reaching the pondweed is weaker",
+        point: "Because light intensity decreases",
+        marks: 1,
+      },
+    ],
   },
   "demo-q-ps-2": {
     id: "demo-a-ps-2",
@@ -560,6 +570,19 @@ export const DEMO_ANSWERS: Record<string, DemoAnswer> = {
     awarded_marks: 3,
     feedback:
       "Three marks: light is no longer limiting, another factor takes over, and you named CO₂. The fourth needs one more sentence: the rate is limited by whichever factor is in shortest supply.",
+    credited: [
+      {
+        quote: "light isn't the thing holding it back any more",
+        point: "Light is no longer the limiting factor",
+        marks: 1,
+      },
+      {
+        quote: "Something else becomes the limiting factor",
+        point: "Another factor becomes limiting",
+        marks: 1,
+      },
+      { quote: "carbon dioxide", point: "Names carbon dioxide (or temperature)", marks: 1 },
+    ],
   },
   "demo-q-mi-1": {
     id: "demo-a-mi-1",
@@ -568,6 +591,11 @@ export const DEMO_ANSWERS: Record<string, DemoAnswer> = {
     answer_text: "Interphase, then mitosis, then cytokinesis.",
     awarded_marks: 3,
     feedback: "All three marks: interphase, mitosis, cytokinesis, in the right order.",
+    credited: [
+      { quote: "Interphase", point: "Interphase first", marks: 1 },
+      { quote: "mitosis", point: "Then mitosis", marks: 1 },
+      { quote: "cytokinesis", point: "Then cytokinesis", marks: 1 },
+    ],
   },
   "demo-q-mi-2": {
     id: "demo-a-mi-2",
@@ -607,6 +635,10 @@ export const DEMO_ANSWERS: Record<string, DemoAnswer> = {
     awarded_marks: 2,
     feedback:
       "Two marks: same number of protons, different numbers of neutrons. The third was for using chlorine, as the question asked: both have 17 protons, so chlorine-35 has 18 neutrons and chlorine-37 has 20.",
+    credited: [
+      { quote: "same number of protons", point: "Same number of protons", marks: 1 },
+      { quote: "a different number of neutrons", point: "Different numbers of neutrons", marks: 1 },
+    ],
   },
   "demo-q-at-2": {
     id: "demo-a-at-2",
@@ -626,6 +658,14 @@ export const DEMO_ANSWERS: Record<string, DemoAnswer> = {
     awarded_marks: 2,
     feedback:
       "Two marks: the gravitational potential store goes down as the kinetic store goes up. The third is for the energy that doesn't become kinetic: air resistance transfers some to the thermal store of the surroundings.",
+    credited: [
+      {
+        quote: "loses gravitational potential energy",
+        point: "The gravitational potential store decreases",
+        marks: 1,
+      },
+      { quote: "gains kinetic energy", point: "The kinetic store increases", marks: 1 },
+    ],
   },
   "demo-q-en-2": {
     id: "demo-a-en-2",

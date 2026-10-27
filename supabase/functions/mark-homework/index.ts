@@ -79,7 +79,7 @@ async function mark(
   subject: string | null,
   questions: Question[],
   answers: Map<string, string | null>,
-): Promise<{ questions: StagedMark[]; summary: string }> {
+): Promise<ReturnType<typeof stageMarks>> {
   const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
   if (!apiKey) throw new HttpError(500, "ANTHROPIC_API_KEY is not configured");
 
@@ -236,6 +236,8 @@ Deno.serve(async (req) => {
         submission_id: submissionId,
         marks: result.questions,
         summary: result.summary,
+        // The words behind each mark, for the student's marked sheet.
+        credited: result.credited,
         model: MODEL,
       },
       { onConflict: "submission_id" },

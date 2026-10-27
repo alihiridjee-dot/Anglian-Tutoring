@@ -37,6 +37,13 @@ export type Answer = { question_id: string; answer_text: string | null };
 export type StagedMark = { question_id: string; marks: number; feedback: string; held?: string };
 
 /**
+ * One quote that earned marks and was found in the answer. Kept apart from the
+ * marks (`homework_ai_marks.credited`) and shown to the student under the
+ * highlighter once the marks are out.
+ */
+export type Credit = { quote: string; point: string; marks: number };
+
+/**
  * The response shape, enforced by the API rather than hoped for.
  *
  * `marks` is deliberately a number with no maximum expressed here — the ceiling
@@ -211,11 +218,12 @@ export function stageMarks(
   questions: Question[],
   answers: Map<string, string | null>,
   parsed: unknown,
-): { questions: StagedMark[]; summary: string } {
+): { questions: StagedMark[]; summary: string; credited: Record<string, Credit[]> } {
   const body = (parsed ?? {}) as { questions?: unknown; summary?: unknown };
   const byId = new Map(questions.map((q) => [q.id, q]));
   const seen = new Set<string>();
   const marks: StagedMark[] = [];
+  const credited: Record<string, Credit[]> = {};
 
   for (const raw of Array.isArray(body.questions) ? body.questions : []) {
     const row = raw as {
@@ -238,15 +246,20 @@ export function stageMarks(
     const haystack = fold(answers.get(id) ?? "");
     let verified = 0;
     const missing: string[] = [];
+    const found: Credit[] = [];
     for (const item of Array.isArray(row.credited) ? row.credited : []) {
-      const credit = item as { quote?: unknown; marks?: unknown };
+      const credit = item as { quote?: unknown; point?: unknown; marks?: unknown };
       const worth = Number(credit.marks);
       if (!Number.isFinite(worth) || worth <= 0) continue;
       const quote = typeof credit.quote === "string" ? credit.quote.trim() : "";
       const needle = fold(quote);
-      if (needle && haystack.includes(needle)) verified += worth;
-      else missing.push(quote);
+      if (needle && haystack.includes(needle)) {
+        verified += worth;
+        const point = typeof credit.point === "string" ? credit.point.trim().slice(0, 300) : "";
+        found.push({ quote: quote.slice(0, 1000), point, marks: clamp(worth, question.marks) });
+      } else missing.push(quote);
     }
+    if (found.length) credited[id] = found;
     const awarded = Math.min(asked, clamp(verified, question.marks));
 
     const reasons: string[] = [];
@@ -275,5 +288,6 @@ export function stageMarks(
   return {
     questions: marks,
     summary: typeof body.summary === "string" ? body.summary.trim().slice(0, 2000) : "",
+    credited,
   };
 }

@@ -263,6 +263,7 @@ export type Database = {
       homework_ai_marks: {
         Row: {
           created_at: string;
+          credited: Json | null;
           marks: Json;
           model: string | null;
           submission_id: string;
@@ -270,6 +271,7 @@ export type Database = {
         };
         Insert: {
           created_at?: string;
+          credited?: Json | null;
           marks: Json;
           model?: string | null;
           submission_id: string;
@@ -277,6 +279,7 @@ export type Database = {
         };
         Update: {
           created_at?: string;
+          credited?: Json | null;
           marks?: Json;
           model?: string | null;
           submission_id?: string;
@@ -297,6 +300,7 @@ export type Database = {
           answer_text: string | null;
           awarded_marks: number | null;
           created_at: string;
+          credited: Json | null;
           feedback: string | null;
           id: string;
           images: Json;
@@ -307,6 +311,7 @@ export type Database = {
           answer_text?: string | null;
           awarded_marks?: number | null;
           created_at?: string;
+          credited?: Json | null;
           feedback?: string | null;
           id?: string;
           images?: Json;
@@ -317,6 +322,7 @@ export type Database = {
           answer_text?: string | null;
           awarded_marks?: number | null;
           created_at?: string;
+          credited?: Json | null;
           feedback?: string | null;
           id?: string;
           images?: Json;
