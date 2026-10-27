@@ -8,16 +8,19 @@
  * canvas, no text over text or over a line, every plotted point and bar where
  * its value puts it, every tick number where its value is, every label the
  * brief names, and what decides an answer: a circuit's wiring, a food web's
- * arrows, a reaction profile's levels and which letter labels which arrow. A
- * figure with any problem is never shown. A figure that passes reaches the
- * page only as `svg`, rebuilt from the parsed tree, so nothing the contract
- * doesn't name can get through.
+ * arrows, a reaction profile's levels and which letter labels which arrow.
+ * A circuit or food web holds nothing else: an extra line or caption could
+ * change or give away an answer. A figure with any problem is never shown.
+ * A figure that passes reaches the page only as `svg`, rebuilt from the
+ * parsed tree, so nothing the contract doesn't name can get through; a saved
+ * one is rebuilt the same way by `cleanFigure`, without the drawing checks.
  */
 import {
   ARROW_DEFS,
   CANVAS_HEIGHTS,
   CANVAS_MARGIN,
   CANVAS_WIDTH,
+  CIRCUIT_SYMBOLS,
   FIGURE_CLASSES,
   MAX_LINE,
   PLOT,
@@ -75,6 +78,14 @@ const NUMERIC = [
   "data-y",
 ];
 const NUMBER = /^-?\d+(\.\d{1,2})?$/;
+const SVG_NS = "http://www.w3.org/2000/svg";
+const HEAD = "url(#qf-head)";
+/**
+ * The value a table lists under a name the model wrote, never one every
+ * object inherits: `<valueOf/>` or class="constructor" is just not listed.
+ */
+const listed = <T>(table: Partial<Record<string, T>>, key: string): T | undefined =>
+  Object.hasOwn(table, key) ? table[key] : undefined;
 const ENTITIES: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'" };
 const decode = (s: string) => s.replace(/&(amp|lt|gt|quot|apos);/g, (_, e: string) => ENTITIES[e]);
 const encode = (s: string) =>
@@ -114,9 +125,10 @@ function parse(svg: string): { root: Node | null; problems: string[] } {
         return { root: null, problems: [`The SVG closes <${name}> where it isn't open`] };
       continue;
     }
-    const attrs: Record<string, string> = {};
+    // No prototype, so an attribute named like an object's own is only an attribute.
+    const attrs: Record<string, string> = Object.create(null);
     for (const a of rawAttrs.matchAll(/([a-zA-Z][\w:-]*)\s*=\s*"([^"]*)"/g)) {
-      if (a[1] in attrs) problems.push(`<${name}> has ${a[1]} twice`);
+      if (Object.hasOwn(attrs, a[1])) problems.push(`<${name}> has ${a[1]} twice`);
       attrs[a[1]] = decode(a[2]);
     }
     const node: Node = { name, attrs, children: [], text: "" };
@@ -130,17 +142,77 @@ function parse(svg: string): { root: Node | null; problems: string[] } {
   return { root: problems.length ? null : root, problems };
 }
 
-/** The tree written back out: only the contract's elements and attributes, in its order. */
-function serialize(n: Node): string {
-  if (!ELEMENTS[n.name]) return "";
+/**
+ * A tree written out whole, every attribute in name order, leaving out the
+ * top element's `skip`: two trees that write out alike are the same drawing.
+ */
+const exact = (n: Node, skip: string[] = []): string =>
+  `<${n.name}${Object.keys(n.attrs)
+    .filter((a) => !skip.includes(a))
+    .sort()
+    .map((a) => ` ${a}="${n.attrs[a]}"`)
+    .join("")}>${n.text.trim()}${n.children.map((c) => exact(c)).join("")}</${n.name}>`;
+/** The arrowhead block and each circuit symbol, as `exact` writes them. */
+const DEFS = exact(parse(ARROW_DEFS).root!);
+const SYMBOLS = new Map(
+  Object.entries(CIRCUIT_SYMBOLS).map(([name, svg]) => [name, exact(parse(svg).root!)]),
+);
+
+/** What each attribute may hold on the page; one holding anything else is left out. */
+const SAFE: Record<string, (v: string) => boolean> = {
+  class: (v) => Object.hasOwn(FIGURE_CLASSES, v),
+  transform: (v) => parseTransform(v) !== null,
+  "data-symbol": (v) => SYMBOLS.has(v),
+  points: (v) => pointsOf(v) !== null,
+  d: (v) => pathPolylines(v) !== null,
+  "marker-start": (v) => v === HEAD,
+  "marker-end": (v) => v === HEAD,
+  "text-anchor": (v) => ["start", "middle", "end"].includes(v),
+  ...Object.fromEntries(NUMERIC.map((a) => [a, (v: string) => NUMBER.test(v)])),
+};
+
+/**
+ * The tree written back out: only the contract's elements, each only where
+ * it may stand, with only its own attributes holding allowed values, in the
+ * contract's order. The arrowhead block is written only exactly as it is.
+ */
+function serialize(n: Node, parent: string): string {
+  if (n.name === "defs") return parent === "svg" && exact(n) === DEFS ? ARROW_DEFS : "";
+  if (n.name === "svg" || n.name === "marker" || !Object.hasOwn(ELEMENTS, n.name)) return "";
+  // A tspan stands in a text, and a text holds only tspans.
+  if ((n.name === "tspan") !== (parent === "text")) return "";
   const attrs = ELEMENTS[n.name]
-    .filter((a) => a in n.attrs)
+    .filter((a) => Object.hasOwn(n.attrs, a) && listed(SAFE, a)?.(n.attrs[a]))
     .map((a) => ` ${a}="${encode(n.attrs[a])}"`)
     .join("");
   const inner =
     (n.name === "text" || n.name === "tspan" ? encode(n.text) : "") +
-    n.children.map(serialize).join("");
+    n.children.map((c) => serialize(c, n.name)).join("");
   return inner ? `<${n.name}${attrs}>${inner}</${n.name}>` : `<${n.name}${attrs}/>`;
+}
+
+/**
+ * The figure for the page, under the contract's own root: null when the root
+ * isn't a figure's. Any canvas height a figure could sensibly have is kept,
+ * so a figure saved under today's heights still shows if they change.
+ */
+function rebuild(root: Node): string | null {
+  const vb = /^0 0 360 (\d+)$/.exec(root.attrs.viewBox ?? "");
+  const H = vb ? Number(vb[1]) : NaN;
+  if (root.name !== "svg" || root.attrs.xmlns !== SVG_NS || !(H >= 100 && H <= 960)) return null;
+  const inner = root.children.map((c) => serialize(c, "svg")).join("");
+  return `<svg xmlns="${SVG_NS}" viewBox="0 0 ${CANVAS_WIDTH} ${H}" class="qf" role="img">${inner}</svg>`;
+}
+
+/**
+ * A saved figure made safe for a page: read by the same strict parser and
+ * rebuilt the same way, but with none of the drawing's checks. It was checked
+ * against its brief when it was drawn, so a figure saved under today's rules
+ * still shows if a layout rule tightens later. Null when it can't be read.
+ */
+export function cleanFigure(svg: string): string | null {
+  const { root } = parse(svg);
+  return root ? rebuild(root) : null;
 }
 
 // ── Geometry ────────────────────────────────────────────────────────────────
@@ -365,6 +437,12 @@ type Drawing = {
   wires: [Pt, Pt][];
   /** Junction dots: qf-ink circles outside the symbols. */
   junctions: Pt[];
+  /**
+   * Every line, shape and path drawn, but text: what it is, its style, its
+   * first point (a circle's centre), whether it lies in a circuit symbol,
+   * whether it carries an arrowhead, and its radius.
+   */
+  shapes: { name: string; cls: string; at: Pt; inSymbol: boolean; marked: boolean; r: number }[];
 };
 
 // ── The check ───────────────────────────────────────────────────────────────
@@ -388,8 +466,7 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
   const vb = /^0 0 360 (\d+)$/.exec(root.attrs.viewBox ?? "");
   const H = vb ? Number(vb[1]) : NaN;
   if (root.name !== "svg") problems.push("The root element is not <svg>");
-  if (root.attrs.xmlns !== "http://www.w3.org/2000/svg")
-    problems.push('The <svg> lacks xmlns="http://www.w3.org/2000/svg"');
+  if (root.attrs.xmlns !== SVG_NS) problems.push(`The <svg> lacks xmlns="${SVG_NS}"`);
   if (!vb || !CANVAS_HEIGHTS.includes(H))
     problems.push(
       `The viewBox is not "0 0 ${CANVAS_WIDTH} H" with H a multiple of 20 from 200 to 480`,
@@ -410,9 +487,21 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
     parts: [],
     wires: [],
     junctions: [],
+    shapes: [],
   };
-  const { labels, segments, dots, bars, dataLines, curves, arrows, parts, wires, junctions } =
-    drawing;
+  const {
+    labels,
+    segments,
+    dots,
+    bars,
+    dataLines,
+    curves,
+    arrows,
+    parts,
+    wires,
+    junctions,
+    shapes,
+  } = drawing;
   let owner = 0;
 
   const inCanvas = (p: Pt, margin: number) =>
@@ -425,10 +514,10 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
 
   /** `inSymbol`: inside a circuit symbol, whose lines are its own, not wires. */
   const visit = (n: Node, m: Matrix, path: string, inSymbol = false) => {
-    const allowed = ELEMENTS[n.name];
+    const allowed = listed(ELEMENTS, n.name);
     const where = `${path}<${n.name}>`;
-    if (!allowed) {
-      problems.push(`${where} is not allowed`);
+    if (!allowed || n.name === "svg") {
+      problems.push(`${where} is not allowed${allowed ? ": an <svg> is only ever the root" : ""}`);
       return;
     }
     for (const a of Object.keys(n.attrs))
@@ -439,12 +528,11 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
       if (a in n.attrs && !NUMBER.test(n.attrs[a]))
         problems.push(`${where} ${a}="${n.attrs[a]}" is not a plain number`);
     for (const a of ["marker-start", "marker-end"])
-      if (a in n.attrs && n.attrs[a] !== "url(#qf-head)")
-        problems.push(`${where} ${a} must be url(#qf-head)`);
+      if (a in n.attrs && n.attrs[a] !== HEAD) problems.push(`${where} ${a} must be ${HEAD}`);
 
     if (n.name === "defs") {
       if (path !== "<svg> ") problems.push("<defs> must sit directly in <svg>");
-      else if (serialize(n) !== serialize(parse(ARROW_DEFS).root!))
+      else if (exact(n) !== DEFS)
         problems.push("<defs> must be the arrowhead block, copied exactly");
       return;
     }
@@ -456,7 +544,7 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
     const cls = n.attrs.class as FigureClass | undefined;
     if (DRAWN.includes(n.name)) {
       if (!cls) problems.push(`${where} has no class`);
-      else if (!(cls in FIGURE_CLASSES))
+      else if (!Object.hasOwn(FIGURE_CLASSES, cls))
         problems.push(`${where} has a class not in the list: ${cls}`);
     }
     let own = m;
@@ -475,17 +563,33 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
       const [start, end] = ["marker-start", "marker-end"].map((a) => a in n.attrs);
       if (start || end) arrows.push({ from: pts[0], to: pts[pts.length - 1], start, end });
     };
+    /** Kept for the circuit and food web checks, which allow only certain shapes. */
+    const shape = (at: Pt) =>
+      shapes.push({
+        name: n.name,
+        cls: cls ?? "",
+        at,
+        inSymbol,
+        marked: "marker-start" in n.attrs || "marker-end" in n.attrs,
+        r: num("r"),
+      });
 
     switch (n.name) {
       case "g": {
         const symbol = n.attrs["data-symbol"];
-        if (symbol)
-          parts.push({
-            type: symbol,
-            centre: apply(own, [0, 0]),
-            ends: [apply(own, [-20, 0]), apply(own, [20, 0])],
-          });
-        n.children.forEach((c) => visit(c, own, `${where} `, inSymbol || !!symbol));
+        if (symbol !== undefined) {
+          const centre = apply(own, [0, 0]);
+          // Checked by its tag, a symbol must be drawn as that symbol too: a closed
+          // switch tagged open, or an empty group tagged lamp, reads as another circuit.
+          if (!SYMBOLS.has(symbol))
+            problems.push(`${where} data-symbol="${symbol}" is not one of the circuit symbols`);
+          else if (exact(n, ["transform"]) !== SYMBOLS.get(symbol))
+            problems.push(
+              `The ${symbol} at ${at(centre)} is not the ${symbol} symbol copied exactly: copy each symbol from the list unchanged, placed only by its <g transform>`,
+            );
+          parts.push({ type: symbol, centre, ends: [apply(own, [-20, 0]), apply(own, [20, 0])] });
+        }
+        n.children.forEach((c) => visit(c, own, `${where} `, inSymbol || symbol !== undefined));
         return;
       }
       case "line": {
@@ -496,6 +600,7 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
         segments.push({ seg: [a, b], cls: cls ?? "" });
         if (cls === "qf-line" && !inSymbol) wires.push([a, b]);
         arrowOf([a, b]);
+        shape(a);
         break;
       }
       case "polyline":
@@ -514,6 +619,7 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
         }
         if (cls === "qf-data" || cls === "qf-data2") dataLines.push({ pts: abs, cls });
         if (n.name === "polyline") arrowOf(abs);
+        shape(abs[0]);
         break;
       }
       case "rect": {
@@ -534,6 +640,7 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
               `${where} stands on the x axis without data-y: every bar carries its value`,
             );
         }
+        shape(c[0]);
         break;
       }
       case "circle":
@@ -548,6 +655,7 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
           dots.push({ at: apply(own, [cx, cy]), x: num("data-x"), y: num("data-y"), cls });
         if (cls === "qf-ink" && n.name === "circle" && !inSymbol)
           junctions.push(apply(own, [cx, cy]));
+        shape(apply(own, [cx, cy]));
         break;
       }
       case "path": {
@@ -565,10 +673,11 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
         }
         if ((cls === "qf-data" || cls === "qf-data2") && all.length) curves.push({ pts: all, cls });
         if (all.length) arrowOf(all);
+        shape(all[0] ?? apply(own, [0, 0]));
         break;
       }
       case "text": {
-        const size = (cls && TEXT_SIZE[cls]) ?? 0;
+        const size = (cls && listed(TEXT_SIZE, cls)) ?? 0;
         if (!size) problems.push(`${where} must be qf-text, qf-strong or qf-small`);
         const anchor = n.attrs["text-anchor"];
         if (!["start", "middle", "end"].includes(anchor))
@@ -642,7 +751,7 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
         problems.push(`Text "${labels[a].text}" overlaps text "${labels[b].text}"`);
   for (const l of labels) {
     const hit = segments.find(
-      (s) => s.cls !== "qf-thin" && crosses(s.seg, grow(l.box, STROKE_HALF[s.cls] ?? 0)),
+      (s) => s.cls !== "qf-thin" && crosses(s.seg, grow(l.box, listed(STROKE_HALF, s.cls) ?? 0)),
     );
     if (hit)
       problems.push(
@@ -651,9 +760,12 @@ export function checkFigure(svg: string, brief?: FigureBrief): FigureCheck {
   }
 
   if (brief) problems.push(...briefProblems(brief, drawing));
+  const clean = rebuild(root);
+  // Rebuilt, a quote or bracket in text is spelled out: the saved copy must still fit.
+  if (clean && clean.length > 24_000) problems.push("The SVG is longer than 24 000 characters");
   return {
     problems,
-    svg: serialize(root),
+    svg: clean,
     height: Number.isFinite(H) ? H : null,
     labels: labels.map((l) => l.text),
   };
@@ -774,7 +886,9 @@ function briefProblems(brief: FigureBrief, d: Drawing): string[] {
         )
           out.push(`Every ${type} needs its letter ${letter}`);
       // The wiring is only worth comparing once every part is there.
-      if (!out.length) out.push(...wiringProblems(k, d));
+      const partsThere = !out.length;
+      out.push(...circuitExtras(k, d));
+      if (partsThere) out.push(...wiringProblems(k, d));
       break;
     }
     case "energy-profile":
@@ -785,9 +899,94 @@ function briefProblems(brief: FigureBrief, d: Drawing): string[] {
       break;
     case "food-web":
       k.organisms.forEach((o) => need(o.name, "organism"));
+      out.push(...webExtras(k, d));
       out.push(...webProblems(k, d));
       break;
   }
+  return out;
+}
+
+/** Each <text> whole: its lines joined, with its style and where its first line is written. */
+const pieces = (labels: Label[]) =>
+  [...new Set(labels.map((l) => l.owner))].map((o) => {
+    const lines = labels.filter((l) => l.owner === o);
+    return { ...lines[0], text: lines.map((l) => l.text).join(" ") };
+  });
+/** A shape's tag as the model wrote it, for a problem to point at. */
+const tagOf = (s: Drawing["shapes"][number]) => `<${s.name}${s.cls ? ` class="${s.cls}"` : ""}>`;
+
+/** A meter's letter, by what it makes the meter. */
+const METERS = new Map([
+  ["A", "ammeter"],
+  ["V", "voltmeter"],
+  ["M", "motor"],
+]);
+/** Whether a text is a meter's letter on it: bold A, V or M at its centre, as the prompt puts it. */
+const onMeter = (l: { cls: string; text: string; x: number; y: number }, p: Part) =>
+  p.type === "meter" &&
+  l.cls === "qf-strong" &&
+  METERS.has(l.text) &&
+  near(l.x, p.centre[0], 1.5) &&
+  near(l.y, p.centre[1] + 5.5, 1.5);
+
+/**
+ * What a circuit holds besides its symbols: wires, junction dots, each
+ * meter's letter and the brief's labels, and nothing else. A path or a thick
+ * line across a lamp is a short the wiring check can't see, and a caption
+ * can give an answer away. Two parts drawn over each other look like one.
+ */
+function circuitExtras(k: CircuitBrief, d: Drawing): string[] {
+  const out: string[] = [];
+  for (const s of d.shapes) {
+    if (s.inSymbol) continue;
+    const wire = (s.name === "line" || s.name === "polyline") && s.cls === "qf-line" && !s.marked;
+    const dot = s.name === "circle" && s.cls === "qf-ink" && s.r === 3;
+    if (!wire && !dot)
+      out.push(
+        `The ${tagOf(s)} at ${at(s.at)} is not part of the circuit: outside its symbols a circuit has only wires (qf-line lines and polylines, without arrowheads), junction dots (<circle class="qf-ink" r="3"/>) and the brief's labels`,
+      );
+  }
+  const labels = new Set(k.components.map((c) => c.label).filter(Boolean));
+  for (const t of pieces(d.labels))
+    if (!d.parts.some((p) => onMeter(t, p)) && !(t.cls === "qf-text" && labels.has(t.text)))
+      out.push(
+        `Text "${t.text}" is neither a label the brief gives nor a meter's letter: a circuit has no other text`,
+      );
+  for (let i = 0; i < d.parts.length; i++)
+    for (let j = i + 1; j < d.parts.length; j++) {
+      const [a, b] = [d.parts[i], d.parts[j]];
+      if (Math.hypot(a.centre[0] - b.centre[0], a.centre[1] - b.centre[1]) < 40)
+        out.push(
+          `The ${a.type} at ${at(a.centre)} and the ${b.type} at ${at(b.centre)} are drawn over each other: keep components at least 50 units apart`,
+        );
+    }
+  return out;
+}
+
+/**
+ * What a food web holds: its organisms' names, each once, and an arrow for
+ * each pair. An extra line, a head drawn as a shape, or a caption such as
+ * "producers" could change or give away an answer, so each is refused.
+ */
+function webExtras(k: WebBrief, d: Drawing): string[] {
+  const out: string[] = [];
+  for (const s of d.shapes)
+    if (!["line", "polyline", "path"].includes(s.name) || s.cls !== "qf-line")
+      out.push(
+        `The ${tagOf(s)} at ${at(s.at)} is not part of the food web: draw only the organisms' names and an arrow (a qf-line with marker-end) for each pair`,
+      );
+    else if (!s.marked)
+      out.push(
+        `The ${tagOf(s)} from ${at(s.at)} has no arrowhead: every line in a food web is an arrow with one head, by what eats the food`,
+      );
+  const organisms = new Set(k.organisms.map((o) => o.name.trim()));
+  const written = new Map<string, number>();
+  for (const t of pieces(d.labels))
+    if (!organisms.has(t.text))
+      out.push(`Text "${t.text}" is not an organism in the brief: a food web has no other text`);
+    else written.set(t.text, (written.get(t.text) ?? 0) + 1);
+  for (const [name, n] of written)
+    if (n > 1) out.push(`The organism "${name}" is written ${n} times: write each name once`);
   return out;
 }
 
@@ -805,7 +1004,7 @@ function profileProblems(
   hasLine: (a: Pt, c: Pt) => boolean,
 ): string[] {
   const out: string[] = [];
-  const levels = PROFILE.levels[k.reaction];
+  const levels = listed(PROFILE.levels, k.reaction);
   if (!levels) return ['The brief\'s reaction must be "exothermic" or "endothermic"'];
   const { R, P, T } = levels;
   const top = PROFILE.top;
@@ -849,7 +1048,7 @@ function profileProblems(
   const doubles = d.arrows.filter((a) => a.start && a.end);
   const letters = d.labels.filter((l) => l.cls === "qf-strong");
   for (const want of k.arrows) {
-    const span = spans[want.shows];
+    const span = listed(spans, want.shows);
     if (!span) {
       out.push(`The brief's arrow "${want.shows}" is not one a reaction profile has`);
       continue;
@@ -878,7 +1077,7 @@ function profileProblems(
       );
   }
   for (const a of doubles)
-    if (!k.arrows.some((w) => spans[w.shows] && isSpan(a, spans[w.shows])))
+    if (!k.arrows.some((w) => listed(spans, w.shows) && isSpan(a, spans[w.shows])))
       out.push(`The double arrow from ${at(a.from)} to ${at(a.to)} is not one the brief asks for`);
   return out;
 }
@@ -1041,7 +1240,6 @@ function wiringProblems(k: CircuitBrief, d: Drawing): string[] {
 
   // Each part between its two nets, typed as drawn: a meter by the letter at its centre,
   // a labelled part by the label nearest it.
-  const meterLetter: Record<string, string> = { A: "ammeter", V: "voltmeter", M: "motor" };
   const brieflabels = new Set(k.components.map((c) => c.label).filter(Boolean));
   const tags = new Map<number, string>();
   for (const l of d.labels) {
@@ -1063,14 +1261,8 @@ function wiringProblems(k: CircuitBrief, d: Drawing): string[] {
   const drawn: Edge[] = d.parts.map((p, i) => {
     let type = p.type;
     if (type === "meter") {
-      const letter = d.labels.find(
-        (l) =>
-          l.cls === "qf-strong" &&
-          near(l.x, p.centre[0], 1.5) &&
-          near(l.y, p.centre[1] + 5.5, 1.5) &&
-          meterLetter[l.text],
-      );
-      type = letter ? meterLetter[letter.text] : "meter";
+      const letter = d.labels.find((l) => onMeter(l, p));
+      type = letter ? METERS.get(letter.text)! : "meter";
     }
     const tag = tags.get(i);
     return { part: tag ? `${type} "${tag}"` : type, a: net(ends[i][0]), b: net(ends[i][1]) };
@@ -1238,6 +1430,9 @@ export function checkReply(
     return { problems, status: r.status!, figure: null };
   }
   if (!r.alt!.trim()) problems.push("alt is empty");
+  // The database holds 2000 characters: a longer one would fail the whole set's save.
+  else if (r.alt!.trim().length > 1000)
+    problems.push("alt is longer than 1000 characters: describe the figure more briefly");
   const check = checkFigure(r.svg!, brief);
   problems.push(...check.problems);
   const sort = (l: string[]) => l.map((t) => t.trim()).sort();

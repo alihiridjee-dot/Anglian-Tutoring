@@ -1,14 +1,28 @@
 import { useMemo } from "react";
-import { cn } from "@/lib/utils";
-import { checkFigure } from "@/lib/figures/figureCheck";
-import type { FigureBrief } from "@/lib/figures/figure";
+import { ZoomableFigure } from "@/components/notes/ZoomableFigure";
+import { CANVAS_WIDTH, type FigureBrief } from "@/lib/figures/figure";
+import { checkFigure, cleanFigure } from "@/lib/figures/figureCheck";
 
 /**
- * A question's figure: the graph, circuit, reaction profile or food web it
- * is answered from. Shown only when the figure check passes, and then as the
- * check's own copy, rebuilt from the parsed drawing, so only the contract's
- * elements ever reach the page (lib/figures). A figure that fails shows
- * nothing at all: a wrong picture is worse than none.
+ * A drawing on the page, as the notes show theirs: tap it for full size, where
+ * its labels read at the size they were drawn. `svg` is always a rebuilt copy,
+ * parsed down to the contract's elements (lib/figures), never a model's text.
+ */
+function Drawing({ svg, alt, className }: { svg: string; alt: string; className?: string }) {
+  return (
+    <figure className={className}>
+      <ZoomableFigure label={alt} naturalWidth={CANVAS_WIDTH}>
+        <div role="img" aria-label={alt} dangerouslySetInnerHTML={{ __html: svg }} />
+      </ZoomableFigure>
+    </figure>
+  );
+}
+
+/**
+ * A figure checked here, in full: the graph, circuit, reaction profile or food
+ * web a question is answered from, held to its brief when there is one. A
+ * figure that fails shows nothing at all: a wrong picture is worse than none.
+ * The figures preview uses it; a saved figure is shown by `StoredFigure`.
  */
 export function QuestionFigure({
   svg,
@@ -25,27 +39,20 @@ export function QuestionFigure({
 }) {
   const check = useMemo(() => checkFigure(svg, brief), [svg, brief]);
   if (check.problems.length || !check.svg) return null;
-  return (
-    <figure
-      className={cn(
-        // Little padding on a phone: every pixel goes to the drawing's labels.
-        "rounded-2xl bg-[color-mix(in_oklab,var(--tint)_5%,var(--card))] p-1.5 sm:p-4",
-        className,
-      )}
-    >
-      {/* The drawing is the check's rebuilt copy, never the model's text. */}
-      <div role="img" aria-label={alt} dangerouslySetInnerHTML={{ __html: check.svg }} />
-    </figure>
-  );
+  return <Drawing svg={check.svg} alt={alt} className={className} />;
 }
 
 /**
  * A question's saved figure as its row holds it, `{ svg, alt }`; nothing for
- * a question without one. The figure was checked against its brief when it
- * was drawn; here it is checked again, as a drawing, before it is shown.
+ * a question without one. It passed the full check against its brief when it
+ * was drawn, so here it is only parsed and rebuilt, for safety: a layout rule
+ * tightened later must never make a saved figure vanish from a question whose
+ * text says "the graph shows".
  */
 export function StoredFigure({ figure, className }: { figure: unknown; className?: string }) {
   const f = figure as { svg?: unknown; alt?: unknown } | null | undefined;
-  if (!f || typeof f.svg !== "string" || typeof f.alt !== "string") return null;
-  return <QuestionFigure svg={f.svg} alt={f.alt} className={className} />;
+  const raw = typeof f?.svg === "string" ? f.svg : null;
+  const svg = useMemo(() => (raw ? cleanFigure(raw) : null), [raw]);
+  if (!svg || typeof f?.alt !== "string") return null;
+  return <Drawing svg={svg} alt={f.alt} className={className} />;
 }

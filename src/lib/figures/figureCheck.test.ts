@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { ARROW_DEFS, CIRCUIT_SYMBOLS, type FigureBrief } from "./figure";
-import { checkFigure, checkReply } from "./figureCheck";
+import { checkFigure, checkReply, cleanFigure } from "./figureCheck";
 import { FIGURE_EXAMPLES } from "./figurePrompt";
 
 const [graph, circuit] = FIGURE_EXAMPLES;
@@ -412,5 +412,229 @@ describe("what an answer hangs on is checked, not just the values", () => {
     expect(checkFigure(ladder, brief).problems).toContain(
       "The brief's loop must name every component once, in at least two steps",
     );
+  });
+});
+
+// Each of these passed before the checker held a circuit or food web to its
+// brief alone (the review, 17 Oct): a picture that reads as something else.
+describe("a circuit or food web holds only what its brief names", () => {
+  const copied = (symbol: string, at: string) =>
+    `The ${symbol} at ${at} is not the ${symbol} symbol copied exactly: copy each symbol from the list unchanged, placed only by its <g transform>`;
+  const lamp2 = part("translate(320 140) rotate(90)", "lamp");
+  const asLamp2 = (drawing: string) =>
+    swap(ladder, lamp2, `<g transform="translate(320 140) rotate(90)">${drawing}</g>`);
+
+  test("a symbol drawn as another under its own tag, or not drawn at all", () => {
+    // An open switch drawn closed: the lamps light in the picture, not in the brief.
+    const closed = CIRCUIT_SYMBOLS["switch-closed"].replace("switch-closed", "switch-open");
+    expect(
+      checkFigure(swap(ladder, CIRCUIT_SYMBOLS["switch-open"], closed), circuitBrief).problems,
+    ).toEqual([copied("switch-open", "(190, 60)")]);
+    // A lamp with nothing drawn: a gap in the wire, where the brief has a lamp.
+    expect(checkFigure(asLamp2('<g data-symbol="lamp"></g>'), circuitBrief).problems).toEqual([
+      copied("lamp", "(320, 140)"),
+    ]);
+    // A wire in the lamp's own group, joining its ends: a short the wiring doesn't count.
+    const shorted = CIRCUIT_SYMBOLS.lamp.replace("</g>", `${wire(-20, 0, 20, 0)}</g>`);
+    expect(checkFigure(asLamp2(shorted), circuitBrief).problems).toEqual([
+      copied("lamp", "(320, 140)"),
+    ]);
+  });
+
+  test("a lamp and a resistor drawn as each other", () => {
+    const brief: FigureBrief = {
+      kind: "circuit",
+      components: [{ type: "cell" }, { type: "lamp" }, { type: "resistor" }],
+      loop: [0, 1, 2],
+      layout: "One loop: the cell on the top wire, the lamp on the right, the resistor below.",
+    };
+    const loop = (lamp: string, resistor: string) =>
+      svgOf(240, [
+        wire(60, 60, 160, 60),
+        part("translate(180 60)", "cell"),
+        wire(200, 60, 300, 60),
+        wire(300, 60, 300, 120),
+        `<g transform="translate(300 140) rotate(90)">${lamp}</g>`,
+        wire(300, 160, 300, 200),
+        wire(300, 200, 200, 200),
+        `<g transform="translate(180 200)">${resistor}</g>`,
+        wire(160, 200, 60, 200),
+        wire(60, 200, 60, 60),
+      ]);
+    expect(
+      checkFigure(loop(CIRCUIT_SYMBOLS.lamp, CIRCUIT_SYMBOLS.resistor), brief).problems,
+    ).toEqual([]);
+    const swapped = loop(
+      CIRCUIT_SYMBOLS.resistor.replace('"resistor"', '"lamp"'),
+      CIRCUIT_SYMBOLS.lamp.replace('"lamp"', '"resistor"'),
+    );
+    expect(checkFigure(swapped, brief).problems).toEqual([
+      copied("lamp", "(300, 140)"),
+      copied("resistor", "(180, 200)"),
+    ]);
+  });
+
+  test("a line, path or shape outside the symbols that isn't a wire or a dot", () => {
+    // Each runs across lamp 2's two ends: a short anyone can see, and the wiring can't.
+    for (const [extra, tag] of [
+      ['<path class="qf-line" d="M320 120 L320 160"/>', '<path class="qf-line">'],
+      ['<line class="qf-thick" x1="320" y1="120" x2="320" y2="160"/>', '<line class="qf-thick">'],
+      ['<polygon class="qf-line" points="320,120 320,160 321,160"/>', '<polygon class="qf-line">'],
+    ])
+      expect(checkFigure(swap(ladder, "</svg>", `${extra}</svg>`), circuitBrief).problems).toEqual([
+        `The ${tag} at (320, 120) is not part of the circuit: outside its symbols a circuit has only wires (qf-line lines and polylines, without arrowheads), junction dots (<circle class="qf-ink" r="3"/>) and the brief's labels`,
+      ]);
+  });
+
+  test("two parts drawn on one spot, which look like one", () => {
+    const stacked = svgOf(240, [
+      wire(40, 60, 90, 60),
+      part("translate(110 60)", "cell"),
+      wire(130, 60, 170, 60),
+      part("translate(190 60)", "switch-open"),
+      wire(210, 60, 260, 60),
+      wire(260, 60, 260, 120),
+      part("translate(260 140) rotate(90)", "lamp"),
+      part("translate(260 140) rotate(90)", "lamp"),
+      wire(260, 160, 260, 220),
+      wire(260, 220, 40, 220),
+      wire(40, 220, 40, 160),
+      part("translate(40 140) rotate(90)", "meter"),
+      `<text class="qf-strong" x="40" y="145.5" text-anchor="middle">A</text>`,
+      wire(40, 120, 40, 60),
+      `<circle class="qf-ink" cx="260" cy="120" r="3"/>`,
+      `<circle class="qf-ink" cx="260" cy="160" r="3"/>`,
+    ]);
+    expect(checkFigure(stacked, circuitBrief).problems).toEqual([
+      "The lamp at (260, 140) and the lamp at (260, 140) are drawn over each other: keep components at least 50 units apart",
+    ]);
+  });
+
+  test("text in a circuit that is neither a label the brief gives nor a meter's letter", () => {
+    const caption = swap(
+      ladder,
+      "</svg>",
+      '<text class="qf-text" x="150" y="140" text-anchor="middle">parallel</text></svg>',
+    );
+    expect(checkFigure(caption, circuitBrief).problems).toEqual([
+      'Text "parallel" is neither a label the brief gives nor a meter\'s letter: a circuit has no other text',
+    ]);
+  });
+
+  test("a food web's caption, a line with no head, a head drawn as a shape, a name twice", () => {
+    const caption = swap(
+      web,
+      "</svg>",
+      '<text class="qf-small" x="300" y="36" text-anchor="middle">top predator</text></svg>',
+    );
+    expect(checkFigure(caption, webBrief).problems).toEqual([
+      'Text "top predator" is not an organism in the brief: a food web has no other text',
+    ]);
+    // An extra feeding link, fox to owl, its head a filled triangle rather than a marker.
+    const drawnHead = swap(
+      web,
+      "</svg>",
+      '<line class="qf-line" x1="94" y1="98" x2="178" y2="46"/><polygon class="qf-ink" points="180,44 170,45 175,52"/></svg>',
+    );
+    expect(checkFigure(drawnHead, webBrief).problems).toEqual([
+      'The <line class="qf-line"> from (94, 98) has no arrowhead: every line in a food web is an arrow with one head, by what eats the food',
+      'The <polygon class="qf-ink"> at (180, 44) is not part of the food web: draw only the organisms\' names and an arrow (a qf-line with marker-end) for each pair',
+    ]);
+    const twice = swap(
+      web,
+      name(94, 276, "grass"),
+      name(94, 276, "grass") + name(30, 236, "grass"),
+    );
+    expect(checkFigure(twice, webBrief).problems).toEqual([
+      'The organism "grass" is written 2 times: write each name once',
+    ]);
+  });
+});
+
+describe("a model's SVG can't trip the checker", () => {
+  test("a tag or class named like something every object has is only a name", () => {
+    for (const odd of ["<valueOf/>", '<toString x="1"/>', "<constructor/>", "<hasOwnProperty/>"]) {
+      const svg = swap(graph.reply.svg, "</svg>", `${odd}</svg>`);
+      expect(problemsOf(svg)).toContain(`<svg> ${odd.replace(/ .*|\/>/, ">")} is not allowed`);
+      expect(cleanFigure(svg)).not.toContain(odd.slice(1, 6));
+    }
+    const cls = swap(
+      graph.reply.svg,
+      'class="qf-line" x1="64" y1="224"',
+      'class="constructor" x1="64" y1="224"',
+    );
+    expect(problemsOf(cls)).toContain("<svg> <line> has a class not in the list: constructor");
+    const tag = swap(ladder, 'data-symbol="cell"', 'data-symbol="toString"');
+    expect(checkFigure(tag, circuitBrief).problems).toContain(
+      '<svg> <g> <g> data-symbol="toString" is not one of the circuit symbols',
+    );
+  });
+
+  test("an <svg> inside the figure, or anything extra in the arrowhead block", () => {
+    const nested = swap(
+      graph.reply.svg,
+      "</svg>",
+      '<svg class="fixed inset-0" viewBox="0 0 1 1"/></svg>',
+    );
+    expect(problemsOf(nested)).toContain(
+      "<svg> <svg> is not allowed: an <svg> is only ever the root",
+    );
+    expect(cleanFigure(nested)).not.toContain("inset-0");
+    const defs = swap(
+      profile,
+      'orient="auto-start-reverse"',
+      'orient="auto-start-reverse" onload="x"',
+    );
+    expect(checkFigure(defs, profileBrief).problems).toContain(
+      "<defs> must be the arrowhead block, copied exactly",
+    );
+  });
+
+  test("an alt too long to save is sent back, not saved", () => {
+    const long = { ...graph.reply, alt: "A line graph of distance against time. ".repeat(30) };
+    const r = checkReply(long, graph.request.brief);
+    expect(r.problems).toEqual([
+      "alt is longer than 1000 characters: describe the figure more briefly",
+    ]);
+    expect(r.figure).toBeNull();
+  });
+});
+
+describe("a saved figure is made safe for the page, without the drawing's checks", () => {
+  test("a figure that passed comes back exactly as it was checked", () => {
+    const drawings: [string, FigureBrief][] = [
+      ...FIGURE_EXAMPLES.map((e) => [e.reply.svg, e.request.brief] as [string, FigureBrief]),
+      [profile, profileBrief],
+      [web, webBrief],
+      [ladder, circuitBrief],
+    ];
+    for (const [svg, brief] of drawings) {
+      const checked = checkFigure(svg, brief);
+      expect(checked.problems).toEqual([]);
+      expect(cleanFigure(checked.svg!)).toBe(checked.svg);
+    }
+  });
+
+  test("a figure that a later layout rule would refuse still shows", () => {
+    const over = swap(graph.reply.svg, 'x="204" y="266"', 'x="64" y="246"');
+    expect(problemsOf(over).length).toBeGreaterThan(0);
+    expect(cleanFigure(over)).toContain('x="64" y="246" text-anchor="middle">time in s</text>');
+  });
+
+  test("nothing unsafe gets through, and what can't be read is nothing", () => {
+    const bad = swap(
+      graph.reply.svg.replace('role="img"', 'role="img" onload="x"'),
+      "</svg>",
+      '<script>alert(1)</script><line class="fixed inset-0" x1="1" y1="1" x2="2" y2="2" onclick="x" marker-end="url(https://example.com/a.svg#b)"/><g transform="scale(9)"/><tspan x="1">loose</tspan></svg>',
+    );
+    const clean = cleanFigure(bad)!;
+    for (const gone of ["onload", "script", "inset-0", "onclick", "example.com", "scale", "loose"])
+      expect(clean).not.toContain(gone);
+    expect(clean).toStartWith(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" class="qf" role="img">',
+    );
+    expect(cleanFigure("<svg")).toBeNull();
+    expect(cleanFigure("<!-- --><svg/>")).toBeNull();
+    expect(cleanFigure('<g xmlns="http://www.w3.org/2000/svg"/>')).toBeNull();
   });
 });
