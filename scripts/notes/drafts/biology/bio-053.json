@@ -204,13 +204,13 @@
       },
       "extra": [
         {
-          "heading": "(Separate science) Detail this course asks for",
+          "heading": "Detail this course asks for",
           "blocks": [
             {
               "type": "list",
               "items": [
-                "Plants can be infected by viral, bacterial and fungal pathogens, and by insects.",
-                "The diseases to know are **tobacco mosaic virus** (viral), **rose black spot** (fungal) and aphids (insects).",
+                "(Separate science) Plants can be infected by viral, bacterial and fungal pathogens, and by insects.",
+                "(Separate science) The diseases to know are **tobacco mosaic virus** (viral), **rose black spot** (fungal) and aphids (insects).",
                 "Tobacco mosaic virus gives a mosaic pattern of discolouration on the leaves.",
                 "Rose black spot gives purple or black spots on the leaves, which often turn yellow and drop early."
               ]
@@ -321,6 +321,6 @@
       "5afaf57b-ea9f-44ce-a856-f8a649ceb4c3"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

@@ -283,7 +283,7 @@
             {
               "type": "list",
               "items": [
-                "Effectiveness is compared using the number of pregnancies per year in women using the method. The fewer the pregnancies, the more **effective** the method.",
+                "Effectiveness is compared using the number of pregnancies per 100 women using the method for a year. The fewer the pregnancies, the more **effective** the method.",
                 "Hormonal methods are generally more reliable than barrier methods. Barrier methods are more awkward to use correctly, so they vary more in how reliable they are.",
                 "A method that needs no daily action, such as an implant, fails less often than the pill. Pill failures are mostly due to incorrect use, such as forgetting to take it.",
                 "The pill is popular because it is reliable, easy to use and easy to stop. **Sterilisation** is permanent, so couples without children rarely choose it."
@@ -323,6 +323,6 @@
       "09f68c60-5355-4e2f-a803-ede5bd750059"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

@@ -290,7 +290,7 @@
               "items": [
                 "Glass is **transparent**, so it is used for spectacles.",
                 "Clay ceramics do not react with water or dissolve in it, so they suit mugs, containers and washbasins.",
-                "Concrete is a composite of cement, sand and stone. Changing the mixing ratio changes its **compressive strength**: with less stone, the concrete is stronger.",
+                "Concrete is a composite of cement, sand and stone. Changing the mixing ratio changes its **compressive strength**: with less stone for the same cement and sand, the concrete is stronger.",
                 "To find a mass from a mixing ratio, divide the known mass by its ratio number, then multiply by the ratio number of the other material. In a mix of sand : stone of 2 : 3, 5000 kg of sand goes with 7500 kg of stone."
               ]
             }
@@ -337,10 +337,10 @@
             {
               "type": "list",
               "items": [
-                "For a cup for hot drinks, choose the polymer that will not soften or melt at the temperature of the drink, so the cup holds its shape. A high softening temperature must be linked to this reason.",
+                "Compare the softening temperature with the temperature the polymer will meet. A polymer that softens below it will not hold its shape.",
                 "Use cost as well as properties. An aircraft wing needs a low density and no corrosion, and the metal must not cost too much.",
                 "A protective vest needs a low density to be easy to wear, high strength so it is not penetrated, flexibility to allow movement, and no corrosion so it lasts longer.",
-                "To say how many times higher one value is than another, round both to 1 significant figure, then divide the larger by the smaller."
+                "To estimate how many times higher one value is than another, round both to 1 significant figure, then divide the larger by the smaller."
               ]
             }
           ]
@@ -365,6 +365,6 @@
       "77c6fa50-6c5f-4f82-ab7a-107f8d3625d8"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-27"
   }
 }

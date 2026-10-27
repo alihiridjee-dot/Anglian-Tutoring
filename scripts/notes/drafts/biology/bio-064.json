@@ -273,7 +273,7 @@
             {
               "type": "list",
               "items": [
-                "Enzymes are **biological catalysts**: they speed up the reactions of metabolism.",
+                "Enzymes are **biological catalysts**: they speed up the reactions of metabolism, which would otherwise be too slow.",
                 "Enzymes speed up the synthesis of carbohydrates, proteins and lipids from sugars, amino acids, fatty acids and glycerol.",
                 "Enzymes also speed up the breakdown of carbohydrates, proteins and lipids into sugars, amino acids, fatty acids and glycerol."
               ]
@@ -400,6 +400,6 @@
       "d3e7c489-fdcc-4701-a96c-fc3c49c540aa"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

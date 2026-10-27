@@ -294,19 +294,16 @@
     "aqa": {
       "spec_codes": ["AQA 4.8.3.5"],
       "worked_example": {
-        "exemplar_id": "c3079125-7785-48fb-89ad-0e95195d5db5",
-        "source": "AQA jun 2023, Paper 2 (F), Q10.1",
-        "question": "Potassium bromide is used in medicine.\n\nA scientist tested a sample of medicine to show the presence of potassium ions and of bromide ions.\n\nThe sample is soluble in water.\n\nPlan a method the scientist could use to show that the sample of medicine contains potassium ions and bromide ions.\n\nThe scientist has:\n• a Bunsen burner\n• a metal wire\n• test tubes\n• a dropping pipette\n• distilled water\n• dilute nitric acid\n• silver nitrate solution.\n\nYou should give the results of the tests.",
-        "marks": 6,
+        "exemplar_id": "25f252d7-1c65-4fbf-9eb6-74141d902f9f",
+        "source": "AQA jun 2018, Paper 2 (F), Q08.6",
+        "question": "The compounds in fireworks also contain non-metal ions.\nA scientist tests a solution of the chemicals used in a firework.\n\nDescribe a test to show the presence of sulfate ions in the solution.\nGive the result of the test if there are sulfate ions in the solution.",
+        "marks": 3,
         "answer_points": [
-          "Potassium ions: place the sample on a clean metal wire.",
-          "Put it into a blue (non-luminous) flame from the Bunsen burner.",
-          "A lilac flame shows potassium ions are present.",
-          "Bromide ions: dissolve the sample in distilled water in a test tube.",
-          "Add dilute nitric acid, then silver nitrate solution, using the dropping pipette.",
-          "A cream precipitate forms, which shows bromide ions are present."
+          "Add dilute hydrochloric acid to the solution.",
+          "Then add barium chloride solution.",
+          "A white precipitate forms if sulfate ions are present."
         ],
-        "tip": "This is a levelled question. The top level needs the key steps in a logical order, with the result of each test."
+        "tip": "Nitric acid and barium nitrate are also accepted, but not sulfuric acid, because it contains sulfate ions itself. The white precipitate scores only if a barium compound was added."
       }
     },
     "edexcel": {
@@ -357,7 +354,7 @@
       "636e69ac-a189-496a-ab05-6932c2ce4210"
     ],
     "exemplar_ids": [
-      "c3079125-7785-48fb-89ad-0e95195d5db5",
+      "25f252d7-1c65-4fbf-9eb6-74141d902f9f",
       "13a9b32e-4905-4c08-8260-67b2708a71f5",
       "62904850-f46c-4fa1-8b77-f6b0224f492f"
     ],

@@ -231,7 +231,24 @@
           "These would compete for food or oxygen, make toxins, be pathogens or kill the Fusarium. Allow: so the mycoprotein is safe to eat."
         ],
         "tip": "One mark for what the sterilising does and one for why that matters. \"Germs\" is ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Mycoprotein is a protein-rich food suitable for **vegetarians**.",
+                "The fungus is grown on **glucose syrup** in aerobic conditions. The biomass is then harvested and **purified**.",
+                "A cooling coil, with cold water pumped through it, keeps the temperature in the fermenter constant.",
+                "A **genetically modified bacterium** makes human insulin. It is harvested and purified, then used to treat people with diabetes.",
+                "GM crops could provide more food, or food with improved **nutritional value**, such as **golden rice**."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -251,7 +268,24 @@
           "Disadvantage: GM seeds could be more expensive, and insects may evolve so the crops are no longer resistant."
         ],
         "tip": "Full marks need more than one advantage and more than one disadvantage, with one of each clearly explained."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The gene for insect resistance comes from the bacterium **Bacillus thuringiensis**. It makes a toxin that kills insects.",
+                "Advantage: the toxin affects only the target insects.",
+                "Advantage: a larger yield means less land is needed, so fewer forests are destroyed.",
+                "Disadvantage: the toxin could build up along the food chain (**bioaccumulation**) and harm other organisms.",
+                "Disadvantage: the crop has a **reduced gene pool**, and some consumers do not want to eat GM crops."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -267,7 +301,31 @@
           "Also credited: taste, flavour, colour, or making vaccines."
         ],
         "tip": "Yield and size of fruit are ignored, because the question has already used yield."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Why insecticide-making GM plants give humans more food",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Pests",
+                  "text": "The GM plant makes insecticide in its leaves. Insect pests are killed, so fewer leaves are eaten."
+                },
+                {
+                  "lead": "Photosynthesis",
+                  "text": "Leaves are where photosynthesis happens. More leaves absorb more light, so more glucose and biomass are made."
+                },
+                {
+                  "lead": "Food chain",
+                  "text": "More plant biomass passes along the food chain. Cattle receive more energy for growth, so more food is available for humans."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

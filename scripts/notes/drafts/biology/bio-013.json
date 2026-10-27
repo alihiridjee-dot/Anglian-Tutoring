@@ -338,14 +338,14 @@
               "label": "Percentage change in length",
               "formula": "percentage change in length = (change in length ÷ starting length) × 100",
               "where": [
-                "change in length = final length − starting length, in mm.",
-                "starting length is in mm."
+                "change in length = final length − starting length, in mm or cm.",
+                "starting length, in the same unit."
               ]
             },
             {
               "type": "list",
               "items": [
-                "A chip that is longer has gained water. A chip that stays the same length has the same **water potential** as the solution, so there is no net gain or loss of water.",
+                "A chip that gets longer has gained water by osmosis, because the solution has a higher **water potential** than the cells. A chip that stays the same length has the same water potential as the solution, so there is no net gain or loss of water.",
                 "Write a decrease in length as a negative percentage.",
                 "Length is quick and easy to measure, but it ignores changes in width. Measuring **mass** or volume shows the total change."
               ]
@@ -415,7 +415,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [

@@ -277,16 +277,15 @@
     "edexcel": {
       "spec_codes": ["EDEX 7.5"],
       "worked_example": {
-        "exemplar_id": "198ed042-e1e2-4154-84ad-5699caa9de7c",
-        "source": "EDEXCEL nov 2020, Paper 2 (F), Q9(a)(ii)",
-        "question": "Calcium carbonate reacts with dilute hydrochloric acid to produce carbon dioxide gas. The rate of reaction between calcium carbonate and dilute hydrochloric acid at room temperature was investigated. The calcium carbonate powder produced 90 cm³ of carbon dioxide in five minutes.\n\nCalculate the average rate of reaction in cm³ s⁻¹.",
-        "marks": 3,
+        "exemplar_id": "f7c6e757-f167-417e-944e-672dc6a7cfc7",
+        "source": "EDEXCEL jun 2023, Paper 2 (F), Q8(b)(i)",
+        "question": "A student investigated the reaction between marble chips and dilute hydrochloric acid.\n\nThe student recorded the volume of gas every minute, as shown in the table.\n\ntime in minutes | 0 | 1 | 2 | 3 | 4 | 5 | 6\nvolume of gas in cm³ | 0 | 52 | 78 | 91 | 97 | 100 | 100\n\nRate of reaction can be calculated using\n\nrate of reaction = volume of gas produced in 1 minute / 1 minute\n\nThe second table shows the rates of reaction calculated from the results of this experiment.\n\nThe rate of reaction for the time interval 2 to 3 minutes is missing.\n\ntime interval | 0 to 1 minute | 1 to 2 minutes | 2 to 3 minutes | 3 to 4 minutes | 4 to 5 minutes\nrate of reaction in cm³ min⁻¹ | 52 | 26 | ______ | 6 | 3\n\nCalculate the rate of reaction for the time interval 2 to 3 minutes.",
+        "marks": 1,
         "answer_points": [
-          "Convert the time from minutes to seconds: 5 × 60 = 300 s.",
-          "Rate = volume ÷ time = 90 / 300.",
-          "Rate = 0.3 cm³ s⁻¹."
+          "Volume of gas produced from 2 to 3 minutes = 91 − 78 = 13 cm³.",
+          "Rate of reaction = 13 ÷ 1 = 13 cm³ min⁻¹."
         ],
-        "tip": "The final answer 0.3 scores all 3 marks, with or without working."
+        "tip": "The answer 13 scores the mark, written on the answer line or in the table. Check it fits the pattern: the rate falls each minute as the reactants are used up."
       },
       "extra": [
         {
@@ -362,7 +361,7 @@
     ],
     "exemplar_ids": [
       "c997fc4e-d93e-4fcf-883a-11ae4ede3f2c",
-      "198ed042-e1e2-4154-84ad-5699caa9de7c"
+      "f7c6e757-f167-417e-944e-672dc6a7cfc7"
     ],
     "checked_by": "sonnet-science-check",
     "checked_at": "2026-10-27"

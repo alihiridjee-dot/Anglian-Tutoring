@@ -222,19 +222,16 @@
     "edexcel": {
       "spec_codes": ["EDEX 3.15", "EDEX 3.16", "EDEX 3.17"],
       "worked_example": {
-        "exemplar_id": "e2b8c0a8-babd-44a9-b16a-28f6fa45e75f",
-        "source": "EDEXCEL nov 2020, Paper 1 (F), Q9(b)(ii)",
-        "question": "The word equation for the reaction between copper carbonate and dilute sulfuric acid is\ncopper carbonate + sulfuric acid → copper sulfate + carbon dioxide + water\nDilute sulfuric acid is in a conical flask.\nCopper carbonate is added to the acid in the flask.\nThe copper carbonate is added one spatula measure at a time until the reaction has finished.\n\nDescribe how you would obtain a solution of copper sulfate from the mixture and how you would obtain pure, dry copper sulfate crystals from this solution.\nYour description should include the apparatus you would use.",
-        "marks": 6,
+        "exemplar_id": "1b20bad2-ede4-4a24-8fac-60b08429ecf1",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q8(b)",
+        "question": "Crystals of copper sulfate are prepared by reacting copper oxide, a base, with dilute sulfuric acid.\n\nDuring the experiment, a spatula measure of copper oxide, a black powder, is added to warm, dilute sulfuric acid in a beaker.\n\nWhen the mixture is stirred, the black powder disappears and the mixture turns pale blue.\n\nThe student then adds more copper oxide until the maximum amount of copper sulfate is formed without wasting copper oxide.\n\nExplain how the student knows when to stop adding copper oxide.",
+        "marks": 3,
         "answer_points": [
-          "Filter the mixture, using a filter funnel and filter paper, to remove the excess copper carbonate.",
-          "Collect the filtrate (copper sulfate solution) in a conical flask or other suitable container.",
-          "Pour it into an evaporating basin and heat on a water bath, or on a tripod over a Bunsen burner.",
-          "Heat until the solution is concentrated, or crystals start to appear around the edge.",
-          "Remove from the heat, cover with filter paper, allow to cool and crystallise.",
-          "Separate the crystals and dry them on filter paper in a warm place."
+          "Observation: stop when some black powder is left in the beaker after stirring and does not disappear.",
+          "This shows that the copper oxide is now in excess.",
+          "So all of the acid has reacted (been neutralised) and no acid is left."
         ],
-        "tip": "Level 3 needs a sequence including at least two of: filter, crystallise (heating and cooling), separate and dry."
+        "tip": "Each of the three points scores on its own. \"The fizzing stops\" and \"the reaction is complete\" score nothing: copper oxide gives off no gas."
       },
       "extra": [
         {
@@ -331,7 +328,6 @@
       "1e8d04ab-9983-47ed-a0b2-d563e006ef9a",
       "6a22fd95-b79e-4f1a-a664-09e8d9941ba3",
       "b8d85635-4b6f-44d4-a396-7540e3e3e1bf",
-      "e2b8c0a8-babd-44a9-b16a-28f6fa45e75f",
       "1b20bad2-ede4-4a24-8fac-60b08429ecf1",
       "6cec37c2-51a8-4597-abda-a41ffcea5b3c",
       "f07236de-1d47-4ad2-a96c-56cf1e059f34",

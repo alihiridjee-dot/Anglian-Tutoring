@@ -388,19 +388,19 @@
               "type": "steps",
               "items": [
                 {
-                  "lead": "Nucleus opens",
+                  "lead": "Break down.",
                   "text": "The nuclear membrane breaks down."
                 },
                 {
-                  "lead": "Line up",
+                  "lead": "Line up.",
                   "text": "The chromosomes line up across the middle (the equator) of the cell."
                 },
                 {
-                  "lead": "Separate",
+                  "lead": "Separate.",
                   "text": "The chromosomes separate. One set is pulled to each end of the cell."
                 },
                 {
-                  "lead": "Nucleus closes",
+                  "lead": "New nuclei.",
                   "text": "A nuclear membrane forms around each set of chromosomes."
                 }
               ]
@@ -486,7 +486,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [

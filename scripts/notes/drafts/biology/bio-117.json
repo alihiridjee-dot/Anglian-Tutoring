@@ -265,7 +265,27 @@
           "The hares reproduce (breed, multiply)."
         ],
         "tip": "Any two score one mark each."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The arrows in a food chain show the transfer of energy from one organism to the next."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Herbivore",
+                  "meaning": "An animal that eats only plants, so it is a primary consumer."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -303,6 +323,15 @@
               "text": "This is why each level in a pyramid of biomass is smaller than the one below it, and why food chains are short."
             }
           ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The arrows in a food chain show the transfer of energy from one organism to the next."
+            }
+          ]
         }
       ]
     },
@@ -321,7 +350,31 @@
           "Community."
         ],
         "tip": "Mice eat the producers, so they are primary consumers. All the populations in a habitat make a community."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Trophic level",
+                  "meaning": "A feeding level in a food chain. Producers are the first level, then primary, secondary and tertiary consumers."
+                },
+                {
+                  "term": "Consumer",
+                  "meaning": "An organism that gets its energy by eating other organisms."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "A food chain of grass, mice and owls has three trophic levels."
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

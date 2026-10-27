@@ -271,6 +271,20 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Producers, mostly plants and algae, transfer only about **1%** of the light energy that falls on them for photosynthesis.",
+                "Waste lost from the body includes carbon dioxide and **water** from respiration, and water and urea in urine.",
+                "Large amounts of **glucose** are used in respiration, so less is left to become new biomass.",
+                "Each level has less biomass than the one below, so it can usually support fewer organisms."
+              ]
+            }
+          ]
         }
       ]
     },

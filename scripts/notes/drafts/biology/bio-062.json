@@ -232,8 +232,8 @@
               "type": "list",
               "items": [
                 "The independent variable is the **temperature**. The dependent variable is the distance the liquid moves in the set time.",
-                "Handle the living organisms gently so they are not harmed, and return them to where they were found afterwards.",
-                "Take care with hot water, and keep the organisms away from the soda lime."
+                "Handle the living organisms gently and do not use temperatures that would harm them. Return them to where they were found afterwards.",
+                "Soda lime is corrosive, so do not touch it and keep the organisms away from it. Take care with hot water."
               ]
             }
           ]
@@ -404,6 +404,6 @@
       "e1cb783b-db07-4b94-96a1-bc2570fd666e"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

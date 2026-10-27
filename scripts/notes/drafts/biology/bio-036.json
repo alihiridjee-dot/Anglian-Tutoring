@@ -225,9 +225,10 @@
             {
               "type": "list",
               "items": [
-                "Nitrate ions are used to make proteins for growth. Magnesium ions are used to make chlorophyll. Damaged roots absorb fewer of both, so photosynthesis and growth fall.",
+                "Nitrate ions are used to make proteins, so they are needed for growth.",
+                "(Separate science) Magnesium ions are used to make chlorophyll, so they are needed for photosynthesis.",
                 "Uptake that is faster with oxygen shows **active transport**, which needs energy from respiration.",
-                "Uptake that carries on without oxygen shows that some ions enter by diffusion.",
+                "Some uptake still happens without oxygen. It may be by diffusion, or by active transport using energy from anaerobic respiration.",
                 "Roots also anchor the plant in the soil."
               ]
             }
@@ -301,7 +302,7 @@
             {
               "type": "list",
               "items": [
-                "**Lignin** makes the walls of xylem waterproof as well as strong, so water stays inside the vessel.",
+                "**Lignin** makes the walls of xylem waterproof as well as strong.",
                 "The pores in the end walls of phloem cells form **sieve plates**. Cell sap passes through them from one cell to the next."
               ]
             }
@@ -384,7 +385,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

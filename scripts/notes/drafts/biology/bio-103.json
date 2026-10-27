@@ -242,7 +242,7 @@
               "items": [
                 {
                   "term": "Acquired characteristic",
-                  "meaning": "A characteristic caused by an organism's environment, such as a scar. It is a result of environmental variation."
+                  "meaning": "A characteristic caused by an organism's environment, such as a scar. It is an example of environmental variation."
                 }
               ]
             }
@@ -385,6 +385,6 @@
       "40368fc4-352c-4b28-a7f9-381095ef3df5"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

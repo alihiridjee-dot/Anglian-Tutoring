@@ -217,13 +217,13 @@
       },
       "extra": [
         {
-          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "heading": "Detail this course asks for",
           "blocks": [
             {
               "type": "list",
               "items": [
                 "Mutations occur **continuously**, so new variants keep arising.",
-                "A few mutations give an altered protein with a different shape. A **structural protein** may then lose its strength."
+                "(Higher tier, Separate science) A few mutations give an altered protein with a different shape. A **structural protein** may then lose its strength."
               ]
             }
           ]
@@ -369,6 +369,6 @@
       "1919e7a3-d1dd-4e1a-a710-f767fda63476"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

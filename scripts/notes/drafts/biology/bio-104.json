@@ -197,8 +197,8 @@
             {
               "type": "list",
               "items": [
-                "**Survival of the fittest** means that the organisms best suited to their environment are the ones that survive and reproduce.",
-                "A population with **little genetic variation** has few variants for natural selection to act on. If a selection pressure such as disease or a change in the environment acts, all of them may be affected and die. Fewer reproduce, so the species cannot evolve."
+                "**Survival of the fittest** means that the organisms best suited to their environment are more likely to survive and reproduce.",
+                "A population with **little genetic variation** has few variants for natural selection to act on. If a selection pressure such as disease or a change in the environment acts, all of them may be affected and die. Fewer reproduce, and the species cannot evolve, so it is at risk of extinction."
               ]
             }
           ]
@@ -340,6 +340,6 @@
       "24dcfe0b-9442-44e6-8504-a57ef68cccf9"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

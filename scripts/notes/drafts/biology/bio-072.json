@@ -220,7 +220,7 @@
               "type": "list",
               "items": [
                 "The **thermoregulatory centre** is the part of the brain (the hypothalamus) that monitors body temperature. It contains receptors sensitive to the temperature of the blood.",
-                "Temperature receptors in the skin send nerve impulses to it. It sends nerve impulses along neurones to effectors such as the sweat glands."
+                "It sends nerve impulses along neurones to effectors such as the sweat glands."
               ]
             }
           ]
@@ -269,11 +269,11 @@
               "items": [
                 {
                   "term": "Epidermis",
-                  "meaning": "The thin outer layer of the skin. It protects the layers beneath it."
+                  "meaning": "The thin outer layer of the skin. It protects the layers beneath it, and sweat reaches its surface through pores and evaporates."
                 },
                 {
                   "term": "Dermis",
-                  "meaning": "The layer under the epidermis. It contains the sweat glands, erector muscles, blood capillaries and nerve endings that control heat loss."
+                  "meaning": "The layer under the epidermis. It contains the sweat glands, hair erector muscles and blood capillaries that change heat loss, and the nerve endings that detect temperature."
                 }
               ]
             }
@@ -412,7 +412,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "spec_point_ids": [
       "a5e44b65-54ec-4de8-9c99-23114844df03",
       "dd1be3e7-8505-4149-98f5-98a5ae0c9f56",

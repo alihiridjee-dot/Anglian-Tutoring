@@ -291,7 +291,7 @@
                 "Squares are males and circles are females. Shaded shapes show people with the characteristic.",
                 "Two parents with the characteristic who have a child without it: the allele is **dominant**, and both parents are heterozygous.",
                 "A person without a characteristic caused by a dominant allele is homozygous recessive. Check every genotype you write against the person's parents and children.",
-                "For the chance that the next child has the characteristic, put the parents' genotypes into a Punnett square."
+                "(Higher tier) For the chance that the next child has the characteristic, put the parents' genotypes into a Punnett square."
               ]
             }
           ]
@@ -487,6 +487,6 @@
       "d75fac89-e26b-4d8d-ac57-6367ec9496b5"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

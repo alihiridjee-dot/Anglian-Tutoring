@@ -207,7 +207,22 @@
           "So there is loss of food and habitats, migration patterns change and some species become extinct."
         ],
         "tip": "Levelled answer. For Level 2 refer to local and global effects with an explanation. For Level 3 explain both and support them with further detail."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Why hedgerows and field margins help",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "They are **habitats** that give insects and other animals food and shelter.",
+                "They support pollinating insects and the predators of crop pests.",
+                "Hedgerows reduce wind speed and soil erosion."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -260,6 +275,19 @@
                   "lead": "Multiply by 100.",
                   "text": "3.5 × 100 = 350%."
                 }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Reforestation is best done with **indigenous** trees, because they support more native wildlife than non-indigenous trees.",
+                "Trees take up water from the soil, which reduces flooding.",
+                "Trees can be used as a renewable resource and are a source of medicines."
               ]
             }
           ]
@@ -316,6 +344,24 @@
                   "Females are treated to reduce their fertility",
                   "May have harmful side effects. They may not be able to reproduce again"
                 ]
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Agreements and monitoring",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A conservation scheme only works if the people involved agree to it and if its results are checked."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Agreements** are hard to reach because groups want different things from the same land. Farmers want land for crops, while conservationists want the habitat protected.",
+                "A global scheme needs the governments of several countries to agree.",
+                "**Monitoring** means checking that a scheme is working, for example by counting the animals or plants over time.",
+                "Monitoring is difficult because the total number of animals may not be known, and hunting rules may not be followed in every area."
               ]
             }
           ]

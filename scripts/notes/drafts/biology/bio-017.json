@@ -205,10 +205,10 @@
             {
               "type": "list",
               "items": [
-                "An **uncontaminated culture** is needed, so that any clear zone is caused by the chemical and not by other microorganisms.",
+                "An **uncontaminated culture** is needed, so that other microorganisms cannot affect the results. Only the effect of the chemical is measured.",
                 "Sterilise the Petri dishes and the agar before use, for example by heating or in an autoclave. This kills unwanted microorganisms.",
-                "Sterilise the **inoculating loop** by passing it through a flame before it moves bacteria onto the agar.",
-                "Secure the lid with adhesive tape and store the dish upside down."
+                "Sterilise the **inoculating loop** by passing it through a flame before it moves bacteria onto the agar. This kills unwanted microorganisms on the loop.",
+                "Secure the lid with adhesive tape, so that microorganisms cannot get in or out. Store the dish upside down, so that drops of condensation from the lid do not fall onto the agar."
               ]
             }
           ]
@@ -238,8 +238,8 @@
             {
               "type": "list",
               "items": [
-                "The **control** can be a disc soaked in water, a dry disc, or a disc of a substance known to kill bacteria.",
-                "Incubate the dish for a stated time, such as 24 hours, at a stated temperature. A temperature from 25 °C to 40 °C is accepted."
+                "As well as a disc with no chemical, a disc of a substance known to kill bacteria can be used as a **control**.",
+                "In a plan, state the incubation time, such as 24 hours, and the temperature: 25 °C in a school lab."
               ]
             }
           ]
@@ -273,7 +273,7 @@
                 },
                 {
                   "term": "Antimicrobial agent",
-                  "meaning": "A chemical that kills microorganisms, such as an antiseptic, a disinfectant or an antibiotic."
+                  "meaning": "A chemical that kills microorganisms or stops them growing, such as an antiseptic, a disinfectant or an antibiotic."
                 }
               ]
             },
@@ -282,8 +282,7 @@
               "items": [
                 "Use sterile forceps to place the disc. This prevents contamination by other microbes.",
                 "Tape the lid on. This stops microbes escaping, for example if the dish is dropped, and stops other microbes getting in.",
-                "Incubate at the optimum temperature for the bacteria. If it is higher, the enzymes of the bacteria are denatured. If it is lower, the bacteria reproduce more slowly and the chemical spreads more slowly, so the results take longer.",
-                "To test if two agents are equally effective, use different concentrations of each, different amounts of bacteria and different types of bacteria."
+                "Scientists incubate at the optimum temperature for the bacteria. Above it, the enzymes of the bacteria may be denatured. Below it, the bacteria reproduce and the chemical diffuses more slowly, so results take longer. School cultures stay at 25 °C."
               ]
             }
           ]
@@ -294,7 +293,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-27",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

@@ -473,7 +473,7 @@
               "items": [
                 "**Lungs**: many alveoli give a large surface area. The alveolus and capillary walls are one cell thick and close together, so the diffusion path is short. A network of capillaries gives a good blood supply.",
                 "**Small intestine**: villi, with microvilli on their cells, give a large surface area. The walls of the villi and capillaries are one cell thick. The small intestine is long, which gives more time for absorption.",
-                "Cells in the small intestine have many mitochondria. They release energy for the active transport of sugars.",
+                "Cells of the villi have many mitochondria. They release energy by aerobic respiration for the active transport of sugars.",
                 "**Gills**: filaments give a large surface area. The filament and capillary walls are one cell thick, and the water flows close to the blood.",
                 "**Plants**: root hair cells have a large surface area. Leaves exchange gases through stomata, which guard cells open and close to control gas exchange and water loss."
               ]
@@ -575,7 +575,8 @@
               "type": "list",
               "items": [
                 "If the surface area and the membrane thickness both double, the factors cancel and the rate does not change.",
-                "If the surface area is trebled and the thickness is halved, the rate is multiplied by 3 ÷ 0.5 = 6."
+                "If the surface area is trebled and the thickness is halved, the rate is multiplied by 3 ÷ 0.5 = 6.",
+                "To compare two surfaces, work out (surface area × concentration difference) ÷ thickness for each. The larger value has the faster rate of diffusion."
               ]
             }
           ]
@@ -667,7 +668,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [

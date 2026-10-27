@@ -184,7 +184,7 @@
                 ],
                 [
                   "Other risks",
-                  "May be rejected. A suitable donor may be needed.",
+                  "May be rejected. A suitable donor may be needed. Some people object to using animal tissue.",
                   "The drugs raise the risk of serious bleeding, for example in an accident or in pregnancy and birth, and can put a developing baby at risk."
                 ]
               ]
@@ -228,7 +228,7 @@
               "type": "list",
               "items": [
                 "A gastric band is fitted to the stomach. It reduces the volume of the stomach, so less food is eaten and stored fat is used up.",
-                "It is a surgical treatment for cardiovascular disease linked to obesity, because obesity can cause cardiovascular disease."
+                "Obesity can cause cardiovascular disease. A gastric band helps a person lose weight, so it is a surgical procedure that lowers this risk."
               ]
             }
           ]
@@ -349,7 +349,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

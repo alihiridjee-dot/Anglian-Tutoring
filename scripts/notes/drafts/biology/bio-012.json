@@ -315,7 +315,7 @@
               "items": [
                 {
                   "term": "Osmoregulation",
-                  "meaning": "Controlling the water content of the body fluids so that cells gain or lose very little water."
+                  "meaning": "Keeping the water content of body fluids, such as blood plasma, steady."
                 }
               ]
             },
@@ -470,7 +470,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [

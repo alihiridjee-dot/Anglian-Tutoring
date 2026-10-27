@@ -178,7 +178,6 @@
               "type": "list",
               "items": [
                 "Sugar is used in respiration to release energy. Do not write that it makes energy.",
-                "Sugar can be stored as **starch**, **fat** or oil.",
                 "Sugar is also used to make cellulose and amino acids for growth. Amino acids make proteins."
               ]
             }
@@ -220,7 +219,7 @@
             {
               "type": "list",
               "items": [
-                "Phloem is made of living **sieve cells**. They carry sucrose to the sinks, in both directions.",
+                "The living cells of the phloem form **sieve tubes**, which carry the sucrose.",
                 "Sucrose does not move by osmosis. Osmosis is the movement of water only."
               ]
             }
@@ -299,7 +298,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "spec_point_ids": [
       "e0f7a2a0-2c27-4ea5-8352-ce84f3c40824",
       "b851c0f1-16fe-4d4d-8bc0-be53eb42a326",

@@ -359,9 +359,7 @@
               "items": [
                 "Ammonium sulfate and ammonium nitrate are **soluble** in water.",
                 "A fertiliser supplies nutrients to promote plant growth. It does not kill pests or weeds, or protect plants from disease.",
-                "A label may give phosphorus as P₂O₅. When asked which element is missing, write the element, phosphorus, not the oxide.",
-                "Laboratory and industrial preparation of ammonium sulfate are both exothermic, so both give out heat.",
-                "In industry the ammonia is a gas. In the laboratory it is a solution."
+                "A label may give phosphorus as P₂O₅. When asked which element is missing, write the element, phosphorus, not the oxide."
               ]
             }
           ]
@@ -407,10 +405,9 @@
             {
               "type": "list",
               "items": [
-                "**Industry, advantages:** it is continuous, so it runs all the time with fewer workers. It is large scale and quick, and it can use by-products of other processes.",
+                "**Industry, advantages:** it is continuous, so it runs all the time. It is large scale and quick, and it can use by-products of other processes.",
                 "**Industry, disadvantage:** the ammonia and the sulfuric acid are first made from raw materials, in several integrated stages.",
                 "**Laboratory, advantages:** one stage, and small scale. **Laboratory, disadvantages:** a batch process, and slow.",
-                "The laboratory method does not scale up. A burette cannot handle large volumes, and large volumes of liquid are hard to heat and crystallise.",
                 "Ammonia solution gives off ammonia gas, which has a sharp, irritating smell. Work in a fume cupboard or a well-ventilated room, or use low concentrations."
               ]
             }
@@ -456,6 +453,6 @@
       "3d46e7a9-fdcc-4fa2-a6cb-2940f018901a"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

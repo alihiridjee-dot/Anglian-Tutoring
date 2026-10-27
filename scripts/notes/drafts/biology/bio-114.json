@@ -294,7 +294,23 @@
           "Pest: buddleia has reduced biodiversity, because there is less variety of types of butterflies and plants."
         ],
         "tip": "Marked by level. The top level needs both positive and negative actions of buddleia, each explained, in a clear logical order."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Predation",
+                  "meaning": "One animal, the predator, kills and eats another, the prey. The predator benefits and the prey is harmed, for example tigers hunting deer."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [

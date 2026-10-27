@@ -299,7 +299,37 @@
           "Draw three lines, one for each temperature."
         ],
         "tip": "Any three points score. A bar chart or histogram is not allowed, and temperature must not be on either axis."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Measuring accurately",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "To measure mass to the nearest hundredth of a gram, use a **digital balance**.",
+                "A **water bath** or an incubator keeps a temperature constant. An electric water bath is easier to set to a constant temperature than a beaker heated by a Bunsen burner, and it has less fire risk.",
+                "A colour change is hard to judge by eye. A **colorimeter** or light meter gives an objective reading. If judging by eye, the same person makes every observation.",
+                "A **scalpel** gives a fine, clean cut, so a sample is cut more accurately than with a kitchen knife.",
+                "A **random error** varies unpredictably from one reading to the next, such as excess fluid left on some pieces. A **systematic error** makes every reading differ from the true value by the same amount, such as a balance that is not calibrated correctly."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Working safely with sharp and hot equipment",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "With a scalpel, cut away from yourself and use a cutting board where possible. Keep fingers away from the blade, and cover it when it is not in use.",
+                "With a Bunsen burner and a water bath, wear goggles, tie back long hair and secure loose clothing.",
+                "A heatproof mat, gauze under the flask and gloves also reduce the risk."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {

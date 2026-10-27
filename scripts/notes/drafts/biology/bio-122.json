@@ -269,7 +269,50 @@
           "Increased temperature causes faster reactions, for example faster respiration or faster enzyme action."
         ],
         "tip": "The first mark is for saying that both increase the rate. Do not write anaerobic respiration."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Required practical: temperature and the decay of milk",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This practical follows the pH of fresh milk to compare how fast it decays at different temperatures."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put the same volume of fresh milk into each of several sterilised test tubes."
+                },
+                {
+                  "lead": "Set the temperature.",
+                  "text": "Keep each tube at a different temperature, for example in a water bath or an incubator."
+                },
+                {
+                  "lead": "Measure.",
+                  "text": "Record the pH of the milk in each tube at regular intervals for several days. Use universal indicator or a pH meter (probe). A data logger gives continuous readings."
+                },
+                {
+                  "lead": "Compare.",
+                  "text": "Plot pH against time, with one line for each temperature. The faster the pH falls, the faster the decay."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Bacteria break down the **lipids** in milk into **fatty acids**, which lowers the pH.",
+                "A higher temperature, up to the optimum, makes the pH fall faster, because enzymes are more active and more bacteria are produced.",
+                "The independent variable is temperature. The dependent variable is the pH of the milk.",
+                "**Control variables**: volume, type and freshness of the milk, its starting pH, exposure to air (use bungs), sterilised tubes and the time of day the pH is read.",
+                "Improve the method with more temperatures, repeats to calculate a mean, and shorter time intervals.",
+                "Bacteria grow in the milk, so keep the tubes covered between readings, never taste the milk and wash your hands afterwards."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 9.17B", "EDEX 9.18B", "EDEX 9.19B"],
@@ -319,6 +362,6 @@
       "8f827ca4-1c20-4dd1-b93e-c20a0122eee4"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

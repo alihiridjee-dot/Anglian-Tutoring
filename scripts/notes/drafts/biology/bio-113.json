@@ -194,7 +194,21 @@
           "20°C, so there is optimum or good growth."
         ],
         "tip": "One mark for each step. Making energy and for growth are not enough."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Tissue culture is important for preserving rare plant species. It is also used commercially in **nurseries**.",
+                "The agar jelly contains water, hormones and nutrients such as **glucose**, amino acids, vitamins and mineral ions."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -213,7 +227,21 @@
           "Plants that are difficult to grow from seed can be obtained."
         ],
         "tip": "Any two of these score one mark each."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The growth medium can be sterilised in an autoclave or with gamma rays or UV. Microorganisms would compete with the plantlets for nutrients, as well as causing disease.",
+                "Plant breeders can grow plants at any time of year, because tissue culture is done in controlled conditions."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel_igcse": {
       "spec_codes": [

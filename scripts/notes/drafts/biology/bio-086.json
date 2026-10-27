@@ -269,7 +269,7 @@
               "items": [
                 {
                   "term": "Parthenocarpic fruit development",
-                  "meaning": "The development of seedless fruit, caused by spraying a plant hormone onto flowers."
+                  "meaning": "Seedless fruit that develops without fertilisation, which growers cause by spraying flowers with a plant hormone."
                 }
               ]
             }
@@ -303,6 +303,6 @@
       "2e45dafd-1438-4496-b75b-f62565ec274b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

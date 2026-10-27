@@ -197,7 +197,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "This method tests gravity on newly germinated seedlings. The main note gives the method for light."
+              "text": "This method tests gravity on newly germinated seedlings. The main note gives the method for light. Record either version with length measurements and labelled drawings."
             },
             {
               "type": "steps",
@@ -212,7 +212,7 @@
                 },
                 {
                   "lead": "Control",
-                  "text": "Keep one set still, so gravity acts in one direction. Rotate the other set slowly, so gravity acts evenly on all sides."
+                  "text": "Keep one set still, so gravity acts in one direction. Rotate the other set slowly as the control, so gravity acts evenly on all sides."
                 },
                 {
                   "lead": "Dark",
@@ -268,7 +268,7 @@
               "type": "list",
               "items": [
                 "Auxin is found in the **tip** of a shoot, and the tip controls growth. A shoot with its tip removed does not grow. Putting the tip back restores growth.",
-                "To test whether a chemical from the tip causes growth, place agar or mica between the tip and the shoot. A shoot with its tip left on is the control."
+                "To test whether a chemical from the tip causes growth, place agar or mica between the tip and the shoot. Agar lets chemicals pass through but mica does not, so growth only with agar shows a chemical is involved. A shoot with its tip left on is the control."
               ]
             }
           ]
@@ -301,6 +301,7 @@
               "type": "list",
               "items": [
                 "A shoot is **negatively gravitropic**: it grows away from gravity. A root grows towards gravity, so it is positively gravitropic.",
+                "A shoot grows towards light, so it is **positively phototropic**.",
                 "(Higher tier) **Gibberellins** also stimulate flowers to open."
               ]
             }
@@ -424,6 +425,6 @@
       "2feee8a4-5862-4a3b-9aa4-c91f79ea761b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

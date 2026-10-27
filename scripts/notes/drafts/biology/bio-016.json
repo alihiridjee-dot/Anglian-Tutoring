@@ -289,9 +289,10 @@
               "type": "list",
               "items": [
                 "Bacteria can be grown in a **nutrient broth** solution or as colonies on an agar gel plate.",
-                "The culture must be uncontaminated when testing disinfectants or antibiotics. Then any clear area is caused by the chemical being tested, not by other microorganisms.",
+                "The culture must be uncontaminated when testing disinfectants or antibiotics. Then other microorganisms cannot affect the results, so only the effect of the chemical is measured.",
+                "Store the taped dish upside down, so that drops of condensation from the lid do not fall onto the agar.",
                 "The area of a colony is found in the same way as a clear zone: use πr², with the radius as half the diameter.",
-                "(Higher tier) Give large numbers of bacteria in **standard form**. A division every 20 minutes for 8 hours is n = 480 ÷ 20 = 24, so 1 × 2²⁴ = 16 777 216 = 1.7 × 10⁷ bacteria."
+                "(Higher tier) Give large numbers of bacteria in **standard form**. One bacterium dividing every 20 minutes for 8 hours: n = 480 ÷ 20 = 24, so 1 × 2²⁴ = 16 777 216 ≈ 1.7 × 10⁷ bacteria."
               ]
             }
           ]
@@ -374,7 +375,7 @@
                 },
                 {
                   "lead": "Incubate.",
-                  "text": "Leave the dish in an incubator for the same time for every disc."
+                  "text": "Put the dish in an incubator at 25 °C for a set time, such as a few days."
                 },
                 {
                   "lead": "Compare.",
@@ -414,7 +415,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

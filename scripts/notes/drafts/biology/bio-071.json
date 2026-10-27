@@ -187,7 +187,7 @@
             {
               "type": "list",
               "items": [
-                "**Hyperopia** is the name for long-sightedness. **Myopia** is the name for short-sightedness.",
+                "**Hyperopia** is the name for long-sightedness.",
                 "New technologies for correcting these defects include hard and soft contact lenses, laser surgery to change the shape of the cornea, and a replacement lens in the eye."
               ]
             }
@@ -243,6 +243,6 @@
       "704af92e-4f9b-4d80-add3-8ab145b68493"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

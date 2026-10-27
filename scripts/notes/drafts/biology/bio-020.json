@@ -176,7 +176,27 @@
           "A chemical reaction occurs to produce smaller molecules, or the bonds between the starch molecules are broken to produce smaller molecules (allow maltose or sugars)."
         ],
         "tip": "Three separate marks. Saying that the starch fits the active site does not score the first mark. Say that it binds."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Metabolism",
+                  "meaning": "The sum of all the reactions in a cell or the body."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Enzymes catalyse the reactions of metabolism, such as respiration and the building of large molecules from small ones."
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -349,6 +369,6 @@
       "75269c6c-c1ee-4f43-af68-ec510c8123cd"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

@@ -218,7 +218,7 @@
             {
               "type": "list",
               "items": [
-                "Cost: a transplant is cheaper in the long term, because dialysis has to be paid for again and again.",
+                "Cost: a transplant is cheaper in the long term. Dialysis costs more each year than the drugs needed after a transplant.",
                 "Recovery from the transplant operation takes a long time."
               ]
             }
@@ -262,6 +262,6 @@
       "9c5fcd13-1370-4837-9843-2627cfe825ce"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

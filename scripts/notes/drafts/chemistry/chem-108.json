@@ -201,7 +201,7 @@
               "type": "list",
               "items": [
                 "A higher pressure is also more dangerous, because there is a greater risk of explosion.",
-                "In a table or graph of percentage yield against pressure, state the trend and quote values. The yield of ammonia rises from 20% at 50 atmospheres to 64% at 300 atmospheres."
+                "In a table or graph of percentage yield against pressure, state the trend and quote values. For example, in one table at a fixed temperature, the yield of ammonia rises from 20% at 50 atmospheres to 64% at 300 atmospheres."
               ]
             }
           ]
@@ -285,7 +285,7 @@
               "items": [
                 "**Temperature:** the usual temperature is 450 °C. A higher temperature gives a faster rate, because more particles have energy above the activation energy. It also shifts the equilibrium to the left, so the yield is lower.",
                 "**Pressure:** three molecules of gas become two, so a higher pressure shifts the equilibrium to the right. A lower pressure gives fewer collisions per second and a slower rate.",
-                "A pressure much higher than the one used is not worth it. The yield is already high, and the extra energy, stronger vessels and greater risk of explosion add to the cost."
+                "A pressure much higher than the one used is not worth it. The yield is already high, a higher pressure needs more energy and stronger vessels, which cost more, and the risk of explosion is greater."
               ]
             }
           ]
@@ -297,7 +297,7 @@
               "type": "list",
               "items": [
                 "In a table or graph of rate or yield against a condition, describe the trend and then quote values.",
-                "For example, the percentage yield of ammonia rises from 20% at 50 atmospheres to 64% at 300 atmospheres."
+                "For example, in one table at a fixed temperature, the percentage yield of ammonia rises from 20% at 50 atmospheres to 64% at 300 atmospheres."
               ]
             }
           ]
@@ -369,6 +369,6 @@
       "b7009332-1d1f-43b0-88d6-716e68cdd431"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

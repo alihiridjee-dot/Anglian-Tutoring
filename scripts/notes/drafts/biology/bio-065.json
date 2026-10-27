@@ -247,7 +247,7 @@
               "type": "list",
               "items": [
                 "**Metabolic reactions** are the chemical reactions in cells, such as respiration.",
-                "A constant internal environment allows metabolic reactions to proceed at **appropriate rates**, because the enzymes that control them have their optimum conditions."
+                "A constant internal environment allows metabolic reactions to proceed at **appropriate rates**, because the enzymes that control them are kept at their optimum temperature and pH."
               ]
             }
           ]
@@ -326,6 +326,6 @@
       "f74027ea-9fc2-4264-a4f2-284d46e65413"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }
