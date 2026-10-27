@@ -21,11 +21,14 @@ export function AnswerMarkingList({
   answers,
   marks,
   setMark,
+  held = {},
 }: {
   questions: HomeworkQuestion[];
   answers: Record<string, HomeworkAnswer>;
   marks: Record<string, QuestionMark>;
   setMark: (questionId: string, changes: Partial<QuestionMark>) => void;
+  /** The marker's reason for holding a question, by question id. */
+  held?: Record<string, string>;
 }) {
   return (
     <ol className="space-y-3">
@@ -53,6 +56,15 @@ export function AnswerMarkingList({
                 )}
               </p>
             </div>
+
+            {held[q.id] && (
+              <div className="tint-amber flex flex-wrap items-center gap-2">
+                <span className="chip">Held for you</span>
+                <span className="text-sm font-medium">
+                  <SciText text={held[q.id]} context={notation} />
+                </span>
+              </div>
+            )}
 
             {q.mark_scheme && (
               <details className="text-xs">

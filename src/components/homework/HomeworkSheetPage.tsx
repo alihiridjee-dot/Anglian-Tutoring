@@ -191,7 +191,10 @@ export function HomeworkSheetPage() {
           {/* Handed in, still inside its review window. */}
           {submission && !marked && (
             <div className="mt-6">
-              <AwaitingMark releaseAt={submission.release_at} />
+              <AwaitingMark
+                releaseAt={submission.release_at}
+                held={!!submission.ai_marked_at && !submission.release_at}
+              />
             </div>
           )}
 

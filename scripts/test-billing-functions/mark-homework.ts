@@ -75,7 +75,16 @@ const call = async () => {
 };
 const submission = () => table("homework_submissions").find((r) => r.id === SUB)!;
 const staged = () => table("homework_ai_marks").find((r) => r.submission_id === SUB);
-const mark = (question_id: string, marks: number) => ({ question_id, marks, feedback: "ok" });
+const answerOf = (question_id: string) =>
+  table("homework_answers").find((r) => r.submission_id === SUB && r.question_id === question_id)
+    ?.answer_text ?? "";
+/** A mark the way the model gives one: with the student's words quoted for it. */
+const mark = (
+  question_id: string,
+  marks: number,
+  credited = marks > 0 ? [{ quote: answerOf(question_id), point: "the point", marks }] : [],
+  unsure = "",
+) => ({ question_id, marks, feedback: "ok", credited, unsure });
 
 // 1. Every question marked once: staged, stamped, and the claim kept.
 world();
@@ -155,6 +164,107 @@ for (const [rule, pattern] of [
   ["comments keep the student's words", /never a corrected version/],
 ] as const) {
   assert.match(system, pattern, `The marking prompt lost a rule: ${rule}`);
+}
+
+// 7. Every mark stands on a quote. The quote is folded before it is looked
+//    for, so case, spacing and punctuation don't fail an honest copy; a word
+//    the student never wrote still does. Both marks here are verified, so the
+//    paper publishes on the clock as before.
+world({ [Q1]: "Water moves across a partially-permeable membrane", [Q2]: "Nucleus" });
+ANTHROPIC.reply = () => ({
+  questions: [
+    mark(Q1, 2, [
+      { quote: "water moves", point: "water", marks: 1 },
+      { quote: "Partially permeable membrane", point: "membrane", marks: 1 },
+    ]),
+    mark(Q2, 1),
+  ],
+  summary: "",
+});
+r = await call();
+assert.equal(r.status, 200, JSON.stringify(r.body));
+assert.equal(r.body.held, false);
+assert.ok(submission().release_at, "A paper with verified quotes lost its release clock");
+assert.deepEqual(
+  staged()!.marks.map((m: { marks: number; held?: string }) => [m.marks, m.held]),
+  [
+    [2, undefined],
+    [1, undefined],
+  ],
+);
+
+// 8. A mark for words that are not in the answer is taken away, the question is
+//    held with the reason, and the paper gets no release clock: it waits for a
+//    tutor with the model's marks in front of them.
+world({ [Q1]: "eukaryotic cells have no cell wall where bacteria cells do", [Q2]: "Nucleus" });
+ANTHROPIC.reply = () => ({
+  questions: [
+    mark(Q1, 2, [
+      { quote: "bacteria cells do", point: "bacteria have a wall", marks: 1 },
+      {
+        quote: "a cell wall only in the bacterial cell",
+        point: "animal cells have none",
+        marks: 1,
+      },
+    ]),
+    mark(Q2, 1),
+  ],
+  summary: "",
+});
+r = await call();
+assert.equal(r.status, 200, JSON.stringify(r.body));
+assert.equal(r.body.held, true);
+assert.equal(r.body.releaseAt, null);
+assert.ok(submission().ai_marked_at, "A held paper wasn't stamped as marked");
+assert.equal(submission().release_at, null, "A held paper was put on the release clock");
+const q1 = staged()!.marks[0];
+assert.equal(q1.marks, 1, "The unverified mark was kept");
+assert.match(q1.held, /not in the answer/);
+assert.match(q1.held, /a cell wall only in the bacterial cell/);
+assert.equal(staged()!.marks[1].held, undefined, "A sound question was held too");
+
+// …and marks above what the quotes add up to are capped, even with every quote found.
+world();
+ANTHROPIC.reply = () => ({
+  questions: [mark(Q1, 2, [{ quote: "Osmosis", point: "named", marks: 1 }]), mark(Q2, 0)],
+  summary: "",
+});
+r = await call();
+assert.equal(staged()!.marks[0].marks, 1);
+assert.match(staged()!.marks[0].held, /More marks were given than the quoted evidence/);
+assert.equal(submission().release_at, null);
+
+// 9. The model's own doubt holds the paper, with the mark it gave kept as the
+//    proposal and its reason passed on to the tutor.
+world();
+ANTHROPIC.reply = () => ({
+  questions: [mark(Q1, 2, undefined, "The second point may be the first one again."), mark(Q2, 0)],
+  summary: "",
+});
+r = await call();
+assert.equal(r.body.held, true);
+assert.equal(staged()!.marks[0].marks, 2);
+assert.match(staged()!.marks[0].held, /unsure: The second point may be/);
+assert.equal(submission().release_at, null);
+
+// 10. The model is asked to show its working and to say when it's unsure, and
+//     to think at high effort: cheap at this volume, and a mark is the product.
+world();
+ANTHROPIC.reply = () => ({ questions: [mark(Q1, 2), mark(Q2, 0)], summary: "" });
+await call();
+const request = ANTHROPIC.calls[0];
+assert.equal(request.output_config.effort, "high");
+assert.ok(
+  request.output_config.format.schema.properties.questions.items.required.includes("credited"),
+  "The schema no longer demands quoted evidence",
+);
+for (const [rule, pattern] of [
+  ["quote the words that earned each mark", /quoting the student's words that earned it/],
+  ["an unquoted mark is not earned", /cannot tie to the student's own words is not earned/],
+  ["say when unsure", /say in unsure, in one sentence/],
+  ["the summary never guesses intent", /never guesses at what they meant to write/],
+] as const) {
+  assert.match(request.system as string, pattern, `The marking prompt lost a rule: ${rule}`);
 }
 
 console.log("mark-homework: all checks passed");

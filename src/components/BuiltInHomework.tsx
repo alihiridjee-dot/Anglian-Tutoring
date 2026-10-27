@@ -653,7 +653,14 @@ function QuestionHeader({
  * browser computes a moment later need not agree — and a hydration mismatch on
  * a reassurance notice would be an odd thing to have caused.
  */
-export function AwaitingMark({ releaseAt }: { releaseAt: string | null }) {
+export function AwaitingMark({
+  releaseAt,
+  held = false,
+}: {
+  releaseAt: string | null;
+  /** The marker finished but held the paper for a tutor: no clock to show. */
+  held?: boolean;
+}) {
   const [minutes, setMinutes] = useState<number | null>(null);
   useEffect(() => {
     if (!releaseAt) return;
@@ -673,11 +680,15 @@ export function AwaitingMark({ releaseAt }: { releaseAt: string | null }) {
         <Clock3 className="size-4" aria-hidden />
       </span>
       <div>
-        <p className="font-display font-bold">Handed in — being marked</p>
+        <p className="font-display font-bold">
+          {held ? "Handed in — your tutor is checking it" : "Handed in — being marked"}
+        </p>
         <p className="text-muted-foreground mt-0.5 text-sm leading-relaxed">
-          {minutes != null && minutes > 0
-            ? `Your marks and feedback should appear here in about ${minutes} minute${minutes === 1 ? "" : "s"}.`
-            : "Your marks and feedback will appear here shortly."}
+          {held
+            ? "Your marks and feedback will appear here once your tutor has looked."
+            : minutes != null && minutes > 0
+              ? `Your marks and feedback should appear here in about ${minutes} minute${minutes === 1 ? "" : "s"}.`
+              : "Your marks and feedback will appear here shortly."}
         </p>
       </div>
     </div>
