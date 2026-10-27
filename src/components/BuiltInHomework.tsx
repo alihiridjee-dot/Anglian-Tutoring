@@ -40,6 +40,7 @@ import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { MarkScheme } from "@/components/homework/MarkScheme";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { StoredFigure } from "@/components/QuestionFigure";
+import { questionLayout, spacedLines } from "@/lib/platform/textBlocks";
 
 /**
  * The body of a homework sheet: the questions, and either the boxes to answer
@@ -756,12 +757,51 @@ function QuestionHeader({
           {answered ? ", answered" : ""}:{" "}
         </span>
         {/* Its key, a method's steps or a table, as written; then its figure. */}
-        <SciBlock text={q.prompt} />
+        <QuestionText text={q.prompt} />
         <StoredFigure figure={q.figure} className="mt-3" />
       </div>
       <div className="ml-auto sm:ml-0">
         <MarksBox marks={q.marks} awarded={awarded} />
       </div>
+    </div>
+  );
+}
+
+/**
+ * A question in steps: the facts it gives, one statement per line, then each
+ * lettered part on its own row with its own marks, or the line that asks set
+ * apart from the facts. A question written any other way is drawn as stored
+ * (rules in lib/platform/textBlocks).
+ */
+function QuestionText({ text }: { text: string }) {
+  const { stem, parts, ask } = useMemo(() => questionLayout(text), [text]);
+  return (
+    <div className="space-y-3">
+      {stem && <SciBlock text={spacedLines(stem)} context={text} className="space-y-2" />}
+      {parts.length > 0 && (
+        <ol className="divide-y divide-border border-y border-border">
+          {parts.map((p) => (
+            <li key={p.label} className="flex items-baseline gap-3 py-2.5">
+              <span className="font-display shrink-0 font-extrabold text-[var(--tint)]">
+                ({p.label})
+              </span>
+              <SciBlock text={p.text} context={text} className="min-w-0 flex-1 space-y-2" />
+              {p.marks !== null && (
+                <span className="chip shrink-0">
+                  {p.marks} {p.marks === 1 ? "mark" : "marks"}
+                </span>
+              )}
+            </li>
+          ))}
+        </ol>
+      )}
+      {ask && (
+        <SciBlock
+          text={ask}
+          context={text}
+          className="space-y-2 border-t border-border pt-3 font-bold"
+        />
+      )}
     </div>
   );
 }

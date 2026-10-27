@@ -48,8 +48,23 @@ for (const [k, v] of Object.entries(SUP)) if (k !== "−" && k !== "–") PLAIN[
 PLAIN["⁻"] = "−";
 PLAIN["₋"] = "−";
 
+/**
+ * Small letters as genetics writes them (Iᴬ, Iᴮ, Xᴴ, Xʰ). Only drawn, never
+ * typed: the x² button keeps to figures, signs and n, so a student holding
+ * it down still types ordinary capitals.
+ */
+// prettier-ignore
+const SUP_LETTERS: Record<string, string> = {
+  "ᴬ": "A", "ᴮ": "B", "ᴰ": "D", "ᴱ": "E", "ᴳ": "G", "ᴴ": "H", "ᴵ": "I", "ᴶ": "J", "ᴷ": "K",
+  "ᴸ": "L", "ᴹ": "M", "ᴺ": "N", "ᴼ": "O", "ᴾ": "P", "ᴿ": "R", "ᵀ": "T", "ᵁ": "U", "ⱽ": "V",
+  "ᵂ": "W", "ᵃ": "a", "ᵇ": "b", "ᶜ": "c", "ᵈ": "d", "ᵉ": "e", "ᶠ": "f", "ᵍ": "g", "ʰ": "h",
+  "ʲ": "j", "ᵏ": "k", "ˡ": "l", "ᵐ": "m", "ᵒ": "o", "ᵖ": "p", "ʳ": "r", "ˢ": "s", "ᵗ": "t",
+  "ᵘ": "u", "ᵛ": "v", "ʷ": "w", "ˣ": "x", "ʸ": "y", "ᶻ": "z",
+};
+Object.assign(PLAIN, SUP_LETTERS);
+
 const SUB_CHARS = new Set(Object.values(SUB));
-const SUP_CHARS = new Set(Object.values(SUP));
+const SUP_CHARS = new Set([...Object.values(SUP), ...Object.keys(SUP_LETTERS)]);
 
 /** A small figure's ordinary character, with the minus typed as a hyphen. */
 const plainOf = (c: string) => (PLAIN[c] === "−" ? "-" : (PLAIN[c] ?? c));

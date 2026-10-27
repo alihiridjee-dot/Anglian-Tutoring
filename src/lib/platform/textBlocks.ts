@@ -123,3 +123,76 @@ export function rowOptions(
   if (columns.length < 2 || rows.some((r) => r.length !== columns.length)) return null;
   return { question: lines.slice(0, -1).join("\n").trimEnd(), columns, rows };
 }
+
+/** One lettered part of a question: "(a) Give the genotype… (1 mark)". */
+export type QuestionPart = { label: string; text: string; marks: number | null };
+
+/**
+ * A task question as its pieces, so a long one reads in steps: the facts it
+ * gives (`stem`), its lettered parts, and, when it has none, the line that
+ * asks (`ask`), drawn apart from the facts.
+ *
+ * Only what is written plainly is read. Parts start a line with "(a)", "(b)"…
+ * in order from (a), and need at least two; a part's own marks are taken off
+ * the end of its text ("(1 mark)", "[2 marks]", "[2]"). The ask is a last
+ * line starting with a command word, after at least one line of facts. Any
+ * other question comes back as its stem alone, drawn as it always was.
+ */
+export function questionLayout(text: string): {
+  stem: string;
+  parts: QuestionPart[];
+  ask: string | null;
+} {
+  const lines = text.replace(/\r\n?/g, "\n").trimEnd().split("\n");
+  const starts: number[] = [];
+  for (const [i, line] of lines.entries()) {
+    const m = PART_LABEL.exec(line);
+    if (m && m[1] === "abcdefgh"[starts.length]) starts.push(i);
+  }
+  if (starts.length >= 2) {
+    const parts = starts.map((from, k) => {
+      const body = lines
+        .slice(from, starts[k + 1] ?? lines.length)
+        .join("\n")
+        .replace(PART_LABEL, "")
+        .trim();
+      const marks = PART_MARKS.exec(body);
+      return {
+        label: "abcdefgh"[k],
+        text: marks ? body.slice(0, marks.index).trimEnd() : body,
+        marks: marks ? Number(marks[1] ?? marks[2]) : null,
+      };
+    });
+    return { stem: lines.slice(0, starts[0]).join("\n").trim(), parts, ask: null };
+  }
+  // "Show your working." after the ask goes with it, not in its place.
+  let at = lines.length - 1;
+  while (at > 0 && HOW_TO_ANSWER.test(lines[at].trim())) at--;
+  while (at > 0 && !lines[at].trim()) at--;
+  const asks = lines[at].trim();
+  const facts = lines.slice(0, at).join("\n").trim();
+  if (facts && COMMAND.test(asks) && !HOW_TO_ANSWER.test(asks) && !isRow(asks))
+    return { stem: facts, parts: [], ask: lines.slice(at).join("\n").trim() };
+  return { stem: text, parts: [], ask: null };
+}
+
+/** An instruction on how to answer, not what to answer. */
+const HOW_TO_ANSWER = /^(Show (all )?(of )?your working|Give your answer|Write your answer)/i;
+const PART_LABEL = /^\s*\(([a-h])\)\s+/;
+/** "(1 mark)", "[2 marks]" or "[2]", but not "(2)", which may be an equation's number. */
+const PART_MARKS = /\s*(?:\((\d{1,2})\s*marks?\)|\[(\d{1,2})(?:\s*marks?)?\])\.?\s*$/;
+// prettier-ignore
+const COMMAND = new RegExp(
+  "^(Explain|Give|State|Describe|Suggest|Calculate|Compare|Evaluate|Name|Identify|Determine|" +
+    "Use|Write|Predict|Show|Draw|Complete|Sketch|Deduce|Justify|Discuss|Outline|Define|" +
+    "Estimate|Plan|Balance|Work out|Find|What|Which|Why|How)\\b",
+);
+
+/**
+ * Text with each line its own paragraph, so facts given one per line read
+ * as separate statements. A table's rows stay together, so it is still a table.
+ */
+export function spacedLines(text: string): string {
+  const lines = text.split("\n");
+  return lines.map((l, i) => (i && !(isRow(l) && isRow(lines[i - 1])) ? `\n${l}` : l)).join("\n");
+}
