@@ -156,20 +156,16 @@ export function NotificationBell() {
         >
           <div className="flex items-center justify-between gap-2 px-4 py-3 border-b border-border sticky top-0 z-10 bg-card">
             <div className="flex items-center gap-2">
-              <span className="icon-tile icon-tile-solid size-8">
+              <span className="icon-tile size-8">
                 <Bell className="size-4" aria-hidden />
               </span>
               <h3 className="text-base font-bold">Notifications</h3>
-              {unread > 0 && (
-                <Chip tint="tint-rose" className="chip-solid">
-                  {unread} new
-                </Chip>
-              )}
+              {unread > 0 && <Chip tint="tint-primary">{unread} new</Chip>}
             </div>
             {unread > 0 && (
               <button
                 onClick={markAllRead}
-                className="btn-premium inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1 px-2.5 py-1 text-xs font-bold cursor-pointer"
+                className="btn-soft rounded-full inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1 px-2.5 py-1 text-xs font-bold cursor-pointer"
               >
                 <Check className="size-3.5" aria-hidden /> All read
               </button>
@@ -197,14 +193,14 @@ export function NotificationBell() {
                 const body = (
                   <div
                     className={cn(
-                      "flex items-start gap-3 rounded-xl border-[1.5px] px-3 py-2.5 transition-transform hover:-translate-y-0.5",
+                      "flex items-start gap-3 rounded-xl border px-3 py-2.5 transition-transform hover:-translate-y-0.5",
                       kind.tint,
                       unseen
-                        ? "border-[color-mix(in_oklab,var(--tint)_35%,transparent)] bg-[color-mix(in_oklab,var(--tint)_8%,var(--card))]"
+                        ? "border-[color-mix(in_oklab,var(--tint)_20%,transparent)] bg-[color-mix(in_oklab,var(--tint)_6%,var(--card))]"
                         : "border-border bg-card",
                     )}
                   >
-                    <span className={cn("icon-tile size-10 shrink-0", unseen && "icon-tile-solid")}>
+                    <span className="icon-tile size-10 shrink-0">
                       <Icon className="size-5" aria-hidden />
                     </span>
                     <div className="min-w-0 flex-1">
@@ -217,7 +213,7 @@ export function NotificationBell() {
                     {pct != null && (
                       <span
                         className={cn(
-                          "numeral icon-tile icon-tile-solid h-10 min-w-12 shrink-0 justify-center px-2 text-base",
+                          "numeral icon-tile h-10 min-w-12 shrink-0 justify-center px-2 text-base",
                           scoreTint(pct),
                         )}
                       >
