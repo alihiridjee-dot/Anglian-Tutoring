@@ -106,6 +106,7 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
         answer_type: q.answer_type as BuilderQuestion["answer_type"],
         mark_scheme: q.mark_scheme ?? "",
         spec_point_id: q.spec_point_id,
+        figure: q.figure,
       }));
       setQuestions(rows);
       setSpecPointIds((links ?? []).map((l) => l.spec_point_id));
