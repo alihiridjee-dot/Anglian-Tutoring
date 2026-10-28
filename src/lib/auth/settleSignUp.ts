@@ -13,10 +13,19 @@ import { supabase } from "@/integrations/supabase/client";
  * Once the code is accepted, the account is made to match the form that sent
  * it. On an ordinary first sign-up nothing differs, and only the password call
  * goes out (GoTrue answers it with `same_password`).
+ *
+ * The code screen can also be reached by logging in to the unverified account
+ * (after a reload, or "Back to log in"). The form's choices, never its
+ * password, are kept for this tab (`rememberSignUp`) so that path settles the
+ * account the same way.
  */
 
 export interface SignUpChoice {
-  password: string;
+  /**
+   * The password typed on the sign-up form. Null when the code screen came
+   * from logging in: GoTrue has just checked the stored password, so it stays.
+   */
+  password: string | null;
   displayName: string;
   role: "student" | "parent";
   /** A parent's invite code, trimmed, or null. */
@@ -84,8 +93,11 @@ export async function settleSignUp(
   db: Pick<typeof supabase, "auth" | "from" | "rpc"> = supabase,
 ): Promise<SettleResult> {
   // The password first: it is the part that keeps anybody else out.
-  const pw = await db.auth.updateUser({ password: choice.password });
-  const passwordSaved = !pw.error || pw.error.code === "same_password";
+  let passwordSaved = true;
+  if (choice.password !== null) {
+    const pw = await db.auth.updateUser({ password: choice.password });
+    passwordSaved = !pw.error || pw.error.code === "same_password";
+  }
 
   const drift = signUpDrift(choice, user.user_metadata);
   if (drift.metadata) await db.auth.updateUser({ data: signUpMetadata(choice) });
@@ -106,4 +118,60 @@ export async function settleSignUp(
     }
   }
   return { passwordSaved, link };
+}
+
+/** What the sign-up form said, without the password. */
+export type SavedSignUp = Omit<SignUpChoice, "password">;
+
+const SAVED_KEY = "sign-up-choice";
+
+function tabStorage(): Storage | null {
+  try {
+    return typeof window === "undefined" ? null : window.sessionStorage;
+  } catch {
+    return null;
+  }
+}
+
+const emailKey = (email: string) => email.trim().toLowerCase();
+
+/**
+ * Keep the form's choices for this tab, never the password. sessionStorage: a
+ * reload keeps it (a phone often reloads the tab on the way back from the mail
+ * app), and it goes when the tab is closed.
+ */
+export function rememberSignUp(email: string, choice: SignUpChoice) {
+  const { password: _password, ...saved } = choice;
+  try {
+    tabStorage()?.setItem(SAVED_KEY, JSON.stringify({ email: emailKey(email), saved }));
+  } catch {
+    /* Storage unavailable: logging in later verifies the account as it was made. */
+  }
+}
+
+/**
+ * The choices kept for this email, or null. Not forgotten here: the tab can
+ * reload again before the code is typed. `forgetSignUp` clears them once the
+ * email is verified.
+ */
+export function readSignUp(email: string): SavedSignUp | null {
+  try {
+    const raw = tabStorage()?.getItem(SAVED_KEY);
+    if (!raw) return null;
+    const { email: kept, saved } = JSON.parse(raw) as { email?: string; saved?: SavedSignUp };
+    if (kept !== emailKey(email) || !saved) return null;
+    if (saved.role !== "student" && saved.role !== "parent") return null;
+    if (typeof saved.displayName !== "string") return null;
+    return saved;
+  } catch {
+    return null;
+  }
+}
+
+export function forgetSignUp() {
+  try {
+    tabStorage()?.removeItem(SAVED_KEY);
+  } catch {
+    /* Nothing to clear. */
+  }
 }

@@ -1,5 +1,13 @@
-import { describe, expect, test } from "bun:test";
-import { settleSignUp, signUpDrift, signUpMetadata, type SignUpChoice } from "./settleSignUp";
+import { afterEach, beforeEach, describe, expect, test } from "bun:test";
+import {
+  forgetSignUp,
+  readSignUp,
+  rememberSignUp,
+  settleSignUp,
+  signUpDrift,
+  signUpMetadata,
+  type SignUpChoice,
+} from "./settleSignUp";
 
 const choice = (over: Partial<SignUpChoice> = {}): SignUpChoice => ({
   password: "new-password-1",
@@ -131,5 +139,98 @@ describe("settleSignUp", () => {
     const { db } = fakeDb({ passwordError: { code: "weak_password", message: "weak" } });
     const result = await settleSignUp(c, user(signUpMetadata(c)), db);
     expect(result.passwordSaved).toBe(false);
+  });
+
+  test("from logging in, the stored password stays and the role is still settled", async () => {
+    const first = signUpMetadata(choice());
+    const { db, calls } = fakeDb();
+    const result = await settleSignUp(
+      choice({ password: null, role: "parent", inviteCode: "ANG-BBBB" }),
+      user(first),
+      db,
+    );
+    expect(calls.some((c) => c.startsWith("password:"))).toBe(false);
+    expect(calls.at(-1)).toBe('link_child_by_code:{"_code":"ANG-BBBB"}');
+    expect(result).toEqual({
+      passwordSaved: true,
+      link: { status: "linked", student_name: "Sam" },
+    });
+  });
+});
+
+class MemoryStorage implements Storage {
+  private map = new Map<string, string>();
+  get length() {
+    return this.map.size;
+  }
+  clear() {
+    this.map.clear();
+  }
+  getItem(k: string) {
+    return this.map.get(k) ?? null;
+  }
+  key(i: number) {
+    return [...this.map.keys()][i] ?? null;
+  }
+  removeItem(k: string) {
+    this.map.delete(k);
+  }
+  setItem(k: string, v: string) {
+    this.map.set(k, v);
+  }
+}
+
+describe("the sign-up form kept for this tab", () => {
+  const g = globalThis as { window?: unknown };
+  let store: MemoryStorage;
+  beforeEach(() => {
+    store = new MemoryStorage();
+    g.window = { sessionStorage: store };
+  });
+  afterEach(() => {
+    delete g.window;
+  });
+
+  test("never keeps the password", () => {
+    rememberSignUp("jamie@example.com", choice({ password: "secret-password-9" }));
+    expect(store.getItem("sign-up-choice")).not.toContain("secret-password-9");
+    expect(readSignUp("jamie@example.com")).not.toHaveProperty("password");
+  });
+
+  test("comes back for the same email, however it is typed, and only for that email", () => {
+    const c = choice({ role: "parent", inviteCode: "ANG-AAAA", displayName: "Pat" });
+    rememberSignUp("Jamie@Example.com", c);
+    const { password: _pw, ...rest } = c;
+    expect(readSignUp(" jamie@example.com ")).toEqual(rest);
+    expect(readSignUp("someone@example.com")).toBeNull();
+  });
+
+  test("survives a second read, so another reload still finds it, until forgotten", () => {
+    rememberSignUp("jamie@example.com", choice());
+    expect(readSignUp("jamie@example.com")).not.toBeNull();
+    expect(readSignUp("jamie@example.com")).not.toBeNull();
+    forgetSignUp();
+    expect(readSignUp("jamie@example.com")).toBeNull();
+  });
+
+  test("anything that isn't a student or parent choice is ignored", () => {
+    store.setItem(
+      "sign-up-choice",
+      JSON.stringify({ email: "jamie@example.com", saved: { role: "admin", displayName: "x" } }),
+    );
+    expect(readSignUp("jamie@example.com")).toBeNull();
+    store.setItem("sign-up-choice", "not json");
+    expect(readSignUp("jamie@example.com")).toBeNull();
+  });
+
+  test("storage that refuses is not an error", () => {
+    g.window = {
+      get sessionStorage(): Storage {
+        throw new Error("SecurityError");
+      },
+    };
+    expect(() => rememberSignUp("jamie@example.com", choice())).not.toThrow();
+    expect(readSignUp("jamie@example.com")).toBeNull();
+    expect(() => forgetSignUp()).not.toThrow();
   });
 });

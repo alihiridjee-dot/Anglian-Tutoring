@@ -11,7 +11,14 @@ import {
   type SsoProvider,
 } from "@/lib/auth/ssoIntent";
 import { validatePassword } from "@/lib/auth/validation";
-import { settleSignUp, signUpMetadata, type SignUpChoice } from "@/lib/auth/settleSignUp";
+import {
+  forgetSignUp,
+  readSignUp,
+  rememberSignUp,
+  settleSignUp,
+  signUpMetadata,
+  type SignUpChoice,
+} from "@/lib/auth/settleSignUp";
 import { usePageRestore } from "@/hooks/usePageRestore";
 
 // Supabase's Email OTP Length is a project setting (6–10); this project is set
@@ -47,7 +54,8 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
   const [otp, setOtp] = useState("");
   const [resendIn, setResendIn] = useState(0);
   // What the sign-up form said, kept for the moment its code is accepted (see
-  // `@/lib/auth/settleSignUp`). Null when the code screen came from logging in.
+  // `@/lib/auth/settleSignUp`). From logging in, it is what this tab kept of
+  // the form, or null.
   const pendingSignUp = useRef<SignUpChoice | null>(null);
 
   // Back from the Google or Microsoft page can bring this page back from the
@@ -145,6 +153,7 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
         } else {
           toast.success("We've emailed you a verification code.");
           pendingSignUp.current = choice;
+          rememberSignUp(email, choice);
           setEmailSentTo(email);
           setResendIn(60);
         }
@@ -152,15 +161,18 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         // Signed up, but left before typing the code (a refresh loses the code
         // screen). GoTrue checks the password before it says this, so the
-        // account is theirs: send a fresh code and show the boxes again.
+        // account is theirs: show the boxes again. No new code unless they ask:
+        // an account has one code at a time, so sending one here would kill
+        // the code already in their inbox, every time a phone reloads the tab.
         if (error?.code === "email_not_confirmed") {
-          pendingSignUp.current = null;
-          const resent = await supabase.auth.resend({ type: "signup", email });
-          if (resent.error) toast.error(resent.error.message);
-          else toast.success("Your email isn't verified yet. We've sent you a new code.");
+          const saved = readSignUp(email);
+          pendingSignUp.current = saved ? { ...saved, password: null } : null;
+          toast.info(
+            "Your email isn't verified yet. Enter the code from your latest email, or press Resend code for a new one.",
+          );
           setOtp("");
           setEmailSentTo(email);
-          setResendIn(60);
+          setResendIn(0);
           return;
         }
         if (error) throw error;
@@ -191,6 +203,7 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
       if (error) throw error;
       const choice = pendingSignUp.current;
       pendingSignUp.current = null;
+      forgetSignUp();
       if (choice && data.user) {
         try {
           const settled = await settleSignUp(choice, data.user);
@@ -202,7 +215,9 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
           const link = settled.link;
           if (link?.status === "linked") toast.success(`Linked to ${link.student_name}`);
           else if (link?.status && link.status !== "already_linked") {
-            toast.error("We couldn't link your child's invite code. Add it on your Parents page.");
+            toast.error(
+              "We couldn't link your child. Ask them for their current invite code and add it on your Parents page.",
+            );
           }
         } catch {
           // Verified either way; the steps ahead still work.
