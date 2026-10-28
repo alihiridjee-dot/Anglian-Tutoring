@@ -5,6 +5,7 @@ import {
   type IndexedSchool,
   type School,
 } from "@/lib/schools/ukSchools";
+import { SCHOOL_MAX } from "@/lib/platform/textLimits";
 
 /**
  * The school box in setup: a plain text field that suggests UK schools as the
@@ -89,6 +90,7 @@ export function SchoolPicker({
         aria-activedescendant={expanded && active >= 0 ? `${listId}-${active}` : undefined}
         // The browser's own autofill menu would sit on top of ours.
         autoComplete="off"
+        maxLength={SCHOOL_MAX}
         value={value}
         onChange={(e) => {
           onChange(e.target.value);

@@ -10,6 +10,7 @@ import {
   XCircle,
 } from "lucide-react";
 import { BILLING_FEEDBACK_REASONS } from "@/lib/billing/billingFeedback";
+import { FEEDBACK_MAX } from "@/lib/platform/textLimits";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 
 /** The exact word the user has to type before the cancel button unlocks. */
@@ -277,6 +278,7 @@ export function CancelPlanDialog({
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
                   rows={3}
+                  maxLength={FEEDBACK_MAX}
                   placeholder="Tell us more — it helps us improve."
                   className="w-full rounded-lg border border-border bg-background p-2.5 text-sm resize-none"
                 />

@@ -22,6 +22,7 @@ import {
   type WeekSummary,
 } from "@/lib/planner/coverage";
 import { reviewLock } from "@/lib/planner/reviewLock";
+import { CHECKIN_NOTE_MAX } from "@/lib/platform/textLimits";
 import { type WeekReviewBusy } from "./useWeekReview";
 
 /** The student's self-report: the two feel-buttons, and the note that goes to their tutor. */
@@ -105,6 +106,7 @@ export function WeeklyCheckinForm({
           }}
           onBlur={saveNote}
           rows={2}
+          maxLength={CHECKIN_NOTE_MAX}
           aria-label="Message your tutor about this week"
           placeholder="e.g. I got stuck on the meiosis diagram questions — could we go over them?"
           className="w-full rounded-lg premium-input px-3 py-2 text-sm resize-none"

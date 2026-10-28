@@ -9,6 +9,7 @@ import { ErrorNote } from "@/components/Shared";
 import { EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chat/chatContext";
 import type { QuestionIdea } from "@/lib/chat/questionIdeas";
 import { subjectTint } from "@/lib/curriculum/subjectTheme";
+import { CHAT_MESSAGE_MAX } from "@/lib/platform/textLimits";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -249,6 +250,7 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
               value={body}
               onChange={(e) => setBody(e.target.value)}
               rows={5}
+              maxLength={CHAT_MESSAGE_MAX}
               placeholder={
                 about
                   ? "Write your message"
