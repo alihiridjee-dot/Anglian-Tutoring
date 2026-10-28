@@ -1,4 +1,4 @@
-import { useMemo, useState, type ReactNode } from "react";
+import { useMemo, useState, type MouseEvent as ReactMouseEvent, type ReactNode } from "react";
 import { evaluate, parseFormula } from "@/lib/notes/formula";
 import { Explorer, Practice, Punnett, Sequence, Sort } from "@/components/notes/NoteInteractives";
 import { ParticlesScene, RoadScene, WaveScene } from "@/components/notes/NoteScenes";
@@ -16,7 +16,10 @@ import { BookOpen, Eye, EyeOff, ArrowRight, RotateCcw } from "lucide-react";
 import { DataTable, PageHeader, SciBlock, SciText } from "@/components/Shared";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import {
+  headingIds,
   inlineRuns,
+  resultDecimals,
+  sliderDecimals,
   type CompareDiagram,
   type FlowDiagram,
   type LineGraphDiagram,
@@ -578,7 +581,7 @@ function Slider({ d }: { d: SliderDiagram }) {
                 <SciText text={inp.label} />
               </span>
               <span className="numeral text-lg">
-                {fmt(vals[inp.id], inp.step < 1 ? 1 : 0)}
+                {fmt(vals[inp.id], sliderDecimals(inp))}
                 {inp.unit ? (
                   <>
                     {" "}
@@ -633,7 +636,9 @@ function Slider({ d }: { d: SliderDiagram }) {
               <SciText text={o.label} />
             </dt>
             <dd className="font-display text-2xl font-extrabold">
-              <span className="numeral">{fmt(results[n], o.decimals ?? 1)}</span>
+              <span className="numeral">
+                {fmt(results[n], resultDecimals(results[n], o.decimals ?? 1))}
+              </span>
               {o.unit ? (
                 <span className="text-base">
                   {" "}
@@ -769,15 +774,25 @@ function Block({ b }: { b: NoteBlock }) {
   }
 }
 
-const slug = (s: string) =>
-  s
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
+/**
+ * A contents link scrolls to its section without adding a history entry. A
+ * plain "#" link pushed one the router can't place, so the note's Back button
+ * took it for a note opened from a shared link and went to the curriculum.
+ */
+function jumpTo(e: ReactMouseEvent<HTMLAnchorElement>, id: string) {
+  if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  const target = document.getElementById(id);
+  if (!target) return;
+  e.preventDefault();
+  const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  target.scrollIntoView({ block: "start", behavior: still ? "auto" : "smooth" });
+  // Where a keyboard user's next Tab starts, as the link itself would have done.
+  target.focus({ preventScroll: true });
+}
 
-function Section({ heading, children }: { heading: string; children: ReactNode }) {
+function Section({ id, heading, children }: { id: string; heading: string; children: ReactNode }) {
   return (
-    <section id={slug(heading)} className="mt-10 scroll-mt-6 space-y-4">
+    <section id={id} tabIndex={-1} className="mt-10 scroll-mt-6 space-y-4 outline-none">
       <h2 className="font-display text-xl font-extrabold sm:text-2xl">
         <SciText text={heading} />
       </h2>
@@ -804,6 +819,18 @@ export function NoteView({ note, board }: { note: Note; board?: NoteBoard }) {
       {codes.length > 0 && <span className="normal-case"> · {codes.join(" · ")}</span>}
     </span>
   );
+  // Every section in reading order, each with its own anchor: a layer can
+  // repeat a heading, and two sections must never share an id.
+  const extra = layer?.extra ?? [];
+  const headings = [
+    ...note.sections.map((s) => s.heading),
+    ...extra.map((s) => s.heading),
+    ...(layer?.worked_example ? ["Worked example"] : []),
+    "Check your understanding",
+  ];
+  const ids = headingIds(headings);
+  const extraAt = note.sections.length;
+  const workedAt = extraAt + extra.length;
 
   return (
     <div className={`${tint} space-y-6`}>
@@ -821,16 +848,12 @@ export function NoteView({ note, board }: { note: Note; board?: NoteBoard }) {
           <nav aria-label="In this note" className="mt-6">
             <p className="font-display text-base font-extrabold">In this note</p>
             <ol className="mt-2 grid gap-x-6 gap-y-1 sm:grid-cols-2">
-              {[
-                ...note.sections.map((s) => s.heading),
-                ...(layer?.extra?.map((s) => s.heading) ?? []),
-                ...(layer?.worked_example ? ["Worked example"] : []),
-                "Check your understanding",
-              ].map((h, i) => (
-                <li key={h} className="flex gap-2">
+              {headings.map((h, i) => (
+                <li key={ids[i]} className="flex gap-2">
                   <span className="numeral w-5 shrink-0 text-[var(--tint)]">{i + 1}</span>
                   <a
-                    href={`#${slug(h)}`}
+                    href={`#${ids[i]}`}
+                    onClick={(e) => jumpTo(e, ids[i])}
                     className="font-bold underline decoration-[color-mix(in_oklab,var(--tint)_40%,transparent)] decoration-2 underline-offset-4 hover:decoration-[var(--tint)]"
                   >
                     <SciText text={h} />
@@ -840,16 +863,16 @@ export function NoteView({ note, board }: { note: Note; board?: NoteBoard }) {
             </ol>
           </nav>
 
-          {note.sections.map((s) => (
-            <Section key={s.heading} heading={s.heading}>
+          {note.sections.map((s, k) => (
+            <Section key={ids[k]} id={ids[k]} heading={s.heading}>
               {s.blocks.map((b, i) => (
                 <Block key={i} b={b} />
               ))}
             </Section>
           ))}
 
-          {layer?.extra?.map((s) => (
-            <Section key={s.heading} heading={s.heading}>
+          {extra.map((s, k) => (
+            <Section key={ids[extraAt + k]} id={ids[extraAt + k]} heading={s.heading}>
               {s.blocks.map((b, i) => (
                 <Block key={i} b={b} />
               ))}
@@ -857,7 +880,7 @@ export function NoteView({ note, board }: { note: Note; board?: NoteBoard }) {
           ))}
 
           {layer?.worked_example ? (
-            <Section heading="Worked example">
+            <Section id={ids[workedAt]} heading="Worked example">
               {/* `source` stays in the data for provenance; students see the question, not the paper. */}
               <p>A real exam question on this topic. Try it, then check the answer.</p>
               <Reveal
@@ -881,7 +904,7 @@ export function NoteView({ note, board }: { note: Note; board?: NoteBoard }) {
             </Section>
           ) : null}
 
-          <Section heading="Check your understanding">
+          <Section id={ids[ids.length - 1]} heading="Check your understanding">
             <div className="grid gap-3">
               {note.checks.map((c, i) => (
                 <Reveal

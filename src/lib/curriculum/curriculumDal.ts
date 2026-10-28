@@ -10,13 +10,8 @@ import {
   DEMO_CURRICULUM_CONTENT,
   DEMO_CURRICULUM_FALLBACK,
 } from "../demo/studentDemo";
-import {
-  queryTerms,
-  scoreRecord,
-  ilikeValue,
-  broadestTerm,
-  MIN_QUERY_LENGTH,
-} from "../search/match";
+import { scoreRecord, ilikeValue, broadestTerm, MIN_QUERY_LENGTH } from "../search/match";
+import { searchTerms } from "../search/help";
 
 /** Rows pulled from the database before ranking narrows them. */
 const SEARCH_FETCH_LIMIT = 300;
@@ -89,9 +84,10 @@ export class CurriculumDAL {
       .eq("topic_id", topicId)
       .order("sort_order")
       .order("code");
+    // Thrown, not []: a topic whose points didn't load must not read as empty.
     if (error) {
       console.error("Error loading spec points:", error);
-      return [];
+      throw dbError(error);
     }
     return data ?? [];
   }
@@ -115,7 +111,8 @@ export class CurriculumDAL {
     query: string,
     limit = SEARCH_RESULT_LIMIT,
   ): Promise<SpecPointMatch[]> {
-    const terms = queryTerms(query);
+    // The global search's terms: "what is osmosis?" searches for "osmosis".
+    const terms = searchTerms(query);
     if (query.trim().length < MIN_QUERY_LENGTH || terms.length === 0) return [];
 
     const rank = (point: SpecPoint, topic: { code: string | null; title: string }) =>
@@ -247,6 +244,12 @@ export class CurriculumDAL {
         .select("mcq_sets!inner(id, title, published, origin)")
         .eq("spec_point_id", point.id),
     ]);
+    // A read that failed must not show as "No MCQ sets yet".
+    const failed = r.error ?? m.error ?? tagged.error;
+    if (failed) {
+      console.error("Error loading the point's resources and quizzes:", failed);
+      throw dbError(failed);
+    }
 
     const rows = (
       (r.data ?? []) as unknown as Array<{ resources: Omit<Resource, "join_url"> | null }>

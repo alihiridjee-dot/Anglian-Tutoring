@@ -49,6 +49,22 @@ describe("searchTerms", () => {
   test("falls back to every word when nothing else is left", () => {
     expect(searchTerms("help me")).toEqual(["help", "me"]);
   });
+
+  test.each([
+    ["photosynthesis?", ["photosynthesis"]],
+    ["what is osmosis.", ["osmosis"]],
+    ["what is photosynthesis", ["photosynthesis"]],
+    ["4.1.2.", ["4.1.2"]],
+    ["C4.2a", ["c4.2a"]],
+    ["0.5 m", ["0.5", "m"]],
+    ["...osmosis", ["osmosis"]],
+    ["-osmosis-", ["osmosis"]],
+    ["β-galactosidase", ["β-galactosidase"]],
+    ["CO₂ test", ["co₂", "test"]],
+    ["ΔH", ["δh"]],
+  ])("punctuation around a word is dropped: %p", (query, terms) => {
+    expect(searchTerms(query)).toEqual(terms);
+  });
 });
 
 describe("contentTerms", () => {

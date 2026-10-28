@@ -22,7 +22,8 @@ import { CurriculumDAL } from "@/lib/curriculum/curriculumDal";
 import type { Topic, SpecPoint } from "@/lib/curriculum/types";
 import { type CurriculumSearchParams } from "@/lib/curriculum/curriculumParams";
 import { useDebounced } from "@/hooks/useGlobalSearch";
-import { MIN_QUERY_LENGTH, queryTerms } from "@/lib/search/match";
+import { MIN_QUERY_LENGTH } from "@/lib/search/match";
+import { searchTerms } from "@/lib/search/help";
 import { CurriculumSyncPanel } from "@/components/CurriculumSyncPanel";
 import { WhenLink } from "@/components/curriculum/ScheduleBadges";
 import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
@@ -126,9 +127,13 @@ export function Curriculum() {
   const [query, setQuery] = useState(search.q ?? "");
   const settledQuery = useDebounced(query);
   const searching = settledQuery.trim().length >= MIN_QUERY_LENGTH;
-  const searchTerms = useMemo(() => queryTerms(settledQuery), [settledQuery]);
+  const highlightTerms = useMemo(() => searchTerms(settledQuery), [settledQuery]);
 
-  const { data: matches, isFetching: searchFetching } = useQuery({
+  const {
+    data: matches,
+    isFetching: searchFetching,
+    isError: searchFailed,
+  } = useQuery({
     queryKey: ["curriculum-search", level, board, subject, settledQuery.trim()],
     queryFn: () => CurriculumDAL.searchSpecPoints(level, board, subject, settledQuery),
     enabled: searching,
@@ -364,8 +369,9 @@ export function Curriculum() {
         {searching ? (
           <SpecSearchResults
             matches={matches ?? []}
-            terms={searchTerms}
+            terms={highlightTerms}
             loading={searchFetching && !matches}
+            failed={searchFailed && !searchFetching}
             query={settledQuery}
             onSelect={openSpecPoint}
             onClear={() => setQuery("")}
