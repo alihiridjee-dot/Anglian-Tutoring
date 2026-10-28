@@ -36,6 +36,20 @@ supabase secrets set \
 `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, and `SUPABASE_ANON_KEY` are injected
 automatically — do not set them by hand.
 
+### Lessons Nadia hosts
+
+The schedule form has a **Zoom host** choice (Ali / Dr Nadia). Ali uses the
+secrets above. For Nadia, set **one** of these, depending on her Zoom:
+
+- She is a user inside Ali's Zoom account → just her Zoom email:
+  `supabase secrets set ZOOM_NADIA_USER=her-zoom-email`
+- She has her own, separate Zoom account → she builds a Server-to-Server OAuth
+  app there (same steps and scopes as section 1), then:
+  `supabase secrets set ZOOM_NADIA_ACCOUNT_ID=… ZOOM_NADIA_CLIENT_ID=… ZOOM_NADIA_CLIENT_SECRET=…`
+
+Until one is set, picking Nadia and pressing Auto Zoom says her Zoom isn't
+connected yet. Cancelling a session finds its meeting in either account.
+
 ## 3. Deploy the function
 
 Already deployed (v1, ACTIVE). Re-deploy after edits with:

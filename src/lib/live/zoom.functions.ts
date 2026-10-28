@@ -33,6 +33,9 @@ export interface ZoomMeetingDetails {
   timezone?: string;
 }
 
+/** Whose Zoom account a meeting is made on. */
+export type ZoomHost = "ali" | "nadia";
+
 export interface CreateZoomMeetingInput {
   /** Meeting title shown in Zoom, e.g. the session title. */
   topic: string;
@@ -44,6 +47,8 @@ export interface CreateZoomMeetingInput {
   timezone?: string;
   /** Optional agenda / description. */
   agenda?: string;
+  /** Whose Zoom the meeting is made on. Defaults to Ali server-side. */
+  host?: ZoomHost;
 }
 
 /** Create a real Zoom meeting and return its join URL and metadata. */
@@ -56,6 +61,7 @@ export async function createZoomMeeting(input: CreateZoomMeetingInput): Promise<
       duration: input.durationMinutes,
       timezone: input.timezone,
       agenda: input.agenda,
+      host: input.host,
     },
   });
   if (error) throw new Error(await readInvokeError(error));

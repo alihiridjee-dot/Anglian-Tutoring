@@ -2,6 +2,7 @@ import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
 import { Video, Loader2, Sparkles } from "lucide-react";
 import { useLiveForm, type LiveFormProps } from "./useLiveForm";
+import { type ZoomHost } from "@/lib/live/zoom.functions";
 import { BroadcastToggle } from "./LiveFormParts";
 
 export function LiveForm({ userId, taxonomy }: LiveFormProps) {
@@ -14,6 +15,8 @@ export function LiveForm({ userId, taxonomy }: LiveFormProps) {
     setStartsAt,
     joinUrl,
     setJoinUrl,
+    zoomHost,
+    setZoomHost,
     loading,
     generatingLink,
     generatingBlurb,
@@ -46,31 +49,43 @@ export function LiveForm({ userId, taxonomy }: LiveFormProps) {
             onChange={(e) => setStartsAt(e.target.value)}
           />
         </Field>
-        <Field label="Join URL">
-          <div className="sm:relative">
-            <input
-              type="url"
-              inputMode="url"
-              className={`${inputCls} sm:pr-32`}
-              value={joinUrl}
-              onChange={(e) => setJoinUrl(e.target.value)}
-              placeholder="Auto Zoom, paste a link, or leave for later"
-            />
-            <button
-              onClick={generateZoomLink}
-              disabled={generatingLink}
-              className="mt-2 h-11 w-full justify-center sm:mt-0 sm:h-auto sm:w-auto sm:absolute sm:right-1 sm:top-1 sm:bottom-1 px-2.5 rounded bg-[#2D8CFF] hover:bg-[#2681F2] text-white text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
-              title="Create a Zoom meeting"
-            >
-              {generatingLink ? (
-                <Loader2 className="w-3.5 h-3.5 animate-spin" />
-              ) : (
-                <Video className="w-3.5 h-3.5" />
-              )}
-              {generatingLink ? "Creating…" : "Auto Zoom"}
-            </button>
-          </div>
+        <Field label="Zoom host">
+          <select
+            className={inputCls}
+            value={zoomHost}
+            onChange={(e) => setZoomHost(e.target.value as ZoomHost)}
+          >
+            <option value="ali">Ali</option>
+            <option value="nadia">Dr Nadia</option>
+          </select>
         </Field>
+        <div className="md:col-span-2">
+          <Field label="Join URL">
+            <div className="sm:relative">
+              <input
+                type="url"
+                inputMode="url"
+                className={`${inputCls} sm:pr-32`}
+                value={joinUrl}
+                onChange={(e) => setJoinUrl(e.target.value)}
+                placeholder="Auto Zoom, paste a link, or leave for later"
+              />
+              <button
+                onClick={generateZoomLink}
+                disabled={generatingLink}
+                className="mt-2 h-11 w-full justify-center sm:mt-0 sm:h-auto sm:w-auto sm:absolute sm:right-1 sm:top-1 sm:bottom-1 px-2.5 rounded bg-[#2D8CFF] hover:bg-[#2681F2] text-white text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
+                title="Create a Zoom meeting"
+              >
+                {generatingLink ? (
+                  <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                ) : (
+                  <Video className="w-3.5 h-3.5" />
+                )}
+                {generatingLink ? "Creating…" : "Auto Zoom"}
+              </button>
+            </div>
+          </Field>
+        </div>
       </div>
 
       <Field label="Description">
