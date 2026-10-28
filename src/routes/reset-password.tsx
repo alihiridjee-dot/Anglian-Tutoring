@@ -147,10 +147,7 @@ function ResetPasswordPage() {
           {needsLink && (
             <form onSubmit={sendNewLink} className="space-y-4">
               <div>
-                <label
-                  htmlFor="reset-email"
-                  className="text-xs font-medium text-muted-foreground uppercase tracking-wider"
-                >
+                <label htmlFor="reset-email" className="eyebrow text-[10px]">
                   Email
                 </label>
                 <input
@@ -181,10 +178,7 @@ function ResetPasswordPage() {
           )}
           <form onSubmit={handleSubmit} hidden={needsLink} className="space-y-4">
             <div>
-              <label
-                htmlFor="reset-new-password"
-                className="text-xs font-medium text-muted-foreground uppercase tracking-wider"
-              >
+              <label htmlFor="reset-new-password" className="eyebrow text-[10px]">
                 New password
               </label>
               <input
@@ -198,10 +192,7 @@ function ResetPasswordPage() {
               />
             </div>
             <div>
-              <label
-                htmlFor="reset-confirm-password"
-                className="text-xs font-medium text-muted-foreground uppercase tracking-wider"
-              >
+              <label htmlFor="reset-confirm-password" className="eyebrow text-[10px]">
                 Confirm password
               </label>
               <input
