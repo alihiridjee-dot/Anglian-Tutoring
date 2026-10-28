@@ -73,7 +73,8 @@ const MARKINGS_PER_HOUR = 30;
  * How long after hand-in a student's own call may still start marking: the
  * page's RESTART_WINDOW_MS (src/lib/homework/startMarking.ts), held here too,
  * where the page can't be bypassed. Later, a paper the marker keeps failing on
- * waits for a tutor, who may re-run it at any time.
+ * waits for a tutor to mark it by hand in the marking queue. (A tutor's own
+ * call is still let through, but nothing in the app makes one.)
  */
 const STUDENT_RESTART_WINDOW_MS = 60 * 60 * 1000;
 

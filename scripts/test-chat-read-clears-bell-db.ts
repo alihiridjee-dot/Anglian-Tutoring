@@ -169,4 +169,21 @@ await seed();
 await read(sam, uuid(99));
 assert.deepEqual(await unread(), all);
 
+// Tutors share one read mark, so once one tutor has read a question to the
+// whole team it no longer counts as unread for a second. The page still calls
+// this when the second tutor opens it, and that clears their own copy.
+const tutor2 = uuid(6);
+await db.exec(`insert into user_roles values ('${tutor2}','tutor')`);
+await seed();
+await db.exec(`insert into notifications(user_id, type, title, chat_thread_id)
+  values ('${tutor2}','chat_message','Sam sent you a question','${samThread}')`);
+await read(tutor, samThread);
+assert.deepEqual(
+  (await unread()).filter((k) => k.startsWith(tutor2)),
+  [`${tutor2}:${samThread}`],
+  "One tutor's read cleared another tutor's bell",
+);
+await read(tutor2, samThread);
+assert.deepEqual(await unread(), without(`${tutor}:${samThread}`));
+
 console.log("chat read clears bell: all checks passed");

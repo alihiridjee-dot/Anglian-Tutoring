@@ -21,13 +21,17 @@ import { supabase } from "@/integrations/supabase/client";
 export const RESTART_WINDOW_MS = 60 * 60 * 1000;
 
 /**
- * How long after hand-in a paper with no marks stops being "marked shortly".
- * Marking takes well under a minute, so by now it failed or never started,
- * and nothing will try again by itself: the paper waits for a tutor.
+ * How long after hand-in a paper with no marks stops being "marked shortly":
+ * the restart window. Until then, opening the sheet starts the marker again.
+ * After it, nothing does, and the paper waits for a tutor to mark it by hand
+ * in the marking queue.
  */
-export const MARKING_STALLED_MS = 30 * 60 * 1000;
+export const MARKING_STALLED_MS = RESTART_WINDOW_MS;
 
-/** Handed in long enough ago that marks still missing are now the tutor's. */
+/**
+ * Handed in long enough ago that marks still missing are now the tutor's. On
+ * the device's clock, as the restart window is, so the two agree on any device.
+ */
 export function markingStalled(submittedAt: string, now = Date.now()): boolean {
   return now - new Date(submittedAt).getTime() >= MARKING_STALLED_MS;
 }

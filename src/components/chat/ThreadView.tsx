@@ -12,6 +12,7 @@ import {
 } from "@/hooks/data/useChat";
 import { generateChatDraft } from "@/lib/chat/chatDraft.functions";
 import { contextTarget, type ChatMessage } from "@/lib/chat/chatDal";
+import { NO_READ_MARKS, readMarkStep, type ReadMarks } from "@/lib/chat/readMarks";
 import type { ThreadSummary } from "@/hooks/data/useChat";
 
 const EMPTY_MESSAGES: ChatMessage[] = [];
@@ -50,7 +51,7 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
   const [usedDraft, setUsedDraft] = useState(false);
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
-  const markedRef = useRef<string | null>(null);
+  const readMarksRef = useRef<ReadMarks>(NO_READ_MARKS);
   // Mounted is not seen. On a phone the Messages page keeps this pane mounted
   // but hidden (display: none never intersects) until a row is tapped, and the
   // Parent Portal mounts it at the foot of a long page. Marking on mount
@@ -59,20 +60,14 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
   const onScreen = useInView(scrollRef, { amount: 0.3 });
 
   // Seeing a thread is reading it — and so is having it on screen when a reply
-  // arrives. The ref stops one burst of unread from firing more than one write
-  // (the poll refetch, StrictMode's double effect); it is cleared once the
-  // count is back to zero, so the *next* message is marked too. It used to be
-  // cleared only on switching threads, which left the sidebar badge lit for the
-  // reply the student was looking straight at.
+  // arrives. It is marked each time it comes on screen, even with nothing
+  // unread, because tutors share one read mark and a question another tutor
+  // read first still sits unread in this tutor's bell (see readMarkStep). One
+  // burst of unread fires one write; the next message is marked too.
   useEffect(() => {
-    if (thread.unread === 0) {
-      markedRef.current = null;
-      return;
-    }
-    if (!onScreen) return;
-    if (markedRef.current === thread.id) return;
-    markedRef.current = thread.id;
-    markRead.mutate(thread.id);
+    const { mark, next } = readMarkStep(readMarksRef.current, thread.id, thread.unread, onScreen);
+    readMarksRef.current = next;
+    if (mark) markRead.mutate(thread.id);
     // markRead is a stable mutation object; re-running on it would loop.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [thread.id, thread.unread, onScreen]);

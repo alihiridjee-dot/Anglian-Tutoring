@@ -826,8 +826,9 @@ export function AwaitingMark({
   /** The marker finished but held the paper for a tutor: no clock to show. */
   held?: boolean;
   /**
-   * When it was handed in. Unmarked half an hour later, the marker isn't
-   * coming back to it, so the notice stops promising marks "shortly".
+   * When it was handed in. Unmarked once the page has stopped starting the
+   * marker (an hour on), nothing will mark it but a tutor, so the notice stops
+   * promising marks "shortly".
    */
   submittedAt?: string | null;
 }) {

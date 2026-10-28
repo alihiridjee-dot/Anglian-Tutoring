@@ -242,14 +242,27 @@ const DIGIT = /[0-9\u00b2\u00b3\u00b9\u2070-\u2079\u2080-\u2089]/;
 const SIGN = /[+\-\u2010-\u2015\u2212\ufe63\uff0d\u207a\u207b\u208a\u208b]/;
 
 /**
+ * Bounds on the work for one quote. A real number is far shorter than the
+ * reach, and a real quote's words are rarely in an answer twenty times. Without
+ * them an unusual answer could keep the check busy for seconds, past the edge
+ * function's CPU limit and after the paid model call.
+ */
+const WIDEN_REACH = 40;
+const MAX_PLACES = 20;
+
+/**
  * The span of the answer a quote matched, widened to the whole of any number
  * it cuts into: the "0.0" before "5 A" in "0.05 A", the sign before "4 J" in
  * "-4 J", the power before "3" in "10^3", the charge after "Mg2" in "Mg2+".
+ * It reaches at most WIDEN_REACH characters either way: a number cut short
+ * there is longer than anything the quote holds, so it still fails to match.
  */
 function widen(text: string, from: number, to: number): string {
+  const floor = Math.max(0, from - WIDEN_REACH);
+  const ceiling = Math.min(text.length, to + WIDEN_REACH);
   if (DIGIT.test(text[from])) {
-    for (;;) {
-      const c = text[from - 1] ?? "";
+    while (from > floor) {
+      const c = text[from - 1];
       if (DIGIT.test(c) || c === "^") from--;
       else if ((c === "." || c === ",") && DIGIT.test(text[from - 2] ?? "")) from--;
       else if (SIGN.test(c) && !/[\p{L}\p{N}]/u.test(text[from - 2] ?? "")) {
@@ -258,8 +271,8 @@ function widen(text: string, from: number, to: number): string {
       } else break;
     }
   }
-  for (;;) {
-    const c = text[to] ?? "";
+  while (to < ceiling) {
+    const c = text[to];
     if (DIGIT.test(c) || SIGN.test(c)) to++;
     else if ((c === "." || c === ",") && DIGIT.test(text[to + 1] ?? "")) to++;
     else break;
@@ -287,7 +300,11 @@ function quoted(answer: string, quote: string): boolean {
   if (!q.folded) return false;
   const before = q.from[0];
   const after = quote.length - q.to[q.to.length - 1];
-  for (let at = a.folded.indexOf(q.folded); at !== -1; at = a.folded.indexOf(q.folded, at + 1)) {
+  for (
+    let at = a.folded.indexOf(q.folded), tries = 0;
+    at !== -1 && tries < MAX_PLACES;
+    at = a.folded.indexOf(q.folded, at + 1), tries++
+  ) {
     const from = Math.max(0, a.from[at] - before);
     const to = Math.min(answer.length, a.to[at + q.folded.length - 1] + after);
     if (signs(widen(answer, from, to)).join(" ") === want) return true;
@@ -331,29 +348,38 @@ const LOOK_ALIKE: Record<string, string> = {
 /** Words that speak to whoever marks the answer rather than answer the question. */
 const TO_THE_MARKER = new RegExp(
   [
-    String.raw`\bfull marks?\b`,
+    String.raw`\bfull ?marks?\b`,
     String.raw`\bmark ?-?schemes?\b`,
     String.raw`\b(?:award|give|grant)(?:s|ed|ing)?\b[^.\n]{0,25}\b(?:\d+|all|full|max|maximum|top)\s*(?:\/\s*\d+\s*)?marks?\b`,
     String.raw`\b(?:ignore|disregard)\b[^.\n]{0,30}\b(?:instructions?|prompt|rules)\b`,
     String.raw`\b(?:previous|above|prior) instructions\b`,
     String.raw`\bnote to (?:the )?(?:marker|examiner|teacher|tutor|grader)\b`,
-    String.raw`(?:^|[.!?]\s+)(?:marker|examiner|teacher|tutor|grader|assistant|system|claude)\s*:`,
+    // Not "system": "System: the kettle and the water" is physics.
+    String.raw`(?:^|[.!?]\s+)(?:marker|examiner|teacher|tutor|grader|assistant|claude)\s*:`,
   ].join("|"),
   "m",
 );
 
 /**
- * The first words in an answer aimed at the marker, or null. The model is told
- * such words earn nothing; this does not depend on it listening. They are read
- * through invisible characters, accents and look-alike letters.
+ * The first words in an answer that look aimed at the marker, or null.
+ *
+ * A best-effort hint for the tutor, not a guard. It catches the plain wordings
+ * and a few simple disguises, it misses many others, and it flags some honest
+ * answers too. The model is told such words earn nothing; a hit here only holds
+ * the question so a tutor looks at it.
  */
 export function aimedAtMarker(answer: string): string | null {
   const plain = answer
     .normalize("NFKD")
-    .replace(/[\p{Cf}\p{M}]/gu, "")
+    .replace(/\p{M}/gu, "")
     .toLowerCase()
     .replace(/[^\p{ASCII}]/gu, (c) => LOOK_ALIKE[c] ?? c);
-  return plain.match(TO_THE_MARKER)?.[0].trim() ?? null;
+  // An invisible character can sit inside a word or stand in for a space.
+  for (const text of [plain.replace(/\p{Cf}/gu, ""), plain.replace(/\p{Cf}/gu, " ")]) {
+    const hit = text.match(TO_THE_MARKER)?.[0].trim();
+    if (hit) return hit;
+  }
+  return null;
 }
 
 /** Rounded to the half mark and kept between zero and the question's ceiling. */
@@ -435,7 +461,7 @@ export function stageMarks(
     const aimed = aimedAtMarker(answer);
     if (aimed) {
       reasons.push(
-        `The answer has words aimed at the marker ("${aimed.slice(0, 60)}"). Check the mark is for the science alone.`,
+        `The answer may have words aimed at the marker ("${aimed.slice(0, 60)}"). Check the mark is for the science alone.`,
       );
     }
 

@@ -80,12 +80,20 @@ describe("the notice on an unmarked paper", () => {
     expect(markingStalled(minutesAgo(1), NOW)).toBe(false);
   });
 
-  test("half an hour on with no marks: it's the tutor's now, not 'shortly'", () => {
+  test("45 minutes on, opening the sheet still starts the marker: not the tutor's yet", () => {
+    expect(markingStalled(minutesAgo(45), NOW)).toBe(false);
+  });
+
+  test("past the restart window with no marks: it's the tutor's now, not 'shortly'", () => {
     expect(markingStalled(new Date(NOW - MARKING_STALLED_MS).toISOString(), NOW)).toBe(true);
     expect(markingStalled(minutesAgo(60 * 24), NOW)).toBe(true);
   });
 
-  test("it says so before the page stops asking for marks itself", () => {
-    expect(MARKING_STALLED_MS).toBeLessThanOrEqual(RESTART_WINDOW_MS);
+  test("it says the tutor will mark it exactly when the page stops starting the marker", () => {
+    for (const ms of [0, RESTART_WINDOW_MS - 1, RESTART_WINDOW_MS, RESTART_WINDOW_MS + 1]) {
+      const submitted_at = new Date(NOW - ms).toISOString();
+      const unmarked = { submitted_at, graded_at: null, release_at: null };
+      expect(markingStalled(submitted_at, NOW)).toBe(!needsMarkingStart(unmarked, NOW));
+    }
   });
 });
