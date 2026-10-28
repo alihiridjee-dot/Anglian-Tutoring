@@ -145,4 +145,41 @@ family();
   assert.equal(row()?.status, "active");
 }
 
+// 8. An old plan's events arrive after the family has bought a new one (a
+//    Stripe retry, a resend from the dashboard): the old plan's last payment
+//    stays paid, and the row keeps following the new plan.
+family();
+{
+  const old = pays(CHILD);
+  await deliver(old.completed, old.created);
+  const ended = STRIPE.subs.get(subIdOf(old));
+  ended.created -= 40 * 86400;
+  ended.status = "canceled";
+  ended.ended_at = Math.floor(Date.now() / 1000) - 86400;
+
+  const renewed = pays(PARENT);
+  await deliver(renewed.completed, renewed.created);
+  await deliver(event("customer.subscription.deleted", ended), old.completed, old.created);
+
+  assert.equal(row()?.stripe_subscription_id, subIdOf(renewed));
+  assert.equal(row()?.status, "active");
+  assert.deepEqual(STRIPE.refunds, [], "the old plan's last real payment was refunded");
+  assert.ok(!STRIPE.calls.some((c) => c.startsWith("subscriptions.cancel")));
+}
+
+// 9. A duplicate cancelled here whose refund didn't go through is still
+//    refunded when Stripe retries: it ended after the kept plan began.
+family();
+{
+  const first = pays(CHILD);
+  const second = pays(PARENT);
+  await deliver(first.completed, first.created, second.completed);
+  STRIPE.refunds = []; // as if refunds.create had failed after the cancel
+  const duplicate = STRIPE.subs.get(subIdOf(second));
+  assert.equal(duplicate.status, "canceled");
+  await deliver(event("customer.subscription.deleted", duplicate));
+  assert.equal(STRIPE.refunds.length, 1, "the duplicate was never refunded");
+  assert.equal(row()?.stripe_subscription_id, subIdOf(first));
+}
+
 console.log("one plan per student: all checks passed");

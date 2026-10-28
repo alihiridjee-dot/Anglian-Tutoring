@@ -1,7 +1,7 @@
 import { ReturningTopicInfo } from "./ReturningTopicInfo";
 import { NothingDue } from "./NothingDue";
 import { CatchUpWeek } from "./CatchUpWeek";
-import { PLANNER_TIME_ZONE, plannerDateLabel, weekKeyToDate } from "@/lib/planner/week";
+import { PLANNER_TIME_ZONE, weekKeyToDate, weekRangeLabel } from "@/lib/planner/week";
 import { Meter } from "@/components/Shared";
 import {
   CircleDot,
@@ -305,8 +305,7 @@ function SpecPointList({ children }: { children: React.ReactNode }) {
   return <div className="space-y-1.5 mt-3">{children}</div>;
 }
 
-/** "13 Jul – 16 Aug" for a band's week keys. */
+/** "13 Jul – 16 Aug 2026" for a band's week keys: its first Monday to its last Sunday. */
 function fmtRange(startWeek: string, endWeek: string): string {
-  const fmt = (k: string) => plannerDateLabel(weekKeyToDate(k));
-  return `${fmt(startWeek)} – ${fmt(endWeek)}`;
+  return weekRangeLabel(weekKeyToDate(startWeek), weekKeyToDate(endWeek));
 }

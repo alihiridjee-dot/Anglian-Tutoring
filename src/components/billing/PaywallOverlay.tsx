@@ -26,7 +26,8 @@ import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
  */
 export function PaywallOverlay() {
   const navigate = useNavigate();
-  const { resumable, paymentOverdue, isPending, error, refetch } = useOwnPlanState();
+  const { resumable, paymentOverdue, neverSubscribed, isPending, error, refetch } =
+    useOwnPlanState();
   // The locked page underneath must not scroll under a thumb.
   useBodyScrollLock(true);
 
@@ -107,6 +108,20 @@ export function PaywallOverlay() {
               className="w-full h-11 rounded-xl btn-solid font-semibold hover:opacity-90 text-sm shadow-sm inline-flex items-center justify-center gap-2"
             >
               <CreditCard className="h-4 w-4" /> Update the card
+            </button>
+          </>
+        ) : neverSubscribed ? (
+          // A new student who left the plan step: nothing to "resubscribe" to.
+          <>
+            <h1 id="paywall-title" className="font-display text-2xl font-bold tracking-tight mb-6">
+              Choose a plan to start
+            </h1>
+            <button
+              type="button"
+              onClick={() => navigate({ to: "/onboarding/plan" })}
+              className="w-full h-11 rounded-xl btn-solid font-semibold hover:opacity-90 text-sm shadow-sm inline-flex items-center justify-center gap-2"
+            >
+              <CreditCard className="h-4 w-4" /> Choose a plan
             </button>
           </>
         ) : (

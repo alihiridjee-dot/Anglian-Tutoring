@@ -13,6 +13,7 @@ import {
 import { generateChatDraft } from "@/lib/chat/chatDraft.functions";
 import { contextTarget, type ChatMessage } from "@/lib/chat/chatDal";
 import { NO_READ_MARKS, readMarkStep, type ReadMarks } from "@/lib/chat/readMarks";
+import { CHAT_MESSAGE_MAX } from "@/lib/platform/textLimits";
 import type { ThreadSummary } from "@/hooks/data/useChat";
 
 const EMPTY_MESSAGES: ChatMessage[] = [];
@@ -291,6 +292,7 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
               }
             }}
             rows={3}
+            maxLength={CHAT_MESSAGE_MAX}
             placeholder={isTutor ? "Write your reply…" : "Write a message…"}
             aria-label={isTutor ? "Your reply" : "Your message"}
             className="flex-1 rounded-xl border border-border bg-background p-3 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15 short:h-12 short:resize-none"

@@ -72,9 +72,14 @@ export function needsMarkingStart(
   return now - new Date(submission.submitted_at).getTime() < RESTART_WINDOW_MS;
 }
 
-/** The refusal submit_homework_answers gives when the work is already in. */
+/**
+ * The refusal submit_homework_answers gives when the work is already in. Two
+ * hand-ins at the same moment (two tabs, two devices) both pass its check, and
+ * the later one is stopped by the table's one-submission-per-task rule
+ * instead, in the database's own words.
+ */
 export function isAlreadySubmitted(err: unknown): boolean {
   const message =
     err && typeof err === "object" && "message" in err ? String(err.message) : String(err);
-  return /already submitted/i.test(message);
+  return /already submitted|homework_submissions_resource_id_student_id_key/i.test(message);
 }

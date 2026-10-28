@@ -65,23 +65,37 @@ export function HomeworkPage() {
 
   // A tutor's library pages itself (HomeworkLibrary), so only a student's
   // list is read here.
-  const { data: homework = [], isPending: homeworkPending } = useHomework({
+  const briefs = useHomework({
     isTutor,
     subjects: enrolledCourses,
     level,
     enabled: identityReady && !isTutor,
   });
+  const { data: homework = [], isPending: homeworkPending } = briefs;
   // Only a student has submissions to fetch, and only the demo one has them
   // without a userId.
   const wantsSubmissions = !isTutor && (demo || !!userId);
-  const { data: submissions = {}, isPending: submissionsPending } = useHomeworkSubmissions({
+  const handIns = useHomeworkSubmissions({
     userId,
     enabled: identityReady && wantsSubmissions,
   });
+  const { data: submissions = {}, isPending: submissionsPending } = handIns;
   const reload = useInvalidateHomework();
 
   // A disabled query stays pending forever, so only wait on one that will run.
   const loading = !identityReady || homeworkPending || (wantsSubmissions && submissionsPending);
+  // A read that failed with nothing to show: the empty defaults above would
+  // read as "No tasks yet", or put every handed-in task back under Due.
+  const failed =
+    (briefs.error && !briefs.data) || (handIns.error && !handIns.data)
+      ? {
+          error: briefs.error ?? handIns.error,
+          retry: () => {
+            if (briefs.error) void briefs.refetch();
+            if (handIns.error) void handIns.refetch();
+          },
+        }
+      : null;
 
   const { rows: analytics } = useAnalytics(userId, enrolledCourses);
 
@@ -107,6 +121,7 @@ export function HomeworkPage() {
       homework={homework}
       submissions={submissions}
       loading={loading}
+      failed={failed}
       analytics={analytics}
     />
   );
@@ -135,11 +150,14 @@ function StudentHomework({
   homework,
   submissions,
   loading,
+  failed,
   analytics,
 }: {
   homework: Homework[];
   submissions: Record<string, SubmissionRow>;
   loading: boolean;
+  /** The task list or the hand-ins couldn't be read: say so, not "No tasks yet". */
+  failed: { error: unknown; retry: () => void } | null;
   analytics: ReturnType<typeof useAnalytics>["rows"];
 }) {
   const { enrolments, level } = useEnrolments();
@@ -228,7 +246,9 @@ function StudentHomework({
         </div>
       )}
 
-      {busy ? (
+      {failed ? (
+        <ErrorNote error={failed.error} onRetry={failed.retry} />
+      ) : busy ? (
         <Spinner label="Fetching your tasks" />
       ) : !subject ? (
         <EmptyState

@@ -54,9 +54,26 @@ describe("a retry after a lost reply", () => {
     expect(isAlreadySubmitted({ message: "You have already submitted this homework" })).toBe(true);
   });
 
+  test("two hand-ins at once: the one the table stops is already in too", () => {
+    expect(
+      isAlreadySubmitted({
+        code: "23505",
+        message:
+          'duplicate key value violates unique constraint "homework_submissions_resource_id_student_id_key"',
+      }),
+    ).toBe(true);
+  });
+
   test("any other failure is still a failure", () => {
     expect(isAlreadySubmitted({ message: "That homework is not open to you" })).toBe(false);
     expect(isAlreadySubmitted(new TypeError("Failed to fetch"))).toBe(false);
+    expect(
+      isAlreadySubmitted({
+        code: "23505",
+        message:
+          'duplicate key value violates unique constraint "homework_answers_submission_id_question_id_key"',
+      }),
+    ).toBe(false);
   });
 });
 
