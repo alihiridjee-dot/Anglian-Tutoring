@@ -15,6 +15,8 @@ export const STRIPE = {
   calls: [] as string[],
   /** How many upcoming subscriptions.retrieve calls fail as if Stripe were down. */
   failRetrieves: 0,
+  /** The card on file refuses every charge made now (a prorated swap). */
+  declineCharges: false,
 };
 
 export function resetStripe() {
@@ -26,6 +28,7 @@ export function resetStripe() {
   STRIPE.n = 0;
   STRIPE.calls = [];
   STRIPE.failRetrieves = 0;
+  STRIPE.declineCharges = false;
 }
 
 /** Open a Checkout Session as stripe-checkout would, for completeSession to pay. */
@@ -70,6 +73,8 @@ export function completeSession(sessionId: string) {
     object: "subscription",
     customer: s.customer,
     status: trial ? "trialing" : "active",
+    created: now(),
+    ended_at: null as number | null,
     cancel_at_period_end: false,
     pause_collection: null,
     current_period_end: end,
@@ -116,6 +121,17 @@ export default class Stripe {
       STRIPE.calls.push(`subscriptions.update ${id}`);
       const s = STRIPE.subs.get(id);
       if (!s) throw missing(`subscription: '${id}'`);
+      if (STRIPE.declineCharges && p.proration_behavior === "always_invoice") {
+        if (p.payment_behavior === "error_if_incomplete") {
+          throw Object.assign(new Error("Your card was declined."), {
+            type: "StripeCardError",
+            statusCode: 402,
+            code: "card_declined",
+          });
+        }
+        // Stripe's default: the swap applies and its unpaid invoice tips the plan over.
+        s.status = "past_due";
+      }
       if ("pause_collection" in p)
         s.pause_collection = p.pause_collection === "" ? null : p.pause_collection;
       if ("cancel_at_period_end" in p) s.cancel_at_period_end = p.cancel_at_period_end;
@@ -127,6 +143,7 @@ export default class Stripe {
       if (!s) throw missing(`subscription: '${id}'`);
       if (s.status === "canceled") throw new Error(`subscription ${id} is already canceled`);
       s.status = "canceled";
+      s.ended_at = now();
       return clone(s);
     },
   };
@@ -199,9 +216,13 @@ export default class Stripe {
   };
 
   customers = {
-    create: async (p: any) => {
+    create: async (p: any, opts?: { idempotencyKey?: string }) => {
+      const again = [...STRIPE.customers.values()].find(
+        (c) => opts?.idempotencyKey && c.idempotencyKey === opts.idempotencyKey,
+      );
+      if (again) return { id: again.id };
       const id = `cus_${++STRIPE.n}`;
-      STRIPE.customers.set(id, { id, ...clone(p) });
+      STRIPE.customers.set(id, { id, ...clone(p), idempotencyKey: opts?.idempotencyKey });
       return { id };
     },
   };
