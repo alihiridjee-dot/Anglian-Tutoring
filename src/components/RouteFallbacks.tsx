@@ -4,6 +4,7 @@ import { AppLayout } from "@/components/AppLayout";
 import { Mascot } from "@/components/Doodles";
 import { Spinner } from "@/components/Shared";
 import { markHydrated } from "@/lib/auth/hydration";
+import { isStaleBuildError, reloadForNewBuild } from "@/lib/platform/staleBuild";
 
 /**
  * What a guarded route shows while it cannot show itself yet.
@@ -38,6 +39,9 @@ export function AuthedRouteError({ error, reset }: ErrorComponentProps) {
   const router = useRouter();
   useEffect(() => {
     console.error("Signed-in route error:", error);
+    // Its code was replaced by a deploy: "Try again" would fetch the same
+    // missing file, so fetch the new build instead.
+    if (isStaleBuildError(error)) reloadForNewBuild();
   }, [error]);
 
   return (

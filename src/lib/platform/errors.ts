@@ -29,8 +29,12 @@ export function isNetworkError(error: unknown): boolean {
   return message !== null && NETWORK_FAILURE.test(message);
 }
 
+/** A cut-short or mistyped link: the id in the address isn't one at all. */
+const BROKEN_LINK = "That link is broken or incomplete. Go back and open it again.";
+
 export function describeError(error: unknown, fallback = "Something went wrong."): string {
   if (isNetworkError(error)) return OFFLINE;
+  if (/invalid input syntax for type uuid/i.test(rawMessage(error) ?? "")) return BROKEN_LINK;
   const message = rawMessage(error)?.trim();
   return message ? message : fallback;
 }

@@ -124,9 +124,9 @@ async function currentCourse(
  * It stops where a student's own visit would stop (useWeekPlan): a subject
  * that is stopped and a break week are read, never planned. It also leaves
  * what only a visit should do: a finished pause waiting to be picked up, a
- * changed course, a plan never set up, and a custom topic order's re-flow
- * (that goes through `reorder_student_topics`, which needs the student or a
- * tutor signed in).
+ * changed course, a plan never set up, and a re-flow saved as a custom order:
+ * a custom topic order's, or any plan's after an exam move (that goes through
+ * `reorder_student_topics`, which needs the student or a tutor signed in).
  */
 export async function checkCourse(
   week: SavedWeekRow & { week_start: string },
@@ -155,7 +155,11 @@ export async function checkCourse(
     // No plan saved yet, or one for the old course: the student's first look sets it.
     if (!roadmap?.storedBands) return left("no full plan");
     if (roadmap.needsAck) {
-      if (customSchedule(roadmap.storedBands)) return left("custom order to re-flow");
+      // An exam move re-spreads either kind of plan as a custom order (from
+      // this week), and that is saved through `reorder_student_topics`, which
+      // needs someone signed in: tried here, every such move came back failed.
+      if (customSchedule(roadmap.storedBands) || customSchedule(roadmap.bands))
+        return left("custom order to re-flow");
       if (dryRun) return { ...found, outcome: "would-apply" };
       await ProgramDAL.applyPending(params);
       return { ...found, outcome: "plan-applied" };

@@ -29,6 +29,15 @@ describe("describeError", () => {
     expect(isNetworkError(new Error("permission denied"))).toBe(false);
   });
 
+  test("a link whose id was cut short reads as a broken link, not as Postgres", () => {
+    const postgrest = {
+      message: 'invalid input syntax for type uuid: "not-a-uuid"',
+      code: "22P02",
+    };
+    expect(describeError(postgrest)).toContain("link is broken");
+    expect(describeError(dbError(postgrest))).not.toContain("uuid");
+  });
+
   test("falls back when there is nothing readable", () => {
     expect(describeError(null)).toBe("Something went wrong.");
     expect(describeError({ message: "   " }, "Couldn't submit")).toBe("Couldn't submit");
