@@ -26,8 +26,11 @@ type Attempt = {
 };
 type Trial = { name: string; request: FigureRequest; attempts: Attempt[] };
 
+// Behind DEV so the trial output never ships in a production chunk.
 const trials = Object.values(
-  import.meta.glob<Trial>("/scripts/figures/out/*.json", { eager: true, import: "default" }),
+  import.meta.env.DEV
+    ? import.meta.glob<Trial>("/scripts/figures/out/*.json", { eager: true, import: "default" })
+    : {},
 ).sort((a, b) => a.name.localeCompare(b.name));
 
 function FiguresPreview() {

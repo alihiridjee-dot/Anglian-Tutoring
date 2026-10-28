@@ -1,16 +1,20 @@
 /**
  * Drafted notes, read straight from scripts/notes while they are being written
- * and reviewed. Development only: the preview routes 404 in production, and
- * the files load lazily so none of them ship in the main bundle.
+ * and reviewed. Development only: the preview routes 404 in production.
+ *
+ * The glob sits behind `import.meta.env.DEV` so a production build drops it.
+ * Lazy loading alone was not enough: every draft still became a public
+ * /assets chunk, listed by path in the main bundle, so anyone could read every
+ * revision note on the live site without signing in.
  *
  * `set` is the folder: "drafts" for the working copies, "trial/a" and
  * "trial/b" for a side-by-side comparison of two writers.
  */
 import type { Note } from "./noteFormat";
 
-const files = import.meta.glob<Note>("/scripts/notes/{drafts,trial}/**/*.json", {
-  import: "default",
-});
+const files: Record<string, () => Promise<Note>> = import.meta.env.DEV
+  ? import.meta.glob<Note>("/scripts/notes/{drafts,trial}/**/*.json", { import: "default" })
+  : {};
 
 export interface DraftRef {
   set: string;
