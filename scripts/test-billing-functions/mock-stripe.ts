@@ -155,7 +155,10 @@ export default class Stripe {
       return clone(i);
     },
     retrieveUpcoming: async () => ({ amount_due: 0, currency: "gbp" }),
-    list: async () => ({ data: [] }),
+    list: async (p: { customer?: string }) => {
+      STRIPE.calls.push(`invoices.list ${p?.customer}`);
+      return { data: [] };
+    },
   };
 
   refunds = {

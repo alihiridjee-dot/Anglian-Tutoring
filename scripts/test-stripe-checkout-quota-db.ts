@@ -1,7 +1,8 @@
-/** Isolated PostgreSQL checks for 20261028101500_stripe_checkout_quota.sql:
- * opening Stripe Checkout or the billing portal is budgeted per account, and
- * every quota that was there before is unchanged. No production data is read
- * or written.
+/** Isolated PostgreSQL checks for 20261028101500_stripe_checkout_quota.sql and
+ * 20261028101700_stripe_invoices_quota.sql: opening Stripe Checkout or the
+ * billing portal, and reading invoices, are budgeted per account and apart,
+ * and every quota that was there before is unchanged. No production data is
+ * read or written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-stripe-checkout-quota-db.ts
  */
@@ -59,5 +60,29 @@ await assert.rejects(claim(PARENT, "anything_i_like", 1), /Unknown request type/
 
 // Signed out, it refuses.
 await assert.rejects(claim(null, "stripe_checkout", 20));
+
+// ── 20261028101700_stripe_invoices_quota: invoice reads, budgeted apart ──
+const sql = (name: string) => readFile(new URL(`../supabase/${name}`, import.meta.url), "utf8");
+const invoicesUp = await sql("migrations/20261028101700_stripe_invoices_quota.sql");
+await assert.rejects(claim(PARENT, "stripe_invoices", 60), /Unknown request type/);
+await db.exec(invoicesUp);
+await db.exec(invoicesUp); // idempotent
+
+// Sixty reads an hour, and a caller can't ask for more.
+for (let i = 0; i < 60; i++) assert.equal(await claim(PARENT, "stripe_invoices", 1000), true);
+assert.equal(await claim(PARENT, "stripe_invoices", 1000), false);
+
+// Reading invoices doesn't spend the checkout budget, or the other way round.
+assert.equal(await claim(OTHER, "stripe_invoices", 60), true);
+for (let i = 0; i < 19; i++) assert.equal(await claim(OTHER, "stripe_checkout", 20), true);
+assert.equal(await claim(OTHER, "stripe_checkout", 20), false);
+assert.equal(await claim(OTHER, "stripe_invoices", 60), true);
+assert.equal(await claim(PARENT, "stripe_checkout", 20), false); // still spent from above
+assert.equal(await claim(PARENT, "help_ask", 20), true);
+
+// Rolled back, checkout keeps its budget and invoice reads are unknown again.
+await db.exec(await sql("rollbacks/20261028101700_stripe_invoices_quota.down.sql"));
+await assert.rejects(claim(OTHER, "stripe_invoices", 60), /Unknown request type/);
+assert.equal(await claim(PARENT, "stripe_checkout", 20), false);
 
 console.log("stripe checkout quota: all checks passed");

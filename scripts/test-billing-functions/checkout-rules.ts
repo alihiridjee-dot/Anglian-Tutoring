@@ -227,10 +227,41 @@ for (const body of [
   r = await call(CHILD, body);
   assert.equal(r.status, 402, `${body.action}: ${JSON.stringify(r.body)}`);
   assert.match(r.body.error, /didn't go through, so nothing has changed/);
+  assert.match(r.body.error, /Card & invoices/);
   assert.equal(STRIPE.subs.get("sub_1").status, "active", `${body.action} left the plan past due`);
   assert.ok(!rpcCalls.some((c) => c.startsWith("enrol")), `${body.action} enrolled anyway`);
   assert.equal(table("subscriptions")[0].plan, "monthly_1");
   assert.equal(leaseHeld, false, `${body.action} kept the lease`);
+}
+// Only the payer has the Card & invoices tile. A child growing a plan their
+// parent pays for, or a parent switching one the child pays for, is told to
+// ask whoever pays instead.
+for (const [caller, payer, body] of [
+  [
+    CHILD,
+    PARENT,
+    {
+      action: "add_subjects",
+      student_id: CHILD,
+      subjects: [{ subject: "chemistry", board: "aqa" }],
+    },
+  ],
+  [PARENT, CHILD, { action: "change_cadence", student_id: CHILD, cadence: "weekly" }],
+] as const) {
+  world({ payer, linked: true });
+  table("packages").push({
+    tier: "weekly_1",
+    name: "weekly_1",
+    stripe_price_id: "price_weekly_1",
+    level: null,
+    active: true,
+  });
+  STRIPE.declineCharges = true;
+  r = await call(caller, body);
+  assert.equal(r.status, 402, `${body.action}: ${JSON.stringify(r.body)}`);
+  assert.match(r.body.error, /Ask whoever pays for this plan to update the card/);
+  assert.doesNotMatch(r.body.error, /Card & invoices/);
+  assert.equal(table("subscriptions")[0].plan, "monthly_1");
 }
 
 // ── Two first checkouts at once share one customer ────────────────────────
@@ -267,10 +298,30 @@ DB.tables.subscriptions = [];
   assert.deepEqual(STRIPE.calls, [], "Stripe was called over budget");
   assert.equal(STRIPE.customers.size, 0);
 
+  // Invoice reads have their own budget, and over it Stripe isn't asked.
+  r = await call(CHILD, { action: "invoices" });
+  assert.equal(r.status, 429, JSON.stringify(r.body));
+  assert.equal(claims.at(-1), `${CHILD}:stripe_invoices`);
+  assert.deepEqual(STRIPE.calls, [], "Stripe was called over budget");
+
   // A claim that fails (its quota row not applied yet) lets the family through.
   DB.rpcs.claim_ai_request = () => ({ data: null, error: { message: "Unknown request type" } });
   r = await call(CHILD, { action: "portal" });
   assert.equal(r.status, 200, JSON.stringify(r.body));
+  r = await call(CHILD, { action: "invoices" });
+  assert.equal(r.status, 200, JSON.stringify(r.body));
+  assert.ok((STRIPE.calls as string[]).includes("invoices.list cus_C"));
+}
+
+// An account with no Stripe customer reads no invoices and spends no budget.
+world({ payer: CHILD });
+{
+  let claimed = 0;
+  DB.rpcs.claim_ai_request = () => (claimed++, { data: true, error: null });
+  r = await call(CHILD, { action: "invoices" });
+  assert.equal(r.status, 200, JSON.stringify(r.body));
+  assert.deepEqual(r.body.invoices, []);
+  assert.equal(claimed, 0);
 }
 
 // ── APP_URL: no return address, no checkout ───────────────────────────────
