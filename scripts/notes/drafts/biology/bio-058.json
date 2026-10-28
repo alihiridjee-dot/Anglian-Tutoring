@@ -219,19 +219,21 @@
     "edexcel": {
       "spec_codes": ["EDEX 6.5"],
       "worked_example": {
-        "exemplar_id": "8f618ad6-0b49-4393-8b65-ce6f5ed7d9ab",
-        "source": "EDEXCEL jun 2022, Paper 2 (F), Q6(a)(iv)",
-        "question": "A method of investigating the rate of photosynthesis in a water plant uses a lamp shining on the plant in water. The rate of photosynthesis can be measured by counting the number of bubbles of gas produced in one minute.\n\nDescribe how this investigation could be changed to find the effect of temperature on the rate of photosynthesis.",
-        "marks": 3,
+        "exemplar_id": "b3444c7e-0730-4bfe-b34b-28331badf490",
+        "source": "EDEXCEL nov 2020, Paper 2 (F), Q9(c)",
+        "question": "Some equipment that can be used to investigate the rate of photosynthesis is set up like this: pondweed sits in a beaker of water under an upside-down funnel, with a test tube over the funnel to collect the bubbles of oxygen. A light source is placed beside the beaker.\n\nDevise a plan to investigate the effect of light intensity on the rate of photosynthesis.\n\nInclude variables you would need to control.",
+        "marks": 6,
         "answer_points": [
-          "Change the temperature of the water.",
-          "Use a thermometer or temperature probe to monitor the temperature of the water.",
-          "Use a water bath to keep each temperature constant.",
-          "Count the bubbles at each temperature (for a set time).",
-          "Control a variable, for example keep the pondweed, light intensity or volume of water the same.",
-          "Any three of these points score."
+          "Put the light source at a set distance from the pondweed, for example 10 cm.",
+          "Count the bubbles, or measure the volume of oxygen collected, in a set time such as one minute.",
+          "Move the light source to different distances and repeat the count at each one.",
+          "Other light: use a darkened room and the same light source at each distance. A light meter can measure the light intensity.",
+          "Temperature of the water: put a heat shield between the lamp and the pondweed, check with a thermometer and add cold water if needed.",
+          "Carbon dioxide: add sodium hydrogen carbonate to the water.",
+          "Use the same pondweed each time, and wait for the rate to settle at each new distance before counting.",
+          "Bubbles are different sizes, so measuring the volume of oxygen (for example in a measuring cylinder instead of the test tube) is better than counting."
         ],
-        "tip": "Change the temperature, measure the bubbles each time, and say what you keep the same."
+        "tip": "This is a levelled question. The top level needs a detailed workable plan, plus how to control one variable and at least one other variable named."
       },
       "extra": [
         {
@@ -558,7 +560,7 @@
     ],
     "exemplar_ids": [
       "8415dc83-3e12-4ed1-b42b-ada10bd1c59b",
-      "8f618ad6-0b49-4393-8b65-ce6f5ed7d9ab",
+      "b3444c7e-0730-4bfe-b34b-28331badf490",
       "07d0c5ba-3f5b-47c9-91df-6d78a070db88",
       "10b2dcdd-50f4-4364-83b4-b06c845f6c25",
       "72d392b8-02ad-41d5-9a8a-b7982e104971"

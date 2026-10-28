@@ -228,7 +228,7 @@
               "items": [
                 "**Fewer or smaller stomata** mean less water vapour can diffuse out of the leaf.",
                 "**Fleshy leaves** store water for when the soil is dry.",
-                "**Spines** reduce the surface area of the leaf, so less water is lost."
+                "Leaves reduced to **spines** have a very small surface area, so less water is lost."
               ]
             }
           ]
@@ -360,6 +360,6 @@
       "a872445c-5999-4385-a668-bfe0bdd97f9a"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

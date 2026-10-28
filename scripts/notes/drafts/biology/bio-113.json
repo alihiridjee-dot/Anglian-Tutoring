@@ -202,8 +202,9 @@
             {
               "type": "list",
               "items": [
-                "Tissue culture is important for preserving rare plant species. It is also used commercially in **nurseries**.",
-                "The agar jelly contains water, hormones and nutrients such as **glucose**, amino acids, vitamins and mineral ions."
+                "As well as saving rare plant species, tissue culture is used commercially in plant **nurseries**.",
+                "The agar jelly contains water, hormones and nutrients such as **glucose**, amino acids, vitamins and mineral ions.",
+                "Some people have **ethical objections** to cloning."
               ]
             }
           ]
@@ -235,7 +236,7 @@
             {
               "type": "list",
               "items": [
-                "The growth medium can be sterilised in an autoclave or with gamma rays or UV. Microorganisms would compete with the plantlets for nutrients, as well as causing disease.",
+                "As well as in an autoclave, the growth medium can be sterilised with gamma rays or ultraviolet (UV) light. Microorganisms would compete with the plantlets for nutrients, as well as causing disease.",
                 "Plant breeders can grow plants at any time of year, because tissue culture is done in controlled conditions."
               ]
             }
@@ -349,6 +350,6 @@
       "5a5fe936-ccaf-411c-a47c-a43b1a420d2f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

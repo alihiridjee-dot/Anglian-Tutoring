@@ -353,7 +353,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "A conservation scheme only works if the people involved agree to it and if its results are checked."
+              "text": "A conservation scheme needs the people involved to agree to it, and its results need to be checked."
             },
             {
               "type": "list",
@@ -361,7 +361,7 @@
                 "**Agreements** are hard to reach because groups want different things from the same land. Farmers want land for crops, while conservationists want the habitat protected.",
                 "A global scheme needs the governments of several countries to agree.",
                 "**Monitoring** means checking that a scheme is working, for example by counting the animals or plants over time.",
-                "Monitoring is difficult because the total number of animals may not be known, and hunting rules may not be followed in every area."
+                "Monitoring is difficult because a whole population can rarely be counted, so the numbers are often only estimates."
               ]
             }
           ]
@@ -536,6 +536,6 @@
       "7691169c-6f89-48f7-8aaf-d809f69adb09"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

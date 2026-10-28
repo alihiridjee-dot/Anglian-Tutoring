@@ -280,8 +280,8 @@
               "items": [
                 "Place each quadrat at **random** coordinates. Lay tape measures along two sides of the area and choose the numbers with a random number generator.",
                 "Do not throw a quadrat. Where it lands is **biased** by where the thrower aims and how far they can throw, so the sample is not representative.",
-                "Lay a transect line at right angles to the edge, such as a river or woodland. Place quadrats at regular intervals along it.",
-                "Repeat the transect at least twice more and calculate the mean at each distance. Measure the factor at every quadrat, for example soil moisture with a soil moisture meter."
+                "Lay the transect line at right angles to the edge, such as a river or woodland.",
+                "Repeat the transect at least twice more and calculate the mean at each distance. Soil moisture can be measured with a soil moisture meter."
               ]
             }
           ]
@@ -305,8 +305,8 @@
             {
               "type": "list",
               "items": [
-                "In a quadrat divided into squares, count the squares that contain the plant. The percentage of all the squares that contain the plant is the percentage cover.",
-                "A **point quadrat** uses pins pushed down to the soil. A plant smaller than half a square is more likely to be counted, and no judgement of cover is needed."
+                "In a quadrat divided into squares, count the squares that are at least half covered by the plant. The percentage of all the squares that are counted is the percentage cover.",
+                "A **point quadrat** uses pins pushed down to the soil. Compared with counting squares, a plant smaller than half a square is more likely to be counted, and no judgement of cover is needed."
               ]
             }
           ]
@@ -484,7 +484,7 @@
                 "Lay two tape measures at right angles to make a grid. Use random numbers as the coordinates for each quadrat, so the sample is not biased.",
                 "Use a **key** to identify each species in the quadrat, so the number of different species can be counted.",
                 "In capture-recapture, put a small mark on the underside of the animal. It is less visible to predators, so marking does not make the animal more likely to be eaten.",
-                "Measure an abiotic factor in each area, such as soil pH with universal indicator or a pH meter. Other abiotic factors must be the same in each area, or the comparison is not fair."
+                "Measure an abiotic factor in each area, such as soil pH: test soil samples with universal indicator or a pH meter. Check that the other abiotic factors are the same in each area, so the comparison is fair."
               ]
             }
           ]
@@ -567,6 +567,6 @@
       "1adb7068-f454-4399-a792-1ce4216bf7e2"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

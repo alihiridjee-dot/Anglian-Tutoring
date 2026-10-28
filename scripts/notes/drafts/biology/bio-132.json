@@ -339,7 +339,22 @@
           "There is less damage to the crops, so the yield increases."
         ],
         "tip": "Link three of these points for three marks. Ladybirds, insects, predators and animals are all accepted as the control organism."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Disadvantages of biological control",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The control organism may **breed quickly** and spread beyond the area where it is needed.",
+                "It may eat or outcompete other species, not only the pest, which reduces **biodiversity**.",
+                "For example, mongooses brought onto an island to control pests in fields almost made a rare snake extinct."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -546,7 +561,7 @@
       "de5626c5-7d75-4dcc-ba5e-c1ec71b28453"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "exemplar_ids": [
       "22171df9-e142-418e-bade-0b7e39713f17",
       "09d11110-7d4c-4b88-9ab8-9f1b667be675",
