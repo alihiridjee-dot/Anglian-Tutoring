@@ -25,16 +25,17 @@ export function useStepPrefill<T>(read: () => Promise<T>, apply: (data: T) => vo
 
   useEffect(() => {
     let live = true;
-    read().then(
-      (data) => {
+    read()
+      .then((data) => {
         if (!live) return;
         apply(data);
         setState({ ready: true, error: null });
-      },
-      (error: unknown) => {
+      })
+      // A throw in `apply` lands here too, so the step shows Try again rather
+      // than spinning for good.
+      .catch((error: unknown) => {
         if (live) setState({ ready: false, error });
-      },
-    );
+      });
     return () => {
       live = false;
     };

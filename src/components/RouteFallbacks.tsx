@@ -35,42 +35,67 @@ export function RoutePending() {
  * student can still reach every other page, and moving to one clears the
  * error. The copy and look are the root error page's, so both read as one.
  */
-export function AuthedRouteError({ error, reset }: ErrorComponentProps) {
+export function AuthedRouteError(props: ErrorComponentProps) {
+  return (
+    <AppLayout title="This page didn't load">
+      <RouteErrorCard {...props} where="Signed-in" className="mt-6" />
+    </AppLayout>
+  );
+}
+
+/**
+ * The card a guarded route's error page draws, in whichever frame it has: the
+ * app's, or setup's (`/onboarding`). One card, so both get the same way out
+ * and the same check for a page left open across a deploy.
+ */
+export function RouteErrorCard({
+  error,
+  reset,
+  where,
+  heading: Heading = "h2",
+  className = "",
+}: Pick<ErrorComponentProps, "error" | "reset"> & {
+  /** Which part of the site, for the console. */
+  where: string;
+  /** `h1` where the frame has no title of its own. */
+  heading?: "h1" | "h2";
+  className?: string;
+}) {
   const router = useRouter();
   useEffect(() => {
-    console.error("Signed-in route error:", error);
+    console.error(`${where} route error:`, error);
     // Its code was replaced by a deploy: "Try again" would fetch the same
     // missing file, so fetch the new build instead.
     if (isStaleBuildError(error)) reloadForNewBuild();
-  }, [error]);
+  }, [error, where]);
 
   return (
-    <AppLayout title="This page didn't load">
-      <div className="tint-rose pop-card mx-auto mt-6 max-w-md p-5 text-center sm:p-8">
-        <Mascot name="flask" mood="wow" size={96} className="mx-auto" inheritTint />
-        <h2 className="font-display mt-4 text-xl font-extrabold">This page didn&apos;t load</h2>
-        <p className="text-muted-foreground mt-2 text-sm font-medium">
-          Something went wrong on our side, not yours.
-        </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button
-            type="button"
-            onClick={() => {
-              reset();
-              void router.invalidate();
-            }}
-            className="btn-solid inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm"
-          >
-            Try again
-          </button>
-          <Link
-            to="/dashboard"
-            className="btn-soft inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm"
-          >
-            Back to dashboard
-          </Link>
-        </div>
+    <div className={`tint-rose pop-card mx-auto max-w-md p-5 text-center sm:p-8 ${className}`}>
+      <Mascot name="flask" mood="wow" size={96} className="mx-auto" inheritTint />
+      <Heading className="font-display mt-4 text-xl font-extrabold">
+        This page didn&apos;t load
+      </Heading>
+      <p className="text-muted-foreground mt-2 text-sm font-medium">
+        Something went wrong on our side, not yours.
+      </p>
+      <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <button
+          type="button"
+          onClick={() => {
+            reset();
+            void router.invalidate();
+          }}
+          className="btn-solid inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm"
+        >
+          Try again
+        </button>
+        <Link
+          to="/dashboard"
+          className="btn-soft inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm"
+        >
+          Back to dashboard
+        </Link>
       </div>
-    </AppLayout>
+    </div>
   );
 }

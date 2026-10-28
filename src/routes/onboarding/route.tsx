@@ -1,17 +1,13 @@
-import { useEffect } from "react";
 import {
   createFileRoute,
-  Link,
   Outlet,
   redirect,
-  useRouter,
   useRouterState,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { BrandMark } from "@/components/auth/AuthShell";
-import { Mascot } from "@/components/Doodles";
-import { RoutePending } from "@/components/RouteFallbacks";
+import { RouteErrorCard, RoutePending } from "@/components/RouteFallbacks";
 import { getAuthSession } from "@/lib/auth/session";
 import { whenHydrated } from "@/lib/auth/hydration";
 import { loadGuardState } from "@/lib/auth/guardState";
@@ -142,43 +138,14 @@ function OnboardingLayout() {
  * pages' error card, in setup's own frame, with the same way out: the
  * dashboard, which sends a student who isn't set up yet back to the first step.
  */
-function OnboardingError({ error, reset }: ErrorComponentProps) {
-  const router = useRouter();
-  useEffect(() => {
-    console.error("Onboarding route error:", error);
-  }, [error]);
-
+function OnboardingError(props: ErrorComponentProps) {
   return (
     <div className="auth-aurora min-h-screen px-4 py-8 sm:py-12">
       <div className="mx-auto w-full max-w-2xl">
         <div className="mb-8">
           <BrandMark />
         </div>
-        <div className="tint-rose pop-card mx-auto max-w-md p-5 text-center sm:p-8">
-          <Mascot name="flask" mood="wow" size={96} className="mx-auto" inheritTint />
-          <h1 className="font-display mt-4 text-xl font-extrabold">This page didn&apos;t load</h1>
-          <p className="text-muted-foreground mt-2 text-sm font-medium">
-            Something went wrong on our side, not yours.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-2">
-            <button
-              type="button"
-              onClick={() => {
-                reset();
-                void router.invalidate();
-              }}
-              className="btn-solid inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm"
-            >
-              Try again
-            </button>
-            <Link
-              to="/dashboard"
-              className="btn-soft inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm"
-            >
-              Back to dashboard
-            </Link>
-          </div>
-        </div>
+        <RouteErrorCard {...props} where="Onboarding" heading="h1" />
       </div>
     </div>
   );
