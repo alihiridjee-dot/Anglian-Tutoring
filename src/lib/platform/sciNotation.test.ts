@@ -195,6 +195,27 @@ describe("toSciNotation", () => {
     const once = toSciNotation("Al2(SO4)3, Mg2+, 25 cm3, 10^-3, SO4^2-");
     expect(toSciNotation(once)).toBe(once);
   });
+
+  test("arrows take one space each side, however they were typed", () => {
+    cases([
+      ["O2->2MgO", "O₂ → 2MgO"],
+      ["A  --->  B", "A → B"],
+      ["N2 + 3H2 <=> 2NH3", "N₂ + 3H₂ ⇌ 2NH₃"],
+      ["a -> -> b", "a →  → b"],
+      ["a- -> b", "a- → b"],
+      ["x <-> y", "x < → y"],
+    ]);
+  });
+
+  test("a long run of spaces or line breaks is read in a moment", () => {
+    // Each used to take seconds: the arrow patterns were tried from every space.
+    for (const run of [" ", "\n", "-"]) {
+      const text = `a${run.repeat(100_000)}b`;
+      const started = performance.now();
+      toSciNotation(text);
+      expect(performance.now() - started).toBeLessThan(1_000);
+    }
+  });
 });
 
 describe("sciRuns", () => {

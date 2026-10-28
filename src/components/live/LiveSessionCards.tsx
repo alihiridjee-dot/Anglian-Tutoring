@@ -1,7 +1,8 @@
 import {
-  demoJoinClick,
+  joinClick,
   sessionStartMs,
   sessionTiming,
+  showsJoin,
   type LiveSession,
 } from "@/lib/live/liveSessions";
 import { SessionIdentity, WhatsCovered } from "@/components/live/SessionMeta";
@@ -63,6 +64,7 @@ export function UpcomingSessionCard({
 }) {
   const isZoom = s.join_url?.toLowerCase().includes("zoom");
   const { isLive } = sessionTiming(sessionStartMs(s) ?? now, now);
+  const showJoin = showsJoin(s, isTutor, now);
   return (
     <div
       data-guide="live-session"
@@ -76,6 +78,7 @@ export function UpcomingSessionCard({
           session={s}
           eyebrow={isLive ? "● Live now" : "Upcoming"}
           tone={isLive ? "emerald" : "blue"}
+          ukTime={isTutor}
         />
       </div>
       <div className="flex-1 min-w-0">
@@ -94,13 +97,13 @@ export function UpcomingSessionCard({
         )}
 
         {/* Conditional join buttons (Zoom vs General) */}
-        {s.join_url ? (
+        {s.join_url && showJoin ? (
           isZoom ? (
             <a
               href={s.join_url}
               target="_blank"
               rel="noreferrer"
-              onClick={demoJoinClick()}
+              onClick={joinClick(s.id)}
               className="min-h-11 sm:pointer-fine:min-h-0 bg-[#2D8CFF] hover:bg-[#2681F2] text-white px-4 py-2 rounded-lg text-sm font-semibold inline-flex items-center gap-2 transition-colors"
             >
               <Video className="w-4 h-4" />
@@ -111,7 +114,7 @@ export function UpcomingSessionCard({
               href={s.join_url}
               target="_blank"
               rel="noreferrer"
-              onClick={demoJoinClick()}
+              onClick={joinClick(s.id)}
               className="btn-solid inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-2 rounded-xl px-4 py-2 text-sm"
             >
               <Video className="size-4" aria-hidden />
@@ -161,7 +164,7 @@ export function PastSessionCard({
         <div className="w-11 h-11 rounded-xl bg-secondary text-muted-foreground flex items-center justify-center shrink-0">
           <CalendarClock className="w-5 h-5" />
         </div>
-        <SessionIdentity session={s} eyebrow="Completed" tone="muted" />
+        <SessionIdentity session={s} eyebrow="Completed" tone="muted" ukTime={isTutor} />
       </div>
       <div className="flex-1 min-w-0">
         <WhatsCovered points={s.specPoints} label="Covered" />

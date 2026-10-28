@@ -3,18 +3,21 @@ import { formatWhen, type LiveSession } from "@/lib/live/liveSessions";
 
 // The identity block for a session — status eyebrow, subject/level chips, title
 // and start time. Shared by the countdown banner and the session rows so a
-// session reads the same wherever it appears.
+// session reads the same wherever it appears. `ukTime` shows the start in UK
+// time, labelled, for a tutor: the time they typed when booking it.
 export function SessionIdentity({
   session,
   eyebrow,
   tone = "blue",
   showWhen = true,
+  ukTime = false,
   children,
 }: {
   session: LiveSession;
   eyebrow: string;
   tone?: "blue" | "emerald" | "muted";
   showWhen?: boolean;
+  ukTime?: boolean;
   children?: React.ReactNode;
 }) {
   const eyebrowColor =
@@ -49,7 +52,7 @@ export function SessionIdentity({
       {showWhen && session.starts_at && (
         <p className="flex items-center gap-1.5 text-sm font-medium text-foreground/80 mt-0.5">
           <CalendarClock className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-          {formatWhen(new Date(session.starts_at).getTime())}
+          {formatWhen(new Date(session.starts_at).getTime(), { uk: ukTime })}
         </p>
       )}
       {session.description && (

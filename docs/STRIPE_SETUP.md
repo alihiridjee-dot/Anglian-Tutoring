@@ -60,7 +60,7 @@ not check types either:
 ```bash
 bun run check:functions   # deno check, with the app's package.json ignored
 supabase functions deploy stripe-checkout
-supabase functions deploy stripe-webhook --no-verify-jwt
+supabase functions deploy stripe-webhook --no-verify-jwt   # also pinned in supabase/config.toml
 ```
 
 A successful deploy bumps the version in `supabase functions list`. The

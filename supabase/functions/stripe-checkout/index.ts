@@ -31,9 +31,10 @@
 // Required function secrets (set with `supabase secrets set ...`):
 //   STRIPE_SECRET_KEY, APP_URL
 // Auto-injected by the platform:
-//   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
+//   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, SUPABASE_ANON_KEY
 //
 import Stripe from "https://esm.sh/stripe@17.5.0?target=deno";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { corsHeaders, HttpError } from "../_shared/http.ts";
 import { admin, stripeClient } from "../_shared/clients.ts";
 import { requireUser, assertCanManage, assertCanUpgrade } from "./auth.ts";
@@ -160,6 +161,93 @@ const GENERIC_ERROR =
   "Something went wrong on our side. Please try again, or contact us if it keeps happening.";
 
 /**
+ * Per-account budgets for the actions that call Stripe on demand. Twenty
+ * Checkout or portal openings an hour: each makes live Stripe calls (and the
+ * first a Stripe customer), so one account looping it could crowd out real
+ * families' checkouts. Invoices get their own sixty, because Billing reloads
+ * them by itself every few minutes and that mustn't use up the checkout budget.
+ */
+const BILLING_BUDGETS = {
+  stripe_checkout: {
+    limit: 20,
+    busy: "The payment page has been opened a lot in the last hour. Please try again later, or contact us.",
+  },
+  stripe_invoices: {
+    limit: 60,
+    busy: "It has been loaded a lot in the last hour. Please try again later.",
+  },
+};
+
+/**
+ * Claim one call from a budget above. Claimed under the caller's own token, so
+ * it counts against them. If the claim itself fails (its quota row not applied
+ * yet, a blip), the family still gets through: a lost checkout costs more than
+ * a missed count.
+ */
+async function claimBillingSession(req: Request, endpoint: keyof typeof BILLING_BUDGETS) {
+  const budget = BILLING_BUDGETS[endpoint];
+  let allowed: unknown;
+  try {
+    const asCaller = createClient(
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_ANON_KEY")!,
+      {
+        global: { headers: { Authorization: req.headers.get("Authorization") ?? "" } },
+        auth: { persistSession: false },
+      },
+    );
+    const { data, error } = await asCaller.rpc("claim_ai_request", {
+      _endpoint: endpoint,
+      _limit: budget.limit,
+      _window: "01:00:00",
+    });
+    if (error) throw new Error(error.message);
+    allowed = data;
+  } catch (err) {
+    console.error("stripe-checkout: claim_ai_request failed, letting it through:", err);
+    return;
+  }
+  if (allowed === false) throw new HttpError(429, budget.busy);
+}
+
+/**
+ * Swap a live plan's price and charge the prorated difference now, or change
+ * nothing. Stripe's default (allow_incomplete) applies the swap even when the
+ * card is refused, leaving an unpaid invoice that tips the whole plan into
+ * past_due, while we had already enrolled the subject and said it was added.
+ * error_if_incomplete makes Stripe refuse the update instead (a 402).
+ *
+ * `callerPays` picks the advice: only the payer has the Card & invoices tile,
+ * so a student growing a parent's plan (or a parent changing one the student
+ * pays for) is told to ask whoever pays instead.
+ */
+async function swapPriceAndCharge(
+  stripe: Stripe,
+  subscriptionId: string,
+  params: Stripe.SubscriptionUpdateParams,
+  callerPays: boolean,
+) {
+  try {
+    return await stripe.subscriptions.update(subscriptionId, {
+      ...params,
+      proration_behavior: "always_invoice",
+      payment_behavior: "error_if_incomplete",
+    });
+  } catch (err) {
+    const e = err as { type?: string; statusCode?: number };
+    if (e?.type === "StripeCardError" || e?.statusCode === 402) {
+      throw new HttpError(
+        402,
+        callerPays
+          ? "The card on file didn't go through, so nothing has changed. Update it under Card & invoices in Billing, then try again."
+          : "The card on file didn't go through, so nothing has changed. Ask whoever pays for this plan to update the card from their Billing tab.",
+      );
+    }
+    throw err;
+  }
+}
+
+/**
  * Whether we teach each subject with its board, at the student's level, read
  * from the curriculum itself. A hard-coded edexcel/aqa/ocr list refused
  * Cambridge, which onboarding and first checkout both accept; coverage also
@@ -283,6 +371,8 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
   // First, so a missing APP_URL changes nothing: no checkout expired, no customer made.
   const back = `${appUrl()}${returnPath(payload.return_to, RETURN_PATHS.onboarding)}`;
 
+  await claimBillingSession(req, "stripe_checkout");
+
   const beneficiary = payload.student_id ?? user.id;
 
   // A payer other than the student must already be their linked parent. A
@@ -392,6 +482,7 @@ async function handlePortal(req: Request, payload: PortalPayload) {
   if (!customer?.stripe_customer_id) {
     throw new HttpError(404, "You don't have a billing account yet.");
   }
+  await claimBillingSession(req, "stripe_checkout");
 
   const session = await stripe.billingPortal.sessions.create({
     customer: customer.stripe_customer_id,
@@ -608,11 +699,15 @@ async function handleAddSubjects(req: Request, payload: AddSubjectsPayload) {
     const itemId = stripeSub.items.data[0]?.id;
     if (!itemId) throw new HttpError(500, "Couldn't find the subscription item to upgrade.");
 
-    const updated = await stripe.subscriptions.update(row.stripe_subscription_id, {
-      items: [{ id: itemId, price: pkg.stripe_price_id }],
-      proration_behavior: "always_invoice",
-      metadata: { ...stripeSub.metadata, tier: newTier },
-    });
+    const updated = await swapPriceAndCharge(
+      stripe,
+      row.stripe_subscription_id,
+      {
+        items: [{ id: itemId, price: pkg.stripe_price_id }],
+        metadata: { ...stripeSub.metadata, tier: newTier },
+      },
+      row.user_id === user.id,
+    );
 
     // Enrol the student in the new subjects and grow the RLS grant, together.
     await applyEnrolmentChange(db, payload.student_id, toAdd, []);
@@ -866,11 +961,15 @@ async function handleChangeCadence(req: Request, payload: ChangeCadencePayload) 
     // A cadence change resets the billing period, so the proration is invoiced
     // now rather than parked on a future bill: the family is starting a new week
     // / month / term today and the invoice should say so.
-    const updated = await stripe.subscriptions.update(row.stripe_subscription_id, {
-      items: [{ id: itemId, price: pkg.stripe_price_id }],
-      proration_behavior: "always_invoice",
-      metadata: { ...stripeSub.metadata, tier: newTier },
-    });
+    const updated = await swapPriceAndCharge(
+      stripe,
+      row.stripe_subscription_id,
+      {
+        items: [{ id: itemId, price: pkg.stripe_price_id }],
+        metadata: { ...stripeSub.metadata, tier: newTier },
+      },
+      row.user_id === user.id,
+    );
 
     const periodEndTs =
       updated.current_period_end ??
@@ -910,6 +1009,7 @@ async function handleInvoices(req: Request) {
 
   const customerIds = await householdCustomerIds(user.id);
   if (customerIds.length === 0) return { invoices: [] };
+  await claimBillingSession(req, "stripe_invoices");
 
   // Under Deno the SDK's list() resolves to `any`, so the shape is named here
   // rather than on each callback below.

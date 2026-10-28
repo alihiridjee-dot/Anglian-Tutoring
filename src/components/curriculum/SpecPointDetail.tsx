@@ -14,7 +14,8 @@ import { parseVideoUrl, type VideoEmbed } from "@/lib/curriculum/videoEmbed";
 import { SpecPointVideoEditor, type EditableVideo } from "@/components/tutor/SpecPointVideoEditor";
 import { useSpecPointNotes } from "@/hooks/data/useNotes";
 import { Chip } from "@/components/Shared";
-import { formatWhen } from "@/lib/live/liveSessions";
+import { formatWhen, joinClick, showsJoin } from "@/lib/live/liveSessions";
+import { useNow } from "@/hooks/useNow";
 import { plannerDateLabel } from "@/lib/planner/week";
 import {
   Plus,
@@ -321,16 +322,7 @@ export function SpecPointDetail({
             <div className="flex flex-col gap-1.5 w-full">
               <div className="flex items-start justify-between gap-2 text-sm font-semibold text-foreground leading-snug">
                 <span>{r.title}</span>
-                {r.join_url && (
-                  <a
-                    href={r.join_url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
-                  >
-                    Join
-                  </a>
-                )}
+                <SessionJoinLink session={r} isTutor={isTutor} />
               </div>
               {r.description && (
                 <p className="text-xs font-normal text-muted-foreground leading-normal">
@@ -339,7 +331,7 @@ export function SpecPointDetail({
               )}
               {r.starts_at && (
                 <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold">
-                  Starts: {formatWhen(new Date(r.starts_at).getTime())}
+                  Starts: {formatWhen(new Date(r.starts_at).getTime(), { uk: isTutor })}
                 </span>
               )}
             </div>
@@ -400,5 +392,26 @@ export function SpecPointDetail({
         />
       )}
     </div>
+  );
+}
+
+/**
+ * A lesson's Join on a spec point, by the same rule as every other Join
+ * ({@link showsJoin}): a student's shows only while the lesson can be joined.
+ * Ticking, so it appears on a page left open.
+ */
+function SessionJoinLink({ session, isTutor }: { session: Resource; isTutor: boolean }) {
+  const now = useNow(30_000);
+  if (!session.join_url || !showsJoin(session, isTutor, now)) return null;
+  return (
+    <a
+      href={session.join_url}
+      target="_blank"
+      rel="noreferrer"
+      onClick={joinClick(session.id)}
+      className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
+    >
+      Join
+    </a>
   );
 }

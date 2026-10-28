@@ -1,13 +1,18 @@
-import { describe, expect, test } from "bun:test";
+import { describe, expect, mock, test } from "bun:test";
+import { scopeSupabase } from "@/integrations/supabase/client";
 import {
   JOIN_LEAD_MS,
   LIVE_TAIL_MS,
   MINUTE_MS,
+  formatWhen,
   hasSessionFinished,
+  joinClick,
   nextSession,
+  recordLiveJoin,
   sessionStartMs,
   sessionTiming,
   sessionsOnCourse,
+  showsJoin,
 } from "./liveSessions";
 
 const NOW = Date.parse("2026-09-21T16:00:00Z");
@@ -35,6 +40,41 @@ describe("sessionTiming", () => {
     expect(hasSessionFinished(ended, NOW)).toBe(true);
     expect(hasSessionFinished(at(-LIVE_TAIL_MS + 1), NOW)).toBe(false);
   });
+});
+
+describe("showsJoin", () => {
+  // The page's path decides demo or real, so each test says where it is.
+  const onPage = (pathname: string, fn: () => void) => {
+    const g = globalThis as { window?: unknown };
+    const hadWindow = "window" in g;
+    const prevWindow = g.window;
+    g.window = { location: { pathname } };
+    try {
+      fn();
+    } finally {
+      if (hadWindow) g.window = prevWindow;
+      else delete g.window;
+    }
+  };
+
+  test("a student's Join shows only while the lesson can be joined", () =>
+    onPage("/live", () => {
+      expect(showsJoin(at(3 * 24 * 60 * MINUTE_MS), false, NOW)).toBe(false);
+      expect(showsJoin(at(JOIN_LEAD_MS + 1), false, NOW)).toBe(false);
+      expect(showsJoin(at(JOIN_LEAD_MS), false, NOW)).toBe(true);
+      expect(showsJoin(at(-30 * MINUTE_MS), false, NOW)).toBe(true);
+      expect(showsJoin(at(-LIVE_TAIL_MS), false, NOW)).toBe(false);
+    }));
+
+  test("a tutor's shows at any time, to open the room early", () =>
+    onPage("/live", () => {
+      expect(showsJoin(at(3 * 24 * 60 * MINUTE_MS), true, NOW)).toBe(true);
+    }));
+
+  test("the showcase's always shows", () =>
+    onPage("/demo/student/live", () => {
+      expect(showsJoin(at(3 * 24 * 60 * MINUTE_MS), false, NOW)).toBe(true);
+    }));
 });
 
 describe("nextSession", () => {
@@ -101,5 +141,93 @@ describe("sessionsOnCourse", () => {
       sessionsOnCourse(all, { level: null, enrolments: [{ subject: "biology", board: "aqa" }] }),
     ).toEqual([]);
     expect(sessionsOnCourse(all, { level: "gcse", enrolments: [] })).toEqual([]);
+  });
+});
+
+describe("formatWhen", () => {
+  test("in UK time, it is the time the tutor typed and says so, either side of the clock change", () => {
+    // Typed as 16:00 UK; a device in Madagascar would show 19:00.
+    expect(formatWhen(Date.parse("2026-10-24T15:00:00Z"), { uk: true })).toBe(
+      "Sat 24 Oct · 16:00 (UK time)",
+    );
+    expect(formatWhen(Date.parse("2026-10-29T16:00:00Z"), { uk: true })).toBe(
+      "Thu 29 Oct · 16:00 (UK time)",
+    );
+    // 23:30 UTC on a Sunday in BST is already Monday in the UK.
+    expect(formatWhen(Date.parse("2026-10-18T23:30:00Z"), { uk: true })).toBe(
+      "Mon 19 Oct · 00:30 (UK time)",
+    );
+  });
+
+  test("without it, there is no UK label", () => {
+    expect(formatWhen(Date.parse("2026-10-29T16:00:00Z"))).not.toContain("UK time");
+  });
+});
+
+describe("pressing Join", () => {
+  // The shared client is built lazily from env vars a test doesn't have; the
+  // scoped-client hook stands a fake one in for the length of each test. The
+  // page's path decides demo or real, so each test says where it is.
+  const withRpc = async (
+    rpc: (...args: unknown[]) => unknown,
+    fn: () => Promise<void>,
+    pathname = "/live",
+  ) => {
+    const g = globalThis as { window?: unknown };
+    const hadWindow = "window" in g;
+    const prevWindow = g.window;
+    g.window = { location: { pathname } };
+    scopeSupabase(() => ({ rpc }) as unknown as ReturnType<Parameters<typeof scopeSupabase>[0]>);
+    try {
+      await fn();
+    } finally {
+      scopeSupabase(() => undefined);
+      if (hadWindow) g.window = prevWindow;
+      else delete g.window;
+    }
+  };
+
+  test("files the lesson for the signed-in student, and the link still opens", async () => {
+    const rpc = mock(async () => ({ data: true, error: null }));
+    await withRpc(rpc, async () => {
+      const preventDefault = mock(() => {});
+      joinClick("lesson-1")({ preventDefault });
+      expect(preventDefault).not.toHaveBeenCalled();
+      expect(rpc).toHaveBeenCalledWith("record_live_join", { _resource_id: "lesson-1" });
+      expect(await recordLiveJoin("lesson-1")).toBe(true);
+    });
+  });
+
+  test("the showcase's Join opens nothing and files nothing", async () => {
+    const rpc = mock(async () => ({ data: true, error: null }));
+    await withRpc(
+      rpc,
+      async () => {
+        const preventDefault = mock(() => {});
+        joinClick("lesson-1")({ preventDefault });
+        expect(preventDefault).toHaveBeenCalled();
+        expect(rpc).not.toHaveBeenCalled();
+      },
+      "/demo/student/live",
+    );
+  });
+
+  test("a refused or failed record never throws", async () => {
+    for (const value of [
+      { data: false, error: null },
+      { data: null, error: { message: "function not found" } },
+    ]) {
+      await withRpc(
+        async () => value,
+        async () => expect(await recordLiveJoin("lesson-1")).toBe(false),
+      );
+    }
+    const offline = () => {
+      throw new Error("offline");
+    };
+    await withRpc(offline, async () => {
+      expect(await recordLiveJoin("lesson-1")).toBe(false);
+      expect(() => joinClick("lesson-1")({ preventDefault() {} })).not.toThrow();
+    });
   });
 });

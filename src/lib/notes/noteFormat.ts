@@ -36,7 +36,10 @@ export const NOTE_BOARDS = [
 export type NoteBoard = (typeof NOTE_BOARDS)[number];
 
 /** How a layer is named on screen: "IGCSE Biology · Cambridge". */
-export const NOTE_COURSE: Record<NoteBoard, { level: "GCSE" | "IGCSE" | "A-level"; board: string }> = {
+export const NOTE_COURSE: Record<
+  NoteBoard,
+  { level: "GCSE" | "IGCSE" | "A-level"; board: string }
+> = {
   aqa: { level: "GCSE", board: "AQA" },
   edexcel: { level: "GCSE", board: "Edexcel" },
   ocr: { level: "GCSE", board: "OCR" },
@@ -54,8 +57,7 @@ export const NOTE_COURSE: Record<NoteBoard, { level: "GCSE" | "IGCSE" | "A-level
  */
 export function noteLayerFor(board: string | undefined, level: string | null | undefined) {
   if (!board) return undefined;
-  const key =
-    level === "igcse" ? `${board}_igcse` : level === "alevel" ? `${board}_alevel` : board;
+  const key = level === "igcse" ? `${board}_igcse` : level === "alevel" ? `${board}_alevel` : board;
   return (NOTE_BOARDS as readonly string[]).includes(key) ? (key as NoteBoard) : undefined;
 }
 

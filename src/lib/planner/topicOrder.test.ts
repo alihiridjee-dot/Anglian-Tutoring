@@ -9,9 +9,11 @@ import {
 } from "./pacing";
 import {
   customSchedule,
+  examDateTooSoon,
   orderInputs,
   reorderTopics,
   resumeAfterPause,
+  topicsLeftFrom,
   type OrderTopic,
 } from "./topicOrder";
 import { spineReach, admit } from "./admissibility";
@@ -206,6 +208,51 @@ describe("individual topic order", () => {
         .reverse(),
     });
     expect(past(next, from)).toEqual(past(baseline, from));
+  });
+});
+
+describe("topics a new exam date has to re-spread", () => {
+  test("counts what the re-spread would, for either kind of plan", () => {
+    const custom = reorderTopics({ ...params, order });
+    for (const from of ["2026-08-31", today, "2026-10-12", "2026-11-02", "2026-11-09"])
+      for (const bands of [baseline, custom])
+        expect(topicsLeftFrom(bands, from)).toBe(orderInputs(bands, topics, from).remaining.length);
+  });
+  test("a curriculum spine saved without its weekly points counts the runs still going", () => {
+    const seeded = baseline.map(({ pointsByWeek: _, ...b }) => b);
+    const running = (from: string) =>
+      new Set(seeded.filter((b) => b.endWeek >= from).map((b) => b.topicId)).size;
+    for (const from of ["2026-08-31", today, "2026-10-12", "2026-11-09"])
+      expect(topicsLeftFrom(seeded, from)).toBe(running(from));
+    expect(topicsLeftFrom(seeded, "2026-11-09")).toBe(0);
+  });
+});
+
+describe("an exam date too near for the plan to follow", () => {
+  const tooSoon = (bands: PacingBand[], date: string, at = today) =>
+    examDateTooSoon({ bands, programStart: "2026-08-31", examDate: date, today: at });
+  test("leaves fewer weeks than the topics still to come", () => {
+    // b and c still to come from 14 Sep, and a ran for two weeks before it.
+    expect(tooSoon(baseline, "2026-09-28")).toBe(false);
+    expect(tooSoon(baseline, "2026-09-21")).toBe(true);
+    const custom = reorderTopics({ ...params, order });
+    expect(tooSoon(custom, "2026-09-28")).toBe(false);
+    expect(tooSoon(custom, "2026-09-21")).toBe(true);
+  });
+  test("but a late joiner's plan, cut to a week a topic, can still move earlier", () => {
+    // Five topics and four weeks to the exam: seeded as a week each for the
+    // first four, as computePacing cuts a short runway.
+    const late = computePacing(
+      ["p", "q", "r", "s", "t"].map((id) => ({ topicId: id, title: id, weight: 4 })),
+      weekKeyToDate("2027-02-01"),
+      weekKeyToDate("2027-03-01"),
+    );
+    expect(late.length).toBe(4);
+    const lateTooSoon = (date: string, at: string) =>
+      examDateTooSoon({ bands: late, programStart: "2027-02-01", examDate: date, today: at });
+    for (const at of ["2027-02-01", "2027-02-08"])
+      for (const date of ["2027-02-22", "2027-02-15", "2027-03-08"])
+        expect(lateTooSoon(date, at)).toBe(false);
   });
 });
 

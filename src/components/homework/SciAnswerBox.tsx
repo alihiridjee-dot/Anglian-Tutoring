@@ -175,14 +175,21 @@ export function SciAnswerBox({
   );
 }
 
+/** Small letters and punctuation only: no figure, capital, sign or arrow for toSciNotation to take. */
+const PLAIN_WORD = /^[a-z'’"(),.;:!?]*$/;
+
 /** The words the box will show with small figures (H2O -> H₂O), each once, at most six. */
 function recognised(text: string, context: string): string[] {
   const out = new Set<string>();
   const trim = (w: string) => w.replace(/^[("'[]+|[)"'\],.;:!?]+$/g, "");
   const words = text.split(/\s+/);
   let formatted = toSciNotation(text, context).split(/\s+/);
-  // An arrow typed as "->" gains spaces; read word by word instead.
-  if (words.length !== formatted.length) formatted = words.map((w) => toSciNotation(w, context));
+  // An arrow typed as "->" gains spaces; read word by word instead. A word of
+  // small letters alone has nothing to rewrite, so it is passed over: reading
+  // every word with the whole question beside it lagged each keystroke of a
+  // long answer.
+  if (words.length !== formatted.length)
+    formatted = words.map((w) => (PLAIN_WORD.test(w) ? w : toSciNotation(w, context)));
   words.forEach((w, i) => {
     const f = trim(formatted[i]);
     if (f && trim(w) !== f && /[₀-₉⁰¹²³⁴-⁹⁺⁻]/.test(f)) out.add(f);

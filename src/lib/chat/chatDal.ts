@@ -107,6 +107,31 @@ export function contextTarget(t: ChatThread): ContextTarget | null {
   return null;
 }
 
+/** Far more than the one truncated line a thread's row has room for. */
+const LAST_LINE_CHARS = 200;
+
+/**
+ * The start of a thread's last message, for its row in the list. The whole
+ * body was kept and run through SciText for every thread on every
+ * twenty-second poll, which one very long message made slow on both sides.
+ */
+export function lastLine(body: string | null | undefined): string | null {
+  if (!body) return null;
+  return body.length > LAST_LINE_CHARS ? body.slice(0, LAST_LINE_CHARS) : body;
+}
+
+/**
+ * What a failed send says. The send policy refuses a message to a thread the
+ * sender can no longer see: the other side deleted it while this one was
+ * typing, or a parent was unlinked from the child. The database's own words
+ * for that are about row-level security, which tells nobody anything.
+ */
+export function sendRefusal(error: { message: string; code?: string | null }): string {
+  return error.code === "42501" && /row-level security/i.test(error.message)
+    ? "This conversation is no longer available, so your message wasn't sent."
+    : error.message;
+}
+
 export class ChatDAL {
   /** Tutors a student may address a question to, by name. */
   static async listTutors(): Promise<TutorOption[]> {
@@ -206,7 +231,7 @@ export class ChatDAL {
         ...t,
         contextKind: contextKindOf(t),
         unread: summary?.unread ?? 0,
-        lastMessage: summary?.last_message ?? null,
+        lastMessage: lastLine(summary?.last_message),
         counterpartName: mine
           ? t.tutor_id
             ? tutorNames.get(t.tutor_id) || "Your tutor"
@@ -305,7 +330,7 @@ export class ChatDAL {
       body: input.body.trim(),
       ai_drafted: input.aiDrafted ?? false,
     });
-    if (error) throw new Error(error.message);
+    if (error) throw new Error(sendRefusal(error));
   }
 
   /** Marks the caller's own side of a thread read. */

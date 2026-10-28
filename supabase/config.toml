@@ -28,3 +28,12 @@ verify_jwt = false
 # in the function itself (honeypot, per-address cooldown, hourly cap).
 [functions.trial-code]
 verify_jwt = false
+
+# Stripe calls the webhook with no Supabase key, so the gateway must let it
+# through: with verify_jwt on, every Stripe event gets a 401, no subscription
+# row is ever written, and a family that has paid never gets access. The
+# function authenticates each call by its Stripe signature instead
+# (constructEventAsync with STRIPE_WEBHOOK_SECRET). Pinned here so a plain
+# `supabase functions deploy` cannot turn the check back on.
+[functions.stripe-webhook]
+verify_jwt = false

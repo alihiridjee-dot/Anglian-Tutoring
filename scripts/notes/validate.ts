@@ -26,7 +26,8 @@ const set = setAt >= 0 ? args[setAt + 1] : "drafts";
 const idsAt = args.indexOf("--ids");
 const ids = idsAt >= 0 ? new Set(args[idsAt + 1].split(",")) : null;
 const only = args.find(
-  (a, i) => !a.startsWith("--") && !(setAt >= 0 && i === setAt + 1) && !(idsAt >= 0 && i === idsAt + 1),
+  (a, i) =>
+    !a.startsWith("--") && !(setAt >= 0 && i === setAt + 1) && !(idsAt >= 0 && i === idsAt + 1),
 );
 let failures = 0,
   checked = 0;
@@ -60,9 +61,7 @@ for (const subject of ["biology", "chemistry", "physics"]) {
         if (!refs.some((r) => r.id === id))
           errs.push(`spec point ${id} is not part of ${concept.id}`);
       for (const [b, layer] of Object.entries(note.boards ?? {})) {
-        const codes = refs
-          .filter((r) => layerOf(r.board) === b)
-          .map((r) => r.code);
+        const codes = refs.filter((r) => layerOf(r.board) === b).map((r) => r.code);
         if (!codes.length) errs.push(`boards.${b}: this board has no spec point in ${concept.id}`);
         for (const c of layer?.spec_codes ?? [])
           if (!codes.includes(c))

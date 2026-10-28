@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, test } from "bun:test";
+import { afterEach, beforeEach, describe, expect, test } from "bun:test";
 import {
   answersDiffer,
   attemptIdFor,
@@ -41,6 +41,10 @@ const STUDENT = "aaaaaaaa-0000-0000-0000-000000000001";
 
 beforeEach(() => {
   (globalThis as { window?: unknown }).window = { sessionStorage: new MemoryStorage() };
+});
+// The stand-in has no `location`, so a file run after this one would throw on it.
+afterEach(() => {
+  delete (globalThis as { window?: unknown }).window;
 });
 
 describe("a quiz attempt's id", () => {
