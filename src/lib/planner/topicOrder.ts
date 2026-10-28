@@ -35,6 +35,25 @@ export function spineMatchesExam(bands: PacingBand[], examDate: string): boolean
   );
 }
 
+/**
+ * How many topics still have work promised from `from` on: what a move of the
+ * exam date re-spreads (orderInputs' `remaining`), each needing a week at
+ * least. A band saved without its weekly points (a curriculum-order spine as
+ * first seeded) counts while its run reaches `from`.
+ */
+export function topicsLeftFrom(bands: PacingBand[], from: string): number {
+  return new Set(
+    bands
+      .filter(isTeachBand)
+      .filter((b) =>
+        b.pointsByWeek
+          ? Object.entries(b.pointsByWeek).some(([w, points]) => w >= from && points.length)
+          : b.endWeek >= from,
+      )
+      .map((b) => b.topicId),
+  ).size;
+}
+
 /** Freeze the actual weekly promises before the boundary, including a partial topic. */
 export function orderInputs(bands: PacingBand[], topics: OrderTopic[], from: string) {
   const hydrated = withWeeklyPoints(

@@ -12,6 +12,7 @@ import {
   orderInputs,
   reorderTopics,
   resumeAfterPause,
+  topicsLeftFrom,
   type OrderTopic,
 } from "./topicOrder";
 import { spineReach, admit } from "./admissibility";
@@ -206,6 +207,23 @@ describe("individual topic order", () => {
         .reverse(),
     });
     expect(past(next, from)).toEqual(past(baseline, from));
+  });
+});
+
+describe("topics a new exam date has to re-spread", () => {
+  test("counts what the re-spread would, for either kind of plan", () => {
+    const custom = reorderTopics({ ...params, order });
+    for (const from of ["2026-08-31", today, "2026-10-12", "2026-11-02", "2026-11-09"])
+      for (const bands of [baseline, custom])
+        expect(topicsLeftFrom(bands, from)).toBe(orderInputs(bands, topics, from).remaining.length);
+  });
+  test("a curriculum spine saved without its weekly points counts the runs still going", () => {
+    const seeded = baseline.map(({ pointsByWeek: _, ...b }) => b);
+    const running = (from: string) =>
+      new Set(seeded.filter((b) => b.endWeek >= from).map((b) => b.topicId)).size;
+    for (const from of ["2026-08-31", today, "2026-10-12", "2026-11-09"])
+      expect(topicsLeftFrom(seeded, from)).toBe(running(from));
+    expect(topicsLeftFrom(seeded, "2026-11-09")).toBe(0);
   });
 });
 

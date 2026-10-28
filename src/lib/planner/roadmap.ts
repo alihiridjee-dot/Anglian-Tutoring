@@ -521,12 +521,15 @@ function liveSpine(params: {
       today: toDateKey(thisMonday),
     });
   } catch (e) {
-    // Too few weeks left, or the exams have passed: the spine as it was still
+    // Too few weeks left, or the exams have passed: the spine as stored still
     // cuts weeks, and `unscheduledTopicTitles` reports what it cannot hold.
     // Throwing here took the whole planner down — including the date box that
-    // fixes it.
+    // fixes it. Never curriculum order re-dealt from the programme start: it
+    // crammed every topic into weeks already gone, and once accepted those
+    // weeks stood as promises, so putting the date back left the student
+    // owing work they had never been set.
     console.warn("[planner] couldn't re-spread the plan to the new exam date", e);
-    return unmoved;
+    return stored;
   }
 }
 

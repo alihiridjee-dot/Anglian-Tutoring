@@ -1,4 +1,10 @@
-import { customSchedule, reorderTopics, resumeAfterPause, spineMatchesExam } from "./topicOrder";
+import {
+  customSchedule,
+  reorderTopics,
+  resumeAfterPause,
+  spineMatchesExam,
+  topicsLeftFrom,
+} from "./topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
 import { dbError } from "@/lib/platform/errors";
@@ -570,23 +576,22 @@ export class ProgramDAL {
       throw new Error("Choose an exam date between today and four years from now.");
     const { data: saved, error: readError } = await supabase
       .from("student_program_plan")
-      .select("pacing")
+      .select("pacing, program_start")
       .eq("student_id", params.studentId)
       .eq("subject", params.subject)
       .maybeSingle();
     if (readError) throw dbError(readError);
-    const stored = (saved?.pacing ?? []) as unknown as PacingBand[];
-    const custom = customSchedule(stored);
-    if (custom) {
-      const from = [custom.from, toDateKey(mondayOf())].sort().at(-1)!;
-      const remaining = new Set(
-        stored
-          .filter((b) =>
-            Object.entries(b.pointsByWeek ?? {}).some(([w, points]) => w >= from && points.length),
-          )
-          .map((b) => b.topicId),
-      );
-      if (weeksBetween(weekKeyToDate(from), weekKeyToDate(params.examDate)) < remaining.size)
+    // A new date re-spreads the topics still to come from this week, a week
+    // each at least (liveSpine), whichever order the plan is in. A date with
+    // fewer weeks than that can't be followed: saved anyway, it left the plan
+    // cut for the old date under the new one.
+    if (saved) {
+      const stored = (saved.pacing ?? []) as unknown as PacingBand[];
+      const from = [customSchedule(stored)?.from ?? saved.program_start, toDateKey(mondayOf())]
+        .sort()
+        .at(-1)!;
+      const left = topicsLeftFrom(stored, from);
+      if (left && weeksBetween(weekKeyToDate(from), weekKeyToDate(params.examDate)) < left)
         throw new Error(
           "That exam date leaves too few weeks for your remaining topics. Choose a later date.",
         );

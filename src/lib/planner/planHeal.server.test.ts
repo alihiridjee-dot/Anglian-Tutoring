@@ -158,7 +158,7 @@ describe("checkCourse", () => {
     weeks: 3,
   };
   const roadmap = (over: Partial<RoadmapResult> = {}) =>
-    ({ storedBands: [band], needsAck: false, ...over }) as RoadmapResult;
+    ({ storedBands: [band], bands: [band], needsAck: false, ...over }) as RoadmapResult;
   const saved = { plan: { id: "p1" }, points: [], withheld: [] } as unknown as Awaited<
     ReturnType<typeof WeeklyPlanDAL.getPlan>
   >;
@@ -238,6 +238,19 @@ describe("checkCourse", () => {
       outcome: "left",
       reason: "custom order to re-flow",
     });
+    expect(mocks.apply).not.toHaveBeenCalled();
+  });
+
+  test("an exam move re-spread as a custom order waits for someone signed in too", async () => {
+    // Curriculum order as stored; the move re-spreads it from this week, and
+    // that is saved through the topic-order RPC, which the service key can't use.
+    const respread = { ...band, schedule: { version: 1, from: WEEK, examDate: "2027-05-10" } };
+    mocks.load.mockResolvedValue(roadmap({ needsAck: true, bands: [respread] }));
+    for (const dryRun of [true, false])
+      expect(await checkCourse(row, dryRun, course)).toMatchObject({
+        outcome: "left",
+        reason: "custom order to re-flow",
+      });
     expect(mocks.apply).not.toHaveBeenCalled();
   });
 

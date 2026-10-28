@@ -265,6 +265,8 @@ for (const file of [
   // began this week takes the breaks after it too), so every check below runs
   // on it. Its own checks are in test-scheduler-fixes-db.ts.
   "20261028090000_scheduler_fixes.sql",
+  // book_break with one unread notice a day (section 9b).
+  "20261028120000_break_notice_once_a_day.sql",
 ])
   await db.exec(await readFile(new URL(`../supabase/migrations/${file}`, import.meta.url), "utf8"));
 
@@ -645,6 +647,67 @@ const extension = await book(alex, alex, mon(3), 2, "holiday");
   assert.deepEqual(await notes(mum), [], "calling off or coming back tells nobody");
 }
 
+// ── 9b. Booking and calling off over and over: one unread notice a day ──
+{
+  const week = (n: number, by: string) => `No new work from ${dy(mon(n))} to ${dy(sun(n))}. ${by}`;
+  for (let i = 0; i < 5; i++) {
+    const id = await book(alex, alex, mon(6), 1);
+    assert.equal(await end(alex, id), "cancelled");
+  }
+  const last = await book(alex, alex, mon(8), 1);
+  const told: Note = {
+    type: "break_booked",
+    title: "Alex is taking a break",
+    body: week(8, "Alex booked it."),
+    link: "/parent-dashboard",
+  };
+  assert.deepEqual(await notes(mum), [told], "six bookings, one notice: the latest");
+  assert.deepEqual(await notes(dad), [told], "for each parent");
+
+  // Once read, the next booking is news again; unread, it is still one notice.
+  await db.query("update public.notifications set read_at = now() where user_id = $1", [mum]);
+  assert.equal(await end(alex, last), "cancelled");
+  const again = await book(alex, alex, mon(6), 1);
+  assert.equal((await notes(mum)).length, 2, "a parent who read it is told again");
+  assert.deepEqual(
+    (await notes(dad)).map((n) => n.body),
+    [week(6, "Alex booked it.")],
+    "a parent who hasn't still has one, rewritten",
+  );
+
+  // A day on, a booking is a new notice even when the last is unread.
+  await db.exec("update public.notifications set created_at = created_at - interval '25 hours'");
+  assert.equal(await end(alex, again), "cancelled");
+  const later = await book(alex, alex, mon(6), 1);
+  assert.equal((await notes(dad)).length, 2, "one a day");
+  assert.equal(await end(alex, later), "cancelled");
+  await clearNotes();
+
+  // The student, told when someone else books, is told once a day too.
+  for (const who of [mum, tutor]) {
+    const id = await book(who, alex, mon(6), 1);
+    assert.equal(await end(who, id), "cancelled");
+  }
+  assert.deepEqual(await notes(alex), [
+    {
+      type: "break_booked",
+      title: "You're taking a break",
+      body: week(6, "Your tutor booked it."),
+      link: "/planner",
+    },
+  ]);
+  assert.deepEqual(
+    (await notes(mum)).map((n) => n.body),
+    [week(6, "Their tutor booked it.")],
+    "the parent who booked first is told of the tutor's booking",
+  );
+  // Another child's notice is its own: Sam has no parent, so only Sam is told.
+  await book(admin, sam, mon(6), 1, "other");
+  assert.equal((await notes(sam)).length, 1);
+  assert.equal((await notes(alex)).length, 1);
+  await clearNotes();
+}
+
 // ── 10. The table's own rules hold even for a direct write ───────────────
 {
   const bad = (starts: string, ends: string) =>
@@ -832,7 +895,34 @@ const extension = await book(alex, alex, mon(3), 2, "holiday");
 // ── 14. The rollback removes all of it, and puts the erase back ─────────
 {
   await refuses(() => planWeek(alex, mon(2)), "23514", "on_a_break", "still a break week");
-  // The scheduler fixes first: end_break as 20261005161000 left it.
+  // The notice a day first: book_break as 20261005163000 left it.
+  await db.exec(
+    await readFile(
+      new URL(
+        "../supabase/rollbacks/20261028120000_break_notice_once_a_day.down.sql",
+        import.meta.url,
+      ),
+      "utf8",
+    ),
+  );
+  const noticeSrc = (
+    await db.query<{ src: string }>(
+      "select prosrc as src from pg_proc where proname = 'book_break'",
+    )
+  ).rows[0].src;
+  assert.ok(
+    (
+      await readFile(
+        new URL(
+          "../supabase/migrations/20261005163000_break_notice_existing_parents.sql",
+          import.meta.url,
+        ),
+        "utf8",
+      )
+    ).includes(`as $function$${noticeSrc}$function$;`),
+    "book_break as 20261005163000 left it",
+  );
+  // The scheduler fixes next: end_break as 20261005161000 left it.
   await db.exec(
     await readFile(
       new URL("../supabase/rollbacks/20261028090000_scheduler_fixes.down.sql", import.meta.url),
