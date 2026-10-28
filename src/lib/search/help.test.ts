@@ -72,6 +72,30 @@ describe("scrubForModel", () => {
 
   test("leaves spec codes alone", () => {
     expect(scrubForModel("quiz on 4.1.2.3")).toBe("quiz on 4.1.2.3");
+    expect(scrubForModel("notes for 4.10.1.2.3")).toBe("notes for 4.10.1.2.3");
+    expect(scrubForModel("lesson 9.30-10.30")).toBe("lesson 9.30-10.30");
+  });
+
+  test("scrubs before cutting, so no half address reaches the model", () => {
+    const email = scrubForModel(`${"x".repeat(183)} john.smith@gmail.com`);
+    expect(email).not.toContain("john");
+    expect(email).not.toContain("gmail");
+    const phone = scrubForModel(`${"x".repeat(191)} 07700 900123`);
+    expect(phone).not.toContain("07700");
+    expect(phone.length).toBeLessThanOrEqual(200);
+  });
+
+  test("a cut inside a word drops the word", () => {
+    const out = scrubForModel(`${"word ".repeat(39)}abcdefghij`);
+    expect(out.endsWith("word")).toBe(true);
+    expect(out.length).toBeLessThanOrEqual(200);
+  });
+
+  test("catches dotted numbers, accented addresses and a spelled-out (at)", () => {
+    expect(scrubForModel("ring 07700.900.123")).toBe("ring [number]");
+    expect(scrubForModel("I'm jöe@gmäil.com")).toBe("I'm [email]");
+    expect(scrubForModel("I'm john(at)gmail.com")).toBe("I'm [email]");
+    expect(scrubForModel("+44 (0)7700 900123 please")).toBe("[number] please");
   });
 });
 

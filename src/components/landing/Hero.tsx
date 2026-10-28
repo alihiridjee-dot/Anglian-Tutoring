@@ -254,12 +254,8 @@ export function Hero() {
 
         {/* Subtle, beautiful faded background images reflecting lab / physics / astronomy */}
         <div className="absolute inset-0 opacity-[0.09] z-0">
-          <img
-            src="https://images.unsplash.com/photo-1532187863486-abf9d39d66e8?auto=format&fit=crop&w=1600&q=80"
-            alt="Chemistry Laboratory"
-            className="w-1/2 h-full object-cover absolute left-0 top-0 select-none pointer-events-none filter blur-[2px]"
-            referrerPolicy="no-referrer"
-          />
+          {/* The left-hand lab photo was taken down at its source (it now
+              answers 404), so only the right-hand one is left. */}
           <img
             src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1600&q=80"
             alt="Physics & Light Equations"

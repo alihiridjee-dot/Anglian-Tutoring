@@ -163,17 +163,38 @@ export function contentTerms(query: string, intent: HelpIntentId | null): string
 /** Longest question sent to the model. A help request is a sentence, not an essay. */
 export const MAX_QUESTION_LENGTH = 200;
 
+/** An email address, accented letters and a spelled-out "(at)" included. */
+const EMAIL = /[\p{L}\p{N}_.+-]+\s*(?:@|\(at\)|\[at\])\s*[\p{L}\p{N}_-]+(?:\.[\p{L}\p{N}_-]+)+/giu;
+/** A run that could be a phone number, however it is spaced or dotted. */
+const PHONE_RUN = /\+?\(?\d[\d\s.()-]{8,}\d/g;
+/** Fewer digits than this is a spec code, a date or a time, not a phone number. */
+const PHONE_DIGITS = 8;
+
+/**
+ * Cuts to `max` characters. A cut inside a word drops that word, in case it
+ * was the start of an address or number the patterns can no longer see.
+ */
+function cutAt(text: string, max: number): string {
+  if (text.length <= max) return text;
+  const head = text.slice(0, max);
+  return /\s/.test(text[max]) ? head : head.replace(/\S+$/, "");
+}
+
 /**
  * Takes out what we can spot of a student's contact details before the
  * question leaves for the model: email addresses and phone numbers. A name
  * typed in plain words cannot be told apart from a topic and still goes.
+ *
+ * Scrubbed before it is cut to length, so a cut can't leave half an address
+ * the patterns no longer recognise.
  */
 export function scrubForModel(text: string): string {
-  return text
-    .slice(0, MAX_QUESTION_LENGTH)
-    .replace(/[\w.+-]+@[\w-]+(\.[\w-]+)+/g, "[email]")
-    .replace(/\+?\d[\d\s-]{8,}\d/g, "[number]")
-    .trim();
+  const scrubbed = cutAt(text, MAX_QUESTION_LENGTH * 4)
+    .replace(EMAIL, "[email]")
+    .replace(PHONE_RUN, (run) =>
+      run.replace(/\D/g, "").length >= PHONE_DIGITS ? "[number]" : run,
+    );
+  return cutAt(scrubbed, MAX_QUESTION_LENGTH).trim();
 }
 
 /** What the model may answer: one of the intents, a search, or nothing fits. */

@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/Shared";
 import { inputCls } from "@/components/tutor/Field";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { useAccountDeletion, useScheduleDeletion, useUndoDeletion } from "@/hooks/data/useStudents";
+import { sameName } from "@/lib/profile/displayName";
 import { formatDate } from "./studentPresentation";
 
 /** Must match COOLING_OFF_DAYS in supabase/functions/delete-account. */
@@ -118,7 +119,9 @@ function DeleteAccountDialog({
   const schedule = useScheduleDeletion();
   const [typed, setTyped] = useState("");
   const date = formatDate(new Date(Date.now() + COOLING_OFF_DAYS * 86_400_000).toISOString());
-  const matches = typed.trim().toLowerCase() === name.trim().toLowerCase();
+  // Compared as a reader sees them: one accent typed two ways, or a doubled
+  // space the page shows as one, still counts as the name.
+  const matches = sameName(typed, name);
 
   // The record underneath holds still; a tap outside closes the sheet until the
   // name has been started, after which only the buttons or Escape do.

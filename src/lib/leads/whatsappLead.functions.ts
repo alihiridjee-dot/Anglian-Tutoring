@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
-import { takeToken } from "@/lib/platform/rateLimit";
+import { requestAddresses, retryWait, takeToken } from "@/lib/platform/rateLimit";
 import { saveLead } from "./saveLead.server";
 
 /**
@@ -41,6 +41,8 @@ const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 // --- Limits ------------------------------------------------------------------
 /** Conversations one IP may submit per window. Generous for a person, tight for a script. */
 const PER_IP = { limit: 3, windowMs: 10 * 60_000 };
+/** Conversations through one connecting address, which behind Cloudflare many visitors share. */
+const PER_HOP = { limit: 30, windowMs: 10 * 60_000 };
 /** Notifications this instance will send per hour, whatever the source. */
 const GLOBAL = { limit: 60, windowMs: 60 * 60_000 };
 
@@ -79,17 +81,6 @@ function validate(input: LeadInput) {
     message,
     trap: clean(input?.website, 200),
   };
-}
-
-/**
- * Best available client identifier. Behind Vercel this is a real client IP;
- * behind nothing it may be empty, in which case every anonymous caller shares
- * one bucket — deliberately the strict direction to fail in.
- */
-function clientKey(): string {
-  const headers = getRequest()?.headers;
-  const forwarded = headers?.get("x-forwarded-for")?.split(",")[0]?.trim();
-  return forwarded || headers?.get("x-real-ip")?.trim() || "unknown";
 }
 
 /**
@@ -184,9 +175,14 @@ export const sendWhatsAppLead = createServerFn({ method: "POST" })
     // bot it was spotted only teaches whoever wrote it to stop filling the field.
     if (data.trap) return { ok: true as const, delivered: false };
 
-    const gate = takeToken(clientKey(), PER_IP.limit, PER_IP.windowMs);
+    const { visitor, hop } = requestAddresses(getRequest()?.headers);
+    let gate = takeToken(visitor, PER_IP.limit, PER_IP.windowMs);
+    if (gate.ok) gate = takeToken(`hop:${hop}`, PER_HOP.limit, PER_HOP.windowMs);
     if (!gate.ok) {
-      throw new Error("We've got your messages — give us a moment to reply before sending more.");
+      // Nothing was saved, so it must not read as though it arrived.
+      throw new Error(
+        `That didn't send: too many messages came in at once. Please try again in ${retryWait(gate.retryAfter)}, or message us directly.`,
+      );
     }
 
     const lead = { name: data.name, email: data.email, phone: data.phone, message: data.message };

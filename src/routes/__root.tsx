@@ -13,6 +13,7 @@ import { useEffect, type ReactNode, createElement } from "react";
 
 import appCss from "../styles.css?url";
 import { supabase } from "@/integrations/supabase/client";
+import { scrubAnalyticsEvent } from "@/lib/platform/analyticsUrl";
 import { Mascot } from "@/components/Doodles";
 import { markHydrated } from "@/lib/auth/hydration";
 import { createAuthChangeHandler } from "@/lib/auth/authChange";
@@ -202,7 +203,8 @@ function RootComponent() {
           right: "max(24px, env(safe-area-inset-right))",
         }}
       />
-      <Analytics />
+      {/* No sign-in token, query or student id in the address reaches Vercel. */}
+      <Analytics beforeSend={scrubAnalyticsEvent} />
     </QueryClientProvider>
   );
 }

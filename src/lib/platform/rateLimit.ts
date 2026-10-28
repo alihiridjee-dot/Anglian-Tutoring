@@ -73,6 +73,35 @@ export function takeToken(key: string, limit: number, windowMs: number): LimitRe
   return { ok: true, retryAfter: 0 };
 }
 
+/**
+ * Who a public form's hits count against.
+ *
+ * The site sits behind Cloudflare, so the address Vercel puts in
+ * `x-forwarded-for` is Cloudflare's, and many visitors share it: a few
+ * strangers' enquiries could use up the next visitor's limit. Cloudflare
+ * passes the visitor's own address in `cf-connecting-ip`, so `visitor` is
+ * that. A caller who reaches Vercel without Cloudflare can write that header
+ * themselves, so `hop`, the address that actually connected, keeps a looser
+ * limit of its own. With nothing to go on, every caller shares one bucket,
+ * which is the strict direction to fail in.
+ */
+export function requestAddresses(headers: Headers | null | undefined): {
+  visitor: string;
+  hop: string;
+} {
+  const hop =
+    headers?.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    headers?.get("x-real-ip")?.trim() ||
+    "unknown";
+  return { visitor: headers?.get("cf-connecting-ip")?.trim() || hop, hop };
+}
+
+/** "5 minutes", from a refusal's seconds to wait. */
+export function retryWait(retryAfter: number): string {
+  const minutes = Math.max(1, Math.ceil(retryAfter / 60));
+  return `${minutes} minute${minutes === 1 ? "" : "s"}`;
+}
+
 /** Clear all windows — tests only. */
 export function __resetRateLimitForTests(): void {
   buckets.clear();

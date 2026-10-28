@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
+import { useViewer } from "@/hooks/useViewer";
+import { UserRole } from "@/types/user";
 
 export const Route = createFileRoute("/_authenticated/settings")({
   head: () => ({ meta: [{ title: "Settings | Anglia Educate" }] }),
@@ -16,14 +18,27 @@ function Row({ label, value }: { label: string; value: string }) {
   );
 }
 
+/**
+ * The account type in words. Read off the role the app routes on, not the raw
+ * `user_roles` rows: every sign-up gets a "student" row there, parents included,
+ * so a parent was told they were a student.
+ */
+const ACCOUNT_TYPE: Record<UserRole, string> = {
+  [UserRole.STUDENT]: "Student",
+  [UserRole.PARENT]: "Parent",
+  [UserRole.TUTOR]: "Tutor",
+  [UserRole.ADMIN]: "Admin",
+};
+
 function Settings() {
-  const { email, roles } = useRoles();
+  const { email } = useRoles();
+  const viewer = useViewer();
   return (
     <AppLayout title="Settings">
       <div className="max-w-2xl rounded-2xl premium-card p-4 sm:p-6">
         <h2 className="font-display text-lg font-bold tracking-tight">Account</h2>
         <Row label="Email" value={email ?? "—"} />
-        <Row label="Roles" value={(roles ?? []).join(", ") || "—"} />
+        <Row label="Account type" value={viewer ? ACCOUNT_TYPE[viewer.appRole] : "—"} />
       </div>
     </AppLayout>
   );

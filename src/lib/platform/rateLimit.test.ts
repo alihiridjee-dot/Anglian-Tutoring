@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, setSystemTime, test } from "bun:test";
-import { __resetRateLimitForTests, takeToken } from "./rateLimit";
+import { __resetRateLimitForTests, requestAddresses, retryWait, takeToken } from "./rateLimit";
 
 const MIN = 60_000;
 
@@ -30,5 +30,37 @@ describe("takeToken", () => {
 
     // The hour isn't up, so the budget is still spent.
     expect(takeToken("__global__", 1, 60 * MIN).ok).toBe(false);
+  });
+});
+
+describe("requestAddresses", () => {
+  test("behind Cloudflare, counts the visitor, not Cloudflare's shared address", () => {
+    const headers = new Headers({
+      "x-forwarded-for": "172.70.1.2",
+      "cf-connecting-ip": "81.2.69.160",
+    });
+    expect(requestAddresses(headers)).toEqual({ visitor: "81.2.69.160", hop: "172.70.1.2" });
+  });
+
+  test("without Cloudflare, the connecting address is both", () => {
+    const headers = new Headers({ "x-forwarded-for": "81.2.69.160, 10.0.0.1" });
+    expect(requestAddresses(headers)).toEqual({ visitor: "81.2.69.160", hop: "81.2.69.160" });
+    expect(requestAddresses(new Headers({ "x-real-ip": "81.2.69.161" }))).toEqual({
+      visitor: "81.2.69.161",
+      hop: "81.2.69.161",
+    });
+  });
+
+  test("with nothing to go on, everyone shares one bucket", () => {
+    expect(requestAddresses(new Headers())).toEqual({ visitor: "unknown", hop: "unknown" });
+    expect(requestAddresses(undefined)).toEqual({ visitor: "unknown", hop: "unknown" });
+  });
+});
+
+describe("retryWait", () => {
+  test("rounds up to whole minutes, never below one", () => {
+    expect(retryWait(1)).toBe("1 minute");
+    expect(retryWait(61)).toBe("2 minutes");
+    expect(retryWait(600)).toBe("10 minutes");
   });
 });
