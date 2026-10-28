@@ -12,7 +12,7 @@ import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { VideoThumbnail, VideoModal } from "@/components/VideoPlayer";
 import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
 import { levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
-import { SciText, Spinner } from "@/components/Shared";
+import { ErrorNote, SciText, Spinner } from "@/components/Shared";
 import { NoteChip } from "@/components/planner/WorkChips";
 import { useSpecPointNotes } from "@/hooks/data/useNotes";
 
@@ -35,7 +35,7 @@ export function WeeklyFocusCard({
   const rangeLabel = weekRangeLabel(mondayOf());
   // Only narrow to enrolments when we actually have some; an empty list would
   // otherwise hide every plan.
-  const { plans, loading } = useWeeklyFocus(
+  const { plans, loading, error, reload } = useWeeklyFocus(
     studentId,
     weekKey,
     subjects.length > 0 ? subjects : undefined,
@@ -78,6 +78,9 @@ export function WeeklyFocusCard({
 
         {loading ? (
           <Spinner label="Loading this week" className="py-8" />
+        ) : error ? (
+          // A failed read is not "nothing added": say it failed.
+          <ErrorNote error={error} onRetry={() => void reload()} />
         ) : plans.length === 0 ? (
           <p className="text-sm text-muted-foreground">
             Nothing added for this week — your plan above is yours to get on with.
