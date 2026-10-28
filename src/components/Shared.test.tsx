@@ -20,6 +20,13 @@ describe("science text keeps the layout it was written with", () => {
 
   test("a one-line preview joins its lines with spaces", () => {
     expect(html(<SciText text={"See you\n  tomorrow"} oneLine />)).toBe("See you tomorrow");
+    expect(html(<SciText text={"one \r\n\n two\nthree"} oneLine />)).toBe("one two three");
+  });
+
+  test("a one-line preview of a long run of spaces is drawn in a moment", () => {
+    const started = performance.now();
+    html(<SciText text={`a${" ".repeat(100_000)}b`} oneLine />);
+    expect(performance.now() - started).toBeLessThan(1_000);
   });
 
   test("a question's paragraphs, key lines and table are all drawn", () => {

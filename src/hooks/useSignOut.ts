@@ -3,7 +3,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { clearAllDrafts } from "@/lib/homework/homeworkDrafts";
+import { clearAllDrafts, pushLocalDrafts } from "@/lib/homework/homeworkDrafts";
 
 /**
  * Signs the user out and clears every cached row on the way.
@@ -18,6 +18,9 @@ export function useSignOut() {
   const qc = useQueryClient();
 
   return useCallback(async () => {
+    // Task answers typed on this device go to the server before every copy
+    // here is cleared, so they are there to pick up on the next sign-in.
+    await sendDraftsFirst();
     await qc.cancelQueries();
     qc.clear();
     clearAllDrafts();
@@ -35,6 +38,25 @@ export function useSignOut() {
     toast.success("Signed out", { duration: 2000 });
     navigate({ to: "/", replace: true });
   }, [navigate, qc]);
+}
+
+/** The longest a sign-out waits on sending drafts. */
+const DRAFT_SEND_MS = 4_000;
+
+/**
+ * Sends this student's drafts on this device to the server (pushLocalDrafts),
+ * waiting a few seconds at most and never failing the sign-out. Offline they
+ * can't go, and are cleared with the rest, as before: answers left on a shared
+ * device would outlast the sign-out.
+ */
+async function sendDraftsFirst(): Promise<void> {
+  if (typeof navigator !== "undefined" && navigator.onLine === false) return;
+  const send = (async () => {
+    const { data } = await supabase.auth.getSession();
+    const userId = data.session?.user.id;
+    if (userId) await pushLocalDrafts(userId);
+  })().catch(() => undefined);
+  await Promise.race([send, new Promise((done) => setTimeout(done, DRAFT_SEND_MS))]);
 }
 
 /** Removes Supabase's persisted auth keys (`sb-<ref>-auth-token` and friends). */

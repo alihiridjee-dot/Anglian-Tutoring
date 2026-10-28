@@ -132,8 +132,21 @@ export function clearDraft(userId: string, homeworkId: string): void {
   }
 }
 
+/** How many times this page has cleared every draft: see {@link draftsClearedCount}. */
+let clearings = 0;
+
+/**
+ * Bumped by {@link clearAllDrafts}. A sheet still open across a sign-out
+ * compares it with the count when it opened, so it never writes its draft
+ * back after the sign-out has cleared it.
+ */
+export function draftsClearedCount(): number {
+  return clearings;
+}
+
 /** Drop every draft belonging to any user — used on sign-out. */
 export function clearAllDrafts(): void {
+  clearings++;
   const store = available();
   if (!store) return;
   try {
@@ -146,6 +159,42 @@ export function clearAllDrafts(): void {
   } catch {
     /* nothing to do */
   }
+}
+
+/** The homework this student has a draft of on this device. */
+export function localDraftIds(userId: string): string[] {
+  const store = available();
+  if (!store) return [];
+  const mine = key(userId, "");
+  try {
+    const ids: string[] = [];
+    for (let i = 0; i < store.length; i++) {
+      const k = store.key(i);
+      if (k?.startsWith(mine) && k.length > mine.length) ids.push(k.slice(mine.length));
+    }
+    return ids;
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Send every draft this student has on this device to the server, before
+ * sign-out clears them. Answers typed offline on one sheet otherwise reach the
+ * server only when that sheet is opened again here, and a sign-out first lost
+ * them. Never throws; a draft that can't be sent is lost with the sign-out,
+ * as before.
+ */
+export async function pushLocalDrafts(
+  userId: string,
+  sync: typeof syncServerDraft = syncServerDraft,
+): Promise<void> {
+  await Promise.all(
+    localDraftIds(userId).map((id) => {
+      const draft = loadDraft(userId, id);
+      return draft && Object.keys(draft.stamps).length > 0 ? sync(id, draft) : null;
+    }),
+  );
 }
 
 /** True if there is anything worth keeping — used to avoid storing blank drafts. */
@@ -164,6 +213,11 @@ function hasContent(draft: HomeworkDraft): boolean {
  * which the server uses to convert them to its own time and back: two devices
  * whose clocks disagree still agree on which edit came last.
  *
+ * That conversion carries how long each call took to arrive, so two calls from
+ * one page can disagree by a few seconds. The page therefore names itself (see
+ * {@link pageId}), and the server orders this page's own edits by this page's
+ * own stamps, with no conversion.
+ *
  * Failures come back as null, on purpose. A draft is a safety net, and a net
  * that throws is worse than one with a hole in it: an offline student must keep
  * typing into a working page, backed by localStorage, rather than watch an
@@ -179,7 +233,10 @@ export async function syncServerDraft(
       _resource_id: homeworkId,
       _answers: draft?.answers ?? {},
       _notes: NOTES in stamps ? (draft?.notes ?? "") : undefined,
-      _stamps: stamps,
+      // The page's id rides with the stamps: a server without the same-page
+      // rule skips anything there that isn't a number, so either can meet
+      // either. Question ids are uuids and the note is "notes": no clash.
+      _stamps: { ...stamps, device: pageId() },
       _client_now: Date.now(),
     });
     if (error || !data) return null;
@@ -193,6 +250,24 @@ export async function syncServerDraft(
   } catch {
     return null;
   }
+}
+
+let page: string | null = null;
+
+/**
+ * This open page, as the server knows it when ordering edits: a random id,
+ * new each time the page loads and kept nowhere on the device.
+ */
+function pageId(): string {
+  if (!page) {
+    try {
+      page = crypto.randomUUID();
+    } catch {
+      // No secure context (an old browser): any id unlikely to repeat will do.
+      page = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+    }
+  }
+  return page;
 }
 
 /** When a draft's field was last edited. Unstamped fields date from the draft itself. */

@@ -333,6 +333,27 @@ function cluesFrom(text: string): Clues {
 }
 
 /**
+ * Every arrow typed with `core` (<=> or ->), and the spaces either side of it,
+ * made into the arrow with one space each side. Scanned outward from each
+ * arrow: the pattern it replaces, \s*->\s*, was tried from every space of a
+ * long run, and took seconds to give up on one with no arrow in it.
+ */
+function typedArrows(s: string, core: RegExp, arrow: string): string {
+  let out = "";
+  // The end of the last arrow and its spaces.
+  let from = 0;
+  for (const m of s.matchAll(core)) {
+    let start = m.index;
+    while (start > from && /\s/.test(s[start - 1])) start--;
+    let end = m.index + m[0].length;
+    while (end < s.length && /\s/.test(s[end])) end++;
+    out += `${s.slice(from, start)} ${arrow} `;
+    from = end;
+  }
+  return out + s.slice(from);
+}
+
+/**
  * Rewrites typed notation (H2O, Mg2+, cm3, 10^-3) into its proper form. Safe
  * to run twice.
  *
@@ -344,7 +365,7 @@ export function toSciNotation(text: string, context = ""): string {
   let s = text;
 
   // Arrows first, so "O2->" is never read as an ion.
-  s = s.replace(/\s*<=+>\s*/g, " ⇌ ").replace(/\s*-+>\s*/g, " → ");
+  s = typedArrows(typedArrows(s, /<=+>/g, "⇌"), /(?<!-)-+>/g, "→");
 
   // Anything written with ^ is a power or charge: x^2, 10^-3, SO4^2-, Fe^{3+}.
   s = s.replace(

@@ -4,7 +4,10 @@ import {
   saveDraft,
   clearDraft,
   clearAllDrafts,
+  draftsClearedCount,
+  localDraftIds,
   mergeDrafts,
+  pushLocalDrafts,
   type TimestampedDraft,
 } from "@/lib/homework/homeworkDrafts";
 
@@ -85,9 +88,31 @@ describe("homework drafts", () => {
   test("sign-out clears every student's drafts", () => {
     saveDraft(STUDENT_A, "hw-1", { answers: { q1: "a" }, notes: "" });
     saveDraft(STUDENT_B, "hw-2", { answers: { q1: "b" }, notes: "" });
+    const before = draftsClearedCount();
     clearAllDrafts();
     expect(loadDraft(STUDENT_A, "hw-1")).toBeNull();
     expect(loadDraft(STUDENT_B, "hw-2")).toBeNull();
+    // How a sheet still open across the sign-out knows not to write back.
+    expect(draftsClearedCount()).toBe(before + 1);
+  });
+
+  test("before sign-out, this student's edited drafts are sent, and no one else's", async () => {
+    saveDraft(STUDENT_A, "hw-1", { answers: { q1: "a" }, notes: "", stamps: { q1: 1_000 } });
+    saveDraft(STUDENT_A, "hw-2", { answers: { q1: "a2" }, notes: "", stamps: { q1: 2_000 } });
+    // Saved before per-question times: nothing in it the server would take.
+    saveDraft(STUDENT_A, "hw-3", { answers: { q1: "old" }, notes: "" });
+    saveDraft(STUDENT_B, "hw-4", { answers: { q1: "b" }, notes: "", stamps: { q1: 3_000 } });
+    expect(localDraftIds(STUDENT_A).sort()).toEqual(["hw-1", "hw-2", "hw-3"]);
+
+    const sent: [string, string][] = [];
+    await pushLocalDrafts(STUDENT_A, async (id, d) => {
+      sent.push([id, d!.answers.q1]);
+      return null;
+    });
+    expect(sent.sort()).toEqual([
+      ["hw-1", "a"],
+      ["hw-2", "a2"],
+    ]);
   });
 
   test("a draft older than the expiry window is discarded", () => {

@@ -29,6 +29,24 @@ describe("evaluate", () => {
     expect(evaluate("1.6ᴇ−19×2")).toBe(3.2e-19);
   });
 
+  test("standard form typed on a keyboard, with a lowercase e", () => {
+    expect(evaluate("6.02e23")).toBe(6.02e23);
+    expect(evaluate("6.63e-34")).toBe(6.63e-34);
+    expect(evaluate("1.6e−19×2")).toBe(3.2e-19);
+    expect(evaluate("3e+2")).toBe(300);
+    // With no power after it, e is still the constant.
+    expect(evaluate("2e")).toBe(Number((2 * Math.E).toPrecision(10)));
+    expect(evaluate("e^(1)")).toBe(Number(Math.E.toPrecision(10)));
+    expect(() => evaluate("1e999")).toThrow("Maths error");
+  });
+
+  test("x is times, and log10 is log", () => {
+    expect(evaluate("3x4")).toBe(12);
+    expect(evaluate("2 X 5")).toBe(10);
+    expect(evaluate("log10(100)")).toBe(2);
+    expect(evaluate("log100")).toBe(2);
+  });
+
   test("side by side multiplies", () => {
     expect(evaluate("2π")).toBe(Number((2 * Math.PI).toPrecision(10)));
     expect(evaluate("3(4+1)")).toBe(15);
@@ -100,6 +118,9 @@ describe("evaluate", () => {
     expect(err("")).toBe("Syntax error");
     expect(err("3ᴇ")).toBe("Syntax error");
     expect(err("abc")).toBe("Syntax error");
+    expect(err("1.2.3")).toBe("Syntax error");
+    expect(err("1..2")).toBe("Syntax error");
+    expect(err("1ᴇ2.5")).toBe("Syntax error");
   });
 });
 
@@ -131,8 +152,8 @@ describe("show", () => {
 });
 
 test("prettify swaps plain typing for key symbols, one for one", () => {
-  const typed = "3*4/2-1";
+  const typed = "3*4/2-1x2";
   const pretty = prettify(typed);
-  expect(pretty).toBe("3×4÷2−1");
+  expect(pretty).toBe("3×4÷2−1×2");
   expect(pretty.length).toBe(typed.length);
 });

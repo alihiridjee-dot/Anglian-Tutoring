@@ -1,10 +1,12 @@
-/** Isolated PostgreSQL regression checks for 20261001202000_homework_draft_merge.
- * No production data is read or written.
+/** Isolated PostgreSQL regression checks for 20261001202000_homework_draft_merge
+ * and 20261028101742_homework_draft_same_device. No production data is read or
+ * written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-homework-draft-merge-db.ts
  *
  * Two devices, as the student has them: a phone with a correct clock, and a
- * laptop whose clock runs an hour slow.
+ * laptop whose clock runs an hour slow. Checks 1-8 are the original merge;
+ * 9 on are one open page whose syncs take different times to arrive.
  */
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
@@ -40,17 +42,29 @@ insert into public.resources values ('${sheet}'), ('${handedIn}');
 insert into public.homework_submissions(resource_id, student_id) values ('${handedIn}', '${student}');
 `);
 
-const migration = await readFile(
-  new URL("../supabase/migrations/20261001202000_homework_draft_merge.sql", import.meta.url),
-  "utf8",
-);
-await db.exec(migration);
-await db.exec(migration); // idempotent
+// Both, in order, as production will have them: checks 1-8 run against the
+// second one's function, which must still do everything the first did.
+for (const file of [
+  "20261001202000_homework_draft_merge.sql",
+  "20261028101742_homework_draft_same_device.sql",
+]) {
+  const migration = await readFile(
+    new URL(`../supabase/migrations/${file}`, import.meta.url),
+    "utf8",
+  );
+  await db.exec(migration);
+  await db.exec(migration); // idempotent
+}
 
 type Draft = { answers: Record<string, string>; notes: string; stamps: Record<string, number> };
 
-/** A device: its clock, and a sync call made from it as a signed-in student. */
-function device(who: string, skewMs: number) {
+/**
+ * A device: its clock, and a sync call made from it as a signed-in student.
+ * `page` is the id the app sends for itself (none from an app built before
+ * 20261028101742); `lagMs` is how long the call took to reach the server
+ * after the page read its clock.
+ */
+function device(who: string, skewMs: number, page?: string) {
   const clock = () => Date.now() + skewMs;
   return {
     clock,
@@ -59,14 +73,16 @@ function device(who: string, skewMs: number) {
       answers: Record<string, string> = {},
       stamps: Record<string, number> = {},
       notes?: string,
+      lagMs = 0,
     ): Promise<Draft | null> {
       await db.exec("begin");
       try {
         await db.query("select set_config('request.jwt.claim.sub', $1, true)", [who]);
         await db.exec("set local role authenticated");
+        const sent = page === undefined ? stamps : { ...stamps, device: page };
         const { rows } = await db.query<{ r: Draft | null }>(
           "select public.sync_homework_draft($1, $2::jsonb, $3, $4::jsonb, $5) r",
-          [resource, JSON.stringify(answers), notes ?? null, JSON.stringify(stamps), clock()],
+          [resource, JSON.stringify(answers), notes ?? null, JSON.stringify(sent), clock() - lagMs],
         );
         await db.exec("commit");
         return rows[0].r;
@@ -166,5 +182,67 @@ const older = (await other.sync(handedIn, { q1: "older" }, { q1: other.clock() -
 assert.equal(older.answers.q1, "old way", "An edit older than the legacy row won");
 const newer = (await other.sync(handedIn, { q1: "newer" }, { q1: other.clock() + 1_000 }))!;
 assert.equal(newer.answers.q1, "newer");
+
+// 9. One page on a patchy connection. Sync 1 carries "Filtration separates"
+//    (typed 6.5 s before it reached the server, 4 s of that in transit); sync 2
+//    carries the same answer finished 3 s later, and arrives in 0.1 s. The
+//    newer words stay, and come back with the page's own stamp, so its merge
+//    leaves the box as it is. Converted by each call's own lag, the newer
+//    edit used to look 0.9 s older and lose.
+const tab = device(student, 0, "page-1");
+const typedAt = tab.clock() - 6_500;
+await tab.sync(sheet, { q5: "Filtration separates" }, { q5: typedAt }, undefined, 4_000);
+const reply = (await tab.sync(
+  sheet,
+  { q5: "Filtration separates an insoluble solid" },
+  { q5: typedAt + 3_000 },
+  undefined,
+  100,
+))!;
+assert.equal((await stored()).answers.q5, "Filtration separates an insoluble solid");
+assert.equal(reply.answers.q5, "Filtration separates an insoluble solid");
+assert.equal(reply.stamps.q5, typedAt + 3_000, "The page's own stamp didn't come back as sent");
+assert.ok(!("device" in reply.stamps), "The page id came back as a field");
+assert.ok(!("device" in (await stored()).answers));
+
+// 10. The other order: the newer sync lands first, the older one crawls in
+//     after it. The server keeps the newer words.
+const second = tab.clock() - 1_000;
+await tab.sync(sheet, { q6: "newer" }, { q6: second }, undefined, 50);
+await tab.sync(sheet, { q6: "older" }, { q6: second - 2_000 }, undefined, 5_000);
+assert.equal((await stored()).answers.q6, "newer", "An older edit from the same page won");
+
+// 11. Another device is still compared on converted time, whatever its clock:
+//     the laptop's genuinely newer q5 wins, though its clock is an hour slow,
+//     and its older q6 loses.
+const slowLaptop = device(student, -HOUR, "page-2");
+await slowLaptop.sync(sheet, { q5: "laptop, just now" }, { q5: slowLaptop.clock() });
+assert.equal((await stored()).answers.q5, "laptop, just now");
+await slowLaptop.sync(sheet, { q6: "laptop, a minute ago" }, { q6: slowLaptop.clock() - 60_000 });
+assert.equal((await stored()).answers.q6, "newer");
+
+// 12. A write from an app that sends no page id takes the field's origin
+//     away, so the page that wrote it before is compared on converted time
+//     again: its old stamp, sent once more, can't win the field back.
+const q7At = tab.clock() - 5_000;
+await tab.sync(sheet, { q7: "from the page" }, { q7: q7At });
+await phone.sync(sheet, { q7: "from an older app" }, { q7: phone.clock() - 1_000 });
+await tab.sync(sheet, { q7: "from the page" }, { q7: q7At });
+assert.equal((await stored()).answers.q7, "from an older app");
+const origins = (
+  await db.query<{ o: Record<string, unknown> }>(
+    "select origins o from homework_drafts where student_id = $1 and resource_id = $2",
+    [student, sheet],
+  )
+).rows[0].o;
+assert.ok(!("q7" in origins), "An older app's write left the page's origin behind");
+assert.ok("q5" in origins && "q6" in origins);
+
+// 13. A read writes nothing, and a blank page id counts as none: its stale
+//     edit loses on converted time.
+const quiet = await stored();
+await tab.sync(sheet);
+await device(student, 0, "").sync(sheet, { q1: "blank id" }, { q1: Date.now() - 10 * HOUR });
+assert.deepEqual(await stored(), quiet);
 
 console.log("sync_homework_draft: all checks passed");
