@@ -533,6 +533,19 @@ test("a break still to come shows the course as it will be picked up, and saves 
   );
 });
 
+test("an exam date moved with a break still to come is noticed, not hidden by the break", async () => {
+  // Cut for a 7 June exam, then the date moved to 10 May.
+  const pacing = seeded("2026-08-24", "2027-06-07");
+  baseline = { program_start: "2026-08-24", exam_date: "2027-05-10", pacing };
+  arrange({ breaks: [holiday()] });
+  const result = await load();
+  // The move is proposed (and applied on sight); the break is laid over the
+  // new spine on the next load. Laying it first stamped the new date on the
+  // old spine, so nothing was ever re-paced before the break.
+  expect(result!.needsAck).toBe(true);
+  expect(result!.changes.length).toBeGreaterThan(0);
+});
+
 test("a recorded break is left to the stop it became", async () => {
   const pacing = seeded("2026-08-24", "2027-06-07");
   baseline = { program_start: "2026-08-24", exam_date: "2027-06-07", pacing };

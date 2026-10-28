@@ -7,6 +7,7 @@ import {
   breakCovering,
   breakWeekKeys,
   breakEndsOn,
+  breakFits,
   layBreaksOver,
   mondayKeyOf,
   overlapsBreak,
@@ -140,5 +141,45 @@ describe("laying breaks over the spine", () => {
   test("a break that can't be fitted leaves the spine as it was", () => {
     expect(lay([brk("2026-12-14", "2026-12-20")])).toBe(bands); // the exams have begun
     expect(lay([])).toBe(bands);
+  });
+});
+
+describe("whether a new break fits a course (the booking form)", () => {
+  // A tight course: 16 one-point topics in 20 weeks, so 4 weeks to spare.
+  const examDate = "2027-01-18";
+  const topics: OrderTopic[] = Array.from({ length: 16 }, (_, i) => ({
+    topicId: `t${i}`,
+    title: `Topic ${i}`,
+    points: [{ specPointId: `p${i}`, code: `P${i}`, title: `P${i}`, weight: 1 }],
+  }));
+  const bands = computePacing(
+    topics.map((t) => ({ ...t, weight: 1 })),
+    weekKeyToDate("2026-08-31"),
+    weekKeyToDate(examDate),
+  );
+  const fits = (startsOn: string, weeks: number, breaks: StudentBreak[] = []) =>
+    breakFits({ bands, topics, breaks, examDate, startsOn, weeks });
+
+  test("a break that leaves fewer weeks than topics is refused; a shorter one isn't", () => {
+    expect(fits("2026-09-28", 4)).toBe(false);
+    expect(fits("2026-09-28", 1)).toBe(true);
+  });
+  test("the refused break really couldn't be laid: its weeks would still hold teaching", () => {
+    const laid = layBreaksOver({
+      bands,
+      topics,
+      breaks: [brk("2026-09-28", breakEndsOn("2026-09-28", 4))],
+      examDate,
+    });
+    expect(laid).toBe(bands);
+  });
+  test("a break after this course's exams has nothing of it to fit", () => {
+    expect(fits("2027-01-25", 4)).toBe(true);
+  });
+  test("a break that would stop one booked later from fitting is refused too", () => {
+    const later = brk("2026-10-19", "2026-10-25");
+    expect(fits("2026-10-19", 1)).toBe(true);
+    expect(fits("2026-09-14", 1)).toBe(true);
+    expect(fits("2026-09-14", 1, [later])).toBe(false);
   });
 });

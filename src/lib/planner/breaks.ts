@@ -98,15 +98,25 @@ export function breakCovering(
  *
  * A break that can't be fitted — the exams have begun, or too few weeks are
  * left for the topics — leaves the spine as it was. Returns the input bands,
- * unchanged, when nothing moved.
+ * unchanged, when nothing moved. The booking form refuses a break that can't
+ * be fitted ({@link breakFits}), so that is left to breaks booked before it
+ * did, and to an exam date moved later.
  */
-export function layBreaksOver(params: {
+export function layBreaksOver(params: LayParams): PacingBand[] {
+  return layEach(params).bands;
+}
+
+type LayParams = {
   bands: PacingBand[];
   topics: OrderTopic[];
   breaks: readonly Pick<StudentBreak, "startsOn" | "endsOn">[];
   examDate: string;
-}): PacingBand[] {
+};
+
+/** {@link layBreaksOver}, counting the breaks it couldn't fit. */
+function layEach(params: LayParams): { bands: PacingBand[]; unlaid: number } {
   let bands = params.bands;
+  let unlaid = 0;
   const oldestFirst = [...params.breaks].sort((a, b) => a.startsOn.localeCompare(b.startsOn));
   for (const b of oldestFirst) {
     try {
@@ -119,9 +129,26 @@ export function layBreaksOver(params: {
       });
     } catch {
       // Nothing sensible to spread: the plan stays as it is for this break.
+      unlaid++;
     }
   }
-  return bands;
+  return { bands, unlaid };
+}
+
+/**
+ * Can a new break be fitted into a course, with the breaks already booked?
+ *
+ * Every week teaches one topic, so a course needs a week for each topic still
+ * to come. A break that leaves fewer can't be laid over the plan: its weeks
+ * would still hold teaching, and the student came back to them as missed work.
+ * The booking form refuses it instead (Ali, 27 Oct 2026). So does a break
+ * that would stop one booked later from fitting.
+ */
+export function breakFits(params: LayParams & { startsOn: string; weeks: number }): boolean {
+  // After this course's exams: nothing of it is left to fit.
+  if (params.startsOn >= mondayKeyOf(params.examDate)) return true;
+  const added = { startsOn: params.startsOn, endsOn: breakEndsOn(params.startsOn, params.weeks) };
+  return layEach({ ...params, breaks: [...params.breaks, added] }).unlaid <= layEach(params).unlaid;
 }
 
 /**

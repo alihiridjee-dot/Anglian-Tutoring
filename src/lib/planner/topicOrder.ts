@@ -16,6 +16,25 @@ export interface OrderTopic {
 }
 export const customSchedule = (bands: PacingBand[]) => bands.find((b) => b.schedule)?.schedule;
 
+/**
+ * Was this stored spine cut for this exam date? A custom order or a pick-up
+ * stamps the date it was spread to. Curriculum order fills every week up to
+ * the exam, so its last teaching week is the one before the exam's week.
+ */
+export function spineMatchesExam(bands: PacingBand[], examDate: string): boolean {
+  const custom = customSchedule(bands);
+  if (custom) return custom.examDate === examDate;
+  const ends = bands
+    .filter(isTeachBand)
+    .map((b) => b.endWeek)
+    .sort();
+  if (!ends.length) return true;
+  return (
+    toDateKey(addWeeks(weekKeyToDate(ends.at(-1)!), 1)) ===
+    toDateKey(mondayOf(weekKeyToDate(examDate)))
+  );
+}
+
 /** Freeze the actual weekly promises before the boundary, including a partial topic. */
 export function orderInputs(bands: PacingBand[], topics: OrderTopic[], from: string) {
   const hydrated = withWeeklyPoints(

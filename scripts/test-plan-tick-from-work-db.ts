@@ -81,6 +81,18 @@ insert into public.student_weekly_plan_points values
 // Applied twice to show it is safe to run again.
 await db.exec(migration);
 await db.exec(migration);
+// With the tick from the scheduler fixes on top (a hand-in from an earlier
+// week counts when the point comes back), so every check below runs on the
+// tick as it stands. Only that statement: the rest of the file needs tables
+// this harness doesn't build. Its own checks are in test-scheduler-fixes-db.ts.
+const fixes = await readFile(
+  new URL("../supabase/migrations/20261028090000_scheduler_fixes.sql", import.meta.url),
+  "utf8",
+);
+const tickStart = fixes.indexOf("create or replace function private.plan_point_tick_state(");
+const tickEnd = fixes.indexOf("\n$$;\n", tickStart) + 4;
+assert.ok(tickStart >= 0 && tickEnd > tickStart, "the tick is in the scheduler fixes");
+await db.exec(fixes.slice(tickStart, tickEnd));
 
 const ticked = async (point: string, planId = plan) =>
   (

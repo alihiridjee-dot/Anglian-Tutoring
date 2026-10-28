@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import {
+  handedInBefore,
   laneOf,
   practiceComplete,
   practiceInWeek,
@@ -176,6 +177,16 @@ describe("weekly completion window", () => {
   });
   test("invalid timestamps cannot complete work", () => {
     expect(practiceInWeek("invalid", "2026-09-07")).toBe(false);
+    expect(handedInBefore("invalid", "2026-09-07")).toBe(false);
+  });
+  test("a task handed in before the week still counts as handed in, one after it doesn't", () => {
+    const at = (iso: string) => new Date(iso).toISOString();
+    expect(handedInBefore(at("2026-08-20T10:00:00+01:00"), "2026-09-07")).toBe(true);
+    expect(handedInBefore(at("2026-09-06T23:59:00+01:00"), "2026-09-07")).toBe(true);
+    expect(handedInBefore(at("2026-09-07T00:00:00+01:00"), "2026-09-07")).toBe(false);
+    expect(handedInBefore(at("2026-09-20T10:00:00+01:00"), "2026-09-07")).toBe(false);
+    // No week: every hand-in is already "in the week" (practiceInWeek).
+    expect(handedInBefore(at("2026-08-20T10:00:00+01:00"))).toBe(false);
   });
 });
 

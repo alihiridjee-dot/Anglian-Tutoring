@@ -5,6 +5,7 @@ import {
   type PointActivity,
   type PointWork,
   type PointWorkItem,
+  handedInBefore,
   noWork,
   practiceInWeek,
 } from "./coverage";
@@ -235,7 +236,16 @@ export class WeeklyActivityDAL {
       b == null ? a : a == null ? b : Math.max(a, b);
 
     for (const sub of subs) {
-      if (!practiceInWeek(sub.submitted_at, weekStart)) continue;
+      if (!practiceInWeek(sub.submitted_at, weekStart)) {
+        // Handed in before this week: the task is done, but it isn't this
+        // week's work, so it neither counts as attempted nor scores the week.
+        if (handedInBefore(sub.submitted_at, weekStart))
+          for (const p of resourceToPoints.get(sub.resource_id) ?? []) {
+            const e = out.get(p);
+            if (e) e.homeworkDone = true;
+          }
+        continue;
+      }
       const pct = sub.score_pct == null ? null : Math.round(Number(sub.score_pct));
       for (const p of resourceToPoints.get(sub.resource_id) ?? []) {
         const e = out.get(p);
