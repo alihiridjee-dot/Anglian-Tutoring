@@ -40,14 +40,18 @@ export function useSignOut() {
   }, [navigate, qc]);
 }
 
-/** The longest a sign-out waits on sending drafts. */
-const DRAFT_SEND_MS = 4_000;
+/**
+ * The longest a sign-out waits on sending drafts. Short, because until it ends
+ * the student is still signed in on this device, and a child on a shared
+ * computer may close the lid straight after pressing Sign out.
+ */
+const DRAFT_SEND_MS = 1_500;
 
 /**
  * Sends this student's drafts on this device to the server (pushLocalDrafts),
- * waiting a few seconds at most and never failing the sign-out. Offline they
- * can't go, and are cleared with the rest, as before: answers left on a shared
- * device would outlast the sign-out.
+ * waiting {@link DRAFT_SEND_MS} at most and never failing the sign-out. Offline
+ * they can't go, and are cleared with the rest, as before: answers left on a
+ * shared device would outlast the sign-out.
  */
 async function sendDraftsFirst(): Promise<void> {
   if (typeof navigator !== "undefined" && navigator.onLine === false) return;

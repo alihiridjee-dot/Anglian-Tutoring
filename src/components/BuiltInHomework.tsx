@@ -25,6 +25,7 @@ import { dbError } from "@/lib/platform/errors";
 import {
   clearDraft,
   draftsClearedCount,
+  editStamp,
   loadDraft,
   mergeDrafts,
   saveDraft,
@@ -288,9 +289,11 @@ const hasAnswers = (draft: TimestampedDraft | null) =>
 /**
  * How long a hand-in may take before it counts as failed. A phone between
  * masts can hold a request open for minutes, with the hand-in screen up and no
- * way out; past this the student can simply press it again.
+ * way out; past this the student can simply press it again. Kept under 20 s,
+ * the no-answer limit for any database request (answerTimeout, PR #317), so
+ * the student sees this message rather than a plain "Could not submit".
  */
-const SUBMIT_TIMEOUT_MS = 30_000;
+const SUBMIT_TIMEOUT_MS = 15_000;
 
 export function AnswerForm({
   hw,
@@ -358,10 +361,12 @@ export function AnswerForm({
   // Answers only. The sheet no longer has a box for a note to the tutor, so a
   // note left in an older draft stays in the draft and is never handed in.
   const edit = (id: string, text: string) => {
+    // Later than any edit before it, even if the clock was put back since.
+    const at = editStamp(workRef.current.stamps[id]);
     setWork((prev) => ({
       ...prev,
       answers: { ...prev.answers, [id]: text },
-      stamps: { ...prev.stamps, [id]: Date.now() },
+      stamps: { ...prev.stamps, [id]: at },
     }));
     setEdits((n) => n + 1);
     unsaved.current = { local: true, remote: true };
@@ -464,7 +469,9 @@ export function AnswerForm({
 
   // Leaving the sheet — a link, the header's subject slider, the tab hidden or
   // closed — saves what the timers above haven't yet. They are cancelled as
-  // the sheet goes, and took the last few words typed with them.
+  // the sheet goes, and took the last few words typed with them. A closed tab
+  // keeps only this device's copy: the browser cancels the send to the server,
+  // and that copy goes up when the sheet next opens here, or at sign-out.
   const flush = useCallback(() => {
     if (unsaved.current.local && may.current.local) saveHere();
     if (unsaved.current.remote && may.current.remote) void sendNow();
@@ -543,6 +550,11 @@ export function AnswerForm({
           _answers: payload,
         })
         .abortSignal(stop.signal);
+      // The database answered (a refusal has a code; a lost connection or
+      // the timeout has none): whatever this page sent before is settled, so
+      // a later "already submitted" can't be its own. Pressed again before
+      // the sheet reloads, it is still someone else's hand-in.
+      if (error?.code) lastTry.current = null;
       // "Already submitted" after this page sent these same answers means its
       // earlier try got through and only the reply was lost: the work is in,
       // which is what the student wanted. The sheet reloads with the

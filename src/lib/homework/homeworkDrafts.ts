@@ -270,6 +270,25 @@ function pageId(): string {
   return page;
 }
 
+/** The highest stamp {@link editStamp} has given out on this page. */
+let lastStamp = 0;
+
+/**
+ * The time to stamp an edit with: now, but never lower than a stamp this page
+ * has already given out, nor than `after` (the field's own last stamp, which
+ * may have come from this device's saved copy or from the server).
+ *
+ * The server orders this page's own edits by these stamps alone. A clock put
+ * back while the sheet is open (a network time correction, or the device's
+ * time reset) would otherwise stamp the words typed next as older than the
+ * ones before them: the server would keep the older words and send them back,
+ * every sync, until the clock caught up.
+ */
+export function editStamp(after = 0): number {
+  lastStamp = Math.max(Date.now(), lastStamp + 1, after + 1);
+  return lastStamp;
+}
+
 /** When a draft's field was last edited. Unstamped fields date from the draft itself. */
 function stampOf(draft: TimestampedDraft, field: string): number {
   const stamp = draft.stamps?.[field];

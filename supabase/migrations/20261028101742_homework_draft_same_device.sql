@@ -21,11 +21,27 @@
 -- write from a page that sends no id clears the field's origin, so a stale
 -- stamp is never compared against it.
 --
+-- The page's id is a uuid (36 characters). One longer than 64 counts as no id,
+-- and `origins` has a size cap, for the function and for writes to the table
+-- alike.
+--
+-- A page never stamps an edit lower than one it already gave out, so a clock
+-- put back while the sheet is open (a network time correction, the device's
+-- time reset) still orders that page's edits. Such a stamp can run ahead of
+-- the page's clock, though, and converted it would lie in the future, where
+-- another device's later edit would lose to it. No edit is newer than the
+-- moment it reached the server, so a converted stamp is kept no later than
+-- that. A stamp the page took before sending it is unchanged.
+--
 -- Additive and idempotent. The body is the live one (20261001202000) with the
--- origin checks added.
+-- origin checks and that limit added. Rollback:
+-- supabase/rollbacks/20261028101742_homework_draft_same_device.down.sql.
 
 alter table public.homework_drafts
   add column if not exists origins jsonb not null default '{}'::jsonb;
+alter table public.homework_drafts drop constraint if exists homework_drafts_origins_size;
+alter table public.homework_drafts add constraint homework_drafts_origins_size
+  check (octet_length(origins::text) <= 20000);
 
 create or replace function public.sync_homework_draft(
   _resource_id uuid,
@@ -75,7 +91,8 @@ begin
   _device := case
     when jsonb_typeof(coalesce(_stamps, '{}'::jsonb)) = 'object'
       and jsonb_typeof(_stamps -> 'device') = 'string'
-      then nullif(_stamps ->> 'device', '')
+      and length(_stamps ->> 'device') between 1 and 64
+      then _stamps ->> 'device'
   end;
 
   select * into _row
@@ -105,7 +122,8 @@ begin
       end if;
 
       _raw := (_stamps ->> _key)::double precision;
-      _at := _raw + _offset;
+      -- No later than its arrival (see the header).
+      _at := least(_raw + _offset, _now);
       _current := coalesce(
         (_stamps_out ->> _key)::double precision,
         case

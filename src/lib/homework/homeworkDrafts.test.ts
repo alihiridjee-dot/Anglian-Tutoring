@@ -1,10 +1,11 @@
-import { describe, expect, test, beforeEach } from "bun:test";
+import { describe, expect, test, beforeEach, spyOn } from "bun:test";
 import {
   loadDraft,
   saveDraft,
   clearDraft,
   clearAllDrafts,
   draftsClearedCount,
+  editStamp,
   localDraftIds,
   mergeDrafts,
   pushLocalDrafts,
@@ -215,6 +216,28 @@ describe("merging drafts per question", () => {
     const here = draft({ q1: "a" }, { q1: 2_000 });
     expect(mergeDrafts(here, draft({ q1: "b" }, { q1: 1_000 }))).toBe(here);
     expect(mergeDrafts(here, draft({ q1: "a" }, { q1: 3_000 }))).toBe(here);
+  });
+
+  test("an edit is stamped later than the one before it, even after the clock is put back", () => {
+    // The server orders one page's own edits by these stamps alone. A clock
+    // put back while the sheet is open must not make the next words older.
+    let now = Date.now() + 10 * 60 * 60 * 1000;
+    const clock = spyOn(Date, "now").mockImplementation(() => now);
+    try {
+      const first = editStamp();
+      expect(first).toBe(now);
+      now -= 60 * 60 * 1000; // an hour back
+      const second = editStamp(first);
+      expect(second).toBeGreaterThan(first);
+      expect(editStamp()).toBeGreaterThan(second);
+      // A field last stamped ahead of this clock (another copy) is passed too.
+      expect(editStamp(first + 5_000)).toBe(first + 5_001);
+      // Once the clock is past every stamp given out, edits take its time again.
+      now = first + 60_000;
+      expect(editStamp()).toBe(now);
+    } finally {
+      clock.mockRestore();
+    }
   });
 
   test("a draft saved before per-question times dates every answer from its save", () => {
