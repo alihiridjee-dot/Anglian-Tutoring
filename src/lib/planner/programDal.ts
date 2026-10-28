@@ -1,4 +1,10 @@
-import { customSchedule, reorderTopics, resumeAfterPause, spineMatchesExam } from "./topicOrder";
+import {
+  customSchedule,
+  examDateTooSoon,
+  reorderTopics,
+  resumeAfterPause,
+  spineMatchesExam,
+} from "./topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
 import { dbError } from "@/lib/platform/errors";
@@ -12,7 +18,6 @@ import {
   programStartFor,
   isTeachBand,
   projectReviews,
-  weeksBetween,
 } from "./pacing";
 import { spineReach } from "./admissibility";
 import { WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
@@ -570,27 +575,25 @@ export class ProgramDAL {
       throw new Error("Choose an exam date between today and four years from now.");
     const { data: saved, error: readError } = await supabase
       .from("student_program_plan")
-      .select("pacing")
+      .select("pacing, program_start")
       .eq("student_id", params.studentId)
       .eq("subject", params.subject)
       .maybeSingle();
     if (readError) throw dbError(readError);
-    const stored = (saved?.pacing ?? []) as unknown as PacingBand[];
-    const custom = customSchedule(stored);
-    if (custom) {
-      const from = [custom.from, toDateKey(mondayOf())].sort().at(-1)!;
-      const remaining = new Set(
-        stored
-          .filter((b) =>
-            Object.entries(b.pointsByWeek ?? {}).some(([w, points]) => w >= from && points.length),
-          )
-          .map((b) => b.topicId),
+    // A date the plan can't follow, saved anyway, left the plan cut for the
+    // old date under the new one.
+    if (
+      saved &&
+      examDateTooSoon({
+        bands: (saved.pacing ?? []) as unknown as PacingBand[],
+        programStart: saved.program_start,
+        examDate: params.examDate,
+        today: toDateKey(mondayOf()),
+      })
+    )
+      throw new Error(
+        "That exam date leaves too few weeks for your remaining topics. Choose a later date.",
       );
-      if (weeksBetween(weekKeyToDate(from), weekKeyToDate(params.examDate)) < remaining.size)
-        throw new Error(
-          "That exam date leaves too few weeks for your remaining topics. Choose a later date.",
-        );
-    }
     const { error } = await supabase
       .from("student_program_plan")
       .update({ exam_date: params.examDate, updated_at: new Date().toISOString() })

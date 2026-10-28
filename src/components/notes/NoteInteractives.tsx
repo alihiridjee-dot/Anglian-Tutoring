@@ -1,6 +1,7 @@
 import { useMemo, useState, type ReactNode } from "react";
 import { ArrowDown, ArrowUp, Check, RotateCcw, X } from "lucide-react";
 import { evaluate, parseFormula } from "@/lib/notes/formula";
+import { answerReadings, flipSign } from "@/lib/notes/practiceAnswer";
 import { SciText } from "@/components/Shared";
 import {
   fillTemplate,
@@ -383,13 +384,12 @@ export function Practice({ d }: { d: PracticeDiagram }) {
     answer: `${show(rounded, d.answer.decimals)}${d.answer.unit ? ` ${d.answer.unit}` : ""}`,
   };
   const check = () => {
-    const g = Number(guess.replace(/,/g, "").trim());
-    if (!guess.trim() || !Number.isFinite(g)) return setVerdict(false);
     const tol =
       d.answer.tolerance_percent != null
         ? Math.abs(answer) * (d.answer.tolerance_percent / 100)
         : 0.5 * 10 ** -d.answer.decimals;
-    setVerdict(Math.abs(g - answer) <= tol + 1e-12);
+    // "1,250" may be 1250 or 1.250, so any fair reading of it can be right.
+    setVerdict(answerReadings(guess).some((g) => Math.abs(g - answer) <= tol + 1e-12));
   };
   const next = () => {
     setVars(draw(Math.random));
@@ -424,6 +424,18 @@ export function Practice({ d }: { d: PracticeDiagram }) {
           placeholder="Your answer"
           className="w-36 rounded-lg border-[1.5px] border-border bg-card px-3 py-1.5 text-base font-bold"
         />
+        {/* A phone's number pad has no minus key, and some answers are negative. */}
+        <button
+          type="button"
+          className={`${iconBtn} tap-target font-bold`}
+          onClick={() => {
+            setGuess(flipSign(guess));
+            setVerdict(null);
+          }}
+          aria-label="Change the sign of your answer"
+        >
+          ±
+        </button>
         {d.answer.unit ? (
           <span className="font-bold">
             <SciText text={d.answer.unit} />

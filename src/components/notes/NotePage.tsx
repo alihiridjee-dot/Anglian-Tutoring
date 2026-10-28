@@ -4,10 +4,12 @@ import { AppLayout } from "@/components/AppLayout";
 import { EmptyState, Spinner } from "@/components/Shared";
 import { NoteView } from "@/components/notes/NoteView";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useEntitlements } from "@/hooks/data/useEntitlements";
 import { usePinSubject } from "@/hooks/useActiveSubject";
 import { useNote } from "@/hooks/data/useNotes";
+import { SUBJECT_LABEL } from "@/lib/curriculum/subjectTheme";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
-import { NOTE_BOARDS, noteLayerFor, pickNoteLayer } from "@/lib/notes/noteFormat";
+import { NOTE_BOARDS, noteLayerFor, pickNoteLayer, subjectOfNoteId } from "@/lib/notes/noteFormat";
 
 export function NotePage() {
   // `strict: false` because this component is mounted twice — under the signed-in
@@ -34,6 +36,14 @@ export function NotePage() {
   const layers = note ? NOTE_BOARDS.filter((b) => note.boards[b]) : [];
   const board = pickNoteLayer(layers, noteLayerFor(enrolled, level), level);
 
+  // A note in a subject the student doesn't take is hidden from them with the
+  // rest of that subject, so it arrives as no note at all. Its id still names
+  // the subject, which tells "not on your plan" apart from "not written yet".
+  const ent = useEntitlements();
+  const idSubject = subjectOfNoteId(conceptId);
+  const lockedSubject =
+    !demo && idSubject && !ent.loading && !ent.isEntitled(idSubject) ? idSubject : null;
+
   return (
     <AppLayout title="Revision Notes">
       <div className="mx-auto max-w-4xl space-y-4">
@@ -51,13 +61,30 @@ export function NotePage() {
         >
           <ArrowLeft className="size-4" aria-hidden /> Back
         </button>
-        {isPending ? (
+        {isPending || (!note && idSubject && !demo && ent.loading) ? (
           <Spinner label="Loading the note" />
         ) : error ? (
           <EmptyState
             compact
             title="This note didn't load"
             body="Check your connection and refresh the page."
+          />
+        ) : !note && lockedSubject ? (
+          <EmptyState
+            title={`This note is part of ${SUBJECT_LABEL[lockedSubject]}`}
+            body={`${SUBJECT_LABEL[lockedSubject]} isn't on your plan yet.`}
+            action={{ to: "/billing", label: `Add ${SUBJECT_LABEL[lockedSubject]} to your plan` }}
+            mascot="books"
+          />
+        ) : !note && !idSubject ? (
+          <EmptyState
+            title="There's no note at this link"
+            body="Check the link, or open a note from its spec point in the curriculum."
+            action={{
+              to: demo ? "/demo/student/curriculum" : "/curriculum",
+              label: "Go to the curriculum",
+            }}
+            mascot="books"
           />
         ) : !note ? (
           <EmptyState

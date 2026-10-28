@@ -20,6 +20,22 @@ import { supabase } from "@/integrations/supabase/client";
  */
 export const RESTART_WINDOW_MS = 60 * 60 * 1000;
 
+/**
+ * How long after hand-in a paper with no marks stops being "marked shortly":
+ * the restart window. Until then, opening the sheet starts the marker again.
+ * After it, nothing does, and the paper waits for a tutor to mark it by hand
+ * in the marking queue.
+ */
+export const MARKING_STALLED_MS = RESTART_WINDOW_MS;
+
+/**
+ * Handed in long enough ago that marks still missing are now the tutor's. On
+ * the device's clock, as the restart window is, so the two agree on any device.
+ */
+export function markingStalled(submittedAt: string, now = Date.now()): boolean {
+  return now - new Date(submittedAt).getTime() >= MARKING_STALLED_MS;
+}
+
 /** Submissions this tab has already asked to be marked. */
 const asked = new Set<string>();
 
@@ -56,9 +72,14 @@ export function needsMarkingStart(
   return now - new Date(submission.submitted_at).getTime() < RESTART_WINDOW_MS;
 }
 
-/** The refusal submit_homework_answers gives when the work is already in. */
+/**
+ * The refusal submit_homework_answers gives when the work is already in. Two
+ * hand-ins at the same moment (two tabs, two devices) both pass its check, and
+ * the later one is stopped by the table's one-submission-per-task rule
+ * instead, in the database's own words.
+ */
 export function isAlreadySubmitted(err: unknown): boolean {
   const message =
     err && typeof err === "object" && "message" in err ? String(err.message) : String(err);
-  return /already submitted/i.test(message);
+  return /already submitted|homework_submissions_resource_id_student_id_key/i.test(message);
 }

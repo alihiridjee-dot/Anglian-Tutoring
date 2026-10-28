@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
@@ -7,6 +7,7 @@ import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxono
 import { generateMcqSet, replaceMcqQuestions } from "@/lib/mcq/mcq.functions";
 import { toast } from "sonner";
 import { CurriculumDAL } from "@/lib/curriculum/curriculumDal";
+import { EmptyState } from "@/components/Shared";
 import type { SpecPoint, Resource, McqSet } from "@/lib/curriculum/types";
 import { VideoModal, VideoThumbnail } from "@/components/VideoPlayer";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
@@ -14,7 +15,8 @@ import { parseVideoUrl, type VideoEmbed } from "@/lib/curriculum/videoEmbed";
 import { SpecPointVideoEditor, type EditableVideo } from "@/components/tutor/SpecPointVideoEditor";
 import { useSpecPointNotes } from "@/hooks/data/useNotes";
 import { Chip } from "@/components/Shared";
-import { formatWhen } from "@/lib/live/liveSessions";
+import { formatWhen, joinClick, showsJoin } from "@/lib/live/liveSessions";
+import { useNow } from "@/hooks/useNow";
 import { plannerDateLabel } from "@/lib/planner/week";
 import {
   Plus,
@@ -61,14 +63,22 @@ export function SpecPointDetail({
   const { data: notesByPoint } = useSpecPointNotes([point.id]);
   const notes = notesByPoint?.get(point.id) ?? [];
 
+  const [loadFailed, setLoadFailed] = useState(false);
+  // Each load is numbered and only the newest may land, so a slow answer for
+  // the point that was open before can't fill this one.
+  const loadSeq = useRef(0);
   const reload = async () => {
+    const seq = ++loadSeq.current;
     try {
       const { resources: resList, mcqSets: mList } =
         await CurriculumDAL.getResourcesAndMcqSets(point);
+      if (seq !== loadSeq.current) return;
       setResources(resList);
       setMcqSets(mList);
+      setLoadFailed(false);
     } catch (e) {
       console.error(e);
+      if (seq === loadSeq.current) setLoadFailed(true);
     }
   };
 
@@ -165,6 +175,14 @@ export function SpecPointDetail({
             <Plus className="w-3.5 h-3.5" /> Add resource in Tutor Studio
           </Link>
         </div>
+      )}
+
+      {loadFailed && (
+        <EmptyState
+          compact
+          title="This point's videos, tasks and quizzes didn't load"
+          body="Check your connection and refresh the page."
+        />
       )}
 
       <div data-guide="point-sections" className="space-y-4">
@@ -321,16 +339,7 @@ export function SpecPointDetail({
             <div className="flex flex-col gap-1.5 w-full">
               <div className="flex items-start justify-between gap-2 text-sm font-semibold text-foreground leading-snug">
                 <span>{r.title}</span>
-                {r.join_url && (
-                  <a
-                    href={r.join_url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
-                  >
-                    Join
-                  </a>
-                )}
+                <SessionJoinLink session={r} isTutor={isTutor} />
               </div>
               {r.description && (
                 <p className="text-xs font-normal text-muted-foreground leading-normal">
@@ -339,7 +348,7 @@ export function SpecPointDetail({
               )}
               {r.starts_at && (
                 <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold">
-                  Starts: {formatWhen(new Date(r.starts_at).getTime())}
+                  Starts: {formatWhen(new Date(r.starts_at).getTime(), { uk: isTutor })}
                 </span>
               )}
             </div>
@@ -400,5 +409,26 @@ export function SpecPointDetail({
         />
       )}
     </div>
+  );
+}
+
+/**
+ * A lesson's Join on a spec point, by the same rule as every other Join
+ * ({@link showsJoin}): a student's shows only while the lesson can be joined.
+ * Ticking, so it appears on a page left open.
+ */
+function SessionJoinLink({ session, isTutor }: { session: Resource; isTutor: boolean }) {
+  const now = useNow(30_000);
+  if (!session.join_url || !showsJoin(session, isTutor, now)) return null;
+  return (
+    <a
+      href={session.join_url}
+      target="_blank"
+      rel="noreferrer"
+      onClick={joinClick(session.id)}
+      className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
+    >
+      Join
+    </a>
   );
 }

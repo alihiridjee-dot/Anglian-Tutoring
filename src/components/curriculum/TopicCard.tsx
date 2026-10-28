@@ -13,7 +13,7 @@ import {
 import { type CourseSchedule } from "@/lib/planner/pointSchedule";
 import { Plus, Trash2, ChevronRight } from "lucide-react";
 import { inputCls } from "@/components/curriculum/styles";
-import { SciText } from "@/components/Shared";
+import { EmptyState, SciText, Spinner } from "@/components/Shared";
 
 export function TopicCard({
   topic,
@@ -42,14 +42,21 @@ export function TopicCard({
 }) {
   const coverage = schedule?.byTopic.get(topic.id);
   const [points, setPoints] = useState<SpecPoint[]>([]);
+  // Until the first answer an open topic says nothing about being empty, and a
+  // failed read says so rather than "No spec points".
+  const [status, setStatus] = useState<"loading" | "ready" | "failed">("loading");
 
   useEffect(() => {
     const loadPoints = async () => {
+      // Opening again after a failure tries again, and shows it.
+      setStatus("loading");
       try {
         const data = await CurriculumDAL.getSpecPoints(topic.id);
         setPoints(data);
+        setStatus("ready");
       } catch (e) {
         console.error(e);
+        setStatus("failed");
       }
     };
 
@@ -62,8 +69,10 @@ export function TopicCard({
     try {
       const data = await CurriculumDAL.getSpecPoints(topic.id);
       setPoints(data);
+      setStatus("ready");
     } catch (e) {
       console.error(e);
+      setStatus("failed");
     }
   };
 
@@ -116,7 +125,15 @@ export function TopicCard({
       {open && (
         <div className="border-t border-border p-4 sm:p-5 space-y-4">
           {isTutor && <SpecPointCreate topicId={topic.id} onCreated={reload} />}
-          {points.length === 0 ? (
+          {points.length === 0 && status === "loading" ? (
+            <Spinner label="Loading spec points" className="py-6" />
+          ) : points.length === 0 && status === "failed" ? (
+            <EmptyState
+              compact
+              title="This topic's points didn't load"
+              body="Check your connection, then close the topic and open it again."
+            />
+          ) : points.length === 0 ? (
             <p className="text-muted-foreground text-sm italic">
               No spec points in this topic yet.
             </p>

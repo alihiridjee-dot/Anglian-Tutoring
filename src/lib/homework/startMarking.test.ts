@@ -1,7 +1,9 @@
 import { describe, expect, test } from "bun:test";
 import {
+  MARKING_STALLED_MS,
   RESTART_WINDOW_MS,
   isAlreadySubmitted,
+  markingStalled,
   needsMarkingStart,
   startMarking,
 } from "@/lib/homework/startMarking";
@@ -52,9 +54,26 @@ describe("a retry after a lost reply", () => {
     expect(isAlreadySubmitted({ message: "You have already submitted this homework" })).toBe(true);
   });
 
+  test("two hand-ins at once: the one the table stops is already in too", () => {
+    expect(
+      isAlreadySubmitted({
+        code: "23505",
+        message:
+          'duplicate key value violates unique constraint "homework_submissions_resource_id_student_id_key"',
+      }),
+    ).toBe(true);
+  });
+
   test("any other failure is still a failure", () => {
     expect(isAlreadySubmitted({ message: "That homework is not open to you" })).toBe(false);
     expect(isAlreadySubmitted(new TypeError("Failed to fetch"))).toBe(false);
+    expect(
+      isAlreadySubmitted({
+        code: "23505",
+        message:
+          'duplicate key value violates unique constraint "homework_answers_submission_id_question_id_key"',
+      }),
+    ).toBe(false);
   });
 });
 
@@ -70,5 +89,28 @@ describe("starting the marker", () => {
 
   test("a failed call never reaches the page", () => {
     expect(() => startMarking("sub-3", () => Promise.reject(new Error("down")))).not.toThrow();
+  });
+});
+
+describe("the notice on an unmarked paper", () => {
+  test("just handed in: marks are still on their way", () => {
+    expect(markingStalled(minutesAgo(1), NOW)).toBe(false);
+  });
+
+  test("45 minutes on, opening the sheet still starts the marker: not the tutor's yet", () => {
+    expect(markingStalled(minutesAgo(45), NOW)).toBe(false);
+  });
+
+  test("past the restart window with no marks: it's the tutor's now, not 'shortly'", () => {
+    expect(markingStalled(new Date(NOW - MARKING_STALLED_MS).toISOString(), NOW)).toBe(true);
+    expect(markingStalled(minutesAgo(60 * 24), NOW)).toBe(true);
+  });
+
+  test("it says the tutor will mark it exactly when the page stops starting the marker", () => {
+    for (const ms of [0, RESTART_WINDOW_MS - 1, RESTART_WINDOW_MS, RESTART_WINDOW_MS + 1]) {
+      const submitted_at = new Date(NOW - ms).toISOString();
+      const unmarked = { submitted_at, graded_at: null, release_at: null };
+      expect(markingStalled(submitted_at, NOW)).toBe(!needsMarkingStart(unmarked, NOW));
+    }
   });
 });

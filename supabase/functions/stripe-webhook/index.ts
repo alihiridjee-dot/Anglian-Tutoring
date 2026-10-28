@@ -160,6 +160,13 @@ async function upsertSubscription(subscriptionId: string, snapshot?: Stripe.Subs
         if (isMissing(err)) return null;
         throw err;
       });
+    // A late or resent event for the plan the tracked one replaced: it had
+    // ended before the tracked one began, so it is no duplicate. Its last
+    // invoice was a real payment, and the row already follows the newer plan.
+    if (kept && sub.ended_at && sub.ended_at < kept.created) {
+      console.log(`stripe-webhook: ${sub.id} ended before ${kept.id} began; row left as it is`);
+      return;
+    }
     if (kept && KEEPABLE_STATUSES.has(kept.status)) {
       await refundDuplicate(sub, kept.id);
       return;

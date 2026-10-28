@@ -602,7 +602,9 @@ export function SciText({
   /** A one-line preview (a message in a list): line breaks become spaces. */
   oneLine?: boolean;
 }) {
-  const shown = oneLine ? (text ?? "").replace(/\s*\r?\n\s*/g, " ") : (text ?? "");
+  // Matched from the first space of a run only: tried from every one, a long
+  // run of spaces froze the page.
+  const shown = oneLine ? (text ?? "").replace(/(?<!\s)\s*\r?\n\s*/g, " ") : (text ?? "");
   const runs = useMemo(() => sciRuns(shown, context), [shown, context]);
   const out: ReactNode[] = [];
   for (let i = 0; i < runs.length; i++) {

@@ -2282,6 +2282,7 @@ export type Database = {
         Returns: boolean;
       };
       purge_stale_live_sessions: { Args: never; Returns: number };
+      record_live_join: { Args: { _resource_id: string }; Returns: boolean };
       record_reviews_atomic: { Args: { _reviews: Json }; Returns: string[] };
       respond_to_parent_invite: {
         Args: { _accept: boolean; _invite_id: string };
@@ -2336,6 +2337,7 @@ export type Database = {
         Args: { _questions: Json; _set_id: string };
         Returns: number;
       };
+      settle_sign_up_role: { Args: { _invite_code?: string; _role: string }; Returns: Json };
       skip_plan_point: {
         Args: {
           _student_id: string;

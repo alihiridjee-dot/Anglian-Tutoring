@@ -1,12 +1,78 @@
 import { describe, expect, test } from "bun:test";
 import {
   fillTemplate,
+  headingIds,
   noteLayerFor,
   pickNoteLayer,
+  resultDecimals,
+  sliderDecimals,
   stepsOf,
+  subjectOfNoteId,
   validateNote,
   type NoteDiagram,
 } from "./noteFormat";
+
+describe("sliderDecimals", () => {
+  test("shows every value a slider can reach", () => {
+    expect(sliderDecimals({ min: 0.03, step: 0.01 })).toBe(2);
+    expect(sliderDecimals({ min: 0.01, step: 0.005 })).toBe(3);
+    expect(sliderDecimals({ min: 0.005, step: 0.01 })).toBe(3);
+    expect(sliderDecimals({ min: 1, step: 2.5 })).toBe(1);
+  });
+
+  test("keeps what it showed before for whole and tenth steps", () => {
+    expect(sliderDecimals({ min: 0, step: 1 })).toBe(0);
+    expect(sliderDecimals({ min: 10, step: 5 })).toBe(0);
+    expect(sliderDecimals({ min: 0, step: 0.1 })).toBe(1);
+    expect(sliderDecimals({ min: 0, step: 0.5 })).toBe(1);
+  });
+});
+
+describe("resultDecimals", () => {
+  test("a small result that isn't zero never reads as zero", () => {
+    expect(resultDecimals(0.01, 1)).toBe(3);
+    expect(resultDecimals(0.0045, 1)).toBe(4);
+    expect(resultDecimals(-0.02, 0)).toBe(3);
+  });
+
+  test("leaves everything else at the note's own decimals", () => {
+    expect(resultDecimals(0, 1)).toBe(1);
+    expect(resultDecimals(0.06, 1)).toBe(1);
+    expect(resultDecimals(12.345, 2)).toBe(2);
+    expect(resultDecimals(5.5e-17, 1)).toBe(1);
+    expect(resultDecimals(Number.NaN, 1)).toBe(1);
+  });
+});
+
+describe("subjectOfNoteId", () => {
+  test("reads the subject from every kind of note id", () => {
+    expect(subjectOfNoteId("phys-031")).toBe("physics");
+    expect(subjectOfNoteId("achem-008")).toBe("chemistry");
+    expect(subjectOfNoteId("ibio-012")).toBe("biology");
+  });
+
+  test("anything else is not a note", () => {
+    for (const id of ["garbage", "", "xbio-1", "bio-", "bio-12a", "chem-030/x"])
+      expect(subjectOfNoteId(id)).toBeNull();
+  });
+});
+
+describe("headingIds", () => {
+  test("a repeated heading gets its own anchor", () => {
+    expect(
+      headingIds(["Detail this course asks for", "Detail this course asks for", "Worked example"]),
+    ).toEqual(["detail-this-course-asks-for", "detail-this-course-asks-for-2", "worked-example"]);
+  });
+
+  test("never hands out the same anchor twice", () => {
+    expect(headingIds(["Section 2", "Section", "Section", "∆"])).toEqual([
+      "section-2",
+      "section",
+      "section-3",
+      "section-4",
+    ]);
+  });
+});
 
 const noteWith = (diagram: NoteDiagram) => ({
   format: 1,
@@ -137,7 +203,9 @@ describe("a student reads the layer for their own course", () => {
   });
 
   test("a missing layer falls back within the level, never across it", () => {
-    expect(pickNoteLayer(["aqa", "edexcel_igcse"], "cambridge_igcse", "igcse")).toBe("edexcel_igcse");
+    expect(pickNoteLayer(["aqa", "edexcel_igcse"], "cambridge_igcse", "igcse")).toBe(
+      "edexcel_igcse",
+    );
     expect(pickNoteLayer(["aqa", "edexcel_igcse"], undefined, "gcse")).toBe("aqa");
     expect(pickNoteLayer(["aqa"], "cambridge_igcse", "igcse")).toBeUndefined();
     expect(pickNoteLayer(["aqa", "ocr_alevel"], "aqa_alevel", "alevel")).toBe("ocr_alevel");
@@ -145,14 +213,24 @@ describe("a student reads the layer for their own course", () => {
   });
 
   test("IGCSE layers validate", () => {
-    const n = noteWith({ kind: "flow", alt: "a", steps: ["a", "b"] }) as any;
-    n.boards = { cambridge_igcse: { spec_codes: ["CAIE 1.1.1"] }, edexcel_igcse: { spec_codes: ["IGCSE 1.1"] } };
+    const n = {
+      ...noteWith({ kind: "flow", alt: "a", steps: ["a", "b"] }),
+      boards: {
+        cambridge_igcse: { spec_codes: ["CAIE 1.1.1"] },
+        edexcel_igcse: { spec_codes: ["IGCSE 1.1"] },
+      },
+    };
     expect(validateNote(n)).toEqual([]);
   });
 
   test("A-level layers validate", () => {
-    const n = noteWith({ kind: "flow", alt: "a", steps: ["a", "b"] }) as any;
-    n.boards = { aqa_alevel: { spec_codes: ["AQA 3.1.1"] }, cambridge_alevel: { spec_codes: ["CAIE 1.1"] } };
+    const n = {
+      ...noteWith({ kind: "flow", alt: "a", steps: ["a", "b"] }),
+      boards: {
+        aqa_alevel: { spec_codes: ["AQA 3.1.1"] },
+        cambridge_alevel: { spec_codes: ["CAIE 1.1"] },
+      },
+    };
     expect(validateNote(n)).toEqual([]);
   });
 });

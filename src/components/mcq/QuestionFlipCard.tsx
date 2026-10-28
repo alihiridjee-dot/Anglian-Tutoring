@@ -12,7 +12,16 @@ const PEEK_DELAY_MS = 350;
  * back; a click while it is turned keeps it turned. With no `back` it is the
  * plain card, so a question with no explanation (or not marked yet) never turns.
  */
-export function QuestionFlipCard({ front, back }: { front: ReactNode; back: ReactNode | null }) {
+export function QuestionFlipCard({
+  id,
+  front,
+  back,
+}: {
+  /** For Submit to find the first question left unanswered. */
+  id?: string;
+  front: ReactNode;
+  back: ReactNode | null;
+}) {
   const [pinned, setPinned] = useState(false);
   const [peek, setPeek] = useState(false);
   const flipped = back != null && (pinned || peek);
@@ -47,6 +56,7 @@ export function QuestionFlipCard({ front, back }: { front: ReactNode; back: Reac
 
   return (
     <li
+      id={id}
       ref={cardRef}
       className="flip-card scroll-mt-28"
       onPointerEnter={(e) => {

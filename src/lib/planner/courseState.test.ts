@@ -150,7 +150,7 @@ beforeEach(() => {
   // Cast: Bun's `typeof fetch` also carries `preconnect`, which a mock has no use for.
   network = spyOn(globalThis, "fetch").mockImplementation((async (input: RequestInfo | URL) => {
     throw new Error(`Unexpected request: ${String(input)}`);
-  }) as typeof fetch);
+  }) as unknown as typeof fetch);
 });
 afterEach(() => {
   network.mockRestore();

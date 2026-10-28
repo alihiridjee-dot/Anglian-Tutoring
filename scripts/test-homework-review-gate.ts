@@ -1,9 +1,11 @@
-/** Run with PGLITE_PATH pointing to a temporary @electric-sql/pglite installation.
+/** Run with PGLITE_MODULE (or PGLITE_PATH) pointing to a temporary @electric-sql/pglite install.
  * Applies the real review-gate migration to an isolated Postgres instance and
  * checks who can see what; no remote student data. */
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-const { PGlite } = await import(process.env.PGLITE_PATH ?? "@electric-sql/pglite");
+const { PGlite } = await import(
+  process.env.PGLITE_MODULE ?? process.env.PGLITE_PATH ?? "@electric-sql/pglite"
+);
 const db = new PGlite();
 
 const uuid = (n: number) => `00000000-0000-0000-0000-${String(n).padStart(12, "0")}`;

@@ -13,6 +13,7 @@ import { whenHydrated } from "@/lib/auth/hydration";
 import { loadGuardState } from "@/lib/auth/guardState";
 import { UserRole } from "@/types/user";
 import { ONBOARDING_STEPS, stepIndex } from "@/lib/auth/onboarding";
+import { useSignOut } from "@/hooks/useSignOut";
 
 /**
  * Profile setup + payment, for students who have verified their email but do
@@ -63,6 +64,7 @@ export const Route = createFileRoute("/onboarding")({
 function OnboardingLayout() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const current = stepIndex(pathname);
+  const signOut = useSignOut();
 
   const total = ONBOARDING_STEPS.length;
   const pct = Math.round(((current + 1) / total) * 100);
@@ -125,6 +127,22 @@ function OnboardingLayout() {
         </div>
 
         <Outlet />
+
+        {/* A way out from the first step: someone who signed up as the wrong
+            person (a parent on the Student tab) can't leave any other way, as
+            /auth sends a signed-in visitor straight back here. The plan step
+            has its own Sign out beside its Back link. */}
+        {!pathname.startsWith("/onboarding/plan") && (
+          <div className="mt-4 flex justify-center">
+            <button
+              type="button"
+              onClick={signOut}
+              className="inline-flex min-h-11 items-center text-xs text-muted-foreground hover:text-foreground sm:pointer-fine:min-h-0"
+            >
+              Not you? Sign out
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

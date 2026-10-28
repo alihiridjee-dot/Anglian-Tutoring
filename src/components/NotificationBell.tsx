@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoMode } from "@/lib/auth/session";
+import { BELL_REFRESH } from "@/lib/shell/bellRefresh";
 import { Chip, EmptyState, ErrorNote } from "@/components/Shared";
 import { scoreTint, timeAgo } from "@/components/students/studentPresentation";
 import { cn } from "@/lib/utils";
@@ -96,6 +97,14 @@ export function NotificationBell() {
     load();
   }, [load]);
 
+  // Reading a conversation in Messages also marks its notifications read
+  // (mark_chat_thread_read), so the badge here follows without a poll.
+  useEffect(() => {
+    const reload = () => void load();
+    window.addEventListener(BELL_REFRESH, reload);
+    return () => window.removeEventListener(BELL_REFRESH, reload);
+  }, [load]);
+
   // Close on outside click so the panel doesn't trap the page.
   useEffect(() => {
     if (!open) return;
@@ -126,6 +135,19 @@ export function NotificationBell() {
     const now = new Date().toISOString();
     setItems((prev) => prev.map((n) => (n.read_at ? n : { ...n, read_at: now })));
     await supabase.from("notifications").update({ read_at: now }).in("id", ids);
+  };
+
+  // Opening a notification is reading it.
+  const openOne = (n: Notification) => {
+    setOpen(false);
+    if (n.read_at) return;
+    const now = new Date().toISOString();
+    setItems((prev) => prev.map((x) => (x.id === n.id ? { ...x, read_at: now } : x)));
+    void supabase
+      .from("notifications")
+      .update({ read_at: now })
+      .eq("id", n.id)
+      .then(() => undefined);
   };
 
   if (isDemoMode()) return null;
@@ -204,7 +226,7 @@ export function NotificationBell() {
                       <Icon className="size-5" aria-hidden />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm font-bold leading-snug">{n.title}</p>
+                      <p className="text-sm font-bold leading-snug break-words">{n.title}</p>
                       {text && <p className="text-sm leading-snug mt-0.5 line-clamp-2">{text}</p>}
                       <Chip icon={Clock} tint="tint-slate" className="mt-1.5">
                         {timeAgo(n.created_at)}
@@ -238,7 +260,7 @@ export function NotificationBell() {
                             ? { thread: n.chat_thread_id }
                             : undefined
                         }
-                        onClick={() => setOpen(false)}
+                        onClick={() => openOne(n)}
                         className="block"
                       >
                         {body}

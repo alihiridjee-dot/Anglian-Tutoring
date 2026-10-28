@@ -24,13 +24,15 @@ import { cn } from "@/lib/utils";
 import { dbError } from "@/lib/platform/errors";
 import {
   clearDraft,
+  draftsClearedCount,
+  editStamp,
   loadDraft,
   mergeDrafts,
   saveDraft,
   syncServerDraft,
   type TimestampedDraft,
 } from "@/lib/homework/homeworkDrafts";
-import { isAlreadySubmitted, startMarking } from "@/lib/homework/startMarking";
+import { isAlreadySubmitted, markingStalled, startMarking } from "@/lib/homework/startMarking";
 import { creditRuns, creditsToShow } from "@/lib/homework/creditedQuotes";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
@@ -41,6 +43,7 @@ import { MarkScheme } from "@/components/homework/MarkScheme";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { StoredFigure } from "@/components/QuestionFigure";
 import { questionLayout, spacedLines } from "@/lib/platform/textBlocks";
+import { ANSWER_MAX, isBlank } from "@/lib/platform/textLimits";
 
 /**
  * The body of a homework sheet: the questions, and either the boxes to answer
@@ -204,7 +207,7 @@ function MarkedAnswer({
         aria-label={`Your answer to question ${index + 1}`}
         className="premium-input answer-lines w-full text-base break-words whitespace-pre-wrap"
       >
-        {!text.trim() ? (
+        {isBlank(text) ? (
           <span className="text-muted-foreground italic">Left blank</span>
         ) : (
           runs.map((r, k) => {
@@ -281,6 +284,18 @@ type Draft = { text: string };
 
 const EMPTY_WORK: TimestampedDraft = { answers: {}, notes: "", stamps: {}, savedAt: 0 };
 
+const hasAnswers = (draft: TimestampedDraft | null) =>
+  !!draft && Object.values(draft.answers).some((text) => text.trim().length > 0);
+
+/**
+ * How long a hand-in may take before it counts as failed. A phone between
+ * masts can hold a request open for minutes, with the hand-in screen up and no
+ * way out; past this the student can simply press it again. Kept under 20 s,
+ * the no-answer limit for any database request (answerTimeout, PR #317), so
+ * the student sees this message rather than a plain "Could not submit".
+ */
+const SUBMIT_TIMEOUT_MS = 15_000;
+
 export function AnswerForm({
   hw,
   questions,
@@ -331,20 +346,31 @@ export function AnswerForm({
     }, 2400);
     return () => {
       clearTimeout(go);
+      // The sheet as it was before the hand-in is still cached, and Back from
+      // the dashboard drew this blank form from it until the reload landed.
+      // Dropped, it loads afresh, as handed in.
+      queryClient.removeQueries({ queryKey: ["homework", "sheet", hw.id] });
       onChanged();
     };
-  }, [handedIn, navigate, onChanged]);
+  }, [handedIn, navigate, onChanged, queryClient, hw.id]);
+
+  // Typing not yet kept on this device (the 400 ms save below) or on the
+  // server (the 2.5 s sync): what leaving the sheet saves on the way out.
+  const unsaved = useRef({ local: false, remote: false });
 
   const draftOf = (id: string): Draft => ({ text: work.answers[id] ?? "" });
   // Answers only. The sheet no longer has a box for a note to the tutor, so a
   // note left in an older draft stays in the draft and is never handed in.
   const edit = (id: string, text: string) => {
+    // Later than any edit before it, even if the clock was put back since.
+    const at = editStamp(workRef.current.stamps[id]);
     setWork((prev) => ({
       ...prev,
       answers: { ...prev.answers, [id]: text },
-      stamps: { ...prev.stamps, [id]: Date.now() },
+      stamps: { ...prev.stamps, [id]: at },
     }));
     setEdits((n) => n + 1);
+    unsaved.current = { local: true, remote: true };
   };
   // Fold in another copy: the newer edit of each field wins, and typing done
   // here since stays, because it is newer.
@@ -359,42 +385,66 @@ export function AnswerForm({
     workRef.current = work;
   }, [work]);
 
+  // Sign-out clears every draft on this device. A sheet still open then must
+  // not write its own back on the way out.
+  const clearings = useRef(draftsClearedCount());
+  const saveHere = useCallback(() => {
+    if (!userId || draftsClearedCount() !== clearings.current) return;
+    unsaved.current.local = false;
+    saveDraft(userId, hw.id, workRef.current);
+  }, [userId, hw.id]);
+  const sendNow = useCallback(() => {
+    unsaved.current.remote = false;
+    return syncServerDraft(hw.id, workRef.current);
+  }, [hw.id]);
+
   // Bring back anything typed but never submitted — from this device and from
   // whichever others they worked on, the newer edit of each answer winning.
   //
-  // Anything typed while this loads is kept: it's newer than either copy, so
-  // the merge keeps it, where it used to be replaced by the draft arriving.
+  // This device's copy comes in at once, and from then on typing is kept
+  // here (`loaded`). It used to wait for the server's reply too, so on a slow
+  // or hanging connection nothing typed was saved anywhere until it came.
   //
-  // Nothing may be written back until the load has *finished*, which is what
-  // `ready` gates. Gating on the load having merely begun meant the first
+  // Anything typed while the server's copy loads is kept: it's newer, so the
+  // merge keeps it, where it used to be replaced by the draft arriving.
+  //
+  // Nothing may be sent to the server until its copy has *arrived*, which is
+  // what `ready` gates. Gating on the load having merely begun meant the first
   // autosave fired against empty state while the fetch was still in flight,
   // writing nothing over the draft it was about to restore and deleting the
   // server copy outright — a student picking their homework up on a second
   // device lost the lot, which is the precise accident this exists to prevent.
+  // The local save is safe sooner: by then this device's copy is in the page.
   //
   // No ref guards the effect, deliberately. A `hasRun` ref plus StrictMode's
   // deliberate double-mount is a deadlock: the first pass sets the ref and
   // starts the load, the cleanup cancels it, and the second pass sees the ref
   // and returns — so the load never completes and `ready` never flips. The
   // dependencies are narrow enough that re-running is simply a second read.
+  const [loaded, setLoaded] = useState(false);
   const [ready, setReady] = useState(false);
+  // The same two, for the listeners that save on the way out.
+  const may = useRef({ local: false, remote: false });
   useEffect(() => {
     if (!userId) return;
     let cancelled = false;
 
+    const local = loadDraft(userId, hw.id);
+    takeIn(local);
+    if (hasAnswers(local)) setRestored(true);
+    may.current.local = true;
+    setLoaded(true);
+
     void (async () => {
-      const local = loadDraft(userId, hw.id);
       // Sent as well as fetched: edits this device made offline reach the
       // server now, rather than waiting for the next keystroke.
       const server = await syncServerDraft(hw.id, local);
       if (cancelled) return;
 
-      const saved = mergeDrafts(local, server);
-      if (saved) {
-        takeIn(saved);
-        if (Object.values(saved.answers).some((text) => text.trim().length > 0)) setRestored(true);
-      }
-      // Only now may anything be written back.
+      takeIn(server);
+      if (hasAnswers(server)) setRestored(true);
+      // Only now may anything be sent.
+      may.current.remote = true;
       setReady(true);
     })();
 
@@ -408,24 +458,45 @@ export function AnswerForm({
   // server sends back the merged draft, which brings in anything typed on
   // another device meanwhile.
   useEffect(() => {
+    if (!userId || !loaded || edits === 0) return;
+    const local = setTimeout(saveHere, 400);
+    return () => clearTimeout(local);
+  }, [edits, userId, loaded, saveHere]);
+  useEffect(() => {
     if (!userId || !ready || edits === 0) return;
-    const local = setTimeout(() => saveDraft(userId, hw.id, workRef.current), 400);
-    const remote = setTimeout(
-      () => void syncServerDraft(hw.id, workRef.current).then(takeIn),
-      2500,
-    );
-    return () => {
-      clearTimeout(local);
-      clearTimeout(remote);
+    const remote = setTimeout(() => void sendNow().then(takeIn), 2500);
+    return () => clearTimeout(remote);
+  }, [edits, userId, ready, sendNow, takeIn]);
+
+  // Leaving the sheet — a link, the header's subject slider, the tab hidden or
+  // closed — saves what the timers above haven't yet. They are cancelled as
+  // the sheet goes, and took the last few words typed with them. A closed tab
+  // keeps only this device's copy: the browser cancels the send to the server,
+  // and that copy goes up when the sheet next opens here, or at sign-out.
+  const flush = useCallback(() => {
+    if (unsaved.current.local && may.current.local) saveHere();
+    if (unsaved.current.remote && may.current.remote) void sendNow();
+  }, [saveHere, sendNow]);
+  useEffect(() => {
+    if (!userId) return;
+    const onHide = () => {
+      if (document.visibilityState === "hidden") flush();
     };
-  }, [edits, userId, hw.id, ready, takeIn]);
+    document.addEventListener("visibilitychange", onHide);
+    window.addEventListener("pagehide", flush);
+    return () => {
+      document.removeEventListener("visibilitychange", onHide);
+      window.removeEventListener("pagehide", flush);
+      flush();
+    };
+  }, [userId, flush]);
 
   // Coming back to this tab, or back online: catch up with the other devices
   // before the next keystroke here is saved. A tab left open since yesterday
   // is exactly the one that would otherwise be out of date.
   const catchUp = useCallback(async () => {
-    takeIn(await syncServerDraft(hw.id, workRef.current));
-  }, [hw.id, takeIn]);
+    takeIn(await sendNow());
+  }, [sendNow, takeIn]);
   useEffect(() => {
     if (!userId || !ready) return;
     const onReturn = () => {
@@ -441,7 +512,7 @@ export function AnswerForm({
     };
   }, [userId, ready, catchUp]);
 
-  const hasUnsent = Object.values(work.answers).some((text) => text.trim().length > 0);
+  const hasUnsent = Object.values(work.answers).some((text) => !isBlank(text));
 
   // A reload or a closed tab is recoverable now, but a student who navigates
   // away mid-answer still deserves the browser's own warning.
@@ -452,28 +523,64 @@ export function AnswerForm({
     return () => window.removeEventListener("beforeunload", warn);
   }, [hasUnsent]);
 
-  const isAnswered = (q: HomeworkQuestion) => draftOf(q.id).text.trim().length > 0;
+  // Invisible characters alone are blank, as the server stores them.
+  const isAnswered = (q: HomeworkQuestion) => !isBlank(draftOf(q.id).text);
   const answered = questions.filter(isAnswered).length;
+
+  // The answers this page last tried to hand in: see "Already submitted" below.
+  const lastTry = useRef<string | null>(null);
 
   const submit = async () => {
     if (!userId) return toast.error("Not signed in");
     if (answered === 0) return toast.error("Answer at least one question before submitting");
 
     setSaving(true);
+    const stop = new AbortController();
+    const timer = setTimeout(() => stop.abort(), SUBMIT_TIMEOUT_MS);
     try {
       const payload = questions.map((q) => ({
         question_id: q.id,
         answer_text: draftOf(q.id).text,
       }));
+      const sent = JSON.stringify(payload);
+      const retry = lastTry.current === sent;
+      lastTry.current = sent;
 
-      const { data: submissionId, error } = await supabase.rpc("submit_homework_answers", {
-        _resource_id: hw.id,
-        _answers: payload,
-      });
-      // "Already submitted" means an earlier try got through and only its
-      // reply was lost: the work is in, which is what the student wanted. The
-      // sheet reloads with the submission and starts its marking from there.
-      if (error && !isAlreadySubmitted(error)) throw dbError(error);
+      const { data: submissionId, error } = await supabase
+        .rpc("submit_homework_answers", {
+          _resource_id: hw.id,
+          _answers: payload,
+        })
+        .abortSignal(stop.signal);
+      // The database answered (a refusal has a code; a lost connection or
+      // the timeout has none): whatever this page sent before is settled, so
+      // a later "already submitted" can't be its own. Pressed again before
+      // the sheet reloads, it is still someone else's hand-in.
+      if (error?.code) lastTry.current = null;
+      // "Already submitted" after this page sent these same answers means its
+      // earlier try got through and only the reply was lost: the work is in,
+      // which is what the student wanted. The sheet reloads with the
+      // submission and starts its marking from there.
+      //
+      // Otherwise it was handed in from another tab or device, with whatever
+      // was typed there, and these answers were not sent. Say so and show what
+      // was handed in, rather than the well-done screen.
+      if (error && isAlreadySubmitted(error) && !retry) {
+        toast("This task was already handed in. Here are the answers that were sent.");
+        unsaved.current = { local: false, remote: false };
+        clearDraft(userId, hw.id);
+        setConfirming(false);
+        onChanged();
+        void invalidatePlanner(queryClient, userId);
+        return;
+      }
+      if (error && !isAlreadySubmitted(error)) {
+        if (stop.signal.aborted)
+          throw new Error(
+            "Handing in is taking too long. Check your connection and press it again.",
+          );
+        throw dbError(error);
+      }
 
       // Start the marking, but never wait on it or surface its failure. The
       // work is safely handed in either way; a submission that goes unmarked
@@ -481,6 +588,7 @@ export function AnswerForm({
       if (submissionId) startMarking(submissionId);
 
       toast.success("Task submitted");
+      unsaved.current = { local: false, remote: false };
       clearDraft(userId, hw.id);
       setWork(EMPTY_WORK);
       setRestored(false);
@@ -492,6 +600,7 @@ export function AnswerForm({
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Could not submit");
     } finally {
+      clearTimeout(timer);
       setSaving(false);
     }
   };
@@ -570,6 +679,7 @@ export function AnswerForm({
                 onValueChange={(text) => edit(q.id, text)}
                 context={q.prompt}
                 noPaste
+                maxLength={ANSWER_MAX}
                 placeholder={TYPE_HINT[q.answer_type]}
                 aria-label={`Answer to question ${i + 1}`}
                 style={linesStyle(q)}
@@ -820,12 +930,27 @@ function QuestionText({ text }: { text: string }) {
 export function AwaitingMark({
   releaseAt,
   held = false,
+  submittedAt = null,
 }: {
   releaseAt: string | null;
   /** The marker finished but held the paper for a tutor: no clock to show. */
   held?: boolean;
+  /**
+   * When it was handed in. Unmarked once the page has stopped starting the
+   * marker (an hour on), nothing will mark it but a tutor, so the notice stops
+   * promising marks "shortly".
+   */
+  submittedAt?: string | null;
 }) {
   const [minutes, setMinutes] = useState<number | null>(null);
+  const [stalled, setStalled] = useState(false);
+  useEffect(() => {
+    if (releaseAt || held || !submittedAt) return;
+    const check = () => setStalled(markingStalled(submittedAt));
+    check();
+    const timer = setInterval(check, 30_000);
+    return () => clearInterval(timer);
+  }, [releaseAt, held, submittedAt]);
   useEffect(() => {
     if (!releaseAt) return;
     const tick = () =>
@@ -837,6 +962,8 @@ export function AwaitingMark({
     const timer = setInterval(tick, 30_000);
     return () => clearInterval(timer);
   }, [releaseAt]);
+  // Only while there is still nothing else to say: no clock, not held.
+  const late = stalled && !releaseAt && !held;
 
   return (
     <div className="tint-primary premium-card flex items-start gap-3 p-4">
@@ -845,14 +972,20 @@ export function AwaitingMark({
       </span>
       <div>
         <p className="font-display font-bold">
-          {held ? "Handed in — your tutor is checking it" : "Handed in — being marked"}
+          {held
+            ? "Handed in — your tutor is checking it"
+            : late
+              ? "Handed in — your tutor will mark it"
+              : "Handed in — being marked"}
         </p>
         <p className="text-muted-foreground mt-0.5 text-sm leading-relaxed">
           {held
             ? "Your marks and feedback will appear here once your tutor has looked."
-            : minutes != null && minutes > 0
-              ? `Your marks and feedback should appear here in about ${minutes} minute${minutes === 1 ? "" : "s"}.`
-              : "Your marks and feedback will appear here shortly."}
+            : late
+              ? "Your marks and feedback will appear here once your tutor has marked it."
+              : minutes != null && minutes > 0
+                ? `Your marks and feedback should appear here in about ${minutes} minute${minutes === 1 ? "" : "s"}.`
+                : "Your marks and feedback will appear here shortly."}
         </p>
       </div>
     </div>

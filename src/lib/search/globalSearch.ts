@@ -1,6 +1,7 @@
 import {
   LayoutDashboard,
   BookMarked,
+  BookOpen,
   Layers,
   ClipboardList,
   CalendarClock,
@@ -50,8 +51,8 @@ import {
 
 /**
  * The global search: one query answered across every surface the caller can
- * reach — pages, the specification, homework, live sessions, videos,
- * quizzes, and (for a tutor) students.
+ * reach — pages, the specification, revision notes, homework, live sessions,
+ * videos, quizzes, and (for a tutor) students.
  *
  * Two independent layers keep results honest. RLS decides what the database
  * will hand back at all, and {@link isVisible} narrows what survives to the
@@ -103,6 +104,16 @@ export function isVisible(
     if (sat && row.board !== sat) return false;
   }
   return true;
+}
+
+/**
+ * The note levels a student's course reads. Most IGCSE notes are the GCSE
+ * notes with an IGCSE layer, and combined science reads the GCSE notes.
+ */
+export function noteLevelsFor(level: LevelV): LevelV[] {
+  if (level === "alevel") return ["alevel"];
+  if (level === "igcse") return ["gcse", "igcse"];
+  return ["gcse"];
 }
 
 /** Where a spec point or topic opens: the curriculum page, pre-filtered to it. */
@@ -185,11 +196,15 @@ const RESOURCE_ICON: Record<string, SearchHit["icon"]> = {
 };
 
 // Homework has a page per sheet, so a hit can open the thing it found rather
-// than the list it lives in. The demo has no such page and keeps its list.
-const RESOURCE_ROUTE: Record<string, (isDemo: boolean, id: string) => string> = {
-  homework: (d, id) => (d ? "/demo/student/homework" : `/homework/${id}`),
-  live_session: (d) => (d ? "/demo/student/live" : "/live"),
-  video: (d) => (d ? "/demo/student/videos" : "/videos"),
+// than the list it lives in, and a video opens in the Videos page's player.
+// The demo has neither and keeps its lists.
+const RESOURCE_ROUTE: Record<
+  string,
+  (isDemo: boolean, id: string) => Pick<SearchHit, "to" | "search">
+> = {
+  homework: (d, id) => ({ to: d ? "/demo/student/homework" : `/homework/${id}` }),
+  live_session: (d) => ({ to: d ? "/demo/student/live" : "/live" }),
+  video: (d, id) => (d ? { to: "/demo/student/videos" } : { to: "/videos", search: { video: id } }),
 };
 
 /**
@@ -307,11 +322,27 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
     return q;
   };
 
-  const [specPoints, topics, resources, mcqSets, students] = await Promise.all([
+  // Published notes only, for a tutor too: a tutor sees what students see.
+  const notesQ = () => {
+    let q = supabase
+      .from("notes")
+      .select("concept_id, note_concepts!inner(title, chapter, subject, level)")
+      .eq("status", "approved")
+      .ilike("note_concepts.title", pattern)
+      .limit(FETCH_LIMIT);
+    if (!ctx.isTutor) {
+      q = q.in("note_concepts.subject", subjects);
+      if (ctx.level) q = q.in("note_concepts.level", noteLevelsFor(ctx.level));
+    }
+    return q;
+  };
+
+  const [specPoints, topics, resources, mcqSets, notes, students] = await Promise.all([
     scopedOut ? null : specPointsQ(),
     scopedOut ? null : topicsQ(),
     scopedOut ? null : resourcesQ(),
     scopedOut ? null : mcqSetsQ(),
+    scopedOut || !pattern ? null : notesQ(),
     // Only a tutor has a student roster to search; for anyone else this is both
     // useless and, by RLS, empty.
     ctx.isTutor && pattern
@@ -402,7 +433,7 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
       tags: taxonomyTags(row),
       icon: RESOURCE_ICON[kind] ?? ClipboardList,
       score,
-      to: RESOURCE_ROUTE[kind](ctx.isDemo, row.id),
+      ...RESOURCE_ROUTE[kind](ctx.isDemo, row.id),
     });
   }
 
@@ -426,6 +457,30 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
       score,
       to: "/mcq/$setId",
       params: { setId: row.id },
+    });
+  }
+
+  for (const row of notes?.data ?? []) {
+    const concept = row.note_concepts;
+    if (!concept || !isVisible(ctx, { subject: concept.subject })) continue;
+    const score = scoreRecord(
+      [
+        { text: concept.title, weight: 1 },
+        { text: concept.chapter, weight: 0.2 },
+      ],
+      terms,
+    );
+    if (!score) continue;
+    hits.push({
+      key: `note:${row.concept_id}`,
+      group: "note",
+      title: concept.title,
+      subtitle: concept.chapter,
+      tags: taxonomyTags({ subject: concept.subject, level: concept.level }),
+      icon: BookOpen,
+      score,
+      to: "/notes/$conceptId",
+      params: { conceptId: row.concept_id },
     });
   }
 

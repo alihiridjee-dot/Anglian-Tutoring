@@ -36,7 +36,10 @@ export const NOTE_BOARDS = [
 export type NoteBoard = (typeof NOTE_BOARDS)[number];
 
 /** How a layer is named on screen: "IGCSE Biology · Cambridge". */
-export const NOTE_COURSE: Record<NoteBoard, { level: "GCSE" | "IGCSE" | "A-level"; board: string }> = {
+export const NOTE_COURSE: Record<
+  NoteBoard,
+  { level: "GCSE" | "IGCSE" | "A-level"; board: string }
+> = {
   aqa: { level: "GCSE", board: "AQA" },
   edexcel: { level: "GCSE", board: "Edexcel" },
   ocr: { level: "GCSE", board: "OCR" },
@@ -54,9 +57,20 @@ export const NOTE_COURSE: Record<NoteBoard, { level: "GCSE" | "IGCSE" | "A-level
  */
 export function noteLayerFor(board: string | undefined, level: string | null | undefined) {
   if (!board) return undefined;
-  const key =
-    level === "igcse" ? `${board}_igcse` : level === "alevel" ? `${board}_alevel` : board;
+  const key = level === "igcse" ? `${board}_igcse` : level === "alevel" ? `${board}_alevel` : board;
   return (NOTE_BOARDS as readonly string[]).includes(key) ? (key as NoteBoard) : undefined;
+}
+
+/**
+ * The subject a note's id names, or null for an id that isn't a note's. Every
+ * id is "bio-", "chem-" or "phys-" and a number, with "a" in front for A-level
+ * and "i" for IGCSE. Read from the id because a note in a subject the student
+ * doesn't take is hidden from them along with its subject.
+ */
+export function subjectOfNoteId(id: string): "biology" | "chemistry" | "physics" | null {
+  const m = /^[ai]?(bio|chem|phys)-\d+$/.exec(id);
+  if (!m) return null;
+  return m[1] === "bio" ? "biology" : m[1] === "chem" ? "chemistry" : "physics";
 }
 
 /** The layer to show: the student's own, else the first layer at the same level, else none. */
@@ -317,6 +331,55 @@ export function stepsOf(v: { min: number; max: number; step: number }): number[]
     out.push(x);
   }
   return out;
+}
+
+/** Decimal places `n` is written with (0.005 → 3), up to 6. */
+function placesOf(n: number): number {
+  for (let d = 0; d < 6; d++) {
+    const x = n * 10 ** d;
+    if (Math.abs(x - Math.round(x)) < 1e-9 * Math.max(1, Math.abs(x))) return d;
+  }
+  return 6;
+}
+
+/**
+ * Decimals a slider's readout needs to show every value it can reach, so a
+ * 0.01-step slider starting at 0.03 reads "0.03", not "0.0". Never fewer than
+ * one for a step below 1, as before.
+ */
+export function sliderDecimals(inp: { min: number; step: number }): number {
+  return Math.max(inp.step < 1 ? 1 : 0, placesOf(inp.step), placesOf(inp.min));
+}
+
+/**
+ * Decimals for a computed result: the note's own, unless that would show a
+ * value that isn't zero as "0.0". Then two significant figures, so 0.01 W reads
+ * "0.010". Rounding dust below a millionth still reads as zero.
+ */
+export function resultDecimals(n: number, decimals: number): number {
+  const a = Math.abs(n);
+  if (!Number.isFinite(n) || a < 1e-6 || a >= 0.5 * 10 ** -decimals) return decimals;
+  return Math.min(6, 1 - Math.floor(Math.log10(a)));
+}
+
+/**
+ * The page anchor for each section heading, in order. A heading that comes
+ * round again (a layer can repeat one) gets "-2", "-3", so every contents link
+ * reaches its own section.
+ */
+export function headingIds(headings: string[]): string[] {
+  const used = new Set<string>();
+  return headings.map((h) => {
+    const base =
+      h
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "") || "section";
+    let id = base;
+    for (let n = 2; used.has(id); n++) id = `${base}-${n}`;
+    used.add(id);
+    return id;
+  });
 }
 
 export interface NoteCheck {
