@@ -13,12 +13,14 @@ import { CheckCircle2, Lightbulb, XCircle } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ } from "@/lib/demo/studentDemo";
 import { rowOptions } from "@/lib/platform/textBlocks";
 import {
+  answersDiffer,
   attemptIdFor,
   clearMcqAnswers,
   loadMcqAnswers,
   reconcileAnswers,
   renewAttemptId,
   saveMcqAnswers,
+  savedAttemptId,
   type McqAnswers,
 } from "@/lib/mcq/mcqAnswers";
 import { describeQuizError, isQuizChanged } from "@/lib/mcq/quizErrors";
@@ -237,6 +239,17 @@ export function TakeMcq() {
   // retry after a lost reply returns the attempt already filed (see
   // `attemptIdFor`); a fresh visit after a marked attempt gets a new one.
   const attemptId = useRef<string | null>(null);
+  // Whether that id was kept from an earlier page load rather than made now.
+  const restoredId = useRef(false);
+  // The score card, which takes focus once Submit has marked the paper: the
+  // button that had it is gone, and focus fell back to the top of the page.
+  const scoreRef = useRef<HTMLDivElement>(null);
+  const focusScore = useRef(false);
+  useEffect(() => {
+    if (!marked || !focusScore.current) return;
+    focusScore.current = false;
+    scoreRef.current?.focus();
+  }, [marked]);
   useEffect(() => {
     if (questions.length === 0 || lockPending) return;
     const attempt = `${userId ?? ""}:${setId}`;
@@ -246,6 +259,7 @@ export function TakeMcq() {
       setMarked(locked.data.marked);
       setAnswers(reconcileAnswers(locked.data.answers, questions));
       attemptId.current = null;
+      restoredId.current = false;
       // Filed already, so nothing kept for a retry is wanted. Left behind, the
       // id came back on the next sitting a week later and replayed this one.
       if (userId) clearMcqAnswers(userId, setId);
@@ -253,6 +267,7 @@ export function TakeMcq() {
     }
     setMarked(null);
     setAnswers(userId && !demo ? reconcileAnswers(loadMcqAnswers(userId, setId), questions) : {});
+    restoredId.current = !!userId && !demo && savedAttemptId(userId, setId) !== null;
     attemptId.current = userId && !demo ? attemptIdFor(userId, setId) : null;
   }, [setId, userId, demo, questions, lockPending, locked.data]);
 
@@ -281,7 +296,11 @@ export function TakeMcq() {
       const card = document.getElementById(`question-${questions[gap].id}`);
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       card?.scrollIntoView({ block: "start", behavior: reduce ? "auto" : "smooth" });
-      card?.querySelector("button")?.focus({ preventScroll: true });
+      // An option, not the first button: a question with a picture has its
+      // "Show full size" button above the options.
+      card
+        ?.querySelector<HTMLButtonElement>("button[aria-pressed]")
+        ?.focus({ preventScroll: true });
       return;
     }
 
@@ -294,6 +313,7 @@ export function TakeMcq() {
         byQuestion[q.id] = { correctIndex: q.correct_index, explanation: q.explanation };
         if (answers[q.id] === q.correct_index) correct += 1;
       }
+      focusScore.current = true;
       setMarked({ score: correct, total: questions.length, byQuestion, retakeOpensAt: null });
       toast.success(`Scored ${correct}/${questions.length}`);
       return;
@@ -322,15 +342,22 @@ export function TakeMcq() {
       let review = await file();
       // The server replayed this tab's own id from a sitting whose week is
       // over, so these answers were never filed: file them under a new id.
+      // Only an id kept from an earlier page load can be that old; one made on
+      // this load is new, however far ahead the device's clock is set.
       const opens = review.marked.retakeOpensAt;
+      const firstId = review.attemptId;
       if (
+        restoredId.current &&
         attemptId.current &&
-        review.attemptId === attemptId.current &&
+        firstId === attemptId.current &&
         opens &&
         opens.getTime() <= Date.now()
       ) {
         attemptId.current = renewAttemptId(userId, setId);
         review = await file();
+        // The same attempt again: it was filed this week after all, and only
+        // the device's clock said otherwise. It is still this tab's own.
+        if (review.attemptId === firstId) attemptId.current = firstId;
       }
       // An attempt other than this one: taken earlier this week, in another
       // tab or on another device. That is the one shown, so say so.
@@ -338,13 +365,18 @@ export function TakeMcq() {
         attemptId.current !== null &&
         review.attemptId !== null &&
         review.attemptId !== attemptId.current;
+      // This tab's own id, filed before with other answers: a submit whose
+      // reply was lost and then changed, or a duplicated tab. Shown as filed.
+      const resent = !earlier && answersDiffer(sent, review.answers, questions);
       // A server from before the lock sends no date; the attempt is a moment old.
       review.marked.retakeOpensAt ??= retakeOpensAt(new Date());
+      focusScore.current = true;
       setMarked(review.marked);
       setAnswers(reconcileAnswers(review.answers, questions));
       plannerQueryClient.setQueryData(lockKey, review);
       clearMcqAnswers(userId, setId);
       if (earlier) toast.info("You took this quiz earlier this week — here's that attempt.");
+      else if (resent) toast.info("Your first submit went through — here's that attempt.");
       else toast.success(`Scored ${review.marked.score}/${review.marked.total}`);
       void invalidatePlanner(plannerQueryClient, userId);
       // The averages and predicted grade are built from attempts like this one.
@@ -642,7 +674,11 @@ export function TakeMcq() {
             {submitting ? "Marking…" : "Submit answers"}
           </button>
         ) : (
-          <div className="mt-6 rounded-2xl premium-card p-4 text-center sm:p-6">
+          <div
+            ref={scoreRef}
+            tabIndex={-1}
+            className="mt-6 rounded-2xl premium-card p-4 text-center outline-none focus-visible:ring-2 focus-visible:ring-[var(--tint)] sm:p-6"
+          >
             <p className="eyebrow eyebrow-bare">Your score</p>
             <p className="font-display text-4xl font-bold mt-1">
               {marked?.score}/{marked?.total}

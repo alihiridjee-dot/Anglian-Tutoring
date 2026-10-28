@@ -12,7 +12,7 @@ describe("describeQuizError", () => {
       "This quiz has been taken down.",
     );
     expect(describeQuizError(refusal("quiz has changed"), "x")).toBe(
-      "This quiz has just been updated. Check your answers and submit again.",
+      "This quiz has just been updated — answer any new questions and submit again.",
     );
   });
 
@@ -23,6 +23,13 @@ describe("describeQuizError", () => {
     expect(describeQuizError(refusal("not signed in"), "x")).toBe(
       "Your session has ended — sign in again to submit.",
     );
+    // No session at all: the request goes as nobody, who may not run it.
+    expect(
+      describeQuizError(
+        { message: "permission denied for function grade_mcq_attempt", code: "42501" },
+        "x",
+      ),
+    ).toBe("Your session has ended — sign in again to submit.");
   });
 
   it("leaves a dropped connection and the fallback as they were", () => {

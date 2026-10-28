@@ -95,21 +95,44 @@ export function saveMcqAnswers(userId: string, setId: string, answers: McqAnswer
  * id it was given for as long as the page is open.
  */
 export function attemptIdFor(userId: string, setId: string): string {
-  const store = available();
-  const k = `${key(userId, setId)}:attempt`;
-  try {
-    const saved = store?.getItem(k);
-    if (saved) return saved;
-  } catch {
-    /* fall through to a fresh id */
-  }
+  const saved = savedAttemptId(userId, setId);
+  if (saved) return saved;
   const id = crypto.randomUUID();
   try {
-    store?.setItem(k, id);
+    available()?.setItem(`${key(userId, setId)}:attempt`, id);
   } catch {
     /* best-effort, as above */
   }
   return id;
+}
+
+/**
+ * The id this tab kept from an earlier page load, or null when there is none.
+ *
+ * Only a kept id can be one the server filed a week or more ago. An id made on
+ * this page load is new, whatever the device's clock says about the reply.
+ */
+export function savedAttemptId(userId: string, setId: string): string | null {
+  try {
+    return available()?.getItem(`${key(userId, setId)}:attempt`) || null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * True when the answers the server marked are not the ones just sent.
+ *
+ * The server hands back an attempt it already filed under this id: a submit
+ * whose reply was lost, then changed and sent again, or a tab duplicated with
+ * its saved id. What it shows is that first filing, not this one.
+ */
+export function answersDiffer(
+  sent: McqAnswers,
+  marked: McqAnswers,
+  questions: readonly { id: string }[],
+): boolean {
+  return questions.some((q) => sent[q.id] !== marked[q.id]);
 }
 
 /**
