@@ -14,6 +14,10 @@ import { BreakDAL } from "./breaksDal";
 import type { PacingBand } from "./pacing";
 import type { RoadmapResult } from "./roadmap";
 
+// withClient reaches the shared client, which throws without this on a machine
+// with no local `.env` (SUPABASE_URL is set before each test below).
+process.env.SUPABASE_PUBLISHABLE_KEY ??= "sb_publishable_test";
+
 const originalFetch = globalThis.fetch;
 const envNames = ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "PRACTICE_WORKER_SECRET"] as const;
 const previous = Object.fromEntries(envNames.map((name) => [name, process.env[name]]));

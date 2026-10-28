@@ -102,9 +102,9 @@ const have = new Set(liveLinks.map((l) => `${l.concept_id}|${l.spec_point_id}`))
 const newLinks = linkRows.filter((l) => !have.has(`${l.concept_id}|${l.spec_point_id}`));
 const staleLinks = liveLinks.filter((l) => !want.has(`${l.concept_id}|${l.spec_point_id}`));
 const liveNotes = new Map(
-  (
-    (await getRows("notes?select=concept_id,body")) as { concept_id: string; body: unknown }[]
-  ).map((n) => [n.concept_id, n.body]),
+  ((await getRows("notes?select=concept_id,body")) as { concept_id: string; body: unknown }[]).map(
+    (n) => [n.concept_id, n.body],
+  ),
 );
 const stable = (v: unknown): unknown =>
   Array.isArray(v)
@@ -186,10 +186,18 @@ if (!write) {
         { method: "DELETE", headers: { Prefer: "return=minimal" } },
       );
   for (let i = 0; i < newLinks.length; i += 500)
-    await upsert("note_concept_spec_points", newLinks.slice(i, i + 500), "concept_id,spec_point_id");
+    await upsert(
+      "note_concept_spec_points",
+      newLinks.slice(i, i + 500),
+      "concept_id,spec_point_id",
+    );
   // Primary flags can change on a link that is already live.
   for (let i = 0; i < linkRows.length; i += 500)
-    await upsert("note_concept_spec_points", linkRows.slice(i, i + 500), "concept_id,spec_point_id");
+    await upsert(
+      "note_concept_spec_points",
+      linkRows.slice(i, i + 500),
+      "concept_id,spec_point_id",
+    );
   for (let i = 0; i < publish.length; i += 50)
     await upsert(
       "notes",

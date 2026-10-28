@@ -215,7 +215,9 @@ const STATEMENT_COURSES = new Set(["aqa-alevel-biology"]);
 function score(course: string, p: Point): number {
   const text = `${p.description ?? ""}`.trim() || p.title;
   const board = course.split("-")[0];
-  return board === "aqa" && !STATEMENT_COURSES.has(course) ? scoreSection(text) : scoreStatement(text);
+  return board === "aqa" && !STATEMENT_COURSES.has(course)
+    ? scoreSection(text)
+    : scoreStatement(text);
 }
 
 // ------------------------------------------------------------ week balance

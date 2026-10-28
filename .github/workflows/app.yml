@@ -1,0 +1,116 @@
+# The app's own checks, on every pull request and every push to main. Vercel's
+# build does not typecheck and nothing ran the tests, so a type error, a red
+# test or lint reached main unnoticed. No secrets, and nothing here talks to
+# the live project: the unit tests stub `fetch`, and the database tests run the
+# real migrations in PGlite, an in-memory Postgres. Deploys stay with Vercel.
+name: App
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+# A PR keeps only its newest run. Each push to main gets its own group, so a
+# merge landing minutes after another doesn't cancel the first one's run.
+concurrency:
+  group: app-${{ github.ref }}-${{ github.event_name == 'push' && github.sha || '' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+# Every job's name starts with "app": the Edge functions workflow has a
+# "typecheck" job too, and GitHub matches required checks by name alone.
+jobs:
+  typecheck:
+    name: app typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+      - run: bun install
+      - run: bun --bun node_modules/typescript/bin/tsc -p tsconfig.json --noEmit
+      # The tests have their own config (Bun's types), so a test can break
+      # while the app still compiles.
+      - run: bun --bun node_modules/typescript/bin/tsc -p tsconfig.test.json --noEmit
+
+  lint:
+    name: app lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+      - run: bun install
+      - run: bun --bun node_modules/eslint/bin/eslint.js .
+
+  test:
+    name: app test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+      - run: bun install
+      - run: bun test
+
+  database:
+    name: app database
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+      - run: bun install
+      # PGlite is not an app dependency: each script imports it from
+      # PGLITE_MODULE. 0.5.12 is the version every script passes on.
+      - name: Install PGlite
+        run: |
+          mkdir -p "$RUNNER_TEMP/pglite"
+          cd "$RUNNER_TEMP/pglite"
+          echo '{"private": true}' > package.json
+          bun add @electric-sql/pglite@0.5.12
+      # Each script has its own in-memory database, so they run side by side:
+      # PGlite 0.5 holds every one open for about ten seconds after it ends.
+      # A failing script's output is printed after the run, one at a time.
+      - name: Run scripts/test-*.ts
+        env:
+          PGLITE_MODULE: ${{ runner.temp }}/pglite/node_modules/@electric-sql/pglite/dist/index.js
+        run: |
+          logs="$RUNNER_TEMP/db-logs"
+          mkdir -p "$logs"
+          ls scripts/test-*.ts | xargs -P 8 -I {} sh -c \
+            'if bun "$1" > "$2/$(basename "$1").log" 2>&1; then echo "ok   $1"; else echo "FAIL $1"; touch "$2/$(basename "$1").failed"; fi' \
+            _ {} "$logs"
+          failed=0
+          for mark in "$logs"/*.failed; do
+            [ -e "$mark" ] || continue
+            f="scripts/$(basename "$mark" .failed)"
+            echo "::group::$f output"
+            cat "$logs/$(basename "$f").log"
+            echo "::endgroup::"
+            echo "::error file=$f::$f failed"
+            failed=1
+          done
+          exit "$failed"
+
+  build:
+    name: app build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+      - run: bun install
+      - run: bun run build:vercel
