@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useOnboardingUser } from "@/hooks/useOnboardingUser";
-import { useEffect, useState } from "react";
+import { useStepPrefill } from "@/hooks/useStepPrefill";
+import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -10,6 +11,7 @@ import { gradeOptions, completeOnboarding, NoSubjectsError } from "@/lib/auth/on
 import { SUBJECTS, type LevelV, type SubjectV } from "@/lib/curriculum/taxonomy";
 import { StepCard } from "@/components/onboarding/StepCard";
 import { SchoolPicker } from "@/components/onboarding/SchoolPicker";
+import { ErrorNote, Spinner } from "@/components/Shared";
 
 type Grades = { previous_grade: string; current_grade: string; target_grade: string };
 const EMPTY: Grades = { previous_grade: "", current_grade: "", target_grade: "" };
@@ -40,9 +42,9 @@ function SchoolStep() {
   const [grades, setGrades] = useState<Record<string, Grades>>({});
   const [saving, setSaving] = useState(false);
 
-  useEffect(() => {
-    (async () => {
-      const [{ data: profile }, { data: enrolments }] = await Promise.all([
+  const prefill = useStepPrefill(
+    async () => {
+      const [profile, enrolments] = await Promise.all([
         supabase.from("profiles").select("school, level").eq("id", user.id).maybeSingle(),
         supabase
           .from("student_enrolments")
@@ -50,6 +52,11 @@ function SchoolStep() {
           .eq("student_id", user.id)
           .order("subject"),
       ]);
+      if (profile.error) throw profile.error;
+      if (enrolments.error) throw enrolments.error;
+      return { profile: profile.data, enrolments: enrolments.data };
+    },
+    ({ profile, enrolments }) => {
       if (profile?.school) setSchool(profile.school);
       setLevel((profile?.level ?? null) as LevelV | null);
       setSubjects((enrolments ?? []).map((r) => r.subject as SubjectV));
@@ -65,8 +72,8 @@ function SchoolStep() {
           ]),
         ),
       );
-    })();
-  }, [user]);
+    },
+  );
 
   const finish = async (save: boolean) => {
     setSaving(true);
@@ -125,16 +132,32 @@ function SchoolStep() {
     {},
   );
 
+  const heading = {
+    title: "Where are you now, and where do you want to be?",
+    subtitle: "All optional — but target grades let your tutor track you against something real.",
+    onBack: () => navigate({ to: "/onboarding/learning" }),
+    // Skip saves nothing, so it needs nothing read first.
+    onSkip: () => finish(false),
+    continueLabel: "Continue to payment",
+    saving,
+  };
+
+  // Until the saved school and grades are in, the form would show them blank,
+  // and Continue would save the blanks over them.
+  if (!prefill.ready) {
+    return (
+      <StepCard {...heading} onContinue={() => finish(true)} continueDisabled>
+        {prefill.error ? (
+          <ErrorNote error={prefill.error} onRetry={prefill.retry} />
+        ) : (
+          <Spinner className="py-10" />
+        )}
+      </StepCard>
+    );
+  }
+
   return (
-    <StepCard
-      title="Where are you now, and where do you want to be?"
-      subtitle="All optional — but target grades let your tutor track you against something real."
-      onBack={() => navigate({ to: "/onboarding/learning" })}
-      onSkip={() => finish(false)}
-      onContinue={() => finish(true)}
-      continueLabel="Continue to payment"
-      saving={saving}
-    >
+    <StepCard {...heading} onContinue={() => finish(true)}>
       <div>
         <label
           htmlFor="onboarding-school"

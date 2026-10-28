@@ -1,5 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useOnboardingUser } from "@/hooks/useOnboardingUser";
+import { useStepPrefill } from "@/hooks/useStepPrefill";
 import { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -15,7 +16,7 @@ import {
   type SubjectV,
 } from "@/lib/curriculum/taxonomy";
 import { StepCard } from "@/components/onboarding/StepCard";
-import { ErrorNote } from "@/components/Shared";
+import { ErrorNote, Spinner } from "@/components/Shared";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
 import { knownMainBoard } from "@/lib/auth/onboarding";
 
@@ -74,12 +75,17 @@ function SubjectsStep() {
   // Prefill from existing enrolments if they're revisiting the step; otherwise
   // fall back to whatever they picked on the pricing page (stashed in auth
   // metadata at signup). Either way every choice stays editable below.
-  useEffect(() => {
-    (async () => {
-      const [{ data }, { data: profile }] = await Promise.all([
+  const prefill = useStepPrefill(
+    async () => {
+      const [enrolments, profile] = await Promise.all([
         supabase.from("student_enrolments").select("subject, board").eq("student_id", user.id),
         supabase.from("profiles").select("level").eq("id", user.id).maybeSingle(),
       ]);
+      if (enrolments.error) throw enrolments.error;
+      if (profile.error) throw profile.error;
+      return { data: enrolments.data, profile: profile.data };
+    },
+    ({ data, profile }) => {
       if (!search.level && profile?.level) setLevel(profile.level as LevelV);
       if (!search.board) {
         const known = knownMainBoard(data, user.user_metadata?.intended_board);
@@ -108,11 +114,8 @@ function SubjectsStep() {
       if (picked.length) {
         setChosen((prev) => ({ ...prev, ...Object.fromEntries(picked.map((s) => [s, true])) }));
       }
-    })();
-    // Prefill runs once on mount by design — re-running it would overwrite
-    // choices the student has since made on this step.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    },
+  );
 
   // Move each subject onto a board that can actually teach it, and drop any
   // subject we can't teach at this level at all. This runs after coverage
@@ -175,11 +178,29 @@ function SubjectsStep() {
     }
   };
 
+  const heading = {
+    title: "What do you need help with?",
+    subtitle: "Pick every subject you're studying with us. You can add more later.",
+    onBack: () => navigate({ to: "/onboarding/board" }),
+  };
+
+  // Until the saved subjects are in, the list would show none ticked, and
+  // Continue would save that over them.
+  if (!prefill.ready) {
+    return (
+      <StepCard {...heading} onContinue={handleContinue} continueDisabled>
+        {prefill.error ? (
+          <ErrorNote error={prefill.error} onRetry={prefill.retry} />
+        ) : (
+          <Spinner className="py-10" />
+        )}
+      </StepCard>
+    );
+  }
+
   return (
     <StepCard
-      title="What do you need help with?"
-      subtitle="Pick every subject you're studying with us. You can add more later."
-      onBack={() => navigate({ to: "/onboarding/board" })}
+      {...heading}
       onContinue={handleContinue}
       continueDisabled={selected.length === 0}
       saving={saving}

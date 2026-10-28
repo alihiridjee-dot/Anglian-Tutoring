@@ -1,5 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useOnboardingUser } from "@/hooks/useOnboardingUser";
+import { useStepPrefill } from "@/hooks/useStepPrefill";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -66,12 +67,17 @@ function BoardStep() {
 
   // Prefill from whatever the student already told us, so coming back to this
   // step shows their answer rather than silently resetting it to the default.
-  useEffect(() => {
-    (async () => {
-      const [{ data: profile }, { data: enrolments }] = await Promise.all([
+  const prefill = useStepPrefill(
+    async () => {
+      const [profile, enrolments] = await Promise.all([
         supabase.from("profiles").select("level, exam_year").eq("id", user.id).maybeSingle(),
         supabase.from("student_enrolments").select("board").eq("student_id", user.id).limit(1),
       ]);
+      if (profile.error) throw profile.error;
+      if (enrolments.error) throw enrolments.error;
+      return { profile: profile.data, enrolments: enrolments.data };
+    },
+    ({ profile, enrolments }) => {
       // The pricing page sends a level key; only the ones that are real levels
       // here can seed the answer (it also emits "gcse_separate" and "ks3").
       const intendedLevel = user.user_metadata?.intended_level as string | undefined;
@@ -87,8 +93,8 @@ function BoardStep() {
       // anything they've already saved win — and they can still change it here.
       const known = knownMainBoard(enrolments, user.user_metadata?.intended_board);
       if (known) setBoard(known);
-    })();
-  }, [user]);
+    },
+  );
 
   const handleContinue = async () => {
     setSaving(true);
@@ -107,10 +113,28 @@ function BoardStep() {
     }
   };
 
+  const heading = {
+    title: "Which exam are you sitting?",
+    subtitle: "This scopes everything you'll see — your spec, your videos, your quizzes.",
+  };
+
+  // Until the saved answers are in, the tiles would show defaults that
+  // Continue could save over them.
+  if (!prefill.ready) {
+    return (
+      <StepCard {...heading} onContinue={handleContinue} continueDisabled>
+        {prefill.error ? (
+          <ErrorNote error={prefill.error} onRetry={prefill.retry} />
+        ) : (
+          <Spinner className="py-10" />
+        )}
+      </StepCard>
+    );
+  }
+
   return (
     <StepCard
-      title="Which exam are you sitting?"
-      subtitle="This scopes everything you'll see — your spec, your videos, your quizzes."
+      {...heading}
       onContinue={handleContinue}
       // A failed coverage read leaves Continue open: not knowing what we teach
       // must never strand a student on step 1.

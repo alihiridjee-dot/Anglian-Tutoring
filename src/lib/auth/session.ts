@@ -76,13 +76,40 @@ export async function getSessionUserId(): Promise<string | null> {
  * session stands in: it only decides which screen to draw, and RLS re-checks
  * the JWT on every request that follows regardless. A token the server has
  * actually rejected still resolves to anonymous.
+ *
+ * The guards ask this on every navigation, and asking the server each time put
+ * a round trip in front of every click: on weak Wi-Fi the click looked dead
+ * until the auth API answered. A token the server accepted in the last minute
+ * is taken as still good, as the guard's own cached answers are (guardState).
+ * A different token — signed out, someone else signed in, a refresh — is asked
+ * about afresh, and RLS checks the token on every read regardless.
  */
+const VALIDATED_FOR_MS = 60_000;
+let validated: { token: string; userId: string; at: number } | null = null;
+
 export async function getAuthSession(): Promise<AuthSession> {
+  const { data: local } = await supabase.auth.getSession();
+  const token = local.session?.access_token;
+  const localUser = local.session?.user ?? null;
+  if (
+    token &&
+    localUser &&
+    validated?.token === token &&
+    validated.userId === localUser.id &&
+    Date.now() - validated.at < VALIDATED_FOR_MS
+  ) {
+    // The locally held user, not the one remembered: same person, but it
+    // carries any change to the account made since (a new email, say).
+    return { mode: "live", user: localUser };
+  }
+
   const { data, error } = await supabase.auth.getUser();
   let user = data.user ?? null;
+  if (user && token) validated = { token, userId: user.id, at: Date.now() };
+  else validated = null;
   if (!user && error && isAuthRetryableFetchError(error)) {
-    const { data: local } = await supabase.auth.getSession();
-    user = local.session?.user ?? null;
+    const { data: fallback } = await supabase.auth.getSession();
+    user = fallback.session?.user ?? null;
   }
   return { mode: user ? "live" : "anonymous", user };
 }
