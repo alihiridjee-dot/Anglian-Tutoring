@@ -12,6 +12,7 @@ import {
   sessionStartMs,
   sessionTiming,
   sessionsOnCourse,
+  showsJoin,
 } from "./liveSessions";
 
 const NOW = Date.parse("2026-09-21T16:00:00Z");
@@ -39,6 +40,41 @@ describe("sessionTiming", () => {
     expect(hasSessionFinished(ended, NOW)).toBe(true);
     expect(hasSessionFinished(at(-LIVE_TAIL_MS + 1), NOW)).toBe(false);
   });
+});
+
+describe("showsJoin", () => {
+  // The page's path decides demo or real, so each test says where it is.
+  const onPage = (pathname: string, fn: () => void) => {
+    const g = globalThis as { window?: unknown };
+    const hadWindow = "window" in g;
+    const prevWindow = g.window;
+    g.window = { location: { pathname } };
+    try {
+      fn();
+    } finally {
+      if (hadWindow) g.window = prevWindow;
+      else delete g.window;
+    }
+  };
+
+  test("a student's Join shows only while the lesson can be joined", () =>
+    onPage("/live", () => {
+      expect(showsJoin(at(3 * 24 * 60 * MINUTE_MS), false, NOW)).toBe(false);
+      expect(showsJoin(at(JOIN_LEAD_MS + 1), false, NOW)).toBe(false);
+      expect(showsJoin(at(JOIN_LEAD_MS), false, NOW)).toBe(true);
+      expect(showsJoin(at(-30 * MINUTE_MS), false, NOW)).toBe(true);
+      expect(showsJoin(at(-LIVE_TAIL_MS), false, NOW)).toBe(false);
+    }));
+
+  test("a tutor's shows at any time, to open the room early", () =>
+    onPage("/live", () => {
+      expect(showsJoin(at(3 * 24 * 60 * MINUTE_MS), true, NOW)).toBe(true);
+    }));
+
+  test("the showcase's always shows", () =>
+    onPage("/demo/student/live", () => {
+      expect(showsJoin(at(3 * 24 * 60 * MINUTE_MS), false, NOW)).toBe(true);
+    }));
 });
 
 describe("nextSession", () => {

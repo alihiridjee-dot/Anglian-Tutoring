@@ -246,6 +246,22 @@ export function sessionTiming(startMs: number, now: number): SessionTiming {
   };
 }
 
+/**
+ * Whether a session's Join button shows. A student's shows only while the
+ * lesson is joinable, as the header and the countdown do: pressing it is what
+ * files them as at the lesson, and a press long before the start isn't
+ * counted. A tutor keeps theirs, to open the room early. The showcase's Join
+ * only says what it would do, so it always shows.
+ */
+export function showsJoin(
+  session: Pick<LiveSession, "starts_at">,
+  isTutor: boolean,
+  now: number,
+): boolean {
+  if (isTutor || isDemoStudent()) return true;
+  return sessionTiming(sessionStartMs(session) ?? now, now).joinable;
+}
+
 /** The soonest dated session that hasn't finished — including one running now. */
 export function nextSession<T extends Pick<LiveSession, "starts_at">>(
   sessions: readonly T[],

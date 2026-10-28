@@ -2,10 +2,10 @@ import {
   joinClick,
   sessionStartMs,
   sessionTiming,
+  showsJoin,
   type LiveSession,
 } from "@/lib/live/liveSessions";
 import { SessionIdentity, WhatsCovered } from "@/components/live/SessionMeta";
-import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { Video, CalendarClock, Smartphone, Loader2, Trash2 } from "lucide-react";
 
 export type LiveTab = "upcoming" | "previous";
@@ -63,12 +63,8 @@ export function UpcomingSessionCard({
   onDelete: (session: LiveSession) => void;
 }) {
   const isZoom = s.join_url?.toLowerCase().includes("zoom");
-  const { isLive, joinable } = sessionTiming(sessionStartMs(s) ?? now, now);
-  // A student's Join shows only once the lesson is joinable, as the header and
-  // the countdown already do: pressing it is what files them as at the lesson,
-  // and a press long before the start isn't counted. A tutor keeps theirs, to
-  // open the room early. The showcase's Join only says what it would do.
-  const showJoin = isTutor || joinable || isDemoStudent();
+  const { isLive } = sessionTiming(sessionStartMs(s) ?? now, now);
+  const showJoin = showsJoin(s, isTutor, now);
   return (
     <div
       data-guide="live-session"
