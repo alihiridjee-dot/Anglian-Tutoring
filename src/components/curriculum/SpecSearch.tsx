@@ -9,6 +9,7 @@ import {
 } from "@/lib/curriculum/taxonomy";
 import type { SpecPoint, SpecPointMatch } from "@/lib/curriculum/types";
 import { Highlight } from "@/components/search/Highlight";
+import { EmptyState } from "@/components/Shared";
 import { Search, X } from "lucide-react";
 import { labelOf } from "@/components/curriculum/styles";
 
@@ -69,6 +70,7 @@ export function SpecSearchResults({
   matches,
   terms,
   loading,
+  failed = false,
   query,
   onSelect,
   onClear,
@@ -76,6 +78,8 @@ export function SpecSearchResults({
   matches: SpecPointMatch[];
   terms: string[];
   loading: boolean;
+  /** The search itself failed, which is not the same as finding nothing. */
+  failed?: boolean;
   query: string;
   onSelect: (p: SpecPoint) => void;
   onClear: () => void;
@@ -93,6 +97,16 @@ export function SpecSearchResults({
 
   if (loading) {
     return <p className="text-sm text-muted-foreground">Searching the specification…</p>;
+  }
+
+  if (failed) {
+    return (
+      <EmptyState
+        compact
+        title="The search didn't load"
+        body="Check your connection and search again."
+      />
+    );
   }
 
   if (matches.length === 0) {

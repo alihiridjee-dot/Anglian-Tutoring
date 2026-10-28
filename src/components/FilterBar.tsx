@@ -9,7 +9,16 @@ import {
 
 export type Filters = { subject?: SubjectV; board?: BoardV; level?: LevelV };
 
-export function FilterBar({ value, onChange }: { value: Filters; onChange: (f: Filters) => void }) {
+export function FilterBar({
+  value,
+  onChange,
+  subjects,
+}: {
+  value: Filters;
+  onChange: (f: Filters) => void;
+  /** The subjects to offer, when not all of them: a student's paid ones. */
+  subjects?: readonly SubjectV[];
+}) {
   const Group = <T extends string>({
     label,
     options,
@@ -55,7 +64,7 @@ export function FilterBar({ value, onChange }: { value: Filters; onChange: (f: F
     <div data-guide="filters" className="rounded-2xl premium-card p-4 sm:p-5 mb-6 space-y-4">
       <Group
         label="Subject"
-        options={SUBJECTS}
+        options={subjects ? SUBJECTS.filter((s) => subjects.includes(s.value)) : SUBJECTS}
         selected={value.subject}
         onSelect={(v) => onChange({ ...value, subject: v })}
       />

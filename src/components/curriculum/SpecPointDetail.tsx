@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
@@ -7,6 +7,7 @@ import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxono
 import { generateMcqSet, replaceMcqQuestions } from "@/lib/mcq/mcq.functions";
 import { toast } from "sonner";
 import { CurriculumDAL } from "@/lib/curriculum/curriculumDal";
+import { EmptyState } from "@/components/Shared";
 import type { SpecPoint, Resource, McqSet } from "@/lib/curriculum/types";
 import { VideoModal, VideoThumbnail } from "@/components/VideoPlayer";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
@@ -62,14 +63,22 @@ export function SpecPointDetail({
   const { data: notesByPoint } = useSpecPointNotes([point.id]);
   const notes = notesByPoint?.get(point.id) ?? [];
 
+  const [loadFailed, setLoadFailed] = useState(false);
+  // Each load is numbered and only the newest may land, so a slow answer for
+  // the point that was open before can't fill this one.
+  const loadSeq = useRef(0);
   const reload = async () => {
+    const seq = ++loadSeq.current;
     try {
       const { resources: resList, mcqSets: mList } =
         await CurriculumDAL.getResourcesAndMcqSets(point);
+      if (seq !== loadSeq.current) return;
       setResources(resList);
       setMcqSets(mList);
+      setLoadFailed(false);
     } catch (e) {
       console.error(e);
+      if (seq === loadSeq.current) setLoadFailed(true);
     }
   };
 
@@ -166,6 +175,14 @@ export function SpecPointDetail({
             <Plus className="w-3.5 h-3.5" /> Add resource in Tutor Studio
           </Link>
         </div>
+      )}
+
+      {loadFailed && (
+        <EmptyState
+          compact
+          title="This point's videos, tasks and quizzes didn't load"
+          body="Check your connection and refresh the page."
+        />
       )}
 
       <div data-guide="point-sections" className="space-y-4">
