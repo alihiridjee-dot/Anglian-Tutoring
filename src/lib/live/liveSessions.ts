@@ -88,6 +88,9 @@ export async function fetchLiveSessions(filters: LiveFilters = {}): Promise<Live
       "id, kind, title, description, starts_at, subject, level, board, resource_spec_points(spec_points(id, code, title))",
     )
     .eq("kind", "live_session")
+    // Past lessons stay on record for attendance; the lists show the last
+    // {@link PAST_SHOWN_MS} of them. Undated ones were never listed.
+    .gte("starts_at", new Date(Date.now() - PAST_SHOWN_MS).toISOString())
     .order("starts_at", { ascending: true });
   if (filters.subject) q = q.eq("subject", filters.subject);
   if (filters.board) q = q.eq("board", filters.board);
@@ -158,16 +161,34 @@ export function formatWhen(ms: number) {
 }
 
 /**
- * The click handler for a Join button. The showcase's lessons carry made-up
- * Zoom links, so there a Join says what it would do instead of opening one;
- * everywhere else it is undefined and the button is a plain link.
+ * The click handler for a Join button. Pressing Join is what files a student
+ * as at the lesson, which their parent sees as attendance: the server decides
+ * whether this press counts, and the link opens as normal whatever it says.
+ * The showcase's lessons carry made-up Zoom links, so there a Join says what
+ * it would do instead of opening one.
  */
-export function demoJoinClick(): ((e: { preventDefault(): void }) => void) | undefined {
-  if (!isDemoStudent()) return undefined;
-  return (e) => {
-    e.preventDefault();
-    toast("In a real lesson this opens the Zoom call.");
-  };
+export function joinClick(sessionId: string): (e: { preventDefault(): void }) => void {
+  if (isDemoStudent()) {
+    return (e) => {
+      e.preventDefault();
+      toast("In a real lesson this opens the Zoom call.");
+    };
+  }
+  return () => void recordLiveJoin(sessionId);
+}
+
+/**
+ * File the signed-in student as at a lesson they are joining. Only a student
+ * on the lesson's course, while it is on, is filed, and only once. Never
+ * throws: a record that didn't land must not stand between them and the room.
+ */
+export async function recordLiveJoin(sessionId: string): Promise<boolean> {
+  try {
+    const { data, error } = await supabase.rpc("record_live_join", { _resource_id: sessionId });
+    return !error && data === true;
+  } catch {
+    return false;
+  }
 }
 
 /* ---------- When a session is "on" ----------
@@ -186,6 +207,11 @@ export const DAY_MS = 24 * 60 * MINUTE_MS;
 export const JOIN_LEAD_MS = 10 * MINUTE_MS;
 /** …and treated as running for this long after it, which covers a lesson. */
 export const LIVE_TAIL_MS = 90 * MINUTE_MS;
+/**
+ * How long a past lesson stays listed: a week and a day, as long as the old
+ * nightly purge left one. The lesson itself stays, with its attendance.
+ */
+export const PAST_SHOWN_MS = 8 * DAY_MS;
 
 /** The session's start as epoch ms, or null if it has no (valid) start time. */
 export function sessionStartMs(session: Pick<LiveSession, "starts_at">): number | null {

@@ -2099,8 +2099,8 @@ const LESSON_MS = 90 * 60_000;
  * at most a week away (today's, if it is still to come or running), and the
  * last one is the week before it. While today's is running, that one started a
  * week and up to a lesson ago. The Live page still lists it, as it would a real
- * one: the purge (`purge_stale_live_sessions`) runs once a night, at 03:00 UTC,
- * so every lesson stays for more than a week.
+ * one: a past lesson stays listed for 8 days (`PAST_SHOWN_MS` in
+ * liveSessions.ts), so every lesson stays for more than a week.
  */
 export function lesson(
   weekday: number,

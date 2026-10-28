@@ -1,10 +1,13 @@
-import { describe, expect, test } from "bun:test";
+import { describe, expect, mock, test } from "bun:test";
+import { scopeSupabase } from "@/integrations/supabase/client";
 import {
   JOIN_LEAD_MS,
   LIVE_TAIL_MS,
   MINUTE_MS,
   hasSessionFinished,
+  joinClick,
   nextSession,
+  recordLiveJoin,
   sessionStartMs,
   sessionTiming,
   sessionsOnCourse,
@@ -101,5 +104,73 @@ describe("sessionsOnCourse", () => {
       sessionsOnCourse(all, { level: null, enrolments: [{ subject: "biology", board: "aqa" }] }),
     ).toEqual([]);
     expect(sessionsOnCourse(all, { level: "gcse", enrolments: [] })).toEqual([]);
+  });
+});
+
+describe("pressing Join", () => {
+  // The shared client is built lazily from env vars a test doesn't have; the
+  // scoped-client hook stands a fake one in for the length of each test. The
+  // page's path decides demo or real, so each test says where it is.
+  const withRpc = async (
+    rpc: (...args: unknown[]) => unknown,
+    fn: () => Promise<void>,
+    pathname = "/live",
+  ) => {
+    const g = globalThis as { window?: unknown };
+    const hadWindow = "window" in g;
+    const prevWindow = g.window;
+    g.window = { location: { pathname } };
+    scopeSupabase(() => ({ rpc }) as unknown as ReturnType<Parameters<typeof scopeSupabase>[0]>);
+    try {
+      await fn();
+    } finally {
+      scopeSupabase(() => undefined);
+      if (hadWindow) g.window = prevWindow;
+      else delete g.window;
+    }
+  };
+
+  test("files the lesson for the signed-in student, and the link still opens", async () => {
+    const rpc = mock(async () => ({ data: true, error: null }));
+    await withRpc(rpc, async () => {
+      const preventDefault = mock(() => {});
+      joinClick("lesson-1")({ preventDefault });
+      expect(preventDefault).not.toHaveBeenCalled();
+      expect(rpc).toHaveBeenCalledWith("record_live_join", { _resource_id: "lesson-1" });
+      expect(await recordLiveJoin("lesson-1")).toBe(true);
+    });
+  });
+
+  test("the showcase's Join opens nothing and files nothing", async () => {
+    const rpc = mock(async () => ({ data: true, error: null }));
+    await withRpc(
+      rpc,
+      async () => {
+        const preventDefault = mock(() => {});
+        joinClick("lesson-1")({ preventDefault });
+        expect(preventDefault).toHaveBeenCalled();
+        expect(rpc).not.toHaveBeenCalled();
+      },
+      "/demo/student/live",
+    );
+  });
+
+  test("a refused or failed record never throws", async () => {
+    for (const value of [
+      { data: false, error: null },
+      { data: null, error: { message: "function not found" } },
+    ]) {
+      await withRpc(
+        async () => value,
+        async () => expect(await recordLiveJoin("lesson-1")).toBe(false),
+      );
+    }
+    const offline = () => {
+      throw new Error("offline");
+    };
+    await withRpc(offline, async () => {
+      expect(await recordLiveJoin("lesson-1")).toBe(false);
+      expect(() => joinClick("lesson-1")({ preventDefault() {} })).not.toThrow();
+    });
   });
 });

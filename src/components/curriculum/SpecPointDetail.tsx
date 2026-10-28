@@ -14,7 +14,7 @@ import { parseVideoUrl, type VideoEmbed } from "@/lib/curriculum/videoEmbed";
 import { SpecPointVideoEditor, type EditableVideo } from "@/components/tutor/SpecPointVideoEditor";
 import { useSpecPointNotes } from "@/hooks/data/useNotes";
 import { Chip } from "@/components/Shared";
-import { formatWhen } from "@/lib/live/liveSessions";
+import { formatWhen, joinClick } from "@/lib/live/liveSessions";
 import { plannerDateLabel } from "@/lib/planner/week";
 import {
   Plus,
@@ -326,6 +326,7 @@ export function SpecPointDetail({
                     href={r.join_url}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={joinClick(r.id)}
                     className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
                   >
                     Join

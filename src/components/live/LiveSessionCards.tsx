@@ -1,5 +1,5 @@
 import {
-  demoJoinClick,
+  joinClick,
   sessionStartMs,
   sessionTiming,
   type LiveSession,
@@ -100,7 +100,7 @@ export function UpcomingSessionCard({
               href={s.join_url}
               target="_blank"
               rel="noreferrer"
-              onClick={demoJoinClick()}
+              onClick={joinClick(s.id)}
               className="min-h-11 sm:pointer-fine:min-h-0 bg-[#2D8CFF] hover:bg-[#2681F2] text-white px-4 py-2 rounded-lg text-sm font-semibold inline-flex items-center gap-2 transition-colors"
             >
               <Video className="w-4 h-4" />
@@ -111,7 +111,7 @@ export function UpcomingSessionCard({
               href={s.join_url}
               target="_blank"
               rel="noreferrer"
-              onClick={demoJoinClick()}
+              onClick={joinClick(s.id)}
               className="btn-solid inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-2 rounded-xl px-4 py-2 text-sm"
             >
               <Video className="size-4" aria-hidden />
