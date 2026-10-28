@@ -59,12 +59,12 @@ const PROCESSORS = [
   },
   {
     name: "Anthropic",
-    what: "Its AI, Claude, helps with marking and feedback, as described under AI marking.",
+    what: "Its AI, Claude, helps with marking and feedback.",
     where: "USA",
   },
   {
     name: "DeepSeek",
-    what: "Its AI reads a question a student chooses to send with “Ask for help” in the search box, and the names of the topics a student found hardest, to suggest questions for their tutor. Both are described under AI help from DeepSeek.",
+    what: "Its AI reads a question a student chooses to send with “Ask for help” in the search box, and the names of the topics a student found hardest, to suggest questions for their tutor.",
     where: "China",
   },
   {
@@ -237,54 +237,8 @@ function PrivacyPage() {
           <p>We don&apos;t use your information for advertising, and we don&apos;t sell it.</p>
         </Section>
 
-        <Section title="AI marking">
-          <p>We use Claude, an AI made by Anthropic, in three places:</p>
-          <ul className="list-disc space-y-2 pl-5">
-            <li>
-              <strong>Tasks:</strong> it receives the questions, the mark scheme and the
-              student&apos;s answers, but not their name or email, and suggests marks and feedback.
-              A tutor can check and change them. If no tutor has reviewed them within 30 minutes,
-              the suggested marks are released to the student automatically. Work the AI isn&apos;t
-              sure about waits for a tutor instead. Students and parents can always ask a tutor to
-              look again.
-            </li>
-            <li>
-              <strong>Weekly feedback:</strong> it receives the student&apos;s recent scores and the
-              reflection they write in their weekly check-in.
-            </li>
-            <li>
-              <strong>Message drafts:</strong> a tutor can ask it to draft a reply to a student. It
-              sees the student&apos;s name and the recent messages in that conversation, and the
-              tutor edits and sends the reply.
-            </li>
-          </ul>
-          <p>
-            Anthropic does not use information sent through its business service to train its AI.
-          </p>
-        </Section>
-
-        <Section title="AI help from DeepSeek">
-          <p>
-            Students can type a question into the search box, such as &quot;where&apos;s my quiz for
-            this week?&quot;. Most questions are answered by the site itself, and nothing leaves it.
-          </p>
-          <p>
-            If the site can&apos;t work a question out, the student can choose{" "}
-            <strong>Ask for help</strong>. Only then is the question they typed sent to DeepSeek, an
-            AI company based in China, which picks the page that answers it. We remove email
-            addresses and phone numbers first, and send nothing else: no name, account, marks or
-            work.
-          </p>
-          <p>
-            When a student starts a question to our tutors, the site suggests questions about the
-            topics they found hardest. To write them, DeepSeek is sent the names of up to three
-            topics from the exam board&apos;s syllabus, such as &quot;Osmosis&quot;. The site picks
-            the topics from the student&apos;s marks, but sends no marks, name, account or work.
-          </p>
-          <p>
-            DeepSeek stores what it receives in China and may use it to improve its AI. That&apos;s
-            why students shouldn&apos;t type their name or anything personal into the search box.
-          </p>
+        <Section title="AI">
+          <p>We use AI to optimise your experience.</p>
         </Section>
 
         <Section title="Who can see it">
