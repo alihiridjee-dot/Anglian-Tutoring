@@ -62,6 +62,10 @@ describe("searchTerms", () => {
     ["β-galactosidase", ["β-galactosidase"]],
     ["CO₂ test", ["co₂", "test"]],
     ["ΔH", ["δh"]],
+    ["e.m.f.", ["e.m.f"]],
+    ["p.d.", ["p.d"]],
+    ["a.c. generator", ["a.c", "generator"]],
+    ["what is the p.d.?", ["p.d"]],
   ])("punctuation around a word is dropped: %p", (query, terms) => {
     expect(searchTerms(query)).toEqual(terms);
   });

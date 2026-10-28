@@ -1,7 +1,7 @@
 import { useMemo, useState, type ReactNode } from "react";
 import { ArrowDown, ArrowUp, Check, RotateCcw, X } from "lucide-react";
 import { evaluate, parseFormula } from "@/lib/notes/formula";
-import { flipSign, parseAnswer } from "@/lib/notes/practiceAnswer";
+import { answerReadings, flipSign } from "@/lib/notes/practiceAnswer";
 import { SciText } from "@/components/Shared";
 import {
   fillTemplate,
@@ -384,13 +384,12 @@ export function Practice({ d }: { d: PracticeDiagram }) {
     answer: `${show(rounded, d.answer.decimals)}${d.answer.unit ? ` ${d.answer.unit}` : ""}`,
   };
   const check = () => {
-    const g = parseAnswer(guess);
-    if (!Number.isFinite(g)) return setVerdict(false);
     const tol =
       d.answer.tolerance_percent != null
         ? Math.abs(answer) * (d.answer.tolerance_percent / 100)
         : 0.5 * 10 ** -d.answer.decimals;
-    setVerdict(Math.abs(g - answer) <= tol + 1e-12);
+    // "1,250" may be 1250 or 1.250, so any fair reading of it can be right.
+    setVerdict(answerReadings(guess).some((g) => Math.abs(g - answer) <= tol + 1e-12));
   };
   const next = () => {
     setVars(draw(Math.random));

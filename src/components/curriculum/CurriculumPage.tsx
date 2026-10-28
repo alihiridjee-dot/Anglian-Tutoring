@@ -133,6 +133,8 @@ export function Curriculum() {
     data: matches,
     isFetching: searchFetching,
     isError: searchFailed,
+    isPaused: searchPaused,
+    isPlaceholderData: searchStale,
   } = useQuery({
     queryKey: ["curriculum-search", level, board, subject, settledQuery.trim()],
     queryFn: () => CurriculumDAL.searchSpecPoints(level, board, subject, settledQuery),
@@ -371,7 +373,12 @@ export function Curriculum() {
             matches={matches ?? []}
             terms={highlightTerms}
             loading={searchFetching && !matches}
-            failed={searchFailed && !searchFetching}
+            // Offline, a search waits ("paused") instead of failing, so one
+            // with no answer of its own reads as failed too, never as "No
+            // spec points match" or the last query's results.
+            failed={
+              (searchFailed && !searchFetching) || (searchPaused && (!matches || searchStale))
+            }
             query={settledQuery}
             onSelect={openSpecPoint}
             onClear={() => setQuery("")}

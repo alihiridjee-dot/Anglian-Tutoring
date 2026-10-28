@@ -103,17 +103,18 @@ export const helpIntent = (id: HelpIntentId) => HELP_INTENTS.find((i) => i.id ==
 /**
  * Lowercase, apostrophes dropped ("what's" → "whats"), other punctuation turned
  * to spaces. Letters and digits of any script stay, so "CO₂" and "ΔH" still
- * find themselves. A dot survives only between two digits, so a spec code like
- * 4.1.2 still searches but "osmosis." is "osmosis"; a hyphen survives only
- * inside a word. No lookbehind: older iPads can't parse it.
+ * find themselves. A dot survives only between two letters or digits, so a spec
+ * code like 4.1.2 and "e.m.f." (as e.m.f) still search but "osmosis." is
+ * "osmosis"; a hyphen survives only inside a word. No lookbehind: older iPads
+ * can't parse it.
  */
 function normalise(query: string): string {
   return query
     .toLowerCase()
     .replace(/[’'"]/g, "")
     .replace(/[^\p{L}\p{N}.\-\s]/gu, " ")
-    .replace(/\.(?!\d)/g, " ")
-    .replace(/(^|\D)\./g, "$1 ")
+    .replace(/\.(?![\p{L}\p{N}])/gu, " ")
+    .replace(/(^|[^\p{L}\p{N}])\./gu, "$1 ")
     .replace(/(^|\s)-+/g, "$1")
     .replace(/-+(?=\s|$)/g, "")
     .replace(/\s+/g, " ")

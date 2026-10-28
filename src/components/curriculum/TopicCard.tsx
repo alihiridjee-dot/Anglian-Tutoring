@@ -48,6 +48,8 @@ export function TopicCard({
 
   useEffect(() => {
     const loadPoints = async () => {
+      // Opening again after a failure tries again, and shows it.
+      setStatus("loading");
       try {
         const data = await CurriculumDAL.getSpecPoints(topic.id);
         setPoints(data);

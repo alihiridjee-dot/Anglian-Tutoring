@@ -86,6 +86,10 @@ export function Videos() {
     placeholderData: (prev) => prev,
   });
   const data = videos.data?.pages.flat();
+  // Offline, a read waits ("paused") instead of failing. One with no videos of
+  // its own reads as failed, never as a spinner that never stops or the last
+  // filter's grid.
+  const unreachable = videos.isPaused && (!data || videos.isPlaceholderData);
 
   // A search hit links to one video, which opens over the page.
   const linkedId = isDemoStudent() ? undefined : search.video;
@@ -120,9 +124,9 @@ export function Videos() {
         onChange={setFilters}
         subjects={isTutor || ent.entitledSubjects.length === 0 ? undefined : ent.entitledSubjects}
       />
-      {videos.isPending ? (
+      {videos.isPending && !unreachable ? (
         <Spinner label="Loading the video library" />
-      ) : videos.isError && !data ? (
+      ) : (videos.isError && !data) || unreachable ? (
         <EmptyState
           compact
           title="The videos didn't load"
