@@ -26,6 +26,7 @@ import { type SubjectPause } from "@/lib/planner/subjectPauses";
 import { breakCovering, type StudentBreak } from "@/lib/planner/breaks";
 import { pastWeekGap, type PastWeekGap } from "@/lib/planner/pastWeek";
 import { currentWeekKey } from "@/lib/planner/week";
+import { stillReading } from "@/lib/platform/queryState";
 
 export type Activity = Map<string, PointActivity & PointWork>;
 
@@ -325,12 +326,8 @@ export function useWeekPlan(params: {
             pauses: course.data?.pauses ?? [],
           })
         : null,
-    loading:
-      week.isLoading ||
-      activity.isLoading ||
-      coverage.isLoading ||
-      road.isLoading ||
-      course.isLoading,
+    // Including a read waiting offline, which `isLoading` misses.
+    loading: [week, activity, coverage, road, course].some(stillReading),
     error: week.error ?? activity.error ?? coverage.error ?? road.error,
     reload,
     setPointDone: async (id, value) => {

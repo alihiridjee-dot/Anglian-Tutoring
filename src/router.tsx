@@ -13,14 +13,6 @@ export const getRouter = () => {
         // data override this upwards.
         staleTime: 1000 * 60,
         retry: 1,
-        // Offline, a read used to wait quietly for the network ("paused")
-        // with `isLoading` false and no data, so pages took it for an empty
-        // answer: "This note isn't ready yet", a week with no plan. Now it is
-        // tried, fails, and the page shows its own error with Try again, and
-        // coming back online reads again. (Setting "always" turns that
-        // refetch off by default, hence the second line.)
-        networkMode: "always",
-        refetchOnReconnect: true,
       },
     },
   });
