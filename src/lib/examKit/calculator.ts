@@ -58,6 +58,9 @@ const OPS: Record<string, "+" | "-" | "*" | "/" | "^"> = {
   "*": "*",
   "×": "*",
   "·": "*",
+  // Times as it is written by hand. Nothing here is a variable, so x is free.
+  x: "*",
+  X: "*",
   "/": "/",
   "÷": "/",
   "^": "^",
@@ -73,19 +76,29 @@ function tokenize(src: string, ans: number): Token[] {
       continue;
     }
 
-    // A number, with its ×10ˣ part if it has one: "6.02ᴇ23", "3E-4".
+    // A number, with its ×10ˣ part if it has one: "6.02ᴇ23", "3E-4", and
+    // "6.02e23" as a keyboard writes it. A lowercase e with no power after it
+    // is still the constant: 2e is 2 × e.
     const num = /^(\d+\.?\d*|\.\d+)/.exec(src.slice(i));
     if (num) {
       let text = num[1];
       i += text.length;
-      const exp = /^[ᴇE]([+\-−]?)(\d+)/.exec(src.slice(i));
+      const exp = /^[ᴇEe]([+\-−–]?)(\d+)/.exec(src.slice(i));
       if (exp) {
         text += `e${exp[1] === "" || exp[1] === "+" ? "" : "-"}${exp[2]}`;
         i += exp[0].length;
       } else if (/^[ᴇE]/.test(src.slice(i))) {
         throw new CalcError(SYNTAX);
       }
+      // A second point (1.2.3), or one in the power, is a slip, not 1.2 × 0.3.
+      if (src[i] === ".") throw new CalcError(SYNTAX);
       out.push({ t: "num", v: Number(text) });
+      continue;
+    }
+    // log10(100) as a keyboard writes it: the calculator's log is base ten.
+    if (src.startsWith("log10(", i)) {
+      out.push({ t: "fn", v: "log" });
+      i += 5;
       continue;
     }
 
@@ -346,7 +359,7 @@ export function showText(v: number): string {
 
 /** Plain typing turned into the calculator's own symbols, one character for one. */
 export function prettify(src: string): string {
-  return src.replace(/\*/g, "×").replace(/\//g, "÷").replace(/-/g, "−");
+  return src.replace(/[*xX]/g, "×").replace(/\//g, "÷").replace(/-/g, "−");
 }
 
 /** What the calculator shows, held by the panel so it survives closing it. */

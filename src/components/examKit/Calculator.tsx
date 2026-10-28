@@ -190,7 +190,7 @@ export function Calculator({
     // on from Ans, anything else starts a new sum.
     if (state.fresh && e.key.length === 1 && !e.metaKey && !e.ctrlKey) {
       e.preventDefault();
-      write({ text: prettify(e.key), carries: /[+\-*/^]/.test(e.key) });
+      write({ text: prettify(e.key), carries: /[+\-*/^xX]/.test(e.key) });
     }
   };
 

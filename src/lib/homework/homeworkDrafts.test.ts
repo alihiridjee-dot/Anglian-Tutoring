@@ -1,10 +1,14 @@
-import { describe, expect, test, beforeEach, afterEach } from "bun:test";
+import { describe, expect, test, beforeEach, afterEach, spyOn } from "bun:test";
 import {
   loadDraft,
   saveDraft,
   clearDraft,
   clearAllDrafts,
+  draftsClearedCount,
+  editStamp,
+  localDraftIds,
   mergeDrafts,
+  pushLocalDrafts,
   type TimestampedDraft,
 } from "@/lib/homework/homeworkDrafts";
 
@@ -89,9 +93,31 @@ describe("homework drafts", () => {
   test("sign-out clears every student's drafts", () => {
     saveDraft(STUDENT_A, "hw-1", { answers: { q1: "a" }, notes: "" });
     saveDraft(STUDENT_B, "hw-2", { answers: { q1: "b" }, notes: "" });
+    const before = draftsClearedCount();
     clearAllDrafts();
     expect(loadDraft(STUDENT_A, "hw-1")).toBeNull();
     expect(loadDraft(STUDENT_B, "hw-2")).toBeNull();
+    // How a sheet still open across the sign-out knows not to write back.
+    expect(draftsClearedCount()).toBe(before + 1);
+  });
+
+  test("before sign-out, this student's edited drafts are sent, and no one else's", async () => {
+    saveDraft(STUDENT_A, "hw-1", { answers: { q1: "a" }, notes: "", stamps: { q1: 1_000 } });
+    saveDraft(STUDENT_A, "hw-2", { answers: { q1: "a2" }, notes: "", stamps: { q1: 2_000 } });
+    // Saved before per-question times: nothing in it the server would take.
+    saveDraft(STUDENT_A, "hw-3", { answers: { q1: "old" }, notes: "" });
+    saveDraft(STUDENT_B, "hw-4", { answers: { q1: "b" }, notes: "", stamps: { q1: 3_000 } });
+    expect(localDraftIds(STUDENT_A).sort()).toEqual(["hw-1", "hw-2", "hw-3"]);
+
+    const sent: [string, string][] = [];
+    await pushLocalDrafts(STUDENT_A, async (id, d) => {
+      sent.push([id, d!.answers.q1]);
+      return null;
+    });
+    expect(sent.sort()).toEqual([
+      ["hw-1", "a"],
+      ["hw-2", "a2"],
+    ]);
   });
 
   test("a draft older than the expiry window is discarded", () => {
@@ -194,6 +220,28 @@ describe("merging drafts per question", () => {
     const here = draft({ q1: "a" }, { q1: 2_000 });
     expect(mergeDrafts(here, draft({ q1: "b" }, { q1: 1_000 }))).toBe(here);
     expect(mergeDrafts(here, draft({ q1: "a" }, { q1: 3_000 }))).toBe(here);
+  });
+
+  test("an edit is stamped later than the one before it, even after the clock is put back", () => {
+    // The server orders one page's own edits by these stamps alone. A clock
+    // put back while the sheet is open must not make the next words older.
+    let now = Date.now() + 10 * 60 * 60 * 1000;
+    const clock = spyOn(Date, "now").mockImplementation(() => now);
+    try {
+      const first = editStamp();
+      expect(first).toBe(now);
+      now -= 60 * 60 * 1000; // an hour back
+      const second = editStamp(first);
+      expect(second).toBeGreaterThan(first);
+      expect(editStamp()).toBeGreaterThan(second);
+      // A field last stamped ahead of this clock (another copy) is passed too.
+      expect(editStamp(first + 5_000)).toBe(first + 5_001);
+      // Once the clock is past every stamp given out, edits take its time again.
+      now = first + 60_000;
+      expect(editStamp()).toBe(now);
+    } finally {
+      clock.mockRestore();
+    }
   });
 
   test("a draft saved before per-question times dates every answer from its save", () => {
