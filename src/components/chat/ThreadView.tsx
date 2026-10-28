@@ -12,6 +12,7 @@ import {
 } from "@/hooks/data/useChat";
 import { generateChatDraft } from "@/lib/chat/chatDraft.functions";
 import { contextTarget, type ChatMessage } from "@/lib/chat/chatDal";
+import { NO_READ_MARKS, readMarkStep, type ReadMarks } from "@/lib/chat/readMarks";
 import { CHAT_MESSAGE_MAX } from "@/lib/platform/textLimits";
 import type { ThreadSummary } from "@/hooks/data/useChat";
 
@@ -51,7 +52,7 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
   const [usedDraft, setUsedDraft] = useState(false);
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
-  const markedRef = useRef<string | null>(null);
+  const readMarksRef = useRef<ReadMarks>(NO_READ_MARKS);
   // Mounted is not seen. On a phone the Messages page keeps this pane mounted
   // but hidden (display: none never intersects) until a row is tapped, and the
   // Parent Portal mounts it at the foot of a long page. Marking on mount
@@ -60,20 +61,14 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
   const onScreen = useInView(scrollRef, { amount: 0.3 });
 
   // Seeing a thread is reading it — and so is having it on screen when a reply
-  // arrives. The ref stops one burst of unread from firing more than one write
-  // (the poll refetch, StrictMode's double effect); it is cleared once the
-  // count is back to zero, so the *next* message is marked too. It used to be
-  // cleared only on switching threads, which left the sidebar badge lit for the
-  // reply the student was looking straight at.
+  // arrives. It is marked each time it comes on screen, even with nothing
+  // unread, because tutors share one read mark and a question another tutor
+  // read first still sits unread in this tutor's bell (see readMarkStep). One
+  // burst of unread fires one write; the next message is marked too.
   useEffect(() => {
-    if (thread.unread === 0) {
-      markedRef.current = null;
-      return;
-    }
-    if (!onScreen) return;
-    if (markedRef.current === thread.id) return;
-    markedRef.current = thread.id;
-    markRead.mutate(thread.id);
+    const { mark, next } = readMarkStep(readMarksRef.current, thread.id, thread.unread, onScreen);
+    readMarksRef.current = next;
+    if (mark) markRead.mutate(thread.id);
     // markRead is a stable mutation object; re-running on it would loop.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [thread.id, thread.unread, onScreen]);
@@ -155,7 +150,9 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
           </button>
         )}
         <div className="min-w-0 flex-1">
-          <h2 className="font-display text-base font-bold leading-tight">{thread.subject_line}</h2>
+          <h2 className="font-display text-base font-bold leading-tight break-words">
+            {thread.subject_line}
+          </h2>
           <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
             <span>with {thread.counterpartName}</span>
             {thread.context_label && (
@@ -227,7 +224,9 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
             return (
               <div key={m.id} className={`flex ${mine ? "justify-end" : "justify-start"}`}>
                 <div
-                  className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap ${
+                  // A pasted link has no spaces to wrap at: without
+                  // wrap-anywhere it ran out of the bubble and the card.
+                  className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap wrap-anywhere ${
                     mine
                       ? "bg-[color:var(--primary)] text-[color:var(--primary-foreground)] rounded-br-md font-medium"
                       : "surface-soft text-foreground rounded-bl-md"

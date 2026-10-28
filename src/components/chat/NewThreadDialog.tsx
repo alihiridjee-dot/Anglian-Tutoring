@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { Lightbulb, Loader2, MessageSquarePlus, Users, X } from "lucide-react";
 import { toast } from "sonner";
@@ -97,8 +97,13 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose, dirty]);
 
+  // One question at a time. `start.isPending` turns true only on the next
+  // render, so a quick second tap got through and opened a second thread,
+  // which told every tutor twice. Same guard as ThreadView's send.
+  const sendingRef = useRef(false);
   const submit = () => {
-    if (!canSend || start.isPending) return;
+    if (!canSend || start.isPending || sendingRef.current) return;
+    sendingRef.current = true;
     start.mutate(
       {
         tutorId: toTeam ? null : tutorId,
@@ -121,6 +126,9 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
           onCreated(threadId);
         },
         onError: (err) => toast.error(err.message),
+        onSettled: () => {
+          sendingRef.current = false;
+        },
       },
     );
   };

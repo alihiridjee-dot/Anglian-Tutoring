@@ -10,6 +10,7 @@ import {
 } from "@/lib/chat/chatDal";
 import { pinnedSelection } from "@/lib/chat/threadSelection";
 import { suggestQuestions } from "@/lib/chat/questionIdeas.functions";
+import { refreshBell } from "@/lib/shell/bellRefresh";
 
 /** Everything chat-shaped sits under this prefix, so one invalidate refreshes it. */
 export const CHAT_KEY = ["chat"] as const;
@@ -126,12 +127,16 @@ export function useDeleteThread() {
   return useMutation({
     mutationFn: (threadId: string) => ChatDAL.deleteThread(threadId),
     // The bell holds copies of the message text, so it refreshes too.
-    onSuccess: () => qc.invalidateQueries(),
+    onSuccess: () => {
+      qc.invalidateQueries();
+      refreshBell();
+    },
   });
 }
 
 /**
- * Marks a thread read and refreshes the badges.
+ * Marks a thread read and refreshes the badges, the bell's included: the same
+ * write marks the thread's notifications read.
  *
  * Deliberately not optimistic: the badge clearing before the write lands would
  * hide a message that is still unread if the write then fails.
@@ -140,7 +145,10 @@ export function useMarkThreadRead() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: (threadId: string) => ChatDAL.markRead(threadId),
-    onSuccess: () => qc.invalidateQueries({ queryKey: CHAT_KEY }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: CHAT_KEY });
+      refreshBell();
+    },
   });
 }
 
