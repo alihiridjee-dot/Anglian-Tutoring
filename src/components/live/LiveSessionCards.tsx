@@ -5,6 +5,7 @@ import {
   type LiveSession,
 } from "@/lib/live/liveSessions";
 import { SessionIdentity, WhatsCovered } from "@/components/live/SessionMeta";
+import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { Video, CalendarClock, Smartphone, Loader2, Trash2 } from "lucide-react";
 
 export type LiveTab = "upcoming" | "previous";
@@ -62,7 +63,12 @@ export function UpcomingSessionCard({
   onDelete: (session: LiveSession) => void;
 }) {
   const isZoom = s.join_url?.toLowerCase().includes("zoom");
-  const { isLive } = sessionTiming(sessionStartMs(s) ?? now, now);
+  const { isLive, joinable } = sessionTiming(sessionStartMs(s) ?? now, now);
+  // A student's Join shows only once the lesson is joinable, as the header and
+  // the countdown already do: pressing it is what files them as at the lesson,
+  // and a press long before the start isn't counted. A tutor keeps theirs, to
+  // open the room early. The showcase's Join only says what it would do.
+  const showJoin = isTutor || joinable || isDemoStudent();
   return (
     <div
       data-guide="live-session"
@@ -76,6 +82,7 @@ export function UpcomingSessionCard({
           session={s}
           eyebrow={isLive ? "● Live now" : "Upcoming"}
           tone={isLive ? "emerald" : "blue"}
+          ukTime={isTutor}
         />
       </div>
       <div className="flex-1 min-w-0">
@@ -94,7 +101,7 @@ export function UpcomingSessionCard({
         )}
 
         {/* Conditional join buttons (Zoom vs General) */}
-        {s.join_url ? (
+        {s.join_url && showJoin ? (
           isZoom ? (
             <a
               href={s.join_url}
@@ -161,7 +168,7 @@ export function PastSessionCard({
         <div className="w-11 h-11 rounded-xl bg-secondary text-muted-foreground flex items-center justify-center shrink-0">
           <CalendarClock className="w-5 h-5" />
         </div>
-        <SessionIdentity session={s} eyebrow="Completed" tone="muted" />
+        <SessionIdentity session={s} eyebrow="Completed" tone="muted" ukTime={isTutor} />
       </div>
       <div className="flex-1 min-w-0">
         <WhatsCovered points={s.specPoints} label="Covered" />

@@ -2,6 +2,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoStudent, DEMO_LIVE } from "@/lib/demo/studentDemo";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { PLANNER_TIME_ZONE } from "@/lib/planner/week";
 
 /**
  * Shared live-session reads. Both the Live Sessions page and the student
@@ -88,9 +89,6 @@ export async function fetchLiveSessions(filters: LiveFilters = {}): Promise<Live
       "id, kind, title, description, starts_at, subject, level, board, resource_spec_points(spec_points(id, code, title))",
     )
     .eq("kind", "live_session")
-    // Past lessons stay on record for attendance; the lists show the last
-    // {@link PAST_SHOWN_MS} of them. Undated ones were never listed.
-    .gte("starts_at", new Date(Date.now() - PAST_SHOWN_MS).toISOString())
     .order("starts_at", { ascending: true });
   if (filters.subject) q = q.eq("subject", filters.subject);
   if (filters.board) q = q.eq("board", filters.board);
@@ -146,18 +144,22 @@ export function sessionsOnCourse<T extends Pick<LiveSession, "subject" | "level"
 // "Thu 17 Jul · 23:58" — far more scannable than a raw locale timestamp.
 // Written the British way whatever the browser's language, as every other date
 // on the site is; the time stays in the viewer's own zone, since that is when
-// they have to be there. Lives here rather than in SessionMeta so the component
-// file exports only components, which is what keeps fast refresh working
-// across the live views.
-export function formatWhen(ms: number) {
+// they have to be there. With `uk`, it is UK time and says so ("· 16:00 (UK
+// time)"): a tutor books lessons in UK time, and their own zone showed a
+// lesson typed as 16:00 from Madagascar as 19:00. Lives here rather than in
+// SessionMeta so the component file exports only components, which is what
+// keeps fast refresh working across the live views.
+export function formatWhen(ms: number, { uk = false }: { uk?: boolean } = {}) {
   const d = new Date(ms);
+  const timeZone = uk ? PLANNER_TIME_ZONE : undefined;
   const day = d.toLocaleDateString("en-GB", {
     weekday: "short",
     day: "numeric",
     month: "short",
+    timeZone,
   });
-  const time = d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
-  return `${day} · ${time}`;
+  const time = d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone });
+  return uk ? `${day} · ${time} (UK time)` : `${day} · ${time}`;
 }
 
 /**
@@ -207,11 +209,6 @@ export const DAY_MS = 24 * 60 * MINUTE_MS;
 export const JOIN_LEAD_MS = 10 * MINUTE_MS;
 /** …and treated as running for this long after it, which covers a lesson. */
 export const LIVE_TAIL_MS = 90 * MINUTE_MS;
-/**
- * How long a past lesson stays listed: a week and a day, as long as the old
- * nightly purge left one. The lesson itself stays, with its attendance.
- */
-export const PAST_SHOWN_MS = 8 * DAY_MS;
 
 /** The session's start as epoch ms, or null if it has no (valid) start time. */
 export function sessionStartMs(session: Pick<LiveSession, "starts_at">): number | null {

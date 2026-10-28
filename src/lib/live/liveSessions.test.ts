@@ -4,6 +4,7 @@ import {
   JOIN_LEAD_MS,
   LIVE_TAIL_MS,
   MINUTE_MS,
+  formatWhen,
   hasSessionFinished,
   joinClick,
   nextSession,
@@ -104,6 +105,26 @@ describe("sessionsOnCourse", () => {
       sessionsOnCourse(all, { level: null, enrolments: [{ subject: "biology", board: "aqa" }] }),
     ).toEqual([]);
     expect(sessionsOnCourse(all, { level: "gcse", enrolments: [] })).toEqual([]);
+  });
+});
+
+describe("formatWhen", () => {
+  test("in UK time, it is the time the tutor typed and says so, either side of the clock change", () => {
+    // Typed as 16:00 UK; a device in Madagascar would show 19:00.
+    expect(formatWhen(Date.parse("2026-10-24T15:00:00Z"), { uk: true })).toBe(
+      "Sat 24 Oct · 16:00 (UK time)",
+    );
+    expect(formatWhen(Date.parse("2026-10-29T16:00:00Z"), { uk: true })).toBe(
+      "Thu 29 Oct · 16:00 (UK time)",
+    );
+    // 23:30 UTC on a Sunday in BST is already Monday in the UK.
+    expect(formatWhen(Date.parse("2026-10-18T23:30:00Z"), { uk: true })).toBe(
+      "Mon 19 Oct · 00:30 (UK time)",
+    );
+  });
+
+  test("without it, there is no UK label", () => {
+    expect(formatWhen(Date.parse("2026-10-29T16:00:00Z"))).not.toContain("UK time");
   });
 });
 

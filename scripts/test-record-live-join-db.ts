@@ -1,7 +1,8 @@
 /** Isolated PostgreSQL regression checks for PT-01: pressing Join files a
  * student as at a live lesson (record_live_join), nothing else can write
- * attendance, and lessons stop being purged a week on, so what a parent is
- * shown keeps its history. No production data is read or written.
+ * attendance, a parent's count leaves out lessons nobody could join, and the
+ * nightly purge still clears a lesson, with its attendance, a week on. No
+ * production data is read or written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-record-live-join-db.ts
  */
@@ -138,26 +139,31 @@ const lesson = async (
 
 const running = await lesson("Running now", -30);
 const startingSoon = await lesson("Starts in 12 minutes", 12);
-const tooEarly = await lesson("Starts in 20 minutes", 20);
+// The Join buttons show from 10 minutes before by the device's own clock; a
+// clock running 10 minutes fast shows it 20 minutes before.
+const fastClock = await lesson("Starts in 20 minutes", 20);
+const tooEarly = await lesson("Starts in 40 minutes", 40);
 const over = await lesson("Ended", -95);
 const otherBoard = await lesson("OCR only", -5, { board: "ocr" });
 const aqaOnly = await lesson("AQA only", -5, { board: "aqa" });
 const alevelLesson = await lesson("A-level", -5, { level: "alevel" });
 const noLink = await lesson("No link yet", -5, { link: false });
 const held = await lesson("Held for review", -5, { review: "held" });
-const monthOld = await lesson("A month ago", -30 * 24 * 60);
+const daysAgo = await lesson("Three days ago", -3 * 24 * 60);
+const weekOld = await lesson("Eight days ago", -8 * 24 * 60);
 const task = (
   await db.query<{ id: string }>(
     "insert into resources(kind, title, subject, level, due_at) values('homework','Task','biology','gcse',now() - interval '1 day') returning id",
   )
 ).rows[0].id;
 
-// The month-old lesson was attended (filed by hand: the function only files
-// a lesson while it is on).
-await db.query("insert into session_attendees(resource_id, user_id) values($1,$2)", [
-  monthOld,
-  student,
-]);
+// The older lessons were attended (filed by hand: the function only files a
+// lesson around its start).
+for (const id of [daysAgo, weekOld])
+  await db.query("insert into session_attendees(resource_id, user_id) values($1,$2)", [
+    id,
+    student,
+  ]);
 
 // ── Apply the migration, twice ────────────────────────────────────────────
 const sql = await migration("20261028104500_record_live_join.sql");
@@ -204,10 +210,11 @@ assert.equal(await join(running), true, "A student joining a running lesson wasn
 assert.equal(await join(running), true, "Pressing Join again should still answer true");
 assert.equal(await filed(running, student), 1, "Pressing Join twice filed the lesson twice");
 assert.equal(await join(startingSoon), true, "Joining 12 minutes early wasn't filed");
+assert.equal(await join(fastClock), true, "Joining on a clock running fast wasn't filed");
 assert.equal(await join(aqaOnly), true, "A lesson for the student's own board wasn't filed");
 
 for (const [what, id] of [
-  ["a lesson 20 minutes away", tooEarly],
+  ["a lesson 40 minutes away", tooEarly],
   ["a lesson that ended", over],
   ["another board's lesson", otherBoard],
   ["another level's lesson", alevelLesson],
@@ -274,30 +281,41 @@ assert.deepEqual(new Set(await seen()), new Set([student]), "A parent sees only 
 await as(tutor);
 assert.deepEqual(new Set(await seen()), new Set([student, other]), "A tutor sees every row");
 
-// ── The purge is gone, so the parent's count keeps its history ────────────
+// ── What a parent is shown ────────────────────────────────────────────────
+const counts = async () => {
+  await as(parent);
+  return {
+    ...(
+      await db.query<{ sessions_held: number; sessions_attended: number }>(
+        "select sessions_held, sessions_attended from public.student_engagement($1)",
+        [student],
+      )
+    ).rows[0],
+  };
+};
+// Held so far on their course: Eight days ago, Three days ago, Running now,
+// Ended and AQA only. Not "No link yet" or "Held for review": nobody could
+// join those, so they would count as missed for every child. The ones still
+// to start haven't been held, and the OCR and A-level ones aren't theirs.
+// Attended: the two older ones, Running now and AQA only.
+assert.deepEqual(
+  await counts(),
+  { sessions_held: 5, sessions_attended: 4 },
+  "The parent's attendance count is wrong",
+);
+
+// ── The purge stays, and takes a week-old lesson's attendance with it ────
 await asRole("postgres", async () => {
   const jobs = await db.query("select 1 from cron.job where jobname = 'purge-stale-live-sessions'");
-  assert.equal(jobs.rows.length, 0, "The nightly purge is still scheduled");
-  const fn = await db.query("select 1 from pg_proc where proname = 'purge_stale_live_sessions'");
-  assert.equal(fn.rows.length, 0, "The purge function still exists");
+  assert.equal(jobs.rows.length, 1, "The nightly purge is no longer scheduled");
+  await db.query("select public.purge_stale_live_sessions()");
 });
-await as(parent);
-const counts = (
-  await db.query<{ sessions_held: number; sessions_attended: number }>(
-    "select sessions_held, sessions_attended from public.student_engagement($1)",
-    [student],
-  )
-).rows[0];
-// Held so far on their course: the month-old lesson, Running now, Ended, AQA
-// only, No link yet and Held for review (student_engagement doesn't look at
-// review status); the two still to start haven't been held, and the OCR and
-// A-level ones aren't theirs. Attended: the month-old one, Running now and
-// AQA only. Before this migration the purge took the month-old lesson, its
-// attendance with it.
+assert.equal(await filed(weekOld, student), 0, "The purge left a week-old lesson's attendance");
+assert.equal(await filed(daysAgo, student), 1, "The purge took a lesson from this week");
 assert.deepEqual(
-  { ...counts },
-  { sessions_held: 6, sessions_attended: 3 },
-  "The parent's attendance count is wrong",
+  await counts(),
+  { sessions_held: 4, sessions_attended: 3 },
+  "After the purge, the parent's count should cover the last week",
 );
 
 console.log("record live join: all checks passed");

@@ -161,9 +161,9 @@ export function Live() {
           )}
         </div>
       ) : (
-        // Previous sessions — a lightweight history footnote. The read leaves
-        // out lessons more than PAST_SHOWN_MS past their start (they stay on
-        // record, for attendance), so this only ever shows the last week.
+        // Previous sessions — a lightweight history footnote. Sessions are
+        // auto-removed 7 days after they run (server-side pg_cron purge), so
+        // this only ever shows the last week.
         <div className="grid gap-3">
           <p className="text-xs text-muted-foreground -mt-1 mb-1">
             A record of recent sessions and what they covered. Automatically cleared 7 days after
