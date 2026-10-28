@@ -38,6 +38,37 @@ export function weekKeyToDate(key: string): Date {
   }
   throw new Error("Could not resolve UK calendar date");
 }
+const DAY_HALF_MS = 12 * 3_600_000;
+/** UK wall-clock time minus UTC at instant `t`, in ms (0 in GMT, an hour in BST). */
+function ukOffsetAt(t: number): number {
+  const p = parts(new Date(t));
+  return Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second) - t;
+}
+/**
+ * A typed `YYYY-MM-DDTHH:mm` (what a datetime-local input holds) read as UK
+ * time, whatever zone the typing device is in: lessons and deadlines run on
+ * UK time, and a tutor abroad booked 16:00 as their own 16:00. A time the
+ * clocks skip (01:30 on the March change) moves on an hour; one they repeat
+ * (01:30 on the October change) is the first, BST, one.
+ */
+export function ukDateTimeToDate(value: string): Date {
+  const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?$/.exec(value);
+  if (!m) throw new Error("Invalid date and time");
+  const [y, mo, d, h, mi, s] = m.slice(1).map((n) => Number(n ?? 0));
+  const wall = Date.UTC(y, mo - 1, d, h, mi, s);
+  if (new Date(wall).toISOString().slice(0, 16) !== value.slice(0, 16))
+    throw new Error("Invalid date and time");
+  const before = wall - ukOffsetAt(wall - DAY_HALF_MS),
+    after = wall - ukOffsetAt(wall + DAY_HALF_MS);
+  const fits = [before, after].filter((t) => t + ukOffsetAt(t) === wall);
+  return new Date(fits.length ? Math.min(...fits) : before);
+}
+/** `d` as the `YYYY-MM-DDTHH:mm` a datetime-local input shows, in UK time. */
+export function toUkDateTimeInput(d: Date): string {
+  const p = parts(d);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${p.year}-${pad(p.month)}-${pad(p.day)}T${pad(p.hour)}:${pad(p.minute)}`;
+}
 function shiftDays(d: Date, days: number): Date {
   const date = new Date(`${toDateKey(d)}T00:00:00Z`);
   date.setUTCDate(date.getUTCDate() + days);

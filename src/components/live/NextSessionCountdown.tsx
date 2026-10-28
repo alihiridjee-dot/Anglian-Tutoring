@@ -4,7 +4,7 @@ import { useNow } from "@/hooks/useNow";
 import {
   DAY_MS,
   MINUTE_MS as MINUTE,
-  demoJoinClick,
+  joinClick,
   nextSession,
   sessionStartMs,
   sessionTiming,
@@ -116,7 +116,7 @@ export function NextSessionCountdown({
               href={next.join_url}
               target="_blank"
               rel="noreferrer"
-              onClick={demoJoinClick()}
+              onClick={joinClick(next.id)}
               className={`min-h-11 sm:pointer-fine:min-h-0 px-4 py-2.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2 text-white transition-colors ${
                 isLive ? "bg-emerald-600 hover:bg-emerald-700" : "bg-[#2D8CFF] hover:bg-[#2681F2]"
               }`}

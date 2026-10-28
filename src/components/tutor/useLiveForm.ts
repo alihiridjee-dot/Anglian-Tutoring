@@ -7,6 +7,7 @@ import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxono
 import { createZoomMeeting } from "@/lib/live/zoom.functions";
 import { scheduledInviteText } from "@/lib/live/whatsappShare";
 import { generateSessionBlurb } from "@/lib/live/sessionBlurb.functions";
+import { ukDateTimeToDate } from "@/lib/planner/week";
 
 export interface LiveFormProps {
   userId: string;
@@ -52,7 +53,7 @@ export function useLiveForm({ taxonomy }: LiveFormProps) {
     try {
       const meeting = await createZoomMeeting({
         topic: title,
-        startTime: new Date(startsAt).toISOString(),
+        startTime: ukDateTimeToDate(startsAt).toISOString(),
       });
       setJoinUrl(meeting.join_url);
       setZoomMeeting({ id: meeting.id, joinUrl: meeting.join_url });
@@ -96,7 +97,8 @@ export function useLiveForm({ taxonomy }: LiveFormProps) {
 
     setLoading(true);
 
-    const formattedStartsAt = new Date(startsAt).toISOString();
+    // The field is UK time, whatever zone the tutor's device is in.
+    const formattedStartsAt = ukDateTimeToDate(startsAt).toISOString();
 
     // A live session belongs to a subject and level only. It is not tagged to
     // spec points, so it writes no resource_spec_points links.

@@ -2282,6 +2282,7 @@ export type Database = {
         Returns: boolean;
       };
       purge_stale_live_sessions: { Args: never; Returns: number };
+      record_live_join: { Args: { _resource_id: string }; Returns: boolean };
       record_reviews_atomic: { Args: { _reviews: Json }; Returns: string[] };
       respond_to_parent_invite: {
         Args: { _accept: boolean; _invite_id: string };

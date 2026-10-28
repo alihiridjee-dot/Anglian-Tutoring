@@ -2,6 +2,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoStudent, DEMO_LIVE } from "@/lib/demo/studentDemo";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { PLANNER_TIME_ZONE } from "@/lib/planner/week";
 
 /**
  * Shared live-session reads. Both the Live Sessions page and the student
@@ -143,31 +144,53 @@ export function sessionsOnCourse<T extends Pick<LiveSession, "subject" | "level"
 // "Thu 17 Jul · 23:58" — far more scannable than a raw locale timestamp.
 // Written the British way whatever the browser's language, as every other date
 // on the site is; the time stays in the viewer's own zone, since that is when
-// they have to be there. Lives here rather than in SessionMeta so the component
-// file exports only components, which is what keeps fast refresh working
-// across the live views.
-export function formatWhen(ms: number) {
+// they have to be there. With `uk`, it is UK time and says so ("· 16:00 (UK
+// time)"): a tutor books lessons in UK time, and their own zone showed a
+// lesson typed as 16:00 from Madagascar as 19:00. Lives here rather than in
+// SessionMeta so the component file exports only components, which is what
+// keeps fast refresh working across the live views.
+export function formatWhen(ms: number, { uk = false }: { uk?: boolean } = {}) {
   const d = new Date(ms);
+  const timeZone = uk ? PLANNER_TIME_ZONE : undefined;
   const day = d.toLocaleDateString("en-GB", {
     weekday: "short",
     day: "numeric",
     month: "short",
+    timeZone,
   });
-  const time = d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
-  return `${day} · ${time}`;
+  const time = d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone });
+  return uk ? `${day} · ${time} (UK time)` : `${day} · ${time}`;
 }
 
 /**
- * The click handler for a Join button. The showcase's lessons carry made-up
- * Zoom links, so there a Join says what it would do instead of opening one;
- * everywhere else it is undefined and the button is a plain link.
+ * The click handler for a Join button. Pressing Join is what files a student
+ * as at the lesson, which their parent sees as attendance: the server decides
+ * whether this press counts, and the link opens as normal whatever it says.
+ * The showcase's lessons carry made-up Zoom links, so there a Join says what
+ * it would do instead of opening one.
  */
-export function demoJoinClick(): ((e: { preventDefault(): void }) => void) | undefined {
-  if (!isDemoStudent()) return undefined;
-  return (e) => {
-    e.preventDefault();
-    toast("In a real lesson this opens the Zoom call.");
-  };
+export function joinClick(sessionId: string): (e: { preventDefault(): void }) => void {
+  if (isDemoStudent()) {
+    return (e) => {
+      e.preventDefault();
+      toast("In a real lesson this opens the Zoom call.");
+    };
+  }
+  return () => void recordLiveJoin(sessionId);
+}
+
+/**
+ * File the signed-in student as at a lesson they are joining. Only a student
+ * on the lesson's course, while it is on, is filed, and only once. Never
+ * throws: a record that didn't land must not stand between them and the room.
+ */
+export async function recordLiveJoin(sessionId: string): Promise<boolean> {
+  try {
+    const { data, error } = await supabase.rpc("record_live_join", { _resource_id: sessionId });
+    return !error && data === true;
+  } catch {
+    return false;
+  }
 }
 
 /* ---------- When a session is "on" ----------
@@ -221,6 +244,22 @@ export function sessionTiming(startMs: number, now: number): SessionTiming {
     withinDay: untilStart > 0 && untilStart <= DAY_MS,
     joinable: isLive || (untilStart > 0 && untilStart <= JOIN_LEAD_MS),
   };
+}
+
+/**
+ * Whether a session's Join button shows. A student's shows only while the
+ * lesson is joinable, as the header and the countdown do: pressing it is what
+ * files them as at the lesson, and a press long before the start isn't
+ * counted. A tutor keeps theirs, to open the room early. The showcase's Join
+ * only says what it would do, so it always shows.
+ */
+export function showsJoin(
+  session: Pick<LiveSession, "starts_at">,
+  isTutor: boolean,
+  now: number,
+): boolean {
+  if (isTutor || isDemoStudent()) return true;
+  return sessionTiming(sessionStartMs(session) ?? now, now).joinable;
 }
 
 /** The soonest dated session that hasn't finished — including one running now. */
