@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { type useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
@@ -11,6 +11,8 @@ import {
   type SsoProvider,
 } from "@/lib/auth/ssoIntent";
 import { validatePassword } from "@/lib/auth/validation";
+import { settleSignUp, signUpMetadata, type SignUpChoice } from "@/lib/auth/settleSignUp";
+import { usePageRestore } from "@/hooks/usePageRestore";
 
 // Supabase's Email OTP Length is a project setting (6–10); this project is set
 // to 8, and the digit boxes have to match it exactly.
@@ -44,6 +46,13 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
   const [emailSentTo, setEmailSentTo] = useState<string | null>(null);
   const [otp, setOtp] = useState("");
   const [resendIn, setResendIn] = useState(0);
+  // What the sign-up form said, kept for the moment its code is accepted (see
+  // `@/lib/auth/settleSignUp`). Null when the code screen came from logging in.
+  const pendingSignUp = useRef<SignUpChoice | null>(null);
+
+  // Back from the Google or Microsoft page can bring this page back from the
+  // browser's back/forward cache, still "Please wait…" with every button off.
+  usePageRestore(() => setLoading(false));
 
   // Level, exam board and subjects are captured in /onboarding now, not here.
   // Sign-up is only "who are you"; what you study — and whether you've paid for
@@ -73,7 +82,8 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
       if (!data.user) return;
       await finishSsoSignUp();
       invalidateGuardState(queryClient);
-      navigate({ to: dest as never });
+      // Replace, so Back from where they land doesn't come here and bounce on.
+      navigate({ to: dest as never, replace: true });
     });
   }, [navigate, dest, queryClient]);
 
@@ -100,23 +110,20 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
     setLoading(true);
     try {
       if (mode === "signup") {
+        const choice: SignUpChoice = {
+          password,
+          displayName: name.trim() || email.split("@")[0],
+          role,
+          inviteCode: role === "parent" ? inviteCode.trim() || null : null,
+          tier: search.tier ?? null,
+          level: search.level ?? null,
+          subjects: search.subjects ?? null,
+          board: search.board ?? null,
+        };
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
-          options: {
-            data: {
-              display_name: name || email.split("@")[0],
-              role,
-              parent_invite_code: role === "parent" ? inviteCode.trim() || null : null,
-              // The plan the student picked on the pricing page. Stashed here so
-              // it survives the email-verification round-trip and can seed the
-              // onboarding steps. Every one of these stays editable there.
-              intended_tier: search.tier ?? null,
-              intended_level: search.level ?? null,
-              intended_subjects: search.subjects ?? null,
-              intended_board: search.board ?? null,
-            },
-          },
+          options: { data: signUpMetadata(choice) },
         });
         if (error) throw error;
         // Signing up with an address that already has a confirmed account is a
@@ -124,24 +131,41 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
         // is registered, so it returns a success-shaped user with no session and
         // sends nothing. The empty identities array is the only tell. Without
         // this branch the user waits on a code screen for a code that will never
-        // arrive.
+        // arrive. A Google or Microsoft account looks the same here and has no
+        // password to log in with, so the message names them.
         if (data.user && data.user.identities?.length === 0) {
-          toast.error("That email already has an account. Try logging in.");
+          toast.error(
+            "That email already has an account. Log in, or use Google or Microsoft if you signed up with one.",
+          );
           setMode("signin");
           setPassword("");
         } else if (data.session) {
           toast.success("Account created");
-          navigate({ to: dest as never });
+          navigate({ to: dest as never, replace: true });
         } else {
           toast.success("We've emailed you a verification code.");
+          pendingSignUp.current = choice;
           setEmailSentTo(email);
           setResendIn(60);
         }
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
+        // Signed up, but left before typing the code (a refresh loses the code
+        // screen). GoTrue checks the password before it says this, so the
+        // account is theirs: send a fresh code and show the boxes again.
+        if (error?.code === "email_not_confirmed") {
+          pendingSignUp.current = null;
+          const resent = await supabase.auth.resend({ type: "signup", email });
+          if (resent.error) toast.error(resent.error.message);
+          else toast.success("Your email isn't verified yet. We've sent you a new code.");
+          setOtp("");
+          setEmailSentTo(email);
+          setResendIn(60);
+          return;
+        }
         if (error) throw error;
         toast.success("Signed in", { duration: 2000 });
-        navigate({ to: dest as never });
+        navigate({ to: dest as never, replace: true });
       }
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Something went wrong");
@@ -159,15 +183,35 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
     if (!emailSentTo || loading || otp.length < OTP_LENGTH) return;
     setLoading(true);
     try {
-      const { error } = await supabase.auth.verifyOtp({
+      const { data, error } = await supabase.auth.verifyOtp({
         email: emailSentTo,
         token: otp.trim(),
         type: "signup",
       });
       if (error) throw error;
+      const choice = pendingSignUp.current;
+      pendingSignUp.current = null;
+      if (choice && data.user) {
+        try {
+          const settled = await settleSignUp(choice, data.user);
+          if (!settled.passwordSaved) {
+            toast.error(
+              "Your email is verified, but your new password didn't save. Sign out and use Forgot password? to set it.",
+            );
+          }
+          const link = settled.link;
+          if (link?.status === "linked") toast.success(`Linked to ${link.student_name}`);
+          else if (link?.status && link.status !== "already_linked") {
+            toast.error("We couldn't link your child's invite code. Add it on your Parents page.");
+          }
+        } catch {
+          // Verified either way; the steps ahead still work.
+        }
+        invalidateGuardState(queryClient);
+      }
       toast.success("Email verified");
       // verifyOtp returns a session, so the onboarding guard will let them in.
-      navigate({ to: "/onboarding/board" as never });
+      navigate({ to: "/onboarding/board" as never, replace: true });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "That code didn't work");
       setOtp("");
