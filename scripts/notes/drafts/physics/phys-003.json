@@ -288,7 +288,35 @@
         "marks": 3,
         "answer_points": ["5040 = 0.5 × m × 12²", "m = 5040 / (0.5 × 12²)", "m = 70 (kg)"],
         "tip": "One mark for the substitution, one for the rearrangement and one for the answer."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course also asks you to calculate the energy stored in a stretched spring."
+            },
+            {
+              "type": "equation",
+              "label": "Elastic potential energy",
+              "formula": "Eₑ = ½ × k × e²",
+              "where": [
+                "Eₑ is elastic potential energy in joules (J).",
+                "k is the spring constant in newtons per metre (N/m).",
+                "e is the extension in metres (m)."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The equation only applies if the **limit of proportionality** has not been exceeded.",
+                "When a spring launches an object, set the elastic potential energy equal to ½ × m × v² to find the greatest possible speed."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.1", "EDEX 3.2", "EDEX 8.8", "EDEX 8.9"],
@@ -318,7 +346,45 @@
           "KE = 9 (J)"
         ],
         "tip": "A correct final answer of 9 J scores all 3 marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This course also asks you to calculate the energy in a stretched spring and energy use in the home."
+            },
+            {
+              "type": "equation",
+              "label": "Energy stored in a stretched spring",
+              "formula": "E = ½ × k × x²",
+              "where": [
+                "E is the energy transferred in stretching, in joules (J).",
+                "k is the spring constant in newtons per metre (N/m).",
+                "x is the extension in metres (m)."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Energy in kilowatt-hours",
+              "formula": "E = P × t",
+              "where": [
+                "E is energy transferred in kilowatt-hours (kW h).",
+                "P is power in kilowatts (kW).",
+                "t is time in hours (h)."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Energy use in the home is measured in **kilowatt-hours**. 1 kW h = 1000 W × 3600 s = 3.6 × 10⁶ J.",
+                "When one store empties into another, set the two energies equal. Spring energy = m × g × h gives the greatest height a launched ball can reach."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -427,6 +493,6 @@
       "534acece-e1f1-4b9f-b7d4-7a3793a21bcd"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

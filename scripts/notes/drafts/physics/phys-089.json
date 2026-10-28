@@ -194,7 +194,32 @@
           "Until there is a balance between gravity and fusion (thermal expansion)."
         ],
         "tip": "Allow increase in pressure or density, nuclear reactions, or equilibrium. Fission is ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Thermal expansion",
+                  "meaning": "The outward push of a star's hot gas, caused by the energy released in fusion. It acts against gravity."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A nebula collapses because **gravity** is bigger than thermal expansion.",
+                "It stops collapsing when fusion heats it enough for **thermal expansion** to balance gravity. The balance keeps a main sequence star the same size.",
+                "When the forces become unbalanced, the star changes size. It expands to become a red giant, or a red super giant if it is much more massive.",
+                "When fusion in the core stops, thermal expansion no longer balances gravity, so the core collapses. This forms a white dwarf, or leads to a supernova in a much more massive star."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P8.3c"],
@@ -296,6 +321,6 @@
       "83f3a0ed-0eb3-43c5-95c3-383365582ae1"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

@@ -201,7 +201,21 @@
           "Repeat above and below the magnet and connect the marks together to construct a field line."
         ],
         "tip": "Any three of the points score. A fully annotated diagram can score full marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A plotting compass shows the **direction** of the field and gives a drawn record. Iron filings show only the shape of the pattern.",
+                "The way a dipping compass's **angle of dip** changes between the equator and the poles matches the field around a bar magnet. This is evidence that the Earth's core is magnetic."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -299,6 +313,6 @@
       "f359e8aa-1c66-4a41-8a83-27457d72b487"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

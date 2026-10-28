@@ -256,7 +256,28 @@
           "They are electromagnetic waves."
         ],
         "tip": "Any three of these score one mark each. 'They travel at the speed of light' and 'they do not need a medium' are accepted. Reflection, refraction, absorption and diffraction are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Each example shows an electromagnetic wave transferring energy from a source to an absorber."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Light from a lamp transfers energy to a leaf, causing chemical reactions in the leaf.",
+                "Infrared from a fire transfers thermal energy to your hands, which warm up.",
+                "Microwaves transfer energy to food. The food absorbs them and its temperature increases.",
+                "Radio waves transfer energy to a receiving aerial and make electrons oscillate in its wires.",
+                "Ultraviolet, X-rays and gamma rays transfer energy to cells in the body, which can damage the cells."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.7", "EDEX 5.8", "EDEX 5.10", "EDEX 5.11", "EDEX 5.12"],
@@ -267,7 +288,39 @@
         "marks": 3,
         "answer_points": ["transverse", "speed", "frequency"],
         "tip": "One mark for each word. The words must be in the correct order."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Examples of energy transfer"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Light from a lamp transfers energy to a leaf, causing chemical reactions in the leaf.",
+                "Infrared from a fire transfers thermal energy to your hands, which warm up.",
+                "Microwaves transfer energy to food. The food absorbs them and its temperature increases.",
+                "Radio waves transfer energy to a receiving aerial and make electrons oscillate in its wires.",
+                "Ultraviolet, X-rays and gamma rays transfer energy to cells in the body, which can damage the cells."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Colours of the visible spectrum"
+            },
+            {
+              "type": "list",
+              "items": [
+                "In order: red, orange, yellow, green, blue, indigo, violet.",
+                "From red to violet, the wavelength decreases and the frequency increases."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P5.2a", "OCR P5.2b", "OCR P5.2c", "OCR P5.2d", "OCR P5.2e", "OCR P5.2f"],
@@ -282,7 +335,28 @@
           "wavelength = 100 nm"
         ],
         "tip": "The answer 100 nm scores all 3 marks. Writing the equation in symbols or words is not credited on its own."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Each example shows an electromagnetic wave transferring energy from a source to an absorber."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Light from a lamp transfers energy to a leaf, causing chemical reactions in the leaf.",
+                "Infrared from a fire transfers thermal energy to your hands, which warm up.",
+                "Microwaves transfer energy to food. The food absorbs them and its temperature increases.",
+                "Radio waves transfer energy to a receiving aerial and make electrons oscillate in its wires.",
+                "Ultraviolet, X-rays and gamma rays transfer energy to cells in the body, which can damage the cells."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 3.3.1", "CAIE 3.3.2", "CAIE 3.3.6S", "CAIE 2.3.3.2", "CAIE 6.1.2.4"],
@@ -394,6 +468,6 @@
       "da7bc04d-3af2-4abb-9067-0be06a0cf869"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

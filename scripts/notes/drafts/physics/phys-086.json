@@ -305,7 +305,22 @@
           "The paper cone and coil vibrate, moving to and fro."
         ],
         "tip": "Any four points, linked in a logical order."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In a loudspeaker or headphones, the **frequency** of the sound depends on the frequency of the alternating current.",
+                "The **amplitude** of the sound depends on the amplitude of the alternating current. A bigger current gives a bigger force on the coil, so the cone vibrates further.",
+                "In a microphone, the **amplitude** of the induced current depends on the amplitude of the sound."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR P4.2f", "OCR P4.2j"],
@@ -323,7 +338,23 @@
           "Difference: a speaker converts a current, p.d. or electrical signal into sound waves."
         ],
         "tip": "Two marks for similarities and two for differences. Ignore references to energy."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Dynamic microphone",
+                  "meaning": "A moving-coil microphone. A coil vibrates in a magnet's field, so a p.d. is induced by electromagnetic induction."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 4.5.2.1S", "CAIE 4.5.2.2S", "CAIE 4.5.5.2S"],
@@ -413,6 +444,6 @@
       "bdcef167-1412-4d52-8fb6-038278e9327b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

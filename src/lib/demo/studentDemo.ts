@@ -2097,9 +2097,17 @@ const LESSON_MS = 90 * 60_000;
  * time on the viewer's clock: the next one that hasn't finished, or the last
  * one that has. Each subject has its own weekday evening, so the next lesson is
  * at most a week away (today's, if it is still to come or running), and the
- * last one ran within the seven days the Live page keeps.
+ * last one is the week before it. While today's is running, that one started a
+ * week and up to a lesson ago. The Live page still lists it, as it would a real
+ * one: the purge (`purge_stale_live_sessions`) runs once a night, at 03:00 UTC,
+ * so every lesson stays for more than a week.
  */
-function lesson(weekday: number, hour: number, minute: number, which: "next" | "last"): string {
+export function lesson(
+  weekday: number,
+  hour: number,
+  minute: number,
+  which: "next" | "last",
+): string {
   const now = Date.now();
   const d = new Date();
   d.setHours(hour, minute, 0, 0);

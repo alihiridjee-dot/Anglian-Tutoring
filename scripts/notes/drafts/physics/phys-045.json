@@ -308,6 +308,19 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "For a fixed mass, **weight** is directly proportional to **gravitational field strength**.",
+                "Double g and the weight doubles. Halve g and the weight halves.",
+                "Recall that **g** is 10 m/s² in free fall near the Earth, which is the same as 10 N/kg. A question may not give it."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -325,7 +338,22 @@
           "Unit: N."
         ],
         "tip": "Two of the five marks are for rounding correctly to 3 significant figures, and one is for the unit."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Recall that **g** is 10 N/kg at the Earth's surface. A question may not give it. A value of 9.8 N/kg is also accepted.",
+                "Questions may call weight the **gravitational force** on an object.",
+                "Weight is directly proportional to both mass and g. Doubling either one, with the other kept the same, doubles the weight."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -447,6 +475,6 @@
       "d1e12dcb-a8bb-4f34-892d-8da8f10a1d4e"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

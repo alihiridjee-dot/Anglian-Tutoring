@@ -361,7 +361,26 @@
           "Which increases the temperature, and therefore the resistance."
         ],
         "tip": "Any two of the points score. Atoms, particles or molecules are allowed in place of ions."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Graphs other than I–V graphs also show how a component behaves."
+            },
+            {
+              "type": "list",
+              "items": [
+                "For a wire, a graph of **resistance** against length is a straight line through the origin. Resistance is directly proportional to length.",
+                "For an NTC thermistor, a graph of resistance against temperature slopes downwards. For an LDR, a graph of resistance against light intensity also slopes downwards.",
+                "When testing a resistor or thermistor, switch the circuit off between readings. This keeps it at room temperature, so heating does not change its resistance."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -450,6 +469,6 @@
       "8c69fcf6-5ba8-449a-86da-f9a495135c14"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

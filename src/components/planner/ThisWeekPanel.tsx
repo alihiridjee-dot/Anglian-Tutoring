@@ -1,7 +1,6 @@
 import { Spinner, EmptyState } from "@/components/Shared";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Sparkles } from "lucide-react";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { currentWeekKey, plannerDateLabel, weekKeyToDate } from "@/lib/planner/week";
 import { type PlanPoint, type WeeklyPlan } from "@/lib/planner/weeklyPlanDal";
@@ -194,15 +193,6 @@ export function ThisWeekPanel({
         />
         <RevisionLane focus={focus} focusPointCount={focusPointCount} row={row} />
       </div>
-
-      {/* Why the week is what it is — the catch-up queue, what the tutor set
-          aside. Written at every cut and, until now, shown only in the demo. */}
-      {plan?.ai_rationale && !isPast && (
-        <p className="flex items-start gap-2 text-sm leading-relaxed">
-          <Sparkles className="mt-0.5 size-4 shrink-0 text-[color:var(--tint)]" aria-hidden />
-          <span>{plan.ai_rationale}</span>
-        </p>
-      )}
 
       {reviewMore && <ReviewMoreStrip more={reviewMore} />}
 

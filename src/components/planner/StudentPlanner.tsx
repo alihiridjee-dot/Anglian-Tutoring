@@ -4,7 +4,6 @@ import { FullPlanTimeline } from "./FullPlanTimeline";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { EmptyState, ErrorNote, Meter } from "@/components/Shared";
 import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
-import { ScheduleComparison } from "./ScheduleComparison";
 import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { toast } from "sonner";
@@ -246,7 +245,6 @@ export function StudentPlanner({
             board={active.board as BoardV}
             level={level}
             refreshKey={weekRev}
-            onScheduleApplied={() => setBoardRev((r) => r + 1)}
             onSetExamDate={() => setTab("plan")}
           />
         ) : (
@@ -309,7 +307,6 @@ function ThisWeekTab({
   board,
   level,
   refreshKey,
-  onScheduleApplied,
   onSetExamDate,
 }: {
   data: RoadmapResult;
@@ -319,7 +316,6 @@ function ThisWeekTab({
   level: LevelV;
   /** Reload after an explicit schedule update. */
   refreshKey: number;
-  onScheduleApplied: () => void;
   /** Open the Full plan tab, where the exam date is set. */
   onSetExamDate: () => void;
 }) {
@@ -480,21 +476,6 @@ function ThisWeekTab({
         />
       )}
 
-      {/* Re-cutting a week is a statement about the week ahead. Offering it on a
-          week that has gone by would let a student rewrite what was set for
-          them after the fact, and a paused week has nothing to re-cut. */}
-      {week.plan && isCurrent && !frozen && !resting && (
-        <ScheduleComparison
-          studentId={studentId}
-          subject={subject}
-          board={board}
-          level={level}
-          weekStart={weekStart}
-          week={week}
-          roadmap={data}
-          onApplied={onScheduleApplied}
-        />
-      )}
       {/* Optional reflection and tutor feedback. */}
       {week.plan && showReview && !frozen && !resting && (
         <details className="premium-card rounded-xl p-3">

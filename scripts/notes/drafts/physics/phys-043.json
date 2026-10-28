@@ -209,7 +209,22 @@
           "So the direction changes, which means the velocity changes."
         ],
         "tip": "One mark for the vector and scalar link, one for the road not being straight, one for direction changing the velocity."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Give a displacement as a **magnitude** and a **direction**: the straight-line distance from start to finish and the direction of that line, such as 50 m north.",
+                "A size alone, such as 50 m, does not describe a displacement. The direction is needed too.",
+                "On a path that is not straight, the distance travelled is greater than the magnitude of the displacement. They are equal only for motion in a straight line in one direction."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 2.1", "EDEX 2.2", "EDEX 2.3", "EDEX 2.4", "EDEX 2.5", "EDEX 9.2"],
@@ -325,6 +340,6 @@
       "0b3b7129-5b1d-4381-9a40-cdad7ec5ff93"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

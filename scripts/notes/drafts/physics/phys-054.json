@@ -342,7 +342,27 @@
           "s = 27 m"
         ],
         "tip": "A correct answer of 27 m scores all 3 marks. A correct substitution into the unrearranged equation earns 1 mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Matching motion to the right graph",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The same shape of line means different motion on the two kinds of graph."
+            },
+            {
+              "type": "table",
+              "columns": ["Line", "Distance–time graph", "Velocity–time graph"],
+              "rows": [
+                ["Horizontal line", "Stationary", "Constant velocity"],
+                ["Straight line sloping up", "Constant speed", "Constant acceleration"],
+                ["Line along the time axis", "Stationary at the start point", "Stationary"]
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -430,6 +450,6 @@
       "5d2cd20d-cedb-47b7-b9af-a59c1254b873"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

@@ -25,7 +25,9 @@ const set = setAt >= 0 ? args[setAt + 1] : "drafts";
 // --ids a,b,c checks just those notes, so parallel writers don't trip over each other's half-written files.
 const idsAt = args.indexOf("--ids");
 const ids = idsAt >= 0 ? new Set(args[idsAt + 1].split(",")) : null;
-const only = args.find((a, i) => !a.startsWith("--") && i !== setAt + 1 && i !== idsAt + 1);
+const only = args.find(
+  (a, i) => !a.startsWith("--") && !(setAt >= 0 && i === setAt + 1) && !(idsAt >= 0 && i === idsAt + 1),
+);
 let failures = 0,
   checked = 0;
 

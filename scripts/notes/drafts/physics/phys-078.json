@@ -298,7 +298,24 @@
           "The amount of greenhouse gases is increasing, so the greenhouse effect is increasing."
         ],
         "tip": "This is a levels question. Cover both the radiation balance and the atmosphere: with only one of these the maximum is 3 marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A hot object emits radiation at a continuous range of **energy** values, and so at a range of frequencies and wavelengths. Higher energy means higher frequency and shorter wavelength.",
+                "As the temperature of a body rises, the intensity of its radiation increases and the **peak wavelength** gets shorter.",
+                "(Higher tier) The Earth absorbs shorter-wavelength radiation from the Sun, such as visible light and ultraviolet, and emits longer-wavelength infrared.",
+                "(Higher tier) The atmosphere absorbs some wavelengths of the Sun's radiation, so not all of it reaches the Earth's surface.",
+                "(Higher tier) Without greenhouse gases in the atmosphere, the Earth would be very cold."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -412,6 +429,6 @@
       "140dc9b3-c83a-471a-ae48-90c529ab30b5"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }
