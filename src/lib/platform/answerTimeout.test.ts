@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { withAnswerTimeout } from "./answerTimeout";
+import { NO_ANSWER_MS, withAnswerTimeout } from "./answerTimeout";
 import { describeError } from "./errors";
 
 const BASE = "https://example.supabase.co";
@@ -83,5 +83,12 @@ describe("withAnswerTimeout", () => {
       (e: unknown) => e,
     )) as Error;
     expect(failure.name).toBe("AbortError");
+  });
+
+  test("the limit sits above the database's own, so no real answer is cut off", () => {
+    // A signed-in user's statement is stopped at 8 s (role setting on live).
+    expect(NO_ANSWER_MS).toBeGreaterThan(8_000);
+    // Per try: four tries of a read, and one page retry, stay under 2 minutes.
+    expect(2 * (4 * NO_ANSWER_MS + 7_000) + 1_000).toBeLessThan(120_000);
   });
 });

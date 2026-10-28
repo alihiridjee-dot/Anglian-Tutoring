@@ -11,12 +11,18 @@
  *
  * Only the wait for an answer is timed, not the download: a long page of notes
  * on a slow phone connection is still arriving, not stuck. And only database
- * (`/rest/v1/`) and sign-in (`/auth/v1/`) requests: the database stops any
- * statement after 8 seconds anyway, so 20 cuts off nothing it would have
- * answered. Uploads (`/storage/v1/`) and edge functions (`/functions/v1/`,
- * where marking can take minutes) are left alone.
+ * (`/rest/v1/`) and sign-in (`/auth/v1/`) requests: the database stops a
+ * signed-in user's statement after 8 seconds anyway, so 10 (8, and room for
+ * the trip) cuts off nothing it would have answered. Uploads (`/storage/v1/`)
+ * and edge functions (`/functions/v1/`, where marking can take minutes) are
+ * left alone.
+ *
+ * The limit is per try, not per read. The database client tries a read four
+ * times on a dropped connection (waiting 1, 2 and 4 s between), and React
+ * Query once more, so a read on a dead connection gives up after about 95 s
+ * (2 × (4 × 10 + 7) + 1), not 10. A save is tried once.
  */
-export const NO_ANSWER_MS = 20_000;
+export const NO_ANSWER_MS = 10_000;
 
 const TIMED = /\/(rest|auth)\/v1\//;
 

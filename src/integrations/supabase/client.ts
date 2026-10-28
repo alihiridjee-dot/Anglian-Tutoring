@@ -73,7 +73,7 @@ function createSupabaseClient() {
 
   return createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
     global: {
-      // Database and sign-in requests give up after 20 s with no answer rather
+      // Database and sign-in requests give up after 10 s with no answer rather
       // than hang the page; see answerTimeout.
       fetch: withAnswerTimeout(createSupabaseFetch(SUPABASE_PUBLISHABLE_KEY)),
     },
