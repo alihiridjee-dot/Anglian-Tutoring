@@ -54,6 +54,32 @@ export function topicsLeftFrom(bands: PacingBand[], from: string): number {
   ).size;
 }
 
+/**
+ * Does a new exam date leave too few weeks for the plan to follow? A move
+ * re-spreads the topics still to come from this week, a week each at least
+ * (liveSpine), so a date with fewer weeks than that is refused. Except in
+ * curriculum order when every topic so far has had a single week, as on a
+ * late joiner's short runway: then the plan is cut again from its start, the
+ * way it was seeded. No week gone by changes, and the topics the new date
+ * can't reach are left out.
+ */
+export function examDateTooSoon(params: {
+  bands: PacingBand[];
+  programStart: string;
+  examDate: string;
+  /** This week's Monday. */
+  today: string;
+}): boolean {
+  const custom = customSchedule(params.bands);
+  const from = [custom?.from ?? params.programStart, params.today].sort().at(-1)!;
+  const left = topicsLeftFrom(params.bands, from);
+  if (!left || weeksBetween(weekKeyToDate(from), weekKeyToDate(params.examDate)) >= left)
+    return false;
+  return (
+    !!custom || params.bands.filter(isTeachBand).some((b) => b.startWeek < from && b.weeks !== 1)
+  );
+}
+
 /** Freeze the actual weekly promises before the boundary, including a partial topic. */
 export function orderInputs(bands: PacingBand[], topics: OrderTopic[], from: string) {
   const hydrated = withWeeklyPoints(

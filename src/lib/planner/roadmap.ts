@@ -521,16 +521,35 @@ function liveSpine(params: {
       today: toDateKey(thisMonday),
     });
   } catch (e) {
-    // Too few weeks left, or the exams have passed: the spine as stored still
-    // cuts weeks, and `unscheduledTopicTitles` reports what it cannot hold.
-    // Throwing here took the whole planner down — including the date box that
-    // fixes it. Never curriculum order re-dealt from the programme start: it
-    // crammed every topic into weeks already gone, and once accepted those
-    // weeks stood as promises, so putting the date back left the student
-    // owing work they had never been set.
+    // Too few weeks left, or the exams have passed. Curriculum order is cut
+    // again from the programme start, as it was seeded, when no week gone by
+    // changes: a late joiner's plan, a week a topic so far (examDateTooSoon
+    // lets that date through). Cut that way, any other plan had every topic
+    // re-dealt into weeks already gone, and once accepted those weeks stood
+    // as promises, so putting the date back left the student owing work they
+    // had never been set. Otherwise the spine as stored still cuts weeks, and
+    // `unscheduledTopicTitles` reports what it cannot hold. Throwing here took
+    // the whole planner down — including the date box that fixes it.
+    if (!custom && pastWeeks(computed, orderTopics, from) === pastWeeks(stored, orderTopics, from))
+      return computed;
     console.warn("[planner] couldn't re-spread the plan to the new exam date", e);
     return stored;
   }
+}
+
+/** What a spine promised before `from`, week by week: the topic and its points. */
+function pastWeeks(bands: PacingBand[], topics: OrderTopic[], from: string): string {
+  return JSON.stringify(
+    orderInputs(bands, topics, from).frozen.map((b) => [
+      b.topicId,
+      b.startWeek,
+      b.endWeek,
+      Object.entries(b.pointsByWeek ?? {}).map(([week, points]) => [
+        week,
+        points.map((p) => p.specPointId),
+      ]),
+    ]),
+  );
 }
 
 /** Under a custom order: topics with at least one point no week of the spine carries. */

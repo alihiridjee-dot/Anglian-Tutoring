@@ -1,9 +1,9 @@
 import {
   customSchedule,
+  examDateTooSoon,
   reorderTopics,
   resumeAfterPause,
   spineMatchesExam,
-  topicsLeftFrom,
 } from "./topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
@@ -18,7 +18,6 @@ import {
   programStartFor,
   isTeachBand,
   projectReviews,
-  weeksBetween,
 } from "./pacing";
 import { spineReach } from "./admissibility";
 import { WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
@@ -581,21 +580,20 @@ export class ProgramDAL {
       .eq("subject", params.subject)
       .maybeSingle();
     if (readError) throw dbError(readError);
-    // A new date re-spreads the topics still to come from this week, a week
-    // each at least (liveSpine), whichever order the plan is in. A date with
-    // fewer weeks than that can't be followed: saved anyway, it left the plan
-    // cut for the old date under the new one.
-    if (saved) {
-      const stored = (saved.pacing ?? []) as unknown as PacingBand[];
-      const from = [customSchedule(stored)?.from ?? saved.program_start, toDateKey(mondayOf())]
-        .sort()
-        .at(-1)!;
-      const left = topicsLeftFrom(stored, from);
-      if (left && weeksBetween(weekKeyToDate(from), weekKeyToDate(params.examDate)) < left)
-        throw new Error(
-          "That exam date leaves too few weeks for your remaining topics. Choose a later date.",
-        );
-    }
+    // A date the plan can't follow, saved anyway, left the plan cut for the
+    // old date under the new one.
+    if (
+      saved &&
+      examDateTooSoon({
+        bands: (saved.pacing ?? []) as unknown as PacingBand[],
+        programStart: saved.program_start,
+        examDate: params.examDate,
+        today: toDateKey(mondayOf()),
+      })
+    )
+      throw new Error(
+        "That exam date leaves too few weeks for your remaining topics. Choose a later date.",
+      );
     const { error } = await supabase
       .from("student_program_plan")
       .update({ exam_date: params.examDate, updated_at: new Date().toISOString() })

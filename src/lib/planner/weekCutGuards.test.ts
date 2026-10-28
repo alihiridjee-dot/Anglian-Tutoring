@@ -208,6 +208,58 @@ describe("buildRoadmap after the exam date moves on a curriculum-order spine", (
   });
 });
 
+describe("a late joiner's exam date moves earlier", () => {
+  // Five topics and four weeks to the exam: seeded as a week each for the
+  // first four, as computePacing cuts a short runway. A week in, t1 done.
+  const late = [
+    ...progress,
+    topic("t4", [point("d1"), point("d2")]),
+    topic("t5", [point("e1"), point("e2")]),
+  ];
+  const lateInputs = late.map((t) => ({ topicId: t.topicId, title: t.title, weight: 2 }));
+  const seeded = computePacing(
+    lateInputs,
+    weekKeyToDate("2027-02-01"),
+    weekKeyToDate("2027-03-01"),
+  );
+  const at = {
+    progress: late,
+    thisMonday: weekKeyToDate("2027-02-08"),
+    ledger: { ...ledger, done: new Set(["a1", "a2"]) },
+  };
+  const lateFor = (examDate: string, pacing: typeof seeded) =>
+    roadmapFor({
+      ...at,
+      examMonday: weekKeyToDate(examDate),
+      baseline: { program_start: "2027-02-01", exam_date: examDate, pacing },
+    });
+  const teach = (r: RoadmapResult) =>
+    r.bands.filter((b) => !b.kind || b.kind === "teach").map((b) => [b.topicId, b.startWeek]);
+  test("the plan follows it, cut again from its start, and nothing is owed", () => {
+    // Earlier: the weeks left keep their topics, so there is nothing new to
+    // accept, and the topic the date can't reach is reported.
+    const moved = lateFor("2027-02-22", seeded);
+    expect(moved.needsAck).toBe(false);
+    expect(teach(moved)).toEqual([
+      ["t1", "2027-02-01"],
+      ["t2", "2027-02-08"],
+      ["t3", "2027-02-15"],
+    ]);
+    expect(moved.unscheduledTopicTitles).toEqual(["Topic t4", "Topic t5"]);
+    expect(moved.backlog).toEqual([]);
+  });
+  test("and a later date gives it back the topics it couldn't reach", () => {
+    // The earlier date had nothing to accept, so the seeded spine is still stored.
+    const later = lateFor("2027-03-08", seeded);
+    expect(later.needsAck).toBe(true);
+    expect(teach(later).map(([id]) => id)).toEqual(["t1", "t2", "t3", "t4", "t5"]);
+    const accepted = later.bands.filter((b) => !b.kind || b.kind === "teach");
+    const after = lateFor("2027-03-08", accepted);
+    expect(after.needsAck).toBe(false);
+    expect(after.backlog).toEqual([]);
+  });
+});
+
 describe("buildRoadmap with a custom order the new exam date cannot hold", () => {
   test("keeps the stored spine instead of throwing the whole planner away", () => {
     const custom = reorderTopics({
