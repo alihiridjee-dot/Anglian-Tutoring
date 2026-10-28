@@ -319,6 +319,18 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Practical: heating the root tip in acid",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Wear **goggles** and gloves so that the hydrochloric acid does not touch the eyes or skin.",
+                "Heat the acid in a **water bath**. Do not boil or overheat it."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -361,6 +373,36 @@
               "items": [
                 "Plant stems grow because **meristem** cells divide by mitosis.",
                 "Meiosis is not accepted for growth."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Order of events in mitosis",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Four events happen inside the M stage, in this order."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Break down.",
+                  "text": "The nuclear membrane breaks down."
+                },
+                {
+                  "lead": "Line up.",
+                  "text": "The chromosomes line up across the middle (the equator) of the cell."
+                },
+                {
+                  "lead": "Separate.",
+                  "text": "The chromosomes separate. One set is pulled to each end of the cell."
+                },
+                {
+                  "lead": "New nuclei.",
+                  "text": "A nuclear membrane forms around each set of chromosomes."
+                }
               ]
             }
           ]
@@ -444,7 +486,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [

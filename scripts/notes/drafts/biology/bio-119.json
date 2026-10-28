@@ -225,6 +225,18 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Animal faeces contain carbon compounds. **Egestion** puts them into the soil, where decomposers break them down and release carbon dioxide by respiration.",
+                "Oceans release carbon dioxide as well as absorbing it. The net carbon added to the atmosphere is the carbon released (respiration, ocean loss, burning fossil fuels) minus the carbon absorbed (photosynthesis, ocean uptake)."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -244,7 +256,18 @@
           "A reason why the recycling matters, for example carbon dioxide is needed for photosynthesis, or nitrates are needed to make proteins in plants."
         ],
         "tip": "One mark each for the idea of recycling, a named example and the reason it matters."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A compost bin has holes to let air in. The bacteria that turn dead plant material into compost respire aerobically, so they need oxygen."
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -325,6 +348,6 @@
       "cc30d666-a16c-479e-8182-dfe2a205ec60"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

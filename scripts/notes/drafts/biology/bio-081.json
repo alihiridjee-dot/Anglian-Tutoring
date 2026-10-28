@@ -357,7 +357,22 @@
           "If an egg is fertilised, oestrogen and progesterone levels remain high to maintain the lining."
         ],
         "tip": "Link at least three hormones to their role and where they are released, in a logical order."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Repair**: oestrogen rises early in the cycle. It repairs the uterus wall and builds the lining up again.",
+                "**Maintenance**: progesterone, made by the corpus luteum after ovulation, maintains the lining.",
+                "**Menstruation**: if there is no pregnancy, progesterone falls. The lining breaks down and is lost."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -435,6 +450,6 @@
       "c021f617-9316-43cd-a0e6-d38aadc38b57"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

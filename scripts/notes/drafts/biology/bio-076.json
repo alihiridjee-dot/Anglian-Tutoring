@@ -201,7 +201,21 @@
           "So increased breathing (rate / depth), to supply oxygen or remove carbon dioxide / water."
         ],
         "tip": "Link exercise to energy, then respiration, then breathing. \"More\" need only be stated once."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "(Separate science) There is no control over the loss of water, ions or urea through the lungs or skin. The kidneys remove the excess in the urine.",
+                "(Higher tier, Separate science) Excess amino acids are **deaminated** in the liver to form ammonia. **Ammonia** is toxic, so it is converted to urea straight away for safe excretion."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.22B", "EDEX 7.10B"],
@@ -253,6 +267,47 @@
                 "Exercise causes loss of water and salts through sweating, and uses up sugar.",
                 "A hypertonic drink has more solutes than body fluids and more sugar. It is absorbed slowly, so it suits the time before a race.",
                 "An isotonic drink has the same concentration as body fluids. After a race it will not dilute or concentrate the blood, and it replaces salts and sugar."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Water potential and body cells"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Water moves by osmosis from a higher **water potential** to a lower water potential.",
+                "Body fluid with a higher water potential than the cell: water enters, and the cell swells and bursts (**lysis**).",
+                "Body fluid with a lower water potential than the cell: water leaves, and the cell shrinks.",
+                "Equal water potentials: no net movement of water, so the cell stays the same size."
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Urine and water balance"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Too little water in the body: the kidneys make a small volume of concentrated urine, so less water is excreted.",
+                "Too much water in the body: the kidneys make a large volume of dilute urine, so more water is excreted."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Higher tier) Salt intake and thirst",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A high salt intake makes the blood more concentrated, with a lower water potential. The response is the same as for dehydration: more **ADH**, so more water is reabsorbed and the urine is concentrated.",
+                "**Thirst** makes the person drink. The water they drink raises the water content of the blood."
               ]
             }
           ]
@@ -384,7 +439,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "spec_point_ids": [
       "54150b15-fab5-4ca6-874e-57abd8434cee",
       "0dfddd94-f250-49c4-9e34-41bb6ebc890b",

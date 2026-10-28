@@ -321,7 +321,21 @@
           "See if it turns green, yellow, orange or red (brown is accepted)."
         ],
         "tip": "One mark for each step: the reagent, the heating and the colour change."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The Biuret test uses two solutions. Add potassium hydroxide to a solution of the food, then add copper sulfate. Sodium hydroxide can be used instead of potassium hydroxide. Purple shows protein.",
+                "A second test for fat: rub the food on filter paper. A translucent mark shows fat is present."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -456,6 +470,6 @@
       "2ee86c49-ae8a-4222-b3c4-273690ade87b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

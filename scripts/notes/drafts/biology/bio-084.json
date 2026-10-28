@@ -254,7 +254,18 @@
           "This affects the amount of heat that will be generated or produced (1)."
         ],
         "tip": "Link thyroxine to metabolic rate, and metabolic rate to heat."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Adrenaline diverts blood away from the digestive system and towards the muscles."
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -344,6 +355,6 @@
       "098302f2-7f4a-49f2-8ba8-a9286b58446d"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

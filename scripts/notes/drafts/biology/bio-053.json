@@ -201,7 +201,23 @@
           "Therefore the plant converts less or no glucose into protein (for growth, so growth is stunted)."
         ],
         "tip": "One mark for each linked step. Saying energy is produced by photosynthesis does not score."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "(Separate science) Plants can be infected by viral, bacterial and fungal pathogens, and by insects.",
+                "(Separate science) The diseases to know are **tobacco mosaic virus** (viral), **rose black spot** (fungal) and aphids (insects).",
+                "Tobacco mosaic virus gives a mosaic pattern of discolouration on the leaves.",
+                "Rose black spot gives purple or black spots on the leaves, which often turn yellow and drop early."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -241,7 +257,21 @@
           "14 healthy tulips were wrongly identified as infected, which could lead to more area being sprayed."
         ],
         "tip": "This is a levelled question. Cover the advantage of early detection and judge the machine using numbers from the data."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In the field, a plant disease is diagnosed by **observation** of the plant and by **microscopy**.",
+                "In the laboratory, the disease-causing organism is detected by its **DNA** or by an **antigen** from the organism."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -291,6 +321,6 @@
       "5afaf57b-ea9f-44ce-a856-f8a649ceb4c3"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

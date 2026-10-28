@@ -205,7 +205,25 @@
           "Many offspring are made, so there is a higher probability that some will survive."
         ],
         "tip": "One mark for each point. Write about bluebells: a general answer scores a maximum of 3."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Sexual reproduction: its variation lets humans choose parents with useful features in **selective breeding**, to increase food production. This changes a species faster than natural selection.",
+                "Asexual reproduction: many identical offspring can be made quickly when conditions are favourable, so they can out-compete other species.",
+                "In a crop, identical plants grow at the same rate and are ready to harvest at the same time.",
+                "Malarial parasites reproduce asexually in the human host and sexually in the mosquito.",
+                "Many fungi reproduce asexually by **spores** and sexually to give variation.",
+                "Many plants make seeds sexually but also reproduce asexually: strawberry plants by runners and daffodils by **bulb division**."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -239,7 +257,21 @@
           "All the plants are genetically identical (clones), so they all have the same genes."
         ],
         "tip": "The mark is for the idea that the plants are all genetically identical."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Compare the number of **live offspring** per birth. More live offspring means more chance that some survive to reproduce.",
+                "Compare how quickly the organism can reproduce with its need for variation. Quick asexual reproduction suits a constant environment, where the offspring are already well adapted. When **environmental pressures** change, the variation from sexual reproduction matters more."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -310,6 +342,6 @@
       "f4997f50-455b-4a5e-a880-bd6d855b097b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

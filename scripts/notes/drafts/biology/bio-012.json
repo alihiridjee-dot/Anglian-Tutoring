@@ -305,7 +305,31 @@
           "It moves from a high concentration of water molecules in the potato to a low concentration of water molecules in the salt solution, through the partially permeable membrane."
         ],
         "tip": "One mark for the outcome, one for osmosis and one for the direction of movement across the membrane."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Osmoregulation and animal cells",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Osmoregulation",
+                  "meaning": "Keeping the water content of body fluids, such as blood plasma, steady."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "If the blood plasma has too much water, water enters the cells by osmosis. Animal cells have no cell wall, so they swell and may burst.",
+                "If the blood plasma has too little water, water leaves the cells by osmosis and the cells shrink.",
+                "Keeping the water content steady keeps the fluid around the cells at the same concentration as the cell contents, so there is no net movement of water."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 2.1a", "OCR 3.3f", "OCR 7.2"],
@@ -335,6 +359,32 @@
                 "Sucrose molecules are too large to pass through the tubing.",
                 "Water moves into the bag by osmosis.",
                 "The liquid level rises in a tube joined to the bag."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Osmotic changes in body fluids",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Body fluids such as blood plasma surround animal cells. The water potential of the fluid compared with the cells decides what happens to the cells."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Water potential of the fluid",
+                "Net movement of water",
+                "Effect on an animal cell"
+              ],
+              "rows": [
+                [
+                  "Higher than the cells",
+                  "Into the cells, by osmosis",
+                  "Swells and may burst (lysis)"
+                ],
+                ["Lower than the cells", "Out of the cells, by osmosis", "Shrinks"],
+                ["Equal to the cells", "No net movement", "No change"]
               ]
             }
           ]
@@ -420,7 +470,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [
