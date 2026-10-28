@@ -550,7 +550,11 @@ function EmailCard({ currentEmail }: { currentEmail: string | null }) {
       // Supabase does not move the address until the link is clicked, so the
       // header will keep showing the old one until then — say so, or this reads
       // as a silent no-op.
-      toast.success(`Confirmation sent to ${next}. Your email changes once you click the link.`);
+      // With secure email change on, the current address gets a link too, and
+      // both have to be clicked.
+      toast.success(
+        `Confirmation sent to ${next}. If your current address gets one too, click both. Your email changes once that's done.`,
+      );
       setEmail("");
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Could not update your email");

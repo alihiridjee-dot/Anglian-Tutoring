@@ -2336,6 +2336,7 @@ export type Database = {
         Args: { _questions: Json; _set_id: string };
         Returns: number;
       };
+      settle_sign_up_role: { Args: { _invite_code?: string; _role: string }; Returns: Json };
       skip_plan_point: {
         Args: {
           _student_id: string;
