@@ -1,4 +1,4 @@
-import { describe, expect, test } from "bun:test";
+import { describe, expect, spyOn, test } from "bun:test";
 import { MAX_WEEK_POINTS, mergeWeek, selectWeek, unsupportedReviews } from "./weekCut";
 import { buildRoadmap, type RoadmapResult } from "./roadmap";
 import { computePacing, withWeeklyPoints } from "./pacing";
@@ -178,6 +178,85 @@ describe("buildRoadmap after the exam date moves on a curriculum-order spine", (
     const result = movedAndAccepted("2026-12-07");
     expect(result.backlog).toEqual([]);
     expect(selectWeek(result, "2026-09-28").specPointIds.length).toBeGreaterThan(0);
+  });
+  test("a date the plan can't follow, then put back, leaves nothing owed", () => {
+    const at = { thisMonday: weekKeyToDate("2026-09-28"), ledger: doneT1 };
+    const warn = spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      // A week away: t2 and t3 can't be spread over one week. Re-dealt from
+      // the programme start instead, every topic was crammed into weeks
+      // already gone, and accepting that made those weeks promises.
+      const tooSoon = roadmapFor({
+        ...at,
+        examMonday: weekKeyToDate("2026-10-05"),
+        baseline: { program_start: "2026-09-07", exam_date: "2026-10-05", pacing: spine },
+      });
+      expect(tooSoon.needsAck).toBe(false);
+      const kept = tooSoon.needsAck
+        ? tooSoon.bands.filter((b) => !b.kind || b.kind === "teach")
+        : spine;
+      // The date goes back to 9 Nov.
+      const back = roadmapFor({
+        ...at,
+        baseline: { program_start: "2026-09-07", exam_date: "2026-11-09", pacing: kept },
+      });
+      expect(back.needsAck).toBe(false);
+      expect(back.backlog).toEqual([]);
+    } finally {
+      warn.mockRestore();
+    }
+  });
+});
+
+describe("a late joiner's exam date moves earlier", () => {
+  // Five topics and four weeks to the exam: seeded as a week each for the
+  // first four, as computePacing cuts a short runway. A week in, t1 done.
+  const late = [
+    ...progress,
+    topic("t4", [point("d1"), point("d2")]),
+    topic("t5", [point("e1"), point("e2")]),
+  ];
+  const lateInputs = late.map((t) => ({ topicId: t.topicId, title: t.title, weight: 2 }));
+  const seeded = computePacing(
+    lateInputs,
+    weekKeyToDate("2027-02-01"),
+    weekKeyToDate("2027-03-01"),
+  );
+  const at = {
+    progress: late,
+    thisMonday: weekKeyToDate("2027-02-08"),
+    ledger: { ...ledger, done: new Set(["a1", "a2"]) },
+  };
+  const lateFor = (examDate: string, pacing: typeof seeded) =>
+    roadmapFor({
+      ...at,
+      examMonday: weekKeyToDate(examDate),
+      baseline: { program_start: "2027-02-01", exam_date: examDate, pacing },
+    });
+  const teach = (r: RoadmapResult) =>
+    r.bands.filter((b) => !b.kind || b.kind === "teach").map((b) => [b.topicId, b.startWeek]);
+  test("the plan follows it, cut again from its start, and nothing is owed", () => {
+    // Earlier: the weeks left keep their topics, so there is nothing new to
+    // accept, and the topic the date can't reach is reported.
+    const moved = lateFor("2027-02-22", seeded);
+    expect(moved.needsAck).toBe(false);
+    expect(teach(moved)).toEqual([
+      ["t1", "2027-02-01"],
+      ["t2", "2027-02-08"],
+      ["t3", "2027-02-15"],
+    ]);
+    expect(moved.unscheduledTopicTitles).toEqual(["Topic t4", "Topic t5"]);
+    expect(moved.backlog).toEqual([]);
+  });
+  test("and a later date gives it back the topics it couldn't reach", () => {
+    // The earlier date had nothing to accept, so the seeded spine is still stored.
+    const later = lateFor("2027-03-08", seeded);
+    expect(later.needsAck).toBe(true);
+    expect(teach(later).map(([id]) => id)).toEqual(["t1", "t2", "t3", "t4", "t5"]);
+    const accepted = later.bands.filter((b) => !b.kind || b.kind === "teach");
+    const after = lateFor("2027-03-08", accepted);
+    expect(after.needsAck).toBe(false);
+    expect(after.backlog).toEqual([]);
   });
 });
 
