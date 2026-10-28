@@ -76,6 +76,18 @@ describe("scrubForModel", () => {
     expect(scrubForModel("lesson 9.30-10.30")).toBe("lesson 9.30-10.30");
   });
 
+  test("leaves a list of spec codes, a dotted date or a row of decimals alone", () => {
+    expect(scrubForModel("notes on 4.1.1.1 4.1.1.2")).toBe("notes on 4.1.1.1 4.1.1.2");
+    expect(scrubForModel("exam on 12.05.2027")).toBe("exam on 12.05.2027");
+    expect(scrubForModel("1.5 2.5 3.5 4.5")).toBe("1.5 2.5 3.5 4.5");
+    expect(scrubForModel("topics 4.1.1.1-4.1.1.4")).toBe("topics 4.1.1.1-4.1.1.4");
+  });
+
+  test("a dotted number as long as a phone number still goes", () => {
+    expect(scrubForModel("ring 0770.090.0123")).toBe("ring [number]");
+    expect(scrubForModel("4.1.1.1 07700 900123")).toBe("[number]");
+  });
+
   test("scrubs before cutting, so no half address reaches the model", () => {
     const email = scrubForModel(`${"x".repeat(183)} john.smith@gmail.com`);
     expect(email).not.toContain("john");

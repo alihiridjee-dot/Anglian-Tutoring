@@ -20,15 +20,19 @@ function nameFromEmail(email: string): string {
 /**
  * Characters that take no space or turn text around: zero-width spaces,
  * direction overrides, byte-order marks. A name made of them greets nobody
- * and can't be typed back. The two joiners emoji and some scripts need stay.
+ * and can't be typed back. The two joiners emoji and some scripts need stay,
+ * and so does the hidden spelling inside the England, Scotland and Wales flags.
  */
-const INVISIBLE = /[^\P{Cf}‌‍]/gu;
-/** Something a reader can see: not a format character, a space or a mark alone. */
-const VISIBLE = /[^\p{Cf}\p{Z}\p{M}\s]/u;
+const INVISIBLE = /(\u{1F3F4}[\u{E0020}-\u{E007E}]+\u{E007F})|[^\P{Cf}\u200C\u200D]/gu;
+/**
+ * Something a reader can see: not a format character, a space, a mark alone,
+ * or a filler that draws nothing (the Hangul filler, the blank braille cell).
+ */
+const VISIBLE = /[^\p{Cf}\p{Z}\p{M}\s\p{Default_Ignorable_Code_Point}\u2800]/u;
 
 /** The name with its invisible characters gone, or "" if nothing visible is left. */
 export function cleanName(raw: string | null | undefined): string {
-  const name = (raw ?? "").replace(INVISIBLE, "").trim();
+  const name = (raw ?? "").replace(INVISIBLE, (_, flag?: string) => flag ?? "").trim();
   return VISIBLE.test(name) ? name : "";
 }
 

@@ -169,6 +169,20 @@ const EMAIL = /[\p{L}\p{N}_.+-]+\s*(?:@|\(at\)|\[at\])\s*[\p{L}\p{N}_-]+(?:\.[\p
 const PHONE_RUN = /\+?\(?\d[\d\s.()-]{8,}\d/g;
 /** Fewer digits than this is a spec code, a date or a time, not a phone number. */
 const PHONE_DIGITS = 8;
+/** One spec code or date: dotted groups of up to four digits, 4.1.1.2 or 12.05.2027. */
+const DOTTED_CODE = /^\d{1,4}(?:\.\d{1,4})+$/;
+
+/**
+ * True when a run reads as a phone number. A run made only of spec codes or
+ * dates ("4.1.1.1 4.1.1.2") isn't one, unless it starts with 0 and is as long
+ * as a phone number, as 0770.090.0123 is.
+ */
+function looksLikePhone(run: string): boolean {
+  const digits = run.replace(/\D/g, "").length;
+  if (digits < PHONE_DIGITS) return false;
+  const codes = run.split(/[\s()-]+/).every((piece) => piece === "" || DOTTED_CODE.test(piece));
+  return !codes || (/^\(?0/.test(run) && digits >= 10);
+}
 
 /**
  * Cuts to `max` characters. A cut inside a word drops that word, in case it
@@ -191,9 +205,7 @@ function cutAt(text: string, max: number): string {
 export function scrubForModel(text: string): string {
   const scrubbed = cutAt(text, MAX_QUESTION_LENGTH * 4)
     .replace(EMAIL, "[email]")
-    .replace(PHONE_RUN, (run) =>
-      run.replace(/\D/g, "").length >= PHONE_DIGITS ? "[number]" : run,
-    );
+    .replace(PHONE_RUN, (run) => (looksLikePhone(run) ? "[number]" : run));
   return cutAt(scrubbed, MAX_QUESTION_LENGTH).trim();
 }
 
