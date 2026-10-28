@@ -112,6 +112,22 @@ export function attemptIdFor(userId: string, setId: string): string {
   return id;
 }
 
+/**
+ * A new id in place of the saved one, keeping the answers.
+ *
+ * For an id the server says it filed more than a week ago: a reply lost, the
+ * page reloaded, and the tab kept for a week. Sending that id again only
+ * replays the old attempt, so the answers on the screen go under a new one.
+ */
+export function renewAttemptId(userId: string, setId: string): string {
+  try {
+    available()?.removeItem(`${key(userId, setId)}:attempt`);
+  } catch {
+    /* attemptIdFor below still hands back a fresh id */
+  }
+  return attemptIdFor(userId, setId);
+}
+
 /** Remove the saved answers, and the attempt's id, once the paper has actually been marked. */
 export function clearMcqAnswers(userId: string, setId: string): void {
   const store = available();

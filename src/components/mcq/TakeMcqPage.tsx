@@ -11,18 +11,18 @@ import { usePinSubject } from "@/hooks/useActiveSubject";
 import { toast } from "sonner";
 import { CheckCircle2, Lightbulb, XCircle } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ } from "@/lib/demo/studentDemo";
-import { describeError } from "@/lib/platform/errors";
 import { rowOptions } from "@/lib/platform/textBlocks";
 import {
   attemptIdFor,
   clearMcqAnswers,
   loadMcqAnswers,
   reconcileAnswers,
+  renewAttemptId,
   saveMcqAnswers,
   type McqAnswers,
 } from "@/lib/mcq/mcqAnswers";
-import { retakeOpensAt } from "@/lib/mcq/retakeLock";
-import { plannerDateLabel } from "@/lib/planner/week";
+import { describeQuizError, isQuizChanged } from "@/lib/mcq/quizErrors";
+import { retakeOpensAt, retakeOpensLabel } from "@/lib/mcq/retakeLock";
 import type { Json } from "@/integrations/supabase/types";
 import { StoredFigure } from "@/components/QuestionFigure";
 
@@ -55,8 +55,8 @@ type Marked = {
   retakeOpensAt: Date | null;
 };
 
-/** The marked paper, and the answers it was marked on. */
-type Review = { marked: Marked; answers: McqAnswers };
+/** The marked paper, the answers it was marked on, and the attempt it was filed as. */
+type Review = { marked: Marked; answers: McqAnswers; attemptId: string | null };
 
 /**
  * Read `grade_mcq_attempt`'s reply. The answers come from it too: when the
@@ -66,6 +66,7 @@ type Review = { marked: Marked; answers: McqAnswers };
  */
 function readGraded(data: unknown): Review {
   const graded = data as {
+    attempt_id?: string;
     score: number;
     total: number;
     results: Array<{
@@ -94,6 +95,7 @@ function readGraded(data: unknown): Review {
       retakeOpensAt: opens && Number.isFinite(opens.getTime()) ? opens : null,
     },
     answers,
+    attemptId: graded.attempt_id ?? null,
   };
 }
 
@@ -242,8 +244,11 @@ export function TakeMcq() {
     startedFor.current = attempt;
     if (locked.data) {
       setMarked(locked.data.marked);
-      setAnswers(locked.data.answers);
+      setAnswers(reconcileAnswers(locked.data.answers, questions));
       attemptId.current = null;
+      // Filed already, so nothing kept for a retry is wanted. Left behind, the
+      // id came back on the next sitting a week later and replayed this one.
+      if (userId) clearMcqAnswers(userId, setId);
       return;
     }
     setMarked(null);
@@ -268,6 +273,18 @@ export function TakeMcq() {
     if (submitting || submitted || isTutor) return;
     if (questions.length === 0) return;
 
+    // Submit stays pressable with a question left blank, and says which: a
+    // greyed-out button on a long quiz left the student hunting for the gap.
+    const gap = questions.findIndex((q) => answers[q.id] === undefined);
+    if (gap !== -1) {
+      toast.info(`Answer question ${gap + 1} first.`);
+      const card = document.getElementById(`question-${questions[gap].id}`);
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      card?.scrollIntoView({ block: "start", behavior: reduce ? "auto" : "smooth" });
+      card?.querySelector("button")?.focus({ preventScroll: true });
+      return;
+    }
+
     // Demo student: mark locally against the fixture, never write an attempt.
     if (demo) {
       const fixture = DEMO_MCQ[setId];
@@ -291,20 +308,44 @@ export function TakeMcq() {
     setSubmitting(true);
     try {
       // Marked on the server: the browser never held the answers to mark with.
-      const { data, error } = await supabase.rpc("grade_mcq_attempt", {
-        _set_id: setId,
-        _answers: answers as unknown as Json,
-        _attempt_id: attemptId.current ?? undefined,
-      });
-      if (error) throw error;
-      const review = readGraded(data);
+      // Only the questions on the screen are sent.
+      const sent = reconcileAnswers(answers, questions);
+      const file = async () => {
+        const { data, error } = await supabase.rpc("grade_mcq_attempt", {
+          _set_id: setId,
+          _answers: sent as unknown as Json,
+          _attempt_id: attemptId.current ?? undefined,
+        });
+        if (error) throw error;
+        return readGraded(data);
+      };
+      let review = await file();
+      // The server replayed this tab's own id from a sitting whose week is
+      // over, so these answers were never filed: file them under a new id.
+      const opens = review.marked.retakeOpensAt;
+      if (
+        attemptId.current &&
+        review.attemptId === attemptId.current &&
+        opens &&
+        opens.getTime() <= Date.now()
+      ) {
+        attemptId.current = renewAttemptId(userId, setId);
+        review = await file();
+      }
+      // An attempt other than this one: taken earlier this week, in another
+      // tab or on another device. That is the one shown, so say so.
+      const earlier =
+        attemptId.current !== null &&
+        review.attemptId !== null &&
+        review.attemptId !== attemptId.current;
       // A server from before the lock sends no date; the attempt is a moment old.
       review.marked.retakeOpensAt ??= retakeOpensAt(new Date());
       setMarked(review.marked);
-      setAnswers(review.answers);
+      setAnswers(reconcileAnswers(review.answers, questions));
       plannerQueryClient.setQueryData(lockKey, review);
       clearMcqAnswers(userId, setId);
-      toast.success(`Scored ${review.marked.score}/${review.marked.total}`);
+      if (earlier) toast.info("You took this quiz earlier this week — here's that attempt.");
+      else toast.success(`Scored ${review.marked.score}/${review.marked.total}`);
       void invalidatePlanner(plannerQueryClient, userId);
       // The averages and predicted grade are built from attempts like this one.
       void plannerQueryClient.invalidateQueries({ queryKey: ["analytics"] });
@@ -312,7 +353,10 @@ export function TakeMcq() {
       // The student keeps their answers and can simply press submit again. If
       // the attempt was in fact filed and only the reply was lost, the retry
       // carries the same id and gets that attempt back rather than a second.
-      toast.error(describeError(err, "Couldn't submit — try again."));
+      toast.error(describeQuizError(err, "Couldn't submit — try again."));
+      // Rewritten since this page opened: fetch the new questions. Answers to
+      // questions that are still there are kept.
+      if (isQuizChanged(err)) void paper.refetch();
     } finally {
       setSubmitting(false);
     }
@@ -346,8 +390,13 @@ export function TakeMcq() {
   if (!set) {
     return (
       <AppLayout title="MCQ">
-        <p className="text-sm text-muted-foreground">That quiz isn&apos;t available.</p>
-        {back}
+        <div className="max-w-3xl">
+          <EmptyState
+            mascot="books"
+            title="That quiz isn't available"
+            action={{ to: demo ? "/demo/student/mcqs" : "/mcqs", label: "Back to quizzes" }}
+          />
+        </div>
       </AppLayout>
     );
   }
@@ -394,9 +443,7 @@ export function TakeMcq() {
       </AppLayout>
     );
 
-  const opensLabel = marked?.retakeOpensAt
-    ? plannerDateLabel(marked.retakeOpensAt, { weekday: "short", day: "numeric", month: "short" })
-    : null;
+  const opensLabel = marked?.retakeOpensAt ? retakeOpensLabel(marked.retakeOpensAt) : null;
 
   return (
     <AppLayout title={set.title}>
@@ -451,11 +498,18 @@ export function TakeMcq() {
             // as a table does there.
             const option = (i: number, text: string, result?: "right" | "wrong") => {
               const place = table ? "" : "inline ml-2";
+              // The icons are drawn only; a screen reader hears the words.
               const icon =
                 result === "right" ? (
-                  <CheckCircle2 className={`w-4 h-4 text-primary ${place}`} />
+                  <>
+                    <CheckCircle2 className={`w-4 h-4 text-primary ${place}`} />
+                    <span className="sr-only">Correct answer</span>
+                  </>
                 ) : result === "wrong" ? (
-                  <XCircle className={`w-4 h-4 text-destructive ${place}`} />
+                  <>
+                    <XCircle className={`w-4 h-4 text-destructive ${place}`} />
+                    <span className="sr-only">Your answer, wrong</span>
+                  </>
                 ) : null;
               return table ? (
                 <>
@@ -529,12 +583,11 @@ export function TakeMcq() {
             return (
               <QuestionFlipCard
                 key={q.id}
+                id={`question-${q.id}`}
                 back={back}
                 front={
                   <>
-                    <p className="text-xs uppercase tracking-widest text-primary font-semibold">
-                      Question {idx + 1}
-                    </p>
+                    <p className="eyebrow">Question {idx + 1}</p>
                     <SciBlock
                       text={table ? table.question : q.question}
                       context={notation}
@@ -550,6 +603,8 @@ export function TakeMcq() {
                         return (
                           <button
                             key={i}
+                            type="button"
+                            aria-pressed={isChosen}
                             disabled={submitted}
                             onClick={() => choose(q.id, i)}
                             className={`w-full min-h-11 text-left px-4 py-2.5 rounded-lg border text-sm break-words transition sm:pointer-fine:min-h-0 ${
@@ -581,16 +636,14 @@ export function TakeMcq() {
           <button
             data-guide="quiz-submit"
             onClick={submit}
-            disabled={submitting || Object.keys(answers).length !== questions.length}
+            disabled={submitting}
             className="mt-6 w-full h-11 rounded-xl btn-solid font-semibold disabled:opacity-50"
           >
             {submitting ? "Marking…" : "Submit answers"}
           </button>
         ) : (
           <div className="mt-6 rounded-2xl premium-card p-4 text-center sm:p-6">
-            <p className="text-xs uppercase tracking-widest text-primary font-semibold">
-              Your score
-            </p>
+            <p className="eyebrow eyebrow-bare">Your score</p>
             <p className="font-display text-4xl font-bold mt-1">
               {marked?.score}/{marked?.total}
             </p>

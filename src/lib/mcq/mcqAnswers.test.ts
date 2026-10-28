@@ -1,5 +1,11 @@
 import { beforeEach, describe, expect, test } from "bun:test";
-import { attemptIdFor, clearMcqAnswers, saveMcqAnswers } from "@/lib/mcq/mcqAnswers";
+import {
+  attemptIdFor,
+  clearMcqAnswers,
+  loadMcqAnswers,
+  renewAttemptId,
+  saveMcqAnswers,
+} from "@/lib/mcq/mcqAnswers";
 
 /**
  * The attempt id is what makes a retried quiz submission safe: the server
@@ -46,6 +52,15 @@ describe("a quiz attempt's id", () => {
     const first = attemptIdFor(STUDENT, "set-1");
     clearMcqAnswers(STUDENT, "set-1");
     expect(attemptIdFor(STUDENT, "set-1")).not.toBe(first);
+  });
+
+  test("can be renewed without losing the answers", () => {
+    saveMcqAnswers(STUDENT, "set-1", { q1: 2 });
+    const first = attemptIdFor(STUDENT, "set-1");
+    const renewed = renewAttemptId(STUDENT, "set-1");
+    expect(renewed).not.toBe(first);
+    expect(attemptIdFor(STUDENT, "set-1")).toBe(renewed);
+    expect(loadMcqAnswers(STUDENT, "set-1")).toEqual({ q1: 2 });
   });
 
   test("differs between quizzes and between students", () => {
