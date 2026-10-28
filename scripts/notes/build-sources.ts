@@ -29,9 +29,12 @@ const argv = process.argv.slice(2);
 // --only cambridge_igcse,edexcel_igcse keeps just those courses (a layer-only writer needs no more).
 const onlyAt = argv.indexOf("--only");
 const only = onlyAt >= 0 ? new Set(argv[onlyAt + 1].split(",")) : null;
-const [subject, which] = onlyAt >= 0 ? argv.filter((_, i) => i !== onlyAt && i !== onlyAt + 1) : argv;
+const [subject, which] =
+  onlyAt >= 0 ? argv.filter((_, i) => i !== onlyAt && i !== onlyAt + 1) : argv;
 if (!subject || !which)
-  throw new Error('Usage: build-sources.ts <subject> <"Group name" | concept id> [--only course,course]');
+  throw new Error(
+    'Usage: build-sources.ts <subject> <"Group name" | concept id> [--only course,course]',
+  );
 
 const here = dirname(fileURLToPath(import.meta.url));
 const map = loadConceptMap(subject);

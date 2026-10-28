@@ -103,7 +103,11 @@ describe("selectWeek", () => {
     }));
     const roadmap = roadmapFor();
     const cut = selectWeek(
-      { ...roadmap, backlog: owed, catchUpSchedule: { weeks: { [week]: owed }, held: [] } },
+      {
+        ...roadmap,
+        backlog: owed,
+        catchUpSchedule: { weeks: { [week]: owed }, assignedIds: [], held: [] },
+      },
       week,
     );
     expect(cut.specPointIds).toHaveLength(MAX_WEEK_POINTS);

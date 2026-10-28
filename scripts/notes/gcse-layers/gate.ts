@@ -30,7 +30,10 @@ let layers = 0,
   bad = 0;
 const headings: string[] = [];
 for (const f of changed) {
-  const id = f.split("/").pop()!.replace(/\.json$/, "");
+  const id = f
+    .split("/")
+    .pop()!
+    .replace(/\.json$/, "");
   if (only && !only.has(id)) continue;
   const head = JSON.parse(git("show", `${BASE}:${f}`));
   const now = JSON.parse(readFileSync(join(ROOT, f), "utf8"));
@@ -57,10 +60,11 @@ for (const f of changed) {
       const m = JSON.stringify(s).match(NAMES);
       if (m) problems.push(`${b}: new section "${s.heading}" mentions "${m[0]}"`);
     }
-    const strip = (l: any) => JSON.stringify({ ...l, extra: undefined });
-    if (strip(h) !== strip(n)) problems.push(`${b}: something other than extra changed in the layer`);
+    const strip = (l: object) => JSON.stringify({ ...l, extra: undefined });
+    if (strip(h) !== strip(n))
+      problems.push(`${b}: something other than extra changed in the layer`);
   }
-  const stripNote = (x: any) => {
+  const stripNote = (x: unknown) => {
     const c = JSON.parse(JSON.stringify(x));
     for (const b of ["aqa", "edexcel", "ocr"]) if (c.boards?.[b]) delete c.boards[b].extra;
     delete c.meta.checked_at;

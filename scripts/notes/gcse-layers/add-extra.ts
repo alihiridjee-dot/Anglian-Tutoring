@@ -26,9 +26,13 @@ const ROOT = resolve(here, "../../..");
 function prettierBin(): string {
   const local = join(ROOT, "node_modules/prettier/bin/prettier.cjs");
   if (existsSync(local)) return local;
-  const common = execFileSync("git", ["-C", ROOT, "rev-parse", "--path-format=absolute", "--git-common-dir"], {
-    encoding: "utf8",
-  }).trim();
+  const common = execFileSync(
+    "git",
+    ["-C", ROOT, "rev-parse", "--path-format=absolute", "--git-common-dir"],
+    {
+      encoding: "utf8",
+    },
+  ).trim();
   const main = join(dirname(common), "node_modules/prettier/bin/prettier.cjs");
   if (existsSync(main)) return main;
   throw new Error("prettier not found: run bun install in the main checkout");
@@ -41,7 +45,8 @@ if (!subject || !id || !board || !sectionsPath) {
   );
   process.exit(2);
 }
-if (!["aqa", "edexcel", "ocr"].includes(board)) fail(`layer must be aqa, edexcel or ocr, not ${board}`);
+if (!["aqa", "edexcel", "ocr"].includes(board))
+  fail(`layer must be aqa, edexcel or ocr, not ${board}`);
 const dry = flags.includes("--dry");
 const file = join(ROOT, "scripts/notes/drafts", subject, `${id}.json`);
 if (!existsSync(file)) fail(`no draft at ${file}`);
@@ -57,7 +62,9 @@ for (const s of sections) {
   if (!Array.isArray(s.blocks) || !s.blocks.length) fail(`section "${s.heading}" needs blocks`);
   const bad = JSON.stringify(s).match(NAMES);
   if (bad)
-    fail(`section "${s.heading}" names a board, paper or year: "${bad[0]}". Students must never see these.`);
+    fail(
+      `section "${s.heading}" names a board, paper or year: "${bad[0]}". Students must never see these.`,
+    );
 }
 const layer = note.boards?.[board];
 if (!layer) fail(`${id} has no ${board} layer; this tool never creates layers`);
@@ -92,7 +99,7 @@ const region = (lines: string[]) => {
   const open = lines.findIndex((l) => l === `    "${board}": {`);
   if (open < 0) throw new Error(`cannot find the ${board} layer line`);
   let close = open + 1;
-  while (close < lines.length && !/^    },?$/.test(lines[close])) close++;
+  while (close < lines.length && !/^ {4}},?$/.test(lines[close])) close++;
   if (close >= lines.length) throw new Error(`cannot find the end of the ${board} layer`);
   return { open, close };
 };
@@ -101,7 +108,7 @@ const extraBlock = (lines: string[], r: { open: number; close: number }) => {
   if (start < 0) return null;
   const s = r.open + start;
   let e = s + 1;
-  while (e < r.close && !/^      \],?$/.test(lines[e])) e++;
+  while (e < r.close && !/^ {6}\],?$/.test(lines[e])) e++;
   if (e >= r.close) throw new Error("cannot find the end of the extra block");
   return { s, e };
 };
@@ -115,10 +122,17 @@ let out: string[];
 if (ob) {
   // Keep the original closing line's comma: extra may not be the layer's last key there.
   const closing = origLines[ob.e].endsWith(",") ? "      ]," : "      ]";
-  out = [...origLines.slice(0, ob.s), ...newBlock.slice(0, -1), closing, ...origLines.slice(ob.e + 1)];
+  out = [
+    ...origLines.slice(0, ob.s),
+    ...newBlock.slice(0, -1),
+    closing,
+    ...origLines.slice(ob.e + 1),
+  ];
 } else {
   const lastProp = or.close - 1;
-  const withComma = origLines[lastProp].endsWith(",") ? origLines[lastProp] : origLines[lastProp] + ",";
+  const withComma = origLines[lastProp].endsWith(",")
+    ? origLines[lastProp]
+    : origLines[lastProp] + ",";
   out = [
     ...origLines.slice(0, lastProp),
     withComma,
@@ -132,14 +146,15 @@ const result = out.join("\n");
 const reparsed = JSON.parse(result);
 if (JSON.stringify(reparsed) !== JSON.stringify(note))
   throw new Error("splice produced a different note (bug)");
-const strip = (n: any) => {
+const strip = (n: unknown) => {
   const c = JSON.parse(JSON.stringify(n));
   delete c.boards[board].extra;
   return JSON.stringify(c);
 };
 if (strip(reparsed) !== strip(originalParsed))
   throw new Error("something outside the extra block changed (bug)");
-if (JSON.stringify(reparsed) === JSON.stringify(originalParsed)) throw new Error("nothing changed (bug)");
+if (JSON.stringify(reparsed) === JSON.stringify(originalParsed))
+  throw new Error("nothing changed (bug)");
 if (dry) {
   console.log(`[dry] ${id} ${board}: would add ${sections.length} section(s) (${style} layout):`);
   console.log(newBlock.join("\n"));

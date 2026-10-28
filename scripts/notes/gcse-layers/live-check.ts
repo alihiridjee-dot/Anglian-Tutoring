@@ -28,7 +28,12 @@ const git = (...a: string[]) => execFileSync("git", ["-C", ROOT, ...a], { encodi
 const changed = git("diff", "--name-only", base, "--", `scripts/notes/drafts/${subject}/`)
   .split("\n")
   .filter(Boolean)
-  .map((f) => f.split("/").pop()!.replace(/\.json$/, ""))
+  .map((f) =>
+    f
+      .split("/")
+      .pop()!
+      .replace(/\.json$/, ""),
+  )
   .filter((id) => !only || only.has(id));
 const stable = (v: unknown): unknown =>
   Array.isArray(v)
@@ -40,7 +45,7 @@ const stable = (v: unknown): unknown =>
             .map((k) => [k, stable((v as Record<string, unknown>)[k])]),
         )
       : v;
-const strip = (n: any) => {
+const strip = (n: unknown) => {
   const c = JSON.parse(JSON.stringify(n));
   delete c.meta.status;
   delete c.meta.checked_at;
@@ -55,9 +60,12 @@ for (let i = 0; i < changed.length; i += 40) {
     { headers },
   );
   if (!res.ok) throw new Error(`${res.status} ${await res.text()}`);
-  const live = new Map(((await res.json()) as any[]).map((r) => [r.concept_id, r]));
+  const rows = (await res.json()) as { concept_id: string; body: unknown; status: string }[];
+  const live = new Map(rows.map((r) => [r.concept_id, r]));
   for (const id of batch) {
-    const now = JSON.parse(readFileSync(join(ROOT, "scripts/notes/drafts", subject, `${id}.json`), "utf8"));
+    const now = JSON.parse(
+      readFileSync(join(ROOT, "scripts/notes/drafts", subject, `${id}.json`), "utf8"),
+    );
     const baseNote = JSON.parse(git("show", `${base}:scripts/notes/drafts/${subject}/${id}.json`));
     const row = live.get(id);
     if (!row) {
@@ -79,7 +87,8 @@ for (let i = 0; i < changed.length; i += 40) {
         if (!n.extra.length) delete n.extra;
       }
     }
-    if (strip(trimmed) !== strip(row.body)) problems.push("draft minus new sections differs from live");
+    if (strip(trimmed) !== strip(row.body))
+      problems.push("draft minus new sections differs from live");
     if (row.status !== "approved") problems.push(`live status is ${row.status}`);
     if (problems.length) {
       bad++;
@@ -87,5 +96,7 @@ for (let i = 0; i < changed.length; i += 40) {
     } else ok++;
   }
 }
-console.log(`${subject}: ${ok} changed drafts are live + new sections only, ${bad} with differences`);
+console.log(
+  `${subject}: ${ok} changed drafts are live + new sections only, ${bad} with differences`,
+);
 if (bad) process.exit(1);

@@ -1,4 +1,4 @@
-import { describe, expect, test, beforeEach } from "bun:test";
+import { describe, expect, test, beforeEach, afterEach } from "bun:test";
 import {
   loadDraft,
   saveDraft,
@@ -44,6 +44,10 @@ class MemoryStorage implements Storage {
 
 beforeEach(() => {
   (globalThis as { window?: unknown }).window = { localStorage: new MemoryStorage() };
+});
+// The stand-in has no `location`, so a file run after this one would throw on it.
+afterEach(() => {
+  delete (globalThis as { window?: unknown }).window;
 });
 
 describe("homework drafts", () => {

@@ -9,9 +9,11 @@ views. Everything was read from the live schema (`pg_proc`, `pg_policies`,
 grants and constraints), not from the migration files. No personal data was
 read. Nothing was changed.
 
-Findings 1–3 are proven in `scripts/test-security-audit-2026-10-db.ts`, a
-PGlite script built from the live definitions. It passes while they are open;
-the PR that fixes one updates its assertion.
+Findings 2 and 3, still open, are proven in
+`scripts/test-security-audit-2026-10-db.ts`, a PGlite script built from the
+1 October live definitions. It can't notice a fix, so the PR that fixes one
+removes its check. Finding 1 was fixed live on 27 October and its check moved
+to `scripts/test-quizzes-follow-paid-subjects-db.ts`.
 
 **Headline: no child-data hole found.** One student still can't read another's
 work, a parent still can't reach an unlinked child, and nothing lets a student
@@ -29,6 +31,8 @@ codes (S-34) and homework submission visibility (M-21).
 ## Findings
 
 ### 1. Medium — Quizzes ignore which subjects were paid for
+
+**Status:** fixed live 27 Oct 2026 (`20261027131300_quizzes_follow_paid_subjects`, #289).
 
 **Where:** policies `mcq_sets read` and `mcq_questions read via set`, and
 `public.grade_mcq_attempt`.

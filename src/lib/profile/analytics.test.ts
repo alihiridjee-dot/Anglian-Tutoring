@@ -83,6 +83,8 @@ describe("trendWeeks", () => {
     d.toLocaleDateString("en-CA", { timeZone: "Europe/London" }) as `${string}-${string}-${string}`;
 
   it("gives six consecutive London Mondays, labelled on their own date, in every time zone", () => {
+    // `bun test` runs in UTC when TZ is unset. Putting back `undefined` would
+    // leave the last zone set here in force for every file that runs after.
     const saved = process.env.TZ;
     try {
       for (const zone of zones) {
@@ -115,7 +117,7 @@ describe("trendWeeks", () => {
         }
       }
     } finally {
-      process.env.TZ = saved;
+      process.env.TZ = saved ?? "Etc/UTC";
     }
   });
 
@@ -127,7 +129,7 @@ describe("trendWeeks", () => {
       expect(weeks.map((w) => w.weekStart)).toContain("2026-10-26");
       expect(weeks.find((w) => w.weekStart === "2026-10-26")?.label).toBe("26 Oct");
     } finally {
-      process.env.TZ = saved;
+      process.env.TZ = saved ?? "Etc/UTC";
     }
   });
 });
