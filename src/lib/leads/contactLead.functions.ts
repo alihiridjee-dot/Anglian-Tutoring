@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
-import { requestAddresses, retryWait, takeToken } from "@/lib/platform/rateLimit";
+import { requestAddresses, retryWait, takeTokens } from "@/lib/platform/rateLimit";
 import { saveLead } from "./saveLead.server";
 
 /**
@@ -75,8 +75,10 @@ export const submitContactLead = createServerFn({ method: "POST" })
     if (data.trap) return { ok: true as const };
 
     const { visitor, hop } = requestAddresses(getRequest()?.headers);
-    let gate = takeToken(`contact:${visitor}`, PER_IP.limit, PER_IP.windowMs);
-    if (gate.ok) gate = takeToken(`contact-hop:${hop}`, PER_HOP.limit, PER_HOP.windowMs);
+    const gate = takeTokens([
+      { key: `contact:${visitor}`, ...PER_IP },
+      { key: `contact-hop:${hop}`, ...PER_HOP },
+    ]);
     if (!gate.ok) {
       // Nothing was saved, so it must not read as though it arrived.
       throw new Error(

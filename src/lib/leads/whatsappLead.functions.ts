@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
-import { requestAddresses, retryWait, takeToken } from "@/lib/platform/rateLimit";
+import { requestAddresses, retryWait, takeToken, takeTokens } from "@/lib/platform/rateLimit";
 import { saveLead } from "./saveLead.server";
 
 /**
@@ -176,8 +176,11 @@ export const sendWhatsAppLead = createServerFn({ method: "POST" })
     if (data.trap) return { ok: true as const, delivered: false };
 
     const { visitor, hop } = requestAddresses(getRequest()?.headers);
-    let gate = takeToken(visitor, PER_IP.limit, PER_IP.windowMs);
-    if (gate.ok) gate = takeToken(`hop:${hop}`, PER_HOP.limit, PER_HOP.windowMs);
+    // Prefixed, so no visitor key can be the hourly budget's own.
+    const gate = takeTokens([
+      { key: `wa:${visitor}`, ...PER_IP },
+      { key: `wa-hop:${hop}`, ...PER_HOP },
+    ]);
     if (!gate.ok) {
       // Nothing was saved, so it must not read as though it arrived.
       throw new Error(
