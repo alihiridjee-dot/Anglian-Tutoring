@@ -708,6 +708,56 @@ const extension = await book(alex, alex, mon(3), 2, "holiday");
   await clearNotes();
 }
 
+// ── 9c. A rewritten notice never loses a break that still stands ─────────
+{
+  const span = (n: number) => `from ${dy(mon(n))} to ${dy(sun(n))}`;
+  const bodies = async (uid: string) => (await notes(uid)).map((n) => n.body);
+  // A real break, then one booked and called off straight away.
+  const real = await book(alex, alex, mon(8), 1);
+  const decoy = await book(alex, alex, mon(10), 1);
+  assert.equal(await end(alex, decoy), "cancelled");
+  for (const parent of [mum, dad])
+    assert.deepEqual(
+      await bodies(parent),
+      [`No new work ${span(8)} and ${span(10)}. Alex booked them.`],
+      "the real break is still in the notice",
+    );
+  // The next booking drops the one called off, and keeps the real one.
+  const second = await book(alex, alex, mon(6), 1);
+  assert.deepEqual(await bodies(mum), [`No new work ${span(6)} and ${span(8)}. Alex booked them.`]);
+  // Booked by more than one person: the dates, without a name.
+  const byTutor = await book(tutor, alex, mon(10), 1);
+  assert.deepEqual(await bodies(dad), [`No new work ${span(6)}, ${span(8)} and ${span(10)}.`]);
+  assert.deepEqual(await bodies(alex), [`No new work ${span(10)}. Your tutor booked it.`]);
+
+  // Another child with the same first name has notices of their own.
+  const twin = uuid(10);
+  await db.query("insert into auth.users values ($1)", [twin]);
+  await db.query(
+    "insert into public.profiles (id, role, display_name, level, enrolled_courses) values ($1, 'student', 'Alex Jones', 'gcse', array['biology'])",
+    [twin],
+  );
+  await db.query(
+    "insert into public.parent_student_links (parent_id, student_id) values ($1, $2)",
+    [mum, twin],
+  );
+  await book(twin, twin, mon(6), 1);
+  assert.deepEqual(
+    await bodies(mum),
+    [
+      `No new work ${span(6)}, ${span(8)} and ${span(10)}.`,
+      `No new work ${span(6)}. Alex booked it.`,
+    ],
+    "the other Alex's booking is a notice of its own",
+  );
+  assert.equal((await notes(dad)).length, 1, "and only their parent is told");
+
+  for (const id of [real, second, byTutor]) assert.equal(await end(alex, id), "cancelled");
+  await db.query("delete from public.parent_student_links where student_id = $1", [twin]);
+  await db.query("delete from auth.users where id = $1", [twin]);
+  await clearNotes();
+}
+
 // ── 10. The table's own rules hold even for a direct write ───────────────
 {
   const bad = (starts: string, ends: string) =>
@@ -921,6 +971,11 @@ const extension = await book(alex, alex, mon(3), 2, "holiday");
       )
     ).includes(`as $function$${noticeSrc}$function$;`),
     "book_break as 20261005163000 left it",
+  );
+  assert.equal(
+    (await db.query("select 1 from pg_proc where proname = 'break_notice_body'")).rows.length,
+    0,
+    "and its notice helper is gone",
   );
   // The scheduler fixes next: end_break as 20261005161000 left it.
   await db.exec(

@@ -1,7 +1,7 @@
 -- Rollback for 20261028120000_break_notice_once_a_day.sql. Run by hand.
 --
 -- Puts book_break back as 20261005163000 left it: a new notice on every
--- booking.
+-- booking. Then drops the helper that wrote the rewritten notices.
 
 create or replace function public.book_break(
   _student_id uuid,
@@ -138,3 +138,5 @@ begin
   return _id;
 end;
 $function$;
+
+drop function if exists private.break_notice_body(uuid, timestamptz, uuid, text);
