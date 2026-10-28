@@ -51,13 +51,24 @@ export async function resolveCustomer(stripe: Stripe, userId: string, email: str
     .maybeSingle();
   if (existing?.stripe_customer_id) return existing.stripe_customer_id;
 
-  const customer = await stripe.customers.create({
-    email,
-    metadata: { supabase_user_id: userId },
-  });
+  // Two first checkouts at once (two tabs, a double tap) both get here. The
+  // key makes Stripe hand both the same customer, and the loser of the insert
+  // below takes the row the winner wrote rather than failing.
+  const customer = await stripe.customers.create(
+    { email, metadata: { supabase_user_id: userId } },
+    { idempotencyKey: `customer-${userId}` },
+  );
   const { error } = await db
     .from("stripe_customers")
     .insert({ user_id: userId, stripe_customer_id: customer.id });
+  if (error?.code === "23505") {
+    const { data: winner } = await db
+      .from("stripe_customers")
+      .select("stripe_customer_id")
+      .eq("user_id", userId)
+      .maybeSingle();
+    if (winner?.stripe_customer_id) return winner.stripe_customer_id;
+  }
   if (error) throw new Error(`Couldn't record the Stripe customer: ${error.message}`);
   return customer.id;
 }

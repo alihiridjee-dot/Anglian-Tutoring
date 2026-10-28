@@ -12,7 +12,8 @@
 import assert from "node:assert/strict";
 import { loadHandler, post } from "./harness.ts";
 import { DB, resetDb, table } from "./mock-supabase.ts";
-import { STRIPE, resetStripe } from "./mock-stripe.ts";
+import Stripe, { STRIPE, resetStripe } from "./mock-stripe.ts";
+import { resolveCustomer } from "../../supabase/functions/stripe-checkout/customers.ts";
 
 const checkout = await loadHandler("../../supabase/functions/stripe-checkout/index.ts");
 
@@ -73,6 +74,7 @@ function world({ payer = PARENT as string | null, linked = false, level = "gcse"
     ],
     error: null,
   });
+  DB.rpcs.claim_ai_request = () => ({ data: true, error: null });
   DB.rpcs.take_billing_lease = () => {
     rpcCalls.push("take");
     if (leaseHeld) return { data: false, error: null };
@@ -204,6 +206,123 @@ assert.ok(
   !STRIPE.calls.some((c) => c.startsWith("checkout.sessions.create")),
   "A session was opened",
 );
+
+// ── A refused card changes nothing ────────────────────────────────────────
+// Adding a subject or switching cadence charges the difference now. When the
+// card is refused, the plan, the enrolments and the access stay as they were,
+// and the family is told why, instead of "added" followed by a locked plan.
+for (const body of [
+  { action: "add_subjects", student_id: CHILD, subjects: [{ subject: "chemistry", board: "aqa" }] },
+  { action: "change_cadence", student_id: CHILD, cadence: "weekly" },
+]) {
+  world({ payer: CHILD });
+  table("packages").push({
+    tier: "weekly_1",
+    name: "weekly_1",
+    stripe_price_id: "price_weekly_1",
+    level: null,
+    active: true,
+  });
+  STRIPE.declineCharges = true;
+  r = await call(CHILD, body);
+  assert.equal(r.status, 402, `${body.action}: ${JSON.stringify(r.body)}`);
+  assert.match(r.body.error, /didn't go through, so nothing has changed/);
+  assert.match(r.body.error, /Card & invoices/);
+  assert.equal(STRIPE.subs.get("sub_1").status, "active", `${body.action} left the plan past due`);
+  assert.ok(!rpcCalls.some((c) => c.startsWith("enrol")), `${body.action} enrolled anyway`);
+  assert.equal(table("subscriptions")[0].plan, "monthly_1");
+  assert.equal(leaseHeld, false, `${body.action} kept the lease`);
+}
+// Only the payer has the Card & invoices tile. A child growing a plan their
+// parent pays for, or a parent switching one the child pays for, is told to
+// ask whoever pays instead.
+for (const [caller, payer, body] of [
+  [
+    CHILD,
+    PARENT,
+    {
+      action: "add_subjects",
+      student_id: CHILD,
+      subjects: [{ subject: "chemistry", board: "aqa" }],
+    },
+  ],
+  [PARENT, CHILD, { action: "change_cadence", student_id: CHILD, cadence: "weekly" }],
+] as const) {
+  world({ payer, linked: true });
+  table("packages").push({
+    tier: "weekly_1",
+    name: "weekly_1",
+    stripe_price_id: "price_weekly_1",
+    level: null,
+    active: true,
+  });
+  STRIPE.declineCharges = true;
+  r = await call(caller, body);
+  assert.equal(r.status, 402, `${body.action}: ${JSON.stringify(r.body)}`);
+  assert.match(r.body.error, /Ask whoever pays for this plan to update the card/);
+  assert.doesNotMatch(r.body.error, /Card & invoices/);
+  assert.equal(table("subscriptions")[0].plan, "monthly_1");
+}
+
+// ── Two first checkouts at once share one customer ────────────────────────
+// Both find no customer row and both ask Stripe for one. Before, that made two
+// live Stripe customers and the second checkout failed on the duplicate row.
+world({ payer: CHILD });
+{
+  const both = await Promise.all([
+    resolveCustomer(new Stripe("k") as never, CHILD, "c@test"),
+    resolveCustomer(new Stripe("k") as never, CHILD, "c@test"),
+  ]);
+  assert.equal(both[0], both[1]);
+  assert.equal(STRIPE.customers.size, 1, "a second Stripe customer was made");
+  assert.equal(table("stripe_customers").length, 1);
+}
+
+// ── Opening payment pages is budgeted per account ─────────────────────────
+// Over budget, Checkout and the portal refuse before Stripe is touched. The
+// budget is claimed as the caller, so it counts against them.
+world({ payer: CHILD });
+DB.tables.subscriptions = [];
+{
+  const claims: string[] = [];
+  DB.rpcs.claim_ai_request = (args, caller) => {
+    claims.push(`${caller}:${args._endpoint}`);
+    return { data: false, error: null };
+  };
+  r = await call(CHILD, { action: "checkout", tier: "monthly_1" });
+  assert.equal(r.status, 429, JSON.stringify(r.body));
+  table("stripe_customers").push({ user_id: CHILD, stripe_customer_id: "cus_C" });
+  r = await call(CHILD, { action: "portal" });
+  assert.equal(r.status, 429, JSON.stringify(r.body));
+  assert.deepEqual(claims, [`${CHILD}:stripe_checkout`, `${CHILD}:stripe_checkout`]);
+  assert.deepEqual(STRIPE.calls, [], "Stripe was called over budget");
+  assert.equal(STRIPE.customers.size, 0);
+
+  // Invoice reads have their own budget, and over it Stripe isn't asked.
+  r = await call(CHILD, { action: "invoices" });
+  assert.equal(r.status, 429, JSON.stringify(r.body));
+  assert.equal(claims.at(-1), `${CHILD}:stripe_invoices`);
+  assert.deepEqual(STRIPE.calls, [], "Stripe was called over budget");
+
+  // A claim that fails (its quota row not applied yet) lets the family through.
+  DB.rpcs.claim_ai_request = () => ({ data: null, error: { message: "Unknown request type" } });
+  r = await call(CHILD, { action: "portal" });
+  assert.equal(r.status, 200, JSON.stringify(r.body));
+  r = await call(CHILD, { action: "invoices" });
+  assert.equal(r.status, 200, JSON.stringify(r.body));
+  assert.ok((STRIPE.calls as string[]).includes("invoices.list cus_C"));
+}
+
+// An account with no Stripe customer reads no invoices and spends no budget.
+world({ payer: CHILD });
+{
+  let claimed = 0;
+  DB.rpcs.claim_ai_request = () => (claimed++, { data: true, error: null });
+  r = await call(CHILD, { action: "invoices" });
+  assert.equal(r.status, 200, JSON.stringify(r.body));
+  assert.deepEqual(r.body.invoices, []);
+  assert.equal(claimed, 0);
+}
 
 // ── APP_URL: no return address, no checkout ───────────────────────────────
 // Stripe sends the payer back to APP_URL. It was localhost until 6 Oct 2026,

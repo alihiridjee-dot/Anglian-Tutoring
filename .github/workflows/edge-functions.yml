@@ -58,6 +58,13 @@ jobs:
           deno run --no-config --cached-only
           --import-map=scripts/test-billing-functions/import_map.json
           --allow-env --allow-read
+          scripts/test-billing-functions/checkout-rules.ts
+        env:
+          DENO_NO_PACKAGE_JSON: "1"
+      - run: >-
+          deno run --no-config --cached-only
+          --import-map=scripts/test-billing-functions/import_map.json
+          --allow-env --allow-read
           scripts/test-billing-functions/mark-homework.ts
         env:
           DENO_NO_PACKAGE_JSON: "1"
