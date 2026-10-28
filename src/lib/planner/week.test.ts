@@ -3,6 +3,7 @@ import {
   addWeeks,
   currentWeekKey,
   relativeWeekLabel,
+  shortDayLabel,
   weekKeyToDate,
   toDateKey,
   toUkDateTimeInput,
@@ -79,4 +80,22 @@ test("a typed date and time that is not a real one fails rather than rolling ove
   for (const v of ["", "2026-02-30T10:00", "2026-10-29T24:00", "2026-10-29 16:00", "garbage"])
     expect(() => ukDateTimeToDate(v)).toThrow();
   expect(ukDateTimeToDate("2026-10-29T16:00:30").toISOString()).toBe("2026-10-29T16:00:30.000Z");
+});
+
+test("a short day label reads the same whatever literal the browser puts after the weekday", () => {
+  // Late on Tue 3 Nov in London is already Wednesday in Madagascar.
+  const at = new Date("2026-11-03T23:17:00Z");
+  expect(shortDayLabel(at, "Europe/London")).toBe("Tue 3 Nov");
+  expect(shortDayLabel(at, "Indian/Antananarivo")).toBe("Wed 4 Nov");
+  const real = Intl.DateTimeFormat.prototype.formatToParts;
+  Intl.DateTimeFormat.prototype.formatToParts = function (d) {
+    return real
+      .call(this, d)
+      .map((p) => (p.type === "literal" && p.value === " " ? { ...p, value: ", " } : p));
+  };
+  try {
+    expect(shortDayLabel(at, "Europe/London")).toBe("Tue 3 Nov");
+  } finally {
+    Intl.DateTimeFormat.prototype.formatToParts = real;
+  }
 });

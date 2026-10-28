@@ -2,7 +2,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoStudent, DEMO_LIVE } from "@/lib/demo/studentDemo";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
-import { PLANNER_TIME_ZONE } from "@/lib/planner/week";
+import { PLANNER_TIME_ZONE, shortDayLabel } from "@/lib/planner/week";
 
 /**
  * Shared live-session reads. Both the Live Sessions page and the student
@@ -152,12 +152,7 @@ export function sessionsOnCourse<T extends Pick<LiveSession, "subject" | "level"
 export function formatWhen(ms: number, { uk = false }: { uk?: boolean } = {}) {
   const d = new Date(ms);
   const timeZone = uk ? PLANNER_TIME_ZONE : undefined;
-  const day = d.toLocaleDateString("en-GB", {
-    weekday: "short",
-    day: "numeric",
-    month: "short",
-    timeZone,
-  });
+  const day = shortDayLabel(d, timeZone);
   const time = d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone });
   return uk ? `${day} · ${time} (UK time)` : `${day} · ${time}`;
 }

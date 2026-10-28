@@ -1,4 +1,4 @@
-import { PLANNER_TIME_ZONE, plannerDateLabel } from "@/lib/planner/week";
+import { PLANNER_TIME_ZONE, shortDayLabel } from "@/lib/planner/week";
 
 /**
  * How long a quiz stays shut after an attempt.
@@ -29,7 +29,7 @@ export function retakeOpensAt(attemptedAt: string | Date): Date {
  */
 export function retakeOpensLabel(opensAt: Date): string {
   const at = new Date(Math.ceil(opensAt.getTime() / 60_000) * 60_000);
-  const day = plannerDateLabel(at, { weekday: "short", day: "numeric", month: "short" });
+  const day = shortDayLabel(at, PLANNER_TIME_ZONE);
   const time = at.toLocaleTimeString("en-GB", {
     hour: "2-digit",
     minute: "2-digit",
