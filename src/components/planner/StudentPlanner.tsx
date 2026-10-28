@@ -23,6 +23,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { isTeachBand } from "@/lib/planner/pacing";
+import { reviewLock } from "@/lib/planner/reviewLock";
 import { ProgramDAL, examDateBounds } from "@/lib/planner/programDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { ScheduleDAL, type TopicProgress } from "@/lib/planner/scheduleDal";
@@ -476,27 +477,38 @@ function ThisWeekTab({
         />
       )}
 
-      {/* Optional reflection and tutor feedback. */}
-      {week.plan && showReview && !frozen && !resting && (
-        <details className="premium-card rounded-xl p-3">
-          <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
-            Weekly check-in and tutor feedback
-          </summary>
-          <WeekReview
-            studentId={studentId}
-            plan={week.plan}
-            points={week.points}
-            coverage={week.coverage}
-            activity={week.activity}
-            subject={subject}
-            board={board}
-            level={level}
-            weekStart={weekStart}
-            examDate={data.examDate}
-            onChanged={week.reload}
-          />
-        </details>
-      )}
+      {/* Optional reflection and tutor feedback. Hidden while the review is
+          locked: the progress card above already says when it opens. */}
+      {week.plan &&
+        showReview &&
+        !frozen &&
+        !resting &&
+        !reviewLock({
+          weekStart,
+          entries: week.points.map((p) => ({
+            coverage: week.coverage.get(p.spec_point_id),
+            activity: week.activity.get(p.spec_point_id),
+          })),
+        }).locked && (
+          <details className="premium-card rounded-xl p-3">
+            <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
+              Weekly check-in and tutor feedback
+            </summary>
+            <WeekReview
+              studentId={studentId}
+              plan={week.plan}
+              points={week.points}
+              coverage={week.coverage}
+              activity={week.activity}
+              subject={subject}
+              board={board}
+              level={level}
+              weekStart={weekStart}
+              examDate={data.examDate}
+              onChanged={week.reload}
+            />
+          </details>
+        )}
     </div>
   );
 }
