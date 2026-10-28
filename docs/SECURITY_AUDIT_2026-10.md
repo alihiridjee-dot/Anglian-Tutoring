@@ -9,17 +9,16 @@ views. Everything was read from the live schema (`pg_proc`, `pg_policies`,
 grants and constraints), not from the migration files. No personal data was
 read. Nothing was changed.
 
-Findings 2 and 3, still open, are proven in
-`scripts/test-security-audit-2026-10-db.ts`, a PGlite script built from the
-1 October live definitions. It can't notice a fix, so the PR that fixes one
-removes its check. Finding 1 was fixed live on 27 October and its check moved
-to `scripts/test-quizzes-follow-paid-subjects-db.ts`.
+Findings 2 and 3 are tracked in `scripts/test-security-audit-2026-10-db.ts`, a
+PGlite script built from the 1 October live definitions. It can't notice a
+fix, so the PR that fixes one removes its check. Finding 1 was fixed on
+27 October; its check is now `scripts/test-quizzes-follow-paid-subjects-db.ts`.
 
 **Headline: no child-data hole found.** One student still can't read another's
 work, a parent still can't reach an unlinked child, and nothing lets a student
-grade themselves. Two findings matter in practice: quizzes ignore which subjects
-were paid for (an entitlement gap), and a student can erase a whole conversation
-with a tutor (a safeguarding-record gap). The rest are latent or operational.
+grade themselves. Two findings mattered in practice: an entitlement gap in
+quizzes (finding 1, fixed 27 October), and a safeguarding-record gap in tutor
+conversations (finding 2). The rest are latent or operational.
 
 Skipped as already assigned: live-session links (S-20), tutors editing each
 other's notes (M-31), chat retention (M-26), the leads insert grant (S-38),

@@ -119,7 +119,8 @@ describe("trendWeeks", () => {
     } finally {
       process.env.TZ = saved ?? "Etc/UTC";
     }
-  });
+    // About 29,000 checks: 1.5 s alone, but past bun's 5 s default on a busy machine.
+  }, 30_000);
 
   it("keeps the week of 26 Oct 2026 for a viewer in New York", () => {
     const saved = process.env.TZ;

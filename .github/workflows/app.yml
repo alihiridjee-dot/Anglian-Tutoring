@@ -13,13 +13,19 @@ on:
 permissions:
   contents: read
 
+# A PR keeps only its newest run. Each push to main gets its own group, so a
+# merge landing minutes after another doesn't cancel the first one's run.
 concurrency:
-  group: app-${{ github.ref }}
+  group: app-${{ github.ref }}-${{ github.event_name == 'push' && github.sha || '' }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
+# Every job's name starts with "app": the Edge functions workflow has a
+# "typecheck" job too, and GitHub matches required checks by name alone.
 jobs:
   typecheck:
+    name: app typecheck
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -32,7 +38,9 @@ jobs:
       - run: bun --bun node_modules/typescript/bin/tsc -p tsconfig.test.json --noEmit
 
   lint:
+    name: app lint
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -42,7 +50,9 @@ jobs:
       - run: bun --bun node_modules/eslint/bin/eslint.js .
 
   test:
+    name: app test
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -52,7 +62,9 @@ jobs:
       - run: bun test
 
   database:
+    name: app database
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -92,7 +104,9 @@ jobs:
           exit "$failed"
 
   build:
+    name: app build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
