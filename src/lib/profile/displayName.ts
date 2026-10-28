@@ -17,12 +17,50 @@ function nameFromEmail(email: string): string {
   return local.charAt(0).toUpperCase() + local.slice(1);
 }
 
+/**
+ * Characters that take no space or turn text around: zero-width spaces,
+ * direction overrides, byte-order marks. A name made of them greets nobody
+ * and can't be typed back. The two joiners emoji and some scripts need stay,
+ * and so does the hidden spelling inside the England, Scotland and Wales flags.
+ */
+const INVISIBLE = /(\u{1F3F4}[\u{E0020}-\u{E007E}]+\u{E007F})|[^\P{Cf}\u200C\u200D]/gu;
+/**
+ * Something a reader can see: not a format character, a space, a mark alone,
+ * or a filler that draws nothing (the Hangul filler, the blank braille cell).
+ */
+const VISIBLE = /[^\p{Cf}\p{Z}\p{M}\s\p{Default_Ignorable_Code_Point}\u2800]/u;
+
+/** The name with its invisible characters gone, or "" if nothing visible is left. */
+export function cleanName(raw: string | null | undefined): string {
+  const name = (raw ?? "").replace(INVISIBLE, (_, flag?: string) => flag ?? "").trim();
+  return VISIBLE.test(name) ? name : "";
+}
+
+/**
+ * True when what was typed reads as the name: case, spacing, invisible
+ * characters and an accent typed either way aside. An empty name matches nothing.
+ */
+export function sameName(typed: string, name: string): boolean {
+  const norm = (s: string) => cleanName(s).normalize("NFKC").replace(/\s+/g, " ").toLowerCase();
+  const target = norm(name);
+  return target !== "" && norm(typed) === target;
+}
+
+/** The first `count` characters as a reader sees them, so an emoji stays whole. */
+function firstLetters(word: string, count: number): string {
+  if (typeof Intl !== "undefined" && "Segmenter" in Intl) {
+    const parts = [...new Intl.Segmenter().segment(word)].slice(0, count);
+    return parts.map((p) => p.segment).join("");
+  }
+  return Array.from(word).slice(0, count).join("");
+}
+
 /** The name to greet someone by. */
 export function resolveDisplayName(
   displayName: string | null | undefined,
   email: string | null | undefined,
 ): string {
-  const name = displayName?.trim();
+  const name = cleanName(displayName);
   if (name) return name;
   if (email) return nameFromEmail(email);
   return "there";
@@ -39,13 +77,13 @@ export function resolveInitials(
   displayName: string | null | undefined,
   email: string | null | undefined,
 ): string {
-  const name = displayName?.trim();
+  const name = cleanName(displayName);
   if (name) {
     const words = name.split(/\s+/).filter(Boolean);
     if (words.length >= 2) {
-      return (words[0][0] + words[words.length - 1][0]).toUpperCase();
+      return (firstLetters(words[0], 1) + firstLetters(words[words.length - 1], 1)).toUpperCase();
     }
-    return words[0].slice(0, 2).toUpperCase();
+    return firstLetters(words[0], 2).toUpperCase();
   }
   if (email) return email.slice(0, 2).toUpperCase();
   return "?";

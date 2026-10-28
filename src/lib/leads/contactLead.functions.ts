@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
-import { takeToken } from "@/lib/platform/rateLimit";
+import { requestAddresses, retryWait, takeTokens } from "@/lib/platform/rateLimit";
 import { saveLead } from "./saveLead.server";
 
 /**
@@ -30,6 +30,8 @@ const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 /** Enquiries one IP may submit per window. Generous for a person, tight for a script. */
 const PER_IP = { limit: 4, windowMs: 10 * 60_000 };
+/** Enquiries through one connecting address, which behind Cloudflare many visitors share. */
+const PER_HOP = { limit: 30, windowMs: 10 * 60_000 };
 
 export interface ContactInput {
   name: string;
@@ -66,26 +68,22 @@ function validate(input: ContactInput) {
   };
 }
 
-/**
- * Best available client identifier. Behind Vercel this is a real client IP;
- * behind nothing it may be empty, in which case every anonymous caller shares
- * one bucket — deliberately the strict direction to fail in.
- */
-function clientKey(): string {
-  const headers = getRequest()?.headers;
-  const forwarded = headers?.get("x-forwarded-for")?.split(",")[0]?.trim();
-  return forwarded || headers?.get("x-real-ip")?.trim() || "unknown";
-}
-
 export const submitContactLead = createServerFn({ method: "POST" })
   .inputValidator(validate)
   .handler(async ({ data }) => {
     // A filled honeypot gets the same answer a real submission does.
     if (data.trap) return { ok: true as const };
 
-    const gate = takeToken(`contact:${clientKey()}`, PER_IP.limit, PER_IP.windowMs);
+    const { visitor, hop } = requestAddresses(getRequest()?.headers);
+    const gate = takeTokens([
+      { key: `contact:${visitor}`, ...PER_IP },
+      { key: `contact-hop:${hop}`, ...PER_HOP },
+    ]);
     if (!gate.ok) {
-      throw new Error("We've got your message — give us a moment to reply before sending more.");
+      // Nothing was saved, so it must not read as though it arrived.
+      throw new Error(
+        `That didn't send: too many messages came in at once. Please try again in ${retryWait(gate.retryAfter)}, or email us directly.`,
+      );
     }
 
     const lead = { name: data.name, email: data.email, phone: data.phone, message: data.message };

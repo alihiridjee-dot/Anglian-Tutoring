@@ -19,7 +19,7 @@ export const Route = createFileRoute("/privacy")({
   component: PrivacyPage,
 });
 
-const UPDATED = "7 October 2026";
+const UPDATED = "28 October 2026";
 const CONTACT = "angliaeducate@gmail.com";
 
 /**
@@ -36,6 +36,11 @@ const PROCESSORS = [
     name: "Vercel",
     what: "Hosts the website and counts page visits, without cookies.",
     where: "USA",
+  },
+  {
+    name: "Cloudflare",
+    what: "Carries every page and form between your device and the website and protects it from attacks, so it sees your device's internet address and what you send.",
+    where: "USA, with servers worldwide",
   },
   {
     name: "Stripe",
@@ -64,7 +69,7 @@ const PROCESSORS = [
   },
   {
     name: "YouTube and Vimeo",
-    what: "Play lesson videos. They may set their own cookies when you press play.",
+    what: "Play lesson videos. A YouTube video's preview picture comes from YouTube, so it sees your device's internet address before you press play. They may set their own cookies when you press play.",
     where: "USA",
   },
   {
@@ -81,6 +86,11 @@ const PROCESSORS = [
     name: "Google Fonts",
     what: "Provides the website's fonts, so it sees your device's internet address.",
     where: "USA",
+  },
+  {
+    name: "Unsplash",
+    what: "Provides a background photo on our home page, so it sees your device's internet address.",
+    where: "Canada / USA",
   },
 ];
 
@@ -178,7 +188,7 @@ function PrivacyPage() {
             feedback and notes tutors write about your progress.
           </p>
           <h3>Messages</h3>
-          <p>Messages between parents and tutors sent through the site.</p>
+          <p>Messages students and parents exchange with tutors through the site.</p>
           <h3>Payments</h3>
           <p>
             Which plan you&apos;re on and whether it&apos;s active. Card details go straight to
@@ -234,8 +244,9 @@ function PrivacyPage() {
               <strong>Tasks:</strong> it receives the questions, the mark scheme and the
               student&apos;s answers, but not their name or email, and suggests marks and feedback.
               A tutor can check and change them. If no tutor has reviewed them within 30 minutes,
-              the suggested marks are released to the student automatically. Students and parents
-              can always ask a tutor to look again.
+              the suggested marks are released to the student automatically. Work the AI isn&apos;t
+              sure about waits for a tutor instead. Students and parents can always ask a tutor to
+              look again.
             </li>
             <li>
               <strong>Weekly feedback:</strong> it receives the student&apos;s recent scores and the
@@ -343,8 +354,8 @@ function PrivacyPage() {
               keep financial records for six years, as UK tax law requires.
             </li>
             <li>
-              <strong>Enquiries:</strong> we keep these so we can follow up. Ask and we&apos;ll
-              delete yours.
+              <strong>Enquiries:</strong> we keep these for 12 months so we can follow up, then
+              they&apos;re deleted automatically. Ask and we&apos;ll delete yours sooner.
             </li>
           </ul>
         </Section>
