@@ -19,6 +19,7 @@ import { createAuthChangeHandler } from "@/lib/auth/authChange";
 import { createDemoCrossingHandler } from "@/lib/auth/demoCrossing";
 import { installReturnSpots } from "@/lib/shell/returnSpot";
 import { SITE_URL } from "@/lib/platform/seo";
+import { isStaleBuildError, reloadForNewBuild } from "@/lib/platform/staleBuild";
 
 function NotFoundComponent() {
   return (
@@ -41,6 +42,7 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
   const router = useRouter();
   useEffect(() => {
     console.error("Root Error Component caught:", error);
+    if (isStaleBuildError(error)) reloadForNewBuild();
   }, [error]);
 
   return (
@@ -164,6 +166,16 @@ function RootComponent() {
 
   // Back, by any button, lands on the card that was clicked to leave.
   useEffect(() => installReturnSpots(router), [router]);
+
+  // A deploy since this page opened: Vite's preloader says so before the
+  // route fails, so the new build is fetched without an error on screen.
+  useEffect(() => {
+    const onPreloadError = (event: Event) => {
+      if (reloadForNewBuild()) event.preventDefault();
+    };
+    window.addEventListener("vite:preloadError", onPreloadError);
+    return () => window.removeEventListener("vite:preloadError", onPreloadError);
+  }, []);
 
   useEffect(() => {
     const onAuthChange = createAuthChangeHandler({ router, queryClient });
