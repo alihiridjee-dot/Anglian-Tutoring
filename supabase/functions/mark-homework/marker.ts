@@ -195,6 +195,167 @@ export function fold(text: string): string {
     .replace(/[^\p{L}\p{N}]/gu, "");
 }
 
+/**
+ * The numbers and signs in a text, in order: "-4", "0.05", "<", "+". `fold`
+ * drops signs and decimal points, so on its own it found "5 A" in "0.05 A",
+ * "x < 5" in "x > 5" and "Mg2-" in "Mg2+". A super- or subscript reads as a
+ * power, so "10⁻³" is "10^-3", never 103. Every dash is a minus, spacing around
+ * one is not, a hyphen joining a word to a word or a number is spelling
+ * ("partially-permeable", "carbon-14"), and a thousands comma is part of its
+ * number.
+ */
+function signs(text: string): string[] {
+  const flat = text
+    .replace(/[\u00b2\u00b3\u00b9\u2070-\u209f]+/g, "^$&")
+    .normalize("NFKC")
+    .replace(/[\u2010-\u2015\u2212\ufe63\uff0d]/g, "-")
+    .replace(/(?<=\p{L})-(?=\d)/gu, " ")
+    .replace(/(\d)\s+-/g, "$1-")
+    .replace(/-\s+(?=\d)/g, "-")
+    .replace(/(?<=\d),(?=\d{3}(?!\d))/g, "");
+  return (
+    flat.match(
+      /(?:(?<![\p{L}\p{N}])-)?\d+(?:\.\d+)?|[<>=\u2264\u2265\u2260+]|(?<!\p{L})-|-(?!\p{L})/gu,
+    ) ?? []
+  );
+}
+
+/** `fold`, a code point at a time, with the span of the text each character came from. */
+function foldAt(text: string): { folded: string; from: number[]; to: number[] } {
+  let folded = "";
+  const from: number[] = [];
+  const to: number[] = [];
+  let i = 0;
+  for (const cp of text) {
+    const kept = fold(cp);
+    for (let k = 0; k < kept.length; k++) {
+      from.push(i);
+      to.push(i + cp.length);
+    }
+    folded += kept;
+    i += cp.length;
+  }
+  return { folded, from, to };
+}
+
+const DIGIT = /[0-9\u00b2\u00b3\u00b9\u2070-\u2079\u2080-\u2089]/;
+const SIGN = /[+\-\u2010-\u2015\u2212\ufe63\uff0d\u207a\u207b\u208a\u208b]/;
+
+/**
+ * The span of the answer a quote matched, widened to the whole of any number
+ * it cuts into: the "0.0" before "5 A" in "0.05 A", the sign before "4 J" in
+ * "-4 J", the power before "3" in "10^3", the charge after "Mg2" in "Mg2+".
+ */
+function widen(text: string, from: number, to: number): string {
+  if (DIGIT.test(text[from])) {
+    for (;;) {
+      const c = text[from - 1] ?? "";
+      if (DIGIT.test(c) || c === "^") from--;
+      else if ((c === "." || c === ",") && DIGIT.test(text[from - 2] ?? "")) from--;
+      else if (SIGN.test(c) && !/[\p{L}\p{N}]/u.test(text[from - 2] ?? "")) {
+        from--;
+        break;
+      } else break;
+    }
+  }
+  for (;;) {
+    const c = text[to] ?? "";
+    if (DIGIT.test(c) || SIGN.test(c)) to++;
+    else if ((c === "." || c === ",") && DIGIT.test(text[to + 1] ?? "")) to++;
+    else break;
+  }
+  return text.slice(from, to);
+}
+
+/**
+ * A credited quote is evidence when it is in the answer: its words folded as
+ * `fold` does, and its numbers and signs exactly those of the answer where it
+ * was found. A single character is in nearly any answer, so it counts only
+ * when it is the whole answer.
+ */
+function quoted(answer: string, quote: string): boolean {
+  const haystack = fold(answer);
+  const needle = fold(quote);
+  if (!needle || !haystack.includes(needle)) return false;
+  if (needle.length < 2 && needle !== haystack) return false;
+  const want = signs(quote).join(" ");
+  if (!want) return true;
+  // Each place the quote's words are in the answer, with as many characters
+  // either side as the quote has around its words: the "> " of "> 50".
+  const a = foldAt(answer);
+  const q = foldAt(quote);
+  if (!q.folded) return false;
+  const before = q.from[0];
+  const after = quote.length - q.to[q.to.length - 1];
+  for (let at = a.folded.indexOf(q.folded); at !== -1; at = a.folded.indexOf(q.folded, at + 1)) {
+    const from = Math.max(0, a.from[at] - before);
+    const to = Math.min(answer.length, a.to[at + q.folded.length - 1] + after);
+    if (signs(widen(answer, from, to)).join(" ") === want) return true;
+  }
+  return false;
+}
+
+/** Look-alike letters from other alphabets, read as the Latin ones they mimic. */
+const LOOK_ALIKE: Record<string, string> = {
+  // Cyrillic
+  "\u0430": "a",
+  "\u0432": "b",
+  "\u0441": "c",
+  "\u0501": "d",
+  "\u0435": "e",
+  "\u043d": "h",
+  "\u0456": "i",
+  "\u0458": "j",
+  "\u043a": "k",
+  "\u043c": "m",
+  "\u043e": "o",
+  "\u0440": "p",
+  "\u0455": "s",
+  "\u0442": "t",
+  "\u0443": "y",
+  "\u0445": "x",
+  // Greek, and the Latin script g
+  "\u03b1": "a",
+  "\u03b5": "e",
+  "\u03b9": "i",
+  "\u03ba": "k",
+  "\u03bd": "v",
+  "\u03bf": "o",
+  "\u03c1": "p",
+  "\u03c4": "t",
+  "\u03c5": "u",
+  "\u03c7": "x",
+  "\u0261": "g",
+};
+
+/** Words that speak to whoever marks the answer rather than answer the question. */
+const TO_THE_MARKER = new RegExp(
+  [
+    String.raw`\bfull marks?\b`,
+    String.raw`\bmark ?-?schemes?\b`,
+    String.raw`\b(?:award|give|grant)(?:s|ed|ing)?\b[^.\n]{0,25}\b(?:\d+|all|full|max|maximum|top)\s*(?:\/\s*\d+\s*)?marks?\b`,
+    String.raw`\b(?:ignore|disregard)\b[^.\n]{0,30}\b(?:instructions?|prompt|rules)\b`,
+    String.raw`\b(?:previous|above|prior) instructions\b`,
+    String.raw`\bnote to (?:the )?(?:marker|examiner|teacher|tutor|grader)\b`,
+    String.raw`(?:^|[.!?]\s+)(?:marker|examiner|teacher|tutor|grader|assistant|system|claude)\s*:`,
+  ].join("|"),
+  "m",
+);
+
+/**
+ * The first words in an answer aimed at the marker, or null. The model is told
+ * such words earn nothing; this does not depend on it listening. They are read
+ * through invisible characters, accents and look-alike letters.
+ */
+export function aimedAtMarker(answer: string): string | null {
+  const plain = answer
+    .normalize("NFKD")
+    .replace(/[\p{Cf}\p{M}]/gu, "")
+    .toLowerCase()
+    .replace(/[^\p{ASCII}]/gu, (c) => LOOK_ALIKE[c] ?? c);
+  return plain.match(TO_THE_MARKER)?.[0].trim() ?? null;
+}
+
 /** Rounded to the half mark and kept between zero and the question's ceiling. */
 function clamp(value: unknown, ceiling: number): number {
   const n = Number(value);
@@ -243,7 +404,7 @@ export function stageMarks(
     // clamps again on the way out — this is a staging area, not a safe place.
     const asked = clamp(row.marks, question.marks);
 
-    const haystack = fold(answers.get(id) ?? "");
+    const answer = answers.get(id) ?? "";
     let verified = 0;
     const missing: string[] = [];
     const found: Credit[] = [];
@@ -252,8 +413,7 @@ export function stageMarks(
       const worth = Number(credit.marks);
       if (!Number.isFinite(worth) || worth <= 0) continue;
       const quote = typeof credit.quote === "string" ? credit.quote.trim() : "";
-      const needle = fold(quote);
-      if (needle && haystack.includes(needle)) {
+      if (quoted(answer, quote)) {
         verified += worth;
         const point = typeof credit.point === "string" ? credit.point.trim().slice(0, 300) : "";
         found.push({ quote: quote.slice(0, 1000), point, marks: clamp(worth, question.marks) });
@@ -272,6 +432,12 @@ export function stageMarks(
     }
     const unsure = typeof row.unsure === "string" ? row.unsure.trim() : "";
     if (unsure) reasons.push(`The marker was unsure: ${unsure}`);
+    const aimed = aimedAtMarker(answer);
+    if (aimed) {
+      reasons.push(
+        `The answer has words aimed at the marker ("${aimed.slice(0, 60)}"). Check the mark is for the science alone.`,
+      );
+    }
 
     marks.push({
       question_id: id,

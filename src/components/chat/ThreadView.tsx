@@ -154,7 +154,9 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
           </button>
         )}
         <div className="min-w-0 flex-1">
-          <h2 className="font-display text-base font-bold leading-tight">{thread.subject_line}</h2>
+          <h2 className="font-display text-base font-bold leading-tight break-words">
+            {thread.subject_line}
+          </h2>
           <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
             <span>with {thread.counterpartName}</span>
             {thread.context_label && (
@@ -226,7 +228,9 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
             return (
               <div key={m.id} className={`flex ${mine ? "justify-end" : "justify-start"}`}>
                 <div
-                  className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap ${
+                  // A pasted link has no spaces to wrap at: without
+                  // wrap-anywhere it ran out of the bubble and the card.
+                  className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap wrap-anywhere ${
                     mine
                       ? "bg-[color:var(--primary)] text-[color:var(--primary-foreground)] rounded-br-md font-medium"
                       : "surface-soft text-foreground rounded-bl-md"

@@ -69,6 +69,14 @@ const REVIEW_WINDOW_MINUTES = 30;
  */
 const MARKINGS_PER_HOUR = 30;
 
+/**
+ * How long after hand-in a student's own call may still start marking: the
+ * page's RESTART_WINDOW_MS (src/lib/homework/startMarking.ts), held here too,
+ * where the page can't be bypassed. Later, a paper the marker keeps failing on
+ * waits for a tutor, who may re-run it at any time.
+ */
+const STUDENT_RESTART_WINDOW_MS = 60 * 60 * 1000;
+
 const db = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, {
   auth: { persistSession: false },
 });
@@ -145,7 +153,7 @@ Deno.serve(async (req) => {
 
     const { data: submission, error: subError } = await db
       .from("homework_submissions")
-      .select("id, resource_id, student_id, graded_at, ai_marked_at")
+      .select("id, resource_id, student_id, graded_at, ai_marked_at, submitted_at")
       .eq("id", submissionId)
       .single();
     if (subError || !submission) throw new HttpError(404, "No such submission");
@@ -163,6 +171,12 @@ Deno.serve(async (req) => {
     }
     if (submission.ai_marked_at) {
       return json({ marked: false, reason: "already_marked" });
+    }
+    if (
+      submission.student_id === callerId &&
+      Date.now() - new Date(submission.submitted_at).getTime() >= STUDENT_RESTART_WINDOW_MS
+    ) {
+      return json({ marked: false, reason: "too_late" });
     }
 
     // One run per submission. Without the claim, a double tap or a retry passed

@@ -26,6 +26,12 @@ const MODEL = "claude-sonnet-5-5";
 /** Enough of the conversation for a useful answer, without sending everything. */
 const HISTORY_LIMIT = 12;
 
+/**
+ * Each message's share of the prompt. A real question is a few sentences; this
+ * stops one enormous message from becoming an enormous paid call.
+ */
+const MESSAGE_CHARS = 2000;
+
 type Turn = { from: "student" | "tutor"; body: string };
 
 async function draftReply(input: {
@@ -149,7 +155,7 @@ export const generateChatDraft = createServerFn({ method: "POST" })
       .reverse()
       .map((m) => ({
         from: m.sender_id === thread.student_id ? "student" : "tutor",
-        body: m.body,
+        body: m.body.length > MESSAGE_CHARS ? `${m.body.slice(0, MESSAGE_CHARS)}…` : m.body,
       }));
     if (history.length === 0) throw new Error("Nothing to reply to yet.");
 

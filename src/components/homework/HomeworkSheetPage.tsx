@@ -194,6 +194,7 @@ export function HomeworkSheetPage() {
               <AwaitingMark
                 releaseAt={submission.release_at}
                 held={!!submission.ai_marked_at && !submission.release_at}
+                submittedAt={submission.submitted_at}
               />
             </div>
           )}

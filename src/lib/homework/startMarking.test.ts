@@ -1,7 +1,9 @@
 import { describe, expect, test } from "bun:test";
 import {
+  MARKING_STALLED_MS,
   RESTART_WINDOW_MS,
   isAlreadySubmitted,
+  markingStalled,
   needsMarkingStart,
   startMarking,
 } from "@/lib/homework/startMarking";
@@ -70,5 +72,20 @@ describe("starting the marker", () => {
 
   test("a failed call never reaches the page", () => {
     expect(() => startMarking("sub-3", () => Promise.reject(new Error("down")))).not.toThrow();
+  });
+});
+
+describe("the notice on an unmarked paper", () => {
+  test("just handed in: marks are still on their way", () => {
+    expect(markingStalled(minutesAgo(1), NOW)).toBe(false);
+  });
+
+  test("half an hour on with no marks: it's the tutor's now, not 'shortly'", () => {
+    expect(markingStalled(new Date(NOW - MARKING_STALLED_MS).toISOString(), NOW)).toBe(true);
+    expect(markingStalled(minutesAgo(60 * 24), NOW)).toBe(true);
+  });
+
+  test("it says so before the page stops asking for marks itself", () => {
+    expect(MARKING_STALLED_MS).toBeLessThanOrEqual(RESTART_WINDOW_MS);
   });
 });

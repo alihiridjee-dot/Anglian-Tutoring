@@ -30,7 +30,7 @@ import {
   syncServerDraft,
   type TimestampedDraft,
 } from "@/lib/homework/homeworkDrafts";
-import { isAlreadySubmitted, startMarking } from "@/lib/homework/startMarking";
+import { isAlreadySubmitted, markingStalled, startMarking } from "@/lib/homework/startMarking";
 import { creditRuns, creditsToShow } from "@/lib/homework/creditedQuotes";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
@@ -820,12 +820,26 @@ function QuestionText({ text }: { text: string }) {
 export function AwaitingMark({
   releaseAt,
   held = false,
+  submittedAt = null,
 }: {
   releaseAt: string | null;
   /** The marker finished but held the paper for a tutor: no clock to show. */
   held?: boolean;
+  /**
+   * When it was handed in. Unmarked half an hour later, the marker isn't
+   * coming back to it, so the notice stops promising marks "shortly".
+   */
+  submittedAt?: string | null;
 }) {
   const [minutes, setMinutes] = useState<number | null>(null);
+  const [stalled, setStalled] = useState(false);
+  useEffect(() => {
+    if (releaseAt || held || !submittedAt) return;
+    const check = () => setStalled(markingStalled(submittedAt));
+    check();
+    const timer = setInterval(check, 30_000);
+    return () => clearInterval(timer);
+  }, [releaseAt, held, submittedAt]);
   useEffect(() => {
     if (!releaseAt) return;
     const tick = () =>
@@ -837,6 +851,8 @@ export function AwaitingMark({
     const timer = setInterval(tick, 30_000);
     return () => clearInterval(timer);
   }, [releaseAt]);
+  // Only while there is still nothing else to say: no clock, not held.
+  const late = stalled && !releaseAt && !held;
 
   return (
     <div className="tint-primary premium-card flex items-start gap-3 p-4">
@@ -845,14 +861,20 @@ export function AwaitingMark({
       </span>
       <div>
         <p className="font-display font-bold">
-          {held ? "Handed in — your tutor is checking it" : "Handed in — being marked"}
+          {held
+            ? "Handed in — your tutor is checking it"
+            : late
+              ? "Handed in — your tutor will mark it"
+              : "Handed in — being marked"}
         </p>
         <p className="text-muted-foreground mt-0.5 text-sm leading-relaxed">
           {held
             ? "Your marks and feedback will appear here once your tutor has looked."
-            : minutes != null && minutes > 0
-              ? `Your marks and feedback should appear here in about ${minutes} minute${minutes === 1 ? "" : "s"}.`
-              : "Your marks and feedback will appear here shortly."}
+            : late
+              ? "Your marks and feedback will appear here once your tutor has marked it."
+              : minutes != null && minutes > 0
+                ? `Your marks and feedback should appear here in about ${minutes} minute${minutes === 1 ? "" : "s"}.`
+                : "Your marks and feedback will appear here shortly."}
         </p>
       </div>
     </div>
