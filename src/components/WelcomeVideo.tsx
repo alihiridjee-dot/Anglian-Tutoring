@@ -28,6 +28,13 @@ const SEEK_SLACK_S = 0.5;
 const LOAD_GRACE_MS = 5000;
 
 /**
+ * How long Play may sit buffering, with nothing moving, before Next unlocks
+ * anyway. A connection that stalls the file without refusing it (a school
+ * filter, a train) fires no error, and would otherwise hold Next shut for good.
+ */
+const STALL_GRACE_MS = 20_000;
+
+/**
  * As wide as the screen, or as wide as the height left after the heading and
  * the controls allows. The heading, video and controls all share it.
  */
@@ -53,8 +60,9 @@ function clock(seconds: number) {
  * furthest point watched is put back there. Next unlocks when the video ends.
  * Leaving the tab pauses it, so playing it in the background doesn't count.
  *
- * Replayed from the 🧭, it can be skipped. And if the file won't load, Next
- * unlocks anyway: a missing video must never shut a student out of the site.
+ * Replayed from the 🧭, it can be skipped. And if the file won't load, or sits
+ * buffering for 20 seconds after Play, Next unlocks anyway: a missing video
+ * must never shut a student out of the site.
  *
  * It fills the window, and shows it's loading until the first frames are in.
  * Browsers won't start sound or go full screen without a tap, so the first
@@ -115,6 +123,16 @@ export function WelcomeVideo({
     document.addEventListener("visibilitychange", leave);
     return () => document.removeEventListener("visibilitychange", leave);
   }, []);
+
+  // Played but stuck buffering: after a while, excused as a failed load is.
+  // Only while it's meant to be playing, so a paused video, or a hidden tab
+  // (which pauses it), runs no clock; any progress restarts it.
+  const stuck = playing && waiting;
+  useEffect(() => {
+    if (!stuck || unlocked) return;
+    const timer = window.setTimeout(() => setExcused(true), STALL_GRACE_MS);
+    return () => window.clearTimeout(timer);
+  }, [stuck, unlocked]);
 
   // Once Next is enabled, it's where the keyboard goes.
   useEffect(() => {

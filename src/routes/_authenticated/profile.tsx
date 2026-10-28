@@ -18,6 +18,7 @@ import { ChoiceTile } from "@/components/onboarding/StepCard";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useRoles } from "@/hooks/useRole";
 import { useViewerId } from "@/hooks/useViewer";
+import { getSessionUserId } from "@/lib/auth/session";
 import { examYearOptions } from "@/lib/auth/onboarding";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { type BoardV, type SubjectV } from "@/lib/curriculum/taxonomy";
@@ -88,12 +89,17 @@ function useProfileDetails() {
   return useQuery({
     queryKey: ["profile-details"],
     queryFn: async () => {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) return null;
+      // The session held here, not a call to the auth API: when that call
+      // failed it came back as nobody, the form showed empty, and Save then
+      // wrote the empty name over the real one. The guard has already checked
+      // the session, and RLS checks the read. Thrown, so a failure is an error
+      // with Try again rather than a cached "no details".
+      const uid = await getSessionUserId();
+      if (!uid) throw new Error("Your session has expired. Sign in again.");
       const { data, error } = await supabase
         .from("profiles")
         .select("display_name, phone, avatar_path")
-        .eq("id", u.user.id)
+        .eq("id", uid)
         .maybeSingle();
       if (error) throw new Error(error.message);
       return data;
@@ -109,6 +115,9 @@ function useProfileDetails() {
  */
 function PhotoCard({ currentEmail }: { currentEmail: string | null }) {
   const qc = useQueryClient();
+  // Who this is, as the guard resolved it: asking the auth API again on each
+  // tap said "session expired" whenever that call dropped.
+  const userId = useViewerId();
   const { data, isLoading } = useProfileDetails();
   const [busy, setBusy] = useState<"upload" | "remove" | null>(null);
   const picker = useRef<HTMLInputElement>(null);
@@ -147,10 +156,9 @@ function PhotoCard({ currentEmail }: { currentEmail: string | null }) {
         return;
       }
 
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) throw new Error("Your session has expired. Sign in again.");
+      if (!userId) throw new Error("Your session has expired. Sign in again.");
 
-      const path = avatarObjectPath(u.user.id);
+      const path = avatarObjectPath(userId);
       const { error: uploadError } = await supabase.storage
         .from(AVATAR_BUCKET)
         .upload(path, prepared.file, { upsert: true, contentType: "image/jpeg" });
@@ -162,7 +170,7 @@ function PhotoCard({ currentEmail }: { currentEmail: string | null }) {
       const { error: saveError } = await supabase
         .from("profiles")
         .update({ avatar_path: path })
-        .eq("id", u.user.id);
+        .eq("id", userId);
       if (saveError) throw new Error(saveError.message);
 
       refresh();
@@ -177,8 +185,7 @@ function PhotoCard({ currentEmail }: { currentEmail: string | null }) {
   const remove = async () => {
     setBusy("remove");
     try {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) throw new Error("Your session has expired. Sign in again.");
+      if (!userId) throw new Error("Your session has expired. Sign in again.");
 
       // Clear the row first. If the object delete then fails we are merely
       // holding an unreferenced file, whereas the other order would leave the
@@ -186,9 +193,9 @@ function PhotoCard({ currentEmail }: { currentEmail: string | null }) {
       const { error: saveError } = await supabase
         .from("profiles")
         .update({ avatar_path: null })
-        .eq("id", u.user.id);
+        .eq("id", userId);
       if (saveError) throw new Error(saveError.message);
-      await supabase.storage.from(AVATAR_BUCKET).remove([avatarObjectPath(u.user.id)]);
+      await supabase.storage.from(AVATAR_BUCKET).remove([avatarObjectPath(userId)]);
 
       refresh();
       toast.success("Photo removed");
@@ -283,8 +290,9 @@ function DetailsCard() {
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const userId = useViewerId();
 
-  const { data, isLoading } = useProfileDetails();
+  const { data, isLoading, error: readError, refetch } = useProfileDetails();
 
   // Seed the inputs from the row exactly once.
   //
@@ -310,8 +318,7 @@ function DetailsCard() {
 
     setSaving(true);
     try {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) throw new Error("Your session has expired. Sign in again.");
+      if (!userId) throw new Error("Your session has expired. Sign in again.");
 
       const { error: updateError } = await supabase
         .from("profiles")
@@ -320,7 +327,7 @@ function DetailsCard() {
           // Empty clears the number rather than storing "".
           phone: phone.trim() || null,
         })
-        .eq("id", u.user.id);
+        .eq("id", userId);
       if (updateError) throw new Error(updateError.message);
 
       // The header initials and the invite notifications both read these.
@@ -336,6 +343,11 @@ function DetailsCard() {
 
   return (
     <Card title="Account details" description="Your name and contact number." icon={UserCog}>
+      {readError && data === undefined && (
+        <div className="mb-4 max-w-sm">
+          <ErrorNote error={readError} onRetry={() => void refetch()} />
+        </div>
+      )}
       <form onSubmit={submit} className="space-y-4 max-w-sm">
         <Field label="Display name">
           <input
@@ -364,7 +376,9 @@ function DetailsCard() {
           />
           <ErrorText>{phoneError}</ErrorText>
         </Field>
-        <button type="submit" disabled={saving || isLoading} className={submitBtn}>
+        {/* Held until the row is read: unread, the form is empty, and saving
+            it would wipe the name and number. */}
+        <button type="submit" disabled={saving || data === undefined} className={submitBtn}>
           {saving ? "Saving…" : "Save details"}
         </button>
       </form>
@@ -703,24 +717,35 @@ function PasswordCard({ currentEmail }: { currentEmail: string | null }) {
 }
 
 function ProfilePage() {
+  const viewerId = useViewerId();
+  const { email: sessionEmail } = useRoles();
   const { data: user } = useQuery({
     queryKey: ["auth-user-email"],
     queryFn: async () => {
-      const { data } = await supabase.auth.getUser();
+      // Thrown, not answered with nobody: a failed refetch then keeps the
+      // address already shown instead of blanking it.
+      const { data, error } = await supabase.auth.getUser();
+      if (error) throw error;
       return data.user ?? null;
     },
   });
+  // The server's answer, which follows a confirmed email change; until it
+  // arrives (or if it can't), the address held in this browser.
+  const email = user?.email ?? sessionEmail ?? null;
 
   return (
     <AppLayout title="Profile">
-      {/* Keyed by account: if someone else signs in on this tab, the forms start
-          again empty rather than keep (and save) the last person's details. */}
-      <div key={user?.id ?? "nobody"} className="max-w-2xl space-y-6">
-        <PhotoCard currentEmail={user?.email ?? null} />
+      {/* Keyed by account, as the guard resolved it: if someone else signs in
+          on this tab, the forms start again empty rather than keep (and save)
+          the last person's details. Not by the auth API's answer, which came
+          back as nobody whenever a refetch failed, and remounted every card
+          empty over whatever the student was typing. */}
+      <div key={viewerId ?? "nobody"} className="max-w-2xl space-y-6">
+        <PhotoCard currentEmail={email} />
         <DetailsCard />
         <ExamYearCard />
-        <EmailCard currentEmail={user?.email ?? null} />
-        <PasswordCard currentEmail={user?.email ?? null} />
+        <EmailCard currentEmail={email} />
+        <PasswordCard currentEmail={email} />
       </div>
     </AppLayout>
   );

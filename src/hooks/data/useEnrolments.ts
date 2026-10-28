@@ -54,7 +54,7 @@ export interface EnrolmentsState {
 
 /** Reads the current user's profile row (name + photo + role + subjects). */
 export function useEnrolments(): EnrolmentsState {
-  const { data, isLoading, error, refetch } = useQuery({
+  const { data, isPending, error, refetch } = useQuery({
     queryKey: ["user-enrolments-and-profile"],
     queryFn: async () => {
       // The showcase has no session, so a real read would return nothing and
@@ -141,7 +141,10 @@ export function useEnrolments(): EnrolmentsState {
   });
 
   return {
-    loading: isLoading,
+    // Pending, not `isLoading`: a read held back (a retry waits while the tab is
+    // in the background) has `isLoading` false with nothing read yet, which
+    // pages took for "not enrolled in anything".
+    loading: isPending,
     role: data?.role ?? null,
     enrolledCourses: data?.enrolledCourses ?? [],
     enrolments: data?.enrolments ?? [],

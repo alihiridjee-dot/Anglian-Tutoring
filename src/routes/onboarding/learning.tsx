@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useOnboardingUser } from "@/hooks/useOnboardingUser";
-import { useEffect, useState } from "react";
+import { useStepPrefill } from "@/hooks/useStepPrefill";
+import { useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { dbError } from "@/lib/platform/errors";
@@ -10,6 +11,7 @@ import {
   type LearningResponses,
 } from "@/lib/auth/onboarding";
 import { StepCard } from "@/components/onboarding/StepCard";
+import { ErrorNote, Spinner } from "@/components/Shared";
 
 /**
  * Step 3 — how the student rates themselves, 1–5 per statement.
@@ -29,18 +31,22 @@ function LearningStep() {
   const [responses, setResponses] = useState<LearningResponses>(DEFAULT_LEARNING_RESPONSES);
   const [saving, setSaving] = useState(false);
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await supabase
+  const prefill = useStepPrefill(
+    async () => {
+      const { data, error } = await supabase
         .from("student_learning_profile")
         .select("responses")
         .eq("student_id", user.id)
         .maybeSingle();
+      if (error) throw error;
+      return data;
+    },
+    (data) => {
       if (data?.responses) {
         setResponses({ ...DEFAULT_LEARNING_RESPONSES, ...(data.responses as LearningResponses) });
       }
-    })();
-  }, [user]);
+    },
+  );
 
   const handleContinue = async () => {
     setSaving(true);
@@ -63,15 +69,32 @@ function LearningStep() {
     }
   };
 
+  const heading = {
+    title: "How do you find science right now?",
+    subtitle:
+      "Be honest — there's no wrong answer, and it only helps your tutor pitch lessons right.",
+    onBack: () => navigate({ to: "/onboarding/subjects" }),
+    onSkip: () => navigate({ to: "/onboarding/school" }),
+    onContinue: handleContinue,
+    saving,
+  };
+
+  // Until the saved answers are in, the sliders would sit in the middle, and
+  // Continue would save that over them.
+  if (!prefill.ready) {
+    return (
+      <StepCard {...heading} continueDisabled>
+        {prefill.error ? (
+          <ErrorNote error={prefill.error} onRetry={prefill.retry} />
+        ) : (
+          <Spinner className="py-10" />
+        )}
+      </StepCard>
+    );
+  }
+
   return (
-    <StepCard
-      title="How do you find science right now?"
-      subtitle="Be honest — there's no wrong answer, and it only helps your tutor pitch lessons right."
-      onBack={() => navigate({ to: "/onboarding/subjects" })}
-      onSkip={() => navigate({ to: "/onboarding/school" })}
-      onContinue={handleContinue}
-      saving={saving}
-    >
+    <StepCard {...heading}>
       <div className="space-y-5">
         {LEARNING_QUESTIONS.map((q) => (
           <div key={q.id}>

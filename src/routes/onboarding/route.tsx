@@ -1,7 +1,13 @@
-import { createFileRoute, Outlet, redirect, useRouterState } from "@tanstack/react-router";
+import {
+  createFileRoute,
+  Outlet,
+  redirect,
+  useRouterState,
+  type ErrorComponentProps,
+} from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { BrandMark } from "@/components/auth/AuthShell";
-import { RoutePending } from "@/components/RouteFallbacks";
+import { RouteErrorCard, RoutePending } from "@/components/RouteFallbacks";
 import { getAuthSession } from "@/lib/auth/session";
 import { whenHydrated } from "@/lib/auth/hydration";
 import { loadGuardState } from "@/lib/auth/guardState";
@@ -51,6 +57,7 @@ export const Route = createFileRoute("/onboarding")({
   },
   // No server render here either: show the loading state, not an empty body.
   pendingComponent: RoutePending,
+  errorComponent: OnboardingError,
   component: OnboardingLayout,
 });
 
@@ -136,6 +143,27 @@ function OnboardingLayout() {
             </button>
           </div>
         )}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * A setup step that crashed.
+ *
+ * With no boundary of its own, a crash here (where payment happens) climbed to
+ * the root error page, whose only button is Try again. This is the signed-in
+ * pages' error card, in setup's own frame, with the same way out: the
+ * dashboard, which sends a student who isn't set up yet back to the first step.
+ */
+function OnboardingError(props: ErrorComponentProps) {
+  return (
+    <div className="auth-aurora min-h-screen px-4 py-8 sm:py-12">
+      <div className="mx-auto w-full max-w-2xl">
+        <div className="mb-8">
+          <BrandMark />
+        </div>
+        <RouteErrorCard {...props} where="Onboarding" heading="h1" />
       </div>
     </div>
   );

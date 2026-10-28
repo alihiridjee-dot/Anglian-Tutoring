@@ -18,7 +18,9 @@ export function NotePage() {
   const params = useParams({ strict: false }) as { conceptId?: string };
   const conceptId = params.conceptId ?? "";
   const demo = isDemoStudent();
-  const { data: note, isLoading, error } = useNote(conceptId);
+  // Pending, not `isLoading`: offline the read waits for the network with
+  // `isLoading` false and nothing read, and the page said "isn't ready yet".
+  const { data: note, isPending, error } = useNote(conceptId);
   const { enrolments, level } = useEnrolments();
   const router = useRouter();
   // A note is about one subject: opening it moves the header slider there, and
@@ -59,7 +61,7 @@ export function NotePage() {
         >
           <ArrowLeft className="size-4" aria-hidden /> Back
         </button>
-        {isLoading || (!note && idSubject && !demo && ent.loading) ? (
+        {isPending || (!note && idSubject && !demo && ent.loading) ? (
           <Spinner label="Loading the note" />
         ) : error ? (
           <EmptyState

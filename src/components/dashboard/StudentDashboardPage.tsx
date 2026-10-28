@@ -12,6 +12,7 @@ import { WeeklyPlanPanel } from "@/components/planner/WeeklyPlanPanel";
 import { useViewerId } from "@/hooks/useViewer";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { EnrolmentSummary } from "@/components/CourseBadge";
+import { ErrorNote } from "@/components/Shared";
 
 /**
  * @param afterContent Rendered inside the layout, below the dashboard's own
@@ -28,7 +29,15 @@ export function StudentDashboard({
   weekPlan,
 }: { afterContent?: ReactNode; weekPlan?: ReactNode } = {}) {
   const { email } = useRoles();
-  const { enrolledCourses, enrolments, level, displayName: profileName } = useEnrolments();
+  const {
+    enrolledCourses,
+    enrolments,
+    level,
+    displayName: profileName,
+    loading: enrolmentsLoading,
+    error: enrolmentsError,
+    refetch: refetchEnrolments,
+  } = useEnrolments();
   // This is a student-only surface (see the guard above), so the student whose
   // plan is shown is always the viewer. Null in the showcase, which has nobody.
   const effectiveStudentId = useViewerId();
@@ -65,13 +74,20 @@ export function StudentDashboard({
             }}
           />
           <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-2.5">
+            <div className="flex min-w-0 items-center gap-2.5">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse shrink-0" />
-              <h2 className="font-display text-lg sm:text-xl font-bold tracking-tight text-white">
+              {/* A long name with no spaces (or one taken from an email) breaks
+                  rather than pushing the ribbon off a phone screen. */}
+              <h2 className="font-display min-w-0 text-lg sm:text-xl font-bold tracking-tight break-words text-white">
                 Welcome back, {displayName}
               </h2>
             </div>
-            {enrolments.length === 0 && <EnrolmentSummary enrolments={enrolments} level={level} />}
+            {/* Only once the subjects have been read: while they load, or when
+                the read failed, an empty list means "unknown", and this line
+                told paying students they weren't enrolled. */}
+            {!enrolmentsLoading && !enrolmentsError && enrolments.length === 0 && (
+              <EnrolmentSummary enrolments={enrolments} level={level} />
+            )}
           </div>
         </div>
       </div>
@@ -90,6 +106,12 @@ export function StudentDashboard({
       {/* Saved weekly assignments, assessed practice, and end-of-week feedback. */}
       {weekPlan ? (
         <div className="mt-6">{weekPlan}</div>
+      ) : enrolmentsError && !level ? (
+        // Without the level there is no week to draw. Said, with a way to try
+        // again, rather than the panel silently missing.
+        <div className="mt-6">
+          <ErrorNote error={enrolmentsError} onRetry={refetchEnrolments} />
+        </div>
       ) : (
         effectiveStudentId &&
         level && (
