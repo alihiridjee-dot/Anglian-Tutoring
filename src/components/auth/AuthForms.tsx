@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchEnabledSsoProviders } from "@/lib/auth/ssoIntent";
 import { OtpInput } from "@/components/OtpInput";
 import { PASSWORD_MIN } from "@/lib/auth/validation";
+import { DISPLAY_NAME_MAX } from "@/lib/platform/textLimits";
 import { OTP_LENGTH, type AuthFlow } from "./useAuthFlow";
 
 /** The code screen shown once a sign-up email has gone out. */
@@ -151,6 +152,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
               required
               type="text"
               autoComplete="name"
+              maxLength={DISPLAY_NAME_MAX}
               value={name}
               onChange={(e) => setName(e.target.value)}
               className={inputCls}
