@@ -37,7 +37,7 @@ export function LiveForm({ userId, taxonomy }: LiveFormProps) {
       </Field>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        <Field label="Starts at">
+        <Field label="Starts at (UK time)">
           <input
             required
             type="datetime-local"

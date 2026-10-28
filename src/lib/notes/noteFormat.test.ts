@@ -137,7 +137,9 @@ describe("a student reads the layer for their own course", () => {
   });
 
   test("a missing layer falls back within the level, never across it", () => {
-    expect(pickNoteLayer(["aqa", "edexcel_igcse"], "cambridge_igcse", "igcse")).toBe("edexcel_igcse");
+    expect(pickNoteLayer(["aqa", "edexcel_igcse"], "cambridge_igcse", "igcse")).toBe(
+      "edexcel_igcse",
+    );
     expect(pickNoteLayer(["aqa", "edexcel_igcse"], undefined, "gcse")).toBe("aqa");
     expect(pickNoteLayer(["aqa"], "cambridge_igcse", "igcse")).toBeUndefined();
     expect(pickNoteLayer(["aqa", "ocr_alevel"], "aqa_alevel", "alevel")).toBe("ocr_alevel");
@@ -145,14 +147,24 @@ describe("a student reads the layer for their own course", () => {
   });
 
   test("IGCSE layers validate", () => {
-    const n = noteWith({ kind: "flow", alt: "a", steps: ["a", "b"] }) as any;
-    n.boards = { cambridge_igcse: { spec_codes: ["CAIE 1.1.1"] }, edexcel_igcse: { spec_codes: ["IGCSE 1.1"] } };
+    const n = {
+      ...noteWith({ kind: "flow", alt: "a", steps: ["a", "b"] }),
+      boards: {
+        cambridge_igcse: { spec_codes: ["CAIE 1.1.1"] },
+        edexcel_igcse: { spec_codes: ["IGCSE 1.1"] },
+      },
+    };
     expect(validateNote(n)).toEqual([]);
   });
 
   test("A-level layers validate", () => {
-    const n = noteWith({ kind: "flow", alt: "a", steps: ["a", "b"] }) as any;
-    n.boards = { aqa_alevel: { spec_codes: ["AQA 3.1.1"] }, cambridge_alevel: { spec_codes: ["CAIE 1.1"] } };
+    const n = {
+      ...noteWith({ kind: "flow", alt: "a", steps: ["a", "b"] }),
+      boards: {
+        aqa_alevel: { spec_codes: ["AQA 3.1.1"] },
+        cambridge_alevel: { spec_codes: ["CAIE 1.1"] },
+      },
+    };
     expect(validateNote(n)).toEqual([]);
   });
 });

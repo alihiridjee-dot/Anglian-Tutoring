@@ -37,6 +37,7 @@ import {
 } from "@/lib/profile/avatar";
 import { resolveInitials } from "@/lib/profile/displayName";
 import { firstError, validateEmail, validatePassword, validatePhone } from "@/lib/auth/validation";
+import { DISPLAY_NAME_MAX, PHONE_MAX } from "@/lib/platform/textLimits";
 
 export const Route = createFileRoute("/_authenticated/profile")({
   head: () => ({ meta: [{ title: "Profile | Anglia Educate" }] }),
@@ -341,7 +342,7 @@ function DetailsCard() {
             value={displayName}
             onChange={(e) => setDisplayName(e.target.value)}
             autoComplete="name"
-            maxLength={80}
+            maxLength={DISPLAY_NAME_MAX}
             placeholder={isLoading ? "Loading…" : "e.g. Alex Taylor"}
             className={inputCls}
           />
@@ -356,6 +357,7 @@ function DetailsCard() {
               if (phoneError) setPhoneError(null);
             }}
             onBlur={() => setPhoneError(validatePhone(phone))}
+            maxLength={PHONE_MAX}
             placeholder="e.g. +44 7700 900123"
             aria-invalid={!!phoneError}
             className={inputCls}
@@ -550,7 +552,11 @@ function EmailCard({ currentEmail }: { currentEmail: string | null }) {
       // Supabase does not move the address until the link is clicked, so the
       // header will keep showing the old one until then — say so, or this reads
       // as a silent no-op.
-      toast.success(`Confirmation sent to ${next}. Your email changes once you click the link.`);
+      // With secure email change on, the current address gets a link too, and
+      // both have to be clicked.
+      toast.success(
+        `Confirmation sent to ${next}. If your current address gets one too, click both. Your email changes once that's done.`,
+      );
       setEmail("");
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Could not update your email");

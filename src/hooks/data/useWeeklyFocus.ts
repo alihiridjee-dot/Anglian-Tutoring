@@ -175,7 +175,12 @@ export function useWeeklyFocus(studentId: string | null, weekKey: string, subjec
     staleTime: 1000 * 60 * 5,
   });
 
-  return { plans: query.data ?? [], loading: query.isLoading, error: query.error };
+  return {
+    plans: query.data ?? [],
+    loading: query.isLoading,
+    error: query.error,
+    reload: query.refetch,
+  };
 }
 
 export interface RelatedVideo {

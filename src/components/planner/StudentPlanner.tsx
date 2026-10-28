@@ -34,6 +34,7 @@ import {
   weekKeyToDate,
   addWeeks,
   toDateKey,
+  plannerDateLabel,
   weekRangeLabel,
 } from "@/lib/planner/week";
 import { CoveredLedger } from "./CoveredLedger";
@@ -601,9 +602,10 @@ function FullPlanTab({
         .reduce((end, b) => (b.endWeek > end ? b.endWeek : end), "");
       toast.success(
         lastTeaching
-          ? `Exam date updated. Teaching now finishes the week of ${weekKeyToDate(
-              lastTeaching,
-            ).toLocaleDateString("en-GB", { day: "numeric", month: "long" })}.`
+          ? `Exam date updated. Teaching now finishes the week of ${plannerDateLabel(
+              weekKeyToDate(lastTeaching),
+              { day: "numeric", month: "long" },
+            )}.`
           : "Exam date updated.",
       );
       // An earlier date can leave topics with no week to go in. The plan said

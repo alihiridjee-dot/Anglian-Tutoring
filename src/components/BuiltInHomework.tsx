@@ -43,6 +43,7 @@ import { MarkScheme } from "@/components/homework/MarkScheme";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { StoredFigure } from "@/components/QuestionFigure";
 import { questionLayout, spacedLines } from "@/lib/platform/textBlocks";
+import { ANSWER_MAX, isBlank } from "@/lib/platform/textLimits";
 
 /**
  * The body of a homework sheet: the questions, and either the boxes to answer
@@ -206,7 +207,7 @@ function MarkedAnswer({
         aria-label={`Your answer to question ${index + 1}`}
         className="premium-input answer-lines w-full text-base break-words whitespace-pre-wrap"
       >
-        {!text.trim() ? (
+        {isBlank(text) ? (
           <span className="text-muted-foreground italic">Left blank</span>
         ) : (
           runs.map((r, k) => {
@@ -511,7 +512,7 @@ export function AnswerForm({
     };
   }, [userId, ready, catchUp]);
 
-  const hasUnsent = Object.values(work.answers).some((text) => text.trim().length > 0);
+  const hasUnsent = Object.values(work.answers).some((text) => !isBlank(text));
 
   // A reload or a closed tab is recoverable now, but a student who navigates
   // away mid-answer still deserves the browser's own warning.
@@ -522,7 +523,8 @@ export function AnswerForm({
     return () => window.removeEventListener("beforeunload", warn);
   }, [hasUnsent]);
 
-  const isAnswered = (q: HomeworkQuestion) => draftOf(q.id).text.trim().length > 0;
+  // Invisible characters alone are blank, as the server stores them.
+  const isAnswered = (q: HomeworkQuestion) => !isBlank(draftOf(q.id).text);
   const answered = questions.filter(isAnswered).length;
 
   // The answers this page last tried to hand in: see "Already submitted" below.
@@ -677,6 +679,7 @@ export function AnswerForm({
                 onValueChange={(text) => edit(q.id, text)}
                 context={q.prompt}
                 noPaste
+                maxLength={ANSWER_MAX}
                 placeholder={TYPE_HINT[q.answer_type]}
                 aria-label={`Answer to question ${i + 1}`}
                 style={linesStyle(q)}

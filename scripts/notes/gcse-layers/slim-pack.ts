@@ -8,7 +8,10 @@
  * Needs the full packs (build-sources.ts) first. Writes
  * scripts/notes/.sources/triage/gcse/<id>.md and a coverage table
  * _coverage-<subject>.tsv next to them (all gitignored).
+ *
+ * The packs are loosely shaped JSON, so `any` is allowed in this file.
  */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -16,7 +19,9 @@ import { fileURLToPath } from "node:url";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
 const [subject, ...only] = process.argv.slice(2);
 if (!subject) throw new Error("Usage: slim-pack.ts <subject> [ids]");
-const map = JSON.parse(readFileSync(join(ROOT, "scripts/notes/concepts", `gcse-${subject}.json`), "utf8"));
+const map = JSON.parse(
+  readFileSync(join(ROOT, "scripts/notes/concepts", `gcse-${subject}.json`), "utf8"),
+);
 const outDir = join(ROOT, "scripts/notes/.sources/triage/gcse");
 mkdirSync(outDir, { recursive: true });
 
@@ -69,13 +74,20 @@ function flatten(blocks: any[], out: string[]) {
         const bits: string[] = [`DIAGRAM (${d.kind}): ${d.alt}`];
         if (d.options)
           for (const o of d.options)
-            bits.push(`  ${o.label}: ${o.results.join(" / ")}${o.explanation ? " — " + o.explanation : ""}`);
+            bits.push(
+              `  ${o.label}: ${o.results.join(" / ")}${o.explanation ? " — " + o.explanation : ""}`,
+            );
         if (d.parts) for (const p of d.parts) bits.push(`  ${p.name}: ${p.detail}`);
         if (d.items && d.groups)
-          bits.push(`  groups ${d.groups.join(" | ")}: ${d.items.map((i: any) => i.text).join("; ")}`);
+          bits.push(
+            `  groups ${d.groups.join(" | ")}: ${d.items.map((i: any) => i.text).join("; ")}`,
+          );
         if (d.steps) bits.push(`  ${d.steps.join(" → ")}`);
         if (d.rows) for (const r of d.rows) bits.push(`  ${r.feature}: ${r.values.join(" | ")}`);
-        if (d.outputs) bits.push(`  outputs: ${d.outputs.map((o: any) => `${o.label} = ${o.formula}`).join("; ")}`);
+        if (d.outputs)
+          bits.push(
+            `  outputs: ${d.outputs.map((o: any) => `${o.label} = ${o.formula}`).join("; ")}`,
+          );
         if (d.question) bits.push(`  ${d.question} → ${d.answer?.formula}`);
         out.push(...bits);
         break;
@@ -149,20 +161,26 @@ for (const c of map.concepts) {
       ``,
     );
     md.push(`### Spec points for this board`, ``);
-    const pts = [...slot.spec_points].sort((x: any, y: any) => Number(y.primary) - Number(x.primary));
-    const hasTrilogy = (pack.boards.aqa?.spec_points ?? []).some((q: any) => q.course === "aqa_trilogy");
+    const pts = [...slot.spec_points].sort(
+      (x: any, y: any) => Number(y.primary) - Number(x.primary),
+    );
+    const hasTrilogy = (pack.boards.aqa?.spec_points ?? []).some(
+      (q: any) => q.course === "aqa_trilogy",
+    );
     for (const p of pts) {
       const desc = p.description ?? "";
       const title = p.title ?? "";
       const ht = htOf(title, desc);
       const flags: string[] = [p.primary ? "primary" : "also covered here (non-primary)"];
       if (ht) flags.push(ht);
-      if (b === "edexcel" && /\d[PBC]$/.test(p.code)) flags.push("SEPARATE SCIENCE ONLY (code ends in P/B/C)");
+      if (b === "edexcel" && /\d[PBC]$/.test(p.code))
+        flags.push("SEPARATE SCIENCE ONLY (code ends in P/B/C)");
       if (b === "aqa" && p.course === "aqa") {
         const myTwin = (pack.boards.aqa.spec_points as any[]).some(
           (q) => q.course === "aqa_trilogy" && (q.title ?? "") === title,
         );
-        if (hasTrilogy && !myTwin) flags.push("probably SEPARATE SCIENCE ONLY (no Trilogy twin in this concept)");
+        if (hasTrilogy && !myTwin)
+          flags.push("probably SEPARATE SCIENCE ONLY (no Trilogy twin in this concept)");
         if (/physics only|chemistry only|biology only/i.test(`${title} ${desc}`))
           flags.push("SEPARATE SCIENCE ONLY (says 'physics/chemistry/biology only')");
       }
@@ -170,9 +188,18 @@ for (const c of map.concepts) {
       const w = words(desc).map(stem);
       const hit = w.filter((x) => layerWords.has(x)).length;
       const cover = w.length ? hit / w.length : 1;
-      if (cover < 0.5) flags.push(`PRIORITY: only ${Math.round(cover * 100)}% of its words appear in the note`);
-      rows.push(`${c.id}\t${b}\t${p.code}\t${p.primary ? "P" : "-"}\t${Math.round(cover * 100)}%\t${ht ? "HT" : ""}`);
-      md.push(`#### ${p.code} — ${title}`, `Flags: ${flags.join("; ")}`, ``, desc.trim() || "(no description)", ``);
+      if (cover < 0.5)
+        flags.push(`PRIORITY: only ${Math.round(cover * 100)}% of its words appear in the note`);
+      rows.push(
+        `${c.id}\t${b}\t${p.code}\t${p.primary ? "P" : "-"}\t${Math.round(cover * 100)}%\t${ht ? "HT" : ""}`,
+      );
+      md.push(
+        `#### ${p.code} — ${title}`,
+        `Flags: ${flags.join("; ")}`,
+        ``,
+        desc.trim() || "(no description)",
+        ``,
+      );
     }
   }
   md.push(

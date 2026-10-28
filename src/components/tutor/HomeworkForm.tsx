@@ -12,6 +12,7 @@ import { type BuilderQuestion } from "@/lib/homework/builderQuestion";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { toSciNotation, toSciNotationTogether } from "@/lib/platform/sciNotation";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
+import { toUkDateTimeInput, ukDateTimeToDate } from "@/lib/planner/week";
 
 /**
  * Writing a homework, and — with `editing` — correcting one already set.
@@ -78,9 +79,9 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
       if (hw) {
         setTitle(hw.title ?? "");
         setInstructions(hw.instructions ?? "");
-        // datetime-local wants `YYYY-MM-DDTHH:mm` in local time, which is what
-        // slicing a locale-independent ISO string would get wrong by the offset.
-        setDueAt(hw.due_at ? toLocalInput(new Date(hw.due_at)) : "");
+        // The field is UK time, so the saved deadline is shown back in UK
+        // time whatever zone the tutor's device is in.
+        setDueAt(hw.due_at ? toUkDateTimeInput(new Date(hw.due_at)) : "");
         if (hw.subject) taxonomy.setSubject(hw.subject as SubjectV);
         if (hw.board) taxonomy.setBoard(hw.board as BoardV);
         if (hw.level) taxonomy.setLevel(hw.level as LevelV);
@@ -146,7 +147,7 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
         _id: editingId ?? null,
         _title: title,
         _instructions: toSciNotation(instructions),
-        _due_at: dueAt ? new Date(dueAt).toISOString() : null,
+        _due_at: dueAt ? ukDateTimeToDate(dueAt).toISOString() : null,
         _subject: taxonomy.subject,
         _board: taxonomy.board,
         _level: taxonomy.level,
@@ -212,7 +213,7 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
           aria-label="Instructions"
         />
       </Field>
-      <Field label="Due at">
+      <Field label="Due at (UK time)">
         <input
           type="datetime-local"
           className={inputCls}
@@ -260,12 +261,4 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
       </div>
     </form>
   );
-}
-
-/** `YYYY-MM-DDTHH:mm` in the viewer's own timezone, which is what the input wants. */
-function toLocalInput(date: Date): string {
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(
-    date.getHours(),
-  )}:${pad(date.getMinutes())}`;
 }

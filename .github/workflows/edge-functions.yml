@@ -19,11 +19,14 @@ on:
 jobs:
   typecheck:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+      # Pinned, so a new Deno release can't turn every functions PR red with
+      # no code change. Raise it on purpose, after a local `deno check` passes.
       - uses: denoland/setup-deno@v2
         with:
-          deno-version: v2.x
+          deno-version: v2.9.7
       # The functions never see the app's package.json (the edge runtime has
       # none), so npm: specifiers must resolve on their own, not via node_modules.
       - run: deno check supabase/functions/*/index.ts
@@ -34,7 +37,28 @@ jobs:
           deno run --no-config --cached-only
           --import-map=scripts/test-billing-functions/import_map.json
           --allow-env --allow-read
+          scripts/test-billing-functions/trial-code.ts
+        env:
+          DENO_NO_PACKAGE_JSON: "1"
+      - run: >-
+          deno run --no-config --cached-only
+          --import-map=scripts/test-billing-functions/import_map.deletions.json
+          --allow-env --allow-read
+          scripts/test-billing-functions/undo-after-purge.ts
+        env:
+          DENO_NO_PACKAGE_JSON: "1"
+      - run: >-
+          deno run --no-config --cached-only
+          --import-map=scripts/test-billing-functions/import_map.json
+          --allow-env --allow-read
           scripts/test-billing-functions/one-plan-per-student.ts
+        env:
+          DENO_NO_PACKAGE_JSON: "1"
+      - run: >-
+          deno run --no-config --cached-only
+          --import-map=scripts/test-billing-functions/import_map.json
+          --allow-env --allow-read
+          scripts/test-billing-functions/checkout-rules.ts
         env:
           DENO_NO_PACKAGE_JSON: "1"
       - run: >-

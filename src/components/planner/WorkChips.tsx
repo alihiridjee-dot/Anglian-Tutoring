@@ -1,6 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
-import { BookOpen, CheckCircle2, ClipboardList, ListChecks, PlayCircle, Sparkle } from "lucide-react";
+import {
+  BookOpen,
+  CheckCircle2,
+  ClipboardList,
+  ListChecks,
+  PlayCircle,
+  Sparkle,
+} from "lucide-react";
 import {
   type PointCoverage,
   type PointWork,
@@ -26,7 +33,8 @@ import type { SpecPointNote } from "@/hooks/data/useNotes";
  * change: under a column already headed "Homework" the word is redundant, and
  * the space is better spent on a verb.
  */
-const CHIP = "chip tap-target inline-flex whitespace-nowrap shrink-0 text-[11px] hover:brightness-95";
+const CHIP =
+  "chip tap-target inline-flex whitespace-nowrap shrink-0 text-[11px] hover:brightness-95";
 
 export function VideoChip({
   item,

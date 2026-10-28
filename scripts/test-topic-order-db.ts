@@ -1,11 +1,13 @@
-/** Run with PGLITE_PATH pointing to a temporary @electric-sql/pglite installation.
+/** Run with PGLITE_MODULE (or PGLITE_PATH) pointing to a temporary @electric-sql/pglite install.
  * Uses real planner SQL in an isolated Postgres instance; no remote student data. */
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { computePacing, withWeeklyPoints } from "../src/lib/planner/pacing";
 import { orderInputs, reorderTopics } from "../src/lib/planner/topicOrder";
 import { addWeeks, currentWeekKey, toDateKey, weekKeyToDate } from "../src/lib/planner/week";
-const { PGlite } = await import(process.env.PGLITE_PATH ?? "@electric-sql/pglite");
+const { PGlite } = await import(
+  process.env.PGLITE_MODULE ?? process.env.PGLITE_PATH ?? "@electric-sql/pglite"
+);
 const db = new PGlite();
 await db.exec(`
 create role authenticated; create role anon;
