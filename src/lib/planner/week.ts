@@ -89,6 +89,22 @@ export const plannerDateLabel = (
   d: Date,
   options: Intl.DateTimeFormatOptions = { day: "numeric", month: "short" },
 ): string => d.toLocaleDateString("en-GB", { ...options, timeZone: PLANNER_TIME_ZONE });
+/**
+ * "Tue 3 Nov", in `timeZone` (the viewer's own when left out). Put together
+ * from its parts because browsers disagree on the literal between weekday and
+ * day: some give "Tue 3 Nov", others "Tue, 3 Nov".
+ */
+export function shortDayLabel(d: Date, timeZone?: string): string {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    timeZone,
+  }).formatToParts(d);
+  const part = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find((p) => p.type === type)?.value ?? "";
+  return `${part("weekday")} ${part("day")} ${part("month")}`;
+}
 /** One week, or a run of weeks from `monday` to the Sunday after `lastMonday`. */
 export function weekRangeLabel(monday: Date, lastMonday: Date = monday): string {
   const sunday = sundayOf(lastMonday);
