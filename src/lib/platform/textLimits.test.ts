@@ -5,6 +5,8 @@ import {
   CHAT_MESSAGE_MAX,
   CHECKIN_NOTE_MAX,
   DISPLAY_NAME_MAX,
+  FEEDBACK_MAX,
+  INVISIBLE_CHARS,
   isBlank,
   PHONE_MAX,
   SCHOOL_MAX,
@@ -49,12 +51,20 @@ describe("each box stops where the database does", () => {
     expect(checkLimit("student_weekly_checkins_reflection_length")).toBe(CHECKIN_NOTE_MAX);
   });
 
+  test("the plan feedback note", () => {
+    expect(checkLimit("billing_feedback_reason_length")).toBe(FEEDBACK_MAX);
+  });
+
   test("the chat subject box (maxLength 140) fits under the database's 200", () => {
     expect(checkLimit("chat_threads_subject_line_length")).toBeGreaterThanOrEqual(140);
   });
 });
 
 describe("a blank answer", () => {
+  test("is found with the same characters as the hand-in", () => {
+    expect(migration).toContain(`'${INVISIBLE_CHARS}'`);
+  });
+
   test("nothing, spaces and line breaks", () => {
     expect(isBlank("")).toBe(true);
     expect(isBlank(null)).toBe(true);
@@ -67,6 +77,15 @@ describe("a blank answer", () => {
     expect(isBlank("\u200b\u200b")).toBe(true);
     expect(isBlank("\ufeff\u2060\u200f\u202e")).toBe(true);
     expect(isBlank("\u00a0\u3000")).toBe(true);
+    // An Arabic letter mark is a direction mark like U+200F.
+    expect(isBlank("\u061c")).toBe(true);
+    // The database's own idea of a space includes these; the list says so.
+    expect(isBlank("\u0085\u001c\u001f")).toBe(true);
+  });
+
+  test("other format characters count as an answer, as on the server", () => {
+    expect(isBlank("\u{e0041}")).toBe(false);
+    expect(isBlank("\u0600")).toBe(false);
   });
 
   test("anything a reader can see is an answer", () => {

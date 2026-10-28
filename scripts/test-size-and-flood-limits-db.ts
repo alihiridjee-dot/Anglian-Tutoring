@@ -43,7 +43,11 @@ create table public.profiles(id uuid primary key, display_name text, role public
   phone text, school text, student_invite_code text);
 create table public.parent_student_links(id uuid primary key default gen_random_uuid(), parent_id uuid, student_id uuid, unique (parent_id, student_id));
 create table public.notifications(id uuid primary key default gen_random_uuid(), user_id uuid, type text, title text, body text,
-  link text, chat_thread_id uuid, created_at timestamptz default now());
+  link text, chat_thread_id uuid, submission_id uuid, read_at timestamptz, created_at timestamptz default now());
+alter table public.notifications enable row level security;
+create policy "notifications read own" on public.notifications for select to authenticated using (user_id = (select auth.uid()));
+create policy "notifications update own" on public.notifications for update to authenticated
+  using (user_id = (select auth.uid())) with check (user_id = (select auth.uid()));
 create table public.ai_request_log(id bigserial primary key, user_id uuid not null, endpoint text not null, created_at timestamptz not null default now());
 
 -- Who pays for what, standing in for the billing tables behind these helpers.
@@ -60,8 +64,13 @@ begin
 end $$;
 create function private.student_paid_subjects(_uid uuid) returns text[] language sql stable security definer set search_path = '' as $$
   select coalesce(array_agg(subject), '{}') from private.paid where student_id = _uid $$;
+-- As live: the caller's own paid subjects and every linked child's.
 create function private.my_content_subjects() returns text[] language sql stable security definer set search_path = '' as $$
-  select private.student_paid_subjects(auth.uid()) $$;
+  select coalesce((select array_agg(distinct s) from (
+    select unnest(private.student_paid_subjects(auth.uid())) as s
+    union
+    select unnest(private.student_paid_subjects(l.student_id)) from public.parent_student_links l where l.parent_id = auth.uid()
+  ) q), '{}') $$;
 create function private.viewer_has_content_access(_uid uuid) returns boolean language sql stable security definer set search_path = '' as $$
   select exists (select 1 from private.paid where student_id = _uid) $$;
 revoke all on all functions in schema private from public;
@@ -168,10 +177,28 @@ create trigger chat_message_fanout after insert on public.chat_messages for each
 
 -- Weekly check-ins.
 create table public.student_weekly_checkins(id uuid primary key default gen_random_uuid(), plan_id uuid unique,
-  student_id uuid, reflection text, covered_ok boolean);
+  student_id uuid, reflection text, covered_ok boolean, coverage jsonb not null default '{}'::jsonb);
 alter table public.student_weekly_checkins enable row level security;
 create policy "wc own" on public.student_weekly_checkins for all to authenticated
   using ((select auth.uid()) = student_id) with check ((select auth.uid()) = student_id);
+
+-- Plan feedback, with the live insert rule: a plan's payer, a linked parent,
+-- a student with no parent or other payer (any free account), or staff.
+create table public.subscriptions(student_id uuid, user_id uuid);
+create table public.billing_feedback(id uuid primary key default gen_random_uuid(), user_id uuid not null default auth.uid(),
+  student_id uuid not null, action text not null check (action in ('pause','cancel','remove_subject')),
+  reason_category text, reason text, created_at timestamptz not null default now());
+alter table public.billing_feedback enable row level security;
+create policy "billing feedback insert manager" on public.billing_feedback for insert to authenticated with check (
+  (auth.uid() = user_id) and (
+    exists (select 1 from public.subscriptions s where s.student_id = billing_feedback.student_id and s.user_id = auth.uid())
+    or exists (select 1 from public.parent_student_links l where l.parent_id = auth.uid() and l.student_id = billing_feedback.student_id)
+    or (auth.uid() = student_id
+        and not exists (select 1 from public.parent_student_links l where l.student_id = billing_feedback.student_id)
+        and not exists (select 1 from public.subscriptions s where s.student_id = billing_feedback.student_id
+                          and s.user_id is not null and s.user_id <> auth.uid()))
+    or private.has_role(auth.uid(), 'tutor'::public.app_role)));
+create policy "billing feedback read own" on public.billing_feedback for select to authenticated using (auth.uid() = user_id);
 
 alter table public.profiles enable row level security;
 create policy "profiles self read" on public.profiles for select to authenticated using ((select auth.uid()) = id);
@@ -280,8 +307,8 @@ const [{ submit_homework_answers: submissionId }] = await as<{ submit_homework_a
     sheet,
     JSON.stringify([
       { question_id: q1, answer_text: `  ${x(5000)}  ` },
-      // Only zero-width spaces, a BOM and a direction mark: nothing to read (T-11).
-      { question_id: q2, answer_text: "\u200b\u200b\ufeff\u200f \n\u00a0\u3000" },
+      // Only zero-width spaces, a BOM and direction marks: nothing to read (T-11).
+      { question_id: q2, answer_text: "\u200b\u200b\ufeff\u200f\u061c \n\u00a0\u3000\u0085" },
     ]),
   ],
 );
@@ -393,7 +420,20 @@ await refused(
   /row-level security/,
   "A free account wrote a draft row",
 );
+// The parent can open their child's sheet, but a draft is the student's own.
+assert.equal(
+  await as<{ n: number }>(parent, "select count(*)::int n from public.resources where id = $1", [
+    sheet,
+  ]).then((r) => r[0].n),
+  1,
+  "The parent should see their child's task (live my_content_subjects)",
+);
 await refused(writeDraft(parent, sheet, {}), /row-level security/, "A parent wrote a draft row");
+await refused(
+  sync(parent, sheet, { [q1]: "hi" }),
+  /row-level security/,
+  "A parent saved a draft through the call",
+);
 // A draft left from before (the subject since stopped) can't be grown either.
 await db.query("insert into public.homework_drafts(student_id, resource_id) values ($1, $2)", [
   student,
@@ -431,6 +471,47 @@ await refused(
   /homework_drafts_stamps_size/,
   "A draft held 10 kB of edit times",
 );
+// Every part of a draft has a size: its question ids...
+await refused(
+  as(student, "update public.homework_drafts set answers = $1 where resource_id = $2", [
+    JSON.stringify({ [x(65)]: "a" }),
+    sheet,
+  ]),
+  /homework_drafts_answers_fit/,
+  "A draft held a 65-character question id",
+);
+await refused(
+  as(
+    student,
+    `insert into public.homework_drafts(student_id, resource_id, answers) values (auth.uid(), $1, $2)
+     on conflict (student_id, resource_id) do update set answers = excluded.answers`,
+    [
+      sheet,
+      JSON.stringify(
+        Object.fromEntries(Array.from({ length: 50 }, (_, i) => [`${i}${x(200000)}`, "a"])),
+      ),
+    ],
+  ),
+  /homework_drafts_answers_fit/,
+  "A direct upsert stored megabytes under long question ids",
+);
+// ...the whole draft (50 full answers of three-byte characters is 750 kB)...
+const qid = (i: number) => uuid(1000 + i);
+await refused(
+  as(student, "update public.homework_drafts set answers = $1 where resource_id = $2", [
+    JSON.stringify(
+      Object.fromEntries(Array.from({ length: 50 }, (_, i) => [qid(i), "€".repeat(5000)])),
+    ),
+    sheet,
+  ]),
+  /homework_drafts_answers_fit/,
+  "A draft of 750 kB was kept",
+);
+// ...though 50 full-length answers of plain text fit.
+await as(student, "update public.homework_drafts set answers = $1 where resource_id = $2", [
+  JSON.stringify(Object.fromEntries(Array.from({ length: 50 }, (_, i) => [qid(i), x(5000)]))),
+  sheet,
+]);
 const fifty = Object.fromEntries(Array.from({ length: 50 }, (_, i) => [`k${i}`, x(10)]));
 await as(
   student,
@@ -549,6 +630,26 @@ await refused(
   /You've sent a lot of messages in the last hour\. Wait a little, then send this one again\./,
   "A 31st message in an hour went through",
 );
+// "New question" opens with a message, so while messages are refused the
+// conversation is refused first and uses up none of the day's 10.
+const threadClaims = () =>
+  count(
+    "select count(*)::int n from public.ai_request_log where user_id = $1 and endpoint = 'chat_thread'",
+    [student],
+  );
+const claimsBefore = await threadClaims();
+for (let i = 0; i < 12; i++) {
+  await refused(
+    startThread(student, `Stuck ${i}`),
+    /You've sent a lot of messages in the last hour\. Wait a little, then send this one again\./,
+    "A conversation opened while its first message would be refused",
+  );
+}
+assert.equal(await threadClaims(), claimsBefore, "A refused conversation used up the allowance");
+// An hour on, messages go again.
+await db.exec(
+  "update public.ai_request_log set created_at = created_at - interval '61 minutes' where endpoint = 'chat_message'",
+);
 // Someone else's allowance is their own, and tutors have none.
 await send(parent, parentThread, "Another");
 for (let i = 0; i < 35; i++) await send(tutor, studentThread, `Reply ${i}`);
@@ -606,6 +707,18 @@ await refused(
   /student_weekly_checkins_reflection_length/,
   "A 2,001-character check-in note was kept",
 );
+await as(student, "update public.student_weekly_checkins set coverage = $1 where plan_id = $2", [
+  JSON.stringify(Object.fromEntries(Array.from({ length: 100 }, (_, i) => [qid(i), "done"]))),
+  plan,
+]);
+await refused(
+  as(student, "update public.student_weekly_checkins set coverage = $1 where plan_id = $2", [
+    JSON.stringify({ junk: x(20001) }),
+    plan,
+  ]),
+  /student_weekly_checkins_coverage_size/,
+  "A 20 kB check-in coverage was kept",
+);
 
 // A sign-up whose name is too long is clipped, never refused.
 const longName = "Bartholomew ".repeat(20).trim();
@@ -639,7 +752,78 @@ assert.equal(
   "Jamie Doe",
 );
 
-// ── 7. Grants ────────────────────────────────────────────────────────────────
+// ── 7. Plan feedback ─────────────────────────────────────────────────────────
+const feedback = (user: string, about: string, reason: string | null = null, why = "other") =>
+  as(
+    user,
+    "insert into public.billing_feedback(student_id, action, reason_category, reason) values ($1, 'pause', $2, $3)",
+    [about, why, reason],
+  );
+const feedbackClaims = (user: string) =>
+  count(
+    "select count(*)::int n from public.ai_request_log where user_id = $1 and endpoint = 'billing_feedback'",
+    [user],
+  );
+// Any free account can leave feedback on itself: the size rules hold, and a
+// refusal uses up nothing.
+await refused(
+  feedback(freeAccount, freeAccount, x(2001)),
+  /billing_feedback_reason_length/,
+  "A 2,001-character feedback note was kept",
+);
+await refused(
+  feedback(freeAccount, freeAccount, null, x(41)),
+  /billing_feedback_reason_category_length/,
+  "A 41-character feedback reason was kept",
+);
+assert.equal(await feedbackClaims(freeAccount), 0, "Refused feedback used up the allowance");
+// The form's own values all fit.
+for (const why of ["too_expensive", "taking_a_break", "exams_finished", "found_alternative"]) {
+  await feedback(freeAccount, freeAccount, x(2000), why);
+}
+// 20 a day.
+for (let i = 0; i < 16; i++) await feedback(freeAccount, freeAccount, "Busy term");
+await refused(
+  feedback(freeAccount, freeAccount),
+  /You've sent a lot of feedback today\./,
+  "A 21st piece of feedback in a day was kept",
+);
+assert.equal(
+  await count("select count(*)::int n from public.billing_feedback where user_id = $1", [
+    freeAccount,
+  ]),
+  20,
+);
+// A parent's allowance is their own, and tutors have none.
+await feedback(parent, student, "Exams over");
+for (let i = 0; i < 25; i++) await feedback(tutor, student, "Logged for the family");
+// A day later the allowance is back.
+await db.exec(
+  "update public.ai_request_log set created_at = created_at - interval '25 hours' where endpoint = 'billing_feedback'",
+);
+await feedback(freeAccount, freeAccount);
+
+// ── 8. Notifications: only the read mark is the app's ───────────────────────
+await db.query(
+  "insert into public.notifications(user_id, type, title, body, link) values ($1, 'chat_reply', 'Reply from Ms T', 'See Messages', '/messages')",
+  [student],
+);
+// What the bell does.
+const markedRead = await as(
+  student,
+  "update public.notifications set read_at = now() where user_id = auth.uid() and read_at is null returning 1",
+);
+assert.equal(markedRead.length, 1, "The bell couldn't mark a notification read");
+for (const col of ["title", "body", "link", "type", "created_at", "user_id"]) {
+  const value = col === "created_at" ? "now()" : col === "user_id" ? "auth.uid()" : "'x'";
+  await refused(
+    as(student, `update public.notifications set ${col} = ${value} where user_id = auth.uid()`),
+    /permission denied/,
+    `A student rewrote notifications.${col}`,
+  );
+}
+
+// ── 9. Grants ────────────────────────────────────────────────────────────────
 const can = async (fn: string, role: string) =>
   (
     await db.query<{ ok: boolean }>("select has_function_privilege($1, $2, 'EXECUTE') as ok", [
@@ -651,8 +835,11 @@ assert.equal(await can("private.homework_draft_answers_fit(jsonb)", "authenticat
 assert.equal(await can("private.homework_draft_answers_fit(jsonb)", "anon"), false);
 assert.equal(await can("private.chat_message_flood_guard()", "authenticated"), false);
 assert.equal(await can("private.chat_thread_flood_guard()", "authenticated"), false);
+assert.equal(await can("private.billing_feedback_flood_guard()", "authenticated"), false);
+assert.equal(await can("private.my_paid_subjects()", "authenticated"), true);
+assert.equal(await can("private.my_paid_subjects()", "anon"), false);
 
-// ── 8. The rollback undoes it ────────────────────────────────────────────────
+// ── 10. The rollback undoes it ───────────────────────────────────────────────
 await db.exec(
   await readFile(
     new URL("../supabase/rollbacks/20261028110000_size_and_flood_limits.down.sql", import.meta.url),
@@ -660,11 +847,11 @@ await db.exec(
   ),
 );
 const leftover = await db.query<{ conname: string }>(
-  "select conname from pg_constraint where conname like any (array['%\\_length', 'homework_drafts_answers_fit', 'homework_drafts_stamps_size'])",
+  "select conname from pg_constraint where conname like any (array['%\\_length', '%\\_size', 'homework_drafts_answers_fit'])",
 );
 assert.deepEqual(leftover.rows, [], "The rollback left a check behind");
 const leftoverFns = await db.query<{ proname: string }>(
-  "select p.proname from pg_proc p join pg_namespace n on n.oid = p.pronamespace where n.nspname = 'private' and p.proname in ('claim_chat_send', 'chat_thread_flood_guard', 'chat_message_flood_guard', 'homework_draft_answers_fit')",
+  "select p.proname from pg_proc p join pg_namespace n on n.oid = p.pronamespace where n.nspname = 'private' and p.proname in ('claim_chat_send', 'chat_thread_flood_guard', 'chat_message_flood_guard', 'billing_feedback_flood_guard', 'homework_draft_answers_fit', 'my_paid_subjects')",
 );
 assert.deepEqual(leftoverFns.rows, [], "The rollback left a function behind");
 await as(student, "update public.profiles set display_name = $1 where id = auth.uid()", [x(81)]);
@@ -675,6 +862,9 @@ await as(
 );
 const logged = await count("select count(*)::int n from public.ai_request_log");
 await send(student, studentThread, "After the rollback");
+await feedback(freeAccount, freeAccount);
 assert.equal(await count("select count(*)::int n from public.ai_request_log"), logged);
+// Notifications are the app's to rewrite again.
+await as(student, "update public.notifications set body = 'x' where user_id = auth.uid()");
 
 console.log("size and flood limits: all checks passed");

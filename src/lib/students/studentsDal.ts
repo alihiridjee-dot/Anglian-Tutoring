@@ -230,7 +230,9 @@ export class StudentsDAL {
         .from("billing_feedback")
         .select("id, action, reason, reason_category, created_at")
         .eq("student_id", studentId)
-        .order("created_at", { ascending: false }),
+        .order("created_at", { ascending: false })
+        // The 50 latest are plenty for the plan history.
+        .limit(50),
     ]);
     for (const r of [profile, enrolments, subscription, links, invites, feedback]) {
       if (r.error) throw new Error(r.error.message);

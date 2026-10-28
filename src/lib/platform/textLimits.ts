@@ -23,13 +23,17 @@ export const PHONE_MAX = 32;
 export const SCHOOL_MAX = 120;
 /** The weekly note to the tutor. */
 export const CHECKIN_NOTE_MAX = 2000;
+/** The note on pausing, cancelling or dropping a subject. */
+export const FEEDBACK_MAX = 2000;
 
 /**
  * Spaces, line breaks and invisible formatting characters (zero-width spaces,
  * direction marks, byte-order marks): what `trim()` leaves behind that no
- * reader can see.
+ * reader can see. Character for character the list submit_homework_answers
+ * uses (the test checks), so the sheet and the server agree on every blank.
  */
-const INVISIBLE = /[\s\p{Cf}]/gu;
+export const INVISIBLE_CHARS = String.raw`[\u0009-\u000d\u001c-\u0020\u0085\u00a0\u00ad\u061c\u1680\u180e\u2000-\u200f\u2028-\u202f\u205f-\u206f\u3000\ufeff]`;
+const INVISIBLE = new RegExp(INVISIBLE_CHARS, "g");
 
 /**
  * True when an answer holds nothing a reader can see. The server stores such

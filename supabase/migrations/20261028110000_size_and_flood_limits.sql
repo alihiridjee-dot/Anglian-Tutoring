@@ -6,7 +6,9 @@
 -- 1. Length caps. Each one is far above anything real, so no genuine answer
 --    is ever cut off. Largest live value on 28 Oct in brackets:
 --      task answer                5,000 characters (390; a 6-mark answer is ~2,000)
---      draft answer               5,000 each, at most 50 in one draft (274, 4)
+--      draft answer               5,000 each, at most 50 in one draft (274, 4),
+--                                 keyed by question ids of up to 64 (36), and
+--                                 400,000 bytes in all (318)
 --      draft edit times          10,000 bytes (232)
 --      task note / draft note     2,000 (none: the sheet has no note box now)
 --      chat message               4,000 (an AI-drafted reply is under 500 tokens)
@@ -16,6 +18,9 @@
 --      phone                         32 (15)
 --      school                       120 (33; the longest UK school name is 83)
 --      weekly check-in note       2,000 (74)
+--      weekly check-in coverage  20,000 bytes (312)
+--      plan feedback note         2,000 (none)
+--      plan feedback reason          40 (13; the form's longest is 17)
 --    The forms stop at the same numbers (src/lib/platform/textLimits.ts, whose
 --    test reads this file), so a student never meets the database's refusal.
 --    submit_homework_answers says in plain words when an answer is too long.
@@ -23,22 +28,29 @@
 --    a long Google or Microsoft name can never stop an account being made.
 --
 -- 2. Flood limits: a student or parent may start 10 conversations a day and
---    send 30 messages an hour. Tutors are not limited. A refused send says
---    why. Counted in ai_request_log, the per-user counter claim_ai_request
---    keeps (same lock, same nightly prune), by a private helper rather than
---    a new row in claim_ai_request's list: PR #311 replaces that function
---    too, and two copies of its list would undo each other.
+--    send 30 messages an hour, and leave plan feedback 20 times a day. Tutors
+--    are not limited. A refused send says why, and a new conversation whose
+--    first message would be refused is refused first, so it never uses up
+--    the day's conversations. Counted in ai_request_log, the per-user
+--    counter claim_ai_request keeps (same lock, same nightly prune), by a
+--    private helper rather than a new row in claim_ai_request's list: PR #311
+--    replaces that function too, and two copies of its list would undo each
+--    other.
 --
 -- 3. Chat times, read marks and status are the server's. The app's role
 --    inserts only the columns the app sends; the rest come from their
 --    defaults and the message trigger. Only a tutor's message keeps the
 --    AI-drafted mark.
 --
--- 4. A draft row only for a task the student can open. (sync_homework_draft
---    itself is left alone: PR #315 replaces it.)
+-- 4. A draft row only for a task the student can open and pays for
+--    themselves. (sync_homework_draft itself is left alone: PR #315
+--    replaces it.)
 --
 -- 5. An answer made only of spaces or invisible characters is stored as
---    blank, so it shows as "Left blank" and is marked as one (T-11).
+--    blank, so it shows as "Left blank" and is marked as one (T-11). The
+--    sheet counts blanks with the same list (src/lib/platform/textLimits.ts).
+--
+-- 6. Of a notification, the app may change only when it was read.
 --
 -- Replaced functions are the live bodies of 28 Oct (md5 of prosrc:
 -- submit_homework_answers 6119c6adaefa5ea77a5dc9f720633172, handle_new_user
@@ -52,8 +64,9 @@
 
 -- ── 1. Length caps ───────────────────────────────────────────────────────────
 
--- Every answer in a draft is a string of at most 5,000 characters, and a
--- draft holds at most 50 of them. A function because a check can't hold a
+-- Every answer in a draft is a string of at most 5,000 characters under a
+-- question id of at most 64, a draft holds at most 50 of them, and the whole
+-- draft fits in 400,000 bytes. A function because a check can't hold a
 -- subquery; the app's role needs EXECUTE because a check runs as the writer.
 create or replace function private.homework_draft_answers_fit(_answers jsonb)
 returns boolean
@@ -62,11 +75,13 @@ immutable
 set search_path = ''
 as $$
   select jsonb_typeof(_answers) = 'object'
+     and octet_length(_answers::text) <= 400000
      and (select count(*) from jsonb_object_keys(_answers)) <= 50
      and not exists (
        select 1
        from jsonb_each(_answers) e
-       where jsonb_typeof(e.value) <> 'string'
+       where char_length(e.key) > 64
+          or jsonb_typeof(e.value) <> 'string'
           or char_length(e.value #>> '{}') > 5000
      );
 $$;
@@ -115,6 +130,16 @@ alter table public.profiles add constraint profiles_school_length
 alter table public.student_weekly_checkins drop constraint if exists student_weekly_checkins_reflection_length;
 alter table public.student_weekly_checkins add constraint student_weekly_checkins_reflection_length
   check (char_length(reflection) <= 2000);
+alter table public.student_weekly_checkins drop constraint if exists student_weekly_checkins_coverage_size;
+alter table public.student_weekly_checkins add constraint student_weekly_checkins_coverage_size
+  check (octet_length(coverage::text) <= 20000);
+
+alter table public.billing_feedback drop constraint if exists billing_feedback_reason_length;
+alter table public.billing_feedback add constraint billing_feedback_reason_length
+  check (char_length(reason) <= 2000);
+alter table public.billing_feedback drop constraint if exists billing_feedback_reason_category_length;
+alter table public.billing_feedback add constraint billing_feedback_reason_category_length
+  check (char_length(reason_category) <= 40);
 
 -- A sign-up's name (ours, or the one Google or Microsoft sends) and phone are
 -- clipped to fit, so the caps above can never stop an account being made.
@@ -198,10 +223,10 @@ $function$;
 
 -- ── 2. Flood limits ──────────────────────────────────────────────────────────
 
--- claim_ai_request's counter for chat sends: the same lock key and log, so
--- one user's sends are counted one at a time, and the nightly prune of
--- ai_request_log (anything over a day old) keeps it small. Called only by the
--- two guards below, never by the app.
+-- claim_ai_request's counter for chat sends (and plan feedback): the same
+-- lock key and log, so one user's sends are counted one at a time, and the
+-- nightly prune of ai_request_log (anything over a day old) keeps it small.
+-- Called only by the three guards below, never by the app.
 create or replace function private.claim_chat_send(_endpoint text, _max integer, _period interval)
 returns boolean
 language plpgsql
@@ -243,6 +268,17 @@ begin
   if auth.uid() is null or private.has_role(auth.uid(), 'tutor'::public.app_role) then
     return new;
   end if;
+  -- A conversation opens with a message. When chat_message_flood_guard would
+  -- refuse that message (the same 30 an hour), refuse the conversation now,
+  -- before it uses up one of the day's.
+  if (
+    select count(*) from public.ai_request_log
+    where user_id = auth.uid()
+      and endpoint = 'chat_message'
+      and created_at > now() - interval '1 hour'
+  ) >= 30 then
+    raise exception 'You''ve sent a lot of messages in the last hour. Wait a little, then send this one again.';
+  end if;
   if not private.claim_chat_send('chat_thread', 10, interval '1 day') then
     raise exception 'You''ve started a lot of conversations today. Add to one you already have, or start a new one tomorrow.';
   end if;
@@ -282,6 +318,32 @@ create trigger chat_message_flood_guard
   before insert on public.chat_messages
   for each row execute function private.chat_message_flood_guard();
 
+-- Plan feedback (the reason given on pause, cancel or dropping a subject)
+-- counts against billing_feedback. The page records it best-effort, so a
+-- refusal never stops the plan change itself.
+create or replace function private.billing_feedback_flood_guard()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+begin
+  if auth.uid() is null or private.has_role(auth.uid(), 'tutor'::public.app_role) then
+    return new;
+  end if;
+  if not private.claim_chat_send('billing_feedback', 20, interval '1 day') then
+    raise exception 'You''ve sent a lot of feedback today. Thank you: send more tomorrow.';
+  end if;
+  return new;
+end
+$$;
+revoke all on function private.billing_feedback_flood_guard() from public, anon, authenticated;
+
+drop trigger if exists billing_feedback_flood_guard on public.billing_feedback;
+create trigger billing_feedback_flood_guard
+  before insert on public.billing_feedback
+  for each row execute function private.billing_feedback_flood_guard();
+
 
 -- ── 3. Chat columns the app may write ────────────────────────────────────────
 -- Exactly what ChatDAL.startThread and ChatDAL.sendMessage send. Revoking the
@@ -299,8 +361,27 @@ grant insert (thread_id, sender_id, body, ai_drafted)
 
 
 -- ── 4. Drafts only for tasks the student can open ────────────────────────────
--- The resources policy decides what "can open" means: the subquery runs under
--- the caller's own row rules. Restrictive, so "hd own" still applies too.
+-- The resources policy decides what "can open" means (the subquery runs under
+-- the caller's own row rules), and the subject must be one the caller pays
+-- for themselves, as submit_homework_answers asks: the resources policy also
+-- opens a linked child's subjects to a parent. Restrictive, so "hd own" still
+-- applies too.
+
+-- The caller's own paid subjects, never a linked child's.
+create or replace function private.my_paid_subjects()
+returns text[]
+language sql
+stable
+security definer
+set search_path = ''
+as $$
+  select case
+    when (select auth.uid()) is null then '{}'::text[]
+    else private.student_paid_subjects((select auth.uid()))
+  end
+$$;
+revoke all on function private.my_paid_subjects() from public, anon;
+grant execute on function private.my_paid_subjects() to authenticated, service_role;
 
 drop policy if exists "hd open tasks only" on public.homework_drafts;
 create policy "hd open tasks only" on public.homework_drafts
@@ -308,6 +389,7 @@ create policy "hd open tasks only" on public.homework_drafts
   with check (exists (
     select 1 from public.resources r
     where r.id = homework_drafts.resource_id and r.kind = 'homework'
+      and r.subject::text = any (private.my_paid_subjects())
   ));
 drop policy if exists "hd open tasks only on update" on public.homework_drafts;
 create policy "hd open tasks only on update" on public.homework_drafts
@@ -315,10 +397,12 @@ create policy "hd open tasks only on update" on public.homework_drafts
   using (exists (
     select 1 from public.resources r
     where r.id = homework_drafts.resource_id and r.kind = 'homework'
+      and r.subject::text = any (private.my_paid_subjects())
   ))
   with check (exists (
     select 1 from public.resources r
     where r.id = homework_drafts.resource_id and r.kind = 'homework'
+      and r.subject::text = any (private.my_paid_subjects())
   ));
 
 
@@ -395,7 +479,9 @@ begin
   returning id into _submission_id;
 
   -- Blank is nothing a reader can see: spaces, line breaks and invisible
-  -- formatting characters (zero-width spaces, direction marks) only.
+  -- formatting characters (zero-width spaces, direction marks) only. One
+  -- explicit list, the same as the sheet's (textLimits.ts), so the two agree
+  -- whatever the database's locale counts as a space.
   insert into public.homework_answers (submission_id, question_id, answer_text)
   select
     _submission_id,
@@ -403,7 +489,7 @@ begin
     case
       when regexp_replace(
              coalesce(a ->> 'answer_text', ''),
-             '[\s\u00a0\u00ad\u1680\u180e\u2000-\u200f\u2028-\u202f\u205f-\u206f\u3000\ufeff]',
+             '[\u0009-\u000d\u001c-\u0020\u0085\u00a0\u00ad\u061c\u1680\u180e\u2000-\u200f\u2028-\u202f\u205f-\u206f\u3000\ufeff]',
              '', 'g') = '' then null
       else btrim(a ->> 'answer_text')
     end
@@ -415,3 +501,11 @@ begin
   return _submission_id;
 end;
 $function$;
+
+
+-- ── 6. Notifications: the app only marks them read ───────────────────────────
+-- The bell's "mark read" (NotificationBell) is the app's only write. Revoking
+-- the table-wide grant drops its column grants too, so read_at is all that is
+-- left. mark_chat_thread_read is security definer, so it is unaffected.
+revoke update on table public.notifications from anon, authenticated;
+grant update (read_at) on table public.notifications to authenticated;

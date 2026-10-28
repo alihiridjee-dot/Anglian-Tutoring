@@ -1,23 +1,27 @@
 -- Rollback for 20261028110000_size_and_flood_limits.sql. Run by hand.
 --
--- Drops the length checks, the chat flood guards and the draft policies,
--- gives the app's role back every chat column on insert, and puts
--- handle_new_user and submit_homework_answers back as they were live on
--- 28 Oct (md5 of prosrc 588cdbda93d4c21afff5601ffe54cbad,
--- 6119c6adaefa5ea77a5dc9f720633172). Rows the chat guards wrote to
--- ai_request_log are pruned within a day.
+-- Drops the length checks, the chat and feedback flood guards and the draft
+-- policies, gives the app's role back every chat column on insert and every
+-- notification column on update, and puts handle_new_user and
+-- submit_homework_answers back as they were live on 28 Oct (md5 of prosrc
+-- 588cdbda93d4c21afff5601ffe54cbad, 6119c6adaefa5ea77a5dc9f720633172). Rows
+-- the guards wrote to ai_request_log are pruned within a day.
 
 drop policy if exists "hd open tasks only" on public.homework_drafts;
 drop policy if exists "hd open tasks only on update" on public.homework_drafts;
+drop function if exists private.my_paid_subjects();
 
 drop trigger if exists chat_thread_flood_guard on public.chat_threads;
 drop trigger if exists chat_message_flood_guard on public.chat_messages;
 drop function if exists private.chat_thread_flood_guard();
 drop function if exists private.chat_message_flood_guard();
+drop trigger if exists billing_feedback_flood_guard on public.billing_feedback;
+drop function if exists private.billing_feedback_flood_guard();
 drop function if exists private.claim_chat_send(text, integer, interval);
 
 grant insert on table public.chat_threads to anon, authenticated;
 grant insert on table public.chat_messages to anon, authenticated;
+grant update on table public.notifications to anon, authenticated;
 
 alter table public.homework_answers drop constraint if exists homework_answers_answer_text_length;
 alter table public.homework_submissions drop constraint if exists homework_submissions_notes_length;
@@ -31,6 +35,9 @@ alter table public.profiles drop constraint if exists profiles_display_name_leng
 alter table public.profiles drop constraint if exists profiles_phone_length;
 alter table public.profiles drop constraint if exists profiles_school_length;
 alter table public.student_weekly_checkins drop constraint if exists student_weekly_checkins_reflection_length;
+alter table public.student_weekly_checkins drop constraint if exists student_weekly_checkins_coverage_size;
+alter table public.billing_feedback drop constraint if exists billing_feedback_reason_length;
+alter table public.billing_feedback drop constraint if exists billing_feedback_reason_category_length;
 drop function if exists private.homework_draft_answers_fit(jsonb);
 
 create or replace function public.handle_new_user()
