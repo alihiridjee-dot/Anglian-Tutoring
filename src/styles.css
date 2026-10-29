@@ -71,6 +71,8 @@
 
 :root {
   --radius: 1.25rem;
+  /* The public pages' top bar (`.site-bar`): its row, its rule and a notch. */
+  --site-bar-h: calc(4.5rem + 1.5px + env(safe-area-inset-top));
 
   /* ── Surfaces ──────────────────────────────────────────────────────────── */
   --background: oklch(0.985 0.008 240); /* cool paper */
@@ -1106,10 +1108,25 @@ button.trail-step:active .trail-dot {
 /* ════════════════════════════════════════════════════════════════════════════
    NAV, BARS, INPUTS
    ════════════════════════════════════════════════════════════════════════════ */
+/* The public pages' top bar floats over the hero (it pulls the hero up by its
+   own height), so the dot grid and washes run on behind the wordmark instead of
+   stopping at a white strip. It turns to glass once the page scrolls and there
+   is copy passing under it. Each hero gives the height back as padding,
+   `pt-(--site-bar-h)`. Declared before `.glass-bar` so the glass border wins. */
+.site-bar {
+  margin-bottom: calc(-1 * var(--site-bar-h));
+  border-bottom: 1.5px solid transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    backdrop-filter 0.2s ease;
+}
 .glass-bar {
   background: color-mix(in oklab, var(--background) 88%, transparent);
-  backdrop-filter: saturate(1.7) blur(18px);
+  /* Prefixed first: the other way round, the CSS build keeps only the
+     prefixed line, which Chrome and Firefox ignore. */
   -webkit-backdrop-filter: saturate(1.7) blur(18px);
+  backdrop-filter: saturate(1.7) blur(18px);
   border-bottom: 1.5px solid color-mix(in oklab, var(--foreground) 9%, transparent);
 }
 
@@ -1158,6 +1175,14 @@ button.trail-step:active .trail-dot {
   box-shadow:
     0 1px 0 0 color-mix(in oklab, var(--tint) 30%, transparent),
     0 4px 10px -6px color-mix(in oklab, var(--tint) 70%, transparent);
+}
+/* A segment that carries the sliding pill lets the pill be its active state.
+   Its own raised background would light it the instant it is chosen, under a
+   pill still on its way there. (Utilities can't do this: the rules above are
+   unlayered, so they beat any `aria-selected:` class.) */
+.tab-item:has(> .tab-pill) {
+  background: none;
+  box-shadow: none;
 }
 
 .premium-input,
@@ -1971,14 +1996,17 @@ body {
   }
 }
 
+/* --ribbon-dur, --converge-dur and --converge-ease let one ribbon run faster or
+   land with a bounce (the cap on the hero photo builds in about 1.3 s). */
 .ribbon-path {
   stroke-dasharray: var(--ribbon-len);
-  animation: ribbon-draw 1.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: ribbon-draw var(--ribbon-dur, 1.9s) cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: var(--ribbon-delay, 0s);
 }
 
 .ribbon-group {
-  animation: ribbon-converge 2.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: ribbon-converge var(--converge-dur, 2.2s)
+    var(--converge-ease, cubic-bezier(0.22, 1, 0.36, 1)) both;
   animation-delay: var(--ribbon-delay, 0s);
   transform-box: fill-box;
   transform-origin: center;
@@ -1999,5 +2027,215 @@ body {
   }
   .ribbon-path {
     stroke-dashoffset: 0;
+  }
+}
+
+/* On the hero photo the cap's board and crown colour in as their outlines
+   close, a ring flashes out from the board as it lands, and the flask fizzes:
+   bubbles rise through the liquid and pop out of the top. */
+@keyframes ribbon-fill {
+  from {
+    fill-opacity: 0;
+  }
+  to {
+    fill-opacity: 1;
+  }
+}
+@keyframes ribbon-pulse {
+  from {
+    opacity: 0.9;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+@keyframes flask-bubble {
+  from {
+    opacity: 0;
+    transform: translateY(0) scale(0.6);
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-90px) scale(1);
+  }
+}
+@keyframes flask-fizz {
+  from {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4);
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translate(var(--fizz-x, 0px), -80px) scale(1.1);
+  }
+}
+.ribbon-filled {
+  animation:
+    ribbon-draw var(--ribbon-dur, 1.9s) cubic-bezier(0.22, 1, 0.36, 1) var(--ribbon-delay, 0s) both,
+    ribbon-fill 0.35s ease-out calc(var(--ribbon-delay, 0s) + var(--ribbon-dur, 1.9s) * 0.5) both;
+}
+.ribbon-pulse,
+.flask-bubble,
+.flask-fizz {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+/* Hidden until it fires, so no `backwards` fill: that would show it, full
+   strength, for the whole of its delay. */
+.ribbon-pulse {
+  opacity: 0;
+  animation: ribbon-pulse 0.55s ease-out var(--ribbon-delay, 0s) forwards;
+}
+.flask-bubble {
+  animation: flask-bubble 2.4s ease-in var(--bubble-delay, 0s) infinite both;
+}
+.flask-fizz {
+  animation: flask-fizz 2.2s ease-out var(--bubble-delay, 0s) infinite both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ribbon-filled {
+    animation: none;
+  }
+  .ribbon-pulse,
+  .flask-bubble,
+  .flask-fizz {
+    display: none;
+  }
+}
+
+/* The hero photo and the drawings on it share one 16:9 stage, so the cap stays
+   on her head and the ribbons on her flask however the photo is cropped. The
+   box is a size container and the stage covers it like `object-fit: cover`,
+   with --focus-x / --focus-y choosing which side gives. On a wide screen the
+   stage instead pins x = 600 of the photo (just left of the flask, 37.5% of
+   the way across) to --anchor, clear of the copy, and fades out to the left of
+   it under the headline. */
+.hero-photo {
+  container-type: size;
+  overflow: hidden;
+}
+.hero-photo-stage {
+  --stage-w: max(100cqw, 177.78cqh);
+  position: absolute;
+  width: var(--stage-w);
+  aspect-ratio: 16 / 9;
+  left: calc((100cqw - var(--stage-w)) * var(--focus-x, 1));
+  top: calc((100cqh - var(--stage-w) * 0.5625) * var(--focus-y, 0.5));
+}
+@media (width >= 64rem) {
+  .hero-photo-stage {
+    --anchor: max(29.5rem, 44cqw);
+    --stage-w: max((100cqw - var(--anchor)) / 0.625, 177.78cqh);
+    left: calc(var(--anchor) - 0.375 * var(--stage-w));
+    mask-image: linear-gradient(90deg, transparent calc(37.5% - 16rem), #000 calc(37.5% - 1rem));
+  }
+}
+@media (width >= 80rem) {
+  .hero-photo-stage {
+    --anchor: max(50cqw - 4rem, 34rem);
+  }
+}
+
+/* Hero trust banner: a full-width band of stars, icons and figures sliding left
+   forever, like a "featured in" row. Two identical halves move by one half's
+   width plus the gap, so the loop has no seam; the edges fade out instead of
+   cutting off. Hover pauses it, and with motion off it is one still, centred
+   row. */
+.trust-banner {
+  padding-block: 1.1rem;
+  background: color-mix(in oklab, var(--card) 72%, transparent);
+  border-block: 1.25px solid color-mix(in oklab, var(--primary) 14%, transparent);
+}
+.trust-marquee {
+  --marquee-gap: 3.5rem;
+  display: flex;
+  gap: var(--marquee-gap);
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+}
+.trust-marquee-half {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--marquee-gap);
+  min-width: 100%;
+  animation: trust-marquee 55s linear infinite;
+}
+.trust-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+/* A small dot halfway across the gap before every item. */
+.trust-item::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--marquee-gap) / -2 - 3px);
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--primary) 30%, transparent);
+  transform: translateY(-50%);
+}
+.trust-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--tint);
+}
+.trust-numeral {
+  font-size: 1.5rem;
+  color: var(--tint);
+}
+.trust-stars {
+  display: flex;
+  gap: 0.1rem;
+}
+.trust-stars svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: color-mix(in oklab, var(--tint) 80%, black);
+  fill: var(--tint);
+}
+.trust-marquee:hover .trust-marquee-half {
+  animation-play-state: paused;
+}
+@keyframes trust-marquee {
+  to {
+    transform: translateX(calc(-100% - var(--marquee-gap)));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trust-marquee {
+    mask-image: none;
+  }
+  .trust-marquee-half {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 2.5rem;
+    padding-inline: 1rem;
+    animation: none;
+  }
+  .trust-item::before {
+    display: none;
+  }
+  .trust-marquee-half + .trust-marquee-half {
+    display: none;
   }
 }
