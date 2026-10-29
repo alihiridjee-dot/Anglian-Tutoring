@@ -649,7 +649,7 @@ export function AnswerForm({
         e.preventDefault();
         if (demo) {
           toast(
-            "This is a demo, so nothing is saved. Sign up and your tasks are marked within minutes.",
+            "This is a demo, so nothing is saved. Sign up and your tasks are marked within a day.",
           );
           return;
         }
@@ -956,14 +956,15 @@ export function AwaitingMark({
     const tick = () =>
       setMinutes(Math.max(0, Math.ceil((new Date(releaseAt).getTime() - Date.now()) / 60_000)));
     tick();
-    // The wait is now minutes rather than a day, which is short enough that a
-    // student will sit on this page watching it. A stale "in 28 minutes" while
-    // they wait would be worse than no estimate at all.
+    // The wait is a day, read in hours, but its last hour counts down in
+    // minutes to a student who may be watching. A stale "in 28 minutes" would
+    // be worse than no estimate at all.
     const timer = setInterval(tick, 30_000);
     return () => clearInterval(timer);
   }, [releaseAt]);
   // Only while there is still nothing else to say: no clock, not held.
   const late = stalled && !releaseAt && !held;
+  const hours = minutes != null && minutes >= 60 ? Math.round(minutes / 60) : null;
 
   return (
     <div className="tint-primary premium-card flex items-start gap-3 p-4">
@@ -983,9 +984,11 @@ export function AwaitingMark({
             ? "Your marks and feedback will appear here once your tutor has looked."
             : late
               ? "Your marks and feedback will appear here once your tutor has marked it."
-              : minutes != null && minutes > 0
-                ? `Your marks and feedback should appear here in about ${minutes} minute${minutes === 1 ? "" : "s"}.`
-                : "Your marks and feedback will appear here shortly."}
+              : hours != null
+                ? `Your marks and feedback should appear here in about ${hours} hour${hours === 1 ? "" : "s"}.`
+                : minutes != null && minutes > 0
+                  ? `Your marks and feedback should appear here in about ${minutes} minute${minutes === 1 ? "" : "s"}.`
+                  : "Your marks and feedback will appear here shortly."}
         </p>
       </div>
     </div>

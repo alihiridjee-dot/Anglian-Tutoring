@@ -13,7 +13,7 @@
 // one bug away from it.
 //
 // Nothing published here is visible yet. The marks are *staged* in
-// `homework_ai_marks` with a `release_at` a short way out; a tutor confirming
+// `homework_ai_marks` with a `release_at` a day out; a tutor confirming
 // early or the scheduled publisher is what turns them into a grade. See the
 // migration `20260909150000_homework_on_platform.sql`.
 //
@@ -52,15 +52,13 @@ export { asAnswerData, buildPrompt, stageMarks } from "./marker.ts";
 /**
  * How long a tutor has to correct a mark before the student sees it.
  *
- * Half an hour is deliberately short. A day's delay costs the student the thing
- * that makes feedback work — reading it while they still remember what they
- * wrote — and only buys something if somebody actually looks inside the window.
- * At this length nobody realistically will, and that is the point: review moves
- * from being a gate to being a spot-check afterwards, which is what it honestly
- * was. The half hour that remains is a chance to catch a sheet marked while it
- * was obviously broken, not a review period.
+ * A day, Ali's call (29 Oct 2026). It was half an hour, which left review as a
+ * spot-check after the fact: on 10 Oct a 3/3 for a false answer went out with
+ * no tutor having seen it (docs/HANDOVER_2026-10-27.md). A day is long enough
+ * for a tutor to read every paper before the student does. Confirming in the
+ * marking queue still releases a paper at once.
  */
-const REVIEW_WINDOW_MINUTES = 30;
+const REVIEW_WINDOW_HOURS = 24;
 
 /**
  * Marking budget per student per hour. One submission is one call regardless of
@@ -241,7 +239,7 @@ Deno.serve(async (req) => {
     // is only ever run on rows with a `release_at`, so it waits for a tutor to
     // confirm it, with the model's marks and its reasons in front of them.
     const held = result.questions.some((q: StagedMark) => q.held);
-    const releaseAt = held ? null : new Date(now.getTime() + REVIEW_WINDOW_MINUTES * 60_000);
+    const releaseAt = held ? null : new Date(now.getTime() + REVIEW_WINDOW_HOURS * 60 * 60_000);
 
     // The marks first. If stamping the submission fails after this, the row is
     // an orphan the publisher ignores (it joins on `release_at`) rather than a
