@@ -1652,6 +1652,15 @@ body {
   background: transparent;
 }
 
+/* Safari's caps-lock warning in password fields. Its own stylesheet draws a
+   17px square icon but stretches it to the full height of the text box, and
+   our fields are tall with no vertical padding, so it came out as a tall grey
+   bar. Centred at its own size it reads as the icon it is. */
+input::-webkit-caps-lock-indicator {
+  align-self: center;
+  height: 17px;
+}
+
 /* ════════════════════════════════════════════════════════════════════════════
    MOBILE
    What a phone needs and no single screen should have to remember.
