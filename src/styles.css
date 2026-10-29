@@ -1366,6 +1366,35 @@ a.when-link:hover .when-link-arrow {
   animation-delay: var(--peek-delay, 0.35s);
 }
 
+/* A character's eyes, pointed by a parent setting --gaze-x/--gaze-y (in the
+   drawing's own units). Still unless something sets them. */
+.mascot-gaze {
+  transform: translate(var(--gaze-x, 0px), var(--gaze-y, 0px));
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The shy owl's wings: folded down out of sight from each shoulder, and
+   flapped up over its eyes with a little give. */
+.owl-wing {
+  transform-box: view-box;
+  opacity: 0;
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.5, 0.64, 1),
+    opacity 0.15s ease-out;
+}
+.owl-wing-l {
+  transform-origin: 32px 82px;
+  transform: rotate(75deg) scale(0.4);
+}
+.owl-wing-r {
+  transform-origin: 88px 82px;
+  transform: rotate(-75deg) scale(0.4);
+}
+.owl-wings[data-up="true"] .owl-wing {
+  opacity: 1;
+  transform: none;
+}
+
 /* The monogram tile's squash-and-stretch on hover of the wordmark. Silent until
    someone reaches for it, which is what keeps it chic rather than busy. */
 @keyframes hop {
@@ -1510,6 +1539,11 @@ a.when-link:hover .when-link-arrow {
   [data-status="active"] .tab-pop,
   [data-active="true"] .tab-pop {
     animation: none;
+  }
+  /* The owl still hides its eyes; it just doesn't flap to do it. */
+  .mascot-gaze,
+  .owl-wing {
+    transition: none;
   }
 }
 
