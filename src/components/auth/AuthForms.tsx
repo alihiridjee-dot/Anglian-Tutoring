@@ -26,7 +26,7 @@ export function VerifyCodeScreen({ flow }: { flow: AuthFlow }) {
       </div>
       <h1 className="font-display text-2xl font-bold tracking-tight mb-2">Enter your code</h1>
       <p className="text-sm text-muted-foreground mb-7 leading-relaxed">
-        We've sent an {OTP_LENGTH}-digit code to{" "}
+        We've sent a {OTP_LENGTH}-digit code to{" "}
         <strong className="text-foreground">{emailSentTo}</strong>.
         <br />
         It expires in 1 hour.
