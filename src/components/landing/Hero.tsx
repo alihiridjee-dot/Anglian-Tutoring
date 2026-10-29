@@ -166,6 +166,10 @@ function Ribbons({ ribbons, runId, stroke }: { ribbons: Ribbon[]; runId: number;
   );
 }
 
+// The grad cap is parked for now: GradCapRibbons and its gradients are kept,
+// just not drawn. Flip this back to true to bring it back.
+const SHOW_GRAD_CAP = false;
+
 /**
  * Blue ribbons build a graduation cap on her head, from the top down, each
  * piece colouring in as its outline closes.
@@ -286,7 +290,7 @@ function HeroPhoto({ runId, doodles }: { runId: number; doodles: boolean }) {
             </radialGradient>
           </defs>
 
-          <GradCapRibbons runId={runId} />
+          {SHOW_GRAD_CAP && <GradCapRibbons runId={runId} />}
           <CylinderBubbles runId={runId} />
 
           {GLITTER.map((g, i) => (
