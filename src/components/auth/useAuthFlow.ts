@@ -22,8 +22,8 @@ import {
 import { usePageRestore } from "@/hooks/usePageRestore";
 
 // Supabase's Email OTP Length is a project setting (6–10); this project is set
-// to 8, and the digit boxes have to match it exactly.
-export const OTP_LENGTH = 8;
+// to 6, and the digit boxes have to match it exactly.
+export const OTP_LENGTH = 6;
 
 export type SearchParams = {
   mode?: "signin" | "signup";
