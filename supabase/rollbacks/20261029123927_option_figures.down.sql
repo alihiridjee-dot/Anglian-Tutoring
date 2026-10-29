@@ -1,4 +1,4 @@
--- Rollback for 20261029120000_option_figures: answers are words alone again.
+-- Rollback for 20261029123927_option_figures: answers are words alone again.
 -- The quiz writer goes back to its 20261017145754 body first, so nothing
 -- writes the columns while they go; the answer pictures go with them.
 create or replace function private.save_generated_quiz(_spec_point_id uuid, _questions jsonb)

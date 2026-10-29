@@ -1,4 +1,4 @@
-/** Isolated PostgreSQL checks for answer pictures (20261029120000_option_figures),
+/** Isolated PostgreSQL checks for answer pictures (20261029123927_option_figures),
  * applied after the question figures migration it builds on, and its rollback.
  * No production data is read or written.
  *
@@ -36,7 +36,7 @@ grant usage on schema public to authenticated;
 grant select (id, set_id, position, question, options, created_at, spec_point_id) on mcq_questions to authenticated;
 `);
 await db.exec(await sql("migrations/20261017145754_question_figures.sql"));
-await db.exec(await sql("migrations/20261029120000_option_figures.sql"));
+await db.exec(await sql("migrations/20261029123927_option_figures.sql"));
 
 const topic = (
   await db.query<{ id: string }>(
@@ -116,7 +116,7 @@ await assert.rejects(
 await db.exec("reset role");
 
 // ── The rollback leaves the quiz writer as it was, and the answer pictures gone ──
-await db.exec(await sql("rollbacks/20261029120000_option_figures.down.sql"));
+await db.exec(await sql("rollbacks/20261029123927_option_figures.down.sql"));
 const cols = await db.query(
   "select column_name from information_schema.columns where table_name = 'mcq_questions' and column_name like 'option_figure%'",
 );
