@@ -421,14 +421,16 @@ export function Hero() {
 
         <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pb-10 sm:px-6 split:py-10 short:py-4">
           <div className="max-w-xl split:max-w-[26rem] xl:max-w-[30rem]">
-            <span className="sticker stamp-in">
+            {/* Phones lay the copy over the photo, and there the sticker lands on
+                her face, so it shows only side by side. */}
+            <span className="sticker stamp-in hidden split:inline-flex">
               <Sparkles className="size-3.5 text-[color:var(--pop-ink)]" aria-hidden /> Modern
               science platform for KS3 &amp; GCSE
             </span>
 
             {/* The highlighter goes on the one word the whole page is about. A
                 second marker anywhere on this screen and neither would land. */}
-            <h1 className="font-display split:text-foreground mt-5 text-4xl leading-[1.08] font-extrabold tracking-tight text-white sm:text-5xl xl:text-6xl short:mt-3 short:text-4xl">
+            <h1 className="font-display split:text-foreground split:mt-5 text-4xl leading-[1.08] font-extrabold tracking-tight text-white sm:text-5xl xl:text-6xl short:mt-3 short:text-4xl">
               Better grades in <span className="marker">science</span>, taught live by teachers who
               care.
             </h1>
