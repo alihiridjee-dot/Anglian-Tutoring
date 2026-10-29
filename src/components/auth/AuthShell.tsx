@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 import { GraduationCap, ArrowLeft, Check, Sparkles, Stethoscope } from "lucide-react";
 
 import { Mascot } from "@/components/Doodles";
@@ -25,6 +26,77 @@ const POINTS = [
   "Weekly quizzes that target your weak spots",
   "Live sessions and tasks in one place",
 ];
+
+const isPassword = (t: EventTarget | null) =>
+  t instanceof HTMLInputElement && t.type === "password";
+
+/**
+ * The panel's owl keeps an eye on the form: its eyes follow the pointer, or
+ * the field that has focus, and it covers them with its wings while someone
+ * types a password. The eyes move through CSS variables written straight onto
+ * the wrapper, so following the mouse never re-renders anything.
+ */
+function ShyOwl() {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [shy, setShy] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const follow = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let frame = 0;
+
+    const lookAt = (x: number, y: number) => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const r = el.getBoundingClientRect();
+        const dx = x - (r.left + r.width / 2);
+        const dy = y - (r.top + r.height / 2);
+        const d = Math.hypot(dx, dy) || 1;
+        // Full reach from ~150px away, so a pointer over the owl doesn't
+        // make it go cross-eyed.
+        const reach = Math.min(1, d / 150);
+        el.style.setProperty("--gaze-x", `${(dx / d) * 3.5 * reach}px`);
+        el.style.setProperty("--gaze-y", `${(dy / d) * 2.5 * reach}px`);
+      });
+    };
+    const onMove = (e: PointerEvent) => lookAt(e.clientX, e.clientY);
+    const onFocusIn = (e: FocusEvent) => {
+      setShy(isPassword(e.target));
+      if (follow && e.target instanceof HTMLElement) {
+        const r = e.target.getBoundingClientRect();
+        lookAt(r.left + r.width / 2, r.top + r.height / 2);
+      }
+    };
+    const onFocusOut = (e: FocusEvent) => setShy(isPassword(e.relatedTarget));
+
+    setShy(isPassword(document.activeElement));
+    if (follow) window.addEventListener("pointermove", onMove, { passive: true });
+    document.addEventListener("focusin", onFocusIn);
+    document.addEventListener("focusout", onFocusOut);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("pointermove", onMove);
+      document.removeEventListener("focusin", onFocusIn);
+      document.removeEventListener("focusout", onFocusOut);
+    };
+  }, []);
+
+  return (
+    <span ref={ref} className="shrink-0">
+      <Mascot
+        name="owl"
+        mood="happy"
+        size={72}
+        hideEyes={shy}
+        /* A mascot draws its outlines from `currentColor` and fills from its
+           tint, which is pale — so on a dark panel it needs a DARK stroke to
+           have any definition. White-on-white here was a shapeless blob. */
+        className="text-[color:var(--primary-deep)]"
+      />
+    </span>
+  );
+}
 
 /**
  * Marketing panel beside the auth form on desktop. Hidden below lg — on a phone
@@ -70,15 +142,7 @@ export function BrandPanel() {
         {/* One character, peeking over the trust note — the panel is the last
             thing someone reads before signing up, and a face here is worth
             more than a fourth bullet. */}
-        <Mascot
-          name="owl"
-          mood="happy"
-          size={72}
-          /* A mascot draws its outlines from `currentColor` and fills from its
-             tint, which is pale — so on a dark panel it needs a DARK stroke to
-             have any definition. White-on-white here was a shapeless blob. */
-          className="shrink-0 text-[color:var(--primary-deep)]"
-        />
+        <ShyOwl />
         <div className="flex items-center gap-2.5 rounded-2xl border-[1.5px] border-white/20 bg-white/10 px-4 py-3 text-sm backdrop-blur-sm">
           <Stethoscope className="size-4 shrink-0" aria-hidden />
           <span className="text-white/90">

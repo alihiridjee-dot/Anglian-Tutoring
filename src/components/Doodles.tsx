@@ -31,29 +31,32 @@ function Face({ mood = "happy", x = 60, y = 60 }: { mood?: Mood; x?: number; y?:
   const blinks = mood !== "wink" && mood !== "sleepy";
   return (
     <g transform={`translate(${x} ${y})`} stroke={eye} strokeWidth={3} strokeLinecap="round">
-      {mood === "sleepy" ? (
-        <>
-          <path d="M-13 -3 q5 5 10 0" fill="none" />
-          <path d="M3 -3 q5 5 10 0" fill="none" />
-        </>
-      ) : mood === "wink" ? (
-        <>
-          <path d="M-13 -3 q5 -6 10 0" fill="none" />
-          <circle cx={8} cy={-3} r={2.6} fill={eye} stroke="none" />
-        </>
-      ) : (
-        // One group per eye: a single group around both would squash them
-        // TOWARDS EACH OTHER as well as flat, because `fill-box` takes the
-        // origin from the pair's combined bounding box.
-        <>
-          <g className={blinks ? "blink" : undefined}>
-            <circle cx={-8} cy={-4} r={mood === "wow" ? 3.2 : 2.8} fill={eye} stroke="none" />
-          </g>
-          <g className={blinks ? "blink" : undefined}>
-            <circle cx={8} cy={-4} r={mood === "wow" ? 3.2 : 2.8} fill={eye} stroke="none" />
-          </g>
-        </>
-      )}
+      {/* The eyes as a pair, so a parent can point them with --gaze-x/y. */}
+      <g className="mascot-gaze">
+        {mood === "sleepy" ? (
+          <>
+            <path d="M-13 -3 q5 5 10 0" fill="none" />
+            <path d="M3 -3 q5 5 10 0" fill="none" />
+          </>
+        ) : mood === "wink" ? (
+          <>
+            <path d="M-13 -3 q5 -6 10 0" fill="none" />
+            <circle cx={8} cy={-3} r={2.6} fill={eye} stroke="none" />
+          </>
+        ) : (
+          // One group per eye: a single group around both would squash them
+          // TOWARDS EACH OTHER as well as flat, because `fill-box` takes the
+          // origin from the pair's combined bounding box.
+          <>
+            <g className={blinks ? "blink" : undefined}>
+              <circle cx={-8} cy={-4} r={mood === "wow" ? 3.2 : 2.8} fill={eye} stroke="none" />
+            </g>
+            <g className={blinks ? "blink" : undefined}>
+              <circle cx={8} cy={-4} r={mood === "wow" ? 3.2 : 2.8} fill={eye} stroke="none" />
+            </g>
+          </>
+        )}
+      </g>
 
       {mood === "wow" ? (
         <ellipse cx={0} cy={9} rx={4.5} ry={5.5} fill="none" />
@@ -131,6 +134,7 @@ export function Mascot({
   size = 112,
   idle = true,
   inheritTint = false,
+  hideEyes,
   className,
 }: {
   name: MascotName;
@@ -138,6 +142,8 @@ export function Mascot({
   size?: number;
   idle?: boolean;
   inheritTint?: boolean;
+  /** Owl only: wings up over its eyes. Leave unset and no wings are drawn. */
+  hideEyes?: boolean;
   className?: string;
 }) {
   const fill = "color-mix(in oklab, var(--tint) 26%, white)";
@@ -266,6 +272,26 @@ export function Mascot({
             <Face mood={mood} y={60} />
             <path d="M46 100l-5 10M74 100l5 10" strokeWidth={2.5} />
             <path d="M34 70c-6 6-8 14-6 20M86 70c6 6 8 14 6 20" strokeWidth={2.5} opacity={0.55} />
+            {hideEyes !== undefined ? (
+              /* Drawn raised, over the eyes; the CSS swings them down out of
+                 sight from each shoulder until `hideEyes` is true. */
+              <g className="owl-wings" data-up={hideEyes}>
+                <g className="owl-wing owl-wing-l">
+                  <path
+                    d="M32 82C30 68 38 54 52 49c5-2 9 1 8 6-1 5-4 8-9 10-5 3-9 9-11 17Z"
+                    fill={deep}
+                  />
+                  <path d="M39 77c2-7 6-12 11-16" strokeWidth={2} opacity={0.5} />
+                </g>
+                <g className="owl-wing owl-wing-r">
+                  <path
+                    d="M88 82C90 68 82 54 68 49c-5-2-9 1-8 6 1 5 4 8 9 10 5 3 9 9 11 17Z"
+                    fill={deep}
+                  />
+                  <path d="M81 77c-2-7-6-12-11-16" strokeWidth={2} opacity={0.5} />
+                </g>
+              </g>
+            ) : null}
           </>
         ) : null}
 
