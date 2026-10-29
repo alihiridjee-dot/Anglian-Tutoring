@@ -109,8 +109,14 @@ export function Nav() {
         (scrolled || open) && "glass-bar",
       )}
     >
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-2 px-4 sm:gap-3 sm:px-6">
-        <Link to="/" hash="top" className="shrink-0">
+      {/* From `lg` the bar is three columns with the links in the middle one,
+          so they sit on the page's centre line above the centred hero, not
+          halfway between a short wordmark and a long row of buttons. Where the
+          buttons need more than an equal share (just above `lg`), their column
+          grows and the links give way to the left rather than overlap. The
+          16px gap still fits at 1024 with a Windows scrollbar taking 17. */}
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-2 px-4 sm:gap-3 sm:px-6 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4">
+        <Link to="/" hash="top" className="shrink-0 justify-self-start">
           <Wordmark />
         </Link>
 
@@ -137,7 +143,7 @@ export function Nav() {
         {/* Sized to fit a 360px phone beside the wordmark: tighter gutters on
             the two buttons, and the menu button borrows the bar's own padding
             (it has no fill, so nothing looks off-centre). */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5">
+        <div className="flex items-center gap-1.5 justify-self-end sm:gap-2.5">
           <Link
             to="/demo"
             className="btn-soft inline-flex min-h-11 cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-xl px-3 py-2 text-sm sm:pointer-fine:min-h-0 sm:px-3.5"
