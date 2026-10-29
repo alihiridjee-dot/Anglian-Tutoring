@@ -35,6 +35,8 @@ type Q = {
   options: string[];
   /** The figure the question is answered from, `{ svg, alt }`, or null. */
   figure?: Json | null;
+  /** Four answer pictures, `{ svg, alt }` in the options' order, when the answers are pictures. */
+  option_figures?: Json | null;
 };
 
 type SetRow = {
@@ -158,7 +160,7 @@ async function fetchPaper(setId: string): Promise<Paper | null> {
       .maybeSingle(),
     supabase
       .from("mcq_questions")
-      .select("id, position, question, options, figure")
+      .select("id, position, question, options, figure, option_figures")
       .eq("set_id", setId)
       .order("position"),
   ]);
@@ -507,6 +509,8 @@ export function TakeMcq() {
             // "Which row…?": each option is a row of the table the question
             // heads, so the options line up under its headings, as on a paper.
             const table = rowOptions(q.question, q.options);
+            // Answers that are pictures: each drawn under its own letter.
+            const pictures = Array.isArray(q.option_figures) ? q.option_figures : null;
             const columns = table && {
               gridTemplateColumns: `1.5rem repeat(${table.columns.length}, minmax(0, 1fr)) 1rem`,
             };
@@ -574,8 +578,14 @@ export function TakeMcq() {
               ) : (
                 <>
                   <span className="font-mono text-xs mr-2 text-muted-foreground">{letter(i)}.</span>
-                  <SciText text={text} context={notation} />
+                  {/* An answer picture's option is its letter alone, already written. */}
+                  {pictures?.[i] && text === letter(i) ? null : (
+                    <SciText text={text} context={notation} />
+                  )}
                   {icon}
+                  {pictures?.[i] ? (
+                    <StoredFigure figure={pictures[i]} plain className="mt-2 max-w-sm" />
+                  ) : null}
                 </>
               );
             };

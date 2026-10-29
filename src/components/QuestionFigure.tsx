@@ -47,12 +47,30 @@ export function QuestionFigure({
  * a question without one. It passed the full check against its brief when it
  * was drawn, so here it is only parsed and rebuilt, for safety: a layout rule
  * tightened later must never make a saved figure vanish from a question whose
- * text says "the graph shows".
+ * text says "the graph shows". `plain` draws it without tap-to-zoom, for an
+ * answer picture inside its answer's own button.
  */
-export function StoredFigure({ figure, className }: { figure: unknown; className?: string }) {
+export function StoredFigure({
+  figure,
+  className,
+  plain = false,
+}: {
+  figure: unknown;
+  className?: string;
+  plain?: boolean;
+}) {
   const f = figure as { svg?: unknown; alt?: unknown } | null | undefined;
   const raw = typeof f?.svg === "string" ? f.svg : null;
   const svg = useMemo(() => (raw ? cleanFigure(raw) : null), [raw]);
   if (!svg || typeof f?.alt !== "string") return null;
+  if (plain)
+    return (
+      <span
+        role="img"
+        aria-label={f.alt}
+        className={`block ${className ?? ""}`}
+        dangerouslySetInnerHTML={{ __html: svg }}
+      />
+    );
   return <Drawing svg={svg} alt={f.alt} className={className} />;
 }

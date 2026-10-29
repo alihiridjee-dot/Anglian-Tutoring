@@ -49,6 +49,17 @@ export const FIGURE_FIELD = {
   description: 'The figure brief as one JSON object, or "" for a question without a figure.',
 };
 
+/** The `option_figures` field of a multiple-choice question: its four answer pictures, or "". */
+export const OPTION_FIGURES_FIELD = {
+  type: "string",
+  description:
+    'The four answer pictures as one JSON array of four briefs of the same kind, in the order of the options, or "" when the answers are words.',
+};
+
+/** What the writer is told about answer pictures, when a quiz may have figures. */
+export const OPTION_FIGURES_GUIDE = `ANSWER PICTURES
+A multiple-choice question whose answers are pictures, as on an exam paper ("Which diagram shows a compound?", "Which graph shows the current through a filament lamp?"), gives option_figures: a JSON array of exactly four briefs of one kind, in the order of its options, each following the rules above for that kind. Its options are then just their letters: "A", "B", "C" and "D". The four pictures must differ in what the question asks about and in nothing that gives the answer away. A question with answer pictures counts as one of the ${MAX_FIGURES} questions that may have figures, and usually has no figure of its own. Every other question's option_figures is "".`;
+
 /** What the writer is told about figures, when a set may have them. */
 export const FIGURE_GUIDE = `FIGURES
 At most ${MAX_FIGURES} questions in the set may each come with one figure, where a figure is how an exam paper would give the information: a graph or bar chart of results to read or interpret, a circuit, a reaction profile, a food web, a chromatogram, a wave, the forces acting on an object${KINDS.map((k) => `, ${k.name}`).join("")}. Most questions have none: their figure is "". A question with one writes its brief in figure as one JSON object, with "kind" and the fields below. Never add a figure for decoration, and never ask a student to draw, plot, sketch or label one.
