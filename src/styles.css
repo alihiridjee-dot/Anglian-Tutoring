@@ -1839,6 +1839,18 @@ input::-webkit-caps-lock-indicator {
    they are exact opposites, and no screen ever gets both or neither. */
 @custom-variant phone (@media (width < 37.5rem) and (pointer: coarse));
 @custom-variant rail (@media (width >= 48rem) and (height > 31.25rem));
+/* The hero's side-by-side layout: a wide screen, or a phone on its side (wide
+   enough for two columns, too short to stack a photo over the copy). Keep in
+   step with SPLIT in landing/Hero.tsx. Two blocks, like `drawer`: a comma in
+   the one-line form is read as a selector list, which breaks the build. */
+@custom-variant split {
+  @media (width >= 64rem) {
+    @slot;
+  }
+  @media (height <= 31.25rem) and (width >= 40rem) {
+    @slot;
+  }
+}
 @custom-variant drawer {
   @media (width < 48rem) {
     @slot;
@@ -2111,31 +2123,53 @@ body {
   }
 }
 
-/* The hero photo and the drawings on it share one 16:9 stage, so the cap stays
-   on her head and the ribbons on her flask however the photo is cropped. The
-   box is a size container and the stage covers it like `object-fit: cover`,
-   with --focus-x / --focus-y choosing which side gives. On a wide screen the
-   stage instead pins x = 600 of the photo (just left of the flask, 37.5% of
-   the way across) to --anchor, clear of the copy, and fades out to the left of
-   it under the headline. */
+/* The hero photo, the drawings on it and, on a wide screen, the doodles on its
+   table share one 4:3 stage in the photo's own 1600 × 1200 frame, so the cap
+   stays on her head and the cast on the table however the photo is cropped.
+   The box runs from under the site bar to the foot of the hero and is a size
+   container; the photo fades in at its top.
+
+   On a phone the stage shows 55% of the photo's width (from about 28% to 84%
+   across: her face and the red cylinder), no taller than 80% of the box, so her
+   smile stays clear of the copy laid over its foot on a navy scrim. Side by
+   side (`split`: a wide screen, or a phone on its side) it fills the box's
+   height on the right and fades out to the left of --anchor, under the
+   headline. */
 .hero-photo {
   container-type: size;
   overflow: hidden;
 }
 .hero-photo-stage {
-  --stage-w: max(100cqw, 177.78cqh);
+  --stage-w: max(100cqw, min(181.8cqw, 106.67cqh));
   position: absolute;
+  top: 0;
   width: var(--stage-w);
-  aspect-ratio: 16 / 9;
-  left: calc((100cqw - var(--stage-w)) * var(--focus-x, 1));
-  top: calc((100cqh - var(--stage-w) * 0.5625) * var(--focus-y, 0.5));
+  aspect-ratio: 4 / 3;
+  left: clamp(100cqw - var(--stage-w), 50cqw - 0.56 * var(--stage-w), 0px);
 }
-@media (width >= 64rem) {
+.hero-photo-img {
+  mask-image: linear-gradient(180deg, transparent, #000 6%);
+}
+.hero-scrim {
+  background: linear-gradient(
+    to top,
+    var(--primary-deep) 0,
+    color-mix(in oklab, var(--primary-deep) 86%, transparent) 15rem,
+    transparent 24rem
+  );
+}
+@media (width >= 64rem), (height <= 31.25rem) and (width >= 40rem) {
   .hero-photo-stage {
-    --anchor: max(29.5rem, 44cqw);
-    --stage-w: max((100cqw - var(--anchor)) / 0.625, 177.78cqh);
-    left: calc(var(--anchor) - 0.375 * var(--stage-w));
-    mask-image: linear-gradient(90deg, transparent calc(37.5% - 16rem), #000 calc(37.5% - 1rem));
+    --anchor: max(28rem, 42cqw);
+    --stage-w: 133.33cqh;
+    --fade-end: calc(var(--anchor) - 100cqw + var(--stage-w));
+    left: calc(100cqw - var(--stage-w));
+    /* Where the photo stops short of the copy, it still fades in from its edge. */
+    mask-image: linear-gradient(
+      90deg,
+      transparent max(0px, var(--fade-end) - 12rem),
+      #000 max(12rem, var(--fade-end))
+    );
   }
 }
 @media (width >= 80rem) {

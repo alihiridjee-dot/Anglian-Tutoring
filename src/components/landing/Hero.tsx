@@ -1,29 +1,50 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Link } from "@tanstack/react-router";
 import { Sparkles, ArrowRight, Star, Stethoscope, GraduationCap, BookOpen } from "lucide-react";
 
-import { Mascot } from "@/components/Doodles";
+import { BenchDoodles } from "@/components/landing/BenchDoodles";
 
-// The hero photo: a student holding up a conical flask in a school lab. From
-// Pexels (pexels.com/photo/37951908, uploaded by Poddar Group of Institutions),
-// free to use with no credit required. It is served from /public, cropped to
-// exactly 16:9, so it can't vanish at its source the way the last hero photo
-// did. Every coordinate below is in its 1600 × 900 frame, which is how the
-// drawings stay on her head and her flask however the photo is cropped.
+// The hero photo: a student in goggles smiling over a lab table full of
+// coloured cylinders. From Pexels (pexels.com/photo/8325981), free to use with
+// no credit required. It is served from /public so it can't vanish at its
+// source the way an old hotlinked hero photo did. Every coordinate below is in
+// its 1600 × 1200 frame, which is how the drawings stay on her head, on the
+// cylinder and on the table however the photo is cropped.
 const PHOTO_WIDTHS = [960, 1600, 2400];
 
-// Sparkles that twinkle round the cap and the flask once they have landed.
+// The hero's side-by-side layout: a wide screen, or a phone on its side. Keep
+// in step with the `split` variant and `.hero-photo-stage` in styles.css.
+const SPLIT = "(min-width: 64rem), (max-height: 31.25rem) and (min-width: 40rem)";
+
+/**
+ * Whether the hero is side by side, or null before the page has hydrated. The
+ * doodles only stand on the table side by side (a phone's copy covers it), so
+ * they wait for this; they start out of sight anyway, so nothing jumps.
+ */
+function useSplitLayout() {
+  return useSyncExternalStore(
+    (onChange) => {
+      const query = window.matchMedia(SPLIT);
+      query.addEventListener("change", onChange);
+      return () => query.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia(SPLIT).matches,
+    () => null,
+  );
+}
+
+// Sparkles that twinkle round the cap and the cylinder once they have landed.
 // Hand-placed (not Math.random) so the server and client render the same dots,
 // otherwise React throws a hydration mismatch on this SSR'd page.
 const GLITTER: { x: number; y: number; r: number; delay: number }[] = [
-  { x: 752, y: 168, r: 9, delay: 0 },
-  { x: 1128, y: 142, r: 7, delay: 1.2 },
-  { x: 1214, y: 292, r: 8, delay: 2.1 },
-  { x: 868, y: 112, r: 6, delay: 0.6 },
-  { x: 1046, y: 96, r: 5, delay: 1.8 },
-  { x: 606, y: 352, r: 8, delay: 0.9 },
-  { x: 818, y: 520, r: 7, delay: 2.6 },
-  { x: 640, y: 266, r: 5, delay: 1.5 },
+  { x: 548, y: 130, r: 12, delay: 0 },
+  { x: 1196, y: 84, r: 10, delay: 1.2 },
+  { x: 1232, y: 236, r: 11, delay: 2.1 },
+  { x: 720, y: 24, r: 8, delay: 0.6 },
+  { x: 1020, y: 20, r: 7, delay: 1.8 },
+  { x: 1136, y: 372, r: 9, delay: 0.9 },
+  { x: 1292, y: 476, r: 8, delay: 2.6 },
+  { x: 1292, y: 980, r: 7, delay: 1.5 },
 ];
 
 // Each ribbon draws itself on while drifting in from its own direction, then
@@ -49,24 +70,25 @@ type Ribbon = {
 const CAP_BOARD = "M0,-58 L112,-10 L0,38 L-112,-10 Z";
 
 // The grad cap, in its own frame centred on the board. GradCapRibbons places it
-// on her head. It builds the way a real one goes on, each piece starting close
-// to where it ends up: the crown, then the board drops onto it (a ring flashes
-// out as it lands), then the tassel swings down from the button. About 1.3 s.
+// on her head. It builds from the top down, in about a second: the board lands
+// first (a ring flashes out as it does), the crown slides down out from under
+// it, then the tassel drops from the button.
 const CAP_RIBBONS: Ribbon[] = [
-  // The crown, round the top of her head. First, so the board paints over it.
+  // The crown, round the top of her head. First in paint order, so the board
+  // covers its top, but drawn second.
   {
     d: "M-70,6 L-66,56 C-30,68 30,68 66,56 L70,6",
     width: 3.5,
-    delay: 0,
-    dur: 0.5,
-    from: { x: "0px", y: "14px", scale: 1.06 },
+    delay: 0.28,
+    dur: 0.45,
+    from: { x: "0px", y: "-14px", scale: 0.96 },
     fill: "url(#cap-crown)",
   },
-  // The board.
+  // The board, drawn from its top corner.
   {
     d: CAP_BOARD,
     width: 4.5,
-    delay: 0.3,
+    delay: 0,
     dur: 0.5,
     from: { x: "0px", y: "-30px", scale: 1.1 },
     fill: "url(#cap-board)",
@@ -75,65 +97,27 @@ const CAP_RIBBONS: Ribbon[] = [
   {
     d: CAP_BOARD,
     width: 3,
-    delay: 0.66,
+    delay: 0.36,
     from: { x: "0px", y: "0px", scale: 1 },
     pulse: true,
   },
-  // Tassel: swings down from the button.
+  // Tassel: swings down from the button towards the red cylinder.
   {
     d: "M0,-10 C0,20 96,4 128,44 C138,58 138,74 130,90",
     width: 3.5,
-    delay: 0.85,
+    delay: 0.62,
     dur: 0.45,
     from: { x: "12px", y: "-8px", scale: 1.04 },
   },
 ];
 
-// The flask she is holding, traced in the photo's own frame once the cap is
-// on. Her fingers are round its neck, so the ribbons stop where they start.
-const FLASK_RIBBONS: Ribbon[] = [
-  // The body, shoulder to shoulder round the base.
-  {
-    d: "M672,490 L627,610 Q622,626 638,626 L780,626 Q796,626 791,610 L746,490",
-    width: 5,
-    delay: 1.1,
-    from: { x: "0px", y: "30px", scale: 1.15 },
-  },
-  // The lip, above her fingers.
-  {
-    d: "M681,368 L681,352 Q681,348 685,348 L749,348 Q753,348 753,352 L753,368",
-    width: 4.5,
-    delay: 1.4,
-    from: { x: "0px", y: "-24px", scale: 1.2 },
-  },
-  // Volume marks.
-  {
-    d: "M659,532 H679 M648,560 H674 M637,588 H657",
-    width: 3,
-    delay: 1.8,
-    from: { x: "-16px", y: "0px", scale: 1 },
-  },
-  // The top of the liquid.
-  {
-    d: "M641,584 Q676,576 710,584 T779,584",
-    width: 3,
-    delay: 2,
-    from: { x: "0px", y: "12px", scale: 1 },
-    stroke: "var(--accent)",
-  },
-];
-
-// Bubbles rise through the liquid; fizz pops out of the top of the flask.
+// Bubbles rising to the top of the red liquid in the cylinder beside her face,
+// once the cap is on.
 const BUBBLES: { x: number; y: number; r: number; delay: number }[] = [
-  { x: 690, y: 616, r: 5, delay: 0 },
-  { x: 726, y: 620, r: 4, delay: 0.8 },
-  { x: 752, y: 612, r: 6, delay: 1.5 },
-  { x: 706, y: 604, r: 3.5, delay: 2.1 },
-];
-const FIZZ: { x: number; y: number; r: number; delay: number; drift: string }[] = [
-  { x: 708, y: 334, r: 5, delay: 0.3, drift: "-14px" },
-  { x: 734, y: 328, r: 4, delay: 1.1, drift: "10px" },
-  { x: 720, y: 338, r: 3, delay: 1.9, drift: "-4px" },
+  { x: 1194, y: 704, r: 5, delay: 0 },
+  { x: 1220, y: 712, r: 4, delay: 0.7 },
+  { x: 1240, y: 700, r: 6, delay: 1.3 },
+  { x: 1206, y: 694, r: 3.5, delay: 1.9 },
 ];
 
 function Ribbons({ ribbons, runId, stroke }: { ribbons: Ribbon[]; runId: number; stroke: string }) {
@@ -183,12 +167,12 @@ function Ribbons({ ribbons, runId, stroke }: { ribbons: Ribbon[]; runId: number;
 }
 
 /**
- * Blue ribbons build a graduation cap on her head, piece by piece, each piece
- * colouring in as its outline closes.
+ * Blue ribbons build a graduation cap on her head, from the top down, each
+ * piece colouring in as its outline closes.
  */
 function GradCapRibbons({ runId }: { runId: number }) {
   return (
-    <g transform="translate(933 252) rotate(-6) scale(1.75 1.45)">
+    <g transform="translate(870 159) rotate(4) scale(2.6 2.1)">
       <Ribbons ribbons={CAP_RIBBONS} runId={runId} stroke="url(#cap-ribbon)" />
 
       {/* Board button and tassel bead, fading in once their ribbons land. */}
@@ -199,7 +183,7 @@ function GradCapRibbons({ runId }: { runId: number }) {
         r="5"
         fill="var(--accent)"
         className="glitter-dot"
-        style={{ "--glitter-delay": "0.8s" } as React.CSSProperties}
+        style={{ "--glitter-delay": "0.5s" } as React.CSSProperties}
       />
       <circle
         key={`${runId}-bead`}
@@ -208,106 +192,70 @@ function GradCapRibbons({ runId }: { runId: number }) {
         r="6.5"
         fill="var(--primary)"
         className="glitter-dot"
-        style={{ "--glitter-delay": "1.15s" } as React.CSSProperties}
+        style={{ "--glitter-delay": "0.95s" } as React.CSSProperties}
       />
     </g>
   );
 }
 
-/**
- * The flask she is holding is built over in the same ribbons, then fizzes:
- * bubbles rise through the liquid and pop out of the top.
- */
-function FlaskRibbons({ runId }: { runId: number }) {
-  return (
-    <g>
-      <Ribbons ribbons={FLASK_RIBBONS} runId={runId} stroke="url(#flask-ribbon)" />
-      {BUBBLES.map((b, i) => (
-        <circle
-          key={`${runId}-bubble-${i}`}
-          cx={b.x}
-          cy={b.y}
-          r={b.r}
-          fill="white"
-          fillOpacity="0.55"
-          stroke="var(--accent)"
-          strokeWidth="1.5"
-          className="flask-bubble"
-          style={{ "--bubble-delay": `${2.4 + b.delay}s` } as React.CSSProperties}
-        />
-      ))}
-      {FIZZ.map((f, i) => (
-        <circle
-          key={`${runId}-fizz-${i}`}
-          cx={f.x}
-          cy={f.y}
-          r={f.r}
-          stroke="var(--accent)"
-          strokeWidth="2"
-          className="flask-fizz"
-          style={
-            {
-              "--bubble-delay": `${2.2 + f.delay}s`,
-              "--fizz-x": f.drift,
-            } as React.CSSProperties
-          }
-        />
-      ))}
-    </g>
-  );
+/** Bubbles rising through the red cylinder beside her, once the cap is on. */
+function CylinderBubbles({ runId }: { runId: number }) {
+  return BUBBLES.map((b, i) => (
+    <circle
+      key={`${runId}-bubble-${i}`}
+      cx={b.x}
+      cy={b.y}
+      r={b.r}
+      fill="white"
+      fillOpacity="0.55"
+      stroke="var(--accent)"
+      strokeWidth="2"
+      className="flask-bubble"
+      style={{ "--bubble-delay": `${1 + b.delay}s` } as React.CSSProperties}
+    />
+  ));
 }
 
 /**
- * The photo, with the cap and the flask drawn on it. Both share one 16:9
- * stage, sized like `object-fit: cover`, so the drawings move with the photo
- * (see `.hero-photo` in styles.css). The ribbons are decoration (aria-hidden);
- * the photo's alt says what it shows.
+ * The photo, with the cap drawn on it, bubbles in its cylinder and, side by
+ * side, the doodles on its table. All of it shares one 4:3 stage, sized like
+ * `object-fit: cover`, so the drawings move with the photo (see `.hero-photo`
+ * in styles.css). The drawings are decoration (aria-hidden); the photo's alt
+ * says what it shows.
  *
- * `runId` remounts the animated nodes to replay the CSS animations from the
- * top — the hero animates on load and again each time it scrolls back into view.
+ * `runId` remounts the animated nodes to replay the animations from the top —
+ * the hero animates on load and again each time it scrolls back into view.
  */
-function HeroPhoto({ runId }: { runId: number }) {
+function HeroPhoto({ runId, doodles }: { runId: number; doodles: boolean }) {
   return (
-    <div className="hero-photo relative aspect-[16/10] sm:aspect-video lg:absolute lg:inset-0 lg:aspect-auto short:order-last">
+    <div className="hero-photo absolute inset-x-0 top-(--site-bar-h) bottom-0">
       <div className="hero-photo-stage">
         <img
-          src="/hero/student-lab-1600.webp"
-          srcSet={PHOTO_WIDTHS.map((w) => `/hero/student-lab-${w}.webp ${w}w`).join(", ")}
-          sizes="(min-width: 1024px) 100vw, 112vw"
+          src="/hero/student-smile-1600.webp"
+          srcSet={PHOTO_WIDTHS.map((w) => `/hero/student-smile-${w}.webp ${w}w`).join(", ")}
+          sizes="(min-width: 1024px) 70vw, 230vw"
           width={1600}
-          height={900}
-          alt="A student in a lab coat holding up a flask of purple liquid"
+          height={1200}
+          alt="A smiling student in safety goggles behind a lab table of coloured measuring cylinders"
           fetchPriority="high"
           draggable={false}
-          className="absolute inset-0 size-full select-none"
+          className="hero-photo-img absolute inset-0 size-full select-none"
         />
         <svg
           aria-hidden
-          viewBox="0 0 1600 900"
+          viewBox="0 0 1600 1200"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
           className="pointer-events-none absolute inset-0 size-full overflow-visible"
         >
           <defs>
-            {/* Cap strokes run in the cap's own frame, flask strokes in the photo's. */}
+            {/* Cap strokes run in the cap's own frame. */}
             <linearGradient
               id="cap-ribbon"
               x1="-200"
               y1="0"
               x2="200"
-              y2="0"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0%" stopColor="var(--primary)" />
-              <stop offset="50%" stopColor="var(--accent)" />
-              <stop offset="100%" stopColor="var(--primary)" />
-            </linearGradient>
-            <linearGradient
-              id="flask-ribbon"
-              x1="620"
-              y1="0"
-              x2="800"
               y2="0"
               gradientUnits="userSpaceOnUse"
             >
@@ -339,7 +287,7 @@ function HeroPhoto({ runId }: { runId: number }) {
           </defs>
 
           <GradCapRibbons runId={runId} />
-          <FlaskRibbons runId={runId} />
+          <CylinderBubbles runId={runId} />
 
           {GLITTER.map((g, i) => (
             <circle
@@ -349,18 +297,25 @@ function HeroPhoto({ runId }: { runId: number }) {
               r={g.r}
               fill="url(#glint)"
               className="glitter-dot"
-              style={{ "--glitter-delay": `${1.3 + g.delay * 0.25}s` } as React.CSSProperties}
+              style={{ "--glitter-delay": `${1 + g.delay * 0.25}s` } as React.CSSProperties}
             >
               <animate
                 attributeName="opacity"
                 values="0.2;1;0.2"
                 dur="3s"
-                begin={`${2 + g.delay}s`}
+                begin={`${1.8 + g.delay}s`}
                 repeatCount="indefinite"
               />
             </circle>
           ))}
         </svg>
+
+        {/* The cast, grouped on the table in front of her hands. */}
+        {doodles ? (
+          <div className="absolute bottom-[4.2%] left-[38.5%] h-[13.5%] w-[28.1%]">
+            <BenchDoodles key={runId} />
+          </div>
+        ) : null}
       </div>
     </div>
   );
@@ -433,6 +388,7 @@ export function Hero() {
   // Bumping runId remounts the ribbon nodes, restarting their CSS animations.
   // Starts at 0 so the sequence also plays on first load / refresh.
   const [runId, setRunId] = useState(0);
+  const split = useSplitLayout();
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -455,15 +411,16 @@ export function Hero() {
       {/* Radial wash for smooth edges behind the copy. */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,color-mix(in_oklab,var(--primary)_8%,var(--background)),var(--background))] opacity-90" />
 
-      {/* On a wide screen the photo fills the hero and the copy sits over its
-          faded left edge. Narrower, the photo comes first with the copy under
-          it — except on a phone turned sideways, where the copy comes first so
-          "Get started" makes the first screen rather than the second. */}
-      <div className="relative flex flex-col pt-(--site-bar-h) lg:min-h-[clamp(38rem,calc(100svh-4.75rem),56rem)] lg:pt-0">
-        <HeroPhoto runId={runId} />
+      {/* On a phone the photo fills the hero and the copy is laid over its
+          foot, white on a navy scrim. Side by side (a wide screen, or a phone
+          on its side), the photo fills the right and the copy sits over its
+          faded left edge. */}
+      <div className="relative flex min-h-[max(100svh,46rem)] flex-col justify-end pt-(--site-bar-h) split:min-h-[clamp(min(38rem,100svh),calc(100svh-4.75rem),56rem)] split:justify-center">
+        <HeroPhoto runId={runId} doodles={split === true} />
+        <div aria-hidden className="hero-scrim pointer-events-none absolute inset-0 split:hidden" />
 
-        <div className="relative z-20 mx-auto flex w-full max-w-7xl px-4 pt-8 pb-14 sm:px-6 lg:flex-1 lg:items-center lg:pt-[calc(var(--site-bar-h)+2rem)] lg:pb-20 short:order-first short:pt-5 short:pb-8">
-          <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:max-w-[26rem] lg:text-left xl:max-w-[30rem]">
+        <div className="relative z-20 mx-auto w-full max-w-7xl px-5 pb-10 sm:px-6 split:py-10 short:py-4">
+          <div className="max-w-xl split:max-w-[26rem] xl:max-w-[30rem]">
             <span className="sticker stamp-in">
               <Sparkles className="size-3.5 text-[color:var(--pop-ink)]" aria-hidden /> Modern
               science platform for KS3 &amp; GCSE
@@ -471,17 +428,12 @@ export function Hero() {
 
             {/* The highlighter goes on the one word the whole page is about. A
                 second marker anywhere on this screen and neither would land. */}
-            <h1 className="font-display text-foreground mt-6 text-4xl leading-[1.08] font-extrabold tracking-tight sm:text-5xl xl:text-6xl short:mt-3 short:text-4xl">
-              Better grades in <span className="marker">science</span>, taught by teachers who care.
+            <h1 className="font-display split:text-foreground mt-5 text-4xl leading-[1.08] font-extrabold tracking-tight text-white sm:text-5xl xl:text-6xl short:mt-3 short:text-4xl">
+              Better grades in <span className="marker">science</span>, taught live by teachers who
+              care.
             </h1>
 
-            <p className="text-muted-foreground mt-5 text-lg leading-relaxed short:mt-2 short:text-base">
-              Weekly live lessons in Biology, Chemistry, and Physics, aligned to Edexcel, AQA, and
-              OCR. Interactive quizzes, marked tasks, and a grade predictor that actually reflects
-              your progress.
-            </p>
-
-            <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start short:mt-4">
+            <div className="mt-7 flex flex-wrap gap-3 sm:gap-4 short:mt-4">
               <Link
                 to="/auth"
                 search={{ mode: "signup" } as never}
@@ -500,15 +452,6 @@ export function Hero() {
                 <Sparkles className="text-accent size-4" aria-hidden />
                 Try Demo Platform
               </Link>
-            </div>
-
-            {/* The cast, one per science, introduced once at the top of the site so
-                the characters further down read as familiar rather than random.
-                They rise in behind the buttons after the ribbons have landed. */}
-            <div className="peek-in mt-10 flex items-end justify-center gap-2 sm:gap-6 lg:justify-start">
-              <Mascot name="cell" mood="happy" size={72} className="sm:size-[92px]" />
-              <Mascot name="flask" mood="wink" size={84} className="sm:size-[108px]" />
-              <Mascot name="bolt" mood="wow" size={72} className="sm:size-[92px]" />
             </div>
           </div>
         </div>
