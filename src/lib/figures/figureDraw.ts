@@ -1,29 +1,51 @@
 /**
- * Figures drawn by code: line and scatter graphs, bar charts and reaction
- * profiles. Every position in these follows from the brief by the contract's
- * formulas (figure.ts), so code draws them exactly, free and the same every
- * time. DeepSeek is left the figures whose layout needs deciding: circuits
- * and food webs (`figurePrompt`). Whatever is drawn here still goes through
- * `checkFigure` before it is saved, and the tests hold every drawing to it.
+ * Figures drawn by code: line and scatter graphs, bar charts, reaction
+ * profiles, chromatograms, waves and the forces on an object. Every position
+ * in these follows from the brief by the contract's formulas (figure.ts), so
+ * code draws them exactly, free and the same every time. DeepSeek is left the
+ * figures whose layout needs deciding: circuits and food webs
+ * (`figurePrompt`). Whatever is drawn here still goes through `checkFigure`
+ * before it is saved, and the tests hold every drawing to it.
  */
 import {
   ARROW_DEFS,
   CANVAS_WIDTH,
+  CHROMATOGRAM,
+  FORCES,
+  FORCE_STEP,
   PLOT,
   PROFILE,
   TEXT_SIZE,
+  WAVE,
+  WAVE_ARROWS,
+  WAVE_LENGTH,
+  chromaY,
+  forceLabelAt,
+  forceStart,
+  laneX,
   plotX,
   plotY,
   textWidth,
   type Axis,
   type BarBrief,
+  type ChromatogramBrief,
   type FigureBrief,
+  type ForceBrief,
   type GraphBrief,
   type ProfileBrief,
+  type WaveBrief,
 } from "./figure";
 
 /** The kinds drawn here; every other kind goes to DeepSeek. */
-export const CODE_DRAWN = ["line-graph", "scatter", "bar-chart", "energy-profile"] as const;
+export const CODE_DRAWN = [
+  "line-graph",
+  "scatter",
+  "bar-chart",
+  "energy-profile",
+  "chromatogram",
+  "wave",
+  "forces",
+] as const;
 export const drawnByCode = (brief: FigureBrief) =>
   (CODE_DRAWN as readonly string[]).includes(brief.kind);
 
@@ -327,6 +349,156 @@ function drawProfile(b: ProfileBrief): DrawnFigure | null {
   };
 }
 
+/** A list of values as words: "2.4, 5.2 and 7.9". */
+const and = (items: string[]) =>
+  items.length > 1 ? `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}` : items[0];
+
+function drawChromatogram(b: ChromatogramBrief): DrawnFigure {
+  const C = CHROMATOGRAM;
+  const max = b.y.max;
+  const n = b.samples.length;
+  const body = [
+    `<rect class="qf-line" x="${C.left}" y="${C.paperTop}" width="${C.right - C.left}" height="${C.paperBottom - C.paperTop}"/>`,
+  ];
+  const ys = ticks(b.y);
+  for (const v of ys)
+    if (v > 0) body.push(line("qf-thin", C.left, chromaY(v, max), C.right, chromaY(v, max)));
+  const k = every((C.start - C.top) / (ys.length - 1), 18);
+  ys.forEach((v, i) => {
+    if (i % k === 0)
+      body.push(text("qf-small", C.left - 8, chromaY(v, max) + 5, "end", [label(v)]));
+  });
+  body.push(text("qf-text", 16, 22, "start", [b.y.title]));
+  body.push(line("qf-line", C.left, C.start, C.right, C.start));
+  body.push(line("qf-line", C.left, chromaY(b.front, max), C.right, chromaY(b.front, max)));
+  body.push(text("qf-small", C.labelX, chromaY(b.front, max) + 5, "start", ["solvent front"]));
+  body.push(text("qf-small", C.labelX, C.start + 5, "start", ["start line"]));
+  b.samples.forEach((s, i) => {
+    for (const v of s.spots)
+      body.push(
+        `<circle class="qf-dot" cx="${num(laneX(i, n))}" cy="${num(chromaY(v, max))}" r="5" data-x="${i + 1}" data-y="${num(v)}"/>`,
+      );
+    body.push(text("qf-small", laneX(i, n), C.start + 22, "middle", [s.name]));
+  });
+  return {
+    svg: svgOf(C.height, body),
+    alt: `A paper chromatogram of ${n} samples, with a scale of ${b.y.title} from the start line at 0 to ${label(max)}. The solvent front is at ${label(b.front)}. Spots: ${b.samples.map((s) => `${s.name} at ${and(s.spots.map(label))}`).join("; ")}.`,
+  };
+}
+
+/**
+ * A sine wave as a polyline from x0 to x1, a point at least every 2 units, so
+ * it reads as a smooth curve and never cuts a crest short.
+ */
+export const wavePoints = (x0: number, x1: number, rest: number, amp: number, length: number) => {
+  const steps = Math.ceil((x1 - x0) / 2);
+  return Array.from({ length: steps + 1 }, (_, i) => {
+    const x = x0 + ((x1 - x0) * i) / steps;
+    return [x, rest - amp * Math.sin((2 * Math.PI * (x - x0)) / length)] as [number, number];
+  });
+};
+const polyline = (cls: string, pts: [number, number][]) =>
+  `<polyline class="${cls}" points="${pts.map(([x, y]) => `${num(x)},${num(y)}`).join(" ")}"/>`;
+
+function drawWave(b: WaveBrief): DrawnFigure {
+  if ("x" in b) {
+    const H = GRAPH_HEIGHT;
+    const rest = plotY(0, b.y, H);
+    const amp = (b.amplitude / (b.y.max - b.y.min)) * (H - PLOT.bottomGap - PLOT.top);
+    const length = (b.wavelength / (b.x.max - b.x.min)) * (PLOT.right - PLOT.left);
+    return {
+      svg: svgOf(H, [
+        ...frame(H, b.x, b.y, b.x.title),
+        line("qf-line", PLOT.left, rest, PLOT.right, rest),
+        polyline("qf-data", wavePoints(PLOT.left, PLOT.right, rest, amp, length)),
+      ]),
+      // Neither its height nor its length: either may be the answer.
+      alt: `A graph of ${b.y.title} from ${label(b.y.min)} to ${label(b.y.max)} against ${b.x.title} from ${label(b.x.min)} to ${label(b.x.max)}: a wave that starts at 0 and rises first.`,
+    };
+  }
+  const crest = WAVE.rest - WAVE.amp;
+  const trough = WAVE.rest + WAVE.amp;
+  const firstCrest = WAVE.left + WAVE_LENGTH / 4;
+  const shows = new Set(b.arrows.map((a) => a.shows));
+  const head = ' marker-start="url(#qf-head)" marker-end="url(#qf-head)"';
+  const body = [
+    ARROW_DEFS,
+    line("qf-line", WAVE.restFrom, WAVE.rest, WAVE.restTo, WAVE.rest),
+    polyline("qf-data", wavePoints(WAVE.left, WAVE.right, WAVE.rest, WAVE.amp, WAVE_LENGTH)),
+  ];
+  // Guides from the vertical arrows to the first crest and trough; one crest guide serves both.
+  const fromX = shows.has("crest to trough") ? 38 : shows.has("amplitude") ? 66 : null;
+  if (fromX !== null) body.push(line("qf-thin", fromX, crest, firstCrest, crest));
+  if (shows.has("crest to trough"))
+    body.push(line("qf-thin", 38, trough, WAVE.left + (WAVE_LENGTH * 3) / 4, trough));
+  for (const a of b.arrows) {
+    const { from, to, letter } = WAVE_ARROWS[a.shows];
+    if (a.shows === "wavelength")
+      for (const x of [from[0], to[0]]) body.push(line("qf-thin", x, crest - 6, x, from[1] - 6));
+    if (a.shows === "half a wavelength")
+      for (const x of [from[0], to[0]]) body.push(line("qf-thin", x, WAVE.rest, x, from[1] + 6));
+    body.push(line("qf-line", from[0], from[1], to[0], to[1], head));
+    body.push(text("qf-strong", letter[0], letter[1], letter[2], [a.letter]));
+  }
+  const letters = b.arrows.map((a) => a.letter);
+  return {
+    svg: svgOf(WAVE.height, body),
+    // What is drawn, never what it means: which arrow is the amplitude is the question.
+    alt: `A wave drawn over two whole waves, crossing a straight line through its middle. ${letters.length === 1 ? "A double-headed arrow is" : `${letters.length} double-headed arrows are`} labelled ${and(letters)}.`,
+  };
+}
+
+/** A size in newtons as an exam paper writes it: 2500 N, 13 800 N. */
+const newtons = (v: number) => {
+  const [whole, part] = label(v).split(".");
+  const grouped =
+    whole.replace(/^−/, "").length > 4 ? whole.replace(/\B(?=(\d{3})+$)/g, " ") : whole;
+  return `${grouped}${part ? `.${part}` : ""} N`;
+};
+
+/** A force's label, line by line: its name, wrapped, then its size; null when the name can't fit. */
+export function forceLabel(f: ForceBrief["forces"][number]): string[] | null {
+  const name = wrap(f.name, FORCES.nameWidth, TEXT_SIZE["qf-text"]!);
+  if (!name) return null;
+  return f.size === null ? name : [...name, newtons(f.size)];
+}
+
+/** How wide a label's widest line is. */
+export const labelWidth = (lines: string[]) =>
+  Math.max(...lines.map((l) => textWidth(l, TEXT_SIZE["qf-text"]!)));
+
+/** How long a force's arrow is: all one length, or in proportion to the largest. */
+export const forceLength = (b: ForceBrief, f: ForceBrief["forces"][number]) => {
+  if (!b.toScale || f.size === null) return FORCES.length;
+  const largest = Math.max(...b.forces.map((g) => g.size ?? 0));
+  return (FORCES.longest * f.size) / largest;
+};
+
+function drawForces(b: ForceBrief): DrawnFigure | null {
+  const { x0, y0, x1, y1 } = FORCES.box;
+  const body = [
+    ARROW_DEFS,
+    `<rect class="qf-line" x="${x0}" y="${y0}" width="${x1 - x0}" height="${y1 - y0}" rx="4"/>`,
+  ];
+  if (b.object)
+    body.push(text("qf-text", (x0 + x1) / 2, (y0 + y1) / 2 + 5.5, "middle", [b.object]));
+  for (const f of b.forces) {
+    const [sx, sy] = forceStart(f.direction);
+    const [dx, dy] = FORCE_STEP[f.direction];
+    const L = forceLength(b, f);
+    body.push(line("qf-line", sx, sy, sx + dx * L, sy + dy * L, ' marker-end="url(#qf-head)"'));
+    const lines = forceLabel(f);
+    if (!lines) return null;
+    const [x, y, anchor] = forceLabelAt(f.direction, lines.length, labelWidth(lines), L);
+    // The force the question asks for is bold, as an exam paper marks its X.
+    body.push(text(f.size === null ? "qf-strong" : "qf-text", x, y, anchor, lines));
+  }
+  return {
+    svg: svgOf(FORCES.height, body),
+    alt: `A box${b.object ? ` labelled ${b.object}` : ""} with ${b.forces.length === 1 ? "one force arrow" : `${b.forces.length} force arrows`}${b.forces.length > 1 ? (b.toScale ? ", drawn to scale" : ", all the same length") : ""}: ${b.forces.map((f) => `${f.direction}, ${f.name}${f.size === null ? "" : ` ${newtons(f.size)}`}`).join("; ")}.`,
+  };
+}
+
 /** The figure for a brief that code draws; null for one it doesn't, or can't fit. */
 export function drawWithCode(brief: FigureBrief): DrawnFigure | null {
   switch (brief.kind) {
@@ -337,6 +509,12 @@ export function drawWithCode(brief: FigureBrief): DrawnFigure | null {
       return drawBars(brief as BarBrief);
     case "energy-profile":
       return drawProfile(brief as ProfileBrief);
+    case "chromatogram":
+      return drawChromatogram(brief as ChromatogramBrief);
+    case "wave":
+      return drawWave(brief as WaveBrief);
+    case "forces":
+      return drawForces(brief as ForceBrief);
     default:
       return null;
   }

@@ -148,11 +148,6 @@ describe("code draws graphs, bar charts and reaction profiles that pass the chec
 });
 
 describe("a brief is checked before anything draws it", () => {
-  const problem = (value: unknown) => {
-    const read = readBrief(value);
-    return "problem" in read ? read.problem : null;
-  };
-
   test("briefs that draw pass", () => {
     for (const brief of [velocity, bars, peroxide, limestone]) expect(problem(brief)).toBeNull();
   });
@@ -396,5 +391,268 @@ describe("what the first real writer trial turned up (17 Oct)", () => {
     expect(f.problems).toEqual([]);
     expect(f.svg).not.toContain('class="qf-box"');
     expect(f.svg).toContain('y="22" text-anchor="start">Foxes<');
+  });
+});
+
+const pens: FigureBrief = {
+  kind: "chromatogram",
+  y: { title: "distance moved in cm", min: 0, max: 10, step: 1 },
+  front: 10,
+  samples: [
+    { name: "note", spots: [2.4, 5.2] },
+    { name: "P", spots: [2.4, 5.2, 7.9] },
+    { name: "Q", spots: [2.4, 5.2] },
+    { name: "R", spots: [3, 6.1] },
+  ],
+};
+const lettered: FigureBrief = {
+  kind: "wave",
+  arrows: [
+    { shows: "crest to trough", letter: "A" },
+    { shows: "amplitude", letter: "B" },
+    { shows: "wavelength", letter: "C" },
+    { shows: "half a wavelength", letter: "D" },
+  ],
+};
+const rope: FigureBrief = {
+  kind: "wave",
+  x: { title: "distance in cm", min: 0, max: 40, step: 5 },
+  y: { title: "displacement in cm", min: -4, max: 4, step: 1 },
+  amplitude: 3,
+  wavelength: 20,
+};
+const van: FigureBrief = {
+  kind: "forces",
+  object: "van",
+  toScale: false,
+  forces: [
+    { direction: "right", name: "driving force", size: 2500 },
+    { direction: "left", name: "X", size: null },
+    { direction: "up", name: "normal contact force", size: 18000 },
+    { direction: "down", name: "weight", size: 18000 },
+  ],
+};
+const skydiver: FigureBrief = {
+  kind: "forces",
+  object: "skydiver",
+  toScale: true,
+  forces: [
+    { direction: "up", name: "air resistance", size: 400 },
+    { direction: "down", name: "weight", size: 700 },
+  ],
+};
+
+describe("code draws chromatograms, waves and force diagrams that pass the checker", () => {
+  test("each drawn by code", () => {
+    for (const brief of [pens, lettered, rope, van, skydiver]) {
+      expect(drawnByCode(brief)).toBe(true);
+      expect(problem(brief)).toBeNull();
+      expect(drawn(brief).problems).toEqual([]);
+    }
+  });
+
+  test("a spot that stayed on the start line, and one lettered arrow alone", () => {
+    const insoluble = {
+      ...pens,
+      samples: [
+        { name: "A", spots: [0, 3] },
+        { name: "B", spots: [4] },
+      ],
+    } as FigureBrief;
+    expect(drawn(insoluble).problems).toEqual([]);
+    expect(
+      drawn({ kind: "wave", arrows: [{ shows: "wavelength", letter: "W" }] }).problems,
+    ).toEqual([]);
+  });
+
+  test("drawn to scale, an arrow's length is in proportion to its force", () => {
+    const svg = drawWithCode(skydiver)!.svg;
+    // 96 for the 700 N weight; 400 ÷ 700 of that for the air resistance.
+    expect(svg).toContain('x1="180" y1="144" x2="180" y2="240"');
+    expect(svg).toContain('x1="180" y1="104" x2="180" y2="49.14"');
+    expect(drawWithCode(van)!.svg).toContain(">18 000 N<");
+  });
+
+  test("the alt text says what is drawn, never what it means", () => {
+    // Which arrow is the amplitude, or how long one wave is, may be the answer.
+    expect(drawWithCode(lettered)!.alt).toBe(
+      "A wave drawn over two whole waves, crossing a straight line through its middle. 4 double-headed arrows are labelled A, B, C and D.",
+    );
+    expect(drawWithCode(rope)!.alt).not.toMatch(/20|3 cm|wavelength|amplitude/);
+    expect(drawWithCode(pens)!.alt).toContain("P at 2.4, 5.2 and 7.9");
+    expect(drawWithCode(van)!.alt).not.toMatch(/resultant|balanced/);
+  });
+});
+
+const problem = (value: unknown) => {
+  const read = readBrief(value);
+  return "problem" in read ? read.problem : null;
+};
+
+describe("a chromatogram, wave or force brief is checked before anything draws it", () => {
+  test("a chromatogram measures from its start line, below its solvent front", () => {
+    expect(problem({ ...pens, y: { title: "distance in cm", min: 1, max: 10, step: 1 } })).toBe(
+      "y axis must start at 0, at the start line",
+    );
+    expect(problem({ ...pens, front: 4 })).toBe("front must be from half of y.max to y.max");
+    expect(
+      problem({
+        ...pens,
+        samples: [
+          { name: "A", spots: [10] },
+          { name: "B", spots: [2] },
+        ],
+      }),
+    ).toBe("has a spot that is not from 0 to below the solvent front");
+    // A tenth of the scale apart would be drawn as one spot.
+    expect(
+      problem({
+        ...pens,
+        samples: [
+          { name: "A", spots: [3, 3.3] },
+          { name: "B", spots: [2] },
+        ],
+      }),
+    ).toBe("has two spots in one lane closer than y.max ÷ 16");
+    expect(
+      problem({
+        ...pens,
+        samples: ["ink", "pen 1", "pen 2", "pen 3", "pen 4", "pen 5"].map((name) => ({
+          name,
+          spots: [2],
+        })),
+      }),
+    ).toBe("has a sample name too long for its lane");
+  });
+
+  test("a wave has letters or a scale, and a scale holds whole waves it can draw", () => {
+    expect(problem({ ...rope, arrows: [{ shows: "amplitude", letter: "A" }] })).toBe(
+      "has both axes and arrows: a wave has one or the other",
+    );
+    expect(problem({ ...rope, y: { title: "displacement in cm", min: -2, max: 4, step: 1 } })).toBe(
+      "y axis must run from −y.max to y.max, with the wave's middle at 0",
+    );
+    expect(problem({ ...rope, amplitude: 0.5 })).toBe(
+      "amplitude must be from a quarter of y.max to y.max",
+    );
+    expect(problem({ ...rope, wavelength: 5 })).toBe("x axis must hold 1 to 6 whole waves");
+    expect(problem({ kind: "wave", arrows: [{ shows: "frequency", letter: "F" }] })).toBe(
+      "has an arrow that is not one a wave diagram has, or has no letter",
+    );
+  });
+
+  test("forces act one each way, and to scale only with every size given", () => {
+    expect(
+      problem({
+        ...van,
+        forces: [
+          { direction: "left", name: "friction", size: 200 },
+          { direction: "left", name: "air resistance", size: 300 },
+        ],
+      }),
+    ).toBe("has two forces the same way");
+    expect(problem({ ...van, toScale: true })).toBe(
+      "is drawn to scale, so every force needs its size",
+    );
+    expect(
+      problem({
+        ...skydiver,
+        forces: [
+          { direction: "up", name: "air resistance", size: 100 },
+          { direction: "down", name: "weight", size: 700 },
+        ],
+      }),
+    ).toBe("is drawn to scale, so the smallest force must be at least a quarter of the largest");
+    expect(problem({ ...van, object: "delivery van" })).toBe(
+      "has an object name too long for its box",
+    );
+    expect(
+      problem({
+        ...van,
+        forces: [{ direction: "up", name: "upward force from the table", size: 5 }],
+      }),
+    ).toBeNull();
+    expect(
+      problem({
+        ...van,
+        forces: [{ direction: "up", name: "electrostaticattractionforce", size: 5 }],
+      }),
+    ).toBe("has a force name too long for its label");
+  });
+});
+
+describe("any chromatogram, wave or force brief that passes its check, code draws so the checker passes it", () => {
+  test("600 random ones", () => {
+    const r = seeded(11);
+    const pick = <T>(xs: readonly T[]) => xs[Math.floor(r() * xs.length)];
+    const between = (lo: number, hi: number) => Number((lo + r() * (hi - lo)).toFixed(2));
+    let drawnCount = 0;
+    for (let i = 0; i < 600; i++) {
+      let brief: unknown;
+      const kind = pick(["chromatogram", "wave", "scaled wave", "forces"] as const);
+      if (kind === "chromatogram") {
+        const step = pick([0.5, 1, 2, 5, 10]);
+        const max = step * (2 + Math.floor(r() * 11));
+        const front = between(max / 2, max);
+        const n = 2 + Math.floor(r() * 5);
+        brief = {
+          kind,
+          y: { title: pick(["distance in cm", "distance moved in mm"]), min: 0, max, step },
+          front,
+          samples: Array.from({ length: n }, (_, j) => ({
+            name: pick(["A", "B", "ink", "P", "E1", "dye"]) + j,
+            spots: Array.from({ length: 1 + Math.floor(r() * 4) }, () =>
+              r() < 0.1 ? 0 : between(0, front - 0.01),
+            ),
+          })),
+        };
+      } else if (kind === "wave") {
+        const spans = ["amplitude", "wavelength", "crest to trough", "half a wavelength"];
+        const shown = spans.filter(() => r() < 0.6);
+        brief = { kind, arrows: shown.map((shows, j) => ({ shows, letter: "PQRS"[j] })) };
+      } else if (kind === "scaled wave") {
+        const xs = pick([1, 2, 5, 10, 0.5]);
+        const ys = pick([0.5, 1, 2, 5]);
+        const xn = 2 + Math.floor(r() * 11);
+        const yn = 1 + Math.floor(r() * 6);
+        brief = {
+          kind: "wave",
+          x: { title: pick(["time in ms", "distance in cm"]), min: 0, max: xs * xn, step: xs },
+          y: { title: "displacement in cm", min: -ys * yn, max: ys * yn, step: ys },
+          amplitude: between((ys * yn) / 4, ys * yn),
+          wavelength: between((xs * xn) / 6, xs * xn),
+        };
+      } else {
+        const directions = ["up", "down", "left", "right"].filter(() => r() < 0.7);
+        const toScale = r() < 0.4;
+        const largest = pick([10, 700, 2500, 18000, 1.5]);
+        brief = {
+          kind,
+          object: pick(["", "van", "box", "skydiver", "ball"]),
+          toScale,
+          forces: directions.map((direction, j) => ({
+            direction,
+            name:
+              pick([
+                "weight",
+                "air resistance",
+                "X",
+                "driving force",
+                "normal contact force",
+                "friction",
+              ]) + (j ? ` ${j}` : ""),
+            size: !toScale && r() < 0.3 ? null : between(largest / 4, largest),
+          })),
+        };
+      }
+      const read = readBrief(brief);
+      if ("problem" in read) continue;
+      const figure = drawWithCode(read.brief);
+      expect(figure).not.toBeNull();
+      drawnCount++;
+      const problems = checkFigure(figure!.svg, read.brief).problems;
+      if (problems.length) throw new Error(`${JSON.stringify(brief)}\n${problems.join("\n")}`);
+    }
+    expect(drawnCount).toBeGreaterThan(300);
   });
 });
