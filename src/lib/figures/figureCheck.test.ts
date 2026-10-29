@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { ARROW_DEFS, CIRCUIT_SYMBOLS, type FigureBrief } from "./figure";
+import { ARROW_DEFS, CIRCUIT_SYMBOLS, type FigureBrief, type GraphBrief } from "./figure";
 import { checkFigure, checkReply, cleanFigure } from "./figureCheck";
 import { drawWithCode } from "./figureDraw";
 import { FIGURE_EXAMPLES } from "./figurePrompt";
@@ -806,6 +806,78 @@ describe("a chromatogram, wave or force diagram is held to what decides its answ
     );
     expect(checkFigure(caption, pushes).problems).toContain(
       "Text \"1500 N\" is not a force's label or the object's name",
+    );
+  });
+});
+
+describe("a smooth curve, a line of best fit or a tangent is held to its brief", () => {
+  const gas: GraphBrief = {
+    kind: "line-graph",
+    x: { title: "time in s", min: 0, max: 60, step: 10 },
+    y: { title: "volume of gas in cm³", min: 0, max: 50, step: 10 },
+    curve: true,
+    series: [
+      {
+        name: "gas",
+        points: [
+          [0, 0],
+          [10, 18],
+          [20, 30],
+          [30, 38],
+          [40, 43],
+          [50, 45],
+          [60, 45],
+        ],
+      },
+    ],
+    lines: [{ from: [0, 6], to: [40, 46] }],
+  };
+  const svg = drawWithCode(gas)!.svg;
+  const points = /<polyline class="qf-data" points="([^"]+)"/.exec(svg)![1];
+  const withPoints = (pts: string) => svg.replace(points, pts);
+
+  test("drawn right, it passes", () => {
+    expect(checkFigure(svg, gas).problems).toEqual([]);
+  });
+
+  test("a curve that rises past its last points: a peak the results don't have", () => {
+    // x from 50 to 60 s is 297.33 to 344 units across; lift that stretch 10 units.
+    const bulge = points
+      .split(" ")
+      .map((p) => {
+        const [x, y] = p.split(",").map(Number);
+        return x > 300 && x < 340 ? `${x},${Number((y - 10).toFixed(2))}` : p;
+      })
+      .join(" ");
+    expect(checkFigure(withPoints(bulge), gas).problems).toContain(
+      "The gas curve goes beyond its points between (50, 45) and (60, 45)",
+    );
+  });
+
+  test("points joined by straight lines where the brief has a curve", () => {
+    const straight = gas.series[0].points
+      .map(
+        ([x, y]) =>
+          `${Number((64 + (x / 60) * 280).toFixed(2))},${Number((224 - (y / 50) * 184).toFixed(2))}`,
+      )
+      .join(" ");
+    expect(checkFigure(withPoints(straight), gas).problems).toContain(
+      "The gas curve's points must run left to right, at most 4 units apart",
+    );
+  });
+
+  test("a tangent moved, or a second line the brief doesn't have", () => {
+    const moved = swap(svg, 'x1="64" y1="201.92"', 'x1="64" y1="190.88"');
+    expect(checkFigure(moved, gas).problems).toContain(
+      "The straight line from (0, 6) to (40, 46) is not drawn where its ends put it",
+    );
+    const extra = swap(
+      svg,
+      "</svg>",
+      '<line class="qf-line" x1="64" y1="224" x2="344" y2="40"/></svg>',
+    );
+    expect(checkFigure(extra, gas).problems).toContain(
+      "The graph has 2 straight lines besides its axes; the brief has 1",
     );
   });
 });

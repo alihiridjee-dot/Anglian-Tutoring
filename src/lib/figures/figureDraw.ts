@@ -135,24 +135,73 @@ function segmentBoxes(pts: [number, number][]): Box[] {
   return boxes;
 }
 
+/**
+ * A smooth curve through points in drawing units, left to right, sampled at
+ * least every 2 units: monotone cubic (Fritsch–Carlson), so between two
+ * points it only ever runs from one to the other. It invents no peak, dip or
+ * overshoot a student could read, and the checker holds it to exactly that.
+ */
+export function smoothCurve(p: [number, number][]): [number, number][] {
+  const n = p.length;
+  const m = p.slice(1).map(([x, y], i) => (y - p[i][1]) / (x - p[i][0]));
+  const t = p.map((_, i) =>
+    i === 0 ? m[0] : i === n - 1 ? m[n - 2] : m[i - 1] * m[i] <= 0 ? 0 : (m[i - 1] + m[i]) / 2,
+  );
+  for (let i = 0; i < n - 1; i++) {
+    if (m[i] === 0) {
+      t[i] = t[i + 1] = 0;
+      continue;
+    }
+    const [a, c] = [t[i] / m[i], t[i + 1] / m[i]];
+    const s = a * a + c * c;
+    if (s > 9) {
+      t[i] = (3 / Math.sqrt(s)) * a * m[i];
+      t[i + 1] = (3 / Math.sqrt(s)) * c * m[i];
+    }
+  }
+  const out: [number, number][] = [];
+  for (let i = 0; i < n - 1; i++) {
+    const [[x0, y0], [x1, y1]] = [p[i], p[i + 1]];
+    const h = x1 - x0;
+    const steps = Math.max(1, Math.ceil(h / 2));
+    for (let k = 0; k < steps; k++) {
+      const u = k / steps;
+      const y =
+        (2 * u ** 3 - 3 * u ** 2 + 1) * y0 +
+        (u ** 3 - 2 * u ** 2 + u) * h * t[i] +
+        (-2 * u ** 3 + 3 * u ** 2) * y1 +
+        (u ** 3 - u ** 2) * h * t[i + 1];
+      out.push([x0 + u * h, y]);
+    }
+  }
+  out.push(p[n - 1]);
+  return out;
+}
+
 function drawGraph(b: GraphBrief): DrawnFigure | null {
   const H = GRAPH_HEIGHT;
   const body = frame(H, b.x, b.y, b.x.title);
   const taken: Box[] = [];
   b.series.forEach((s, i) => {
     const pts = s.points.map(([x, y]) => [plotX(x, b.x), plotY(y, b.y, H)] as [number, number]);
-    taken.push(...segmentBoxes(b.kind === "line-graph" ? pts : []));
+    const drawn = b.curve ? smoothCurve(pts) : pts;
+    taken.push(...segmentBoxes(b.kind === "line-graph" ? drawn : []));
     taken.push(...pts.map(([x, y]) => ({ x0: x - 5, y0: y - 5, x1: x + 5, y1: y + 5 })));
-    if (b.kind === "line-graph")
-      body.push(
-        `<polyline class="${i ? "qf-data2" : "qf-data"}" points="${pts.map(([x, y]) => `${num(x)},${num(y)}`).join(" ")}"/>`,
-      );
+    if (b.kind === "line-graph") body.push(polyline(i ? "qf-data2" : "qf-data", drawn));
     s.points.forEach(([x, y], j) =>
       body.push(
         `<circle class="qf-dot" cx="${num(pts[j][0])}" cy="${num(pts[j][1])}" r="3.5" data-x="${num(x)}" data-y="${num(y)}"/>`,
       ),
     );
   });
+  for (const l of b.lines ?? []) {
+    const ends: [number, number][] = [l.from, l.to].map(([x, y]) => [
+      plotX(x, b.x),
+      plotY(y, b.y, H),
+    ]);
+    body.push(line("qf-line", ...ends[0], ...ends[1]));
+    taken.push(...segmentBoxes(ends));
+  }
   if (b.series.length === 2) {
     const sample = (cls: string) => (x: number, y: number) =>
       b.kind === "line-graph"
@@ -170,9 +219,13 @@ function drawGraph(b: GraphBrief): DrawnFigure | null {
   }
   const describe = (s: GraphBrief["series"][number]) =>
     `${b.series.length > 1 ? `${s.name}: ` : ""}${s.points.map(([x, y]) => `(${label(x)}, ${label(y)})`).join(", ")}`;
+  const lines = (b.lines ?? []).map(
+    (l) =>
+      ` A straight line is drawn from (${label(l.from[0])}, ${label(l.from[1])}) to (${label(l.to[0])}, ${label(l.to[1])}).`,
+  );
   return {
     svg: svgOf(H, body),
-    alt: `A ${b.kind === "scatter" ? "scatter graph" : "line graph"} of ${b.y.title} from ${label(b.y.min)} to ${label(b.y.max)} against ${b.x.title} from ${label(b.x.min)} to ${label(b.x.max)}. Points: ${b.series.map(describe).join("; ")}.`,
+    alt: `A ${b.kind === "scatter" ? "scatter graph" : "line graph"} of ${b.y.title} from ${label(b.y.min)} to ${label(b.y.max)} against ${b.x.title} from ${label(b.x.min)} to ${label(b.x.max)}. Points${b.curve ? ", joined by a smooth curve" : ""}: ${b.series.map(describe).join("; ")}.${lines.join("")}`,
   };
 }
 

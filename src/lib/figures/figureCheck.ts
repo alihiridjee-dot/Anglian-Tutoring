@@ -51,6 +51,7 @@ import {
   type WaveBrief,
   type WebBrief,
   type FigureReply,
+  type GraphBrief,
 } from "./figure";
 import { forceLabel, forceLength, labelWidth } from "./figureDraw";
 import { figureKind } from "./kinds";
@@ -858,12 +859,27 @@ function briefProblems(brief: FigureBrief, d: Drawing): string[] {
       }
       if (dots.length !== wanted.length)
         out.push(`The graph has ${dots.length} points; the brief has ${wanted.length}`);
-      for (const l of dataLines)
-        for (const p of l.pts)
-          if (!dots.some((d) => near(d.at[0], p[0]) && near(d.at[1], p[1])))
-            out.push(
-              `A plotted line bends at (${fmt(p[0])}, ${fmt(p[1])}), which is not a point: join points with straight lines only`,
-            );
+      if (k.kind === "line-graph" && k.curve) out.push(...curveProblems(k, d));
+      else
+        for (const l of dataLines)
+          for (const p of l.pts)
+            if (!dots.some((d) => near(d.at[0], p[0]) && near(d.at[1], p[1])))
+              out.push(
+                `A plotted line bends at (${fmt(p[0])}, ${fmt(p[1])}), which is not a point: join points with straight lines only`,
+              );
+      const lines = k.lines ?? [];
+      const P = ([x, y]: [number, number]): Pt => [plotX(x, k.x), plotY(y, k.y, H)];
+      for (const l of lines)
+        if (!hasLine(P(l.from), P(l.to)))
+          out.push(
+            `The straight line from (${fmt(l.from[0])}, ${fmt(l.from[1])}) to (${fmt(l.to[0])}, ${fmt(l.to[1])}) is not drawn where its ends put it`,
+          );
+      // Its axes and the brief's lines: another ink line could be read as a fit or a tangent.
+      const inks = segments.filter((s) => s.cls === "qf-line").length - 2;
+      if (inks !== lines.length)
+        out.push(
+          `The graph has ${inks} straight lines besides its axes; the brief has ${lines.length}`,
+        );
       if (k.kind === "scatter" && dataLines.length)
         out.push("A scatter graph has points only, no line");
       break;
@@ -976,6 +992,51 @@ export type CheckTools = {
   /** The bold (qf-strong) text nearest a point, if one is within 20 units. */
   letterBeside: (p: Pt) => Label | undefined;
 };
+
+/**
+ * A line graph's smooth curves: each one polyline, left to right, through
+ * every one of its points, and between two points never beyond them, so the
+ * curve shows no peak, dip or overshoot the data doesn't have.
+ */
+function curveProblems(k: GraphBrief, d: Drawing): string[] {
+  const out: string[] = [];
+  k.series.forEach((s, i) => {
+    const cls = i ? "qf-data2" : "qf-data";
+    const lines = d.dataLines.filter((l) => l.cls === cls);
+    if (lines.length !== 1) {
+      out.push(`The ${s.name} curve must be one ${cls} polyline`);
+      return;
+    }
+    const pts = lines[0].pts;
+    const at: Pt[] = s.points.map(([x, y]) => [plotX(x, k.x), plotY(y, k.y, d.H)]);
+    if (pts.some((p, j) => j > 0 && (p[0] <= pts[j - 1][0] || p[0] - pts[j - 1][0] > 4)))
+      out.push(`The ${s.name} curve's points must run left to right, at most 4 units apart`);
+    const [first, last] = [pts[0], pts[pts.length - 1]];
+    if (
+      !near(first[0], at[0][0]) ||
+      !near(first[1], at[0][1]) ||
+      !near(last[0], at[at.length - 1][0]) ||
+      !near(last[1], at[at.length - 1][1])
+    )
+      out.push(`The ${s.name} curve must start at its first point and end at its last`);
+    s.points.forEach(([x, y], j) => {
+      if (!pts.some((p) => near(p[0], at[j][0]) && near(p[1], at[j][1])))
+        out.push(`The ${s.name} curve misses its point (${fmt(x)}, ${fmt(y)})`);
+    });
+    for (let j = 0; j + 1 < at.length; j++) {
+      const [lo, hi] = [Math.min(at[j][1], at[j + 1][1]), Math.max(at[j][1], at[j + 1][1])];
+      if (
+        pts.some(
+          (p) => p[0] > at[j][0] && p[0] < at[j + 1][0] && (p[1] < lo - 0.6 || p[1] > hi + 0.6),
+        )
+      )
+        out.push(
+          `The ${s.name} curve goes beyond its points between (${fmt(s.points[j][0])}, ${fmt(s.points[j][1])}) and (${fmt(s.points[j + 1][0])}, ${fmt(s.points[j + 1][1])})`,
+        );
+    }
+  });
+  return out;
+}
 
 /** A text whole, written exactly where the layout puts it: its first line's x and baseline, and its anchor. */
 const writtenAt = (d: Drawing, t: string, x: number, y: number, anchor: string) =>

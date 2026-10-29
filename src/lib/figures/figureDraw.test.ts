@@ -656,3 +656,110 @@ describe("any chromatogram, wave or force brief that passes its check, code draw
     expect(drawnCount).toBeGreaterThan(300);
   });
 });
+
+const gas: FigureBrief = {
+  kind: "line-graph",
+  x: { title: "time in s", min: 0, max: 60, step: 10 },
+  y: { title: "volume of gas in cm³", min: 0, max: 50, step: 10 },
+  curve: true,
+  series: [
+    {
+      name: "gas",
+      points: [
+        [0, 0],
+        [10, 18],
+        [20, 30],
+        [30, 38],
+        [40, 43],
+        [50, 45],
+        [60, 45],
+      ],
+    },
+  ],
+  lines: [{ from: [0, 6], to: [40, 46] }],
+};
+const springs: FigureBrief = {
+  kind: "scatter",
+  x: { title: "force in N", min: 0, max: 6, step: 1 },
+  y: { title: "extension in cm", min: 0, max: 12, step: 2 },
+  series: [
+    {
+      name: "spring",
+      points: [
+        [1, 2.1],
+        [2, 3.9],
+        [3, 6.2],
+        [4, 7.9],
+        [5, 10.1],
+      ],
+    },
+  ],
+  lines: [{ from: [0, 0], to: [6, 12] }],
+};
+
+describe("graphs with a smooth curve, a line of best fit or a tangent", () => {
+  test("each draws and passes", () => {
+    for (const brief of [gas, springs]) {
+      expect(problem(brief)).toBeNull();
+      expect(drawn(brief).problems).toEqual([]);
+    }
+    expect(drawWithCode(gas)!.alt).toContain("joined by a smooth curve");
+    expect(drawWithCode(springs)!.alt).toContain(
+      "A straight line is drawn from (0, 0) to (6, 12).",
+    );
+  });
+
+  test("a curve's points must run left to right; only a line graph curves; lines stay on the axes", () => {
+    expect(
+      problem({
+        ...gas,
+        series: [
+          {
+            name: "gas",
+            points: [
+              [0, 0],
+              [20, 30],
+              [10, 18],
+            ],
+          },
+        ],
+      }),
+    ).toBe("has a curve whose points' x values don't increase");
+    expect(problem({ ...springs, curve: true })).toBe("only a line graph has a curve");
+    expect(problem({ ...springs, lines: [{ from: [0, 0], to: [8, 12] }] })).toBe(
+      "has a straight line whose ends are not [x, y] within both axes",
+    );
+    expect(problem({ ...springs, lines: [{ from: [1, 1], to: [1.1, 1.2] }] })).toBe(
+      "has a straight line too short to see",
+    );
+  });
+
+  test("400 random smooth curves never go beyond their points", () => {
+    const r = seeded(23);
+    let count = 0;
+    for (let i = 0; i < 400; i++) {
+      const n = 2 + Math.floor(r() * 10);
+      let at = 0;
+      const xs = Array.from({ length: n }, (_, j) => (j ? (at += 1 + Math.floor(r() * 2)) : 0));
+      const max = xs[n - 1] || 1;
+      const step = max <= 12 ? 1 : 2;
+      const brief = {
+        kind: "line-graph",
+        x: { title: "time in s", min: 0, max: Math.ceil(max / step) * step, step },
+        y: { title: "mass in g", min: 0, max: 100, step: 10 },
+        curve: true,
+        series: Array.from({ length: r() < 0.3 ? 2 : 1 }, (_, s) => ({
+          name: ["A", "B"][s],
+          points: xs.map((x) => [x, Math.round(r() * 100)] as [number, number]),
+        })),
+      };
+      if (problem(brief)) continue;
+      const figure = drawWithCode(brief as FigureBrief);
+      if (!figure) continue;
+      count++;
+      const problems = checkFigure(figure.svg, brief as FigureBrief).problems;
+      if (problems.length) throw new Error(`${JSON.stringify(brief)}\n${problems.join("\n")}`);
+    }
+    expect(count).toBeGreaterThan(250);
+  });
+});

@@ -11,12 +11,15 @@ import {
   FORCE_DIRECTIONS,
   TEXT_SIZE,
   WAVE_SPANS,
+  plotX,
+  plotY,
   textWidth,
   type Axis,
   type KnownBrief,
 } from "./figure";
 import { checkFigure } from "./figureCheck";
 import { PROFILE_NAME_WIDTH, drawWithCode, forceLabel, ticks, wrap } from "./figureDraw";
+import { GRAPH_HEIGHT } from "./figureSvg";
 import { KINDS, figureKind } from "./kinds";
 
 /** Questions in one set that may carry a figure. */
@@ -51,7 +54,7 @@ export const FIGURE_GUIDE = `FIGURES
 At most ${MAX_FIGURES} questions in the set may each come with one figure, where a figure is how an exam paper would give the information: a graph or bar chart of results to read or interpret, a circuit, a reaction profile, a food web, a chromatogram, a wave, the forces acting on an object${KINDS.map((k) => `, ${k.name}`).join("")}. Most questions have none: their figure is "". A question with one writes its brief in figure as one JSON object, with "kind" and the fields below. Never add a figure for decoration, and never ask a student to draw, plot, sketch or label one.
 A figure given as a brief is not absent: the website draws it from the brief and shows it below the question's text. The question says what the figure shows ("The graph shows how the velocity of a car changed.") and is answered from it, so it doesn't repeat the figure's data. Nothing in the figure may give the answer away: no title or label names what the question asks for.
 The brief holds every value, label and connection; the figure shows exactly the brief:
-- "line-graph" or "scatter": x and y axes, each {title: quantity and unit as "time in s", min, max, step}, 2 to 12 steps, max − min a whole number of steps, and numbers short enough to fit (at most 3 digits on the x axis). series: one ("scatter": exactly one) or two {name, points: [[x, y], …]}, 2 to 20 points, each within both axes. A line graph joins its points in order with straight lines.
+- "line-graph" or "scatter": x and y axes, each {title: quantity and unit as "time in s", min, max, step}, 2 to 12 steps, max − min a whole number of steps, and numbers short enough to fit (at most 3 digits on the x axis). series: one ("scatter": exactly one) or two {name, points: [[x, y], …]}, 2 to 20 points, each within both axes. A line graph joins its points in order with straight lines; with "curve": true it joins them with a smooth curve instead (each series' x values increasing), for results that change smoothly, and the curve never rises or falls beyond its points. lines: up to 2 straight lines drawn on the graph, each {from: [x, y], to: [x, y]} within both axes, for a line of best fit or a tangent the question uses; leave it out when there is none.
 - "bar-chart": x {title, categories: 2 to 6 names, each short enough to fit under its bar: at most 15 characters with 2 bars, 10 with 3, 7 with 4, 5 with 5 and 4 with 6}, y an axis as above starting at 0, series: one or two {name, values: one per category, each within the y axis}.
 - "circuit": components, each {type: one of ${COMPONENT_TYPES.join(", ")}; label: null unless the question names the part, e.g. "X"}; loop: going once round the main loop, each step is a component's index in components (counting from 0), or {"parallel": [[index, …], [index, …]]} for branches side by side between the same two junctions; every component appears exactly once. layout: in words, which wire each part sits on ("the cell on the top wire, the ammeter on the left wire, the two lamps in parallel on the right").
 - "energy-profile": reaction "exothermic" or "endothermic", catalyst true or false, reactants and products as they are written under the levels (short: "CH₄ + 2O₂", "CO₂ + 2H₂O"), arrows: only those the question needs, each {shows: "activation energy", "activation energy with a catalyst" (only with a catalyst) or "overall energy change", letter: one capital letter}.
@@ -116,6 +119,38 @@ export function readBrief(value: unknown): { brief: KnownBrief } | { problem: st
             !within(p[1], b.y as Axis)
           )
             return { problem: "has a point that is not [x, y] within both axes" };
+      }
+      if (b.curve !== undefined && typeof b.curve !== "boolean")
+        return { problem: "curve must be true or false" };
+      if (b.curve && b.kind !== "line-graph") return { problem: "only a line graph has a curve" };
+      // A curve is drawn left to right through its points.
+      if (
+        b.curve &&
+        series.some((s) =>
+          (s.points as [number, number][]).some((p, i, ps) => i > 0 && p[0] <= ps[i - 1][0]),
+        )
+      )
+        return { problem: "has a curve whose points' x values don't increase" };
+      if (b.lines !== undefined) {
+        const lines = b.lines as { from: unknown; to: unknown }[];
+        if (!Array.isArray(lines) || lines.length > 2)
+          return { problem: "has more than 2 straight lines" };
+        const [x, y] = [b.x as Axis, b.y as Axis];
+        const end = (p: unknown): p is [number, number] =>
+          Array.isArray(p) &&
+          p.length === 2 &&
+          p.every(isNum) &&
+          within(p[0], x) &&
+          within(p[1], y);
+        for (const l of lines) {
+          if (!end(l?.from) || !end(l.to))
+            return { problem: "has a straight line whose ends are not [x, y] within both axes" };
+          const length = Math.hypot(
+            plotX(l.to[0], x) - plotX(l.from[0], x),
+            plotY(l.to[1], y, GRAPH_HEIGHT) - plotY(l.from[1], y, GRAPH_HEIGHT),
+          );
+          if (length < 24) return { problem: "has a straight line too short to see" };
+        }
       }
       return { brief: b as unknown as KnownBrief };
     }

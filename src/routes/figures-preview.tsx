@@ -140,6 +140,32 @@ const CODE_DRAWN_SAMPLES: FigureRequest[] = [
   {
     subject: "chemistry",
     question:
+      "A student measured the volume of gas given off when marble chips react with hydrochloric acid. The graph shows the results, with a tangent drawn to the curve at 20 s.\n\nUse the tangent to find the rate of reaction at 20 s. Give your answer in cm³/s.",
+    brief: {
+      kind: "line-graph",
+      x: { title: "time in s", min: 0, max: 60, step: 10 },
+      y: { title: "volume of gas in cm³", min: 0, max: 50, step: 10 },
+      curve: true,
+      series: [
+        {
+          name: "gas",
+          points: [
+            [0, 0],
+            [10, 18],
+            [20, 30],
+            [30, 38],
+            [40, 43],
+            [50, 45],
+            [60, 45],
+          ],
+        },
+      ],
+      lines: [{ from: [0, 10], to: [40, 50] }],
+    },
+  },
+  {
+    subject: "chemistry",
+    question:
       "Police find a note written in black ink. Paper chromatography is used to compare the ink on the note with the black inks from three pens, P, Q and R. All four samples were run in the same solvent.\n\nThe chromatogram shows the results.\n\n(a) State which pen could have been used to write the note and give the evidence from the chromatogram.",
     brief: {
       kind: "chromatogram",

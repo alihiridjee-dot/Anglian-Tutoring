@@ -327,6 +327,10 @@ export type GraphBrief = {
   x: Axis;
   y: Axis;
   series: { name: string; points: [number, number][] }[];
+  /** A line graph's points joined by a smooth curve that never goes beyond them, not straight lines. */
+  curve?: boolean;
+  /** Straight lines drawn on the graph, ends in the axes' values: a line of best fit, a tangent. */
+  lines?: { from: [number, number]; to: [number, number] }[];
 };
 export type BarBrief = {
   kind: "bar-chart";
