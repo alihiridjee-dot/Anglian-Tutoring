@@ -2026,3 +2026,99 @@ body {
     stroke-dashoffset: 0;
   }
 }
+
+/* Hero trust banner: a full-width band of stars, icons and figures sliding left
+   forever, like a "featured in" row. Two identical halves move by one half's
+   width plus the gap, so the loop has no seam; the edges fade out instead of
+   cutting off. Hover pauses it, and with motion off it is one still, centred
+   row. */
+.trust-banner {
+  padding-block: 1.1rem;
+  background: color-mix(in oklab, var(--card) 72%, transparent);
+  border-block: 1.25px solid color-mix(in oklab, var(--primary) 14%, transparent);
+}
+.trust-marquee {
+  --marquee-gap: 3.5rem;
+  display: flex;
+  gap: var(--marquee-gap);
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+}
+.trust-marquee-half {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--marquee-gap);
+  min-width: 100%;
+  animation: trust-marquee 55s linear infinite;
+}
+.trust-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+/* A small dot halfway across the gap before every item. */
+.trust-item::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--marquee-gap) / -2 - 3px);
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--primary) 30%, transparent);
+  transform: translateY(-50%);
+}
+.trust-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--tint);
+}
+.trust-numeral {
+  font-size: 1.5rem;
+  color: var(--tint);
+}
+.trust-stars {
+  display: flex;
+  gap: 0.1rem;
+}
+.trust-stars svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: color-mix(in oklab, var(--tint) 80%, black);
+  fill: var(--tint);
+}
+.trust-marquee:hover .trust-marquee-half {
+  animation-play-state: paused;
+}
+@keyframes trust-marquee {
+  to {
+    transform: translateX(calc(-100% - var(--marquee-gap)));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trust-marquee {
+    mask-image: none;
+  }
+  .trust-marquee-half {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 2.5rem;
+    padding-inline: 1rem;
+    animation: none;
+  }
+  .trust-item::before {
+    display: none;
+  }
+  .trust-marquee-half + .trust-marquee-half {
+    display: none;
+  }
+}
