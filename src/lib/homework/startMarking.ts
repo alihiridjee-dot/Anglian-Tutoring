@@ -1,4 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
+import type { MarkHomeworkPayload } from "../../../supabase/functions/_shared/contracts";
 
 /**
  * Starting the AI marker for a submission, from the student's page.
@@ -48,7 +49,9 @@ const asked = new Set<string>();
 export function startMarking(
   submissionId: string,
   invoke: (submissionId: string) => Promise<unknown> = (id) =>
-    supabase.functions.invoke("mark-homework", { body: { submissionId: id } }),
+    supabase.functions.invoke("mark-homework", {
+      body: { submissionId: id } satisfies MarkHomeworkPayload,
+    }),
 ): void {
   if (asked.has(submissionId)) return;
   asked.add(submissionId);

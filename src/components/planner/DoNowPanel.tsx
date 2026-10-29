@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useRef, useState } from "react";
+import { Fragment, type ReactNode, useEffect, useRef, useState } from "react";
 import { CheckCircle2, ListChecks, Circle } from "lucide-react";
 import { type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import {
@@ -13,7 +13,17 @@ import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { VideoModal } from "@/components/VideoPlayer";
 import { SectionHeading, Meter } from "@/components/Shared";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
-import { HomeworkChip, NoteChip, QuizChip, VideoChip } from "./WorkChips";
+import {
+  EmptyStep,
+  HomeworkChip,
+  HomeworkStep,
+  NoteChip,
+  NoteStep,
+  QuizChip,
+  QuizStep,
+  VideoChip,
+  VideoStep,
+} from "./WorkChips";
 import { useSpecPointNotes, type SpecPointNote } from "@/hooks/data/useNotes";
 import { useEntryState } from "@/hooks/useEntryState";
 import { landOn } from "@/lib/shell/returnSpot";
@@ -50,10 +60,23 @@ import { landOn } from "@/lib/shell/returnSpot";
  * keeps a box the student ticks themselves. Coverage also fills the cells: a
  * task handed in shows a tick, and its mark once it is back, instead of asking
  * the student to start it again.
+ *
+ * A phone held upright gets the same row as a step trail ({@link StepTrail})
+ * instead of the four cells, and nothing else does. That is decided in this one
+ * place, off the `phone:` variant, so the dashboard, the planner and the demo
+ * can't disagree about it.
  */
 
 /** The row's shape: the spec point takes the slack, the four cells are fixed. */
 const GRID = "sm:grid sm:grid-cols-[minmax(0,1fr)_repeat(4,minmax(0,5.25rem))] sm:gap-x-3";
+
+/** What an empty cell, or an empty step on a phone, says is missing. */
+const EMPTY = {
+  video: "No video on this point yet",
+  note: "No revision note on this point yet",
+  quiz: "No quiz on this point yet",
+  task: "No tasks set on this point yet",
+};
 
 export function DoNowPanel({
   points,
@@ -141,8 +164,9 @@ export function DoNowPanel({
           going; this one only says how far through it you are. */}
       <Meter value={total ? (doneCount / total) * 100 : 0} size="sm" className="my-3" />
 
-      {/* Column headings, wide screens only. On a phone the row stacks and each
-          cell carries its own label instead. */}
+      {/* Column headings, wide screens only. On a narrow screen the row stacks
+          and each cell carries its own label instead, and on a phone the cells
+          give way to the step trail. */}
       <div
         aria-hidden
         className={`hidden ${GRID} px-2.5 pb-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/70`}
@@ -252,28 +276,107 @@ function ChecklistRow({
         </div>
       </div>
 
-      <WorkCell label="Watch" empty="No video on this point yet">
+      <StepTrail work={work} note={note} coverage={coverage} onPlay={onPlay} />
+
+      <WorkCell label="Watch" empty={EMPTY.video}>
         {work?.videos.map((v) => (
           <VideoChip key={v.id} item={v} label="Play" onPlay={onPlay} />
         ))}
       </WorkCell>
 
-      <WorkCell label="Read" empty="No revision note on this point yet">
+      <WorkCell label="Read" empty={EMPTY.note}>
         {note ? [<NoteChip key={note.id} note={note} label="Read" />] : []}
       </WorkCell>
 
-      <WorkCell label="MCQs" empty="No quiz on this point yet">
+      <WorkCell label="MCQs" empty={EMPTY.quiz}>
         {work?.quizzes.map((q) => (
           <QuizChip key={q.id} item={q} label="Start" coverage={coverage} />
         ))}
       </WorkCell>
 
-      <WorkCell label="Tasks" empty="No tasks set on this point yet">
+      <WorkCell label="Tasks" empty={EMPTY.task}>
         {work?.homework.map((h) => (
           <HomeworkChip key={h.id} item={h} label="Start" coverage={coverage} />
         ))}
       </WorkCell>
     </li>
+  );
+}
+
+type TrailStep = { key: string; state: "open" | "done" | "empty"; node: ReactNode };
+
+/** The rule into a step takes the step's state: solid into done, dashed into nothing. */
+const LINK: Record<TrailStep["state"], string> = {
+  open: "",
+  done: "trail-link-done tint-emerald",
+  empty: "trail-link-empty",
+};
+
+/**
+ * The four cells again, on a phone held upright: Play → Read → Quiz → Task.
+ *
+ * Stacked on a phone, the cells cost a line each — a label and one pill down
+ * the left of an otherwise empty row — so a screen held three points. The trail
+ * puts the same work across one line, in the columns' order, and shows by its
+ * shape what is done and what has nothing behind it yet.
+ *
+ * Every step is the chip it stands in for (see `WorkChips`), one per item, so
+ * a point with two quizzes still has two to press. It shows on `phone:` and the
+ * cells hide on `phone:` — one variant on both halves, so no screen gets both
+ * or neither.
+ */
+function StepTrail({
+  work,
+  note,
+  coverage,
+  onPlay,
+}: {
+  work: PointWork | undefined;
+  note: SpecPointNote | undefined;
+  coverage: PointCoverage | undefined;
+  onPlay: (item: PointWorkItem) => void;
+}) {
+  const steps: TrailStep[] = [];
+  const put = (key: string, state: TrailStep["state"], node: ReactNode) =>
+    steps.push({ key, state, node });
+
+  if (work?.videos.length) {
+    for (const v of work.videos)
+      put(`video-${v.id}`, "open", <VideoStep item={v} onPlay={onPlay} />);
+  } else put("video", "empty", <EmptyStep kind="video" empty={EMPTY.video} />);
+
+  if (note) put(`note-${note.id}`, "open", <NoteStep note={note} />);
+  else put("note", "empty", <EmptyStep kind="note" empty={EMPTY.note} />);
+
+  if (work?.quizzes.length) {
+    for (const q of work.quizzes) {
+      put(
+        `quiz-${q.id}`,
+        coverage?.quizDone ? "done" : "open",
+        <QuizStep item={q} coverage={coverage} />,
+      );
+    }
+  } else put("quiz", "empty", <EmptyStep kind="quiz" empty={EMPTY.quiz} />);
+
+  if (work?.homework.length) {
+    for (const h of work.homework) {
+      put(
+        `task-${h.id}`,
+        coverage?.homeworkDone ? "done" : "open",
+        <HomeworkStep item={h} coverage={coverage} />,
+      );
+    }
+  } else put("task", "empty", <EmptyStep kind="task" empty={EMPTY.task} />);
+
+  return (
+    <div className="hidden phone:flex items-start mt-2.5">
+      {steps.map((s, i) => (
+        <Fragment key={s.key}>
+          {i > 0 && <span aria-hidden className={`trail-link ${LINK[s.state]}`} />}
+          {s.node}
+        </Fragment>
+      ))}
+    </div>
   );
 }
 
@@ -300,7 +403,8 @@ function WorkCell({
   const filled = Array.isArray(children) ? children.length > 0 : !!children;
 
   return (
-    <div className="flex flex-wrap items-center gap-1.5 mt-1.5 sm:mt-0">
+    // A phone has the step trail instead (see StepTrail).
+    <div className="flex flex-wrap items-center gap-1.5 mt-1.5 sm:mt-0 phone:hidden">
       <span className="sm:hidden text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/70 w-[4.75rem] shrink-0">
         {label}
       </span>

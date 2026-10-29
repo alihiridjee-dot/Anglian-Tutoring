@@ -35,8 +35,18 @@
 //
 import Stripe from "https://esm.sh/stripe@17.5.0?target=deno";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import { corsHeaders, HttpError } from "../_shared/http.ts";
+import { corsHeaders, HttpError, readBody } from "../_shared/http.ts";
 import { admin, stripeClient } from "../_shared/clients.ts";
+import type {
+  AddSubjectsPayload,
+  BillingPayload,
+  BillingReturnTo,
+  ChangeCadencePayload,
+  CheckoutPayload,
+  ManagePayload,
+  PortalPayload,
+  RemoveSubjectsPayload,
+} from "../_shared/contracts.ts";
 import { requireUser, assertCanManage, assertCanUpgrade } from "./auth.ts";
 import {
   householdCustomerIds,
@@ -48,110 +58,11 @@ import { checkTrialCode, claimTrialCode } from "./trialCodes.ts";
 import { TRIAL_DAYS, trialNeedsCard } from "../_shared/trialCode.ts";
 
 /** Where Stripe sends the browser back to. Whitelisted — never client URLs. */
-const RETURN_PATHS: Record<string, string> = {
+const RETURN_PATHS: Record<BillingReturnTo, string> = {
   onboarding: "/onboarding/plan",
   billing: "/billing",
   parent: "/parent-dashboard",
 };
-
-interface CheckoutPayload {
-  action: "checkout";
-  /** packages.tier — the plan being bought. */
-  tier: string;
-  /** The student the subscription covers. Defaults to the caller. */
-  student_id?: string;
-  /** Which app page to land back on. Key into RETURN_PATHS. */
-  return_to?: string;
-  /** A free-trial code from the landing page. Checked and held server-side. */
-  trial_code?: string;
-}
-
-interface PortalPayload {
-  action: "portal";
-  return_to?: string;
-}
-
-interface ManagePayload {
-  /**
-   * cancel  → cancel_at_period_end: access runs to the period boundary.
-   * pause   → stop collecting payment immediately (behaviour "void").
-   * resume  → undo either of the above.
-   */
-  action: "cancel" | "pause" | "resume";
-  /** subscriptions.student_id — which subscription of the caller's to act on. */
-  student_id: string;
-}
-
-interface AddSubjectsPayload {
-  /**
-   * Add one or more subjects to an existing live subscription, moving it up the
-   * `${cadence}_${count}` matrix (same cadence, higher count) and enrolling the
-   * student in the new subjects. The price difference is prorated and invoiced
-   * immediately. Caller must manage the plan (assertCanManage).
-   */
-  action: "add_subjects";
-  /** subscriptions.student_id — whose plan to grow. */
-  student_id: string;
-  /** The subjects to add, each with the board the student will sit it with. */
-  subjects: { subject: string; board: string }[];
-}
-
-interface RemoveSubjectsPayload {
-  /**
-   * Drop subject(s) from a live subscription — the mirror of add_subjects, and
-   * the answer to "cancel Chemistry without cancelling everything". Moves the
-   * plan DOWN the `${cadence}_${count}` matrix, un-enrols the student and
-   * shrinks their access grant.
-   *
-   * Destructive, so it takes the stricter authority (assertCanManage) rather
-   * than the looser upgrade check, and it refuses to empty the plan: removing
-   * the last subject is cancelling, which has its own gated flow.
-   */
-  action: "remove_subjects";
-  /** subscriptions.student_id — whose plan to shrink. */
-  student_id: string;
-  /** Subject slugs to drop. */
-  subjects: string[];
-}
-
-interface ChangeCadencePayload {
-  /**
-   * Switch how often the family is billed (weekly / monthly / termly) on the
-   * subscription they already have.
-   *
-   * This replaces the old "switch plan" path, which ran a fresh Checkout
-   * Session: that charged the full new price with no proration AND left the
-   * previous Stripe subscription running, because the webhook keys
-   * public.subscriptions on student_id and simply overwrote the row. The family
-   * was then billed twice with the app aware of only one.
-   *
-   * The subject COUNT is deliberately not a parameter — it is read from
-   * student_enrolments, so a cadence switch can never silently change what the
-   * plan covers (the old picker let someone buy `monthly_3` while enrolled in
-   * two subjects). Growing or shrinking coverage goes through
-   * add_subjects / remove_subjects, which ask which subjects and enrol properly.
-   */
-  action: "change_cadence";
-  /** subscriptions.student_id — whose plan to re-time. */
-  student_id: string;
-  /** The cadence to move to. */
-  cadence: string;
-  /** When true, price it and return without touching Stripe or the database. */
-  preview?: boolean;
-}
-
-interface InvoicesPayload {
-  action: "invoices";
-}
-
-type Payload =
-  | CheckoutPayload
-  | PortalPayload
-  | ManagePayload
-  | AddSubjectsPayload
-  | RemoveSubjectsPayload
-  | ChangeCadencePayload
-  | InvoicesPayload;
 
 const VALID_SUBJECTS = ["biology", "chemistry", "physics"];
 const MAX_SUBJECTS = 3;
@@ -360,8 +271,11 @@ function appUrl() {
   return url.replace(/\/+$/, "");
 }
 
-function returnPath(key: string | undefined, fallback: string) {
-  return RETURN_PATHS[key ?? ""] ?? fallback;
+function returnPath(key: unknown, fallback: string) {
+  // Own keys only: "constructor" found Object's and put its source in the URL.
+  return typeof key === "string" && Object.hasOwn(RETURN_PATHS, key)
+    ? RETURN_PATHS[key as BillingReturnTo]
+    : fallback;
 }
 
 async function handleCheckout(req: Request, payload: CheckoutPayload) {
@@ -644,7 +558,7 @@ async function handleAddSubjects(req: Request, payload: AddSubjectsPayload) {
   const requested = Array.isArray(payload.subjects) ? payload.subjects : [];
   if (requested.length === 0) throw new HttpError(400, "Pick at least one subject to add.");
   for (const r of requested) {
-    if (!VALID_SUBJECTS.includes(r.subject)) {
+    if (!VALID_SUBJECTS.includes(r?.subject)) {
       throw new HttpError(400, "That subject or exam board isn't one we offer.");
     }
   }
@@ -1041,7 +955,8 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
   try {
-    const payload = (await req.json()) as Payload;
+    // Typed as the app sends it. Each handler checks the fields it uses.
+    const payload = (await readBody<BillingPayload>(req)) as BillingPayload;
     let result: unknown;
     switch (payload.action) {
       case "checkout":

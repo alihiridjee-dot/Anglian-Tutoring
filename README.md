@@ -105,6 +105,11 @@ stored question, mark scheme, exemplar and note without losing a character.
   a look at `short:`. The sidebar follows `rail:` and `drawer:`, and an open
   conversation goes full screen with `.thread-sideways`. See
   `docs/LANDSCAPE_UX_AUDIT_2026-10-03.md`.
+- **`phone:`** is a phone held upright and nothing else: under 600px wide _and_
+  a touch screen, so neither a narrowed desktop window nor a tablet qualifies.
+  It is for a surface with a phone-only layout (the weekly task list's step
+  trail): put `hidden phone:flex` on the phone's half and `phone:hidden` on the
+  other, so the two are exact opposites and a screen always gets one of them.
 
 ## Tech
 

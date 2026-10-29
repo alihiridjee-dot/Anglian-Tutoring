@@ -1,4 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
+import type { TrialCodePayload } from "../../../supabase/functions/_shared/contracts";
 
 /**
  * Free-trial codes on the browser side: asking for one (the landing pop-up),
@@ -72,7 +73,7 @@ export function mayOfferTrial(v: {
  */
 export async function requestTrialCode(email: string, website: string) {
   const { data, error } = await supabase.functions.invoke("trial-code", {
-    body: { email, website },
+    body: { email, website } satisfies TrialCodePayload,
   });
   if (error) {
     const ctx = (error as { context?: Response }).context;

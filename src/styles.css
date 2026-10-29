@@ -914,6 +914,69 @@ a.when-link:hover .when-link-arrow {
   box-shadow: 0 2px 0 0 color-mix(in oklab, var(--tint) 45%, black);
 }
 
+/* The step trail: a spec point's work on a phone, Play → Read → Quiz → Task.
+   Each step is an icon tile drawn round with its word underneath, and a rule
+   joins it to the one before. A step that's done goes solid (set `tint-emerald`
+   on it and the dot, word and rule into it follow); a step with nothing behind
+   it is a dashed outline, so the gap reads as the library's, not the
+   student's. */
+.trail-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  flex: 0 1 3.5rem;
+  min-width: 2.75rem;
+}
+.trail-dot {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.16s ease;
+}
+a.trail-step:active .trail-dot,
+button.trail-step:active .trail-dot {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+.trail-dot-empty {
+  background: transparent;
+  border: 1.5px dashed color-mix(in oklab, var(--foreground) 18%, transparent);
+  box-shadow: none;
+  color: color-mix(in oklab, var(--muted-foreground) 55%, transparent);
+}
+.trail-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: color-mix(in oklab, var(--tint) 72%, var(--primary-deep));
+}
+.trail-label-empty {
+  color: color-mix(in oklab, var(--muted-foreground) 70%, transparent);
+}
+.trail-link {
+  flex: 1 1 0;
+  min-width: 0.25rem;
+  height: 2px;
+  /* Level with the middle of the dots. */
+  margin-top: calc(1.25rem - 1px);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--tint) 24%, transparent);
+}
+.trail-link-done {
+  background: var(--tint);
+}
+.trail-link-empty {
+  background: repeating-linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--foreground) 18%, transparent) 0 4px,
+    transparent 4px 8px
+  );
+}
+
 /* Big numeral, for stat tiles and week counters. */
 .numeral {
   font-family: var(--font-display);
@@ -1623,6 +1686,15 @@ body {
   background: transparent;
 }
 
+/* Safari's caps-lock warning in password fields. Its own stylesheet draws a
+   17px square icon but stretches it to the full height of the text box, and
+   our fields are tall with no vertical padding, so it came out as a tall grey
+   bar. Centred at its own size it reads as the icon it is. */
+input::-webkit-caps-lock-indicator {
+  align-self: center;
+  height: 17px;
+}
+
 /* ════════════════════════════════════════════════════════════════════════════
    MOBILE
    What a phone needs and no single screen should have to remember.
@@ -1635,6 +1707,14 @@ body {
    short. The shell keys its sidebar off the other two: the hover rail needs a
    screen that is wide and tall, and every other screen gets the phone drawer. */
 @custom-variant short (@media (height <= 31.25rem));
+/* A phone held upright, and only that. Narrower than any tablet (Android draws
+   the line at 600px) AND driven by a finger: width alone would hand a desktop
+   window dragged narrow the phone's layout, and touch alone would hand it to an
+   iPad. On its side a phone is tablet-wide, so it keeps the wide layout like
+   everywhere else. A surface with a phone-only layout sets both halves off this
+   one variant — `hidden phone:flex` on one, `phone:hidden` on the other — so
+   they are exact opposites, and no screen ever gets both or neither. */
+@custom-variant phone (@media (width < 37.5rem) and (pointer: coarse));
 @custom-variant rail (@media (width >= 48rem) and (height > 31.25rem));
 @custom-variant drawer {
   @media (width < 48rem) {
