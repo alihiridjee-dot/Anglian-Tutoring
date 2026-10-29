@@ -2,11 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import {
   BookOpen,
+  Check,
   CheckCircle2,
   ClipboardList,
   ListChecks,
   PlayCircle,
   Sparkle,
+  type LucideIcon,
 } from "lucide-react";
 import {
   type PointCoverage,
@@ -32,9 +34,35 @@ import type { SpecPointNote } from "@/hooks/data/useNotes";
  * and the panels compose them. `label` is the only thing a layout gets to
  * change: under a column already headed "Homework" the word is redundant, and
  * the space is better spent on a verb.
+ *
+ * On a phone the weekly task list draws the same work as a step trail instead
+ * (see `DoNowPanel`), so each kind has a step here too. A step opens what its
+ * chip opens — the route and the tooltip below are shared — so the two layouts
+ * differ in shape only.
  */
 const CHIP =
   "chip tap-target inline-flex whitespace-nowrap shrink-0 text-[11px] hover:brightness-95";
+
+// Where each kind opens, for the chip and the step alike. The showcase renders
+// both from fixtures under /demo/student; the guarded route would bounce a
+// visitor to sign-in.
+const noteLink = (note: SpecPointNote) =>
+  ({
+    to: isDemoStudent() ? "/demo/student/notes/$conceptId" : "/notes/$conceptId",
+    params: { conceptId: note.id },
+  }) as const;
+
+const homeworkLink = (item: PointWorkItem) =>
+  ({
+    to: isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId",
+    params: { homeworkId: item.id },
+  }) as const;
+
+const quizLink = (item: PointWorkItem) =>
+  ({
+    to: isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId",
+    params: { setId: item.id },
+  }) as const;
 
 export function VideoChip({
   item,
@@ -55,12 +83,7 @@ export function VideoChip({
 /** Straight to the point's revision note. */
 export function NoteChip({ note, label = "Notes" }: { note: SpecPointNote; label?: string }) {
   return (
-    <Link
-      to={isDemoStudent() ? "/demo/student/notes/$conceptId" : "/notes/$conceptId"}
-      params={{ conceptId: note.id }}
-      title={note.title}
-      className={CHIP}
-    >
+    <Link {...noteLink(note)} title={note.title} className={CHIP}>
       <BookOpen className="w-3 h-3" /> {label}
     </Link>
   );
@@ -83,10 +106,7 @@ export function HomeworkChip({
   const done = !!coverage?.homeworkDone;
   return (
     <Link
-      // The showcase renders these chips from fixtures under /demo/student; the
-      // guarded route would bounce a visitor to sign-in.
-      to={isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"}
-      params={{ homeworkId: item.id }}
+      {...homeworkLink(item)}
       title={chipTitle(item, "Task", done, coverage?.homeworkScore)}
       className={`${CHIP} ${done ? "tint-emerald chip-done" : ""}`}
     >
@@ -121,8 +141,7 @@ export function QuizChip({
   const done = !!coverage?.quizDone;
   return (
     <Link
-      to={isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
-      params={{ setId: item.id }}
+      {...quizLink(item)}
       title={chipTitle(item, "Quiz", done, coverage?.quizScore)}
       className={`${CHIP} ${done ? "tint-emerald chip-done" : ""}`}
     >
@@ -169,6 +188,134 @@ export function WorkChips({
         <span className="text-[11px] text-muted-foreground/60">Read the spec point</span>
       )}
     </>
+  );
+}
+
+/**
+ * One step's face: the dot and the word under it. The word is what the step
+ * says on screen; `kind` is read out first when the word alone ("13%") would
+ * not say what it is a mark for.
+ */
+function StepFace({
+  icon: Icon,
+  word,
+  kind,
+  done = false,
+}: {
+  icon: LucideIcon;
+  word: string;
+  kind?: string;
+  done?: boolean;
+}) {
+  return (
+    <>
+      <span className={`icon-tile trail-dot ${done ? "icon-tile-solid" : ""}`}>
+        <Icon className="size-4.5" aria-hidden />
+      </span>
+      <span className="trail-label">
+        {kind ? <span className="sr-only">{`${kind} `}</span> : null}
+        {word}
+      </span>
+    </>
+  );
+}
+
+export function VideoStep({
+  item,
+  onPlay,
+}: {
+  item: PointWorkItem;
+  onPlay: (item: PointWorkItem) => void;
+}) {
+  return (
+    <button type="button" onClick={() => onPlay(item)} title={item.title} className="trail-step">
+      <StepFace icon={PlayCircle} word="Play" />
+    </button>
+  );
+}
+
+export function NoteStep({ note }: { note: SpecPointNote }) {
+  return (
+    <Link {...noteLink(note)} title={note.title} className="trail-step">
+      <StepFace icon={BookOpen} word="Read" />
+    </Link>
+  );
+}
+
+export function HomeworkStep({
+  item,
+  coverage,
+}: {
+  item: PointWorkItem;
+  coverage?: PointCoverage | null;
+}) {
+  const done = !!coverage?.homeworkDone;
+  const score = coverage?.homeworkScore;
+  return (
+    <Link
+      {...homeworkLink(item)}
+      title={chipTitle(item, "Task", done, score)}
+      className={`trail-step ${done ? "tint-emerald" : ""}`}
+    >
+      {done ? (
+        // Handed in but not marked yet still reads as done: "Task" would ask
+        // the student to do it again.
+        <StepFace icon={Check} word={score != null ? `${score}%` : "Handed in"} kind="Task" done />
+      ) : (
+        <StepFace icon={ClipboardList} word="Task" />
+      )}
+    </Link>
+  );
+}
+
+export function QuizStep({
+  item,
+  coverage,
+}: {
+  item: PointWorkItem;
+  coverage?: PointCoverage | null;
+}) {
+  const done = !!coverage?.quizDone;
+  const score = coverage?.quizScore;
+  return (
+    <Link
+      {...quizLink(item)}
+      title={chipTitle(item, "Quiz", done, score)}
+      className={`trail-step ${done ? "tint-emerald" : ""}`}
+    >
+      {done ? (
+        <StepFace icon={Check} word={score != null ? `${score}%` : "Done"} kind="Quiz" done />
+      ) : (
+        <StepFace icon={ListChecks} word="Quiz" />
+      )}
+    </Link>
+  );
+}
+
+const STEP_KIND = {
+  video: { icon: PlayCircle, word: "Play" },
+  note: { icon: BookOpen, word: "Read" },
+  quiz: { icon: ListChecks, word: "Quiz" },
+  task: { icon: ClipboardList, word: "Task" },
+} satisfies Record<string, { icon: LucideIcon; word: string }>;
+
+/**
+ * A step with nothing behind it: the library has no video, note, quiz or task
+ * on this point yet. Drawn in its place so the trail keeps its order, and
+ * pressable by nobody.
+ */
+export function EmptyStep({ kind, empty }: { kind: keyof typeof STEP_KIND; empty: string }) {
+  const { icon: Icon, word } = STEP_KIND[kind];
+  return (
+    <span className="trail-step" title={empty}>
+      <span className="icon-tile trail-dot trail-dot-empty">
+        <Icon className="size-4.5" aria-hidden />
+      </span>
+      <span className="trail-label trail-label-empty" aria-hidden>
+        {word}
+      </span>
+      <span className="sr-only">{empty}</span>
+    </span>
   );
 }
 
