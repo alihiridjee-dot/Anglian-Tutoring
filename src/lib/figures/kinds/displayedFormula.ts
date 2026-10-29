@@ -517,7 +517,7 @@ export const displayedFormula: FigureKind<FormulaBrief> = {
     {
       subject: "chemistry",
       question:
-        "The diagram shows the repeat unit of an addition polymer. Draw the displayed formula of the monomer used to make it, and name the monomer.",
+        "The diagram shows the repeat unit of an addition polymer. Name the monomer used to make this polymer.",
       brief: {
         kind: "displayed-formula",
         atoms: [
