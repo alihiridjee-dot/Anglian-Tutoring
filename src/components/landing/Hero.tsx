@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Sparkles, ArrowRight, Check } from "lucide-react";
+import { Sparkles, ArrowRight, Star, Stethoscope, GraduationCap, BookOpen } from "lucide-react";
 
 import { Mascot } from "@/components/Doodles";
 
@@ -217,6 +217,68 @@ function GradCapRibbons({ runId }: { runId: number }) {
   );
 }
 
+// The trust banner under the hero, drifting past like a "featured in" row.
+// Every figure is one the site already makes elsewhere (the tutor bios, the
+// 48-hour marking promise), so keep them in step if those change. The NHS line
+// is words and a stethoscope, because the NHS logo is only for NHS
+// organisations to use.
+const TRUST_ITEMS: { text: string; mark: React.ReactNode }[] = [
+  {
+    text: "Loved by hundreds of students",
+    mark: (
+      <span className="trust-stars tint-amber" aria-hidden>
+        {[0, 1, 2, 3, 4].map((i) => (
+          <Star key={i} />
+        ))}
+      </span>
+    ),
+  },
+  {
+    text: "Practising NHS doctor",
+    mark: <Stethoscope className="trust-icon tint-primary" aria-hidden />,
+  },
+  {
+    text: "hours taught",
+    mark: <span className="numeral trust-numeral tint-primary">1,500+</span>,
+  },
+  {
+    text: "Led by experienced qualified tutors",
+    mark: <GraduationCap className="trust-icon tint-accent" aria-hidden />,
+  },
+  {
+    text: "marking turnaround",
+    mark: <span className="numeral trust-numeral tint-primary">48h</span>,
+  },
+  {
+    text: "years combined teaching experience",
+    mark: <span className="numeral trust-numeral tint-primary">15+</span>,
+  },
+  {
+    text: "AQA · Edexcel · OCR",
+    mark: <BookOpen className="trust-icon tint-accent" aria-hidden />,
+  },
+];
+
+function TrustMarquee() {
+  return (
+    <div className="trust-banner relative z-20 mt-10">
+      <div className="trust-marquee">
+        {/* The second half is the same list again, so the loop has no seam;
+            screen readers skip it and read each line once. */}
+        {[0, 1].map((half) => (
+          <ul key={half} className="trust-marquee-half" aria-hidden={half === 1 || undefined}>
+            {TRUST_ITEMS.map((item) => (
+              <li key={item.text} className="trust-item">
+                {item.mark} <span>{item.text}</span>
+              </li>
+            ))}
+          </ul>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   // Bumping runId remounts the ribbon nodes, restarting their CSS animations.
@@ -320,21 +382,10 @@ export function Hero() {
           <Mascot name="flask" mood="wink" size={84} className="sm:size-[108px]" />
           <Mascot name="bolt" mood="wow" size={72} className="sm:size-[92px]" />
         </div>
-
-        {/* Social proof + trust ticks. */}
-        <div className="text-muted-foreground mt-10 flex flex-wrap items-center justify-center gap-3 text-sm font-semibold">
-          <div className="chip tint-accent">
-            <Check className="size-3.5 shrink-0" aria-hidden /> Loved by hundreds of students
-          </div>
-          <div className="chip tint-accent">
-            <Check className="size-3.5 shrink-0" aria-hidden /> Led by experienced qualified tutors
-          </div>
-          <div className="chip tint-accent">
-            <Check className="size-3.5 shrink-0" aria-hidden /> 15+ years combined teaching
-            experience
-          </div>
-        </div>
       </div>
+
+      {/* Social proof + trust ticks, full width so the strip runs edge to edge. */}
+      <TrustMarquee />
     </section>
   );
 }
