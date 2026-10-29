@@ -1,8 +1,17 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
-import { GraduationCap, ArrowLeft, Check, Sparkles, Stethoscope } from "lucide-react";
+import { Fragment, useEffect, useRef, useState } from "react";
+import {
+  GraduationCap,
+  ArrowLeft,
+  ListChecks,
+  Sparkles,
+  Stethoscope,
+  Target,
+  Video,
+} from "lucide-react";
 
-import { Mascot } from "@/components/Doodles";
+import { Mascot, Squiggle } from "@/components/Doodles";
+import { cn } from "@/lib/utils";
 
 /** The wordmark lockup used at the top of every signed-out screen. */
 export function BrandMark({ className = "" }: { className?: string }) {
@@ -21,11 +30,42 @@ export function BrandMark({ className = "" }: { className?: string }) {
   );
 }
 
+const HEADLINE = "Everything you need for exam day, in one calm place.";
+const HEADLINE_WORDS = HEADLINE.split(" ");
+/** "one calm place." carries the point, so it gets the underline. */
+const CALM_FROM = HEADLINE_WORDS.length - 3;
+
 const POINTS = [
-  "Your exam board's spec, point by point",
-  "Weekly quizzes that target your weak spots",
-  "Live sessions and tasks in one place",
+  { text: "Your exam board's spec, point by point", icon: ListChecks, tint: "tint-accent" },
+  { text: "Weekly quizzes that target your weak spots", icon: Target, tint: "tint-amber" },
+  { text: "Live sessions and tasks in one place", icon: Video, tint: "tint-rose" },
 ];
+
+/* The delivery, in seconds from load: the owl peeks up, the headline rises in
+   word by word, the underline draws under its last three words, the points
+   land one at a time, and the owl says the trust line. */
+const OWL_AT = 0.2;
+const WORDS_AT = 0.3;
+const WORD_STEP = 0.07;
+const UNDERLINE_AT = 1.2;
+const POINTS_AT = 1.35;
+const POINT_STEP = 0.15;
+const BUBBLE_AT = 2.05;
+
+const delay = (name: string, s: number) => ({ [name]: `${s}s` }) as React.CSSProperties;
+
+/** One headline word, rising into place on its turn. */
+function RisingWord({ word, index }: { word: string; index: number }) {
+  return (
+    <span
+      data-owl-watch
+      className="word-rise"
+      style={delay("--word-delay", WORDS_AT + index * WORD_STEP)}
+    >
+      {word}
+    </span>
+  );
+}
 
 const isPassword = (t: EventTarget | null) =>
   t instanceof HTMLInputElement && t.type === "password";
@@ -33,10 +73,12 @@ const isPassword = (t: EventTarget | null) =>
 /**
  * The panel's owl keeps an eye on the form: its eyes follow the pointer, or
  * the field that has focus, and it covers them with its wings while someone
- * types a password. The eyes move through CSS variables written straight onto
- * the wrapper, so following the mouse never re-renders anything.
+ * types a password. While the panel delivers its text it reads along: every
+ * entrance marked `data-owl-watch` turns its eyes as it starts. The eyes move
+ * through CSS variables written straight onto the wrapper, so none of this
+ * ever re-renders anything.
  */
-function ShyOwl() {
+function ShyOwl({ size = 72, className }: { size?: number; className?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const [shy, setShy] = useState(false);
 
@@ -60,34 +102,45 @@ function ShyOwl() {
         el.style.setProperty("--gaze-y", `${(dy / d) * 2.5 * reach}px`);
       });
     };
+    const lookAtEl = (t: Element) => {
+      const r = t.getBoundingClientRect();
+      lookAt(r.left + r.width / 2, r.top + r.height / 2);
+    };
     const onMove = (e: PointerEvent) => lookAt(e.clientX, e.clientY);
+    const onEntrance = (e: AnimationEvent) => {
+      if (e.target instanceof HTMLElement && e.target.dataset.owlWatch !== undefined) {
+        lookAtEl(e.target);
+      }
+    };
     const onFocusIn = (e: FocusEvent) => {
       setShy(isPassword(e.target));
-      if (follow && e.target instanceof HTMLElement) {
-        const r = e.target.getBoundingClientRect();
-        lookAt(r.left + r.width / 2, r.top + r.height / 2);
-      }
+      if (follow && e.target instanceof HTMLElement) lookAtEl(e.target);
     };
     const onFocusOut = (e: FocusEvent) => setShy(isPassword(e.relatedTarget));
 
+    const pane = el.closest("aside");
     setShy(isPassword(document.activeElement));
-    if (follow) window.addEventListener("pointermove", onMove, { passive: true });
+    if (follow) {
+      window.addEventListener("pointermove", onMove, { passive: true });
+      pane?.addEventListener("animationstart", onEntrance);
+    }
     document.addEventListener("focusin", onFocusIn);
     document.addEventListener("focusout", onFocusOut);
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("pointermove", onMove);
+      pane?.removeEventListener("animationstart", onEntrance);
       document.removeEventListener("focusin", onFocusIn);
       document.removeEventListener("focusout", onFocusOut);
     };
   }, []);
 
   return (
-    <span ref={ref} className="shrink-0">
+    <span ref={ref} className={cn("shrink-0", className)}>
       <Mascot
         name="owl"
         mood="happy"
-        size={72}
+        size={size}
         hideEyes={shy}
         /* A mascot draws its outlines from `currentColor` and fills from its
            tint, which is pale — so on a dark panel it needs a DARK stroke to
@@ -98,17 +151,76 @@ function ShyOwl() {
   );
 }
 
+/** One orbit of the backdrop atom, drawn about the origin. */
+const ORBIT = "M-150 0a150 54 0 1 0 300 0a150 54 0 1 0-300 0";
+
+/**
+ * A line-drawn atom behind the headline: three orbits draw themselves on, then
+ * the nucleus and an electron per orbit light up. Drawn once on arrival, then
+ * still — the owl is the panel's only idle motion.
+ */
+function OrbitArt() {
+  return (
+    <svg
+      aria-hidden
+      viewBox="-170 -170 340 340"
+      className="pointer-events-none absolute -top-28 -right-32 w-[30rem] opacity-[0.22]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+    >
+      {[0, 60, 120].map((deg, i) => (
+        <g key={deg} transform={`rotate(${deg})`}>
+          <path
+            d={ORBIT}
+            pathLength={1}
+            className="orbit-draw"
+            style={delay("--orbit-delay", 0.1 + i * 0.22)}
+          />
+          <circle
+            cx={i === 1 ? -106 : 150}
+            cy={i === 1 ? 38 : 0}
+            r={5}
+            fill="currentColor"
+            stroke="none"
+            className="glitter-dot"
+            style={delay("--glitter-delay", 1.1 + i * 0.15)}
+          />
+        </g>
+      ))}
+      <circle
+        r={12}
+        fill="currentColor"
+        stroke="none"
+        className="glitter-dot"
+        style={delay("--glitter-delay", 0.9)}
+      />
+    </svg>
+  );
+}
+
 /**
  * Marketing panel beside the auth form on desktop. Hidden below lg — on a phone
  * the form is the whole point of the screen and this would just push it down.
+ *
+ * It delivers its text rather than just showing it: see the timings above.
  */
 export function BrandPanel() {
   return (
     <aside className="hidden lg:flex flex-col justify-between rounded-3xl p-9 text-primary-foreground relative overflow-hidden rise-in">
+      {/* Brand gradient lit from two corners: daylight top left, a teal glow
+          rising behind the points, and a warm pool of light where the owl sits. */}
       <div
         aria-hidden
         className="absolute inset-0"
-        style={{ background: "var(--gradient-hero)" }}
+        style={{
+          background: [
+            "radial-gradient(22rem 16rem at -5% -8%, color-mix(in oklab, white 24%, transparent), transparent 70%)",
+            "radial-gradient(28rem 22rem at 105% 75%, color-mix(in oklab, var(--accent) 55%, transparent), transparent 70%)",
+            "radial-gradient(16rem 12rem at 8% 100%, color-mix(in oklab, var(--pop) 26%, transparent), transparent 70%)",
+            "var(--gradient-hero)",
+          ].join(", "),
+        }}
       />
       <div
         aria-hidden
@@ -118,37 +230,80 @@ export function BrandPanel() {
             "radial-gradient(currentColor 1px, transparent 1px), radial-gradient(currentColor 1px, transparent 1px)",
           backgroundSize: "28px 28px",
           backgroundPosition: "0 0, 14px 14px",
+          maskImage: "linear-gradient(to bottom, black, transparent 85%)",
         }}
       />
+      <OrbitArt />
+
       <div className="relative">
-        <span className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-white/30 bg-white/15 px-3 py-1.5 text-xs font-extrabold shadow-[0_2px_0_0_rgba(0,0,0,0.15)] backdrop-blur-sm">
+        <span
+          className="pop-in inline-flex items-center gap-2 rounded-full border-[1.5px] border-white/30 bg-white/15 px-3 py-1.5 text-xs font-extrabold shadow-[0_2px_0_0_rgba(0,0,0,0.15)] backdrop-blur-sm"
+          style={delay("--pop-delay", 0.15)}
+        >
           <Sparkles className="size-3.5" aria-hidden /> GCSE &amp; A-Level science
         </span>
-        <h2 className="font-display mt-7 text-3xl leading-[1.15] font-extrabold tracking-tight">
-          Everything you need for exam day, in one calm place.
+        <h2
+          aria-label={HEADLINE}
+          className="mt-7 text-[2.35rem] leading-[1.08] font-extrabold tracking-tight"
+        >
+          <span aria-hidden>
+            {HEADLINE_WORDS.slice(0, CALM_FROM).map((w, i) => (
+              <Fragment key={i}>
+                <RisingWord word={w} index={i} />{" "}
+              </Fragment>
+            ))}
+            <span className="relative inline-block whitespace-nowrap">
+              {HEADLINE_WORDS.slice(CALM_FROM).map((w, i) => (
+                <Fragment key={i}>
+                  {i > 0 ? " " : null}
+                  <RisingWord word={w} index={CALM_FROM + i} />
+                </Fragment>
+              ))}
+              <Squiggle
+                className="squiggle-draw absolute -bottom-2.5 left-0 h-3 text-[color:var(--pop)]"
+                style={delay("--squiggle-delay", UNDERLINE_AT)}
+              />
+            </span>
+          </span>
         </h2>
-        <ul className="mt-7 space-y-3.5">
-          {POINTS.map((p) => (
-            <li key={p} className="flex items-start gap-3 text-sm text-white/90">
-              <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/20">
-                <Check className="size-3" aria-hidden />
+        <ul className="mt-8 space-y-3">
+          {POINTS.map((p, i) => (
+            <li
+              key={p.text}
+              data-owl-watch
+              className={cn(
+                "premium-card point-in flex items-center gap-3 rounded-2xl px-3.5 py-3 text-sm font-semibold text-foreground",
+                p.tint,
+              )}
+              style={delay("--point-delay", POINTS_AT + i * POINT_STEP)}
+            >
+              <span className="icon-tile size-10 shrink-0">
+                <p.icon className="size-5" aria-hidden />
               </span>
-              {p}
+              {p.text}
             </li>
           ))}
         </ul>
       </div>
-      <div className="relative mt-10 flex items-center gap-3">
-        {/* One character, peeking over the trust note — the panel is the last
-            thing someone reads before signing up, and a face here is worth
-            more than a fourth bullet. */}
-        <ShyOwl />
-        <div className="flex items-center gap-2.5 rounded-2xl border-[1.5px] border-white/20 bg-white/10 px-4 py-3 text-sm backdrop-blur-sm">
-          <Stethoscope className="size-4 shrink-0" aria-hidden />
-          <span className="text-white/90">
-            Taught by practising NHS doctors and qualified teachers.
+
+      {/* The owl hosts the panel: it rises up first, reads along as the text
+          arrives, then says the trust line itself — the last thing someone
+          reads before signing up, and worth more in a voice than as a bullet. */}
+      <div
+        className="relative mt-10 flex items-end gap-2"
+        style={{ ...delay("--peek-delay", OWL_AT), ...delay("--cheer-delay", BUBBLE_AT + 0.1) }}
+      >
+        <ShyOwl size={132} className="owl-host -mb-4 -ml-3" />
+        <p
+          data-owl-watch
+          className="premium-card bubble-in mb-12 flex items-center gap-2.5 rounded-2xl rounded-bl-sm px-4 py-3 text-sm font-semibold text-foreground"
+          style={delay("--bubble-delay", BUBBLE_AT)}
+        >
+          <span className="icon-tile size-9 shrink-0">
+            <Stethoscope className="size-4" aria-hidden />
           </span>
-        </div>
+          Taught by practising NHS doctors and qualified teachers.
+        </p>
       </div>
     </aside>
   );
