@@ -99,7 +99,7 @@ function PrivacyPage() {
     <div className="min-h-screen bg-secondary/40 text-foreground font-sans antialiased">
       <Nav />
 
-      <section className="page-aurora relative overflow-hidden border-b border-border">
+      <section className="page-aurora relative overflow-hidden border-b border-border pt-(--site-bar-h)">
         <div className="relative mx-auto max-w-3xl px-4 py-14 text-center sm:px-6 sm:py-20">
           <span className="sticker">
             <ShieldCheck className="size-3.5" aria-hidden /> Privacy

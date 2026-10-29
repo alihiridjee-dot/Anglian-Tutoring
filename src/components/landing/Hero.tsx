@@ -96,9 +96,10 @@ function GradCapRibbons({ runId }: { runId: number }) {
 
   return (
     <div aria-hidden className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
-      {/* Glitter field, spread across the whole background. */}
+      {/* Glitter field, spread across the background below the site bar, so
+          no blob sits behind a nav label. */}
       <svg
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-x-0 bottom-0 w-full h-[calc(100%-var(--site-bar-h))]"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
       >
@@ -129,10 +130,11 @@ function GradCapRibbons({ runId }: { runId: number }) {
         ))}
       </svg>
 
-      {/* Ribboned grad cap, centred behind the heading. Radial mask fades the
+      {/* Ribboned grad cap, centred behind the heading: 42% of the way down
+          the part of the hero below the site bar. Radial mask fades the
           middle so text stays crisp; ribbons stay strongest at the edges. */}
       <svg
-        className="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 w-[46rem] max-w-[95vw] opacity-[0.5]"
+        className="absolute left-1/2 top-[calc(42%+0.58*var(--site-bar-h))] -translate-x-1/2 -translate-y-1/2 w-[46rem] max-w-[95vw] opacity-[0.5]"
         viewBox="-200 -160 400 320"
         fill="none"
       >
@@ -271,7 +273,7 @@ export function Hero() {
           below the content). */}
       <GradCapRibbons runId={runId} />
 
-      <div className="relative z-20 mx-auto max-w-4xl px-4 text-center sm:px-6">
+      <div className="relative z-20 mx-auto max-w-4xl px-4 pt-(--site-bar-h) text-center sm:px-6">
         <span className="sticker stamp-in">
           <Sparkles className="size-3.5 text-[color:var(--pop-ink)]" aria-hidden /> Modern science
           platform for KS3 &amp; GCSE
