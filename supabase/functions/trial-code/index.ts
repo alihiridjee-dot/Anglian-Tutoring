@@ -25,7 +25,8 @@
 // Required function secrets: RESEND_API_KEY, EMAIL_FROM, APP_URL
 // Auto-injected by the platform: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 //
-import { corsHeaders, HttpError } from "../_shared/http.ts";
+import { corsHeaders, HttpError, readBody, type Unchecked } from "../_shared/http.ts";
+import type { TrialCodePayload } from "../_shared/contracts.ts";
 import { admin } from "../_shared/clients.ts";
 import { buildTrialEmail, canonicalEmail, makeTrialCode } from "../_shared/trialCode.ts";
 
@@ -103,7 +104,7 @@ function clientIp(req: Request): string | null {
   );
 }
 
-async function handle(req: Request, body: { email?: unknown; website?: unknown }) {
+async function handle(req: Request, body: Unchecked<TrialCodePayload>) {
   if (typeof body.website === "string" && body.website.trim()) return { ok: true };
 
   const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
@@ -169,7 +170,7 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
   try {
-    const body = (await req.json().catch(() => ({}))) as { email?: unknown; website?: unknown };
+    const body = await readBody<TrialCodePayload>(req);
     const result = await handle(req, body);
     return new Response(JSON.stringify(result), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },

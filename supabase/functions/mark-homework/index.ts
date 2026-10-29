@@ -31,7 +31,8 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 // `node/stream/promises.ts` — the deploy fails at module resolution, before any
 // of this code runs. The edge runtime speaks npm specifiers natively.
 import Anthropic from "npm:@anthropic-ai/sdk@0.111.0";
-import { corsHeaders, HttpError } from "../_shared/http.ts";
+import { corsHeaders, HttpError, readBody } from "../_shared/http.ts";
+import type { MarkHomeworkPayload } from "../_shared/contracts.ts";
 import {
   EFFORT,
   MODEL,
@@ -134,7 +135,7 @@ Deno.serve(async (req) => {
     const authHeader = req.headers.get("Authorization") ?? "";
     if (!authHeader) throw new HttpError(401, "Not signed in");
 
-    const { submissionId } = (await req.json().catch(() => ({}))) as { submissionId?: string };
+    const { submissionId } = await readBody<MarkHomeworkPayload>(req);
     if (!submissionId || typeof submissionId !== "string") {
       throw new HttpError(400, "A submissionId is required");
     }

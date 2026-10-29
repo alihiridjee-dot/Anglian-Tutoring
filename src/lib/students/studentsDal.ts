@@ -3,6 +3,7 @@ import { getSessionUserId } from "@/lib/auth/session";
 import type { Database } from "@/integrations/supabase/types";
 import type { BoardV, LevelV, SubjectV } from "@/lib/curriculum/taxonomy";
 import type { SubscriptionRow } from "@/lib/billing/billing";
+import type { DeleteAccountPayload } from "../../../supabase/functions/_shared/contracts";
 
 /**
  * Everything the tutor's Students pages read and write about one student.
@@ -91,7 +92,7 @@ export interface AccountDeletion {
  * Calls the delete-account edge function, surfacing its own error message
  * rather than "Edge Function returned a non-2xx status code" (see invokeBilling).
  */
-async function invokeDeleteAccount<T>(body: Record<string, unknown>): Promise<T> {
+async function invokeDeleteAccount<T>(body: DeleteAccountPayload): Promise<T> {
   const { data, error } = await supabase.functions.invoke("delete-account", { body });
   if (error) {
     const ctx = (error as { context?: Response }).context;

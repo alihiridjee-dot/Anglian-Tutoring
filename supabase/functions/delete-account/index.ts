@@ -28,8 +28,9 @@
 //   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 //
 import Stripe from "https://esm.sh/stripe@17.5.0?target=deno";
-import { corsHeaders, HttpError } from "../_shared/http.ts";
+import { corsHeaders, HttpError, readBody } from "../_shared/http.ts";
 import { admin, stripeClient } from "../_shared/clients.ts";
+import type { DeleteAccountPayload } from "../_shared/contracts.ts";
 import { isStaff, requireUser } from "../stripe-checkout/auth.ts";
 import { buildEmail, formatUkDate, type EmailKind, type Recipient } from "./emails.ts";
 
@@ -55,11 +56,6 @@ interface DeletionRow {
 
 const DELETION_COLUMNS =
   "id, student_id, purge_after, notify, student_name, paused_subscription_id, attempts";
-
-interface Payload {
-  action: "schedule" | "undo" | "purge";
-  student_id?: string;
-}
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -226,9 +222,11 @@ async function resumePlan(db: Db, stripe: Stripe, subscriptionId: string) {
 
 // ── schedule ────────────────────────────────────────────────────────────────
 
-async function handleSchedule(req: Request, studentId: string | undefined) {
+async function handleSchedule(req: Request, studentId: unknown) {
   const caller = await requireStaff(req);
-  if (!studentId) throw new HttpError(400, "student_id is required.");
+  if (typeof studentId !== "string" || !studentId) {
+    throw new HttpError(400, "student_id is required.");
+  }
   if (studentId === caller.id) throw new HttpError(400, "You can't delete your own account.");
 
   const db = admin();
@@ -306,9 +304,11 @@ function purgeStarted() {
   return new HttpError(409, "The deletion has already started and can't be undone.");
 }
 
-async function handleUndo(req: Request, studentId: string | undefined) {
+async function handleUndo(req: Request, studentId: unknown) {
   const caller = await requireStaff(req);
-  if (!studentId) throw new HttpError(400, "student_id is required.");
+  if (typeof studentId !== "string" || !studentId) {
+    throw new HttpError(400, "student_id is required.");
+  }
 
   const db = admin();
   const { data: row } = await db
@@ -519,7 +519,7 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
   try {
-    const payload = (await req.json().catch(() => ({}))) as Payload;
+    const payload = await readBody<DeleteAccountPayload>(req);
     let result: unknown;
     switch (payload.action) {
       case "schedule":
