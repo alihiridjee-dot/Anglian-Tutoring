@@ -15,7 +15,9 @@ import {
   type Axis,
   type KnownBrief,
 } from "./figure";
-import { PROFILE_NAME_WIDTH, forceLabel, ticks, wrap } from "./figureDraw";
+import { checkFigure } from "./figureCheck";
+import { PROFILE_NAME_WIDTH, drawWithCode, forceLabel, ticks, wrap } from "./figureDraw";
+import { KINDS, figureKind } from "./kinds";
 
 /** Questions in one set that may carry a figure. */
 export const MAX_FIGURES = 2;
@@ -46,7 +48,7 @@ export const FIGURE_FIELD = {
 
 /** What the writer is told about figures, when a set may have them. */
 export const FIGURE_GUIDE = `FIGURES
-At most ${MAX_FIGURES} questions in the set may each come with one figure, where a figure is how an exam paper would give the information: a graph or bar chart of results to read or interpret, a circuit, a reaction profile, a food web, a chromatogram, a wave, or the forces acting on an object. Most questions have none: their figure is "". A question with one writes its brief in figure as one JSON object, with "kind" and the fields below. Never add a figure for decoration, and never ask a student to draw, plot, sketch or label one.
+At most ${MAX_FIGURES} questions in the set may each come with one figure, where a figure is how an exam paper would give the information: a graph or bar chart of results to read or interpret, a circuit, a reaction profile, a food web, a chromatogram, a wave, the forces acting on an object${KINDS.map((k) => `, ${k.name}`).join("")}. Most questions have none: their figure is "". A question with one writes its brief in figure as one JSON object, with "kind" and the fields below. Never add a figure for decoration, and never ask a student to draw, plot, sketch or label one.
 A figure given as a brief is not absent: the website draws it from the brief and shows it below the question's text. The question says what the figure shows ("The graph shows how the velocity of a car changed.") and is answered from it, so it doesn't repeat the figure's data. Nothing in the figure may give the answer away: no title or label names what the question asks for.
 The brief holds every value, label and connection; the figure shows exactly the brief:
 - "line-graph" or "scatter": x and y axes, each {title: quantity and unit as "time in s", min, max, step}, 2 to 12 steps, max − min a whole number of steps, and numbers short enough to fit (at most 3 digits on the x axis). series: one ("scatter": exactly one) or two {name, points: [[x, y], …]}, 2 to 20 points, each within both axes. A line graph joins its points in order with straight lines.
@@ -57,7 +59,7 @@ The brief holds every value, label and connection; the figure shows exactly the 
 - "chromatogram": y: the scale up the paper's side, an axis as above starting at 0 at the start line ({title: "distance in cm", min: 0, max, step}); front: the solvent front's distance from the start line, from half of y.max to y.max; samples: 2 to 6 lanes in order across the paper, each {name, spots: 1 to 5 distances from the start line, each from 0 (a spot that stayed on the start line) to below the front, at least y.max ÷ 16 apart}. Names short enough to fit under their lane: at most 11 characters with 2 lanes, 7 with 3, 5 with 4, 4 with 5 and 3 with 6. The website labels the start line and the solvent front.
 - "wave": one of two kinds. Lettered: arrows: 1 to 4 {shows: "amplitude", "wavelength", "crest to trough" or "half a wavelength", letter: one capital letter}, each shows once, and no axes; the website draws two whole waves the same size every time. On a scale: x and y axes as for a line graph, x along the wave ("distance in cm", or "time in ms" for an oscilloscope trace), y the displacement from −y.max to y.max; amplitude (from a quarter of y.max to y.max) and wavelength (the length of one whole wave along x, its period when x is time), with x.max − x.min holding 1 to 6 whole waves; no arrows. The wave starts at 0 and rises first.
 - "forces": object: its name, at most 8 characters, written in a box ("van", "crate"), or ""; forces: 1 to 4, each {direction: "up", "down", "left" or "right", each direction once; name: what the force is ("weight", "air resistance") or the letter the question asks about ("X"); size: in newtons, or null for the one the question asks the student to find}; toScale: true only when every size is given, the smallest at least a quarter of the largest: the arrows' lengths are then in proportion; otherwise every arrow is the same length.
-Scale each axis so the values the question turns on are easy to read off: put them on grid lines, and don't share one graph between two series of very different sizes (hundreds of rabbits, tens of foxes).
+${KINDS.map((k) => `- "${k.kind}": ${k.guide}\n`).join("")}Scale each axis so the values the question turns on are easy to read off: put them on grid lines, and don't share one graph between two series of very different sizes (hundreds of rabbits, tens of foxes).
 Titles and names: plain words and proper notation (cm³, CO₂, °C), at most 28 characters.`;
 
 const SMALL = TEXT_SIZE["qf-small"]!;
@@ -406,7 +408,17 @@ export function readBrief(value: unknown): { brief: KnownBrief } | { problem: st
       }
       return { brief: { kind: "forces", object, forces: read, toScale: b.toScale } };
     }
-    default:
-      return { problem: `kind "${String(b.kind)}" is not one the website draws` };
+    default: {
+      const kind = figureKind(b.kind);
+      if (!kind) return { problem: `kind "${String(b.kind)}" is not one the website draws` };
+      // A kind whose room depends on more than its own fields tries its drawing.
+      const fits = (brief: unknown) => {
+        const drawn = drawWithCode(brief as KnownBrief);
+        return drawn
+          ? checkFigure(drawn.svg, brief as KnownBrief).problems
+          : ["doesn't fit its canvas"];
+      };
+      return kind.read(b, fits) as { brief: KnownBrief } | { problem: string };
+    }
   }
 }

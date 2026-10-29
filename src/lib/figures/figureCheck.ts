@@ -53,6 +53,7 @@ import {
   type FigureReply,
 } from "./figure";
 import { forceLabel, forceLength, labelWidth } from "./figureDraw";
+import { figureKind } from "./kinds";
 
 type Node = { name: string; attrs: Record<string, string>; children: Node[]; text: string };
 
@@ -231,8 +232,8 @@ export function cleanFigure(svg: string): string | null {
 
 // ── Geometry ────────────────────────────────────────────────────────────────
 
-type Pt = [number, number];
-type Box = { x0: number; y0: number; x1: number; y1: number };
+export type Pt = [number, number];
+export type Box = { x0: number; y0: number; x1: number; y1: number };
 /** An affine transform [a, b, c, d, e, f]: x' = a·x + c·y + e, y' = b·x + d·y + f. */
 type Matrix = [number, number, number, number, number, number];
 const IDENTITY: Matrix = [1, 0, 0, 1, 0, 0];
@@ -422,7 +423,7 @@ function crosses([a, b]: [Pt, Pt], box: Box): boolean {
   return true;
 }
 
-type Label = {
+export type Label = {
   text: string;
   box: Box;
   owner: number;
@@ -432,11 +433,11 @@ type Label = {
   anchor: string;
 };
 /** A line with an arrowhead: from its first point to its last, with a head at its start, its end or both. */
-type Arrow = { from: Pt; to: Pt; start: boolean; end: boolean };
+export type Arrow = { from: Pt; to: Pt; start: boolean; end: boolean };
 /** A circuit symbol as placed: its type, its centre and its two terminals. */
 type Part = { type: string; centre: Pt; ends: [Pt, Pt] };
 /** Everything the drawing holds that a brief is checked against. */
-type Drawing = {
+export type Drawing = {
   H: number;
   labels: Label[];
   segments: { seg: [Pt, Pt]; cls: string }[];
@@ -932,8 +933,49 @@ function briefProblems(brief: FigureBrief, d: Drawing): string[] {
       out.push(...forceProblems(k, d, hasLine));
       break;
   }
+  const kind = figureKind(brief.kind);
+  if (kind) {
+    const tools: CheckTools = {
+      hasLine,
+      writtenAt: (t, x, y, anchor, cls) =>
+        pieces(d.labels).some(
+          (p) =>
+            p.text === t &&
+            near(p.x, x, 1) &&
+            near(p.y, y, 1) &&
+            p.anchor === anchor &&
+            (!cls || p.cls === cls),
+        ),
+      pieces: () => pieces(d.labels),
+      near,
+      at,
+      fmt,
+      tagOf,
+      letterBeside: (p) => letterBeside(p, d),
+    };
+    out.push(...kind.check(brief, d, tools));
+  }
   return out;
 }
+
+/** What a figure kind in kinds/ checks its drawing with. */
+export type CheckTools = {
+  /** A qf-line segment from a to c, either way round, to within 0.6 units. */
+  hasLine: (a: Pt, c: Pt) => boolean;
+  /** A text, whole (its lines joined by spaces), written with its first baseline at x, y and this anchor (and style). */
+  writtenAt: (t: string, x: number, y: number, anchor: string, cls?: FigureClass) => boolean;
+  /** Each <text> whole: its lines joined by spaces, its style, and where its first line is. */
+  pieces: () => Label[];
+  near: (a: number, b: number, by?: number) => boolean;
+  /** A point as a problem names it: "(12, 40)". */
+  at: (p: Pt) => string;
+  /** A number as a problem names it: at most two decimal places. */
+  fmt: (v: number) => string;
+  /** A shape's tag as written, for a problem to point at. */
+  tagOf: (s: Drawing["shapes"][number]) => string;
+  /** The bold (qf-strong) text nearest a point, if one is within 20 units. */
+  letterBeside: (p: Pt) => Label | undefined;
+};
 
 /** A text whole, written exactly where the layout puts it: its first line's x and baseline, and its anchor. */
 const writtenAt = (d: Drawing, t: string, x: number, y: number, anchor: string) =>

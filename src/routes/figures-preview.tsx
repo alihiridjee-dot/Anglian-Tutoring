@@ -6,6 +6,7 @@ import { readBrief } from "@/lib/figures/figureBrief";
 import { checkFigure, checkReply } from "@/lib/figures/figureCheck";
 import { drawWithCode } from "@/lib/figures/figureDraw";
 import { FIGURE_EXAMPLES, type FigureRequest } from "@/lib/figures/figurePrompt";
+import { KINDS } from "@/lib/figures/kinds";
 
 // DEV ONLY — figures code draws, the figure prompt's worked examples and the
 // DeepSeek trial's results (scripts/figure-trial.ts), each on a question card
@@ -42,7 +43,7 @@ function FiguresPreview() {
         <span className="chip chip-solid tint-amber">Question figures — development only</span>
         <PageHeader eyebrow="DeepSeek figure prompt" title="Figures on question cards" />
         <h2>Drawn by code</h2>
-        {CODE_DRAWN_SAMPLES.map((r) => (
+        {[...CODE_DRAWN_SAMPLES, ...KINDS.flatMap((k) => k.samples)].map((r) => (
           <CodeCard key={r.question} request={r} />
         ))}
         <h2>Worked examples</h2>
