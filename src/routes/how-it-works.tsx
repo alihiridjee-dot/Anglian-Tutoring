@@ -183,52 +183,83 @@ function HowItWorks() {
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--accent-soft)_0%,transparent_60%)] opacity-70"
         />
-        <div className="relative mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:py-28">
-          <motion.span {...fadeUp} className="sticker">
-            <Brain className="size-3.5" aria-hidden /> How it works
-          </motion.span>
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+          {/* The homepage lays its copy over a full-bleed photo; this page hangs
+              the photo beside the copy as a print, so the two heroes don't repeat.
+              A phone on its side has no height for the whole column, so there
+              the photo rises to meet the headline. */}
+          <div className="grid items-center gap-12 split:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] split:gap-14 short:items-start">
+            <div className="text-center split:text-left">
+              <motion.span {...fadeUp} className="sticker">
+                <Brain className="size-3.5" aria-hidden /> How it works
+              </motion.span>
 
-          <motion.h1
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 0.08 }}
-            className="font-display text-foreground mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
-          >
-            Your child isn&apos;t lazy.
-            <br />
-            {/* The page turns on this one line, so it gets the highlighter and
-                nothing else on the screen does. */}
-            <span className="marker text-[var(--primary-deep)]">They&apos;re just forgetting.</span>
-          </motion.h1>
+              <motion.h1
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: 0.08 }}
+                className="font-display text-foreground mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl split:text-[clamp(2.25rem,3.6vw,3.25rem)]"
+              >
+                Your child isn&apos;t lazy.
+                <br />
+                {/* The page turns on this one line, so it gets the highlighter and
+                    nothing else on the screen does. */}
+                <span className="marker text-[var(--primary-deep)]">
+                  They&apos;re just forgetting.
+                </span>
+              </motion.h1>
 
-          <motion.p
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 0.16 }}
-            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground"
-          >
-            Every parent has watched it happen. They revise a topic in October, swear they know it,
-            and by the mock in February it's gone. That isn't a discipline problem — it's how memory
-            works. So we built the tutoring around it.
-          </motion.p>
+              <motion.p
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: 0.16 }}
+                className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground split:mx-0"
+              >
+                Every parent has watched it happen. They revise a topic in October, swear they know
+                it, and by the mock in February it's gone. That isn't a discipline problem — it's
+                how memory works. So we built the tutoring around it.
+              </motion.p>
 
-          <motion.div
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 0.24 }}
-            className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
-          >
-            <Link
-              to="/auth"
-              search={{ mode: "signup" } as never}
-              className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white shadow-sm transition "
+              <motion.div
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: 0.24 }}
+                className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap split:justify-start"
+              >
+                <Link
+                  to="/auth"
+                  search={{ mode: "signup" } as never}
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold whitespace-nowrap text-white shadow-sm transition "
+                >
+                  Book your child's place <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/demo"
+                  className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-primary/20 bg-primary/5 px-6 py-3 text-sm font-semibold whitespace-nowrap text-primary transition hover:bg-primary/10"
+                >
+                  <Sparkles className="h-3.5 w-3.5 text-amber-500" /> Explore the platform
+                </Link>
+              </motion.div>
+            </div>
+
+            <motion.figure
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: 0.2 }}
+              className="mx-auto w-full max-w-2xl"
             >
-              Book your child's place <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/demo"
-              className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-primary/20 bg-primary/5 px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary/10"
-            >
-              <Sparkles className="h-3.5 w-3.5 text-amber-500" /> Explore the platform
-            </Link>
-          </motion.div>
+              <div className="premium-card rotate-[1.5deg] p-2 sm:p-2.5">
+                <img
+                  src="/how-it-works/student-laptop-1200.webp"
+                  srcSet={[800, 1200, 1800]
+                    .map((w) => `/how-it-works/student-laptop-${w}.webp ${w}w`)
+                    .join(", ")}
+                  sizes="(min-width: 64rem) 50vw, 100vw"
+                  width={1800}
+                  height={1200}
+                  alt="A student at a laptop with the Anglia Educate student dashboard open"
+                  fetchPriority="high"
+                  className="aspect-[3/2] w-full rounded-[calc(var(--radius)-0.5rem)] object-cover"
+                />
+              </div>
+            </motion.figure>
+          </div>
 
           <motion.div
             {...fadeUp}
