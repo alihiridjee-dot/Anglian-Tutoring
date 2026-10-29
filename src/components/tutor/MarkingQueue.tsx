@@ -28,7 +28,7 @@ type SubmissionStatus = "PENDING_REVIEW" | "GRADED";
  * automatic. It used to measure the tutor's backlog — how long work had sat
  * ignored — which was the right pressure when nothing happened until someone
  * acted. Now something does happen: every submission is marked on arrival and
- * publishes itself half an hour later whether or not anyone looked. So the
+ * publishes itself a day later whether or not anyone looked. So the
  * number that matters is not how long this has been waiting, it is how long is
  * left to change it.
  *
@@ -79,8 +79,10 @@ function urgencyOf(s: Submission): Urgency {
   // a person. That is the most urgent thing in the queue, because nothing will
   // happen to it otherwise.
   if (left == null) return "urgent";
-  if (left <= 5) return "urgent";
-  if (left <= 15) return "soon";
+  // Against a day-long window: out within the hour, or before a tutor who
+  // checks morning and evening would next look.
+  if (left <= 60) return "urgent";
+  if (left <= 6 * 60) return "soon";
   return "fresh";
 }
 
@@ -587,11 +589,9 @@ function MarkSubmissionCard({
 /**
  * How long is left to change this before the student sees it.
  *
- * With a half-hour window this rarely reads as anything but "publishing now",
- * and that is honest: at this length review is a spot-check after the fact
- * rather than a gate, and most work a tutor opens will already be in the Marked
- * segment. The badge earns its place on the one row it still describes — work
- * with nothing staged at all, which no timer will ever release.
+ * With a day-long window this is the tutor's deadline: read it before this
+ * runs out and the student never sees a wrong mark. Work with nothing staged
+ * at all says so instead, since no timer will ever release it.
  */
 function UrgencyBadge({ sub }: { sub: Submission }) {
   const urgency = urgencyOf(sub);
@@ -609,7 +609,9 @@ function UrgencyBadge({ sub }: { sub: Submission }) {
         : "No marks yet"
       : left <= 0
         ? "Publishing now"
-        : `Publishes in ${Math.ceil(left)} min`;
+        : left >= 60
+          ? `Publishes in ${Math.round(left / 60)} h`
+          : `Publishes in ${Math.ceil(left)} min`;
 
   return (
     <span className={`${cls[urgency]} inline-flex items-center gap-1`}>

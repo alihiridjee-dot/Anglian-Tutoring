@@ -326,8 +326,9 @@ export function useHomeworkSheet({
       };
     },
     enabled: enabled && !!homeworkId,
-    // Handed in and not yet marked: the mark lands within minutes, and the
-    // student is sitting on this page waiting for it. Check for them, rather
+    // Handed in and not yet marked: the marker's clock lands within minutes
+    // and a tutor may release the marks early, while the student may be
+    // sitting on this page waiting. Check for them, rather
     // than asking them to keep refreshing. Stops as soon as the mark arrives.
     refetchInterval: (query) => {
       const submission = query.state.data?.submission;

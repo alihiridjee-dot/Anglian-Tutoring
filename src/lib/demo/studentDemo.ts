@@ -243,15 +243,15 @@ export const DEMO_SUBMISSIONS: Record<string, DemoSubmission> = {
     notes:
       "I wasn't sure if it's the ions or the electrons that move when it melts, so I wrote 'charges'.",
     // Handed in a few minutes ago and still inside its review window, which is
-    // the state the page explains rather than leaving blank. Marking takes
-    // minutes, so the page promises the marks in about twenty.
+    // the state the page explains rather than leaving blank. Marks are held a
+    // day for the tutor, so the page promises them in about 24 hours.
     submitted_at: minutesFromNow(-10),
     grade: null,
     score_pct: null,
     feedback: null,
     graded_at: null,
     acknowledged_at: null,
-    release_at: minutesFromNow(20),
+    release_at: minutesFromNow(24 * 60 - 10),
   },
   "demo-hw-atoms": {
     id: "demo-sub-4",
