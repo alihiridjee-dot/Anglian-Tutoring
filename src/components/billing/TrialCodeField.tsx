@@ -19,11 +19,14 @@ export function TrialCodeField({
   value,
   onChange,
   thenPrice,
+  className = "mt-4",
 }: {
   value: string;
   onChange: (code: string) => void;
   /** What the plan costs after the trial, e.g. "£49.99 per month". */
   thenPrice?: string;
+  /** Spacing from the field above; the plan page sets its own. */
+  className?: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -32,7 +35,7 @@ export function TrialCodeField({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+        className={`${className} inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline`}
       >
         <Gift className="w-4 h-4" /> Have a free-trial code?
       </button>
@@ -40,7 +43,7 @@ export function TrialCodeField({
   }
 
   return (
-    <div className="mt-4">
+    <div className={className}>
       <label htmlFor="trial-code" className="eyebrow text-[10px]">
         Free-trial code
       </label>

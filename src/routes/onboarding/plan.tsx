@@ -2,7 +2,7 @@ import { useOnboardingUser } from "@/hooks/useOnboardingUser";
 import { EmptyState, ErrorNote, Spinner } from "@/components/Shared";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
-import { Loader2, CreditCard, Gift } from "lucide-react";
+import { Loader2, CreditCard, Gift, Lock } from "lucide-react";
 import { useSignOut } from "@/hooks/useSignOut";
 import { formatPence } from "@/lib/billing/billing";
 import { usePlanStep, type SearchParams } from "@/components/onboarding/usePlanStep";
@@ -13,6 +13,7 @@ import { markWelcomeVideoWatched } from "@/lib/profile/welcomeTour";
 import {
   AskParentCard,
   CadencePicker,
+  EditSubjectsButton,
   PaymentConfirming,
   PaymentStillConfirming,
   PlanOnHold,
@@ -140,11 +141,12 @@ function PlanStep() {
   return (
     <div className="space-y-4">
       <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in">
-        <h1 className="font-display text-2xl font-bold tracking-tight mb-1">Your plan</h1>
-        <p className="text-sm text-muted-foreground mb-6">
-          Built from the subjects you're studying with us. Choose how often you'd like to pay — your
-          dashboard unlocks straight away, and you can cancel anytime.
-        </p>
+        <div className="mb-3 flex items-start justify-between gap-4">
+          <h1 className="font-display text-2xl font-bold tracking-tight">Your plan</h1>
+          {!loading && !loadError && !noSubjects && (
+            <EditSubjectsButton onClick={() => navigate({ to: "/onboarding/subjects" })} />
+          )}
+        </div>
 
         {loading ? (
           <Spinner className="py-10" />
@@ -159,26 +161,11 @@ function PlanStep() {
           />
         ) : (
           <>
-            <PlanSummary
-              {...step}
-              onEditSubjects={() => navigate({ to: "/onboarding/subjects" })}
-            />
+            <PlanSummary {...step} />
 
             <CadencePicker {...step} />
 
             <PlanTotal selectedPkg={selectedPkg} selectedUnit={selectedUnit} />
-
-            {neverSubscribed && (
-              <TrialCodeField
-                value={trialCode}
-                onChange={setTrialCode}
-                thenPrice={
-                  selectedPkg
-                    ? `${formatPence(selectedPkg.price_pence)} ${selectedUnit}`
-                    : undefined
-                }
-              />
-            )}
 
             {!selectedPkg && (
               <p className="mt-3 text-xs text-rose-600">
@@ -191,26 +178,46 @@ function PlanStep() {
               type="button"
               onClick={payNow}
               disabled={!selectedPkg || redirecting}
-              className="btn-premium mt-5 w-full h-12 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2"
+              className="btn-premium mt-7 w-full h-13 rounded-2xl text-base inline-flex items-center justify-center gap-2"
             >
               {redirecting ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin" /> Taking you to Stripe…
+                  <Loader2 className="size-5 animate-spin" /> Taking you to Stripe…
                 </>
               ) : withTrial ? (
                 <>
-                  <Gift className="w-4 h-4" /> Start {TRIAL_DAYS}-day free trial
+                  <Gift className="size-5" /> Start {TRIAL_DAYS}-day free trial
                 </>
               ) : (
                 <>
-                  <CreditCard className="w-4 h-4" /> Pay{" "}
-                  {selectedPkg ? formatPence(selectedPkg.price_pence) : ""} {selectedUnit}
+                  <CreditCard className="size-5" /> Continue to payment
                 </>
               )}
             </button>
-            <p className="mt-3 text-[11px] text-muted-foreground text-center">
-              Payments are handled by Stripe. We never see or store your card details.
-            </p>
+
+            <div
+              className={`mt-5 flex flex-wrap items-center gap-3 ${
+                neverSubscribed ? "justify-between" : "justify-center"
+              }`}
+            >
+              {neverSubscribed && (
+                <TrialCodeField
+                  // Opened, the field and its terms take the whole row.
+                  className="has-[input]:basis-full"
+                  value={trialCode}
+                  onChange={setTrialCode}
+                  thenPrice={
+                    selectedPkg
+                      ? `${formatPence(selectedPkg.price_pence)} ${selectedUnit}`
+                      : undefined
+                  }
+                />
+              )}
+              <p className="inline-flex items-center gap-1.5 text-sm font-medium">
+                <Lock className="size-4 text-[color:var(--tint)]" aria-hidden /> Card details go to
+                Stripe, never to us
+              </p>
+            </div>
           </>
         )}
       </div>

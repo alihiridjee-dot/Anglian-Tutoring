@@ -1,13 +1,33 @@
 import { Mascot } from "@/components/Doodles";
 import { useState } from "react";
 import { toast } from "sonner";
-import { Check, Copy, CreditCard, Clock, Mail, Pencil, GraduationCap } from "lucide-react";
+import {
+  Atom,
+  Check,
+  Copy,
+  CreditCard,
+  Clock,
+  FlaskConical,
+  Leaf,
+  Mail,
+  Pencil,
+  GraduationCap,
+  type LucideIcon,
+} from "lucide-react";
+import type { ReactNode } from "react";
 import { formatPence } from "@/lib/billing/billing";
+import { subjectTint } from "@/lib/curriculum/subjectTheme";
 import { SUBJECTS, BOARDS, LEVELS } from "@/lib/curriculum/taxonomy";
 import { CADENCES, type PlanStepState } from "./usePlanStep";
 
 const labelFor = (list: readonly { value: string; label: string }[], value: string | null) =>
   list.find((x) => x.value === value)?.label ?? value ?? "";
+
+const SUBJECT_ICON: Record<string, LucideIcon> = {
+  biology: Leaf,
+  chemistry: FlaskConical,
+  physics: Atom,
+};
 
 /** Back from Stripe and the webhook has not landed within the window. Never the shop. */
 export function PaymentStillConfirming({ onCheckAgain }: { onCheckAgain: () => void }) {
@@ -86,73 +106,67 @@ export function PlanOnHold({
   );
 }
 
-/** Summary — what they're buying, read from their enrolments. */
-export function PlanSummary({
-  level,
-  subjectCount,
-  enrolments,
-  onEditSubjects,
-}: Pick<PlanStepState, "level" | "subjectCount" | "enrolments"> & { onEditSubjects: () => void }) {
+/** Back to step 3, to change what the plan is built from. */
+export function EditSubjectsButton({ onClick }: { onClick: () => void }) {
   return (
-    <div className="rounded-2xl border border-border bg-secondary/50 p-4">
-      <div className="flex items-center justify-between gap-2 mb-3">
-        <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
-          <GraduationCap className="w-3.5 h-3.5" />
-          {labelFor(LEVELS, level)} · {subjectCount} {subjectCount === 1 ? "subject" : "subjects"}
-        </div>
-        <button
-          type="button"
-          onClick={onEditSubjects}
-          className="tap-target inline-flex items-center gap-1 text-[11px] text-muted-foreground hover:text-foreground"
-        >
-          <Pencil className="w-3 h-3" /> Edit subjects
-        </button>
-      </div>
-      <ul className="space-y-1.5">
-        {enrolments.map((e) => (
-          <li key={e.subject} className="flex items-center gap-2 text-sm">
-            <Check className="w-3.5 h-3.5 text-primary shrink-0" />
-            <span className="font-medium">{labelFor(SUBJECTS, e.subject)}</span>
-            <span className="text-xs text-muted-foreground">{labelFor(BOARDS, e.board)}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <button
+      type="button"
+      onClick={onClick}
+      className="btn-soft inline-flex h-11 shrink-0 items-center gap-1.5 rounded-xl px-3.5 text-sm sm:pointer-fine:h-10"
+    >
+      <Pencil className="size-3.5" aria-hidden /> Edit subjects
+    </button>
   );
 }
 
-/** Cadence — the one thing left to choose. */
+/** Summary — what they're buying, read from their enrolments. One line a subject. */
+export function PlanSummary({ level, enrolments }: Pick<PlanStepState, "level" | "enrolments">) {
+  const levelLabel = labelFor(LEVELS, level);
+  return (
+    <ul className="space-y-2">
+      {enrolments.map((e) => {
+        const Icon = SUBJECT_ICON[e.subject] ?? GraduationCap;
+        const subject = labelFor(SUBJECTS, e.subject);
+        return (
+          <li key={e.subject} className={`flex items-center gap-2.5 ${subjectTint(e.subject)}`}>
+            <span className="icon-tile size-9 shrink-0">
+              <Icon className="size-4.5" aria-hidden />
+            </span>
+            <span className="text-lg font-bold">
+              {/* "GCSE Chemistry", but the trilogy label already ends in a bracket. */}
+              {level === "gcse_trilogy" ? `${levelLabel}: ${subject}` : `${levelLabel} ${subject}`}
+              {e.board && (
+                <span className="text-[color:var(--tint)]"> · {labelFor(BOARDS, e.board)}</span>
+              )}
+            </span>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+/** Cadence — the one thing left to choose, as one segmented row. */
 export function CadencePicker({
   cadence,
   setCadence,
-  packageFor,
-}: Pick<PlanStepState, "cadence" | "setCadence" | "packageFor">) {
+}: Pick<PlanStepState, "cadence" | "setCadence">) {
   return (
-    <div className="mt-4 grid grid-cols-3 gap-2">
+    <div className="tab-row mt-7 flex w-full" role="radiogroup" aria-label="How often to pay">
       {CADENCES.map((c) => {
-        const pkg = packageFor(c.key);
         const on = cadence === c.key;
         return (
           <button
             key={c.key}
             type="button"
+            role="radio"
+            aria-checked={on}
+            data-active={on}
             onClick={() => setCadence(c.key)}
-            className={`relative min-w-0 rounded-xl border p-2 text-center transition sm:p-3 ${
-              on
-                ? "border-primary bg-primary/[0.07] ring-2 ring-primary/15 shadow-sm"
-                : "border-border bg-background hover:border-primary/50 hover:-translate-y-0.5 hover:shadow-sm"
-            }`}
+            className="tab-item min-h-11 flex-1 flex-wrap justify-center gap-x-2 gap-y-1 text-[0.9375rem]"
           >
-            {c.note && (
-              <span className="absolute -top-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-primary px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-primary-foreground">
-                {c.note}
-              </span>
-            )}
-            <div className="text-xs font-semibold">{c.label}</div>
-            <div className="mt-1 font-display font-bold">
-              {pkg ? formatPence(pkg.price_pence) : "—"}
-            </div>
-            <div className="text-[10px] text-muted-foreground">{c.unit}</div>
+            {c.label}
+            {c.note && <span className="chip chip-solid whitespace-nowrap">{c.note}</span>}
           </button>
         );
       })}
@@ -160,26 +174,39 @@ export function CadencePicker({
   );
 }
 
-/** The compiled price. */
+function Tick({ children }: { children: ReactNode }) {
+  return (
+    <li className="flex items-center gap-2.5 text-[0.9375rem] font-medium">
+      <span className="icon-tile icon-tile-solid tint-emerald size-5 shrink-0 rounded-full">
+        <Check className="size-3" strokeWidth={3} aria-hidden />
+      </span>
+      {children}
+    </li>
+  );
+}
+
+/** The compiled price, large, and what it buys. */
 export function PlanTotal({
   selectedPkg,
   selectedUnit,
 }: Pick<PlanStepState, "selectedPkg" | "selectedUnit">) {
   return (
-    <div className="mt-4 flex items-end justify-between rounded-2xl border border-primary/20 bg-primary/[0.04] p-4">
-      <div>
-        <div className="text-xs text-muted-foreground">Total</div>
-        <div className="font-display text-2xl font-bold">
+    <>
+      <div className="mt-8 flex flex-wrap items-baseline justify-center gap-x-2">
+        <span className="numeral text-5xl sm:text-6xl">
           {selectedPkg ? formatPence(selectedPkg.price_pence) : "—"}
-          <span className="text-sm font-medium text-muted-foreground"> {selectedUnit}</span>
-        </div>
+        </span>
+        {/* "a month" beside a price this size; "per month" is for a line of text. */}
+        <span className="font-display text-xl font-bold">
+          {selectedUnit.replace(/^per /, "a ")}
+        </span>
       </div>
-      {selectedPkg?.description && (
-        <p className="text-xs text-muted-foreground text-right max-w-[45%]">
-          {selectedPkg.description}
-        </p>
-      )}
-    </div>
+      <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2">
+        {selectedPkg?.description && <Tick>{selectedPkg.description.replace(/\.$/, "")}</Tick>}
+        <Tick>Unlocks straight away</Tick>
+        <Tick>Cancel anytime</Tick>
+      </ul>
+    </>
   );
 }
 
@@ -217,11 +244,13 @@ export function AskParentCard({
 
   return (
     <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in">
-      <div className="flex items-center gap-2 mb-1">
-        <Mail className="w-4 h-4 text-muted-foreground" />
-        <h2 className="font-display text-base font-bold">Not your card to use?</h2>
+      <div className="flex items-center gap-3">
+        <span className="icon-tile size-10 shrink-0">
+          <Mail className="size-5" aria-hidden />
+        </span>
+        <h2 className="text-lg font-bold">Not your card to use?</h2>
       </div>
-      <p className="text-sm text-muted-foreground mb-4">
+      <p className="mt-3 mb-5 text-[0.9375rem] leading-relaxed">
         Send your parent or guardian an invite. Once they link to your account, they can pay for you
         — your account unlocks the moment they do.
       </p>
@@ -229,10 +258,12 @@ export function AskParentCard({
       {/* Nothing here sends an email. An existing parent gets a request in their
           account; anyone else needs the student's code, so say which happened. */}
       {inviteOutcome === "invited" ? (
-        <div className="rounded-xl bg-muted/60 border border-border p-4 flex gap-3">
-          <Clock className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-          <div className="text-xs text-muted-foreground leading-relaxed">
-            <p className="font-semibold text-foreground mb-1">Request sent to {parentEmail}</p>
+        <div className="premium-card pop-card-flat flex gap-3 rounded-2xl p-4">
+          <span className="icon-tile size-9 shrink-0">
+            <Clock className="size-4" aria-hidden />
+          </span>
+          <div className="text-[0.9375rem] leading-relaxed">
+            <p className="font-bold mb-1">Request sent to {parentEmail}</p>
             <p>
               It&apos;s waiting in their account — they&apos;ll see it next time they sign in, and
               can pay for you once they accept. You can close this — sign back in any time and
@@ -241,32 +272,32 @@ export function AskParentCard({
           </div>
         </div>
       ) : inviteOutcome === "no_account" ? (
-        <div className="rounded-xl bg-muted/60 border border-border p-4 space-y-3">
-          <div className="text-xs text-muted-foreground leading-relaxed">
-            <p className="font-semibold text-foreground mb-1">No account uses {parentEmail} yet</p>
+        <div className="premium-card pop-card-flat rounded-2xl p-4 space-y-3">
+          <div className="text-[0.9375rem] leading-relaxed">
+            <p className="font-bold mb-1">No account uses {parentEmail} yet</p>
             <p>
               Send them your invite code. They sign up as a parent, enter the code, and are linked
               to you straight away — then they can pay.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <code className="flex-1 min-w-40 h-10 rounded-lg bg-secondary border border-border px-3 flex items-center font-mono text-sm tracking-widest">
+            <code className="premium-input flex-1 min-w-40 h-11 px-3.5 flex items-center font-mono text-base font-bold tracking-widest">
               {inviteCode ?? "—"}
             </code>
             <button
               type="button"
               onClick={copyCode}
               disabled={!inviteCode}
-              className="h-11 sm:pointer-fine:h-10 px-3 rounded-lg border border-border hover:bg-muted text-sm font-medium inline-flex items-center gap-2 disabled:opacity-60 cursor-pointer"
+              className="btn-soft h-11 px-4 rounded-xl text-sm inline-flex items-center gap-2"
             >
-              {copied ? <Check className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4" />}
+              {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
               {copied ? "Copied" : "Copy"}
             </button>
           </div>
           <button
             type="button"
             onClick={() => setInviteOutcome(null)}
-            className="inline-flex min-h-11 items-center text-xs text-muted-foreground hover:text-foreground sm:pointer-fine:min-h-0"
+            className="inline-flex min-h-11 items-center text-sm font-semibold text-primary hover:underline sm:pointer-fine:min-h-0"
           >
             Try a different email
           </button>
@@ -281,13 +312,13 @@ export function AskParentCard({
             value={parentEmail}
             onChange={(e) => setParentEmail(e.target.value)}
             placeholder="parent@example.com"
-            className="flex-1 min-w-0 h-11 rounded-xl bg-background border border-border px-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
+            className="premium-input flex-1 min-w-0 h-11 px-3.5 text-[0.9375rem]"
           />
           <button
             type="button"
             onClick={inviteParent}
             disabled={inviting}
-            className="h-11 px-4 rounded-xl border border-border text-sm font-semibold hover:border-primary/40 hover:text-primary transition disabled:opacity-50 shrink-0"
+            className="btn-soft h-11 px-4 rounded-xl text-sm shrink-0"
           >
             {inviting ? "Sending…" : "Send invite"}
           </button>
