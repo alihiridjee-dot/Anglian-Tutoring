@@ -1,7 +1,9 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { GraduationCap, Menu, Sparkles, X } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
+import { cn } from "@/lib/utils";
 
 /**
  * The wordmark: a chunky monogram tile plus the name.
@@ -27,12 +29,42 @@ export function Wordmark() {
 }
 
 /**
- * Section links underline with the highlighter on hover rather than a rule —
- * the same yellow that marks the one word in the hero, so the nav belongs to
- * the same drawing.
+ * Section links sit together in the kit's tab row, so the page you are on is
+ * the raised tab. They still underline with the highlighter on hover — the
+ * same yellow that marks the one word in the hero, so the nav belongs to the
+ * same drawing. The underline spans the label, inside the tab's own padding.
  */
 const NAV_LINK =
-  "relative whitespace-nowrap font-semibold transition hover:text-foreground after:absolute after:-bottom-1 after:left-0 after:h-[3px] after:w-0 after:rounded-full after:bg-[color:var(--pop)] after:transition-[width] hover:after:w-full";
+  "tab-item relative inline-flex items-center after:absolute after:inset-x-[0.85rem] after:bottom-1 after:h-[3px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[color:var(--pop)] after:transition-transform hover:after:scale-x-100";
+
+/**
+ * A section of the landing page is the current tab only while the address
+ * names it. Without this every `/#…` link counts as current on `/`.
+ */
+const SECTION_ACTIVE = { includeHash: true } as const;
+
+/**
+ * A tab's label, over the raised pill when it is the current tab. There is one
+ * pill (`layoutId`), and it glides from tab to tab, across a page change too,
+ * rather than each tab lighting up on its own — as in the kit's
+ * `SegmentedToggle`, whose spring this borrows.
+ */
+function tabLabel(label: string, reduceMotion: boolean | null) {
+  return ({ isActive }: { isActive: boolean }) => (
+    <>
+      {isActive && (
+        <motion.span
+          layoutId="site-nav-pill"
+          className="tab-pill absolute inset-0"
+          transition={
+            reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 36 }
+          }
+        />
+      )}
+      <span className="relative">{label}</span>
+    </>
+  );
+}
 
 /** The phone sheet's rows: full-width, 44px tall, in the kit's ghost chassis. */
 const SHEET_LINK = "btn-ghost flex min-h-11 items-center rounded-xl px-3 py-2.5 text-base";
@@ -44,6 +76,7 @@ export function Nav() {
   // phone turned sideways and off a portrait iPad.
   const [open, setOpen] = useState(false);
   const location = useRouterState({ select: (s) => s.location.href });
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     setOpen(false);
@@ -59,8 +92,23 @@ export function Nav() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
+  // Clear over the hero; glass once the page has moved, or while the sheet is
+  // open, so the bar never floats loose over the sheet's scrim.
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 4);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="glass-bar sticky top-0 z-40 pt-[env(safe-area-inset-top)]">
+    <header
+      className={cn(
+        "site-bar sticky top-0 z-40 pt-[env(safe-area-inset-top)]",
+        (scrolled || open) && "glass-bar",
+      )}
+    >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-2 px-4 sm:gap-3 sm:px-6">
         <Link to="/" hash="top" className="shrink-0">
           <Wordmark />
@@ -68,25 +116,21 @@ export function Nav() {
 
         {/* Section links route back to the landing page by path + hash, so they
             work from standalone pages (e.g. /how-it-works) as well as from "/". */}
-        <nav className="text-muted-foreground hidden items-center gap-7 text-sm lg:flex">
-          <Link to="/" hash="tutors" className={NAV_LINK}>
-            Our Tutors
+        <nav className="tab-row hidden items-center lg:flex">
+          <Link to="/" hash="tutors" activeOptions={SECTION_ACTIVE} className={NAV_LINK}>
+            {tabLabel("Our Tutors", reduceMotion)}
           </Link>
-          <Link
-            to="/how-it-works"
-            className={NAV_LINK}
-            activeProps={{ className: "text-foreground" }}
-          >
-            How it works
+          <Link to="/how-it-works" className={NAV_LINK}>
+            {tabLabel("How it works", reduceMotion)}
           </Link>
-          <Link to="/our-story" className={NAV_LINK} activeProps={{ className: "text-foreground" }}>
-            Our story
+          <Link to="/our-story" className={NAV_LINK}>
+            {tabLabel("Our story", reduceMotion)}
           </Link>
-          <Link to="/" hash="pricing" className={NAV_LINK}>
-            Pricing
+          <Link to="/" hash="pricing" activeOptions={SECTION_ACTIVE} className={NAV_LINK}>
+            {tabLabel("Pricing", reduceMotion)}
           </Link>
-          <Link to="/" hash="contact" className={NAV_LINK}>
-            Contact
+          <Link to="/" hash="contact" activeOptions={SECTION_ACTIVE} className={NAV_LINK}>
+            {tabLabel("Contact", reduceMotion)}
           </Link>
         </nav>
 

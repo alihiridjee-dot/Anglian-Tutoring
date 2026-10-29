@@ -71,6 +71,8 @@
 
 :root {
   --radius: 1.25rem;
+  /* The public pages' top bar (`.site-bar`): its row, its rule and a notch. */
+  --site-bar-h: calc(4.5rem + 1.5px + env(safe-area-inset-top));
 
   /* ── Surfaces ──────────────────────────────────────────────────────────── */
   --background: oklch(0.985 0.008 240); /* cool paper */
@@ -1106,10 +1108,25 @@ button.trail-step:active .trail-dot {
 /* ════════════════════════════════════════════════════════════════════════════
    NAV, BARS, INPUTS
    ════════════════════════════════════════════════════════════════════════════ */
+/* The public pages' top bar floats over the hero (it pulls the hero up by its
+   own height), so the dot grid and washes run on behind the wordmark instead of
+   stopping at a white strip. It turns to glass once the page scrolls and there
+   is copy passing under it. Each hero gives the height back as padding,
+   `pt-(--site-bar-h)`. Declared before `.glass-bar` so the glass border wins. */
+.site-bar {
+  margin-bottom: calc(-1 * var(--site-bar-h));
+  border-bottom: 1.5px solid transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    backdrop-filter 0.2s ease;
+}
 .glass-bar {
   background: color-mix(in oklab, var(--background) 88%, transparent);
-  backdrop-filter: saturate(1.7) blur(18px);
+  /* Prefixed first: the other way round, the CSS build keeps only the
+     prefixed line, which Chrome and Firefox ignore. */
   -webkit-backdrop-filter: saturate(1.7) blur(18px);
+  backdrop-filter: saturate(1.7) blur(18px);
   border-bottom: 1.5px solid color-mix(in oklab, var(--foreground) 9%, transparent);
 }
 
@@ -1158,6 +1175,14 @@ button.trail-step:active .trail-dot {
   box-shadow:
     0 1px 0 0 color-mix(in oklab, var(--tint) 30%, transparent),
     0 4px 10px -6px color-mix(in oklab, var(--tint) 70%, transparent);
+}
+/* A segment that carries the sliding pill lets the pill be its active state.
+   Its own raised background would light it the instant it is chosen, under a
+   pill still on its way there. (Utilities can't do this: the rules above are
+   unlayered, so they beat any `aria-selected:` class.) */
+.tab-item:has(> .tab-pill) {
+  background: none;
+  box-shadow: none;
 }
 
 .premium-input,

@@ -83,7 +83,7 @@ function OurStory() {
       <Nav />
 
       {/* ---------------- Hero ---------------- */}
-      <section className="page-aurora relative overflow-hidden border-b border-border">
+      <section className="page-aurora relative overflow-hidden border-b border-border pt-(--site-bar-h)">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--accent-soft)_0%,transparent_60%)] opacity-70"
