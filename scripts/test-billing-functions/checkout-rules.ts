@@ -347,4 +347,33 @@ assert.equal(
 );
 Deno.env.set("APP_URL", "https://app.test");
 
+// ── A body that isn't a JSON object is refused ─────────────────────────────
+// Each of these used to reach a cast and come back as a 500.
+for (const raw of ["{not json", "", "null", "[]", '"checkout"']) {
+  world({ payer: CHILD });
+  const res = await checkout(
+    new Request("http://fn.test/", {
+      method: "POST",
+      headers: { "content-type": "application/json", Authorization: `Bearer ${CHILD}` },
+      body: raw,
+    }),
+  );
+  assert.equal(res.status, 400, `${JSON.stringify(raw)} came back ${res.status}`);
+  assert.equal((await res.json()).error, "That request couldn't be read.");
+}
+// A subject that isn't an object is refused like one we don't offer.
+world({ payer: CHILD });
+r = await call(CHILD, { action: "add_subjects", student_id: CHILD, subjects: [null] });
+assert.equal(r.status, 400);
+// return_to names one of our pages. "constructor" used to find Object's own
+// and put its source in the return address.
+world({ payer: CHILD });
+DB.tables.subscriptions = [];
+r = await call(CHILD, { action: "checkout", tier: "monthly_1", return_to: "constructor" });
+assert.equal(r.status, 200);
+assert.equal(
+  [...STRIPE.sessions.values()].at(-1).success_url,
+  "https://app.test/onboarding/plan?checkout=success&session_id={CHECKOUT_SESSION_ID}",
+);
+
 console.log("checkout rules: all checks passed");

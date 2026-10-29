@@ -1,4 +1,8 @@
 import { supabase } from "@/integrations/supabase/client";
+import type {
+  BillingPayload,
+  BillingReturnTo,
+} from "../../../supabase/functions/_shared/contracts";
 
 /**
  * Client seam for the stripe-checkout edge function.
@@ -77,7 +81,7 @@ export function resolvePackagesForLevel(
 }
 
 /** Pages Stripe may send the browser back to (validated server-side). */
-export type BillingReturnTo = "onboarding" | "billing" | "parent";
+export type { BillingReturnTo };
 
 /** Statuses that mean the plan currently grants access. */
 export function isSubscriptionLive(status: string | undefined | null) {
@@ -139,7 +143,7 @@ export function billingIntervalLabel(interval: string | null) {
   return "";
 }
 
-async function invokeBilling<T>(body: Record<string, unknown>): Promise<T> {
+async function invokeBilling<T>(body: BillingPayload): Promise<T> {
   const { data, error } = await supabase.functions.invoke("stripe-checkout", { body });
   if (error) {
     // FunctionsHttpError hides the server's message inside the response body;
