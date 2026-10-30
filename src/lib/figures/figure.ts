@@ -1,7 +1,8 @@
 /**
  * Question figures: the one picture a question needs (a graph, a circuit, a
- * reaction profile, a food web), drawn as SVG by a model from a brief that
- * holds every value, and checked by `figureCheck` before any student sees it.
+ * reaction profile, a food web, a chromatogram, a wave, the forces on an
+ * object), drawn as SVG by code or a model from a brief that holds every
+ * value, and checked by `figureCheck` before any student sees it.
  *
  * This file is the contract both sides read: the canvas, the style classes
  * (the stylesheet's .qf rules give them their look), the circuit symbols and
@@ -132,6 +133,151 @@ export const PROFILE = {
   },
 } as const;
 
+/**
+ * A chromatogram's fixed drawing, 320 units high: the paper, with the scale
+ * up its left edge from the start line (value 0) to the scale's top, the
+ * sample names under the start line, and "solvent front" and "start line"
+ * written beyond the paper's right edge, level with their lines.
+ */
+export const CHROMATOGRAM = {
+  height: 320,
+  left: 64,
+  right: 262,
+  paperTop: 32,
+  /** y of the scale's top value. */
+  top: 48,
+  /** y of the start line: the scale's 0. */
+  start: 248,
+  paperBottom: 284,
+  /** x of the two line labels, beyond the paper. */
+  labelX: 268,
+} as const;
+
+/** x of a chromatogram's lane: `n` lanes share the paper's width evenly. */
+export const laneX = (i: number, n: number) =>
+  CHROMATOGRAM.left + ((CHROMATOGRAM.right - CHROMATOGRAM.left) * (i + 0.5)) / n;
+
+/** y of a distance up a chromatogram, on a scale from 0 to `max`. */
+export const chromaY = (v: number, max: number) =>
+  CHROMATOGRAM.start - (v / max) * (CHROMATOGRAM.start - CHROMATOGRAM.top);
+
+/**
+ * A wave drawn with lettered arrows and no scale, 260 units high: two whole
+ * waves from `left` to `right` across a rest line, `amp` high. The two
+ * vertical arrows stand left of the wave, joined to its first crest and
+ * trough by guide lines; the wavelength arrow runs above the crests, the half
+ * wavelength arrow below the second half's troughs.
+ */
+export const WAVE = {
+  height: 260,
+  left: 96,
+  right: 336,
+  rest: 130,
+  amp: 56,
+  restFrom: 66,
+  restTo: 344,
+} as const;
+/** One wavelength of the lettered wave, in units. */
+export const WAVE_LENGTH = (WAVE.right - WAVE.left) / 2;
+
+/** What a lettered wave's arrow may show. */
+export const WAVE_SPANS = [
+  "amplitude",
+  "wavelength",
+  "crest to trough",
+  "half a wavelength",
+] as const;
+export type WaveSpan = (typeof WAVE_SPANS)[number];
+
+/** Each lettered wave arrow: its two ends, and where its letter is written. */
+export const WAVE_ARROWS: Record<
+  WaveSpan,
+  {
+    from: [number, number];
+    to: [number, number];
+    letter: [number, number, "start" | "end" | "middle"];
+  }
+> = {
+  amplitude: {
+    from: [72, WAVE.rest],
+    to: [72, WAVE.rest - WAVE.amp],
+    letter: [64, WAVE.rest - WAVE.amp / 2 + 5.5, "end"],
+  },
+  "crest to trough": {
+    from: [44, WAVE.rest - WAVE.amp],
+    to: [44, WAVE.rest + WAVE.amp],
+    letter: [36, WAVE.rest + 5.5, "end"],
+  },
+  wavelength: {
+    from: [WAVE.left + WAVE_LENGTH / 4, WAVE.rest - WAVE.amp - 20],
+    to: [WAVE.left + (WAVE_LENGTH * 5) / 4, WAVE.rest - WAVE.amp - 20],
+    letter: [WAVE.left + (WAVE_LENGTH * 3) / 4, WAVE.rest - WAVE.amp - 28, "middle"],
+  },
+  "half a wavelength": {
+    from: [WAVE.left + WAVE_LENGTH, WAVE.rest + WAVE.amp + 20],
+    to: [WAVE.left + (WAVE_LENGTH * 3) / 2, WAVE.rest + WAVE.amp + 20],
+    letter: [WAVE.left + (WAVE_LENGTH * 5) / 4, WAVE.rest + WAVE.amp + 40, "middle"],
+  },
+};
+
+/**
+ * The forces on an object, 260 units high: the object a box in the middle,
+ * each force an arrow out from the middle of the side it acts on, and each
+ * label beside its own arrow, on its own side of it, so no two labels can
+ * meet: up's right of its arrow, right's below, down's left, left's above.
+ */
+export const FORCES = {
+  height: 260,
+  box: { x0: 140, y0: 104, x1: 220, y1: 144 },
+  /** Every arrow's length when the forces are not drawn to scale. */
+  length: 72,
+  /** The longest arrow's length when they are. */
+  longest: 96,
+  /** How wide a force's name may run before it wraps. */
+  nameWidth: 128,
+} as const;
+export const FORCE_DIRECTIONS = ["up", "down", "left", "right"] as const;
+export type ForceDirection = (typeof FORCE_DIRECTIONS)[number];
+
+/** Where a force's arrow starts: the middle of the box's side it acts on. */
+export const forceStart = (d: ForceDirection): [number, number] => {
+  const { x0, y0, x1, y1 } = FORCES.box;
+  const [cx, cy] = [(x0 + x1) / 2, (y0 + y1) / 2];
+  return { up: [cx, y0], down: [cx, y1], left: [x0, cy], right: [x1, cy] }[d] as [number, number];
+};
+/** Which way an arrow pointing in a direction runs, as a unit step. */
+export const FORCE_STEP: Record<ForceDirection, [number, number]> = {
+  up: [0, -1],
+  down: [0, 1],
+  left: [-1, 0],
+  right: [1, 0],
+};
+/**
+ * Where a force's label is written: x, the first line's baseline and the
+ * anchor, given its number of lines, its widest line and its arrow's length.
+ * Each is centred on the middle of its arrow, but no nearer the box than the
+ * box's own corner: up's ends 8 above it, down's starts 21 below it, left's
+ * and right's end 4 short of it, so no label can touch the box or a line.
+ */
+export const forceLabelAt = (
+  d: ForceDirection,
+  lines: number,
+  width: number,
+  length: number,
+): [number, number, string] => {
+  const { x0, y0, x1, y1 } = FORCES.box;
+  const cx = (x0 + x1) / 2;
+  const cy = (y0 + y1) / 2;
+  // The first baseline that centres the lines on y.
+  const centred = (y: number) => y + 5.5 - 9 * (lines - 1);
+  return {
+    up: [cx + 8, Math.min(centred(y0 - length / 2), y0 - 8 - 18 * (lines - 1)), "start"],
+    down: [cx - 8, Math.max(centred(y1 + length / 2), y1 + 21), "end"],
+    left: [Math.min(x0 - length / 2, x0 - 4 - width / 2), cy - 10 - 18 * (lines - 1), "middle"],
+    right: [Math.max(x1 + length / 2, x1 + 4 + width / 2), cy + 22, "middle"],
+  }[d] as [number, number, string];
+};
+
 /** The arrowhead every arrow ends with, copied verbatim as the svg's first child. */
 export const ARROW_DEFS =
   '<defs><marker id="qf-head" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path class="qf-ink" d="M0 0 L10 5 L0 10 Z"/></marker></defs>';
@@ -181,6 +327,10 @@ export type GraphBrief = {
   x: Axis;
   y: Axis;
   series: { name: string; points: [number, number][] }[];
+  /** A line graph's points joined by a smooth curve that never goes beyond them, not straight lines. */
+  curve?: boolean;
+  /** Straight lines drawn on the graph, ends in the axes' values: a line of best fit, a tangent. */
+  lines?: { from: [number, number]; to: [number, number] }[];
 };
 export type BarBrief = {
   kind: "bar-chart";
@@ -223,8 +373,49 @@ export type WebBrief = {
   /** [food, eater]: each arrow points from the food to what eats it. */
   eaten: [string, string][];
 };
+export type ChromatogramBrief = {
+  kind: "chromatogram";
+  /** The scale up the paper's side, from the start line at 0. */
+  y: Axis;
+  /** How far the solvent front is from the start line. */
+  front: number;
+  /** Each sample's lane, in order across the paper: its name and each spot's distance from the start line. */
+  samples: { name: string; spots: number[] }[];
+};
+/**
+ * A wave: either drawn the same size every time with lettered arrows the
+ * question asks about, or on a scale it is read from, with no arrows.
+ */
+export type WaveBrief =
+  | { kind: "wave"; arrows: { shows: WaveSpan; letter: string }[] }
+  | {
+      kind: "wave";
+      /** Distance or time along the wave; displacement, from −max to max. */
+      x: Axis;
+      y: Axis;
+      amplitude: number;
+      /** The length of one whole wave along the x axis (its period, when x is time). */
+      wavelength: number;
+    };
+export type ForceBrief = {
+  kind: "forces";
+  /** The object's name, written in its box, or "" for none. */
+  object: string;
+  /** At most one force each way. A force the question asks for has size null. */
+  forces: { direction: ForceDirection; name: string; size: number | null }[];
+  /** Arrows in proportion to their sizes (every size given); otherwise all one length. */
+  toScale: boolean;
+};
 /** A figure the contract has drawing rules for. */
-export type KnownBrief = GraphBrief | BarBrief | CircuitBrief | ProfileBrief | WebBrief;
+export type KnownBrief =
+  | GraphBrief
+  | BarBrief
+  | CircuitBrief
+  | ProfileBrief
+  | WebBrief
+  | ChromatogramBrief
+  | WaveBrief
+  | ForceBrief;
 
 /**
  * What a figure must show: every value, label and connection, so the model

@@ -706,6 +706,70 @@ test("a circuit is drawn by DeepSeek, and checked before it is saved", async () 
   });
 });
 
+/** Four graphs of one car, each a different shape: answer pictures A to D. */
+const shapes = [8, 4, 12, 0].map((end) => ({
+  ...velocity,
+  series: [
+    {
+      name: "car",
+      points: [
+        [0, 0],
+        [10, 6],
+        [20, end],
+      ],
+    },
+  ],
+}));
+
+test("a quiz question's answer pictures are each drawn and saved; their briefs stay on the server", async () => {
+  const questions = mcqs();
+  questions[1] = {
+    ...questions[1],
+    options: ["A", "B", "C", "D"],
+    option_figures: JSON.stringify(shapes),
+  } as (typeof questions)[number];
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job()),
+    "/v1/messages": () => message(questions),
+    "rpc/complete_practice_job": saved("written", "set-1"),
+  });
+  const [outcome] = await drainPracticeQueue();
+  expect(outcome).toMatchObject({ result: "written" });
+  expect(JSON.stringify(calls["/v1/messages"][0])).toContain("ANSWER PICTURES");
+  const saved_ = calls["rpc/complete_practice_job"][0]._questions as Record<string, unknown>[];
+  expect(saved_).toHaveLength(8);
+  const { option_figures, option_figure_briefs } = saved_[1] as {
+    option_figures: { svg: string; alt: string }[];
+    option_figure_briefs: unknown[];
+  };
+  expect(option_figures).toHaveLength(4);
+  expect(option_figures[2].alt).toContain("(20, 12)");
+  expect(option_figure_briefs[3]).toEqual({ brief: shapes[3], drawn_by: "code" });
+  expect(saved_[0]).not.toHaveProperty("option_figures");
+});
+
+test("a question with an answer picture that won't read, or answers not lettered, is left out", async () => {
+  const questions = mcqs();
+  questions[1] = {
+    ...questions[1],
+    options: ["A", "B", "C", "D"],
+    option_figures: JSON.stringify([...shapes.slice(0, 3), { ...shapes[3], kind: "photo" }]),
+  } as (typeof questions)[number];
+  questions[2] = {
+    ...questions[2],
+    option_figures: JSON.stringify(shapes),
+  } as (typeof questions)[number];
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job()),
+    "/v1/messages": () => message(questions),
+    "rpc/complete_practice_job": saved("written", "set-1"),
+  });
+  await drainPracticeQueue();
+  const saved_ = calls["rpc/complete_practice_job"][0]._questions as Record<string, unknown>[];
+  expect(saved_).toHaveLength(6);
+  expect(saved_.some((q) => "option_figures" in q)).toBe(false);
+});
+
 test("a question whose figure can't be drawn is left out, not saved without it", async () => {
   process.env.DEEPSEEK_API_KEY = "deepseek-test";
   restore.push(spyOn(console, "warn").mockImplementation(() => {}));

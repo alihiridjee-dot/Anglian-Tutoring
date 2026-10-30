@@ -105,6 +105,35 @@ const figureFields = (f: SavedFigure | null) =>
   f ? { figure: f.figure, figure_brief: f.brief } : {};
 
 /**
+ * Each question's four answer pictures, drawn side by side: null for answers
+ * in words, "dropped" when any of the four couldn't be drawn and checked, as
+ * a question can't be asked with an answer missing.
+ */
+async function drawOptionFigures(
+  job: ClaimedJob,
+  subject: string,
+  questions: { question: string; options: string[]; optionFigures?: KnownBrief[] | null }[],
+  deadline: number,
+): Promise<(SavedFigure[] | null | "dropped")[]> {
+  return Promise.all(
+    questions.map(async (q, i) => {
+      if (!q.optionFigures) return null;
+      const drawn = await Promise.all(
+        q.optionFigures.map((brief) =>
+          drawFigure({ subject, question: q.question, options: q.options, brief }, deadline),
+        ),
+      );
+      const failed = drawn.findIndex((d) => !("ok" in d));
+      if (failed < 0) return drawn.map((d) => (d as { ok: SavedFigure }).ok);
+      console.warn(
+        `[practice-queue] job ${job.job_id} question ${i + 1}: its answer picture ${"ABCD"[failed]} wasn't drawn, so it is left out: ${(drawn[failed] as { failed: string }).failed}`,
+      );
+      return "dropped" as const;
+    }),
+  );
+}
+
+/**
  * The model's questions for a job, each with its drawn figure, trimmed to
  * what the save stores.
  */
@@ -130,10 +159,13 @@ async function writeQuestions(
       "mcq",
       options,
     );
-    const figures = await drawFigures(job, context.point.subject, questions, deadline);
+    const [figures, answers] = await Promise.all([
+      drawFigures(job, context.point.subject, questions, deadline),
+      drawOptionFigures(job, context.point.subject, questions, deadline),
+    ]);
     const payload = questions.flatMap((q, i) => {
-      const f = figures[i];
-      if (f === "dropped") return [];
+      const [f, a] = [figures[i], answers[i]];
+      if (f === "dropped" || a === "dropped") return [];
       return [
         {
           question: q.question.trim(),
@@ -141,6 +173,12 @@ async function writeQuestions(
           correct_index: q.correct_index,
           explanation: q.explanation.trim(),
           ...figureFields(f),
+          ...(a
+            ? {
+                option_figures: a.map((d) => d.figure),
+                option_figure_briefs: a.map((d) => d.brief),
+              }
+            : {}),
         },
       ];
     });
