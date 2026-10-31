@@ -2,11 +2,14 @@ import { Link } from "@tanstack/react-router";
 import { GraduationCap } from "lucide-react";
 
 import { Mascot } from "@/components/Doodles";
+import { SectionSeam } from "@/components/landing/SectionSeam";
 
-export function Footer() {
+/** `seamFrom` is the flat colour at the foot of the page above the footer,
+    which the brick seam paints between its blocks. */
+export function Footer({ seamFrom = "var(--background)" }: { seamFrom?: string }) {
   return (
     <footer
-      className="text-primary-foreground/70 relative overflow-hidden py-12"
+      className="text-primary-foreground/70 relative overflow-x-clip pb-12"
       style={{
         background:
           "linear-gradient(135deg, var(--primary-deep), color-mix(in oklab, var(--accent) 30%, var(--primary-deep)))",
@@ -23,6 +26,7 @@ export function Footer() {
           maskImage: "radial-gradient(60rem 20rem at 50% 120%, black, transparent 75%)",
         }}
       />
+      <SectionSeam from={seamFrom} className="mb-10" />
 
       <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 sm:px-6 md:flex-row">
         <div className="text-primary-foreground flex items-center gap-2.5">
