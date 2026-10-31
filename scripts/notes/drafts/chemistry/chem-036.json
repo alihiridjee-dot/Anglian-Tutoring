@@ -195,7 +195,31 @@
           "= 0.188 mol/dm³ (1)"
         ],
         "tip": "Marks follow your own working if an earlier step is wrong, so show each step."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The concentration in mol/dm³ rises with more mass of solute in the same volume. It falls with a larger volume of solution for the same mass.",
+                "Adding water does not change the moles of solute. The volume rises, so the concentration falls."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Mass of solute from a concentration in mol/dm³",
+              "formula": "mass (g) = concentration (mol/dm³) × volume (dm³) × Mr",
+              "where": [
+                "concentration in mol/dm³",
+                "volume of solution in dm³ (divide cm³ by 1000)",
+                "Mr is the relative formula mass of the solute"
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.8C"],
@@ -210,7 +234,29 @@
           "Moles = 0.7975 ÷ 159.5 = 0.005 mol (1)"
         ],
         "tip": "Or convert first: concentration = 15.95 ÷ 159.5 = 0.1 mol dm⁻³, then moles = 50 ÷ 1000 × 0.1 = 0.005."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A concentration in mol dm⁻³ can be found from a mass and a volume in one step."
+            },
+            {
+              "type": "equation",
+              "label": "Concentration from a mass",
+              "formula": "concentration (mol dm⁻³) = mass (g) ÷ Mr ÷ volume (dm³)",
+              "where": [
+                "concentration in mol dm⁻³, the same as mol/dm³",
+                "mass of solute in g",
+                "Mr is the relative formula mass of the solute",
+                "volume of solution in dm³ (divide cm³ by 1000)"
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C5.1a"],
@@ -221,7 +267,31 @@
         "marks": 1,
         "answer_points": ["Concentration = mass ÷ volume = 0.6 ÷ 0.25", "= 2.4 g/dm³"],
         "tip": "The volume must be in dm³. 250 cm³ ÷ 1000 = 0.25 dm³. To change g/dm³ into mol/dm³, divide by the Mr."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Concentration from a mass and a volume",
+              "formula": "concentration (mol/dm³) = mass (g) ÷ Mr ÷ volume (dm³)",
+              "where": [
+                "mass of solute in g",
+                "Mr is the relative formula mass of the solute",
+                "volume of solution in dm³ (divide cm³ by 1000)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "More mass of solute in the same volume gives a higher concentration. The same mass in a larger volume gives a lower concentration.",
+                "Adding water does not change the moles of solute. 100 cm³ of 1.0 mol/dm³ solution holds 0.10 mol, which makes 500 cm³ of 0.20 mol/dm³ solution."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 3.3.1", "CAIE 3.3.5S"]
@@ -245,7 +315,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

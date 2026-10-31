@@ -223,7 +223,49 @@
           "So there is no transpiration (or very little water is lost)."
         ],
         "tip": "Link the three steps in order: no light, stomata closed, no transpiration."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Practical: water loss measured by mass",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up",
+                  "text": "Seal a plastic bag around the pot of a potted plant. Then any water lost comes from the plant, not the soil."
+                },
+                {
+                  "lead": "Weigh",
+                  "text": "Place the plant on a balance and record its mass."
+                },
+                {
+                  "lead": "Record",
+                  "text": "Record the mass again at regular times, such as every hour."
+                },
+                {
+                  "lead": "Calculate",
+                  "text": "Mass of water lost = starting mass − later mass."
+                },
+                {
+                  "lead": "Compare",
+                  "text": "Repeat with similar plants in different conditions, such as different temperatures."
+                }
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Rate of water loss",
+              "formula": "rate of water loss = mass of water lost ÷ time",
+              "where": [
+                "mass of water lost, in g",
+                "time, in hours",
+                "rate of water loss, in g per hour"
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.12", "EDEX 6.13"],
@@ -252,7 +294,53 @@
           "Volume = 57 mm³ (2 significant figures)."
         ],
         "tip": "Using 1.0 as the radius gives 226.08, or 230 when rounded. These score only 1 and 2 marks. Rounding correctly to 2 significant figures earns a mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Percentage change in mass",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Percentage change in mass",
+              "formula": "percentage change in mass = (change in mass ÷ starting mass) × 100",
+              "where": ["change in mass = final mass − starting mass, in g", "starting mass, in g"]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A positive answer is a percentage gain in mass. A negative answer is a percentage loss.",
+                "A plant shoot that loses water by transpiration loses mass."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Practical: stomatal density",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Make an impression",
+                  "text": "Paint clear nail varnish on the leaf surface and leave it to dry. Peel it off and view it with a light microscope."
+                },
+                {
+                  "lead": "Area",
+                  "text": "Find the area of the field of view using area = π × r², where r is half the diameter."
+                },
+                {
+                  "lead": "Count",
+                  "text": "Count the stomata in several different zones of the leaf. Find the mean number in one field of view."
+                },
+                {
+                  "lead": "Calculate",
+                  "text": "Stomatal density = mean number of stomata ÷ area of the field of view. It is measured in stomata per mm²."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 8.3.3", "CAIE 8.3.6S"],
@@ -315,7 +403,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "spec_point_ids": [
       "39deadc2-70b2-4466-bcb8-b34c34abf5c1",
       "83f00c44-b5ed-475c-95d7-f78e57b411bb",

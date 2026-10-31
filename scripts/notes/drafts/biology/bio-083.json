@@ -210,7 +210,21 @@
           "hCG (human chorionic gonadotrophin) causes the egg to mature inside the follicle. Any three points score."
         ],
         "tip": "Name the hormone and say what it does to the egg."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "FSH and LH are **gonadotrophins**. FSH makes the follicle ripen and stimulates egg development, and LH causes ovulation.",
+                "**hCG** (human chorionic gonadotrophin) is also used. It triggers the final stage of egg maturing inside the follicle."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -262,6 +276,6 @@
       "7a7cc31b-4b47-4d5a-8d0a-7d3327fe9566"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

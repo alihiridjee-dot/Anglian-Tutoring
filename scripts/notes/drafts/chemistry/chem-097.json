@@ -256,10 +256,39 @@
           "This increases the temperature, leading to global warming."
         ],
         "tip": "One mark for each step in the sequence. UV is allowed for short wavelength and IR for long wavelength, but references to the ozone layer are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Cut the carbon dioxide released when a product is made by using **less material** or by using **recycled material**.",
+                "**Carbon capture** also cuts emissions: it stops carbon dioxide escaping into the atmosphere."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 8.26"]
+      "spec_codes": ["EDEX 8.26"],
+      "extra": [
+        {
+          "heading": "Today's atmosphere",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Dry air today is about **78% nitrogen** and **21% oxygen**.",
+                "Argon is the third most common gas.",
+                "There are small amounts of carbon dioxide and other noble gases. Air also contains water vapour."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C6.3e"],
@@ -277,7 +306,23 @@
           "Drought or wildfires."
         ],
         "tip": "One mark for each problem, up to two. Acid rain and the ozone layer are not allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "More ways to lower carbon dioxide levels: use **renewable energy sources** such as wind, tidal and solar power, or use **biofuels**.",
+                "Stop carbon dioxide escaping when fuels are used, by **carbon capture** and storage.",
+                "Plant more trees and reduce deforestation.",
+                "A further effect of more carbon dioxide is increasing **ocean acidity**: the pH of sea water falls."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 10.3.3", "CAIE 10.3.4"],
@@ -336,7 +381,7 @@
       "3b73afe0-51f3-47ee-83dc-89f2da180955"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   },
   "format": 1,
   "subject": "chemistry"

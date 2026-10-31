@@ -276,16 +276,15 @@
     "edexcel": {
       "spec_codes": ["EDEX 3.6"],
       "worked_example": {
-        "exemplar_id": "1a3fdf4b-0eb2-48bd-9d92-a8d332268389",
-        "source": "EDEXCEL jun 2023, Paper 1 (H), Q2(d)(iii)",
-        "question": "In an experiment, powdered calcium hydroxide was added to dilute hydrochloric acid and the pH was measured.\n\nThe method used was\n\nstep 1 measure 200 cm3 dilute hydrochloric acid into a beaker\nstep 2 add 0.1 g of powdered calcium hydroxide to the beaker\nstep 3 find the pH of the mixture\nstep 4 repeat steps 2 and 3 until the pH stops changing.\n\nExplain why the pH starts at a low value and ends at a higher value.",
-        "marks": 3,
+        "exemplar_id": "317f35fe-30a3-436d-bdf2-9b2dc9428fca",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q2(b)(ii)",
+        "question": "A student investigated how the pH of the mixture changed as barium hydroxide was added to dilute hydrochloric acid.\nThe student used this method.\nstep 1 measure out 50 cm³ of dilute hydrochloric acid into a beaker using a measuring cylinder\nstep 2 use a glass rod to place a drop of the acid onto a piece of universal indicator paper and record the pH\nstep 3 add one spatula measure of barium hydroxide to the acid in the beaker and stir\nstep 4 use the glass rod to place a drop of the mixture onto a new piece of universal indicator paper and record the pH again\nstep 5 repeat steps 3 and 4 until there is no further change in the pH.\n\nExplain why, in step 3, the mixture was stirred after adding the barium hydroxide.",
+        "marks": 2,
         "answer_points": [
-          "Start: the solution is acidic, with a high concentration of H⁺ ions, so the pH is low.",
-          "Reaction: neutralisation. The hydroxide (alkali) reacts with the acid, H⁺ + OH⁻ → H₂O.",
-          "End: the concentration of H⁺ ions has reduced and there are excess OH⁻ ions, so the pH is above 7."
+          "To mix the reactants evenly, so that the pH is the same all through the mixture.",
+          "To make the barium hydroxide dissolve and react faster, so the reaction is complete before the pH is measured."
         ],
-        "tip": "One mark each for start, reaction and end. Describing the pattern of the pH scores nothing."
+        "tip": "One mark for even mixing and one for faster dissolving or reacting. Vague words such as \"more accurate\" or \"fair test\" score nothing."
       }
     },
     "ocr": {
@@ -322,7 +321,6 @@
       "4ead9494-1cf5-439f-a2c2-6bf2d1e331cd",
       "ef77a145-8bc5-49b8-b3e3-d822cd318cc3",
       "0193fd5c-d228-4885-9a99-9d7eff2f67fb",
-      "1a3fdf4b-0eb2-48bd-9d92-a8d332268389",
       "317f35fe-30a3-436d-bdf2-9b2dc9428fca",
       "1bd9e83c-367d-4c95-b519-4a4ee73bf56f",
       "bf4e7109-1ae8-4752-a6fd-2109c34b6100",

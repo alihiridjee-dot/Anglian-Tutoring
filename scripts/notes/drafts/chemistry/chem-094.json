@@ -268,7 +268,26 @@
           "Carbon was locked up in fossil fuels."
         ],
         "tip": "This is a levelled question. Link each cause to the change it explains, to reach the top level."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Photosynthesis (symbol equation)",
+              "formula": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
+              "where": [
+                "CO₂: carbon dioxide",
+                "H₂O: water",
+                "C₆H₁₂O₆: glucose",
+                "O₂: oxygen",
+                "Light energy is needed for the reaction"
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 8.18", "EDEX 8.19", "EDEX 8.20", "EDEX 8.21", "EDEX 8.22"],
@@ -431,6 +450,6 @@
       "ac2f6c6c-c6d5-4989-a3e1-ebf1c9150148"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

@@ -233,7 +233,22 @@
         "marks": 3,
         "answer_points": ["1.19 ÷ 119 and 1.42 ÷ 35.5 (1)", "0.01 : 0.04 (1)", "SnCl₄ (1)"],
         "tip": "One mark each for the moles, the ratio and the formula."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A hydrocarbon that burns completely turns all its carbon into carbon dioxide and all its hydrogen into water.",
+                "Moles of C = moles of CO₂. Moles of H = **2 ×** moles of H₂O, because each water molecule holds two hydrogen atoms.",
+                "Example: 26.4 g of CO₂ is 26.4 ÷ 44 = 0.6 mol of C. 5.4 g of H₂O is 5.4 ÷ 18 = 0.3 mol, which is 0.6 mol of H. The ratio C : H is 1 : 1, so the empirical formula is CH."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C2.1d"],
@@ -363,6 +378,6 @@
       "c39fb763-ed77-404a-a421-d60a8973b4b2"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

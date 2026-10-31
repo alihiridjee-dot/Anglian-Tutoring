@@ -258,7 +258,21 @@
           "Or: body cells have two of each chromosome (pairs of chromosomes)."
         ],
         "tip": "Any two points score. Sperm cells, gametes and sex cells are all accepted."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Red-green colour blindness** in humans is a characteristic controlled by a single gene, like fur colour in mice.",
+                "The alleles a person has (the **genotype**) work at a molecular level to develop characteristics. These are expressed as the **phenotype**."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -296,7 +310,23 @@
           "Allele: an alternative form (version) of a gene."
         ],
         "tip": "One mark for each term. A particular copy of a gene is accepted for allele."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Variant",
+                  "meaning": "Another word for an allele: a different form (version) of a gene."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -396,6 +426,6 @@
       "1adaeec3-213f-40f0-85dc-49e9bb132e0c"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

@@ -206,7 +206,39 @@
           "Do not give the time, because it is already in the question."
         ],
         "tip": "One mark for each improvement, up to two. Make each one a variable to keep the same, or a repeat or control."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Core practical: temperature and oxygen consumption",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Set up.",
+                  "text": "Put soda lime and cotton wool in the tube, with the small organisms above them. Connect the capillary tube with a drop of coloured liquid."
+                },
+                {
+                  "lead": "Change the temperature.",
+                  "text": "Place the tube in a water bath. Repeat with water baths set at different temperatures."
+                },
+                {
+                  "lead": "Measure.",
+                  "text": "Track how far the liquid moves up the capillary tube in a set time at each temperature."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "The independent variable is the **temperature**. The dependent variable is the distance the liquid moves in the set time.",
+                "Handle the living organisms gently and do not use temperatures that would harm them. Return them to where they were found afterwards.",
+                "Soda lime is corrosive, so do not touch it and keep the organisms away from it. Take care with hot water."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 7.8"],
@@ -220,7 +252,42 @@
           "Also allowed: wear gloves, use gauze under the flask, or use a heatproof mat."
         ],
         "tip": "One precaution is enough for the mark. \"Face mask\" and \"do not touch hot equipment\" are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Practical: exercise, pulse rate and recovery",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Rest.",
+                  "text": "Measure each volunteer's pulse rate or ventilation rate at rest."
+                },
+                {
+                  "lead": "Exercise.",
+                  "text": "The volunteer exercises for a set time. Measure the rate straight afterwards."
+                },
+                {
+                  "lead": "Recover.",
+                  "text": "Measure the rate at regular intervals until it returns to the resting rate. The time taken is the **recovery time**."
+                },
+                {
+                  "lead": "Repeat.",
+                  "text": "Use several volunteers and calculate a mean."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use volunteers who agree to take part, and let anyone stop if they feel unwell.",
+                "Handle small animals, such as woodlice, gently and return them to where they were found."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 12.1.2"],
@@ -337,6 +404,6 @@
       "e1cb783b-db07-4b94-96a1-bc2570fd666e"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

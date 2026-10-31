@@ -264,7 +264,22 @@
           "Place a cover slip on top of the sample."
         ],
         "tip": "One mark each. Adding a sample of the cells to the slide is also accepted, and so is describing how to lower the cover slip."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "When swabbing cheek cells, use a **sterile swab** and do not let it touch other surfaces.",
+                "Do not swab too hard or too far back. Put the used swab in disinfectant.",
+                "The cover slip also protects the specimen and the **objective lens**."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 7.1"],
@@ -281,7 +296,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-27",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

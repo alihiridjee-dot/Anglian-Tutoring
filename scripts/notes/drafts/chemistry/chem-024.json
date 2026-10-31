@@ -205,6 +205,18 @@
             }
           ],
           "heading": "Fullerenes compared with diamond and graphene"
+        },
+        {
+          "heading": "Strength of graphene and fullerenes",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Graphene is very strong, because it has many strong covalent bonds.",
+                "Solid C₆₀ has very low strength, because only weak forces act between its molecules."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -250,7 +262,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

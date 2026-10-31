@@ -241,7 +241,25 @@
           "Compare the Rf values with known Rf values to identify the colours."
         ],
         "tip": "A levelled question. Top marks need all the key steps in a logical order, ending with the Rf calculation and the comparison."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A mixture can show fewer spots than it has compounds. Two compounds may have the **same Rf value** in that solvent, or a compound may be colourless.",
+                "A compound that is **insoluble** in the solvent does not move from the start line.",
+                "The compounds in a mixture may separate in one solvent and not in another, so a different solvent can show more spots.",
+                "To move the spots further apart, use a **different solvent** or let the solvent front travel further.",
+                "A dye that is more attracted to the paper, or less soluble in the solvent, has a smaller Rf value.",
+                "Rf is a **ratio**, so it does not change with how far the solvent front is allowed to travel."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 2.9", "EDEX 2.10", "EDEX 2.11"],
@@ -271,6 +289,36 @@
                 "The paper chromatography method is the one in this note.",
                 "In the experiment, an ink that does not move from the start line needs a different solvent so that it dissolves."
               ]
+            }
+          ]
+        },
+        {
+          "heading": "Core practical: separating water from ink",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The ink is a mixture of coloured substances dissolved in water. Simple distillation separates the water from the coloured substances."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Heat.",
+                  "text": "Heat the ink in a flask with a Bunsen burner until the water boils."
+                },
+                {
+                  "lead": "Condense.",
+                  "text": "The water vapour cools in the condenser and turns back into a liquid."
+                },
+                {
+                  "lead": "Collect.",
+                  "text": "The water collects in the beaker. The coloured substances stay in the flask."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "To make an Rf value more accurate, use longer paper or a different type of paper."
             }
           ]
         }
@@ -303,6 +351,20 @@
                 "Colourless spots are found using a **locating agent**, a stain or UV light.",
                 "Gas chromatography separates gases in a mixture. It shows the amounts of each compound, which TLC does not.",
                 "Choose a solvent that dissolves all the substances being separated."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The solid on a thin-layer plate is a substance such as **silica** or **alumina**.",
+                "Run a thin-layer plate like paper chromatography: pencil start line, spot on the line, spot above the solvent, and a lid on so the solvent does not evaporate.",
+                "In gas chromatography each compound gives one **peak**. A pure substance gives one peak, and a mixture of two compounds gives two.",
+                "An impure sample can give many spots, depending on how many impurities it has. It gives only one spot if an impurity has the same Rf value as the main compound."
               ]
             }
           ]
@@ -403,6 +465,6 @@
       "6f789992-46d7-4408-967f-1afe512507fa"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

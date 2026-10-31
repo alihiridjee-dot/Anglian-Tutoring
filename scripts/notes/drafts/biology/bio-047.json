@@ -185,7 +185,23 @@
           "Destroys or kills pathogens, clumps them together, or attaches to antigens."
         ],
         "tip": "Any two score. \"Germs\", \"disease\", \"attack\" and \"fight\" are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Antibody binding site",
+                  "meaning": "The part of an antibody that fits one antigen. Antigens have different shapes, so each needs its own antibody."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -355,6 +371,6 @@
       "9f9eb3a5-da53-429e-b5a3-b5c0ad667fbc"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

@@ -240,6 +240,20 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Haemorrhagic fever",
+                  "meaning": "The illness the Ebola virus causes: a fever with bleeding."
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -360,6 +374,6 @@
       "c61da3fc-84ca-42d6-acc0-8051a040bb6b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

@@ -254,7 +254,23 @@
           "Zinc is more reactive than iron, so it is sacrificial."
         ],
         "tip": "Reject the idea that zinc rusts."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Electroplating",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The object to be plated is the **cathode**. The plating metal is the **anode**.",
+                "The electrolyte is a solution of a salt of the plating metal, such as nickel sulfate for nickel plating.",
+                "The coating metal does not react with oxygen in the air, so the object stays shiny and resists corrosion.",
+                "A cheaper metal can be plated with gold, so the object looks like gold at a lower cost."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -273,7 +289,29 @@
           "The rate of corrosion is not related to the reactivity series, for example for copper or aluminium."
         ],
         "tip": "Any three. Each conclusion must be backed by a comparison of the results."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Rusting of iron",
+              "formula": "4Fe(s) + 6H₂O(l) + 3O₂(g) → 2Fe₂O₃·3H₂O(s)",
+              "where": [
+                "Fe₂O₃·3H₂O = hydrated iron(III) oxide, which is rust"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "A more reactive metal does not always corrode faster. Aluminium is more reactive than copper but is protected by its oxide layer.",
+                "Plating iron with **tin** also forms a barrier that stops air and water reaching the iron."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -374,6 +412,6 @@
       "c4e0c0b1-e219-463c-b70d-2458edaa390f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

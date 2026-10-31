@@ -365,7 +365,47 @@
           "Oxygen: element"
         ],
         "tip": "One mark for each correct match. Only one description can be chosen for each substance."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Formulae of ionic compounds",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The charges in an ionic compound cancel, so its formula can be worked out from the charges on its ions."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Ions.",
+                  "text": "Aluminium sulfate contains Al³⁺ and SO₄²⁻."
+                },
+                {
+                  "lead": "Balance.",
+                  "text": "Two Al³⁺ give 6+. Three SO₄²⁻ give 6−."
+                },
+                {
+                  "lead": "Write.",
+                  "text": "The formula is Al₂(SO₄)₃. Use brackets round an ion with more than one atom when you need more than one of it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Names with mono- and di-",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A compound of two non-metals can have a prefix that gives the number of atoms of the second element: **mono-** means one and **di-** means two.",
+                "CO is carbon monoxide, CO₂ is carbon dioxide and SO₂ is sulfur dioxide. SO₂ is not called sulfur oxide."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -382,7 +422,51 @@
           "P: phosphorus"
         ],
         "tip": "All three correct scores 2 marks. One or two correct scores 1 mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Formulae of ions",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The formula of an ion has its charge at the top right of the symbol, such as Na⁺ or O²⁻.",
+                "Group 1 metals form ions with a charge of 1+ and Group 2 metals form ions with a charge of 2+.",
+                "Group 6 non-metals form ions with a charge of 2− and Group 7 non-metals form ions with a charge of 1−."
+              ]
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Ion containing more than one atom",
+                "Formula"
+              ],
+              "rows": [
+                [
+                  "Ammonium",
+                  "NH₄⁺"
+                ],
+                [
+                  "Hydroxide",
+                  "OH⁻"
+                ],
+                [
+                  "Nitrate",
+                  "NO₃⁻"
+                ],
+                [
+                  "Carbonate",
+                  "CO₃²⁻"
+                ],
+                [
+                  "Sulfate",
+                  "SO₄²⁻"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -398,7 +482,35 @@
           "Hydrochloric acid: HCl"
         ],
         "tip": "One mark for each correct formula."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Formulae of ionic compounds",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "An ionic compound has no overall charge, so the positive and negative charges in its formula cancel."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Ions.",
+                  "text": "Magnesium chloride contains Mg²⁺ and Cl⁻."
+                },
+                {
+                  "lead": "Balance.",
+                  "text": "One Mg²⁺ has a charge of 2+. It needs two Cl⁻ to give 2−."
+                },
+                {
+                  "lead": "Write.",
+                  "text": "The formula is MgCl₂. A symbol with no number after it means one ion."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -484,7 +596,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

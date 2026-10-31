@@ -318,15 +318,16 @@
         "OCR P6.2c"
       ],
       "worked_example": {
-        "exemplar_id": "f71fa96e-f7aa-479f-a8aa-4c5ea97b1548",
-        "source": "OCR jun 2023, Paper 2, Q23(a)(i)",
-        "question": "A tracer called sodium-24 is used to detect leaks in underground water pipes. Sodium-24 has a half-life of 15 hours. Give two reasons why this is useful.",
+        "exemplar_id": "c89f0847-b817-4acc-9e42-aa91fe32ae94",
+        "source": "OCR sample null, Paper 4, Q18(b)",
+        "question": "The information below shows information on radioactive isotopes.\n\nRadioactive isotope | Type of radiation | Half-life | Penetration through human flesh\nA | alpha | 300 years | 2 mm\nB | beta | 7 hours | 60 mm\nC | gamma | 7 hours | > 10 m\nD | alpha | 9 seconds | 2 mm\nE | gamma | 3 years | > 10 m\n\nA doctor implants radioactive isotope A into a patient to treat a localised cancer which is a few mm in size.\n\nShe intends to remove the isotope in a few weeks.\n\nUse the data to suggest two reasons why the doctor uses isotope A.",
         "marks": 2,
         "answer_points": [
-          "The half-life is short enough that the water and surroundings do not remain radioactive for too long.",
-          "The half-life is long enough to allow repeat readings, or for the examination to take place."
+          "Alpha has a short range: it travels only 2 mm through flesh, so it stays within the small cancer.",
+          "Alpha has the highest ionising power, so it does the most damage to the cancer cells.",
+          "Its half-life (300 years) is longer than isotope D's (9 seconds), so it stays active for the few weeks of treatment."
         ],
-        "tip": "Each reason needs the idea of short enough or long enough. Less damage or harm, and it lasts for a long time, are ignored."
+        "tip": "Any two of these reasons score, one mark each. Each reason should come from the data in the table."
       }
     },
     "cambridge_igcse": {
@@ -395,7 +396,7 @@
     "exemplar_ids": [
       "97544f5f-97cc-4a92-84e7-2c67e30f9967",
       "9f6f0a72-69dc-46fb-9d6c-248bd578f50f",
-      "f71fa96e-f7aa-479f-a8aa-4c5ea97b1548",
+      "c89f0847-b817-4acc-9e42-aa91fe32ae94",
       "aeb30d5e-da23-4adb-92c3-e94cc64303dc",
       "0c379822-ca8a-43de-97ed-96351d3b9353"
     ],

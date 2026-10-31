@@ -240,7 +240,24 @@
           "In standard form, 4.0 × 10⁴ nm²."
         ],
         "tip": "One mark for each step. A cube has six equal faces."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Atoms and small molecules are smaller than nanoparticles. An atom has a radius of about 1 × 10⁻¹⁰ m.",
+                "To compare sizes, divide one by the other in the same units. A nanoparticle of radius 1 × 10⁻⁸ m is 100 times larger than an atom of radius 1 × 10⁻¹⁰ m.",
+                "Give surface area : volume as the **simplest whole-number ratio**. Divide both numbers by the largest number that goes into both: 96 : 64 = 3 : 2.",
+                "Nanoparticles are also used in cosmetics and deodorants. New uses are an important area of research.",
+                "Using less material for the same effect can cut cost. Disadvantages include high cost, such as socks made with expensive silver, and harm if the particles are breathed in."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 9.35C", "EDEX 9.36C", "EDEX 9.37C"],
@@ -254,7 +271,23 @@
           "The nanoparticles are very small, less than 100 nm, so they give better skin coverage and cannot be seen on the skin, because they are clear or colourless."
         ],
         "tip": "Any two points score one mark each. Link each property to its purpose."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A nanoparticle is larger than an atom or a small molecule. To compare sizes, divide one by the other in the same units: a nanoparticle of radius 17 nm is about 100 times larger than a magnesium atom of radius 0.16 nm.",
+                "Give the surface area to volume ratio as the **simplest ratio**, surface area : volume. For a cube of side 90 nm, 48 600 : 729 000 is 1 : 15. A decimal such as 0.067 does not earn the final mark.",
+                "Nanoparticles can enter the body in food, drink and medicines, as well as being breathed in or absorbed through the skin. They may pass through cell membranes.",
+                "They may **build up** in living things, in water supplies and in the environment."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C2.3g", "OCR C2.3h", "OCR C2.3i", "OCR C2.3j"],
@@ -269,13 +302,29 @@
           "Ratio = 600 ÷ 1000 = 0.6, or 0.6 : 1, or 3 : 5."
         ],
         "tip": "A correct final answer scores all three marks. Do not write the ratio the wrong way round."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Atoms and small molecules are less than 1 nm across. A water molecule, about 0.27 nm, is not a nanoparticle. A DNA strand 2.5 nm wide is.",
+                "To compare sizes, put both in the same units and divide. A 20 nm nanoparticle is 100 times larger than a silicon atom of 0.2 nm.",
+                "A higher surface area to volume ratio puts more of the material at the surface. A tablet with a higher ratio dissolves in less time, and a catalyst has more places for reactions.",
+                "Other uses: self-cleaning windows, where nanoparticles catalyse the breakdown of dirt; sports equipment, where graphene adds strength and low mass; lubricants, where sheets of graphene slide over each other."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-27",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

@@ -258,7 +258,61 @@
           "In apparatus which prevents the escape of reactants and products (a closed system)."
         ],
         "tip": "One mark for each condition."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Another reversible reaction: ammonium chloride",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Ammonium chloride",
+              "formula": "NH₄Cl ⇌ NH₃ + HCl",
+              "where": [
+                "NH₄Cl is ammonium chloride.",
+                "NH₃ is ammonia.",
+                "HCl is hydrogen chloride."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Heating** makes the reaction go forwards. Ammonium chloride breaks down into ammonia and hydrogen chloride.",
+                "**Cooling** makes it go backwards. Ammonia and hydrogen chloride join to make ammonium chloride again.",
+                "The forward reaction takes in energy (endothermic). The backward reaction releases the same amount (exothermic)."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Energy and mass in a hydrated salt",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Heat a hydrated salt until its mass stops changing. Then the reaction is complete and no more water vapour is made.",
+                "The energy transferred is in proportion to the mass that reacts. Adding water back to the anhydrous salt that was made releases the same amount of energy."
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Given.",
+                  "text": "Heating 238 g of hydrated cobalt chloride takes in 88.1 kJ. Find the energy taken in for 2.00 g."
+                },
+                {
+                  "lead": "Scale.",
+                  "text": "Energy = 2.00 × 88.1 ÷ 238."
+                },
+                {
+                  "lead": "Answer.",
+                  "text": "0.740 kJ, to 3 significant figures."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 4.13", "EDEX 4.14"],
@@ -477,6 +531,6 @@
       "0e35ed3b-6f74-4189-9947-18d49662b293"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

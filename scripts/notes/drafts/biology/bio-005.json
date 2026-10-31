@@ -294,13 +294,91 @@
           "Disadvantage: can only be used on dead material, or thin sections only, or gives a 2-D image, or expensive, or preparation takes longer, or black and white images."
         ],
         "tip": "One mark for an advantage and one for a disadvantage. \"Clearer\" or \"can see small cells\" is ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Parts of a light microscope",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Learn the job of each part of a light microscope."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Eyepiece lens",
+                  "meaning": "The lens you look through. It magnifies the image."
+                },
+                {
+                  "term": "Objective lens",
+                  "meaning": "The lens closest to the slide. There are several, each with a different magnification, and you choose one."
+                },
+                {
+                  "term": "Stage",
+                  "meaning": "The platform that holds the slide."
+                },
+                {
+                  "term": "Lamp",
+                  "meaning": "The light source. Its light passes through the slide so the specimen can be seen."
+                },
+                {
+                  "term": "Slide and cover slip",
+                  "meaning": "The specimen sits on the glass slide. The cover slip goes on top to hold it flat."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Stains are used to view **colourless specimens**, or to highlight different structures or tissues."
+            },
+            {
+              "type": "subheading",
+              "text": "Setting up the microscope"
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Place the slide.",
+                  "text": "Put the slide on the stage."
+                },
+                {
+                  "lead": "Start on low power.",
+                  "text": "Choose the lowest-power objective lens."
+                },
+                {
+                  "lead": "Focus.",
+                  "text": "Turn the focusing knob to move the stage until the cells are in focus."
+                },
+                {
+                  "lead": "Increase the magnification.",
+                  "text": "Change to a higher-power objective lens and refocus. A higher power gives a smaller field of view and is harder to focus."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Transmission electron microscope",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A **transmission electron microscope** passes a beam of electrons through a very thin slice of the specimen.",
+                "It has a much higher **resolution** than a light microscope, so sub-cellular structures can be seen in detail.",
+                "It gives a **2-D image**. Preparing the thin section can distort the specimen."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-27",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

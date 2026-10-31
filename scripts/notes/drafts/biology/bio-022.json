@@ -318,7 +318,23 @@
           "Repeat using different pH solutions."
         ],
         "tip": "Any four points score one mark each. All three solutions must be used. Adding the iodine to a spotting tile is accepted."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Core practical: extra detail",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Keep the temperature constant with a beaker of water heated by a Bunsen burner.",
+                "A control tube has distilled water instead of amylase. It shows that starch is not broken down without the enzyme.",
+                "The product can be tested too. Test for glucose with Benedict's solution. The pH that gives glucose in the shortest time is closest to the optimum.",
+                "Other variables to control: the amount of mixing, the size of the tube and the time between samples."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -336,7 +352,43 @@
           "Controlled variables (maximum 2): volume or mass of milk, concentration of enzyme, volume or mass of enzyme, type of milk."
         ],
         "tip": "Marks are given in three groups. In this question temperature is the variable you change, so it cannot also be a controlled variable. \"Amount\" is ignored, so give a volume or a mass. For a pH investigation the plan is the same, but you change the pH and keep the temperature constant."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Practical: measuring the rate of an enzyme reaction",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The rate can be measured in three ways, depending on what the reaction does."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Gas produced**: measure the volume in a set time. A gas syringe is more accurate than collecting over water, because gas can dissolve in water.",
+                "**Water taken up**: measure how much water is taken up in a set time.",
+                "**Colour change of an indicator**: time how long the colour takes to change."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Rate from the volume of gas",
+              "formula": "rate = volume of gas ÷ time",
+              "where": [
+                "rate, in cm³/min",
+                "volume of gas, in cm³ (use the mean of the repeats)",
+                "time, in min"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Heating a water bath with a Bunsen burner can heat unevenly, so the temperature is hard to keep constant.",
+                "The temperature of the water bath may differ from the temperature inside the flask. Water that overheats can denature the enzyme."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -354,7 +406,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "spec_point_ids": [
       "82a928db-f5de-4bed-9b60-5b76834c399c",
       "3309e2ec-798f-4f59-a638-f9dba7f0248f",

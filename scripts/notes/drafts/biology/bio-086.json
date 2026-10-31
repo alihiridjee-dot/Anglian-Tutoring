@@ -228,23 +228,52 @@
           "Selective weedkillers do not kill grass plants (1). Any three points score."
         ],
         "tip": "Name the hormone, say which plants it acts on and what it does to them."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Killing weeds reduces competition for resources such as light, water and minerals. The crop grows better, so the yield rises.",
+                "Gibberellins stimulate germination in dormant seeds. They start the breakdown of **starch** in the seed.",
+                "Growers produce **seedless fruit** because it is nicer to eat."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 3.2i"],
       "worked_example": {
-        "exemplar_id": "f22dc986-35be-4dc4-ba79-8f230541d3aa",
-        "source": "OCR jun 2024, Paper 3, Q20(a)",
-        "question": "Plant hormones control many processes in plants. Complete these sentences by writing the correct plant hormones in the gaps. Each hormone can be used more than once. Flowers are sometimes sprayed with ________ to produce fruits without seeds. After fruits are picked, they can be exposed to ________ to make them ripen. Flowers are stimulated to open, and seeds made to break dormancy by the hormone ________. Selective weedkillers and rooting powders usually contain ________.",
-        "marks": 4,
+        "exemplar_id": "fad86e30-53cb-40f3-9032-cd871a25a509",
+        "source": "OCR jun 2019, Paper 3, Q14",
+        "question": "Why are plant hormones used to cause parthenocarpic fruit development?\n\nA To delay dormancy\nB To selectively kill weeds\nC To produce seedless fruit\nD To shed leaves",
+        "marks": 1,
         "answer_points": [
-          "Seedless fruits: auxin (gibberellins is also allowed) (1).",
-          "Ripening after picking: ethene (1).",
-          "Flower opening and seed dormancy: gibberellins (1).",
-          "Selective weedkillers and rooting powders: auxin (1)."
+          "C: to produce seedless fruit.",
+          "Parthenocarpic fruit develops without fertilisation, so it has no seeds."
         ],
-        "tip": "Each hormone can be used more than once, so check every gap on its own."
-      }
+        "tip": "Only C scores the mark. Selective weedkillers (B) are a different use of plant hormones."
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Parthenocarpic fruit development",
+                  "meaning": "Seedless fruit that develops without fertilisation, which growers cause by spraying flowers with a plant hormone."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -259,7 +288,7 @@
     "exemplar_ids": [
       "76fef712-7775-47ff-9250-dc7093b19dc1",
       "19489064-fcba-49eb-808e-c232afaa7709",
-      "f22dc986-35be-4dc4-ba79-8f230541d3aa",
+      "fad86e30-53cb-40f3-9032-cd871a25a509",
       "920a1564-3593-45ad-b98c-9089dd19d7a9",
       "af3873d8-a0f1-4d0e-82b1-a847de36fb89",
       "37e4e145-281f-42ee-9a4f-f1f9e1952ea4",
@@ -272,6 +301,6 @@
       "2e45dafd-1438-4496-b75b-f62565ec274b"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

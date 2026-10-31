@@ -188,7 +188,21 @@
           "Steam or a catalyst."
         ],
         "tip": "One mark each for the name, the temperature and the steam or catalyst."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Alkenes react with **bromine water**, which is the test for an alkene.",
+                "Add bromine water to the hydrocarbon and shake. An alkene changes it from orange to **colourless**. An alkane leaves it orange."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -324,6 +338,6 @@
       "cca39f99-6192-4f3f-b3f1-54bc09ac62fa"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

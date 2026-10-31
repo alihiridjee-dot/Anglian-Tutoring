@@ -204,7 +204,21 @@
           "R: copper (Cu²⁺)."
         ],
         "tip": "One mark for each ion. Charges are ignored, even if incorrect."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Lithium ions, Li⁺, give a **red** flame.",
+                "Copper ions, Cu²⁺, give a **blue-green** flame."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C4.2c", "OCR C4.2e"],
@@ -331,6 +345,6 @@
       "d48bf4a0-07de-4a1c-bc6c-adf572faa5a4"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

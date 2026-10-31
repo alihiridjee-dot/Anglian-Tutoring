@@ -243,16 +243,15 @@
     "aqa": {
       "spec_codes": ["AQA 4.3"],
       "worked_example": {
-        "exemplar_id": "1bbcf348-2f69-4868-acf1-1ba2c82907a9",
-        "source": "AQA jun 2018, Paper 1 (H), Q03.5",
-        "question": "A student investigated the effect of light intensity on the rate of photosynthesis. The student placed pondweed at 5 cm, 10 cm and 20 cm from a light source.\n\nLight intensity can be calculated using the inverse square law: I ∝ 1/d², where I is light intensity and d is the distance of the pondweed from the light source.\n\nExplain how light intensity changes as the distance of the pondweed from the light source is doubled.\n\nYou must include calculations in your answer.",
-        "marks": 3,
+        "exemplar_id": "fa4f07c8-c0bf-4d9f-8d6c-a57e875bb1c8",
+        "source": "AQA jun 2024, Paper 1 (H), Q07.9",
+        "question": "Photosynthesis investigations often use a light source. The spreading out of light from a source obeys the inverse square law. The inverse square law links light intensity to distance from the light source.\n\nWhich of the following shows the inverse square law?\n\nTick one box.\n\nlight intensity is proportional to 1/distance²\nlight intensity is proportional to distance²\n1/(light intensity)² is proportional to distance²\n1/(light intensity)² is proportional to 1/distance²",
+        "marks": 1,
         "answer_points": [
-          "Squaring two distances that double: 5² = 25 and 10² = 100 (or 10² = 100 and 20² = 400).",
-          "Calculating 1/d² for those distances: 1/25 = 0.04 and 1/100 = 0.01 (or 0.01 and 0.0025).",
-          "Therefore, as the distance doubles, the light intensity is quartered."
+          "Light intensity is proportional to 1/distance².",
+          "So doubling the distance makes the light intensity a quarter, because 1/2² = 1/4."
         ],
-        "tip": "Use two distances where one is double the other. Two marks are available for the calculations even without working."
+        "tip": "Only this box scores the mark. Light intensity falls as the distance rises, so the distance squared goes on the bottom of the fraction."
       }
     },
     "edexcel": {
@@ -343,7 +342,7 @@
       "fc6e4db7-4c6e-4a20-921d-79fed2b7c3ce"
     ],
     "exemplar_ids": [
-      "1bbcf348-2f69-4868-acf1-1ba2c82907a9",
+      "fa4f07c8-c0bf-4d9f-8d6c-a57e875bb1c8",
       "4cc177eb-2181-4c40-bb72-442a8576a51b",
       "800a95e2-0ae9-470f-bf27-942893a621a6",
       "4890eee8-918f-43d4-a8b5-12d8d476dd7d"

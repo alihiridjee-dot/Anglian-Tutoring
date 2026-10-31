@@ -255,17 +255,37 @@
         "AQA 7.4"
       ],
       "worked_example": {
-        "exemplar_id": "16218d32-1eec-459a-92b4-b13a04e75063",
-        "source": "AQA jun 2023, Paper 2 (F), Q03.4",
-        "question": "The number of snowshoe hares and the number of lynx increase and decrease several times over a period of years.\n\nSuggest two reasons why the number of snowshoe hares increases.",
-        "marks": 2,
+        "exemplar_id": "2dc00171-bc09-4735-a1cf-1733d9b0a47f",
+        "source": "AQA jun 2024, Paper 2 (H), Q05.5",
+        "question": "Otters:\n- live in water and on the land\n- eat mainly fish.\n\nThe concentration of dissolved oxygen has decreased in a river where otters live.\n\nExplain how the decrease in the concentration of dissolved oxygen in the river water will affect the population of otters.",
+        "marks": 3,
         "answer_points": [
-          "Fewer lynx (predators) to eat them.",
-          "More food (grass) is available.",
-          "The hares reproduce (breed, multiply)."
+          "The number of fish decreases.",
+          "This is because fish need oxygen for aerobic respiration.",
+          "So the otter population decreases because there is less food. Otters may also breed less or move to another river."
         ],
-        "tip": "Any two score one mark each."
-      }
+        "tip": "One mark for each step of the chain. Otters breathe air, so saying the otters need the oxygen in the water scores nothing."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The arrows in a food chain show the transfer of energy from one organism to the next."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Herbivore",
+                  "meaning": "An animal that eats only plants, so it is a primary consumer."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -303,6 +323,15 @@
               "text": "This is why each level in a pyramid of biomass is smaller than the one below it, and why food chains are short."
             }
           ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The arrows in a food chain show the transfer of energy from one organism to the next."
+            }
+          ]
         }
       ]
     },
@@ -321,7 +350,31 @@
           "Community."
         ],
         "tip": "Mice eat the producers, so they are primary consumers. All the populations in a habitat make a community."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Trophic level",
+                  "meaning": "A feeding level in a food chain. Producers are the first level, then primary, secondary and tertiary consumers."
+                },
+                {
+                  "term": "Consumer",
+                  "meaning": "An organism that gets its energy by eating other organisms."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "A food chain of grass, mice and owls has three trophic levels."
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -434,7 +487,7 @@
       "3a6d98c2-e259-4306-90ea-fff536ff13e0"
     ],
     "exemplar_ids": [
-      "16218d32-1eec-459a-92b4-b13a04e75063",
+      "2dc00171-bc09-4735-a1cf-1733d9b0a47f",
       "44212dae-7069-4040-bffb-365919bbbf3f",
       "7df6f4ff-f575-4b4c-81a0-11438e7d98e5",
       "4bf3f68d-100d-4459-96da-518675dec2ef",
@@ -444,6 +497,6 @@
       "d257fc53-3938-453c-a062-9f26316c19de"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

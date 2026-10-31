@@ -207,7 +207,60 @@
           "Aerobic biological treatment of the liquid effluent."
         ],
         "tip": "One mark for each stage. A description of what each process does is allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Required practical: dissolved solids and pH of water",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Weigh",
+                  "text": "Weigh a clean, empty evaporating basin."
+                },
+                {
+                  "lead": "Measure",
+                  "text": "Add a known volume of the water sample. A burette is more accurate than a measuring cylinder."
+                },
+                {
+                  "lead": "Evaporate",
+                  "text": "Heat until all the water seems to have evaporated. Wear safety glasses."
+                },
+                {
+                  "lead": "Constant mass",
+                  "text": "Reheat and reweigh until the mass stops changing. Make sure the bottom of the basin is dry."
+                },
+                {
+                  "lead": "Calculate",
+                  "text": "Mass of dissolved solids = mass of basin and solid minus mass of empty basin. Repeat and take a mean."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Distilled water leaves no solid, so its mass of dissolved solids is zero. Sea water leaves solid.",
+                "A larger sample gives a more accurate result but takes longer and more energy to evaporate.",
+                "Measure pH with universal indicator or a pH probe. Pure water has **pH 7** (green with universal indicator) and boils at 100 °C.",
+                "Distilling the sample leaves the dissolved solids behind. The water collected is pure."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Ease of obtaining potable water",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Ground water** is the easiest to treat. Filter beds and sterilising are enough.",
+                "**Waste water** needs more stages and takes longer: sewage treatment first, then sterilising with chlorine, ozone or ultraviolet light."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -243,6 +296,20 @@
     "ocr": {
       "spec_codes": [
         "OCR C6.3g"
+      ],
+      "extra": [
+        {
+          "heading": "Ease of treatment",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Ground water** is the easiest to treat. Filter beds and sterilising are enough.",
+                "**Waste water** needs more stages and takes longer: sewage treatment first, then sterilising with chlorine, ozone or ultraviolet light."
+              ]
+            }
+          ]
+        }
       ]
     },
     "cambridge_igcse": {
@@ -306,7 +373,7 @@
       "29f01815-d702-4f5e-b235-a6337e7b2ac8"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   },
   "format": 1,
   "subject": "chemistry"

@@ -176,7 +176,27 @@
           "A chemical reaction occurs to produce smaller molecules, or the bonds between the starch molecules are broken to produce smaller molecules (allow maltose or sugars)."
         ],
         "tip": "Three separate marks. Saying that the starch fits the active site does not score the first mark. Say that it binds."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Metabolism",
+                  "meaning": "The sum of all the reactions in a cell or the body."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Enzymes catalyse the reactions of metabolism, such as respiration and the building of large molecules from small ones."
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -214,7 +234,34 @@
           "Enzyme-substrate complexes cannot form."
         ],
         "tip": "Any three points score one mark each. Mentioning lock and key is allowed. Saying the enzyme is denatured loses the active site shape, fit and complex points."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Metabolism",
+                  "meaning": "All the chemical reactions in a cell or the body."
+                },
+                {
+                  "term": "Enzyme-substrate complex",
+                  "meaning": "The enzyme and substrate joined together, with the substrate bound to the active site."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Enzymes control metabolic processes, such as respiration.",
+                "A drug or other chemical can stop an enzyme working. It blocks the active site, or changes the shape of the active site, so the substrate no longer fits."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -322,6 +369,6 @@
       "75269c6c-c1ee-4f43-af68-ec510c8123cd"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

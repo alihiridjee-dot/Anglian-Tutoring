@@ -283,7 +283,28 @@
           "Universal indicator is blue (or purple) in alkali, not yellow."
         ],
         "tip": "Say what is right and what is wrong."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) pH on a titration curve",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A titration curve is a graph of pH against the volume of alkali added to an acid. Take hydrochloric acid in the flask and sodium hydroxide solution added from the burette."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The curve starts at a low pH, below 7, because the flask holds acid.",
+                "The pH rises as alkali is added, because the concentration of H⁺ ions falls.",
+                "The curve is steepest at the **end point**, where the acid has just been neutralised. For this strong acid and strong alkali, the pH there is 7.",
+                "After the end point the pH stays above 7, because **OH⁻ ions** are in excess.",
+                "If acid is added to alkali, the curve runs the other way: it starts above 7 and ends below 7."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 7.1.2", "CAIE 7.1.5", "CAIE 7.1.6", "CAIE 7.1.7", "CAIE 7.1.8"],
@@ -356,7 +377,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "1903c6f6-8196-4065-91cf-afb7f23b339a",

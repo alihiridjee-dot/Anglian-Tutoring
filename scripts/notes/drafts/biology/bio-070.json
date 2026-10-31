@@ -197,7 +197,23 @@
           "Light rays are focused on the retina."
         ],
         "tip": "Each of the six points earns a mark. Say the suspensory ligaments loosen or slacken. Do not write relax."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Sclera",
+                  "meaning": "The tough, white outer layer of the eyeball. It protects the inside of the eye and holds its shape."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 2.15B"],
@@ -229,7 +245,21 @@
           "Rod cells cannot detect colour, so colour vision is normal. The cone cells are not broken down."
         ],
         "tip": "Saying only that the rod cells are broken down repeats the question. Say what rods and cones do."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The **ciliary body** is the structure around the lens that contains the ciliary muscles. It changes the shape of the lens so that light is focused on the retina (**accommodation**).",
+                "It also makes the clear fluid that fills the space between the cornea and the iris."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -346,6 +376,6 @@
       "3c45fed8-ea29-4771-b196-8677f3f5bc93"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

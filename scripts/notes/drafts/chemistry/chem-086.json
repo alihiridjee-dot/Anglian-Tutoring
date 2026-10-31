@@ -211,7 +211,21 @@
         "marks": 1,
         "answer_points": ["A formulation has a specific, consistent proportion of components."],
         "tip": "One mark: the idea of fixed, exact proportions is what separates a formulation from a mixture."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An **alloy** is a formulation: its elements are mixed in exact amounts.",
+                "Steel is an example. It is a mixture of iron and carbon."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -230,6 +244,6 @@
       "a05f428e-54b3-4786-b3eb-e963fc89490d"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

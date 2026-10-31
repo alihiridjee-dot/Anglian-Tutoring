@@ -267,7 +267,24 @@
           "Reason: food will not stick to the (frying) pan."
         ],
         "tip": "One mark each for the use, the property and the reason. The property and reason must depend on the use."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "PVC suits window frames and water pipes because it is **tough** (hard) and long-lasting.",
+                "Poly(ethene) is also **light**, which suits plastic bags and bottles.",
+                "PTFE on clothing and carpets is non-stick, so stains do not stick and are easy to clean.",
+                "A food wrapping with a high melting point can wrap hot food without melting.",
+                "A food wrapping that is impermeable to air stops the food reacting with the air. One that is impermeable to water stops the food getting damp."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -395,6 +412,6 @@
       "5f773e03-2bc9-48a3-906b-530043d12761"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

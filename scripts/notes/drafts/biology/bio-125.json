@@ -285,7 +285,37 @@
           "So the fish have a reduced energy supply, which causes their death."
         ],
         "tip": "Each step must lead to the next, ending with the effect on the fish."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Other ways one species keeps a community stable",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "It may be prey, so it provides energy for its predators.",
+                "It may be a primary consumer, so it controls the numbers of plants or algae.",
+                "It changes the habitat or provides shelter for other species.",
+                "It spreads seeds or pollen."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Air pollution and living things",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Smoke particles (soot) and acidic gases damage the **lungs**. This causes breathing difficulties such as bronchitis and asthma.",
+                "Soot settles on leaves and blocks light, so there is less photosynthesis.",
+                "Acidic gases damage roots and change the mineral ions in the soil, so plants make less protein.",
+                "**Carbon monoxide** combines with **haemoglobin**, so the blood carries less oxygen."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -303,7 +333,26 @@
           "So the fish die."
         ],
         "tip": "Give three linked steps, ending with the fish dying."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Fish farming and biodiversity",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Fish farms help wild fish numbers recover, but they can also harm the ecosystem around them."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Fish **faeces** and uneaten food add nitrates and phosphates to the water, which can cause **eutrophication**.",
+                "Pesticides and antibiotics used to control disease can kill other organisms and build up in food chains.",
+                "Farmed fish that escape may outcompete wild fish or breed with them."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -319,7 +368,21 @@
           "Biodiversity takes into account how many different species are present, and the butterflies may be of the same or few species."
         ],
         "tip": "If neither definition is given, lots of butterflies but few species earns one mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Hunting** is a threat to an individual species. Killing animals, for example elephants, lowers the population and can make the species extinct, which reduces biodiversity.",
+                "Conservation can protect an **individual species**, for example by stopping hunting. It can also protect a **selected habitat**, which protects all the species that live there."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -423,7 +486,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

@@ -217,6 +217,20 @@
     "aqa": {
       "spec_codes": [
         "AQA 7.11"
+      ],
+      "extra": [
+        {
+          "heading": "(Separate science) How decomposers feed",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Decomposers break down dead plant and animal matter by **secreting enzymes** into the environment.",
+                "The small soluble food molecules this makes then **diffuse** into the microorganism."
+              ]
+            }
+          ]
+        }
       ]
     },
     "edexcel": {
@@ -236,7 +250,45 @@
           "Energy is transferred to the surroundings as heat."
         ],
         "tip": "Any two score one mark each. \"Maintaining body temperature\" is ignored here."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The arrows in a food chain show the **transfer of energy** from one organism to the next.",
+                "Some energy is transferred to the surroundings as heat. This is a **less useful form**, because the next trophic level cannot use it.",
+                "Less energy is passed on at each level, so each higher trophic level can usually support fewer organisms."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Biomass of a population",
+              "formula": "biomass of population = number of organisms × mean biomass of each organism",
+              "where": [
+                "number of organisms, no unit",
+                "mean biomass of each organism, in g",
+                "biomass of population, in g"
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Data",
+                  "text": "A garden has 620 earthworms. Each has a mean biomass of 3.4 g."
+                },
+                {
+                  "lead": "Calculate",
+                  "text": "620 × 3.4 = 2108 g."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -376,6 +428,6 @@
       "8604003b-a15b-43c9-abf8-1b2ee9e894a3"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }
