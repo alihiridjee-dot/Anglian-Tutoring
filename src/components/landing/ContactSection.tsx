@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { Send, PhoneCall, Mail } from "lucide-react";
+import { SectionSeam } from "@/components/landing/SectionSeam";
 import { submitContactLead } from "@/lib/leads/contactLead.functions";
 
 export function ContactSection() {
@@ -30,7 +31,8 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="page-aurora py-20 lg:py-24 border-t border-border">
+    <section id="contact" className="page-aurora pb-20 lg:pb-24">
+      <SectionSeam from="var(--secondary)" className="mb-12 lg:mb-16" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <div>

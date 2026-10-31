@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Check, ChevronDown, Sparkles } from "lucide-react";
 import { useState } from "react";
+import { SectionSeam } from "@/components/landing/SectionSeam";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
 import { boardLabel } from "@/lib/curriculum/courseSummary";
 import { isBoard, isSubject, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
@@ -150,11 +151,18 @@ export function PricingSection() {
         .join(", ");
 
   return (
-    <section id="pricing" className="relative py-24 lg:py-28 overflow-hidden bg-secondary">
+    <section id="pricing" className="relative pb-24 lg:pb-28 overflow-hidden bg-secondary">
       {/* Ambient premium backdrop */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--accent-soft)_0%,transparent_55%)] opacity-60"
+      />
+      {/* After the backdrop, so the wash shows through the blocks and not the
+          gaps. The gaps are the platform section's bg-secondary/50 over the
+          page's own. */}
+      <SectionSeam
+        from="color-mix(in srgb, var(--secondary) 70%, var(--background))"
+        className="mb-16 lg:mb-20"
       />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-14">
