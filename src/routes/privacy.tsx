@@ -366,7 +366,8 @@ function PrivacyPage() {
         </Section>
       </main>
 
-      <Footer />
+      {/* The page's own bg-secondary/40, with no section colour above it. */}
+      <Footer seamFrom="color-mix(in srgb, var(--secondary) 40%, var(--background))" />
     </div>
   );
 }

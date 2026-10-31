@@ -437,7 +437,8 @@ function HowItWorks() {
         </div>
       </section>
 
-      <Footer />
+      {/* The closing section's bg-secondary/40 over the page's own. */}
+      <Footer seamFrom="color-mix(in srgb, var(--secondary) 64%, var(--background))" />
       <FloatingWhatsApp />
     </div>
   );

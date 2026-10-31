@@ -10,6 +10,7 @@ import {
   ProgrammeMock,
   QuizMock,
 } from "@/components/how-it-works/ServicePreviews";
+import { SectionSeam } from "@/components/landing/SectionSeam";
 
 // The two things a place is built on, given the big cards: live teaching, and a
 // programme that belongs to one child. Everything else supports those two.
@@ -91,7 +92,8 @@ const SUPPORT = [
 
 export function OfferSection() {
   return (
-    <section id="offer" className="py-20 lg:py-24 bg-secondary/50 border-t border-border">
+    <section id="offer" className="pb-20 lg:pb-24 bg-secondary/50">
+      <SectionSeam from="var(--card)" className="mb-12 lg:mb-16" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="eyebrow">Our comprehensive platform</span>
