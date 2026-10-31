@@ -8,6 +8,7 @@
 
 // Drawn by hand and repeated from the left edge, so a phone (about 15 columns)
 // gets as much going on as a desktop. `#` is the section below.
+// prettier-ignore
 const MOTIF = [
   "....#............#......",
   ".##...#...###..#.....#..",
@@ -23,7 +24,7 @@ function trace() {
   let gaps = "";
   let edge = "";
   for (let r = 0; r < ROWS; r++) {
-    for (let c = 0; c < COLS; ) {
+    for (let c = 0; c < COLS;) {
       if (GRID[r][c]) {
         c++;
         continue;
