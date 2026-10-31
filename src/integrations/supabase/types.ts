@@ -591,6 +591,8 @@ export type Database = {
           figure: Json | null;
           figure_brief: Json | null;
           id: string;
+          option_figure_briefs: Json | null;
+          option_figures: Json | null;
           options: Json;
           position: number;
           question: string;
@@ -604,6 +606,8 @@ export type Database = {
           figure?: Json | null;
           figure_brief?: Json | null;
           id?: string;
+          option_figure_briefs?: Json | null;
+          option_figures?: Json | null;
           options: Json;
           position?: number;
           question: string;
@@ -617,6 +621,8 @@ export type Database = {
           figure?: Json | null;
           figure_brief?: Json | null;
           id?: string;
+          option_figure_briefs?: Json | null;
+          option_figures?: Json | null;
           options?: Json;
           position?: number;
           question?: string;

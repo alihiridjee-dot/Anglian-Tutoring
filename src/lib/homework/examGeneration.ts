@@ -2,7 +2,14 @@
 import { toSciNotationTogether } from "@/lib/platform/sciNotation";
 import { flattenedLayout } from "@/lib/platform/textBlocks";
 import type { KnownBrief } from "@/lib/figures/figure";
-import { FIGURE_FIELD, FIGURE_GUIDE, MAX_FIGURES, readBrief } from "@/lib/figures/figureBrief";
+import {
+  FIGURE_FIELD,
+  FIGURE_GUIDE,
+  MAX_FIGURES,
+  OPTION_FIGURES_FIELD,
+  OPTION_FIGURES_GUIDE,
+  readBrief,
+} from "@/lib/figures/figureBrief";
 
 export const FRAMEWORK_VERSION = "exam-generation-v4";
 export type GenerationFormat = "written" | "mcq";
@@ -246,6 +253,7 @@ export function buildGenerationPrompt(
         : `Write exactly ${count} MCQs. Each has exactly four distinct, plausible options and one correct answer. correct_index is a zero-based integer from 0 to 3. Vary its position across the set. explanation must identify why the keyed answer is correct.`,
       ...(format === "written" ? [MARK_SCHEME_LAYOUT] : []),
       ...(figures ? [FIGURE_GUIDE] : []),
+      ...(figures && format === "mcq" ? [OPTION_FIGURES_GUIDE] : []),
       "For each item record assessment_objectives (AO1/AO2/AO3 where applicable), mathematical_demand and practical_demand separately. These are internal labels, not student-facing text.",
     ].join("\n\n"),
   };
@@ -284,7 +292,13 @@ export function generationSchema(
           explanation: { type: "string" },
           ...assessmentProperties,
         };
-  const properties = figures ? { ...own, figure: FIGURE_FIELD } : own;
+  const properties = figures
+    ? {
+        ...own,
+        figure: FIGURE_FIELD,
+        ...(format === "mcq" ? { option_figures: OPTION_FIGURES_FIELD } : {}),
+      }
+    : own;
   return {
     type: "object",
     properties: {
@@ -326,6 +340,8 @@ export type McqQuestion = Assessment & {
   options: string[];
   correct_index: number;
   explanation: string;
+  /** The four answer pictures, in the options' order, when its answers are pictures. */
+  optionFigures?: KnownBrief[] | null;
 };
 
 const nonempty = (v: unknown): v is string => typeof v === "string" && v.trim().length > 0;
@@ -443,14 +459,60 @@ export function validateQuestions(
         if (!q.figureProblem) {
           const read = readBrief(brief);
           if ("problem" in read) q.figureProblem = read.problem;
-          else if (questions.slice(0, i).filter((p) => p.figure).length >= MAX_FIGURES)
+          else if (
+            questions.slice(0, i).filter((p) => p.figure || p.optionFigures).length >= MAX_FIGURES
+          )
             q.figureProblem = `is one more than the ${MAX_FIGURES} a set may have`;
           else q.figure = read.brief;
         }
       }
     }
+    if (format === "mcq") {
+      const raw = (q as { option_figures?: unknown }).option_figures;
+      delete (q as { option_figures?: unknown }).option_figures;
+      // "", "null", "none" or "[]": answers in words, however it says so.
+      if (figures) {
+        q.optionFigures = null;
+        if (typeof raw === "string" && !/^(|null|none|\[\s*\])$/i.test(raw.trim())) {
+          const problem = optionFiguresProblem(raw, q, questions.slice(0, i));
+          if (problem) q.figureProblem ??= problem;
+        }
+      }
+    }
   }
   return questions;
+}
+
+/**
+ * Reads a question's answer pictures into `q.optionFigures`, or says why they
+ * can't be drawn: four briefs of one kind that each read, answers lettered A
+ * to D, and room left among the set's figures. The question is left out then.
+ */
+function optionFiguresProblem(
+  raw: string,
+  q: McqQuestion,
+  earlier: { figure?: KnownBrief | null; optionFigures?: KnownBrief[] | null }[],
+): string | undefined {
+  let briefs: unknown;
+  try {
+    briefs = JSON.parse(raw);
+  } catch {
+    return "has answer pictures that are not JSON";
+  }
+  if (!Array.isArray(briefs) || briefs.length !== 4) return "needs exactly four answer pictures";
+  const read = briefs.map((b) => readBrief(b));
+  const bad = read.findIndex((r) => "problem" in r);
+  if (bad >= 0)
+    return `has answer picture ${"ABCD"[bad]} that ${(read[bad] as { problem: string }).problem}`;
+  const ok = read.map((r) => (r as { brief: KnownBrief }).brief);
+  if (new Set(ok.map((b) => b.kind)).size !== 1) return "has answer pictures of different kinds";
+  // The page draws each picture under its letter; any other words would sit beside it.
+  if (q.options.map((o) => o.trim()).join("") !== "ABCD")
+    return 'has answer pictures whose options are not "A" to "D"';
+  if (!q.figure && earlier.filter((p) => p.figure || p.optionFigures).length >= MAX_FIGURES)
+    return `is one more than the ${MAX_FIGURES} a set may have`;
+  q.optionFigures = ok;
+  return undefined;
 }
 
 /** Text compared as written, extra spacing aside. */

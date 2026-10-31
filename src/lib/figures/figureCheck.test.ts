@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
-import { ARROW_DEFS, CIRCUIT_SYMBOLS, type FigureBrief } from "./figure";
+import { ARROW_DEFS, CIRCUIT_SYMBOLS, type FigureBrief, type GraphBrief } from "./figure";
 import { checkFigure, checkReply, cleanFigure } from "./figureCheck";
+import { drawWithCode } from "./figureDraw";
 import { FIGURE_EXAMPLES } from "./figurePrompt";
 
 const [graph, circuit] = FIGURE_EXAMPLES;
@@ -636,5 +637,247 @@ describe("a saved figure is made safe for the page, without the drawing's checks
     expect(cleanFigure("<svg")).toBeNull();
     expect(cleanFigure("<!-- --><svg/>")).toBeNull();
     expect(cleanFigure('<g xmlns="http://www.w3.org/2000/svg"/>')).toBeNull();
+  });
+});
+
+describe("a chromatogram, wave or force diagram is held to what decides its answer", () => {
+  const pens: FigureBrief = {
+    kind: "chromatogram",
+    y: { title: "distance moved in cm", min: 0, max: 10, step: 1 },
+    front: 10,
+    samples: [
+      { name: "note", spots: [2.4, 5.2] },
+      { name: "P", spots: [2.4, 5.2, 7.9] },
+      { name: "Q", spots: [2.4, 5.2] },
+      { name: "R", spots: [3, 6.1] },
+    ],
+  };
+  const lettered: FigureBrief = {
+    kind: "wave",
+    arrows: [
+      { shows: "amplitude", letter: "A" },
+      { shows: "crest to trough", letter: "B" },
+    ],
+  };
+  const rope: FigureBrief = {
+    kind: "wave",
+    x: { title: "distance in cm", min: 0, max: 40, step: 5 },
+    y: { title: "displacement in cm", min: -4, max: 4, step: 1 },
+    amplitude: 3,
+    wavelength: 20,
+  };
+  const pushes: FigureBrief = {
+    kind: "forces",
+    object: "van",
+    toScale: true,
+    forces: [
+      { direction: "right", name: "driving force", size: 2500 },
+      { direction: "left", name: "air resistance", size: 1000 },
+    ],
+  };
+  const svgOf = (brief: FigureBrief) => drawWithCode(brief)!.svg;
+
+  test("drawn right, each passes", () => {
+    for (const brief of [pens, lettered, rope, pushes])
+      expect(checkFigure(svgOf(brief), brief).problems).toEqual([]);
+  });
+
+  test("a chromatogram's spot in another lane, names swapped, or the front moved", () => {
+    // P's third spot drawn in Q's lane: Q would seem to hold a dye the note lacks.
+    const moved = swap(svgOf(pens), 'cx="138.25" cy="90"', 'cx="187.75" cy="90"');
+    expect(checkFigure(moved, pens).problems).toEqual([
+      "The spot at 7.9 in P's lane is not where its lane and distance put it",
+    ]);
+    const swapped = swap(
+      swap(svgOf(pens), 'middle">P<', 'middle">X<'),
+      'middle">Q<',
+      'middle">P<',
+    ).replace('middle">X<', 'middle">Q<');
+    expect(checkFigure(swapped, pens).problems).toEqual([
+      'The name "P" is not under its own lane',
+      'The name "Q" is not under its own lane',
+    ]);
+    const front = swap(
+      svgOf(pens),
+      'y1="48" x2="262" y2="48"/><text class="qf-small" x="268"',
+      'y1="68" x2="262" y2="68"/><text class="qf-small" x="268"',
+    );
+    expect(checkFigure(front, pens).problems).toContain(
+      "The solvent front is not drawn across the paper at its distance, y = 48",
+    );
+  });
+
+  test("a chromatogram's extra spot, or a caption that gives the answer", () => {
+    const extra = swap(
+      svgOf(pens),
+      "</svg>",
+      '<circle class="qf-dot" cx="187.75" cy="90" r="5"/></svg>',
+    );
+    expect(checkFigure(extra, pens).problems).toContain(
+      "The chromatogram has 10 spots; the brief has 9",
+    );
+    const caption = swap(
+      svgOf(pens),
+      "</svg>",
+      '<text class="qf-small" x="200" y="300" text-anchor="middle">same as note</text></svg>',
+    );
+    expect(checkFigure(caption, pens).problems).toContain(
+      'Text "same as note" is not part of the chromatogram',
+    );
+  });
+
+  test("a wave's letters on the wrong arrows, or an arrow across the wrong span", () => {
+    const swapped = swap(swap(svgOf(lettered), 'end">A<', 'end">X<'), 'end">B<', 'end">A<').replace(
+      'end">X<',
+      'end">B<',
+    );
+    expect(checkFigure(swapped, lettered).problems).toEqual([
+      'The letter beside the amplitude arrow is "B"; the brief gives it "A"',
+      'The letter beside the crest to trough arrow is "A"; the brief gives it "B"',
+    ]);
+    // The amplitude arrow drawn from a trough: twice the amplitude.
+    const tall = swap(
+      svgOf(lettered),
+      'x1="72" y1="130" x2="72" y2="74"',
+      'x1="72" y1="186" x2="72" y2="74"',
+    );
+    expect(checkFigure(tall, lettered).problems).toContain(
+      "The amplitude arrow is missing: a double arrow from (72, 130) to (72, 74)",
+    );
+  });
+
+  test("a wave off its sine, or joined so sparsely that a crest is cut short", () => {
+    const svg = svgOf(rope);
+    const points = /points="([^"]+)"/.exec(svg)![1].split(" ");
+    const sparse = svg.replace(
+      /points="[^"]+"/,
+      `points="${points.filter((_, i) => i % 5 === 0).join(" ")}"`,
+    );
+    expect(checkFigure(sparse, rope).problems).toContain(
+      "The wave's points must run left to right, at most 4 units apart",
+    );
+    const taller = svg.replace(/points="[^"]+"/, () => {
+      const scaled = points.map((p) => {
+        const [x, y] = p.split(",").map(Number);
+        return `${x},${Number((116 - (116 - y) * 1.2).toFixed(2))}`;
+      });
+      return `points="${scaled.join(" ")}"`;
+    });
+    expect(checkFigure(taller, rope).problems.join()).toContain("which is off its sine");
+  });
+
+  test("a force pointing the wrong way, out of proportion, or labelled as another", () => {
+    const reversed = swap(
+      svgOf(pushes),
+      'x1="220" y1="124" x2="316" y2="124"',
+      'x1="316" y1="124" x2="220" y2="124"',
+    );
+    expect(checkFigure(reversed, pushes).problems).toContain(
+      "The driving force arrow is missing: one head, from (220, 124) to (316, 124)",
+    );
+    // Drawn as long as the driving force, the air resistance would look balanced.
+    const even = swap(svgOf(pushes), 'x2="101.6" y2="124"', 'x2="44" y2="124"');
+    expect(checkFigure(even, pushes).problems).toContain(
+      "The air resistance arrow is missing: one head, from (140, 124) to (101.6, 124)",
+    );
+    const relabelled = swap(
+      swap(svgOf(pushes), ">driving force<", ">air resistance<"),
+      '>air resistance<tspan x="83.76" dy="18">1000 N',
+      '>driving force<tspan x="83.76" dy="18">1000 N',
+    );
+    expect(checkFigure(relabelled, pushes).problems.join()).toContain(
+      "is not written in the right arrow's corner",
+    );
+  });
+
+  test("a resultant drawn in, or a caption, on a force diagram", () => {
+    const resultant = swap(
+      svgOf(pushes),
+      "</svg>",
+      '<line class="qf-line" x1="180" y1="144" x2="180" y2="200" marker-end="url(#qf-head)"/></svg>',
+    );
+    expect(checkFigure(resultant, pushes).problems).toContain(
+      "The arrow from (180, 144) to (180, 200) is not a force in the brief",
+    );
+    const caption = swap(
+      svgOf(pushes),
+      "</svg>",
+      '<text class="qf-text" x="180" y="240" text-anchor="middle">1500 N</text></svg>',
+    );
+    expect(checkFigure(caption, pushes).problems).toContain(
+      "Text \"1500 N\" is not a force's label or the object's name",
+    );
+  });
+});
+
+describe("a smooth curve, a line of best fit or a tangent is held to its brief", () => {
+  const gas: GraphBrief = {
+    kind: "line-graph",
+    x: { title: "time in s", min: 0, max: 60, step: 10 },
+    y: { title: "volume of gas in cm³", min: 0, max: 50, step: 10 },
+    curve: true,
+    series: [
+      {
+        name: "gas",
+        points: [
+          [0, 0],
+          [10, 18],
+          [20, 30],
+          [30, 38],
+          [40, 43],
+          [50, 45],
+          [60, 45],
+        ],
+      },
+    ],
+    lines: [{ from: [0, 6], to: [40, 46] }],
+  };
+  const svg = drawWithCode(gas)!.svg;
+  const points = /<polyline class="qf-data" points="([^"]+)"/.exec(svg)![1];
+  const withPoints = (pts: string) => svg.replace(points, pts);
+
+  test("drawn right, it passes", () => {
+    expect(checkFigure(svg, gas).problems).toEqual([]);
+  });
+
+  test("a curve that rises past its last points: a peak the results don't have", () => {
+    // x from 50 to 60 s is 297.33 to 344 units across; lift that stretch 10 units.
+    const bulge = points
+      .split(" ")
+      .map((p) => {
+        const [x, y] = p.split(",").map(Number);
+        return x > 300 && x < 340 ? `${x},${Number((y - 10).toFixed(2))}` : p;
+      })
+      .join(" ");
+    expect(checkFigure(withPoints(bulge), gas).problems).toContain(
+      "The gas curve goes beyond its points between (50, 45) and (60, 45)",
+    );
+  });
+
+  test("points joined by straight lines where the brief has a curve", () => {
+    const straight = gas.series[0].points
+      .map(
+        ([x, y]) =>
+          `${Number((64 + (x / 60) * 280).toFixed(2))},${Number((224 - (y / 50) * 184).toFixed(2))}`,
+      )
+      .join(" ");
+    expect(checkFigure(withPoints(straight), gas).problems).toContain(
+      "The gas curve's points must run left to right, at most 4 units apart",
+    );
+  });
+
+  test("a tangent moved, or a second line the brief doesn't have", () => {
+    const moved = swap(svg, 'x1="64" y1="201.92"', 'x1="64" y1="190.88"');
+    expect(checkFigure(moved, gas).problems).toContain(
+      "The straight line from (0, 6) to (40, 46) is not drawn where its ends put it",
+    );
+    const extra = swap(
+      svg,
+      "</svg>",
+      '<line class="qf-line" x1="64" y1="224" x2="344" y2="40"/></svg>',
+    );
+    expect(checkFigure(extra, gas).problems).toContain(
+      "The graph has 2 straight lines besides its axes; the brief has 1",
+    );
   });
 });

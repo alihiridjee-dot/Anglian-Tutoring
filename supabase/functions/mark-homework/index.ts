@@ -201,7 +201,7 @@ Deno.serve(async (req) => {
       db.from("resources").select("title, subject").eq("id", submission.resource_id).single(),
       db
         .from("homework_questions")
-        .select("id, position, prompt, marks, answer_type, mark_scheme")
+        .select("id, position, prompt, marks, answer_type, mark_scheme, figure_brief")
         .eq("resource_id", submission.resource_id)
         .order("position", { ascending: true }),
       db

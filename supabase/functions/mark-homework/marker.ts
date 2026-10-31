@@ -25,6 +25,13 @@ export type Question = {
   marks: number;
   answer_type: string;
   mark_scheme: string | null;
+  /**
+   * The figure the student was shown, as the data it was drawn from
+   * (`{ brief, drawn_by }`), or null for a question without one. Students
+   * can't read it, since a brief can name the answer; the marker needs it,
+   * or it marks "the graph shows…" without the graph.
+   */
+  figure_brief?: { brief?: unknown } | null;
 };
 
 export type Answer = { question_id: string; answer_text: string | null };
@@ -129,6 +136,8 @@ The summary is two or three sentences to the student about the paper as a whole:
 
 Students type on a keyboard, so they often write notation flat: H2O, Mg2+, SO4 2-, cm3, 3 x 10^8. Read it as the student evidently meant it (H₂O, Mg²⁺, SO₄²⁻, cm³, 3 × 10⁸) and never deduct for its form. A formula, charge or unit that is wrong in substance is still wrong: MgCl for MgCl₂, or Mg+ for Mg²⁺. In your comments and summary write formulas, ions, units and powers with Unicode subscripts and superscripts (H₂O, Mg²⁺, cm³, 10⁻³), never LaTeX or Markdown. Quotes are the one exception: a quote copies the student's typing as it is.
 
+Some questions come with a figure: a graph, chart or diagram. The student saw it drawn under the question; you are given exactly what it shows, as data, after the question. Judge an answer about the figure against that data. Where a mark depends on a value the student read off the figure, follow the mark scheme's accepted range.
+
 The task names its subject. The student studies this topic as that subject, even where it borrows ideas from another science, so when a comment or the summary names the science, name that subject: on a Biology task about the eye, say "the biology", never "the physics".
 
 The site calls this work a task. If a comment or the summary needs a word for it, say task, never homework.
@@ -161,6 +170,9 @@ export function buildPrompt(
       ``,
       `Question: ${q.prompt}`,
       ``,
+      ...(q.figure_brief?.brief
+        ? [`Figure shown with the question, as data: ${JSON.stringify(q.figure_brief.brief)}`, ``]
+        : []),
       q.mark_scheme
         ? `Mark scheme:\n${q.mark_scheme}`
         : `Mark scheme: none provided — judge against the question and the marks available.`,

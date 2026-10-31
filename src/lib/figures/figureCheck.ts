@@ -20,25 +20,41 @@ import {
   CANVAS_HEIGHTS,
   CANVAS_MARGIN,
   CANVAS_WIDTH,
+  CHROMATOGRAM,
   CIRCUIT_SYMBOLS,
   FIGURE_CLASSES,
+  FORCES,
+  FORCE_STEP,
   MAX_LINE,
   PLOT,
   PROFILE,
   TEXT_MARGIN,
   TEXT_SIZE,
+  WAVE,
+  WAVE_ARROWS,
+  WAVE_LENGTH,
+  chromaY,
+  forceLabelAt,
+  forceStart,
+  laneX,
   plotX,
   plotY,
   textWidth,
+  type ChromatogramBrief,
   type CircuitBrief,
   type CircuitStep,
   type FigureBrief,
   type FigureClass,
+  type ForceBrief,
   type KnownBrief,
   type ProfileBrief,
+  type WaveBrief,
   type WebBrief,
   type FigureReply,
+  type GraphBrief,
 } from "./figure";
+import { forceLabel, forceLength, labelWidth } from "./figureDraw";
+import { figureKind } from "./kinds";
 
 type Node = { name: string; attrs: Record<string, string>; children: Node[]; text: string };
 
@@ -217,8 +233,8 @@ export function cleanFigure(svg: string): string | null {
 
 // ── Geometry ────────────────────────────────────────────────────────────────
 
-type Pt = [number, number];
-type Box = { x0: number; y0: number; x1: number; y1: number };
+export type Pt = [number, number];
+export type Box = { x0: number; y0: number; x1: number; y1: number };
 /** An affine transform [a, b, c, d, e, f]: x' = a·x + c·y + e, y' = b·x + d·y + f. */
 type Matrix = [number, number, number, number, number, number];
 const IDENTITY: Matrix = [1, 0, 0, 1, 0, 0];
@@ -408,7 +424,7 @@ function crosses([a, b]: [Pt, Pt], box: Box): boolean {
   return true;
 }
 
-type Label = {
+export type Label = {
   text: string;
   box: Box;
   owner: number;
@@ -418,11 +434,11 @@ type Label = {
   anchor: string;
 };
 /** A line with an arrowhead: from its first point to its last, with a head at its start, its end or both. */
-type Arrow = { from: Pt; to: Pt; start: boolean; end: boolean };
+export type Arrow = { from: Pt; to: Pt; start: boolean; end: boolean };
 /** A circuit symbol as placed: its type, its centre and its two terminals. */
 type Part = { type: string; centre: Pt; ends: [Pt, Pt] };
 /** Everything the drawing holds that a brief is checked against. */
-type Drawing = {
+export type Drawing = {
   H: number;
   labels: Label[];
   segments: { seg: [Pt, Pt]; cls: string }[];
@@ -805,7 +821,12 @@ function briefProblems(brief: FigureBrief, d: Drawing): string[] {
     );
   const k = brief as KnownBrief;
 
-  if (k.kind === "line-graph" || k.kind === "scatter" || k.kind === "bar-chart") {
+  if (
+    k.kind === "line-graph" ||
+    k.kind === "scatter" ||
+    k.kind === "bar-chart" ||
+    (k.kind === "wave" && "x" in k)
+  ) {
     const bottom = H - PLOT.bottomGap;
     if (!hasLine([PLOT.left, bottom], [PLOT.right, bottom]))
       out.push("The x axis is not drawn where the plot area says");
@@ -838,12 +859,27 @@ function briefProblems(brief: FigureBrief, d: Drawing): string[] {
       }
       if (dots.length !== wanted.length)
         out.push(`The graph has ${dots.length} points; the brief has ${wanted.length}`);
-      for (const l of dataLines)
-        for (const p of l.pts)
-          if (!dots.some((d) => near(d.at[0], p[0]) && near(d.at[1], p[1])))
-            out.push(
-              `A plotted line bends at (${fmt(p[0])}, ${fmt(p[1])}), which is not a point: join points with straight lines only`,
-            );
+      if (k.kind === "line-graph" && k.curve) out.push(...curveProblems(k, d));
+      else
+        for (const l of dataLines)
+          for (const p of l.pts)
+            if (!dots.some((d) => near(d.at[0], p[0]) && near(d.at[1], p[1])))
+              out.push(
+                `A plotted line bends at (${fmt(p[0])}, ${fmt(p[1])}), which is not a point: join points with straight lines only`,
+              );
+      const lines = k.lines ?? [];
+      const P = ([x, y]: [number, number]): Pt => [plotX(x, k.x), plotY(y, k.y, H)];
+      for (const l of lines)
+        if (!hasLine(P(l.from), P(l.to)))
+          out.push(
+            `The straight line from (${fmt(l.from[0])}, ${fmt(l.from[1])}) to (${fmt(l.to[0])}, ${fmt(l.to[1])}) is not drawn where its ends put it`,
+          );
+      // Its axes and the brief's lines: another ink line could be read as a fit or a tangent.
+      const inks = segments.filter((s) => s.cls === "qf-line").length - 2;
+      if (inks !== lines.length)
+        out.push(
+          `The graph has ${inks} straight lines besides its axes; the brief has ${lines.length}`,
+        );
       if (k.kind === "scatter" && dataLines.length)
         out.push("A scatter graph has points only, no line");
       break;
@@ -902,7 +938,386 @@ function briefProblems(brief: FigureBrief, d: Drawing): string[] {
       out.push(...webExtras(k, d));
       out.push(...webProblems(k, d));
       break;
+    case "chromatogram":
+      need(k.y.title, "scale title");
+      out.push(...chromatogramProblems(k, d, hasLine));
+      break;
+    case "wave":
+      out.push(...waveProblems(k, d, hasLine));
+      break;
+    case "forces":
+      out.push(...forceProblems(k, d, hasLine));
+      break;
   }
+  const kind = figureKind(brief.kind);
+  if (kind) {
+    const tools: CheckTools = {
+      hasLine,
+      writtenAt: (t, x, y, anchor, cls) =>
+        pieces(d.labels).some(
+          (p) =>
+            p.text === t &&
+            near(p.x, x, 1) &&
+            near(p.y, y, 1) &&
+            p.anchor === anchor &&
+            (!cls || p.cls === cls),
+        ),
+      pieces: () => pieces(d.labels),
+      near,
+      at,
+      fmt,
+      tagOf,
+      letterBeside: (p) => letterBeside(p, d),
+    };
+    out.push(...kind.check(brief, d, tools));
+  }
+  return out;
+}
+
+/** What a figure kind in kinds/ checks its drawing with. */
+export type CheckTools = {
+  /** A qf-line segment from a to c, either way round, to within 0.6 units. */
+  hasLine: (a: Pt, c: Pt) => boolean;
+  /** A text, whole (its lines joined by spaces), written with its first baseline at x, y and this anchor (and style). */
+  writtenAt: (t: string, x: number, y: number, anchor: string, cls?: FigureClass) => boolean;
+  /** Each <text> whole: its lines joined by spaces, its style, and where its first line is. */
+  pieces: () => Label[];
+  near: (a: number, b: number, by?: number) => boolean;
+  /** A point as a problem names it: "(12, 40)". */
+  at: (p: Pt) => string;
+  /** A number as a problem names it: at most two decimal places. */
+  fmt: (v: number) => string;
+  /** A shape's tag as written, for a problem to point at. */
+  tagOf: (s: Drawing["shapes"][number]) => string;
+  /** The bold (qf-strong) text nearest a point, if one is within 20 units. */
+  letterBeside: (p: Pt) => Label | undefined;
+};
+
+/**
+ * A line graph's smooth curves: each one polyline, left to right, through
+ * every one of its points, and between two points never beyond them, so the
+ * curve shows no peak, dip or overshoot the data doesn't have.
+ */
+function curveProblems(k: GraphBrief, d: Drawing): string[] {
+  const out: string[] = [];
+  k.series.forEach((s, i) => {
+    const cls = i ? "qf-data2" : "qf-data";
+    const lines = d.dataLines.filter((l) => l.cls === cls);
+    if (lines.length !== 1) {
+      out.push(`The ${s.name} curve must be one ${cls} polyline`);
+      return;
+    }
+    const pts = lines[0].pts;
+    const at: Pt[] = s.points.map(([x, y]) => [plotX(x, k.x), plotY(y, k.y, d.H)]);
+    if (pts.some((p, j) => j > 0 && (p[0] <= pts[j - 1][0] || p[0] - pts[j - 1][0] > 4)))
+      out.push(`The ${s.name} curve's points must run left to right, at most 4 units apart`);
+    const [first, last] = [pts[0], pts[pts.length - 1]];
+    if (
+      !near(first[0], at[0][0]) ||
+      !near(first[1], at[0][1]) ||
+      !near(last[0], at[at.length - 1][0]) ||
+      !near(last[1], at[at.length - 1][1])
+    )
+      out.push(`The ${s.name} curve must start at its first point and end at its last`);
+    s.points.forEach(([x, y], j) => {
+      if (!pts.some((p) => near(p[0], at[j][0]) && near(p[1], at[j][1])))
+        out.push(`The ${s.name} curve misses its point (${fmt(x)}, ${fmt(y)})`);
+    });
+    for (let j = 0; j + 1 < at.length; j++) {
+      const [lo, hi] = [Math.min(at[j][1], at[j + 1][1]), Math.max(at[j][1], at[j + 1][1])];
+      if (
+        pts.some(
+          (p) => p[0] > at[j][0] && p[0] < at[j + 1][0] && (p[1] < lo - 0.6 || p[1] > hi + 0.6),
+        )
+      )
+        out.push(
+          `The ${s.name} curve goes beyond its points between (${fmt(s.points[j][0])}, ${fmt(s.points[j][1])}) and (${fmt(s.points[j + 1][0])}, ${fmt(s.points[j + 1][1])})`,
+        );
+    }
+  });
+  return out;
+}
+
+/** A text whole, written exactly where the layout puts it: its first line's x and baseline, and its anchor. */
+const writtenAt = (d: Drawing, t: string, x: number, y: number, anchor: string) =>
+  pieces(d.labels).some(
+    (p) => p.text === t && near(p.x, x, 1) && near(p.y, y, 1) && p.anchor === anchor,
+  );
+
+/**
+ * A chromatogram: the paper, its scale, the start line and the solvent front
+ * where their distances put them, every spot in its own lane at its distance,
+ * and each sample's name under its own lane. Which spots share a lane, and
+ * which name is under it, decide the answer, so nothing else may be drawn.
+ */
+function chromatogramProblems(
+  k: ChromatogramBrief,
+  d: Drawing,
+  hasLine: (a: Pt, c: Pt) => boolean,
+): string[] {
+  const out: string[] = [];
+  const C = CHROMATOGRAM;
+  const max = k.y.max;
+  const n = k.samples.length;
+  const frontY = chromaY(k.front, max);
+  if (
+    !hasLine([C.left, C.paperTop], [C.left, C.paperBottom]) ||
+    !hasLine([C.left, C.paperTop], [C.right, C.paperTop])
+  )
+    out.push(
+      `The paper is not drawn from (${C.left}, ${C.paperTop}) to (${C.right}, ${C.paperBottom})`,
+    );
+  if (!hasLine([C.left, C.start], [C.right, C.start]))
+    out.push(`The start line is not drawn across the paper at y = ${C.start}`);
+  if (!hasLine([C.left, frontY], [C.right, frontY]))
+    out.push(`The solvent front is not drawn across the paper at its distance, y = ${fmt(frontY)}`);
+  if (!writtenAt(d, "start line", C.labelX, C.start + 5, "start"))
+    out.push('"start line" is not written beside the start line');
+  if (!writtenAt(d, "solvent front", C.labelX, frontY + 5, "start"))
+    out.push('"solvent front" is not written beside the solvent front');
+  const scale = (l: Label) =>
+    l.cls === "qf-small" &&
+    /^-?\d+(\.\d+)?$/.test(l.text) &&
+    near(l.x, C.left - 8, 1) &&
+    l.anchor === "end";
+  for (const l of d.labels)
+    if (scale(l) && !near(l.y, chromaY(Number(l.text), max) + 5, 1))
+      out.push(`The scale's number "${l.text}" is not at its value`);
+
+  const wanted = k.samples.flatMap((s, i) => s.spots.map((v) => [i, v] as const));
+  for (const [i, v] of wanted) {
+    const name = k.samples[i].name;
+    const spot = d.dots.find((p) => p.x === i + 1 && p.y === v);
+    if (!spot)
+      out.push(`The spot at ${fmt(v)} in ${name}'s lane is missing or has no data-x/data-y`);
+    else if (!near(spot.at[0], laneX(i, n)) || !near(spot.at[1], chromaY(v, max)))
+      out.push(`The spot at ${fmt(v)} in ${name}'s lane is not where its lane and distance put it`);
+  }
+  const spots = d.shapes.filter((s) => s.cls === "qf-dot");
+  if (spots.length !== wanted.length || d.dots.length !== wanted.length)
+    out.push(`The chromatogram has ${spots.length} spots; the brief has ${wanted.length}`);
+  k.samples.forEach((s, i) => {
+    if (!writtenAt(d, s.name, laneX(i, n), C.start + 22, "middle"))
+      out.push(`The name "${s.name}" is not under its own lane`);
+  });
+
+  for (const s of d.shapes) {
+    const paper = s.name === "rect" && s.cls === "qf-line";
+    const line = s.name === "line" && (s.cls === "qf-line" || s.cls === "qf-thin") && !s.marked;
+    const spot = s.name === "circle" && s.cls === "qf-dot";
+    if (!paper && !line && !spot)
+      out.push(
+        `The ${tagOf(s)} at ${at(s.at)} is not part of the chromatogram: draw only the paper, its grid, the two lines and the spots`,
+      );
+  }
+  const lines = d.segments.filter((s) => s.cls === "qf-line").length - 4;
+  if (lines !== 2)
+    out.push(
+      `The chromatogram has ${lines} lines across it; it has 2: the start line and the solvent front`,
+    );
+  for (const s of d.segments)
+    if (
+      s.cls === "qf-thin" &&
+      !(near(s.seg[0][0], C.left) && near(s.seg[1][0], C.right) && near(s.seg[0][1], s.seg[1][1]))
+    )
+      out.push(`A grid line from ${at(s.seg[0])} to ${at(s.seg[1])} does not run across the paper`);
+  const allowed = new Set([
+    k.y.title,
+    "start line",
+    "solvent front",
+    ...k.samples.map((s) => s.name),
+  ]);
+  for (const t of pieces(d.labels))
+    if (!allowed.has(t.text) && !scale(t))
+      out.push(`Text "${t.text}" is not part of the chromatogram`);
+  return out;
+}
+
+/** The letter nearest a point, if one is within 20 units. */
+const letterBeside = (middle: Pt, d: Drawing) =>
+  d.labels
+    .filter((l) => l.cls === "qf-strong")
+    .map((l) => ({ l, gap: distanceTo(middle, l.box) }))
+    .filter((x) => x.gap <= 20)
+    .sort((a, b) => a.gap - b.gap)[0]?.l;
+
+/**
+ * A wave: one smooth curve exactly on its sine, from its start to its end,
+ * across its rest line. Lettered, each of the brief's arrows between its two
+ * ends with its own letter nearest it, and no other arrow or text. On a
+ * scale, no arrows at all.
+ */
+function waveProblems(k: WaveBrief, d: Drawing, hasLine: (a: Pt, c: Pt) => boolean): string[] {
+  const out: string[] = [];
+  const scaled = "x" in k;
+  const H = d.H;
+  const [x0, x1, rest, amp, length] = scaled
+    ? [
+        PLOT.left,
+        PLOT.right,
+        plotY(0, k.y, H),
+        (k.amplitude / (k.y.max - k.y.min)) * (H - PLOT.bottomGap - PLOT.top),
+        (k.wavelength / (k.x.max - k.x.min)) * (PLOT.right - PLOT.left),
+      ]
+    : [WAVE.left, WAVE.right, WAVE.rest, WAVE.amp, WAVE_LENGTH];
+  const [from, to] = scaled ? [PLOT.left, PLOT.right] : [WAVE.restFrom, WAVE.restTo];
+  if (!hasLine([from, rest], [to, rest]))
+    out.push(`The rest line is not drawn from (${from}, ${fmt(rest)}) to (${to}, ${fmt(rest)})`);
+  const sine = (x: number) => rest - amp * Math.sin((2 * Math.PI * (x - x0)) / length);
+  const curves = d.dataLines.filter((l) => l.cls === "qf-data");
+  if (curves.length !== 1 || d.dataLines.length !== 1 || d.curves.length)
+    out.push("The wave must be one qf-data polyline, and the figure's only curve");
+  else {
+    const pts = curves[0].pts;
+    const [first, last] = [pts[0], pts[pts.length - 1]];
+    if (
+      !near(first[0], x0) ||
+      !near(first[1], rest) ||
+      !near(last[0], x1) ||
+      !near(last[1], sine(x1))
+    )
+      out.push(`The wave must run from (${x0}, ${fmt(rest)}) to (${x1}, ${fmt(sine(x1))})`);
+    const off = pts.find((p) => !near(p[1], sine(p[0])));
+    if (off) out.push(`The wave passes ${at(off)}, which is off its sine`);
+    // Straight between points far apart, a curve could cut a crest short.
+    if (pts.some((p, i) => i > 0 && (p[0] <= pts[i - 1][0] || p[0] - pts[i - 1][0] > 4)))
+      out.push("The wave's points must run left to right, at most 4 units apart");
+  }
+  for (const s of d.shapes) {
+    const curve = s.name === "polyline" && s.cls === "qf-data";
+    const line = s.name === "line" && (s.cls === "qf-line" || s.cls === "qf-thin");
+    if (!curve && !line)
+      out.push(
+        `The ${tagOf(s)} at ${at(s.at)} is not part of the wave diagram: draw only the wave, its lines and its arrows`,
+      );
+  }
+  if (scaled) {
+    if (d.arrows.length) out.push("A wave on a scale has no arrows");
+    return out;
+  }
+  const doubles = d.arrows.filter((a) => a.start && a.end);
+  const spans = (a: Arrow, s: { from: Pt; to: Pt }) =>
+    (near(a.from[0], s.from[0], 1) &&
+      near(a.from[1], s.from[1], 1) &&
+      near(a.to[0], s.to[0], 1) &&
+      near(a.to[1], s.to[1], 1)) ||
+    (near(a.to[0], s.from[0], 1) &&
+      near(a.to[1], s.from[1], 1) &&
+      near(a.from[0], s.to[0], 1) &&
+      near(a.from[1], s.to[1], 1));
+  for (const want of k.arrows) {
+    const span = WAVE_ARROWS[want.shows];
+    const found = doubles.filter((a) => spans(a, span));
+    if (found.length !== 1) {
+      out.push(
+        found.length
+          ? `There are ${found.length} ${want.shows} arrows; the brief has one`
+          : `The ${want.shows} arrow is missing: a double arrow from ${at(span.from)} to ${at(span.to)}`,
+      );
+      continue;
+    }
+    const middle: Pt = [(span.from[0] + span.to[0]) / 2, (span.from[1] + span.to[1]) / 2];
+    const letter = letterBeside(middle, d);
+    if (!letter) out.push(`The letter "${want.letter}" is not beside the ${want.shows} arrow`);
+    else if (letter.text !== want.letter)
+      out.push(
+        `The letter beside the ${want.shows} arrow is "${letter.text}"; the brief gives it "${want.letter}"`,
+      );
+  }
+  for (const a of d.arrows)
+    if (!(a.start && a.end) || !k.arrows.some((w) => spans(a, WAVE_ARROWS[w.shows])))
+      out.push(`The arrow from ${at(a.from)} to ${at(a.to)} is not one the brief asks for`);
+  const letters = new Set(k.arrows.map((a) => a.letter));
+  for (const t of pieces(d.labels))
+    if (!letters.has(t.text) || t.cls !== "qf-strong")
+      out.push(`Text "${t.text}" is not an arrow's letter: a lettered wave has no other text`);
+  return out;
+}
+
+/**
+ * The forces on an object: its box, and for each force one arrow out from
+ * the middle of its side, pointing its way, as long as its size makes it, with
+ * its own name and size written in its own corner. Which way each force acts,
+ * and how big it is, decide the answer, so no other arrow or text is drawn.
+ */
+function forceProblems(k: ForceBrief, d: Drawing, hasLine: (a: Pt, c: Pt) => boolean): string[] {
+  const out: string[] = [];
+  const { x0, y0, x1, y1 } = FORCES.box;
+  if (
+    !hasLine([x0, y0], [x1, y0]) ||
+    !hasLine([x1, y0], [x1, y1]) ||
+    !hasLine([x1, y1], [x0, y1]) ||
+    !hasLine([x0, y1], [x0, y0])
+  )
+    out.push(`The object's box is not drawn from (${x0}, ${y0}) to (${x1}, ${y1})`);
+  const ends = (f: ForceBrief["forces"][number]): [Pt, Pt] => {
+    const s = forceStart(f.direction);
+    const [dx, dy] = FORCE_STEP[f.direction];
+    const L = forceLength(k, f);
+    return [s, [s[0] + dx * L, s[1] + dy * L]];
+  };
+  const isForce = (a: Arrow, [s, e]: [Pt, Pt]) =>
+    a.end &&
+    !a.start &&
+    near(a.from[0], s[0], 1) &&
+    near(a.from[1], s[1], 1) &&
+    near(a.to[0], e[0], 1) &&
+    near(a.to[1], e[1], 1);
+  for (const f of k.forces) {
+    const [s, e] = ends(f);
+    const found = d.arrows.filter((a) => isForce(a, [s, e]));
+    if (found.length !== 1)
+      out.push(
+        found.length
+          ? `There are ${found.length} ${f.name} arrows; the brief has one`
+          : `The ${f.name} arrow is missing: one head, from ${at(s)} to ${at(e)}`,
+      );
+    const lines = forceLabel(f);
+    if (!lines) {
+      out.push(`The force "${f.name}" has a name too long for its label`);
+      continue;
+    }
+    const [x, y, anchor] = forceLabelAt(
+      f.direction,
+      lines.length,
+      labelWidth(lines),
+      forceLength(k, f),
+    );
+    const cls = f.size === null ? "qf-strong" : "qf-text";
+    if (
+      !pieces(d.labels).some(
+        (p) =>
+          p.text === lines.join(" ") &&
+          p.cls === cls &&
+          near(p.x, x, 1) &&
+          near(p.y, y, 1) &&
+          p.anchor === anchor,
+      )
+    )
+      out.push(
+        `The label "${lines.join(" ")}" is not written in the ${f.direction} arrow's corner`,
+      );
+  }
+  for (const a of d.arrows)
+    if (!k.forces.some((f) => isForce(a, ends(f))))
+      out.push(`The arrow from ${at(a.from)} to ${at(a.to)} is not a force in the brief`);
+  if (k.object && !writtenAt(d, k.object, (x0 + x1) / 2, (y0 + y1) / 2 + 5.5, "middle"))
+    out.push(`The object's name "${k.object}" is not written in its box`);
+  for (const s of d.shapes) {
+    const box = s.name === "rect" && s.cls === "qf-line";
+    const arrow = s.name === "line" && s.cls === "qf-line" && s.marked;
+    if (!box && !arrow)
+      out.push(
+        `The ${tagOf(s)} at ${at(s.at)} is not part of the diagram: draw only the object's box and an arrow for each force`,
+      );
+  }
+  const allowed = new Set([
+    ...(k.object ? [k.object] : []),
+    ...k.forces.map((f) => (forceLabel(f) ?? []).join(" ")),
+  ]);
+  for (const t of pieces(d.labels))
+    if (!allowed.has(t.text))
+      out.push(`Text "${t.text}" is not a force's label or the object's name`);
   return out;
 }
 

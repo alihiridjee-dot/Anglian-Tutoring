@@ -388,4 +388,30 @@ assert.ok(performance.now() - started < 1000, "The quote check is slow on a long
 assert.equal(r.body.held, true);
 assert.equal(staged()!.marks[0].marks, 0, "A slice of a longer number earned marks");
 
+// 15. A question with a figure is marked with the figure's data, which the
+//     student saw drawn; a question without one gets no figure line.
+world({ [Q1]: "Pen Q", [Q2]: "Nucleus" });
+const pens = {
+  kind: "chromatogram",
+  front: 10,
+  samples: [
+    { name: "note", spots: [2.4, 5.2] },
+    { name: "Q", spots: [2.4, 5.2] },
+  ],
+};
+table("homework_questions")[0].figure_brief = { brief: pens, drawn_by: "code" };
+ANTHROPIC.reply = () => ({ questions: [mark(Q1, 1), mark(Q2, 1)], summary: "" });
+await call();
+const withFigure = ANTHROPIC.calls[0].messages[0].content as string;
+assert.ok(
+  withFigure.includes(`Figure shown with the question, as data: ${JSON.stringify(pens)}`),
+  "The marker was not given the figure the student saw",
+);
+assert.equal(
+  withFigure.split("Figure shown with the question").length - 1,
+  1,
+  "A question without a figure was given one",
+);
+assert.match(ANTHROPIC.calls[0].system as string, /you are given exactly what it shows, as data/);
+
 console.log("mark-homework: all checks passed");
