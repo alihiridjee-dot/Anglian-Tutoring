@@ -590,6 +590,7 @@ def parse_qp(doc, board):
     ended = False
     pending, pending_owned = [], []             # text between parts: the next parts' stem
     shared_for, shared_lines = set(), []        # a stem printed for several questions
+    prev_bare = None                             # the line before, if it was a bare number
     for page in doc:
         H = page.rect.height
         if NOT_A_QUESTION_PAGE.search(page.get_text()):
@@ -656,6 +657,12 @@ def parse_qp(doc, board):
             if board == "aqa" and cells and re.match(r"\^\d\s?\d\s?\.", cells[0][2]):
                 cells = [(cells[0][0], cells[0][1], cells[0][2][1:])] + cells[1:]
             lab = read_label(board, cells[0], W, stack, cur_q, q_x) if cells else None
+            bare = cells[0][2].strip() if len(cells) == 1 and re.fullmatch(r"\d{1,2}", cells[0][2].strip()) else None
+            # Numbered answer lines ("1", "2" for "Give two factors") are not
+            # the next question: a bare number after a bare number one lower.
+            if lab and bare and prev_bare == str(int(bare) - 1):
+                lab = None
+            prev_bare = bare
             if not lab:
                 m = SHARED_INFO.search(" ".join(c[2] for c in cells))
                 if m:
@@ -1073,6 +1080,7 @@ def ms_key(board, qtext, last):
     left of its column lands after the label in the same cell; it is returned
     so it can go back to the answer."""
     t = re.sub(r"\s+", " ", qtext).strip()
+    t = re.sub(r"^\^(?=\d)", "", t)             # a label set a little high ("^2(b)(ii)")
     if board == "aqa":
         m = MS_LABEL_AQA.match(t)
         if not m:

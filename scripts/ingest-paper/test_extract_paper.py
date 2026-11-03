@@ -91,6 +91,9 @@ class SchemeLabels(unittest.TestCase):
         self.assertEqual((key, rest), ("21|b|ii", "1 I = 1.25 (A)"))
         self.assertEqual(X.ms_key("ocr", "22 (a) (i)1 0.5", (None, None))[0], "22|a|i")
 
+    def test_a_label_set_high_is_still_a_label(self):
+        self.assertEqual(X.ms_key("cambridge", "^2(b)(ii)", (2, "b"))[0], "2|b|ii")
+
     def test_letter_and_numeral_in_one_bracket(self):
         self.assertEqual(X.ms_key("edexcel", "1(ai)", (None, None))[0], "1|a|i")
 
