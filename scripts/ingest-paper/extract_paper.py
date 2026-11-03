@@ -163,6 +163,10 @@ class Line:
         if shift > 0:                                   # below the baseline
             return raw.translate(SUB) if set(raw) <= SUB_OK else "_" + raw
         if raw in STANDARD:                             # above the baseline
+            # ...except the blood-group allele Iᵒ, whose raised o follows an I.
+            before = [x for x in self.spans if x.u1 <= s.u0 + 0.5 and x is not s]
+            if before and max(before, key=lambda x: x.u1).text.rstrip().endswith("I"):
+                return "ᵒ"
             return "ᶿ"
         if raw in ("st", "nd", "rd", "th"):             # 2nd, 3rd: read plain
             return raw
@@ -437,7 +441,7 @@ def _drawn_arrows(page, groups):
 FURNITURE = [re.compile(p, re.I) for p in [
     r"^PMT$", r"^\[?\s*Turn over\s*►?\s*\]?$", r"^Turn over\W{0,3}$", r"^BLANK PAGE$",
     r"^\*\s?[A-Z]?\s?(?:\d\s?){5,}[A-Z]?(?:\s?\d)*\s?\*$",      # Edexcel/OCR barcodes
-    r"^\*\s?\d{2}\s?\*$",                                      # AQA *03*
+    r"^\*\s?\d{2}\s?\*$|^0\d{2}\*$",                            # AQA *03*, 002* (not OCR's "17*")
     r"^\d{2}_\d{4}_\d{2}_\d{4}_[\d.]+[A-Z]?$",                   # Cambridge 11_9701_12_2023_1.11R
     r"^\*(?:\s?[\dA-Z]){4,}\s?\*$",
     r"^IB/[A-Z]/\w+/\w+(?:/\w+)*$",                            # AQA IB/M/Jun23/7405/1
@@ -500,6 +504,7 @@ class Node:
         self.star = False
         self.marks_from = None
         self.tick_tail = None                    # page of a "Tick (✓) one box" printed after its marks
+        self.box_tail = None                     # page of a word box after them; False once ended
 
     @property
     def key(self):
@@ -525,7 +530,7 @@ class TextLine:
         self.text = "\t".join(c[2] for c in cells)
 
 
-def read_label(board, cell, W, stack, cur_q, q_x=None):
+def read_label(board, cell, W, stack, cur_q, q_x=None, scheme_keys=frozenset()):
     """(q or None, mid or None, roman or None, rest of the cell, star) if the
     cell opens with the next label in sequence, else None.
 
@@ -558,6 +563,11 @@ def read_label(board, cell, W, stack, cur_q, q_x=None):
     new_q = q is not None
     exp_letter = "a" if new_q or stack[1] is None else _next(LETTERS, stack[1].mid)
     exp_roman = "i" if new_q or letter or stack[2] is None else _next(ROMAN, stack[2].roman)
+    # After (h), "(i)" is either the next letter or (h)'s first numeral; the
+    # mark scheme's own labels say which.
+    if letter == "i" and exp_letter == "i" and not roman and not new_q and stack[2] is None \
+            and f"{cur_q}|h|i" in scheme_keys and f"{cur_q}|i|" not in scheme_keys:
+        letter, roman = None, "i"
     if letter and letter != exp_letter:
         # "(i)" alone is a roman numeral unless the letters really have reached i.
         if letter == "i" and not roman and exp_roman == "i":
@@ -581,7 +591,7 @@ def _next(seq, cur):
     return seq[i + 1] if i + 1 < len(seq) else None
 
 
-def parse_qp(doc, board):
+def parse_qp(doc, board, scheme_keys=frozenset()):
     W = doc[0].rect.width
     questions, stack, cur_q, q_x = [], [None, None, None], 0, None
     totals, cover_total, one_mark_each = {}, None, False
@@ -656,7 +666,7 @@ def parse_qp(doc, board):
             # AQA's label box can sit a little high and read as raised ("^0 3 . 1").
             if board == "aqa" and cells and re.match(r"\^\d\s?\d\s?\.", cells[0][2]):
                 cells = [(cells[0][0], cells[0][1], cells[0][2][1:])] + cells[1:]
-            lab = read_label(board, cells[0], W, stack, cur_q, q_x) if cells else None
+            lab = read_label(board, cells[0], W, stack, cur_q, q_x, scheme_keys) if cells else None
             bare = cells[0][2].strip() if len(cells) == 1 and re.fullmatch(r"\d{1,2}", cells[0][2].strip()) else None
             # Numbered answer lines ("1", "2" for "Give two factors") are not
             # the next question: a bare number after a bare number one lower.
@@ -728,6 +738,18 @@ def parse_qp(doc, board):
                 if node.tick_tail is not None and (node.tick_tail != page.number or FIG_REF.match(joined)
                                                    or TABLE_REF.match(joined)):
                     node.tick_tail = None
+                # The same for a word box: "Choose answers from the box. [2 marks]"
+                # then the box and the sentences to complete, which are the question.
+                if node.box_tail is None and not pending and BOX_ANSWER.search(
+                        " ".join(l.text for l in node.lines)):
+                    node.box_tail = page.number
+                if node.box_tail:
+                    if node.box_tail != page.number or FIG_REF.match(joined) or TABLE_REF.match(joined):
+                        node.box_tail = False            # ended: never restarts
+                    else:
+                        node.lines.append(TextLine(page.number, line.v0, line.v1, cells))
+                        owned.append((node, page.number, line.v0, False))
+                        continue
                 if not pending and TICK_ANSWER.match(joined):
                     node.tick_tail = page.number
                     node.lines.append(TextLine(page.number, line.v0, line.v1, cells))
@@ -867,6 +889,7 @@ DRAWN_ANSWER = re.compile(
     r"|\b(?:on|in) (?:Fig\.?|Figure) ?\d|\bdraw (?:a|the|an)\b"
     r"|\bon the (?:graph|grid|axes|diagram)\b|\b(?:displayed|skeletal) formula", re.I | re.M)
 # A tick-box answer is a multiple choice once its boxes are read as options.
+BOX_ANSWER = re.compile(r"\bfrom the box\b|\bComplete the sentences?\b", re.I)
 TICK_ANSWER = re.compile(r"^Tick\b|\bTick \(✓\)|\(\s*✓\s*\)|Put a (?:cross|tick)", re.I | re.M)
 # A part that leans on its stem's figure says so.
 USES_FIGURE = re.compile(r"\bshown\b|\bthis (?:structure|graph|diagram|figure|apparatus|cell)\b"
@@ -1329,7 +1352,13 @@ def clean(t):
     t = re.sub(r"(?:[.…]{4,}|_{4,})\s*$", " ", t)
     t = re.sub(r"(?<=\S)\s*(?:[.…]{4,}|_{4,})\s*(?=\S)", " \x00 ", t)
     t = DOT_RUN.sub(" ", t).replace("\x00", "______")
+    t = ITALIC_L_GAP.sub("", t)
     return re.sub(r"[ \t]+", " ", t).strip()
+
+
+# An italic l is set wide, so the text layer leaves a space after it inside a
+# formula: "Cl ₂", "KCl O₄", "HCl (aq)".
+ITALIC_L_GAP = re.compile(r"(?<=[A-Z]l) (?=[₀-₉]|O\b|O[₀-₉]|\((?:aq|s|l|g)\))")
 
 
 def lines_text(lines, prompt=False, hulls=None):
@@ -1501,7 +1530,8 @@ def extract(qp_path, ms_path):
     if board is None:
         raise SystemExit("Could not tell the board from either document's specification code.")
     damaged = [name for name, doc in (("question paper", qp), ("mark scheme", ms)) if text_damaged(doc)]
-    questions, totals, cover_total, one_mark_each = parse_qp(qp, board)
+    scheme = parse_ms(ms, board)
+    questions, totals, cover_total, one_mark_each = parse_qp(qp, board, frozenset(scheme))
     # Marks the paper states somewhere other than beside the part: a multiple
     # choice paper that scores one mark each, or a question whose only unmarked
     # part takes what is left of the question's stated total.
@@ -1514,7 +1544,6 @@ def extract(qp_path, ms_path):
             left = totals[q.q] - sum(sum(n.marks) for n, _ in leaves(q))
             if left > 0:
                 unmarked[0].marks, unmarked[0].marks_from = [left], "the question total"
-    scheme = parse_ms(ms, board)
     W = qp[0].rect.width
     ink = {p.number: page_ink(p) for p in qp}
     hulls = {k: figure_hulls(v) for k, v in ink.items()}
@@ -1570,6 +1599,12 @@ def extract(qp_path, ms_path):
                 reasons.append(f"{here['images']} picture(s) in this part")
             if here["ink"] >= 3:
                 reasons.append(f"drawn figure in this part ({here['ink']} strokes)")
+            # "A graph is plotted of y against x" names a graph without printing
+            # one: with no figure here, that is a note for the reader, not a skip.
+            if refs and not here["images"] and here["ink"] < 3 and \
+                    all(r.lower() in ("graph", "diagram", "photograph", "micrograph") for r in refs):
+                note = "mentions a " + ", ".join(refs) + " in words: check one is printed"
+                refs = []
             if refs:
                 reasons.append("refers to " + ", ".join(refs))
             # A figure in a stem: the first part after it depends on it, and so
@@ -1710,6 +1745,13 @@ def scheme_text(entry):
     return s.strip() or None
 
 
+def printed_spec_refs(entry):
+    """Spec points an AQA scheme prints beside the marks ("AO3 4.4.2.5 RPA2"):
+    a start the reader checks against the course list, not a tag to trust."""
+    ao = (entry or {}).get("ao", "")
+    return list(dict.fromkeys(re.findall(r"(?<![\w.])(\d+(?:\.\d+){2,4}[a-z]?)(?![\w.])", ao)))
+
+
 def draft_rows(x):
     rows, skipped = [], []
     for p in x["parts"]:
@@ -1747,7 +1789,7 @@ def draft_rows(x):
             "specification_version": x["spec"],
             "mathematical_demand": None,
             "practical_demand": None,
-            "spec_points": [],
+            "spec_points": printed_spec_refs(p["scheme"]),
             "flags": flags,
         })
     return {"profile": "extract_paper", "rows": rows, "skipped": skipped}

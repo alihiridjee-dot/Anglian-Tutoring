@@ -85,7 +85,8 @@ SCRIPT_RUN = re.compile("([⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]+|[₀₁₂₃₄�
 def words(t):
     # A raised or lowered run is a word of its own, so ²³⁸₉₂U, SO₄²⁻ and the
     # text layer's SO²⁻₄ compare by their numbers, whatever order they arrive in.
-    t = SCRIPT_RUN.sub(r" \1 ", t or "")
+    t = X.ITALIC_L_GAP.sub("", (t or "").replace("ᶿ", " "))   # ᶿ is a symbol, like ⦵
+    t = SCRIPT_RUN.sub(r" \1 ", t)
     t = unicodedata.normalize("NFKC", t.translate(X.SYMBOL_PUA).translate(SCRIPTS).translate(LOOKALIKE)).lower()
     # Numbers and letters apart: "209Po" and ²⁰⁹Po both give 209, po.
     # Decimals split at the point too: the text layer can set "0.99" as "0 99".

@@ -24,6 +24,10 @@ class Scripts(unittest.TestCase):
         l = X.Line(0, [span("Fe", 72), span("3+", 84, size=7.0, base=96.0)])
         self.assertEqual(l.text, "Fe³⁺")
 
+    def test_a_raised_o_after_I_is_the_allele_not_the_standard_sign(self):
+        l = X.Line(0, [span("I", 72), span("o", 78, size=7.0, base=96.0)])
+        self.assertEqual(l.text, "Iᵒ")
+
     def test_letters_set_low_keep_an_underscore(self):
         l = X.Line(0, [span("K", 72), span("p", 78, size=7.0, base=102.5)])
         self.assertEqual(l.text, "K_p")
@@ -101,6 +105,13 @@ class SchemeLabels(unittest.TestCase):
         self.assertEqual(X.ms_key("edexcel", "(i)", (3, "b"))[0], "3|b|i")
 
 
+class SpecRefs(unittest.TestCase):
+    def test_spec_refs_printed_in_the_ao_column(self):
+        self.assertEqual(X.printed_spec_refs({"ao": "AO3 4.4.2.5 RPA2"}), ["4.4.2.5"])
+        self.assertEqual(X.printed_spec_refs({"ao": "AO1.1a 2.1 3.6.2.1"}), ["3.6.2.1"])
+        self.assertEqual(X.printed_spec_refs(None), [])
+
+
 class Options(unittest.TestCase):
     def test_a_stem_opening_with_a_is_not_option_a(self):
         lines = [line(["A parallel plate capacitor is connected across a battery."]),
@@ -140,6 +151,11 @@ class Checking(unittest.TestCase):
         for ok in ("Fe²⁺", "SO₄²⁻", "O²⁻", "mol dm⁻³", "J K⁻¹ mol⁻¹", "¹³C NMR", "C₈H₁₈",
                    "K_c = RS³/P²Q × 1/V", "⁷⁹Br⁷⁹Br OR ⁷⁹Br₂", "(CF₂³⁷Cl⁸¹Br)⁺"):
             self.assertFalse(C.raised_formula(ok), ok)
+
+    def test_italic_l_gap_and_standard_sign(self):
+        self.assertEqual(X.clean("KCl O₄ and HCl (aq) and Cl ₂"), "KClO₄ and HCl(aq) and Cl₂")
+        self.assertEqual(X.clean("Al Thomas"), "Al Thomas")
+        self.assertTrue(C.contains(C.words("E 0.34 V"), "Eᶿ 0.34 V"))
 
     def test_words_must_all_be_in_the_bag(self):
         bag = C.words("5.450 (1) x 100\n5.600\n= 97.3214")
