@@ -1239,7 +1239,8 @@ def parse_ms(doc, board):
                     if found[2]:
                         parts["answer"] = (found[2] + " " + parts.get("answer", "")).strip()
             if not labels and (all(not p.get("answer") and not p.get("guidance") for p in split)
-                               or any(re.fullmatch(r"(?:Section\s+[A-Z]\s+)?Total", v.strip(), re.I)
+                               or any(re.fullmatch(r"(?:Section\s+[A-Z]\s+)?Total(?:\s+Question(?:\s+\d+)?)?",
+                                                   v.strip(), re.I)
                                       for p in split for v in p.values())):
                 continue                           # a question's or section's total row
             bounds = [i for i, _ in labels] + [len(split)]
