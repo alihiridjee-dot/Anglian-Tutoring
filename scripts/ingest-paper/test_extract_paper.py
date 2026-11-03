@@ -108,6 +108,14 @@ class Options(unittest.TestCase):
         self.assertEqual(opts[0]["text"], "0.5E")
         self.assertEqual(len(keep), 2)
 
+    def test_a_wrapped_tick_box_option_is_one_option(self):
+        self.assertTrue(X.wraps_on("With a point quadrat, a plant that is smaller than half a square",
+                                   "is more likely to be counted."))
+        self.assertFalse(X.wraps_on("y = mc + x", "y = mc² + x"))
+        self.assertFalse(X.wraps_on("Liver.", "pancreas"))
+        self.assertFalse(X.wraps_on("cornea", "iris"))
+        self.assertTrue(X.wraps_on("Measure the intensity of colour produced from", "a biuret test."))
+
     def test_answer_stubs_and_missing_arrows(self):
         self.assertTrue(X.is_answer_stub("change in energy = ............ J"))
         self.assertFalse(X.is_answer_stub("Explain why ........ is used."))

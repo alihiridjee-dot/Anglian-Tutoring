@@ -440,7 +440,7 @@ FURNITURE = [re.compile(p, re.I) for p in [
     r"^\*\s?\d{2}\s?\*$",                                      # AQA *03*
     r"^\d{2}_\d{4}_\d{2}_\d{4}_[\d.]+[A-Z]?$",                   # Cambridge 11_9701_12_2023_1.11R
     r"^\*(?:\s?[\dA-Z]){4,}\s?\*$",
-    r"^IB/[A-Z]/\w+/\w+(?:/\w+)?$",                            # AQA IB/M/Jun23/7405/1
+    r"^IB/[A-Z]/\w+/\w+(?:/\w+)*$",                            # AQA IB/M/Jun23/7405/1
     r"^©", r"^\d{4}/\d{2}/[A-Z]/[A-Z]/\d{2}$",                 # Cambridge 9701/42/M/J/24
     r"^Do not write$", r"^outside the$", r"^outside the box$", r"^box$", r"^Do not write\W*outside the(?:\s*box)?$",
     r"^DO NOT WRITE IN THIS (?:AREA|MARGIN)", r"^Additional answer space",
@@ -499,6 +499,7 @@ class Node:
         self.answer_lines = []                   # labels in its answer space, kept out of the prompt
         self.star = False
         self.marks_from = None
+        self.tick_tail = None                    # page of a "Tick (✓) one box" printed after its marks
 
     @property
     def key(self):
@@ -710,6 +711,22 @@ def parse_qp(doc, board):
                 # then perhaps the stem of the parts that follow. A sentence
                 # starts that stem; everything after it is the stem too.
                 first = cells[0][2]
+                joined = " ".join(c[2] for c in cells)
+                # AQA (2025) prints "[2 marks]" before "Tick (✓) two boxes." and
+                # the options: the instruction joins the prompt, the options its
+                # answer space, until a figure's stem or the next page.
+                if node.tick_tail is not None and (node.tick_tail != page.number or FIG_REF.match(joined)
+                                                   or TABLE_REF.match(joined)):
+                    node.tick_tail = None
+                if not pending and TICK_ANSWER.match(joined):
+                    node.tick_tail = page.number
+                    node.lines.append(TextLine(page.number, line.v0, line.v1, cells))
+                    owned.append((node, page.number, line.v0, False))
+                    continue
+                if not pending and node.tick_tail is not None:
+                    node.answer_lines.append(TextLine(page.number, line.v0, line.v1, cells))
+                    owned.append((node, page.number, line.v0, False))
+                    continue
                 if not pending and (OPTION_LINE.match(first) or OPTION_CELL.match(first)):
                     pass                                 # its multiple-choice options
                 elif not pending and FORMULA.search(" ".join(c[2] for c in cells)):
@@ -754,6 +771,14 @@ def raw_text(lines):
     return "\n".join(clean(l.text.replace("\t", " ")) for l in lines if not DOTS.match(l.text))
 
 
+def wraps_on(above, line):
+    """A line carrying on the option above it: that one is long, has not ended,
+    and this one opens with a lower-case word ("is more likely to be counted.").
+    Short options ("cornea", "iris", "lens") never wrap."""
+    return len(above.split()) >= 6 and not re.search(r"[.?!:]$", above) \
+        and bool(re.match(r"(?:[a-z]{2,}\b|a\s+[a-z])", line))
+
+
 def tick_box_options(lines, ink):
     """Options set as lines with a box to tick beside each ("Tick (✓) one box").
     Their letters are not printed, so the options carry none."""
@@ -778,11 +803,22 @@ def tick_box_options(lines, ink):
                 continue
             if len(t.split()) > 15 or t.endswith("?"):
                 break
+            if boxed and wraps_on(clean(lines[boxed[-1]].text), t):
+                continue                         # the option above, carried on
             boxed.append(i)
         if len(boxed) < 2:
             return None, lines
-    opts = [{"letter": None, "text": clean(lines[i].text.replace("\t", " "))} for i in boxed]
-    return opts, [l for i, l in enumerate(lines) if i not in set(boxed)]
+    # An option that wraps carries on in a line starting lower case.
+    used, opts = set(boxed), []
+    for i in boxed:
+        text = clean(lines[i].text.replace("\t", " "))
+        j = i + 1
+        while j < len(lines) and j not in used and wraps_on(text, clean(lines[j].text)):
+            text += " " + clean(lines[j].text.replace("\t", " "))
+            used.add(j)
+            j += 1
+        opts.append({"letter": None, "text": text})
+    return opts, [l for i, l in enumerate(lines) if i not in used]
 
 
 def inherited_pre(parent, node):
