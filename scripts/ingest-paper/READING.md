@@ -32,17 +32,35 @@ it as `sample` with the year `unknown`, `ocr-biology-gcse-unknown-sample-p1`.
 Only when the documents themselves say sample or specimen — a paper whose date
 is merely missing is still checked against its mark scheme.
 
-## 2. Get the text
+## 2. Draft the rows from the page
 
-    python3 scripts/ingest-paper/split_paper.py QP.pdf MS.pdf --text
+    python3 -E -P scripts/ingest-paper/extract_paper.py QP.pdf MS.pdf            # what it found
+    python3 -E -P scripts/ingest-paper/extract_paper.py QP.pdf MS.pdf --draft > papers/<stem>.json
 
-Strips the watermark and the layout padding. If a question is ambiguous in the
-text, open that page of the PDF.
+The report says whether the paper reconciles: every part found by its printed
+label, its printed marks adding up to each question's total and the paper's,
+and each part matched to its own mark scheme entry. Read anything it lists
+under `!` before going on.
 
-## 3. Index the paper
+`--draft` writes the rows in the shape below, cut at the page's own labels, so
+every prompt and scheme starts out verbatim. Sub- and superscripts are kept
+(CaCO₃, 10⁻⁷, Fe³⁺), drawn reaction arrows are put back (→, ⇌), and the mark
+scheme is split by its table columns, answer first then `Guidance:`. Parts that
+need a figure are already in `skipped`, with the reason. A draft is a starting
+point, not a reading: work through section 4 on it.
 
-List every question, its parts, and the marks printed for each. Do this before
-transcribing anything — it is what the totals get checked against at the end.
+`split_paper.py --text` is the older way in, the raw text layer; it is still a
+quick look at a paper the extractor cannot read.
+
+`-E -P` keeps the downloads folder off Python's import path while still
+finding pymupdf.
+
+## 3. Check the index
+
+The draft's labels and marks come from the page. Look at the report: a part
+with no marks, a question whose parts do not add up, a scheme entry with no
+part. If the paper does not reconcile, find out why on the page before
+trusting any row.
 
 ## 4. Write the rows
 
@@ -94,6 +112,10 @@ sheets, periodic tables, blank pages, "Turn over", footers.
 
 ### Tag each row as you write it
 
+Each course's codes, with the topic and the point's own wording, are in
+`papers/spec-points/<board>-<subject>-<level>.tsv`. Tag from that list, never
+from memory: a code that is not in it does not exist.
+
 An untagged question grounds a generated question by style only — same board,
 same subject, any topic. A tagged one grounds it by the spec point itself, which
 is the whole value of the library. You are already reading the question, so
@@ -143,14 +165,40 @@ After:
 > Guidance: reject 0.10 x 2.02 and the follow-up evaluation; correct answer
 > without working gets 2 marks
 
-## 6. Check the totals
+## 6. Check the rows against the page
 
-- Every question in the index appears in `rows` or `skipped`.
-- Per question: transcribed marks + skipped marks = that question's total.
-- Whole paper: the same sum = the total printed on the cover. Edexcel and OCR
-  print one; AQA does not, so there it cannot be checked.
+    python3 -E -P scripts/ingest-paper/check_rows.py papers/<stem>.json            # report
+    python3 -E -P scripts/ingest-paper/check_rows.py papers/<stem>.json --write    # write its flags into the rows
 
-Report anything that does not reconcile. Never adjust marks to make it.
+This holds every row to the documents:
+
+- the label is a part the paper prints, and the marks are its printed marks
+- every line of the prompt, the shared stem and each option is on the page, in
+  the same question. Not composed, not borrowed from another question
+- every line of the mark scheme is in that part's own entry. Marks such as
+  `(1)` are ignored, and a scheme put back in reading order (a stacked
+  fraction written with `/`, guidance regrouped) passes as long as its words
+  are all that part's own
+- a part that needs a figure is in `skipped`, not kept as text
+- a multiple-choice answer names a printed option
+- every part is a row or a skipped entry, and the marks add up
+- every spec point code is in the course's list
+
+Fix what it finds and run it again. What you cannot fix stays flagged, and a
+flagged row is never approved. The check replaces its own flags each time and
+leaves the reader's alone.
+
+If the figure detector is wrong about a part, because the picture is decoration
+and the question stands without it, keep the row and say why on it:
+`"figure_checked": "photo of the apparatus only; every value is in the text"`.
+Never use it to keep a question that cannot be answered without the figure.
+
+A fraction or formula the text layer stacks out of order (the draft flags it)
+may be written in reading order from the page, `5.450 / 5.600`, with
+`"page_checked": "fraction written on one line"` on the row. Its words and
+numbers must all still be the question's own.
+
+Never adjust marks or text to make a check pass.
 
 ## 7. Load it
 

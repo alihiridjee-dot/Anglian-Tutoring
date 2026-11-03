@@ -264,6 +264,10 @@ for (const file of files) {
       const prompt = r.prompt?.trim() ?? "";
       const context = r.shared_context?.trim() ?? "";
       if (prompt && prompt.length + context.length >= 15) return true;
+      // "Define strain." is a whole question however short it is.
+      if (/^(Define|State|Name|Give)\s+\S+/.test(prompt)) return true;
+      // "In β⁻ decay:" is whole once its options finish the sentence.
+      if (prompt && Array.isArray(r.options) && r.options.length >= 2) return true;
       dropped.push(r.label);
       return false;
     })
