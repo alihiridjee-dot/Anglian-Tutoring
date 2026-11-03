@@ -198,6 +198,12 @@ def check(rows_path, x=None):
         # normalising below would let it through.
         if re.search(r"chemistry|biology", stem) and any(raised_formula(x_) for x_ in texts):
             flags.append("raised atom count in a formula: write it lowered as printed")
+        if re.search(r"question\s+discounted|award the mark regardless", row.get("mark_scheme") or "", re.I):
+            flags.append("the board discounted this question: skip it")
+        opt_texts = [re.sub(r"\s+", " ", str(o.get("text") if isinstance(o, dict) else o)).strip()
+                     for o in row.get("options") or []]
+        if len([o for o in opt_texts if o]) != len({o for o in opt_texts if o}):
+            flags.append("options repeat: a symbol drawn on the page is missing")
         # A ✓/✗ table's key ("✓ = can form vesicles") read into an option.
         if any(re.search(r"[✓✗]\s*=|\bkey\b", str(o.get("text") if isinstance(o, dict) else o), re.I)
                for o in row.get("options") or []):
@@ -266,8 +272,8 @@ def check(rows_path, x=None):
             if not (named & letters or any(quotes(x) for x in texts)):
                 flags.append("multiple-choice answer names no printed option")
         # A one-mark answer that is a bare letter (AQA's key: "C") is a choice too.
-        letter_key = row.get("marks") == 1 and re.match(r"^\s*[A-D](?:\s|$)", scheme or "") \
-            and not re.match(r"^\s*[A-D]\s+[a-z]", scheme or "")   # "C is not as strong…": a compound, not a choice
+        letter_key = row.get("marks") == 1 and re.match(r"^\s*[A-H](?:\s|$)", scheme or "") \
+            and not re.match(r"^\s*[A-H]\s+[a-z]", scheme or "")   # "C is not as strong…": a compound, not a choice
         if not options and (ONLY_ANSWER.search(scheme or "") or letter_key):
             flags.append("the scheme names one correct option but the row has no options")
         if codes is not None:
@@ -304,7 +310,7 @@ def apply_flags(data):
 CHECK_PREFIXES = ("label not printed", "text layer damaged", "marks ", "shared_context ", "prompt ",
                   "option ", "no mark scheme", "mark scheme line", "needs image", "needs a figure",
                   "multiple-choice answer", "unknown spec point", "the scheme names one correct option",
-                  "unmapped symbol", "raised atom count", "prompt is empty")
+                  "unmapped symbol", "raised atom count", "prompt is empty", "the board discounted", "options repeat")
 
 
 def summarise(path, report, paper):

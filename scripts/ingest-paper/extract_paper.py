@@ -1352,8 +1352,11 @@ def clean(t):
     t = re.sub(r"(?:[.…]{4,}|_{4,})\s*$", " ", t)
     t = re.sub(r"(?<=\S)\s*(?:[.…]{4,}|_{4,})\s*(?=\S)", " \x00 ", t)
     t = DOT_RUN.sub(" ", t).replace("\x00", "______")
-    t = ITALIC_L_GAP.sub("", t)
+    t = ITALIC_L_GAP.sub("", t).translate(LIGATURES)
     return re.sub(r"[ \t]+", " ", t).strip()
+
+
+LIGATURES = str.maketrans({"ﬁ": "fi", "ﬂ": "fl", "ﬀ": "ff", "ﬃ": "ffi", "ﬄ": "ffl"})
 
 
 # An italic l is set wide, so the text layer leaves a space after it inside a
