@@ -248,8 +248,9 @@ def tidy(t):
     t = t.translate(SYMBOL_PUA)
     t = DOUBLED_MATH.sub(r"\1", t)
     t = re.sub(r"(\d)\s?ᶿ", r"\1°", t)          # a raised o after a number is a degree sign
+    # Only a lone raised and lowered digit is a fraction: in ¹⁰³₄₅Rh the ³₄ is not ¾.
     for k, v in FRACTIONS.items():
-        t = t.replace(k, v)
+        t = re.sub(f"(?<![⁰¹²³⁴⁵⁶⁷⁸⁹₀-₉]){k}(?![₀-₉⁰¹²³⁴⁵⁶⁷⁸⁹])", v, t)
     t = re.sub(r"[    \t]", " ", t)
     return re.sub(r"\s{2,}", " ", t).strip()
 
@@ -1411,7 +1412,8 @@ def lines_text(lines, prompt=False, hulls=None):
     # "change in energy = J", "Mass  g", "pH", "Type of isomerism".
     while prompt and out and (re.fullmatch(r"[^.?=]{1,35}=\s*[^\s\d=]{0,12}", out[-1]) or is_answer_label(out[-1])):
         out.pop()
-    return "\n".join(out)
+    # A sentence to complete keeps its gap as a blank, not a column: "… of | ."
+    return re.sub(r" \| (?=[.?]$)", " ______", "\n".join(out), flags=re.M)
 
 
 def figure_hulls(ink):

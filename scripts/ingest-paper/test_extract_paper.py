@@ -28,6 +28,10 @@ class Scripts(unittest.TestCase):
         l = X.Line(0, [span("I", 72), span("o", 78, size=7.0, base=96.0)])
         self.assertEqual(l.text, "Iᵒ")
 
+    def test_a_fraction_only_when_its_digits_stand_alone(self):
+        self.assertEqual(X.tidy("¹₂O₂"), "½O₂")
+        self.assertEqual(X.tidy("¹⁰³₄₅Rh"), "¹⁰³₄₅Rh")
+
     def test_letters_set_low_keep_an_underscore(self):
         l = X.Line(0, [span("K", 72), span("p", 78, size=7.0, base=102.5)])
         self.assertEqual(l.text, "K_p")
