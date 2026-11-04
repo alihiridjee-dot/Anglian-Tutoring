@@ -505,6 +505,7 @@ class Node:
         self.marks_from = None
         self.tick_tail = None                    # page of a "Tick (✓) one box" printed after its marks
         self.box_tail = None                     # page of a word box after them; False once ended
+        self.tail_v1 = None                      # bottom of the last line taken into either run
 
     @property
     def key(self):
@@ -566,7 +567,7 @@ def read_label(board, cell, W, stack, cur_q, q_x=None, scheme_keys=frozenset()):
     # After (h), "(i)" is either the next letter or (h)'s first numeral; the
     # mark scheme's own labels say which.
     if letter == "i" and exp_letter == "i" and not roman and not new_q and stack[2] is None \
-            and f"{cur_q}|h|i" in scheme_keys and f"{cur_q}|i|" not in scheme_keys:
+            and f"{cur_q}|h|i" in scheme_keys:
         letter, roman = None, "i"
     if letter and letter != exp_letter:
         # "(i)" alone is a roman numeral unless the letters really have reached i.
@@ -738,30 +739,34 @@ def parse_qp(doc, board, scheme_keys=frozenset()):
                 joined = " ".join(c[2] for c in cells)
                 # AQA (2025) prints "[2 marks]" before "Tick (✓) two boxes." and
                 # the options: the instruction joins the prompt, the options its
-                # answer space, until a figure's stem or the next page.
+                # answer space. A word box ("Choose answers from the box. [2 marks]",
+                # then the box and the sentences to complete) is the question itself.
+                # Either run ends at a figure's stem, the next page, or a gap: the
+                # next stem sits 60pt below, where options are about 22pt apart.
+                gap = line.v0 - node.tail_v1 if node.tail_v1 is not None else 0
                 if node.tick_tail is not None and (node.tick_tail != page.number or FIG_REF.match(joined)
-                                                   or TABLE_REF.match(joined)):
+                                                   or TABLE_REF.match(joined) or gap > 40):
                     node.tick_tail = None
-                # The same for a word box: "Choose answers from the box. [2 marks]"
-                # then the box and the sentences to complete, which are the question.
                 if node.box_tail is None and not pending and BOX_ANSWER.search(
                         " ".join(l.text for l in node.lines)):
                     node.box_tail = page.number
                 if node.box_tail:
-                    if node.box_tail != page.number or FIG_REF.match(joined) or TABLE_REF.match(joined):
+                    if node.box_tail != page.number or FIG_REF.match(joined) or TABLE_REF.match(joined) or gap > 40:
                         node.box_tail = False            # ended: never restarts
                     else:
                         node.lines.append(TextLine(page.number, line.v0, line.v1, cells))
                         owned.append((node, page.number, line.v0, False))
+                        node.tail_v1 = line.v1
                         continue
                 if not pending and TICK_ANSWER.match(joined):
-                    node.tick_tail = page.number
+                    node.tick_tail, node.tail_v1 = page.number, line.v1
                     node.lines.append(TextLine(page.number, line.v0, line.v1, cells))
                     owned.append((node, page.number, line.v0, False))
                     continue
                 if not pending and node.tick_tail is not None:
                     node.answer_lines.append(TextLine(page.number, line.v0, line.v1, cells))
                     owned.append((node, page.number, line.v0, False))
+                    node.tail_v1 = line.v1
                     continue
                 if not pending and (OPTION_LINE.match(first) or OPTION_CELL.match(first)):
                     pass                                 # its multiple-choice options
@@ -779,6 +784,7 @@ def parse_qp(doc, board, scheme_keys=frozenset()):
                 node.lines.append(TextLine(page.number, line.v0, line.v1, cells))
             if marks is not None:
                 node.marks.append(marks)
+                node.tail_v1 = line.v1                   # a run after the marks is measured from them
             owned.append((node, page.number, line.v0, False))
     _assign_bands(doc, owned)
     return questions, totals, cover_total, one_mark_each
@@ -1378,7 +1384,7 @@ LIGATURES = str.maketrans({"ﬁ": "fi", "ﬂ": "fl", "ﬀ": "ff", "ﬃ": "ffi", 
 
 # An italic l is set wide, so the text layer leaves a space after it inside a
 # formula: "Cl ₂", "KCl O₄", "HCl (aq)".
-ITALIC_L_GAP = re.compile(r"(?<=[A-Z]l) (?=[₀-₉]|O\b|O[₀-₉]|\((?:aq|s|l|g)\))")
+ITALIC_L_GAP = re.compile(r"(?<=[A-Z]l) (?=[₀-₉]|O\b|O[₀-₉]|H[₀-₉]|\((?:aq|s|l|g)\))")
 
 
 def lines_text(lines, prompt=False, hulls=None):

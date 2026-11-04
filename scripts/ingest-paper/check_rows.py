@@ -200,6 +200,9 @@ def check(rows_path, x=None):
         # normalising below would let it through.
         if re.search(r"chemistry|biology", stem) and any(raised_formula(x_) for x_ in texts):
             flags.append("raised atom count in a formula: write it lowered as printed")
+        # ...and a charge is raised: "MnO₄₋" was misread from MnO₄⁻.
+        if any(re.search(r"[₀-₉A-Za-z)][₊₋](?![₀-₉])", x_) for x_ in texts):
+            flags.append("lowered charge sign: write the charge raised as printed")
         if re.search(r"question\s+discounted|award the mark regardless", row.get("mark_scheme") or "", re.I):
             flags.append("the board discounted this question: skip it")
         opt_texts = [re.sub(r"\s+", " ", str(o.get("text") if isinstance(o, dict) else o)).strip()
@@ -312,7 +315,7 @@ def apply_flags(data):
 CHECK_PREFIXES = ("label not printed", "text layer damaged", "marks ", "shared_context ", "prompt ",
                   "option ", "no mark scheme", "mark scheme line", "needs image", "needs a figure",
                   "multiple-choice answer", "unknown spec point", "the scheme names one correct option",
-                  "unmapped symbol", "raised atom count", "prompt is empty", "the board discounted", "options repeat")
+                  "unmapped symbol", "raised atom count", "prompt is empty", "the board discounted", "options repeat", "lowered charge sign")
 
 
 def summarise(path, report, paper):
