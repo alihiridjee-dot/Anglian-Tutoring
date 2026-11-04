@@ -849,7 +849,14 @@ def tick_box_options(lines, ink):
                 continue                         # the option above, carried on
             boxed.append(i)
         if len(boxed) < 2:
-            return None, lines
+            # Boxes printed in one row ("Trial 1  Trial 2  Trial 3  Trial 4"):
+            # the row's cells are the options.
+            row = next((i for i in range(at + 1, len(lines))
+                        if len(lines[i].cells) >= 2 and all(len(c[2].split()) <= 4 for c in lines[i].cells)), None)
+            if row is None:
+                return None, lines
+            opts = [{"letter": None, "text": clean(c[2])} for c in lines[row].cells if clean(c[2])]
+            return opts, [l for i, l in enumerate(lines) if i != row]
     # An option that wraps carries on in a line starting lower case.
     used, opts = set(boxed), []
     for i in boxed:
@@ -1504,10 +1511,11 @@ def split_options(lines):
         if not cells:
             continue
         m = OPTION_LINE.match(cells[0])
+        # A table row of options keeps its columns apart: "A | yes | no".
         if len(cells) >= 2 and OPTION_CELL.match(cells[0]):
-            cand.append((i, cells[0], clean(" ".join(cells[1:])), l.u0))
+            cand.append((i, cells[0], " | ".join(clean(c) for c in cells[1:] if clean(c)), l.u0))
         elif m and len(m.group(2)) < 160:
-            cand.append((i, m.group(1), clean(" ".join([m.group(2)] + cells[1:])), l.u0))
+            cand.append((i, m.group(1), " | ".join(clean(c) for c in [m.group(2)] + cells[1:] if clean(c)), l.u0))
     best = None
     for k, first in enumerate(cand):
         if first[1] != "A":
@@ -1538,6 +1546,25 @@ def split_options(lines):
         else:
             keep.append(l)
     return opts, keep
+
+
+def option_headings(lines, opts):
+    """The column headings over a table of options ("anode | cathode"): up to
+    two rows of short cells just above option A. Set inside the table's
+    ruling, they would otherwise be dropped as a figure's labels."""
+    if not opts or not opts[0].get("letter") or len(opts[0]["text"].split(" | ")) < 2:
+        return []
+    first = next((i for i, l in enumerate(lines) if l.cells
+                  and re.match(r"\(?A\)?(?:\s|$)", l.cells[0][2])), None)
+    rows = []
+    for i in (first - 1, first - 2) if first else ():
+        if i < 0:
+            break
+        cells = [clean(c[2]) for c in lines[i].cells if clean(c[2])]
+        if not cells or any(len(c.split()) > 6 for c in cells) or re.search(r"[?.:]$", cells[-1]):
+            break
+        rows.insert(0, " | ".join(cells))
+    return rows
 
 
 def stacked_maths(lines):
@@ -1579,6 +1606,9 @@ def extract(qp_path, ms_path):
         for n, anc in leaves(q):
             opts, own = split_options(n.lines)
             prompt = lines_text(own, prompt=True, hulls=hulls)
+            for head in option_headings(n.lines, opts):
+                if head not in prompt:
+                    prompt = (prompt + "\n" + head).strip()
             if opts is None and TICK_ANSWER.search(prompt):
                 # AQA prints the options after the marks, among the answer space.
                 pool = sorted(own + n.answer_lines, key=lambda l: (l.page, l.v0))
