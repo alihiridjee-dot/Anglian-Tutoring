@@ -672,6 +672,10 @@ def parse_qp(doc, board, scheme_keys=frozenset()):
             # the next question: a bare number after a bare number one lower.
             if lab and bare and prev_bare == str(int(bare) - 1):
                 lab = None
+            # A data table's first column ("3 | 12.5 | 14.0") is not question 3.
+            if lab and lab[0] is not None and lab[1] is None and lab[2] is None and not lab[3].strip() \
+                    and len(cells) >= 3 and all(re.fullmatch(r"[\d.,±–\-\s]+", c[2]) for c in cells[1:]):
+                lab = None
             prev_bare = bare
             if not lab:
                 m = SHARED_INFO.search(" ".join(c[2] for c in cells))
@@ -1260,9 +1264,16 @@ def parse_ms(doc, board):
                     # "2" alone is a question's own label only before any of
                     # its parts; after them, or as 0, it is a number in the column.
                     qn = int(found[0].split("|")[0])
+                    # ...and only the next question: "50 x 4.2 x 30" is an answer.
                     if qn == 0 or any(k.split("|")[0] == str(qn) for k in entries) or \
-                            (last[0] is not None and qn < last[0]):
+                            (last[0] is not None and (qn < last[0] or qn > last[0] + 1)):
                         found = None
+                # "50 x 4.2 x 30" (read as 50(x)) is an answer that starts with a
+                # number: a jump in question number followed by more arithmetic.
+                if found and last[0] is not None and \
+                        int(found[0].split("|")[0]) not in (last[0], last[0] + 1) and \
+                        re.match(r"[\d.(×x=+\-–/]", found[2] or ""):
+                    found = None
                 if found:
                     labels.append((i, found))
                     last = found[1]
@@ -1296,8 +1307,12 @@ def parse_ms(doc, board):
                     if q:
                         cur["answer"].append(q)      # answer text set further left than usual
                     mark_text = parts.get("marks", "")
-                    for d, x in re.findall(r"AO\s?(\d)(?:\.(\d))?", mark_text + " " + parts.get("ao", "")):
+                    for d, x in re.findall(r"A[O0]\s?(\d)(?:\.(\d))?", mark_text + " " + parts.get("ao", "")):
                         cur["ao_codes"].add(f"AO{d}" + (f".{x}" if x else ""))
+                    # Edexcel prints the strand after a space: "AO2 1", "AO3 2ab".
+                    for d, x, sub in re.findall(r"A[O0]\s?(\d)\s+(\d)([a-z]*)\b", mark_text + " " + parts.get("ao", "")):
+                        for letter in (sub or [""]):
+                            cur["ao_codes"].add(f"AO{d}.{x}{letter}")
                     # OCR's AO element column prints bare codes: "1.2 x 2  2.6 x 1".
                     for d, x in re.findall(r"(?<![\d.])([1-3])\.(\d)(?![\d.])", parts.get("ao", "")):
                         cur["ao_codes"].add(f"AO{d}.{x}")
@@ -1331,7 +1346,9 @@ def parse_ms(doc, board):
     return collections.OrderedDict(
         (k, {"answer": "\n".join(e["answer"]).strip(), "guidance": "\n".join(e["guidance"]).strip(),
              "ao": " ".join(e["ao"]).strip(), "marks": e["marks"], "pages": sorted(e["pages"]),
-             "ao_codes": sorted(e["ao_codes"]), "picture": e["picture"], "max": e["max"]})
+             "ao_codes": sorted(c for c in e["ao_codes"]       # AO2 goes once AO2.1 is known
+                                if not any(o.startswith(c + ".") for o in e["ao_codes"])),
+             "picture": e["picture"], "max": e["max"]})
         for k, e in entries.items())
 
 

@@ -85,7 +85,8 @@ SCRIPT_RUN = re.compile("([⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]+|[₀₁₂₃₄�
 def words(t):
     # A raised or lowered run is a word of its own, so ²³⁸₉₂U, SO₄²⁻ and the
     # text layer's SO²⁻₄ compare by their numbers, whatever order they arrive in.
-    t = X.ITALIC_L_GAP.sub("", (t or "").replace("ᶿ", " "))   # ᶿ is a symbol, like ⦵
+    # ᶿ and Σ are symbols, like ⦵; a maths font's text layer stores Σ as "Ρ" or "R".
+    t = X.ITALIC_L_GAP.sub("", re.sub("[ᶿΣ×]", " ", t or ""))   # × too: Pearson stores it as \x1e
     t = SCRIPT_RUN.sub(r" \1 ", t)
     t = unicodedata.normalize("NFKC", t.translate(X.SYMBOL_PUA).translate(SCRIPTS).translate(LOOKALIKE)).lower()
     # Numbers and letters apart: "209Po" and ²⁰⁹Po both give 209, po.
@@ -191,7 +192,8 @@ def check(rows_path, x=None):
         # what the page shows is unknown, so it cannot stand in a row.
         texts = [row.get(f) or "" for f in ("shared_context", "prompt", "mark_scheme")] + \
             [str(o.get("text") if isinstance(o, dict) else o) for o in row.get("options") or []]
-        if any(re.search("[\ue000-\uf8ff\x00-\x08\x0b-\x1f]", x_) for x_ in texts):
+        # ...and Indic letters a broken maths font maps symbols to ("ൊ" for ÷, "ଷ").
+        if any(re.search("[\ue000-\uf8ff\x00-\x08\x0b-\x1f\u0900-\u0dff]", x_) for x_ in texts):
             flags.append("unmapped symbol (private-use character) left in the text")
         # A formula's atom counts are lowered; raised after an element with no
         # charge sign ("C⁸H¹⁸", "2H²SO⁴") they were misread, and the
