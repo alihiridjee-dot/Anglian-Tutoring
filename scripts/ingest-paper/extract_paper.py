@@ -248,6 +248,7 @@ def tidy(t):
     t = t.translate(SYMBOL_PUA)
     t = DOUBLED_MATH.sub(r"\1", t)
     t = re.sub(r"(\d)\s?ᶿ", r"\1°", t)          # a raised o after a number is a degree sign
+    t = re.sub(r"ᶿ(?=C\b)", "°", t)               # ...and before C, as in "temperature in °C"
     # Only a lone raised and lowered digit is a fraction: in ¹⁰³₄₅Rh the ³₄ is not ¾.
     for k, v in FRACTIONS.items():
         t = re.sub(f"(?<![⁰¹²³⁴⁵⁶⁷⁸⁹₀-₉]){k}(?![₀-₉⁰¹²³⁴⁵⁶⁷⁸⁹])", v, t)
@@ -907,6 +908,8 @@ DRAWN_ANSWER = re.compile(
     r"|\b(?:on|in) (?:Fig\.?|Figure) ?\d|\bdraw (?:a|the|an)\b"
     r"|\bon the (?:graph|grid|axes|diagram)\b|\b(?:displayed|skeletal) formula", re.I | re.M)
 # A tick-box answer is a multiple choice once its boxes are read as options.
+USE_FIGURE_FOR = re.compile(r"Use (?:the )?information (?:from|in) ((?:Figure|Fig\.?) ?\d+(?:\.\d+)?)"
+                            r"[^.]{0,40}?answer questions? (\d{1,2}\.\d+) (?:to|and) (\d{1,2}\.\d+)", re.I)
 BOX_ANSWER = re.compile(r"\bfrom the box\b|\bComplete the sentences?\b", re.I)
 TICK_ANSWER = re.compile(r"^Tick\b|\bTick \(✓\)|\(\s*✓\s*\)|Put a (?:cross|tick)", re.I | re.M)
 # A part that leans on its stem's figure says so.
@@ -1677,6 +1680,11 @@ def extract(qp_path, ms_path):
                 else:
                     note = "its stem has a figure this part does not mention: check it stands without"
                 break
+            # "Use information from Figure 1 to answer questions 01.3 to 01.6."
+            for m in USE_FIGURE_FOR.finditer("\n".join(stems + [prompt])):
+                lo, hi = (tuple(int(x) for x in g.split(".")) for g in (m.group(2), m.group(3)))
+                if n.mid is not None and lo <= (n.q, n.mid) <= hi:
+                    reasons.append(f"its question says to use {m.group(1)} for {m.group(2)} to {m.group(3)}")
             if DRAWN_ANSWER.search(prompt):
                 reasons.append("the answer is drawn or written on a figure")
             # A figure the board left out ("not reproduced here due to
