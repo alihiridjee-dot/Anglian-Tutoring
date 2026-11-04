@@ -1327,7 +1327,7 @@ def parse_ms(doc, board):
                     for d, x in re.findall(r"A[O0]\s?(\d)(?:\.(\d))?", mark_text + " " + parts.get("ao", "")):
                         cur["ao_codes"].add(f"AO{d}" + (f".{x}" if x else ""))
                     # Edexcel prints the strand after a space: "AO2 1", "AO3 2ab".
-                    for d, x, sub in re.findall(r"A[O0]\s?(\d)\s+(\d)([a-z]*)\b", mark_text + " " + parts.get("ao", "")):
+                    for d, x, sub in re.findall(r"A[O0]\s?(\d)(?:\s+|\s?[-–]\s?)(\d)([a-z]*)\b", mark_text + " " + parts.get("ao", "")):
                         for letter in (sub or [""]):
                             cur["ao_codes"].add(f"AO{d}.{x}{letter}")
                     # OCR's AO element column prints bare codes: "1.2 x 2  2.6 x 1".
