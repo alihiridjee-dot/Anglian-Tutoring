@@ -278,7 +278,8 @@ def check(rows_path, x=None):
                 flags.append("multiple-choice answer names no printed option")
         # A one-mark answer that is a bare letter (AQA's key: "C") is a choice too.
         letter_key = row.get("marks") == 1 and re.match(r"^\s*[A-H](?:\s|$)", scheme or "") \
-            and not re.match(r"^\s*[A-H]\s+[a-z]", scheme or "")   # "C is not as strong…": a compound, not a choice
+            and not re.match(r"^\s*[A-H]\s+[a-z]", scheme or "") \
+            and not re.match(r"^\s*[A-H]\s*=", scheme or "")       # "F = 9.2 + 12 – 13": a quantity, not a choice
         # A reader's "letter_checked" says the letter is an answer in its own right
         # (a spectral class "B", a point on a graph), not a choice.
         if not options and (ONLY_ANSWER.search(scheme or "") or (letter_key and not row.get("letter_checked"))):
