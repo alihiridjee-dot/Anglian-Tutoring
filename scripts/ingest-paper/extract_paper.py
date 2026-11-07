@@ -468,6 +468,8 @@ NOT_A_QUESTION_PAGE = re.compile(
 END_OF_PAPER = re.compile(r"^END OF (?:QUESTIONS|QUESTION PAPER|PAPER|EXAMINATION)\b|^TOTAL FOR PAPER\b"
                           r"|^Permission to reproduce items where third-party owned material"
                           r"|^Important values, constants and standards", re.I)   # Cambridge's data sheet
+# ...unless the page promises more (9700/12 2023: "TURN OVER FOR QUESTIONS 39 AND 40.").
+MORE_QUESTIONS = re.compile(r"\bTURN OVER FOR QUESTIONS?\s+\d+", re.I)
 DOTS = re.compile(r"^[.\s…_]{6,}$")
 DOT_RUN = re.compile(r"[.…]{4,}|_{4,}")
 
@@ -615,6 +617,8 @@ def parse_qp(doc, board, scheme_keys=frozenset()):
             if ended:
                 break
             if END_OF_PAPER.search(line.text.strip()):
+                if MORE_QUESTIONS.search(page.get_text()):
+                    break                        # the notice sits mid-paper: skip the rest of its page
                 ended = bool(questions)
                 continue
             if page.number < 3:
