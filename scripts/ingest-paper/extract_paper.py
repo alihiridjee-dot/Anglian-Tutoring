@@ -683,6 +683,12 @@ def parse_qp(doc, board, scheme_keys=frozenset()):
             if lab and lab[0] is not None and lab[1] is None and lab[2] is None and not lab[3].strip() \
                     and len(cells) >= 3 and all(re.fullmatch(r"[\d.,±–\-\s]+", c[2]) for c in cells[1:]):
                 lab = None
+            # Cambridge closes every question that has parts with "[Total: N]", so a
+            # number before the open question's total is a table's row number (9700/22
+            # 2023 "3 RNA base sequence"), not the next question.
+            if lab and lab[0] is not None and board == "cambridge" and totals and cur_q not in totals \
+                    and stack[1] is not None:
+                lab = None
             prev_bare = bare
             if not lab:
                 m = SHARED_INFO.search(" ".join(c[2] for c in cells))
