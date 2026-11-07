@@ -975,7 +975,8 @@ def page_ink(page):
     images = []
     for info in page.get_image_info():
         r = pymupdf.Rect(info["bbox"])
-        if r.width * r.height >= 1500 and r.x1 > 45 and r.x0 < page.rect.width - 45:
+        if r.width * r.height >= 1500 and r.x1 > 45 and r.x0 < page.rect.width - 45 \
+                and not (r.width < 40 and r.height > page.rect.height / 2):   # Edexcel's "DO NOT WRITE IN THIS AREA" strip
             images.append(r)
     return {"ink": ink, "ticks": ticks, "images": images}
 
