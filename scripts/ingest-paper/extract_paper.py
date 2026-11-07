@@ -671,8 +671,9 @@ def parse_qp(doc, board, scheme_keys=frozenset()):
             # A label opening the line.
             prev_node = next((n for n in reversed(stack) if n is not None), None)
             # AQA's label box can sit a little high and read as raised ("^0 3 . 1"),
-            # also a whole question's ("^1 2 The quark combination … sū.", raised by the bar).
-            if board == "aqa" and cells and re.match(r"\^\d\s?\d(?:\s?\.|\s)", cells[0][2]):
+            # also a whole question's ("^1 2 The quark combination … sū.", raised by the bar),
+            # or low beside a nuclide ("_0 3 . 4 An atom of argon is represented as ⁴⁰₁₈Ar").
+            if board == "aqa" and cells and re.match(r"[\^_]\d\s?\d(?:\s?\.|\s)", cells[0][2]):
                 cells = [(cells[0][0], cells[0][1], cells[0][2][1:])] + cells[1:]
             lab = read_label(board, cells[0], W, stack, cur_q, q_x, scheme_keys) if cells else None
             bare = cells[0][2].strip() if len(cells) == 1 and re.fullmatch(r"\d{1,2}", cells[0][2].strip()) else None
