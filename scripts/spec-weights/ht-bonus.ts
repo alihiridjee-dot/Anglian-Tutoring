@@ -33,13 +33,30 @@ if (!url || !key) throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY mu
 const writeCsv = process.argv.includes("--csv");
 const headers = { apikey: key, Authorization: `Bearer ${key}` };
 
-interface Topic { id: string; title: string; sort_order: number; subject: string; board: string; level: string }
-interface Point { id: string; topic_id: string; code: string; title: string; description: string | null; weight: string; sort_order: number }
+interface Topic {
+  id: string;
+  title: string;
+  sort_order: number;
+  subject: string;
+  board: string;
+  level: string;
+}
+interface Point {
+  id: string;
+  topic_id: string;
+  code: string;
+  title: string;
+  description: string | null;
+  weight: string;
+  sort_order: number;
+}
 
 async function all<T>(path: string): Promise<T[]> {
   const out: T[] = [];
   for (let from = 0; ; from += 1000) {
-    const res = await fetch(`${url}/rest/v1/${path}`, { headers: { ...headers, Range: `${from}-${from + 999}` } });
+    const res = await fetch(`${url}/rest/v1/${path}`, {
+      headers: { ...headers, Range: `${from}-${from + 999}` },
+    });
     if (!res.ok) throw new Error(`${res.status} ${path}: ${await res.text()}`);
     const page = (await res.json()) as T[];
     out.push(...page);
@@ -47,8 +64,12 @@ async function all<T>(path: string): Promise<T[]> {
   }
 }
 
-const topics = await all<Topic>("topics?select=id,title,sort_order,subject,board,level&level=in.(gcse,gcse_trilogy)&order=id");
-const points = await all<Point>("spec_points?select=id,topic_id,code,title,description,weight,sort_order&order=id");
+const topics = await all<Topic>(
+  "topics?select=id,title,sort_order,subject,board,level&level=in.(gcse,gcse_trilogy)&order=id",
+);
+const points = await all<Point>(
+  "spec_points?select=id,topic_id,code,title,description,weight,sort_order&order=id",
+);
 const topicById = new Map(topics.map((t) => [t.id, t]));
 
 const DESC_HT = /\(ht only(?::[^)]*)?\)|\(higher tier only\)/i;
@@ -88,7 +109,10 @@ function splitCsvLine(line: string): string[] {
 }
 
 const courseKey = (t: Topic) => `${t.board}-${t.level}-${t.subject}`;
-const changes = new Map<string, { p: Point; t: Topic; marker: string; from: number; to: number }[]>();
+const changes = new Map<
+  string,
+  { p: Point; t: Topic; marker: string; from: number; to: number }[]
+>();
 for (const p of points) {
   const t = topicById.get(p.topic_id);
   if (!t) continue;
@@ -104,9 +128,15 @@ for (const p of points) {
 /** Weeks per topic for one course, as the planner cuts a 34-week GCSE year. */
 const START = mondayOf(new Date("2026-09-07T12:00:00Z"));
 function weeksPerTopic(course: string, weightOf: (p: Point) => number) {
-  const ts = topics.filter((t) => courseKey(t) === course).sort((a, b) => a.sort_order - b.sort_order);
+  const ts = topics
+    .filter((t) => courseKey(t) === course)
+    .sort((a, b) => a.sort_order - b.sort_order);
   const inputs = ts
-    .map((t) => ({ topicId: t.id, title: t.title, weight: points.filter((p) => p.topic_id === t.id).reduce((s, p) => s + weightOf(p), 0) }))
+    .map((t) => ({
+      topicId: t.id,
+      title: t.title,
+      weight: points.filter((p) => p.topic_id === t.id).reduce((s, p) => s + weightOf(p), 0),
+    }))
     .filter((x) => x.weight > 0);
   const out = new Map<string, number>();
   for (const b of computePacing(inputs, START, addWeeks(START, 34))) {
@@ -122,7 +152,9 @@ for (const [course, list] of [...changes.entries()].sort()) {
   const before = weeksPerTopic(course, (p) => Number(p.weight));
   const after = weeksPerTopic(course, (p) => bump.get(p.id) ?? Number(p.weight));
   const moved = [...after.entries()].filter(([id, w]) => (before.get(id) ?? 0) !== w);
-  const courseWeight = points.filter((p) => topicById.get(p.topic_id) && courseKey(topicById.get(p.topic_id)!) === course).reduce((s, p) => s + Number(p.weight), 0);
+  const courseWeight = points
+    .filter((p) => topicById.get(p.topic_id) && courseKey(topicById.get(p.topic_id)!) === course)
+    .reduce((s, p) => s + Number(p.weight), 0);
   console.log(
     `\n${course}: ${list.length} points +${HT_ONLY} (course weight +${((list.length * HT_ONLY * 100) / courseWeight).toFixed(1)}%); ` +
       `${moved.length} topic(s) change length in a 34-week year`,
@@ -148,7 +180,9 @@ for (const [course, list] of [...changes.entries()].sort()) {
       const c = byCode.get(fields[0]);
       if (!c) return line;
       if (Number(fields[weightAt]) !== c.from)
-        throw new Error(`${course} ${fields[0]}: CSV weight ${fields[weightAt]} is not the live ${c.from}`);
+        throw new Error(
+          `${course} ${fields[0]}: CSV weight ${fields[weightAt]} is not the live ${c.from}`,
+        );
       n++;
       fields[weightAt] = c.to.toFixed(2);
       return fields.join(",");
@@ -157,4 +191,6 @@ for (const [course, list] of [...changes.entries()].sort()) {
     await Bun.write(file, next.join("\n"));
   }
 }
-console.log(`\n${total} points in ${changes.size} courses${writeCsv ? " — CSVs rewritten; load with load-weights.ts" : " — report only, pass --csv to rewrite the CSVs"}`);
+console.log(
+  `\n${total} points in ${changes.size} courses${writeCsv ? " — CSVs rewritten; load with load-weights.ts" : " — report only, pass --csv to rewrite the CSVs"}`,
+);
