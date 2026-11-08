@@ -17,6 +17,38 @@ export const CADENCES: { key: Cadence; label: string; unit: string }[] = [
  */
 export const WEEKS_PER_CYCLE: Record<Cadence, number> = { weekly: 1, monthly: 4, termly: 12 };
 
+export type SubjectCount = 1 | 2 | 3;
+
+/** What one plan costs per cycle, in pence, by cadence and subject count. */
+export type PriceLadder = Record<Cadence, Record<SubjectCount, number>>;
+
+/**
+ * The prices the public pricing section shows and scripts/stripe-seed.ts makes
+ * Stripe charge. packages.price_pence and the Stripe prices carry the same
+ * numbers; Stripe prices never change, so editing a number here means a new
+ * Stripe price (see docs/STRIPE_SETUP.md), not just a new figure on the page.
+ *
+ * GCSE, Combined Trilogy and International GCSE share the general ladder
+ * (iGCSE has its own Stripe prices at the same amounts).
+ */
+export const GENERAL_PRICE_PENCE: PriceLadder = {
+  weekly: { 1: 1999, 2: 2239, 3: 2399 },
+  monthly: { 1: 4999, 2: 5599, 3: 5999 },
+  termly: { 1: 13999, 2: 15699, 3: 16799 },
+};
+
+/** A-level: 10% above the general ladder, to the nearest penny (8 Nov 2026). */
+export const ALEVEL_PRICE_PENCE: PriceLadder = {
+  weekly: { 1: 2199, 2: 2463, 3: 2639 },
+  monthly: { 1: 5499, 2: 6159, 3: 6599 },
+  termly: { 1: 15399, 2: 17269, 3: 18479 },
+};
+
+/** The ladder a curriculum level is sold at; KS3 and everything else use the general one. */
+export function priceLadderFor(level: string | null | undefined): PriceLadder {
+  return level === "alevel" ? ALEVEL_PRICE_PENCE : GENERAL_PRICE_PENCE;
+}
+
 /** A cycle's price spread over its weeks, in pence. */
 export function pricePerWeek(cadence: Cadence, pence: number): number {
   return pence / WEEKS_PER_CYCLE[cadence];

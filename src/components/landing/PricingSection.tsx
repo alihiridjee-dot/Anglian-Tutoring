@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Check, ChevronDown, Sparkles } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SectionSeam } from "@/components/landing/SectionSeam";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
 import { boardLabel } from "@/lib/curriculum/courseSummary";
@@ -9,37 +9,38 @@ import {
   BEST_VALUE_CADENCE,
   BEST_VALUE_LABEL,
   WEEKS_PER_CYCLE,
+  priceLadderFor,
   type Cadence,
+  type PriceLadder,
+  type SubjectCount as Count,
 } from "@/lib/billing/entitlements";
 
 // ---------------------------------------------------------------------------
 // Pricing model
 //
-// A plan is built from three choices — level (KS3 / GCSE / International GCSE),
-// how many subjects, and cadence — plus a board that is captured but never
-// affects price. Every level costs the same. Combined-Science Trilogy is a
-// GCSE-only qualification that always counts as three subjects.
+// A plan is built from three choices — level (KS3 / GCSE / International GCSE /
+// A-Level), how many subjects, and cadence — plus a board that is captured but
+// never affects price. KS3, GCSE and International GCSE cost the same; A-Level
+// costs 10% more. Combined-Science Trilogy is a GCSE-only qualification that
+// always counts as three subjects.
 //
 // International GCSE is a level, not a board: every board runs one, and it is a
 // different qualification from the domestic GCSE, so it carries its own spec and
-// its own package ladder rather than sharing GCSE's.
+// its own package ladder rather than sharing GCSE's. A-Level has its own ladder
+// for the same reason, and its own prices.
 //
-// Monthly is the anchor the business sets directly. Weekly and Termly are
-// derived from it with the ratios baked into the original 1-subject prices
-// (weekly ≈ monthly × 0.4, termly ≈ monthly × 2.8), rounded to a clean .99.
-// Numbers are stored in pence to avoid float drift.
+// The prices live in GENERAL_PRICE_PENCE and ALEVEL_PRICE_PENCE (shared with
+// the Stripe seed script, so the page and the charge can't drift). Monthly is
+// the anchor the business sets directly. Weekly and Termly are derived from it
+// with the ratios baked into the original 1-subject prices (weekly ≈ monthly ×
+// 0.4, termly ≈ monthly × 2.8), rounded to a clean .99. Numbers are stored in
+// pence to avoid float drift.
 //
 // Live sessions scale at 1 per subject per week, so per-session equivalence
 // falls as students add subjects — that lower number is the headline value.
 // ---------------------------------------------------------------------------
 
-type Count = 1 | 2 | 3;
-
-const PRICE_PENCE: Record<Cadence, Record<Count, number>> = {
-  weekly: { 1: 1999, 2: 2239, 3: 2399 },
-  monthly: { 1: 4999, 2: 5599, 3: 5999 },
-  termly: { 1: 13999, 2: 15699, 3: 16799 },
-};
+type PricingLevel = "ks3" | "gcse" | "igcse" | "alevel";
 
 const CADENCES: {
   cadence: Cadence;
@@ -82,7 +83,7 @@ const gbp = (pence: number) =>
   `£${(pence / 100).toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
 export function PricingSection() {
-  const [level, setLevel] = useState<"ks3" | "gcse" | "igcse">("gcse");
+  const [level, setLevel] = useState<PricingLevel>("gcse");
   const [trilogy, setTrilogy] = useState(false);
   const [subjects, setSubjects] = useState<string[]>(["biology"]);
   const [board, setBoard] = useState<BoardV>("aqa");
@@ -93,7 +94,13 @@ export function PricingSection() {
 
   // The curriculum this plan would be taught from — null for KS3, which has none.
   const curriculumLevel: LevelV | null =
-    level === "ks3" ? null : level === "igcse" ? "igcse" : isTrilogy ? "gcse_trilogy" : "gcse";
+    level === "ks3"
+      ? null
+      : level === "igcse" || level === "alevel"
+        ? level
+        : isTrilogy
+          ? "gcse_trilogy"
+          : "gcse";
 
   /** Taught at the chosen level under some board. Ungated until coverage lands. */
   const taught = (id: string): boolean =>
@@ -135,14 +142,14 @@ export function PricingSection() {
   })();
   const liveBoard: BoardV = boardOptions.includes(board) ? board : (boardOptions[0] ?? "aqa");
 
+  // Sign-up carries this to onboarding, which preselects it when it names a
+  // real level (alevel, igcse, gcse_trilogy do; ks3 and gcse_separate don't).
   const level_key =
-    level === "ks3"
-      ? "ks3"
-      : level === "igcse"
-        ? "igcse"
-        : isTrilogy
-          ? "gcse_trilogy"
-          : "gcse_separate";
+    level === "ks3" || level === "igcse" || level === "alevel"
+      ? level
+      : isTrilogy
+        ? "gcse_trilogy"
+        : "gcse_separate";
 
   const subjectsSummary = isTrilogy
     ? "Combined Trilogy"
@@ -189,9 +196,11 @@ export function PricingSection() {
                   ? "KS3 (Years 7–9)"
                   : level === "igcse"
                     ? "International GCSE"
-                    : isTrilogy
-                      ? "GCSE · Trilogy"
-                      : "GCSE"
+                    : level === "alevel"
+                      ? "A-Level"
+                      : isTrilogy
+                        ? "GCSE · Trilogy"
+                        : "GCSE"
               }
               open={openStep === 0}
               onOpen={() => setOpenStep(0)}
@@ -201,10 +210,11 @@ export function PricingSection() {
                   { value: "ks3", label: "KS3" },
                   { value: "gcse", label: "GCSE" },
                   { value: "igcse", label: "International" },
+                  { value: "alevel", label: "A-Level" },
                 ]}
                 value={level}
                 onChange={(v) => {
-                  const next = v as "ks3" | "gcse" | "igcse";
+                  const next = v as PricingLevel;
                   setLevel(next);
                   if (next !== "gcse") {
                     setTrilogy(false);
@@ -326,6 +336,7 @@ export function PricingSection() {
           {/* Live pricing tiers — all three shown at once, each a full-height
               premium card that matches the builder's height (items-stretch) */}
           <PricingTiers
+            ladder={priceLadderFor(curriculumLevel)}
             count={count}
             level_key={level_key}
             chosenSubjects={chosenSubjects}
@@ -342,11 +353,13 @@ export function PricingSection() {
  *  grid) makes every card match the builder's height exactly. The middle
  *  highlighted tier is lifted and styled dark to draw the eye. */
 function PricingTiers({
+  ladder,
   count,
   level_key,
   chosenSubjects,
   board,
 }: {
+  ladder: PriceLadder;
   count: Count;
   level_key: string;
   chosenSubjects: string[];
@@ -355,7 +368,7 @@ function PricingTiers({
   return (
     <div className="grid h-full grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
       {CADENCES.map((tier) => {
-        const pence = PRICE_PENCE[tier.cadence][count];
+        const pence = ladder[tier.cadence][count];
         // One live session per subject per week, over the shared weeks per cycle.
         const perSession = pence / (WEEKS_PER_CYCLE[tier.cadence] * count);
         const weeklyLessons = count;
@@ -542,7 +555,11 @@ function Step({
   );
 }
 
-/** Smooth sliding segmented toggle — a pill glides under the active option. */
+/** Smooth sliding segmented toggle — a pill glides under the active option.
+ *  Labels keep to one line, so a long one ("International") makes its slot
+ *  wider than the rest; the pill therefore follows the active button's own
+ *  measured box, falling back to equal slots before the first measurement
+ *  (server render). */
 function Slider({
   options,
   value,
@@ -556,22 +573,46 @@ function Slider({
     0,
     options.findIndex((o) => o.value === value),
   );
+  const rowRef = useRef<HTMLDivElement>(null);
+  const [box, setBox] = useState<{ left: number; width: number } | null>(null);
+  const labels = options.map((o) => o.label).join("|");
+
+  useEffect(() => {
+    const row = rowRef.current;
+    if (!row) return;
+    const place = () => {
+      const active = row.querySelectorAll<HTMLButtonElement>("button")[idx];
+      if (active) setBox({ left: active.offsetLeft, width: active.offsetWidth });
+    };
+    place();
+    // The buttons as well as the row: a late web font resizes the labels
+    // without changing the row's width.
+    const resize = new ResizeObserver(place);
+    resize.observe(row);
+    row.querySelectorAll("button").forEach((b) => resize.observe(b));
+    return () => resize.disconnect();
+  }, [idx, labels]);
+
   return (
-    <div className="relative flex rounded-full bg-secondary p-1">
+    <div ref={rowRef} className="relative flex rounded-full bg-secondary p-1">
       <span
         aria-hidden
-        className="absolute top-1 bottom-1 rounded-full bg-card shadow-sm ring-1 ring-border transition-transform duration-300 ease-out"
-        style={{
-          width: `calc((100% - 0.5rem) / ${options.length})`,
-          transform: `translateX(${idx * 100}%)`,
-        }}
+        className="absolute top-1 bottom-1 left-0 rounded-full bg-card shadow-sm ring-1 ring-border transition-[transform,width] duration-300 ease-out"
+        style={
+          box
+            ? { width: box.width, transform: `translateX(${box.left}px)` }
+            : {
+                width: `calc((100% - 0.5rem) / ${options.length})`,
+                transform: `translateX(calc(0.25rem + ${idx * 100}%))`,
+              }
+        }
       />
       {options.map((o) => (
         <button
           key={o.value}
           type="button"
           onClick={() => onChange(o.value)}
-          className={`relative z-10 min-h-11 flex-1 rounded-full px-2 py-2 text-sm leading-tight font-semibold transition-colors duration-200 sm:pointer-fine:min-h-0 sm:px-3 ${
+          className={`relative z-10 min-h-11 flex-1 whitespace-nowrap rounded-full px-2 py-2 text-sm leading-tight font-semibold transition-colors duration-200 sm:pointer-fine:min-h-0 sm:px-3 ${
             value === o.value
               ? "text-[var(--primary-deep)]"
               : "text-muted-foreground hover:text-foreground"
