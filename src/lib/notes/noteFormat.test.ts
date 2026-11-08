@@ -1,15 +1,19 @@
 import { describe, expect, test } from "bun:test";
 import {
+  enzymeFactor,
   fillTemplate,
+  fillWorking,
   headingIds,
   noteLayerFor,
   pickNoteLayer,
   resultDecimals,
+  sequencePlaces,
   sliderDecimals,
   stepsOf,
   subjectOfNoteId,
   validateNote,
   type NoteDiagram,
+  type SliderDiagram,
 } from "./noteFormat";
 
 describe("sliderDecimals", () => {
@@ -232,5 +236,81 @@ describe("a student reads the layer for their own course", () => {
       },
     };
     expect(validateNote(n)).toEqual([]);
+  });
+});
+
+describe("a worked answer shows its unit once", () => {
+  const v = { m: "0.2", answer: "226000 J" };
+  const fill = (line: string, unit?: string) => fillWorking(line, v, "226000", unit);
+
+  test("a line that writes the unit gets the bare number", () => {
+    expect(fill("E = {answer} J", "J")).toBe("E = 226000 J");
+    expect(fill("E = **{answer} J**", "J")).toBe("E = **226000 J**");
+    expect(fill("efficiency = {answer}%", "%")).toBe("efficiency = 226000%");
+    expect(fill("Magnification = ×{answer}", "×")).toBe("Magnification = ×226000");
+    expect(fill("= **{answer} × 10²³**", "× 10²³ atoms")).toBe("= **226000 × 10²³**");
+  });
+
+  test("a line without the unit gets it added", () => {
+    expect(fill("Real length = **{answer}**", "µm")).toBe("Real length = **226000 J**");
+    expect(fill("Divide by 2 to get the mean: {answer}", "cm³")).toBe(
+      "Divide by 2 to get the mean: 226000 J",
+    );
+    expect(fill("{answer}")).toBe("226000 J");
+  });
+
+  test("a word that only starts like the unit is not the unit", () => {
+    expect(fill("{answer} gives the mass", "g")).toBe("226000 J gives the mass");
+  });
+});
+
+describe("steps that may come in either order", () => {
+  test("a swap inside a free run is right, outside it is wrong", () => {
+    expect(sequencePlaces([0, 2, 1, 3], [[1, 2]])).toEqual([true, true, true, true]);
+    expect(sequencePlaces([0, 2, 1, 3])).toEqual([true, false, false, true]);
+    expect(sequencePlaces([1, 0, 2, 3], [[2, 3]])).toEqual([false, false, true, true]);
+  });
+
+  test("free runs are checked", () => {
+    const base = { kind: "sequence", alt: "a", prompt: "p", steps: ["a", "b", "c", "d"] };
+    expect(errorsFor({ ...base, free: [[1, 2]] })).toEqual([]);
+    expect(errorsFor({ ...base, free: [[2, 1]] }).join()).toContain("free must be");
+    expect(
+      errorsFor({
+        ...base,
+        free: [
+          [0, 2],
+          [2, 3],
+        ],
+      }).join(),
+    ).toContain("free must be");
+    expect(errorsFor({ ...base, free: [[0, 3]] }).join()).toContain("can't cover every step");
+  });
+});
+
+describe("a cold enzyme is slow, not denatured", () => {
+  const slider = (unit: string, label: string): SliderDiagram => ({
+    kind: "slider",
+    alt: "a",
+    inputs: [{ id: "T", label, unit, min: 0, max: 70, step: 5, value: 37 }],
+    outputs: [{ label: "Rate", formula: "T" }],
+    scene: { kind: "enzyme", condition: "T", optimum: 37, denatures_at: 17 },
+  });
+  const scene = (d: SliderDiagram) => d.scene as Parameters<typeof enzymeFactor>[1];
+
+  test("a °C or temperature slider counts as temperature, anything else as pH", () => {
+    const t = slider("°C", "Temperature");
+    expect(enzymeFactor(t, scene(t))).toBe("temperature");
+    const p = slider("", "pH");
+    expect(enzymeFactor(p, scene(p))).toBe("ph");
+    expect(enzymeFactor(p, { ...scene(p), factor: "temperature" })).toBe("temperature");
+  });
+
+  test("factor is checked", () => {
+    const t = slider("°C", "Temperature");
+    expect(errorsFor(t)).toEqual([]);
+    expect(
+      errorsFor({ ...t, scene: { ...scene(t), factor: "heat" } } as unknown as NoteDiagram).join(),
+    ).toContain("factor must be temperature or ph");
   });
 });
