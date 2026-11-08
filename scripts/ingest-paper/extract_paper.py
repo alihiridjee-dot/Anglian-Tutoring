@@ -192,6 +192,7 @@ SYMBOL = {
     0xE5: "∑", 0xF2: "∫",
 }
 SYMBOL_PUA = {0xF000 + k: v for k, v in SYMBOL.items()}
+PEARSON_TNR = str.maketrans({"¨": "Δ", "ǻ": "Δ", "ș": "θ", "Ȧ": "ω", "ȝ": "μ", "Ȝ": "λ", "Į": "α"})
 # Mark schemes tick their marking points in a dingbat font. The same code means
 # a different glyph in each, so the font decides: Wingdings ü and Wingdings 2
 # P are both ✓, ZapfDingbats 3 is ✓ too.
@@ -235,6 +236,9 @@ def glyphs(text, font):
                 c = ord(ch)
                 out.append(table.get(c & 0xFF if c >= 0xF000 else c, ch if c < 0xF000 else ""))
             return "".join(out)
+    # Pearson's 2017–19 Times New Roman sets Δ and Greek on Latin-extended codes.
+    if "timesnewroman" in f.replace(" ", ""):
+        text = text.translate(PEARSON_TNR)
     return text.translate(SYMBOL_PUA).replace("\x07", " ")   # Pearson's tab after "Step 1"
 
 
