@@ -17,7 +17,7 @@
           "items": [
             {
               "term": "Insulator",
-              "meaning": "A material that does not conduct. Static charge only builds up on insulators."
+              "meaning": "A material that does not conduct, so charge on it cannot flow away. Static charge builds up on insulators, and on a conductor only if it is insulated from the ground."
             },
             {
               "term": "Electron",

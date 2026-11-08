@@ -266,7 +266,7 @@
       "spec_codes": ["AQA 4.2.4.1", "AQA T 6.2.4.1"],
       "worked_example": {
         "exemplar_id": "02bfab1a-4b1f-4164-ae75-6a9c87186e6b",
-        "source": "AQA jun 2024, Paper 1 (H), Q5.2",
+        "source": "AQA jun 2024, Paper 1 (H), Q05.2",
         "question": "The vending machine identifies the value of the coin by measuring the resistance of the coin. The power dissipated by the coin is 340 mW when the current in the coin is 0.75 A. Calculate the resistance of the coin.",
         "marks": 4,
         "answer_points": ["340 mW = 0.34 W", "0.34 = 0.75² × R", "R = 0.34 / 0.75²", "R = 0.60 Ω"],

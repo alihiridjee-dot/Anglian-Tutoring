@@ -30,7 +30,7 @@
           "items": [
             "A catalyst **increases the rate** of a reaction.",
             "It is **not used up**: it is chemically unchanged and has the same mass at the end.",
-            "It does not change the products of the reaction.",
+            "It does not change the products of the reaction, or the total amount of product made.",
             "It is not written in the chemical equation, because it is not used up.",
             "Different reactions need different catalysts."
           ]
@@ -205,7 +205,7 @@
       "spec_codes": ["AQA 4.6.1.4", "AQA T 5.6.1.4"],
       "worked_example": {
         "exemplar_id": "497ad19b-0962-4a44-9b15-2c49f5086c08",
-        "source": "AQA jun 2025, Paper 2 (H), Q4.7",
+        "source": "AQA jun 2025, Paper 2 (H), Q04.7",
         "question": "Explain the effect of using a catalyst on the rate of production of methanol.",
         "marks": 3,
         "answer_points": [

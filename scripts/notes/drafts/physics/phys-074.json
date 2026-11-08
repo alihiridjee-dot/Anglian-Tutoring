@@ -3,7 +3,7 @@
   "concept_id": "phys-074",
   "subject": "physics",
   "title": "Uses of electromagnetic waves",
-  "key_idea": "Each part of the electromagnetic spectrum has practical uses, chosen because of its properties. Radio waves are produced by oscillations in electrical circuits, and when absorbed they induce oscillations of the same frequency in a circuit.",
+  "key_idea": "Each part of the electromagnetic spectrum has practical uses, chosen because of its properties. (Higher tier) Radio waves are produced by oscillations in electrical circuits, and when absorbed they induce oscillations of the same frequency in a circuit.",
   "sections": [
     {
       "heading": "Uses of the spectrum",
@@ -14,7 +14,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Pick each wave below to see its uses. The second row is Higher tier explanation."
+          "text": "Pick each wave below to see its uses. (AQA: Higher tier) The second row says why each wave suits its job."
         },
         {
           "type": "diagram",
@@ -130,7 +130,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "This section covers how radio waves are made and detected. This is Higher tier content on some specifications."
+          "text": "This section covers how radio waves are made and detected."
         },
         {
           "type": "definitions",
@@ -202,7 +202,7 @@
       "spec_codes": ["AQA 4.6.2.4", "AQA T 6.6.2.4"],
       "worked_example": {
         "exemplar_id": "46d01f25-f796-4987-8d35-92d3c81e7004",
-        "source": "AQA jun 2020, Paper 2 (H), Q5.1",
+        "source": "AQA jun 2020, Paper 2 (H), Q05.1",
         "question": "X-rays form part of the electromagnetic spectrum. Radiographers use X-rays to produce images of bones inside the body.\n\nExplain why X-rays can be used to produce images of the bones inside the body.",
         "marks": 2,
         "answer_points": [

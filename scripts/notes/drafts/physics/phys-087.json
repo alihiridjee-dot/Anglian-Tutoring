@@ -3,7 +3,7 @@
   "concept_id": "phys-087",
   "subject": "physics",
   "title": "Transformers",
-  "key_idea": "A transformer changes the size of an alternating p.d. An a.c. in the primary coil makes a changing field in the iron core, which induces a p.d. in the secondary coil. The turns ratio gives the p.d.s, and for 100% efficiency power out equals power in.",
+  "key_idea": "(Higher tier) A transformer changes the size of an alternating p.d. An a.c. in the primary coil makes a changing field in the iron core, inducing a p.d. in the secondary. The turns ratio gives the p.d.s. (AQA and OCR: Higher tier) For 100% efficiency, power out equals power in.",
   "sections": [
     {
       "heading": "How a transformer works (Higher tier)",
