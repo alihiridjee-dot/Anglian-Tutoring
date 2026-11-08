@@ -3,7 +3,7 @@ EDEX 1.1,Explain how the sub-cellular structures of eukaryotic and prokaryotic c
 EDEX 1.2,"Describe how specialised cells are adapted to their function, including: a sperm cells – a",3.2,1.2
 EDEX 1.3,"Explain how changes in microscope technology, including electron microscopy, have enabled ",2.12,1.3
 EDEX 1.4,"Demonstrate an understanding of number, size and scale, including the use of estimations a",1.72,1.4
-EDEX 1.5,Demonstrate an understanding of the relationship between quantitative units in relation to,4.35,1.5
+EDEX 1.5,Demonstrate an understanding of the relationship between quantitative units in relation to,4.65,1.5
 EDEX 1.6,"Core Practical: Investigate biological specimens using microscopes, including magnificatio",2.8,1.6
 EDEX 1.7,Explain the mechanism of enzyme action including the active site and enzyme specificity,1.7,1.7
 EDEX 1.8,Explain how enzymes can be denatured due to changes in the shape of the active site,1.7,1.8
@@ -26,8 +26,8 @@ EDEX 2.7,Demonstrate an understanding of the use of percentiles charts to monito
 EDEX 2.8,"Describe the function of embryonic stem cells, stem cells in animals and meristems in plan",1.6,2.8
 EDEX 2.9,Discuss the potential benefits and risks associated with the use of stem cells in medicine,1.9,2.9
 EDEX 2.10B,"Describe the structures and functions of the brain including the cerebellum, cerebral hemi",1.3,2.10B
-EDEX 2.11B,Explain how the difficulties of accessing brain tissue inside the skull can be overcome by,2.15,2.11B
-EDEX 2.12B,Explain some of the limitations in treating damage and disease in the brain and other part,1.85,2.12B
+EDEX 2.11B,Explain how the difficulties of accessing brain tissue inside the skull can be overcome by,2.45,2.11B
+EDEX 2.12B,Explain some of the limitations in treating damage and disease in the brain and other part,2.15,2.12B
 EDEX 2.13,"Explain the structure and function of sensory receptors, sensory neurones, relay neurones ",2.42,2.13
 EDEX 2.14,"Explain the structure and function of a reflex arc including sensory, relay and motor neur",2.15,2.14
 EDEX 2.15B,Explain the structure and function of the eye as a sensory receptor including the role of:,3.65,2.15B
@@ -39,10 +39,10 @@ EDEX 3.3,"Explain the role of meiotic cell division, including the production of
 EDEX 3.4,Describe DNA as a polymer made up of: a two strands coiled to form a double helix b strand,3.5,3.4
 EDEX 3.5,Describe the genome as the entire DNA of an organism and a gene as a section of a DNA mole,1.9,3.5
 EDEX 3.6,Explain how DNA can be extracted from fruit,1.7,3.6
-EDEX 3.7B,Explain how the order of bases in a section of DNA decides the order of amino acids in the,2.45,3.7B
-EDEX 3.8B,"Describe the stages of protein synthesis, including transcription and translation: a RNA p",5.5,3.8B
-EDEX 3.9B,Describe how genetic variants in the non-coding DNA of a gene can affect phenotype by infl,1.95,3.9B
-EDEX 3.10B,Describe how genetic variants in the coding DNA of a gene can affect phenotype by altering,2.1,3.10B
+EDEX 3.7B,Explain how the order of bases in a section of DNA decides the order of amino acids in the,2.75,3.7B
+EDEX 3.8B,"Describe the stages of protein synthesis, including transcription and translation: a RNA p",5.80,3.8B
+EDEX 3.9B,Describe how genetic variants in the non-coding DNA of a gene can affect phenotype by infl,2.25,3.9B
+EDEX 3.10B,Describe how genetic variants in the coding DNA of a gene can affect phenotype by altering,2.40,3.10B
 EDEX 3.11B,Describe the work of Gregor Mendel in discovering the basis of genetics and recognise the ,1.73,3.11B
 EDEX 3.12,Explain why there are differences in the inherited characteristics as a result of alleles,2.15,3.12
 EDEX 3.13,"Explain the terms: chromosome, gene, allele, dominant, recessive, homozygous, heterozygous",1.7,3.13
@@ -50,7 +50,7 @@ EDEX 3.14,"Explain monohybrid inheritance using genetic diagrams, Punnett square
 EDEX 3.15,"Describe how the sex of offspring is determined at fertilisation, using genetic diagrams 1",1.6,3.15
 EDEX 3.16,"Calculate and analyse outcomes (using probabilities, ratios and percentages) from monohybr",2.17,3.16
 EDEX 3.17B,Describe the inheritance of the ABO blood groups with reference to codominance and multipl,1.6,3.17B
-EDEX 3.18B,"Explain how sex-linked genetic disorders are inherited 1c 2c, 2e 4a",2.0,3.18B
+EDEX 3.18B,"Explain how sex-linked genetic disorders are inherited 1c 2c, 2e 4a",2.30,3.18B
 EDEX 3.19,State that most phenotypic features are the result of multiple genes rather than single ge,1.0,3.19
 EDEX 3.20,"Describe the causes of variation that influence phenotype, including: a genetic variation ",2.6,3.20
 EDEX 3.21,Discuss the outcomes of the Human Genome Project and its potential applications within med,1.9,3.21
@@ -66,7 +66,7 @@ EDEX 4.7,Describe how genetic analysis has led to the suggestion of the three do
 EDEX 4.8,Explain selective breeding and its impact on food plants and domesticated animals,1.7,4.8
 EDEX 4.9B,Describe the process of tissue culture and its advantages in medical research and plant br,1.3,4.9B
 EDEX 4.10,Describe genetic engineering as a process which involves modifying the genome of an organi,1.75,4.10
-EDEX 4.11,Describe the main stages of genetic engineering including the use of: a restriction enzyme,3.12,4.11
+EDEX 4.11,Describe the main stages of genetic engineering including the use of: a restriction enzyme,3.42,4.11
 EDEX 4.12B,Explain the advantages and disadvantages of genetic engineering to produce GM organisms in,2.12,4.12B
 EDEX 4.13B,Explain the advantages and disadvantages of agricultural solutions to the demands of a gro,2.55,4.13B
 EDEX 4.14,Evaluate the benefits and risks of genetic engineering and selective breeding in modern ag,3.6,4.14
@@ -80,7 +80,7 @@ EDEX 5.7B,"Describe the lifecycle of a virus, including lysogenic and lytic path
 EDEX 5.8,Explain how sexually transmitted infections (STIs) are spread and how this spread can be r,2.7,5.8
 EDEX 5.9B,Describe how some plants defend themselves against attack from pests and pathogens by phys,1.35,5.9B
 EDEX 5.10B,Describe how plants defend themselves against attack from pests and pathogens by producing,1.62,5.10B
-EDEX 5.11B,"Describe different ways plant diseases can be detected and identified, in the lab and in t",2.12,5.11B
+EDEX 5.11B,"Describe different ways plant diseases can be detected and identified, in the lab and in t",2.42,5.11B
 EDEX 5.12,Describe how the physical barriers and chemical defences of the human body provide protect,2.83,5.12
 EDEX 5.13,Explain the role of the specific immune system of the human body in defence against diseas,4.4,5.13
 EDEX 5.14,"Explain the body’s response to immunisation using an inactive form of a pathogen 2c, 2g 4a",2.45,5.14
@@ -90,17 +90,17 @@ EDEX 5.17B,"Explain the aseptic techniques used in culturing microorganisms in t
 EDEX 5.18B,"Core Practical: Investigate the effects of antiseptics, antibiotics or plant extracts on m",2.8,5.18B
 EDEX 5.19B,Calculate cross-sectional areas of bacterial cultures and clear agar jelly using πr2 1a 2c,2.1,5.19B
 EDEX 5.20,"Describe that the process of developing new medicines, including antibiotics, has many sta",1.45,5.20
-EDEX 5.21B,"Describe the production of monoclonal antibodies, including: a use of lymphocytes which pr",2.95,5.21B
-EDEX 5.22B,"Explain the use of monoclonal antibodies, including: a in pregnancy testing b in diagnosis",3.75,5.22B
+EDEX 5.21B,"Describe the production of monoclonal antibodies, including: a use of lymphocytes which pr",3.25,5.21B
+EDEX 5.22B,"Explain the use of monoclonal antibodies, including: a in pregnancy testing b in diagnosis",4.05,5.22B
 EDEX 5.23,Describe that many non-communicable human diseases are caused by the interaction of a numb,2.08,5.23
 EDEX 5.24,"Explain the effect of lifestyle factors on non-communicable diseases at local, national an",4.3,5.24
 EDEX 5.25,"Evaluate some different treatments for cardiovascular disease, including: a life-long medi",4.95,5.25
 EDEX 6.1,Describe photosynthetic organisms as the main producers of food and therefore biomass,1.3,6.1
 EDEX 6.2,Describe photosynthesis in plants and algae as an endothermic reaction that uses light ene,1.43,6.2
 EDEX 6.3,"Explain the effect of temperature, light intensity and carbon dioxide concentration as lim",2.05,6.3
-EDEX 6.4,"Explain the interactions of temperature, light intensity and carbon dioxide concentration ",2.0,6.4
+EDEX 6.4,"Explain the interactions of temperature, light intensity and carbon dioxide concentration ",2.30,6.4
 EDEX 6.5,Core Practical: Investigate the effect of light intensity on the rate of photosynthesis 2c,2.8,6.5
-EDEX 6.6,Explain how the rate of photosynthesis is directly proportional to light intensity and inv,2.77,6.6
+EDEX 6.6,Explain how the rate of photosynthesis is directly proportional to light intensity and inv,3.07,6.6
 EDEX 6.7,Explain how the structure of the root hair cells is adapted to absorb water and mineral io,1.7,6.7
 EDEX 6.8,Explain how the structures of the xylem and phloem are adapted to their function in the pl,3.2,6.8
 EDEX 6.9,"Explain how water and mineral ions are transported through the plant by transpiration, inc",1.72,6.9
@@ -110,27 +110,27 @@ EDEX 6.12,"Explain the effect of environmental factors on the rate of water upta
 EDEX 6.13,"Demonstrate an understanding of rate calculations for transpiration 1a, 1c 2b, 2c 4a, 4b, ",1.42,6.13
 EDEX 6.14B,Explain how plants are adapted to survive in extreme environments including the effect of ,2.07,6.14B
 EDEX 6.15B,"Explain how plant hormones control and coordinate plant growth and development, including ",2.0,6.15B
-EDEX 6.16B,"Describe the commercial uses of auxins, gibberellins and ethene in plants, including: a au",4.15,6.16B
+EDEX 6.16B,"Describe the commercial uses of auxins, gibberellins and ethene in plants, including: a au",4.45,6.16B
 EDEX 7.1,Describe where hormones are produced and how they are transported from endocrine glands to,1.53,7.1
-EDEX 7.2,Explain that adrenalin is produced by the adrenal glands to prepare the body for fight or ,4.5,7.2
-EDEX 7.3,"Explain how thyroxine controls metabolic rate as an example of negative feedback, includin",4.83,7.3
+EDEX 7.2,Explain that adrenalin is produced by the adrenal glands to prepare the body for fight or ,4.80,7.2
+EDEX 7.3,"Explain how thyroxine controls metabolic rate as an example of negative feedback, includin",5.13,7.3
 EDEX 7.4,"Describe the stages of the menstrual cycle, including the roles of the hormones oestrogen ",1.68,7.4
-EDEX 7.5,"Explain the interactions of oestrogen, progesterone, FSH and LH in the control of the mens",2.2,7.5
+EDEX 7.5,"Explain the interactions of oestrogen, progesterone, FSH and LH in the control of the mens",2.50,7.5
 EDEX 7.6,Explain how hormonal contraception influences the menstrual cycle and prevents pregnancy,1.7,7.6
 EDEX 7.7,"Evaluate hormonal and barrier methods of contraception 2c, 2d 4a",2.4,7.7
-EDEX 7.8,Explain the use of hormones in Assisted Reproductive Technology (ART) including IVF and cl,1.7,7.8
+EDEX 7.8,Explain the use of hormones in Assisted Reproductive Technology (ART) including IVF and cl,2.00,7.8
 EDEX 7.9,Explain the importance of maintaining a constant internal environment in response to inter,2.15,7.9
 EDEX 7.10B,"Explain the importance of homeostasis, including: a thermoregulation – the effect on enzym",2.77,7.10B
 EDEX 7.11B,"Explain how thermoregulation takes place, with reference to the function of the skin, incl",3.35,7.11B
-EDEX 7.12B,"Explain how thermoregulation takes place, with reference to: a shivering b vasoconstrictio",3.05,7.12B
+EDEX 7.12B,"Explain how thermoregulation takes place, with reference to: a shivering b vasoconstrictio",3.35,7.12B
 EDEX 7.13,Explain how the hormone insulin controls blood glucose concentration,1.7,7.13
-EDEX 7.14,Explain how blood glucose concentration is regulated by glucagon,1.7,7.14
+EDEX 7.14,Explain how blood glucose concentration is regulated by glucagon,2.00,7.14
 EDEX 7.15,Explain the cause of type 1 diabetes and how it is controlled,1.7,7.15
 EDEX 7.16,Explain the cause of type 2 diabetes and how it is controlled,1.7,7.16
 EDEX 7.17,Evaluate the correlation between body mass and type 2 diabetes including waist:hip calcula,2.65,7.17
 EDEX 7.18B,Describe the structure of the urinary system,1.3,7.18B
 EDEX 7.19B,Explain how the structure of the nephron is related to its function in filtering the blood,3.47,7.19B
-EDEX 7.20B,Explain the effect of ADH on the permeability of the collecting duct in regulating the wat,1.7,7.20B
+EDEX 7.20B,Explain the effect of ADH on the permeability of the collecting duct in regulating the wat,2.00,7.20B
 EDEX 7.21B,"Describe the treatments for kidney failure, including kidney dialysis and organ donation",1.3,7.21B
 EDEX 7.22B,State that urea is produced from the breakdown of excess amino acids in the liver 27 Use o,2.5,7.22B
 EDEX 8.1,"Describe the need to transport substances into and out of a range of organisms, including ",1.9,8.1
@@ -160,7 +160,7 @@ EDEX 9.12,Describe how different materials cycle through the abiotic and biotic 
 EDEX 9.13,"Explain the importance of the carbon cycle, including the processes involved and the role ",1.7,9.13
 EDEX 9.14,"Explain the importance of the water cycle, including the processes involved and the produc",1.77,9.14
 EDEX 9.15,"Explain how nitrates are made available for plant uptake, including the use of fertilisers",1.82,9.15
-EDEX 9.16B,"Evaluate the use of indicator species as evidence to assess the level of pollution, includ",4.3,9.16B
+EDEX 9.16B,"Evaluate the use of indicator species as evidence to assess the level of pollution, includ",4.60,9.16B
 EDEX 9.17B,"Explain the effects of temperature, water content and oxygen availability on the rate of d",1.7,9.17B
 EDEX 9.18B,"Explain the effects of temperature, water content and oxygen availability on the rate of d",2.0,9.18B
 EDEX 9.19B,"Calculate rate changes in the decay of biological material 1c 2c, 2f 4a, 4c 32 Use of math",3.75,9.19B
