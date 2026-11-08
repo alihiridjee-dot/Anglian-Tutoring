@@ -175,7 +175,7 @@
       "spec_codes": ["AQA 4.3.3.1"],
       "worked_example": {
         "exemplar_id": "f7d07c8d-2d3b-409e-9ed3-2617a6459bb3",
-        "source": "AQA jun 2025, Paper 1 (H), Q9.2",
+        "source": "AQA jun 2025, Paper 1 (H), Q09.2",
         "question": "A student used 6.35 g of iodine in the reaction. 6.29 g of zinc iodide was produced.\n\nThe equation for the reaction is:\n\nZn + I₂ → ZnI₂\n\nRelative formula masses (Mr): I₂ = 254, ZnI₂ = 319\n\nCalculate the percentage yield of zinc iodide.\n\nGive your answer to 3 significant figures.",
         "marks": 5,
         "answer_points": [

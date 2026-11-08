@@ -195,7 +195,7 @@
       "spec_codes": ["AQA 4.3.3.2"],
       "worked_example": {
         "exemplar_id": "54ccdb53-8689-4500-9259-befd991da052",
-        "source": "AQA jun 2020, Paper 1 (H), Q3.5",
+        "source": "AQA jun 2020, Paper 1 (H), Q03.5",
         "question": "The equation for the reaction is:\n\nAgNO₃(aq) + NaI(aq) → AgI(s) + NaNO₃(aq)\n\nRelative formula masses (Mr): AgNO₃ = 170, NaI = 150, AgI = 235, NaNO₃ = 85\n\nCalculate the percentage atom economy for the production of silver iodide in this reaction.\n\nGive your answer to 3 significant figures.",
         "marks": 4,
         "answer_points": [

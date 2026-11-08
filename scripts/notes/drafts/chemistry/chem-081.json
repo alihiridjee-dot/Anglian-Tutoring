@@ -179,11 +179,11 @@
       ]
     },
     {
-      "heading": "Carboxylic acids are weak acids (AQA: Higher tier)",
+      "heading": "Carboxylic acids are weak acids (Higher tier)",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(AQA: Higher tier) A weak acid ionises only partly in water. Ethanoic acid is a weak acid."
+          "text": "(Higher tier) A weak acid ionises only partly in water. Ethanoic acid is a weak acid."
         },
         {
           "type": "definitions",
@@ -259,7 +259,7 @@
         {
           "type": "key-points",
           "items": [
-            "(AQA: Higher tier) Carboxylic acids are weak acids because they ionise only partly.",
+            "(Higher tier) Carboxylic acids are weak acids because they ionise only partly.",
             "The reaction is reversible, shown by ⇌.",
             "A weaker acid has a higher pH and a lower concentration of hydrogen ions."
           ]
@@ -279,7 +279,7 @@
       "marks": 2
     },
     {
-      "q": "(AQA: Higher tier) Explain why ethanoic acid is a weak acid.",
+      "q": "(Higher tier) Explain why ethanoic acid is a weak acid.",
       "a": "It is only partly (incompletely) ionised in water, because the ionisation reaction is reversible.",
       "marks": 2
     }
@@ -291,7 +291,7 @@
       ],
       "worked_example": {
         "exemplar_id": "d3d0cb0d-32ea-4b02-9877-08ebdec085e9",
-        "source": "AQA jun 2020, Paper 2 (H), Q7.4",
+        "source": "AQA jun 2020, Paper 2 (H), Q07.4",
         "question": "A student compares the rates of the reaction of zinc carbonate with:\n• 0.01 mol/dm³ methanoic acid\n• 0.01 mol/dm³ ethanoic acid.\n\nThe rate of the reaction with methanoic acid is greater than the rate of the reaction with ethanoic acid.\n\nThe pH of 0.01 mol/dm³ methanoic acid is 2.91. The pH of 0.01 mol/dm³ ethanoic acid is 3.39.\n\nExplain why. You should refer to ions in your answer.",
         "marks": 3,
         "answer_points": [

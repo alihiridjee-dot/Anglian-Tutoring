@@ -17,11 +17,11 @@
           "items": [
             {
               "term": "Amino acid",
-              "meaning": "(AQA: Higher tier) A molecule with two different functional groups: an amino group, –NH₂, and a carboxyl group, –COOH."
+              "meaning": "(AQA and OCR: Higher tier) A molecule with two different functional groups: an amino group, –NH₂, and a carboxyl group, –COOH."
             },
             {
               "term": "Polypeptide",
-              "meaning": "(AQA: Higher tier) A polymer made when amino acids join by condensation polymerisation."
+              "meaning": "(AQA and OCR: Higher tier) A polymer made when amino acids join by condensation polymerisation."
             },
             {
               "term": "Protein",
@@ -32,14 +32,14 @@
         {
           "type": "list",
           "items": [
-            "(AQA: Higher tier) Amino acids have two different functional groups in one molecule.",
-            "(AQA: Higher tier) They react by condensation polymerisation to make polypeptides, losing water.",
+            "(AQA and OCR: Higher tier) Amino acids have two different functional groups in one molecule.",
+            "(AQA and OCR: Higher tier) They react by condensation polymerisation to make polypeptides, losing water.",
             "(AQA: Higher tier) Different amino acids can be combined in the same chain to make proteins."
           ]
         },
         {
           "type": "equation",
-          "label": "(AQA: Higher tier) Glycine making a polypeptide",
+          "label": "(AQA and OCR: Higher tier) Glycine making a polypeptide",
           "formula": "n H₂NCH₂COOH → [–NHCH₂CO–]ₙ + n H₂O",
           "where": [
             "H₂NCH₂COOH is glycine, an amino acid.",
@@ -51,7 +51,7 @@
           "type": "key-points",
           "items": [
             "Proteins are polymers based on amino acids.",
-            "(AQA: Higher tier) Amino acids have two different functional groups and join by condensation polymerisation."
+            "(AQA and OCR: Higher tier) Amino acids have two different functional groups and join by condensation polymerisation."
           ]
         }
       ]
@@ -200,7 +200,7 @@
       ],
       "worked_example": {
         "exemplar_id": "c8f7d81d-1920-4d29-a550-904e8d10c708",
-        "source": "AQA jun 2020, Paper 2 (H), Q9.2",
+        "source": "AQA jun 2020, Paper 2 (H), Q09.2",
         "question": "Glucose is produced when algae photosynthesise.\n\nName two naturally occurring polymers produced from glucose.",
         "marks": 2,
         "answer_points": [

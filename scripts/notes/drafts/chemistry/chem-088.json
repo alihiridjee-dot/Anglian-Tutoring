@@ -218,6 +218,20 @@
         }
       ]
     },
+    "ocr": {
+      "spec_codes": ["OCR C4.2a"],
+      "worked_example": {
+        "exemplar_id": "b1ff7530-27b2-4eaa-bffe-c69d05adf2d3",
+        "source": "OCR jun 2024, Paper 2, Q18(c)(iii)",
+        "question": "Clean water is essential for life.\n\nDescribe the test for chlorine gas.",
+        "marks": 2,
+        "answer_points": [
+          "Hold damp blue litmus paper in the gas. (1)",
+          "The litmus paper turns red and is then bleached white. (1)"
+        ],
+        "tip": "Say the paper is damp. Bleached universal indicator paper also gets the bleaching mark."
+      }
+    },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 12.5.3"],
       "worked_example": {
@@ -300,7 +314,8 @@
       "ea5b7b7c-1ce6-4116-ab13-a6153aa3f117",
       "000353ea-a33b-404f-861f-14798005284a",
       "2521886e-f6b4-4a76-a604-0ef0ae3d521d",
-      "167194e0-69de-4514-bad9-6b9eb3f83e5f"
+      "167194e0-69de-4514-bad9-6b9eb3f83e5f",
+      "d8d0ba65-e623-45ec-976f-45e6de84a99b"
     ],
     "exemplar_ids": [
       "36cc95e7-1b89-4083-9602-39878ac9cde0",
@@ -314,7 +329,8 @@
       "4957de6c-61d8-41d8-9580-2527bece04f6",
       "b913c4c1-00f8-48f8-8399-f0f9a1468de0",
       "af4a6725-762a-4b22-b262-00baa49472bd",
-      "4b786a09-66dd-49d7-b94a-b0db0d7762e5"
+      "4b786a09-66dd-49d7-b94a-b0db0d7762e5",
+      "b1ff7530-27b2-4eaa-bffe-c69d05adf2d3"
     ],
     "checked_by": "sonnet-science-check, opus-5-5-diagram-audit",
     "checked_at": "2026-10-06"

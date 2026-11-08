@@ -137,7 +137,7 @@
             "p is pressure in pascals (Pa).",
             "h is the height of the column, or depth, in metres (m).",
             "ρ is the density of the liquid in kilograms per metre cubed (kg/m³).",
-            "g is the gravitational field strength in newtons per kilogram (N/kg). The value is given in the question."
+            "g is the gravitational field strength in newtons per kilogram (N/kg). If the question gives a value, use it."
           ]
         },
         {
@@ -318,7 +318,8 @@
                 "(Higher tier) A denser liquid has more mass, and so more weight, in the same column above a point. This gives a bigger force on the same area, so a greater pressure.",
                 "The pressure at a given depth does not depend on the area of the surface or the width of the container.",
                 "(Higher tier) This is because there is no area in p = h × ρ × g.",
-                "A graph of total pressure against depth is a straight line that does not pass through the origin. It cuts the pressure axis at **atmospheric pressure**."
+                "A graph of total pressure against depth is a straight line that does not pass through the origin. It cuts the pressure axis at **atmospheric pressure**.",
+                "Recall that **g** is 10 N/kg near the Earth's surface. A question may not give it."
               ]
             }
           ]

@@ -3,7 +3,7 @@
   "concept_id": "phys-069",
   "subject": "physics",
   "title": "Refraction",
-  "key_idea": "Refraction is the change in direction of a wave when its speed changes at a boundary. A wave bends towards the normal when it slows down and away when it speeds up. (Higher tier) Different wavelengths change speed by different amounts, so they refract differently.",
+  "key_idea": "Refraction is the change in direction of a wave as it crosses a boundary. (Higher tier) It is caused by a change in speed: slowing down bends it towards the normal, speeding up bends it away. (Higher tier) Different wavelengths change speed by different amounts, so they refract differently.",
   "sections": [
     {
       "heading": "Why waves refract",
@@ -17,7 +17,7 @@
           "items": [
             {
               "term": "Refraction",
-              "meaning": "The change in direction of a wave as it crosses a boundary between two materials, caused by a change in speed."
+              "meaning": "The change in direction of a wave as it crosses a boundary between two materials. (Higher tier) It is caused by a change in speed."
             },
             {
               "term": "Normal",
@@ -25,7 +25,7 @@
             },
             {
               "term": "Optically dense",
-              "meaning": "A material in which light travels more slowly. Glass is more optically dense than air."
+              "meaning": "(Higher tier) A material in which light travels more slowly. Glass is more optically dense than air."
             }
           ]
         },
@@ -33,10 +33,10 @@
           "type": "list",
           "items": [
             "(Higher tier) Light travels more slowly in glass than in air, so it slows down when it enters glass.",
-            "Entering a slower material, the wave bends towards the normal.",
-            "Entering a faster material, the wave bends away from the normal.",
-            "A wave hitting the boundary along the normal (at 90°) changes speed but does not change direction.",
-            "The frequency stays the same, so a wave that slows down has a shorter wavelength."
+            "(Higher tier) Entering a slower material, the wave bends towards the normal.",
+            "(Higher tier) Entering a faster material, the wave bends away from the normal.",
+            "A wave hitting the boundary along the normal (at 90°) does not change direction. (Higher tier) It still changes speed.",
+            "(Higher tier) The frequency stays the same, so a wave that slows down has a shorter wavelength."
           ]
         },
         {
@@ -49,7 +49,7 @@
             "kind": "predictor",
             "alt": "Choose a boundary a wave crosses and see the change in speed, direction and wavelength.",
             "prompt": "Pick a boundary the wave crosses",
-            "result_labels": ["Speed", "Direction", "Wavelength"],
+            "result_labels": ["Speed (Higher tier)", "Direction", "Wavelength (Higher tier)"],
             "options": [
               {
                 "label": "Light: air into glass",
@@ -78,7 +78,7 @@
           "type": "key-points",
           "items": [
             "(Higher tier) Refraction is caused by a change in wave speed at a boundary.",
-            "Slower material: bends towards the normal. Faster material: bends away.",
+            "Into glass: bends towards the normal. Out of glass: bends away.",
             "Along the normal there is no change of direction."
           ]
         }
@@ -207,7 +207,7 @@
       "marks": 3
     },
     {
-      "q": "A ray of light travels along the normal into a glass block. What happens to its speed and direction?",
+      "q": "(Higher tier) A ray of light travels along the normal into a glass block. What happens to its speed and direction?",
       "a": "The speed decreases. The direction does not change, because every point on the wavefront slows down at the same time.",
       "marks": 2
     },
@@ -299,8 +299,8 @@
             {
               "type": "list",
               "items": [
-                "Entering the glass, the ray slows down and bends towards the normal.",
-                "Leaving the glass, the ray speeds up and bends away from the normal.",
+                "Entering the glass, the ray bends towards the normal. (Higher tier) This is because it slows down.",
+                "Leaving the glass, the ray bends away from the normal. (Higher tier) This is because it speeds up.",
                 "The ray that leaves is parallel to the ray that entered, but shifted sideways.",
                 "Measure every angle from the normal, not from the surface of the block."
               ]

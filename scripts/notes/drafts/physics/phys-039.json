@@ -33,7 +33,7 @@
           "type": "list",
           "items": [
             "In irradiation the source is **outside** the object.",
-            "Irradiation stops when the source is removed or shielded, or when you move away.",
+            "Irradiation stops when the source is removed. Shielding and moving further away reduce it.",
             "In contamination the radioactive atoms are **on or inside** the object.",
             "Contamination keeps irradiating the person until the atoms are removed or have decayed."
           ]
@@ -62,7 +62,7 @@
                 "group": 0
               },
               {
-                "text": "It can be stopped by shielding",
+                "text": "Shielding the source reduces it",
                 "group": 0
               },
               {

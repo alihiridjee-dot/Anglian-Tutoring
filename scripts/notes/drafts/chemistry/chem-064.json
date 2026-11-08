@@ -26,7 +26,7 @@
             "items": ["Petrol", "Hydrogen"],
             "rows": [
               {
-                "feature": "Product when used",
+                "feature": "Product of reacting with oxygen",
                 "values": ["Carbon dioxide and water", "Water only"]
               },
               {
@@ -80,7 +80,7 @@
             "groups": ["Advantage of hydrogen", "Disadvantage of hydrogen"],
             "items": [
               {
-                "text": "The only product is water",
+                "text": "Its reaction with oxygen makes only water",
                 "group": 0
               },
               {
@@ -114,7 +114,8 @@
           "type": "list",
           "items": [
             "The volume of hydrogen can be reduced by storing it under high pressure, by cooling it so it condenses, or by absorbing it in a solid.",
-            "Hydrogen can be used in a fuel cell or burned in an engine. A fuel cell uses the reaction to produce electricity.",
+            "Hydrogen can be used in a fuel cell or burned in an engine. A fuel cell uses the reaction to produce electricity, and gives out only water.",
+            "An engine that burns hydrogen in air also makes some **nitrogen oxides**, because the high temperature makes nitrogen and oxygen from the air react.",
             "Give a conclusion. Either fuel can be chosen as better, but you must give suitable reasons."
           ]
         },

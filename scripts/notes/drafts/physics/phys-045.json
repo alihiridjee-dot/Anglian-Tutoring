@@ -71,7 +71,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "The equation links weight, mass and gravitational field strength. The value of g is given in a calculation."
+          "text": "The equation links weight, mass and gravitational field strength. If a question gives a value of g, use that value."
         },
         {
           "type": "equation",

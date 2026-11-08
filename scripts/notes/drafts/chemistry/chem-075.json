@@ -260,7 +260,7 @@
       ],
       "worked_example": {
         "exemplar_id": "079b79cb-9525-49bc-94fa-4dae6cd5b05e",
-        "source": "AQA jun 2020, Paper 2 (H), Q7.1",
+        "source": "AQA jun 2020, Paper 2 (H), Q07.1",
         "question": "This question is about carboxylic acids.\n\nCarboxylic acids belong to a homologous series.\n\nThe table shows information about the first three carboxylic acids in this homologous series.\n\nName | Formula | pH of a 0.01 mol/dm³ solution\nMethanoic acid | (?) | 2.91\nEthanoic acid | CH₃COOH | 3.39\n(?) | CH₃CH₂COOH | 3.44\n\nComplete the table.",
         "marks": 2,
         "answer_points": [

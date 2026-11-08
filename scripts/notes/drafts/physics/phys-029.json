@@ -195,7 +195,7 @@
       "spec_codes": ["AQA 4.1.1.3", "AQA T 6.1.1.3"],
       "worked_example": {
         "exemplar_id": "dbd1e4dc-1a5d-4ed7-b295-7af4257159e4",
-        "source": "AQA jun 2019, Paper 1 (F), Q8.5",
+        "source": "AQA jun 2019, Paper 1 (F), Q08.5",
         "question": "A student carried out an experiment to determine the specific heat capacity of water. The energy transferred to the water was 26 400 J. The mass of water was 0.20 kg. The temperature increase of the water was 30 °C. Calculate the specific heat capacity of water using the data from this experiment. Choose the unit from J/kg, J/kg °C and J/°C.",
         "marks": 4,
         "answer_points": [

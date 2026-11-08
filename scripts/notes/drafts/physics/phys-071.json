@@ -3,7 +3,7 @@
   "concept_id": "phys-071",
   "subject": "physics",
   "title": "Sound waves and hearing",
-  "key_idea": "(AQA: Higher tier) Sound travels through solids by particles vibrating and passing the vibration on. The ear changes sound waves into vibrations and then nerve impulses, but only over about 20 Hz to 20 kHz. Entering a new material, frequency stays the same while speed and wavelength change.",
+  "key_idea": "(Higher tier) Sound travels through solids by particles vibrating and passing the vibration on. (Higher tier) The ear changes sound waves into vibrations and then nerve impulses, but only over about 20 Hz to 20 kHz. Entering a new material, frequency stays the same while speed and wavelength change.",
   "sections": [
     {
       "heading": "Sound in solids and across boundaries",
@@ -15,10 +15,10 @@
         {
           "type": "list",
           "items": [
-            "Something vibrating, such as a hammer hitting a metal rod, makes the particles at that end vibrate.",
-            "Those particles make their neighbours vibrate, and so on along the rod.",
-            "The particles vibrate about fixed positions. They are not carried along the rod.",
-            "The vibrations pass on as compressions and rarefactions."
+            "(Higher tier) Something vibrating, such as a hammer hitting a metal rod, makes the particles at that end vibrate.",
+            "(Higher tier) Those particles make their neighbours vibrate, and so on along the rod.",
+            "(Higher tier) The particles vibrate about fixed positions. They are not carried along the rod.",
+            "(Higher tier) The vibrations pass on as compressions and rarefactions."
           ]
         },
         {
@@ -266,7 +266,7 @@
       ],
       "worked_example": {
         "exemplar_id": "6eb1422b-32e8-44a9-aaf9-d4802a3ca7aa",
-        "source": "AQA jun 2019, Paper 2 (H), Q9.1",
+        "source": "AQA jun 2019, Paper 2 (H), Q09.1",
         "question": "The table gives the frequencies in the hearing ranges of five different animals.\n\nCat: 55 Hz to 77 kHz\nChicken: 125 Hz to 2 kHz\nDog: 20 Hz to 30 kHz\nGerbil: 56 Hz to 60 kHz\nHorse: 55 Hz to 33 kHz\n\nWhich one of the animals would not be able to hear ultrasound?",
         "marks": 1,
         "answer_points": ["Chicken."],
