@@ -4,6 +4,8 @@
 """
 import unittest
 
+import pymupdf
+
 import check_rows as C
 import extract_paper as X
 
@@ -107,6 +109,103 @@ class SchemeLabels(unittest.TestCase):
 
     def test_a_bracketed_i_alone_continues_the_letter_above(self):
         self.assertEqual(X.ms_key("edexcel", "(i)", (3, "b"))[0], "3|b|i")
+
+    def test_ocr_starred_letter_and_raised_bracket(self):
+        # OCR stars a levels-marked part ("c*"), and can set "(c)" a little high.
+        self.assertEqual(X.ms_key("ocr", "c*", (20, "b"))[0], "20|c|")
+        self.assertEqual(X.ms_key("ocr", "^(c)", (19, "b"))[0], "19|c|")
+
+    def test_guidance_naming_a_question_is_not_a_header(self):
+        self.assertIsNone(X.header_cells(X.Line(0, [span("if no answer to question 01.6", 300)])))
+        self.assertIsNotNone(X.header_cells(X.Line(0, [span("Question", 48), span("Answers", 150),
+                                                       span("Mark", 450)])))
+
+
+def scheme_doc(pages):
+    """A mark scheme drawn from scratch: each page is (texts, rules), texts as
+    (x, baseline y, text) and rules as (x0, y0, x1, y1)."""
+    doc = pymupdf.open()
+    for texts, rules in pages:
+        page = doc.new_page(width=595, height=842)
+        for x0, y0, x1, y1 in rules:
+            page.draw_line((x0, y0), (x1, y1), width=0.5)
+        for x, y, t in texts:
+            page.insert_text((x, y), t, fontsize=10)
+    return doc
+
+
+# Columns of an AQA-style table: Question | Answers | Extra information | Mark | AO.
+GRID_X = (43, 102, 272, 442, 485, 550)
+HEADER = [(48, 122, "Question"), (150, 122, "Answers"), (300, 122, "Extra information"), (450, 122, "Mark"),
+          (500, 122, "AO")]
+
+
+def grid(top, bottom, borders):
+    """The table's columns from top to bottom, and a full-width border at each height."""
+    return [(x, top, x, bottom) for x in GRID_X] + [(GRID_X[0], v, GRID_X[-1], v) for v in [top, *borders, bottom]]
+
+
+class SchemeRows(unittest.TestCase):
+    def test_a_small_table_inside_an_answer_cell_does_not_split_the_part(self):
+        # 01.2's label is centred in a tall cell whose answer holds a small ruled
+        # table; the lines above that table are 01.2's, not 01.1's.
+        texts = HEADER + [(48, 160, "01.1"), (108, 155, "distillation"), (450, 155, "1"),
+                          (108, 220, "colourless"), (108, 240, "toxic"), (450, 220, "1"),
+                          (115, 275, "Number of answers"), (48, 330, "01.2"), (115, 295, "4"),
+                          (108, 420, "any order applies")]
+        inner = [(108, v, 437, v) for v in (262, 280, 300, 318)] + [(x, 262, x, 318) for x in (108, 201, 437)]
+        ms = X.parse_ms(scheme_doc([(texts, grid(110, 500, [130, 190]) + inner)]), "aqa")
+        self.assertEqual(ms["1|1|"]["answer"], "distillation")
+        for words in ("colourless", "toxic", "Number of answers", "any order applies"):
+            self.assertIn(words, ms["1|2|"]["answer"])
+
+    def test_levels_bands_beside_a_tall_question_cell_are_that_parts(self):
+        # The levels table is ruled across the answer and mark columns only:
+        # the question and AO cells span all of it, with 06.1 set halfway down.
+        texts = HEADER + [(48, 160, "05.7"), (108, 155, "0.035 (m3)"), (450, 155, "1"),
+                          (108, 215, "Level 3: a valid outcome"), (450, 215, "5-6"),
+                          (108, 255, "Level 2: not necessarily valid"), (450, 255, "3-4"),
+                          (48, 330, "06.1"), (108, 330, "Indicative content"), (108, 350, "three test tubes")]
+        bands = [(GRID_X[1], v, GRID_X[4], v) for v in (235, 275)]
+        ms = X.parse_ms(scheme_doc([(texts, grid(110, 500, [130, 190]) + bands)]), "aqa")
+        self.assertEqual(ms["5|7|"]["answer"], "0.035 (m3)")
+        self.assertIn("Level 3: a valid outcome", ms["6|1|"]["answer"])
+        self.assertIn("Level 2: not necessarily valid", ms["6|1|"]["answer"])
+        self.assertIn("three test tubes", ms["6|1|"]["answer"])
+
+    def test_the_running_heads_rule_is_not_a_row_border(self):
+        # A part carried to the top of the next page: the page's own rule under
+        # the running head crosses its first line.
+        first = (HEADER + [(48, 160, "02.3"), (108, 155, "Rearranging"), (450, 155, "3")],
+                 grid(110, 300, [130]))
+        # The footer's rule across the table's foot still parts the page number off.
+        second = ([(108, 62, "GMm over d"), (48, 80, "02.4"), (108, 80, "= mv squared"), (450, 80, "3"),
+                   (108, 120, "Correct conclusion = Titania"), (48, 292, "14")],
+                  grid(52, 300, []) + [(0, 68, 595, 68), (0, 280, 595, 280)])
+        ms = X.parse_ms(scheme_doc([first, second]), "aqa")
+        self.assertEqual(ms["2|3|"]["answer"], "Rearranging")
+        self.assertEqual(ms["2|4|"]["answer"].split("\n")[0], "GMm over d")
+        self.assertNotIn("14", ms["2|4|"]["answer"])
+
+    def test_a_misprinted_question_number_is_the_next_part_of_the_question_in_hand(self):
+        texts = HEADER + [(48, 150, "01.3"), (108, 150, "evaporate"), (48, 190, "08.1"), (108, 190, "acid"),
+                          (48, 230, "08.2"), (108, 230, "Ca(NO3)2"), (48, 270, "01.3"), (108, 270, "Level 3: method"),
+                          (48, 310, "09.1"), (108, 310, "magnesium")]
+        ms = X.parse_ms(scheme_doc([(texts, grid(110, 330, [130, 170, 210, 250, 290]))]), "aqa")
+        self.assertEqual(ms["1|3|"]["answer"], "evaporate")
+        self.assertEqual(ms["8|3|"]["answer"], "Level 3: method")
+        self.assertEqual(ms["9|1|"]["answer"], "magnesium")
+
+    def test_ocr_borders_that_leave_the_question_column_open_still_cut(self):
+        # OCR rules each part's row from the answer column rightwards only.
+        texts = [(48, 122, "Question"), (150, 122, "Answer"), (450, 122, "Marks"), (500, 122, "Guidance"),
+                 (48, 160, "1 (a)"), (150, 160, "first answer"), (450, 160, "1"),
+                 (60, 210, "(b)"), (150, 210, "second answer"), (450, 210, "1")]
+        rules = [(x, 110, x, 300) for x in (43, 102, 442, 485, 550)] + \
+                [(43, 110, 550, 110), (43, 130, 550, 130), (102, 190, 550, 190), (43, 300, 550, 300)]
+        ms = X.parse_ms(scheme_doc([(texts, rules)]), "ocr")
+        self.assertEqual(ms["1|a|"]["answer"], "first answer")
+        self.assertEqual(ms["1|b|"]["answer"], "second answer")
 
 
 class SpecRefs(unittest.TestCase):
