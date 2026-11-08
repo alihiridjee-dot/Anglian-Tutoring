@@ -158,6 +158,38 @@
     "aqa": {
       "spec_codes": [
         "AQA 6.14"
+      ],
+      "extra": [
+        {
+          "heading": "(Separate science) Darwin's theory and Lamarck",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Darwin's theory came from observations on a round-the-world expedition. It was backed by years of experimentation and discussion, and linked to developing knowledge of geology and fossils.",
+                "Within a species, individuals show a wide range of **variation** for a characteristic.",
+                "Individuals with the characteristics most suited to the environment are more likely to survive and breed successfully.",
+                "The characteristics that helped them survive are passed on to the next generation.",
+                "**Lamarck** and others based their theories mainly on the idea that changes an organism gains during its lifetime can be inherited. We now know that in the vast majority of cases this cannot happen."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Separate science) More about Wallace",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Wallace **independently** proposed the theory of evolution by natural selection.",
+                "He and Darwin published their ideas jointly. This prompted Darwin to publish On the Origin of Species the following year.",
+                "Wallace worked worldwide, gathering evidence for evolutionary theory.",
+                "He is best known for his work on **warning colouration** in animals and his pioneering theory of **speciation**.",
+                "More evidence over time has since led to our current understanding of speciation."
+              ]
+            }
+          ]
+        }
       ]
     },
     "edexcel": {
@@ -237,6 +269,6 @@
       "805e3166-2404-400f-8e63-1069bfe84ef2"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

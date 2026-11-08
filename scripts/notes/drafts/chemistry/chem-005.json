@@ -287,7 +287,24 @@
           "With different numbers of neutrons."
         ],
         "tip": "The question asks for subatomic particles, so name protons and neutrons. References to electrons are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An ion is written with its charge at the top right of the symbol. A particle with 16 protons, 16 neutrons and 18 electrons is ³²₁₆S²⁻.",
+                "Isotopes have the same symbol and the same atomic number, but different mass numbers, such as ³⁵₁₇Cl and ³⁷₁₇Cl.",
+                "An atom has a radius of about 0.1 nm (1 × 10⁻¹⁰ m). The radius of a nucleus is less than 1/10 000 of that, about 1 × 10⁻¹⁴ m.",
+                "Almost all of the mass of an atom is in the nucleus. The relative masses are proton 1, neutron 1 and electron very small.",
+                "On a scale model where the nucleus is a ball of radius 1 cm, the atom has a radius of about 100 m, the size of a sports arena."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -324,7 +341,21 @@
           "Li⁺ has mass number 7 (3 + 4)."
         ],
         "tip": "All three correct scores 2 marks. One or two correct scores 1 mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In the standard notation for an ion, the charge goes at the top right of the symbol. ¹⁹₉F⁻ has 9 protons, 10 neutrons and 10 electrons.",
+                "Isotopes have the same atomic number and different mass numbers. ¹²₆C has 6 neutrons and ¹⁴₆C has 8 neutrons."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -381,7 +412,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

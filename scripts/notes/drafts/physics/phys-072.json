@@ -308,16 +308,16 @@
     "ocr": {
       "spec_codes": ["OCR P5.2i", "OCR P8.3i"],
       "worked_example": {
-        "exemplar_id": "ba6ec042-5cdd-4cdd-b5c3-af54d6e292a6",
-        "source": "OCR jun 2025, Paper 4, Q22(a)",
-        "question": "Ultrasound waves are used to produce images of the inside of the human body.\n\nThe ultrasound waves reflect from the boundary between two different materials inside the human body.\n\nA computer records a time of 2.8 × 10⁻⁷ s between emitting one ultrasound wave and receiving the reflection of this wave from the boundary between the fat tissue and the muscle tissue.\n\nThe speed of ultrasound waves in fat tissue is 1500 m/s.\n\nCalculate the thickness of the fat tissue.",
+        "exemplar_id": "f73dc743-65f2-4bf7-9592-cf62e30b4e00",
+        "source": "OCR sample null, Paper 4, Q16(c)",
+        "question": "Ultrasound scans are used to produce images of tissues inside the body.\n\nUltrasound waves are emitted.\n\nThey reflect from layers of tissue inside the body.\n\nExplain how the reflections are used to produce an image of the tissues.",
         "marks": 3,
         "answer_points": [
-          "Select the equation: distance = speed × time.",
-          "Substitute: distance = 1500 × (2.8 × 10⁻⁷ ÷ 2).",
-          "Evaluate: distance = 2.1 × 10⁻⁴ m."
+          "The reflections from different layers return at different times, and the speed of ultrasound in the body is known.",
+          "The times show the depth of each tissue boundary.",
+          "The depth is calculated from speed × time, using half the time because the wave travels to the boundary and back."
         ],
-        "tip": "The time is divided by 2 because the wave travels to the boundary and back."
+        "tip": "One mark for the reflections returning at different times (or the speed being known), one for the times giving the depth, and one for calculating the depth from speed × time."
       },
       "extra": [
         {
@@ -442,7 +442,7 @@
     "exemplar_ids": [
       "a379ad40-2f74-4dba-9c6f-04a9af64cfaa",
       "8c405010-0536-4d6a-940e-2c49d77a5003",
-      "ba6ec042-5cdd-4cdd-b5c3-af54d6e292a6",
+      "f73dc743-65f2-4bf7-9592-cf62e30b4e00",
       "866af461-72cc-4f73-97c6-a5735be8907c"
     ],
     "checked_by": "sonnet-science-check",

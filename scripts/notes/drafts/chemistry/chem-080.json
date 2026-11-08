@@ -289,7 +289,21 @@
           "Anaerobic conditions (in the absence of oxygen) or warm (a temperature in the range 5–45 °C; room temperature is allowed)."
         ],
         "tip": "One mark each: the name of the process, adding yeast, and one condition."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Ethanol is used in **hand gel** and as an antiseptic, because it kills microbes.",
+                "Ethanol is added to petrol as a **fuel additive**."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -350,6 +364,24 @@
                   "lead": "Collect.",
                   "text": "Concentrated ethanol comes out of the end of the condenser."
                 }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ethanol is oxidised to ethanoic acid when it reacts with oxygen. Other alcohols follow the same pattern."
+            },
+            {
+              "type": "equation",
+              "label": "Oxidation of ethanol",
+              "formula": "C₂H₅OH + O₂ → CH₃COOH + H₂O",
+              "where": [
+                "C₂H₅OH is ethanol and CH₃COOH is ethanoic acid.",
+                "Water is the other product."
               ]
             }
           ]
@@ -569,6 +601,6 @@
       "b006389b-fcb2-4564-91e4-89bbaa3df343"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

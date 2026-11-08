@@ -212,7 +212,22 @@
           "Disadvantages: GM seeds could be more expensive, farmers rely on seed companies, and insects could evolve so crops are no longer resistant."
         ],
         "tip": "A level-marked question. Give both advantages and disadvantages, with each point explained."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "(Separate science) Advantage: the Bt toxin affects only the **target insects** that eat the crop.",
+                "(Separate science) Disadvantage: the toxin may build up along a food chain (**bioaccumulation**) and affect other organisms.",
+                "Disadvantage: growing only a few GM varieties can reduce the **gene pool**."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -351,6 +366,6 @@
       "76fa5df0-627a-41ae-b3f0-ec1a88e5af5e"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

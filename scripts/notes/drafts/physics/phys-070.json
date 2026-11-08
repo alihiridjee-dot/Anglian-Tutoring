@@ -203,9 +203,9 @@
     "aqa": {
       "spec_codes": ["AQA 4.6.1.3"],
       "worked_example": {
-        "exemplar_id": "dd4a11fb-3ea4-42a9-8645-07a294f64dfa",
-        "source": "AQA jun 2022, Paper 2 (H), Q02.1",
-        "question": "A student used a ray box to shine a ray of light through air into a glass block.\n\nThe student investigated how the angle of refraction varied with the angle of incidence.\n\nThe results were:\n\nAngle of incidence 10°, refraction 5°\n20°, 10°\n30°, 14°\n40°, 19°\n50°, 23°\n60°, 26°\n70°, 28°\n80°, 29°\n\nDescribe a method the student could have used to obtain these results.\n\nYour answer may include a labelled diagram.",
+        "exemplar_id": "276b0dbd-b901-4160-93e1-975914395fa7",
+        "source": "AQA jun 2024, Paper 2 (F), Q8.2",
+        "question": "A student investigated the refraction of light by a glass block. Table 1 shows the results.\n\nTable 1\nAngle of incidence in degrees | Angle of refraction in degrees\n10 | 6\n20 | 12\n30 | 18\n40 | 23\n50 | 28\n60 | 32\n\nDescribe a method the student could have used to obtain the data in Table 1.\n\nYou may include a labelled diagram.",
         "marks": 6,
         "answer_points": [
           "Place a glass block on a piece of paper and draw around it.",
@@ -213,9 +213,9 @@
           "Mark the ray entering the block and the ray emerging from it, and join the points to show the path of the whole ray.",
           "Draw a normal line at 90 degrees to the surface.",
           "Use a protractor to measure the angle of incidence and the angle of refraction.",
-          "Repeat for a range of angles of incidence, in 10 degree intervals from 10 degrees to 80 degrees."
+          "Repeat for a range of angles of incidence, in 10 degree intervals from 10 degrees to 60 degrees."
         ],
-        "tip": "A six-mark question is marked by level. Give all the key steps, in a logical order."
+        "tip": "A six-mark question is marked by level. Give all the key steps, in a logical order. A method using mirrors and reflection scores zero."
       },
       "extra": [
         {
@@ -387,7 +387,7 @@
       "84e36b6b-48f4-4101-b39b-4bb52a1f6a93"
     ],
     "exemplar_ids": [
-      "dd4a11fb-3ea4-42a9-8645-07a294f64dfa",
+      "276b0dbd-b901-4160-93e1-975914395fa7",
       "1a15e8f0-7549-4922-bb3f-d574905eeb82",
       "a1be63dd-e4cc-4dc9-bf45-a3ed770444d2",
       "a8a13184-1176-427d-917e-958a4e712a0a"

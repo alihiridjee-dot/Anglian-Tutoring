@@ -282,7 +282,28 @@
           "A white precipitate forms."
         ],
         "tip": "Hydrochloric acid and sulfuric acid are rejected for the first mark. The result mark depends on silver nitrate."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Write each anion test as a balanced ionic equation with state symbols. Only the ions that join to make the precipitate appear in the equation."
+            },
+            {
+              "type": "equation",
+              "label": "Ionic equations for the anion tests",
+              "formula": "Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)\nAg⁺(aq) + Cl⁻(aq) → AgCl(s)",
+              "where": [
+                "BaSO₄: barium sulfate, the white precipitate in the sulfate test",
+                "AgCl: silver chloride, the white precipitate in the chloride test",
+                "Bromide and iodide ions react with silver ions in the same way, to give AgBr and AgI"
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C4.2b", "OCR C4.2d"],
@@ -298,7 +319,21 @@
           "A cream precipitate forms."
         ],
         "tip": "Each ion needs a reagent mark and a result mark. In the standard halide test, add the dilute nitric acid first, then the silver nitrate. Another soluble metal hydroxide or aqueous ammonia is allowed for the copper test."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Sulfate ions: acidified **barium chloride** solution or acidified **barium nitrate** solution can be used.",
+                "Either reagent gives a white precipitate of barium sulfate."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 12.5.1"],
@@ -364,6 +399,6 @@
       "1aba70a4-a8ed-4305-9cb1-3f0ea73048b8"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

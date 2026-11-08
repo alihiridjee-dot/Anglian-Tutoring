@@ -148,17 +148,17 @@
     "aqa": {
       "spec_codes": ["AQA 4.5.6.2", "AQA T 6.5.4.2"],
       "worked_example": {
-        "exemplar_id": "40821b73-ff94-4b15-8960-21ecef57908e",
-        "source": "AQA jun 2023, Paper 2 (H), Q06.3",
-        "question": "The stone has just entered the water. As the stone moves through the water, it slows to a constant velocity.\n\nExplain why the stone slows to a constant velocity as it moves through the water.",
+        "exemplar_id": "4e07ce7f-9689-43e8-8635-a2bd10102719",
+        "source": "AQA jun 2020, Paper 2 (H), Q06.7",
+        "question": "A student is playing with a remote-controlled car.\n\nExplain why the car has a maximum speed.",
         "marks": 4,
         "answer_points": [
-          "Drag is greater than weight",
-          "So there is a resultant force acting in the opposite direction to the velocity, causing deceleration",
-          "As the velocity decreases, the drag decreases",
-          "Until drag is equal to weight, so the velocity is constant"
+          "There is a maximum forward force, provided by the motor.",
+          "As the speed of the car increases, the air resistance increases.",
+          "Until the air resistance is equal in size to the forward force, so the resultant force is zero.",
+          "So the car can no longer accelerate."
         ],
-        "tip": "Four marks, one for each step of the explanation. Drag can be called a resistive or frictional force. Ignore upthrust."
+        "tip": "Four marks, one for each step of the explanation. Driving force is accepted for forward force, and friction or drag for air resistance."
       },
       "extra": [
         {
@@ -229,7 +229,7 @@
       "ca9bc15b-b33f-4396-93a9-7b967490ee16"
     ],
     "exemplar_ids": [
-      "40821b73-ff94-4b15-8960-21ecef57908e",
+      "4e07ce7f-9689-43e8-8635-a2bd10102719",
       "66373386-6554-4fb7-9f8a-cf1bd45f909c",
       "8ab45c3e-daaa-4783-9b1a-ca0ba665f333",
       "1e108ebd-b25e-440c-9004-24c7111a4390"

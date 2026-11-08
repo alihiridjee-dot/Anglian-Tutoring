@@ -220,7 +220,23 @@
           "So there are less harmful effects of global warming on human food production, for example less flooding of farmland."
         ],
         "tip": "Four linked points, one mark each. Allow more meat from cows for humans for the second point."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An increasing **birth rate** has threatened food security in some countries.",
+                "In developed countries, changing diets mean scarce food resources are transported around the world.",
+                "If the rains fail, crops fail and widespread **famine** can follow in some countries.",
+                "**Conflicts** in some parts of the world affect the availability of water or food."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 9.11B"],
@@ -290,6 +306,19 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Increased **fish consumption** also threatens food security. Overfishing makes fish stocks in the oceans decline, so less fish is left for the future.",
+                "Burning fossil fuels is a human activity that increases **global warming**. The changes in weather can lower crop yields.",
+                "When yields fall, people may be **malnourished**: they do not get enough nutrients."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -327,6 +356,21 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The population increases when there are more births than deaths, so the demand for food rises.",
+                "The changing diets that threaten food security are those of **wealthier populations**.",
+                "**Biotic factors**, such as disease or predators, can reduce the food grown. Pests, pathogens and invasive species are examples.",
+                "Land availability, and growing conditions that are not right, limit how much food can be grown.",
+                "When comparing countries, compare the **percentage** of people short of food as well as the number of people. A larger percentage means the impact is more significant."
+              ]
+            }
+          ]
         }
       ]
     }
@@ -346,6 +390,6 @@
       "d9775ce8-ea52-4775-9f81-a9192d6cc3e0"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

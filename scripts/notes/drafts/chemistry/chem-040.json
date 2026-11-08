@@ -221,7 +221,22 @@
           "= 1200 cm³ (1)"
         ],
         "tip": "The conversion to cm³ can be done at any point in the method."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Only gases count towards a volume. Use the state symbols: solids (s) and liquids (l) take up a negligible volume.",
+                "The total volume of gas after a reaction is the volume of each gaseous product plus the volume of any gas left over.",
+                "If a question gives air as 20% oxygen, the volume of air = volume of oxygen × 100 ÷ 20."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.16C", "EDEX 5.17C", "EDEX 5.18C"],
@@ -236,7 +251,58 @@
           "0.1 × 24 = 2.4 dm³ (1)"
         ],
         "tip": "The correct answer, 2.4, scores all three marks without working."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier, Separate science) Avogadro's law and gas volumes",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Avogadro's law",
+                  "meaning": "Equal volumes of different gases, at the same temperature and pressure, contain the same number of molecules."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "So the volumes of gases in a reaction are in the same ratio as their balancing numbers.",
+                "Only gases count towards a volume. Solids (s) and liquids (l) take up a negligible volume.",
+                "In CH₄(g) + 2H₂O(g) → 4H₂(g) + CO₂(g), 1 volume of methane makes 5 volumes of gaseous products.",
+                "If a question gives air as 20% oxygen, the volume of air = volume of oxygen × 100 ÷ 20."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Higher tier, Separate science) From a volume of gas to a mass",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Equation.",
+                  "text": "CH₄ + 2H₂O → 4H₂ + CO₂. Find the mass of CO₂ made with 1800 dm³ of H₂."
+                },
+                {
+                  "lead": "Moles of the gas given.",
+                  "text": "1800 ÷ 24 = 75 mol of H₂."
+                },
+                {
+                  "lead": "Use the ratio.",
+                  "text": "H₂ : CO₂ = 4 : 1, so 75 ÷ 4 = 18.75 mol of CO₂."
+                },
+                {
+                  "lead": "Mass.",
+                  "text": "Mr of CO₂ = 44. 18.75 × 44 = 825 g."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C5.1d", "OCR C5.1e"],
@@ -252,7 +318,21 @@
           "= 102 dm³ (1)"
         ],
         "tip": "The mole ratio CO : CO₂ is 2 : 2, which is 1 : 1. The molar gas volume at room temperature and pressure is 24 dm³."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Only gases count towards a volume. Solids (s) and liquids (l) take up a negligible volume.",
+                "For the total volume of gas, add the moles of every gaseous product, then multiply by 24 to get dm³. In 2Zn(NO₃)₂(s) → 2ZnO(s) + 4NO₂(g) + O₂(g), 2 mol of zinc nitrate makes 5 mol of gas."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 3.3.4S", "CAIE 3.3.5S"],
@@ -307,6 +387,6 @@
       "64a4f5c3-85fa-4eb9-bde8-81775d6905b0"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

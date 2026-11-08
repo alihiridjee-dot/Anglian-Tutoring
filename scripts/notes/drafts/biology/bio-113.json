@@ -194,7 +194,22 @@
           "20°C, so there is optimum or good growth."
         ],
         "tip": "One mark for each step. Making energy and for growth are not enough."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "As well as saving rare plant species, tissue culture is used commercially in plant **nurseries**.",
+                "The agar jelly contains water, hormones and nutrients such as **glucose**, amino acids, vitamins and mineral ions.",
+                "Some people have **ethical objections** to cloning."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -213,7 +228,21 @@
           "Plants that are difficult to grow from seed can be obtained."
         ],
         "tip": "Any two of these score one mark each."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "As well as in an autoclave, the growth medium can be sterilised with gamma rays or ultraviolet (UV) light. Microorganisms would compete with the plantlets for nutrients, as well as causing disease.",
+                "Plant breeders can grow plants at any time of year, because tissue culture is done in controlled conditions."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel_igcse": {
       "spec_codes": [
@@ -321,6 +350,6 @@
       "5a5fe936-ccaf-411c-a47c-a43b1a420d2f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

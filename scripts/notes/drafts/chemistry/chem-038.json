@@ -201,7 +201,21 @@
           "= 75.4 to 1 decimal place (1)"
         ],
         "tip": "Use the actual yield (45.26) and the theoretical yield (60.00). The mass of titanium oxide is not used."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A percentage yield above 100% means the product is not pure, for example a salt that is still **wet**. The extra mass is water or other substances, not extra product.",
+                "For example, an actual yield of 0.84 g with a theoretical yield of 0.70 g gives 0.84 ÷ 0.70 × 100 = 120%."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C5.1g", "OCR C5.1h"],
@@ -313,6 +327,6 @@
       "ef34b2c3-2841-4902-ad0d-a3e6fba3f119"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

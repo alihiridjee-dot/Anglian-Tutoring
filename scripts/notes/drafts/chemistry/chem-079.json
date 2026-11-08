@@ -374,17 +374,75 @@
         "AQA 4.7.2.2"
       ],
       "worked_example": {
-        "exemplar_id": "6a70d740-75bd-416f-ac05-ed7e47374b2b",
-        "source": "AQA jun 2020, Paper 2 (H), Q01.5",
-        "question": "This question is about the Earth's resources.\nPropene is an alkene.\n\nDescribe the test for alkenes.\nGive the colour change in the test.",
-        "marks": 3,
+        "exemplar_id": "92037658-a700-42da-a371-50a3825af776",
+        "source": "AQA jun 2020, Paper 2 (H), Q3.3",
+        "question": "Ethane is an alkane and ethene is an alkene.\n\nIn the displayed structural formula of ethane, the two carbon atoms are joined by a single bond and each carbon atom is also bonded to three hydrogen atoms. In the displayed structural formula of ethene, the two carbon atoms are joined by a double bond and each carbon atom is also bonded to two hydrogen atoms.\n\nCompare ethane with ethene.\nYou should refer to:\n• their structure and bonding\n• their reactions.",
+        "marks": 6,
         "answer_points": [
-          "Bromine (water).",
-          "Orange.",
-          "To colourless."
+          "Both are hydrocarbons, and each molecule has two carbon atoms.",
+          "An ethane molecule, C₂H₆, has six hydrogen atoms, but an ethene molecule, C₂H₄, has four.",
+          "Both are small molecules with covalent bonds, including C–H bonds.",
+          "Ethane has a C–C single bond, but ethene has a C=C double bond.",
+          "Both burn in oxygen. Complete combustion makes carbon dioxide and water. Incomplete combustion makes carbon monoxide, carbon and water, and is more likely with ethene.",
+          "Ethene decolourises bromine water (orange to colourless), but ethane does not.",
+          "Ethene is more reactive. It takes part in addition reactions: with hydrogen to make ethane, with water to make ethanol, and with halogens.",
+          "Ethene can also polymerise to make poly(ethene)."
         ],
-        "tip": "One mark each for the reagent, the starting colour and the final colour. Colourless to orange earns only 1 mark."
-      }
+        "tip": "This is a levels question. The top level needs clear similarities and differences in both structure and reactions. Physical properties and flammability score nothing."
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "In an addition reaction the small molecule splits, and one part bonds to each carbon atom of the former double bond."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Added to ethene",
+                "Where the atoms join",
+                "Product"
+              ],
+              "rows": [
+                [
+                  "Hydrogen, H₂",
+                  "One H on each carbon atom",
+                  "Ethane, CH₃–CH₃"
+                ],
+                [
+                  "Water, H₂O",
+                  "H on one carbon atom, OH on the other",
+                  "Ethanol, CH₃–CH₂–OH"
+                ],
+                [
+                  "Chlorine, Cl₂",
+                  "One Cl on each carbon atom",
+                  "CH₂Cl–CH₂Cl"
+                ],
+                [
+                  "Bromine, Br₂",
+                  "One Br on each carbon atom",
+                  "CH₂Br–CH₂Br"
+                ],
+                [
+                  "Iodine, I₂",
+                  "One I on each carbon atom",
+                  "CH₂I–CH₂I"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "In a displayed formula the C=C becomes a single bond, and every carbon atom still has four bonds.",
+                "Hydrogen, water and the halogens add to propene, butene and pentene in the same way."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -435,6 +493,27 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "equation",
+              "label": "Ethene and bromine, in structural formulae",
+              "formula": "CH₂=CH₂ + Br₂ → CH₂Br–CH₂Br",
+              "where": [
+                "The double bond becomes a single bond.",
+                "One bromine atom bonds to each carbon atom."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Bromine water may be described as **orange or yellow**.",
+                "A saturated hydrocarbon, such as an alkane or poly(ethene), has only single bonds, so the colour stays **unchanged**."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -452,7 +531,43 @@
           "Ethene: the bromine water is decolourised (turns colourless)."
         ],
         "tip": "One mark for each hydrocarbon."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The same rules predict the product of an addition reaction for any alkene, not only ethene."
+            },
+            {
+              "type": "equation",
+              "label": "Alkene and hydrogen",
+              "formula": "CₙH₂ₙ + H₂ → CₙH₂ₙ₊₂",
+              "where": [
+                "n is the number of carbon atoms in the alkene.",
+                "The product is the alkane with the same number of carbon atoms."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Alkene and bromine",
+              "formula": "CₙH₂ₙ + Br₂ → CₙH₂ₙBr₂",
+              "where": [
+                "n is the number of carbon atoms in the alkene.",
+                "One bromine atom bonds to each carbon atom of the former double bond."
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Propene and hydrogen give propane, C₃H₈.",
+                "Pentene and bromine give C₅H₁₀Br₂. Propene and bromine give CH₃CHBr–CH₂Br."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -591,13 +706,13 @@
       "aa4a918d-5bcd-43d4-a213-9d40cf309081"
     ],
     "exemplar_ids": [
-      "6a70d740-75bd-416f-ac05-ed7e47374b2b",
+      "92037658-a700-42da-a371-50a3825af776",
       "05d0b627-da92-458b-9a3a-4cafa8a42397",
       "ce80f3dc-6b28-47d3-a90c-887472611b31",
       "23f81962-04c7-4b80-92c1-6c186d919701",
       "17d59332-365a-4dee-91d6-8624bd584e9a"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

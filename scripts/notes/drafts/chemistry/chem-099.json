@@ -196,7 +196,21 @@
           "Sulfuric acid is formed."
         ],
         "tip": "Any three of these points score. S + O₂ → SO₂ scores the first three."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Sulfur dioxide is an **acidic gas**. Its solution turns blue litmus paper red.",
+                "It dissolves in water in clouds to form **sulfurous acid**, H₂SO₃, which is then oxidised to sulfuric acid."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C6.3f"],
@@ -295,7 +309,7 @@
       "66dfb74e-0f5b-4cda-a63c-7e89ed20db87"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   },
   "format": 1,
   "subject": "chemistry"

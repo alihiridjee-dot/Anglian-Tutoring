@@ -200,7 +200,21 @@
           "Some elements were in different positions."
         ],
         "tip": "Any two score one mark each. Answers about the modern table that are the reverse of these are also credited."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "For each property, Mendeleev followed the **trend** down the group or across the period.",
+                "So a predicted value, such as a relative atomic mass or a density, lies between the values of the elements either side of the gap."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C2.2i"],
@@ -215,13 +229,28 @@
           "He left gaps for elements that had not been discovered."
         ],
         "tip": "Any two score one mark each. Increasing mass number is also accepted."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Atomic number** is the number of protons in an atom. The chemical properties of an element follow its atomic number, not its mass.",
+                "Relative atomic mass also counts the neutrons, so the order by mass and the order by atomic number do not always agree.",
+                "In order of atomic number, tellurium (52) comes before iodine (53) with no swap needed, and every element sits in the group that matches its properties."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-27",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

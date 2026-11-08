@@ -314,7 +314,22 @@
           "Bromine displaces iodine, and iodine does not react (it has no reactions)."
         ],
         "tip": "State the trend, then back it with the results for each halogen."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "With non-metals, halogens form **covalent** compounds, such as HCl and ClF₃.",
+                "Every halogen forms a hydrogen halide of formula HX: HF, HCl, HBr and HI. Astatine would form HAt.",
+                "Halogens are toxic, so reactions with metals are done in a fume cupboard."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -367,6 +382,20 @@
               "formula": "Cl₂ + 2e⁻ → 2Cl⁻",
               "where": [
                 "Electrons are on the left, so this is reduction."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Hydrogen chloride dissolves in water to form **hydrochloric acid**, and hydrogen bromide forms **hydrobromic acid**. The solutions are acidic because they contain hydrogen ions, H⁺.",
+                "Every halogen forms a hydrogen halide, HX, so astatine would form HAt.",
+                "With heated iron wool, halogens form an iron halide. Chlorine reacts very quickly, bromine quickly and iodine slowly, so fluorine would react fastest.",
+                "To compare reactivity, mix each halogen solution with each halide solution and look for a colour change. Astatine is below iodine, so it would displace none of the other halogens, and chlorine, bromine and iodine would each displace astatine."
               ]
             }
           ]
@@ -458,7 +487,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

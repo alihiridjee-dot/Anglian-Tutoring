@@ -210,7 +210,21 @@
           "So there is less chance of infection or blood clots, or no need to take anti-clotting drugs (1)."
         ],
         "tip": "Each reason scores one mark and its explanation scores one more. The explanation must match the reason."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Cost: a transplant is cheaper in the long term. Dialysis costs more each year than the drugs needed after a transplant.",
+                "Recovery from the transplant operation takes a long time."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.21B"],
@@ -248,6 +262,6 @@
       "9c5fcd13-1370-4837-9843-2627cfe825ce"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

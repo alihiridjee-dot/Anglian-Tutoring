@@ -189,24 +189,51 @@
           "Repeat the measurements and calculate a mean."
         ],
         "tip": "Controlling temperature, light intensity or the pondweed is ignored in this question. The marks are for equilibrating, collecting and timing the gas, and repeating."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Required practical: temperature, light and safety",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A lamp that gets warm heats the water. Photosynthesis is controlled by **enzymes**, so a change in **temperature** changes the number of bubbles. Use a cool LED lamp or a water bath to keep the temperature constant.",
+                "Change the light intensity by moving the lamp, by using bulbs of different power, or with a dimmer switch.",
+                "A hot lamp can burn skin. Glassware can break and cut. Electricity near water can cause a shock. Scissors or a scalpel used to cut the pondweed can cut skin."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Rate from the volume of gas",
+              "formula": "rate = volume of oxygen collected ÷ time",
+              "where": [
+                "rate, in cm³ per minute",
+                "volume of oxygen collected, in cm³",
+                "time, in minutes"
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.5"],
       "worked_example": {
-        "exemplar_id": "8f618ad6-0b49-4393-8b65-ce6f5ed7d9ab",
-        "source": "EDEXCEL jun 2022, Paper 2 (F), Q6(a)(iv)",
-        "question": "A method of investigating the rate of photosynthesis in a water plant uses a lamp shining on the plant in water. The rate of photosynthesis can be measured by counting the number of bubbles of gas produced in one minute.\n\nDescribe how this investigation could be changed to find the effect of temperature on the rate of photosynthesis.",
-        "marks": 3,
+        "exemplar_id": "b3444c7e-0730-4bfe-b34b-28331badf490",
+        "source": "EDEXCEL nov 2020, Paper 2 (F), Q9(c)",
+        "question": "Some equipment that can be used to investigate the rate of photosynthesis is set up like this: pondweed sits in a beaker of water under an upside-down funnel, with a test tube over the funnel to collect the bubbles of oxygen. A light source is placed beside the beaker.\n\nDevise a plan to investigate the effect of light intensity on the rate of photosynthesis.\n\nInclude variables you would need to control.",
+        "marks": 6,
         "answer_points": [
-          "Change the temperature of the water.",
-          "Use a thermometer or temperature probe to monitor the temperature of the water.",
-          "Use a water bath to keep each temperature constant.",
-          "Count the bubbles at each temperature (for a set time).",
-          "Control a variable, for example keep the pondweed, light intensity or volume of water the same.",
-          "Any three of these points score."
+          "Put the light source at a set distance from the pondweed, for example 10 cm.",
+          "Count the bubbles, or measure the volume of oxygen collected, in a set time such as one minute.",
+          "Move the light source to different distances and repeat the count at each one.",
+          "Other light: use a darkened room and the same light source at each distance. A light meter can measure the light intensity.",
+          "Temperature of the water: put a heat shield between the lamp and the pondweed, check with a thermometer and add cold water if needed.",
+          "Carbon dioxide: add sodium hydrogen carbonate to the water.",
+          "Use the same pondweed each time, and wait for the rate to settle at each new distance before counting.",
+          "Bubbles are different sizes, so measuring the volume of oxygen (for example in a measuring cylinder instead of the test tube) is better than counting."
         ],
-        "tip": "Change the temperature, measure the bubbles each time, and say what you keep the same."
+        "tip": "This is a levelled question. The top level needs a detailed workable plan, plus how to control one variable and at least one other variable named."
       },
       "extra": [
         {
@@ -222,6 +249,19 @@
                 "Algae are held in small balls and placed in an indicator solution.",
                 "The light intensity is changed, for example by moving a lamp to different distances.",
                 "Photosynthesis uses up carbon dioxide, so the indicator changes colour. The faster the colour change, the faster the rate of photosynthesis."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Core practical: controlling the variables",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use a darkened room, so no other light reaches the plant. Use the same lamp at every distance.",
+                "A **light meter** measures the light intensity at the plant directly.",
+                "Place a **heat shield** between the lamp and the plant. Use a thermometer, and add cold water if the temperature rises."
               ]
             }
           ]
@@ -259,6 +299,50 @@
                 "Record the time it takes for the discs to rise to the top of the syringe.",
                 "To investigate light intensity, use a lamp at different distances from the syringe.",
                 "Use the inverse square law to calculate the light intensity."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Practical: other methods and improvements",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Cabomba is a water plant that can be used in place of pondweed.",
+                "A **colour change** of an indicator can also show the rate. Algae held in alginate beads use up carbon dioxide as they photosynthesise, so the indicator changes colour faster as the rate rises.",
+                "A **heat sink** between the lamp and the plant absorbs heat, so the water temperature stays constant.",
+                "To find the optimum temperature more precisely, record the rate at narrower temperature intervals close to the highest rate."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Practical: testing a leaf for starch after light is excluded",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Destarch.",
+                  "text": "Keep the plant in the dark for at least 12 hours, so the leaves use up their starch."
+                },
+                {
+                  "lead": "Exclude light.",
+                  "text": "Cover part of a leaf with foil or black paper and put the plant in bright light."
+                },
+                {
+                  "lead": "Soften.",
+                  "text": "Dip the leaf in boiling water."
+                },
+                {
+                  "lead": "Remove chlorophyll.",
+                  "text": "Heat the leaf in ethanol in a water bath, with the Bunsen burner off. Wear safety glasses."
+                },
+                {
+                  "lead": "Test.",
+                  "text": "Rinse the leaf and add iodine solution. Blue-black shows starch. The covered part stays orange-brown, because it could not photosynthesise."
+                }
               ]
             }
           ]
@@ -464,7 +548,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "spec_point_ids": [
       "e9ff977e-1759-4f91-afa4-19f85173f244",
       "bfae2578-398a-4777-b2fb-a155cd234439",
@@ -476,7 +560,7 @@
     ],
     "exemplar_ids": [
       "8415dc83-3e12-4ed1-b42b-ada10bd1c59b",
-      "8f618ad6-0b49-4393-8b65-ce6f5ed7d9ab",
+      "b3444c7e-0730-4bfe-b34b-28331badf490",
       "07d0c5ba-3f5b-47c9-91df-6d78a070db88",
       "10b2dcdd-50f4-4364-83b4-b06c845f6c25",
       "72d392b8-02ad-41d5-9a8a-b7982e104971"

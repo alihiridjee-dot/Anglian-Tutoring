@@ -214,7 +214,21 @@
           "So the substrate does not fit or bind (an enzyme-substrate complex cannot form)."
         ],
         "tip": "One mark for each link. Do not write that the enzyme is denatured."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Mutations occur **continuously**, so new variants keep arising.",
+                "(Higher tier, Separate science) A few mutations give an altered protein with a different shape. A **structural protein** may then lose its strength."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -355,6 +369,6 @@
       "1919e7a3-d1dd-4e1a-a710-f767fda63476"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

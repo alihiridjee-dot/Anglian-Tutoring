@@ -204,7 +204,23 @@
           "A A C T A A C G C A T T"
         ],
         "tip": "One mark if all the As and Ts in the top line are correctly paired, and one if all the Cs and Gs are correctly paired."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Nucleotide",
+                  "meaning": "One unit of DNA: a sugar and a phosphate group, with one of the four bases attached to the sugar."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -293,6 +309,6 @@
       "d9930d61-e92d-44b6-be95-332ed95f6914"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

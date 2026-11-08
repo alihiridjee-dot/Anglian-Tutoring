@@ -210,7 +210,24 @@
           "Genetic factors link to blood pressure, cholesterol, diabetes and obesity."
         ],
         "tip": "The main discriminator is the quality of linking. Both lifestyle and medical factors are needed for the top level."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Smoking by a pregnant woman can cause **low birth weight** in her baby.",
+                "Body mass depends on **energy balance**. If more energy is taken in from food than the body transfers, for example in exercise, body mass increases. If less, it decreases.",
+                "Write that energy is **transferred** or released. Do not write that it is made, used up or burnt.",
+                "Increasing age is also a risk factor for cardiovascular disease.",
+                "A study of a risk factor is more valid with a large sample and a long study time. Other factors, such as BMI, smoking and diet, must be controlled."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.23", "EDEX 5.24"],
@@ -225,7 +242,22 @@
           "Rounded to 3 significant figures: 22.0."
         ],
         "tip": "A correct numerical answer with no working gets full marks. Write the working anyway, in case of a slip."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Malnutrition** is a condition caused by a diet with too much or too little of one or more nutrients. Overeating and a poor diet are lifestyle factors that can cause disease.",
+                "Exercise needs more energy from respiration. Some of this comes from stored fat, so exercise can reduce body mass. Eating less fat or carbohydrate lowers energy intake.",
+                "Drinking a lot of alcohol over a long time causes **cirrhosis**, a disease of the liver."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 6.3r", "OCR 6.3t"],
@@ -240,7 +272,24 @@
           "Person A has a greater risk."
         ],
         "tip": "Show each total. A correct deduction from your own totals is still credited if there is a slip in adding up the points."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Cirrhosis** is a disease of the liver. It is caused by drinking a lot of alcohol over a long time.",
+                "**Bronchitis** is a disease of the lungs.",
+                "The older a person is, the greater the risk of coronary heart disease.",
+                "A large sample makes risk data more convincing. In a large sample, even a small increase in risk means many people are affected.",
+                "A study is more valid when other risk factors, such as smoking, are controlled."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 9.2.5", "CAIE 9.2.6"]
@@ -305,6 +354,6 @@
       "161b89c1-3431-4268-b1fb-b02fee1ab9ab"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

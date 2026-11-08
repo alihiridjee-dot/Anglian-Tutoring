@@ -161,7 +161,21 @@
           "Chemical: hydrochloric acid in the stomach has a low pH, which kills many pathogens."
         ],
         "tip": "For the top level, give more than one physical barrier and more than one chemical defence, and describe what most of them do."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Other physical barriers: **ear wax** and **nasal hairs** trap pathogens.",
+                "Chemical defence: **antibodies** are present on mucus linings."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -241,6 +255,6 @@
       "f7bb0db9-0eaa-4806-90e6-04b5e38089ce"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

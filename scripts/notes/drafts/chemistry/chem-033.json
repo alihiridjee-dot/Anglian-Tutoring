@@ -176,7 +176,31 @@
           "Equation: 3Fe + 2O₂ → Fe₃O₄ (2)"
         ],
         "tip": "Multiples of the equation are allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A question may give the masses of containers, not of the substances. Subtract to find each mass before converting to moles."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Mass of iron.",
+                  "text": "Tube and iron − empty tube = 56.04 − 51.56 = 4.48 g."
+                },
+                {
+                  "lead": "Mass of chlorine.",
+                  "text": "Tube and iron chloride − tube and iron = 64.56 − 56.04 = 8.52 g."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.53"],
@@ -191,7 +215,44 @@
           "Ratio Fe : Pb = 2 : 3 (or 1 : 1.5), so equation 2 (1)"
         ],
         "tip": "A mass method also scores: equation 2 predicts 621 ÷ 112 × 4.48 = 24.84 g of lead."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Stoichiometry",
+                  "meaning": "The ratio of the amounts in moles of the substances in a reaction, shown by the balancing numbers."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "If the mass of one reactant is not given, find it by subtraction. Iron chloride is the only product, so its mass is the mass of iron plus the mass of chlorine."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Find the missing mass.",
+                  "text": "8.40 g of iron makes 19.05 g of iron chloride. Mass of chlorine = 19.05 − 8.40 = 10.65 g."
+                },
+                {
+                  "lead": "Convert to moles.",
+                  "text": "Fe: 8.40 ÷ 56 = 0.15. Cl atoms: 10.65 ÷ 35.5 = 0.30."
+                },
+                {
+                  "lead": "Find the ratio.",
+                  "text": "Fe : Cl = 0.15 : 0.30 = 1 : 2, so this iron chloride is FeCl₂ and the equation is Fe + Cl₂ → FeCl₂."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C3.1k"],
@@ -206,7 +267,23 @@
           "The ratio is 2 : 3, not 1 : 1, so equation 2"
         ],
         "tip": "The last mark depends on correct reasoning from the two mole values."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Stoichiometry",
+                  "meaning": "The ratio of the amounts in moles of the substances in a reaction, shown by the balancing numbers."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -225,6 +302,6 @@
       "9e238429-c8d9-4879-ac7e-507f873394bc"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

@@ -291,7 +291,36 @@
           "Pesticides, insecticides and herbicides reduce insects and plants, which damages food chains."
         ],
         "tip": "This is a levelled answer. Facts about only land use, or only biodiversity, stay in level 1. Link the two to reach level 2."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Efficiency of animal farming",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Food production is more efficient when less energy passes from the farm animals to the environment."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Limit their **movement**, so less energy is used in movement.",
+                "Control the **temperature** of their surroundings, so less energy is lost as heat.",
+                "Some animals are fed **high protein** foods to increase growth.",
+                "Disadvantages of rearing indoors: disease spreads more easily, so more antibiotics are used. Heating, lighting, food and drugs cost more. Aggressive behaviour and stress can reduce productivity."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Separate science) Fish stocks and breeding",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Fish stocks must be kept at a level where breeding continues. If they fall too far, some species may disappear altogether in some areas."
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -310,7 +339,22 @@
           "There is less damage to the crops, so the yield increases."
         ],
         "tip": "Link three of these points for three marks. Ladybirds, insects, predators and animals are all accepted as the control organism."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Disadvantages of biological control",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The control organism may **breed quickly** and spread beyond the area where it is needed.",
+                "It may eat or outcompete other species, not only the pest, which reduces **biodiversity**.",
+                "For example, mongooses brought onto an island to control pests in fields almost made a rare snake extinct."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -328,7 +372,21 @@
           "Growing crops with the roots in water is hydroponics."
         ],
         "tip": "One mark for each gap. The word minerals is ignored for the third gap."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Gene technology** is an agricultural solution. Crops can be genetically modified to resist disease, pests, frost or drought, so more food is grown.",
+                "**Antibiotics** treat bacterial infections in farm animals."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -503,7 +561,7 @@
       "de5626c5-7d75-4dcc-ba5e-c1ec71b28453"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "exemplar_ids": [
       "22171df9-e142-418e-bade-0b7e39713f17",
       "09d11110-7d4c-4b88-9ab8-9f1b667be675",

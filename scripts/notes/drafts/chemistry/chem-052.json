@@ -228,6 +228,18 @@
               "text": "(Higher tier) You may also be asked for calculations of concentration in mol/dm³ and g/dm³ from titration results. This note covers the practical technique only."
             }
           ]
+        },
+        {
+          "heading": "(Separate science) Comparing concentrations by titration",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "To compare two samples of the same acid, titrate the same volume of each against the same alkali.",
+                "The sample that needs the greater volume of alkali to reach the end-point is the **more concentrated**."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -245,7 +257,23 @@
           "Alternatively, rinse the burette with acid, the pipette with ammonia and the flask with water beforehand, so there are no impurities to affect the result."
         ],
         "tip": "Choose two steps. Each needs its reason to score both marks."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Draw the solution into the pipette until the bottom of the **meniscus** touches the line.",
+                "The conical flask can be rinsed with distilled water and used wet. The amount of reactant in it does not change, so the titre is **unchanged**.",
+                "Water left in the pipette would dilute the solution it measures, so the titre would be lower. Rinse the pipette with that solution first.",
+                "Touch the tip of the burette against the inside of the flask, or wash the walls with a little distilled water, so that all the acid reacts."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR C5.1b"],
@@ -261,7 +289,21 @@
           "Swirl the flask during the addition, to mix the acid and alkali. Or use a white tile, to see the end-point more clearly."
         ],
         "tip": "Any four points score. Each improvement is paired with its reason."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A pipette filler is a safety precaution. Alkalis such as potassium hydroxide are **caustic** and can burn the skin.",
+                "A pH probe or pH meter can be used instead of an indicator. It gives a **pH value**, so finding the end-point does not depend on judging a colour change."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 12.2.1", "CAIE 12.2.2", "CAIE 7.3.1"],
@@ -301,7 +343,7 @@
   },
   "meta": {
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",

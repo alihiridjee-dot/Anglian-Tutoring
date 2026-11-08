@@ -197,7 +197,23 @@
           "25 °C reduces or prevents the growth of bacteria that are harmful to humans."
         ],
         "tip": "One mark for each point. Say why each temperature is used, not just that one is higher."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "An **uncontaminated culture** is needed, so that other microorganisms cannot affect the results. Only the effect of the chemical is measured.",
+                "Sterilise the Petri dishes and the agar before use, for example by heating or in an autoclave. This kills unwanted microorganisms.",
+                "Sterilise the **inoculating loop** by passing it through a flame before it moves bacteria onto the agar. This kills unwanted microorganisms on the loop.",
+                "Secure the lid with adhesive tape, so that microorganisms cannot get in or out. Store the dish upside down, so that drops of condensation from the lid do not fall onto the agar."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.18B", "EDEX 5.19B"],
@@ -214,7 +230,21 @@
           "Controlled variables: incubation time and temperature, same size of filter disc, same volume of antiseptic, soaked for the same time."
         ],
         "tip": "Marks are by level. A top answer is a workable plan with aseptic working, a control and at least one variable controlled."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "As well as a disc with no chemical, a disc of a substance known to kill bacteria can be used as a **control**.",
+                "In a plan, state the incubation time, such as 24 hours, and the temperature: 25 °C in a school lab."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 7.7"],
@@ -229,13 +259,41 @@
           "Use different types of bacteria."
         ],
         "tip": "Any two score one mark each. \"Amount\", \"stronger bacteria\" and \"time\" are ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Practical: antimicrobial agents on a bacterial lawn",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Bacterial lawn",
+                  "meaning": "Bacteria spread evenly over the whole surface of the agar."
+                },
+                {
+                  "term": "Antimicrobial agent",
+                  "meaning": "A chemical that kills microorganisms or stops them growing, such as an antiseptic, a disinfectant or an antibiotic."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use sterile forceps to place the disc. This prevents contamination by other microbes.",
+                "Tape the lid on. This stops microbes escaping, for example if the dish is dropped, and stops other microbes getting in.",
+                "Scientists incubate at the optimum temperature for the bacteria. Above it, the enzymes of the bacteria may be denatured. Below it, the bacteria reproduce and the chemical diffuses more slowly, so results take longer. School cultures stay at 25 °C."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_at": "2026-10-27",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

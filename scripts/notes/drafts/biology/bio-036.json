@@ -201,23 +201,39 @@
     "aqa": {
       "spec_codes": ["AQA 2.12", "AQA T 4.2.3.2", "AQA T 4.2.3.1"],
       "worked_example": {
-        "exemplar_id": "6cc326cd-fb46-4835-a5b9-aab44395b278",
-        "source": "AQA jun 2021, Paper 1 (H), Q06.6",
-        "question": "Compare the structure and function of xylem tissue and phloem tissue.",
+        "exemplar_id": "2552ecbf-deb3-4480-82b2-1d63e9b849e5",
+        "source": "AQA jun 2022, Paper 1 (H), Q04.3",
+        "question": "Adult hornet moths lay eggs that hatch into larvae. The larvae of the hornet moth live inside the roots of trees, use the tree roots as a source of food, and cause damage to the tree roots.\n\nExplain why a tree might die if the roots of the tree are damaged.",
         "marks": 6,
         "answer_points": [
-          "Structure: xylem is made of dead cells and phloem is made of living cells.",
-          "Structure: phloem cells have pores in their end walls. Xylem cells do not.",
-          "Structure: xylem is hollow, with no cytoplasm. Phloem contains cytoplasm.",
-          "Structure: xylem contains lignin. Phloem does not.",
-          "Structure: both are made of cells and both are tubular.",
-          "Function: xylem transports water and mineral ions. Phloem transports dissolved sugars.",
-          "Function: xylem is involved in transpiration and phloem in translocation.",
-          "Function: xylem transports in one direction (upwards). Phloem transports in both directions.",
-          "Function: both transport liquids throughout the plant."
+          "Less water is absorbed, so the rate of photosynthesis falls and less glucose is made for respiration.",
+          "With less glucose, less cellulose is made for new cell walls and fewer amino acids are made for new proteins.",
+          "With less water, the cells lose turgor and the plant wilts.",
+          "Fewer mineral ions are absorbed: fewer nitrate ions means fewer proteins are made for growth.",
+          "Fewer magnesium ions means less chlorophyll is made, so the rate of photosynthesis falls.",
+          "Damaged xylem carries less water and fewer mineral ions up to the cells.",
+          "Damaged phloem carries less sugar to the root cells for respiration.",
+          "The roots anchor the tree less well."
         ],
-        "tip": "For the top level you must refer to both structure and function, and make clear how they are similar or different."
-      }
+        "tip": "This is a levelled question. For the top level, link each cause to its effect in a clear chain, for example less water, so less photosynthesis, so less glucose for respiration."
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Nitrate ions are used to make proteins, so they are needed for growth.",
+                "(Separate science) Magnesium ions are used to make chlorophyll, so they are needed for photosynthesis.",
+                "Uptake that is faster with oxygen shows **active transport**, which needs energy from respiration.",
+                "Some uptake still happens without oxygen. It may be by diffusion, or by active transport using energy from anaerobic respiration.",
+                "Roots also anchor the plant in the soil."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.7", "EDEX 6.8"],
@@ -248,6 +264,19 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Mineral ions enter by **diffusion** from a high to a low concentration, or by **active transport** from a low to a high concentration. Osmosis moves water only.",
+                "Root hair cells also help to anchor the plant in the soil.",
+                "Mitochondria in the living cells of phloem release the energy used to move sucrose."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -264,7 +293,21 @@
           "The plant might wilt, grow slower or photosynthesise less."
         ],
         "tip": "\"Plant survival\" is ignored. Give the effect on the plant."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Lignin** makes the walls of xylem waterproof as well as strong.",
+                "The pores in the end walls of phloem cells form **sieve plates**. Cell sap passes through them from one cell to the next."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -341,7 +384,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -360,7 +403,7 @@
       "d0756caf-d1b9-4cf7-b85d-d122331e8e4b"
     ],
     "exemplar_ids": [
-      "6cc326cd-fb46-4835-a5b9-aab44395b278",
+      "2552ecbf-deb3-4480-82b2-1d63e9b849e5",
       "3c414913-d64f-4700-b649-df1aa988c4c7",
       "bdaaf491-dc6e-4d6f-8bf2-8f4f206f2501",
       "2ce74302-6696-4439-9afa-2038a431cdc2",

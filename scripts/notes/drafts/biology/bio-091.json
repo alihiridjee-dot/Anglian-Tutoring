@@ -256,7 +256,21 @@
           "The bases are A, C, G and T (adenine, cytosine, guanine and thymine)."
         ],
         "tip": "One mark for each part. Name all four bases, with the correct spelling of thymine."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A protein's unique shape lets it work as an **enzyme**, as a **hormone**, or as part of a structure in the body.",
+                "**Collagen** is an example of a protein that forms structures in the body."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -375,6 +389,6 @@
       "d9930d61-e92d-44b6-be95-332ed95f6914"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

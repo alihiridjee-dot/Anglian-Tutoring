@@ -270,7 +270,48 @@
           "Population = mean per m² × area of the field."
         ],
         "tip": "Marked by level. A valid plan has all the key steps in a logical order."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Required practical: placing quadrats and running a transect",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Place each quadrat at **random** coordinates. Lay tape measures along two sides of the area and choose the numbers with a random number generator.",
+                "Do not throw a quadrat. Where it lands is **biased** by where the thrower aims and how far they can throw, so the sample is not representative.",
+                "Lay the transect line at right angles to the edge, such as a river or woodland.",
+                "Repeat the transect at least twice more and calculate the mean at each distance. Soil moisture can be measured with a soil moisture meter."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Percentage cover",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Plants that are hard to count are measured by percentage cover, which is how much of the ground they cover."
+            },
+            {
+              "type": "equation",
+              "label": "Percentage cover (point quadrat)",
+              "formula": "percentage cover = (number of pins touching the plant ÷ total number of pins used) × 100",
+              "where": [
+                "number of pins touching the plant, in pins",
+                "total number of pins used, in pins (add up the pins from every quadrat)"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "In a quadrat divided into squares, count the squares that are at least half covered by the plant. The percentage of all the squares that are counted is the percentage cover.",
+                "A **point quadrat** uses pins pushed down to the soil. Compared with counting squares, a plant smaller than half a square is more likely to be counted, and no judgement of cover is needed."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -347,6 +388,19 @@
               "text": "If the answer is not a whole number, give a whole number of animals, because you cannot have part of an animal."
             }
           ]
+        },
+        {
+          "heading": "Core practical: belt transect",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use a **key** to identify the plants in each quadrat. Record the number of different species, or the number of plants.",
+                "To investigate growth, measure something in each quadrat, such as plant height, number of leaves or dry mass.",
+                "Make the light readings comparable. Use the same light meter, held in the same position, at the same time of day."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -417,6 +471,20 @@
                 "Plants do not move, so they are easy to count with quadrats.",
                 "Animals can move away, or be counted twice, or be missed if they burrow.",
                 "A pooter or a pitfall trap can be used to catch small animals."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Practical: sampling a habitat",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Lay two tape measures at right angles to make a grid. Use random numbers as the coordinates for each quadrat, so the sample is not biased.",
+                "Use a **key** to identify each species in the quadrat, so the number of different species can be counted.",
+                "In capture-recapture, put a small mark on the underside of the animal. It is less visible to predators, so marking does not make the animal more likely to be eaten.",
+                "Measure an abiotic factor in each area, such as soil pH: test soil samples with universal indicator or a pH meter. Check that the other abiotic factors are the same in each area, so the comparison is fair."
               ]
             }
           ]
@@ -499,6 +567,6 @@
       "1adb7068-f454-4399-a792-1ce4216bf7e2"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

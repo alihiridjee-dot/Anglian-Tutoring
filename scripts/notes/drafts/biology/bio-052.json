@@ -163,7 +163,22 @@
           "So the radioactive substance, toxin, drug or chemical stops the cancer cells growing or dividing, or kills them."
         ],
         "tip": "A second route also scores: the antibody interrupts the cell cycle or aids the immune response, only targets cancer cells, and so stops them growing or helps the immune system destroy them."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier, Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In laboratories, monoclonal antibodies are used to measure the **levels** of hormones and other chemicals in blood, and to detect pathogens.",
+                "In research, an antibody with a **fluorescent dye** attached binds to a specific molecule. This shows where the molecule is in a cell or tissue.",
+                "A test strip that uses monoclonal antibodies can have a control area. It shows that the test is working."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.22B"],
@@ -212,6 +227,6 @@
       "42bc5ad0-2303-4a37-b369-665cbd59d2e2"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

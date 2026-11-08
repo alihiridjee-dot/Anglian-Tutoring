@@ -211,7 +211,21 @@
           "This cools the blood, which cools the body. \"Cools blood / body\" on its own is ignored."
         ],
         "tip": "Give three linked steps: more blood flow near the surface, more heat lost, then the blood and body cool."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The **thermoregulatory centre** is the part of the brain (the hypothalamus) that monitors body temperature. It contains receptors sensitive to the temperature of the blood.",
+                "It sends nerve impulses along neurones to effectors such as the sweat glands."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 7.11B", "EDEX 7.12B"],
@@ -243,6 +257,24 @@
                 "The erector muscle relaxes and the hairs lie down. Less air is trapped. Air is an insulator, so there is less insulation and more heat is lost.",
                 "Capillaries let more blood flow through, closer to the surface, so heat has less distance to travel and more is lost by radiation.",
                 "Nerve endings in the skin detect heat and send impulses to the brain (hypothalamus)."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "(Separate science) Roles of the dermis and epidermis",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Epidermis",
+                  "meaning": "The thin outer layer of the skin. It protects the layers beneath it, and sweat reaches its surface through pores and evaporates."
+                },
+                {
+                  "term": "Dermis",
+                  "meaning": "The layer under the epidermis. It contains the sweat glands, hair erector muscles and blood capillaries that change heat loss, and the nerve endings that detect temperature."
+                }
               ]
             }
           ]
@@ -278,6 +310,18 @@
                 "Sweat glands close, so there is reduced sweating or none at all.",
                 "Hairs in the skin become erect.",
                 "Shivering can also be given as a change."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The walls of the blood vessels in the skin contain **muscle fibres** and elastic tissue.",
+                "This lets the vessels narrow or widen, which changes the blood flow to the skin surface."
               ]
             }
           ]
@@ -368,7 +412,7 @@
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "spec_point_ids": [
       "a5e44b65-54ec-4de8-9c99-23114844df03",
       "dd1be3e7-8505-4149-98f5-98a5ae0c9f56",

@@ -204,7 +204,21 @@
           "Breast development, like other female secondary sexual characteristics, is dependent on oestrogen (1)."
         ],
         "tip": "Link FSH to oestrogen first, then oestrogen to breast development."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Oestrogen** and **progesterone** both help to maintain the lining of the uterus, including during pregnancy.",
+                "The lining thickens so that a fertilised egg (embryo) can **implant** in it."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -221,7 +235,21 @@
           "This is to maintain the lining of the uterus (1). Any two of these three points score."
         ],
         "tip": "Link the timing, the source and the job of the hormone."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Progesterone** increases the blood supply to the lining of the uterus, with more and larger blood vessels.",
+                "The lining is thickened and maintained to prepare it for a fertilised egg to **implant**."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -388,6 +416,6 @@
       "0e453295-2247-4da7-abe7-441c8b927942"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

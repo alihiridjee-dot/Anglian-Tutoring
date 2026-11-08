@@ -322,7 +322,18 @@
           "Equation: C₆H₁₂ + Br₂ → C₆H₁₂Br₂. The liquid that gives a negative result to both tests is hexane."
         ],
         "tip": "This is a levels question. The top level needs both tests described in detail, in a clear and logical order."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Universal indicator paper placed in dilute ethanoic acid turns red, orange or yellow."
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -557,6 +568,6 @@
       "00777430-d01e-4fdc-bfeb-1ff7a793f7a5"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

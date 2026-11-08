@@ -298,7 +298,22 @@
           "Because there are more molecules per unit volume (the molecules are closer together)."
         ],
         "tip": "Two marks are for the yield and two are for the rate. Do not refer to more energetic collisions."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "If raising the temperature moves the position to the **left**, the forward reaction is **exothermic**. The system opposes the rise by favouring the reverse reaction, which takes in heat.",
+                "If raising the temperature moves the position to the right, the forward reaction is endothermic.",
+                "A change in pressure has **no effect** on the position when there are no gases in the equilibrium, such as a reaction between aqueous solutions."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 4.17", "EDEX 5.21C"],
@@ -328,7 +343,23 @@
           "So the equilibrium shifts to the left-hand side, and the yield of ammonia is reduced."
         ],
         "tip": "The marks are for the explanation. Do not link the lower yield to rate."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "To get as much product as possible, choose conditions that shift the position to the **right**: add more reactant or remove product.",
+                "Lower the temperature if the forward reaction is exothermic. Raise it if the forward reaction is endothermic.",
+                "Raise the pressure if the products have fewer gas molecules than the reactants.",
+                "Data can show what kind of reaction it is. A yield that falls as the temperature rises shows the forward reaction is **exothermic**. A yield that rises as the pressure rises shows fewer gas molecules on the product side."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": ["CAIE 6.3.4S"],
@@ -387,6 +418,6 @@
       "054d9ab1-4bbf-4377-b48d-de6a74478c8f"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }

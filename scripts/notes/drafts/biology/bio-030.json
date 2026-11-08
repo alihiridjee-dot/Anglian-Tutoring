@@ -164,7 +164,23 @@
           "Both have cytoplasm and a cell membrane."
         ],
         "tip": "This is a levelled question. Cover both cells and make each difference clear. Similarities can add to the answer."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Substances carried in plasma",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Plasma carries these to the cells: **glucose**, **amino acids**, fatty acids, glycerol, water, mineral ions and vitamins.",
+                "It carries these away from the cells: carbon dioxide, urea and lactic acid.",
+                "It also carries hormones and antibodies.",
+                "Name the substance in an answer. Words such as nutrients and waste are too vague."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 8.6"],
@@ -179,7 +195,27 @@
           "So more oxygen can be carried (or diffused)."
         ],
         "tip": "Three linked marks: the shape, what it gives, and what that does for oxygen."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Erythrocytes",
+                  "meaning": "The scientific name for red blood cells."
+                },
+                {
+                  "term": "Memory cells",
+                  "meaning": "Lymphocytes that remember an antigen from a previous infection."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 2.2e", "OCR 6.3j"],
@@ -276,7 +312,7 @@
   "meta": {
     "status": "draft",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

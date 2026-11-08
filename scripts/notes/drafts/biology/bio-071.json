@@ -179,7 +179,21 @@
           "Light rays are focused on the retina, so a clear image forms."
         ],
         "tip": "One mark for the type of lens, one for the refraction and one for focusing on the retina."
-      }
+      },
+      "extra": [
+        {
+          "heading": "(Separate science) Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "**Hyperopia** is the name for long-sightedness.",
+                "New technologies for correcting these defects include hard and soft contact lenses, laser surgery to change the shape of the cornea, and a replacement lens in the eye."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 2.16B", "EDEX 2.17B"],
@@ -229,6 +243,6 @@
       "704af92e-4f9b-4d80-add3-8ab145b68493"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_at": "2026-10-27"
   }
 }

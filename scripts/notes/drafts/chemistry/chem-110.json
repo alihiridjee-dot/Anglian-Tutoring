@@ -182,7 +182,21 @@
           "Or use a fume cupboard, so that you do not inhale it."
         ],
         "tip": "Give one pair. The second mark depends on the first, and protective clothing alone is ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Storing acids",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Acids are kept in glass containers because glass is **inert**. It is unreactive and does not corrode.",
+                "Do not write that glass is not corrosive. Corrosive describes the acid, not the glass."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -195,6 +209,6 @@
     ],
     "exemplar_ids": ["d1732d4e-e1c7-42b5-9255-b2881b6daead"],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_at": "2026-10-27"
   }
 }

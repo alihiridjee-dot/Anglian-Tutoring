@@ -210,7 +210,21 @@
           "Ionic compounds conduct when molten or dissolved, but not as a solid, which is what A does."
         ],
         "tip": "Quote the data from the table and link it to the property of ionic compounds."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Melting point, brittleness and conductivity are **bulk properties** of the whole lattice. A single ion on its own does not have them.",
+                "The forces between ions are much stronger than the intermolecular forces between small molecules, so ionic compounds have much higher melting points than small-molecule substances."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "cambridge_igcse": {
       "spec_codes": [
@@ -256,7 +270,7 @@
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_at": "2026-10-27",
     "spec_point_ids": [
       "7486d348-43df-40e3-ab6f-ca403b5d1c64",
       "d369c8b1-14ab-4680-b3d2-83a6fbc0a636",

@@ -161,7 +161,23 @@
           "Repeat over many generations."
         ],
         "tip": "One mark for each step. Repeated breeding of the original parents is not accepted."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Inbreeding",
+                  "meaning": "Breeding between closely related individuals. Selective breeding can lead to it, and some breeds are then particularly prone to disease or inherited defects."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -178,7 +194,21 @@
           "Repeat the process over many generations."
         ],
         "tip": "One mark for each step."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detail this course asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Selective breeding can lead to **inbreeding**, which is breeding between closely related animals.",
+                "To produce a large population of animals that are not closely related, breed animals that are not genetically similar. Repeat this over many generations."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -324,6 +354,6 @@
       "ea7054a8-12ad-4d65-b00e-6ba2b05d07e2"
     ],
     "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_at": "2026-10-27"
   }
 }
