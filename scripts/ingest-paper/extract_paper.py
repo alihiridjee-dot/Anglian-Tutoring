@@ -1183,7 +1183,7 @@ def ms_key(board, qtext, last):
 AO_NOTE = re.compile(r"\(?\s*(?:\d+\s*[x×]\s*)?AO\s?\d[\d.]*[a-z]?\s*[,)]?", re.I)
 
 
-def table_rows(page, lines):
+def table_rows(page, lines, board=None):
     """The page's lines grouped by the table row they sit in.
 
     A row's cells are not aligned on one baseline: AQA centres the question
@@ -1208,8 +1208,33 @@ def table_rows(page, lines):
             levels[-1][1].append((u0, u1))
         else:
             levels.append([v, [(u0, u1)]])
+
+    def leaves_question_column_open(v, pieces):
+        # The table's left side is the one beside this rule (a part carried
+        # over can sit in a narrower table above the next), and a border may
+        # start a few points in from it; a rule inside a row starts at the
+        # question column's far side.
+        side = min((u for u, v0, v1 in long_v if v0 - 3 <= v <= v1 + 3), default=left)
+        return min(a for a, _ in pieces) > side + 20
+
+    # AQA rules every row across its question column, so where its table does,
+    # a rule that leaves that column open is inside a row: a small table in the
+    # answer, or the bands of a levels table beside a question cell that spans
+    # them all, its label set halfway down. (OCR never rules the question
+    # column, and nor does the odd AQA table; the rule under the headings
+    # always counts.)
+    inside_rows = board == "aqa" and sum(not leaves_question_column_open(v, p) for v, p in levels) >= 2
+    heads = [l.v1 for l in lines if header_cells(l)] if inside_rows else []
     cuts = []
     for v, pieces in levels:
+        lo, hi = min(a for a, _ in pieces), max(b for _, b in pieces)
+        # A rule running well past both sides of the table at its top is the
+        # running head's, crossing a row carried over from the page before.
+        # (The footer's rule at its foot still parts the page number off.)
+        if lo < left - 8 and hi > right + 8 and v - top < 20:
+            continue
+        if inside_rows and leaves_question_column_open(v, pieces) and not any(0 <= v - h <= 15 for h in heads):
+            continue
         covered, end = 0.0, -1e9
         for a, b in sorted(pieces):
             a = max(a, end)
@@ -1250,7 +1275,7 @@ def parse_ms(doc, board):
             continue                                    # the board's back page, not a scheme
         vertical = table_rules(page)[0]
         lines = [l for l in lines if not MS_RUNNING_HEAD.match(re.sub(r"\s+", " ", l.text).strip())]
-        rows = table_rows(page, lines)
+        rows = table_rows(page, lines, board)
         main = MAIN.get((page.parent.name, page.number), (1, 0))
         pictures = []
         for info in page.get_image_info():
