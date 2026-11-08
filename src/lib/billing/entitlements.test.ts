@@ -1,5 +1,13 @@
 import { describe, expect, test } from "bun:test";
-import { BEST_VALUE_CADENCE, CADENCES, WEEKS_PER_CYCLE, pricePerWeek } from "./entitlements";
+import {
+  ALEVEL_PRICE_PENCE,
+  BEST_VALUE_CADENCE,
+  CADENCES,
+  GENERAL_PRICE_PENCE,
+  WEEKS_PER_CYCLE,
+  priceLadderFor,
+  pricePerWeek,
+} from "./entitlements";
 
 /** packages.price_pence as live on 3 Oct 2026 (the iGCSE list is the same). */
 const LIVE_PENCE = {
@@ -16,13 +24,38 @@ describe("cadence figures", () => {
   });
 
   test("the Best value cadence is the cheapest per week at every subject count", () => {
-    for (const count of [1, 2, 3] as const) {
-      const perWeek = CADENCES.map((c) => ({
-        key: c.key,
-        each: pricePerWeek(c.key, LIVE_PENCE[c.key][count]),
-      }));
-      const cheapest = perWeek.reduce((a, b) => (b.each < a.each ? b : a));
-      expect(cheapest.key).toBe(BEST_VALUE_CADENCE);
+    for (const ladder of [LIVE_PENCE, ALEVEL_PRICE_PENCE]) {
+      for (const count of [1, 2, 3] as const) {
+        const perWeek = CADENCES.map((c) => ({
+          key: c.key,
+          each: pricePerWeek(c.key, ladder[c.key][count]),
+        }));
+        const cheapest = perWeek.reduce((a, b) => (b.each < a.each ? b : a));
+        expect(cheapest.key).toBe(BEST_VALUE_CADENCE);
+      }
+    }
+  });
+});
+
+describe("price ladders", () => {
+  test("the general ladder is still what is live", () => {
+    expect(GENERAL_PRICE_PENCE).toEqual(LIVE_PENCE);
+  });
+
+  test("A-level is 10% above the general ladder, to the nearest penny", () => {
+    for (const c of CADENCES) {
+      for (const count of [1, 2, 3] as const) {
+        expect(ALEVEL_PRICE_PENCE[c.key][count]).toBe(
+          Math.round(GENERAL_PRICE_PENCE[c.key][count] * 1.1),
+        );
+      }
+    }
+  });
+
+  test("only A-level students are sold the A-level ladder", () => {
+    expect(priceLadderFor("alevel")).toBe(ALEVEL_PRICE_PENCE);
+    for (const level of ["gcse", "gcse_trilogy", "igcse", "ks3", null, undefined]) {
+      expect(priceLadderFor(level)).toBe(GENERAL_PRICE_PENCE);
     }
   });
 });
