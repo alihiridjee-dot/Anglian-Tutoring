@@ -110,6 +110,16 @@ class SchemeLabels(unittest.TestCase):
     def test_a_bracketed_i_alone_continues_the_letter_above(self):
         self.assertEqual(X.ms_key("edexcel", "(i)", (3, "b"))[0], "3|b|i")
 
+    def test_ocr_starred_letter_and_raised_bracket(self):
+        # OCR stars a levels-marked part ("c*"), and can set "(c)" a little high.
+        self.assertEqual(X.ms_key("ocr", "c*", (20, "b"))[0], "20|c|")
+        self.assertEqual(X.ms_key("ocr", "^(c)", (19, "b"))[0], "19|c|")
+
+    def test_guidance_naming_a_question_is_not_a_header(self):
+        self.assertIsNone(X.header_cells(X.Line(0, [span("if no answer to question 01.6", 300)])))
+        self.assertIsNotNone(X.header_cells(X.Line(0, [span("Question", 48), span("Answers", 150),
+                                                       span("Mark", 450)])))
+
 
 def scheme_doc(pages):
     """A mark scheme drawn from scratch: each page is (texts, rules), texts as
@@ -176,6 +186,15 @@ class SchemeRows(unittest.TestCase):
         self.assertEqual(ms["2|3|"]["answer"], "Rearranging")
         self.assertEqual(ms["2|4|"]["answer"].split("\n")[0], "GMm over d")
         self.assertNotIn("14", ms["2|4|"]["answer"])
+
+    def test_a_misprinted_question_number_is_the_next_part_of_the_question_in_hand(self):
+        texts = HEADER + [(48, 150, "01.3"), (108, 150, "evaporate"), (48, 190, "08.1"), (108, 190, "acid"),
+                          (48, 230, "08.2"), (108, 230, "Ca(NO3)2"), (48, 270, "01.3"), (108, 270, "Level 3: method"),
+                          (48, 310, "09.1"), (108, 310, "magnesium")]
+        ms = X.parse_ms(scheme_doc([(texts, grid(110, 330, [130, 170, 210, 250, 290]))]), "aqa")
+        self.assertEqual(ms["1|3|"]["answer"], "evaporate")
+        self.assertEqual(ms["8|3|"]["answer"], "Level 3: method")
+        self.assertEqual(ms["9|1|"]["answer"], "magnesium")
 
     def test_ocr_borders_that_leave_the_question_column_open_still_cut(self):
         # OCR rules each part's row from the answer column rightwards only.

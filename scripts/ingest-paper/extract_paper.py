@@ -1023,7 +1023,7 @@ HEADER_WORDS = [
 HEADER_RE = re.compile("|".join(f"(?P<{n}>\\b(?:{p})\\b)" for n, p in HEADER_WORDS), re.I)
 MS_LABEL_AQA = re.compile(r"^(?:0\s?)?(\d)\s?(\d)?(?:\s?\.\s?(\d{1,2}))?(?=\s|$)")
 MS_LABEL = re.compile(
-    r"^\*?\s*(?P<q>\d{1,2})?\s*\*?\s*(?:\*?\(\s*(?P<letter>[a-z])\s*\*?\s*\)\*?|(?P<bare_letter>[a-h])(?=\s|$|\())?\s*"
+    r"^\*?\s*(?P<q>\d{1,2})?\s*\*?\s*(?:\*?\(\s*(?P<letter>[a-z])\s*\*?\s*\)\*?|(?P<bare_letter>[a-h])(?=\s|$|\(|\*))?\s*"
     r"(?:\*?\(\s*(?P<roman>(?i:i{1,3}|iv|vi{0,3}|ix|x))\s*\*?\s*\)(?P<item>[1-9](?=\s|$))?|(?P<bare_roman>(?i:i{1,3}|iv|vi{0,3}|ix|x))(?=\s|$))?"
     r"\s*\*?(?=\s|$)")
 
@@ -1075,6 +1075,9 @@ def header_cells(lines):
         text += tidy(s.text)
     leftover = HEADER_RE.sub(" ", text)
     if re.search(r"[A-Za-z]{3,}", re.sub(r"\b(?:Number|No|Max|Total|element|Mark Scheme)\b", " ", leftover, flags=re.I)):
+        return None
+    # ...and a heading never names a part: "if no answer to question 01.6" is guidance.
+    if re.search(r"\b\d{1,2}\s?\.\s?\d{1,2}\b|\b\d{1,2}\s?\([a-z]\)", leftover):
         return None
     cols = {}
     for m in HEADER_RE.finditer(text):
@@ -1141,7 +1144,7 @@ def ms_key(board, qtext, last):
     left of its column lands after the label in the same cell; it is returned
     so it can go back to the answer."""
     t = re.sub(r"\s+", " ", qtext).strip()
-    t = re.sub(r"^\^(?=\d)", "", t)             # a label set a little high ("^2(b)(ii)")
+    t = re.sub(r"^\^(?=\d|\()", "", t)          # a label set a little high ("^2(b)(ii)", "^(c)")
     if board == "aqa":
         m = MS_LABEL_AQA.match(t)
         if not m:
@@ -1333,6 +1336,14 @@ def parse_ms(doc, board):
                         int(found[0].split("|")[0]) not in (last[0], last[0] + 1) and \
                         re.match(r"[\d.(×x=+\-–/]", found[2] or ""):
                     found = None
+                # A misprinted question number: "01.3" where 08.3 is due, below
+                # 08.2, when 01.3 is long since marked. The part is the next one
+                # of the question in hand.
+                if found and board == "aqa" and last[0] is not None and not found[0].endswith("||"):
+                    fq, fmid = (int(n) for n in found[0].split("|")[:2])
+                    if fq < last[0] and found[0] in entries and key_of(last[0], fmid - 1) in entries \
+                            and key_of(last[0], fmid) not in entries:
+                        found = (key_of(last[0], fmid), (last[0], None), found[2])
                 if found:
                     labels.append((i, found))
                     last = found[1]
