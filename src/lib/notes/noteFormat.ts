@@ -342,7 +342,26 @@ export interface ExplorerDiagram {
   parts: { name: string; detail: string }[];
 }
 
+/**
+ * A figure drawn by the same code as exam-question figures (src/lib/figures),
+ * from a brief in that figure kind's own fields: a graph, bar chart, reaction
+ * profile, ray diagram, field pattern, displayed formula and so on. It is held
+ * to the same checker: a note whose figure doesn't draw and pass never
+ * validates or loads (noteFigures.ts), and a page shows nothing rather than a
+ * wrong picture. Only kinds code draws: circuits and food webs are drawn by a
+ * model, so a note can't use them.
+ */
+export interface FigureDiagram {
+  kind: "figure";
+  alt: string;
+  /** A short heading above the picture: "A distance–time graph". */
+  title?: string;
+  /** The figure's brief: its `kind` and that kind's fields, exactly as an exam question briefs it. */
+  brief: { kind: string; [field: string]: unknown };
+}
+
 export type NoteDiagram =
+  | FigureDiagram
   | LineGraphDiagram
   | FlowDiagram
   | CompareDiagram
@@ -581,7 +600,12 @@ function checkBlock(b: unknown, at: string, errs: string[]) {
 
 function checkDiagram(d: NoteDiagram, at: string, errs: string[]) {
   if (!isStr(d?.alt)) errs.push(`${at}: needs alt text`);
-  if (d?.kind === "line-graph") {
+  if (d?.kind === "figure") {
+    // Shape only here; noteFigures.ts draws it and holds it to the figure checker.
+    if (!d.brief || typeof d.brief !== "object" || !isStr(d.brief.kind))
+      errs.push(`${at}: figure needs a brief with a kind`);
+    if (d.title != null && !isStr(d.title)) errs.push(`${at}: figure title must be text`);
+  } else if (d?.kind === "line-graph") {
     const { x, series } = d;
     if (!x || !(x.max > x.min) || !Array.isArray(x.ticks) || !isStr(x.label))
       errs.push(`${at}: line-graph needs x {label, min < max, ticks}`);
