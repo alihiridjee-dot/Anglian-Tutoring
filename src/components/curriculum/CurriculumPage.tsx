@@ -32,6 +32,7 @@ import { currentWeekKey } from "@/lib/planner/week";
 import { BookMarked, ChevronLeft } from "lucide-react";
 import { AddSubjectsLink, Filter } from "@/components/curriculum/CurriculumFilters";
 import { SpecPointDetail } from "@/components/curriculum/SpecPointDetail";
+import { PracticeRequest } from "@/components/curriculum/PracticeRequest";
 import { SpecSearchBar, SpecSearchResults } from "@/components/curriculum/SpecSearch";
 import { TopicCard } from "@/components/curriculum/TopicCard";
 import { TopicCreate } from "@/components/curriculum/TopicCreate";
@@ -94,6 +95,8 @@ export function Curriculum() {
 
   // Selected specification point state to handle full sub-page navigation
   const [selectedSpecPoint, setSelectedSpecPoint] = useState<SpecPoint | null>(null);
+  // Bumped when a point's requested MCQs or task arrive, so its sections reload.
+  const [contentRev, setContentRev] = useState(0);
 
   // A student's own plan for the selected course: how much of each topic is
   // covered, and when each uncovered point comes up. Only for a course they are
@@ -288,15 +291,27 @@ export function Curriculum() {
                 <SciText text={selectedSpecPoint.description} />
               </p>
             )}
-            {schedule?.byPoint.get(selectedSpecPoint.id) && (
-              <div className={`mt-5 ${subjectTint(subject)}`}>
+            {/* When the point is planned, and a student's Request for its MCQs
+                and task: tiles of one shape, side by side. Hidden when both
+                have nothing to say. */}
+            <div
+              className={`mt-5 flex flex-col gap-3 empty:hidden sm:flex-row sm:flex-wrap ${subjectTint(subject)}`}
+            >
+              {schedule?.byPoint.get(selectedSpecPoint.id) && (
                 <WhenLink
                   when={schedule.byPoint.get(selectedSpecPoint.id)!}
                   now={now}
                   subject={subject}
                 />
-              </div>
-            )}
+              )}
+              {/* Never in the showcase: it has no session to ask with. */}
+              {!isTutor && !isDemoStudent() && (
+                <PracticeRequest
+                  pointId={selectedSpecPoint.id}
+                  onReady={() => setContentRev((n) => n + 1)}
+                />
+              )}
+            </div>
           </div>
 
           <div className="mt-8">
@@ -305,6 +320,7 @@ export function Curriculum() {
               isTutor={isTutor}
               onChanged={loadTopics}
               taxonomy={{ subject, board, level }}
+              contentRev={contentRev}
             />
           </div>
         </div>

@@ -1,10 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Sparkles } from "lucide-react";
+import { AlertTriangle, Clock, Plus, Sparkles, type LucideIcon } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { Spinner } from "@/components/Shared";
 import { dbError } from "@/lib/platform/errors";
+import { cn } from "@/lib/utils";
 
 // A student asks for a spec point's MCQs and task, whatever week it falls in.
 // They are library content: written once by the practice queue and shared by
@@ -29,6 +30,9 @@ function what(kinds: Kind[], article = true) {
   return words.join(" and ");
 }
 
+/** "MCQs or task", "MCQs", "task": for "No … yet". */
+const whatOr = (kinds: Kind[]) => what(kinds, false).replace(" and ", " or ");
+
 /** MCQs are plural; a task on its own isn't. */
 const plural = (kinds: Kind[]) => kinds.length > 1 || kinds[0] === "quiz";
 
@@ -44,6 +48,9 @@ export function PracticeRequest({ pointId, onReady }: { pointId: string; onReady
       if (error) throw dbError(error);
       return (data ?? []) as Row[];
     },
+    // Looked at afresh each time the point opens: another student may have
+    // asked for it, or it may have arrived, since.
+    staleTime: 0,
     refetchInterval: (q) => (q.state.data?.some((r) => r.state === "writing") ? POLL_MS : false),
   });
 
@@ -79,56 +86,86 @@ export function PracticeRequest({ pointId, onReady }: { pointId: string; onReady
   const missing = of("missing");
   const inProgress = of("writing");
   const failed = of("failed");
-  if (missing.length + inProgress.length + failed.length === 0) return null;
   const left = data[0].requests_left;
 
-  const title =
-    inProgress.length > 0
-      ? `Writing your ${what(inProgress, false)}`
-      : missing.length > 0
-        ? `No ${what(missing, false).replace(" and ", " or ")} for this point yet`
-        : `The ${what(failed, false)} couldn't be written`;
-
+  // One tile per thing to say. Usually that's one: Request, then Writing,
+  // then nothing (the point's MCQs and task are in the sections below).
   return (
-    <section className="premium-card flex flex-wrap items-center gap-3 rounded-2xl p-4">
-      <span className="icon-tile size-11 shrink-0">
-        <Sparkles className="size-5" aria-hidden />
-      </span>
-      <div className="min-w-0 flex-1 space-y-1">
-        <span className="eyebrow eyebrow-bare block text-[10px]">Practice</span>
-        <h3 className="text-base leading-tight font-extrabold">{title}</h3>
-        {inProgress.length > 0 && (
-          <p className="text-sm">
-            {plural(inProgress) ? "They'll" : "It'll"} be here in a few minutes. You can leave this
-            page.
-          </p>
-        )}
-        {missing.length > 0 && left === 0 && (
-          <p className="text-sm">
-            You've used today's 10 requests. Ask for this point's {what(missing, false)} tomorrow.
-          </p>
-        )}
-        {failed.length > 0 && (
-          <p className="text-sm">
-            {inProgress.length + missing.length > 0
-              ? `The ${what(failed, false)} couldn't be written today. `
-              : ""}
-            Try again tomorrow.
-          </p>
-        )}
-      </div>
-      {inProgress.length > 0 && <Spinner label="Writing" className="py-0" />}
+    <>
       {missing.length > 0 && left > 0 && (
         <button
           type="button"
           onClick={() => request.mutate()}
           disabled={request.isPending}
-          className="btn-solid inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-4 text-sm font-semibold disabled:opacity-60 sm:w-auto"
+          className={TILE}
         >
-          <Sparkles className="size-4" aria-hidden />
-          {request.isPending ? "Asking…" : `Request ${what(missing)}`}
+          <TileBody
+            icon={Sparkles}
+            label={`No ${whatOr(missing)} yet`}
+            line={request.isPending ? "Asking…" : `Request ${what(missing)}`}
+            end={
+              <span className="when-link-arrow" aria-hidden>
+                <Plus className="size-4" strokeWidth={3} />
+              </span>
+            }
+          />
         </button>
       )}
-    </section>
+      {inProgress.length > 0 && (
+        <div className={TILE} role="status">
+          <TileBody
+            icon={Sparkles}
+            label={`Writing your ${what(inProgress, false)}`}
+            line="Ready in a few minutes"
+            end={<Spinner compact label={`Writing your ${what(inProgress, false)}`} />}
+          />
+        </div>
+      )}
+      {missing.length > 0 && left === 0 && (
+        <div className={cn(TILE, "tint-slate")}>
+          <TileBody icon={Clock} label="Today's 10 requests used" line="Ask again tomorrow" />
+        </div>
+      )}
+      {failed.length > 0 && (
+        <div className={cn(TILE, "tint-rose")}>
+          <TileBody
+            icon={AlertTriangle}
+            label={`${what(failed, false)} couldn't be written`}
+            line="Try again tomorrow"
+          />
+        </div>
+      )}
+    </>
+  );
+}
+
+/** The "Planned for" tile's shape (WhenLink), so the two sit side by side. */
+const TILE =
+  "when-link flex w-full items-center gap-3 p-2.5 pr-3 text-left sm:w-auto sm:min-w-72 sm:inline-flex";
+
+function TileBody({
+  icon: Icon,
+  label,
+  line,
+  end,
+}: {
+  icon: LucideIcon;
+  label: string;
+  line: string;
+  end?: ReactNode;
+}) {
+  return (
+    <>
+      <span className="icon-tile size-11 shrink-0">
+        <Icon className="size-5" aria-hidden />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="eyebrow eyebrow-bare block text-[10px]">{label}</span>
+        <span className="font-display mt-1 block text-base leading-tight font-extrabold">
+          {line}
+        </span>
+      </span>
+      {end}
+    </>
   );
 }

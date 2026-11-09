@@ -178,22 +178,35 @@ export function EmptyState({
 export function Spinner({
   label = "Loading",
   className = "py-20",
+  compact = false,
 }: {
   label?: string;
   /** Override the vertical padding when this sits inside a panel, not a page. */
   className?: string;
+  /** Just the blocks, for a spot the size of a button. The label is still read out. */
+  compact?: boolean;
 }) {
+  const blocks = (
+    <span aria-hidden className="flex items-end gap-1.5">
+      {[0, 1, 2].map((i) => (
+        <span
+          key={i}
+          className="load-dot block size-2.5 rounded-[4px] bg-[color:var(--tint)]"
+          style={{ "--dot-delay": `${i * 130}ms` } as React.CSSProperties}
+        />
+      ))}
+    </span>
+  );
+  if (compact)
+    return (
+      <span className="inline-flex shrink-0 items-center px-1">
+        {blocks}
+        <span className="sr-only">{label}…</span>
+      </span>
+    );
   return (
     <div className={cn("flex flex-col items-center justify-center gap-3", className)}>
-      <span aria-hidden className="flex items-end gap-1.5">
-        {[0, 1, 2].map((i) => (
-          <span
-            key={i}
-            className="load-dot block size-2.5 rounded-[4px] bg-[color:var(--tint)]"
-            style={{ "--dot-delay": `${i * 130}ms` } as React.CSSProperties}
-          />
-        ))}
-      </span>
+      {blocks}
       <span className="text-muted-foreground text-sm font-semibold">{label}…</span>
     </div>
   );
