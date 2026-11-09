@@ -1,9 +1,17 @@
 import { useEffect, useRef, useState, type CSSProperties, type RefObject } from "react";
 import { useInView, useReducedMotion } from "motion/react";
-import { Send } from "lucide-react";
+import { MessageCircle, Send } from "lucide-react";
 // Shared WhatsApp number (same as the floating button). The pre-filled message
 // names the tutor so we know who the enquiry is about.
 import { whatsappLink } from "@/lib/leads/whatsapp";
+import { askTutor } from "@/lib/leads/tutorChat.functions";
+import {
+  AI_REPLIES,
+  MAX_MESSAGE,
+  handoffText,
+  type ChatTurn,
+  type TutorId,
+} from "@/lib/leads/tutorChat";
 
 /** Each fact's emoji has its own little move when it is pointed at or tapped. */
 type Trick = "beat" | "flip" | "think" | "toss" | "ring" | "swing" | "fizz";
@@ -19,7 +27,7 @@ type Fact = {
 };
 
 type Tutor = {
-  id: string;
+  id: TutorId;
   name: string;
   firstName: string;
   role: string;
@@ -534,7 +542,20 @@ function Agencies({ list }: { list: { name: string; logo: string }[] }) {
   );
 }
 
-/** The back of the card: a short chat that hands off to WhatsApp. */
+/** What the tutor says when the AI can't answer (down, busy, or over its limit). */
+const NO_REPLY_TEXT =
+  "Sorry, I can't reply here just now 🙈 Message me on WhatsApp and I'll get straight back to you.";
+
+/** The tutor's last word on the card, once `AI_REPLIES` questions have been answered. */
+const HANDOFF_TEXT =
+  "Let's carry this on over on WhatsApp 📱 Tap below and your questions come with you.";
+
+/**
+ * The back of the card: a short chat. The first `AI_REPLIES` messages are
+ * answered here by an AI writing as the tutor (tutorChat.functions.ts); then it
+ * hands over to WhatsApp with the parent's questions, so the real tutor picks
+ * up from there. WhatsApp is one tap away throughout.
+ */
 function TutorChat({
   tutor: t,
   open,
@@ -548,7 +569,11 @@ function TutorChat({
 }) {
   const [said, setSaid] = useState(false);
   const [message, setMessage] = useState("");
-  const [sent, setSent] = useState<string[]>([]);
+  const [turns, setTurns] = useState<ChatTurn[]>([]);
+  const [thinking, setThinking] = useState(false);
+  /** Set once the chat has handed over to WhatsApp: "done" after the last answer, "failed" when there was none. */
+  const [handoff, setHandoff] = useState<"done" | "failed" | null>(null);
+  const [opened, setOpened] = useState(false);
   const boxRef = useRef<HTMLTextAreaElement>(null);
   const threadRef = useRef<HTMLDivElement>(null);
   const planeRef = useRef<HTMLSpanElement>(null);
@@ -570,31 +595,62 @@ function TutorChat({
   useEffect(() => {
     const thread = threadRef.current;
     if (thread) thread.scrollTop = thread.scrollHeight;
-  }, [sent.length]);
+  }, [turns.length, thinking, handoff, opened]);
 
-  const sendToWhatsApp = (button: HTMLElement) => {
+  const questions = turns.filter((x) => x.from === "parent").map((x) => x.text);
+
+  const ask = async () => {
     const text = message.trim();
-    window.open(
-      whatsappLink(
-        `Hi ${t.firstName}! I saw your profile on the Anglia Educate site.` +
-          (text ? `\n\n${text}` : ""),
-      ),
-      "_blank",
-      "noopener,noreferrer",
-    );
-    setSent((s) => [...s, text || `Hi ${t.firstName}! 👋`]);
-    setMessage("");
+    if (thinking) return;
+    if (!text) {
+      boxRef.current?.focus({ preventScroll: true });
+      boxRef.current?.animate(
+        [
+          { transform: "translateX(0)" },
+          { transform: "translateX(-6px)" },
+          { transform: "translateX(6px)" },
+          { transform: "translateX(0)" },
+        ],
+        { duration: 260 },
+      );
+      return;
+    }
     if (!reduce) {
       planeRef.current?.animate(
         [
           { transform: "translate(0, 0)", opacity: 1 },
-          { transform: "translate(70px, -34px) rotate(12deg)", opacity: 0, offset: 0.45 },
+          { transform: "translate(60px, -30px) rotate(12deg)", opacity: 0, offset: 0.45 },
           { transform: "translate(-40px, 14px)", opacity: 0, offset: 0.5 },
           { transform: "translate(0, 0)", opacity: 1 },
         ],
         { duration: 950, easing: "ease-in-out" },
       );
     }
+    const asked: ChatTurn[] = [...turns, { from: "parent", text }];
+    setTurns(asked);
+    setMessage("");
+    setThinking(true);
+    try {
+      const { reply } = await askTutor({ data: { tutor: t.id, turns: asked } });
+      setTurns([...asked, { from: "tutor", text: reply }]);
+      if (asked.filter((x) => x.from === "parent").length >= AI_REPLIES) setHandoff("done");
+    } catch {
+      setTurns([...asked, { from: "tutor", text: NO_REPLY_TEXT }]);
+      setHandoff("failed");
+    } finally {
+      setThinking(false);
+    }
+  };
+
+  const openWhatsApp = (button: HTMLElement) => {
+    const draft = handoff ? "" : message;
+    window.open(
+      whatsappLink(handoffText(t.firstName, questions, draft)),
+      "_blank",
+      "noopener,noreferrer",
+    );
+    setMessage("");
+    setOpened(true);
     burstFrom(button, ["💬", "✅", "📱", "🎉"]);
   };
 
@@ -628,21 +684,26 @@ function TutorChat({
           </span>
         </div>
         <h4 className="text-foreground text-2xl font-extrabold">{t.name}</h4>
-        <p className="tutor-role mt-1 text-[0.9375rem] font-bold">Replies on WhatsApp</p>
+        <p className="tutor-role mt-1 text-[0.9375rem] font-bold">Ask me anything about tutoring</p>
       </div>
 
-      <div ref={threadRef} className="surface-loud tutor-thread" data-said={greeted}>
-        <p className="tutor-msg-in" aria-live="polite">
+      <div
+        ref={threadRef}
+        className="surface-loud tutor-thread"
+        data-said={greeted}
+        aria-live="polite"
+      >
+        <p className="tutor-msg-in">
           {greeted ? (
             <>
               Hi! Nice to meet you 👋 I&apos;m {t.firstName}. Do you have any questions about
-              tutoring? Ask away and I&apos;ll get straight back to you on WhatsApp.
+              tutoring? Ask away and I&apos;ll get straight back to you.
             </>
           ) : (
             <TypingDots />
           )}
         </p>
-        {sent.length === 0 && (
+        {turns.length === 0 && (
           <div className="tutor-asks">
             {ASKS.map((q) => (
               <button
@@ -660,47 +721,85 @@ function TutorChat({
             ))}
           </div>
         )}
-        {sent.map((m, i) => (
-          <p key={i} className="tutor-msg-out">
-            {m}
+        {turns.map((m, i) => (
+          <p key={i} className={m.from === "parent" ? "tutor-msg-out" : "tutor-msg-in pop-in"}>
+            {m.text}
           </p>
         ))}
-        {sent.length > 0 && (
-          <p className="tutor-note pop-in" style={{ "--pop-delay": "0.4s" } as CSSProperties}>
-            Opening WhatsApp… 📱
+        {thinking && (
+          <p className="tutor-msg-in">
+            <TypingDots />
           </p>
         )}
+        {handoff === "done" && (
+          <p className="tutor-msg-in pop-in" style={{ "--pop-delay": "0.9s" } as CSSProperties}>
+            {HANDOFF_TEXT}
+          </p>
+        )}
+        {opened && <p className="tutor-note pop-in">Opening WhatsApp… 📱</p>}
       </div>
 
       <div className="mt-3.5 grid gap-3">
-        <textarea
-          ref={boxRef}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
-              sendToWhatsApp(e.currentTarget);
-            }
-          }}
-          rows={3}
-          aria-label={`Your question for ${t.firstName}`}
-          placeholder={`Type your question for ${t.firstName}…`}
-          className="pop-input w-full resize-none px-4 py-3 text-[0.9375rem] font-semibold"
-        />
-        <button
-          type="button"
-          onClick={(e) => sendToWhatsApp(e.currentTarget)}
-          className="group inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border-[1.5px] border-[#128C7E] bg-[#25D366] px-5 py-3.5 text-base font-extrabold text-white shadow-[0_4px_0_0_#128C7E] transition-[transform,box-shadow,filter] hover:brightness-105 active:translate-y-[3px] active:shadow-[0_1px_0_0_#128C7E]"
-        >
-          <span ref={planeRef} className="inline-flex">
-            <Send className="size-4" aria-hidden />
-          </span>
-          Send on WhatsApp
-        </button>
+        {handoff ? (
+          <button
+            type="button"
+            onClick={(e) => openWhatsApp(e.currentTarget)}
+            className={`${WHATSAPP_BUTTON} w-full pop-in`}
+            style={{ "--pop-delay": handoff === "done" ? "1.2s" : "0.3s" } as CSSProperties}
+          >
+            <MessageCircle className="size-5" aria-hidden />
+            Continue on WhatsApp
+          </button>
+        ) : (
+          <>
+            <textarea
+              ref={boxRef}
+              value={message}
+              maxLength={MAX_MESSAGE}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={(e) => {
+                // Enter sends, as in any chat; Shift+Enter starts a new line.
+                if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
+                  e.preventDefault();
+                  void ask();
+                }
+              }}
+              rows={3}
+              aria-label={`Your question for ${t.firstName}`}
+              placeholder={`Type your question for ${t.firstName}…`}
+              className="pop-input w-full resize-none px-4 py-3 text-[0.9375rem] font-semibold"
+            />
+            <div className="grid grid-cols-2 gap-3">
+              <button
+                type="button"
+                onClick={() => void ask()}
+                disabled={thinking}
+                className="btn-solid inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden rounded-2xl px-4 py-3.5 text-base font-bold"
+              >
+                <span ref={planeRef} className="inline-flex">
+                  <Send className="size-4" aria-hidden />
+                </span>
+                Send
+              </button>
+              <button
+                type="button"
+                onClick={(e) => openWhatsApp(e.currentTarget)}
+                className={WHATSAPP_BUTTON}
+              >
+                <MessageCircle className="size-5" aria-hidden />
+                WhatsApp
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
 }
+
+/** WhatsApp's own green, the one sign that a message leaves the site. */
+const WHATSAPP_BUTTON =
+  "inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border-[1.5px] border-[#128C7E] bg-[#25D366] px-4 py-3.5 text-base font-extrabold text-white shadow-[0_4px_0_0_#128C7E] transition-[transform,box-shadow,filter] hover:brightness-105 active:translate-y-[3px] active:shadow-[0_1px_0_0_#128C7E]";
 
 /** Line drawings of science in the margins, drawn in as the section arrives and
     drifting at different speeds as the page scrolls. Wide screens only: on

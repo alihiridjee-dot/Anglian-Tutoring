@@ -19,7 +19,7 @@ export const Route = createFileRoute("/privacy")({
   component: PrivacyPage,
 });
 
-const UPDATED = "28 October 2026";
+const UPDATED = "9 November 2026";
 const CONTACT = "angliaeducate@gmail.com";
 
 /**
@@ -64,7 +64,7 @@ const PROCESSORS = [
   },
   {
     name: "DeepSeek",
-    what: "Its AI reads a question a student chooses to send with “Ask for help” in the search box, and the names of the topics a student found hardest, to suggest questions for their tutor.",
+    what: "Its AI reads a question a student chooses to send with “Ask for help” in the search box, and the names of the topics a student found hardest, to suggest questions for their tutor. It also answers the first few messages a visitor sends in the chat on Dr Nadia's or Ali's card on the home page, before the conversation moves to WhatsApp.",
     where: "China",
   },
   {
@@ -276,8 +276,10 @@ function PrivacyPage() {
           <p>
             DeepSeek is based in China, which UK law does not treat as protecting data to the same
             standard. That&apos;s why it receives so little: only a question a student types and
-            chooses to send, with email addresses and phone numbers removed, and the names of
-            syllabus topics.
+            chooses to send, the first few messages a visitor sends in a tutor&apos;s chat on the
+            home page (both with email addresses and phone numbers removed), and the names of
+            syllabus topics. We don&apos;t keep those chat messages: they stay in the visitor&apos;s
+            browser unless they choose to carry on in WhatsApp.
           </p>
         </Section>
 

@@ -208,13 +208,14 @@ function cutAt(text: string, max: number): string {
  * typed in plain words cannot be told apart from a topic and still goes.
  *
  * Scrubbed before it is cut to length, so a cut can't leave half an address
- * the patterns no longer recognise.
+ * the patterns no longer recognise. `max` is the help box's limit unless a
+ * caller (the tutor chat on the home page) allows longer messages.
  */
-export function scrubForModel(text: string): string {
-  const scrubbed = cutAt(text, MAX_QUESTION_LENGTH * 4)
+export function scrubForModel(text: string, max: number = MAX_QUESTION_LENGTH): string {
+  const scrubbed = cutAt(text, max * 4)
     .replace(EMAIL, "[email]")
     .replace(PHONE_RUN, (run) => (looksLikePhone(run) ? "[number]" : run));
-  return cutAt(scrubbed, MAX_QUESTION_LENGTH).trim();
+  return cutAt(scrubbed, max).trim();
 }
 
 /** What the model may answer: one of the intents, a search, or nothing fits. */
