@@ -217,8 +217,20 @@ export type SliderScene =
   | { kind: "gas-syringe"; volume: number; max: number; rate?: number }
   /** Two bulbs in series or parallel, glowing with `brightness` (output index) out of `max`. */
   | { kind: "circuit"; arrangement: "series" | "parallel"; brightness: number; max: number }
-  /** An enzyme and substrate; the active site distorts as `condition` (input id) moves from `optimum`, and denatures beyond `denatures_at` away. */
-  | { kind: "enzyme"; condition: string; optimum: number; denatures_at: number }
+  /**
+   * An enzyme and substrate; the active site distorts as `condition` (input id)
+   * moves from `optimum`, and denatures beyond `denatures_at` away. For
+   * temperature that happens only above the optimum: a cold enzyme is slow, not
+   * denatured. `factor` says which; left out, a °C or "temperature" input counts
+   * as temperature (see enzymeFactor).
+   */
+  | {
+      kind: "enzyme";
+      condition: string;
+      optimum: number;
+      denatures_at: number;
+      factor?: "temperature" | "ph";
+    }
   /** Two regions separated by a membrane; `left` and `right` (input ids) set the concentrations. */
   | { kind: "diffusion"; left: string; right: string; membrane?: string }
   /** The universal indicator scale with a marker at `ph` (input id, 0–14). */
@@ -250,12 +262,39 @@ export interface SliderDiagram {
   scene?: SliderScene;
 }
 
-/** Put jumbled steps into the right order. `steps` is the correct order. */
+/**
+ * Put jumbled steps into the right order. `steps` is the correct order.
+ * `free` lists runs of steps, as [first, last] places in `steps`, whose order
+ * among themselves doesn't matter: two things that happen at the same moment,
+ * or two steps a correct method may do either way round.
+ */
 export interface SequenceDiagram {
   kind: "sequence";
   alt: string;
   prompt: string;
   steps: string[];
+  free?: [number, number][];
+}
+
+/**
+ * Whether the step at each place is right: it is the step that belongs there,
+ * or both it and the place sit inside the same free run.
+ */
+export function sequencePlaces(order: number[], free: [number, number][] = []): boolean[] {
+  return order.map(
+    (step, i) => step === i || free.some(([a, b]) => a <= i && i <= b && a <= step && step <= b),
+  );
+}
+
+/** Whether a slider's enzyme scene is about temperature (one-sided) or pH (both sides). */
+export function enzymeFactor(
+  d: SliderDiagram,
+  s: Extract<SliderScene, { kind: "enzyme" }>,
+): "temperature" | "ph" {
+  if (s.factor) return s.factor;
+  const inp = d.inputs.find((i) => i.id === s.condition);
+  const unit = inp && !("choices" in inp) ? (inp.unit ?? "") : "";
+  return /°C|\bK\b/.test(unit) || /temperature/i.test(inp?.label ?? "") ? "temperature" : "ph";
 }
 
 /** Sort statements into two or three groups. `group` is an index into `groups`. */
@@ -320,6 +359,34 @@ export function fillTemplate(text: string, values: Record<string, string>): stri
   return text.replace(/\{([A-Za-z_][A-Za-z0-9_]*)\}/g, (m, k: string) =>
     k in values ? values[k] : m,
   );
+}
+
+/**
+ * A practice's working line with its {answer} filled. The answer normally
+ * carries its unit ("226000 J"), but most lines write the unit themselves
+ * ("E = {answer} J", "×{answer}", "{answer} × 10²³" for "× 10²³ atoms"), so
+ * where the unit, or the start of it, already sits next to {answer} the bare
+ * number goes in, and the unit is never shown twice.
+ */
+export function fillWorking(
+  line: string,
+  values: Record<string, string>,
+  bare: string,
+  unit?: string,
+): string {
+  const u = unit?.trim();
+  if (!u) return fillTemplate(line, values);
+  const filled = line.replace(/\{answer\}/g, (m: string, at: number) => {
+    const before = line.slice(0, at).replace(/[\s*]+$/, "");
+    const tail = line
+      .slice(at + m.length)
+      .replace(/\*\*/g, "")
+      .trim();
+    const unitAfter = tail.startsWith(u) && !/^[\p{L}\p{N}]/u.test(tail.slice(u.length));
+    const startOfUnitAfter = tail.length >= 2 && u.startsWith(tail);
+    return unitAfter || startOfUnitAfter || before.endsWith(u) ? bare : m;
+  });
+  return fillTemplate(filled, values);
 }
 
 /** The values a practice variable can take: min, min+step, … ≤ max. */
@@ -572,6 +639,27 @@ function checkDiagram(d: NoteDiagram, at: string, errs: string[]) {
     if (!isStrArr(d.steps, 3) || d.steps.length > 8) errs.push(`${at}: sequence needs 3–8 steps`);
     else if (new Set(d.steps).size !== d.steps.length)
       errs.push(`${at}: sequence steps must all be different`);
+    else if (d.free != null) {
+      const ok =
+        Array.isArray(d.free) &&
+        d.free.every(
+          (r) =>
+            Array.isArray(r) &&
+            r.length === 2 &&
+            Number.isInteger(r[0]) &&
+            Number.isInteger(r[1]) &&
+            r[0] >= 0 &&
+            r[0] < r[1] &&
+            r[1] < d.steps.length,
+        );
+      const sorted = ok ? [...d.free].sort((a, b) => a[0] - b[0]) : [];
+      if (!ok || sorted.some((r, i) => i > 0 && r[0] <= sorted[i - 1][1]))
+        errs.push(
+          `${at}: free must be [first, last] places (first < last < ${d.steps.length}) that don't overlap`,
+        );
+      else if (sorted.some(([a, b]) => b - a + 1 === d.steps.length))
+        errs.push(`${at}: a free run can't cover every step`);
+    }
   } else if (d?.kind === "sort") {
     if (!isStr(d.prompt)) errs.push(`${at}: sort needs a prompt`);
     if (!isStrArr(d.groups, 2) || d.groups.length > 3) errs.push(`${at}: sort needs 2–3 groups`);
@@ -781,6 +869,8 @@ function checkSlider(d: SliderDiagram, at: string, errs: string[]) {
   } else if (sc.kind === "enzyme") {
     if (!ids.has(sc.condition)) errs.push(`${at}: enzyme scene needs a condition input id`);
     if (!(sc.denatures_at > 0)) errs.push(`${at}: enzyme denatures_at must be positive`);
+    if (sc.factor != null && !["temperature", "ph"].includes(sc.factor))
+      errs.push(`${at}: enzyme factor must be temperature or ph`);
   } else if (sc.kind === "diffusion") {
     if (!ids.has(sc.left) || !ids.has(sc.right))
       errs.push(`${at}: diffusion scene needs left and right input ids`);

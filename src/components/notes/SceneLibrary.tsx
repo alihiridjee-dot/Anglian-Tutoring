@@ -655,15 +655,35 @@ export function EnzymeView({
   value,
   optimum,
   denaturesAt,
+  oneSided = false,
 }: {
   value: number;
   optimum: number;
   denaturesAt: number;
+  /** Temperature: only heat changes the active site. Below the optimum the enzyme is slow, never denatured. */
+  oneSided?: boolean;
 }) {
-  const off = Math.min(1, Math.abs(value - optimum) / denaturesAt);
+  const below = oneSided && value < optimum;
+  // A cold enzyme keeps its shape; it only slows down once noticeably below the optimum.
+  const cold = below && optimum - value >= 0.3 * denaturesAt;
+  const off = below ? 0 : Math.min(1, Math.abs(value - optimum) / denaturesAt);
   const denatured = off >= 1;
-  const fits = off < 0.3;
+  const fits = off < 0.3 && !cold;
   const bend = off * 16;
+  const title = denatured
+    ? "Denatured"
+    : cold
+      ? "Slower, not denatured"
+      : fits
+        ? "Substrate fits"
+        : "Active site changing shape";
+  const detail = denatured
+    ? "The active site has changed shape for good. The substrate no longer fits, so the reaction stops."
+    : cold
+      ? "Below the optimum, the enzyme and substrate move more slowly, so they collide less often. The active site keeps its shape, so the enzyme works faster again when it warms up."
+      : fits
+        ? "Near the optimum, the substrate fits the active site and the reaction is fastest."
+        : "Away from the optimum, the active site changes shape, so the substrate fits less well and the rate falls.";
   return (
     <div className="grid items-center gap-4 sm:grid-cols-[260px_1fr]">
       <svg
@@ -673,9 +693,11 @@ export function EnzymeView({
         aria-label={
           denatured
             ? "Denatured: the active site has changed shape"
-            : fits
-              ? "The substrate fits the active site"
-              : "The active site is changing shape"
+            : cold
+              ? "The active site keeps its shape; the substrate arrives less often"
+              : fits
+                ? "The substrate fits the active site"
+                : "The active site is changing shape"
         }
       >
         <path
@@ -686,7 +708,12 @@ export function EnzymeView({
         />
         <g
           style={{
-            transform: fits ? "none" : "translate(42px, -22px) rotate(18deg)",
+            // Cold: the substrate still fits, it just hasn't arrived yet, so it waits straight above.
+            transform: fits
+              ? "none"
+              : cold
+                ? "translate(0px, -9px)"
+                : "translate(42px, -22px) rotate(18deg)",
             transformOrigin: "130px 50px",
             transition: "transform .4s",
           }}
@@ -720,16 +747,8 @@ export function EnzymeView({
         </text>
       </svg>
       <div aria-live="polite">
-        <p className="font-display text-2xl font-extrabold">
-          {denatured ? "Denatured" : fits ? "Substrate fits" : "Active site changing shape"}
-        </p>
-        <p className="mt-1">
-          {denatured
-            ? "The active site has changed shape for good. The substrate no longer fits, so the reaction stops."
-            : fits
-              ? "Near the optimum, the substrate fits the active site and the reaction is fastest."
-              : "Away from the optimum, the active site changes shape, so the substrate fits less well and the rate falls."}
-        </p>
+        <p className="font-display text-2xl font-extrabold">{title}</p>
+        <p className="mt-1">{detail}</p>
       </div>
     </div>
   );

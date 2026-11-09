@@ -16,6 +16,7 @@ import { BookOpen, Eye, EyeOff, ArrowRight, RotateCcw } from "lucide-react";
 import { DataTable, PageHeader, SciBlock, SciText } from "@/components/Shared";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import {
+  enzymeFactor,
   headingIds,
   inlineRuns,
   resultDecimals,
@@ -485,7 +486,12 @@ function SliderSceneView({
       );
     case "enzyme":
       return (
-        <EnzymeView value={vals[s.condition]} optimum={s.optimum} denaturesAt={s.denatures_at} />
+        <EnzymeView
+          value={vals[s.condition]}
+          optimum={s.optimum}
+          denaturesAt={s.denatures_at}
+          oneSided={enzymeFactor(d, s) === "temperature"}
+        />
       );
     case "diffusion":
       return (

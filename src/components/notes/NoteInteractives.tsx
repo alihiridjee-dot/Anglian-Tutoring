@@ -5,7 +5,9 @@ import { answerReadings, flipSign } from "@/lib/notes/practiceAnswer";
 import { SciText } from "@/components/Shared";
 import {
   fillTemplate,
+  fillWorking,
   inlineRuns,
+  sequencePlaces,
   stepsOf,
   type ExplorerDiagram,
   type PracticeDiagram,
@@ -105,7 +107,9 @@ export function Sequence({ d }: { d: SequenceDiagram }) {
   };
   const [order, setOrder] = useState(() => start(seeded(d.steps.join("|"))));
   const [checked, setChecked] = useState(false);
-  const right = order.filter((v, i) => v === i).length;
+  // Steps in a free run may come in either order, so a right method is never marked wrong.
+  const places = sequencePlaces(order, d.free);
+  const right = places.filter(Boolean).length;
   const move = (i: number, by: -1 | 1) => {
     const j = i + by;
     const next = [...order];
@@ -121,7 +125,7 @@ export function Sequence({ d }: { d: SequenceDiagram }) {
           <li
             key={step}
             className={`flex items-center gap-3 rounded-xl border-[1.5px] p-2.5 ${
-              checked ? (step === i ? "tint-emerald" : "tint-rose") : ""
+              checked ? (places[i] ? "tint-emerald" : "tint-rose") : ""
             } border-[color-mix(in_oklab,var(--tint)_35%,transparent)] bg-[color-mix(in_oklab,var(--tint)_6%,var(--card))]`}
           >
             <span className="numeral w-6 shrink-0 text-center">{i + 1}</span>
@@ -456,7 +460,9 @@ export function Practice({ d }: { d: PracticeDiagram }) {
         <ol className="list-decimal space-y-1 pl-6">
           {d.working.map((w, i) => (
             <li key={i}>
-              <Inline text={fillTemplate(w, values)} />
+              <Inline
+                text={fillWorking(w, values, show(rounded, d.answer.decimals), d.answer.unit)}
+              />
             </li>
           ))}
         </ol>
