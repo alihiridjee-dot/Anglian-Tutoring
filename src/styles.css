@@ -2317,6 +2317,18 @@ body {
   background: color-mix(in oklab, var(--tint) 6%, var(--card));
   box-shadow: var(--lift-3);
 }
+/* Safari puts a face's moving parts (the speech bubble, the bobbing stickers,
+   the orbiting emoji) on layers of their own that ignore
+   `backface-visibility`, so they showed through, mirrored, on the other side.
+   The face turned away is hidden outright. The swap waits 0.08s, which is
+   when the kit's flip (0.6s, easing out) passes edge-on. */
+.tutor-card .flip-face {
+  transition: visibility 0s linear 0.08s;
+}
+.tutor-card .flip-card-inner:not(.is-flipped) .flip-back,
+.tutor-card .flip-card-inner.is-flipped .flip-front {
+  visibility: hidden;
+}
 
 /* The photo, leaning a little until the card is pointed at. */
 .tutor-stage {

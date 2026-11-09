@@ -257,8 +257,18 @@ function TutorCard({ tutor: t, index }: { tutor: Tutor; index: number }) {
   };
   const closeChat = () => {
     setFlipped(false);
-    // After the front stops being inert.
-    requestAnimationFrame(() => chatButtonRef.current?.focus({ preventScroll: true }));
+    // Focus goes back to the Chat button. The front only reappears 0.08s into
+    // the turn (`.tutor-card .flip-face` in styles.css), later on a slow
+    // device, and a hidden button can't take focus, so try for up to a second.
+    let tries = 0;
+    const refocus = () => {
+      const button = chatButtonRef.current;
+      button?.focus({ preventScroll: true });
+      if (button && document.activeElement !== button && ++tries < 20) {
+        window.setTimeout(refocus, 50);
+      }
+    };
+    window.setTimeout(refocus, 100);
   };
 
   return (
