@@ -33,21 +33,25 @@
           "type": "equation",
           "label": "Pressure",
           "formula": "p = F ÷ A",
-          "where": [
-            "p is pressure in pascals (Pa).",
-            "F is the force normal (at right angles) to the surface in newtons (N).",
-            "A is the area of the surface in square metres (m²)."
+          "arrows": [
+            {
+              "point": "p",
+              "label": "Pressure (Pa)"
+            },
+            {
+              "point": "F",
+              "label": "Force at right angles to surface (N)"
+            },
+            {
+              "point": "A",
+              "label": "Area of the surface (m²)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Force from pressure (rearranged)",
-          "formula": "F = p × A",
-          "where": [
-            "F is the force in newtons (N).",
-            "p is pressure in pascals (Pa).",
-            "A is the area in square metres (m²)."
-          ]
+          "formula": "F = p × A"
         },
         {
           "type": "list",
@@ -133,12 +137,25 @@
           "type": "equation",
           "label": "(Higher tier) Pressure due to a column of liquid",
           "formula": "p = h × ρ × g",
-          "where": [
-            "p is pressure in pascals (Pa).",
-            "h is the height of the column, or depth, in metres (m).",
-            "ρ is the density of the liquid in kilograms per metre cubed (kg/m³).",
-            "g is the gravitational field strength in newtons per kilogram (N/kg). If the question gives a value, use it."
-          ]
+          "arrows": [
+            {
+              "point": "p",
+              "label": "Pressure (Pa)"
+            },
+            {
+              "point": "h",
+              "label": "Height of column, or depth (m)"
+            },
+            {
+              "point": "ρ",
+              "label": "Density of the liquid (kg/m³)"
+            },
+            {
+              "point": "g",
+              "label": "Gravitational field strength (N/kg)"
+            }
+          ],
+          "where": ["If the question gives a value of g, use it."]
         },
         {
           "type": "steps",
@@ -458,7 +475,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",

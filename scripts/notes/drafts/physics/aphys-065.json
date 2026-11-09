@@ -33,12 +33,25 @@
           "type": "equation",
           "label": "Potential of a point mass",
           "formula": "V = −G M / r",
-          "where": [
-            "V = gravitational potential (J/kg)",
-            "G = gravitational constant (6.67 × 10⁻¹¹ N m² kg⁻²)",
-            "M = mass producing the field (kg)",
-            "r = distance from the centre of M (m)"
-          ]
+          "arrows": [
+            {
+              "point": "V",
+              "label": "Gravitational potential (J/kg)"
+            },
+            {
+              "point": "G",
+              "label": "Gravitational constant"
+            },
+            {
+              "point": "M",
+              "label": "Mass producing the field (kg)"
+            },
+            {
+              "point": "r",
+              "label": "Distance from the centre of M (m)"
+            }
+          ],
+          "where": ["G = 6.67 × 10⁻¹¹ N m² kg⁻²"]
         },
         {
           "type": "list",
@@ -58,16 +71,7 @@
               "label": "Distance from centre of planet",
               "min": 1,
               "max": 8,
-              "ticks": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8
-              ],
+              "ticks": [1, 2, 3, 4, 5, 6, 7, 8],
               "unit": "R"
             },
             "y": {
@@ -78,34 +82,13 @@
               {
                 "name": "V = −GM/r",
                 "points": [
-                  [
-                    1,
-                    0.1
-                  ],
-                  [
-                    1.5,
-                    0.37
-                  ],
-                  [
-                    2,
-                    0.5
-                  ],
-                  [
-                    3,
-                    0.63
-                  ],
-                  [
-                    4,
-                    0.7
-                  ],
-                  [
-                    6,
-                    0.79
-                  ],
-                  [
-                    8,
-                    0.82
-                  ]
+                  [1, 0.1],
+                  [1.5, 0.37],
+                  [2, 0.5],
+                  [3, 0.63],
+                  [4, 0.7],
+                  [6, 0.79],
+                  [8, 0.82]
                 ]
               }
             ]
@@ -132,10 +115,19 @@
           "type": "equation",
           "label": "Work done moving a mass",
           "formula": "ΔW = m ΔV",
-          "where": [
-            "ΔW = work done (J)",
-            "m = mass moved (kg)",
-            "ΔV = potential difference between the points (J/kg)"
+          "arrows": [
+            {
+              "point": "ΔW",
+              "label": "Work done (J)"
+            },
+            {
+              "point": "m",
+              "label": "Mass moved (kg)"
+            },
+            {
+              "point": "ΔV",
+              "label": "Potential difference (J/kg)"
+            }
           ]
         },
         {
@@ -150,10 +142,19 @@
           "type": "equation",
           "label": "Field strength from the potential gradient",
           "formula": "g = −ΔV / Δr",
-          "where": [
-            "g = gravitational field strength (N/kg)",
-            "ΔV = change in potential (J/kg)",
-            "Δr = change in distance (m)"
+          "arrows": [
+            {
+              "point": "g",
+              "label": "Gravitational field strength (N/kg)"
+            },
+            {
+              "point": "ΔV",
+              "label": "Change in potential (J/kg)"
+            },
+            {
+              "point": "Δr",
+              "label": "Change in distance (m)"
+            }
           ]
         },
         {
@@ -185,11 +186,20 @@
           "type": "equation",
           "label": "Gravitational potential energy",
           "formula": "E = m V = −G M m / r",
-          "where": [
-            "E = gravitational potential energy (J)",
-            "m = the small mass (kg)",
-            "M = the mass producing the field (kg)",
-            "r = separation of the centres (m)"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Gravitational potential energy (J)"
+            },
+            {
+              "point": "m",
+              "in": "m V",
+              "label": "The small mass (kg)"
+            },
+            {
+              "point": "r",
+              "label": "Separation of the centres (m)"
+            }
           ]
         },
         {
@@ -225,11 +235,19 @@
           "type": "equation",
           "label": "Escape velocity",
           "formula": "v = √(2 G M / r)",
-          "where": [
-            "v = escape speed (m/s)",
-            "G = gravitational constant (6.67 × 10⁻¹¹ N m² kg⁻²)",
-            "M = mass of the planet (kg)",
-            "r = distance from its centre (m)"
+          "arrows": [
+            {
+              "point": "v",
+              "label": "Escape speed (m/s)"
+            },
+            {
+              "point": "M",
+              "label": "Mass of the planet (kg)"
+            },
+            {
+              "point": "r",
+              "label": "Distance from its centre (m)"
+            }
           ]
         },
         {
@@ -302,21 +320,13 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.2.3"
-      ]
+      "spec_codes": ["AQA 3.7.2.3"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 12.178"
-      ]
+      "spec_codes": ["EDEX 12.178"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 13.4.1",
-        "CAIE 13.4.2",
-        "CAIE 13.4.3"
-      ],
+      "spec_codes": ["CAIE 13.4.1", "CAIE 13.4.2", "CAIE 13.4.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -337,13 +347,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.4.4a",
-        "OCR 5.4.4b",
-        "OCR 5.4.4c",
-        "OCR 5.4.4d",
-        "OCR 5.4.4e"
-      ],
+      "spec_codes": ["OCR 5.4.4a", "OCR 5.4.4b", "OCR 5.4.4c", "OCR 5.4.4d", "OCR 5.4.4e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -383,7 +387,7 @@
       "9b984fde-d473-41a5-b039-70907107faea"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

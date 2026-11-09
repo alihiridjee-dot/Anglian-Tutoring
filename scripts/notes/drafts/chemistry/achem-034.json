@@ -16,16 +16,24 @@
           "type": "equation",
           "label": "Kc for aA + bB ⇌ cC + dD",
           "formula": "Kc = [C]ᶜ[D]ᵈ / ([A]ᵃ[B]ᵇ)",
-          "where": [
-            "[X] = equilibrium concentration of X in mol dm⁻³",
-            "a, b, c, d = coefficients in the balanced equation"
+          "arrows": [
+            {
+              "point": "[C]",
+              "label": "Concentration at equilibrium"
+            },
+            {
+              "point": "ᶜ",
+              "label": "Power = its coefficient in the equation"
+            },
+            {
+              "point": "/",
+              "label": "Products on top, reactants below"
+            }
           ]
         },
         {
           "type": "list",
           "items": [
-            "Products go on the top and reactants on the bottom.",
-            "Each concentration is raised to the power of its coefficient.",
             "Use the equation exactly as written. Reversing it gives 1 ÷ Kc.",
             "For a heterogeneous equilibrium, leave out solids and liquids, because their concentrations are constant.",
             "Example: CaCO₃(s) ⇌ CaO(s) + CO₂(g) has Kc = [CO₂]."
@@ -162,23 +170,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Size of Kc",
-            "Position of equilibrium"
-          ],
+          "columns": ["Size of Kc", "Position of equilibrium"],
           "rows": [
-            [
-              "Much greater than 1",
-              "Far to the right: mostly products"
-            ],
-            [
-              "Close to 1",
-              "Significant amounts of both reactants and products"
-            ],
-            [
-              "Much less than 1",
-              "Far to the left: mostly reactants"
-            ]
+            ["Much greater than 1", "Far to the right: mostly products"],
+            ["Close to 1", "Significant amounts of both reactants and products"],
+            ["Much less than 1", "Far to the left: mostly reactants"]
           ]
         },
         {
@@ -210,12 +206,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.2.3f",
-        "OCR 3.2.3g",
-        "OCR 5.1.2b",
-        "OCR 5.1.2c"
-      ],
+      "spec_codes": ["OCR 3.2.3f", "OCR 3.2.3g", "OCR 5.1.2b", "OCR 5.1.2c"],
       "extra": [
         {
           "heading": "Finding the quantities present at equilibrium",
@@ -234,14 +225,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 10.4"
-      ]
+      "spec_codes": ["EDEX 10.4"]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.6.2"
-      ],
+      "spec_codes": ["AQA 3.1.6.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -259,10 +246,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 7.1.4",
-        "CAIE 7.1.8"
-      ]
+      "spec_codes": ["CAIE 7.1.4", "CAIE 7.1.8"]
     }
   },
   "meta": {
@@ -280,7 +264,7 @@
       "df03ebff-f3f1-48e6-bd4a-d4512af31351"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

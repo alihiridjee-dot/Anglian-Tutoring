@@ -8,24 +8,60 @@
     {
       "heading": "Amount of substance in moles",
       "blocks": [
-        { "type": "paragraph", "text": "There are three ways to find an amount in moles, depending on whether you have a mass, a gas volume or a solution." },
+        {
+          "type": "paragraph",
+          "text": "There are three ways to find an amount in moles, depending on whether you have a mass, a gas volume or a solution."
+        },
         {
           "type": "equation",
           "label": "From mass",
           "formula": "n = m ÷ M",
-          "where": ["n = amount (mol)", "m = mass (g)", "M = molar mass (g mol⁻¹)"]
+          "arrows": [
+            {
+              "point": "n",
+              "label": "Amount (mol)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (g)"
+            },
+            {
+              "point": "M",
+              "label": "Molar mass (g mol⁻¹)"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "From gas volume",
           "formula": "n = V ÷ Vₘ",
-          "where": ["n = amount (mol)", "V = gas volume (dm³)", "Vₘ = molar gas volume (dm³ mol⁻¹). About 24 dm³ mol⁻¹ at room temperature and pressure."]
+          "arrows": [
+            {
+              "point": "V",
+              "in": "V ÷",
+              "label": "Gas volume (dm³)"
+            },
+            {
+              "point": "Vₘ",
+              "label": "Molar gas volume (dm³ mol⁻¹)"
+            }
+          ],
+          "where": ["Vₘ is about 24 dm³ mol⁻¹ at room temperature and pressure."]
         },
         {
           "type": "equation",
           "label": "From a solution",
           "formula": "n = c × V",
-          "where": ["n = amount (mol)", "c = concentration (mol dm⁻³)", "V = volume (dm³)"]
+          "arrows": [
+            {
+              "point": "c",
+              "label": "Concentration (mol dm⁻³)"
+            },
+            {
+              "point": "V",
+              "label": "Volume (dm³)"
+            }
+          ]
         },
         {
           "type": "list",
@@ -48,14 +84,29 @@
     {
       "heading": "Using the equation: reacting masses and gas volumes",
       "blocks": [
-        { "type": "paragraph", "text": "The coefficients in a balanced equation give the ratio of amounts, in moles. This section covers using that ratio to find masses and gas volumes, for reactants or products." },
+        {
+          "type": "paragraph",
+          "text": "The coefficients in a balanced equation give the ratio of amounts, in moles. This section covers using that ratio to find masses and gas volumes, for reactants or products."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Write the balanced equation.", "text": "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂" },
-            { "lead": "Find moles of the known substance.", "text": "2.50 g of CaCO₃ (M = 100.1): n = 2.50 ÷ 100.1 = 0.0250 mol." },
-            { "lead": "Use the ratio.", "text": "1 mol CaCO₃ gives 1 mol CO₂, so n(CO₂) = 0.0250 mol." },
-            { "lead": "Convert to what is asked.", "text": "Volume = 0.0250 × 24.0 = 0.600 dm³ = 600 cm³." }
+            {
+              "lead": "Write the balanced equation.",
+              "text": "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂"
+            },
+            {
+              "lead": "Find moles of the known substance.",
+              "text": "2.50 g of CaCO₃ (M = 100.1): n = 2.50 ÷ 100.1 = 0.0250 mol."
+            },
+            {
+              "lead": "Use the ratio.",
+              "text": "1 mol CaCO₃ gives 1 mol CO₂, so n(CO₂) = 0.0250 mol."
+            },
+            {
+              "lead": "Convert to what is asked.",
+              "text": "Volume = 0.0250 × 24.0 = 0.600 dm³ = 600 cm³."
+            }
           ]
         },
         {
@@ -64,9 +115,25 @@
             "kind": "practice",
             "alt": "Calculate the volume of carbon dioxide made from a mass of calcium carbonate.",
             "question": "{m} g of calcium carbonate (molar mass 100.1 g mol⁻¹) reacts completely with excess hydrochloric acid. What volume of carbon dioxide forms at room temperature and pressure (1 mol = 24.0 dm³)? Give the volume in cm³.",
-            "variables": [{ "id": "m", "min": 0.5, "max": 5, "step": 0.25 }],
-            "answer": { "formula": "m / 100.1 * 24000", "unit": "cm³", "decimals": 0, "tolerance_percent": 2 },
-            "working": ["CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂", "n(CaCO₃) = {m} ÷ 100.1 mol; n(CO₂) is the same, 1 : 1", "Volume = n × 24.0 dm³ = {answer} cm³"]
+            "variables": [
+              {
+                "id": "m",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.25
+              }
+            ],
+            "answer": {
+              "formula": "m / 100.1 * 24000",
+              "unit": "cm³",
+              "decimals": 0,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂",
+              "n(CaCO₃) = {m} ÷ 100.1 mol; n(CO₂) is the same, 1 : 1",
+              "Volume = n × 24.0 dm³ = {answer} cm³"
+            ]
           }
         },
         {
@@ -90,29 +157,59 @@
     {
       "heading": "Solutions and limiting reagents",
       "blocks": [
-        { "type": "paragraph", "text": "For solutions, concentration and volume give the amount. When two reactants are mixed, one may run out first." },
+        {
+          "type": "paragraph",
+          "text": "For solutions, concentration and volume give the amount. When two reactants are mixed, one may run out first."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Amount of acid.", "text": "25.0 cm³ of 0.100 mol dm⁻³ HCl: n = 0.100 × 0.0250 = 2.50 × 10⁻³ mol." },
-            { "lead": "Ratio.", "text": "Mg + 2HCl → MgCl₂ + H₂, so 2 mol HCl reacts with 1 mol Mg." },
-            { "lead": "Mass of Mg needed.", "text": "n(Mg) = 1.25 × 10⁻³ mol, mass = 1.25 × 10⁻³ × 24.3 = 0.0304 g." }
+            {
+              "lead": "Amount of acid.",
+              "text": "25.0 cm³ of 0.100 mol dm⁻³ HCl: n = 0.100 × 0.0250 = 2.50 × 10⁻³ mol."
+            },
+            {
+              "lead": "Ratio.",
+              "text": "Mg + 2HCl → MgCl₂ + H₂, so 2 mol HCl reacts with 1 mol Mg."
+            },
+            {
+              "lead": "Mass of Mg needed.",
+              "text": "n(Mg) = 1.25 × 10⁻³ mol, mass = 1.25 × 10⁻³ × 24.3 = 0.0304 g."
+            }
           ]
         },
-        { "type": "subheading", "text": "Limiting reagent" },
+        {
+          "type": "subheading",
+          "text": "Limiting reagent"
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Limiting reagent", "meaning": "The reactant that is used up first. It decides how much product forms." },
-            { "term": "Excess reagent", "meaning": "The reactant left over when the reaction stops." }
+            {
+              "term": "Limiting reagent",
+              "meaning": "The reactant that is used up first. It decides how much product forms."
+            },
+            {
+              "term": "Excess reagent",
+              "meaning": "The reactant left over when the reaction stops."
+            }
           ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Find the moles of each reactant.", "text": "0.0500 mol Mg and 2.50 × 10⁻³ mol HCl." },
-            { "lead": "Divide each by its coefficient.", "text": "Mg: 0.0500 ÷ 1 = 0.0500. HCl: 2.50 × 10⁻³ ÷ 2 = 1.25 × 10⁻³." },
-            { "lead": "The smaller value is the limiting reagent.", "text": "HCl is limiting. Calculate the product from HCl." }
+            {
+              "lead": "Find the moles of each reactant.",
+              "text": "0.0500 mol Mg and 2.50 × 10⁻³ mol HCl."
+            },
+            {
+              "lead": "Divide each by its coefficient.",
+              "text": "Mg: 0.0500 ÷ 1 = 0.0500. HCl: 2.50 × 10⁻³ ÷ 2 = 1.25 × 10⁻³."
+            },
+            {
+              "lead": "The smaller value is the limiting reagent.",
+              "text": "HCl is limiting. Calculate the product from HCl."
+            }
           ]
         },
         {
@@ -229,7 +326,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",

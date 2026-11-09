@@ -65,11 +65,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Where",
-            "Pollutant",
-            "Harm to living things"
-          ],
+          "columns": ["Where", "Pollutant", "Harm to living things"],
           "rows": [
             [
               "Water",
@@ -228,19 +224,18 @@
           "type": "equation",
           "label": "Mean annual increase",
           "formula": "mean annual increase = (final population − starting population) ÷ number of years",
-          "where": [
-            "populations in the same unit, such as billions",
-            "number of years"
+          "arrows": [
+            {
+              "point": "final population − starting population",
+              "label": "Same unit for both, such as billions"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Percentage decrease",
           "formula": "percentage decrease = (starting value − final value) ÷ starting value × 100",
-          "where": [
-            "values in the same unit",
-            "answer in %"
-          ]
+          "where": ["values in the same unit", "answer in %"]
         },
         {
           "type": "diagram",
@@ -309,11 +304,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.8",
-        "AQA T 4.7.3.1",
-        "AQA T 4.7.3.2"
-      ],
+      "spec_codes": ["AQA 7.8", "AQA T 4.7.3.1", "AQA T 4.7.3.2"],
       "worked_example": {
         "exemplar_id": "f1a8fdaa-b6a8-4a76-a427-0193d06423dd",
         "source": "AQA jun 2018, Paper 2 (H), Q07.4",
@@ -360,9 +351,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.9"
-      ],
+      "spec_codes": ["EDEX 9.9"],
       "worked_example": {
         "exemplar_id": "5905de0b-c496-4f9d-8227-8df04475b50e",
         "source": "EDEXCEL jun 2022, Paper 2 (F), Q6(b)",
@@ -397,9 +386,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.1b"
-      ],
+      "spec_codes": ["OCR 6.1b"],
       "worked_example": {
         "exemplar_id": "22a52466-58ee-48b7-a54c-cff24378f620",
         "source": "OCR jun 2023, Paper 4, Q20(c)",
@@ -527,7 +514,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",

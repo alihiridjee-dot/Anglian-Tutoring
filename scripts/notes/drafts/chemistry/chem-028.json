@@ -113,8 +113,17 @@
         {
           "type": "equation",
           "label": "Mass of gas lost",
-          "where": ["Both masses are of the flask and its contents, in grams."],
-          "formula": "mass of gas lost = mass before − mass after"
+          "formula": "mass of gas lost = mass before − mass after",
+          "arrows": [
+            {
+              "point": "mass before",
+              "label": "Flask and contents (g)"
+            },
+            {
+              "point": "mass after",
+              "label": "Flask and contents (g)"
+            }
+          ]
         },
         {
           "type": "diagram",
@@ -316,7 +325,7 @@
       "05eb4acd-ecb0-49ec-8b12-0e78f63b6ffc",
       "6923153d-dfa5-4266-94cf-1b7f747586aa"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

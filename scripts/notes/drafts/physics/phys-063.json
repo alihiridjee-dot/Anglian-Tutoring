@@ -29,10 +29,21 @@
           "type": "equation",
           "label": "Momentum",
           "formula": "momentum = mass × velocity   (p = m v)",
-          "where": [
-            "momentum, p, is in kilograms metre per second, kg m/s",
-            "mass, m, is in kilograms, kg",
-            "velocity, v, is in metres per second, m/s"
+          "arrows": [
+            {
+              "point": "p",
+              "label": "Momentum (kg m/s)"
+            },
+            {
+              "point": "m",
+              "in": "m v",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "v",
+              "in": "m v",
+              "label": "Velocity (m/s)"
+            }
           ]
         },
         {
@@ -109,9 +120,7 @@
           "type": "equation",
           "label": "Conservation of momentum",
           "formula": "total momentum before = total momentum after",
-          "where": [
-            "total momentum is in kilograms metre per second, kg m/s"
-          ]
+          "where": ["total momentum is in kilograms metre per second, kg m/s"]
         },
         {
           "type": "subheading",
@@ -316,12 +325,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.5.7.1",
-        "AQA T 6.5.5.1",
-        "AQA 4.5.7.2",
-        "AQA T 6.5.5.2"
-      ],
+      "spec_codes": ["AQA 4.5.7.1", "AQA T 6.5.5.1", "AQA 4.5.7.2", "AQA T 6.5.5.2"],
       "worked_example": {
         "exemplar_id": "8ac8e04f-fea5-4aac-963c-54f9bc304741",
         "source": "AQA jun 2022, Paper 2 (H), Q03.2",
@@ -337,20 +341,13 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 2.24",
-        "EDEX 2.25"
-      ],
+      "spec_codes": ["EDEX 2.24", "EDEX 2.25"],
       "worked_example": {
         "exemplar_id": "82138629-88bb-4ada-9abd-690fd7c12616",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q9(a)",
         "question": "An atom of mass 6.6 × 10⁻²⁶ kg is moving with a velocity of 480 m / s.\n\nCalculate the momentum of the atom.",
         "marks": 3,
-        "answer_points": [
-          "p = m × v",
-          "p = 6.6 × 10⁻²⁶ × 480",
-          "p = 3.2 × 10⁻²³ kg m/s"
-        ],
+        "answer_points": ["p = m × v", "p = 6.6 × 10⁻²⁶ × 480", "p = 3.2 × 10⁻²³ kg m/s"],
         "tip": "One mark each for selecting the equation, substituting and evaluating. Any answer that rounds to 3.2 × 10⁻²³ scores the evaluation mark."
       },
       "extra": [
@@ -368,10 +365,19 @@
               "type": "equation",
               "label": "Newton's second law",
               "formula": "force = change in momentum ÷ time",
-              "where": [
-                "force is in newtons, N",
-                "change in momentum is in kilograms metre per second, kg m/s",
-                "time is in seconds, s"
+              "arrows": [
+                {
+                  "point": "force",
+                  "label": "Newtons (N)"
+                },
+                {
+                  "point": "change in momentum",
+                  "label": "Kilograms metre per second (kg m/s)"
+                },
+                {
+                  "point": "time",
+                  "label": "Seconds (s)"
+                }
               ]
             },
             {
@@ -386,9 +392,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P2.2k"
-      ],
+      "spec_codes": ["OCR P2.2k"],
       "worked_example": {
         "exemplar_id": "a2280052-3013-41c5-b9b6-f1f9f3b50c8f",
         "source": "OCR jun 2022, Paper 3, Q20(b)(iii)",
@@ -417,11 +421,7 @@
       ]
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 1.6.1S",
-        "CAIE 1.6.3S",
-        "CAIE 1.6.2S"
-      ],
+      "spec_codes": ["CAIE 1.6.1S", "CAIE 1.6.3S", "CAIE 1.6.2S"],
       "worked_example": {
         "exemplar_id": "e686b489-4282-4029-b113-ddc8883a6aab",
         "source": "CAMBRIDGE jun 2025, Paper 42, Q3(b)",
@@ -455,11 +455,23 @@
               "type": "equation",
               "label": "Impulse",
               "formula": "impulse = F × Δt = Δ(m v)",
-              "where": [
-                "impulse is in newton seconds, N s (the same as kg m/s)",
-                "F is the force in newtons, N",
-                "Δt is the time for which the force acts, in seconds, s",
-                "Δ(m v) is the change in momentum, in kg m/s"
+              "arrows": [
+                {
+                  "point": "impulse",
+                  "label": "Newton seconds (N s) or kg m/s"
+                },
+                {
+                  "point": "F",
+                  "label": "Force (N)"
+                },
+                {
+                  "point": "Δt",
+                  "label": "Time the force acts (s)"
+                },
+                {
+                  "point": "Δ(m v)",
+                  "label": "Change in momentum (kg m/s)"
+                }
               ]
             }
           ]
@@ -467,12 +479,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 1.25P",
-        "IGCSE 1.27P",
-        "IGCSE 1.26P",
-        "IGCSE 1.28P"
-      ],
+      "spec_codes": ["IGCSE 1.25P", "IGCSE 1.27P", "IGCSE 1.26P", "IGCSE 1.28P"],
       "worked_example": {
         "exemplar_id": "60778e96-d168-45b7-8aff-65cc16184de1",
         "source": "EDEXCEL jun 2025, Paper 2 (PR), Q5(b)(i)",
@@ -493,10 +500,19 @@
               "type": "equation",
               "label": "Force",
               "formula": "F = (m v − m u) ÷ t",
-              "where": [
-                "F is the force in newtons, N",
-                "m v − m u is the change in momentum, in kg m/s",
-                "t is the time taken, in seconds, s"
+              "arrows": [
+                {
+                  "point": "F",
+                  "label": "Force (N)"
+                },
+                {
+                  "point": "m v − m u",
+                  "label": "Change in momentum (kg m/s)"
+                },
+                {
+                  "point": "t",
+                  "label": "Time taken (s)"
+                }
               ]
             },
             {
@@ -541,7 +557,7 @@
       "e686b489-4282-4029-b113-ddc8883a6aab",
       "60778e96-d168-45b7-8aff-65cc16184de1"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

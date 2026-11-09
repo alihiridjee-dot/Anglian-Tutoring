@@ -16,10 +16,19 @@
           "type": "equation",
           "label": "Kinetic energy",
           "formula": "Ek = ½ × m × v²",
-          "where": [
-            "Ek is kinetic energy in joules (J).",
-            "m is mass in kilograms (kg).",
-            "v is speed in metres per second (m/s)."
+          "arrows": [
+            {
+              "point": "Ek",
+              "label": "Kinetic energy (J)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "v",
+              "label": "Speed (m/s)"
+            }
           ]
         },
         {
@@ -86,12 +95,7 @@
         {
           "type": "equation",
           "label": "Speed from kinetic energy",
-          "formula": "v = √(2 × Ek ÷ m)",
-          "where": [
-            "v is speed in metres per second (m/s).",
-            "Ek is kinetic energy in joules (J).",
-            "m is mass in kilograms (kg)."
-          ]
+          "formula": "v = √(2 × Ek ÷ m)"
         },
         {
           "type": "key-points",
@@ -114,11 +118,23 @@
           "type": "equation",
           "label": "Change in gravitational potential energy",
           "formula": "ΔEp = m × g × Δh",
-          "where": [
-            "ΔEp is the change in gravitational potential energy in joules (J).",
-            "m is mass in kilograms (kg).",
-            "g is gravitational field strength in newtons per kilogram (N/kg). It is 9.8 N/kg on Earth and 1.6 N/kg on the Moon. Some questions give g = 10 N/kg.",
-            "Δh is the change in vertical height in metres (m)."
+          "arrows": [
+            {
+              "point": "ΔEp",
+              "label": "Change in potential energy (J)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "g",
+              "label": "Gravitational field strength (N/kg)"
+            },
+            {
+              "point": "Δh",
+              "label": "Change in height (m)"
+            }
           ]
         },
         {
@@ -275,10 +291,15 @@
           "type": "equation",
           "label": "Speed after a fall (no air resistance)",
           "formula": "v = √(2 × g × h)",
-          "where": [
-            "v is speed in metres per second (m/s).",
-            "g is gravitational field strength in newtons per kilogram (N/kg).",
-            "h is the height fallen in metres (m)."
+          "arrows": [
+            {
+              "point": "v",
+              "label": "Speed at the bottom (m/s)"
+            },
+            {
+              "point": "h",
+              "label": "Height fallen (m)"
+            }
           ]
         },
         {
@@ -418,11 +439,7 @@
       ]
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 1.7.1.4S",
-        "CAIE 1.7.1.5S",
-        "CAIE 6.1.2.10S"
-      ],
+      "spec_codes": ["CAIE 1.7.1.4S", "CAIE 1.7.1.5S", "CAIE 6.1.2.10S"],
       "worked_example": {
         "exemplar_id": "ef9bdbbc-8798-4a63-8eb3-c388b07e6903",
         "source": "CAMBRIDGE jun 2023, Paper 42, Q2(a)",
@@ -457,11 +474,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 4.13",
-        "IGCSE 4.14",
-        "IGCSE 4.15"
-      ],
+      "spec_codes": ["IGCSE 4.13", "IGCSE 4.14", "IGCSE 4.15"],
       "worked_example": {
         "exemplar_id": "534acece-e1f1-4b9f-b7d4-7a3793a21bcd",
         "source": "EDEXCEL jun 2023, Paper 1 (PR), Q3(a)(ii)",
@@ -523,7 +536,7 @@
       "ef9bdbbc-8798-4a63-8eb3-c388b07e6903",
       "534acece-e1f1-4b9f-b7d4-7a3793a21bcd"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

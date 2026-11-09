@@ -167,9 +167,15 @@
           "type": "equation",
           "label": "Standard form",
           "formula": "A × 10ⁿ",
-          "where": [
-            "A is a number from 1 up to (but not including) 10.",
-            "n is a whole number. It is negative for numbers smaller than 1."
+          "arrows": [
+            {
+              "point": "A",
+              "label": "At least 1 and less than 10"
+            },
+            {
+              "point": "ⁿ",
+              "label": "Whole number: negative for numbers below 1"
+            }
           ]
         },
         {
@@ -245,112 +251,28 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Quantity",
-                "SI unit",
-                "Symbol"
-              ],
+              "columns": ["Quantity", "SI unit", "Symbol"],
               "rows": [
-                [
-                  "Mass",
-                  "kilogram",
-                  "kg"
-                ],
-                [
-                  "Length, distance",
-                  "metre",
-                  "m"
-                ],
-                [
-                  "Time",
-                  "second",
-                  "s"
-                ],
-                [
-                  "Current",
-                  "ampere",
-                  "A"
-                ],
-                [
-                  "Temperature",
-                  "kelvin",
-                  "K"
-                ],
-                [
-                  "Amount of substance",
-                  "mole",
-                  "mol"
-                ],
-                [
-                  "Force, weight",
-                  "newton",
-                  "N"
-                ],
-                [
-                  "Energy, work done",
-                  "joule",
-                  "J"
-                ],
-                [
-                  "Power",
-                  "watt",
-                  "W"
-                ],
-                [
-                  "Frequency",
-                  "hertz",
-                  "Hz"
-                ],
-                [
-                  "Charge",
-                  "coulomb",
-                  "C"
-                ],
-                [
-                  "Potential difference",
-                  "volt",
-                  "V"
-                ],
-                [
-                  "Resistance",
-                  "ohm",
-                  "Ω"
-                ],
-                [
-                  "Magnetic flux density",
-                  "tesla",
-                  "T"
-                ],
-                [
-                  "Pressure",
-                  "pascal",
-                  "Pa"
-                ],
-                [
-                  "Speed, velocity",
-                  "metre per second",
-                  "m/s"
-                ],
-                [
-                  "Acceleration",
-                  "metre per second squared",
-                  "m/s²"
-                ],
-                [
-                  "Density",
-                  "kilogram per cubic metre",
-                  "kg/m³"
-                ],
-                [
-                  "Momentum",
-                  "kilogram metre per second",
-                  "kg m/s"
-                ],
-                [
-                  "Gravitational field strength",
-                  "newton per kilogram",
-                  "N/kg"
-                ]
+                ["Mass", "kilogram", "kg"],
+                ["Length, distance", "metre", "m"],
+                ["Time", "second", "s"],
+                ["Current", "ampere", "A"],
+                ["Temperature", "kelvin", "K"],
+                ["Amount of substance", "mole", "mol"],
+                ["Force, weight", "newton", "N"],
+                ["Energy, work done", "joule", "J"],
+                ["Power", "watt", "W"],
+                ["Frequency", "hertz", "Hz"],
+                ["Charge", "coulomb", "C"],
+                ["Potential difference", "volt", "V"],
+                ["Resistance", "ohm", "Ω"],
+                ["Magnetic flux density", "tesla", "T"],
+                ["Pressure", "pascal", "Pa"],
+                ["Speed, velocity", "metre per second", "m/s"],
+                ["Acceleration", "metre per second squared", "m/s²"],
+                ["Density", "kilogram per cubic metre", "kg/m³"],
+                ["Momentum", "kilogram metre per second", "kg m/s"],
+                ["Gravitational field strength", "newton per kilogram", "N/kg"]
               ]
             }
           ]
@@ -417,9 +339,7 @@
         "source": "EDEXCEL jun 2019, Paper 1 (P), Q6(b)(i)",
         "question": "A student records the current through a lamp.\nState the unit for current.",
         "marks": 1,
-        "answer_points": [
-          "ampere, amp or A"
-        ],
+        "answer_points": ["ampere, amp or A"],
         "tip": "The symbol I is the quantity, not the unit, so it does not score."
       },
       "extra": [
@@ -432,127 +352,31 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Quantity",
-                "Unit",
-                "Symbol"
-              ],
+              "columns": ["Quantity", "Unit", "Symbol"],
               "rows": [
-                [
-                  "Mass",
-                  "kilogram",
-                  "kg"
-                ],
-                [
-                  "Length, distance",
-                  "metre",
-                  "m"
-                ],
-                [
-                  "Time",
-                  "second",
-                  "s"
-                ],
-                [
-                  "Force, weight",
-                  "newton",
-                  "N"
-                ],
-                [
-                  "Speed, wave speed",
-                  "metre per second",
-                  "m/s"
-                ],
-                [
-                  "Acceleration",
-                  "metre per second squared",
-                  "m/s²"
-                ],
-                [
-                  "Gravitational field strength",
-                  "newton per kilogram",
-                  "N/kg"
-                ],
-                [
-                  "Energy",
-                  "joule",
-                  "J"
-                ],
-                [
-                  "Power",
-                  "watt",
-                  "W"
-                ],
-                [
-                  "Current",
-                  "ampere",
-                  "A"
-                ],
-                [
-                  "Charge",
-                  "coulomb",
-                  "C"
-                ],
-                [
-                  "Potential difference",
-                  "volt",
-                  "V"
-                ],
-                [
-                  "Resistance",
-                  "ohm",
-                  "Ω"
-                ],
-                [
-                  "Frequency",
-                  "hertz",
-                  "Hz"
-                ],
-                [
-                  "Angle",
-                  "degree",
-                  "°"
-                ],
-                [
-                  "Temperature",
-                  "degree Celsius, kelvin",
-                  "°C, K"
-                ],
-                [
-                  "Density",
-                  "kilogram per metre cubed",
-                  "kg/m³"
-                ],
-                [
-                  "Pressure",
-                  "pascal",
-                  "Pa"
-                ],
-                [
-                  "Area, volume",
-                  "metre squared, metre cubed",
-                  "m², m³"
-                ],
-                [
-                  "Specific heat capacity",
-                  "joule per kilogram degree Celsius",
-                  "J/kg °C"
-                ],
-                [
-                  "Moment",
-                  "newton metre",
-                  "N m"
-                ],
-                [
-                  "Momentum",
-                  "kilogram metre per second",
-                  "kg m/s"
-                ],
-                [
-                  "Activity of a radioactive source",
-                  "becquerel",
-                  "Bq"
-                ]
+                ["Mass", "kilogram", "kg"],
+                ["Length, distance", "metre", "m"],
+                ["Time", "second", "s"],
+                ["Force, weight", "newton", "N"],
+                ["Speed, wave speed", "metre per second", "m/s"],
+                ["Acceleration", "metre per second squared", "m/s²"],
+                ["Gravitational field strength", "newton per kilogram", "N/kg"],
+                ["Energy", "joule", "J"],
+                ["Power", "watt", "W"],
+                ["Current", "ampere", "A"],
+                ["Charge", "coulomb", "C"],
+                ["Potential difference", "volt", "V"],
+                ["Resistance", "ohm", "Ω"],
+                ["Frequency", "hertz", "Hz"],
+                ["Angle", "degree", "°"],
+                ["Temperature", "degree Celsius, kelvin", "°C, K"],
+                ["Density", "kilogram per metre cubed", "kg/m³"],
+                ["Pressure", "pascal", "Pa"],
+                ["Area, volume", "metre squared, metre cubed", "m², m³"],
+                ["Specific heat capacity", "joule per kilogram degree Celsius", "J/kg °C"],
+                ["Moment", "newton metre", "N m"],
+                ["Momentum", "kilogram metre per second", "kg m/s"],
+                ["Activity of a radioactive source", "becquerel", "Bq"]
               ]
             },
             {
@@ -594,7 +418,7 @@
       "61734656-80f0-48af-bf80-2593f7909e7b",
       "9616b40a-d89c-4c22-a559-6b7fd8a8ec1f"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

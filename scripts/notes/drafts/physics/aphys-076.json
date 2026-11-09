@@ -33,20 +33,39 @@
           "type": "equation",
           "label": "Frequency",
           "formula": "f = 1 / T",
-          "where": [
-            "f = frequency (Hz)",
-            "T = period (s)"
+          "arrows": [
+            {
+              "point": "f",
+              "label": "Frequency (Hz)"
+            },
+            {
+              "point": "T",
+              "label": "Period (s)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "A sinusoidal current or voltage",
           "formula": "x = x₀ sin ωt",
-          "where": [
-            "x = current or p.d. at time t",
-            "x₀ = peak value",
-            "ω = angular frequency = 2πf (rad/s)",
-            "t = time (s)"
+          "arrows": [
+            {
+              "point": "x",
+              "in": "x =",
+              "label": "Current or p.d. at time t"
+            },
+            {
+              "point": "x₀",
+              "label": "Peak value"
+            },
+            {
+              "point": "ω",
+              "label": "Angular frequency, 2πf (rad/s)"
+            },
+            {
+              "point": "t",
+              "label": "Time (s)"
+            }
           ]
         },
         {
@@ -58,13 +77,7 @@
               "label": "Time",
               "min": 0,
               "max": 40,
-              "ticks": [
-                0,
-                10,
-                20,
-                30,
-                40
-              ],
+              "ticks": [0, 10, 20, 30, 40],
               "unit": "ms"
             },
             "y": {
@@ -75,74 +88,23 @@
               {
                 "name": "Alternating voltage",
                 "points": [
-                  [
-                    0.0,
-                    0.5
-                  ],
-                  [
-                    2.5,
-                    0.854
-                  ],
-                  [
-                    5.0,
-                    1.0
-                  ],
-                  [
-                    7.5,
-                    0.854
-                  ],
-                  [
-                    10.0,
-                    0.5
-                  ],
-                  [
-                    12.5,
-                    0.146
-                  ],
-                  [
-                    15.0,
-                    0.0
-                  ],
-                  [
-                    17.5,
-                    0.146
-                  ],
-                  [
-                    20.0,
-                    0.5
-                  ],
-                  [
-                    22.5,
-                    0.854
-                  ],
-                  [
-                    25.0,
-                    1.0
-                  ],
-                  [
-                    27.5,
-                    0.854
-                  ],
-                  [
-                    30.0,
-                    0.5
-                  ],
-                  [
-                    32.5,
-                    0.146
-                  ],
-                  [
-                    35.0,
-                    0.0
-                  ],
-                  [
-                    37.5,
-                    0.146
-                  ],
-                  [
-                    40.0,
-                    0.5
-                  ]
+                  [0.0, 0.5],
+                  [2.5, 0.854],
+                  [5.0, 1.0],
+                  [7.5, 0.854],
+                  [10.0, 0.5],
+                  [12.5, 0.146],
+                  [15.0, 0.0],
+                  [17.5, 0.146],
+                  [20.0, 0.5],
+                  [22.5, 0.854],
+                  [25.0, 1.0],
+                  [27.5, 0.854],
+                  [30.0, 0.5],
+                  [32.5, 0.146],
+                  [35.0, 0.0],
+                  [37.5, 0.146],
+                  [40.0, 0.5]
                 ]
               }
             ],
@@ -190,18 +152,30 @@
           "type": "equation",
           "label": "R.m.s. current",
           "formula": "Iᵣₘₛ = I₀ / √2",
-          "where": [
-            "Iᵣₘₛ = r.m.s. current (A)",
-            "I₀ = peak current (A)"
+          "arrows": [
+            {
+              "point": "Iᵣₘₛ",
+              "label": "R.m.s. current (A)"
+            },
+            {
+              "point": "I₀",
+              "label": "Peak current (A)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "R.m.s. p.d.",
           "formula": "Vᵣₘₛ = V₀ / √2",
-          "where": [
-            "Vᵣₘₛ = r.m.s. p.d. (V)",
-            "V₀ = peak p.d. (V)"
+          "arrows": [
+            {
+              "point": "Vᵣₘₛ",
+              "label": "R.m.s. p.d. (V)"
+            },
+            {
+              "point": "V₀",
+              "label": "Peak p.d. (V)"
+            }
           ]
         },
         {
@@ -265,9 +239,23 @@
           "type": "equation",
           "label": "Transformer equation",
           "formula": "Vₛ / Vₚ = Nₛ / Nₚ",
-          "where": [
-            "Vₛ, Vₚ = p.d. across secondary and primary (V)",
-            "Nₛ, Nₚ = turns on secondary and primary"
+          "arrows": [
+            {
+              "point": "Vₛ",
+              "label": "P.d. across the secondary (V)"
+            },
+            {
+              "point": "Vₚ",
+              "label": "P.d. across the primary (V)"
+            },
+            {
+              "point": "Nₛ",
+              "label": "Turns on the secondary"
+            },
+            {
+              "point": "Nₚ",
+              "label": "Turns on the primary"
+            }
           ]
         },
         {
@@ -373,10 +361,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.5.5",
-        "AQA 3.7.5.6"
-      ],
+      "spec_codes": ["AQA 3.7.5.5", "AQA 3.7.5.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -421,9 +406,15 @@
               "type": "equation",
               "label": "Transformer efficiency",
               "formula": "Efficiency = IₛVₛ / IₚVₚ",
-              "where": [
-                "Iₛ, Vₛ = secondary current and p.d.",
-                "Iₚ, Vₚ = primary current and p.d."
+              "arrows": [
+                {
+                  "point": "IₛVₛ",
+                  "label": "Secondary current and p.d."
+                },
+                {
+                  "point": "IₚVₚ",
+                  "label": "Primary current and p.d."
+                }
               ]
             },
             {
@@ -445,22 +436,10 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Sending 50 kW through cables of 2.0 Ω",
-                "At 500 V",
-                "At 5000 V"
-              ],
+              "columns": ["Sending 50 kW through cables of 2.0 Ω", "At 500 V", "At 5000 V"],
               "rows": [
-                [
-                  "Current",
-                  "100 A",
-                  "10 A"
-                ],
-                [
-                  "Power lost in the cables",
-                  "20 kW (40%)",
-                  "200 W (0.4%)"
-                ]
+                ["Current", "100 A", "10 A"],
+                ["Power lost in the cables", "20 kW (40%)", "200 W (0.4%)"]
               ]
             },
             {
@@ -475,10 +454,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 7.128",
-        "EDEX 7.129"
-      ]
+      "spec_codes": ["EDEX 7.128", "EDEX 7.129"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -513,22 +489,10 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Type",
-                "Diodes",
-                "Output"
-              ],
+              "columns": ["Type", "Diodes", "Output"],
               "rows": [
-                [
-                  "Half-wave",
-                  "1",
-                  "One pulse per cycle, then zero"
-                ],
-                [
-                  "Full-wave (bridge)",
-                  "4",
-                  "Two pulses per cycle, no gaps"
-                ]
+                ["Half-wave", "1", "One pulse per cycle, then zero"],
+                ["Full-wave (bridge)", "4", "Two pulses per cycle, no gaps"]
               ]
             },
             {
@@ -572,10 +536,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.3.3e",
-        "OCR 6.3.3f"
-      ],
+      "spec_codes": ["OCR 6.3.3e", "OCR 6.3.3f"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -654,7 +615,7 @@
       "7dfad840-2992-48a2-9e33-f3712049d336"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

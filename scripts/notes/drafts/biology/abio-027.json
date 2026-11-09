@@ -35,11 +35,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Pathway",
-            "Route",
-            "Notes"
-          ],
+          "columns": ["Pathway", "Route", "Notes"],
           "rows": [
             [
               "Apoplast",
@@ -120,10 +116,7 @@
             "kind": "predictor",
             "alt": "A predictor: pick a change in conditions and see how it affects the rate of transpiration.",
             "prompt": "Pick a change in conditions",
-            "result_labels": [
-              "Effect on transpiration rate",
-              "Reason"
-            ],
+            "result_labels": ["Effect on transpiration rate", "Reason"],
             "options": [
               {
                 "label": "Brighter light",
@@ -167,10 +160,20 @@
           "type": "equation",
           "label": "Volume of water taken up in a potometer",
           "formula": "volume = π × r² × distance moved by the air bubble",
-          "where": [
-            "r = radius of the capillary tube, in mm",
-            "distance, in mm",
-            "volume, in mm³"
+          "arrows": [
+            {
+              "point": "volume",
+              "label": "Cubic millimetres (mm³)"
+            },
+            {
+              "point": "r",
+              "in": "r²",
+              "label": "Radius of the capillary tube (mm)"
+            },
+            {
+              "point": "distance moved by the air bubble",
+              "label": "Millimetres (mm)"
+            }
           ]
         },
         {
@@ -232,10 +235,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Adaptation",
-            "How it reduces water loss"
-          ],
+          "columns": ["Adaptation", "How it reduces water loss"],
           "rows": [
             [
               "Thick waxy cuticle",
@@ -257,10 +257,7 @@
               "Reduced leaf area, such as spines",
               "A smaller surface area means less evaporation, as in cacti."
             ],
-            [
-              "Fewer stomata",
-              "Fewer places for water to escape."
-            ],
+            ["Fewer stomata", "Fewer places for water to escape."],
             [
               "Deep roots or widely spread roots",
               "Reach water deep down or take up surface water quickly."
@@ -296,16 +293,10 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.4.2a"
-      ]
+      "spec_codes": ["AQA 3.3.4.2a"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.1.3c",
-        "OCR 3.1.3d",
-        "OCR 3.1.3e"
-      ],
+      "spec_codes": ["OCR 3.1.3c", "OCR 3.1.3d", "OCR 3.1.3e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -413,7 +404,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "status": "draft",
     "written_by": "claude-sonnet-5-5",

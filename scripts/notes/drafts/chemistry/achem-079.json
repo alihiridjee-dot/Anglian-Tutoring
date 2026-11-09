@@ -53,11 +53,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Starting material",
-            "Reagents and conditions",
-            "Product"
-          ],
+          "columns": ["Starting material", "Reagents and conditions", "Product"],
           "rows": [
             [
               "Primary alcohol",
@@ -124,11 +120,7 @@
             "options": [
               {
                 "label": "Magnesium",
-                "results": [
-                  "Redox",
-                  "Magnesium ethanoate, (CH₃COO)₂Mg",
-                  "Fizzing: hydrogen gas"
-                ],
+                "results": ["Redox", "Magnesium ethanoate, (CH₃COO)₂Mg", "Fizzing: hydrogen gas"],
                 "explanation": "2CH₃COOH + Mg → (CH₃COO)₂Mg + H₂"
               },
               {
@@ -160,11 +152,7 @@
               },
               {
                 "label": "LiAlH₄ in dry ether",
-                "results": [
-                  "Reduction",
-                  "Ethanol, CH₃CH₂OH",
-                  "Water"
-                ],
+                "results": ["Reduction", "Ethanol, CH₃CH₂OH", "Water"],
                 "explanation": "CH₃COOH + 4[H] → CH₃CH₂OH + H₂O"
               },
               {
@@ -209,9 +197,16 @@
           "type": "equation",
           "label": "Esterification",
           "formula": "CH₃COOH + CH₃CH₂OH ⇌ CH₃COOCH₂CH₃ + H₂O",
-          "where": [
-            "Concentrated H₂SO₄ is the catalyst.",
-            "Heat the mixture."
+          "arrows": [
+            {
+              "point": "⇌",
+              "label": "Concentrated H₂SO₄ catalyst, heat"
+            },
+            {
+              "point": "H₂O",
+              "in": "+ H₂O",
+              "label": "–OH of acid + H of alcohol"
+            }
           ]
         },
         {
@@ -219,7 +214,6 @@
           "items": [
             "The reaction is **reversible**, so the yield is not 100%.",
             "Name the ester from the alcohol first, then the acid: ethanol and ethanoic acid give **ethyl ethanoate**.",
-            "The –OH of the acid and the H of the alcohol are lost as water.",
             "Esters have a sweet, fruity smell."
           ]
         },
@@ -241,27 +235,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Hot dilute acid",
-            "Hot dilute alkali"
-          ],
+          "columns": ["Feature", "Hot dilute acid", "Hot dilute alkali"],
           "rows": [
-            [
-              "Reagent",
-              "Dilute H₂SO₄ or HCl, heat",
-              "Dilute NaOH, heat"
-            ],
-            [
-              "Products",
-              "Carboxylic acid and alcohol",
-              "Carboxylate salt and alcohol"
-            ],
-            [
-              "Reversible?",
-              "Yes, an equilibrium",
-              "No, it goes to completion"
-            ]
+            ["Reagent", "Dilute H₂SO₄ or HCl, heat", "Dilute NaOH, heat"],
+            ["Products", "Carboxylic acid and alcohol", "Carboxylate salt and alcohol"],
+            ["Reversible?", "Yes, an equilibrium", "No, it goes to completion"]
           ]
         },
         {
@@ -310,12 +288,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.1.3a",
-        "OCR 6.1.3b",
-        "OCR 6.1.3c",
-        "OCR 6.1.3d"
-      ],
+      "spec_codes": ["OCR 6.1.3a", "OCR 6.1.3b", "OCR 6.1.3c", "OCR 6.1.3d"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -342,13 +315,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 17C.9",
-        "EDEX 17C.10",
-        "EDEX 17C.11",
-        "EDEX 17C.12",
-        "EDEX 17C.15"
-      ],
+      "spec_codes": ["EDEX 17C.9", "EDEX 17C.10", "EDEX 17C.11", "EDEX 17C.12", "EDEX 17C.15"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -370,9 +337,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.9.1"
-      ],
+      "spec_codes": ["AQA 3.3.9.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -436,27 +401,15 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Compound",
-                "Anion",
-                "Why the anion is stable or not"
-              ],
+              "columns": ["Compound", "Anion", "Why the anion is stable or not"],
               "rows": [
                 [
                   "Carboxylic acid",
                   "RCOO⁻",
                   "The charge is delocalised over two oxygen atoms. Most stable"
                 ],
-                [
-                  "Phenol",
-                  "C₆H₅O⁻",
-                  "The charge is partly delocalised into the ring. Less stable"
-                ],
-                [
-                  "Water",
-                  "OH⁻",
-                  "The charge is on one oxygen atom"
-                ],
+                ["Phenol", "C₆H₅O⁻", "The charge is partly delocalised into the ring. Less stable"],
+                ["Water", "OH⁻", "The charge is on one oxygen atom"],
                 [
                   "Ethanol",
                   "C₂H₅O⁻",
@@ -512,7 +465,7 @@
       "e86439f1-191d-4f12-9cb3-9eeeb1333807"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

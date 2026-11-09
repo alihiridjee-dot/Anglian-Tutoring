@@ -22,12 +22,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Region of the diagram",
-            "Temperature",
-            "Luminosity",
-            "What the stars are"
-          ],
+          "columns": ["Region of the diagram", "Temperature", "Luminosity", "What the stars are"],
           "rows": [
             [
               "Main sequence",
@@ -41,12 +36,7 @@
               "High",
               "Very large, because a cool surface must be large to give a high luminosity."
             ],
-            [
-              "Super red giants",
-              "Cool",
-              "Very high",
-              "The largest stars, at the top right."
-            ],
+            ["Super red giants", "Cool", "Very high", "The largest stars, at the top right."],
             [
               "White dwarfs",
               "Hot",
@@ -262,11 +252,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.9.2.4",
-        "AQA 3.9.2.5",
-        "AQA 3.9.2.6"
-      ],
+      "spec_codes": ["AQA 3.9.2.4", "AQA 3.9.2.5", "AQA 3.9.2.6"],
       "extra": [
         {
           "heading": "Detail this course asks for: spectral classes",
@@ -284,48 +270,13 @@
                 "Prominent absorption lines"
               ],
               "rows": [
-                [
-                  "O",
-                  "blue",
-                  "25 000 – 50 000",
-                  "He⁺, He, H"
-                ],
-                [
-                  "B",
-                  "blue",
-                  "11 000 – 25 000",
-                  "He, H"
-                ],
-                [
-                  "A",
-                  "blue-white",
-                  "7 500 – 11 000",
-                  "H (strongest), ionised metals"
-                ],
-                [
-                  "F",
-                  "white",
-                  "6 000 – 7 500",
-                  "ionised metals"
-                ],
-                [
-                  "G",
-                  "yellow-white",
-                  "5 000 – 6 000",
-                  "ionised and neutral metals"
-                ],
-                [
-                  "K",
-                  "orange",
-                  "3 500 – 5 000",
-                  "neutral metals"
-                ],
-                [
-                  "M",
-                  "red",
-                  "< 3 500",
-                  "neutral atoms, TiO"
-                ]
+                ["O", "blue", "25 000 – 50 000", "He⁺, He, H"],
+                ["B", "blue", "11 000 – 25 000", "He, H"],
+                ["A", "blue-white", "7 500 – 11 000", "H (strongest), ionised metals"],
+                ["F", "white", "6 000 – 7 500", "ionised metals"],
+                ["G", "yellow-white", "5 000 – 6 000", "ionised and neutral metals"],
+                ["K", "orange", "3 500 – 5 000", "neutral metals"],
+                ["M", "red", "< 3 500", "neutral atoms, TiO"]
               ]
             },
             {
@@ -386,12 +337,25 @@
               "type": "equation",
               "label": "Schwarzschild radius",
               "formula": "Rₛ ≈ 2GM ÷ c²",
-              "where": [
-                "Rₛ = radius of the event horizon (m)",
-                "G = gravitational constant, 6.67 × 10⁻¹¹ N m² kg⁻²",
-                "M = mass of the black hole (kg)",
-                "c = speed of light, 3.0 × 10⁸ m/s"
-              ]
+              "arrows": [
+                {
+                  "point": "Rₛ",
+                  "label": "Radius of the event horizon (m)"
+                },
+                {
+                  "point": "G",
+                  "label": "Gravitational constant"
+                },
+                {
+                  "point": "M",
+                  "label": "Mass of the black hole (kg)"
+                },
+                {
+                  "point": "c",
+                  "label": "Speed of light, 3.0 × 10⁸ m/s"
+                }
+              ],
+              "where": ["G = 6.67 × 10⁻¹¹ N m² kg⁻²"]
             },
             {
               "type": "diagram",
@@ -432,10 +396,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 10.159",
-        "EDEX 10.160"
-      ]
+      "spec_codes": ["EDEX 10.159", "EDEX 10.160"]
     },
     "ocr_alevel": {
       "spec_codes": [
@@ -511,7 +472,7 @@
       "6c057473-705f-467e-9c20-d5c6855ebf65"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

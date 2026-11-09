@@ -38,7 +38,21 @@
           "type": "equation",
           "label": "Overall reaction in a hydrogen fuel cell",
           "formula": "2H₂ + O₂ → 2H₂O",
-          "where": ["H₂ is hydrogen, the fuel", "O₂ is oxygen", "H₂O is water, the only product"]
+          "arrows": [
+            {
+              "point": "H₂",
+              "in": "2H₂ +",
+              "label": "Hydrogen, the fuel"
+            },
+            {
+              "point": "O₂",
+              "label": "Oxygen"
+            },
+            {
+              "point": "H₂O",
+              "label": "Water, the only product"
+            }
+          ]
         },
         {
           "type": "paragraph",
@@ -48,13 +62,31 @@
           "type": "equation",
           "label": "Negative electrode (anode): hydrogen oxidised",
           "formula": "H₂ → 2H⁺ + 2e⁻",
-          "where": ["hydrogen loses electrons"]
+          "arrows": [
+            {
+              "point": "2e⁻",
+              "label": "Hydrogen loses electrons"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "Positive electrode (cathode): oxygen reduced",
           "formula": "O₂ + 4H⁺ + 4e⁻ → 2H₂O",
-          "where": ["oxygen reacts with hydrogen ions and electrons to form water"]
+          "arrows": [
+            {
+              "point": "4H⁺",
+              "label": "Hydrogen ions"
+            },
+            {
+              "point": "4e⁻",
+              "label": "Electrons"
+            },
+            {
+              "point": "2H₂O",
+              "label": "Water"
+            }
+          ]
         },
         {
           "type": "list",
@@ -301,7 +333,7 @@
       "27ab86f3-fc58-4c28-9014-e030aa76d66d",
       "ae1d32c3-fd74-4f14-b235-b8c62cc3437d"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

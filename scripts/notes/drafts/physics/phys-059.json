@@ -155,10 +155,19 @@
           "type": "equation",
           "label": "Newton's second law",
           "formula": "F = m × a",
-          "where": [
-            "F: resultant force in newtons, N",
-            "m: mass in kilograms, kg",
-            "a: acceleration in metres per second squared, m/s²"
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Resultant force (N)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "a",
+              "label": "Acceleration (m/s²)"
+            }
           ]
         },
         {
@@ -231,13 +240,25 @@
               "type": "equation",
               "label": "Force and change in momentum",
               "formula": "F = (m × v − m × u) / t",
-              "where": [
-                "F: force in newtons, N",
-                "m: mass in kilograms, kg",
-                "v: final velocity in metres per second, m/s",
-                "u: initial velocity in metres per second, m/s",
-                "t: time of the collision in seconds, s"
-              ]
+              "arrows": [
+                {
+                  "point": "F",
+                  "label": "Force (N)"
+                },
+                {
+                  "point": "v",
+                  "label": "Final velocity (m/s)"
+                },
+                {
+                  "point": "u",
+                  "label": "Initial velocity (m/s)"
+                },
+                {
+                  "point": "t",
+                  "label": "Time of the collision (s)"
+                }
+              ],
+              "where": ["m is the mass, in kilograms (kg)."]
             },
             {
               "type": "list",
@@ -297,7 +318,7 @@
       "b99ea03a-a5ea-4e07-9613-0ed840c526ef",
       "1aed4247-b1d8-48dc-8106-cb55c07606e5"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

@@ -92,13 +92,25 @@
           "type": "equation",
           "label": "Pressure of an ideal gas",
           "formula": "pV = ⅓Nm⟨c²⟩",
-          "where": [
-            "p is the pressure (Pa)",
-            "V is the volume (m³)",
-            "N is the number of molecules",
-            "m is the mass of one molecule (kg)",
-            "⟨c²⟩ is the mean-square speed (m² s⁻²)"
-          ]
+          "arrows": [
+            {
+              "point": "p",
+              "label": "Pressure (Pa)"
+            },
+            {
+              "point": "N",
+              "label": "Number of molecules"
+            },
+            {
+              "point": "m",
+              "label": "Mass of one molecule (kg)"
+            },
+            {
+              "point": "⟨c²⟩",
+              "label": "Mean-square speed (m² s⁻²)"
+            }
+          ],
+          "where": ["V is the volume (m³)"]
         },
         {
           "type": "definitions",
@@ -150,10 +162,19 @@
           "type": "equation",
           "label": "Mean translational kinetic energy of a molecule",
           "formula": "½m⟨c²⟩ = (3/2)kT",
-          "where": [
-            "½m⟨c²⟩ is the mean kinetic energy of one molecule (J)",
-            "k is the Boltzmann constant, 1.38 × 10⁻²³ J K⁻¹",
-            "T is the thermodynamic temperature (K)"
+          "arrows": [
+            {
+              "point": "½m⟨c²⟩",
+              "label": "Mean kinetic energy of one molecule (J)"
+            },
+            {
+              "point": "k",
+              "label": "Boltzmann constant, 1.38 × 10⁻²³ J K⁻¹"
+            },
+            {
+              "point": "T",
+              "label": "Thermodynamic temperature (K)"
+            }
           ]
         },
         {
@@ -245,9 +266,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.6.2.3"
-      ],
+      "spec_codes": ["AQA 3.6.2.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -269,18 +288,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 9.149",
-        "EDEX 9.152"
-      ]
+      "spec_codes": ["EDEX 9.149", "EDEX 9.152"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 15.3.1",
-        "CAIE 15.3.2",
-        "CAIE 15.3.3",
-        "CAIE 15.3.4"
-      ]
+      "spec_codes": ["CAIE 15.3.1", "CAIE 15.3.2", "CAIE 15.3.3", "CAIE 15.3.4"]
     },
     "ocr_alevel": {
       "spec_codes": [
@@ -321,7 +332,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "status": "draft",
     "written_by": "claude-sonnet-5-5",

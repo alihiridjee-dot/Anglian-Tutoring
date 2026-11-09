@@ -24,39 +24,15 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Region",
-            "Approximate wavelength in free space"
-          ],
+          "columns": ["Region", "Approximate wavelength in free space"],
           "rows": [
-            [
-              "Radio waves",
-              "Greater than about 10⁻¹ m (up to 10³ m and beyond)"
-            ],
-            [
-              "Microwaves",
-              "About 10⁻³ m to 10⁻¹ m"
-            ],
-            [
-              "Infrared",
-              "About 7 × 10⁻⁷ m to 10⁻³ m"
-            ],
-            [
-              "Visible light",
-              "About 4 × 10⁻⁷ m to 7 × 10⁻⁷ m"
-            ],
-            [
-              "Ultraviolet",
-              "About 10⁻⁸ m to 4 × 10⁻⁷ m"
-            ],
-            [
-              "X-rays",
-              "About 10⁻¹³ m to 10⁻⁸ m"
-            ],
-            [
-              "Gamma rays",
-              "Less than about 10⁻¹⁰ m"
-            ]
+            ["Radio waves", "Greater than about 10⁻¹ m (up to 10³ m and beyond)"],
+            ["Microwaves", "About 10⁻³ m to 10⁻¹ m"],
+            ["Infrared", "About 7 × 10⁻⁷ m to 10⁻³ m"],
+            ["Visible light", "About 4 × 10⁻⁷ m to 7 × 10⁻⁷ m"],
+            ["Ultraviolet", "About 10⁻⁸ m to 4 × 10⁻⁷ m"],
+            ["X-rays", "About 10⁻¹³ m to 10⁻⁸ m"],
+            ["Gamma rays", "Less than about 10⁻¹⁰ m"]
           ]
         },
         {
@@ -163,18 +139,10 @@
   ],
   "boards": {
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.82"
-      ]
+      "spec_codes": ["EDEX 5.82"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 7.4.1",
-        "CAIE 7.4.2",
-        "CAIE 7.4.3",
-        "CAIE 7.5.1",
-        "CAIE 7.5.2"
-      ],
+      "spec_codes": ["CAIE 7.4.1", "CAIE 7.4.2", "CAIE 7.4.3", "CAIE 7.5.1", "CAIE 7.5.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -187,10 +155,20 @@
               "type": "equation",
               "label": "Malus's law",
               "formula": "I = I₀ cos²θ",
-              "where": [
-                "I = transmitted intensity (W/m²)",
-                "I₀ = intensity of the plane-polarised light entering the filter (W/m²)",
-                "θ = angle between the plane of polarisation and the transmission direction of the filter"
+              "arrows": [
+                {
+                  "point": "I",
+                  "in": "I =",
+                  "label": "Transmitted intensity (W/m²)"
+                },
+                {
+                  "point": "I₀",
+                  "label": "Intensity of polarised light entering (W/m²)"
+                },
+                {
+                  "point": "θ",
+                  "label": "Angle to the filter's transmission direction"
+                }
               ]
             },
             {
@@ -207,12 +185,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.4.1f",
-        "OCR 4.4.2a",
-        "OCR 4.4.2b",
-        "OCR 4.4.2c"
-      ],
+      "spec_codes": ["OCR 4.4.1f", "OCR 4.4.2a", "OCR 4.4.2b", "OCR 4.4.2c"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -249,7 +222,7 @@
       "2867d8a5-c227-41ed-8d31-3358a6cd7425"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -29,19 +29,28 @@
           "type": "list",
           "items": [
             "In a neutral atom the number of electrons equals the number of protons.",
-            "The atomic number fixes the charge of the nucleus, so it fixes the element.",
-            "A nucleus is written with the mass number at the top and the atomic number at the bottom, for example ²³⁸₉₂U.",
-            "²³⁸₉₂U means mass number 238 and atomic number 92. It has 92 protons."
+            "The atomic number fixes the charge of the nucleus, so it fixes the element."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "How a nucleus is written",
+          "formula": "²³⁸₉₂U",
+          "arrows": [
+            {
+              "point": "²³⁸",
+              "label": "Mass number: protons + neutrons"
+            },
+            {
+              "point": "₉₂",
+              "label": "Atomic number: protons"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Number of neutrons",
-          "formula": "number of neutrons = mass number - atomic number",
-          "where": [
-            "Mass number is the number of protons plus neutrons.",
-            "Atomic number is the number of protons."
-          ]
+          "formula": "number of neutrons = mass number − atomic number"
         },
         {
           "type": "steps",
@@ -212,10 +221,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.4.1.2",
-        "AQA T 6.4.1.2"
-      ],
+      "spec_codes": ["AQA 4.4.1.2", "AQA T 6.4.1.2"],
       "worked_example": {
         "exemplar_id": "9a1e7744-b2a7-4dbe-bdb2-6b17ca3226cd",
         "source": "AQA jun 2018, Paper 1 (F), Q05.1",
@@ -245,10 +251,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 6.3",
-        "EDEX 6.4"
-      ],
+      "spec_codes": ["EDEX 6.3", "EDEX 6.4"],
       "worked_example": {
         "exemplar_id": "bb71e86b-1eb5-4ca5-960a-e18addb89362",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(a)",
@@ -286,11 +289,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P6.1a",
-        "OCR P6.1b",
-        "OCR P6.1c"
-      ],
+      "spec_codes": ["OCR P6.1a", "OCR P6.1b", "OCR P6.1c"],
       "worked_example": {
         "exemplar_id": "7f8c72c0-a02d-4629-be56-ef989267864e",
         "source": "OCR jun 2025, Paper 2, Q18(a)",
@@ -358,10 +357,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 7.3",
-        "IGCSE 7.2"
-      ],
+      "spec_codes": ["IGCSE 7.3", "IGCSE 7.2"],
       "worked_example": {
         "exemplar_id": "4b4b1306-4315-4f61-a2d2-31995ef648ac",
         "source": "EDEXCEL jun 2025, Paper 2 (PR), Q2(a)",
@@ -389,7 +385,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27",
     "spec_point_ids": [
       "4214a5da-b95b-420c-a248-d29d6aa0384c",

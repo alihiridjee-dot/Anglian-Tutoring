@@ -16,10 +16,19 @@
           "type": "equation",
           "label": "Distance fallen from rest",
           "formula": "s = ½gt²",
-          "where": [
-            "s = distance fallen, in m",
-            "g = acceleration of free fall, in m/s²",
-            "t = time of fall, in s"
+          "arrows": [
+            {
+              "point": "s",
+              "label": "Distance fallen (m)"
+            },
+            {
+              "point": "g",
+              "label": "Acceleration of free fall (m/s²)"
+            },
+            {
+              "point": "t",
+              "label": "Time of fall (s)"
+            }
           ]
         },
         {
@@ -180,13 +189,7 @@
   ],
   "boards": {
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 2.19",
-        "EDEX 4.52",
-        "EDEX 4.57",
-        "EDEX 6.98",
-        "EDEX 6.100"
-      ],
+      "spec_codes": ["EDEX 2.19", "EDEX 4.52", "EDEX 4.57", "EDEX 6.98", "EDEX 6.100"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -220,13 +223,25 @@
               "type": "equation",
               "label": "Viscosity from terminal velocity",
               "formula": "η = 2r²(ρₛ − ρₗ)g / (9v)",
-              "where": [
-                "η = viscosity of the liquid, in Pa s",
-                "r = radius of the ball, in m",
-                "ρₛ = density of the ball, in kg/m³",
-                "ρₗ = density of the liquid, in kg/m³",
-                "v = terminal velocity, in m/s"
-              ]
+              "arrows": [
+                {
+                  "point": "η",
+                  "label": "Viscosity of the liquid (Pa s)"
+                },
+                {
+                  "point": "ρₛ",
+                  "label": "Density of the ball (kg/m³)"
+                },
+                {
+                  "point": "ρₗ",
+                  "label": "Density of the liquid (kg/m³)"
+                },
+                {
+                  "point": "v",
+                  "label": "Terminal velocity (m/s)"
+                }
+              ],
+              "where": ["r = radius of the ball, in m"]
             },
             {
               "type": "list",
@@ -295,10 +310,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 2.1.8",
-        "CAIE 6.1.6"
-      ]
+      "spec_codes": ["CAIE 2.1.8", "CAIE 6.1.6"]
     }
   },
   "meta": {
@@ -315,7 +327,7 @@
       "382f34b5-662b-41ff-ad56-977a48b978ad"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

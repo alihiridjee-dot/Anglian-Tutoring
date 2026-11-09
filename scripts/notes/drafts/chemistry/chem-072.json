@@ -29,9 +29,15 @@
           "type": "equation",
           "label": "A reversible reaction",
           "formula": "A + B ⇌ C + D",
-          "where": [
-            "the forward reaction makes C and D from A and B",
-            "the reverse reaction makes A and B from C and D"
+          "arrows": [
+            {
+              "point": "A + B",
+              "label": "Made by the reverse reaction"
+            },
+            {
+              "point": "C + D",
+              "label": "Made by the forward reaction"
+            }
           ]
         },
         {
@@ -49,9 +55,16 @@
           "type": "equation",
           "label": "Hydrated and anhydrous copper sulfate",
           "formula": "CuSO₄·5H₂O ⇌ CuSO₄ + 5H₂O",
-          "where": [
-            "CuSO₄·5H₂O is hydrated copper sulfate, a blue solid",
-            "CuSO₄ is anhydrous copper sulfate, a white solid"
+          "arrows": [
+            {
+              "point": "CuSO₄·5H₂O",
+              "label": "Hydrated copper sulfate: blue solid"
+            },
+            {
+              "point": "CuSO₄",
+              "in": "⇌ CuSO₄",
+              "label": "Anhydrous copper sulfate: white solid"
+            }
           ]
         },
         {
@@ -322,10 +335,19 @@
               "type": "equation",
               "label": "Ammonium chloride",
               "formula": "NH₄Cl ⇌ NH₃ + HCl",
-              "where": [
-                "NH₄Cl is ammonium chloride.",
-                "NH₃ is ammonia.",
-                "HCl is hydrogen chloride."
+              "arrows": [
+                {
+                  "point": "NH₄Cl",
+                  "label": "Ammonium chloride"
+                },
+                {
+                  "point": "NH₃",
+                  "label": "Ammonia"
+                },
+                {
+                  "point": "HCl",
+                  "label": "Hydrogen chloride"
+                }
               ]
             },
             {
@@ -585,7 +607,7 @@
       "d60be48f-96a6-4845-8b6d-74079ca1264b",
       "0e35ed3b-6f74-4189-9947-18d49662b293"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

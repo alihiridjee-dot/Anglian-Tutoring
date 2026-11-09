@@ -41,7 +41,13 @@
           "type": "equation",
           "label": "Number of bacteria",
           "formula": "number of bacteria = starting number × 2ⁿ",
-          "where": ["n is the number of divisions", "n = time ÷ time for one division"]
+          "arrows": [
+            {
+              "point": "ⁿ",
+              "label": "Number of divisions"
+            }
+          ],
+          "where": ["n = time ÷ time for one division"]
         },
         {
           "type": "steps",
@@ -213,10 +219,20 @@
           "type": "equation",
           "label": "Area of a zone of inhibition",
           "formula": "area = π × r²",
-          "where": [
-            "r is the radius of the clear zone, in mm",
-            "area is in mm²",
-            "use π = 3.14 unless told otherwise"
+          "arrows": [
+            {
+              "point": "area",
+              "label": "Square millimetres (mm²)"
+            },
+            {
+              "point": "π",
+              "label": "Use 3.14 unless told otherwise"
+            },
+            {
+              "point": "r",
+              "in": "r²",
+              "label": "Radius of the clear zone (mm)"
+            }
           ]
         },
         {
@@ -439,7 +455,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",

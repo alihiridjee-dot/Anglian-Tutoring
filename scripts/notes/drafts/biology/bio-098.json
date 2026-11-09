@@ -66,18 +66,8 @@
               "dominant": "Male",
               "recessive": "Female"
             },
-            "parent_labels": [
-              "Mother",
-              "Father"
-            ],
-            "parent_options": [
-              [
-                "XX"
-              ],
-              [
-                "XY"
-              ]
-            ]
+            "parent_labels": ["Mother", "Father"],
+            "parent_options": [["XX"], ["XY"]]
           }
         },
         {
@@ -143,11 +133,21 @@
         {
           "type": "equation",
           "label": "Sharing a total in a ratio",
-          "where": [
-            "total, such as the number of babies",
-            "male part and female part, such as 105 and 100"
-          ],
-          "formula": "number of males = total × male part of ratio ÷ (male part + female part)"
+          "formula": "number of males = total × male part of ratio ÷ (male part + female part)",
+          "arrows": [
+            {
+              "point": "total",
+              "label": "Such as the number of babies"
+            },
+            {
+              "point": "male part of ratio",
+              "label": "Such as 105"
+            },
+            {
+              "point": "female part",
+              "label": "Such as 100"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -192,10 +192,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 6.8",
-        "AQA T 4.6.1.6"
-      ],
+      "spec_codes": ["AQA 6.8", "AQA T 4.6.1.6"],
       "worked_example": {
         "exemplar_id": "7df37df4-36b8-40a3-8493-29377ae292e9",
         "source": "AQA jun 2020, Paper 2 (H), Q05.2",
@@ -209,24 +206,18 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 3.15"
-      ],
+      "spec_codes": ["EDEX 3.15"],
       "worked_example": {
         "exemplar_id": "126ef9f7-0ecc-4744-b8df-0bdbaae611e9",
         "source": "EDEXCEL jun 2019, Paper 1 (F), Q6(a)(iv)",
         "question": "A karyogram is a picture of the chromosomes found in the nucleus of a single cell.\n\nState the probability that a child will be male.",
         "marks": 1,
-        "answer_points": [
-          "0.5 (50%, ½, 1 in 2 or 2 in 4)."
-        ],
+        "answer_points": ["0.5 (50%, ½, 1 in 2 or 2 in 4)."],
         "tip": "50 : 50 is a ratio, not a probability, and scores 0."
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 5.1k"
-      ],
+      "spec_codes": ["OCR 5.1k"],
       "worked_example": {
         "exemplar_id": "411f6f85-85d3-477c-a211-78537d0ebb16",
         "source": "OCR jun 2018, Paper 4, Q19(a)",
@@ -240,15 +231,10 @@
       }
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 17.1.4"
-      ]
+      "spec_codes": ["CAIE 17.1.4"]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 3.26",
-        "IGCSE 3.27"
-      ],
+      "spec_codes": ["IGCSE 3.26", "IGCSE 3.27"],
       "worked_example": {
         "exemplar_id": "d155da84-4b7c-4365-89ec-4d733cfc9c53",
         "source": "EDEXCEL nov 2020, Paper 1 (BR), Q9(b)(ii)",
@@ -282,7 +268,7 @@
       "411f6f85-85d3-477c-a211-78537d0ebb16",
       "d155da84-4b7c-4365-89ec-4d733cfc9c53"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

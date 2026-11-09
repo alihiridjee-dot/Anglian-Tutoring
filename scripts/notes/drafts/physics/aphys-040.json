@@ -78,10 +78,19 @@
           "type": "equation",
           "label": "Threshold frequency",
           "formula": "hf₀ = φ",
-          "where": [
-            "h = Planck constant (J s)",
-            "f₀ = threshold frequency (Hz)",
-            "φ = work function (J)"
+          "arrows": [
+            {
+              "point": "h",
+              "label": "Planck constant (J s)"
+            },
+            {
+              "point": "f₀",
+              "label": "Threshold frequency (Hz)"
+            },
+            {
+              "point": "φ",
+              "label": "Work function (J)"
+            }
           ]
         },
         {
@@ -112,23 +121,35 @@
           "type": "equation",
           "label": "Photoelectric equation",
           "formula": "hf = φ + Eₖ(max)",
-          "where": [
-            "hf = energy of one photon (J)",
-            "φ = work function (J)",
-            "Eₖ(max) = maximum kinetic energy of a photoelectron (J)"
+          "arrows": [
+            {
+              "point": "hf",
+              "label": "Energy of one photon (J)"
+            },
+            {
+              "point": "φ",
+              "label": "Work function (J)"
+            },
+            {
+              "point": "Eₖ(max)",
+              "label": "Photoelectron's maximum kinetic energy (J)"
+            }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "The maximum kinetic energy can also be written ½mvₘₐₓ², where m is the electron mass and vₘₐₓ its greatest speed."
         },
         {
           "type": "equation",
           "label": "Maximum kinetic energy",
           "formula": "Eₖ(max) = ½mvₘₐₓ²",
-          "where": [
-            "m = electron mass, 9.11 × 10⁻³¹ kg",
-            "vₘₐₓ = maximum speed (m/s)"
+          "arrows": [
+            {
+              "point": "m",
+              "in": "½m",
+              "label": "Electron mass, 9.11 × 10⁻³¹ kg"
+            },
+            {
+              "point": "vₘₐₓ",
+              "label": "Maximum speed (m/s)"
+            }
           ]
         },
         {
@@ -220,11 +241,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Observation",
-            "Wave model predicts",
-            "Photon model explains"
-          ],
+          "columns": ["Observation", "Wave model predicts", "Photon model explains"],
           "rows": [
             [
               "Threshold frequency",
@@ -273,9 +290,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.2.1"
-      ],
+      "spec_codes": ["AQA 3.2.2.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -297,9 +312,15 @@
               "type": "equation",
               "label": "Stopping potential",
               "formula": "Eₖ(max) = eVₛ",
-              "where": [
-                "e = electron charge (C)",
-                "Vₛ = stopping potential (V)"
+              "arrows": [
+                {
+                  "point": "e",
+                  "label": "Electron charge (C)"
+                },
+                {
+                  "point": "Vₛ",
+                  "label": "Stopping potential (V)"
+                }
               ]
             },
             {
@@ -321,20 +342,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.92",
-        "EDEX 5.93",
-        "EDEX 5.95"
-      ]
+      "spec_codes": ["EDEX 5.92", "EDEX 5.93", "EDEX 5.95"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 22.2.1",
-        "CAIE 22.2.2",
-        "CAIE 22.2.3",
-        "CAIE 22.2.4",
-        "CAIE 22.2.5"
-      ],
+      "spec_codes": ["CAIE 22.2.1", "CAIE 22.2.2", "CAIE 22.2.3", "CAIE 22.2.4", "CAIE 22.2.5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -356,8 +367,11 @@
               "type": "equation",
               "label": "Threshold wavelength",
               "formula": "φ = hc/λ₀",
-              "where": [
-                "λ₀ = threshold wavelength (m)"
+              "arrows": [
+                {
+                  "point": "λ₀",
+                  "label": "Threshold wavelength (m)"
+                }
               ]
             },
             {
@@ -411,7 +425,7 @@
       "ccb9af6c-2124-4832-b736-91c4e6b30701"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

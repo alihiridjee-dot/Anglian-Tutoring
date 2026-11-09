@@ -48,51 +48,26 @@
             "kind": "predictor",
             "alt": "Pick a reaction and see whether it is feasible from the electrode potentials.",
             "prompt": "Pick a reaction.",
-            "result_labels": [
-              "Reduced (positive)",
-              "Oxidised (negative)",
-              "Eᶿcell",
-              "Feasible?"
-            ],
+            "result_labels": ["Reduced (positive)", "Oxidised (negative)", "Eᶿcell", "Feasible?"],
             "options": [
               {
                 "label": "Zn(s) + Cu²⁺(aq)",
-                "results": [
-                  "Cu²⁺/Cu, +0.34 V",
-                  "Zn²⁺/Zn, −0.76 V",
-                  "+1.10 V",
-                  "Yes"
-                ],
+                "results": ["Cu²⁺/Cu, +0.34 V", "Zn²⁺/Zn, −0.76 V", "+1.10 V", "Yes"],
                 "explanation": "Eᶿcell is positive, so zinc displaces copper."
               },
               {
                 "label": "Cu(s) + Zn²⁺(aq)",
-                "results": [
-                  "Zn²⁺/Zn, −0.76 V",
-                  "Cu²⁺/Cu, +0.34 V",
-                  "−1.10 V",
-                  "No"
-                ],
+                "results": ["Zn²⁺/Zn, −0.76 V", "Cu²⁺/Cu, +0.34 V", "−1.10 V", "No"],
                 "explanation": "Eᶿcell is negative, so copper does not displace zinc."
               },
               {
                 "label": "2Fe³⁺(aq) + 2I⁻(aq)",
-                "results": [
-                  "Fe³⁺/Fe²⁺, +0.77 V",
-                  "I₂/I⁻, +0.54 V",
-                  "+0.23 V",
-                  "Yes"
-                ],
+                "results": ["Fe³⁺/Fe²⁺, +0.77 V", "I₂/I⁻, +0.54 V", "+0.23 V", "Yes"],
                 "explanation": "Fe³⁺ oxidises I⁻ to I₂, so Eᶿcell is positive."
               },
               {
                 "label": "2Fe²⁺(aq) + Br₂(aq)",
-                "results": [
-                  "Br₂/Br⁻, +1.07 V",
-                  "Fe³⁺/Fe²⁺, +0.77 V",
-                  "+0.30 V",
-                  "Yes"
-                ],
+                "results": ["Br₂/Br⁻, +1.07 V", "Fe³⁺/Fe²⁺, +0.77 V", "+0.30 V", "Yes"],
                 "explanation": "Bromine is a stronger oxidising agent than Fe³⁺."
               },
               {
@@ -215,26 +190,13 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.2.3i"
-      ]
+      "spec_codes": ["OCR 5.2.3i"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 14.10",
-        "EDEX 14.11",
-        "EDEX 14.12",
-        "EDEX 14.14"
-      ]
+      "spec_codes": ["EDEX 14.10", "EDEX 14.11", "EDEX 14.12", "EDEX 14.14"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 24.2.5",
-        "CAIE 24.2.6",
-        "CAIE 24.2.8",
-        "CAIE 24.2.9",
-        "CAIE 24.2.10"
-      ],
+      "spec_codes": ["CAIE 24.2.5", "CAIE 24.2.6", "CAIE 24.2.8", "CAIE 24.2.9", "CAIE 24.2.10"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -262,11 +224,22 @@
               "type": "equation",
               "label": "Nernst equation at 298 K",
               "formula": "E = Eᶿ + (0.059 / z) × log([oxidised species] / [reduced species])",
-              "where": [
-                "E is the electrode potential in V and Eᶿ is the standard value in V.",
-                "z is the number of electrons in the half-equation.",
-                "A pure solid, such as Cu(s), is left out."
-              ]
+              "arrows": [
+                {
+                  "point": "E",
+                  "in": "E =",
+                  "label": "Electrode potential (V)"
+                },
+                {
+                  "point": "Eᶿ",
+                  "label": "Standard electrode potential (V)"
+                },
+                {
+                  "point": "z",
+                  "label": "Electrons in the half-equation"
+                }
+              ],
+              "where": ["A pure solid, such as Cu(s), is left out."]
             },
             {
               "type": "list",
@@ -284,10 +257,23 @@
               "type": "equation",
               "label": "Free energy change",
               "formula": "ΔGᶿ = −n × Eᶿcell × F",
-              "where": [
-                "ΔGᶿ is the standard free energy change in J/mol.",
-                "n is the number of moles of electrons transferred in the equation.",
-                "Eᶿcell is in V and F is the Faraday constant, 96 500 C/mol."
+              "arrows": [
+                {
+                  "point": "ΔGᶿ",
+                  "label": "Standard free energy change (J/mol)"
+                },
+                {
+                  "point": "n",
+                  "label": "Moles of electrons in the equation"
+                },
+                {
+                  "point": "Eᶿcell",
+                  "label": "Cell potential (V)"
+                },
+                {
+                  "point": "F",
+                  "label": "Faraday constant (96 500 C/mol)"
+                }
               ]
             },
             {
@@ -316,7 +302,7 @@
       "aa621a3e-f4fc-488e-a97c-9c23648a1fa0"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

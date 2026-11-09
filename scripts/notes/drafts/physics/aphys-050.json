@@ -68,19 +68,34 @@
           "type": "equation",
           "label": "Activity",
           "formula": "A = λN",
-          "where": [
-            "A = activity in Bq",
-            "λ = decay constant in s⁻¹",
-            "N = number of undecayed nuclei"
+          "arrows": [
+            {
+              "point": "A",
+              "label": "Activity (Bq)"
+            },
+            {
+              "point": "λ",
+              "label": "Decay constant (s⁻¹)"
+            },
+            {
+              "point": "N",
+              "label": "Number of undecayed nuclei"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Rate of decay",
           "formula": "ΔN / Δt = −λN",
-          "where": [
-            "ΔN/Δt = rate of change of N in s⁻¹",
-            "The minus sign shows N falls"
+          "arrows": [
+            {
+              "point": "ΔN / Δt",
+              "label": "Rate of change of N (s⁻¹)"
+            },
+            {
+              "point": "−",
+              "label": "Minus sign: N falls"
+            }
           ]
         },
         {
@@ -121,29 +136,51 @@
           "type": "equation",
           "label": "Exponential decay",
           "formula": "N = N₀e^(−λt)",
-          "where": [
-            "N = undecayed nuclei at time t",
-            "N₀ = undecayed nuclei at t = 0",
-            "λ = decay constant in s⁻¹",
-            "t = time in s"
+          "arrows": [
+            {
+              "point": "N",
+              "in": "N =",
+              "label": "Undecayed nuclei at time t"
+            },
+            {
+              "point": "N₀",
+              "label": "Undecayed nuclei at t = 0"
+            },
+            {
+              "point": "λ",
+              "label": "Decay constant (s⁻¹)"
+            },
+            {
+              "point": "t",
+              "label": "Time (s)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Activity over time",
           "formula": "A = A₀e^(−λt)",
-          "where": [
-            "A = activity at time t in Bq",
-            "A₀ = activity at t = 0 in Bq"
+          "arrows": [
+            {
+              "point": "A",
+              "in": "A =",
+              "label": "Activity at time t (Bq)"
+            },
+            {
+              "point": "A₀",
+              "label": "Activity at t = 0 (Bq)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Half-life and decay constant",
           "formula": "λt½ = ln 2 = 0.693",
-          "where": [
-            "t½ = half-life in s",
-            "λ = decay constant in s⁻¹"
+          "arrows": [
+            {
+              "point": "t½",
+              "label": "Half-life (s)"
+            }
           ]
         },
         {
@@ -304,9 +341,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.8.1.3"
-      ],
+      "spec_codes": ["AQA 3.8.1.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -340,10 +375,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 11.172",
-        "EDEX 11.173"
-      ],
+      "spec_codes": ["EDEX 11.172", "EDEX 11.173"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -462,7 +494,7 @@
       "e1e1bd84-f856-4a2b-96e4-9360d78ca695"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -50,11 +50,23 @@
           "type": "equation",
           "label": "Electron accelerated through a pd",
           "formula": "½mv² = eV",
-          "where": [
-            "m = mass of the electron (kg)",
-            "v = speed gained from rest (m/s)",
-            "e = electron charge, 1.60 × 10⁻¹⁹ C",
-            "V = accelerating pd (V)"
+          "arrows": [
+            {
+              "point": "m",
+              "label": "Mass of the electron (kg)"
+            },
+            {
+              "point": "v",
+              "label": "Speed gained from rest (m/s)"
+            },
+            {
+              "point": "e",
+              "label": "Electron charge, 1.60 × 10⁻¹⁹ C"
+            },
+            {
+              "point": "V",
+              "label": "Accelerating pd (V)"
+            }
           ]
         },
         {
@@ -151,31 +163,19 @@
           "diagram": {
             "kind": "compare",
             "alt": "A comparison of the electron and the hydrogen ion: charge, mass and specific charge.",
-            "items": [
-              "Electron",
-              "Hydrogen ion"
-            ],
+            "items": ["Electron", "Hydrogen ion"],
             "rows": [
               {
                 "feature": "Charge",
-                "values": [
-                  "−1.60 × 10⁻¹⁹ C",
-                  "+1.60 × 10⁻¹⁹ C"
-                ]
+                "values": ["−1.60 × 10⁻¹⁹ C", "+1.60 × 10⁻¹⁹ C"]
               },
               {
                 "feature": "Mass",
-                "values": [
-                  "9.11 × 10⁻³¹ kg",
-                  "1.67 × 10⁻²⁷ kg"
-                ]
+                "values": ["9.11 × 10⁻³¹ kg", "1.67 × 10⁻²⁷ kg"]
               },
               {
                 "feature": "Specific charge",
-                "values": [
-                  "1.76 × 10¹¹ C/kg",
-                  "9.58 × 10⁷ C/kg"
-                ]
+                "values": ["1.76 × 10¹¹ C/kg", "9.58 × 10⁷ C/kg"]
               }
             ]
           }
@@ -226,23 +226,47 @@
           "type": "equation",
           "label": "Droplet held stationary",
           "formula": "QV ÷ d = mg",
-          "where": [
-            "Q = charge on the droplet (C)",
-            "V = pd across the plates (V)",
-            "d = plate separation (m)",
-            "m = mass of the droplet (kg)",
-            "g = gravitational field strength (N/kg)"
-          ]
+          "arrows": [
+            {
+              "point": "Q",
+              "label": "Charge on the droplet (C)"
+            },
+            {
+              "point": "V",
+              "label": "Pd across the plates (V)"
+            },
+            {
+              "point": "d",
+              "label": "Plate separation (m)"
+            },
+            {
+              "point": "m",
+              "label": "Mass of the droplet (kg)"
+            }
+          ],
+          "where": ["g = gravitational field strength (N/kg)"]
         },
         {
           "type": "equation",
           "label": "Stokes' law",
           "formula": "F = 6πηrv",
-          "where": [
-            "F = viscous force on the droplet (N)",
-            "η = viscosity of the air (N s m⁻²)",
-            "r = radius of the droplet (m)",
-            "v = speed of the droplet (m/s)"
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Viscous force on the droplet (N)"
+            },
+            {
+              "point": "η",
+              "label": "Viscosity of the air (N s m⁻²)"
+            },
+            {
+              "point": "r",
+              "label": "Radius of the droplet (m)"
+            },
+            {
+              "point": "v",
+              "label": "Speed of the droplet (m/s)"
+            }
           ]
         },
         {
@@ -291,17 +315,10 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.12.1.1",
-        "AQA 3.12.1.2",
-        "AQA 3.12.1.3",
-        "AQA 3.12.1.4"
-      ]
+      "spec_codes": ["AQA 3.12.1.1", "AQA 3.12.1.2", "AQA 3.12.1.3", "AQA 3.12.1.4"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 8.132"
-      ],
+      "spec_codes": ["EDEX 8.132"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -334,7 +351,7 @@
       "2d6474ea-559c-4a46-ab51-131d95c5a583"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

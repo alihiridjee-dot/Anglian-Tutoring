@@ -141,10 +141,19 @@
           "type": "equation",
           "label": "Temperature change",
           "formula": "temperature change = final temperature − initial temperature",
-          "where": [
-            "temperature change is in °C",
-            "final temperature is the highest or lowest temperature reached, in °C",
-            "initial temperature is the starting temperature, in °C"
+          "arrows": [
+            {
+              "point": "temperature change",
+              "label": "Temperature change (°C)"
+            },
+            {
+              "point": "final temperature",
+              "label": "Highest or lowest reached (°C)"
+            },
+            {
+              "point": "initial temperature",
+              "label": "Starting temperature (°C)"
+            }
           ]
         },
         {
@@ -419,7 +428,7 @@
       "b0e248f4-8234-44f4-b73b-bc27e23af203",
       "165233e5-797b-48d0-b0ee-6826f8cba3bc"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

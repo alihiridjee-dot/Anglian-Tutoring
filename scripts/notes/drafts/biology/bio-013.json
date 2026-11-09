@@ -135,7 +135,17 @@
           "type": "equation",
           "label": "Percentage change in mass",
           "formula": "percentage change in mass = (change in mass ÷ mass at the start) × 100",
-          "where": ["change in mass = final mass − starting mass, in g", "mass at the start, in g"]
+          "arrows": [
+            {
+              "point": "change in mass",
+              "in": "(change in mass",
+              "label": "Final mass − starting mass (g)"
+            },
+            {
+              "point": "mass at the start",
+              "label": "Grams (g)"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -378,9 +388,16 @@
               "type": "equation",
               "label": "Percentage change in length",
               "formula": "percentage change in length = (change in length ÷ starting length) × 100",
-              "where": [
-                "change in length = final length − starting length, in mm or cm.",
-                "starting length, in the same unit."
+              "arrows": [
+                {
+                  "point": "change in length",
+                  "in": "(change in length",
+                  "label": "Final − starting length (mm or cm)"
+                },
+                {
+                  "point": "starting length",
+                  "label": "In the same unit"
+                }
               ]
             },
             {
@@ -455,7 +472,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "written_by": "writer-c",
     "written_at": "2026-10-01",

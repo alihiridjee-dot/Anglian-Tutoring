@@ -88,39 +88,24 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Risk factor",
-            "How it increases the risk"
-          ],
+          "columns": ["Risk factor", "How it increases the risk"],
           "rows": [
             [
               "Genetics",
               "Some people inherit genes that raise blood cholesterol or blood pressure."
             ],
-            [
-              "Age",
-              "Arteries gradually lose elasticity and plaque accumulates over time."
-            ],
+            ["Age", "Arteries gradually lose elasticity and plaque accumulates over time."],
             [
               "Gender",
               "Men have a higher risk at a younger age. Women's risk rises after the menopause."
             ],
-            [
-              "High blood pressure",
-              "Damages the endothelium and starts atherosclerosis."
-            ],
+            ["High blood pressure", "Damages the endothelium and starts atherosclerosis."],
             [
               "Smoking",
               "Carbon monoxide reduces oxygen carried in the blood, and chemicals damage the artery lining. Nicotine raises blood pressure."
             ],
-            [
-              "Inactivity",
-              "Raises blood pressure and increases weight and blood cholesterol."
-            ],
-            [
-              "Diet",
-              "Saturated fat and salt raise cholesterol and blood pressure."
-            ]
+            ["Inactivity", "Raises blood pressure and increases weight and blood cholesterol."],
+            ["Diet", "Saturated fat and salt raise cholesterol and blood pressure."]
           ]
         },
         {
@@ -164,10 +149,19 @@
           "type": "equation",
           "label": "Body mass index (BMI)",
           "formula": "BMI = body mass ÷ height²",
-          "where": [
-            "body mass, in kg",
-            "height, in m",
-            "BMI, in kg/m²"
+          "arrows": [
+            {
+              "point": "BMI",
+              "label": "Kilograms per square metre (kg/m²)"
+            },
+            {
+              "point": "body mass",
+              "label": "Kilograms (kg)"
+            },
+            {
+              "point": "height",
+              "label": "Metres (m)"
+            }
           ]
         },
         {
@@ -228,11 +222,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Treatment",
-            "How it works",
-            "Risk or drawback"
-          ],
+          "columns": ["Treatment", "How it works", "Risk or drawback"],
           "rows": [
             [
               "Antihypertensives",
@@ -346,7 +336,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "status": "draft",
     "written_by": "claude-sonnet-5-5",

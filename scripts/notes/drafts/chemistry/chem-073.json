@@ -57,9 +57,19 @@
           "type": "equation",
           "label": "The Haber process",
           "formula": "N₂(g) + 3H₂(g) ⇌ 2NH₃(g)",
-          "where": [
-            "the forward reaction is exothermic",
-            "4 molecules of gas on the left, 2 on the right"
+          "arrows": [
+            {
+              "point": "N₂(g) + 3H₂(g)",
+              "label": "4 molecules of gas"
+            },
+            {
+              "point": "⇌",
+              "label": "Forward reaction is exothermic"
+            },
+            {
+              "point": "2NH₃(g)",
+              "label": "2 molecules of gas"
+            }
           ]
         },
         {
@@ -448,7 +458,7 @@
       "d4655bc7-979f-4321-bc5d-7e973a61320f",
       "054d9ab1-4bbf-4377-b48d-de6a74478c8f"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

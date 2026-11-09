@@ -70,17 +70,26 @@
           "type": "equation",
           "label": "Angular magnification",
           "formula": "M = angle subtended by image at eye ÷ angle subtended by object at unaided eye",
-          "where": [
-            "M = angular magnification (no unit)"
+          "arrows": [
+            {
+              "point": "M",
+              "label": "Angular magnification (no unit)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Angular magnification in normal adjustment",
           "formula": "M = fₒ ÷ fₑ",
-          "where": [
-            "fₒ = focal length of the objective lens (m)",
-            "fₑ = focal length of the eyepiece lens (m)"
+          "arrows": [
+            {
+              "point": "fₒ",
+              "label": "Focal length of the objective lens (m)"
+            },
+            {
+              "point": "fₑ",
+              "label": "Focal length of the eyepiece lens (m)"
+            }
           ]
         },
         {
@@ -107,11 +116,7 @@
               "formula": "fo / fe",
               "decimals": 0
             },
-            "working": [
-              "M = fₒ ÷ fₑ",
-              "M = {fo} ÷ {fe}",
-              "M = {answer}"
-            ]
+            "working": ["M = fₒ ÷ fₑ", "M = {fo} ÷ {fe}", "M = {answer}"]
           }
         },
         {
@@ -171,11 +176,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Reflector",
-            "Refractor"
-          ],
+          "columns": ["Feature", "Reflector", "Refractor"],
           "rows": [
             [
               "Chromatic aberration",
@@ -252,10 +253,7 @@
           "diagram": {
             "kind": "compare",
             "alt": "A comparison of an optical telescope with a single dish radio telescope.",
-            "items": [
-              "Optical telescope",
-              "Single dish radio telescope"
-            ],
+            "items": ["Optical telescope", "Single dish radio telescope"],
             "rows": [
               {
                 "feature": "Structure",
@@ -273,10 +271,7 @@
               },
               {
                 "feature": "Use",
-                "values": [
-                  "Only at night",
-                  "Day and night"
-                ]
+                "values": ["Only at night", "Day and night"]
               },
               {
                 "feature": "Resolving power",
@@ -287,10 +282,7 @@
               },
               {
                 "feature": "Collecting power",
-                "values": [
-                  "Moderate, set by the diameter",
-                  "High, as the dish is very large"
-                ]
+                "values": ["Moderate, set by the diameter", "High, as the dish is very large"]
               }
             ]
           }
@@ -329,10 +321,19 @@
           "type": "equation",
           "label": "Rayleigh criterion",
           "formula": "θ ≈ λ ÷ D",
-          "where": [
-            "θ = minimum angular resolution (rad)",
-            "λ = wavelength of the radiation (m)",
-            "D = diameter of the telescope aperture (m)"
+          "arrows": [
+            {
+              "point": "θ",
+              "label": "Minimum angular resolution (rad)"
+            },
+            {
+              "point": "λ",
+              "label": "Wavelength of the radiation (m)"
+            },
+            {
+              "point": "D",
+              "label": "Diameter of the telescope aperture (m)"
+            }
           ]
         },
         {
@@ -392,11 +393,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Human eye",
-            "CCD"
-          ],
+          "columns": ["Feature", "Human eye", "CCD"],
           "rows": [
             [
               "Quantum efficiency",
@@ -445,12 +442,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.9.1.1",
-        "AQA 3.9.1.2",
-        "AQA 3.9.1.3",
-        "AQA 3.9.1.4"
-      ]
+      "spec_codes": ["AQA 3.9.1.1", "AQA 3.9.1.2", "AQA 3.9.1.3", "AQA 3.9.1.4"]
     }
   },
   "meta": {
@@ -464,7 +456,7 @@
       "4355598c-0c7c-4900-8f78-cf05bd35f43f"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

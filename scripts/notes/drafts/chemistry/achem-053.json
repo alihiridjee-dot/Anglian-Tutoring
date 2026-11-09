@@ -14,17 +14,9 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Compound",
-            "Equation",
-            "Gas seen"
-          ],
+          "columns": ["Compound", "Equation", "Gas seen"],
           "rows": [
-            [
-              "Carbonate",
-              "MCO₃ → MO + CO₂",
-              "CO₂ turns limewater milky"
-            ],
+            ["Carbonate", "MCO₃ → MO + CO₂", "CO₂ turns limewater milky"],
             [
               "Nitrate",
               "2M(NO₃)₂ → 2MO + 4NO₂ + O₂",
@@ -116,11 +108,7 @@
   ],
   "boards": {
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 4A.6",
-        "EDEX 4A.7",
-        "EDEX 4A.8"
-      ],
+      "spec_codes": ["EDEX 4A.6", "EDEX 4A.7", "EDEX 4A.8"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -162,10 +150,19 @@
               "type": "equation",
               "label": "Energy of the light emitted",
               "formula": "ΔE = hν",
-              "where": [
-                "ΔE: energy gap between the two levels, in J",
-                "h: Planck constant, 6.63 × 10⁻³⁴ J s",
-                "ν: frequency of the light, in Hz"
+              "arrows": [
+                {
+                  "point": "ΔE",
+                  "label": "Energy gap between the levels (J)"
+                },
+                {
+                  "point": "h",
+                  "label": "Planck constant (6.63 × 10⁻³⁴ J s)"
+                },
+                {
+                  "point": "ν",
+                  "label": "Frequency of the light (Hz)"
+                }
               ]
             },
             {
@@ -174,17 +171,11 @@
                 "kind": "predictor",
                 "alt": "A predictor. Pick a metal ion to see the colour of its flame.",
                 "prompt": "Pick a metal ion.",
-                "result_labels": [
-                  "Flame colour",
-                  "Where the colour comes from"
-                ],
+                "result_labels": ["Flame colour", "Where the colour comes from"],
                 "options": [
                   {
                     "label": "Lithium",
-                    "results": [
-                      "crimson",
-                      "Electron transitions release light in the red region"
-                    ],
+                    "results": ["crimson", "Electron transitions release light in the red region"],
                     "scene": {
                       "kind": "flame",
                       "colour": "crimson"
@@ -192,10 +183,7 @@
                   },
                   {
                     "label": "Sodium",
-                    "results": [
-                      "yellow",
-                      "Electron transitions release yellow light"
-                    ],
+                    "results": ["yellow", "Electron transitions release yellow light"],
                     "scene": {
                       "kind": "flame",
                       "colour": "yellow"
@@ -203,10 +191,7 @@
                   },
                   {
                     "label": "Potassium",
-                    "results": [
-                      "lilac",
-                      "Electron transitions release lilac light"
-                    ],
+                    "results": ["lilac", "Electron transitions release lilac light"],
                     "scene": {
                       "kind": "flame",
                       "colour": "lilac"
@@ -214,10 +199,7 @@
                   },
                   {
                     "label": "Calcium",
-                    "results": [
-                      "brick red",
-                      "Electron transitions release orange-red light"
-                    ],
+                    "results": ["brick red", "Electron transitions release orange-red light"],
                     "scene": {
                       "kind": "flame",
                       "colour": "brick-red"
@@ -225,10 +207,7 @@
                   },
                   {
                     "label": "Strontium",
-                    "results": [
-                      "red",
-                      "Electron transitions release red light"
-                    ],
+                    "results": ["red", "Electron transitions release red light"],
                     "scene": {
                       "kind": "flame",
                       "colour": "red"
@@ -236,10 +215,7 @@
                   },
                   {
                     "label": "Barium",
-                    "results": [
-                      "apple green",
-                      "Electron transitions release green light"
-                    ],
+                    "results": ["apple green", "Electron transitions release green light"],
                     "scene": {
                       "kind": "flame",
                       "colour": "pale-green"
@@ -301,10 +277,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 10.1.3",
-        "CAIE 27.1.1"
-      ],
+      "spec_codes": ["CAIE 10.1.3", "CAIE 27.1.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -338,7 +311,7 @@
       "2b48e61d-cf8f-4ad7-895b-66de4f88e96a"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

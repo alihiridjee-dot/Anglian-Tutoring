@@ -123,7 +123,16 @@
           "type": "equation",
           "label": "Rate of photosynthesis",
           "formula": "rate = number of bubbles ÷ time",
-          "where": ["number of bubbles of oxygen counted", "time, in minutes or seconds"]
+          "arrows": [
+            {
+              "point": "number of bubbles",
+              "label": "Bubbles of oxygen counted"
+            },
+            {
+              "point": "time",
+              "label": "Minutes or seconds"
+            }
+          ]
         },
         {
           "type": "diagram",
@@ -242,10 +251,19 @@
               "type": "equation",
               "label": "Rate from the volume of gas",
               "formula": "rate = volume of oxygen collected ÷ time",
-              "where": [
-                "rate, in cm³ per minute",
-                "volume of oxygen collected, in cm³",
-                "time, in minutes"
+              "arrows": [
+                {
+                  "point": "rate",
+                  "label": "Cubic centimetres per minute (cm³/min)"
+                },
+                {
+                  "point": "volume of oxygen collected",
+                  "label": "Cubic centimetres (cm³)"
+                },
+                {
+                  "point": "time",
+                  "label": "Minutes"
+                }
               ]
             }
           ]
@@ -584,7 +602,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "spec_point_ids": [
       "e9ff977e-1759-4f91-afa4-19f85173f244",

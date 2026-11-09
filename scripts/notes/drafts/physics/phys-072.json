@@ -41,10 +41,19 @@
           "type": "equation",
           "label": "Distance from an echo",
           "formula": "distance to boundary = speed × time ÷ 2",
-          "where": [
-            "distance to the boundary, in metres (m)",
-            "speed of the wave in the material, in metres per second (m/s)",
-            "time between sending the pulse and receiving the echo, in seconds (s)"
+          "arrows": [
+            {
+              "point": "distance to boundary",
+              "label": "Metres (m)"
+            },
+            {
+              "point": "speed",
+              "label": "Speed in the material (m/s)"
+            },
+            {
+              "point": "time",
+              "label": "Time from pulse to echo (s)"
+            }
           ]
         },
         {
@@ -445,7 +454,7 @@
       "f73dc743-65f2-4bf7-9592-cf62e30b4e00",
       "866af461-72cc-4f73-97c6-a5735be8907c"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

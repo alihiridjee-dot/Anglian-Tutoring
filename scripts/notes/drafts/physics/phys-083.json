@@ -91,11 +91,23 @@
           "type": "equation",
           "label": "Force on a conductor",
           "formula": "F = B × I × l",
-          "where": [
-            "F is the force in newtons (N).",
-            "B is the magnetic flux density in tesla (T).",
-            "I is the current in amperes (A).",
-            "l is the length of conductor in the field in metres (m)."
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Force (N)"
+            },
+            {
+              "point": "B",
+              "label": "Magnetic flux density (T)"
+            },
+            {
+              "point": "I",
+              "label": "Current (A)"
+            },
+            {
+              "point": "l",
+              "label": "Length in the field (m)"
+            }
           ]
         },
         {
@@ -105,24 +117,12 @@
         {
           "type": "equation",
           "label": "Magnetic flux density",
-          "formula": "B = F ÷ (I × l)",
-          "where": [
-            "B is the magnetic flux density in tesla (T).",
-            "F is the force in newtons (N).",
-            "I is the current in amperes (A).",
-            "l is the length of conductor in the field in metres (m)."
-          ]
+          "formula": "B = F ÷ (I × l)"
         },
         {
           "type": "equation",
           "label": "Current",
-          "formula": "I = F ÷ (B × l)",
-          "where": [
-            "I is the current in amperes (A).",
-            "F is the force in newtons (N).",
-            "B is the magnetic flux density in tesla (T).",
-            "l is the length of conductor in the field in metres (m)."
-          ]
+          "formula": "I = F ÷ (B × l)"
         },
         {
           "type": "steps",
@@ -422,7 +422,7 @@
       "29e46a7b-6d28-4f22-9c30-9c0c5f49c336",
       "d6a41f08-fe2d-424c-af3c-60d769133586"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

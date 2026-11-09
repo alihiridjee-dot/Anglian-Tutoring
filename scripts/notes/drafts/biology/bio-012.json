@@ -168,7 +168,17 @@
           "type": "equation",
           "label": "Percentage change in mass",
           "formula": "percentage change in mass = (change in mass ÷ starting mass) × 100",
-          "where": ["change in mass = final mass − starting mass, in g", "starting mass, in g"]
+          "arrows": [
+            {
+              "point": "change in mass",
+              "in": "(change in mass",
+              "label": "Final mass − starting mass (g)"
+            },
+            {
+              "point": "starting mass",
+              "label": "Grams (g)"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -187,7 +197,20 @@
           "type": "equation",
           "label": "Rate of water uptake",
           "formula": "rate of water uptake = amount of water taken in ÷ time taken",
-          "where": ["amount of water, in g or cm³", "time, in minutes", "rate, in g per minute"]
+          "arrows": [
+            {
+              "point": "rate of water uptake",
+              "label": "Grams per minute"
+            },
+            {
+              "point": "amount of water taken in",
+              "label": "Grams (g) or cubic centimetres (cm³)"
+            },
+            {
+              "point": "time taken",
+              "label": "Minutes"
+            }
+          ]
         },
         {
           "type": "diagram",
@@ -469,7 +492,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27",
     "written_by": "writer-c",
     "written_at": "2026-10-01",

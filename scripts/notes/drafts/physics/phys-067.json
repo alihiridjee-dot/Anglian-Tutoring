@@ -41,17 +41,31 @@
           "type": "equation",
           "label": "Wave equation",
           "formula": "wave speed = frequency × wavelength",
-          "where": [
-            "wave speed, v, in metres per second (m/s)",
-            "frequency, f, in hertz (Hz)",
-            "wavelength, λ, in metres (m)"
+          "arrows": [
+            {
+              "point": "wave speed",
+              "label": "Wave speed v (m/s)"
+            },
+            {
+              "point": "frequency",
+              "label": "Frequency f (Hz)"
+            },
+            {
+              "point": "wavelength",
+              "label": "Wavelength λ (m)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Period",
           "formula": "period = 1 ÷ frequency",
-          "where": ["period, T, in seconds (s)", "frequency, f, in hertz (Hz)"]
+          "arrows": [
+            {
+              "point": "period",
+              "label": "Period T (s)"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -172,10 +186,19 @@
           "type": "equation",
           "label": "Frequency from a count",
           "formula": "frequency = number of waves ÷ time taken",
-          "where": [
-            "frequency, in hertz (Hz)",
-            "number of waves, no unit",
-            "time taken, in seconds (s)"
+          "arrows": [
+            {
+              "point": "frequency",
+              "label": "Hertz (Hz)"
+            },
+            {
+              "point": "number of waves",
+              "label": "No unit"
+            },
+            {
+              "point": "time taken",
+              "label": "Seconds (s)"
+            }
           ]
         },
         {
@@ -274,10 +297,19 @@
           "type": "equation",
           "label": "Speed of sound",
           "formula": "speed = distance ÷ time",
-          "where": [
-            "speed, in metres per second (m/s)",
-            "distance travelled, in metres (m)",
-            "time taken, in seconds (s)"
+          "arrows": [
+            {
+              "point": "speed",
+              "label": "Metres per second (m/s)"
+            },
+            {
+              "point": "distance",
+              "label": "Distance travelled (m)"
+            },
+            {
+              "point": "time",
+              "label": "Time taken (s)"
+            }
           ]
         },
         {
@@ -530,7 +562,7 @@
       "5590639f-9630-4efe-9462-cc678d098b15",
       "1de0b411-85d9-4177-8123-e933839546af"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

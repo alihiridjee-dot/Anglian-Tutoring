@@ -38,19 +38,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Reaction",
-            "Ionic equation"
-          ],
+          "columns": ["Reaction", "Ionic equation"],
           "rows": [
-            [
-              "Fe²⁺",
-              "MnO₄⁻ + 8H⁺ + 5Fe²⁺ → Mn²⁺ + 4H₂O + 5Fe³⁺"
-            ],
-            [
-              "Ethanedioate, C₂O₄²⁻",
-              "2MnO₄⁻ + 16H⁺ + 5C₂O₄²⁻ → 2Mn²⁺ + 8H₂O + 10CO₂"
-            ]
+            ["Fe²⁺", "MnO₄⁻ + 8H⁺ + 5Fe²⁺ → Mn²⁺ + 4H₂O + 5Fe³⁺"],
+            ["Ethanedioate, C₂O₄²⁻", "2MnO₄⁻ + 16H⁺ + 5C₂O₄²⁻ → 2Mn²⁺ + 8H₂O + 10CO₂"]
           ]
         },
         {
@@ -99,16 +90,26 @@
           "type": "equation",
           "label": "Iodine with thiosulfate",
           "formula": "I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻",
-          "where": [
-            "I₂ is iodine and S₂O₃²⁻ is the thiosulfate ion.",
-            "The ratio is 1 I₂ : 2 S₂O₃²⁻."
+          "arrows": [
+            {
+              "point": "I₂",
+              "label": "Iodine"
+            },
+            {
+              "point": "2S₂O₃²⁻",
+              "label": "Thiosulfate: 2 for every I₂"
+            },
+            {
+              "point": "S₄O₆²⁻",
+              "label": "Tetrathionate ion"
+            }
           ]
         },
         {
           "type": "list",
           "items": [
             "Starch is added late because, if the solution holds a lot of iodine, the starch–iodine complex does not release the iodine easily.",
-            "The thiosulfate is the reducing agent. It goes to the tetrathionate ion, S₄O₆²⁻."
+            "The thiosulfate is the reducing agent."
           ]
         },
         {
@@ -204,10 +205,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.2.3d",
-        "OCR 5.2.3e"
-      ],
+      "spec_codes": ["OCR 5.2.3d", "OCR 5.2.3e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -224,16 +222,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 14.18",
-        "EDEX 14.19"
-      ]
+      "spec_codes": ["EDEX 14.18", "EDEX 14.19"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 28.2.9",
-        "CAIE 28.2.10"
-      ],
+      "spec_codes": ["CAIE 28.2.9", "CAIE 28.2.10"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -272,7 +264,7 @@
       "8fe7b77d-4a5e-4129-a7e5-3dc64f9a9c35"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

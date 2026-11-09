@@ -33,9 +33,15 @@
           "type": "equation",
           "label": "Forming the molecular ion",
           "formula": "M(g) → M⁺•(g) + e⁻",
-          "where": [
-            "M: the molecule",
-            "M⁺•: the molecular ion, a radical cation"
+          "arrows": [
+            {
+              "point": "M(g)",
+              "label": "The molecule"
+            },
+            {
+              "point": "M⁺•",
+              "label": "Molecular ion: a radical cation"
+            }
           ]
         },
         {
@@ -75,42 +81,27 @@
           "type": "equation",
           "label": "Fragmentation",
           "formula": "M⁺• → X⁺ + Y•",
-          "where": [
-            "X⁺: fragment ion seen in the spectrum",
-            "Y•: uncharged radical, not seen"
+          "arrows": [
+            {
+              "point": "X⁺",
+              "label": "Fragment ion: seen in the spectrum"
+            },
+            {
+              "point": "Y•",
+              "label": "Uncharged radical: not seen"
+            }
           ]
         },
         {
           "type": "table",
-          "columns": [
-            "m/z",
-            "Likely ion"
-          ],
+          "columns": ["m/z", "Likely ion"],
           "rows": [
-            [
-              "15",
-              "CH₃⁺"
-            ],
-            [
-              "29",
-              "C₂H₅⁺ or CHO⁺"
-            ],
-            [
-              "31",
-              "CH₂OH⁺"
-            ],
-            [
-              "43",
-              "C₃H₇⁺ or CH₃CO⁺"
-            ],
-            [
-              "57",
-              "C₄H₉⁺"
-            ],
-            [
-              "77",
-              "C₆H₅⁺"
-            ]
+            ["15", "CH₃⁺"],
+            ["29", "C₂H₅⁺ or CHO⁺"],
+            ["31", "CH₂OH⁺"],
+            ["43", "C₃H₇⁺ or CH₃CO⁺"],
+            ["57", "C₄H₉⁺"],
+            ["77", "C₆H₅⁺"]
           ]
         },
         {
@@ -119,31 +110,19 @@
             "kind": "predictor",
             "alt": "Pick a peak in a mass spectrum and see which ion is likely and what was lost.",
             "prompt": "Pick a fragment peak from a molecule with M⁺ at m/z 58",
-            "result_labels": [
-              "Likely ion",
-              "Piece lost from M⁺ at 58"
-            ],
+            "result_labels": ["Likely ion", "Piece lost from M⁺ at 58"],
             "options": [
               {
                 "label": "m/z 43",
-                "results": [
-                  "CH₃CO⁺ (or C₃H₇⁺)",
-                  "15, a CH₃ radical"
-                ]
+                "results": ["CH₃CO⁺ (or C₃H₇⁺)", "15, a CH₃ radical"]
               },
               {
                 "label": "m/z 29",
-                "results": [
-                  "CHO⁺ (or C₂H₅⁺)",
-                  "29, a CHO or C₂H₅ radical"
-                ]
+                "results": ["CHO⁺ (or C₂H₅⁺)", "29, a CHO or C₂H₅ radical"]
               },
               {
                 "label": "m/z 15",
-                "results": [
-                  "CH₃⁺",
-                  "43, a C₃H₇ or CH₃CO radical"
-                ]
+                "results": ["CH₃⁺", "43, a C₃H₇ or CH₃CO radical"]
               },
               {
                 "label": "m/z 57",
@@ -186,57 +165,22 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Atom",
-            "Precise mass"
-          ],
+          "columns": ["Atom", "Precise mass"],
           "rows": [
-            [
-              "¹²C",
-              "12.0000"
-            ],
-            [
-              "¹H",
-              "1.0078"
-            ],
-            [
-              "¹⁴N",
-              "14.0031"
-            ],
-            [
-              "¹⁶O",
-              "15.9949"
-            ]
+            ["¹²C", "12.0000"],
+            ["¹H", "1.0078"],
+            ["¹⁴N", "14.0031"],
+            ["¹⁶O", "15.9949"]
           ]
         },
         {
           "type": "table",
-          "columns": [
-            "Candidate",
-            "Whole mass",
-            "Precise mass"
-          ],
+          "columns": ["Candidate", "Whole mass", "Precise mass"],
           "rows": [
-            [
-              "C₃H₆O",
-              "58",
-              "58.0417"
-            ],
-            [
-              "C₂H₂O₂",
-              "58",
-              "58.0054"
-            ],
-            [
-              "C₂H₆N₂",
-              "58",
-              "58.0530"
-            ],
-            [
-              "C₄H₁₀",
-              "58",
-              "58.0780"
-            ]
+            ["C₃H₆O", "58", "58.0417"],
+            ["C₂H₂O₂", "58", "58.0054"],
+            ["C₂H₆N₂", "58", "58.0530"],
+            ["C₄H₁₀", "58", "58.0780"]
           ]
         },
         {
@@ -272,29 +216,16 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.2.4f",
-        "OCR 4.2.4g"
-      ]
+      "spec_codes": ["OCR 4.2.4f", "OCR 4.2.4g"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 7A.1",
-        "EDEX 19A.1"
-      ]
+      "spec_codes": ["EDEX 7A.1", "EDEX 19A.1"]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.6.2"
-      ]
+      "spec_codes": ["AQA 3.3.6.2"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 22.2.3",
-        "CAIE 22.2.4",
-        "CAIE 22.2.5",
-        "CAIE 22.2.6"
-      ],
+      "spec_codes": ["CAIE 22.2.3", "CAIE 22.2.4", "CAIE 22.2.5", "CAIE 22.2.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -311,9 +242,20 @@
               "type": "equation",
               "label": "Number of carbon atoms",
               "formula": "n = 100 × abundance of [M+1]⁺ ÷ (1.1 × abundance of M⁺)",
-              "where": [
-                "n: number of carbon atoms in the molecule",
-                "abundance: peak height"
+              "arrows": [
+                {
+                  "point": "n",
+                  "in": "n =",
+                  "label": "Number of carbon atoms"
+                },
+                {
+                  "point": "abundance of [M+1]⁺",
+                  "label": "Height of the M+1 peak"
+                },
+                {
+                  "point": "abundance of M⁺",
+                  "label": "Height of the M⁺ peak"
+                }
               ]
             },
             {
@@ -353,7 +295,7 @@
       "978a21bd-f7d3-41d0-9d8b-2943ee287bf1"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

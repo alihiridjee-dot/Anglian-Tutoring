@@ -42,19 +42,10 @@
         {
           "type": "table",
           "rows": [
-            [
-              "A (adenine)",
-              "T (thymine)"
-            ],
-            [
-              "C (cytosine)",
-              "G (guanine)"
-            ]
+            ["A (adenine)", "T (thymine)"],
+            ["C (cytosine)", "G (guanine)"]
           ],
-          "columns": [
-            "Base",
-            "Pairs with"
-          ]
+          "columns": ["Base", "Pairs with"]
         },
         {
           "type": "key-points",
@@ -179,11 +170,17 @@
         {
           "type": "equation",
           "label": "Bases that code for a protein",
-          "where": [
-            "number of bases in the length of DNA that codes for the protein",
-            "number of amino acids in the protein"
-          ],
-          "formula": "number of bases = 3 × number of amino acids"
+          "formula": "number of bases = 3 × number of amino acids",
+          "arrows": [
+            {
+              "point": "number of bases",
+              "label": "In the DNA coding for the protein"
+            },
+            {
+              "point": "number of amino acids",
+              "label": "In the protein"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -241,9 +238,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 6.5"
-      ],
+      "spec_codes": ["AQA 6.5"],
       "worked_example": {
         "exemplar_id": "15de4743-6153-4fc3-bbab-20d8090e2a92",
         "source": "AQA jun 2020, Paper 2 (H), Q04.2",
@@ -273,10 +268,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 3.7B",
-        "EDEX 3.4"
-      ],
+      "spec_codes": ["EDEX 3.7B", "EDEX 3.4"],
       "worked_example": {
         "exemplar_id": "d5fd2b74-9070-4839-9573-95b0c4bcb9ec",
         "source": "EDEXCEL nov 2020, Paper 1 (H), Q10(c)",
@@ -293,10 +285,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 1.2c",
-        "OCR 1.2e"
-      ],
+      "spec_codes": ["OCR 1.2c", "OCR 1.2e"],
       "worked_example": {
         "exemplar_id": "dfb0fc70-71c1-484b-8582-d946a54210a3",
         "source": "OCR jun 2022, Paper 3, Q23(b)",
@@ -311,12 +300,7 @@
       }
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 17.1.5S",
-        "CAIE 17.1.6S",
-        "CAIE 4.1.4S",
-        "CAIE 17.1.7S"
-      ],
+      "spec_codes": ["CAIE 17.1.5S", "CAIE 17.1.6S", "CAIE 4.1.4S", "CAIE 17.1.7S"],
       "worked_example": {
         "exemplar_id": "c12a3fa0-1b2c-4e75-ab0c-d6862a2815bc",
         "source": "CAMBRIDGE jun 2025, Paper 41, Q5(c)",
@@ -351,9 +335,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 3.16B"
-      ],
+      "spec_codes": ["IGCSE 3.16B"],
       "worked_example": {
         "exemplar_id": "d9930d61-e92d-44b6-be95-332ed95f6914",
         "source": "EDEXCEL jun 2023, Paper 2 (BR), Q5(b)",
@@ -388,7 +370,7 @@
       "c12a3fa0-1b2c-4e75-ab0c-d6862a2815bc",
       "d9930d61-e92d-44b6-be95-332ed95f6914"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

@@ -14,31 +14,16 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Part",
-            "Description and function"
-          ],
+          "columns": ["Part", "Description and function"],
           "rows": [
-            [
-              "Right atrium",
-              "Receives deoxygenated blood from the body through the vena cava."
-            ],
+            ["Right atrium", "Receives deoxygenated blood from the body through the vena cava."],
             [
               "Right ventricle",
               "Pumps deoxygenated blood to the lungs through the pulmonary artery."
             ],
-            [
-              "Left atrium",
-              "Receives oxygenated blood from the lungs through the pulmonary vein."
-            ],
-            [
-              "Left ventricle",
-              "Pumps oxygenated blood to the body through the aorta."
-            ],
-            [
-              "Septum",
-              "Muscular wall that keeps oxygenated and deoxygenated blood apart."
-            ],
+            ["Left atrium", "Receives oxygenated blood from the lungs through the pulmonary vein."],
+            ["Left ventricle", "Pumps oxygenated blood to the body through the aorta."],
+            ["Septum", "Muscular wall that keeps oxygenated and deoxygenated blood apart."],
             [
               "Coronary arteries",
               "Run over the outside of the heart and supply the heart muscle with oxygenated blood."
@@ -63,11 +48,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Comparison",
-            "Wall thickness",
-            "Reason"
-          ],
+          "columns": ["Comparison", "Wall thickness", "Reason"],
           "rows": [
             [
               "Atria and ventricles",
@@ -155,11 +136,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Stage",
-            "What happens",
-            "Valves"
-          ],
+          "columns": ["Stage", "What happens", "Valves"],
           "rows": [
             [
               "Atrial systole",
@@ -228,10 +205,19 @@
           "type": "equation",
           "label": "Cardiac output",
           "formula": "cardiac output = heart rate × stroke volume",
-          "where": [
-            "cardiac output, in cm³ per minute",
-            "heart rate, in beats per minute",
-            "stroke volume = volume of blood pumped out of the left ventricle in one beat, in cm³"
+          "arrows": [
+            {
+              "point": "cardiac output",
+              "label": "Cubic centimetres per minute (cm³/min)"
+            },
+            {
+              "point": "heart rate",
+              "label": "Beats per minute"
+            },
+            {
+              "point": "stroke volume",
+              "label": "Pumped by left ventricle per beat (cm³)"
+            }
           ]
         },
         {
@@ -294,15 +280,10 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.4.1e"
-      ]
+      "spec_codes": ["AQA 3.3.4.1e"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.1.2e",
-        "OCR 3.1.2f"
-      ],
+      "spec_codes": ["OCR 3.1.2e", "OCR 3.1.2f"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -329,9 +310,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 1.4"
-      ],
+      "spec_codes": ["EDEX 1.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -354,11 +333,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 8.3.1",
-        "CAIE 8.3.2",
-        "CAIE 8.3.3"
-      ],
+      "spec_codes": ["CAIE 8.3.1", "CAIE 8.3.2", "CAIE 8.3.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -381,7 +356,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "status": "draft",
     "written_by": "claude-sonnet-5-5",

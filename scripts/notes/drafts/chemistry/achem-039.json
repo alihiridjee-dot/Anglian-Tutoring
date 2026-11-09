@@ -31,27 +31,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Strong acid, e.g. HCl",
-            "Weak acid, e.g. CH₃COOH"
-          ],
+          "columns": ["Feature", "Strong acid, e.g. HCl", "Weak acid, e.g. CH₃COOH"],
           "rows": [
-            [
-              "Dissociation",
-              "Complete, →",
-              "Partial, ⇌"
-            ],
-            [
-              "[H⁺] compared with [acid]",
-              "Equal for a monobasic acid",
-              "Much less"
-            ],
-            [
-              "pH of equimolar solutions",
-              "Lower",
-              "Higher"
-            ]
+            ["Dissociation", "Complete, →", "Partial, ⇌"],
+            ["[H⁺] compared with [acid]", "Equal for a monobasic acid", "Much less"],
+            ["pH of equimolar solutions", "Lower", "Higher"]
           ]
         },
         {
@@ -82,27 +66,38 @@
           "type": "equation",
           "label": "Dissociation of a weak acid",
           "formula": "HA(aq) ⇌ H⁺(aq) + A⁻(aq)",
-          "where": [
-            "HA = undissociated acid",
-            "A⁻ = conjugate base"
+          "arrows": [
+            {
+              "point": "HA",
+              "label": "Undissociated acid"
+            },
+            {
+              "point": "A⁻",
+              "label": "Conjugate base"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Acid dissociation constant",
           "formula": "Ka = [H⁺][A⁻] ÷ [HA]",
-          "where": [
-            "Ka = acid dissociation constant (mol/dm³)",
-            "[H⁺], [A⁻], [HA] = equilibrium concentrations (mol/dm³)"
-          ]
+          "arrows": [
+            {
+              "point": "Ka",
+              "label": "Acid dissociation constant (mol/dm³)"
+            }
+          ],
+          "where": ["[H⁺], [A⁻], [HA] = equilibrium concentrations (mol/dm³)"]
         },
         {
           "type": "equation",
           "label": "pKa",
           "formula": "pKa = −log₁₀Ka",
-          "where": [
-            "pKa = no unit",
-            "Ka = acid dissociation constant (mol/dm³)"
+          "arrows": [
+            {
+              "point": "pKa",
+              "label": "No unit"
+            }
           ]
         },
         {
@@ -140,19 +135,21 @@
           "type": "equation",
           "label": "Weak acid approximation",
           "formula": "Ka = [H⁺]² ÷ [HA]",
-          "where": [
-            "[H⁺] = hydrogen ion concentration (mol/dm³)",
-            "[HA] = acid concentration (mol/dm³)"
+          "arrows": [
+            {
+              "point": "[H⁺]",
+              "label": "H⁺ concentration (mol/dm³)"
+            },
+            {
+              "point": "[HA]",
+              "label": "Acid concentration (mol/dm³)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Hydrogen ion concentration of a weak acid",
-          "formula": "[H⁺] = √(Ka × [HA])",
-          "where": [
-            "Ka = acid dissociation constant (mol/dm³)",
-            "[HA] = acid concentration (mol/dm³)"
-          ]
+          "formula": "[H⁺] = √(Ka × [HA])"
         },
         {
           "type": "steps",
@@ -288,11 +285,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.1.3c",
-        "OCR 5.1.3g",
-        "OCR 5.1.3h"
-      ],
+      "spec_codes": ["OCR 5.1.3c", "OCR 5.1.3g", "OCR 5.1.3h"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -354,9 +347,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.12.4"
-      ]
+      "spec_codes": ["AQA 3.1.12.4"]
     }
   },
   "meta": {
@@ -376,7 +367,7 @@
       "c25c9ef4-b025-47d5-8024-0c25520c1ed8"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -29,10 +29,19 @@
           "type": "equation",
           "label": "Wave equation",
           "formula": "wave speed = frequency × wavelength",
-          "where": [
-            "wave speed, in metres per second (m/s)",
-            "frequency, in hertz (Hz)",
-            "wavelength, in metres (m)"
+          "arrows": [
+            {
+              "point": "wave speed",
+              "label": "Metres per second (m/s)"
+            },
+            {
+              "point": "frequency",
+              "label": "Hertz (Hz)"
+            },
+            {
+              "point": "wavelength",
+              "label": "Metres (m)"
+            }
           ]
         },
         {
@@ -393,7 +402,7 @@
       "589d6f0b-1b96-4aac-8183-8752cc701516",
       "6371da5a-57fa-4a50-b7ef-e4b85001f84e"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

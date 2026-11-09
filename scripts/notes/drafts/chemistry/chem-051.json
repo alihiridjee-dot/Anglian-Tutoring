@@ -225,7 +225,16 @@
           "type": "equation",
           "label": "Neutralisation",
           "formula": "H⁺(aq) + OH⁻(aq) → H₂O(l)",
-          "where": ["H⁺ comes from the acid", "OH⁻ comes from the base"]
+          "arrows": [
+            {
+              "point": "H⁺",
+              "label": "From the acid"
+            },
+            {
+              "point": "OH⁻",
+              "label": "From the base"
+            }
+          ]
         },
         {
           "type": "list",
@@ -310,7 +319,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check, opus-5-5-diagram-audit, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-diagram-audit, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "status": "draft",
     "written_by": "sonnet-5-5",

@@ -23,9 +23,31 @@ missed the lesson could learn the topic from this note alone.
 - **Key words go in a `definitions` panel** where they are first needed, not in
   the middle of a paragraph. Meanings are one line each.
 - **Every equation or formula goes in its own `equation` box**, never inside a
-  sentence. Give a `label` ("Magnification", "Percentage change in mass") and a
-  `where` list with each term and its unit. A calculation that follows it is a
-  `steps` block.
+  sentence. Give a `label` ("Magnification", "Percentage change in mass"). A
+  calculation that follows it is a `steps` block.
+- **Point, don't describe.** Say what each part of a formula is with `arrows`,
+  not sentences: each arrow puts a short label on the characters it names, and
+  the page draws the arrow. Use them to cut words, never to add them.
+  - One to four arrows. A label is a few words, at most 7 (44 characters):
+    "Mass (kg)", "Balancing number: you can change it", "Solid".
+  - `point` is the characters exactly as the formula writes them: `"m"`, `"₂"`,
+    `"(aq)"`, `"²³⁸"`, `"size of image"`. If they appear more than once, add
+    `in`, a stretch of the formula round them that appears once: the small 2 in
+    water is `{ "point": "₂", "in": "2H₂O" }`. The validator says when a point
+    is missing or ambiguous.
+  - Physics and maths equations: one arrow per symbol, its quantity and unit
+    ("Speed (m/s)"). That replaces the `where` list.
+  - Chemistry: arrows on the parts students mix up: balancing number vs the
+    small number in a formula, ion charges, state symbols, mass and atomic
+    number. A sentence that only says what such a part is becomes an `equation`
+    box with arrows (a short example formula like `2H₂O` is fine).
+  - `where` is only for what an arrow can't say (an atom count, "g is 9.8 N/kg
+    on Earth"), at most two lines. Don't repeat a unit or a meaning already given
+    above, or that the steps or a list just below say.
+  - Keep labelled formulas short. A word equation is fine; a long one may wrap
+    on a phone, and then the page lists the labels under it instead.
+  - No arrows on a box whose symbols were labelled in a box just above (a
+    rearranged form): leave it bare.
 - **Write science notation properly**, with Unicode subscripts and superscripts:
   H₂O, CO₂, Al₂(SO₄)₃, Mg²⁺, SO₄²⁻, e⁻, cm³, mol/dm³, m/s², 3.0 × 10⁸, v².
   Never H2O, Mg2+, cm3 or 10^8. Source packs are copied from PDFs, which lose

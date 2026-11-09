@@ -49,7 +49,12 @@
           "type": "equation",
           "label": "Sodium thiosulfate and hydrochloric acid",
           "formula": "Na₂S₂O₃(aq) + 2HCl(aq) → 2NaCl(aq) + SO₂(g) + H₂O(l) + S(s)",
-          "where": ["S(s) is the solid sulfur that makes the mixture cloudy"]
+          "arrows": [
+            {
+              "point": "S(s)",
+              "label": "Solid sulfur: makes it cloudy"
+            }
+          ]
         },
         {
           "type": "diagram",
@@ -527,7 +532,7 @@
       "65e5d250-070d-4f57-b5b4-970913167758",
       "90b93268-59fe-44f2-9d0c-938b9c5e8d39"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

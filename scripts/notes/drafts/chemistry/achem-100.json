@@ -93,9 +93,15 @@
           "type": "equation",
           "label": "Percentage yield",
           "formula": "percentage yield = (actual mass ÷ theoretical mass) × 100",
-          "where": [
-            "actual mass of product in g",
-            "theoretical mass from the equation in g"
+          "arrows": [
+            {
+              "point": "actual mass",
+              "label": "Mass of product made (g)"
+            },
+            {
+              "point": "theoretical mass",
+              "label": "Mass from the equation (g)"
+            }
           ]
         },
         {
@@ -116,10 +122,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Practical",
-            "Key points"
-          ],
+          "columns": ["Practical", "Key points"],
           "rows": [
             [
               "Rates of hydrolysis of halogenoalkanes",
@@ -180,10 +183,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.2.3a",
-        "OCR 6.2.5a"
-      ],
+      "spec_codes": ["OCR 4.2.3a", "OCR 6.2.5a"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -253,7 +253,7 @@
       "32443815-ce2a-442c-b6a9-b82a71e0c13e"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

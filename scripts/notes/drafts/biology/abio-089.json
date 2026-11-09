@@ -164,10 +164,19 @@
           "type": "equation",
           "label": "Minute ventilation",
           "formula": "minute ventilation = tidal volume × breathing rate",
-          "where": [
-            "minute ventilation = in dm³ per minute",
-            "tidal volume = in dm³",
-            "breathing rate = in breaths per minute"
+          "arrows": [
+            {
+              "point": "minute ventilation",
+              "label": "Cubic decimetres per minute (dm³/min)"
+            },
+            {
+              "point": "tidal volume",
+              "label": "Cubic decimetres (dm³)"
+            },
+            {
+              "point": "breathing rate",
+              "label": "Breaths per minute"
+            }
           ]
         },
         {
@@ -288,7 +297,7 @@
       "ee89157d-0087-4927-8662-97d0f2f08d45"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -42,10 +42,19 @@
           "type": "equation",
           "label": "Gravitational field strength",
           "formula": "g = F / m",
-          "where": [
-            "g = gravitational field strength (N/kg)",
-            "F = gravitational force on the mass (N)",
-            "m = the mass in the field (kg)"
+          "arrows": [
+            {
+              "point": "g",
+              "label": "Gravitational field strength (N/kg)"
+            },
+            {
+              "point": "F",
+              "label": "Gravitational force on the mass (N)"
+            },
+            {
+              "point": "m",
+              "label": "Mass in the field (kg)"
+            }
           ]
         },
         {
@@ -83,12 +92,25 @@
           "type": "equation",
           "label": "Newton's law of gravitation",
           "formula": "F = G m₁ m₂ / r²",
-          "where": [
-            "F = gravitational force between the masses (N)",
-            "G = gravitational constant (6.67 × 10⁻¹¹ N m² kg⁻²)",
-            "m₁, m₂ = the two masses (kg)",
-            "r = distance between their centres (m)"
-          ]
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Force between the masses (N)"
+            },
+            {
+              "point": "G",
+              "label": "Gravitational constant"
+            },
+            {
+              "point": "m₁ m₂",
+              "label": "The two masses (kg)"
+            },
+            {
+              "point": "r",
+              "label": "Distance between their centres (m)"
+            }
+          ],
+          "where": ["G = 6.67 × 10⁻¹¹ N m² kg⁻²"]
         },
         {
           "type": "list",
@@ -144,11 +166,19 @@
           "type": "equation",
           "label": "Field strength of a point mass",
           "formula": "g = G M / r²",
-          "where": [
-            "g = gravitational field strength (N/kg)",
-            "G = gravitational constant (6.67 × 10⁻¹¹ N m² kg⁻²)",
-            "M = mass producing the field (kg)",
-            "r = distance from the centre of M (m)"
+          "arrows": [
+            {
+              "point": "g",
+              "label": "Gravitational field strength (N/kg)"
+            },
+            {
+              "point": "M",
+              "label": "Mass producing the field (kg)"
+            },
+            {
+              "point": "r",
+              "label": "Distance from the centre of M (m)"
+            }
           ]
         },
         {
@@ -267,11 +297,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.1",
-        "AQA 3.7.2.1",
-        "AQA 3.7.2.2"
-      ],
+      "spec_codes": ["AQA 3.7.1", "AQA 3.7.2.1", "AQA 3.7.2.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -292,12 +318,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 12.174",
-        "EDEX 12.175",
-        "EDEX 12.176",
-        "EDEX 12.177"
-      ]
+      "spec_codes": ["EDEX 12.174", "EDEX 12.175", "EDEX 12.176", "EDEX 12.177"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -332,10 +353,7 @@
             {
               "type": "equation",
               "label": "Signed forms",
-              "formula": "F = −GMm / r²   and   g = −GM / r²",
-              "where": [
-                "The negative sign means attraction: the vector points inwards"
-              ]
+              "formula": "F = −GMm / r²   and   g = −GM / r²"
             },
             {
               "type": "paragraph",
@@ -375,7 +393,7 @@
       "ee51c0ca-a218-467d-8457-799107cc72f8"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

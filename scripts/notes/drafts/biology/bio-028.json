@@ -32,12 +32,7 @@
         {
           "type": "equation",
           "label": "Cardiac output",
-          "formula": "cardiac output = stroke volume × heart rate",
-          "where": [
-            "cardiac output, in cm³ per minute",
-            "stroke volume, in cm³",
-            "heart rate, in beats per minute"
-          ]
+          "formula": "cardiac output = stroke volume × heart rate"
         },
         {
           "type": "diagram",
@@ -124,22 +119,12 @@
         {
           "type": "equation",
           "label": "Heart rate",
-          "formula": "heart rate = cardiac output ÷ stroke volume",
-          "where": [
-            "heart rate, in beats per minute",
-            "cardiac output, in cm³ per minute",
-            "stroke volume, in cm³"
-          ]
+          "formula": "heart rate = cardiac output ÷ stroke volume"
         },
         {
           "type": "equation",
           "label": "Stroke volume",
-          "formula": "stroke volume = cardiac output ÷ heart rate",
-          "where": [
-            "stroke volume, in cm³",
-            "cardiac output, in cm³ per minute",
-            "heart rate, in beats per minute"
-          ]
+          "formula": "stroke volume = cardiac output ÷ heart rate"
         },
         {
           "type": "steps",
@@ -308,9 +293,7 @@
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.12"
-      ],
+      "spec_codes": ["EDEX 8.12"],
       "worked_example": {
         "exemplar_id": "28c9872d-5954-498f-8183-0acc83dfdfa2",
         "source": "EDEXCEL jun 2024, Paper 2 (H), Q8(b)(i)",
@@ -326,10 +309,7 @@
       }
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 9.2.3",
-        "CAIE 9.2.11S"
-      ],
+      "spec_codes": ["CAIE 9.2.3", "CAIE 9.2.11S"],
       "worked_example": {
         "exemplar_id": "9d2a3714-2c01-42dd-ac0c-abf8dac2b8a0",
         "source": "CAMBRIDGE jun 2023, Paper 43, Q3(d)(iii)",
@@ -371,15 +351,12 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "spec_point_ids": [
       "1f7c5270-8833-44b9-964e-fd60583ea125",
       "3e82fa45-4986-4d95-ad2f-3252ca095d48"
     ],
-    "exemplar_ids": [
-      "28c9872d-5954-498f-8183-0acc83dfdfa2",
-      "9d2a3714-2c01-42dd-ac0c-abf8dac2b8a0"
-    ]
+    "exemplar_ids": ["28c9872d-5954-498f-8183-0acc83dfdfa2", "9d2a3714-2c01-42dd-ac0c-abf8dac2b8a0"]
   }
 }

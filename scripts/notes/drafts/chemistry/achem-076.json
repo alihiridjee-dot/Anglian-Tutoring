@@ -14,27 +14,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Type",
-            "Carbon bonded to –OH is attached to",
-            "Example"
-          ],
+          "columns": ["Type", "Carbon bonded to –OH is attached to", "Example"],
           "rows": [
-            [
-              "Primary",
-              "one other carbon atom (or none)",
-              "propan-1-ol, CH₃CH₂CH₂OH"
-            ],
-            [
-              "Secondary",
-              "two other carbon atoms",
-              "propan-2-ol, CH₃CH(OH)CH₃"
-            ],
-            [
-              "Tertiary",
-              "three other carbon atoms",
-              "2-methylpropan-2-ol, (CH₃)₃COH"
-            ]
+            ["Primary", "one other carbon atom (or none)", "propan-1-ol, CH₃CH₂CH₂OH"],
+            ["Secondary", "two other carbon atoms", "propan-2-ol, CH₃CH(OH)CH₃"],
+            ["Tertiary", "three other carbon atoms", "2-methylpropan-2-ol, (CH₃)₃COH"]
           ]
         },
         {
@@ -97,9 +81,15 @@
           "type": "equation",
           "label": "Hydration of ethene",
           "formula": "CH₂=CH₂(g) + H₂O(g) ⇌ CH₃CH₂OH(g)",
-          "where": [
-            "steam is the reagent",
-            "an acid catalyst, H₃PO₄, is used"
+          "arrows": [
+            {
+              "point": "H₂O(g)",
+              "label": "Steam, the reagent"
+            },
+            {
+              "point": "⇌",
+              "label": "Acid catalyst, H₃PO₄"
+            }
           ]
         },
         {
@@ -115,17 +105,11 @@
           "diagram": {
             "kind": "compare",
             "alt": "A comparison of hydration of ethene and fermentation of glucose as ways to make ethanol.",
-            "items": [
-              "Hydration of ethene",
-              "Fermentation of glucose"
-            ],
+            "items": ["Hydration of ethene", "Fermentation of glucose"],
             "rows": [
               {
                 "feature": "Starting material",
-                "values": [
-                  "Ethene, from crude oil",
-                  "Glucose, from plants"
-                ]
+                "values": ["Ethene, from crude oil", "Glucose, from plants"]
               },
               {
                 "feature": "Conditions",
@@ -136,24 +120,15 @@
               },
               {
                 "feature": "Rate",
-                "values": [
-                  "Fast",
-                  "Slow"
-                ]
+                "values": ["Fast", "Slow"]
               },
               {
                 "feature": "Product",
-                "values": [
-                  "Pure ethanol",
-                  "Dilute ethanol, then fractional distillation"
-                ]
+                "values": ["Pure ethanol", "Dilute ethanol, then fractional distillation"]
               },
               {
                 "feature": "Process",
-                "values": [
-                  "Continuous",
-                  "Batch"
-                ]
+                "values": ["Continuous", "Batch"]
               }
             ]
           }
@@ -187,10 +162,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.2.1a",
-        "OCR 4.2.1b"
-      ],
+      "spec_codes": ["OCR 4.2.1a", "OCR 4.2.1b"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -207,9 +179,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 6E.37"
-      ],
+      "spec_codes": ["EDEX 6E.37"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -226,9 +196,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.5.1"
-      ],
+      "spec_codes": ["AQA 3.3.5.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -250,9 +218,11 @@
               "type": "equation",
               "label": "Fermentation of glucose",
               "formula": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂",
-              "where": [
-                "yeast provides the enzymes",
-                "anaerobic (no oxygen) conditions"
+              "arrows": [
+                {
+                  "point": "→",
+                  "label": "Yeast enzymes, no oxygen (anaerobic)"
+                }
               ]
             },
             {
@@ -298,11 +268,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 16.1.1",
-        "CAIE 16.1.3",
-        "CAIE 16.1.5"
-      ],
+      "spec_codes": ["CAIE 16.1.1", "CAIE 16.1.3", "CAIE 16.1.5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -313,35 +279,14 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Route",
-                "Reagent and conditions"
-              ],
+              "columns": ["Route", "Reagent and conditions"],
               "rows": [
-                [
-                  "Alkene (hydration)",
-                  "H₂O(g) with H₃PO₄ catalyst"
-                ],
-                [
-                  "Alkene to a diol",
-                  "cold dilute acidified KMnO₄"
-                ],
-                [
-                  "Halogenoalkane",
-                  "NaOH(aq) and heat"
-                ],
-                [
-                  "Aldehyde or ketone",
-                  "reduction with NaBH₄ or LiAlH₄"
-                ],
-                [
-                  "Carboxylic acid",
-                  "reduction with LiAlH₄"
-                ],
-                [
-                  "Ester",
-                  "hydrolysis with dilute acid or dilute alkali and heat"
-                ]
+                ["Alkene (hydration)", "H₂O(g) with H₃PO₄ catalyst"],
+                ["Alkene to a diol", "cold dilute acidified KMnO₄"],
+                ["Halogenoalkane", "NaOH(aq) and heat"],
+                ["Aldehyde or ketone", "reduction with NaBH₄ or LiAlH₄"],
+                ["Carboxylic acid", "reduction with LiAlH₄"],
+                ["Ester", "hydrolysis with dilute acid or dilute alkali and heat"]
               ]
             },
             {
@@ -377,7 +322,7 @@
       "294645fb-22a1-4874-a975-5e3728a5a4f0"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

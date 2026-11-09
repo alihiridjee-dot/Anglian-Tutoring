@@ -49,19 +49,28 @@
           "type": "equation",
           "label": "With water: an alkaline solution",
           "formula": "CH₃CH₂NH₂ + H₂O ⇌ CH₃CH₂NH₃⁺ + OH⁻",
-          "where": [
-            "OH⁻ ions make the solution alkaline",
-            "The equilibrium lies well to the left, so the base is weak"
+          "arrows": [
+            {
+              "point": "⇌",
+              "label": "Lies well to the left: weak base"
+            },
+            {
+              "point": "OH⁻",
+              "label": "Makes the solution alkaline"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "With a dilute acid: a salt",
           "formula": "CH₃CH₂NH₂ + HCl → CH₃CH₂NH₃⁺Cl⁻",
-          "where": [
-            "The salt is an ionic solid, soluble in water",
-            "Adding a strong alkali releases the free amine again"
-          ]
+          "arrows": [
+            {
+              "point": "CH₃CH₂NH₃⁺Cl⁻",
+              "label": "Salt: ionic solid, soluble in water"
+            }
+          ],
+          "where": ["Adding a strong alkali releases the free amine again"]
         },
         {
           "type": "key-points",
@@ -90,27 +99,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Compound",
-            "Effect on the lone pair",
-            "Base strength"
-          ],
+          "columns": ["Compound", "Effect on the lone pair", "Base strength"],
           "rows": [
-            [
-              "Ethylamine",
-              "Alkyl group donates electrons; lone pair more available",
-              "Strongest"
-            ],
-            [
-              "Ammonia",
-              "No donating or withdrawing group",
-              "Middle"
-            ],
-            [
-              "Phenylamine",
-              "Lone pair delocalised into the ring; less available",
-              "Weakest"
-            ]
+            ["Ethylamine", "Alkyl group donates electrons; lone pair more available", "Strongest"],
+            ["Ammonia", "No donating or withdrawing group", "Middle"],
+            ["Phenylamine", "Lone pair delocalised into the ring; less available", "Weakest"]
           ]
         },
         {
@@ -146,8 +139,12 @@
           "type": "equation",
           "label": "Primary amine from a haloalkane",
           "formula": "CH₃CH₂Br + 2NH₃ → CH₃CH₂NH₂ + NH₄Br",
-          "where": [
-            "The second NH₃ removes H⁺ from the intermediate to give NH₄⁺"
+          "arrows": [
+            {
+              "point": "2",
+              "in": "2NH₃",
+              "label": "Second NH₃ takes H⁺ from the intermediate"
+            }
           ]
         },
         {
@@ -167,9 +164,15 @@
           "type": "equation",
           "label": "Reduction of a nitrile",
           "formula": "CH₃CN + 4[H] → CH₃CH₂NH₂",
-          "where": [
-            "Reagent: LiAlH₄ in dry ether, or H₂ with a nickel catalyst",
-            "[H] is hydrogen supplied by the reducing agent"
+          "arrows": [
+            {
+              "point": "[H]",
+              "label": "Hydrogen from the reducing agent"
+            },
+            {
+              "point": "→",
+              "label": "LiAlH₄ in dry ether, or H₂/Ni"
+            }
           ]
         },
         {
@@ -188,10 +191,7 @@
         {
           "type": "equation",
           "label": "Nitrobenzene to phenylamine",
-          "formula": "C₆H₅NO₂ + 6[H] → C₆H₅NH₂ + 2H₂O",
-          "where": [
-            "Sn / concentrated HCl, heated under reflux, then NaOH(aq)"
-          ]
+          "formula": "C₆H₅NO₂ + 6[H] → C₆H₅NH₂ + 2H₂O"
         },
         {
           "type": "key-points",
@@ -222,9 +222,15 @@
           "type": "equation",
           "label": "Primary amine with ethanoyl chloride",
           "formula": "CH₃COCl + CH₃CH₂NH₂ → CH₃CONHCH₂CH₃ + HCl",
-          "where": [
-            "The product is N-ethylethanamide",
-            "HCl then reacts with more amine to form a salt"
+          "arrows": [
+            {
+              "point": "CH₃CONHCH₂CH₃",
+              "label": "N-ethylethanamide"
+            },
+            {
+              "point": "HCl",
+              "label": "Reacts with more amine: a salt"
+            }
           ]
         },
         {
@@ -237,17 +243,11 @@
             "kind": "predictor",
             "alt": "Pick a reagent and see what a primary amine forms with it.",
             "prompt": "Pick a reagent to add to ethylamine, CH₃CH₂NH₂.",
-            "result_labels": [
-              "Main product",
-              "Type of reaction"
-            ],
+            "result_labels": ["Main product", "Type of reaction"],
             "options": [
               {
                 "label": "Dilute hydrochloric acid",
-                "results": [
-                  "Ethylammonium chloride, CH₃CH₂NH₃⁺Cl⁻",
-                  "Acid–base: amine accepts H⁺"
-                ],
+                "results": ["Ethylammonium chloride, CH₃CH₂NH₃⁺Cl⁻", "Acid–base: amine accepts H⁺"],
                 "explanation": "The lone pair on nitrogen takes a proton from the acid."
               },
               {
@@ -260,10 +260,7 @@
               },
               {
                 "label": "Bromoethane (heated in ethanol)",
-                "results": [
-                  "Diethylamine, (CH₃CH₂)₂NH, with a salt",
-                  "Nucleophilic substitution"
-                ],
+                "results": ["Diethylamine, (CH₃CH₂)₂NH, with a salt", "Nucleophilic substitution"],
                 "explanation": "The amine replaces bromine on the haloalkane, making a secondary amine."
               },
               {
@@ -307,19 +304,10 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.2.1a",
-        "OCR 6.2.1b"
-      ]
+      "spec_codes": ["OCR 6.2.1a", "OCR 6.2.1b"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 18B.8",
-        "EDEX 18B.9",
-        "EDEX 18B.10",
-        "EDEX 18B.11",
-        "EDEX 18B.12"
-      ],
+      "spec_codes": ["EDEX 18B.8", "EDEX 18B.9", "EDEX 18B.10", "EDEX 18B.11", "EDEX 18B.12"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -354,11 +342,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.11.1",
-        "AQA 3.3.11.2",
-        "AQA 3.3.11.3"
-      ],
+      "spec_codes": ["AQA 3.3.11.1", "AQA 3.3.11.2", "AQA 3.3.11.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -531,7 +515,7 @@
       "41757401-8ac8-45ff-812b-2e988d3ad189"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

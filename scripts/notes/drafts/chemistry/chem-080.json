@@ -31,40 +31,28 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Name",
-            "Formula",
-            "Carbon atoms"
-          ],
+          "columns": ["Name", "Formula", "Carbon atoms"],
           "rows": [
-            [
-              "Methanol",
-              "CH₃OH",
-              "1"
-            ],
-            [
-              "Ethanol",
-              "CH₃CH₂OH (or C₂H₅OH)",
-              "2"
-            ],
-            [
-              "Propanol",
-              "CH₃CH₂CH₂OH (or C₃H₇OH)",
-              "3"
-            ],
-            [
-              "Butanol",
-              "CH₃CH₂CH₂CH₂OH (or C₄H₉OH)",
-              "4"
-            ]
+            ["Methanol", "CH₃OH", "1"],
+            ["Ethanol", "CH₃CH₂OH (or C₂H₅OH)", "2"],
+            ["Propanol", "CH₃CH₂CH₂OH (or C₃H₇OH)", "3"],
+            ["Butanol", "CH₃CH₂CH₂CH₂OH (or C₄H₉OH)", "4"]
           ]
         },
         {
           "type": "equation",
           "label": "General formula of an alcohol",
           "formula": "CₙH₂ₙ₊₁OH",
-          "where": [
-            "n is the number of carbon atoms, with no unit."
+          "arrows": [
+            {
+              "point": "ₙ",
+              "in": "Cₙ",
+              "label": "Number of carbon atoms"
+            },
+            {
+              "point": "OH",
+              "label": "The functional group"
+            }
           ]
         },
         {
@@ -291,10 +279,7 @@
             "kind": "predictor",
             "alt": "Pick a reaction of ethanol to see what you observe and what is made.",
             "prompt": "Pick a reaction of ethanol",
-            "result_labels": [
-              "What happens",
-              "Products"
-            ],
+            "result_labels": ["What happens", "Products"],
             "options": [
               {
                 "label": "Burn in air",
@@ -312,10 +297,7 @@
               },
               {
                 "label": "Add to water",
-                "results": [
-                  "It dissolves to make a neutral solution.",
-                  "No new substance is made."
-                ]
+                "results": ["It dissolves to make a neutral solution.", "No new substance is made."]
               },
               {
                 "label": "Warm with an oxidising agent",
@@ -391,9 +373,11 @@
           "type": "equation",
           "label": "Fermentation of glucose",
           "formula": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂",
-          "where": [
-            "C₆H₁₂O₆ is glucose, a sugar.",
-            "The reaction is catalysed by enzymes in yeast."
+          "arrows": [
+            {
+              "point": "C₆H₁₂O₆",
+              "label": "Glucose, a sugar"
+            }
           ]
         },
         {
@@ -467,9 +451,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.2.3"
-      ],
+      "spec_codes": ["AQA 4.7.2.3"],
       "worked_example": {
         "exemplar_id": "fc99d8cb-9348-4566-8421-d7ab4838339e",
         "source": "AQA jun 2018, Paper 2 (H), Q02.5",
@@ -498,13 +480,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.26C",
-        "EDEX 9.27C",
-        "EDEX 9.31C",
-        "EDEX 9.33C",
-        "EDEX 9.34C"
-      ],
+      "spec_codes": ["EDEX 9.26C", "EDEX 9.27C", "EDEX 9.31C", "EDEX 9.33C", "EDEX 9.34C"],
       "worked_example": {
         "exemplar_id": "4280f93c-688d-4194-b88f-6c2a021b9ac1",
         "source": "EDEXCEL jun 2018, Paper 2 (F), Q10(b)",
@@ -571,9 +547,19 @@
               "type": "equation",
               "label": "Oxidation of ethanol",
               "formula": "C₂H₅OH + O₂ → CH₃COOH + H₂O",
-              "where": [
-                "C₂H₅OH is ethanol and CH₃COOH is ethanoic acid.",
-                "Water is the other product."
+              "arrows": [
+                {
+                  "point": "C₂H₅OH",
+                  "label": "Ethanol"
+                },
+                {
+                  "point": "CH₃COOH",
+                  "label": "Ethanoic acid"
+                },
+                {
+                  "point": "H₂O",
+                  "label": "Water, the other product"
+                }
               ]
             }
           ]
@@ -581,10 +567,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2b",
-        "OCR C6.2c"
-      ],
+      "spec_codes": ["OCR C6.2b", "OCR C6.2c"],
       "extra": [
         {
           "heading": "OCR only: oxidation by potassium manganate(VII)",
@@ -619,10 +602,7 @@
         "source": "CAMBRIDGE nov 2023, Paper 41, Q6(d)",
         "question": "Ethanol is manufactured by two methods.\n\nmethod 1: fermentation of aqueous glucose\nmethod 2: catalytic addition of steam to an alkene\n\nGive one advantage of each method of production of ethanol.\n\nmethod 1\nmethod 2",
         "marks": 2,
-        "answer_points": [
-          "Method 1: uses renewable resources.",
-          "Method 2: high rate of reaction."
-        ]
+        "answer_points": ["Method 1: uses renewable resources.", "Method 2: high rate of reaction."]
       },
       "extra": [
         {
@@ -646,32 +626,12 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Feature",
-                "Fermentation",
-                "Ethene and steam"
-              ],
+              "columns": ["Feature", "Fermentation", "Ethene and steam"],
               "rows": [
-                [
-                  "Raw material",
-                  "Renewable (sugar)",
-                  "Finite (from crude oil)"
-                ],
-                [
-                  "Rate",
-                  "Slow",
-                  "Fast"
-                ],
-                [
-                  "Type of process",
-                  "Batch",
-                  "Continuous"
-                ],
-                [
-                  "Purity of ethanol",
-                  "Impure",
-                  "Pure"
-                ]
+                ["Raw material", "Renewable (sugar)", "Finite (from crude oil)"],
+                ["Rate", "Slow", "Fast"],
+                ["Type of process", "Batch", "Continuous"],
+                ["Purity of ethanol", "Impure", "Pure"]
               ]
             }
           ]
@@ -695,13 +655,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 4.29C",
-        "IGCSE 4.30C",
-        "IGCSE 4.31C",
-        "IGCSE 4.32C",
-        "IGCSE 4.33C"
-      ],
+      "spec_codes": ["IGCSE 4.29C", "IGCSE 4.30C", "IGCSE 4.31C", "IGCSE 4.32C", "IGCSE 4.33C"],
       "worked_example": {
         "exemplar_id": "b006389b-fcb2-4564-91e4-89bbaa3df343",
         "source": "EDEXCEL nov 2020, Paper 2 (C), Q4(b)(ii)",
@@ -792,7 +746,7 @@
       "95726600-764c-4ba4-a639-eac26be70a07",
       "b006389b-fcb2-4564-91e4-89bbaa3df343"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

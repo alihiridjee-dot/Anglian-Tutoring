@@ -14,31 +14,19 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Evidence",
-            "What it tells you"
-          ],
+          "columns": ["Evidence", "What it tells you"],
           "rows": [
             [
               "Percentage composition or combustion analysis",
               "The empirical formula: the simplest ratio of atoms."
             ],
-            [
-              "Mass spectrum, M⁺ peak",
-              "The relative molecular mass, so the molecular formula."
-            ],
+            ["Mass spectrum, M⁺ peak", "The relative molecular mass, so the molecular formula."],
             [
               "Mass spectrum, fragments",
               "Pieces of the structure, from the masses lost or formed."
             ],
-            [
-              "IR spectrum",
-              "The bonds present, so the functional groups."
-            ],
-            [
-              "¹³C NMR",
-              "The number of carbon environments, and their types from δ."
-            ],
+            ["IR spectrum", "The bonds present, so the functional groups."],
+            ["¹³C NMR", "The number of carbon environments, and their types from δ."],
             [
               "¹H NMR",
               "The number of proton environments, how many protons in each, and their neighbours."
@@ -54,15 +42,18 @@
           "items": [
             "**Percentage composition**: divide each percentage by the element's relative atomic mass, then divide by the smallest answer to give the ratio.",
             "**Combustion analysis**: burning a known mass of compound gives CO₂ and H₂O. The masses of these give the moles of carbon and hydrogen. Any mass missing is oxygen.",
-            "The **molecular formula** is a whole-number multiple of the empirical formula. The multiple is Mᵣ from the M⁺ peak ÷ the empirical formula mass."
+            "The **molecular formula** is a whole-number multiple of the empirical formula."
           ]
         },
         {
           "type": "equation",
           "label": "Molecular formula",
           "formula": "multiple = Mᵣ of the compound ÷ empirical formula mass",
-          "where": [
-            "Mᵣ: found from the molecular ion peak"
+          "arrows": [
+            {
+              "point": "Mᵣ",
+              "label": "From the molecular ion peak"
+            }
           ]
         },
         {
@@ -147,10 +138,7 @@
         },
         {
           "type": "key-points",
-          "items": [
-            "State the evidence for each step.",
-            "Show the arithmetic for the formulae."
-          ]
+          "items": ["State the evidence for each step.", "Show the arithmetic for the formulae."]
         }
       ]
     }
@@ -174,15 +162,10 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.2.4h",
-        "OCR 6.3.2e"
-      ]
+      "spec_codes": ["OCR 4.2.4h", "OCR 6.3.2e"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 18C.18"
-      ],
+      "spec_codes": ["EDEX 18C.18"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -220,7 +203,7 @@
       "381f80e8-1d73-47fb-84d7-bdd72fbc7142"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

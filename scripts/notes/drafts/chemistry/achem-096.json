@@ -132,9 +132,12 @@
           "type": "equation",
           "label": "Percentage uncertainty",
           "formula": "% uncertainty = (uncertainty ÷ measured value) × 100",
-          "where": [
-            "uncertainty in the same unit as the measured value",
-            "measured value in its unit"
+          "arrows": [
+            {
+              "point": "uncertainty",
+              "in": "(uncertainty",
+              "label": "Same unit as the measured value"
+            }
           ]
         },
         {
@@ -203,10 +206,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Limitation",
-            "Specific improvement"
-          ],
+          "columns": ["Limitation", "Specific improvement"],
           "rows": [
             [
               "Heat lost to the surroundings",
@@ -216,10 +216,7 @@
               "Large percentage uncertainty in a small volume",
               "Use a larger volume or a more precise piece of apparatus"
             ],
-            [
-              "Few data points",
-              "Take more values of the independent variable and repeat each"
-            ],
+            ["Few data points", "Take more values of the independent variable and repeat each"],
             [
               "Subjective end point",
               "Use a pH meter or a colorimeter instead of judging colour by eye"
@@ -291,12 +288,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.12",
-        "EDEX 5.13",
-        "EDEX 5.16",
-        "EDEX 18C.21"
-      ],
+      "spec_codes": ["EDEX 5.12", "EDEX 5.13", "EDEX 5.16", "EDEX 18C.21"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -341,7 +333,7 @@
       "9bde86f6-ba47-4929-881c-221c50a2146f"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

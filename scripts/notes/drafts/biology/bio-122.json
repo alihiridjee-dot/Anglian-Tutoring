@@ -171,10 +171,19 @@
           "type": "equation",
           "label": "Rate of decay",
           "formula": "rate of decay = change in mass ÷ time taken",
-          "where": [
-            "change in mass, in g (or kg)",
-            "time taken, in days",
-            "rate of decay, in g per day (or kg per day)"
+          "arrows": [
+            {
+              "point": "rate of decay",
+              "label": "Grams (or kg) per day"
+            },
+            {
+              "point": "change in mass",
+              "label": "Grams (g) or kilograms (kg)"
+            },
+            {
+              "point": "time taken",
+              "label": "Days"
+            }
           ]
         },
         {
@@ -406,7 +415,7 @@
       "9b390923-5232-45c8-b7fc-412718283590",
       "8f827ca4-1c20-4dd1-b93e-c20a0122eee4"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

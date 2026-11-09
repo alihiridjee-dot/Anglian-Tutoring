@@ -41,11 +41,21 @@
           "type": "equation",
           "label": "Hooke's law",
           "formula": "F = kx",
-          "where": [
-            "F = force applied, in N",
-            "k = force constant (spring constant or stiffness), in N/m",
-            "x = extension or compression, in m"
-          ]
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Force applied (N)"
+            },
+            {
+              "point": "k",
+              "label": "Force constant (N/m)"
+            },
+            {
+              "point": "x",
+              "label": "Extension or compression (m)"
+            }
+          ],
+          "where": ["k is also called the spring constant or stiffness."]
         },
         {
           "type": "list",
@@ -82,14 +92,7 @@
               "label": "Extension",
               "min": 0,
               "max": 10,
-              "ticks": [
-                0,
-                2,
-                4,
-                6,
-                8,
-                10
-              ],
+              "ticks": [0, 2, 4, 6, 8, 10],
               "unit": "mm"
             },
             "y": {
@@ -99,34 +102,13 @@
               {
                 "name": "Metal wire",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    2,
-                    0.25
-                  ],
-                  [
-                    4,
-                    0.5
-                  ],
-                  [
-                    5,
-                    0.58
-                  ],
-                  [
-                    6,
-                    0.64
-                  ],
-                  [
-                    8,
-                    0.74
-                  ],
-                  [
-                    10,
-                    0.8
-                  ]
+                  [0, 0],
+                  [2, 0.25],
+                  [4, 0.5],
+                  [5, 0.58],
+                  [6, 0.64],
+                  [8, 0.74],
+                  [10, 0.8]
                 ]
               }
             ],
@@ -160,11 +142,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Behaviour",
-            "What happens",
-            "When the force is removed"
-          ],
+          "columns": ["Behaviour", "What happens", "When the force is removed"],
           "rows": [
             [
               "Elastic deformation",
@@ -213,11 +191,20 @@
           "type": "equation",
           "label": "Elastic potential energy",
           "formula": "E = ½Fx = ½kx²",
-          "where": [
-            "E = elastic potential energy, in J",
-            "F = force at maximum extension, in N",
-            "k = force constant, in N/m",
-            "x = extension, in m"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Elastic potential energy (J)"
+            },
+            {
+              "point": "F",
+              "label": "Force at maximum extension (N)"
+            },
+            {
+              "point": "x",
+              "in": "Fx",
+              "label": "Extension (m)"
+            }
           ]
         },
         {
@@ -299,9 +286,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.4.2.1"
-      ],
+      "spec_codes": ["AQA 3.4.2.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -326,11 +311,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 4.53",
-        "EDEX 4.55",
-        "EDEX 4.58"
-      ],
+      "spec_codes": ["EDEX 4.53", "EDEX 4.55", "EDEX 4.58"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -460,7 +441,7 @@
       "88b66291-88ec-454c-9394-5f660bbce571"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

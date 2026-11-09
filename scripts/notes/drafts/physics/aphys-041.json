@@ -62,19 +62,38 @@
           "type": "equation",
           "label": "Photon from a transition",
           "formula": "hf = E₁ − E₂ = ΔE",
-          "where": [
-            "h = Planck constant (J s)",
-            "f = frequency of the photon (Hz)",
-            "E₁, E₂ = upper and lower energy levels (J)"
+          "arrows": [
+            {
+              "point": "h",
+              "label": "Planck constant (J s)"
+            },
+            {
+              "point": "f",
+              "label": "Frequency of the photon (Hz)"
+            },
+            {
+              "point": "E₁",
+              "label": "Upper energy level (J)"
+            },
+            {
+              "point": "E₂",
+              "label": "Lower energy level (J)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Wavelength form",
           "formula": "hc/λ = ΔE",
-          "where": [
-            "c = speed of light (m/s)",
-            "λ = wavelength (m)"
+          "arrows": [
+            {
+              "point": "c",
+              "label": "Speed of light (m/s)"
+            },
+            {
+              "point": "λ",
+              "label": "Wavelength (m)"
+            }
           ]
         },
         {
@@ -159,11 +178,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Spectrum",
-            "Appearance",
-            "How it forms"
-          ],
+          "columns": ["Spectrum", "Appearance", "How it forms"],
           "rows": [
             [
               "Continuous",
@@ -219,10 +234,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.2.2",
-        "AQA 3.2.2.3"
-      ],
+      "spec_codes": ["AQA 3.2.2.2", "AQA 3.2.2.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -271,16 +283,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.96"
-      ]
+      "spec_codes": ["EDEX 5.96"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 22.4.1",
-        "CAIE 22.4.2",
-        "CAIE 22.4.3"
-      ]
+      "spec_codes": ["CAIE 22.4.1", "CAIE 22.4.2", "CAIE 22.4.3"]
     },
     "ocr_alevel": {
       "spec_codes": [
@@ -312,7 +318,7 @@
       "8d6c07a8-7670-4892-a8cc-3dd2f2707672"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

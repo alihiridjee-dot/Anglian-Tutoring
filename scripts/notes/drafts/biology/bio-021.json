@@ -241,18 +241,30 @@
           "type": "equation",
           "label": "Rate from the time taken",
           "formula": "rate = 1 ÷ time",
-          "where": [
-            "rate, in s⁻¹ (per second)",
-            "time taken for the reaction, in s"
+          "arrows": [
+            {
+              "point": "rate",
+              "label": "Per second (s⁻¹)"
+            },
+            {
+              "point": "time",
+              "label": "Time taken for the reaction (s)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Rate from the amount",
           "formula": "rate = amount ÷ time",
-          "where": [
-            "amount of substrate digested or product made, for example in g or cm³",
-            "time, for example in minutes or s"
+          "arrows": [
+            {
+              "point": "amount",
+              "label": "Substrate digested or product made (g, cm³)"
+            },
+            {
+              "point": "time",
+              "label": "Minutes or seconds (s)"
+            }
           ]
         },
         {
@@ -291,10 +303,7 @@
               "unit": "s⁻¹",
               "decimals": 3
             },
-            "working": [
-              "Rate = 1 ÷ time",
-              "Rate = 1 ÷ {t} = **{answer}** s⁻¹"
-            ]
+            "working": ["Rate = 1 ÷ time", "Rate = 1 ÷ {t} = **{answer}** s⁻¹"]
           }
         },
         {
@@ -326,10 +335,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 2.5",
-        "AQA T 4.2.2.1"
-      ],
+      "spec_codes": ["AQA 2.5", "AQA T 4.2.2.1"],
       "worked_example": {
         "exemplar_id": "6942a23d-7a2e-4cd2-9a7c-0b9f33dbf2ff",
         "source": "AQA jun 2021, Paper 1 (H), Q05.7",
@@ -346,11 +352,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 1.8",
-        "EDEX 1.9",
-        "EDEX 1.11"
-      ],
+      "spec_codes": ["EDEX 1.8", "EDEX 1.9", "EDEX 1.11"],
       "worked_example": {
         "exemplar_id": "d85db5fb-6932-4682-b42b-ca849799ffa4",
         "source": "EDEXCEL nov 2020, Paper 2 (H), Q5(c)(ii)",
@@ -364,9 +366,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 1.2g"
-      ],
+      "spec_codes": ["OCR 1.2g"],
       "worked_example": {
         "exemplar_id": "04e9e6a0-7df3-4ec8-8517-ac6b60d816cb",
         "source": "OCR jun 2023, Paper 3, Q20(a)",
@@ -382,11 +382,7 @@
       }
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 5.1.5",
-        "CAIE 5.1.8S",
-        "CAIE 5.1.9S"
-      ],
+      "spec_codes": ["CAIE 5.1.5", "CAIE 5.1.8S", "CAIE 5.1.9S"],
       "worked_example": {
         "exemplar_id": "9de7a632-1153-4195-ac37-5545cd9fa59c",
         "source": "CAMBRIDGE jun 2024, Paper 63, Q1(c)",
@@ -449,11 +445,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 2.11",
-        "IGCSE 2.12",
-        "IGCSE 2.13"
-      ],
+      "spec_codes": ["IGCSE 2.11", "IGCSE 2.12", "IGCSE 2.13"],
       "worked_example": {
         "exemplar_id": "c5fdcb0b-b4d2-489b-aa23-1b4e90c668f7",
         "source": "EDEXCEL jun 2023, Paper 1 (B), Q7(e)",
@@ -513,7 +505,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "spec_point_ids": [
       "de188d30-d767-4c9b-b53d-b5d546469476",

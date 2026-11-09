@@ -57,16 +57,35 @@
           "type": "equation",
           "label": "Mass of alcohol burned",
           "formula": "mass burned = initial mass of burner − final mass of burner",
-          "where": [
-            "mass burned is in g",
-            "initial and final masses are the readings of the burner and alcohol, in g"
+          "arrows": [
+            {
+              "point": "mass burned",
+              "label": "Mass of alcohol burned (g)"
+            },
+            {
+              "point": "initial mass of burner",
+              "label": "Burner and alcohol at the start (g)"
+            },
+            {
+              "point": "final mass of burner",
+              "label": "Burner and alcohol at the end (g)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Mass of alcohol per degree",
           "formula": "mass per °C = mass burned ÷ temperature rise",
-          "where": ["mass per °C is in g/°C", "mass burned is in g", "temperature rise is in °C"]
+          "arrows": [
+            {
+              "point": "mass per °C",
+              "label": "Mass for each degree (g/°C)"
+            },
+            {
+              "point": "temperature rise",
+              "label": "Temperature rise (°C)"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -214,7 +233,7 @@
     "written_at": "2026-10-01",
     "spec_point_ids": ["53233996-7ee2-4d6e-a51d-f47edcdc689d"],
     "exemplar_ids": ["59a51482-317b-41a5-ad89-c41271c1d10b"],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

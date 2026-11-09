@@ -298,10 +298,19 @@
               "type": "equation",
               "label": "Estimate of the age of the Universe",
               "formula": "d ÷ v = 1 ÷ H₀",
-              "where": [
-                "d is the distance of a galaxy from the Earth",
-                "v is the speed at which the galaxy is moving away from the Earth",
-                "H₀ is the Hubble constant, in per second, 1/s"
+              "arrows": [
+                {
+                  "point": "d",
+                  "label": "Galaxy's distance from Earth"
+                },
+                {
+                  "point": "v",
+                  "label": "Galaxy's speed away from Earth"
+                },
+                {
+                  "point": "H₀",
+                  "label": "Hubble constant (per second, 1/s)"
+                }
               ]
             },
             {
@@ -364,7 +373,7 @@
       "83789363-6359-4c6c-9dfb-14160d291665",
       "5ed4f57e-41cd-4222-bd37-812f0208313f"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

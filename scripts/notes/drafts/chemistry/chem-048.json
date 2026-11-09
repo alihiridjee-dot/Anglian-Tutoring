@@ -16,7 +16,12 @@
           "type": "equation",
           "label": "Metal with an acid",
           "formula": "metal + acid → salt + hydrogen",
-          "where": ["hydrochloric acid makes a chloride", "sulfuric acid makes a sulfate"]
+          "arrows": [
+            {
+              "point": "salt",
+              "label": "HCl makes a chloride, H₂SO₄ a sulfate"
+            }
+          ]
         },
         {
           "type": "equation",
@@ -79,7 +84,16 @@
           "type": "equation",
           "label": "Metal carbonate with an acid",
           "formula": "metal carbonate + acid → salt + water + carbon dioxide",
-          "where": ["the carbonate disappears as it reacts", "the gas is carbon dioxide"]
+          "arrows": [
+            {
+              "point": "metal carbonate",
+              "label": "Disappears as it reacts"
+            },
+            {
+              "point": "carbon dioxide",
+              "label": "The gas given off"
+            }
+          ]
         },
         {
           "type": "equation",
@@ -342,15 +356,17 @@
           "type": "equation",
           "label": "Magnesium with hydrochloric acid, ionic equation",
           "formula": "Mg(s) + 2H⁺(aq) → Mg²⁺(aq) + H₂(g)",
+          "arrows": [
+            {
+              "point": "Mg²⁺",
+              "label": "Mg loses two electrons: oxidised"
+            },
+            {
+              "point": "H₂",
+              "label": "H⁺ ions gain electrons: reduced"
+            }
+          ],
           "where": ["Cl⁻ ions do not change, so they are left out"]
-        },
-        {
-          "type": "list",
-          "items": [
-            "Each magnesium atom becomes an Mg²⁺ ion. It loses two electrons, so magnesium is **oxidised**.",
-            "Each hydrogen ion becomes part of a hydrogen molecule. It gains an electron, so hydrogen ions are **reduced**.",
-            "Both happen in the same reaction, so it is a redox reaction."
-          ]
         },
         {
           "type": "key-points",
@@ -423,8 +439,7 @@
             {
               "type": "equation",
               "label": "Magnesium oxide with hydrochloric acid",
-              "formula": "MgO(s) + 2H⁺(aq) → Mg²⁺(aq) + H₂O(l)",
-              "where": ["left side: MgO and 2H⁺", "right side: Mg²⁺ and H₂O"]
+              "formula": "MgO(s) + 2H⁺(aq) → Mg²⁺(aq) + H₂O(l)"
             }
           ]
         }
@@ -464,12 +479,24 @@
               "type": "equation",
               "label": "Magnesium carbonate with hydrochloric acid",
               "formula": "MgCO₃(s) + 2HCl(aq) → MgCl₂(aq) + H₂O(l) + CO₂(g)",
-              "where": [
-                "MgCO₃(s): solid magnesium carbonate",
-                "HCl(aq): hydrochloric acid solution",
-                "MgCl₂(aq): magnesium chloride dissolved in water",
-                "H₂O(l): liquid water",
-                "CO₂(g): carbon dioxide gas"
+              "arrows": [
+                {
+                  "point": "(s)",
+                  "label": "Solid"
+                },
+                {
+                  "point": "(aq)",
+                  "in": "HCl(aq)",
+                  "label": "Dissolved in water"
+                },
+                {
+                  "point": "(l)",
+                  "label": "Liquid"
+                },
+                {
+                  "point": "(g)",
+                  "label": "Gas"
+                }
               ]
             }
           ]
@@ -510,7 +537,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "spec_point_ids": [
       "fdabe1c6-b081-438c-8e72-ccc3f67adbfb",

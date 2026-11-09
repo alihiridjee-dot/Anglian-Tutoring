@@ -29,9 +29,16 @@
           "type": "equation",
           "label": "Partition coefficient",
           "formula": "Kpc = [X] in solvent 1 ÷ [X] in solvent 2",
-          "where": [
-            "Kpc = partition coefficient (no unit if the concentration units match)",
-            "[X] = concentration of the solute at equilibrium (mol/dm³ or g/dm³)"
+          "arrows": [
+            {
+              "point": "Kpc",
+              "label": "No unit if concentration units match"
+            },
+            {
+              "point": "[X]",
+              "in": "[X] in solvent 1",
+              "label": "Equilibrium concentration (mol/dm³ or g/dm³)"
+            }
           ]
         },
         {
@@ -144,27 +151,15 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Solute",
-            "Likely to prefer",
-            "Reason"
-          ],
+          "columns": ["Solute", "Likely to prefer", "Reason"],
           "rows": [
             [
               "Iodine, I₂",
               "Hexane or other organic solvent",
               "Non-polar, so it is not attracted to polar water"
             ],
-            [
-              "Sodium chloride",
-              "Water",
-              "Ionic, so it forms ion-dipole attractions with water"
-            ],
-            [
-              "Glucose",
-              "Water",
-              "Its many OH groups hydrogen bond to water"
-            ]
+            ["Sodium chloride", "Water", "Ionic, so it forms ion-dipole attractions with water"],
+            ["Glucose", "Water", "Its many OH groups hydrogen bond to water"]
           ]
         },
         {
@@ -196,11 +191,7 @@
   ],
   "boards": {
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 25.2.1",
-        "CAIE 25.2.2",
-        "CAIE 25.2.3"
-      ]
+      "spec_codes": ["CAIE 25.2.1", "CAIE 25.2.2", "CAIE 25.2.3"]
     }
   },
   "meta": {
@@ -213,7 +204,7 @@
       "d24d04af-f05b-4176-ab42-e75782772397"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

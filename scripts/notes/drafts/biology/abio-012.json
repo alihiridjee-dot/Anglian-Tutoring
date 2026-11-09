@@ -73,10 +73,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Stage",
-            "What happens"
-          ],
+          "columns": ["Stage", "What happens"],
           "rows": [
             [
               "Before meiosis",
@@ -102,10 +99,7 @@
               "Prophase II and metaphase II",
               "Spindle forms in each cell. Chromosomes line up singly on the equator"
             ],
-            [
-              "Anaphase II",
-              "Centromeres divide. Sister chromatids are pulled to opposite poles"
-            ],
+            ["Anaphase II", "Centromeres divide. Sister chromatids are pulled to opposite poles"],
             [
               "Telophase II",
               "Nuclear envelopes re-form. The cytoplasm divides, producing four haploid cells"
@@ -140,9 +134,13 @@
           "type": "equation",
           "label": "Combinations from independent assortment",
           "formula": "number of combinations = 2ⁿ",
-          "where": [
-            "n: the haploid number of chromosomes, with no crossing over"
-          ]
+          "arrows": [
+            {
+              "point": "ⁿ",
+              "label": "Haploid number of chromosomes"
+            }
+          ],
+          "where": ["This assumes no crossing over."]
         },
         {
           "type": "diagram",
@@ -191,27 +189,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Mitosis",
-            "Meiosis"
-          ],
+          "columns": ["Feature", "Mitosis", "Meiosis"],
           "rows": [
-            [
-              "Number of divisions",
-              "One",
-              "Two"
-            ],
-            [
-              "Daughter cells",
-              "Two",
-              "Four"
-            ],
-            [
-              "Chromosome number",
-              "Stays the same (diploid)",
-              "Halved (haploid)"
-            ],
+            ["Number of divisions", "One", "Two"],
+            ["Daughter cells", "Two", "Four"],
+            ["Chromosome number", "Stays the same (diploid)", "Halved (haploid)"],
             [
               "Genetically",
               "Identical to parent and to each other",
@@ -222,11 +204,7 @@
               "Do not pair up",
               "Pair up in prophase I and crossing over occurs"
             ],
-            [
-              "Used for",
-              "Growth, repair, asexual reproduction",
-              "Making gametes"
-            ]
+            ["Used for", "Growth, repair, asexual reproduction", "Making gametes"]
           ]
         },
         {
@@ -258,11 +236,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.4.3b",
-        "AQA 3.4.3c",
-        "AQA 3.4.3d"
-      ],
+      "spec_codes": ["AQA 3.4.3b", "AQA 3.4.3c", "AQA 3.4.3d"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -307,11 +281,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 3.6",
-        "EDEX 3.7",
-        "EDEX 3.9"
-      ],
+      "spec_codes": ["EDEX 3.6", "EDEX 3.7", "EDEX 3.9"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -400,10 +370,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 2.1.6f",
-        "OCR 2.1.6g"
-      ],
+      "spec_codes": ["OCR 2.1.6f", "OCR 2.1.6g"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -444,7 +411,7 @@
       "29a606e9-177a-48cf-ba30-ef97320ff2d2"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

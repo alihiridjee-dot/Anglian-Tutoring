@@ -41,8 +41,18 @@
         {
           "type": "equation",
           "label": "Converting nanometres to metres",
-          "where": ["size in m: the length in metres", "size in nm: the length in nanometres"],
-          "formula": "size in m = size in nm × 10⁻⁹"
+          "formula": "size in m = size in nm × 10⁻⁹",
+          "arrows": [
+            {
+              "point": "m",
+              "in": "in m =",
+              "label": "Metres"
+            },
+            {
+              "point": "nm",
+              "label": "Nanometres"
+            }
+          ]
         },
         {
           "type": "paragraph",
@@ -69,18 +79,31 @@
           "type": "equation",
           "label": "Surface area of a cube",
           "formula": "surface area = 6 × side²",
-          "where": ["surface area: in nm²", "side: length of one edge, in nm"]
+          "arrows": [
+            {
+              "point": "surface area",
+              "label": "Surface area (nm²)"
+            },
+            {
+              "point": "side",
+              "label": "Length of one edge (nm)"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "Volume of a cube",
           "formula": "volume = side³",
-          "where": ["volume: in nm³", "side: length of one edge, in nm"]
+          "arrows": [
+            {
+              "point": "volume",
+              "label": "Volume (nm³)"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "Surface area to volume ratio",
-          "where": ["surface area: in nm²", "volume: in nm³"],
           "formula": "ratio = surface area ÷ volume"
         },
         {
@@ -323,7 +346,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",

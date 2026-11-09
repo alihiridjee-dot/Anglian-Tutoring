@@ -25,9 +25,16 @@
           "type": "equation",
           "label": "Formation of chlorine radicals from CF₂Cl₂",
           "formula": "CF₂Cl₂ → CF₂Cl• + Cl•",
-          "where": [
-            "UV radiation supplies the energy",
-            "Cl• is a chlorine radical (atom)"
+          "arrows": [
+            {
+              "point": "→",
+              "label": "UV radiation supplies the energy"
+            },
+            {
+              "point": "Cl•",
+              "in": "+ Cl•",
+              "label": "Chlorine radical (atom)"
+            }
           ]
         },
         {
@@ -63,9 +70,7 @@
           "type": "equation",
           "label": "Overall equation",
           "formula": "2O₃ → 3O₂",
-          "where": [
-            "the Cl• radicals cancel, so chlorine is not used up"
-          ]
+          "where": ["the Cl• radicals cancel, so chlorine is not used up"]
         },
         {
           "type": "diagram",
@@ -141,9 +146,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.2.2e"
-      ],
+      "spec_codes": ["OCR 4.2.2e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -162,9 +165,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.3.3"
-      ],
+      "spec_codes": ["AQA 3.3.3.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -191,7 +192,7 @@
       "307e8767-384e-4769-8f48-1ad9edf71322"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

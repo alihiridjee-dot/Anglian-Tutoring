@@ -72,11 +72,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Stage",
-            "Chromosomes",
-            "Nuclear envelope and spindle"
-          ],
+          "columns": ["Stage", "Chromosomes", "Nuclear envelope and spindle"],
           "rows": [
             [
               "Prophase",
@@ -248,16 +244,30 @@
               "type": "equation",
               "label": "Mitotic index",
               "formula": "mitotic index = number of cells with visible chromosomes ÷ total number of cells observed",
-              "where": [
-                "The number of cells in a stage of mitosis counted in the field of view"
+              "arrows": [
+                {
+                  "point": "number of cells with visible chromosomes",
+                  "label": "Cells in a stage of mitosis"
+                },
+                {
+                  "point": "total number of cells observed",
+                  "label": "All cells in the field of view"
+                }
               ]
             },
             {
               "type": "equation",
               "label": "Actual size",
               "formula": "actual size = size of image ÷ magnification",
-              "where": [
-                "Measure the apparent size of the cell in the image in a convenient unit, then convert the answer to µm"
+              "arrows": [
+                {
+                  "point": "actual size",
+                  "label": "Convert the answer to µm"
+                },
+                {
+                  "point": "size of image",
+                  "label": "Measured on the image, in any unit"
+                }
               ]
             },
             {
@@ -278,9 +288,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 3.10"
-      ]
+      "spec_codes": ["EDEX 3.10"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -329,13 +337,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 2.1.6a",
-        "OCR 2.1.6b",
-        "OCR 2.1.6c",
-        "OCR 2.1.6d",
-        "OCR 2.1.6e"
-      ],
+      "spec_codes": ["OCR 2.1.6a", "OCR 2.1.6b", "OCR 2.1.6c", "OCR 2.1.6d", "OCR 2.1.6e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -390,7 +392,7 @@
       "5104c03f-f3a2-4c4c-9c44-998759071a19"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

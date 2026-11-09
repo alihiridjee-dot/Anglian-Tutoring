@@ -27,19 +27,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Cross",
-            "Offspring phenotype ratio"
-          ],
+          "columns": ["Cross", "Offspring phenotype ratio"],
           "rows": [
-            [
-              "RrYy × RrYy (both heterozygous)",
-              "9 : 3 : 3 : 1"
-            ],
-            [
-              "RrYy × rryy (test cross)",
-              "1 : 1 : 1 : 1"
-            ],
+            ["RrYy × RrYy (both heterozygous)", "9 : 3 : 3 : 1"],
+            ["RrYy × rryy (test cross)", "1 : 1 : 1 : 1"],
             [
               "RRYY × rryy (pure-breeding parents)",
               "All RrYy, then 9 : 3 : 3 : 1 in the next generation"
@@ -83,11 +74,7 @@
             "kind": "predictor",
             "alt": "A predictor for an X-linked recessive condition. Pick the parents and see the daughters, the sons and the chance that a child is affected.",
             "prompt": "Pick the parents' genotypes",
-            "result_labels": [
-              "Daughters",
-              "Sons",
-              "Chance a child is affected"
-            ],
+            "result_labels": ["Daughters", "Sons", "Chance a child is affected"],
             "options": [
               {
                 "label": "Carrier mother (XᴴXʰ) × unaffected father (XᴴY)",
@@ -107,27 +94,15 @@
               },
               {
                 "label": "Affected mother (XʰXʰ) × unaffected father (XᴴY)",
-                "results": [
-                  "All carriers",
-                  "All affected",
-                  "1 in 2"
-                ]
+                "results": ["All carriers", "All affected", "1 in 2"]
               },
               {
                 "label": "Unaffected mother (XᴴXᴴ) × affected father (XʰY)",
-                "results": [
-                  "All carriers",
-                  "All unaffected",
-                  "None affected"
-                ]
+                "results": ["All carriers", "All unaffected", "None affected"]
               },
               {
                 "label": "Affected mother (XʰXʰ) × affected father (XʰY)",
-                "results": [
-                  "All affected",
-                  "All affected",
-                  "All affected"
-                ]
+                "results": ["All affected", "All affected", "All affected"]
               }
             ]
           }
@@ -238,10 +213,20 @@
           "type": "equation",
           "label": "Chi-squared",
           "formula": "χ² = Σ (O − E)² ÷ E",
-          "where": [
-            "O = observed number in a class",
-            "E = expected number in that class",
-            "Σ = the sum over all classes"
+          "arrows": [
+            {
+              "point": "Σ",
+              "label": "Sum over all classes"
+            },
+            {
+              "point": "O",
+              "label": "Observed number in a class"
+            },
+            {
+              "point": "E",
+              "in": "÷ E",
+              "label": "Expected number in the class"
+            }
           ]
         },
         {
@@ -291,23 +276,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Degrees of freedom",
-            "Critical value at p = 0.05"
-          ],
+          "columns": ["Degrees of freedom", "Critical value at p = 0.05"],
           "rows": [
-            [
-              "1",
-              "3.84"
-            ],
-            [
-              "2",
-              "5.99"
-            ],
-            [
-              "3",
-              "7.82"
-            ]
+            ["1", "3.84"],
+            ["2", "5.99"],
+            ["3", "7.82"]
           ]
         },
         {
@@ -340,15 +313,10 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.1f",
-        "AQA 3.7.1e"
-      ]
+      "spec_codes": ["AQA 3.7.1f", "AQA 3.7.1e"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 3.8"
-      ],
+      "spec_codes": ["EDEX 3.8"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -370,10 +338,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 16.2.3",
-        "CAIE 16.2.5"
-      ],
+      "spec_codes": ["CAIE 16.2.3", "CAIE 16.2.5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -391,10 +356,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.1.2b",
-        "OCR 6.1.2c"
-      ],
+      "spec_codes": ["OCR 6.1.2b", "OCR 6.1.2c"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -425,7 +387,7 @@
       "393f6b9a-83f1-4d70-925d-07e4709bfa0c"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

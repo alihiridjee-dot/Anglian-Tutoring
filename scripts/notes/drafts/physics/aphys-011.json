@@ -37,20 +37,30 @@
           "type": "equation",
           "label": "Weight",
           "formula": "W = mg",
-          "where": [
-            "W = weight (N)",
-            "m = mass (kg)",
-            "g = gravitational field strength, equal to the acceleration of free fall (N/kg or m/s²)"
+          "arrows": [
+            {
+              "point": "W",
+              "label": "Weight (N)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "g",
+              "label": "Field strength (N/kg or m/s²)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Gravitational field strength",
           "formula": "g = F / m",
-          "where": [
-            "g = gravitational field strength (N/kg)",
-            "F = gravitational force on the mass (N)",
-            "m = mass (kg)"
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Gravitational force on the mass (N)"
+            }
           ]
         },
         {
@@ -98,10 +108,19 @@
           "type": "equation",
           "label": "Newton's second law (constant mass)",
           "formula": "ΣF = ma",
-          "where": [
-            "ΣF = resultant (net) force (N)",
-            "m = mass (kg)",
-            "a = acceleration (m/s²)"
+          "arrows": [
+            {
+              "point": "ΣF",
+              "label": "Resultant force (N)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "a",
+              "label": "Acceleration (m/s²)"
+            }
           ]
         },
         {
@@ -162,11 +181,7 @@
               "unit": "m/s²",
               "decimals": 2
             },
-            "working": [
-              "ΣF = F − f = {F} − {f}",
-              "a = ΣF / m",
-              "a = {answer} m/s²"
-            ]
+            "working": ["ΣF = F − f = {F} − {f}", "a = ΣF / m", "a = {answer} m/s²"]
           }
         },
         {
@@ -209,10 +224,7 @@
             "kind": "sort",
             "alt": "A sorting activity. Sort each pair of forces into Newton's third law pairs and pairs that are not.",
             "prompt": "Is each pair of forces a Newton's third law pair?",
-            "groups": [
-              "Third law pair",
-              "Not a third law pair"
-            ],
+            "groups": ["Third law pair", "Not a third law pair"],
             "items": [
               {
                 "text": "The Earth pulls a book down. The book pulls the Earth up.",
@@ -345,9 +357,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.4.1.5"
-      ],
+      "spec_codes": ["AQA 3.4.1.5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -364,12 +374,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 2.16",
-        "EDEX 2.17",
-        "EDEX 2.18",
-        "EDEX 2.20"
-      ],
+      "spec_codes": ["EDEX 2.16", "EDEX 2.17", "EDEX 2.18", "EDEX 2.20"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -387,12 +392,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 3.1.1",
-        "CAIE 3.1.2",
-        "CAIE 3.1.5",
-        "CAIE 3.1.6"
-      ]
+      "spec_codes": ["CAIE 3.1.1", "CAIE 3.1.2", "CAIE 3.1.5", "CAIE 3.1.6"]
     },
     "ocr_alevel": {
       "spec_codes": [
@@ -444,7 +444,7 @@
       "cf2038bd-bb55-4b38-96cc-abfbbd12691e"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

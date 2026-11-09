@@ -29,9 +29,15 @@
           "type": "equation",
           "label": "Anaerobic respiration in muscles",
           "formula": "glucose → lactic acid",
-          "where": [
-            "glucose is the fuel",
-            "lactic acid is the only product, so no carbon dioxide or water is made"
+          "arrows": [
+            {
+              "point": "glucose",
+              "label": "The fuel"
+            },
+            {
+              "point": "lactic acid",
+              "label": "Only product: no carbon dioxide or water"
+            }
           ]
         },
         {
@@ -59,7 +65,16 @@
           "type": "equation",
           "label": "Anaerobic respiration in plant and yeast cells",
           "formula": "glucose → ethanol + carbon dioxide",
-          "where": ["ethanol is an alcohol", "carbon dioxide is a gas"]
+          "arrows": [
+            {
+              "point": "ethanol",
+              "label": "An alcohol"
+            },
+            {
+              "point": "carbon dioxide",
+              "label": "A gas"
+            }
+          ]
         },
         {
           "type": "paragraph",
@@ -256,10 +271,19 @@
               "type": "equation",
               "label": "Balanced equation for anaerobic respiration in yeast",
               "formula": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂",
-              "where": [
-                "C₆H₁₂O₆ is glucose",
-                "C₂H₅OH is ethanol (alcohol)",
-                "CO₂ is carbon dioxide"
+              "arrows": [
+                {
+                  "point": "C₆H₁₂O₆",
+                  "label": "Glucose"
+                },
+                {
+                  "point": "C₂H₅OH",
+                  "label": "Ethanol (alcohol)"
+                },
+                {
+                  "point": "CO₂",
+                  "label": "Carbon dioxide"
+                }
               ]
             },
             {
@@ -357,7 +381,7 @@
       "d8d1a635-3c68-4a7b-b629-a90314297817",
       "1813a702-8510-41ed-89b8-0e569d06373a"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

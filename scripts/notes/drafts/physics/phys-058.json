@@ -83,10 +83,19 @@
           "type": "equation",
           "label": "Weight",
           "formula": "W = m × g",
-          "where": [
-            "W: weight in newtons, N",
-            "m: mass in kilograms, kg",
-            "g: gravitational field strength in newtons per kilogram, N/kg"
+          "arrows": [
+            {
+              "point": "W",
+              "label": "Weight (N)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "g",
+              "label": "Gravitational field strength (N/kg)"
+            }
           ]
         },
         {
@@ -122,10 +131,19 @@
           "type": "equation",
           "label": "Average acceleration",
           "formula": "a = Δv / t",
-          "where": [
-            "a: acceleration in metres per second squared, m/s²",
-            "Δv: change in velocity in metres per second, m/s",
-            "t: time taken in seconds, s"
+          "arrows": [
+            {
+              "point": "a",
+              "label": "Acceleration (m/s²)"
+            },
+            {
+              "point": "Δv",
+              "label": "Change in velocity (m/s)"
+            },
+            {
+              "point": "t",
+              "label": "Time taken (s)"
+            }
           ]
         },
         {
@@ -320,7 +338,7 @@
       "c0efcac0-9ebf-45ac-a9f7-f05d87063de8",
       "76c374e3-778b-4a08-8939-d358de72609b"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

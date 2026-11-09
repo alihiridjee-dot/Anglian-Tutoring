@@ -33,20 +33,40 @@
           "type": "equation",
           "label": "Magnetic flux",
           "formula": "Φ = BA cos θ",
-          "where": [
-            "Φ = magnetic flux (Wb)",
-            "B = magnetic flux density (T)",
-            "A = area of the coil (m²)",
-            "θ = angle between the field and the normal (the line at right angles) to the coil"
-          ]
+          "arrows": [
+            {
+              "point": "Φ",
+              "label": "Magnetic flux (Wb)"
+            },
+            {
+              "point": "B",
+              "label": "Magnetic flux density (T)"
+            },
+            {
+              "point": "A",
+              "label": "Area of the coil (m²)"
+            },
+            {
+              "point": "θ",
+              "label": "Angle between field and normal to coil"
+            }
+          ],
+          "where": ["The normal is the line at right angles to the coil"]
         },
         {
           "type": "equation",
           "label": "Flux linkage",
           "formula": "NΦ = BAN cos θ",
-          "where": [
-            "NΦ = flux linkage (Wb)",
-            "N = number of turns on the coil"
+          "arrows": [
+            {
+              "point": "NΦ",
+              "label": "Flux linkage (Wb)"
+            },
+            {
+              "point": "N",
+              "in": "AN",
+              "label": "Number of turns on the coil"
+            }
           ]
         },
         {
@@ -90,16 +110,30 @@
           "type": "equation",
           "label": "Induced e.m.f.",
           "formula": "ε = −Δ(NΦ) / Δt = −N ΔΦ / Δt",
-          "where": [
-            "ε = induced e.m.f. (V)",
-            "Δ(NΦ) = change in flux linkage (Wb)",
-            "Δt = time taken for the change (s)"
+          "arrows": [
+            {
+              "point": "ε",
+              "label": "Induced e.m.f. (V)"
+            },
+            {
+              "point": "−",
+              "in": "−Δ(",
+              "label": "Lenz's law: opposes the change"
+            },
+            {
+              "point": "Δ(NΦ)",
+              "label": "Change in flux linkage (Wb)"
+            },
+            {
+              "point": "Δt",
+              "in": "Δ(NΦ) / Δt",
+              "label": "Time taken for the change (s)"
+            }
           ]
         },
         {
           "type": "list",
           "items": [
-            "The minus sign shows Lenz's law: the e.m.f. opposes the change.",
             "In calculus form, ε = −d(NΦ)/dt. This is the gradient of a graph of flux linkage against time.",
             "If the circuit is complete, the e.m.f. drives a current."
           ]
@@ -332,10 +366,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.5.3",
-        "AQA 3.7.5.4"
-      ],
+      "spec_codes": ["AQA 3.7.5.3", "AQA 3.7.5.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -392,23 +423,14 @@
             },
             {
               "type": "key-points",
-              "items": [
-                "Straight conductor: ε = Blv.",
-                "Rotating coil: ε = BANω sin ωt."
-              ]
+              "items": ["Straight conductor: ε = Blv.", "Rotating coil: ε = BANω sin ωt."]
             }
           ]
         }
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 7.121",
-        "EDEX 7.124",
-        "EDEX 7.125",
-        "EDEX 7.126",
-        "EDEX 7.127"
-      ],
+      "spec_codes": ["EDEX 7.121", "EDEX 7.124", "EDEX 7.125", "EDEX 7.126", "EDEX 7.127"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -443,21 +465,10 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 20.5.1",
-        "CAIE 20.5.2",
-        "CAIE 20.5.3",
-        "CAIE 20.5.4",
-        "CAIE 20.5.5"
-      ]
+      "spec_codes": ["CAIE 20.5.1", "CAIE 20.5.2", "CAIE 20.5.3", "CAIE 20.5.4", "CAIE 20.5.5"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.3.3a",
-        "OCR 6.3.3b",
-        "OCR 6.3.3c",
-        "OCR 6.3.3d"
-      ]
+      "spec_codes": ["OCR 6.3.3a", "OCR 6.3.3b", "OCR 6.3.3c", "OCR 6.3.3d"]
     }
   },
   "meta": {
@@ -483,7 +494,7 @@
       "d39efdff-5206-4039-b6a8-10bc6b45f0a3"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

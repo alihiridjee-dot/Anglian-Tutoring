@@ -29,11 +29,25 @@
           "type": "equation",
           "label": "Power",
           "formula": "P = W / t = E / t = ΔW / Δt",
-          "where": [
-            "P = power, in W",
-            "W = work done, in J",
-            "E = energy transferred, in J",
-            "t = time taken, in s"
+          "arrows": [
+            {
+              "point": "P",
+              "label": "Power (W)"
+            },
+            {
+              "point": "W",
+              "in": "W / t",
+              "label": "Work done (J)"
+            },
+            {
+              "point": "E",
+              "label": "Energy transferred (J)"
+            },
+            {
+              "point": "t",
+              "in": "E / t",
+              "label": "Time taken (s)"
+            }
           ]
         },
         {
@@ -85,10 +99,19 @@
           "type": "equation",
           "label": "Power from force and velocity",
           "formula": "P = Fv",
-          "where": [
-            "P = power, in W",
-            "F = force in the direction of motion, in N",
-            "v = velocity, in m/s"
+          "arrows": [
+            {
+              "point": "P",
+              "label": "Power (W)"
+            },
+            {
+              "point": "F",
+              "label": "Force along the motion (N)"
+            },
+            {
+              "point": "v",
+              "label": "Velocity (m/s)"
+            }
           ]
         },
         {
@@ -117,10 +140,7 @@
               "decimals": 1,
               "tolerance_percent": 2
             },
-            "working": [
-              "P = Fv",
-              "P = {F} × {v} = {answer} kW (after dividing by 1000)"
-            ]
+            "working": ["P = Fv", "P = {F} × {v} = {answer} kW (after dividing by 1000)"]
           }
         },
         {
@@ -210,9 +230,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.4.1.7"
-      ],
+      "spec_codes": ["AQA 3.4.1.7"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -230,26 +248,13 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 2.29",
-        "EDEX 2.30"
-      ]
+      "spec_codes": ["EDEX 2.29", "EDEX 2.30"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 5.1.3",
-        "CAIE 5.1.4",
-        "CAIE 5.1.5",
-        "CAIE 5.1.6",
-        "CAIE 5.1.7"
-      ]
+      "spec_codes": ["CAIE 5.1.3", "CAIE 5.1.4", "CAIE 5.1.5", "CAIE 5.1.6", "CAIE 5.1.7"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.3.3a",
-        "OCR 3.3.3b",
-        "OCR 3.3.3c"
-      ]
+      "spec_codes": ["OCR 3.3.3a", "OCR 3.3.3b", "OCR 3.3.3c"]
     }
   },
   "meta": {
@@ -270,7 +275,7 @@
       "5d33871c-8ae7-4196-af81-b01620a12469"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

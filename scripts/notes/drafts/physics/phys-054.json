@@ -33,12 +33,27 @@
           "type": "equation",
           "label": "Acceleration",
           "formula": "a = Δv ÷ t = (v − u) ÷ t",
-          "where": [
-            "a is acceleration in metres per second squared (m/s²).",
-            "Δv is the change in velocity in metres per second (m/s).",
-            "v is the final velocity and u is the initial velocity, both in m/s.",
-            "t is the time taken in seconds (s)."
-          ]
+          "arrows": [
+            {
+              "point": "a",
+              "label": "Acceleration (m/s²)"
+            },
+            {
+              "point": "t",
+              "in": "Δv ÷ t",
+              "label": "Time taken (s)"
+            },
+            {
+              "point": "v",
+              "in": "(v −",
+              "label": "Final velocity (m/s)"
+            },
+            {
+              "point": "u",
+              "label": "Initial velocity (m/s)"
+            }
+          ],
+          "where": ["Δv is the change in velocity, in m/s."]
         },
         {
           "type": "list",
@@ -123,11 +138,23 @@
           "type": "equation",
           "label": "Uniform acceleration",
           "formula": "v² − u² = 2 × a × s",
-          "where": [
-            "v is the final velocity in metres per second (m/s).",
-            "u is the initial velocity in metres per second (m/s).",
-            "a is the acceleration in metres per second squared (m/s²).",
-            "s is the distance in metres (m), sometimes written x."
+          "arrows": [
+            {
+              "point": "v",
+              "label": "Final velocity (m/s)"
+            },
+            {
+              "point": "u",
+              "label": "Initial velocity (m/s)"
+            },
+            {
+              "point": "a",
+              "label": "Acceleration (m/s²)"
+            },
+            {
+              "point": "s",
+              "label": "Distance (m), sometimes written x"
+            }
           ]
         },
         {
@@ -493,7 +520,7 @@
       "c3204d78-927b-4401-b9c5-4a2cb1ee75d1",
       "5d2cd20d-cedb-47b7-b9af-a59c1254b873"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

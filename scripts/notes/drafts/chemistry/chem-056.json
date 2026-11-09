@@ -57,25 +57,45 @@
           "type": "equation",
           "label": "A half equation at the cathode (reduction)",
           "formula": "Cu²⁺ + 2e⁻ → Cu",
-          "where": [
-            "Cu²⁺ is the copper ion, with a 2+ charge",
-            "e⁻ is an electron, on the left because it is gained",
-            "Cu is a copper atom"
+          "arrows": [
+            {
+              "point": "²⁺",
+              "label": "2+ charge: a copper ion"
+            },
+            {
+              "point": "2e⁻",
+              "label": "Electrons on the left: gained"
+            },
+            {
+              "point": "Cu",
+              "in": "→ Cu",
+              "label": "Copper atom"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "A half equation at the anode (oxidation)",
           "formula": "2Cl⁻ → Cl₂ + 2e⁻",
-          "where": [
-            "Cl⁻ is the chloride ion, with a 1− charge",
-            "Cl₂ is a chlorine molecule",
-            "e⁻ is an electron, on the right because it is lost"
+          "arrows": [
+            {
+              "point": "⁻",
+              "in": "2Cl⁻",
+              "label": "1− charge: a chloride ion"
+            },
+            {
+              "point": "Cl₂",
+              "label": "Chlorine molecule"
+            },
+            {
+              "point": "2e⁻",
+              "label": "Electrons on the right: lost"
+            }
           ]
         },
         {
           "type": "paragraph",
-          "text": "The electrons go on the left for a gain and on the right for a loss. A loss can also be written as a subtraction on the left, for example 2Cl⁻ − 2e⁻ → Cl₂."
+          "text": "A loss can also be written as a subtraction on the left, for example 2Cl⁻ − 2e⁻ → Cl₂."
         },
         {
           "type": "steps",
@@ -238,10 +258,20 @@
               "type": "equation",
               "label": "Copper anode (oxidation)",
               "formula": "Cu → Cu²⁺ + 2e⁻",
-              "where": [
-                "Cu is a copper atom in the anode",
-                "Cu²⁺ is a copper ion that dissolves in the solution",
-                "e⁻ is an electron, on the right because it is lost"
+              "arrows": [
+                {
+                  "point": "Cu",
+                  "in": "Cu →",
+                  "label": "Copper atom in the anode"
+                },
+                {
+                  "point": "Cu²⁺",
+                  "label": "Copper ion: dissolves"
+                },
+                {
+                  "point": "2e⁻",
+                  "label": "Electrons on the right: lost"
+                }
               ]
             }
           ]
@@ -285,7 +315,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27",
     "spec_point_ids": [
       "48195747-431e-47b6-9d06-662f75d41250",

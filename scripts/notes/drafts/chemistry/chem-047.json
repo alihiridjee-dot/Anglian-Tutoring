@@ -63,13 +63,23 @@
           "type": "equation",
           "label": "Acid with an alkali or a base",
           "formula": "acid + alkali (or base) → salt + water",
-          "where": ["salt is made of a metal ion and the negative ion from the acid"]
+          "arrows": [
+            {
+              "point": "salt",
+              "label": "Metal ion + the acid's negative ion"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "Acid with a metal carbonate",
           "formula": "acid + metal carbonate → salt + water + carbon dioxide",
-          "where": ["carbon dioxide is given off as bubbles"]
+          "arrows": [
+            {
+              "point": "carbon dioxide",
+              "label": "Given off as bubbles"
+            }
+          ]
         },
         {
           "type": "paragraph",
@@ -79,10 +89,24 @@
           "type": "equation",
           "label": "Ionic equation for neutralisation",
           "formula": "H⁺(aq) + OH⁻(aq) → H₂O(l)",
-          "where": [
-            "H⁺ comes from the acid",
-            "OH⁻ comes from the alkali",
-            "(aq) means dissolved in water, (l) means liquid"
+          "arrows": [
+            {
+              "point": "H⁺",
+              "label": "From the acid"
+            },
+            {
+              "point": "(aq)",
+              "in": "H⁺(aq)",
+              "label": "Dissolved in water"
+            },
+            {
+              "point": "OH⁻",
+              "label": "From the alkali"
+            },
+            {
+              "point": "(l)",
+              "label": "Liquid"
+            }
           ]
         },
         {
@@ -310,8 +334,11 @@
               "type": "equation",
               "label": "Base with an ammonium salt",
               "formula": "ammonium salt + base → salt + water + ammonia",
-              "where": [
-                "ammonia: a gas with a pungent smell, which turns damp red litmus paper blue"
+              "arrows": [
+                {
+                  "point": "ammonia",
+                  "label": "Pungent gas: turns damp red litmus blue"
+                }
               ]
             },
             {
@@ -379,7 +406,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06",
     "spec_point_ids": [
       "2b381918-1faa-44e1-9cbe-78352890923e",

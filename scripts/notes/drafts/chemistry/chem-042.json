@@ -62,19 +62,35 @@
           "type": "equation",
           "label": "Metal and water",
           "formula": "metal + water → metal hydroxide + hydrogen",
-          "where": [
-            "metal: for example potassium, sodium, lithium, calcium",
-            "metal hydroxide: dissolves to make an alkaline solution",
-            "hydrogen: a gas, which gives a squeaky pop with a lighted splint"
+          "arrows": [
+            {
+              "point": "metal",
+              "in": "metal + water",
+              "label": "Such as potassium, sodium, lithium, calcium"
+            },
+            {
+              "point": "metal hydroxide",
+              "label": "Dissolves: makes an alkaline solution"
+            },
+            {
+              "point": "hydrogen",
+              "label": "Gas: squeaky pop with a lighted splint"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Metal and dilute acid",
           "formula": "metal + acid → salt + hydrogen",
-          "where": [
-            "salt: for example a chloride with hydrochloric acid",
-            "hydrogen: the gas given off"
+          "arrows": [
+            {
+              "point": "salt",
+              "label": "Hydrochloric acid gives a chloride"
+            },
+            {
+              "point": "hydrogen",
+              "label": "The gas given off"
+            }
           ]
         },
         {
@@ -347,11 +363,25 @@
               "type": "equation",
               "label": "Magnesium and steam",
               "formula": "Mg + H₂O → MgO + H₂",
-              "where": [
-                "Mg: magnesium, heated in steam",
-                "H₂O: steam (water as a gas)",
-                "MgO: magnesium oxide, a white solid",
-                "H₂: hydrogen gas"
+              "arrows": [
+                {
+                  "point": "Mg",
+                  "in": "Mg +",
+                  "label": "Magnesium, heated"
+                },
+                {
+                  "point": "H₂O",
+                  "label": "Steam: water as a gas"
+                },
+                {
+                  "point": "MgO",
+                  "label": "Magnesium oxide: a white solid"
+                },
+                {
+                  "point": "H₂",
+                  "in": "MgO + H₂",
+                  "label": "Hydrogen gas"
+                }
               ]
             },
             {
@@ -402,9 +432,17 @@
               "type": "equation",
               "label": "Displacement from an oxide",
               "formula": "magnesium + copper(II) oxide → magnesium oxide + copper",
-              "where": [
-                "magnesium: the more reactive metal, which takes the oxygen",
-                "copper: the less reactive metal, set free"
+              "arrows": [
+                {
+                  "point": "magnesium",
+                  "in": "magnesium +",
+                  "label": "More reactive: takes the oxygen"
+                },
+                {
+                  "point": "copper",
+                  "in": "oxide + copper",
+                  "label": "Less reactive: set free"
+                }
               ]
             },
             {
@@ -423,7 +461,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-diagram-audit",
+    "checked_by": "sonnet-science-check, opus-5-5-diagram-audit, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06",
     "spec_point_ids": [
       "64bb97a5-d18e-41f9-9805-f89e1ce66bbe",

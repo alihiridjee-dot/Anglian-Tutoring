@@ -44,11 +44,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Animal",
-            "Type of system",
-            "Key features"
-          ],
+          "columns": ["Animal", "Type of system", "Key features"],
           "rows": [
             [
               "Insect",
@@ -77,11 +73,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Vessel",
-            "Carries blood",
-            "Function"
-          ],
+          "columns": ["Vessel", "Carries blood", "Function"],
           "rows": [
             [
               "Pulmonary artery",
@@ -150,11 +142,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Vessel",
-            "Wall and lumen",
-            "How this suits its function"
-          ],
+          "columns": ["Vessel", "Wall and lumen", "How this suits its function"],
           "rows": [
             [
               "Artery",
@@ -188,11 +176,7 @@
             "kind": "sort",
             "alt": "A sorting activity. Sort statements about blood vessel walls into artery, capillary and vein.",
             "prompt": "Sort each description into the vessel it fits.",
-            "groups": [
-              "Artery",
-              "Capillary",
-              "Vein"
-            ],
+            "groups": ["Artery", "Capillary", "Vein"],
             "items": [
               {
                 "text": "Thick wall with many elastic fibres",
@@ -296,11 +280,13 @@
           "type": "equation",
           "label": "Net movement of fluid out of a capillary",
           "formula": "net outward pressure = hydrostatic pressure − oncotic pressure",
-          "where": [
-            "hydrostatic pressure, in kPa",
-            "oncotic pressure, in kPa",
-            "a positive answer means fluid moves out of the capillary"
-          ]
+          "arrows": [
+            {
+              "point": "net outward pressure",
+              "label": "Positive: fluid moves out of the capillary"
+            }
+          ],
+          "where": ["both pressures in kPa"]
         },
         {
           "type": "diagram",
@@ -339,37 +325,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Blood",
-            "Tissue fluid",
-            "Lymph"
-          ],
+          "columns": ["Feature", "Blood", "Tissue fluid", "Lymph"],
           "rows": [
-            [
-              "Red blood cells",
-              "Present",
-              "None",
-              "None"
-            ],
-            [
-              "Plasma proteins",
-              "Many",
-              "Few",
-              "Few"
-            ],
-            [
-              "Lymphocytes",
-              "Some",
-              "None",
-              "Many"
-            ],
-            [
-              "Oxygen and glucose",
-              "High",
-              "Lower",
-              "Lower"
-            ]
+            ["Red blood cells", "Present", "None", "None"],
+            ["Plasma proteins", "Many", "Few", "Few"],
+            ["Lymphocytes", "Some", "None", "Many"],
+            ["Oxygen and glucose", "High", "Lower", "Lower"]
           ]
         },
         {
@@ -402,12 +363,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.4.1d",
-        "AQA 3.3.4.1f",
-        "AQA 3.3.4.1g",
-        "AQA 3.3.4.1 RP5"
-      ],
+      "spec_codes": ["AQA 3.3.4.1d", "AQA 3.3.4.1f", "AQA 3.3.4.1g", "AQA 3.3.4.1 RP5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -429,12 +385,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.1.2a",
-        "OCR 3.1.2b",
-        "OCR 3.1.2c",
-        "OCR 3.1.2d"
-      ],
+      "spec_codes": ["OCR 3.1.2a", "OCR 3.1.2b", "OCR 3.1.2c", "OCR 3.1.2d"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -445,37 +396,12 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Tissue",
-                "Artery",
-                "Vein",
-                "Capillary"
-              ],
+              "columns": ["Tissue", "Artery", "Vein", "Capillary"],
               "rows": [
-                [
-                  "Endothelium (innermost)",
-                  "Present",
-                  "Present",
-                  "Only layer present"
-                ],
-                [
-                  "Elastic tissue",
-                  "Thick layer",
-                  "Thin layer",
-                  "None"
-                ],
-                [
-                  "Smooth muscle",
-                  "Thick layer",
-                  "Thin layer",
-                  "None"
-                ],
-                [
-                  "Collagen (outermost)",
-                  "Thick layer",
-                  "Thick layer",
-                  "None"
-                ]
+                ["Endothelium (innermost)", "Present", "Present", "Only layer present"],
+                ["Elastic tissue", "Thick layer", "Thin layer", "None"],
+                ["Smooth muscle", "Thick layer", "Thin layer", "None"],
+                ["Collagen (outermost)", "Thick layer", "Thick layer", "None"]
               ]
             },
             {
@@ -491,10 +417,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 1.1",
-        "EDEX 1.3"
-      ]
+      "spec_codes": ["EDEX 1.1", "EDEX 1.3"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -515,11 +438,7 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Feature",
-                "Elastic artery",
-                "Muscular artery"
-              ],
+              "columns": ["Feature", "Elastic artery", "Muscular artery"],
               "rows": [
                 [
                   "Example",
@@ -558,7 +477,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "status": "draft",
     "written_by": "claude-sonnet-5-5",

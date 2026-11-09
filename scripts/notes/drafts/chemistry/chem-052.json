@@ -150,7 +150,16 @@
           "type": "equation",
           "label": "Mean titre",
           "formula": "mean titre = (titre 1 + titre 2 + ...) ÷ number of titres used",
-          "where": ["each titre is in cm³", "use only the accurate, concordant titres"]
+          "arrows": [
+            {
+              "point": "(titre 1 + titre 2 + ...)",
+              "label": "Each titre in cm³"
+            },
+            {
+              "point": "number of titres used",
+              "label": "Only the accurate, concordant titres"
+            }
+          ]
         },
         {
           "type": "diagram",
@@ -359,7 +368,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "status": "draft",
     "written_by": "sonnet-5-5",

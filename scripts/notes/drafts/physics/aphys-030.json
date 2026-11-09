@@ -57,9 +57,15 @@
           "type": "equation",
           "label": "Frequency and period",
           "formula": "f = 1 / T",
-          "where": [
-            "f = frequency (Hz)",
-            "T = period (s)"
+          "arrows": [
+            {
+              "point": "f",
+              "label": "Frequency (Hz)"
+            },
+            {
+              "point": "T",
+              "label": "Period (s)"
+            }
           ]
         },
         {
@@ -99,10 +105,19 @@
           "type": "equation",
           "label": "Wave equation",
           "formula": "v = fλ",
-          "where": [
-            "v = wave speed (m/s)",
-            "f = frequency (Hz)",
-            "λ = wavelength (m)"
+          "arrows": [
+            {
+              "point": "v",
+              "label": "Wave speed (m/s)"
+            },
+            {
+              "point": "f",
+              "label": "Frequency (Hz)"
+            },
+            {
+              "point": "λ",
+              "label": "Wavelength (m)"
+            }
           ]
         },
         {
@@ -195,32 +210,20 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Transverse",
-            "Longitudinal"
-          ],
+          "columns": ["Feature", "Transverse", "Longitudinal"],
           "rows": [
             [
               "Oscillation",
               "At right angles to the direction of energy travel",
               "Parallel to the direction of energy travel"
             ],
-            [
-              "Pattern",
-              "Crests and troughs",
-              "Compressions and rarefactions"
-            ],
+            ["Pattern", "Crests and troughs", "Compressions and rarefactions"],
             [
               "Examples",
               "Waves on a string, electromagnetic waves, ripples",
               "Sound, waves along a spring pushed and pulled"
             ],
-            [
-              "Can be polarised",
-              "Yes",
-              "No"
-            ]
+            ["Can be polarised", "Yes", "No"]
           ]
         },
         {
@@ -292,10 +295,19 @@
           "type": "equation",
           "label": "Intensity",
           "formula": "I = P / A",
-          "where": [
-            "I = intensity (W/m²)",
-            "P = power of the wave (W)",
-            "A = area it passes through, at right angles to the wave (m²)"
+          "arrows": [
+            {
+              "point": "I",
+              "label": "Intensity (W/m²)"
+            },
+            {
+              "point": "P",
+              "label": "Power of the wave (W)"
+            },
+            {
+              "point": "A",
+              "label": "Area crossed, at right angles (m²)"
+            }
           ]
         },
         {
@@ -334,10 +346,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.1.1",
-        "AQA 3.3.1.2"
-      ],
+      "spec_codes": ["AQA 3.3.1.1", "AQA 3.3.1.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -359,14 +368,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.59",
-        "EDEX 5.60",
-        "EDEX 5.61",
-        "EDEX 5.62",
-        "EDEX 5.63",
-        "EDEX 5.70"
-      ]
+      "spec_codes": ["EDEX 5.59", "EDEX 5.60", "EDEX 5.61", "EDEX 5.62", "EDEX 5.63", "EDEX 5.70"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -449,7 +451,7 @@
       "84e95bc7-9e3e-4e29-a2cd-0f6b41fd8cd6"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

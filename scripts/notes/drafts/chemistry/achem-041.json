@@ -38,27 +38,15 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Method",
-            "Example",
-            "What is in the buffer"
-          ],
+          "columns": ["Method", "Example", "What is in the buffer"],
           "rows": [
-            [
-              "Weak acid + a salt of that acid",
-              "CH₃COOH + CH₃COONa",
-              "CH₃COOH and CH₃COO⁻"
-            ],
+            ["Weak acid + a salt of that acid", "CH₃COOH + CH₃COONa", "CH₃COOH and CH₃COO⁻"],
             [
               "Excess weak acid + strong alkali",
               "Excess CH₃COOH + NaOH",
               "Unreacted CH₃COOH and the CH₃COO⁻ formed"
             ],
-            [
-              "Weak base + a salt of that base",
-              "NH₃ + NH₄Cl",
-              "NH₃ and NH₄⁺"
-            ]
+            ["Weak base + a salt of that base", "NH₃ + NH₄Cl", "NH₃ and NH₄⁺"]
           ]
         },
         {
@@ -88,9 +76,15 @@
           "type": "equation",
           "label": "Acid buffer equilibrium",
           "formula": "CH₃COOH(aq) ⇌ H⁺(aq) + CH₃COO⁻(aq)",
-          "where": [
-            "CH₃COOH = weak acid, present in large amount",
-            "CH₃COO⁻ = conjugate base, from the salt"
+          "arrows": [
+            {
+              "point": "CH₃COOH",
+              "label": "Weak acid, in large amount"
+            },
+            {
+              "point": "CH₃COO⁻",
+              "label": "Conjugate base, from the salt"
+            }
           ]
         },
         {
@@ -143,10 +137,19 @@
           "type": "equation",
           "label": "Hydrogen ion concentration of a buffer",
           "formula": "[H⁺] = Ka × [HA] ÷ [A⁻]",
-          "where": [
-            "Ka = acid dissociation constant (mol/dm³)",
-            "[HA] = concentration of weak acid (mol/dm³)",
-            "[A⁻] = concentration of conjugate base (mol/dm³)"
+          "arrows": [
+            {
+              "point": "Ka",
+              "label": "Acid dissociation constant (mol/dm³)"
+            },
+            {
+              "point": "[HA]",
+              "label": "Concentration of weak acid (mol/dm³)"
+            },
+            {
+              "point": "[A⁻]",
+              "label": "Concentration of conjugate base (mol/dm³)"
+            }
           ]
         },
         {
@@ -207,9 +210,15 @@
           "type": "equation",
           "label": "Blood buffer",
           "formula": "H₂CO₃(aq) ⇌ H⁺(aq) + HCO₃⁻(aq)",
-          "where": [
-            "H₂CO₃ = carbonic acid",
-            "HCO₃⁻ = hydrogencarbonate ion"
+          "arrows": [
+            {
+              "point": "H₂CO₃",
+              "label": "Carbonic acid"
+            },
+            {
+              "point": "HCO₃⁻",
+              "label": "Hydrogencarbonate ion"
+            }
           ]
         },
         {
@@ -241,13 +250,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.1.3i",
-        "OCR 5.1.3j",
-        "OCR 5.1.3k",
-        "OCR 5.1.3l",
-        "OCR 5.1.3m"
-      ],
+      "spec_codes": ["OCR 5.1.3i", "OCR 5.1.3j", "OCR 5.1.3k", "OCR 5.1.3l", "OCR 5.1.3m"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -268,13 +271,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 12.18",
-        "EDEX 12.19",
-        "EDEX 12.20",
-        "EDEX 12.21",
-        "EDEX 12.24"
-      ],
+      "spec_codes": ["EDEX 12.18", "EDEX 12.19", "EDEX 12.20", "EDEX 12.21", "EDEX 12.24"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -309,9 +306,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.12.6"
-      ],
+      "spec_codes": ["AQA 3.1.12.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -329,10 +324,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 25.1.5",
-        "CAIE 25.1.6"
-      ],
+      "spec_codes": ["CAIE 25.1.5", "CAIE 25.1.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -369,7 +361,7 @@
       "069d15a2-5314-4be4-ab95-116ad8c0e8df"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

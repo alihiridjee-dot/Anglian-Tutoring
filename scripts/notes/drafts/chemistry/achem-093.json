@@ -86,10 +86,13 @@
           "type": "equation",
           "label": "Rf value",
           "formula": "Rf = distance moved by the spot ÷ distance moved by the solvent front",
-          "where": [
-            "Both distances are measured from the baseline, in the same units",
-            "Rf has no units and is always between 0 and 1"
-          ]
+          "arrows": [
+            {
+              "point": "Rf",
+              "label": "No units, always between 0 and 1"
+            }
+          ],
+          "where": ["Both distances are measured from the baseline, in the same units"]
         },
         {
           "type": "list",
@@ -177,9 +180,7 @@
           "type": "equation",
           "label": "Percentage composition from a chromatogram",
           "formula": "% of component = (peak area of component ÷ total peak area) × 100",
-          "where": [
-            "Peak areas are in the same units"
-          ]
+          "where": ["Peak areas are in the same units"]
         },
         {
           "type": "paragraph",
@@ -214,10 +215,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.3.1a",
-        "OCR 6.3.1b"
-      ],
+      "spec_codes": ["OCR 6.3.1a", "OCR 6.3.1b"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -256,11 +254,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 19C.6",
-        "EDEX 19C.7",
-        "EDEX 19C.8"
-      ],
+      "spec_codes": ["EDEX 19C.6", "EDEX 19C.7", "EDEX 19C.8"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -278,9 +272,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.16"
-      ],
+      "spec_codes": ["AQA 3.3.16"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -343,7 +335,7 @@
       "4a6a5998-220b-4cf2-9c4d-0746383022d0"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -147,7 +147,12 @@
           "type": "equation",
           "label": "Photosynthesis",
           "formula": "carbon dioxide + water → glucose + oxygen",
-          "where": ["Light energy is needed for the reaction"]
+          "arrows": [
+            {
+              "point": "→",
+              "label": "Needs light energy"
+            }
+          ]
         },
         {
           "type": "subheading",
@@ -308,13 +313,26 @@
               "type": "equation",
               "label": "Photosynthesis (symbol equation)",
               "formula": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
-              "where": [
-                "CO₂: carbon dioxide",
-                "H₂O: water",
-                "C₆H₁₂O₆: glucose",
-                "O₂: oxygen",
-                "Light energy is needed for the reaction"
-              ]
+              "arrows": [
+                {
+                  "point": "CO₂",
+                  "label": "Carbon dioxide"
+                },
+                {
+                  "point": "H₂O",
+                  "label": "Water"
+                },
+                {
+                  "point": "C₆H₁₂O₆",
+                  "label": "Glucose"
+                },
+                {
+                  "point": "O₂",
+                  "in": "6O₂",
+                  "label": "Oxygen"
+                }
+              ],
+              "where": ["Light energy is needed for the reaction"]
             }
           ]
         }
@@ -399,11 +417,24 @@
               "type": "equation",
               "label": "Photosynthesis (symbol equation)",
               "formula": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
-              "where": [
-                "CO₂ is carbon dioxide",
-                "H₂O is water",
-                "C₆H₁₂O₆ is glucose",
-                "O₂ is oxygen"
+              "arrows": [
+                {
+                  "point": "CO₂",
+                  "label": "Carbon dioxide"
+                },
+                {
+                  "point": "H₂O",
+                  "label": "Water"
+                },
+                {
+                  "point": "C₆H₁₂O₆",
+                  "label": "Glucose"
+                },
+                {
+                  "point": "O₂",
+                  "in": "6O₂",
+                  "label": "Oxygen"
+                }
               ]
             }
           ]
@@ -480,7 +511,7 @@
       "1dbb3e1a-7662-4082-905c-6519f2a94e71",
       "ac2f6c6c-c6d5-4989-a3e1-ebf1c9150148"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

@@ -71,17 +71,44 @@
           "type": "equation",
           "label": "Aerobic respiration in words",
           "formula": "glucose + oxygen → carbon dioxide + water",
-          "where": [
-            "glucose is the fuel",
-            "oxygen comes from the air you breathe",
-            "carbon dioxide and water are the waste products"
+          "arrows": [
+            {
+              "point": "glucose",
+              "label": "The fuel"
+            },
+            {
+              "point": "oxygen",
+              "label": "From the air you breathe"
+            },
+            {
+              "point": "carbon dioxide + water",
+              "label": "Waste products"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Aerobic respiration in symbols",
           "formula": "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O",
-          "where": ["C₆H₁₂O₆ is glucose", "O₂ is oxygen", "CO₂ is carbon dioxide", "H₂O is water"]
+          "arrows": [
+            {
+              "point": "C₆H₁₂O₆",
+              "label": "Glucose"
+            },
+            {
+              "point": "O₂",
+              "in": "6O₂",
+              "label": "Oxygen"
+            },
+            {
+              "point": "CO₂",
+              "label": "Carbon dioxide"
+            },
+            {
+              "point": "H₂O",
+              "label": "Water"
+            }
+          ]
         },
         {
           "type": "diagram",
@@ -306,10 +333,19 @@
               "type": "equation",
               "label": "Word equation for aerobic respiration, with ATP",
               "formula": "glucose + oxygen → carbon dioxide + water + ATP",
-              "where": [
-                "glucose is the fuel",
-                "oxygen comes from the air",
-                "ATP is the molecule that carries the energy released"
+              "arrows": [
+                {
+                  "point": "glucose",
+                  "label": "The fuel"
+                },
+                {
+                  "point": "oxygen",
+                  "label": "From the air"
+                },
+                {
+                  "point": "ATP",
+                  "label": "Carries the energy released"
+                }
               ]
             }
           ]
@@ -342,7 +378,7 @@
       "5e03c6f3-018a-4475-96ec-36526d049953",
       "7fbedbe1-c52d-497f-9b02-7a5fa990bd8d"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

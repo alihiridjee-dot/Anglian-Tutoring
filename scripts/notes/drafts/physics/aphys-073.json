@@ -52,10 +52,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Source",
-            "Field pattern"
-          ],
+          "columns": ["Source", "Field pattern"],
           "rows": [
             [
               "Long straight wire",
@@ -99,13 +96,25 @@
           "type": "equation",
           "label": "Force on a current-carrying wire",
           "formula": "F = BIL sin θ",
-          "where": [
-            "F = force on the wire (N)",
-            "B = magnetic flux density (T)",
-            "I = current (A)",
-            "L = length of wire in the field (m)",
-            "θ = angle between the wire and the field"
-          ]
+          "arrows": [
+            {
+              "point": "B",
+              "label": "Magnetic flux density (T)"
+            },
+            {
+              "point": "I",
+              "label": "Current (A)"
+            },
+            {
+              "point": "L",
+              "label": "Length of wire in the field (m)"
+            },
+            {
+              "point": "θ",
+              "label": "Angle between the wire and the field"
+            }
+          ],
+          "where": ["F = force on the wire (N)"]
         },
         {
           "type": "list",
@@ -231,13 +240,7 @@
         {
           "type": "equation",
           "label": "Magnetic flux density (wire at right angles to the field)",
-          "formula": "B = F / (IL)",
-          "where": [
-            "B = magnetic flux density (T)",
-            "F = force on the wire (N)",
-            "I = current (A)",
-            "L = length of wire (m)"
-          ]
+          "formula": "B = F / (IL)"
         },
         {
           "type": "definitions",
@@ -326,14 +329,10 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.5.1"
-      ]
+      "spec_codes": ["AQA 3.7.5.1"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 7.123"
-      ]
+      "spec_codes": ["EDEX 7.123"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -439,7 +438,7 @@
       "29ff62fe-0d87-4db9-b73e-edd0c7c52b09"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

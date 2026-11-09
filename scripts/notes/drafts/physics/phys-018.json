@@ -29,30 +29,46 @@
           "type": "equation",
           "label": "Power from potential difference and current",
           "formula": "power = potential difference × current    (P = V I)",
-          "where": [
-            "power, P, in watts, W",
-            "potential difference, V, in volts, V",
-            "current, I, in amperes, A (amp is acceptable)"
+          "arrows": [
+            {
+              "point": "P",
+              "label": "Power (W)"
+            },
+            {
+              "point": "V",
+              "label": "Potential difference (V)"
+            },
+            {
+              "point": "I",
+              "label": "Current (amperes or amps, A)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Power from current and resistance",
           "formula": "power = current² × resistance    (P = I²R)",
-          "where": [
-            "power, P, in watts, W",
-            "current, I, in amperes, A",
-            "resistance, R, in ohms, Ω"
+          "arrows": [
+            {
+              "point": "R",
+              "label": "Resistance (Ω)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Power from energy and time",
           "formula": "power = energy transferred ÷ time    (P = E / t)",
-          "where": [
-            "power, P, in watts, W",
-            "energy transferred, E, in joules, J",
-            "time, t, in seconds, s"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Energy transferred (J)"
+            },
+            {
+              "point": "t",
+              "in": "E / t",
+              "label": "Time (s)"
+            }
           ]
         },
         {
@@ -385,7 +401,7 @@
       "42d00cb5-a4cf-4783-86a0-26c32aaf207f",
       "7b84a914-9620-42dc-b2c3-f578a9bc4628"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "exemplar_ids": [
       "02bfab1a-4b1f-4164-ae75-6a9c87186e6b",

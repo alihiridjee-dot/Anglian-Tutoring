@@ -27,8 +27,12 @@
           "type": "equation",
           "label": "First step, for any halide",
           "formula": "NaX + H₂SO₄ → NaHSO₄ + HX",
-          "where": [
-            "X: F, Cl, Br or I"
+          "arrows": [
+            {
+              "point": "X",
+              "in": "NaX",
+              "label": "F, Cl, Br or I"
+            }
           ]
         },
         {
@@ -47,31 +51,11 @@
             "Sulfur oxidation number change"
           ],
           "rows": [
-            [
-              "NaCl",
-              "Steamy fumes of HCl only",
-              "None"
-            ],
-            [
-              "NaBr",
-              "2HBr + H₂SO₄ → Br₂ + SO₂ + 2H₂O",
-              "+6 to +4"
-            ],
-            [
-              "NaI",
-              "2HI + H₂SO₄ → I₂ + SO₂ + 2H₂O",
-              "+6 to +4"
-            ],
-            [
-              "NaI",
-              "6HI + H₂SO₄ → 3I₂ + S + 4H₂O",
-              "+6 to 0"
-            ],
-            [
-              "NaI",
-              "8HI + H₂SO₄ → 4I₂ + H₂S + 4H₂O",
-              "+6 to −2"
-            ]
+            ["NaCl", "Steamy fumes of HCl only", "None"],
+            ["NaBr", "2HBr + H₂SO₄ → Br₂ + SO₂ + 2H₂O", "+6 to +4"],
+            ["NaI", "2HI + H₂SO₄ → I₂ + SO₂ + 2H₂O", "+6 to +4"],
+            ["NaI", "6HI + H₂SO₄ → 3I₂ + S + 4H₂O", "+6 to 0"],
+            ["NaI", "8HI + H₂SO₄ → 4I₂ + H₂S + 4H₂O", "+6 to −2"]
           ]
         },
         {
@@ -84,35 +68,19 @@
             "kind": "predictor",
             "alt": "A predictor. Pick a solid sodium halide to see what concentrated sulfuric acid does.",
             "prompt": "Pick a solid sodium halide.",
-            "result_labels": [
-              "What you see",
-              "Is H₂SO₄ reduced?",
-              "Reducing product of sulfur"
-            ],
+            "result_labels": ["What you see", "Is H₂SO₄ reduced?", "Reducing product of sulfur"],
             "options": [
               {
                 "label": "NaF",
-                "results": [
-                  "Steamy fumes of HF",
-                  "No",
-                  "None"
-                ]
+                "results": ["Steamy fumes of HF", "No", "None"]
               },
               {
                 "label": "NaCl",
-                "results": [
-                  "Steamy fumes of HCl",
-                  "No",
-                  "None"
-                ]
+                "results": ["Steamy fumes of HCl", "No", "None"]
               },
               {
                 "label": "NaBr",
-                "results": [
-                  "Steamy fumes, orange-brown Br₂ vapour, choking SO₂",
-                  "Yes",
-                  "SO₂"
-                ]
+                "results": ["Steamy fumes, orange-brown Br₂ vapour, choking SO₂", "Yes", "SO₂"]
               },
               {
                 "label": "NaI",
@@ -162,37 +130,20 @@
           "type": "equation",
           "label": "Precipitation of a silver halide",
           "formula": "Ag⁺(aq) + X⁻(aq) → AgX(s)",
-          "where": [
-            "X: Cl, Br or I"
+          "arrows": [
+            {
+              "point": "X⁻",
+              "label": "Cl⁻, Br⁻ or I⁻"
+            }
           ]
         },
         {
           "type": "table",
-          "columns": [
-            "Halide",
-            "Precipitate",
-            "Dilute ammonia",
-            "Concentrated ammonia"
-          ],
+          "columns": ["Halide", "Precipitate", "Dilute ammonia", "Concentrated ammonia"],
           "rows": [
-            [
-              "Cl⁻",
-              "White",
-              "Dissolves",
-              "Dissolves"
-            ],
-            [
-              "Br⁻",
-              "Cream",
-              "Does not dissolve",
-              "Dissolves"
-            ],
-            [
-              "I⁻",
-              "Pale yellow",
-              "Does not dissolve",
-              "Does not dissolve"
-            ]
+            ["Cl⁻", "White", "Dissolves", "Dissolves"],
+            ["Br⁻", "Cream", "Does not dissolve", "Dissolves"],
+            ["I⁻", "Pale yellow", "Does not dissolve", "Does not dissolve"]
           ]
         },
         {
@@ -218,12 +169,7 @@
             "options": [
               {
                 "label": "Chloride",
-                "results": [
-                  "White",
-                  "Dissolves",
-                  "Dissolves",
-                  "Ag⁺ + Cl⁻ → AgCl"
-                ],
+                "results": ["White", "Dissolves", "Dissolves", "Ag⁺ + Cl⁻ → AgCl"],
                 "scene": {
                   "kind": "tubes",
                   "tubes": [
@@ -245,12 +191,7 @@
               },
               {
                 "label": "Bromide",
-                "results": [
-                  "Cream",
-                  "Does not dissolve",
-                  "Dissolves",
-                  "Ag⁺ + Br⁻ → AgBr"
-                ],
+                "results": ["Cream", "Does not dissolve", "Dissolves", "Ag⁺ + Br⁻ → AgBr"],
                 "scene": {
                   "kind": "tubes",
                   "tubes": [
@@ -332,14 +273,10 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.1.3g"
-      ]
+      "spec_codes": ["OCR 3.1.3g"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 4B.13"
-      ],
+      "spec_codes": ["EDEX 4B.13"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -362,10 +299,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 11.3.1",
-        "CAIE 11.3.2"
-      ],
+      "spec_codes": ["CAIE 11.3.1", "CAIE 11.3.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -388,9 +322,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.3.1"
-      ]
+      "spec_codes": ["AQA 3.2.3.1"]
     }
   },
   "meta": {
@@ -404,7 +336,7 @@
       "b11a54a7-21a8-4005-a987-3316c3c061c1"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

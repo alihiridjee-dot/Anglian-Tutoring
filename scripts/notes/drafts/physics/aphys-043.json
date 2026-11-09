@@ -14,15 +14,9 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Observation",
-            "Conclusion"
-          ],
+          "columns": ["Observation", "Conclusion"],
           "rows": [
-            [
-              "Most alpha particles pass straight through",
-              "An atom is mostly empty space"
-            ],
+            ["Most alpha particles pass straight through", "An atom is mostly empty space"],
             [
               "A few are deflected by small angles",
               "The nucleus is positive, so it repels the positive alpha particles"
@@ -64,31 +58,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Particle",
-            "Relative charge",
-            "Relative mass",
-            "Where"
-          ],
+          "columns": ["Particle", "Relative charge", "Relative mass", "Where"],
           "rows": [
-            [
-              "Proton",
-              "+1",
-              "1",
-              "Nucleus"
-            ],
-            [
-              "Neutron",
-              "0",
-              "1",
-              "Nucleus"
-            ],
-            [
-              "Electron",
-              "−1",
-              "about 1/1840",
-              "Orbiting the nucleus"
-            ]
+            ["Proton", "+1", "1", "Nucleus"],
+            ["Neutron", "0", "1", "Nucleus"],
+            ["Electron", "−1", "about 1/1840", "Orbiting the nucleus"]
           ]
         },
         {
@@ -120,16 +94,23 @@
         {
           "type": "equation",
           "label": "Number of neutrons",
-          "formula": "N = A − Z",
-          "where": [
-            "N = number of neutrons",
-            "A = nucleon number",
-            "Z = proton number"
-          ]
+          "formula": "N = A − Z"
         },
         {
-          "type": "paragraph",
-          "text": "A nuclide is written with A above and Z below the symbol. For example, ²³⁸₉₂U has A = 238, Z = 92 and so 146 neutrons."
+          "type": "equation",
+          "label": "How a nuclide is written",
+          "formula": "²³⁸₉₂U",
+          "arrows": [
+            {
+              "point": "²³⁸",
+              "label": "Nucleon number A = 238"
+            },
+            {
+              "point": "₉₂",
+              "label": "Proton number Z = 92"
+            }
+          ],
+          "where": ["N = 238 − 92 = 146 neutrons."]
         },
         {
           "type": "list",
@@ -163,11 +144,7 @@
               "formula": "A - Z",
               "decimals": 0
             },
-            "working": [
-              "N = A − Z",
-              "N = {A} − {Z}",
-              "N = {answer}"
-            ]
+            "working": ["N = A − Z", "N = {A} − {Z}", "N = {answer}"]
           }
         },
         {
@@ -206,13 +183,7 @@
               "label": "Separation of nucleons",
               "min": 0,
               "max": 4,
-              "ticks": [
-                0,
-                1,
-                2,
-                3,
-                4
-              ],
+              "ticks": [0, 1, 2, 3, 4],
               "unit": "fm"
             },
             "y": {
@@ -223,38 +194,14 @@
               {
                 "name": "Strong nuclear force",
                 "points": [
-                  [
-                    0.1,
-                    0.1
-                  ],
-                  [
-                    0.3,
-                    0.3
-                  ],
-                  [
-                    0.5,
-                    0.5
-                  ],
-                  [
-                    0.8,
-                    0.85
-                  ],
-                  [
-                    1.2,
-                    0.78
-                  ],
-                  [
-                    2,
-                    0.62
-                  ],
-                  [
-                    3,
-                    0.52
-                  ],
-                  [
-                    4,
-                    0.5
-                  ]
+                  [0.1, 0.1],
+                  [0.3, 0.3],
+                  [0.5, 0.5],
+                  [0.8, 0.85],
+                  [1.2, 0.78],
+                  [2, 0.62],
+                  [3, 0.52],
+                  [4, 0.5]
                 ]
               }
             ],
@@ -290,10 +237,19 @@
           "type": "equation",
           "label": "Nuclear radius",
           "formula": "R = r₀A^⅓",
-          "where": [
-            "R = radius of the nucleus (m or fm)",
-            "r₀ = a constant, about 1.2 fm",
-            "A = nucleon number"
+          "arrows": [
+            {
+              "point": "R",
+              "label": "Radius of the nucleus (m or fm)"
+            },
+            {
+              "point": "r₀",
+              "label": "Constant, about 1.2 fm"
+            },
+            {
+              "point": "A",
+              "label": "Nucleon number"
+            }
           ]
         },
         {
@@ -308,10 +264,19 @@
           "type": "equation",
           "label": "Density of a nucleus",
           "formula": "ρ = m / V = (A × 1.66 × 10⁻²⁷) / (4⁄3 π R³)",
-          "where": [
-            "ρ = density (kg/m³)",
-            "m = mass of the nucleus, about A atomic mass units (kg)",
-            "V = volume of the nucleus (m³)"
+          "arrows": [
+            {
+              "point": "ρ",
+              "label": "Density (kg/m³)"
+            },
+            {
+              "point": "m",
+              "label": "Mass: about A atomic mass units (kg)"
+            },
+            {
+              "point": "V",
+              "label": "Volume of the nucleus (m³)"
+            }
           ]
         },
         {
@@ -341,11 +306,7 @@
               "unit": "fm",
               "decimals": 1
             },
-            "working": [
-              "R = 1.2 × A^⅓",
-              "R = 1.2 × {A}^⅓",
-              "R = {answer} fm"
-            ]
+            "working": ["R = 1.2 × A^⅓", "R = 1.2 × {A}^⅓", "R = {answer} fm"]
           }
         },
         {
@@ -378,12 +339,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.1.1",
-        "AQA 3.2.1.2",
-        "AQA 3.8.1.1",
-        "AQA 3.8.1.5"
-      ],
+      "spec_codes": ["AQA 3.2.1.1", "AQA 3.2.1.2", "AQA 3.8.1.1", "AQA 3.8.1.5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -394,36 +350,26 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Particle",
-                "Charge (C)",
-                "Mass (kg)"
-              ],
+              "columns": ["Particle", "Charge (C)", "Mass (kg)"],
               "rows": [
-                [
-                  "Proton",
-                  "+1.60 × 10⁻¹⁹",
-                  "1.67 × 10⁻²⁷"
-                ],
-                [
-                  "Neutron",
-                  "0",
-                  "1.67 × 10⁻²⁷"
-                ],
-                [
-                  "Electron",
-                  "−1.60 × 10⁻¹⁹",
-                  "9.11 × 10⁻³¹"
-                ]
+                ["Proton", "+1.60 × 10⁻¹⁹", "1.67 × 10⁻²⁷"],
+                ["Neutron", "0", "1.67 × 10⁻²⁷"],
+                ["Electron", "−1.60 × 10⁻¹⁹", "9.11 × 10⁻³¹"]
               ]
             },
             {
               "type": "equation",
               "label": "Specific charge",
               "formula": "specific charge = Q / m",
-              "where": [
-                "Q = charge of the particle, nucleus or ion (C)",
-                "m = its mass (kg)"
+              "arrows": [
+                {
+                  "point": "Q",
+                  "label": "Charge of particle, nucleus or ion (C)"
+                },
+                {
+                  "point": "m",
+                  "label": "Its mass (kg)"
+                }
               ]
             },
             {
@@ -467,12 +413,29 @@
               "type": "equation",
               "label": "Closest approach",
               "formula": "½mv² = Qq / (4πε₀r), so r = Qq / (4πε₀ × ½mv²)",
-              "where": [
-                "Q, q = charges of the nucleus and the alpha particle (C)",
-                "r = distance of closest approach (m)",
-                "½mv² = initial kinetic energy of the alpha particle (J)",
-                "ε₀ = permittivity of free space"
-              ]
+              "arrows": [
+                {
+                  "point": "½mv²",
+                  "in": "½mv² =",
+                  "label": "Alpha particle's initial kinetic energy (J)"
+                },
+                {
+                  "point": "Q",
+                  "in": "Qq / (4πε₀r)",
+                  "label": "Charge of the nucleus (C)"
+                },
+                {
+                  "point": "q",
+                  "in": "Qq / (4πε₀r)",
+                  "label": "Charge of the alpha particle (C)"
+                },
+                {
+                  "point": "r",
+                  "in": "so r",
+                  "label": "Distance of closest approach (m)"
+                }
+              ],
+              "where": ["ε₀ = permittivity of free space"]
             },
             {
               "type": "paragraph",
@@ -483,19 +446,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 8.130",
-        "EDEX 8.131"
-      ]
+      "spec_codes": ["EDEX 8.130", "EDEX 8.131"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 11.1.1",
-        "CAIE 11.1.2",
-        "CAIE 11.1.3",
-        "CAIE 11.1.4",
-        "CAIE 11.1.5"
-      ]
+      "spec_codes": ["CAIE 11.1.1", "CAIE 11.1.2", "CAIE 11.1.3", "CAIE 11.1.4", "CAIE 11.1.5"]
     },
     "ocr_alevel": {
       "spec_codes": [
@@ -534,7 +488,7 @@
       "fb17eb84-d27c-416c-82f7-d8d778dea1e1"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

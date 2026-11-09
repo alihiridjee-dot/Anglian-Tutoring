@@ -23,10 +23,7 @@
         },
         {
           "type": "key-points",
-          "items": [
-            "k increases with temperature.",
-            "The effect is exponential."
-          ]
+          "items": ["k increases with temperature.", "The effect is exponential."]
         }
       ]
     },
@@ -41,13 +38,25 @@
           "type": "equation",
           "label": "Arrhenius equation",
           "formula": "k = Ae^(−Eₐ/RT)",
-          "where": [
-            "k, the rate constant",
-            "A, the pre-exponential factor (Arrhenius constant)",
-            "Eₐ, the activation energy in J/mol",
-            "R, the gas constant, 8.31 J/K/mol",
-            "T, the temperature in K"
-          ]
+          "arrows": [
+            {
+              "point": "A",
+              "label": "Pre-exponential factor (Arrhenius constant)"
+            },
+            {
+              "point": "Eₐ",
+              "label": "Activation energy (J/mol)"
+            },
+            {
+              "point": "R",
+              "label": "Gas constant (8.31 J/K/mol)"
+            },
+            {
+              "point": "T",
+              "label": "Temperature (K)"
+            }
+          ],
+          "where": ["k, the rate constant"]
         },
         {
           "type": "equation",
@@ -93,13 +102,7 @@
               "label": "1/T",
               "min": 0.0028,
               "max": 0.0036,
-              "ticks": [
-                0.0028,
-                0.003,
-                0.0032,
-                0.0034,
-                0.0036
-              ],
+              "ticks": [0.0028, 0.003, 0.0032, 0.0034, 0.0036],
               "unit": "K⁻¹"
             },
             "y": {
@@ -109,14 +112,8 @@
               {
                 "name": "ln k against 1/T",
                 "points": [
-                  [
-                    0.0028,
-                    0.9
-                  ],
-                  [
-                    0.0036,
-                    0.1
-                  ]
+                  [0.0028, 0.9],
+                  [0.0036, 0.1]
                 ]
               }
             ]
@@ -170,10 +167,7 @@
         },
         {
           "type": "key-points",
-          "items": [
-            "Plot ln k against 1/T.",
-            "Eₐ = −gradient × R."
-          ]
+          "items": ["Plot ln k against 1/T.", "Eₐ = −gradient × R."]
         }
       ]
     }
@@ -197,10 +191,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.1.1j",
-        "OCR 5.1.1k"
-      ],
+      "spec_codes": ["OCR 5.1.1j", "OCR 5.1.1k"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -221,9 +212,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 16.12"
-      ],
+      "spec_codes": ["EDEX 16.12"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -244,9 +233,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 26.1.6"
-      ],
+      "spec_codes": ["CAIE 26.1.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -267,9 +254,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.9.1"
-      ],
+      "spec_codes": ["AQA 3.1.9.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -302,7 +287,7 @@
       "cfa6b8e9-a555-49c5-9fb0-83c99a65de29"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

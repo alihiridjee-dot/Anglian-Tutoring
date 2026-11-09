@@ -98,10 +98,19 @@
           "type": "equation",
           "label": "Newton's second law",
           "formula": "F = m × a",
-          "where": [
-            "F: resultant force in newtons, N",
-            "m: mass in kilograms, kg",
-            "a: acceleration in metres per second squared, m/s²"
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Resultant force (N)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "a",
+              "label": "Acceleration (m/s²)"
+            }
           ]
         },
         {
@@ -165,22 +174,12 @@
         {
           "type": "equation",
           "label": "Acceleration",
-          "formula": "a = F / m",
-          "where": [
-            "a: acceleration in metres per second squared, m/s²",
-            "F: resultant force in newtons, N",
-            "m: mass in kilograms, kg"
-          ]
+          "formula": "a = F / m"
         },
         {
           "type": "equation",
           "label": "Mass",
-          "formula": "m = F / a",
-          "where": [
-            "m: mass in kilograms, kg",
-            "F: resultant force in newtons, N",
-            "a: acceleration in metres per second squared, m/s²"
-          ]
+          "formula": "m = F / a"
         },
         {
           "type": "paragraph",
@@ -190,10 +189,15 @@
           "type": "equation",
           "label": "Acceleration from a change in velocity",
           "formula": "a = Δv / t",
-          "where": [
-            "a: acceleration in metres per second squared, m/s²",
-            "Δv: change in velocity in metres per second, m/s",
-            "t: time taken in seconds, s"
+          "arrows": [
+            {
+              "point": "Δv",
+              "label": "Change in velocity (m/s)"
+            },
+            {
+              "point": "t",
+              "label": "Time taken (s)"
+            }
           ]
         },
         {
@@ -279,10 +283,11 @@
           "type": "equation",
           "label": "Inertial mass",
           "formula": "m = F / a",
-          "where": [
-            "m: inertial mass in kilograms, kg",
-            "F: force in newtons, N",
-            "a: acceleration in metres per second squared, m/s²"
+          "arrows": [
+            {
+              "point": "m",
+              "label": "Inertial mass (kg)"
+            }
           ]
         },
         {
@@ -480,7 +485,7 @@
       "b2769fe8-60d9-452c-9426-308239b71009",
       "1f98bf6c-ff80-45e0-a896-914aa2c28d3f"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

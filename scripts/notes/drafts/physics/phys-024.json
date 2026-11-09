@@ -16,10 +16,20 @@
           "type": "equation",
           "label": "Density",
           "formula": "density = mass ÷ volume    (ρ = m ÷ V)",
-          "where": [
-            "density, ρ, in kilograms per metre cubed, kg/m³, or grams per centimetre cubed, g/cm³",
-            "mass, m, in kilograms, kg, or grams, g",
-            "volume, V, in metres cubed, m³, or centimetres cubed, cm³"
+          "arrows": [
+            {
+              "point": "ρ",
+              "label": "Density (kg/m³ or g/cm³)"
+            },
+            {
+              "point": "m",
+              "in": "m ÷ V",
+              "label": "Mass (kg or g)"
+            },
+            {
+              "point": "V",
+              "label": "Volume (m³ or cm³)"
+            }
           ]
         },
         {
@@ -37,9 +47,26 @@
           "type": "equation",
           "label": "Volume of a cuboid or cube",
           "formula": "volume = length × width × height    (V = l × w × h)",
-          "where": [
-            "volume, V, in centimetres cubed, cm³",
-            "length, width and height, in centimetres, cm"
+          "arrows": [
+            {
+              "point": "V",
+              "label": "Volume (cm³)"
+            },
+            {
+              "point": "l",
+              "in": "l × w",
+              "label": "Length (cm)"
+            },
+            {
+              "point": "w",
+              "in": "w × h",
+              "label": "Width (cm)"
+            },
+            {
+              "point": "h",
+              "in": "× h)",
+              "label": "Height (cm)"
+            }
           ]
         },
         {
@@ -339,7 +366,7 @@
       "04ec1add-7a45-4cf7-819c-d1817dd4e548",
       "61a7ad6d-195f-4b54-bd60-eed1695934f7"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

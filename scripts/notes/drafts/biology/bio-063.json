@@ -180,10 +180,19 @@
           "type": "equation",
           "label": "Time to recover",
           "formula": "time = (heart rate after exercise − resting heart rate) ÷ rate of decrease",
-          "where": [
-            "heart rates, in beats per minute",
-            "rate of decrease, in beats per minute each minute",
-            "time, in minutes"
+          "arrows": [
+            {
+              "point": "time",
+              "label": "Minutes"
+            },
+            {
+              "point": "heart rate after exercise − resting heart rate",
+              "label": "Both in beats per minute"
+            },
+            {
+              "point": "rate of decrease",
+              "label": "Beats per minute, each minute"
+            }
           ]
         },
         {
@@ -420,7 +429,7 @@
       "e7861cdd-ac6b-48b1-a9ba-f3979df2b9f1",
       "7149c34e-73aa-4040-b8a1-50cc9be42313"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

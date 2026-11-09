@@ -173,10 +173,14 @@
           "type": "equation",
           "label": "Percentage decrease",
           "formula": "percentage decrease = (decrease ÷ original value) × 100",
-          "where": [
-            "decrease = original value − new value",
-            "original and new values in the same unit, for example kJ/m²/hour"
-          ]
+          "arrows": [
+            {
+              "point": "decrease",
+              "in": "(decrease",
+              "label": "Original value − new value"
+            }
+          ],
+          "where": ["original and new values in the same unit, for example kJ/m²/hour"]
         },
         {
           "type": "diagram",
@@ -399,7 +403,7 @@
       "9f1e886c-c187-4b46-828c-84ef2093570c",
       "d3e7c489-fdcc-4701-a96c-fc3c49c540aa"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

@@ -33,12 +33,25 @@
           "type": "equation",
           "label": "Potential of a point charge",
           "formula": "V = Q / (4π ε₀ r)",
-          "where": [
-            "V = electric potential (V)",
-            "Q = the point charge (C)",
-            "r = distance from the charge (m)",
-            "ε₀ = permittivity of free space (8.85 × 10⁻¹² F/m)"
-          ]
+          "arrows": [
+            {
+              "point": "V",
+              "label": "Electric potential (V)"
+            },
+            {
+              "point": "Q",
+              "label": "The point charge (C)"
+            },
+            {
+              "point": "ε₀",
+              "label": "Permittivity of free space"
+            },
+            {
+              "point": "r",
+              "label": "Distance from the charge (m)"
+            }
+          ],
+          "where": ["ε₀ = 8.85 × 10⁻¹² F/m"]
         },
         {
           "type": "list",
@@ -71,10 +84,19 @@
           "type": "equation",
           "label": "Field strength from the potential gradient",
           "formula": "E = −ΔV / Δr",
-          "where": [
-            "E = electric field strength (V/m)",
-            "ΔV = change in potential (V)",
-            "Δr = change in distance (m)"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Electric field strength (V/m)"
+            },
+            {
+              "point": "ΔV",
+              "label": "Change in potential (V)"
+            },
+            {
+              "point": "Δr",
+              "label": "Change in distance (m)"
+            }
           ]
         },
         {
@@ -107,11 +129,24 @@
           "type": "equation",
           "label": "Electric potential energy",
           "formula": "E_P = Q q / (4π ε₀ r) = q V",
-          "where": [
-            "E_P = electric potential energy (J)",
-            "Q = the point charge producing the field (C)",
-            "q = the charge placed in the field (C)",
-            "r = separation of the charges (m)"
+          "arrows": [
+            {
+              "point": "E_P",
+              "label": "Electric potential energy (J)"
+            },
+            {
+              "point": "Q",
+              "label": "Charge producing the field (C)"
+            },
+            {
+              "point": "q",
+              "in": "Q q",
+              "label": "Charge placed in the field (C)"
+            },
+            {
+              "point": "r",
+              "label": "Separation of the charges (m)"
+            }
           ]
         },
         {
@@ -177,59 +212,35 @@
           "diagram": {
             "kind": "compare",
             "alt": "A comparison of the gravitational field of a point mass and the electric field of a point charge.",
-            "items": [
-              "Gravitational field",
-              "Electric field"
-            ],
+            "items": ["Gravitational field", "Electric field"],
             "rows": [
               {
                 "feature": "Source",
-                "values": [
-                  "Mass",
-                  "Charge"
-                ]
+                "values": ["Mass", "Charge"]
               },
               {
                 "feature": "Force law",
-                "values": [
-                  "F = Gm₁m₂/r²",
-                  "F = Q₁Q₂/(4πε₀r²)"
-                ]
+                "values": ["F = Gm₁m₂/r²", "F = Q₁Q₂/(4πε₀r²)"]
               },
               {
                 "feature": "Field strength of a point source",
-                "values": [
-                  "g = GM/r²",
-                  "E = Q/(4πε₀r²)"
-                ]
+                "values": ["g = GM/r²", "E = Q/(4πε₀r²)"]
               },
               {
                 "feature": "Potential of a point source",
-                "values": [
-                  "V = −GM/r",
-                  "V = Q/(4πε₀r)"
-                ]
+                "values": ["V = −GM/r", "V = Q/(4πε₀r)"]
               },
               {
                 "feature": "Direction of force",
-                "values": [
-                  "Always attractive",
-                  "Attractive or repulsive"
-                ]
+                "values": ["Always attractive", "Attractive or repulsive"]
               },
               {
                 "feature": "Field strength defined as",
-                "values": [
-                  "Force per unit mass",
-                  "Force per unit positive charge"
-                ]
+                "values": ["Force per unit mass", "Force per unit positive charge"]
               },
               {
                 "feature": "Uniform field",
-                "values": [
-                  "Close to a planet's surface",
-                  "Between parallel plates"
-                ]
+                "values": ["Close to a planet's surface", "Between parallel plates"]
               }
             ]
           }
@@ -274,25 +285,13 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.3.3"
-      ]
+      "spec_codes": ["AQA 3.7.3.3"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 7.112",
-        "EDEX 7.114",
-        "EDEX 7.115",
-        "EDEX 12.179"
-      ]
+      "spec_codes": ["EDEX 7.112", "EDEX 7.114", "EDEX 7.115", "EDEX 12.179"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 18.5.1",
-        "CAIE 18.5.2",
-        "CAIE 18.5.3",
-        "CAIE 18.5.4"
-      ],
+      "spec_codes": ["CAIE 18.5.1", "CAIE 18.5.2", "CAIE 18.5.3", "CAIE 18.5.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -363,7 +362,7 @@
       "4a46e18a-6e77-482a-83f0-c69644ce5026"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

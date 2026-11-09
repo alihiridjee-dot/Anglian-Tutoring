@@ -108,12 +108,21 @@
           "type": "equation",
           "label": "Time dilation",
           "formula": "t = t₀ ÷ √(1 − v² ÷ c²)",
-          "where": [
-            "t = time measured by an observer for whom the clock moves (s)",
-            "t₀ = proper time (s)",
-            "v = relative speed (m/s)",
-            "c = speed of light, 3.00 × 10⁸ m/s"
-          ]
+          "arrows": [
+            {
+              "point": "t₀",
+              "label": "Proper time (s)"
+            },
+            {
+              "point": "v",
+              "label": "Relative speed (m/s)"
+            },
+            {
+              "point": "c",
+              "label": "Speed of light, 3.00 × 10⁸ m/s"
+            }
+          ],
+          "where": ["t = time measured by an observer for whom the clock moves (s)"]
         },
         {
           "type": "diagram",
@@ -195,12 +204,13 @@
           "type": "equation",
           "label": "Length contraction",
           "formula": "l = l₀ √(1 − v² ÷ c²)",
-          "where": [
-            "l = length measured by an observer who sees the object move (m)",
-            "l₀ = proper length, measured in the object's rest frame (m)",
-            "v = relative speed (m/s)",
-            "c = speed of light, 3.00 × 10⁸ m/s"
-          ]
+          "arrows": [
+            {
+              "point": "l₀",
+              "label": "Proper length, in its rest frame (m)"
+            }
+          ],
+          "where": ["l = length measured by an observer who sees the object move (m)"]
         },
         {
           "type": "list",
@@ -235,10 +245,7 @@
               "unit": "m",
               "decimals": 1
             },
-            "working": [
-              "l = l₀ √(1 − v² ÷ c²)",
-              "l = {L} × √(1 − {b}²) = {answer} m"
-            ]
+            "working": ["l = l₀ √(1 − v² ÷ c²)", "l = {L} × √(1 − {b}²) = {answer} m"]
           }
         },
         {
@@ -262,21 +269,40 @@
           "type": "equation",
           "label": "Mass–energy equivalence",
           "formula": "E = mc²",
-          "where": [
-            "E = energy (J)",
-            "m = mass (kg)",
-            "c = speed of light, 3.00 × 10⁸ m/s"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Energy (J)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "c",
+              "label": "Speed of light (m/s)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Total energy of a moving particle",
           "formula": "E = m₀c² ÷ √(1 − v² ÷ c²)",
-          "where": [
-            "m₀ = rest mass (kg)",
-            "m₀c² = rest energy (J)",
-            "v = speed of the particle (m/s)"
-          ]
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Total energy (J)"
+            },
+            {
+              "point": "m₀c²",
+              "label": "Rest energy (J)"
+            },
+            {
+              "point": "v",
+              "label": "Speed of the particle (m/s)"
+            }
+          ],
+          "where": ["m₀ = rest mass (kg)"]
         },
         {
           "type": "list",
@@ -341,18 +367,10 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.12.3.1",
-        "AQA 3.12.3.2",
-        "AQA 3.12.3.3",
-        "AQA 3.12.3.4",
-        "AQA 3.12.3.5"
-      ]
+      "spec_codes": ["AQA 3.12.3.1", "AQA 3.12.3.2", "AQA 3.12.3.3", "AQA 3.12.3.4", "AQA 3.12.3.5"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 8.139"
-      ],
+      "spec_codes": ["EDEX 8.139"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -386,7 +404,7 @@
       "d9310b34-9bab-4a02-86fe-33d7f884944a"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

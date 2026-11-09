@@ -44,17 +44,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Element",
-            "Na",
-            "Mg",
-            "Al",
-            "Si",
-            "P",
-            "S",
-            "Cl",
-            "Ar"
-          ],
+          "columns": ["Element", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar"],
           "rows": [
             [
               "Outer configuration",
@@ -67,17 +57,7 @@
               "3s²3p⁵",
               "3s²3p⁶"
             ],
-            [
-              "Block",
-              "s",
-              "s",
-              "p",
-              "p",
-              "p",
-              "p",
-              "p",
-              "p"
-            ]
+            ["Block", "s", "s", "p", "p", "p", "p", "p", "p"]
           ]
         },
         {
@@ -122,10 +102,13 @@
           "type": "equation",
           "label": "First ionisation energy",
           "formula": "X(g) → X⁺(g) + e⁻",
-          "where": [
-            "X: one mole of gaseous atoms",
-            "Energy is in kJ/mol"
-          ]
+          "arrows": [
+            {
+              "point": "X(g)",
+              "label": "One mole of gaseous atoms"
+            }
+          ],
+          "where": ["Energy is in kJ/mol"]
         },
         {
           "type": "list",
@@ -149,16 +132,7 @@
               "label": "Atomic number",
               "min": 11,
               "max": 18,
-              "ticks": [
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18
-              ]
+              "ticks": [11, 12, 13, 14, 15, 16, 17, 18]
             },
             "y": {
               "label": "First ionisation energy (shape only)"
@@ -167,38 +141,14 @@
               {
                 "name": "Na to Ar",
                 "points": [
-                  [
-                    11,
-                    0.31
-                  ],
-                  [
-                    12,
-                    0.46
-                  ],
-                  [
-                    13,
-                    0.36
-                  ],
-                  [
-                    14,
-                    0.49
-                  ],
-                  [
-                    15,
-                    0.63
-                  ],
-                  [
-                    16,
-                    0.62
-                  ],
-                  [
-                    17,
-                    0.78
-                  ],
-                  [
-                    18,
-                    0.95
-                  ]
+                  [11, 0.31],
+                  [12, 0.46],
+                  [13, 0.36],
+                  [14, 0.49],
+                  [15, 0.63],
+                  [16, 0.62],
+                  [17, 0.78],
+                  [18, 0.95]
                 ]
               }
             ]
@@ -223,12 +173,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Element",
-            "Structure",
-            "Bonding to overcome",
-            "Melting point"
-          ],
+          "columns": ["Element", "Structure", "Bonding to overcome", "Melting point"],
           "rows": [
             [
               "Na, Mg, Al",
@@ -236,24 +181,9 @@
               "Attraction between cations and delocalised electrons",
               "Rises from Na to Al"
             ],
-            [
-              "Si",
-              "Giant covalent",
-              "Many strong covalent bonds",
-              "Highest in the period"
-            ],
-            [
-              "P₄, S₈, Cl₂",
-              "Simple molecular",
-              "Weak London forces between molecules",
-              "Low"
-            ],
-            [
-              "Ar",
-              "Single atoms",
-              "Very weak London forces",
-              "Lowest"
-            ]
+            ["Si", "Giant covalent", "Many strong covalent bonds", "Highest in the period"],
+            ["P₄, S₈, Cl₂", "Simple molecular", "Weak London forces between molecules", "Low"],
+            ["Ar", "Single atoms", "Very weak London forces", "Lowest"]
           ]
         },
         {
@@ -287,11 +217,7 @@
             "kind": "sort",
             "alt": "A sorting activity. Put each Period 3 element into its structure type.",
             "prompt": "Sort each element by its structure.",
-            "groups": [
-              "Giant metallic",
-              "Giant covalent",
-              "Simple molecular or atoms"
-            ],
+            "groups": ["Giant metallic", "Giant covalent", "Simple molecular or atoms"],
             "items": [
               {
                 "text": "Na",
@@ -358,11 +284,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.1.1a",
-        "OCR 3.1.1b",
-        "OCR 3.1.1g"
-      ],
+      "spec_codes": ["OCR 3.1.1a", "OCR 3.1.1b", "OCR 3.1.1g"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -386,27 +308,13 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 1.22",
-        "EDEX 1.23",
-        "EDEX 1.24",
-        "EDEX 1.25",
-        "EDEX 1.26"
-      ]
+      "spec_codes": ["EDEX 1.22", "EDEX 1.23", "EDEX 1.24", "EDEX 1.25", "EDEX 1.26"]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.1.1",
-        "AQA 3.2.1.2"
-      ]
+      "spec_codes": ["AQA 3.2.1.1", "AQA 3.2.1.2"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 9.1.1",
-        "CAIE 9.1.2",
-        "CAIE 9.3.1",
-        "CAIE 9.3.2"
-      ],
+      "spec_codes": ["CAIE 9.1.1", "CAIE 9.1.2", "CAIE 9.3.1", "CAIE 9.3.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -468,7 +376,7 @@
       "c13f14cd-1157-476c-ae6d-b0b5f6b4e33d"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

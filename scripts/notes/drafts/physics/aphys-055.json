@@ -37,10 +37,20 @@
           "type": "equation",
           "label": "Number of particles",
           "formula": "N = nN_A",
-          "where": [
-            "N is the number of particles",
-            "n is the amount of substance (mol)",
-            "N_A is the Avogadro constant (mol⁻¹)"
+          "arrows": [
+            {
+              "point": "N",
+              "in": "N =",
+              "label": "Number of particles"
+            },
+            {
+              "point": "n",
+              "label": "Amount of substance (mol)"
+            },
+            {
+              "point": "N_A",
+              "label": "Avogadro constant (mol⁻¹)"
+            }
           ]
         },
         {
@@ -65,27 +75,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Law",
-            "Statement",
-            "Held constant"
-          ],
+          "columns": ["Law", "Statement", "Held constant"],
           "rows": [
-            [
-              "Boyle's law",
-              "pV is constant (p ∝ 1/V)",
-              "Temperature and mass of gas"
-            ],
-            [
-              "Charles's law",
-              "V / T is constant (V ∝ T)",
-              "Pressure and mass of gas"
-            ],
-            [
-              "Pressure law",
-              "p / T is constant (p ∝ T)",
-              "Volume and mass of gas"
-            ]
+            ["Boyle's law", "pV is constant (p ∝ 1/V)", "Temperature and mass of gas"],
+            ["Charles's law", "V / T is constant (V ∝ T)", "Pressure and mass of gas"],
+            ["Pressure law", "p / T is constant (p ∝ T)", "Volume and mass of gas"]
           ]
         },
         {
@@ -106,13 +100,7 @@
               "label": "Temperature",
               "min": -300,
               "max": 100,
-              "ticks": [
-                -300,
-                -200,
-                -100,
-                0,
-                100
-              ],
+              "ticks": [-300, -200, -100, 0, 100],
               "unit": "°C"
             },
             "y": {
@@ -122,18 +110,9 @@
               {
                 "name": "Fixed volume of gas",
                 "points": [
-                  [
-                    -273,
-                    0
-                  ],
-                  [
-                    0,
-                    0.7
-                  ],
-                  [
-                    100,
-                    0.96
-                  ]
+                  [-273, 0],
+                  [0, 0.7],
+                  [100, 0.96]
                 ]
               }
             ],
@@ -166,31 +145,50 @@
           "type": "equation",
           "label": "Equation of state (moles)",
           "formula": "pV = nRT",
-          "where": [
-            "p is the pressure (Pa)",
-            "V is the volume (m³)",
-            "n is the amount of gas (mol)",
-            "R is the molar gas constant, 8.31 J mol⁻¹ K⁻¹",
-            "T is the thermodynamic temperature (K)"
-          ]
+          "arrows": [
+            {
+              "point": "p",
+              "label": "Pressure (Pa)"
+            },
+            {
+              "point": "V",
+              "label": "Volume (m³)"
+            },
+            {
+              "point": "n",
+              "label": "Amount of gas (mol)"
+            },
+            {
+              "point": "T",
+              "label": "Thermodynamic temperature (K)"
+            }
+          ],
+          "where": ["R is the molar gas constant, 8.31 J mol⁻¹ K⁻¹"]
         },
         {
           "type": "equation",
           "label": "Equation of state (molecules)",
           "formula": "pV = NkT",
-          "where": [
-            "N is the number of molecules",
-            "k is the Boltzmann constant, 1.38 × 10⁻²³ J K⁻¹"
+          "arrows": [
+            {
+              "point": "N",
+              "label": "Number of molecules"
+            },
+            {
+              "point": "k",
+              "label": "Boltzmann constant, 1.38 × 10⁻²³ J K⁻¹"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "The Boltzmann constant",
           "formula": "k = R / N_A",
-          "where": [
-            "k is the gas constant per molecule (J K⁻¹)",
-            "R is the molar gas constant (J mol⁻¹ K⁻¹)",
-            "N_A is the Avogadro constant (mol⁻¹)"
+          "arrows": [
+            {
+              "point": "k",
+              "label": "Gas constant per molecule (J K⁻¹)"
+            }
           ]
         },
         {
@@ -272,9 +270,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.6.2.2"
-      ],
+      "spec_codes": ["AQA 3.6.2.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -300,25 +296,13 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 9.150"
-      ]
+      "spec_codes": ["EDEX 9.150"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 15.1.1",
-        "CAIE 15.1.2",
-        "CAIE 15.2.1",
-        "CAIE 15.2.2",
-        "CAIE 15.2.3"
-      ]
+      "spec_codes": ["CAIE 15.1.1", "CAIE 15.1.2", "CAIE 15.2.1", "CAIE 15.2.2", "CAIE 15.2.3"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.1.4a",
-        "OCR 5.1.4d",
-        "OCR 5.1.4g"
-      ],
+      "spec_codes": ["OCR 5.1.4a", "OCR 5.1.4d", "OCR 5.1.4g"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -346,7 +330,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "status": "draft",
     "written_by": "claude-sonnet-5-5",

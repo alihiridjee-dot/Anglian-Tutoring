@@ -14,31 +14,13 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Part",
-            "What it does"
-          ],
+          "columns": ["Part", "What it does"],
           "rows": [
-            [
-              "Burning food",
-              "Releases heat energy, which heats the water"
-            ],
-            [
-              "Water",
-              "Absorbs the energy. The mass of water is known."
-            ],
-            [
-              "Thermometer",
-              "Measures the start and end temperature of the water"
-            ],
-            [
-              "Stirrer",
-              "Spreads the heat evenly, so all the water is at the same temperature"
-            ],
-            [
-              "Lid",
-              "Acts as an insulator. It reduces heat loss and stops water evaporating."
-            ]
+            ["Burning food", "Releases heat energy, which heats the water"],
+            ["Water", "Absorbs the energy. The mass of water is known."],
+            ["Thermometer", "Measures the start and end temperature of the water"],
+            ["Stirrer", "Spreads the heat evenly, so all the water is at the same temperature"],
+            ["Lid", "Acts as an insulator. It reduces heat loss and stops water evaporating."]
           ]
         },
         {
@@ -115,12 +97,21 @@
           "type": "equation",
           "label": "Energy transferred to the water",
           "formula": "energy = mass of water × 4.2 × temperature change",
-          "where": [
-            "energy, in J",
-            "mass of water, in g",
-            "4.2 is the energy needed to heat 1 g of water by 1 °C, in J",
-            "temperature change, in °C"
-          ]
+          "arrows": [
+            {
+              "point": "energy",
+              "label": "Joules (J)"
+            },
+            {
+              "point": "mass of water",
+              "label": "Grams (g)"
+            },
+            {
+              "point": "temperature change",
+              "label": "Degrees Celsius (°C)"
+            }
+          ],
+          "where": ["4.2 is the energy needed to heat 1 g of water by 1 °C, in J"]
         },
         {
           "type": "steps",
@@ -178,10 +169,19 @@
           "type": "equation",
           "label": "Energy per gram of food",
           "formula": "energy per gram = energy transferred ÷ mass of food",
-          "where": [
-            "energy transferred, in J",
-            "mass of food burnt, in g",
-            "energy per gram, in J/g"
+          "arrows": [
+            {
+              "point": "energy per gram",
+              "label": "Joules per gram (J/g)"
+            },
+            {
+              "point": "energy transferred",
+              "label": "Joules (J)"
+            },
+            {
+              "point": "mass of food",
+              "label": "Grams of food burnt (g)"
+            }
           ]
         },
         {
@@ -256,9 +256,7 @@
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": [
-        "EDEX 1.14B"
-      ],
+      "spec_codes": ["EDEX 1.14B"],
       "worked_example": {
         "exemplar_id": "f7a7f09c-9e5f-43d4-adba-aea2e28d4c2b",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q4(a)(ii)",
@@ -272,9 +270,7 @@
       }
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 2.33B"
-      ],
+      "spec_codes": ["IGCSE 2.33B"],
       "worked_example": {
         "exemplar_id": "bdbc67fd-5492-47c9-bf8d-9749e168117f",
         "source": "EDEXCEL jun 2023, Paper 2 (BR), Q3(c)(i)",
@@ -304,7 +300,7 @@
       "f7a7f09c-9e5f-43d4-adba-aea2e28d4c2b",
       "bdbc67fd-5492-47c9-bf8d-9749e168117f"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }
