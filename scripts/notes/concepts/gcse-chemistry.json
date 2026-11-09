@@ -1777,6 +1777,12 @@
           "board": "ocr",
           "code": "OCR C5.1a",
           "primary": false
+        },
+        {
+          "id": "e8409849-9374-4154-a96d-4655922c3ce7",
+          "board": "ocr",
+          "code": "OCR C5.1f",
+          "primary": true
         }
       ]
     },
@@ -4202,7 +4208,6 @@
       "kind": "content",
       "higher_only": false,
       "separate_only": false,
-      "data_note": "taught by ocr but no matching spec point",
       "spec_points": [
         {
           "id": "e4a8f26d-16d3-40b2-920f-10b385e5fbe2",
@@ -4274,6 +4279,12 @@
           "id": "000353ea-a33b-404f-861f-14798005284a",
           "board": "edexcel",
           "code": "EDEX 9.4C",
+          "primary": true
+        },
+        {
+          "id": "d8d0ba65-e623-45ec-976f-45e6de84a99b",
+          "board": "ocr",
+          "code": "OCR C4.2a",
           "primary": true
         }
       ]

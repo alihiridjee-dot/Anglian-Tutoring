@@ -18,26 +18,28 @@
  * duplicates. Stripe prices are immutable — to change what a plan costs, make
  * a new price in the dashboard and re-point stripe_price_id at it. Editing
  * price_pence here only changes the number the app displays.
+ *
+ * Options:
+ *   --only=general|igcse|alevel   one price list; the others are not touched
+ *   --dry-run                     say what would happen; change nothing
  */
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
+import {
+  ALEVEL_PRICE_PENCE,
+  GENERAL_PRICE_PENCE,
+  type PriceLadder,
+} from "../src/lib/billing/entitlements.ts";
 
 // The landing page sells a cadence × subject-count matrix. Each combination is
 // its own immutable Stripe price with tier `${cadence}_${count}`, matching the
-// tier the checkout function looks up. Prices (pence) and per-cycle session
-// counts must stay in lockstep with PRICE_PENCE/SESSIONS in
-// src/components/landing/PricingSection.tsx.
+// tier the checkout function looks up. The prices (pence) come from
+// src/lib/billing/entitlements.ts, the same lists the pricing section shows.
 const CADENCES = [
   { cadence: "weekly", label: "Weekly Plan", interval: "week" as const, intervalCount: 1 },
   { cadence: "monthly", label: "Monthly Saver", interval: "month" as const, intervalCount: 1 },
   { cadence: "termly", label: "Termly", interval: "month" as const, intervalCount: 3 },
 ] as const;
-
-const PRICE_PENCE: Record<string, Record<number, number>> = {
-  weekly: { 1: 1999, 2: 2239, 3: 2399 },
-  monthly: { 1: 4999, 2: 5599, 3: 5999 },
-  termly: { 1: 13999, 2: 15699, 3: 16799 },
-};
 
 // Weeks per billing cycle; one live session per subject per week. Counted the
 // landing page's way (4 a month, 12 a term).
@@ -59,31 +61,47 @@ function planDescription(cadence: string, count: number) {
 // offered (see resolvePackagesForLevel and the packages table's (tier, level)
 // key). iGCSE deliberately starts at the same amounts as the general ladder —
 // separate Stripe objects exist so its price can move on its own later without
-// disturbing what GCSE and A-Level students pay.
-const PRICE_LISTS = [
-  { level: null, suffix: "", nameSuffix: "" },
-  { level: "igcse", suffix: "igcse_", nameSuffix: " · iGCSE" },
-] as const;
+// disturbing what GCSE students pay. A-Level has its own amounts, 10% above
+// (20261108130000_alevel_package_ladder adds its rows, switched off until
+// this script attaches their prices).
+const PRICE_LISTS: {
+  level: string | null;
+  suffix: string;
+  nameSuffix: string;
+  prices: PriceLadder;
+}[] = [
+  { level: null, suffix: "", nameSuffix: "", prices: GENERAL_PRICE_PENCE },
+  { level: "igcse", suffix: "igcse_", nameSuffix: " · iGCSE", prices: GENERAL_PRICE_PENCE },
+  { level: "alevel", suffix: "alevel_", nameSuffix: " · A-Level", prices: ALEVEL_PRICE_PENCE },
+];
 
-const PLANS = PRICE_LISTS.flatMap(({ level, suffix, nameSuffix }) =>
-  CADENCES.flatMap(({ cadence, label, interval, intervalCount }) =>
-    [1, 2, 3].map((count) => {
-      const subjectWord = count === 1 ? "1 subject" : `${count} subjects`;
-      return {
-        tier: `${cadence}_${count}`,
-        level,
-        // The lookup key is what makes this re-runnable, so it has to separate
-        // the two ladders — otherwise the iGCSE pass would find the general
-        // price and silently reuse it.
-        lookupKey: `anglian_${suffix}${cadence}_${count}`,
-        name: `Anglia Educate — ${label} (${subjectWord})${nameSuffix}`,
-        description: planDescription(cadence, count),
-        amount: PRICE_PENCE[cadence][count],
-        interval,
-        intervalCount,
-      };
-    }),
-  ),
+const args = process.argv.slice(2);
+const dryRun = args.includes("--dry-run");
+const only = args.find((a) => a.startsWith("--only="))?.slice("--only=".length);
+if (only && !PRICE_LISTS.some((l) => (l.level ?? "general") === only)) {
+  throw new Error(`--only=${only}: expected general, igcse or alevel.`);
+}
+
+const PLANS = PRICE_LISTS.filter((l) => !only || (l.level ?? "general") === only).flatMap(
+  ({ level, suffix, nameSuffix, prices }) =>
+    CADENCES.flatMap(({ cadence, label, interval, intervalCount }) =>
+      ([1, 2, 3] as const).map((count) => {
+        const subjectWord = count === 1 ? "1 subject" : `${count} subjects`;
+        return {
+          tier: `${cadence}_${count}`,
+          level,
+          // The lookup key is what makes this re-runnable, so it has to separate
+          // the two ladders — otherwise the iGCSE pass would find the general
+          // price and silently reuse it.
+          lookupKey: `anglian_${suffix}${cadence}_${count}`,
+          name: `Anglia Educate — ${label} (${subjectWord})${nameSuffix}`,
+          description: planDescription(cadence, count),
+          amount: prices[cadence][count],
+          interval,
+          intervalCount,
+        };
+      }),
+    ),
 );
 
 const stripeKey = process.env.STRIPE_SECRET_KEY;
@@ -104,9 +122,39 @@ const db =
     : null;
 
 const live = stripeKey.startsWith("sk_live_");
-console.log(`Seeding Stripe in ${live ? "LIVE" : "TEST"} mode.\n`);
-if (live) {
+console.log(
+  `Seeding Stripe in ${live ? "LIVE" : "TEST"} mode${dryRun ? " (dry run: nothing changes)" : ""}` +
+    `${only ? `, ${only} list only` : ""}.\n`,
+);
+if (live && !dryRun) {
   console.log("⚠️  This is your live key — these products will take real money.\n");
+}
+
+// Never mix Stripe accounts or modes. Every price the database already points
+// at must exist for this key: a test key run against the live database would
+// otherwise re-point live plans (GCSE included) at test prices nobody can pay.
+// Checked before anything is created or written.
+if (db) {
+  const { data: attached, error } = await db
+    .from("packages")
+    .select("stripe_price_id")
+    .not("stripe_price_id", "is", null);
+  if (error) throw new Error(`Couldn't read packages: ${error.message}`);
+  const ids = [...new Set((attached ?? []).map((r) => String(r.stripe_price_id)))];
+  for (const id of ids) {
+    try {
+      await stripe.prices.retrieve(id);
+    } catch (err) {
+      if ((err as { code?: string }).code === "resource_missing") {
+        throw new Error(
+          `The database's price ${id} doesn't exist for this ${live ? "live" : "test"} key. ` +
+            "Use the key its prices were made with. Nothing was created or changed.",
+        );
+      }
+      throw err;
+    }
+  }
+  console.log(`Checked: the database's ${ids.length} prices all belong to this key.\n`);
 }
 
 const created: { tier: string; level: string | null; priceId: string }[] = [];
@@ -121,6 +169,32 @@ for (const plan of PLANS) {
     expand: ["data.product"],
   });
   let price = existing.data[0];
+
+  // A reused price must still be the one the list asks for: prices never
+  // change, so a mismatch means the list was edited without a new price.
+  if (
+    price &&
+    (price.unit_amount !== plan.amount ||
+      price.currency !== "gbp" ||
+      price.recurring?.interval !== plan.interval ||
+      price.recurring?.interval_count !== plan.intervalCount)
+  ) {
+    throw new Error(
+      `${label}: Stripe price ${price.id} is ${price.unit_amount} ${price.currency} every ` +
+        `${price.recurring?.interval_count} ${price.recurring?.interval}, but the list says ` +
+        `${plan.amount} gbp every ${plan.intervalCount} ${plan.interval}. Nothing more was changed.`,
+    );
+  }
+
+  if (dryRun) {
+    console.log(
+      price
+        ? `• ${label}: would reuse ${price.id} (${plan.amount}p) and put the row on sale`
+        : `• ${label}: would create "${plan.name}" at ${plan.amount}p every ` +
+            `${plan.intervalCount} ${plan.interval} (${plan.lookupKey}), then put the row on sale`,
+    );
+    continue;
+  }
 
   if (price) {
     console.log(`• ${label}: reusing existing price ${price.id}`);
@@ -157,13 +231,20 @@ for (const plan of PLANS) {
   if (db) {
     // Scope by level as well as tier: a tier now names two rows, and updating
     // on tier alone would point the level override at the general price.
-    const query = db.from("packages").update({ stripe_price_id: price.id }).eq("tier", plan.tier);
+    // A row is put on sale only once it has its price: checkout skips inactive
+    // rows, so until then its students are charged the general row instead.
+    const query = db
+      .from("packages")
+      .update({ stripe_price_id: price.id, active: true })
+      .eq("tier", plan.tier);
     const { error } = await (plan.level ? query.eq("level", plan.level) : query.is("level", null));
     if (error) throw new Error(`Couldn't attach ${label} to packages: ${error.message}`);
   }
 }
 
-if (db) {
+if (dryRun) {
+  console.log("\nDry run: nothing was created in Stripe or written to the database.");
+} else if (db) {
   console.log("\nDone. Every active package now has a stripe_price_id.");
 } else {
   console.log("\nProducts and prices are created in Stripe.");
@@ -172,7 +253,7 @@ if (db) {
   for (const { tier, level, priceId } of created) {
     const levelClause = level ? `level = '${level}'` : "level is null";
     console.log(
-      `update public.packages set stripe_price_id = '${priceId}' where tier = '${tier}' and ${levelClause};`,
+      `update public.packages set stripe_price_id = '${priceId}', active = true where tier = '${tier}' and ${levelClause};`,
     );
   }
 }

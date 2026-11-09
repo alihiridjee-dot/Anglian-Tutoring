@@ -205,7 +205,7 @@
       "spec_codes": ["AQA 4.4.2.5"],
       "worked_example": {
         "exemplar_id": "3f7a713f-bbfc-405a-8ba8-fde0dec9d0b5",
-        "source": "AQA jun 2020, Paper 1 (H), Q9.5",
+        "source": "AQA jun 2020, Paper 1 (H), Q09.5",
         "question": "This is part of the method the student used for the titration.\n\n1. Measure 25.0 cm3 of the sodium hydroxide solution into a conical flask using a pipette.\n2. Add a few drops of indicator to the flask.\n3. Fill a burette with citric acid solution.\n\nDescribe how the student would complete the titration.",
         "marks": 3,
         "answer_points": [

@@ -29,15 +29,15 @@
             },
             {
               "term": "Dilute and concentrated",
-              "meaning": "(AQA and OCR: Higher tier) A dilute solution has a low ratio of solute to volume. A concentrated solution has a high ratio."
+              "meaning": "(Higher tier) A dilute solution has a low ratio of solute to volume. A concentrated solution has a high ratio."
             }
           ]
         },
         {
           "type": "list",
           "items": [
-            "(AQA and OCR: Higher tier) Putting more solute in the same volume makes a solution more concentrated.",
-            "(AQA and OCR: Higher tier) Putting the same solute in a bigger volume makes it more dilute.",
+            "(Higher tier) Putting more solute in the same volume makes a solution more concentrated.",
+            "(Higher tier) Putting the same solute in a bigger volume makes it more dilute.",
             "(Higher tier) Dilute and concentrated describe the amount of solute. Strong and weak describe how far an acid ionises, which is a different idea."
           ]
         },
@@ -45,7 +45,7 @@
           "type": "key-points",
           "items": [
             "Concentration = how much solute in a volume of solution.",
-            "(AQA and OCR: Higher tier) More solute in the same volume means more concentrated.",
+            "(Higher tier) More solute in the same volume means more concentrated.",
             "(Higher tier) Dilute and concentrated are not the same as weak and strong."
           ]
         }
@@ -246,7 +246,7 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C3.3g", "OCR C5.1a"],
+      "spec_codes": ["OCR C3.3g", "OCR C5.1a", "OCR C5.1f"],
       "worked_example": {
         "exemplar_id": "a3f5d9c6-017c-4c7e-b29a-ca596ba947b0",
         "source": "OCR jun 2023, Paper 2, Q22(d)",
@@ -332,7 +332,8 @@
       "a11b078c-7843-451b-adec-7e3f96489123",
       "77c9e2ff-974f-451b-a68b-4e271c242029",
       "be7eb613-d8d6-4e80-8171-e96d5ce8da1b",
-      "11a84ca5-9b37-4930-a18f-27f4f8b97be1"
+      "11a84ca5-9b37-4930-a18f-27f4f8b97be1",
+      "e8409849-9374-4154-a96d-4655922c3ce7"
     ],
     "exemplar_ids": [
       "02cc4c91-71c6-40f6-a8d9-2a56d1b42dd5",

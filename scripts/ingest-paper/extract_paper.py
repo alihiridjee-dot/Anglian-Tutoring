@@ -1023,7 +1023,7 @@ HEADER_WORDS = [
 HEADER_RE = re.compile("|".join(f"(?P<{n}>\\b(?:{p})\\b)" for n, p in HEADER_WORDS), re.I)
 MS_LABEL_AQA = re.compile(r"^(?:0\s?)?(\d)\s?(\d)?(?:\s?\.\s?(\d{1,2}))?(?=\s|$)")
 MS_LABEL = re.compile(
-    r"^\*?\s*(?P<q>\d{1,2})?\s*\*?\s*(?:\*?\(\s*(?P<letter>[a-z])\s*\*?\s*\)\*?|(?P<bare_letter>[a-h])(?=\s|$|\())?\s*"
+    r"^\*?\s*(?P<q>\d{1,2})?\s*\*?\s*(?:\*?\(\s*(?P<letter>[a-z])\s*\*?\s*\)\*?|(?P<bare_letter>[a-h])(?=\s|$|\(|\*))?\s*"
     r"(?:\*?\(\s*(?P<roman>(?i:i{1,3}|iv|vi{0,3}|ix|x))\s*\*?\s*\)(?P<item>[1-9](?=\s|$))?|(?P<bare_roman>(?i:i{1,3}|iv|vi{0,3}|ix|x))(?=\s|$))?"
     r"\s*\*?(?=\s|$)")
 
@@ -1075,6 +1075,9 @@ def header_cells(lines):
         text += tidy(s.text)
     leftover = HEADER_RE.sub(" ", text)
     if re.search(r"[A-Za-z]{3,}", re.sub(r"\b(?:Number|No|Max|Total|element|Mark Scheme)\b", " ", leftover, flags=re.I)):
+        return None
+    # ...and a heading never names a part: "if no answer to question 01.6" is guidance.
+    if re.search(r"\b\d{1,2}\s?\.\s?\d{1,2}\b|\b\d{1,2}\s?\([a-z]\)", leftover):
         return None
     cols = {}
     for m in HEADER_RE.finditer(text):
@@ -1141,7 +1144,7 @@ def ms_key(board, qtext, last):
     left of its column lands after the label in the same cell; it is returned
     so it can go back to the answer."""
     t = re.sub(r"\s+", " ", qtext).strip()
-    t = re.sub(r"^\^(?=\d)", "", t)             # a label set a little high ("^2(b)(ii)")
+    t = re.sub(r"^\^(?=\d|\()", "", t)          # a label set a little high ("^2(b)(ii)", "^(c)")
     if board == "aqa":
         m = MS_LABEL_AQA.match(t)
         if not m:
@@ -1183,7 +1186,7 @@ def ms_key(board, qtext, last):
 AO_NOTE = re.compile(r"\(?\s*(?:\d+\s*[x×]\s*)?AO\s?\d[\d.]*[a-z]?\s*[,)]?", re.I)
 
 
-def table_rows(page, lines):
+def table_rows(page, lines, board=None):
     """The page's lines grouped by the table row they sit in.
 
     A row's cells are not aligned on one baseline: AQA centres the question
@@ -1208,8 +1211,33 @@ def table_rows(page, lines):
             levels[-1][1].append((u0, u1))
         else:
             levels.append([v, [(u0, u1)]])
+
+    def leaves_question_column_open(v, pieces):
+        # The table's left side is the one beside this rule (a part carried
+        # over can sit in a narrower table above the next), and a border may
+        # start a few points in from it; a rule inside a row starts at the
+        # question column's far side.
+        side = min((u for u, v0, v1 in long_v if v0 - 3 <= v <= v1 + 3), default=left)
+        return min(a for a, _ in pieces) > side + 20
+
+    # AQA rules every row across its question column, so where its table does,
+    # a rule that leaves that column open is inside a row: a small table in the
+    # answer, or the bands of a levels table beside a question cell that spans
+    # them all, its label set halfway down. (OCR never rules the question
+    # column, and nor does the odd AQA table; the rule under the headings
+    # always counts.)
+    inside_rows = board == "aqa" and sum(not leaves_question_column_open(v, p) for v, p in levels) >= 2
+    heads = [l.v1 for l in lines if header_cells(l)] if inside_rows else []
     cuts = []
     for v, pieces in levels:
+        lo, hi = min(a for a, _ in pieces), max(b for _, b in pieces)
+        # A rule running well past both sides of the table at its top is the
+        # running head's, crossing a row carried over from the page before.
+        # (The footer's rule at its foot still parts the page number off.)
+        if lo < left - 8 and hi > right + 8 and v - top < 20:
+            continue
+        if inside_rows and leaves_question_column_open(v, pieces) and not any(0 <= v - h <= 15 for h in heads):
+            continue
         covered, end = 0.0, -1e9
         for a, b in sorted(pieces):
             a = max(a, end)
@@ -1250,7 +1278,7 @@ def parse_ms(doc, board):
             continue                                    # the board's back page, not a scheme
         vertical = table_rules(page)[0]
         lines = [l for l in lines if not MS_RUNNING_HEAD.match(re.sub(r"\s+", " ", l.text).strip())]
-        rows = table_rows(page, lines)
+        rows = table_rows(page, lines, board)
         main = MAIN.get((page.parent.name, page.number), (1, 0))
         pictures = []
         for info in page.get_image_info():
@@ -1308,6 +1336,14 @@ def parse_ms(doc, board):
                         int(found[0].split("|")[0]) not in (last[0], last[0] + 1) and \
                         re.match(r"[\d.(×x=+\-–/]", found[2] or ""):
                     found = None
+                # A misprinted question number: "01.3" where 08.3 is due, below
+                # 08.2, when 01.3 is long since marked. The part is the next one
+                # of the question in hand.
+                if found and board == "aqa" and last[0] is not None and not found[0].endswith("||"):
+                    fq, fmid = (int(n) for n in found[0].split("|")[:2])
+                    if fq < last[0] and found[0] in entries and key_of(last[0], fmid - 1) in entries \
+                            and key_of(last[0], fmid) not in entries:
+                        found = (key_of(last[0], fmid), (last[0], None), found[2])
                 if found:
                     labels.append((i, found))
                     last = found[1]

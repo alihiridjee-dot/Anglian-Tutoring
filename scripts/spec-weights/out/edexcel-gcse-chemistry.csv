@@ -2,7 +2,7 @@ code,title,weight,topic
 EDEX 0.1,"Formulae of elements, simple compounds and ions",1.1,"Formulae, equations and hazards"
 EDEX 0.2,Word equations,1.4,"Formulae, equations and hazards"
 EDEX 0.3,Balanced chemical equations,1.62,"Formulae, equations and hazards"
-EDEX 0.4,Balanced ionic equations,1.4,"Formulae, equations and hazards"
+EDEX 0.4,Balanced ionic equations,1.70,"Formulae, equations and hazards"
 EDEX 0.5,Use of hazard symbols on containers,1.85,"Formulae, equations and hazards"
 EDEX 0.6,Evaluating risks and suggesting precautions in a practical procedure,2.1,"Formulae, equations and hazards"
 EDEX 1.1,Change in the Dalton model of the atom after the discovery of subatomic particles,1.3,Key concepts in chemistry
@@ -16,7 +16,7 @@ EDEX 1.8,"Atoms of an element as having the same number of protons, unique to th
 EDEX 1.9,Isotopes as atoms of the same element with different numbers of neutrons,1.3,Key concepts in chemistry
 EDEX 1.10,"Numbers of protons, neutrons and electrons from atomic and mass number",1.8,Key concepts in chemistry
 EDEX 1.11,Why isotopes give relative atomic masses that are not whole numbers,1.7,Key concepts in chemistry
-EDEX 1.12,Relative atomic mass of an element from isotope masses and abundances,1.8,Key concepts in chemistry
+EDEX 1.12,Relative atomic mass of an element from isotope masses and abundances,2.10,Key concepts in chemistry
 EDEX 1.13,"How Dmitri Mendeleev arranged the elements, known at that time",1.3,Key concepts in chemistry
 EDEX 1.14,Mendeleev’s use of his table to predict undiscovered elements and their properties,1.3,Key concepts in chemistry
 EDEX 1.15,Mendeleev’s order by relative atomic mass and the effect of isotope abundance,1.99,Key concepts in chemistry
@@ -54,10 +54,10 @@ EDEX 1.46,Experiment to find the empirical formula of magnesium oxide,1.3,Key co
 EDEX 1.47,Law of conservation of mass in closed and non-enclosed systems,2.47,Key concepts in chemistry
 EDEX 1.48,Masses of reactants and products from balanced equations and one known mass,1.8,Key concepts in chemistry
 EDEX 1.49,Concentration of solutions in g dm⁻³,1.8,Key concepts in chemistry
-EDEX 1.50,Definition of one mole of particles,1.83,Key concepts in chemistry
-EDEX 1.51,"Converting between mass, moles and number of particles",3.08,Key concepts in chemistry
-EDEX 1.52,Why the reactant not in excess controls the mass of product,1.7,Key concepts in chemistry
-EDEX 1.53,Stoichiometry of a reaction from the masses of reactants and products,1.4,Key concepts in chemistry
+EDEX 1.50,Definition of one mole of particles,2.13,Key concepts in chemistry
+EDEX 1.51,"Converting between mass, moles and number of particles",3.38,Key concepts in chemistry
+EDEX 1.52,Why the reactant not in excess controls the mass of product,2.00,Key concepts in chemistry
+EDEX 1.53,Stoichiometry of a reaction from the masses of reactants and products,1.70,Key concepts in chemistry
 EDEX 2.1,"Arrangement, movement and relative energy of particles in solids, liquids and gases",1.3,States of matter and mixtures
 EDEX 2.2,"Names for changes of state, and why they are physical not chemical changes",1.17,States of matter and mixtures
 EDEX 2.3,"Changes in arrangement, movement and energy of particles during changes of state",1.7,States of matter and mixtures
@@ -73,11 +73,11 @@ EDEX 2.12,How: (a) waste and ground water can be made potable,2.29,States of mat
 EDEX 3.1,Acids as sources of hydrogen ions and alkalis as sources of hydroxide ions,1.1,Chemical changes
 EDEX 3.2,"pH values of neutral, acidic and alkaline solutions",1.1,Chemical changes
 EDEX 3.3,Effect of acids and alkalis on indicators,1.1,Chemical changes
-EDEX 3.4,How hydrogen ion and hydroxide ion concentrations affect pH,1.28,Chemical changes
-EDEX 3.5,A tenfold increase in hydrogen ion concentration lowers pH by 1,1.1,Chemical changes
+EDEX 3.4,How hydrogen ion and hydroxide ion concentrations affect pH,1.58,Chemical changes
+EDEX 3.5,A tenfold increase in hydrogen ion concentration lowers pH by 1,1.40,Chemical changes
 EDEX 3.6,Practical: Change in pH on adding powdered calcium hydroxide or calcium,4.2,Chemical changes
-EDEX 3.7,Meaning of dilute and concentrated for substances in solution,1.7,Chemical changes
-EDEX 3.8,Meaning of weak and strong acids in terms of dissociation into ions,1.7,Chemical changes
+EDEX 3.7,Meaning of dilute and concentrated for substances in solution,2.00,Chemical changes
+EDEX 3.8,Meaning of weak and strong acids in terms of dissociation into ions,2.00,Chemical changes
 EDEX 3.9,Bases as substances that react with acids to form only salt and water,1.1,Chemical changes
 EDEX 3.10,Alkalis are soluble bases,1.1,Chemical changes
 EDEX 3.11,"Reactions of acids with metals, metal oxides, hydroxides and carbonates",2.58,Chemical changes
@@ -96,19 +96,19 @@ EDEX 3.23,Electrolysis as decomposition of electrolytes by direct current,1.3,Ch
 EDEX 3.24,Movement of cations and anions to the electrodes during electrolysis,2.23,Chemical changes
 EDEX 3.25,Products of electrolysing some electrolytes with inert electrodes,3.11,Chemical changes
 EDEX 3.26,Products of electrolysis of other molten binary ionic compounds,1.9,Chemical changes
-EDEX 3.27,Half equations for reactions at the anode and cathode in electrolysis,1.4,Chemical changes
-EDEX 3.28,Oxidation and reduction,1.7,Chemical changes
-EDEX 3.29,Reduction at the cathode and oxidation at the anode in electrolysis,1.1,Chemical changes
+EDEX 3.27,Half equations for reactions at the anode and cathode in electrolysis,1.70,Chemical changes
+EDEX 3.28,Oxidation and reduction,2.00,Chemical changes
+EDEX 3.29,Reduction at the cathode and oxidation at the anode in electrolysis,1.40,Chemical changes
 EDEX 3.30,Electrolysis of copper sulfate solution with copper electrodes to purify copper,1.72,Chemical changes
 EDEX 3.31,Practical: Electrolysis of copper sulfate solution with inert electrodes,4.2,Chemical changes
 EDEX 4.1,"Relative reactivity of metals from reactions with water, acids and salt solutions",1.4,Extracting metals and equilibria
-EDEX 4.2,Displacement reactions as redox reactions,1.7,Extracting metals and equilibria
+EDEX 4.2,Displacement reactions as redox reactions,2.00,Extracting metals and equilibria
 EDEX 4.3,Reactivity series of metals,2.14,Extracting metals and equilibria
 EDEX 4.4,Metals in the Earth’s crust: ores and uncombined elements,1.58,Extracting metals and equilibria
 EDEX 4.5,Oxidation as gain of oxygen and reduction as loss of oxygen,1.7,Extracting metals and equilibria
 EDEX 4.6,Extracting metals by reduction of ores,1.1,Extracting metals and equilibria
 EDEX 4.7,Why a metal’s extraction method depends on its reactivity and cost,2.65,Extracting metals and equilibria
-EDEX 4.8,Alternative biological methods of metal extraction,2.1,Extracting metals and equilibria
+EDEX 4.8,Alternative biological methods of metal extraction,2.40,Extracting metals and equilibria
 EDEX 4.9,Metal resistance to oxidation and position in the reactivity series,1.7,Extracting metals and equilibria
 EDEX 4.10,Advantages of recycling metals,2.1,Extracting metals and equilibria
 EDEX 4.11,Life-cycle assessment of a product and its environmental effects,1.59,Extracting metals and equilibria
@@ -117,7 +117,7 @@ EDEX 4.13,Reversible reactions and the use of the ⇌ symbol in equations,1.21,E
 EDEX 4.14,What is meant by dynamic equilibrium,1.7,Extracting metals and equilibria
 EDEX 4.15,Formation of ammonia as a reversible reaction of nitrogen and hydrogen,1.39,Extracting metals and equilibria
 EDEX 4.16,"Conditions for the Haber process: 450 °C, 200 atmospheres, iron catalyst",1.76,Extracting metals and equilibria
-EDEX 4.17,"Effect of temperature, pressure and concentration on equilibrium position",2.56,Extracting metals and equilibria
+EDEX 4.17,"Effect of temperature, pressure and concentration on equilibrium position",2.86,Extracting metals and equilibria
 EDEX 5.1C,Most metals are transition metals and their typical properties,2.29,Separate chemistry 1
 EDEX 5.2C,Corrosion as the oxidation of metals,1.1,Separate chemistry 1
 EDEX 5.3C,"How rusting of iron is prevented, including sacrificial protection",2.36,Separate chemistry 1
@@ -125,20 +125,20 @@ EDEX 5.4C,How electroplating improves the appearance or corrosion resistance of 
 EDEX 5.5C,"Explain, using models, why alloys are often stronger than pure metals",1.7,Separate chemistry 1
 EDEX 5.6C,Why iron is alloyed with other metals to produce alloy steels,1.7,Separate chemistry 1
 EDEX 5.7C,How the uses of metals and alloys are related to their properties,1.72,Separate chemistry 1
-EDEX 5.8C,"Concentration of solutions in mol dm⁻³, and converting between g dm⁻³ and mol dm⁻³",1.8,Separate chemistry 1
+EDEX 5.8C,"Concentration of solutions in mol dm⁻³, and converting between g dm⁻³ and mol dm⁻³",2.10,Separate chemistry 1
 EDEX 5.9C,"Practical: Carry out an accurate acid-alkali titration, using burette",3.4,Separate chemistry 1
-EDEX 5.10C,Carry out titration calculations to find an unknown concentration or volume,1.4,Separate chemistry 1
+EDEX 5.10C,Carry out titration calculations to find an unknown concentration or volume,1.70,Separate chemistry 1
 EDEX 5.11C,Percentage yield of a reaction from the actual and theoretical yields,1.8,Separate chemistry 1
 EDEX 5.12C,Why the actual yield is usually less than the theoretical yield,2.23,Separate chemistry 1
 EDEX 5.13C,Atom economy of a reaction forming a desired product,1.1,Separate chemistry 1
 EDEX 5.14C,Atom economy of a reaction forming a desired product,1.8,Separate chemistry 1
-EDEX 5.15C,Why a particular reaction pathway is chosen to make a specified product,1.77,Separate chemistry 1
-EDEX 5.16C,Molar volume of a gas as the volume of one mole at room temperature and pressure,1.79,Separate chemistry 1
-EDEX 5.17C,Molar volume and balanced equations in mass and gas volume calculations,1.5,Separate chemistry 1
-EDEX 5.18C,Avogadro’s law to calculate volumes of gases in a gaseous reaction,1.5,Separate chemistry 1
+EDEX 5.15C,Why a particular reaction pathway is chosen to make a specified product,2.07,Separate chemistry 1
+EDEX 5.16C,Molar volume of a gas as the volume of one mole at room temperature and pressure,2.09,Separate chemistry 1
+EDEX 5.17C,Molar volume and balanced equations in mass and gas volume calculations,1.80,Separate chemistry 1
+EDEX 5.18C,Avogadro’s law to calculate volumes of gases in a gaseous reaction,1.80,Separate chemistry 1
 EDEX 5.19C,Haber process as a reversible reaction of nitrogen and hydrogen to form ammonia,1.3,Separate chemistry 1
-EDEX 5.20C,"Effects of temperature, pressure, concentration and catalyst on reaching equilibrium",2.85,Separate chemistry 1
-EDEX 5.21C,"How, in industrial reactions",2.52,Separate chemistry 1
+EDEX 5.20C,"Effects of temperature, pressure, concentration and catalyst on reaching equilibrium",3.15,Separate chemistry 1
+EDEX 5.21C,"How, in industrial reactions",2.82,Separate chemistry 1
 EDEX 5.22C,"Nitrogen, phosphorus and potassium compounds in fertilisers",1.1,Separate chemistry 1
 EDEX 5.23C,How ammonia reacts with nitric acid to make a fertiliser salt,1.3,Separate chemistry 1
 EDEX 5.24C,Comparing laboratory and industrial production of ammonium sulfate,2.74,Separate chemistry 1
@@ -156,7 +156,7 @@ EDEX 6.8,Chemical test for chlorine,1.3,Groups in the periodic table
 EDEX 6.9,"Reactions of chlorine, bromine and iodine with metals to form metal halides",1.34,Groups in the periodic table
 EDEX 6.10,Halogens forming hydrogen halides that dissolve to give acidic solutions,1.21,Groups in the periodic table
 EDEX 6.11,"Relative reactivity of chlorine, bromine and iodine from displacement reactions",1.48,Groups in the periodic table
-EDEX 6.12,Why halogen displacement reactions are redox reactions,1.74,Groups in the periodic table
+EDEX 6.12,Why halogen displacement reactions are redox reactions,2.04,Groups in the periodic table
 EDEX 6.13,Relative reactivity of the halogens in terms of electronic configurations,1.7,Groups in the periodic table
 EDEX 6.14,"Why the noble gases are chemically inert, in terms of electronic configurations",1.7,Groups in the periodic table
 EDEX 6.15,"How the uses of noble gases depend on inertness, low density and non-flammability",1.7,Groups in the periodic table
@@ -174,7 +174,7 @@ EDEX 7.10,Exothermic change or reaction as one that gives out heat energy,1.3,Ra
 EDEX 7.11,Endothermic change or reaction as one that takes in heat energy,1.3,Rates of reaction and energy changes
 EDEX 7.12,Bond breaking as endothermic and bond making as exothermic,1.1,Rates of reaction and energy changes
 EDEX 7.13,Exothermic and endothermic reactions in terms of bonds broken and made,2.25,Rates of reaction and energy changes
-EDEX 7.14,Energy change in a reaction from bond energies in kJ mol⁻¹,1.8,Rates of reaction and energy changes
+EDEX 7.14,Energy change in a reaction from bond energies in kJ mol⁻¹,2.10,Rates of reaction and energy changes
 EDEX 7.15,Term activation energy,1.7,Rates of reaction and energy changes
 EDEX 7.16,Draw and label reaction profiles for endothermic and exothermic reactions,1.5,Rates of reaction and energy changes
 EDEX 8.1,Hydrocarbons as compounds containing only carbon and hydrogen,1.1,Fuels and Earth science
@@ -223,7 +223,7 @@ EDEX 9.18C,Describe how ethene molecules combine to form the addition polymer po
 EDEX 9.19C,How other addition polymers are made from monomers containing C=C,1.39,Separate chemistry 2
 EDEX 9.20C,Structure of a monomer from the structure of an addition polymer and vice versa,1.4,Separate chemistry 2
 EDEX 9.21C,How the uses of polymers are related to their properties and vice versa,1.7,Separate chemistry 2
-EDEX 9.22C,Explain why polyesters are condensation polymers and how they are formed,2.85,Separate chemistry 2
+EDEX 9.22C,Explain why polyesters are condensation polymers and how they are formed,3.15,Separate chemistry 2
 EDEX 9.23C,"Some problems associated with polymers, including persistence in landfill",2.62,Separate chemistry 2
 EDEX 9.24C,Advantages and disadvantages of recycling polymers,2.1,Separate chemistry 2
 EDEX 9.25C,"Natural polymers: DNA, starch and proteins",1.98,Separate chemistry 2

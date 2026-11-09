@@ -3,7 +3,7 @@
   "concept_id": "phys-054",
   "subject": "physics",
   "title": "Acceleration and velocity–time graphs",
-  "key_idea": "Acceleration is how quickly velocity changes: the change in velocity divided by the time taken. On a velocity–time graph the gradient is the acceleration and the area under the line is the distance travelled.",
+  "key_idea": "Acceleration is how quickly velocity changes: the change in velocity divided by the time taken. On a velocity–time graph the gradient is the acceleration. (AQA and OCR: Higher tier) The area under the line is the distance travelled.",
   "sections": [
     {
       "heading": "Acceleration",
@@ -267,7 +267,7 @@
       "marks": 3
     },
     {
-      "q": "State what the gradient and the area under a velocity–time graph represent.",
+      "q": "(AQA and OCR: Higher tier) State what the gradient and the area under a velocity–time graph represent.",
       "a": "The gradient is the acceleration. The area is the distance travelled.",
       "marks": 2
     }
