@@ -91,7 +91,7 @@
         {
           "type": "list",
           "items": [
-            "The ending **-ide** means the compound has only two elements, such as sodium chloride and magnesium oxide.",
+            "The ending **-ide** usually means the compound has only two elements, such as sodium chloride and magnesium oxide. Hydroxide (OH⁻) is an exception: sodium hydroxide, NaOH, has three elements. Ammonium chloride, NH₄Cl, also has three, because the ammonium ion has two elements.",
             "The ending **-ate** means the negative ion also contains oxygen, such as sulfate, nitrate and carbonate.",
             "A Roman numeral gives the charge on a metal that can form more than one ion. Titanium(IV) oxide contains Ti⁴⁺."
           ]
@@ -268,7 +268,7 @@
         {
           "type": "key-points",
           "items": [
-            "-ide: two elements. -ate: the negative ion also contains oxygen.",
+            "-ide: usually only two elements (not hydroxides or ammonium compounds). -ate: the negative ion also contains oxygen.",
             "Balance the charges, then write the numbers as subscripts.",
             "Use brackets round an ion with more than one atom when you need more than one of it."
           ]
@@ -490,8 +490,8 @@
     "status": "draft",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "4e5e550e-e760-4063-8ec5-2ff9d9f292c4",
       "588c6424-ae3e-45a2-aaca-678805219fd6",

@@ -66,6 +66,10 @@ missed the lesson could learn the topic from this note alone.
    - `sequence` (self-test): "put these steps in order". For any real sequence a
      student must recall: cell cycle stages, a practical's method, the reflex arc,
      blood flow through the heart. 3 to 8 steps, given in the correct order.
+     Where two neighbouring steps could honestly go either way round (weigh the
+     food or measure the water first; the rod gains electrons as the cloth loses
+     them), mark them with `free: [[first, last]]` so a right method is never
+     marked wrong; otherwise reword the steps until only one order is right.
    - `sort` (self-test): "sort these into groups". For classification the mark
      schemes test: eukaryotic/prokaryotic, thinking/braking distance factors,
      exothermic/endothermic. 2 or 3 groups, 4 to 12 short items.
@@ -90,8 +94,20 @@ missed the lesson could learn the topic from this note alone.
    - on a `slider`: `road` (stopping distance), `wave` (amplitude, frequency),
      `particles` (states of matter vs temperature), `half-life` (decaying nuclei
      vs time), `gas-syringe` (gas collected: rates), `circuit` (bulbs in series or
-     parallel), `enzyme` (active site vs temperature or pH), `diffusion`
+     parallel), `enzyme` (active site vs temperature or pH; set `factor`, because
+     a cold enzyme is slow, never denatured), `diffusion`
      (concentrations either side of a membrane), `ph` (universal indicator scale).
+
+   **Figures** are real pictures with real values, drawn by the same code as
+   exam-question figures and held to the same checker: `{ kind: "figure", title,
+   alt, brief }`, where `brief` is written exactly as `src/lib/figures` describes
+   for that kind (graph or scatter with real axes, bar chart, reaction profile,
+   chromatogram, wave, forces, ray diagram, field pattern, displayed formula,
+   dot-and-cross, electron shells, particle diagram, periodic-table outline, EM
+   spectrum, moments, scale, pyramid, family tree, flow diagram, timeline…).
+   Not circuits or food webs: a model draws those. Use a figure wherever an exam
+   paper or textbook would show that picture, with the note's own numbers and
+   labels. Figures don't count toward the limit below; give a note at most two.
 
    Choosing: give each note **one interactive** wherever one genuinely fits,
    picking the template that matches what students are examined on (recall a

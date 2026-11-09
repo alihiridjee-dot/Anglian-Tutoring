@@ -108,6 +108,55 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Rate against pH for two enzymes",
+            "alt": "A line graph of relative rate against pH from 0 to 14 for two enzymes. A protease from the stomach works fastest at pH 2 and amylase works fastest at pH 7; each rate falls to zero away from its optimum.",
+            "brief": {
+              "kind": "line-graph",
+              "curve": true,
+              "x": {
+                "title": "pH",
+                "min": 0,
+                "max": 14,
+                "step": 2
+              },
+              "y": {
+                "title": "relative rate",
+                "min": 0,
+                "max": 100,
+                "step": 20
+              },
+              "series": [
+                {
+                  "name": "protease",
+                  "points": [
+                    [1, 70],
+                    [2, 100],
+                    [3, 70],
+                    [4, 30],
+                    [5, 5],
+                    [6, 0]
+                  ]
+                },
+                {
+                  "name": "amylase",
+                  "points": [
+                    [4, 0],
+                    [5, 30],
+                    [6, 80],
+                    [7, 100],
+                    [8, 80],
+                    [9, 30],
+                    [10, 0]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Each enzyme has an optimum pH.",
@@ -132,6 +181,44 @@
             "Later the curve flattens. All the active sites are in use, so extra substrate makes no difference.",
             "Increasing the enzyme concentration also increases the rate, because there are more active sites."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Rate against substrate concentration",
+            "alt": "A line graph of rate of reaction, in arbitrary units, against substrate concentration from 0 to 6%. The rate rises steeply at first, then levels off at 90 from 4% upwards, when every active site is in use.",
+            "brief": {
+              "kind": "line-graph",
+              "curve": true,
+              "x": {
+                "title": "substrate concentration in %",
+                "min": 0,
+                "max": 6,
+                "step": 1
+              },
+              "y": {
+                "title": "rate in arbitrary units",
+                "min": 0,
+                "max": 100,
+                "step": 20
+              },
+              "series": [
+                {
+                  "name": "enzyme",
+                  "points": [
+                    [0, 0],
+                    [1, 40],
+                    [2, 70],
+                    [3, 85],
+                    [4, 90],
+                    [5, 90],
+                    [6, 90]
+                  ]
+                }
+              ]
+            }
+          }
         },
         {
           "type": "key-points",
@@ -426,8 +513,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "de188d30-d767-4c9b-b53d-b5d546469476",
       "0162eebf-2203-4888-ad39-dcf62aec3b66",

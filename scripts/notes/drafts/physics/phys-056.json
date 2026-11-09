@@ -38,6 +38,41 @@
           "text": "This means no resultant force is needed to keep an object moving at a steady velocity. When a vehicle travels at a steady speed, the resistive forces balance the driving force."
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Steady speed: the forces balance",
+            "alt": "A free body diagram, drawn to scale, of a car at a steady speed: driving force 2500 N forwards and resistive forces 2500 N backwards, normal contact force 10 000 N up and weight 10 000 N down. The resultant force is zero.",
+            "brief": {
+              "kind": "forces",
+              "object": "car",
+              "forces": [
+                {
+                  "direction": "up",
+                  "name": "normal contact force",
+                  "size": 10000
+                },
+                {
+                  "direction": "down",
+                  "name": "weight",
+                  "size": 10000
+                },
+                {
+                  "direction": "right",
+                  "name": "driving force",
+                  "size": 2500
+                },
+                {
+                  "direction": "left",
+                  "name": "resistive forces",
+                  "size": 2500
+                }
+              ],
+              "toScale": true
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Zero resultant force means no change in velocity.",
@@ -62,6 +97,41 @@
             "A resultant force against the direction of motion slows it down.",
             "A resultant force at an angle to the motion changes its direction."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Slowing down: resultant force backwards",
+            "alt": "A free body diagram, drawn to scale, of a car slowing down: driving force 2500 N forwards and resistive forces 5000 N backwards, so the resultant force is 2500 N against the motion. The weight and normal contact force are 10 000 N each.",
+            "brief": {
+              "kind": "forces",
+              "object": "car",
+              "forces": [
+                {
+                  "direction": "up",
+                  "name": "normal contact force",
+                  "size": 10000
+                },
+                {
+                  "direction": "down",
+                  "name": "weight",
+                  "size": 10000
+                },
+                {
+                  "direction": "right",
+                  "name": "driving force",
+                  "size": 2500
+                },
+                {
+                  "direction": "left",
+                  "name": "resistive forces",
+                  "size": 5000
+                }
+              ],
+              "toScale": true
+            }
+          }
         },
         {
           "type": "diagram",
@@ -234,7 +304,7 @@
       "8ab45c3e-daaa-4783-9b1a-ca0ba665f333",
       "1e108ebd-b25e-440c-9004-24c7111a4390"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

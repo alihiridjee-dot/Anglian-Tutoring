@@ -218,6 +218,77 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "A family tree for cystic fibrosis",
+            "alt": "A family tree for cystic fibrosis: parents 1 and 2 do not have it but are both carriers, their daughter 4 has it, and her children 7 and 8, with her unaffected partner 5, are carriers.",
+            "brief": {
+              "kind": "family-tree",
+              "people": [
+                {
+                  "id": "1",
+                  "sex": "male",
+                  "affected": false,
+                  "carrier": true
+                },
+                {
+                  "id": "2",
+                  "sex": "female",
+                  "affected": false,
+                  "carrier": true
+                },
+                {
+                  "id": "3",
+                  "sex": "male",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "4",
+                  "sex": "female",
+                  "affected": true,
+                  "carrier": false
+                },
+                {
+                  "id": "5",
+                  "sex": "male",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "6",
+                  "sex": "male",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "7",
+                  "sex": "male",
+                  "affected": false,
+                  "carrier": true
+                },
+                {
+                  "id": "8",
+                  "sex": "female",
+                  "affected": false,
+                  "carrier": true
+                }
+              ],
+              "couples": [
+                {
+                  "parents": ["1", "2"],
+                  "children": ["3", "4", "6"]
+                },
+                {
+                  "parents": ["5", "4"],
+                  "children": ["7", "8"]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "subheading",
           "text": "Combining probabilities"
         },
@@ -486,7 +557,7 @@
       "b8f01430-c108-4f29-9fc4-ff47998c8cda",
       "d75fac89-e26b-4d8d-ac57-6367ec9496b5"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

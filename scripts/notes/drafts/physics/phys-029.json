@@ -237,6 +237,48 @@
                 "The line is flat at 0 °C while the ice melts. This is a change of state, so the temperature does not change.",
                 "When all the ice has melted, the temperature of the water rises."
               ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "figure",
+                "title": "Heating curve for crushed ice",
+                "alt": "A temperature–time graph for crushed ice heated steadily, with example times. The temperature rises from −10 °C to 0 °C in 2 minutes. It stays at 0 °C until 20 minutes while the ice melts, then rises steadily to 25 °C at 30 minutes once all of the ice is water.",
+                "brief": {
+                  "kind": "line-graph",
+                  "x": {
+                    "title": "time in min",
+                    "min": 0,
+                    "max": 30,
+                    "step": 5
+                  },
+                  "y": {
+                    "title": "temperature in °C",
+                    "min": -10,
+                    "max": 25,
+                    "step": 5
+                  },
+                  "series": [
+                    {
+                      "name": "ice, then water",
+                      "points": [
+                        [0, -10],
+                        [1, -5],
+                        [2, 0],
+                        [5, 0],
+                        [10, 0],
+                        [15, 0],
+                        [20, 0],
+                        [22, 5],
+                        [24, 10],
+                        [26, 15],
+                        [28, 20],
+                        [30, 25]
+                      ]
+                    }
+                  ]
+                }
+              }
             }
           ]
         },
@@ -300,7 +342,7 @@
             {
               "type": "list",
               "items": [
-                "Put crushed ice and a thermometer in a beaker. Heat it with an electric heater, or without electricity using a water bath.",
+                "Put crushed ice and a thermometer in a beaker. Stand the beaker in a water bath heated by a Bunsen burner, and stir the ice. An electric heater can be used instead.",
                 "Read the temperature at regular time intervals with a stopwatch, then plot the temperature-time graph.",
                 "Do not touch the heater while it is switched on, and use a low-voltage supply, not the mains.",
                 "Use gloves or a cloth to handle the hot beaker or heater, to prevent burns."
@@ -348,8 +390,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "60e73727-82bc-489c-9aec-4905102a2a7b",
       "920d5b82-0da1-4056-ae3e-efd5805bc95c",

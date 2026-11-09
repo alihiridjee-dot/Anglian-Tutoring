@@ -65,6 +65,37 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "CO₂ and O₂ on three planets",
+            "alt": "A bar chart of carbon dioxide and oxygen as percentages of the atmosphere: Venus is 96.5% carbon dioxide and Mars 95%, with almost no oxygen, while Earth today is 21% oxygen and only 0.04% carbon dioxide.",
+            "brief": {
+              "kind": "bar-chart",
+              "x": {
+                "title": "planet",
+                "categories": ["Venus", "Mars", "Earth"]
+              },
+              "y": {
+                "title": "percentage of the air",
+                "min": 0,
+                "max": 100,
+                "step": 10
+              },
+              "series": [
+                {
+                  "name": "CO₂",
+                  "values": [96.5, 95, 0.04]
+                },
+                {
+                  "name": "O₂",
+                  "values": [0, 0.16, 21]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "list",
           "items": [
             "The Earth is 4.6 billion years old, so evidence for the early atmosphere is limited.",
@@ -449,7 +480,7 @@
       "1dbb3e1a-7662-4082-905c-6519f2a94e71",
       "ac2f6c6c-c6d5-4989-a3e1-ebf1c9150148"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

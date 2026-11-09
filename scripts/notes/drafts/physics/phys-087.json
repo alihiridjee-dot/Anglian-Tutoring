@@ -225,6 +225,44 @@
           "text": "Power is transmitted at high p.d. so that the current in the cables is small. A smaller current wastes less energy as heat. Transformers raise the p.d. at the power station and lower it again before it reaches homes."
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Transformers in the National Grid",
+            "alt": "A flow diagram of the National Grid: power station, then step-up transformer, then cables at a high potential difference, then step-down transformer, then homes.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["power station", "step-up transformer"],
+                ["cables at high p.d."],
+                ["step-down transformer", "homes"]
+              ],
+              "arrows": [
+                {
+                  "from": "power station",
+                  "to": "step-up transformer",
+                  "letter": ""
+                },
+                {
+                  "from": "step-up transformer",
+                  "to": "cables at high p.d.",
+                  "letter": ""
+                },
+                {
+                  "from": "cables at high p.d.",
+                  "to": "step-down transformer",
+                  "letter": ""
+                },
+                {
+                  "from": "step-down transformer",
+                  "to": "homes",
+                  "letter": ""
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "paragraph",
           "text": "Use the slider to see the p.d., current and power change."
         },
@@ -350,7 +388,7 @@
           "Rearrange: Vₛ = Vₚ × Nₛ ÷ Nₚ.",
           "Substitute and evaluate: Vₛ = 18 × 230 ÷ 800 = 5.2 V."
         ],
-        "tip": "An answer that rounds to 10 000 scores one mark. Correct answer without working scores full marks."
+        "tip": "Using the turns ratio upside down (230 × 800 ÷ 18 ≈ 10 000 V) scores only one mark. A correct answer without working scores full marks."
       }
     },
     "ocr": {
@@ -490,7 +528,7 @@
       "d6c76ae4-d99f-4eb2-aeab-092e62fdef9c",
       "4caa31c1-df83-4f15-9322-bd7170fa5361"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

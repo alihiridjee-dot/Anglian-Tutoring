@@ -46,6 +46,55 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Controlling body temperature",
+            "alt": "A flow diagram. The hypothalamus detects a rise or a fall in temperature. Too hot: sweating, and vessels supplying the skin widen (vasodilation). Too cold: shivering, and those vessels narrow (vasoconstriction). Either way the temperature returns to 37 °C.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["temperature rises", "temperature falls"],
+                ["hypothalamus detects change"],
+                ["sweating, vessels widen", "shivering, vessels narrow"],
+                ["temperature back to 37 °C"]
+              ],
+              "arrows": [
+                {
+                  "from": "temperature rises",
+                  "to": "hypothalamus detects change",
+                  "letter": ""
+                },
+                {
+                  "from": "temperature falls",
+                  "to": "hypothalamus detects change",
+                  "letter": ""
+                },
+                {
+                  "from": "hypothalamus detects change",
+                  "to": "sweating, vessels widen",
+                  "letter": ""
+                },
+                {
+                  "from": "hypothalamus detects change",
+                  "to": "shivering, vessels narrow",
+                  "letter": ""
+                },
+                {
+                  "from": "sweating, vessels widen",
+                  "to": "temperature back to 37 °C",
+                  "letter": ""
+                },
+                {
+                  "from": "shivering, vessels narrow",
+                  "to": "temperature back to 37 °C",
+                  "letter": ""
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Body temperature is kept near 37 °C, the optimum for enzymes.",
@@ -66,7 +115,7 @@
           "items": [
             {
               "term": "Vasodilation",
-              "meaning": "(Edexcel: Higher tier) The blood vessels (capillaries) supplying the skin widen, so more blood flows through them."
+              "meaning": "(Edexcel: Higher tier) The blood vessels (arterioles) that supply the skin capillaries widen, so more blood flows through the capillaries near the skin surface."
             },
             {
               "term": "Sweating",
@@ -93,7 +142,7 @@
         {
           "type": "list",
           "items": [
-            "The capillaries in the skin widen. The vessels do not move.",
+            "The blood vessels (arterioles) that supply the skin capillaries widen. The vessels do not move.",
             "More blood flows near the surface of the skin.",
             "More heat is lost from the blood, for example by radiation, so the blood and the body cool."
           ]
@@ -117,7 +166,7 @@
         {
           "type": "list",
           "items": [
-            "(Edexcel: Higher tier) **Vasoconstriction**: the capillaries in the skin narrow, so less blood flows near the surface and less heat is lost.",
+            "(Edexcel: Higher tier) **Vasoconstriction**: the blood vessels (arterioles) that supply the skin capillaries narrow, so less blood flows near the surface and less heat is lost.",
             "Sweating is reduced or stops, so less heat is taken away by evaporation.",
             "The hairs in the skin become erect (stand on end), which traps an insulating layer of air.",
             "**Shivering**: skeletal muscles contract rapidly. Respiration in the muscles releases heat, so the body warms up."
@@ -411,8 +460,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "a5e44b65-54ec-4de8-9c99-23114844df03",
       "dd1be3e7-8505-4149-98f5-98a5ae0c9f56",

@@ -35,6 +35,98 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Same acid, different chip sizes",
+            "alt": "Volume of carbon dioxide against time for the same amount of acid, the limiting reactant, with excess small or large marble chips: the small chips react faster, but both level off at the same 60 cm³.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "time in minutes",
+                "min": 0,
+                "max": 14,
+                "step": 2
+              },
+              "y": {
+                "title": "volume of CO₂ in cm³",
+                "min": 0,
+                "max": 70,
+                "step": 10
+              },
+              "series": [
+                {
+                  "name": "small chips",
+                  "curve": true,
+                  "points": [[0, 0], [1, 30], [2, 45], [3, 52], [4, 56], [6, 59], [8, 60], [14, 60]]
+                },
+                {
+                  "name": "large chips",
+                  "curve": true,
+                  "points": [
+                    [0, 0],
+                    [1, 18],
+                    [2, 30],
+                    [3, 39],
+                    [4, 45],
+                    [6, 53],
+                    [8, 56],
+                    [10, 58],
+                    [12, 59],
+                    [14, 60]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Twice the acid, twice the gas",
+            "alt": "Volume of carbon dioxide against time with excess marble chips and 25 cm³ or 50 cm³ of the same acid: doubling the limiting reactant doubles the final volume, from 60 cm³ to 120 cm³.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "time in minutes",
+                "min": 0,
+                "max": 14,
+                "step": 2
+              },
+              "y": {
+                "title": "volume of CO₂ in cm³",
+                "min": 0,
+                "max": 140,
+                "step": 20
+              },
+              "series": [
+                {
+                  "name": "25 cm³ of acid",
+                  "curve": true,
+                  "points": [[0, 0], [1, 30], [2, 45], [3, 52], [4, 56], [6, 59], [8, 60], [14, 60]]
+                },
+                {
+                  "name": "50 cm³ of acid",
+                  "curve": true,
+                  "points": [
+                    [0, 0],
+                    [1, 35],
+                    [2, 60],
+                    [3, 79],
+                    [4, 90],
+                    [6, 105],
+                    [8, 113],
+                    [10, 116],
+                    [12, 119],
+                    [14, 120]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "equation",
           "label": "Magnesium and hydrochloric acid",
           "where": [
@@ -238,8 +330,8 @@
     "status": "draft",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "f560f102-8cf7-4174-8fdd-40934a71d926",
       "bf18ae89-f962-4974-81a1-d62b773bf1f4",

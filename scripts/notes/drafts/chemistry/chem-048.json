@@ -400,7 +400,7 @@
       "worked_example": {
         "exemplar_id": "db630b8f-65a4-4f9c-93a1-98be836e17bc",
         "source": "EDEXCEL jun 2022, Paper 1 (F), Q9(c)",
-        "question": "A student has two separate test tubes containing sulfuric acid.\nThe student adds a spatula measure of magnesium carbonate, MgCO3, to the first test tube and a piece of magnesium to the second test tube.\nExplain what the student would see in each test tube and the tests that they should carry out to identify the gases produced.\nYour answer should include word equations for the reactions that would take place.",
+        "question": "A student has two separate test tubes containing sulfuric acid.\nThe student adds a spatula measure of magnesium carbonate, MgCO₃, to the first test tube and a piece of magnesium to the second test tube.\nExplain what the student would see in each test tube and the tests that they should carry out to identify the gases produced.\nYour answer should include word equations for the reactions that would take place.",
         "marks": 6,
         "answer_points": [
           "Magnesium carbonate: bubbles or fizzing, and the solid gets smaller or disappears.",
@@ -435,7 +435,7 @@
       "worked_example": {
         "exemplar_id": "c14e7e3d-0469-4233-a1b6-7e3b8bd1b1fe",
         "source": "OCR jun 2025, Paper 3, Q22(a)",
-        "question": "A student reacts solid calcium carbonate, CaCO3, with nitric acid, HNO3.\n\nCalcium nitrate, Ca(NO3)2, carbon dioxide and water are made.\n\nCalcium nitrate is soluble in water.\n\nWrite the balanced symbol equation for the reaction.\n\nInclude state symbols.",
+        "question": "A student reacts solid calcium carbonate, CaCO₃, with nitric acid, HNO₃.\n\nCalcium nitrate, Ca(NO₃)₂, carbon dioxide and water are made.\n\nCalcium nitrate is soluble in water.\n\nWrite the balanced symbol equation for the reaction.\n\nInclude state symbols.",
         "marks": 3,
         "answer_points": [
           "Correct formulae: CaCO₃, HNO₃, Ca(NO₃)₂, CO₂ and H₂O.",
@@ -510,8 +510,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "fdabe1c6-b081-438c-8e72-ccc3f67adbfb",
       "3343453e-40ff-4cbd-a839-0d3559754a2b",

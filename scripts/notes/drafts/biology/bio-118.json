@@ -223,6 +223,47 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Results of a transect",
+            "alt": "A line graph of the number of plants per quadrat along a transect out from a wood: 1 at the edge of the wood, rising to 18 at 20 m.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "distance from wood in m",
+                "min": 0,
+                "max": 20,
+                "step": 2
+              },
+              "y": {
+                "title": "plants per quadrat",
+                "min": 0,
+                "max": 20,
+                "step": 2
+              },
+              "series": [
+                {
+                  "name": "plants",
+                  "points": [
+                    [0, 1],
+                    [2, 2],
+                    [4, 4],
+                    [6, 7],
+                    [8, 10],
+                    [10, 13],
+                    [12, 15],
+                    [14, 16],
+                    [16, 17],
+                    [18, 17],
+                    [20, 18]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "A transect samples along a line to show how distribution changes.",
@@ -338,7 +379,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Animals move, so quadrats do not work well. Capture-recapture estimates the size of an animal population."
+              "text": "Animals move, so quadrats do not work well. Capture-recapture estimates the size of an animal population. A question may describe this method and give its equation, then ask you to use it."
             },
             {
               "type": "steps",
@@ -566,7 +607,7 @@
       "5e7ea7fc-aeff-41a3-8346-996f061f8696",
       "1adb7068-f454-4399-a792-1ce4216bf7e2"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

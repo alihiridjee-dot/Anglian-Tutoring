@@ -112,6 +112,82 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "A calibration curve",
+            "alt": "A straight calibration line through zero of flame photometer reading against concentration, from standards of 2 to 10 mg/dm³: a sample reading of 50 is read across to the line and down to a concentration of 5 mg/dm³.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "concentration in mg/dm³",
+                "min": 0,
+                "max": 10,
+                "step": 1
+              },
+              "y": {
+                "title": "reading in arbitrary units",
+                "min": 0,
+                "max": 100,
+                "step": 10
+              },
+              "series": [
+                {
+                  "name": "standards",
+                  "points": [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      2,
+                      20
+                    ],
+                    [
+                      4,
+                      40
+                    ],
+                    [
+                      6,
+                      60
+                    ],
+                    [
+                      8,
+                      80
+                    ],
+                    [
+                      10,
+                      100
+                    ]
+                  ]
+                }
+              ],
+              "lines": [
+                {
+                  "from": [
+                    0,
+                    50
+                  ],
+                  "to": [
+                    5,
+                    50
+                  ]
+                },
+                {
+                  "from": [
+                    5,
+                    50
+                  ],
+                  "to": [
+                    5,
+                    0
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "practice",
             "alt": "Calculate the concentration of a sample from its flame photometer reading using a standard solution.",
             "question": "A 20 mg/dm³ standard solution of sodium ions gives a flame photometer reading of {s} units. A sample gives a reading of {r} units. The reading is directly proportional to the concentration. Calculate the concentration of sodium ions in the sample.",
@@ -263,7 +339,7 @@
       "3d713ae0-602b-4bc6-b5f9-958d3e9994ba",
       "886a8bc5-578c-4929-befd-0db943996f58"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

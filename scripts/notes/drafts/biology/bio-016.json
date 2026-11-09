@@ -185,6 +185,31 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Clear zones round discs",
+            "alt": "An agar plate covered with bacteria, with three paper discs. Disc A has a clear zone 20 mm across, disc B has a clear zone 12 mm across, and the control disc soaked in water has no clear zone.",
+            "brief": {
+              "kind": "agar-plate",
+              "discs": [
+                {
+                  "label": "A",
+                  "zone": 20
+                },
+                {
+                  "label": "B",
+                  "zone": 12
+                },
+                {
+                  "label": "water",
+                  "zone": 0
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "equation",
           "label": "Area of a zone of inhibition",
           "formula": "area = π × r²",
@@ -271,7 +296,7 @@
       "worked_example": {
         "exemplar_id": "23cf1df0-d171-4b01-914e-a8d915fabe7a",
         "source": "AQA jun 2025, Paper 1 (F), Q04.1",
-        "question": "A student investigated the effect of antibiotics on the growth of bacteria. The student prepared an agar gel plate using standard laboratory equipment (Petri dish, agar, Bunsen burner, inoculating loop, disinfectant). Describe a method the student could use to prepare a sterile agar gel plate, and to grow an uncontaminated sample of bacteria on the agar gel plate.",
+        "question": "A student investigated the effect of antibiotics on the growth of bacteria. The student prepared an agar gel plate using this equipment: a Bunsen burner, an inoculating loop, an empty Petri dish, a bottle of agar and a bottle of bacteria. Describe a method the student could use to prepare a sterile agar gel plate, and to grow an uncontaminated sample of bacteria on the agar gel plate.",
         "marks": 6,
         "answer_points": [
           "Preparation of the plate: melt the agar, pour it into the Petri dish, and allow it to cool and set.",
@@ -414,8 +439,8 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

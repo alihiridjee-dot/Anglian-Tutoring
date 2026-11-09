@@ -26,6 +26,37 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Same volume, same number of molecules",
+            "alt": "Two boxes of gas with the same volume, temperature and pressure: A holds 6 molecules of oxygen, O₂, and B holds 6 molecules of carbon dioxide, CO₂, with oxygen atoms white and carbon atoms black.",
+            "brief": {
+              "kind": "particle-diagram",
+              "boxes": [
+                {
+                  "arrangement": "gas",
+                  "particles": [
+                    {
+                      "atoms": ["white", "white"],
+                      "count": 6
+                    }
+                  ]
+                },
+                {
+                  "arrangement": "gas",
+                  "particles": [
+                    {
+                      "atoms": ["white", "black", "white"],
+                      "count": 6
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "equation",
           "label": "Volume of a gas",
           "where": [
@@ -386,7 +417,7 @@
       "b51b9ab0-7a4b-43eb-8ff5-9df060ea3de3",
       "64a4f5c3-85fa-4eb9-bde8-81775d6905b0"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

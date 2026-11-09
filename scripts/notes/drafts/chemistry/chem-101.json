@@ -143,6 +143,56 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Sewage treatment",
+            "alt": "A flow diagram of sewage treatment: screening and grit removal, then sedimentation, which splits the sewage into sludge, treated by anaerobic digestion, and effluent, treated by aerobic biological treatment.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["sewage"],
+                ["screening and grit removal"],
+                ["sedimentation"],
+                ["sewage sludge", "effluent"],
+                ["anaerobic digestion", "aerobic treatment"]
+              ],
+              "arrows": [
+                {
+                  "from": "sewage",
+                  "to": "screening and grit removal",
+                  "letter": ""
+                },
+                {
+                  "from": "screening and grit removal",
+                  "to": "sedimentation",
+                  "letter": ""
+                },
+                {
+                  "from": "sedimentation",
+                  "to": "sewage sludge",
+                  "letter": ""
+                },
+                {
+                  "from": "sedimentation",
+                  "to": "effluent",
+                  "letter": ""
+                },
+                {
+                  "from": "sewage sludge",
+                  "to": "anaerobic digestion",
+                  "letter": ""
+                },
+                {
+                  "from": "effluent",
+                  "to": "aerobic treatment",
+                  "letter": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "sequence",
             "alt": "Put the stages of sewage treatment in order.",
             "prompt": "Put the sewage treatment stages in order.",
@@ -151,7 +201,8 @@
               "Sedimentation to give sludge and effluent",
               "Anaerobic digestion of the sludge",
               "Aerobic biological treatment of the effluent"
-            ]
+            ],
+            "free": [[2, 3]]
           }
         },
         {
@@ -372,8 +423,8 @@
       "8c8666eb-4c61-42bd-bbab-20d5bcbe5fed",
       "29f01815-d702-4f5e-b235-a6337e7b2ac8"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   },
   "format": 1,
   "subject": "chemistry"

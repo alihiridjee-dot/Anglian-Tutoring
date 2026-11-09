@@ -304,6 +304,42 @@
                 "The pressure in a fluid is due to the fluid and atmospheric pressure.",
                 "10 m of sea water exerts the same pressure as the atmosphere. At a depth of 50 m, the sea water pressure is 5 times atmospheric pressure, so the total is 6 times atmospheric pressure."
               ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "figure",
+                "title": "Total pressure under the sea",
+                "alt": "Total pressure against depth in sea water: a straight line from 100 kPa, atmospheric pressure, at the surface to 600 kPa at 50 m. The pressure rises by about 100 kPa for every 10 m of depth, and the line does not pass through the origin.",
+                "brief": {
+                  "kind": "line-graph",
+                  "x": {
+                    "title": "depth in m",
+                    "min": 0,
+                    "max": 50,
+                    "step": 10
+                  },
+                  "y": {
+                    "title": "total pressure in kPa",
+                    "min": 0,
+                    "max": 600,
+                    "step": 100
+                  },
+                  "series": [
+                    {
+                      "name": "sea water",
+                      "points": [
+                        [0, 100],
+                        [10, 200],
+                        [20, 300],
+                        [30, 400],
+                        [40, 500],
+                        [50, 600]
+                      ]
+                    }
+                  ]
+                }
+              }
             }
           ]
         },
@@ -422,8 +458,8 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

@@ -119,6 +119,47 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Mass falls as a gas escapes",
+            "alt": "A graph of the mass of an open flask and its contents against time as a carbonate reacts with acid: the mass falls quickly, then more slowly, and levels off at 119.2 g from 120.0 g, so 0.8 g of carbon dioxide escaped.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "time in s",
+                "min": 0,
+                "max": 180,
+                "step": 30
+              },
+              "y": {
+                "title": "mass of flask in g",
+                "min": 119,
+                "max": 120,
+                "step": 0.2
+              },
+              "series": [
+                {
+                  "name": "mass",
+                  "curve": true,
+                  "points": [
+                    [0, 120],
+                    [20, 119.7],
+                    [40, 119.5],
+                    [60, 119.38],
+                    [80, 119.3],
+                    [100, 119.25],
+                    [120, 119.22],
+                    [140, 119.2],
+                    [160, 119.2],
+                    [180, 119.2]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "alt": "Practise calculating the mass of gas lost from the masses before and after a reaction.",
             "kind": "practice",
             "answer": {
@@ -134,14 +175,14 @@
             "variables": [
               {
                 "id": "B",
-                "max": 160,
+                "max": 152,
                 "min": 150,
                 "step": 0.1
               },
               {
                 "id": "A",
-                "max": 149,
-                "min": 140,
+                "max": 149.9,
+                "min": 147.5,
                 "step": 0.1
               }
             ]
@@ -275,7 +316,7 @@
       "05eb4acd-ecb0-49ec-8b12-0e78f63b6ffc",
       "6923153d-dfa5-4266-94cf-1b7f747586aa"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

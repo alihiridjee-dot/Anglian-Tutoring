@@ -219,6 +219,31 @@
                 "(Supplement) On a reaction profile, label the reactants, the products, Eₐ and ΔH.",
                 "(Supplement) The reverse reaction has the same size of ΔH with the opposite sign. For example, ΔH = −92 kJ/mol forwards means +92 kJ/mol backwards."
               ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "figure",
+                "title": "Reaction profile for burning methane",
+                "alt": "A reaction profile for CH₄ + 2O₂ → CO₂ + 2H₂O: the curve rises to a peak, then falls to products below the reactants, with Eₐ the arrow from the reactants up to the peak and ΔH the arrow between the reactant and product levels, so ΔH is negative.",
+                "brief": {
+                  "kind": "energy-profile",
+                  "reaction": "exothermic",
+                  "catalyst": false,
+                  "reactants": "CH₄ + 2O₂",
+                  "products": "CO₂ + 2H₂O",
+                  "arrows": [
+                    {
+                      "shows": "activation energy",
+                      "letter": "Eₐ"
+                    },
+                    {
+                      "shows": "overall energy change",
+                      "letter": "ΔH"
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
@@ -260,6 +285,31 @@
                 "The reverse reaction has the same size of ΔH with the opposite sign. For example, ΔH = −92 kJ/mol forwards means +92 kJ/mol backwards.",
                 "A catalyst provides an alternative pathway with a lower activation energy. On a reaction profile, its peak is lower."
               ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "figure",
+                "title": "Dashed curve: with a catalyst",
+                "alt": "A reaction profile for an exothermic reaction with and without a catalyst: the dashed catalysed curve has a lower peak, but the reactants and products are at the same levels, so ΔH is the same and only Eₐ is lower.",
+                "brief": {
+                  "kind": "energy-profile",
+                  "reaction": "exothermic",
+                  "catalyst": true,
+                  "reactants": "reactants",
+                  "products": "products",
+                  "arrows": [
+                    {
+                      "shows": "activation energy",
+                      "letter": "Eₐ"
+                    },
+                    {
+                      "shows": "overall energy change",
+                      "letter": "ΔH"
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
@@ -290,7 +340,7 @@
       "0c9eb15a-92d9-4cd2-9720-badb92a2c4d3",
       "706ab305-2fb9-4b58-821f-698cc794b3bf"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

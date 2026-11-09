@@ -104,6 +104,48 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Oxygen below a sewage outlet",
+            "alt": "A line graph of dissolved oxygen downstream of a sewage outlet: it falls from 9 to 3 mg per dm³ about 15 to 20 km downstream, then slowly recovers.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "distance downstream in km",
+                "min": 0,
+                "max": 50,
+                "step": 5
+              },
+              "y": {
+                "title": "oxygen in mg per dm³",
+                "min": 0,
+                "max": 10,
+                "step": 1
+              },
+              "series": [
+                {
+                  "name": "dissolved oxygen",
+                  "points": [
+                    [0, 9],
+                    [5, 6],
+                    [10, 4],
+                    [15, 3],
+                    [20, 3],
+                    [25, 4],
+                    [30, 5],
+                    [35, 6],
+                    [40, 7],
+                    [45, 8],
+                    [50, 8]
+                  ]
+                }
+              ],
+              "curve": true
+            }
+          }
+        },
+        {
           "type": "subheading",
           "text": "Eutrophication"
         },
@@ -485,8 +527,8 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

@@ -254,7 +254,7 @@
       "worked_example": {
         "exemplar_id": "232a6150-be82-4dac-852b-9453cf5c806b",
         "source": "OCR sample null, Paper 3, Q21(b)",
-        "question": "Zinc nitrate can be made by reacting zinc oxide with nitric acid, HNO3.\n\nPaul suggests this method for preparing zinc nitrate.\n\n1. Measure 50cm3 of dilute nitric acid into a beaker.\n\n2. Add one spatulaful of zinc oxide.\n\n3. Heat the mixture until crystals of zinc nitrate are made.\n\nPaul’s method will not make a pure dry sample of zinc nitrate.\n\nWhat improvements should Paul make to the method to make sure that:\n\n• the reaction is complete\n• the zinc nitrate can be separated from the nitric acid and the zinc oxide?\n\nExplain your answer.",
+        "question": "Zinc nitrate can be made by reacting zinc oxide with nitric acid, HNO₃.\n\nPaul suggests this method for preparing zinc nitrate.\n\n1. Measure 50 cm³ of dilute nitric acid into a beaker.\n\n2. Add one spatulaful of zinc oxide.\n\n3. Heat the mixture until crystals of zinc nitrate are made.\n\nPaul’s method will not make a pure dry sample of zinc nitrate.\n\nWhat improvements should Paul make to the method to make sure that:\n\n• the reaction is complete\n• the zinc nitrate can be separated from the nitric acid and the zinc oxide?\n\nExplain your answer.",
         "marks": 4,
         "answer_points": [
           "An excess of zinc oxide must be added.",
@@ -309,8 +309,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "1c5f1527-3224-422c-bad0-c121fbc9e30f",
       "1b092998-2777-487a-94fa-d11b084f75ab",

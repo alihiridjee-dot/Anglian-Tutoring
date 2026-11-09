@@ -74,6 +74,33 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Smoking and lung cancer deaths",
+            "alt": "A bar chart from a study of male British doctors: lung cancer deaths per 1000 men per year were 0.07 for non-smokers, 0.57 for 1 to 14 cigarettes a day, 1.39 for 15 to 24 a day and 2.27 for 25 or more a day.",
+            "brief": {
+              "kind": "bar-chart",
+              "x": {
+                "title": "cigarettes smoked per day",
+                "categories": ["0", "1–14", "15–24", "25+"]
+              },
+              "y": {
+                "title": "deaths per 1000 per year",
+                "min": 0,
+                "max": 2.5,
+                "step": 0.5
+              },
+              "series": [
+                {
+                  "name": "male doctors",
+                  "values": [0.07, 0.57, 1.39, 2.27]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Diet, exercise, smoking and alcohol all affect the rate of non-communicable disease.",
@@ -189,7 +216,7 @@
     },
     {
       "q": "A person has a BMI of 28.5. Explain one way they could change their lifestyle to reach a healthy weight.",
-      "a": "Do more exercise, so more energy is used up. Or eat less fat or carbohydrate, so energy intake is reduced.",
+      "a": "Do more exercise, so more energy is transferred by respiration and stored fat is broken down. Or eat less fat or carbohydrate, so energy intake is reduced.",
       "marks": 2
     }
   ],
@@ -353,7 +380,7 @@
       "9b1242a8-c354-4ab8-b823-d7bc684d9632",
       "161b89c1-3431-4268-b1fb-b02fee1ab9ab"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

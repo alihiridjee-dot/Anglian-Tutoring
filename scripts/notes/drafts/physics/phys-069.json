@@ -40,6 +40,36 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "A ray through a glass block",
+            "alt": "A ray of light passing through a rectangular glass block, with a dashed normal at each face. It enters at an angle of incidence of 40° and bends towards the normal, to 25° inside the glass. It bends away from the normal as it leaves, at 40°, parallel to the ray that went in.",
+            "brief": {
+              "kind": "ray-diagram",
+              "setup": "glass-block",
+              "incidence": 40,
+              "refraction": 25,
+              "index": null,
+              "angles": [
+                {
+                  "at": "incidence",
+                  "label": "40°"
+                },
+                {
+                  "at": "refraction",
+                  "label": "25°"
+                },
+                {
+                  "at": "emergence",
+                  "label": "40°"
+                }
+              ],
+              "names": true
+            }
+          }
+        },
+        {
           "type": "paragraph",
           "text": "Pick a boundary to see what happens to the wave."
         },
@@ -519,7 +549,7 @@
       "1d8efa40-bf6a-48ed-a9ba-11b2d1b4a130",
       "ec77e21a-d541-404c-8d57-6e556b29c4d7"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

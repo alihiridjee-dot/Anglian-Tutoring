@@ -111,6 +111,42 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Ink and three known dyes",
+            "alt": "A chromatogram with the solvent front at 8.0 cm: the ink gives two spots, at 3.2 cm (Rf 0.40) and 6.0 cm (Rf 0.75), level with dyes A and C, so the ink contains A and C but not B, which moved 4.8 cm.",
+            "brief": {
+              "kind": "chromatogram",
+              "y": {
+                "title": "distance in cm",
+                "min": 0,
+                "max": 10,
+                "step": 1
+              },
+              "front": 8,
+              "samples": [
+                {
+                  "name": "ink",
+                  "spots": [3.2, 6.0]
+                },
+                {
+                  "name": "A",
+                  "spots": [3.2]
+                },
+                {
+                  "name": "B",
+                  "spots": [4.8]
+                },
+                {
+                  "name": "C",
+                  "spots": [6.0]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "equation",
           "formula": "Rf = distance moved by substance ÷ distance moved by solvent",
           "label": "Rf value",
@@ -217,7 +253,7 @@
       "marks": 2
     },
     {
-      "q": "Explain how chromatography can show that a food colouring contains an unknown dye.",
+      "q": "Explain how chromatography can identify the dyes in a food colouring.",
       "a": "Run known dyes and the food colouring on the same paper. Compare the distances moved or the Rf values. A spot that has the same Rf value as a known dye is that dye.",
       "marks": 3
     }
@@ -464,7 +500,7 @@
       "af4e8544-da95-41d1-b5fd-0fc1ea1be9c2",
       "6f789992-46d7-4408-967f-1afe512507fa"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

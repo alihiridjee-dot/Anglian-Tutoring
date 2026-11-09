@@ -176,6 +176,42 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Start temperature: 24.0 °C",
+            "alt": "A thermometer scale from 18 to 26 °C, marked every 0.5 °C, with the liquid at 24.0 °C, the start temperature.",
+            "brief": {
+              "kind": "scale-reading",
+              "instrument": "thermometer",
+              "min": 18,
+              "max": 26,
+              "step": 1,
+              "minor": 2,
+              "readings": [24],
+              "unit": "°C"
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "End temperature: 19.5 °C",
+            "alt": "The same thermometer scale with the liquid at 19.5 °C, the end temperature, a change of −4.5 °C.",
+            "brief": {
+              "kind": "scale-reading",
+              "instrument": "thermometer",
+              "min": 18,
+              "max": 26,
+              "step": 1,
+              "minor": 2,
+              "readings": [19.5],
+              "unit": "°C"
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "practice",
             "alt": "Work out a temperature change with its sign.",
             "question": "A reaction mixture starts at {T1} °C and ends at {T2} °C. Work out the temperature change, including its sign.",
@@ -383,7 +419,7 @@
       "b0e248f4-8234-44f4-b73b-bc27e23af203",
       "165233e5-797b-48d0-b0ee-6826f8cba3bc"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

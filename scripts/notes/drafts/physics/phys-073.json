@@ -81,6 +81,31 @@
           "text": "Going down the list, wavelength decreases and frequency increases."
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "The electromagnetic spectrum",
+            "alt": "The seven groups of the electromagnetic spectrum in order: radio waves, microwaves, infrared, visible light, ultraviolet, X-rays and gamma rays. An arrow underneath shows the frequency increasing from radio waves to gamma rays; the wavelength decreases the same way.",
+            "brief": {
+              "kind": "em-spectrum",
+              "regions": [
+                "radio waves",
+                "microwaves",
+                "infrared",
+                "visible light",
+                "ultraviolet",
+                "X-rays",
+                "gamma rays"
+              ],
+              "blanks": [],
+              "arrow": {
+                "label": "increasing frequency",
+                "points": "right"
+              }
+            }
+          }
+        },
+        {
           "type": "list",
           "items": [
             "Our eyes only detect visible light, which is a small part of the spectrum.",
@@ -237,7 +262,7 @@
     },
     {
       "q": "Microwaves have a frequency of 2.5 × 10⁹ Hz. The speed of electromagnetic waves is 3.0 × 10⁸ m/s. Calculate the wavelength.",
-      "a": "wavelength = 3.0 × 10⁸ ÷ 2.5 × 10⁹ = 0.12 m.",
+      "a": "wavelength = 3.0 × 10⁸ ÷ (2.5 × 10⁹) = 0.12 m.",
       "marks": 2
     }
   ],
@@ -334,7 +359,7 @@
           "wavelength = 3 × 10⁸ ÷ (3000 × 10¹²) = 1 × 10⁻⁷ m",
           "wavelength = 100 nm"
         ],
-        "tip": "The answer 100 nm scores all 3 marks. Writing the equation in symbols or words is not credited on its own."
+        "tip": "The answer 100 nm scores all 3 marks. Writing wavelength = speed ÷ frequency earns the first mark. Writing v = f × λ on its own does not."
       },
       "extra": [
         {
@@ -393,7 +418,7 @@
             {
               "type": "list",
               "items": [
-                "The Sun is 1.5 × 10¹¹ m from the Earth. Light takes 1.5 × 10¹¹ ÷ 3.0 × 10⁸ = 500 s to arrive.",
+                "The Sun is 1.5 × 10¹¹ m from the Earth. Light takes 1.5 × 10¹¹ ÷ (3.0 × 10⁸) = 500 s to arrive.",
                 "Thermal radiation is infrared radiation. It needs no medium, so it crosses the vacuum of space from the Sun to the Earth."
               ]
             }
@@ -467,7 +492,7 @@
       "6a0d23f9-708f-4297-891e-e4de36e54b87",
       "da7bc04d-3af2-4abb-9067-0be06a0cf869"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

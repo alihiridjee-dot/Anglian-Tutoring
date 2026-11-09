@@ -150,7 +150,7 @@
           "type": "diagram",
           "diagram": {
             "kind": "line-graph",
-            "alt": "A sketch (shape only, not real data) of a curve showing pH rising from low to above 7 as portions of base are added, then levelling off.",
+            "alt": "A sketch (shape only, not real data) of a curve showing pH staying low at first as portions of base are added, then rising steeply through 7, then levelling off above 7.",
             "x": {
               "label": "Portions of base added",
               "min": 0,
@@ -164,11 +164,14 @@
               {
                 "name": "pH",
                 "points": [
-                  [0, 0.1],
-                  [2, 0.18],
-                  [4, 0.3],
-                  [6, 0.55],
-                  [7, 0.78],
+                  [0, 0.07],
+                  [2, 0.08],
+                  [4, 0.11],
+                  [5, 0.16],
+                  [5.4, 0.26],
+                  [5.6, 0.5],
+                  [5.8, 0.74],
+                  [6.2, 0.82],
                   [8, 0.86],
                   [10, 0.88]
                 ]
@@ -307,8 +310,8 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check, opus-5-5-diagram-audit",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-diagram-audit, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",

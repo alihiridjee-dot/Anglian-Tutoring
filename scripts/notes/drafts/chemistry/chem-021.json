@@ -149,6 +149,46 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Boiling points of the alkanes",
+            "alt": "A scatter graph of boiling point against the number of carbon atoms for the first ten alkanes, rising from −162 °C for methane to 174 °C for decane.",
+            "brief": {
+              "kind": "scatter",
+              "x": {
+                "title": "number of carbon atoms",
+                "min": 0,
+                "max": 10,
+                "step": 1
+              },
+              "y": {
+                "title": "boiling point in °C",
+                "min": -200,
+                "max": 200,
+                "step": 50
+              },
+              "series": [
+                {
+                  "name": "alkanes",
+                  "points": [
+                    [1, -162],
+                    [2, -89],
+                    [3, -42],
+                    [4, -1],
+                    [5, 36],
+                    [6, 69],
+                    [7, 98],
+                    [8, 126],
+                    [9, 151],
+                    [10, 174]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "paragraph",
           "text": "Poly(ethene) has much larger molecules than methane. It has stronger intermolecular forces, so it is a solid and methane is a gas."
         },
@@ -323,8 +363,8 @@
     "status": "draft",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "02d65818-dc2b-4dd2-a336-52bcddc0fe93",
       "dcfef170-a9a4-461b-a9fc-e68642ae765e",

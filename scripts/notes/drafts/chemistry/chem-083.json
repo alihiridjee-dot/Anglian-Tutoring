@@ -69,7 +69,8 @@
               "Each end of the new molecule still has a functional group.",
               "More monomers join at both ends.",
               "A long polyester chain is formed."
-            ]
+            ],
+            "free": [[1, 2]]
           }
         },
         {
@@ -408,7 +409,7 @@
       "cf21f3b1-8e11-4d77-8ba3-5e253dba7208",
       "0053f2ae-b7aa-4797-899f-5bf501a6b6ef"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

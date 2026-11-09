@@ -93,7 +93,7 @@
           "type": "diagram",
           "diagram": {
             "kind": "line-graph",
-            "alt": "Hormone levels over a 28 day cycle. FSH has an early peak and a smaller peak near ovulation. Oestrogen peaks just before the LH surge on day 14. Progesterone rises after ovulation and falls at the end of the cycle.",
+            "alt": "Hormone levels over a 28 day cycle. FSH rises early in the cycle and peaks with LH just before ovulation. Oestrogen peaks just before the LH surge on day 14. Progesterone rises after ovulation and falls at the end of the cycle.",
             "x": {
               "label": "Day of the cycle",
               "min": 0,
@@ -116,15 +116,15 @@
                 "points": [
                   [
                     0,
-                    0.4
+                    0.3
                   ],
                   [
                     4,
-                    0.45
+                    0.35
                   ],
                   [
                     8,
-                    0.3
+                    0.25
                   ],
                   [
                     12,
@@ -132,7 +132,7 @@
                   ],
                   [
                     14,
-                    0.3
+                    0.5
                   ],
                   [
                     16,
@@ -144,7 +144,7 @@
                   ],
                   [
                     28,
-                    0.2
+                    0.25
                   ]
                 ]
               },
@@ -259,7 +259,7 @@
         {
           "type": "list",
           "items": [
-            "Before ovulation: FSH has an early peak, and oestrogen rises to a peak.",
+            "Before ovulation: FSH rises early in the cycle, and oestrogen rises to a peak.",
             "High oestrogen is followed by the LH surge, then ovulation.",
             "Oestrogen, FSH and LH all peak just before ovulation.",
             "After ovulation: progesterone is high and FSH and LH are low, because progesterone inhibits them.",
@@ -449,7 +449,7 @@
       "62cca1d6-61a8-4993-9ede-8844866ed451",
       "c021f617-9316-43cd-a0e6-d38aadc38b57"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

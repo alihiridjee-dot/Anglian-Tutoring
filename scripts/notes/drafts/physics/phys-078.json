@@ -23,6 +23,70 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Radiation at two temperatures",
+            "alt": "Relative intensity of the radiation emitted against wavelength for bodies at 5000 K and 4000 K. Both curves are continuous. The 5000 K curve is higher at every wavelength and peaks at a shorter wavelength, about 0.58 µm, than the 4000 K curve, about 0.72 µm. Visible light runs from about 0.4 µm to 0.7 µm.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "wavelength in µm",
+                "min": 0,
+                "max": 3,
+                "step": 0.5
+              },
+              "y": {
+                "title": "relative intensity",
+                "min": 0,
+                "max": 100,
+                "step": 20
+              },
+              "curve": true,
+              "series": [
+                {
+                  "name": "5000 K",
+                  "points": [
+                    [0.2, 1.6],
+                    [0.3, 26.1],
+                    [0.4, 68.3],
+                    [0.5, 94.6],
+                    [0.58, 100.0],
+                    [0.7, 92.3],
+                    [0.8, 80.0],
+                    [1.0, 55.5],
+                    [1.2, 37.4],
+                    [1.4, 25.4],
+                    [1.6, 17.6],
+                    [2.0, 9.0],
+                    [2.5, 4.4],
+                    [3.0, 2.4]
+                  ]
+                },
+                {
+                  "name": "4000 K",
+                  "points": [
+                    [0.2, 0.0],
+                    [0.3, 2.4],
+                    [0.4, 11.3],
+                    [0.5, 22.4],
+                    [0.6, 29.9],
+                    [0.72, 32.8],
+                    [0.8, 32.0],
+                    [1.0, 26.2],
+                    [1.2, 19.6],
+                    [1.4, 14.4],
+                    [1.6, 10.5],
+                    [2.0, 5.8],
+                    [2.5, 3.0],
+                    [3.0, 1.7]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "(Separate science) All bodies emit and absorb infrared radiation.",
@@ -230,7 +294,7 @@
     },
     {
       "q": "(Higher tier) Explain why the temperature of a cube in front of an infrared heater stops rising after a few minutes.",
-      "a": "The hotter the cube, the greater the rate at which it emits infrared. Eventually it emits at the same rate as it absorbs, so the temperature is constant.",
+      "a": "The cube absorbs infrared from the heater faster than it emits it, so its temperature rises. The hotter the cube, the greater the rate at which it emits infrared. Eventually it emits at the same rate as it absorbs, so its temperature stays constant.",
       "marks": 3
     },
     {
@@ -428,7 +492,7 @@
       "91e3320c-add9-486a-995d-60aeaff00f46",
       "140dc9b3-c83a-471a-ae48-90c529ab30b5"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

@@ -344,7 +344,7 @@
           "specific heat capacity = 24 000 ÷ (2 × 25)",
           "specific heat capacity = 480 J/kg °C"
         ],
-        "tip": "A correct answer of 480 scores 4 marks. 0.48 or 4.8 × 10 to another power scores 3 marks."
+        "tip": "A correct answer of 480 scores 4 marks. 0.48, or 4.8 with any other power of ten (4.8 × 10ⁿ), scores 3 marks."
       },
       "extra": [
         {
@@ -435,7 +435,7 @@
       "c1069fb5-6166-43ca-aa8e-9351621fea89",
       "8baad51e-d795-4aad-a7d5-401aebed9ede"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

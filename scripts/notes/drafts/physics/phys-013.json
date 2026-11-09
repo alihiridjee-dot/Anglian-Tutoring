@@ -193,6 +193,90 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Thermistor: hotter means less resistance",
+            "alt": "Typical values for an NTC thermistor: its resistance falls as its temperature rises, from about 34 kΩ at 0 °C to 10 kΩ at 25 °C and under 1 kΩ at 100 °C. The curve falls steeply at first, then more slowly.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "temperature in °C",
+                "min": 0,
+                "max": 100,
+                "step": 10
+              },
+              "y": {
+                "title": "resistance in kΩ",
+                "min": 0,
+                "max": 35,
+                "step": 5
+              },
+              "curve": true,
+              "series": [
+                {
+                  "name": "NTC thermistor",
+                  "points": [
+                    [0, 33.6],
+                    [10, 20.2],
+                    [20, 12.5],
+                    [30, 8.0],
+                    [40, 5.3],
+                    [50, 3.6],
+                    [60, 2.5],
+                    [70, 1.8],
+                    [80, 1.3],
+                    [90, 0.9],
+                    [100, 0.7]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "LDR: brighter means less resistance",
+            "alt": "Typical values for an LDR: its resistance falls as the light intensity rises, from about 32 kΩ in dim light at 5 lux to 20 kΩ at 10 lux and 4 kΩ at 100 lux. The curve falls steeply at first, then more slowly.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "light intensity in lux",
+                "min": 0,
+                "max": 100,
+                "step": 10
+              },
+              "y": {
+                "title": "resistance in kΩ",
+                "min": 0,
+                "max": 35,
+                "step": 5
+              },
+              "curve": true,
+              "series": [
+                {
+                  "name": "LDR",
+                  "points": [
+                    [5, 32.5],
+                    [10, 20.0],
+                    [20, 12.3],
+                    [30, 9.3],
+                    [40, 7.6],
+                    [50, 6.5],
+                    [60, 5.7],
+                    [70, 5.1],
+                    [80, 4.7],
+                    [90, 4.3],
+                    [100, 4.0]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "list",
           "items": [
             "A thermistor is used in circuits such as a thermostat, which controls a heating system.",
@@ -468,7 +552,7 @@
       "423b2740-d2d4-434a-bb2f-ba1aeeb2d249",
       "8c69fcf6-5ba8-449a-86da-f9a495135c14"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

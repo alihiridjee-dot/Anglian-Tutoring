@@ -127,10 +127,9 @@
           "Telescopes are above the Earth, in space, outside the Earth's atmosphere.",
           "Less interference from dust and clouds.",
           "They can detect wavelengths absorbed by the Earth's atmosphere (microwaves, infrared, ultraviolet).",
-          "They can view the whole sky.",
-          "Any two linked points score."
+          "They can view the whole sky."
         ],
-        "tip": "Any other sensible benefit is allowed, such as less atmospheric distortion or light pollution."
+        "tip": "Any two linked points score. Any other sensible benefit is allowed, such as less atmospheric distortion or light pollution."
       }
     }
   },
@@ -140,7 +139,7 @@
     "written_at": "2026-10-01",
     "spec_point_ids": ["ccc15f12-e18e-49a1-b60e-61517dd2ab40"],
     "exemplar_ids": ["8cd80839-f9bd-4984-892e-d9c554b29ba3"],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-03"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

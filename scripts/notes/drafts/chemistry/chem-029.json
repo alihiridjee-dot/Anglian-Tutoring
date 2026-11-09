@@ -55,7 +55,7 @@
           "type": "list",
           "items": [
             "A bracket with a number after it multiplies every atom inside the bracket.",
-            "In a balanced equation, the Mr values of the reactants add up to the same total as the Mr values of the products.",
+            "In a balanced equation, multiply each Mr by the number in front of its formula. The total for the reactants then equals the total for the products.",
             "If you know the Mr and all the other Ar values, you can find an unknown Ar by subtraction."
           ]
         },
@@ -115,6 +115,32 @@
               "text": "0.5818 × 100 = 58.18, which is 58% to 2 significant figures."
             }
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Mass in lithium sulfate, Li₂SO₄",
+            "alt": "A pie chart of the percentage by mass of each element in lithium sulfate, Li₂SO₄: oxygen (O) 58.2%, sulfur (S) 29.1% and lithium (Li) 12.7%.",
+            "brief": {
+              "kind": "pie-chart",
+              "slices": [
+                {
+                  "name": "O",
+                  "percent": 58.2
+                },
+                {
+                  "name": "S",
+                  "percent": 29.1
+                },
+                {
+                  "name": "Li",
+                  "percent": 12.7
+                }
+              ],
+              "showValues": true
+            }
+          }
         },
         {
           "type": "list",
@@ -345,7 +371,7 @@
       "1be7d164-8da8-413d-a806-d3ccc10e0406",
       "040a58da-c60b-4dce-bcbb-d5b7e3bfc177"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

@@ -41,6 +41,60 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Strong acid (A), weak acid (B)",
+            "alt": "Two acid solutions of the same concentration, water not shown: in the strong acid, A, all five acid molecules have split into H⁺ ions (white) and negative ions (black); in the weak acid, B, four stay whole and only one has split. A real weak acid ionises even less than this: in ethanoic acid only about 1 molecule in 100 splits up.",
+            "brief": {
+              "kind": "particle-diagram",
+              "boxes": [
+                {
+                  "arrangement": "gas",
+                  "particles": [
+                    {
+                      "atoms": [
+                        "white"
+                      ],
+                      "count": 5
+                    },
+                    {
+                      "atoms": [
+                        "black"
+                      ],
+                      "count": 5
+                    }
+                  ]
+                },
+                {
+                  "arrangement": "gas",
+                  "particles": [
+                    {
+                      "atoms": [
+                        "white",
+                        "black"
+                      ],
+                      "count": 4
+                    },
+                    {
+                      "atoms": [
+                        "white"
+                      ],
+                      "count": 1
+                    },
+                    {
+                      "atoms": [
+                        "black"
+                      ],
+                      "count": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "compare",
             "alt": "A strong acid and a weak acid of the same concentration compared.",
             "items": ["Strong acid", "Weak acid"],
@@ -106,6 +160,45 @@
             "A weak acid can also be concentrated or dilute.",
             "Adding water dilutes an acid. The concentration of hydrogen ions decreases and the pH increases."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Concentrated (A) and dilute (B)",
+            "alt": "Two solutions of the same strong acid in the same volume, water not shown: the concentrated acid, A, has 5 H⁺ ions (white) and 5 negative ions (black), and the dilute acid, B, has only 2 of each, both fully ionised.",
+            "brief": {
+              "kind": "particle-diagram",
+              "boxes": [
+                {
+                  "arrangement": "gas",
+                  "particles": [
+                    {
+                      "atoms": ["white"],
+                      "count": 5
+                    },
+                    {
+                      "atoms": ["black"],
+                      "count": 5
+                    }
+                  ]
+                },
+                {
+                  "arrangement": "gas",
+                  "particles": [
+                    {
+                      "atoms": ["white"],
+                      "count": 2
+                    },
+                    {
+                      "atoms": ["black"],
+                      "count": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          }
         },
         {
           "type": "key-points",
@@ -312,8 +405,8 @@
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "f36576b6-f47a-460f-bfd1-b8845927c34c",

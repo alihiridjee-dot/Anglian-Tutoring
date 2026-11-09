@@ -70,7 +70,7 @@
           "items": [
             "A person can live well with only one kidney, so a living donor can give one.",
             "The donor kidney must be a tissue match, or the patient's immune system may attack it. This is **rejection**.",
-            "A twin has the same genes, so a kidney from a twin is less likely to be rejected.",
+            "An identical twin has the same genes, so a kidney from an identical twin is less likely to be rejected.",
             "The patient takes **immunosuppressant** drugs to reduce the chance of rejection.",
             "A suitable donor kidney may not be available, so patients may have to wait."
           ]
@@ -261,7 +261,7 @@
       "ca690e38-04b3-43f1-ba4a-084dbc382b5a",
       "9c5fcd13-1370-4837-9843-2627cfe825ce"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

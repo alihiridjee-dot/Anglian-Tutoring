@@ -134,7 +134,7 @@
             },
             {
               "lead": "Check for a range",
-              "text": "A single value means the sample is pure. A range of values means it is impure."
+              "text": "A range of values means the sample is impure. A single sharp value means it is pure only if it matches the data book value."
             },
             {
               "lead": "Compare with the data book",
@@ -163,7 +163,7 @@
                 "group": 1
               },
               {
-                "text": "Melting point 61 °C (a single value)",
+                "text": "Melts sharply at 61 °C, the data book value",
                 "group": 0
               },
               {
@@ -343,7 +343,7 @@
       "02fca4b6-f81d-4787-9339-0892da526e2d",
       "38bd16d6-84e2-44a8-ac68-64f31ef00693"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

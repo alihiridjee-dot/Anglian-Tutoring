@@ -58,8 +58,8 @@
                 "group": 2
               },
               {
-                "text": "Too little causes slow plant growth",
-                "group": 1
+                "text": "Found in ammonium sulfate",
+                "group": 0
               },
               {
                 "text": "Too little causes brown leaf edges",
@@ -123,6 +123,49 @@
           "where": [
             "NH₃ = ammonia, H₂SO₄ = sulfuric acid"
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Fertilisers made from ammonia",
+            "alt": "A flow diagram: ammonia is used to make nitric acid; ammonia and nitric acid make ammonium nitrate; ammonia and sulfuric acid make ammonium sulfate.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["nitric acid", "sulfuric acid"],
+                ["ammonia"],
+                ["ammonium nitrate", "ammonium sulfate"]
+              ],
+              "arrows": [
+                {
+                  "from": "ammonia",
+                  "to": "nitric acid",
+                  "letter": ""
+                },
+                {
+                  "from": "nitric acid",
+                  "to": "ammonium nitrate",
+                  "letter": ""
+                },
+                {
+                  "from": "ammonia",
+                  "to": "ammonium nitrate",
+                  "letter": ""
+                },
+                {
+                  "from": "ammonia",
+                  "to": "ammonium sulfate",
+                  "letter": ""
+                },
+                {
+                  "from": "sulfuric acid",
+                  "to": "ammonium sulfate",
+                  "letter": ""
+                }
+              ]
+            }
+          }
         },
         {
           "type": "subheading",
@@ -230,7 +273,7 @@
         {
           "type": "list",
           "items": [
-            "Streams of ammonia solution and sulfuric acid are reacted together.",
+            "Ammonia gas and sulfuric acid are fed in continuously and react together.",
             "The water is evaporated as the solution passes down a warm column.",
             "Dry crystals are collected continuously at the bottom."
           ]
@@ -452,7 +495,7 @@
       "4a811083-07fe-4125-b557-31035e0a4a9b",
       "3d46e7a9-fdcc-4fa2-a6cb-2940f018901a"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

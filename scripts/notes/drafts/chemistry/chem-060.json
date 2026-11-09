@@ -32,7 +32,7 @@
         {
           "type": "list",
           "items": [
-            "Use a **polystyrene cup**. It is a better insulator than glass, so less energy is transferred to the surroundings.",
+            "Use a **polystyrene cup**. It is a better insulator than glass, so less energy is transferred to or from the surroundings.",
             "Stir the mixture so the temperature is the same throughout.",
             "Leave the thermometer in the mixture to read the final temperature.",
             "For a solid that dissolves, record the lowest or highest temperature after it has dissolved."
@@ -139,9 +139,50 @@
           "type": "list",
           "items": [
             "A result such as 16.5 ± 0.3 °C shows the uncertainty. The values lie up to 0.3 °C either side of the mean.",
-            "In a reaction that has finished, the temperature of the mixture falls back towards room temperature, because energy is lost to the surroundings.",
+            "In a reaction that has finished, the temperature of the mixture goes back towards room temperature, because energy is transferred to or from the surroundings.",
             "When acid is added to alkali, the temperature rises until the reaction is complete. It then falls as more acid is added."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Temperature as acid is added",
+            "alt": "Temperature against the volume of hydrochloric acid added to 25 cm³ of sodium hydroxide solution of the same concentration: the temperature rises from 20.0 °C to a peak of 26.8 °C at 25 cm³, where neutralisation is complete, then falls as more acid is added.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "volume of acid in cm³",
+                "min": 0,
+                "max": 50,
+                "step": 5
+              },
+              "y": {
+                "title": "temperature in °C",
+                "min": 20,
+                "max": 28,
+                "step": 1
+              },
+              "series": [
+                {
+                  "name": "temperature",
+                  "points": [
+                    [0, 20.0],
+                    [5, 22.3],
+                    [10, 23.9],
+                    [15, 25.1],
+                    [20, 26.1],
+                    [25, 26.8],
+                    [30, 26.2],
+                    [35, 25.7],
+                    [40, 25.2],
+                    [45, 24.9],
+                    [50, 24.5]
+                  ]
+                }
+              ]
+            }
+          }
         },
         {
           "type": "key-points",
@@ -156,7 +197,7 @@
   "checks": [
     {
       "q": "Why is a polystyrene cup better than a glass beaker for this practical?",
-      "a": "Polystyrene is a better insulator, so it reduces energy transfer to the surroundings.",
+      "a": "Polystyrene is a better insulator, so it reduces energy transfer to or from the surroundings.",
       "marks": 2
     },
     {
@@ -331,7 +372,7 @@
       "63cbe95e-46aa-4bbd-b5b0-f8fe259f0f69",
       "0ede73ca-9822-4c43-923d-14ede3893fa0"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

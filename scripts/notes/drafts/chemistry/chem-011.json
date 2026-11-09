@@ -37,6 +37,33 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Melting points down Group 1",
+            "alt": "A bar chart of melting points falling down Group 1: lithium 181 °C, sodium 98 °C, potassium 63 °C, rubidium 39 °C and caesium 28 °C.",
+            "brief": {
+              "kind": "bar-chart",
+              "x": {
+                "title": "Group 1 metal",
+                "categories": ["Li", "Na", "K", "Rb", "Cs"]
+              },
+              "y": {
+                "title": "melting point in °C",
+                "min": 0,
+                "max": 200,
+                "step": 20
+              },
+              "series": [
+                {
+                  "name": "melting point",
+                  "values": [181, 98, 63, 39, 28]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Group 1 metals have one outer electron and form 1+ ions.",
@@ -397,8 +424,8 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

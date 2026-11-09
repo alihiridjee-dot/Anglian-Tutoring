@@ -144,6 +144,66 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Mass, moles and particles",
+            "alt": "A conversion map: divide a mass in grams by Mr to get moles and multiply moles by Mr to get the mass; multiply moles by 6.02 × 10²³ to get the number of particles and divide the number of particles by 6.02 × 10²³ to get moles.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["mass in g"],
+                ["÷ Mr", "× Mr"],
+                ["moles"],
+                ["× 6.02 × 10²³", "÷ 6.02 × 10²³"],
+                ["number of particles"]
+              ],
+              "arrows": [
+                {
+                  "from": "mass in g",
+                  "to": "÷ Mr",
+                  "letter": ""
+                },
+                {
+                  "from": "÷ Mr",
+                  "to": "moles",
+                  "letter": ""
+                },
+                {
+                  "from": "moles",
+                  "to": "× Mr",
+                  "letter": ""
+                },
+                {
+                  "from": "× Mr",
+                  "to": "mass in g",
+                  "letter": ""
+                },
+                {
+                  "from": "moles",
+                  "to": "× 6.02 × 10²³",
+                  "letter": ""
+                },
+                {
+                  "from": "× 6.02 × 10²³",
+                  "to": "number of particles",
+                  "letter": ""
+                },
+                {
+                  "from": "number of particles",
+                  "to": "÷ 6.02 × 10²³",
+                  "letter": ""
+                },
+                {
+                  "from": "÷ 6.02 × 10²³",
+                  "to": "moles",
+                  "letter": ""
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "steps",
           "items": [
             {
@@ -422,7 +482,7 @@
       "b17dd74b-6dbd-44a4-960b-bbe39d848a06",
       "31baa827-0a5a-4c8f-a9ee-228fcc39ed5f"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

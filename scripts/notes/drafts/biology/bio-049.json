@@ -70,7 +70,7 @@
                 "group": 0
               },
               {
-                "text": "Does not kill viruses",
+                "text": "Kills bacteria but not viruses",
                 "group": 0
               },
               {
@@ -279,7 +279,7 @@
       "cc614c10-dad0-42f5-b10c-9cb377c4fae1",
       "de6a6827-6d08-455c-a487-55d41fe1b73e"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

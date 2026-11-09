@@ -42,6 +42,66 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Life cycles of stars",
+            "alt": "A flow diagram of the life cycles of stars. A nebula becomes a protostar, then a main sequence star. A star like the Sun then becomes a red giant, then a white dwarf, then a black dwarf. A star much more massive than the Sun becomes a red super giant, then a supernova, then a neutron star or a black hole.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["nebula", "protostar"],
+                ["main sequence star"],
+                ["red giant (Sun-like star)", "red super giant (massive)"],
+                ["white dwarf", "supernova"],
+                ["black dwarf", "neutron star or black hole"]
+              ],
+              "arrows": [
+                {
+                  "from": "nebula",
+                  "to": "protostar",
+                  "letter": ""
+                },
+                {
+                  "from": "protostar",
+                  "to": "main sequence star",
+                  "letter": ""
+                },
+                {
+                  "from": "main sequence star",
+                  "to": "red giant (Sun-like star)",
+                  "letter": ""
+                },
+                {
+                  "from": "main sequence star",
+                  "to": "red super giant (massive)",
+                  "letter": ""
+                },
+                {
+                  "from": "red giant (Sun-like star)",
+                  "to": "white dwarf",
+                  "letter": ""
+                },
+                {
+                  "from": "red super giant (massive)",
+                  "to": "supernova",
+                  "letter": ""
+                },
+                {
+                  "from": "white dwarf",
+                  "to": "black dwarf",
+                  "letter": ""
+                },
+                {
+                  "from": "supernova",
+                  "to": "neutron star or black hole",
+                  "letter": ""
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "paragraph",
           "text": "A main sequence star is stable. The inward force of gravity is balanced by the outward forces from the energy released in fusion."
         },
@@ -231,8 +291,7 @@
         "answer_points": [
           "High temperature.",
           "High pressure.",
-          "Large gravitational forces (due to its large mass).",
-          "Any two of these score the marks."
+          "Large gravitational forces (due to its large mass)."
         ],
         "tip": "Any two points score. 'Heat' is ignored."
       }
@@ -320,7 +379,7 @@
       "41e9ebbd-c55d-4b9c-82dc-5b88a1a5da5b",
       "83f3a0ed-0eb3-43c5-95c3-383365582ae1"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

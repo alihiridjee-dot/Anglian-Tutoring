@@ -33,7 +33,7 @@
           "type": "list",
           "items": [
             "Carry blood **away from the heart** at high pressure.",
-            "Thick walls with a lot of muscle tissue and elastic tissue, to withstand the high pressure and to push blood around the body.",
+            "Thick walls with a lot of muscle tissue and elastic tissue, to withstand the high pressure. The elastic tissue stretches and recoils.",
             "A narrow lumen, which helps to maintain high pressure.",
             "No valves."
           ]
@@ -170,7 +170,7 @@
   "checks": [
     {
       "q": "Explain how the structure of an artery is related to its function.",
-      "a": "It has thick walls with muscle and elastic tissue, to withstand high blood pressure and push blood around the body. Its narrow lumen helps to maintain high pressure.",
+      "a": "It has thick walls with muscle and elastic tissue, to withstand high blood pressure. The elastic tissue stretches and recoils. Its narrow lumen helps to maintain high pressure.",
       "marks": 2
     },
     {
@@ -312,8 +312,8 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

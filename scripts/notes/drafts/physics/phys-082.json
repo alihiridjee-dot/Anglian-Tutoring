@@ -211,8 +211,16 @@
                   "text": "A resultant force acts on the iron arm, causing it to move towards the electromagnet."
                 },
                 {
+                  "lead": "Break.",
+                  "text": "As the arm moves, it strikes the gong and opens the contact. The circuit is broken, so the current stops and the electromagnet switches off."
+                },
+                {
                   "lead": "Return.",
                   "text": "The iron arm returns to its original position."
+                },
+                {
+                  "lead": "Repeat.",
+                  "text": "This closes the contact again, so there is a current and the cycle repeats. The bell keeps ringing."
                 }
               ]
             }
@@ -295,7 +303,7 @@
       "spec_codes": ["OCR P4.1e", "OCR P4.1f", "OCR P4.1g"],
       "worked_example": {
         "exemplar_id": "3b9ac6d9-3e9a-46b2-881e-fc531c82e91a",
-        "source": "OCR jun 2024, Paper 1, Q23(b)(i)",
+        "source": "OCR jun 2024, Paper 3, Q16(b)(i)",
         "question": "A teacher sets up equipment to demonstrate using a plotting compass to investigate the magnetic field around a current-carrying wire. The equipment is a current-carrying wire, a wooden stand, a cardboard sheet and a plotting compass.\n\nDescribe how the teacher uses this equipment to show the shape of the magnetic field around the current-carrying wire.",
         "marks": 3,
         "answer_points": [
@@ -465,7 +473,7 @@
       "12365d0a-343e-4ff1-83f1-69d9468437bd",
       "7dc47772-8b1f-4ee1-838b-1d81ed91fa61"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

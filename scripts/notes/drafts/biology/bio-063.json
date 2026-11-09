@@ -124,6 +124,59 @@
           "text": "A fitter person usually has a lower resting rate and returns to it sooner. You may be asked to calculate the recovery time."
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Recovery after exercise",
+            "alt": "A line graph of heart rate against time for two people who exercise from 4 to 10 minutes. The fitter person rests at 60 beats per minute, rises to 140 and is back to 60 by about 16 minutes. The less fit person rests at 80, rises to 160 and is still at 84 after 24 minutes.",
+            "brief": {
+              "kind": "line-graph",
+              "curve": true,
+              "x": {
+                "title": "time in minutes",
+                "min": 0,
+                "max": 24,
+                "step": 4
+              },
+              "y": {
+                "title": "heart rate in beats per min",
+                "min": 40,
+                "max": 200,
+                "step": 20
+              },
+              "series": [
+                {
+                  "name": "fitter",
+                  "points": [
+                    [0, 60],
+                    [4, 60],
+                    [6, 120],
+                    [10, 140],
+                    [12, 110],
+                    [14, 80],
+                    [16, 64],
+                    [20, 60],
+                    [24, 60]
+                  ]
+                },
+                {
+                  "name": "less fit",
+                  "points": [
+                    [0, 80],
+                    [4, 80],
+                    [6, 140],
+                    [10, 160],
+                    [12, 145],
+                    [16, 120],
+                    [20, 100],
+                    [24, 84]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "equation",
           "label": "Time to recover",
           "formula": "time = (heart rate after exercise − resting heart rate) ÷ rate of decrease",
@@ -367,7 +420,7 @@
       "e7861cdd-ac6b-48b1-a9ba-f3979df2b9f1",
       "7149c34e-73aa-4040-b8a1-50cc9be42313"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

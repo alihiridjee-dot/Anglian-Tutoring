@@ -92,6 +92,40 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Convex lens: a real image",
+            "alt": "A ray diagram of a convex lens of focal length 10 cm, with a 4 cm object 25 cm from the lens, beyond 2F. One ray from the top of the object runs parallel to the axis and is refracted through F; another passes straight through the centre of the lens. They cross on the far side, forming a real, inverted, smaller image between F and 2F.",
+            "brief": {
+              "kind": "ray-diagram",
+              "setup": "converging-lens",
+              "focalLength": 10,
+              "objectDistance": 25,
+              "objectHeight": 4,
+              "twoF": true,
+              "names": true
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Convex lens as a magnifying glass",
+            "alt": "A ray diagram of a convex lens of focal length 10 cm, with a 2 cm object 6 cm from the lens, closer than F. The rays spread out after the lens. Traced back as dashed lines, they meet on the same side as the object, forming a virtual, upright, magnified image.",
+            "brief": {
+              "kind": "ray-diagram",
+              "setup": "converging-lens",
+              "focalLength": 10,
+              "objectDistance": 6,
+              "objectHeight": 2,
+              "twoF": false,
+              "names": true
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "(Separate science) A convex lens can make real or virtual images.",
@@ -617,7 +651,7 @@
       "20fdcfe3-e7d4-4506-a967-12850df0eb51",
       "fbd1967e-e836-4cc4-9156-ef1a2a4a6975"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

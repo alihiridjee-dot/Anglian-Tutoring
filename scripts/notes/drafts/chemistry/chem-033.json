@@ -147,13 +147,13 @@
   ],
   "checks": [
     {
-      "q": "2.24 g of iron reacts with excess copper nitrate solution to form 3.81 g of copper. Calculate the moles of each. (Ar: Fe = 56.0, Cu = 63.5)",
-      "a": "Fe: 2.24 ÷ 56.0 = 0.04 mol. Cu: 3.81 ÷ 63.5 = 0.06 mol.",
+      "q": "2.24 g of iron reacts with excess copper nitrate solution to form 2.54 g of copper. Calculate the moles of each. (Ar: Fe = 56.0, Cu = 63.5)",
+      "a": "Fe: 2.24 ÷ 56.0 = 0.04 mol. Cu: 2.54 ÷ 63.5 = 0.04 mol.",
       "marks": 2
     },
     {
       "q": "Use your answers to say what the ratio of Fe : Cu is. Which equation does it match: Fe + Cu(NO₃)₂ → Fe(NO₃)₂ + Cu or 2Fe + 3Cu(NO₃)₂ → 2Fe(NO₃)₃ + 3Cu?",
-      "a": "The ratio is 0.04 : 0.06 = 2 : 3, so it matches 2Fe + 3Cu(NO₃)₂ → 2Fe(NO₃)₃ + 3Cu.",
+      "a": "The ratio is 0.04 : 0.04 = 1 : 1, so it matches Fe + Cu(NO₃)₂ → Fe(NO₃)₂ + Cu.",
       "marks": 2
     },
     {
@@ -231,22 +231,22 @@
             },
             {
               "type": "paragraph",
-              "text": "If the mass of one reactant is not given, find it by subtraction. Iron chloride is the only product, so its mass is the mass of iron plus the mass of chlorine."
+              "text": "If the mass of one reactant is not given, find it by subtraction. Magnesium chloride is the only product, so its mass is the mass of magnesium plus the mass of chlorine."
             },
             {
               "type": "steps",
               "items": [
                 {
                   "lead": "Find the missing mass.",
-                  "text": "8.40 g of iron makes 19.05 g of iron chloride. Mass of chlorine = 19.05 − 8.40 = 10.65 g."
+                  "text": "4.80 g of magnesium makes 19.00 g of magnesium chloride. Mass of chlorine = 19.00 − 4.80 = 14.20 g."
                 },
                 {
                   "lead": "Convert to moles.",
-                  "text": "Fe: 8.40 ÷ 56 = 0.15. Cl atoms: 10.65 ÷ 35.5 = 0.30."
+                  "text": "Mg: 4.80 ÷ 24 = 0.20. Cl atoms: 14.20 ÷ 35.5 = 0.40."
                 },
                 {
                   "lead": "Find the ratio.",
-                  "text": "Fe : Cl = 0.15 : 0.30 = 1 : 2, so this iron chloride is FeCl₂ and the equation is Fe + Cl₂ → FeCl₂."
+                  "text": "Mg : Cl = 0.20 : 0.40 = 1 : 2, so the formula is MgCl₂ and the equation is Mg + Cl₂ → MgCl₂."
                 }
               ]
             }
@@ -301,7 +301,7 @@
       "69bbf521-08a5-4f2c-92c1-dad04514f015",
       "9e238429-c8d9-4879-ac7e-507f873394bc"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

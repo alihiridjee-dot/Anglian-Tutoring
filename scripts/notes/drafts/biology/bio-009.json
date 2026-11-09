@@ -93,6 +93,44 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Stem cells divide, then differentiate",
+            "alt": "A flow diagram: a stem cell divides by mitosis to make more cells, and some of these differentiate into a blood cell, a muscle cell and a nerve cell.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["stem cell"],
+                ["more cells made by mitosis"],
+                ["blood cell", "muscle cell", "nerve cell"]
+              ],
+              "arrows": [
+                {
+                  "from": "stem cell",
+                  "to": "more cells made by mitosis",
+                  "letter": ""
+                },
+                {
+                  "from": "more cells made by mitosis",
+                  "to": "blood cell",
+                  "letter": ""
+                },
+                {
+                  "from": "more cells made by mitosis",
+                  "to": "muscle cell",
+                  "letter": ""
+                },
+                {
+                  "from": "more cells made by mitosis",
+                  "to": "nerve cell",
+                  "letter": ""
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "list",
           "items": [
             "In an embryo, stem cells form the tissues and organs of the developing baby.",
@@ -163,19 +201,11 @@
                 "group": 0
               },
               {
-                "text": "Can be cloned and made to differentiate",
-                "group": 0
-              },
-              {
                 "text": "Found in bone marrow",
                 "group": 1
               },
               {
-                "text": "Can form many types of cell, including blood cells",
-                "group": 1
-              },
-              {
-                "text": "Can only form certain types of cell",
+                "text": "Can only form certain types of cell, such as blood cells",
                 "group": 1
               },
               {
@@ -294,8 +324,8 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

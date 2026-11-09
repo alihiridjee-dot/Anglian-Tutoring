@@ -73,11 +73,15 @@
                 "results": ["**Slower**", "All reactions"]
               },
               {
-                "label": "Use a larger flask",
+                "label": "Use a larger flask for the same acid and marble chips",
                 "results": [
                   "**Unchanged**",
                   "A bigger flask does not change any of the five factors"
                 ]
+              },
+              {
+                "label": "Put the same reacting gases in a larger container",
+                "results": ["**Slower**", "Reactions between gases: the pressure is lower"]
               }
             ]
           }
@@ -87,7 +91,7 @@
           "items": [
             "Concentration, pressure, surface area, temperature and a catalyst all change the rate.",
             "Higher concentration, higher pressure, smaller pieces, higher temperature or a catalyst: faster.",
-            "The size of the flask does not change the rate."
+            "For a reaction in solution, the size of the flask does not change the rate. Still use the same flask in a disappearing-cross test, because the depth of the liquid changes the time measured."
           ]
         }
       ]
@@ -308,7 +312,7 @@
       "6f285a4b-524c-4c60-b4b8-6e92fb30498b",
       "2bca305e-cda1-402e-994b-9433144b2c52"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

@@ -84,6 +84,61 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "The lytic and lysogenic pathways",
+            "alt": "A flow diagram. A virus attaches to a host cell and injects its genetic material. In the lytic pathway, on the left, new virus parts are made, new viruses are assembled and the cell lyses to release them. In the lysogenic pathway, on the right, the genetic material is inserted into the host genome and copied each time the cell divides, until it enters the lytic pathway.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["virus attaches to host cell"],
+                ["genetic material injected"],
+                ["new virus parts made", "inserted into host genome"],
+                ["new viruses assembled", "copied as the cell divides"],
+                ["cell lyses, viruses released"]
+              ],
+              "arrows": [
+                {
+                  "from": "virus attaches to host cell",
+                  "to": "genetic material injected",
+                  "letter": ""
+                },
+                {
+                  "from": "genetic material injected",
+                  "to": "new virus parts made",
+                  "letter": ""
+                },
+                {
+                  "from": "genetic material injected",
+                  "to": "inserted into host genome",
+                  "letter": ""
+                },
+                {
+                  "from": "new virus parts made",
+                  "to": "new viruses assembled",
+                  "letter": ""
+                },
+                {
+                  "from": "new viruses assembled",
+                  "to": "cell lyses, viruses released",
+                  "letter": ""
+                },
+                {
+                  "from": "inserted into host genome",
+                  "to": "copied as the cell divides",
+                  "letter": ""
+                },
+                {
+                  "from": "copied as the cell divides",
+                  "to": "new virus parts made",
+                  "letter": ""
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "table",
           "columns": ["Feature", "Lytic pathway", "Lysogenic pathway"],
           "rows": [
@@ -161,7 +216,7 @@
     "written_at": "2026-10-01",
     "spec_point_ids": ["383f28b5-cbc1-472e-a45e-ba627aa98548"],
     "exemplar_ids": ["02dd7fa2-3ea6-4377-b7c7-4953b6956e27"],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

@@ -218,7 +218,7 @@
           "Second coiled region 4",
           "Collecting duct 5"
         ],
-        "tip": "The marks are for the correct order: 5 before 2, 2 before 3, 3 before 4."
+        "tip": "The liquid passes through the parts in this order: Bowman’s capsule, proximal convoluted tubule, loop of Henlé, second coiled region, collecting duct. The marks are for getting the order of the four unnumbered parts right."
       }
     },
     "cambridge_igcse": {
@@ -318,8 +318,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "d3519732-063c-4ce3-af43-afa0a2c04120",
       "f3da0cc0-2031-4473-b9cf-8bf5cf85451e",

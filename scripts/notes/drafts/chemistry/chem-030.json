@@ -44,6 +44,130 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Butane, C₄H₁₀",
+            "alt": "The displayed formula of butane: a chain of 4 carbon atoms with 10 hydrogen atoms, so the molecular formula is C₄H₁₀ and the simplest ratio, the empirical formula, is C₂H₅.",
+            "brief": {
+              "kind": "displayed-formula",
+              "atoms": [
+                {
+                  "symbol": "H",
+                  "cell": [0, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [1, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [2, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [3, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [4, 1]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [5, 1]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 2]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [2, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [2, 2]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [3, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [3, 2]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [4, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [4, 2]
+                }
+              ],
+              "bonds": [
+                {
+                  "atoms": [0, 1],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 2],
+                  "order": 1
+                },
+                {
+                  "atoms": [2, 3],
+                  "order": 1
+                },
+                {
+                  "atoms": [3, 4],
+                  "order": 1
+                },
+                {
+                  "atoms": [4, 5],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 6],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 7],
+                  "order": 1
+                },
+                {
+                  "atoms": [2, 8],
+                  "order": 1
+                },
+                {
+                  "atoms": [2, 9],
+                  "order": 1
+                },
+                {
+                  "atoms": [3, 10],
+                  "order": 1
+                },
+                {
+                  "atoms": [3, 11],
+                  "order": 1
+                },
+                {
+                  "atoms": [4, 12],
+                  "order": 1
+                },
+                {
+                  "atoms": [4, 13],
+                  "order": 1
+                }
+              ],
+              "polymer": null
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Empirical formula = simplest whole-number ratio of atoms.",
@@ -377,7 +501,7 @@
       "88756516-a648-4b63-8e53-61b25a145e62",
       "c39fb763-ed77-404a-a421-d60a8973b4b2"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

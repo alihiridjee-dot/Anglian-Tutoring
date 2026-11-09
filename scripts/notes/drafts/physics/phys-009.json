@@ -176,6 +176,37 @@
           "text": "The mix of energy resources changes over time. Renewables now provide a growing fraction of electricity in many countries."
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "UK electricity from coal and renewables (government figures)",
+            "alt": "A bar chart of the share of the UK's electricity generated from coal and from renewable resources, from UK government figures (the Digest of UK Energy Statistics), rounded to whole per cents. In 2012 coal gave 39% and renewables 11%. In 2016 coal gave 9% and renewables 25%. In 2020 coal gave 2% and renewables 43%.",
+            "brief": {
+              "kind": "bar-chart",
+              "x": {
+                "title": "year",
+                "categories": ["2012", "2016", "2020"]
+              },
+              "y": {
+                "title": "share of UK electricity in %",
+                "min": 0,
+                "max": 70,
+                "step": 10
+              },
+              "series": [
+                {
+                  "name": "coal",
+                  "values": [39, 9, 2]
+                },
+                {
+                  "name": "renewables",
+                  "values": [11, 25, 43]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "list",
           "items": [
             "Fossil fuels may run out, become costly or be in short supply.",
@@ -434,8 +465,8 @@
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "a8e6bb33-445e-477e-8e46-2fa0b75aeeee",

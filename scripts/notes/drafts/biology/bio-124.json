@@ -110,6 +110,33 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Oxygen in a stream polluted by a factory",
+            "alt": "A bar chart of the oxygen concentration at five points, A to E, along a stream that receives waste from a fertiliser factory, with A nearest the factory: 1.5, 2.7, 3.4, 4.4 and 4.5 ppm.",
+            "brief": {
+              "kind": "bar-chart",
+              "x": {
+                "title": "point, A nearest the factory",
+                "categories": ["A", "B", "C", "D", "E"]
+              },
+              "y": {
+                "title": "oxygen concentration in ppm",
+                "min": 0,
+                "max": 5,
+                "step": 0.5
+              },
+              "series": [
+                {
+                  "name": "oxygen",
+                  "values": [1.5, 2.7, 3.4, 4.4, 4.5]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Sewage lowers oxygen because bacteria respire and photosynthesis falls.",
@@ -189,8 +216,8 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": ["89c51c10-51a7-450f-a8d0-3a9ef7911de6"],

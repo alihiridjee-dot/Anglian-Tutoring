@@ -229,6 +229,45 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Heart rate and exercise",
+            "alt": "A line graph of heart rate against time. It is 68 beats per minute at rest, rises to 112 beats per minute during exercise from 4 to 14 minutes, then falls back to 68 beats per minute by 24 minutes.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "time in minutes",
+                "min": 0,
+                "max": 24,
+                "step": 4
+              },
+              "y": {
+                "title": "heart rate in beats per min",
+                "min": 56,
+                "max": 120,
+                "step": 8
+              },
+              "series": [
+                {
+                  "name": "heart rate",
+                  "points": [
+                    [0, 68],
+                    [4, 68],
+                    [6, 100],
+                    [8, 112],
+                    [14, 112],
+                    [16, 92],
+                    [18, 80],
+                    [20, 72],
+                    [24, 68]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "subheading",
           "text": "Regular exercise"
         },
@@ -332,8 +371,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "1f7c5270-8833-44b9-964e-fd60583ea125",
       "3e82fa45-4986-4d95-ad2f-3252ca095d48"

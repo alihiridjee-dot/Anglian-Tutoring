@@ -53,6 +53,56 @@
           }
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Resistant bacteria take over",
+            "alt": "A line graph of bacteria during treatment with an antibiotic: non-resistant bacteria fall from 100 million to none by day 8, while resistant bacteria rise from 1 million to 64 million by day 12.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "time in days",
+                "min": 0,
+                "max": 12,
+                "step": 2
+              },
+              "y": {
+                "title": "bacteria in millions",
+                "min": 0,
+                "max": 100,
+                "step": 10
+              },
+              "series": [
+                {
+                  "name": "non-resistant",
+                  "points": [
+                    [0, 100],
+                    [2, 50],
+                    [4, 20],
+                    [6, 5],
+                    [8, 0],
+                    [10, 0],
+                    [12, 0]
+                  ]
+                },
+                {
+                  "name": "resistant",
+                  "points": [
+                    [0, 1],
+                    [2, 2],
+                    [4, 4],
+                    [6, 8],
+                    [8, 16],
+                    [10, 32],
+                    [12, 64]
+                  ]
+                }
+              ],
+              "curve": true
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Mutation gives a resistant strain. Natural selection makes it common.",
@@ -249,7 +299,7 @@
       "dec85fdc-55a9-4573-bdac-92cd32b4af3a",
       "ca128ab8-e2fb-429f-94ab-4cd1fff93bf5"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

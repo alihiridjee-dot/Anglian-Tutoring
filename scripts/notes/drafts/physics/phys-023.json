@@ -39,6 +39,46 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Solid A, liquid B, gas C",
+            "alt": "Particle diagrams of one substance in three states. A is a solid: the particles touch in regular rows. B is a liquid: the particles touch but are arranged at random. C is a gas: a few particles, far apart.",
+            "brief": {
+              "kind": "particle-diagram",
+              "boxes": [
+                {
+                  "arrangement": "solid",
+                  "particles": [
+                    {
+                      "atoms": ["shaded"],
+                      "count": 20
+                    }
+                  ]
+                },
+                {
+                  "arrangement": "liquid",
+                  "particles": [
+                    {
+                      "atoms": ["shaded"],
+                      "count": 16
+                    }
+                  ]
+                },
+                {
+                  "arrangement": "gas",
+                  "particles": [
+                    {
+                      "atoms": ["shaded"],
+                      "count": 6
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "list",
           "items": [
             "A solid keeps its shape because its particles are held in fixed positions.",
@@ -472,7 +512,7 @@
       "608cfb39-d7cb-4f93-85f6-eb96de15c409",
       "2ac0d615-07ab-43e5-b6cf-69e71a902aea"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

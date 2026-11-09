@@ -49,6 +49,46 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Table pushes up on the mug",
+            "alt": "The mug on its own with one force arrow: the table pushes up on the mug with a force of 3 N.",
+            "brief": {
+              "kind": "forces",
+              "object": "mug",
+              "forces": [
+                {
+                  "direction": "up",
+                  "name": "push of table",
+                  "size": 3
+                }
+              ],
+              "toScale": false
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Mug pushes down on the table",
+            "alt": "The table on its own with one force arrow: the mug pushes down on the table with a force of 3 N. The two forces are an interaction pair: the same size, opposite in direction, and acting on different objects.",
+            "brief": {
+              "kind": "forces",
+              "object": "table",
+              "forces": [
+                {
+                  "direction": "down",
+                  "name": "push of mug",
+                  "size": 3
+                }
+              ],
+              "toScale": false
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "sort",
             "alt": "Sort pairs of forces into Newton's third law pairs and pairs that are not.",
             "prompt": "Is each pair of forces a Newton's third law interaction pair?",
@@ -257,7 +297,7 @@
       "b99ea03a-a5ea-4e07-9613-0ed840c526ef",
       "1aed4247-b1d8-48dc-8106-cb55c07606e5"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

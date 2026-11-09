@@ -155,6 +155,34 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "A chromatogram of black ink",
+            "alt": "A paper chromatogram with the start line at 0 cm and the solvent front at 8 cm: black ink separates into three spots, at 1.6, 3.6 and 6.4 cm, and a pure dye gives one spot at 3.6 cm, level with one of the ink's spots.",
+            "brief": {
+              "kind": "chromatogram",
+              "y": {
+                "title": "distance in cm",
+                "min": 0,
+                "max": 10,
+                "step": 1
+              },
+              "front": 8,
+              "samples": [
+                {
+                  "name": "black ink",
+                  "spots": [1.6, 3.6, 6.4]
+                },
+                {
+                  "name": "pure dye",
+                  "spots": [3.6]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "sort",
             "alt": "Sort each separation into filtration, crystallisation or distillation.",
             "prompt": "Which technique separates it?",
@@ -395,7 +423,7 @@
           "Filter to remove the sand.",
           "This works because sand is insoluble in water and sodium chloride is soluble.",
           "Distil the filtered mixture.",
-          "The solid sodium chloride stays in the flask and the pure water condenses."
+          "Water has a much lower boiling point (100 °C) than sodium chloride (1413 °C). The water boils off and condenses as pure water, and the solid sodium chloride stays in the flask."
         ],
         "tip": "Keep to the order: filter, then distil. The wrong order scores at most 3 marks, and each method needs its reason."
       },
@@ -505,8 +533,8 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

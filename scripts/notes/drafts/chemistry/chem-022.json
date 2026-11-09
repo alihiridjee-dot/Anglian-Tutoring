@@ -48,6 +48,66 @@
           "formula": "–(CH₂–CH₂)ₙ–"
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "The repeating unit of poly(ethene)",
+            "alt": "The displayed formula of the repeating unit of poly(ethene): two carbon atoms, each with two hydrogen atoms, joined by a single bond, in brackets with n outside and a bond running out through each bracket.",
+            "brief": {
+              "kind": "displayed-formula",
+              "atoms": [
+                {
+                  "symbol": "C",
+                  "cell": [0, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [1, 1]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [0, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [0, 2]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 2]
+                }
+              ],
+              "bonds": [
+                {
+                  "atoms": [0, 1],
+                  "order": 1
+                },
+                {
+                  "atoms": [0, 2],
+                  "order": 1
+                },
+                {
+                  "atoms": [0, 3],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 4],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 5],
+                  "order": 1
+                }
+              ],
+              "polymer": [0, 1]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "A polymer is a very large molecule made of a repeating unit.",
@@ -313,7 +373,7 @@
       "15641ba3-29ff-481b-8a89-4f72a24f0af2",
       "5c7b1662-1c3f-4014-8628-6aa470c6706b"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

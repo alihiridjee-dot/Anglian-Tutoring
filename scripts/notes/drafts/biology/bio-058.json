@@ -84,6 +84,42 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Rate against distance from the lamp",
+            "alt": "A line graph of the rate of photosynthesis, in bubbles per minute, against the distance of the lamp from the pondweed. The rate falls from 45 bubbles per minute at 10 cm to 5 at 50 cm, because the light intensity falls as the lamp moves away.",
+            "brief": {
+              "kind": "line-graph",
+              "curve": true,
+              "x": {
+                "title": "distance from lamp in cm",
+                "min": 0,
+                "max": 50,
+                "step": 10
+              },
+              "y": {
+                "title": "rate in bubbles per minute",
+                "min": 0,
+                "max": 50,
+                "step": 5
+              },
+              "series": [
+                {
+                  "name": "pondweed",
+                  "points": [
+                    [10, 45],
+                    [20, 25],
+                    [30, 15],
+                    [40, 10],
+                    [50, 5]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "equation",
           "label": "Rate of photosynthesis",
           "formula": "rate = number of bubbles ÷ time",
@@ -296,7 +332,8 @@
               "type": "list",
               "items": [
                 "Cut 10 leaf discs and place them in a syringe containing sodium hydrogen carbonate solution.",
-                "Record the time it takes for the discs to rise to the top of the syringe.",
+                "Cover the end of the syringe and pull the plunger. This removes the air from the discs, so they sink.",
+                "In the light, oxygen from photosynthesis collects in the air spaces, so the discs float up. Record the time it takes for the discs to rise to the top of the syringe.",
                 "To investigate light intensity, use a lamp at different distances from the syringe.",
                 "Use the inverse square law to calculate the light intensity."
               ]
@@ -547,8 +584,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "e9ff977e-1759-4f91-afa4-19f85173f244",
       "bfae2578-398a-4777-b2fb-a155cd234439",

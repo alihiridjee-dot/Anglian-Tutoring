@@ -248,10 +248,9 @@
         "question": "Photosynthesis investigations often use a light source. The spreading out of light from a source obeys the inverse square law. The inverse square law links light intensity to distance from the light source.\n\nWhich of the following shows the inverse square law?\n\nTick one box.\n\nlight intensity is proportional to 1/distance²\nlight intensity is proportional to distance²\n1/(light intensity)² is proportional to distance²\n1/(light intensity)² is proportional to 1/distance²",
         "marks": 1,
         "answer_points": [
-          "Light intensity is proportional to 1/distance².",
-          "So doubling the distance makes the light intensity a quarter, because 1/2² = 1/4."
+          "Light intensity is proportional to 1/distance²."
         ],
-        "tip": "Only this box scores the mark. Light intensity falls as the distance rises, so the distance squared goes on the bottom of the fraction."
+        "tip": "Only this box scores the mark. Light intensity falls as the distance rises, so the distance squared goes on the bottom of the fraction. Doubling the distance makes the light intensity a quarter, because 1/2² = 1/4."
       }
     },
     "edexcel": {
@@ -280,10 +279,9 @@
           "Increased temperature will increase photosynthesis (or respiration, transpiration or water uptake).",
           "Molecules move faster / have increased kinetic energy.",
           "There is an increased rate of collisions between enzymes and substrates (more enzyme-substrate complexes form).",
-          "High temperatures (above 37 °C) will stop or reduce the rate of photosynthesis or respiration.",
-          "Any three of these points score."
+          "High temperatures (above 37 °C) will stop or reduce the rate of photosynthesis or respiration."
         ],
-        "tip": "Give the rise with its reason, and say what happens at the highest temperatures."
+        "tip": "Any three of these points score. Give the rise with its reason, and say what happens at the highest temperatures."
       }
     },
     "edexcel_igcse": {
@@ -331,8 +329,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "6d5b8f89-d9dc-419a-8890-30a6f5fefe9e",
       "f2cc1675-4cd0-4b8a-8f9e-38c2cce050be",

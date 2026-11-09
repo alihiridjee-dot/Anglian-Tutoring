@@ -95,6 +95,48 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Spring results with best-fit line",
+            "alt": "A spring's results plotted as force against extension: 2 N at 3.5 cm, 4 N at 8.0 cm, 6 N at 12.5 cm, 8 N at 16.0 cm and 10 N at 20.0 cm. The line of best fit is straight and passes through the origin. Its gradient is 10 N ÷ 0.20 m = 50 N/m, the spring constant.",
+            "brief": {
+              "kind": "scatter",
+              "x": {
+                "title": "extension in cm",
+                "min": 0,
+                "max": 20,
+                "step": 2
+              },
+              "y": {
+                "title": "force in N",
+                "min": 0,
+                "max": 10,
+                "step": 2
+              },
+              "series": [
+                {
+                  "name": "spring",
+                  "points": [
+                    [0, 0],
+                    [3.5, 2],
+                    [8, 4],
+                    [12.5, 6],
+                    [16, 8],
+                    [20, 10]
+                  ]
+                }
+              ],
+              "lines": [
+                {
+                  "from": [0, 0],
+                  "to": [20, 10]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "equation",
           "label": "Work done in stretching",
           "formula": "E = ½ × k × e²",
@@ -361,7 +403,7 @@
       "a67fb030-0655-40fd-b507-12400c0e21a1",
       "044e0104-7480-4aa3-a0a9-caeb54eef68a"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

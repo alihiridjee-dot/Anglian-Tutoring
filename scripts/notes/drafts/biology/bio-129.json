@@ -140,6 +140,33 @@
           "text": "Each bar is narrower than the one below it, because biomass falls at each trophic level. This gives the pyramid shape."
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "A pyramid of biomass",
+            "alt": "A pyramid of biomass with producers at the bottom, then primary consumers, then secondary consumers, each bar narrower than the one below it.",
+            "brief": {
+              "kind": "pyramid",
+              "of": "biomass",
+              "levels": [
+                {
+                  "name": "producers",
+                  "value": 600
+                },
+                {
+                  "name": "primary consumers",
+                  "value": 150
+                },
+                {
+                  "name": "secondary consumers",
+                  "value": 30
+                }
+              ],
+              "showValues": false
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "A pyramid of biomass has one bar per trophic level, with the producers at the bottom.",
@@ -427,7 +454,7 @@
       "c8a7a50d-4122-4d35-8828-f464f39bdabd",
       "8604003b-a15b-43c9-abf8-1b2ee9e894a3"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

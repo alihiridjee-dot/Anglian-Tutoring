@@ -37,12 +37,12 @@
             "steps": [
               "Use a pipette to put 25.0 cm³ of alkali into a conical flask",
               "Add a few drops of indicator",
-              "Fill the burette with acid and read the starting volume",
-              "Add the acid, swirling the flask, and go drop by drop near the end",
+              "Read the starting volume on the burette, then add the acid while swirling the flask",
+              "Add the acid drop by drop near the end",
               "Stop when the colour changes",
               "Read the final volume from the burette and repeat"
             ],
-            "prompt": "Put the titration in order"
+            "prompt": "The burette has been filled with acid. Put the rest of the titration in order"
           }
         },
         {
@@ -55,6 +55,24 @@
             "Ignore any result that is not concordant, such as a rough first titration.",
             "Use the **mean** of the concordant titres in the calculation."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Reading a burette",
+            "alt": "Part of a burette scale from 21 to 25 cm³, marked every 0.1 cm³, with the bottom of the meniscus halfway between 22.1 and 22.2: the reading is 22.15 cm³.",
+            "brief": {
+              "kind": "scale-reading",
+              "instrument": "burette",
+              "min": 21,
+              "max": 25,
+              "step": 1,
+              "minor": 10,
+              "readings": [22.15],
+              "unit": "cm³"
+            }
+          }
         },
         {
           "type": "key-points",
@@ -252,8 +270,8 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

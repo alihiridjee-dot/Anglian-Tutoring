@@ -178,6 +178,64 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Cooling in two card boxes",
+            "alt": "Example results: the temperature of hot water cooling in a box of thin card and in a box of thick card, both starting at 80 °C. The water in the thin card box falls by 20 °C, to 60 °C, in 6 minutes. In the thick card box the same fall takes 12 minutes, so thick card is the better insulator.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "time in min",
+                "min": 0,
+                "max": 20,
+                "step": 2
+              },
+              "y": {
+                "title": "temperature in °C",
+                "min": 20,
+                "max": 80,
+                "step": 10
+              },
+              "curve": true,
+              "series": [
+                {
+                  "name": "thin card",
+                  "points": [
+                    [0, 80.0],
+                    [2, 72.4],
+                    [4, 65.8],
+                    [6, 60.0],
+                    [8, 54.9],
+                    [10, 50.5],
+                    [12, 46.7],
+                    [14, 43.3],
+                    [16, 40.4],
+                    [18, 37.8],
+                    [20, 35.5]
+                  ]
+                },
+                {
+                  "name": "thick card",
+                  "points": [
+                    [0, 80.0],
+                    [2, 76.1],
+                    [4, 72.4],
+                    [6, 69.0],
+                    [8, 65.8],
+                    [10, 62.8],
+                    [12, 60.0],
+                    [14, 57.4],
+                    [16, 54.9],
+                    [18, 52.7],
+                    [20, 50.5]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Change one variable and control the volume and starting temperature of the water.",
@@ -191,7 +249,7 @@
   "checks": [
     {
       "q": "Explain how oil improves the efficiency of a bicycle.",
-      "a": "Oil reduces friction, so less thermal energy is transferred. More useful energy is available from the same input energy.",
+      "a": "Oil is a lubricant, so it reduces friction. Less energy is transferred to the thermal store, so more of the input energy is transferred usefully. Efficiency = useful energy output ÷ total energy input, so the efficiency increases.",
       "marks": 3
     },
     {
@@ -312,8 +370,8 @@
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "b3bc72c6-bcd9-4f1e-a18f-109082974b26",

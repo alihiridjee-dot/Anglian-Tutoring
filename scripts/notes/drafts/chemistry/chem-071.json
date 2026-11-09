@@ -36,6 +36,61 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Same final volume, reached sooner",
+            "alt": "Volume of gas against time for the same reaction with and without a catalyst: with the catalyst the curve is steeper and levels off sooner, but both reach the same final volume of 48 cm³.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "time in minutes",
+                "min": 0,
+                "max": 40,
+                "step": 5
+              },
+              "y": {
+                "title": "volume of gas in cm³",
+                "min": 0,
+                "max": 60,
+                "step": 10
+              },
+              "series": [
+                {
+                  "name": "with a catalyst",
+                  "curve": true,
+                  "points": [
+                    [0, 0],
+                    [3, 24],
+                    [6, 36],
+                    [9, 42],
+                    [12, 45],
+                    [15, 46.5],
+                    [20, 47.5],
+                    [25, 48],
+                    [40, 48]
+                  ]
+                },
+                {
+                  "name": "without a catalyst",
+                  "curve": true,
+                  "points": [
+                    [0, 0],
+                    [5, 21],
+                    [10, 33],
+                    [15, 39.5],
+                    [20, 43],
+                    [25, 45],
+                    [30, 46.5],
+                    [35, 47.5],
+                    [40, 48]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "table",
           "columns": ["Reaction", "Catalyst"],
           "rows": [
@@ -384,7 +439,7 @@
       "720b9196-a547-46b6-bc26-3635b51b618c",
       "d4b69e7d-2c0b-4389-b7ba-e3ad3fe5a0f7"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

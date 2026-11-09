@@ -105,6 +105,99 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Polydactyly in a family",
+            "alt": "A family tree for polydactyly: affected father 1 passes it to his son 3 and daughter 7, son 3 passes it to his daughter 8, and unaffected daughter 5 and her unaffected partner 6 have no affected children.",
+            "brief": {
+              "kind": "family-tree",
+              "people": [
+                {
+                  "id": "1",
+                  "sex": "male",
+                  "affected": true,
+                  "carrier": false
+                },
+                {
+                  "id": "2",
+                  "sex": "female",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "3",
+                  "sex": "male",
+                  "affected": true,
+                  "carrier": false
+                },
+                {
+                  "id": "4",
+                  "sex": "female",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "5",
+                  "sex": "female",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "6",
+                  "sex": "male",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "7",
+                  "sex": "female",
+                  "affected": true,
+                  "carrier": false
+                },
+                {
+                  "id": "8",
+                  "sex": "female",
+                  "affected": true,
+                  "carrier": false
+                },
+                {
+                  "id": "9",
+                  "sex": "male",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "10",
+                  "sex": "male",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "11",
+                  "sex": "female",
+                  "affected": false,
+                  "carrier": false
+                }
+              ],
+              "couples": [
+                {
+                  "parents": ["1", "2"],
+                  "children": ["3", "5", "7"]
+                },
+                {
+                  "parents": ["3", "4"],
+                  "children": ["8", "9"]
+                },
+                {
+                  "parents": ["6", "5"],
+                  "children": ["10", "11"]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "subheading",
           "text": "When neither parent has the allele"
         },
@@ -138,7 +231,8 @@
           "type": "list",
           "items": [
             "Screening finds out whether an embryo has the alleles for an inherited disorder such as CF.",
-            "In one method, a fine needle takes a sample of the fluid around the embryo after about 10 weeks of pregnancy, and the DNA is tested. The test has a small risk of miscarriage.",
+            "In one method, a fine needle takes a sample of the fluid around the fetus at about 15 to 20 weeks of pregnancy. The fluid contains the fetus's cells, and their DNA is tested.",
+            "Cells can also be taken from the placenta earlier, at about 11 to 14 weeks. Both tests have a small risk of miscarriage.",
             "In another method, a couple use in vitro fertilisation (IVF) to make a small number of embryos. Each is tested, and only embryos without the disorder are implanted.",
             "IVF is a stressful, invasive procedure. It often does not result in a baby, and the free public health service may not provide it to everyone who wants it."
           ]
@@ -228,7 +322,7 @@
     "written_at": "2026-10-01",
     "spec_point_ids": ["bd48148e-9191-4133-9fc0-c7011b8981db"],
     "exemplar_ids": ["d0640fb1-4d62-4392-8942-4afdb43fe3e8"],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

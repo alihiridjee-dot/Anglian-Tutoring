@@ -129,6 +129,48 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Zero pressure at −273 °C",
+            "alt": "A fixed mass of gas at constant volume, with temperature up the side and pressure along the bottom. The points run from 100 kPa at 0 °C to 137 kPa at 100 °C. The straight line through them, extended back to zero pressure, meets the temperature axis at −273 °C, absolute zero.",
+            "brief": {
+              "kind": "scatter",
+              "x": {
+                "title": "pressure in kPa",
+                "min": 0,
+                "max": 150,
+                "step": 25
+              },
+              "y": {
+                "title": "temperature in °C",
+                "min": -300,
+                "max": 100,
+                "step": 50
+              },
+              "series": [
+                {
+                  "name": "gas",
+                  "points": [
+                    [100, 0],
+                    [107, 20],
+                    [115, 40],
+                    [122, 60],
+                    [129, 80],
+                    [137, 100]
+                  ]
+                }
+              ],
+              "lines": [
+                {
+                  "from": [0, -273],
+                  "to": [136.6, 100]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "equation",
           "label": "Celsius to kelvin",
           "formula": "T = θ + 273",
@@ -361,8 +403,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "a1c6178c-4bae-4d8e-a0ec-1148f48c4c69",
       "6dca44f0-361d-4f15-b172-c9acf2837a69",

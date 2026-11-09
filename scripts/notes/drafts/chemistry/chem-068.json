@@ -55,7 +55,7 @@
           "type": "diagram",
           "diagram": {
             "kind": "slider",
-            "alt": "Change the concentration of acid and the time to see the volume of gas collected in a gas syringe. A simple model: the rate is proportional to the concentration and stays constant until the syringe is full. A real rate falls as the reactants are used up.",
+            "alt": "Change the concentration of acid and the time to see the volume of gas collected in a gas syringe. The acid is in excess, so 40 cm³ of gas is made in the end at every concentration. The rate is fastest at the start and falls as the solid is used up. A higher concentration gives a faster start.",
             "inputs": [
               {
                 "id": "c",
@@ -78,15 +78,15 @@
             ],
             "outputs": [
               {
-                "label": "Rate of reaction",
+                "label": "Rate at this time",
                 "unit": "cm³/s",
-                "formula": "0.4 * c",
-                "decimals": 1
+                "formula": "40 * 0.693 * c / 15 * 0.5^(c * t / 15)",
+                "decimals": 2
               },
               {
                 "label": "Gas collected",
                 "unit": "cm³",
-                "formula": "min(40, 0.4 * c * t)",
+                "formula": "40 * (1 - 0.5^(c * t / 15))",
                 "decimals": 0
               }
             ],
@@ -527,7 +527,7 @@
       "65e5d250-070d-4f57-b5b4-970913167758",
       "90b93268-59fe-44f2-9d0c-938b9c5e8d39"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

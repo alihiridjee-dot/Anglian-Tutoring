@@ -300,6 +300,85 @@
                 "Pressure against volume is a curve. The pressure falls as the volume rises, and it never reaches zero.",
                 "Pressure against 1 / volume is a straight line through the origin. This shows that pressure is inversely proportional to volume."
               ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "figure",
+                "title": "Pressure against volume",
+                "alt": "A fixed mass of gas at constant temperature: its pressure falls as its volume rises, 300 kPa at 0.2 m³, 150 kPa at 0.4 m³ and 100 kPa at 0.6 m³. Pressure × volume is the same at every point, and the curve never reaches zero.",
+                "brief": {
+                  "kind": "line-graph",
+                  "x": {
+                    "title": "volume in m³",
+                    "min": 0,
+                    "max": 0.6,
+                    "step": 0.1
+                  },
+                  "y": {
+                    "title": "pressure in kPa",
+                    "min": 0,
+                    "max": 300,
+                    "step": 50
+                  },
+                  "curve": true,
+                  "series": [
+                    {
+                      "name": "gas",
+                      "points": [
+                        [0.2, 300],
+                        [0.25, 240],
+                        [0.3, 200],
+                        [0.4, 150],
+                        [0.5, 120],
+                        [0.6, 100]
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "figure",
+                "title": "Pressure against 1 / volume",
+                "alt": "The same gas plotted as pressure against 1 / volume: the points lie on a straight line through the origin, from 100 kPa at 1.67 per m³ to 300 kPa at 5 per m³. So pressure is inversely proportional to volume.",
+                "brief": {
+                  "kind": "scatter",
+                  "x": {
+                    "title": "1/volume in 1/m³",
+                    "min": 0,
+                    "max": 5,
+                    "step": 1
+                  },
+                  "y": {
+                    "title": "pressure in kPa",
+                    "min": 0,
+                    "max": 300,
+                    "step": 50
+                  },
+                  "series": [
+                    {
+                      "name": "gas",
+                      "points": [
+                        [1.67, 100],
+                        [2, 120],
+                        [2.5, 150],
+                        [3.33, 200],
+                        [4, 240],
+                        [5, 300]
+                      ]
+                    }
+                  ],
+                  "lines": [
+                    {
+                      "from": [0, 0],
+                      "to": [5, 300]
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
@@ -325,8 +404,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "74f5ee80-2911-4c81-8ca5-c0fb92292aa2",
       "98b26a14-d04e-45be-9b21-aae970dfea06",
