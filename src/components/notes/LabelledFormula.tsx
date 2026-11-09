@@ -125,9 +125,14 @@ export function LabelledFormula({
     const el = box.current;
     const f = text.current;
     if (!parts || !el || !f) return;
+    // A line break is drawn as <br>, which adds nothing to the page's text, so
+    // it is left out here and each arrow's place moves back past the breaks before it.
+    const BREAK = /\r?\n/g;
     const expected = sciRuns(drawnText)
       .map((r) => r.text)
-      .join("");
+      .join("")
+      .replace(BREAK, "");
+    const onPage = (at: number) => at - (drawnText.slice(0, at).match(BREAK)?.join("").length ?? 0);
     const show = (next: Drawn | "list") =>
       setDrawn((prev) => (JSON.stringify(prev) === JSON.stringify(next) ? prev : next));
 
@@ -143,7 +148,7 @@ export function LabelledFormula({
       const marks: Box[] = [];
       const onLine: number[] = [];
       for (const p of parts) {
-        const r = rangeOver(f, p.start, p.end)?.getClientRects()[0];
+        const r = rangeOver(f, onPage(p.start), onPage(p.end))?.getClientRects()[0];
         if (!r) return show("list");
         const m = { x: r.left - fr.left, y: r.top - fr.top, w: r.width, h: r.height };
         marks.push(m);
