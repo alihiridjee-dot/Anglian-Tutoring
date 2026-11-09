@@ -146,6 +146,47 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Rate of photosynthesis against temperature",
+            "alt": "A line graph of the rate of photosynthesis of pondweed, in bubbles per minute, against temperature from 0 to 50 °C. The rate rises to a peak of 34 bubbles per minute at the optimum, 30 °C, then falls steeply to zero at 50 °C as the enzymes are denatured.",
+            "brief": {
+              "kind": "line-graph",
+              "curve": true,
+              "x": {
+                "title": "temperature in °C",
+                "min": 0,
+                "max": 50,
+                "step": 10
+              },
+              "y": {
+                "title": "rate in bubbles per minute",
+                "min": 0,
+                "max": 40,
+                "step": 10
+              },
+              "series": [
+                {
+                  "name": "pondweed",
+                  "points": [
+                    [5, 4],
+                    [10, 8],
+                    [15, 14],
+                    [20, 22],
+                    [25, 30],
+                    [30, 34],
+                    [35, 30],
+                    [40, 16],
+                    [45, 4],
+                    [50, 0]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "subheading",
           "text": "Chlorophyll"
         },
@@ -411,7 +452,7 @@
       "20784196-a050-44c4-8d87-8371482a82e7",
       "d549fd98-b688-4dbf-866b-9ee31bb278ba"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

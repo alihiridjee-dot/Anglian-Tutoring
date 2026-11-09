@@ -130,6 +130,33 @@
           "text": "The chance of success depends on factors such as age, obesity or diet, the reason for infertility, the number of eggs collected and the number of embryos implanted."
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "IVF success falls with age",
+            "alt": "A bar chart of the percentage of IVF treatments in the UK in 2019 that gave a live birth, by the woman's age: 32% under 35, 25% at 35 to 37, 19% at 38 to 39, 11% at 40 to 42 and 5% at 43 to 44.",
+            "brief": {
+              "kind": "bar-chart",
+              "x": {
+                "title": "age of the woman in years",
+                "categories": ["<35", "35–37", "38–39", "40–42", "43–44"]
+              },
+              "y": {
+                "title": "births per treatment in %",
+                "min": 0,
+                "max": 35,
+                "step": 5
+              },
+              "series": [
+                {
+                  "name": "live births",
+                  "values": [32, 25, 19, 11, 5]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "IVF gives hope, but it is stressful and often unsuccessful.",
@@ -275,7 +302,7 @@
       "117f1885-3257-42e5-97d7-2994ca20f4a7",
       "7a7cc31b-4b47-4d5a-8d0a-7d3327fe9566"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

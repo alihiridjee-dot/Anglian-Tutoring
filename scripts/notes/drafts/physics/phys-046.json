@@ -129,6 +129,41 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Balanced forces on a block",
+            "alt": "A free body diagram, drawn to scale, of a block pulled across a table at constant velocity: normal contact force 20 N up, weight 20 N down, pull of the string 5 N to the right and friction 5 N to the left. The forces balance, so the resultant force is zero.",
+            "brief": {
+              "kind": "forces",
+              "object": "block",
+              "forces": [
+                {
+                  "direction": "up",
+                  "name": "normal contact force",
+                  "size": 20
+                },
+                {
+                  "direction": "down",
+                  "name": "weight",
+                  "size": 20
+                },
+                {
+                  "direction": "right",
+                  "name": "pull of string",
+                  "size": 5
+                },
+                {
+                  "direction": "left",
+                  "name": "friction",
+                  "size": 5
+                }
+              ],
+              "toScale": true
+            }
+          }
+        },
+        {
           "type": "subheading",
           "text": "Unbalanced forces: a resultant force (Higher tier)"
         },
@@ -140,6 +175,41 @@
             "At maximum speed, air resistance equals the driving force, so the resultant force is zero.",
             "A falling object reaches terminal velocity when air resistance equals its weight."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Unbalanced forces on a car",
+            "alt": "A free body diagram, drawn to scale, of a car speeding up: normal contact force 10 000 N up, weight 10 000 N down, driving force 4000 N forwards and air resistance 2500 N backwards. The resultant force is 1500 N forwards.",
+            "brief": {
+              "kind": "forces",
+              "object": "car",
+              "forces": [
+                {
+                  "direction": "up",
+                  "name": "normal contact force",
+                  "size": 10000
+                },
+                {
+                  "direction": "down",
+                  "name": "weight",
+                  "size": 10000
+                },
+                {
+                  "direction": "right",
+                  "name": "driving force",
+                  "size": 4000
+                },
+                {
+                  "direction": "left",
+                  "name": "air resistance",
+                  "size": 2500
+                }
+              ],
+              "toScale": true
+            }
+          }
         },
         {
           "type": "diagram",
@@ -385,7 +455,8 @@
         "answer_points": [
           "As the velocity increases, air resistance increases.",
           "Until the weight balances the air resistance.",
-          "There is no resultant force, so no acceleration and no further increase in velocity."
+          "There is no resultant force.",
+          "So there is no acceleration, and no further increase in velocity."
         ],
         "tip": "Any three of the four marking points score. Drag is accepted for air resistance."
       },
@@ -579,7 +650,7 @@
       "0ca7d2b3-ba05-4520-b99d-df0ec5f4d6d0",
       "dab36435-90fa-447a-b7a4-49946c66228c"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

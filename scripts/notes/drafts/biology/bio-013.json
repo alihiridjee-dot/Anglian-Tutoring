@@ -186,6 +186,47 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Mean change in mass of potato",
+            "alt": "A scatter graph of mean percentage change in mass of potato pieces against the concentration of the solution, from 0 to 0.8 mol/dm³. The pieces gain mass in dilute solutions and lose mass in concentrated ones, and the line of best fit crosses zero at 0.3 mol/dm³, where the solution matches the solution inside the cells.",
+            "brief": {
+              "kind": "scatter",
+              "x": {
+                "title": "concentration in mol/dm³",
+                "min": 0,
+                "max": 0.8,
+                "step": 0.1
+              },
+              "y": {
+                "title": "mean change in mass in %",
+                "min": -30,
+                "max": 20,
+                "step": 10
+              },
+              "series": [
+                {
+                  "name": "potato",
+                  "points": [
+                    [0, 16],
+                    [0.2, 4],
+                    [0.4, -4],
+                    [0.6, -15],
+                    [0.8, -24]
+                  ]
+                }
+              ],
+              "lines": [
+                {
+                  "from": [0, 15],
+                  "to": [0.8, -25]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Percentage change = change ÷ starting mass × 100.",
@@ -414,8 +455,8 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [

@@ -33,7 +33,7 @@
             },
             {
               "term": "Comet",
-              "meaning": "A body that orbits the Sun on an orbit not in the same plane as the planets."
+              "meaning": "A small body of ice and dust that orbits the Sun. Its orbit is very elongated (elliptical) and often not in the same plane as the planets."
             }
           ]
         },
@@ -387,7 +387,7 @@
       "ad4d5e41-76b7-41f5-bf34-e7f87103cdb0",
       "89a0079a-291a-4c8a-854b-67582f2c3536"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

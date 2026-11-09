@@ -237,6 +237,37 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Energy stores of a falling ball",
+            "alt": "A bar chart of the energy stores of a 2 kg ball dropped from 5 m, with g = 10 N/kg and no air resistance. At the top it has 100 J in its gravitational potential store and none in its kinetic store; halfway down it has 50 J in each; at the bottom it has 100 J in its kinetic store.",
+            "brief": {
+              "kind": "bar-chart",
+              "x": {
+                "title": "position in the fall",
+                "categories": ["top", "halfway", "bottom"]
+              },
+              "y": {
+                "title": "energy in J",
+                "min": 0,
+                "max": 100,
+                "step": 20
+              },
+              "series": [
+                {
+                  "name": "gravitational",
+                  "values": [100, 50, 0]
+                },
+                {
+                  "name": "kinetic",
+                  "values": [0, 50, 100]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "paragraph",
           "text": "Setting m × g × h equal to ½ × m × v² gives the speed at the bottom. The mass cancels."
         },
@@ -492,7 +523,7 @@
       "ef9bdbbc-8798-4a63-8eb3-c388b07e6903",
       "534acece-e1f1-4b9f-b7d4-7a3793a21bcd"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

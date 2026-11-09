@@ -67,6 +67,46 @@
           "text": "To show that an abiotic factor has an effect, compare how many organisms live where the factor is high and where it is low."
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Plants and light intensity",
+            "alt": "A scatter graph of the number of plants in each quadrat against light intensity: the more light, the more plants.",
+            "brief": {
+              "kind": "scatter",
+              "x": {
+                "title": "light in % of full daylight",
+                "min": 0,
+                "max": 100,
+                "step": 10
+              },
+              "y": {
+                "title": "plants per quadrat",
+                "min": 0,
+                "max": 20,
+                "step": 2
+              },
+              "series": [
+                {
+                  "name": "quadrats",
+                  "points": [
+                    [10, 1],
+                    [20, 4],
+                    [30, 5],
+                    [40, 8],
+                    [50, 7],
+                    [60, 10],
+                    [70, 13],
+                    [80, 12],
+                    [90, 15],
+                    [100, 16]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Abiotic factors are non-living: light, temperature, moisture, soil pH and minerals, wind, carbon dioxide and oxygen.",
@@ -376,7 +416,7 @@
       "bf1533e2-6eab-4224-a42f-d4470c2676ac",
       "a234713e-02c4-4a3b-8a67-1aab6a74c6b5"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

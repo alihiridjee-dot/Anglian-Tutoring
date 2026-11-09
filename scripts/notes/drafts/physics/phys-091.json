@@ -119,6 +119,51 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Galaxy speed against distance",
+            "alt": "Example data: the speed at which galaxies move away from us against their distance, from 20 to 180 million light-years. The points lie close to a straight line through the origin: a galaxy twice as far away is moving away about twice as fast.",
+            "brief": {
+              "kind": "scatter",
+              "x": {
+                "title": "distance in 10⁶ light-years",
+                "min": 0,
+                "max": 180,
+                "step": 20
+              },
+              "y": {
+                "title": "speed in km/s",
+                "min": 0,
+                "max": 4000,
+                "step": 500
+              },
+              "series": [
+                {
+                  "name": "galaxies",
+                  "points": [
+                    [20, 350],
+                    [40, 900],
+                    [60, 1150],
+                    [80, 1700],
+                    [100, 1950],
+                    [120, 2500],
+                    [140, 2750],
+                    [160, 3300],
+                    [180, 3550]
+                  ]
+                }
+              ],
+              "lines": [
+                {
+                  "from": [0, 0],
+                  "to": [180, 3600]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "paragraph",
           "text": "There is still much about the Universe that is not understood."
         },
@@ -227,9 +272,9 @@
           "Redshift means the galaxies are moving away from the Earth.",
           "Galaxy B is further away from the Earth than galaxy A.",
           "Galaxy B is moving faster than galaxy A.",
-          "Any four points score."
+          "Galaxy B is moving away from galaxy A."
         ],
-        "tip": "Do not say that one galaxy is moving towards the Earth."
+        "tip": "Any four points score. Do not say that one galaxy is moving towards the Earth."
       }
     },
     "cambridge_igcse": {
@@ -352,7 +397,7 @@
       "0f8a59ae-b385-4887-8553-a58580ae7844",
       "91dcc1fb-4fca-466e-9e8f-6bf174cd228d"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

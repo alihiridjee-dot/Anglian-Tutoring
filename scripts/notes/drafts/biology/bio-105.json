@@ -32,7 +32,7 @@
         {
           "type": "list",
           "items": [
-            "Travelled around Malaysia in the 1800s and studied the animal species there.",
+            "Travelled around South East Asia (the Malay Archipelago) from 1854 to 1862 and studied the animal species there.",
             "Found that animals on one side of the **Wallace line** were different from animals on the other side.",
             "Wrote to Darwin. His conclusions were very similar to Darwin's.",
             "His results backed up Darwin's work and encouraged Darwin to publish."
@@ -64,6 +64,46 @@
             "Today the theory is accepted by most scientists as the explanation for the variety of species on Earth.",
             "It is used in conservation, for example in seedbanks."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Darwin, Wallace and after",
+            "alt": "A timeline: Darwin's voyage on the Beagle from 1831 to 1836, Wallace in South-East Asia (the Malay Archipelago) from 1854 to 1862, On the Origin of Species published in 1859 and Mendel's work rediscovered in 1900.",
+            "brief": {
+              "kind": "timeline",
+              "scale": {
+                "title": "year",
+                "min": 1820,
+                "max": 1910,
+                "step": 10,
+                "ago": false
+              },
+              "events": [
+                {
+                  "at": 1859,
+                  "name": "On the Origin of Species"
+                },
+                {
+                  "at": 1900,
+                  "name": "Mendel's work rediscovered"
+                }
+              ],
+              "periods": [
+                {
+                  "from": 1831,
+                  "to": 1836,
+                  "name": "voyage of the Beagle"
+                },
+                {
+                  "from": 1854,
+                  "to": 1862,
+                  "name": "Wallace in SE Asia"
+                }
+              ]
+            }
+          }
         },
         {
           "type": "subheading",
@@ -124,6 +164,7 @@
               "Over many generations the populations become very different in phenotype",
               "They can no longer interbreed to produce fertile offspring: they are two new species"
             ],
+            "free": [[1, 2]],
             "prompt": "Put speciation in order"
           }
         },
@@ -268,7 +309,7 @@
       "71798adc-79e6-47cf-a1fa-89f91291fa38",
       "805e3166-2404-400f-8e63-1069bfe84ef2"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

@@ -78,11 +78,10 @@
             "alt": "Put the steps of a titration in order.",
             "prompt": "Put the titration method in order",
             "steps": [
-              "Rinse the burette with the acid and the pipette with the alkali",
-              "Fill the burette with acid and record the initial reading",
+              "Rinse the pipette with the alkali, and rinse and fill the burette with the acid",
               "Use a pipette and filler to put 25.0 cm³ of alkali into a conical flask",
               "Add a few drops of indicator and stand the flask on a white tile",
-              "Add acid from the burette, swirling the flask",
+              "Record the initial burette reading, then add acid from the burette, swirling the flask",
               "Add the acid drop by drop near the end-point, until the indicator just changes colour",
               "Record the final burette reading",
               "Repeat until you have concordant results"
@@ -97,6 +96,24 @@
             "Read the burette at eye level, at the bottom of the meniscus, with no bubbles in it.",
             "To make a pure, dry salt, mix the same volumes again without the indicator, then evaporate and crystallise."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Reading a burette at the meniscus",
+            "alt": "Part of a burette scale from 23 to 27 cm³, marked every 0.1 cm³, with the bottom of the meniscus halfway between 24.8 and 24.9: the reading is 24.85 cm³.",
+            "brief": {
+              "kind": "scale-reading",
+              "instrument": "burette",
+              "min": 23,
+              "max": 27,
+              "step": 1,
+              "minor": 10,
+              "readings": [24.85],
+              "unit": "cm³"
+            }
+          }
         },
         {
           "type": "key-points",
@@ -206,7 +223,7 @@
       "worked_example": {
         "exemplar_id": "3f7a713f-bbfc-405a-8ba8-fde0dec9d0b5",
         "source": "AQA jun 2020, Paper 1 (H), Q09.5",
-        "question": "This is part of the method the student used for the titration.\n\n1. Measure 25.0 cm3 of the sodium hydroxide solution into a conical flask using a pipette.\n2. Add a few drops of indicator to the flask.\n3. Fill a burette with citric acid solution.\n\nDescribe how the student would complete the titration.",
+        "question": "This is part of the method the student used for the titration.\n\n1. Measure 25.0 cm³ of the sodium hydroxide solution into a conical flask using a pipette.\n2. Add a few drops of indicator to the flask.\n3. Fill a burette with citric acid solution.\n\nDescribe how the student would complete the titration.",
         "marks": 3,
         "answer_points": [
           "Add the citric acid (to the flask) until there is a permanent colour change.",
@@ -248,7 +265,7 @@
       "worked_example": {
         "exemplar_id": "d50165cb-15bb-481d-a332-2394ebecb19e",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q7(c)",
-        "question": "The volume of dilute sulfuric acid required to neutralise 25.0 cm3 of ammonia solution can be found by titration.\n\nIn the titration, a few drops of methyl orange indicator were added to the ammonia solution in a conical flask before adding the dilute sulfuric acid.\n\nThe titration was repeated to obtain a mean volume of dilute sulfuric acid required to neutralise the 25.0 cm3 of ammonia solution.\n\nThe volumes of the two solutions were measured accurately.\n\nExplain two other practical steps that should be used in the titration to ensure that an accurate titre volume is obtained.",
+        "question": "The volume of dilute sulfuric acid required to neutralise 25.0 cm³ of ammonia solution can be found by titration.\n\nIn the titration, a few drops of methyl orange indicator were added to the ammonia solution in a conical flask before adding the dilute sulfuric acid.\n\nThe titration was repeated to obtain a mean volume of dilute sulfuric acid required to neutralise the 25.0 cm³ of ammonia solution.\n\nThe volumes of the two solutions were measured accurately.\n\nExplain two other practical steps that should be used in the titration to ensure that an accurate titre volume is obtained.",
         "marks": 4,
         "answer_points": [
           "Use a white tile, because it is easier to see precisely when the indicator changes colour.",
@@ -280,7 +297,7 @@
       "worked_example": {
         "exemplar_id": "d2ffd94b-d633-4501-9f64-d9c48398f4ad",
         "source": "OCR jun 2018, Paper 4, Q20(a)",
-        "question": "Student A does a titration with an acid and an alkali.\nHe uses dilute sulfuric acid, sodium hydroxide solution and an indicator solution.\nThe student adds sodium hydroxide solution from the burette to the sulfuric acid until the indicator changes colour.\nHe then adds a few more drops of sodium hydroxide to be certain the sulfuric acid is neutralised.\nHe takes the final volume reading on the burette to find out how much acid reacts with 25.0 cm3 of sodium hydroxide solution.\n\nDescribe and explain how the student could improve his experiment to get a more accurate value.",
+        "question": "Student A does a titration with an acid and an alkali.\nHe uses dilute sulfuric acid, sodium hydroxide solution and an indicator solution.\nThe student adds sodium hydroxide solution from the burette to the sulfuric acid until the indicator changes colour.\nHe then adds a few more drops of sodium hydroxide to be certain the sulfuric acid is neutralised.\nHe takes the final volume reading on the burette to find out how much acid reacts with 25.0 cm³ of sodium hydroxide solution.\n\nDescribe and explain how the student could improve his experiment to get a more accurate value.",
         "marks": 4,
         "answer_points": [
           "Do not add more sodium hydroxide after the indicator changes colour, because the indicator changes colour at the end-point and extra alkali makes the solution alkaline.",
@@ -342,8 +359,8 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",

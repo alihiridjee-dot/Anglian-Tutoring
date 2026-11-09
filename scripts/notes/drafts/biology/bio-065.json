@@ -114,6 +114,54 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "A negative feedback loop",
+            "alt": "A loop diagram: a level moves away from the optimum, a receptor detects the change, the coordination centre processes it, an effector responds, the change is reversed and the level returns to the optimum.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["optimum level", "level changes"],
+                ["change is reversed", "receptor detects it"],
+                ["effector responds", "coordination centre"]
+              ],
+              "arrows": [
+                {
+                  "from": "optimum level",
+                  "to": "level changes",
+                  "letter": ""
+                },
+                {
+                  "from": "level changes",
+                  "to": "receptor detects it",
+                  "letter": ""
+                },
+                {
+                  "from": "receptor detects it",
+                  "to": "coordination centre",
+                  "letter": ""
+                },
+                {
+                  "from": "coordination centre",
+                  "to": "effector responds",
+                  "letter": ""
+                },
+                {
+                  "from": "effector responds",
+                  "to": "change is reversed",
+                  "letter": ""
+                },
+                {
+                  "from": "change is reversed",
+                  "to": "optimum level",
+                  "letter": ""
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Stimulus, receptor, coordination centre, effector, response.",
@@ -325,7 +373,7 @@
       "1f1cbf5a-2903-4383-a69e-40886b54ce33",
       "f74027ea-9fc2-4264-a4f2-284d46e65413"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

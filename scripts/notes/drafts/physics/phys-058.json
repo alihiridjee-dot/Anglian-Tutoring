@@ -60,10 +60,11 @@
               "Set up a trolley on a runway, joined by a string over a pulley to a weight hanger.",
               "Raise one end of the runway until the trolley rolls at a constant speed, to compensate for friction.",
               "Put all the slotted masses on the trolley, so the total mass is fixed.",
-              "Move one mass at a time from the trolley to the hanger to increase the force.",
               "Release the trolley and use light gates to measure its acceleration.",
+              "Move one mass from the trolley to the hanger to increase the force, then repeat.",
               "Plot a graph of acceleration against force."
-            ]
+            ],
+            "free": [[1, 2]]
           }
         },
         {
@@ -179,6 +180,47 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Acceleration against force",
+            "alt": "Example results for a trolley and hanger of total mass 1.0 kg, with resultant forces from 0.2 N to 1.0 N: the points lie close to a straight line through the origin, so acceleration is proportional to resultant force.",
+            "brief": {
+              "kind": "scatter",
+              "x": {
+                "title": "resultant force in N",
+                "min": 0,
+                "max": 1,
+                "step": 0.2
+              },
+              "y": {
+                "title": "acceleration in m/s²",
+                "min": 0,
+                "max": 1,
+                "step": 0.2
+              },
+              "series": [
+                {
+                  "name": "trolley",
+                  "points": [
+                    [0.2, 0.19],
+                    [0.4, 0.42],
+                    [0.6, 0.58],
+                    [0.8, 0.81],
+                    [1.0, 0.98]
+                  ]
+                }
+              ],
+              "lines": [
+                {
+                  "from": [0, 0],
+                  "to": [1, 1]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "The acceleration comes from the change in velocity divided by the time taken.",
@@ -278,7 +320,7 @@
       "c0efcac0-9ebf-45ac-a9f7-f05d87063de8",
       "76c374e3-778b-4a08-8939-d358de72609b"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

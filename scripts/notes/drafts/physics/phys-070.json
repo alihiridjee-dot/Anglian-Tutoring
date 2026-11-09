@@ -53,6 +53,32 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Measuring i and r",
+            "alt": "A ray traced through a rectangular glass block, with a dashed normal where it enters and where it leaves. The angle of incidence, i, is between the incoming ray and the normal. The angle of refraction, r, is between the ray inside the glass and the normal. Here i is 50° and r is 31°.",
+            "brief": {
+              "kind": "ray-diagram",
+              "setup": "glass-block",
+              "incidence": 50,
+              "refraction": 31,
+              "index": null,
+              "angles": [
+                {
+                  "at": "incidence",
+                  "label": "i"
+                },
+                {
+                  "at": "refraction",
+                  "label": "r"
+                }
+              ],
+              "names": true
+            }
+          }
+        },
+        {
           "type": "paragraph",
           "text": "Put the steps of the method in order."
         },
@@ -67,7 +93,7 @@
               "Shine a narrow ray of light into the block.",
               "Mark the ray entering and the ray leaving the block.",
               "Remove the block and join the marks to show the path of the ray.",
-              "Draw the normal at 90° to the surface.",
+              "Draw the normal at 90° to the surface at the point where the ray entered the block.",
               "Measure the angle of incidence and angle of refraction with a protractor.",
               "Repeat for a range of angles of incidence."
             ]
@@ -392,7 +418,7 @@
       "a1be63dd-e4cc-4dc9-bf45-a3ed770444d2",
       "a8a13184-1176-427d-917e-958a4e712a0a"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

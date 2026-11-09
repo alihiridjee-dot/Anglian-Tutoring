@@ -225,12 +225,12 @@
         "marks": 3,
         "answer_points": [
           "Light is absorbed / collected by chlorophyll / chloroplasts. It takes place in the chloroplasts.",
+          "Light energy is used to make ATP.",
           "It is a two-stage process (a light-dependent and a light-independent stage).",
           "Water is split into hydrogen and oxygen.",
-          "Carbon dioxide is combined with hydrogen to make glucose.",
-          "Any three of these points score. Identifying both the reactants and the products can earn 1 mark if the last two points are not awarded."
+          "Carbon dioxide is combined with hydrogen to make glucose."
         ],
-        "tip": "Name the reactants and products, say where it happens and what the light does."
+        "tip": "Any three of these points score. Identifying both the reactants and the products can earn 1 mark if the last two points are not awarded."
       },
       "extra": [
         {
@@ -395,7 +395,7 @@
       "8b25051f-32ad-4d27-9785-c97718481cf7",
       "47889a92-0272-4956-aed8-9aea1f89650c"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

@@ -94,7 +94,7 @@
           "items": [
             "**Barrier methods**, such as condoms and diaphragms, stop sperm reaching an egg.",
             "A **spermicide** kills or disables sperm.",
-            "An intrauterine device (IUD) prevents an embryo implanting. It can release copper ions, which thicken mucus so sperm cannot pass, or a hormone, which prevents ovulation.",
+            "An intrauterine device (IUD) prevents an embryo implanting. A copper IUD releases copper ions, which also kill or disable sperm. A hormonal IUD releases progesterone, which thickens the mucus at the cervix and can stop ovulation.",
             "Abstaining from intercourse when an egg may be in the oviduct means no egg is available to fertilise.",
             "Surgical sterilisation (vasectomy for men, tubal ligation for women) stops sperm or eggs passing."
           ]
@@ -207,7 +207,7 @@
           "The pill, injection, implant or skin patch contain hormones (oestrogen or progesterone) to prevent an egg or follicle maturing, or to prevent ovulation.",
           "A condom prevents sperm reaching the egg, or entering the woman's body.",
           "A diaphragm prevents sperm reaching the egg, womb or oviduct.",
-          "An IUD prevents implantation, or releases a hormone or copper ions to prevent ovulation or thicken mucus so sperm cannot pass.",
+          "An IUD prevents implantation, or releases a hormone (progesterone) to prevent ovulation or thicken mucus so sperm cannot pass.",
           "A spermicide kills sperm.",
           "Sterilisation prevents the passage of sperm or egg. With the rhythm method, there is no egg available for fertilisation."
         ],
@@ -288,6 +288,33 @@
                 "A method that needs no daily action, such as an implant, fails less often than the pill. Pill failures are mostly due to incorrect use, such as forgetting to take it.",
                 "The pill is popular because it is reliable, easy to use and easy to stop. **Sterilisation** is permanent, so couples without children rarely choose it."
               ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "figure",
+                "title": "Pregnancies per 100 women a year, as usually used",
+                "alt": "A bar chart of pregnancies in a year for every 100 women using each method as people really use it: implant 0.05, too few to see, pill 9 and condom 18.",
+                "brief": {
+                  "kind": "bar-chart",
+                  "x": {
+                    "title": "method",
+                    "categories": ["implant", "pill", "condom"]
+                  },
+                  "y": {
+                    "title": "pregnancies per 100 women",
+                    "min": 0,
+                    "max": 20,
+                    "step": 2
+                  },
+                  "series": [
+                    {
+                      "name": "pregnancies",
+                      "values": [0.05, 9, 18]
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
@@ -322,7 +349,7 @@
       "a79a407b-fb32-4874-a762-1656cef0d29b",
       "09f68c60-5355-4e2f-a803-ede5bd750059"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

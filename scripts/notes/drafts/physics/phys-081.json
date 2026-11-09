@@ -65,6 +65,24 @@
           }
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Field of a bar magnet",
+            "alt": "Magnetic field lines around a bar magnet with its north pole on the left and its south pole on the right. The lines leave the north pole and curve round to the south pole. They are closest together near the poles, where the field is strongest.",
+            "brief": {
+              "kind": "field-pattern",
+              "field": "bar-magnet",
+              "poles": {
+                "left": "N",
+                "right": "S"
+              },
+              "labelled": true,
+              "points": []
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Field lines run from north to south.",
@@ -312,7 +330,7 @@
       "b4be6ab9-5581-4ccf-811f-4ce80075ac31",
       "f359e8aa-1c66-4a41-8a83-27457d72b487"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

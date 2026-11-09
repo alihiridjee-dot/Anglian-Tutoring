@@ -80,6 +80,7 @@
               "Put the plasmid back into a bacterial cell",
               "The bacterial cell multiplies and makes insulin"
             ],
+            "free": [[1, 2]],
             "prompt": "Put genetic engineering in order"
           }
         },
@@ -416,7 +417,7 @@
       "061848db-d77b-478e-b209-cde784af75da",
       "99245f58-c8f5-4ccd-8230-5546225e7441"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

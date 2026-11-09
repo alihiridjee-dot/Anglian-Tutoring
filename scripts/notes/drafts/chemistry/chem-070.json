@@ -83,6 +83,45 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Low (A) and high (B) concentration",
+            "alt": "Two boxes of the same volume holding particles of two reactants: A has 2 of each and B has 4 of each, twice the concentration, or for a gas twice the pressure, so collisions are more frequent in B.",
+            "brief": {
+              "kind": "particle-diagram",
+              "boxes": [
+                {
+                  "arrangement": "gas",
+                  "particles": [
+                    {
+                      "atoms": ["white"],
+                      "count": 2
+                    },
+                    {
+                      "atoms": ["black"],
+                      "count": 2
+                    }
+                  ]
+                },
+                {
+                  "arrangement": "gas",
+                  "particles": [
+                    {
+                      "atoms": ["white"],
+                      "count": 4
+                    },
+                    {
+                      "atoms": ["black"],
+                      "count": 4
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "sort",
             "alt": "Sort each change into what it does to collisions.",
             "prompt": "Sort each change into what it does",
@@ -370,7 +409,7 @@
       "0d3bee99-ccfa-40fb-b96c-062b7c14717e",
       "a435b42f-509f-4d8c-95de-e3438d3ba677"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

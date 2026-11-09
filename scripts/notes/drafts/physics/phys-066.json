@@ -50,6 +50,27 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Amplitude A, wavelength W",
+            "alt": "A transverse wave drawn across its undisturbed position. Arrow A, the amplitude, runs from the undisturbed position up to a crest, not from a trough to a crest. Arrow W, the wavelength, runs from one crest to the next.",
+            "brief": {
+              "kind": "wave",
+              "arrows": [
+                {
+                  "shows": "amplitude",
+                  "letter": "A"
+                },
+                {
+                  "shows": "wavelength",
+                  "letter": "W"
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Amplitude is the maximum displacement from the undisturbed position.",
@@ -79,6 +100,31 @@
             "Change kilohertz to hertz first. 8.0 kHz = 8000 Hz.",
             "Change gigahertz to hertz first. 1 GHz = 1 000 000 000 Hz."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Period of a 5000 Hz wave",
+            "alt": "Displacement against time for one point on a wave of frequency 5000 Hz: the point completes one oscillation every 0.2 ms, so the period is 0.2 ms, or 0.0002 s, and 5 waves fit into 1 ms. The amplitude is 1.5 mm.",
+            "brief": {
+              "kind": "wave",
+              "x": {
+                "title": "time in ms",
+                "min": 0,
+                "max": 1,
+                "step": 0.1
+              },
+              "y": {
+                "title": "displacement in mm",
+                "min": -2,
+                "max": 2,
+                "step": 0.5
+              },
+              "amplitude": 1.5,
+              "wavelength": 0.2
+            }
+          }
         },
         {
           "type": "key-points",
@@ -526,7 +572,7 @@
       "0edd2185-2387-4e50-8656-b18a6b913657",
       "dd0e47ee-5e8b-4133-a7ff-83d03acbfb70"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

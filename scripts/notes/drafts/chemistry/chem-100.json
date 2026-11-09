@@ -333,6 +333,39 @@
             {
               "type": "paragraph",
               "text": "This is viable because recycling needs much less energy than extracting aluminium from bauxite, and it gives far more metal from the same mass of starting material."
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "figure",
+                "title": "Exam figures: energy per kg",
+                "alt": "A bar chart of the figures given in the OCR exam question in this note: 285 MJ (285 000 kJ) to make 1 kg of aluminium from bauxite but only 14.25 MJ (14 250 kJ) from recycled aluminium, one twentieth as much.",
+                "brief": {
+                  "kind": "bar-chart",
+                  "x": {
+                    "title": "how the aluminium is made",
+                    "categories": [
+                      "from bauxite",
+                      "recycled"
+                    ]
+                  },
+                  "y": {
+                    "title": "energy per kg in MJ",
+                    "min": 0,
+                    "max": 300,
+                    "step": 50
+                  },
+                  "series": [
+                    {
+                      "name": "energy",
+                      "values": [
+                        285,
+                        14.25
+                      ]
+                    }
+                  ]
+                }
+              }
             }
           ]
         },
@@ -409,8 +442,8 @@
       "21780e96-cb5e-4cad-8b92-3493fa5cb765",
       "2f615415-7375-4616-88bb-d19bccd8870c"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   },
   "format": 1,
   "subject": "chemistry"

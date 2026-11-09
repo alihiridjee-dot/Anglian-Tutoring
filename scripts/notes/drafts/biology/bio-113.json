@@ -17,7 +17,7 @@
           "items": [
             {
               "term": "Clone",
-              "meaning": "An organism that is genetically identical to its parent."
+              "meaning": "An organism that is genetically identical to another organism."
             },
             {
               "term": "Cutting",
@@ -121,7 +121,7 @@
           "type": "list",
           "items": [
             "Cells are split apart from a developing animal embryo before they become specialised.",
-            "The identical embryos are transplanted into host mothers."
+            "The identical embryos are transplanted into host mothers. The clones are identical to each other, but not to their parents."
           ]
         },
         {
@@ -136,6 +136,61 @@
             "An electric shock makes the egg cell divide to form an embryo. Its cells have the same genetic information as the adult cell.",
             "When the embryo is a ball of cells, it is put into the womb of an adult female to continue to develop."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Adult cell cloning",
+            "alt": "A flow diagram: the nucleus from a body cell donor's cell is put into an egg with no nucleus from an egg cell donor, an electric shock makes an embryo, the embryo goes into a surrogate, and the clone has the body cell donor's genes.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["body cell donor", "egg cell donor"],
+                ["nucleus from a body cell", "egg with no nucleus"],
+                ["nucleus put into the egg"],
+                ["electric shock: embryo forms"],
+                ["embryo into surrogate", "clone of body cell donor"]
+              ],
+              "arrows": [
+                {
+                  "from": "body cell donor",
+                  "to": "nucleus from a body cell",
+                  "letter": ""
+                },
+                {
+                  "from": "egg cell donor",
+                  "to": "egg with no nucleus",
+                  "letter": ""
+                },
+                {
+                  "from": "nucleus from a body cell",
+                  "to": "nucleus put into the egg",
+                  "letter": ""
+                },
+                {
+                  "from": "egg with no nucleus",
+                  "to": "nucleus put into the egg",
+                  "letter": ""
+                },
+                {
+                  "from": "nucleus put into the egg",
+                  "to": "electric shock: embryo forms",
+                  "letter": ""
+                },
+                {
+                  "from": "electric shock: embryo forms",
+                  "to": "embryo into surrogate",
+                  "letter": ""
+                },
+                {
+                  "from": "embryo into surrogate",
+                  "to": "clone of body cell donor",
+                  "letter": ""
+                }
+              ]
+            }
+          }
         },
         {
           "type": "subheading",
@@ -349,7 +404,7 @@
       "cd41e9e8-9c33-4ee7-9bb4-ffd38db27b3c",
       "5a5fe936-ccaf-411c-a47c-a43b1a420d2f"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

@@ -112,7 +112,7 @@
               {
                 "label": "A bright light",
                 "results": [
-                  "Gets smaller. Iris muscles contract.",
+                  "Gets smaller. Circular muscles contract, radial muscles relax.",
                   "No change",
                   "No change",
                   "No change"
@@ -122,7 +122,7 @@
               {
                 "label": "A dim room",
                 "results": [
-                  "Gets larger. More light enters.",
+                  "Gets larger. Radial muscles contract, circular muscles relax.",
                   "No change",
                   "No change",
                   "No change"
@@ -171,7 +171,7 @@
     },
     {
       "q": "Describe how the pupil changes when a person moves from a dim room to bright sunlight.",
-      "a": "The muscles in the iris contract and the pupil gets smaller, so less light enters the eye.",
+      "a": "The circular muscles in the iris contract and the radial muscles relax. The pupil gets smaller, so less light enters the eye.",
       "marks": 2
     },
     {
@@ -375,7 +375,7 @@
       "d8b4e005-8149-4314-aa8b-ba572358ae8c",
       "3c45fed8-ea29-4771-b196-8677f3f5bc93"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

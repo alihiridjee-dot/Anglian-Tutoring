@@ -97,6 +97,54 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "The Haber process",
+            "alt": "A flow diagram of the Haber process: nitrogen from the air and hydrogen from natural gas go into the reactor with its iron catalyst, the mixture is cooled in the condenser, the liquid ammonia is removed, and the unreacted nitrogen and hydrogen are recycled to the reactor.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["nitrogen from the air", "hydrogen from natural gas"],
+                ["reactor: iron catalyst", "condenser: gases cooled"],
+                ["unreacted N₂ and H₂", "liquid ammonia"]
+              ],
+              "arrows": [
+                {
+                  "from": "nitrogen from the air",
+                  "to": "reactor: iron catalyst",
+                  "letter": ""
+                },
+                {
+                  "from": "hydrogen from natural gas",
+                  "to": "reactor: iron catalyst",
+                  "letter": ""
+                },
+                {
+                  "from": "reactor: iron catalyst",
+                  "to": "condenser: gases cooled",
+                  "letter": ""
+                },
+                {
+                  "from": "condenser: gases cooled",
+                  "to": "liquid ammonia",
+                  "letter": ""
+                },
+                {
+                  "from": "condenser: gases cooled",
+                  "to": "unreacted N₂ and H₂",
+                  "letter": ""
+                },
+                {
+                  "from": "unreacted N₂ and H₂",
+                  "to": "reactor: iron catalyst",
+                  "letter": ""
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "The conditions are 450 °C, 200 atmospheres and an iron catalyst.",
@@ -281,7 +329,7 @@
       "c595065c-471a-4fec-854e-b4276f248562",
       "fabdec30-5bcf-491c-88c3-737008ef91b1"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

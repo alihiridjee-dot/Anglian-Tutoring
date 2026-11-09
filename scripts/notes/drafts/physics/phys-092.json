@@ -88,6 +88,51 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Galaxy speeds traced back",
+            "alt": "Example data: the speed at which galaxies move away from us against their distance. The line of best fit is straight and passes through the origin. Running the motion backwards, every galaxy reaches the same point at the same time: evidence for a beginning.",
+            "brief": {
+              "kind": "scatter",
+              "x": {
+                "title": "distance in 10⁶ light-years",
+                "min": 0,
+                "max": 180,
+                "step": 20
+              },
+              "y": {
+                "title": "speed in km/s",
+                "min": 0,
+                "max": 4000,
+                "step": 500
+              },
+              "series": [
+                {
+                  "name": "galaxies",
+                  "points": [
+                    [20, 350],
+                    [40, 900],
+                    [60, 1150],
+                    [80, 1700],
+                    [100, 1950],
+                    [120, 2500],
+                    [140, 2750],
+                    [160, 3300],
+                    [180, 3550]
+                  ]
+                }
+              ],
+              "lines": [
+                {
+                  "from": [0, 0],
+                  "to": [180, 3600]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "sort",
             "alt": "Sort the evidence by which theory it supports.",
             "prompt": "Which theory does each piece of evidence support?",
@@ -319,7 +364,7 @@
       "83789363-6359-4c6c-9dfb-14160d291665",
       "5ed4f57e-41cd-4222-bd37-812f0208313f"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

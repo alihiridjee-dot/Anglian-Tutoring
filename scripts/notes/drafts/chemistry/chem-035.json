@@ -42,6 +42,45 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Dilute (A) and concentrated (B)",
+            "alt": "Two boxes of solution with the same volume, black particles the solute and white the solvent: the dilute solution, A, has 3 solute particles and the concentrated solution, B, has 8.",
+            "brief": {
+              "kind": "particle-diagram",
+              "boxes": [
+                {
+                  "arrangement": "liquid",
+                  "particles": [
+                    {
+                      "atoms": ["white"],
+                      "count": 22
+                    },
+                    {
+                      "atoms": ["black"],
+                      "count": 3
+                    }
+                  ]
+                },
+                {
+                  "arrangement": "liquid",
+                  "particles": [
+                    {
+                      "atoms": ["white"],
+                      "count": 17
+                    },
+                    {
+                      "atoms": ["black"],
+                      "count": 8
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Concentration = how much solute in a volume of solution.",
@@ -324,8 +363,8 @@
     "status": "draft",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "801450c1-c607-4de7-a09b-7337a91475c1",
       "82d9f92f-3dcb-449e-a9be-0c7a2856d1c7",

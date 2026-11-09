@@ -209,7 +209,7 @@
             "At each stage, some energy is also wasted to the thermal store of the surroundings.",
             "All energy changes are measured in joules, so stores can be compared on one scale.",
             "The total of all the stores at the end equals the energy at the start.",
-            "A rocket that transfers 510 MJ from its fuel gains 510 MJ in its other stores."
+            "If the chemical store of a rocket's fuel decreases by 510 MJ, all the other stores together increase by 510 MJ. These include the rocket's kinetic and gravitational potential stores and the thermal store of the exhaust gases and surroundings."
           ]
         },
         {
@@ -448,7 +448,7 @@
       "a58d2cf2-3efc-47f3-9383-229fe8f2fae4",
       "214ff92c-7f6a-4898-b717-9eeca9fd1cce"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

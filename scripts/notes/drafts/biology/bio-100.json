@@ -97,6 +97,105 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Haemophilia in a family",
+            "alt": "A family tree for haemophilia: carrier mother 2 has an affected son 3 and a carrier daughter 5, affected father 3 passes the allele to his daughter 8 but not to his son 9, and carrier daughter 5 has an affected son 10.",
+            "brief": {
+              "kind": "family-tree",
+              "people": [
+                {
+                  "id": "1",
+                  "sex": "male",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "2",
+                  "sex": "female",
+                  "affected": false,
+                  "carrier": true
+                },
+                {
+                  "id": "3",
+                  "sex": "male",
+                  "affected": true,
+                  "carrier": false
+                },
+                {
+                  "id": "4",
+                  "sex": "female",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "5",
+                  "sex": "female",
+                  "affected": false,
+                  "carrier": true
+                },
+                {
+                  "id": "6",
+                  "sex": "male",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "7",
+                  "sex": "male",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "8",
+                  "sex": "female",
+                  "affected": false,
+                  "carrier": true
+                },
+                {
+                  "id": "9",
+                  "sex": "male",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "10",
+                  "sex": "male",
+                  "affected": true,
+                  "carrier": false
+                },
+                {
+                  "id": "11",
+                  "sex": "female",
+                  "affected": false,
+                  "carrier": false
+                },
+                {
+                  "id": "12",
+                  "sex": "male",
+                  "affected": false,
+                  "carrier": false
+                }
+              ],
+              "couples": [
+                {
+                  "parents": ["1", "2"],
+                  "children": ["3", "5", "7"]
+                },
+                {
+                  "parents": ["3", "4"],
+                  "children": ["8", "9"]
+                },
+                {
+                  "parents": ["6", "5"],
+                  "children": ["10", "11", "12"]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "A son gets his X from his mother and his Y from his father.",
@@ -251,7 +350,7 @@
       "c07fd92d-edd8-4078-87b2-76a0cc472c6d",
       "63ba3028-94f4-48f2-ac36-42d1298d150e"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

@@ -90,7 +90,7 @@
           "type": "diagram",
           "diagram": {
             "kind": "line-graph",
-            "alt": "A line graph of the numbers of prey and predators over time. Both rise and fall in repeating cycles. The predator peak comes shortly after each prey peak.",
+            "alt": "A line graph of the numbers of prey and predators over time. Both rise and fall in repeating cycles. The predator line is lower, because there are fewer predators than prey, and each predator peak comes shortly after a prey peak.",
             "x": {
               "label": "Time",
               "min": 0,
@@ -154,39 +154,39 @@
                 "points": [
                   [
                     0,
-                    0.3
+                    0.08
                   ],
                   [
                     2.5,
-                    0.5
+                    0.2
                   ],
                   [
                     4.5,
-                    0.9
+                    0.45
                   ],
                   [
                     7.5,
-                    0.5
+                    0.1
                   ],
                   [
                     9.5,
-                    0.15
+                    0.05
                   ],
                   [
                     12.5,
-                    0.5
+                    0.2
                   ],
                   [
                     14.5,
-                    0.9
+                    0.45
                   ],
                   [
                     17.5,
-                    0.5
+                    0.1
                   ],
                   [
                     19.5,
-                    0.15
+                    0.05
                   ]
                 ]
               }
@@ -496,7 +496,7 @@
       "95e005e9-5c47-4a38-a07e-55d8e6a4cc72",
       "d257fc53-3938-453c-a062-9f26316c19de"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

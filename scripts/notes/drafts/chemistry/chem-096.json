@@ -165,6 +165,33 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Carbon dioxide in the air at Mauna Loa",
+            "alt": "A bar chart of the yearly average carbon dioxide concentration measured at Mauna Loa, Hawaii: 317 ppm in 1960, 339 ppm in 1980, 370 ppm in 2000 and 414 ppm in 2020.",
+            "brief": {
+              "kind": "bar-chart",
+              "x": {
+                "title": "year",
+                "categories": ["1960", "1980", "2000", "2020"]
+              },
+              "y": {
+                "title": "CO₂ in ppm",
+                "min": 0,
+                "max": 450,
+                "step": 50
+              },
+              "series": [
+                {
+                  "name": "carbon dioxide",
+                  "values": [317, 339, 370, 414]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "subheading",
           "text": "Uncertainties in the evidence"
         },
@@ -342,7 +369,7 @@
       "5e26b255-e471-4c79-a342-3a5fe148f5a4",
       "e60126bb-82a1-4661-a91e-24a76bed96a8"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

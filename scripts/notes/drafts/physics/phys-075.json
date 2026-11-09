@@ -17,7 +17,7 @@
           "items": [
             {
               "term": "Ionising radiation",
-              "meaning": "Radiation that can damage cells and cause the mutation of genes. X-rays and gamma rays are ionising."
+              "meaning": "Radiation with enough energy to knock electrons out of atoms, turning them into ions. It can damage cells and cause the mutation of genes. X-rays and gamma rays are ionising."
             },
             {
               "term": "Mutation",
@@ -33,6 +33,31 @@
             "Radio waves are not ionising, so they are not harmful in the same way.",
             "The Earth's atmosphere absorbs gamma rays (and some ultraviolet) from the Sun, so less reaches people."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Danger rises with frequency",
+            "alt": "The electromagnetic spectrum from radio waves to gamma rays, with an arrow showing the frequency increasing towards gamma rays. The danger increases the same way: ultraviolet, X-rays and gamma rays, at the high-frequency end, are hazardous to body tissue.",
+            "brief": {
+              "kind": "em-spectrum",
+              "regions": [
+                "radio waves",
+                "microwaves",
+                "infrared",
+                "visible light",
+                "ultraviolet",
+                "X-rays",
+                "gamma rays"
+              ],
+              "blanks": [],
+              "arrow": {
+                "label": "increasing frequency",
+                "points": "right"
+              }
+            }
+          }
         },
         {
           "type": "paragraph",
@@ -331,7 +356,7 @@
       "3af036fe-c8c3-480b-9fae-5161897aa656",
       "bacac471-33c5-45a8-8612-3f2431fcf591"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

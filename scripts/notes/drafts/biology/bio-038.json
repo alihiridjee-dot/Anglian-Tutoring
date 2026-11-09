@@ -3,7 +3,7 @@
   "concept_id": "bio-038",
   "subject": "biology",
   "title": "Factors affecting transpiration and the potometer",
-  "key_idea": "Transpiration is faster when it is warmer, brighter, windier or less humid. A potometer measures the rate of transpiration by how far an air bubble moves as a shoot takes up water.",
+  "key_idea": "Transpiration is faster when it is warmer, brighter, windier or less humid. A potometer estimates the rate of transpiration from how far an air bubble moves as a shoot takes up water.",
   "sections": [
     {
       "heading": "What affects the rate of transpiration",
@@ -101,7 +101,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "A potometer measures how much water a shoot takes up. Water uptake is used to measure the rate of transpiration."
+          "text": "A potometer measures how much water a shoot takes up. Water uptake is used to estimate the rate of transpiration. It is not exactly the same, because a little of the water is used in photosynthesis or kept in the cells."
         },
         {
           "type": "steps",
@@ -123,6 +123,53 @@
               "text": "The further the bubble moves in a given time, the faster the water uptake."
             }
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Water uptake, fan on and off",
+            "alt": "A line graph of the distance the air bubble moved against time over 5 minutes. With the fan on the bubble moves 10 mm each minute and with the fan off it moves 5 mm each minute, so water uptake is faster with the fan on.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "time in minutes",
+                "min": 0,
+                "max": 5,
+                "step": 1
+              },
+              "y": {
+                "title": "distance bubble moved in mm",
+                "min": 0,
+                "max": 50,
+                "step": 10
+              },
+              "series": [
+                {
+                  "name": "fan on",
+                  "points": [
+                    [0, 0],
+                    [1, 10],
+                    [2, 20],
+                    [3, 30],
+                    [4, 40],
+                    [5, 50]
+                  ]
+                },
+                {
+                  "name": "fan off",
+                  "points": [
+                    [0, 0],
+                    [1, 5],
+                    [2, 10],
+                    [3, 15],
+                    [4, 20],
+                    [5, 25]
+                  ]
+                }
+              ]
+            }
+          }
         },
         {
           "type": "list",
@@ -402,8 +449,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "39deadc2-70b2-4466-bcb8-b34c34abf5c1",
       "83f00c44-b5ed-475c-95d7-f78e57b411bb",

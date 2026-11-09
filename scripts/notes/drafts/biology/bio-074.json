@@ -171,6 +171,66 @@
           }
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Insulin and glucagon working together",
+            "alt": "A flow diagram. The pancreas detects a change in blood glucose. Too high: insulin is released and glucose is stored as glycogen. Too low: glucagon is released and glycogen is made into glucose. Either way blood glucose returns to normal.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["blood glucose too high", "blood glucose too low"],
+                ["pancreas detects change"],
+                ["insulin released", "glucagon released"],
+                ["glucose stored as glycogen", "glycogen made into glucose"],
+                ["blood glucose back to normal"]
+              ],
+              "arrows": [
+                {
+                  "from": "blood glucose too high",
+                  "to": "pancreas detects change",
+                  "letter": ""
+                },
+                {
+                  "from": "blood glucose too low",
+                  "to": "pancreas detects change",
+                  "letter": ""
+                },
+                {
+                  "from": "pancreas detects change",
+                  "to": "insulin released",
+                  "letter": ""
+                },
+                {
+                  "from": "pancreas detects change",
+                  "to": "glucagon released",
+                  "letter": ""
+                },
+                {
+                  "from": "insulin released",
+                  "to": "glucose stored as glycogen",
+                  "letter": ""
+                },
+                {
+                  "from": "glucagon released",
+                  "to": "glycogen made into glucose",
+                  "letter": ""
+                },
+                {
+                  "from": "glucose stored as glycogen",
+                  "to": "blood glucose back to normal",
+                  "letter": ""
+                },
+                {
+                  "from": "glycogen made into glucose",
+                  "to": "blood glucose back to normal",
+                  "letter": ""
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "High glucose triggers insulin. Low glucose triggers glucagon.",
@@ -322,8 +382,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "a0581644-7bb1-4117-a4f1-082ebc1acf64",
       "85daac87-9957-46c2-834d-d08d1f48dc0c",

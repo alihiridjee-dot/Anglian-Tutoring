@@ -133,15 +133,11 @@
                 "group": 1
               },
               {
-                "text": "Examine a sample under a microscope",
+                "text": "Culture the pathogen from a sample",
                 "group": 1
               },
               {
                 "text": "Use DNA analysis to identify the pathogen",
-                "group": 1
-              },
-              {
-                "text": "Use a testing kit containing monoclonal antibodies",
                 "group": 1
               }
             ]
@@ -320,7 +316,7 @@
       "94a9fb74-717e-4da8-ad18-4648ce8b8b6b",
       "5afaf57b-ea9f-44ce-a856-f8a649ceb4c3"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

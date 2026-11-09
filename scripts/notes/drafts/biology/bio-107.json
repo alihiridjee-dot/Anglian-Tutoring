@@ -71,6 +71,55 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Human evolution timeline",
+            "alt": "A timeline in millions of years ago: Ardi 4.4, Lucy 3.2 and Leakey's finds 1.6, with Homo habilis from 2.4 to 1.4, Homo erectus from 1.9 to 0.1 and Homo sapiens from 0.3 to today.",
+            "brief": {
+              "kind": "timeline",
+              "scale": {
+                "title": "millions of years ago",
+                "min": 0,
+                "max": 5,
+                "step": 0.5,
+                "ago": true
+              },
+              "events": [
+                {
+                  "at": 4.4,
+                  "name": "Ardi"
+                },
+                {
+                  "at": 3.2,
+                  "name": "Lucy"
+                },
+                {
+                  "at": 1.6,
+                  "name": "Leakey's finds"
+                }
+              ],
+              "periods": [
+                {
+                  "from": 2.4,
+                  "to": 1.4,
+                  "name": "Homo habilis"
+                },
+                {
+                  "from": 1.9,
+                  "to": 0.1,
+                  "name": "Homo erectus"
+                },
+                {
+                  "from": 0.3,
+                  "to": 0,
+                  "name": "Homo sapiens"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "alt": "Sort each piece of evidence for human evolution into fossil evidence or stone tool evidence.",
             "kind": "sort",
             "items": [
@@ -187,7 +236,7 @@
       "ab94d4d3-53b4-4300-b044-677b12e7d22d"
     ],
     "exemplar_ids": ["4e8ed500-d823-4493-bc13-24f84e242a5b"],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

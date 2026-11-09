@@ -75,7 +75,8 @@
               "Record the final temperature of the water",
               "Subtract the start temperature from the final temperature",
               "Calculate the energy released"
-            ]
+            ],
+            "free": [[0, 1]]
           }
         },
         {
@@ -303,7 +304,7 @@
       "f7a7f09c-9e5f-43d4-adba-aea2e28d4c2b",
       "bdbc67fd-5492-47c9-bf8d-9749e168117f"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

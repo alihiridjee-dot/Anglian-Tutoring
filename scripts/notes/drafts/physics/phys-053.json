@@ -278,6 +278,56 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Distance–time graph of a journey",
+            "alt": "A distance–time graph of a car journey. The car travels 900 m in 60 s at a steady 15 m/s, is stationary from 60 s to 90 s, then travels faster along a steeper line to 1800 m at 120 s. The line then curves, getting less steep, as the car slows down and stops at 2700 m. A gradient triangle on the first part shows 600 m ÷ 40 s = 15 m/s.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "time in s",
+                "min": 0,
+                "max": 180,
+                "step": 20
+              },
+              "y": {
+                "title": "distance in m",
+                "min": 0,
+                "max": 3000,
+                "step": 300
+              },
+              "series": [
+                {
+                  "name": "journey",
+                  "points": [
+                    [0, 0],
+                    [60, 900],
+                    [90, 900],
+                    [120, 1800],
+                    [130, 2075],
+                    [140, 2300],
+                    [150, 2475],
+                    [160, 2600],
+                    [170, 2675],
+                    [180, 2700]
+                  ]
+                }
+              ],
+              "lines": [
+                {
+                  "from": [20, 300],
+                  "to": [60, 300]
+                },
+                {
+                  "from": [60, 300],
+                  "to": [60, 900]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Speed is the gradient of a distance–time graph.",
@@ -519,7 +569,7 @@
       "f97cac24-3749-4a86-8c88-d498ad23c6a5",
       "a3ad4156-ba58-4e45-9bab-83a08bc170a1"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

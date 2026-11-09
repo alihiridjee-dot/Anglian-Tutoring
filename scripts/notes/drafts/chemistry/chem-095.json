@@ -21,7 +21,7 @@
             },
             {
               "term": "Infrared radiation",
-              "meaning": "Radiation with a longer wavelength than the radiation that arrives from the Sun."
+              "meaning": "Electromagnetic radiation with a longer wavelength than visible light. The warm surface of the Earth gives it out."
             }
           ]
         },
@@ -124,7 +124,7 @@
     },
     {
       "q": "Explain how methane keeps a moon warmer than a moon with no atmosphere.",
-      "a": "Short wavelength radiation from the Sun passes through. It is re-emitted from the surface as longer wavelength infrared radiation, which is absorbed by methane in the atmosphere.",
+      "a": "Short wavelength radiation from the Sun passes through. It is re-emitted from the surface as longer wavelength infrared radiation, which is absorbed by methane in the atmosphere. The methane re-emits it in all directions, so some returns to the surface and keeps the moon warmer.",
       "marks": 3
     }
   ],
@@ -245,7 +245,7 @@
       "09f681b0-8c3c-4f02-b7e5-1280a8b00e1b",
       "894e078c-06a8-48a9-b1fd-aca301b6334a"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

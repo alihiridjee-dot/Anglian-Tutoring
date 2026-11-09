@@ -66,6 +66,82 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Ethanoic acid, CH₃COOH",
+            "alt": "The displayed formula of ethanoic acid: a CH₃ group joined to a carbon atom that has a C=O double bond and an O–H group, the –COOH group.",
+            "brief": {
+              "kind": "displayed-formula",
+              "atoms": [
+                {
+                  "symbol": "H",
+                  "cell": [0, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [1, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [2, 1]
+                },
+                {
+                  "symbol": "O",
+                  "cell": [3, 1]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [4, 1]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 2]
+                },
+                {
+                  "symbol": "O",
+                  "cell": [2, 0]
+                }
+              ],
+              "bonds": [
+                {
+                  "atoms": [0, 1],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 2],
+                  "order": 1
+                },
+                {
+                  "atoms": [2, 3],
+                  "order": 1
+                },
+                {
+                  "atoms": [3, 4],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 5],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 6],
+                  "order": 1
+                },
+                {
+                  "atoms": [2, 7],
+                  "order": 2
+                }
+              ],
+              "polymer": null
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "sort",
             "alt": "Sort formulae into alcohols, carboxylic acids and neither.",
             "prompt": "Sort each formula into the right group.",
@@ -167,6 +243,130 @@
           "type": "equation",
           "label": "Making an ester",
           "formula": "ethanoic acid + ethanol → ethyl ethanoate + water"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Ethyl ethanoate, an ester",
+            "alt": "The displayed formula of ethyl ethanoate, CH₃COOCH₂CH₃: the ethanoate part with its C=O on the left, joined through an oxygen atom to the ethyl part from ethanol on the right.",
+            "brief": {
+              "kind": "displayed-formula",
+              "atoms": [
+                {
+                  "symbol": "H",
+                  "cell": [0, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [1, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [2, 1]
+                },
+                {
+                  "symbol": "O",
+                  "cell": [3, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [4, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [5, 1]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [6, 1]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 2]
+                },
+                {
+                  "symbol": "O",
+                  "cell": [2, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [4, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [4, 2]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [5, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [5, 2]
+                }
+              ],
+              "bonds": [
+                {
+                  "atoms": [0, 1],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 2],
+                  "order": 1
+                },
+                {
+                  "atoms": [2, 3],
+                  "order": 1
+                },
+                {
+                  "atoms": [3, 4],
+                  "order": 1
+                },
+                {
+                  "atoms": [4, 5],
+                  "order": 1
+                },
+                {
+                  "atoms": [5, 6],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 7],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 8],
+                  "order": 1
+                },
+                {
+                  "atoms": [2, 9],
+                  "order": 2
+                },
+                {
+                  "atoms": [4, 10],
+                  "order": 1
+                },
+                {
+                  "atoms": [4, 11],
+                  "order": 1
+                },
+                {
+                  "atoms": [5, 12],
+                  "order": 1
+                },
+                {
+                  "atoms": [5, 13],
+                  "order": 1
+                }
+              ],
+              "polymer": null
+            }
+          }
         },
         {
           "type": "key-points",
@@ -567,7 +767,7 @@
       "b91f48bb-70c8-414f-8c9f-d788c33f8f89",
       "00777430-d01e-4fdc-bfeb-1ff7a793f7a5"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

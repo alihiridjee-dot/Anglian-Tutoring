@@ -122,6 +122,34 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Reflection at a plane mirror",
+            "alt": "A ray diagram of a plane mirror with the normal drawn dashed at 90° to it. The incident ray makes 50° with the mirror, so its angle of incidence, measured from the normal, is 40°. The reflected ray leaves at 40° on the other side of the normal.",
+            "brief": {
+              "kind": "ray-diagram",
+              "setup": "plane-mirror",
+              "incidence": 40,
+              "angles": [
+                {
+                  "at": "incident-mirror",
+                  "label": "50°"
+                },
+                {
+                  "at": "incidence",
+                  "label": "40°"
+                },
+                {
+                  "at": "reflection",
+                  "label": "40°"
+                }
+              ],
+              "names": true
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "practice",
             "alt": "A ray hits a plane mirror at a given angle to the surface. Work out the angle of reflection.",
             "question": "A ray of light hits a plane mirror. The ray makes an angle of {s}° with the surface of the mirror. Calculate the angle of reflection.",
@@ -658,7 +686,7 @@
       "ead4d115-422b-4592-9aaf-eb9a6079855c",
       "fb7d4a65-25b7-4bf6-8a9a-a8be8832b6c3"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

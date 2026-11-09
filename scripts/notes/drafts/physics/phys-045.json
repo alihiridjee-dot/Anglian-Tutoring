@@ -57,6 +57,24 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Reading a newtonmeter",
+            "alt": "A newtonmeter scale from 0 to 5 N, marked every 0.1 N, with the pointer at 4.9 N: the weight of a 0.50 kg mass where g is 9.8 N/kg.",
+            "brief": {
+              "kind": "scale-reading",
+              "instrument": "newton-meter",
+              "min": 0,
+              "max": 5,
+              "step": 1,
+              "minor": 10,
+              "readings": [4.9],
+              "unit": "N"
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Weight is a force in newtons. Mass is an amount of matter in kilograms.",
@@ -474,7 +492,7 @@
       "2bedfa3a-ffc6-44e8-b5d2-ce73a1cea49c",
       "d1e12dcb-a8bb-4f34-892d-8da8f10a1d4e"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

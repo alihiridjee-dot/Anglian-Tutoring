@@ -48,6 +48,7 @@
         {
           "type": "list",
           "items": [
+            "A candle flame in front of a loudspeaker flickers back and forth, but it is not blown away. If the air travelled with the sound, the flame would be pushed away from the speaker.",
             "When someone claps, the air particles vibrate backwards and forwards about fixed positions.",
             "The air does not travel from the clap to your ear. The vibrations are passed on from particle to particle.",
             "The energy travels in the direction of the wave."
@@ -115,6 +116,27 @@
             "Sound waves in air are longitudinal. The air particles vibrate parallel to the direction the sound travels.",
             "Seismic P-waves are longitudinal."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Compression C, rarefaction R",
+            "alt": "A longitudinal wave drawn as a row of lines, like the coils of a slinky. Arrow C marks a compression, where the lines are bunched together. Arrow R marks a rarefaction, where they are spread out.",
+            "brief": {
+              "kind": "longitudinal-wave",
+              "arrows": [
+                {
+                  "shows": "compression",
+                  "letter": "C"
+                },
+                {
+                  "shows": "rarefaction",
+                  "letter": "R"
+                }
+              ]
+            }
+          }
         },
         {
           "type": "diagram",
@@ -402,7 +424,7 @@
       "08560f53-ca04-449a-abaa-a1ef22ea0c6b",
       "c6be8e98-170f-45aa-aaef-4627bcae4a40"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

@@ -148,6 +148,66 @@
           }
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "ADH and negative feedback",
+            "alt": "A flow diagram. The hypothalamus detects that the blood is too concentrated or too dilute. Too concentrated: the pituitary gland releases more ADH and more water is reabsorbed. Too dilute: the pituitary gland releases less ADH and less water is reabsorbed. Either way the water content of the blood returns to normal.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["blood too concentrated", "blood too dilute"],
+                ["hypothalamus detects change"],
+                ["more ADH from pituitary", "less ADH from pituitary"],
+                ["more water reabsorbed", "less water reabsorbed"],
+                ["blood water back to normal"]
+              ],
+              "arrows": [
+                {
+                  "from": "blood too concentrated",
+                  "to": "hypothalamus detects change",
+                  "letter": ""
+                },
+                {
+                  "from": "blood too dilute",
+                  "to": "hypothalamus detects change",
+                  "letter": ""
+                },
+                {
+                  "from": "hypothalamus detects change",
+                  "to": "more ADH from pituitary",
+                  "letter": ""
+                },
+                {
+                  "from": "hypothalamus detects change",
+                  "to": "less ADH from pituitary",
+                  "letter": ""
+                },
+                {
+                  "from": "more ADH from pituitary",
+                  "to": "more water reabsorbed",
+                  "letter": ""
+                },
+                {
+                  "from": "less ADH from pituitary",
+                  "to": "less water reabsorbed",
+                  "letter": ""
+                },
+                {
+                  "from": "more water reabsorbed",
+                  "to": "blood water back to normal",
+                  "letter": ""
+                },
+                {
+                  "from": "less water reabsorbed",
+                  "to": "blood water back to normal",
+                  "letter": ""
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Negative feedback keeps the water content of the blood close to normal.",
@@ -257,8 +317,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "31134818-3827-42aa-bf53-498ecc93b236",
       "438f47d8-5ca7-46f2-8a2d-efa03f2e297a",

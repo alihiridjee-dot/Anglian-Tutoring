@@ -158,7 +158,7 @@
             "A fuse is a thin wire between the live pin and the appliance.",
             "A larger current heats the wire more. When the current is too large, the wire melts.",
             "This disconnects the appliance from the mains and prevents overheating of the wiring.",
-            "Choose a fuse rated just above the normal current. A current of 2.3 A needs a 5 A fuse, not a fuse with a lower rating or a much higher one."
+            "Choose the fuse rated just above the normal current. UK plug fuses are usually 3 A, 5 A or 13 A, so a current of 2.3 A needs a 3 A fuse and a current of 4.2 A needs a 5 A fuse."
           ]
         },
         {
@@ -474,8 +474,8 @@
       "394618bc-8539-4f5c-a91a-89aab4a4c549",
       "bc371361-fced-4bc7-8657-a11dbc873751"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "exemplar_ids": [
       "9067ff27-e96d-4c2c-88df-d5a2eb8908be",
       "d464d7e7-e7c4-4042-badc-610414999d28",

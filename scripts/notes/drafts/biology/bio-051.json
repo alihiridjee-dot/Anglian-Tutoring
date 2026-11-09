@@ -77,6 +77,56 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Making monoclonal antibodies",
+            "alt": "A flow diagram: a mouse is injected with the antigen, its lymphocytes are collected and fused with tumour cells to make hybridomas, the hybridoma that makes the right antibody is chosen and cloned, and the antibody is collected.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["mouse injected with antigen"],
+                ["lymphocytes collected", "tumour cells"],
+                ["fused to make hybridomas"],
+                ["right hybridoma chosen", "hybridoma cloned"],
+                ["antibody collected"]
+              ],
+              "arrows": [
+                {
+                  "from": "mouse injected with antigen",
+                  "to": "lymphocytes collected",
+                  "letter": ""
+                },
+                {
+                  "from": "lymphocytes collected",
+                  "to": "fused to make hybridomas",
+                  "letter": ""
+                },
+                {
+                  "from": "tumour cells",
+                  "to": "fused to make hybridomas",
+                  "letter": ""
+                },
+                {
+                  "from": "fused to make hybridomas",
+                  "to": "right hybridoma chosen",
+                  "letter": ""
+                },
+                {
+                  "from": "right hybridoma chosen",
+                  "to": "hybridoma cloned",
+                  "letter": ""
+                },
+                {
+                  "from": "hybridoma cloned",
+                  "to": "antibody collected",
+                  "letter": ""
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Lymphocytes from an injected mouse are combined with tumour cells to make hybridomas.",
@@ -178,7 +228,7 @@
       "a83505e3-72be-4c7f-8a8e-23735d2bd6fd",
       "47244ade-2313-4020-82c4-f38ae56caa53"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

@@ -197,6 +197,61 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Concentrations level off at equilibrium",
+            "alt": "Concentration against time for a reversible reaction in a closed system: reactant A falls from 1.0 to 0.6 mol/dm³ and product C rises from 0 to 0.4 mol/dm³, then from 5 minutes both stay constant at different values.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "time in minutes",
+                "min": 0,
+                "max": 10,
+                "step": 1
+              },
+              "y": {
+                "title": "concentration in mol/dm³",
+                "min": 0,
+                "max": 1,
+                "step": 0.1
+              },
+              "series": [
+                {
+                  "name": "reactant A",
+                  "curve": true,
+                  "points": [
+                    [0, 1.0],
+                    [1, 0.8],
+                    [2, 0.7],
+                    [3, 0.64],
+                    [4, 0.61],
+                    [5, 0.6],
+                    [6, 0.6],
+                    [8, 0.6],
+                    [10, 0.6]
+                  ]
+                },
+                {
+                  "name": "product C",
+                  "curve": true,
+                  "points": [
+                    [0, 0],
+                    [1, 0.2],
+                    [2, 0.3],
+                    [3, 0.36],
+                    [4, 0.39],
+                    [5, 0.4],
+                    [6, 0.4],
+                    [8, 0.4],
+                    [10, 0.4]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "sequence",
             "alt": "Put the steps by which a reversible reaction reaches equilibrium in order.",
             "prompt": "Put the steps to equilibrium in order",
@@ -530,7 +585,7 @@
       "d60be48f-96a6-4845-8b6d-74079ca1264b",
       "0e35ed3b-6f74-4189-9947-18d49662b293"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

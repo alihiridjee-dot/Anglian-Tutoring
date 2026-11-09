@@ -73,6 +73,54 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Braking distance and speed",
+            "alt": "Braking distance against speed for a car decelerating at 5 m/s²: a curve that gets steeper. At 10 m/s the braking distance is 10 m; at 20 m/s it is 40 m. Doubling the speed makes the braking distance four times greater.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "speed in m/s",
+                "min": 0,
+                "max": 30,
+                "step": 5
+              },
+              "y": {
+                "title": "braking distance in m",
+                "min": 0,
+                "max": 90,
+                "step": 10
+              },
+              "curve": true,
+              "series": [
+                {
+                  "name": "car",
+                  "points": [
+                    [0, 0.0],
+                    [5, 2.5],
+                    [10, 10.0],
+                    [15, 22.5],
+                    [20, 40.0],
+                    [25, 62.5],
+                    [30, 90.0]
+                  ]
+                }
+              ],
+              "lines": [
+                {
+                  "from": [0, 10],
+                  "to": [10, 10]
+                },
+                {
+                  "from": [0, 40],
+                  "to": [20, 40]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "equation",
           "label": "Braking distance",
           "formula": "braking distance = speed² ÷ (2 × deceleration)",
@@ -379,7 +427,7 @@
       "c3cfbf60-f2ec-47ef-8409-f21d1a970b1d",
       "c4eb2704-2047-4904-a75f-6c154d296c8a"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

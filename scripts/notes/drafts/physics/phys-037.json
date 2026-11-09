@@ -249,6 +249,56 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "A half-life of 12 hours",
+            "alt": "A decay curve of count rate against time: 640 counts per minute at the start, 320 at 12 hours, 160 at 24 hours and 80 at 36 hours. Lines from 320 counts per minute across to the curve and down to the time axis show one half-life of 12 hours.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "time in hours",
+                "min": 0,
+                "max": 48,
+                "step": 6
+              },
+              "y": {
+                "title": "count rate in counts/min",
+                "min": 0,
+                "max": 640,
+                "step": 80
+              },
+              "curve": true,
+              "series": [
+                {
+                  "name": "source",
+                  "points": [
+                    [0, 640.0],
+                    [6, 452.5],
+                    [12, 320.0],
+                    [18, 226.3],
+                    [24, 160.0],
+                    [30, 113.1],
+                    [36, 80.0],
+                    [42, 56.6],
+                    [48, 40.0]
+                  ]
+                }
+              ],
+              "lines": [
+                {
+                  "from": [0, 320],
+                  "to": [12, 320]
+                },
+                {
+                  "from": [12, 320],
+                  "to": [12, 0]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "list",
           "items": [
             "To work backwards to the starting value, double the final value once for each half-life.",
@@ -522,7 +572,7 @@
       "f0c370ae-a710-4d74-ac0d-6a51e771e829",
       "9c08da0a-350b-4178-8e3e-2e9fc40c6dc3"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

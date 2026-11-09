@@ -84,6 +84,56 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Blood glucose after a glucose drink",
+            "alt": "A line graph of blood glucose concentration for 3 hours after a glucose drink. Without diabetes it rises from 5 to 8 mmol/dm³ in 30 minutes, then returns to 5 by 120 minutes. With diabetes it starts at 8, rises to 18 and is still 14 after 180 minutes.",
+            "brief": {
+              "kind": "line-graph",
+              "curve": true,
+              "x": {
+                "title": "time in minutes",
+                "min": 0,
+                "max": 180,
+                "step": 30
+              },
+              "y": {
+                "title": "blood glucose in mmol/dm³",
+                "min": 0,
+                "max": 30,
+                "step": 5
+              },
+              "series": [
+                {
+                  "name": "without diabetes",
+                  "points": [
+                    [0, 5],
+                    [30, 8],
+                    [60, 7],
+                    [90, 6],
+                    [120, 5],
+                    [150, 5],
+                    [180, 5]
+                  ]
+                },
+                {
+                  "name": "with diabetes",
+                  "points": [
+                    [0, 8],
+                    [30, 12],
+                    [60, 16],
+                    [90, 18],
+                    [120, 18],
+                    [150, 16],
+                    [180, 14]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Type 2: the cells do not respond to insulin, so glucose stays in the blood.",
@@ -363,8 +413,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "2379c612-83c0-49b3-b6cd-2c4c72bb525d",
       "3e79cc14-db30-458a-b9cd-c583fdd1f5a6",

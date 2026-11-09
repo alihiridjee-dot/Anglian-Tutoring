@@ -72,13 +72,13 @@
         },
         {
           "type": "paragraph",
-          "text": "Change the frequency and wavelength below. The amplitude changes the height of the wave but not the speed."
+          "text": "These ripples travel at 0.15 m/s. Change the frequency below: a higher frequency gives a shorter wavelength, and the speed stays the same. The amplitude changes the height of the wave but not the speed."
         },
         {
           "type": "diagram",
           "diagram": {
             "kind": "slider",
-            "alt": "Set the frequency, amplitude and wavelength of a water wave to see its period and wave speed.",
+            "alt": "Change the frequency and amplitude of water ripples travelling at 0.15 m/s to see the wavelength, period and wave speed.",
             "inputs": [
               {
                 "id": "f",
@@ -97,18 +97,15 @@
                 "max": 4,
                 "step": 0.5,
                 "value": 2
-              },
-              {
-                "id": "w",
-                "label": "Wavelength",
-                "unit": "cm",
-                "min": 2,
-                "max": 6,
-                "step": 0.5,
-                "value": 3
               }
             ],
             "outputs": [
+              {
+                "label": "Wavelength",
+                "unit": "cm",
+                "formula": "15 / f",
+                "decimals": 2
+              },
               {
                 "label": "Period",
                 "unit": "s",
@@ -116,10 +113,10 @@
                 "decimals": 3
               },
               {
-                "label": "Wave speed",
+                "label": "Wave speed = frequency × wavelength",
                 "unit": "m/s",
-                "formula": "f * w / 100",
-                "decimals": 3
+                "formula": "f * (15 / f) / 100",
+                "decimals": 2
               }
             ],
             "scene": {
@@ -533,7 +530,7 @@
       "5590639f-9630-4efe-9462-cc678d098b15",
       "1de0b411-85d9-4177-8123-e933839546af"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

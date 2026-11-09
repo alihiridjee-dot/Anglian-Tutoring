@@ -227,7 +227,7 @@
     },
     {
       "q": "Describe how meiosis produces cells that are genetically different.",
-      "a": "A random chromosome from each pair of chromosomes goes into each new cell (gamete).",
+      "a": "Chromosomes are in pairs. A random chromosome from each pair goes into each new cell (gamete), so each gamete gets a different combination of chromosomes and alleles.",
       "marks": 2
     },
     {
@@ -419,7 +419,7 @@
       "1ad0e0d5-ed01-4888-9681-90e543cb5d82",
       "5a52a683-60ac-4c70-9650-c78e4425fee2"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

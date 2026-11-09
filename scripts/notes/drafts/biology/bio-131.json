@@ -369,6 +369,60 @@
                 "Land availability, and growing conditions that are not right, limit how much food can be grown.",
                 "When comparing countries, compare the **percentage** of people short of food as well as the number of people. A larger percentage means the impact is more significant."
               ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "figure",
+                "title": "Percentage short of food",
+                "alt": "A bar chart of the percentage of people who do not get enough food: 48% in Haiti and 3% in the USA.",
+                "brief": {
+                  "kind": "bar-chart",
+                  "x": {
+                    "title": "country",
+                    "categories": ["Haiti", "USA"]
+                  },
+                  "y": {
+                    "title": "people short of food in %",
+                    "min": 0,
+                    "max": 50,
+                    "step": 10
+                  },
+                  "series": [
+                    {
+                      "name": "short of food",
+                      "values": [48, 3]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "figure",
+                "title": "Number short of food",
+                "alt": "A bar chart of the number of people who do not get enough food: 5.5 million in Haiti and 10.0 million in the USA.",
+                "brief": {
+                  "kind": "bar-chart",
+                  "x": {
+                    "title": "country",
+                    "categories": ["Haiti", "USA"]
+                  },
+                  "y": {
+                    "title": "people in millions",
+                    "min": 0,
+                    "max": 12,
+                    "step": 2
+                  },
+                  "series": [
+                    {
+                      "name": "short of food",
+                      "values": [5.5, 10]
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
@@ -389,7 +443,7 @@
       "227b599e-12fa-4c01-be12-7cc16f4735c4",
       "d9775ce8-ea52-4775-9f81-a9192d6cc3e0"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

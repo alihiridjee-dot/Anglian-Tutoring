@@ -48,6 +48,223 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Glycine, an amino acid",
+            "alt": "The displayed formula of glycine, H₂NCH₂COOH: an amine group, –NH₂, at one end and a carboxylic acid group, –COOH, at the other.",
+            "brief": {
+              "kind": "displayed-formula",
+              "atoms": [
+                {
+                  "symbol": "H",
+                  "cell": [
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "symbol": "N",
+                  "cell": [
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [
+                    2,
+                    1
+                  ]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [
+                    3,
+                    1
+                  ]
+                },
+                {
+                  "symbol": "O",
+                  "cell": [
+                    4,
+                    1
+                  ]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [
+                    5,
+                    1
+                  ]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [
+                    2,
+                    0
+                  ]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [
+                    2,
+                    2
+                  ]
+                },
+                {
+                  "symbol": "O",
+                  "cell": [
+                    3,
+                    0
+                  ]
+                }
+              ],
+              "bonds": [
+                {
+                  "atoms": [
+                    0,
+                    1
+                  ],
+                  "order": 1
+                },
+                {
+                  "atoms": [
+                    1,
+                    2
+                  ],
+                  "order": 1
+                },
+                {
+                  "atoms": [
+                    2,
+                    3
+                  ],
+                  "order": 1
+                },
+                {
+                  "atoms": [
+                    3,
+                    4
+                  ],
+                  "order": 1
+                },
+                {
+                  "atoms": [
+                    4,
+                    5
+                  ],
+                  "order": 1
+                },
+                {
+                  "atoms": [
+                    1,
+                    6
+                  ],
+                  "order": 1
+                },
+                {
+                  "atoms": [
+                    2,
+                    7
+                  ],
+                  "order": 1
+                },
+                {
+                  "atoms": [
+                    2,
+                    8
+                  ],
+                  "order": 1
+                },
+                {
+                  "atoms": [
+                    3,
+                    9
+                  ],
+                  "order": 2
+                }
+              ],
+              "polymer": null
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "The repeating unit it forms",
+            "alt": "The repeating unit of the polymer made from glycine, –NH–CH₂–CO–, in brackets with n: each link forms when the –OH of one glycine and an H of the next leave as water.",
+            "brief": {
+              "kind": "displayed-formula",
+              "atoms": [
+                {
+                  "symbol": "N",
+                  "cell": [0, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [1, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [2, 1]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [0, 2]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 2]
+                },
+                {
+                  "symbol": "O",
+                  "cell": [2, 0]
+                }
+              ],
+              "bonds": [
+                {
+                  "atoms": [0, 1],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 2],
+                  "order": 1
+                },
+                {
+                  "atoms": [0, 3],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 4],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 5],
+                  "order": 1
+                },
+                {
+                  "atoms": [2, 6],
+                  "order": 2
+                }
+              ],
+              "polymer": [0, 2]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Proteins are polymers based on amino acids.",
@@ -303,7 +520,7 @@
       "fa7ac3df-b68d-49f6-9399-979ae2c76c88",
       "5a4e35cb-6b1b-4732-baa7-3a07ae906b3d"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

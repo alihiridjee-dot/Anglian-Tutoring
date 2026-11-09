@@ -45,10 +45,10 @@
             "steps": [
               "The animal dies and sinks to the sea bed",
               "It is buried in sediment such as mud, sand or silt",
-              "The soft parts decay or are eaten",
-              "The hard parts, such as bones, do not decay",
+              "The soft parts decay or are eaten, but the hard parts, such as bones, do not decay",
               "The bones are replaced by minerals"
             ],
+            "free": [[1, 2]],
             "prompt": "Put fossil formation in order"
           }
         },
@@ -107,6 +107,41 @@
             "The limb is adapted to different functions in different animals.",
             "It is unlikely that the same structure evolved more than once, so these animals share a **common ancestor** that had the pentadactyl limb."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Animals with a pentadactyl limb",
+            "alt": "An evolutionary tree of five animals with a pentadactyl limb, bat, cat, lizard, bird and frog, all branching from one common ancestor, with the bat and cat sharing the most recent common ancestor.",
+            "brief": {
+              "kind": "evolutionary-tree",
+              "tree": {
+                "branches": [
+                  {
+                    "branches": [
+                      {
+                        "branches": ["bat", "cat"],
+                        "mya": null,
+                        "letter": ""
+                      },
+                      {
+                        "branches": ["lizard", "bird"],
+                        "mya": null,
+                        "letter": ""
+                      }
+                    ],
+                    "mya": null,
+                    "letter": ""
+                  },
+                  "frog"
+                ],
+                "mya": null,
+                "letter": ""
+              },
+              "axis": null
+            }
+          }
         },
         {
           "type": "key-points",
@@ -308,7 +343,7 @@
       "52fc20f8-a698-4ae7-8eed-768f727c1da2",
       "74a0dfc6-8624-4ada-afc5-fe1711bde7d6"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

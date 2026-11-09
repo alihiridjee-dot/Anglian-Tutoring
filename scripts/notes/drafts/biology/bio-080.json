@@ -158,6 +158,44 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "The uterus lining over 28 days",
+            "alt": "A line graph of the thickness of the uterus lining over a 28-day cycle. The lining breaks down during the period, from 12 mm to 2 mm by day 5, builds up to 10 mm by ovulation at day 14, and stays at 12 mm from day 21 to day 28.",
+            "brief": {
+              "kind": "line-graph",
+              "curve": true,
+              "x": {
+                "title": "time in days",
+                "min": 0,
+                "max": 28,
+                "step": 7
+              },
+              "y": {
+                "title": "lining thickness in mm",
+                "min": 0,
+                "max": 14,
+                "step": 2
+              },
+              "series": [
+                {
+                  "name": "uterus lining",
+                  "points": [
+                    [0, 12],
+                    [2, 6],
+                    [5, 2],
+                    [7, 4],
+                    [14, 10],
+                    [21, 12],
+                    [28, 12]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "paragraph",
           "text": "How the four hormones affect each other is covered in the next note (Higher tier)."
         },
@@ -415,7 +453,7 @@
       "76719cd3-16e9-47eb-a297-8a3be3820dbb",
       "0e453295-2247-4da7-abe7-441c8b927942"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

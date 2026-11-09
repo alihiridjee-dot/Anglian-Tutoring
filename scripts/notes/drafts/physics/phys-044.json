@@ -156,6 +156,46 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Table pushes up on the mug",
+            "alt": "The mug on its own with one force arrow: the table pushes up on the mug with a force of 3 N.",
+            "brief": {
+              "kind": "forces",
+              "object": "mug",
+              "forces": [
+                {
+                  "direction": "up",
+                  "name": "push of table",
+                  "size": 3
+                }
+              ],
+              "toScale": false
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Mug pushes down on the table",
+            "alt": "The table on its own with one force arrow: the mug pushes down on the table with a force of 3 N. With the force on the mug, this is an interaction pair: the same size, opposite in direction, and acting on different objects.",
+            "brief": {
+              "kind": "forces",
+              "object": "table",
+              "forces": [
+                {
+                  "direction": "down",
+                  "name": "push of mug",
+                  "size": 3
+                }
+              ],
+              "toScale": false
+            }
+          }
+        },
+        {
           "type": "paragraph",
           "text": "A stationary rocket on the ground has two forces on it: an upward normal contact force and a downward weight. These act on the same object, so they are not an interaction pair."
         },
@@ -302,7 +342,7 @@
       "d89201ae-365f-4db5-8eaf-52a300599c27",
       "14c197f0-3eae-4ea2-bc1f-6aee6e21c0ed"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

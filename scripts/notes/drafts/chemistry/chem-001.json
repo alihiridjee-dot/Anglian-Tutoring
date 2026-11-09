@@ -49,6 +49,59 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "A/B elements, C compound, D mixture",
+            "alt": "Four boxes of particles: A is an element made of single atoms, B is an element made of molecules of two identical atoms, C is a compound whose molecules each have one black atom joined to two white atoms, and D is a mixture of two elements whose molecules are not joined to each other.",
+            "brief": {
+              "kind": "particle-diagram",
+              "boxes": [
+                {
+                  "arrangement": "gas",
+                  "particles": [
+                    {
+                      "atoms": ["shaded"],
+                      "count": 6
+                    }
+                  ]
+                },
+                {
+                  "arrangement": "gas",
+                  "particles": [
+                    {
+                      "atoms": ["white", "white"],
+                      "count": 5
+                    }
+                  ]
+                },
+                {
+                  "arrangement": "gas",
+                  "particles": [
+                    {
+                      "atoms": ["white", "black", "white"],
+                      "count": 5
+                    }
+                  ]
+                },
+                {
+                  "arrangement": "gas",
+                  "particles": [
+                    {
+                      "atoms": ["white", "white"],
+                      "count": 3
+                    },
+                    {
+                      "atoms": ["black", "black"],
+                      "count": 3
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "sort",
             "alt": "Sort each substance into element or compound.",
             "prompt": "Element or compound?",
@@ -595,8 +648,8 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

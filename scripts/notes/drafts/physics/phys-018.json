@@ -189,7 +189,7 @@
         },
         {
           "type": "paragraph",
-          "text": "This is work done against electrical resistance. A higher resistance means more collisions, so more energy is transferred as heat."
+          "text": "This is work done against electrical resistance. For the same current, a higher resistance means more collisions, so more energy is transferred as heat (P = I²R)."
         },
         {
           "type": "subheading",
@@ -237,7 +237,7 @@
           "type": "key-points",
           "items": [
             "Electrons collide with ions in the lattice. The ions vibrate more and the wire heats up.",
-            "Higher resistance means more collisions and more heating.",
+            "For the same current, a higher resistance means more collisions and more heating.",
             "(Higher tier) Low resistance wires reduce unwanted energy transfer."
           ]
         }
@@ -385,8 +385,8 @@
       "42d00cb5-a4cf-4783-86a0-26c32aaf207f",
       "7b84a914-9620-42dc-b2c3-f578a9bc4628"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "exemplar_ids": [
       "02bfab1a-4b1f-4164-ae75-6a9c87186e6b",
       "c2b27ca1-380a-4415-a41e-dd62ddd30116",

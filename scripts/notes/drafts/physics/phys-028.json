@@ -147,6 +147,47 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Cooling curve for water",
+            "alt": "A cooling curve for water in a freezer, with example times. The temperature falls from 20 °C to 0 °C in the first 10 minutes. It stays at 0 °C from 10 to 50 minutes while the water freezes, then falls below 0 °C as the ice cools.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "time in min",
+                "min": 0,
+                "max": 60,
+                "step": 10
+              },
+              "y": {
+                "title": "temperature in °C",
+                "min": -15,
+                "max": 20,
+                "step": 5
+              },
+              "curve": true,
+              "series": [
+                {
+                  "name": "water",
+                  "points": [
+                    [0, 20],
+                    [2.5, 13.5],
+                    [5, 8],
+                    [7.5, 3.5],
+                    [10, 0],
+                    [50, 0],
+                    [52.5, -5],
+                    [55, -9.5],
+                    [57.5, -12.5],
+                    [60, -14]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Flat parts of a heating curve show a change of state.",
@@ -254,7 +295,7 @@
     },
     {
       "q": "Explain why the temperature of ice stays the same while it melts, even though energy is being supplied.",
-      "a": "The energy supplied changes the internal energy of the substance (it changes the state), not the temperature.",
+      "a": "The energy is used to overcome the forces between the particles, so their potential energy increases. Their kinetic energy does not change, so the temperature stays the same.",
       "marks": 2
     },
     {
@@ -311,7 +352,7 @@
           "Mass changed to steam = 1.41 − 1.21 = 0.20 kg.",
           "Substitute: 450 000 = 0.20 × L",
           "Rearrange: L = 450 000 ÷ 0.20",
-          "L = 2 200 000 J/kg (2 250 000 is also accepted)"
+          "L = 2 250 000 J/kg (2 200 000 is also accepted)"
         ],
         "tip": "One mark each for the substitution, the rearrangement and the answer. Using the full 1.41 kg is a wrong mass."
       }
@@ -376,8 +417,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "spec_point_ids": [
       "489b9fc2-422a-4a00-8341-769cb1de00b9",
       "db7c1503-b881-470f-8081-2e75a8049eb4",

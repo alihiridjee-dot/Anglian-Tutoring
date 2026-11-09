@@ -93,7 +93,7 @@
           "items": [
             "A change from the codon CAG to GAG changes the amino acid from Gln to Glu.",
             "Sickle cell anaemia is caused by a mutation in the gene for haemoglobin. The abnormal haemoglobin can alter the shape of red blood cells, so less oxygen reaches cells for respiration.",
-            "In beta thalassaemia, extra bases are inserted into the haemoglobin gene. The order of the triplets changes, so a different haemoglobin protein is made."
+            "In one form of beta thalassaemia, extra bases are inserted into a haemoglobin gene. The triplets change, so the order of amino acids changes. A faulty protein is made, or none at all, so the person makes less working haemoglobin."
           ]
         },
         {
@@ -368,7 +368,7 @@
       "de6a6827-6d08-455c-a487-55d41fe1b73e",
       "1919e7a3-d1dd-4e1a-a710-f767fda63476"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

@@ -89,6 +89,33 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Isotopes of chlorine",
+            "alt": "A bar chart of percentage abundance: 75% of chlorine atoms are chlorine-35 and 25% are chlorine-37, so the relative atomic mass, 35.5, is closer to 35.",
+            "brief": {
+              "kind": "bar-chart",
+              "x": {
+                "title": "isotope",
+                "categories": ["chlorine-35", "chlorine-37"]
+              },
+              "y": {
+                "title": "percentage of atoms",
+                "min": 0,
+                "max": 100,
+                "step": 10
+              },
+              "series": [
+                {
+                  "name": "abundance",
+                  "values": [75, 25]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "practice",
             "alt": "Practise calculating a relative atomic mass from two isotopes and their percentage abundances.",
             "question": "A sample of an element has two isotopes. **{P}%** of the atoms have mass number 35 and the rest have mass number 37. Calculate the relative atomic mass (Ar) to 1 decimal place.",
@@ -323,8 +350,8 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

@@ -121,6 +121,50 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "From Mendel to the genome",
+            "alt": "A timeline: Mendel's pea crosses from 1856 to 1863, his work overlooked from 1866 to 1900, the chromosome theory in 1902, the structure of DNA found in 1953 and the human genome read in 2003.",
+            "brief": {
+              "kind": "timeline",
+              "scale": {
+                "title": "year",
+                "min": 1850,
+                "max": 2010,
+                "step": 20,
+                "ago": false
+              },
+              "events": [
+                {
+                  "at": 1902,
+                  "name": "chromosome theory"
+                },
+                {
+                  "at": 1953,
+                  "name": "DNA structure found"
+                },
+                {
+                  "at": 2003,
+                  "name": "human genome read"
+                }
+              ],
+              "periods": [
+                {
+                  "from": 1856,
+                  "to": 1863,
+                  "name": "Mendel's pea crosses"
+                },
+                {
+                  "from": 1866,
+                  "to": 1900,
+                  "name": "Mendel's work overlooked"
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "key-points",
           "items": [
             "Mendel discovered the basis of inheritance. Darwin did not.",
@@ -176,7 +220,7 @@
       "6caa0ec9-cb4c-424a-8022-910b00f07310"
     ],
     "exemplar_ids": ["470dcef4-b1ec-49c6-85d0-11c7c67412b7"],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

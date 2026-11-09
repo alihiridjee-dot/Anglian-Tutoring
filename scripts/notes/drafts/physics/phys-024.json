@@ -118,6 +118,42 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Before: initial volume 50 cm³",
+            "alt": "A measuring cylinder of water read at the bottom of the meniscus: 50 cm³. This is the initial volume, before the object goes in.",
+            "brief": {
+              "kind": "scale-reading",
+              "instrument": "measuring-cylinder",
+              "min": 0,
+              "max": 100,
+              "step": 10,
+              "minor": 5,
+              "readings": [50],
+              "unit": "cm³"
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "After: final volume 68 cm³",
+            "alt": "The same measuring cylinder with the object in the water: the level now reads 68 cm³. The volume of the object is 68 − 50 = 18 cm³.",
+            "brief": {
+              "kind": "scale-reading",
+              "instrument": "measuring-cylinder",
+              "min": 0,
+              "max": 100,
+              "step": 10,
+              "minor": 5,
+              "readings": [68],
+              "unit": "cm³"
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "sequence",
             "alt": "Put the steps for finding the density of an irregular solid in order.",
             "prompt": "Put the steps for finding the density of an irregular solid in order.",
@@ -303,7 +339,7 @@
       "04ec1add-7a45-4cf7-819c-d1817dd4e548",
       "61a7ad6d-195f-4b54-bd60-eed1695934f7"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

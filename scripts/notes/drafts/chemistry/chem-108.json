@@ -17,7 +17,7 @@
           "items": [
             {
               "term": "Rate of reaction",
-              "meaning": "How fast the reaction reaches equilibrium."
+              "meaning": "How quickly reactants are turned into products. A faster rate means equilibrium is reached sooner."
             },
             {
               "term": "Equilibrium yield",
@@ -49,6 +49,37 @@
               "No effect on the position of equilibrium"
             ]
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Equilibrium yield of ammonia",
+            "alt": "A bar chart of the percentage of ammonia at equilibrium at 25, 50, 100 and 200 atmospheres: at 400 °C it rises from 9% to 39% and at 500 °C from 3% to 18%, so the yield is higher at higher pressure and at lower temperature.",
+            "brief": {
+              "kind": "bar-chart",
+              "x": {
+                "title": "pressure",
+                "categories": ["25 atm", "50 atm", "100 atm", "200 atm"]
+              },
+              "y": {
+                "title": "yield of ammonia in %",
+                "min": 0,
+                "max": 40,
+                "step": 5
+              },
+              "series": [
+                {
+                  "name": "400 °C",
+                  "values": [9, 15, 25, 39]
+                },
+                {
+                  "name": "500 °C",
+                  "values": [3, 6, 11, 18]
+                }
+              ]
+            }
+          }
         },
         {
           "type": "diagram",
@@ -368,7 +399,7 @@
       "d65c0534-0f83-4c91-af4d-257be32e3066",
       "b7009332-1d1f-43b0-88d6-716e68cdd431"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

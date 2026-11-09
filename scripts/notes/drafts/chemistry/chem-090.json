@@ -370,7 +370,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Zinc ions also form a white precipitate with sodium hydroxide solution."
+              "text": "Zinc ions also form a white precipitate with sodium hydroxide solution. Like aluminium hydroxide, zinc hydroxide dissolves in excess sodium hydroxide to give a colourless solution. Calcium hydroxide does not dissolve, so excess sodium hydroxide tells zinc from calcium."
             }
           ]
         }
@@ -510,7 +510,7 @@
       "07cc4925-f123-473b-b2fa-adecf30e9ac5",
       "5a786efa-1eaf-4f92-8af2-e128ed067d90"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

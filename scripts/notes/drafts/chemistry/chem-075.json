@@ -158,6 +158,166 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Ethanol: the –OH group",
+            "alt": "The displayed formula of ethanol, C₂H₅OH: two carbon atoms with five hydrogen atoms, and an O–H group on the end carbon.",
+            "brief": {
+              "kind": "displayed-formula",
+              "atoms": [
+                {
+                  "symbol": "H",
+                  "cell": [0, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [1, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [2, 1]
+                },
+                {
+                  "symbol": "O",
+                  "cell": [3, 1]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [4, 1]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 2]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [2, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [2, 2]
+                }
+              ],
+              "bonds": [
+                {
+                  "atoms": [0, 1],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 2],
+                  "order": 1
+                },
+                {
+                  "atoms": [2, 3],
+                  "order": 1
+                },
+                {
+                  "atoms": [3, 4],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 5],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 6],
+                  "order": 1
+                },
+                {
+                  "atoms": [2, 7],
+                  "order": 1
+                },
+                {
+                  "atoms": [2, 8],
+                  "order": 1
+                }
+              ],
+              "polymer": null
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Ethanoic acid: the –COOH group",
+            "alt": "The displayed formula of ethanoic acid, CH₃COOH: the end carbon atom has a C=O double bond and an O–H group, together the –COOH group.",
+            "brief": {
+              "kind": "displayed-formula",
+              "atoms": [
+                {
+                  "symbol": "H",
+                  "cell": [0, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [1, 1]
+                },
+                {
+                  "symbol": "C",
+                  "cell": [2, 1]
+                },
+                {
+                  "symbol": "O",
+                  "cell": [3, 1]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [4, 1]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 0]
+                },
+                {
+                  "symbol": "H",
+                  "cell": [1, 2]
+                },
+                {
+                  "symbol": "O",
+                  "cell": [2, 0]
+                }
+              ],
+              "bonds": [
+                {
+                  "atoms": [0, 1],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 2],
+                  "order": 1
+                },
+                {
+                  "atoms": [2, 3],
+                  "order": 1
+                },
+                {
+                  "atoms": [3, 4],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 5],
+                  "order": 1
+                },
+                {
+                  "atoms": [1, 6],
+                  "order": 1
+                },
+                {
+                  "atoms": [2, 7],
+                  "order": 2
+                }
+              ],
+              "polymer": null
+            }
+          }
+        },
+        {
           "type": "subheading",
           "text": "Functional groups decide the reactions"
         },
@@ -444,7 +604,7 @@
       "6fc68e86-5422-4760-9a3d-fdeeaa76791a",
       "409e861a-56ca-4baa-92aa-9cbff7b6062d"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

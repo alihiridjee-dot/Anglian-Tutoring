@@ -265,6 +265,56 @@
           ]
         },
         {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "Highway Code stopping distances",
+            "alt": "Thinking distance and braking distance against speed, from the Highway Code's typical stopping distances. Thinking distance rises in a straight line, from 6 m at 20 mph to 21 m at 70 mph. Braking distance curves upwards: 6 m at 20 mph, 24 m at 40 mph and 75 m at 70 mph. Stopping distance is the sum: 12 m at 20 mph and 96 m at 70 mph.",
+            "brief": {
+              "kind": "line-graph",
+              "x": {
+                "title": "speed in mph",
+                "min": 0,
+                "max": 70,
+                "step": 10
+              },
+              "y": {
+                "title": "distance in m",
+                "min": 0,
+                "max": 80,
+                "step": 10
+              },
+              "curve": true,
+              "series": [
+                {
+                  "name": "thinking distance",
+                  "points": [
+                    [0, 0],
+                    [20, 6],
+                    [30, 9],
+                    [40, 12],
+                    [50, 15],
+                    [60, 18],
+                    [70, 21]
+                  ]
+                },
+                {
+                  "name": "braking distance",
+                  "points": [
+                    [0, 0],
+                    [20, 6],
+                    [30, 14],
+                    [40, 24],
+                    [50, 38],
+                    [60, 55],
+                    [70, 75]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
           "type": "subheading",
           "text": "Implications for safety"
         },
@@ -485,7 +535,7 @@
       "ce75c31d-5c9c-4900-bb4e-3cefa8ed8e43",
       "ec0f03cb-4cdf-44c2-9f91-5cda4a6a2cc7"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

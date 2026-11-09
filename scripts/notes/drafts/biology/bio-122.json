@@ -300,6 +300,51 @@
               ]
             },
             {
+              "type": "diagram",
+              "diagram": {
+                "kind": "figure",
+                "title": "pH of milk as it decays",
+                "alt": "A line graph of the pH of milk over 72 hours: at 15 °C it falls slowly from 6.5 to 5.8, and at 35 °C it falls faster, to 4.9.",
+                "brief": {
+                  "kind": "line-graph",
+                  "x": {
+                    "title": "time in hours",
+                    "min": 0,
+                    "max": 72,
+                    "step": 12
+                  },
+                  "y": {
+                    "title": "pH of milk",
+                    "min": 4.5,
+                    "max": 6.5,
+                    "step": 0.5
+                  },
+                  "series": [
+                    {
+                      "name": "15 °C",
+                      "points": [
+                        [0, 6.5],
+                        [12, 6.4],
+                        [24, 6.3],
+                        [48, 6.1],
+                        [72, 5.8]
+                      ]
+                    },
+                    {
+                      "name": "35 °C",
+                      "points": [
+                        [0, 6.5],
+                        [12, 6.3],
+                        [24, 6.1],
+                        [48, 5.5],
+                        [72, 4.9]
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
               "type": "list",
               "items": [
                 "Bacteria break down the **lipids** in milk into **fatty acids**, which lowers the pH.",
@@ -361,7 +406,7 @@
       "9b390923-5232-45c8-b7fc-412718283590",
       "8f827ca4-1c20-4dd1-b93e-c20a0122eee4"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-27"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

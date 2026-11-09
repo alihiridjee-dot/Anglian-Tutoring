@@ -281,7 +281,7 @@
     },
     {
       "q": "A solid gives a yellow flame. Its solution gives a white precipitate with dilute hydrochloric acid and then barium chloride solution. Name the compound.",
-      "a": "Sodium sulfate (Na₂SO₄).",
+      "a": "The yellow flame shows sodium ions. The white precipitate with dilute hydrochloric acid and barium chloride shows sulfate ions. So the compound is sodium sulfate (Na₂SO₄).",
       "marks": 3
     },
     {
@@ -358,7 +358,7 @@
       "13a9b32e-4905-4c08-8260-67b2708a71f5",
       "62904850-f46c-4fa1-8b77-f6b0224f492f"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

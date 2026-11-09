@@ -127,7 +127,15 @@
         },
         {
           "type": "paragraph",
-          "text": "Before this, living things were often sorted into five kingdoms: animals, plants, fungi, protists and prokaryotes. Genetic analysis led to the three domains. For example, Archaea DNA is more like that of eukaryotes."
+          "text": "Before this, living things were often sorted into five kingdoms: animals, plants, fungi, protists and prokaryotes. Genetic analysis showed that the prokaryotes are really two very different groups."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Archaea have some genes that are more like those of eukaryotes than those of bacteria.",
+            "So the prokaryotes were split into two domains, Archaea and Bacteria.",
+            "Protists, fungi, plants and animals were grouped together in the third domain, Eukaryota."
+          ]
         },
         {
           "type": "key-points",
@@ -163,6 +171,54 @@
             "The same idea works for the amino acid sequence of a protein. The species with the fewest differences from an ancestor is the most closely related.",
             "In **molecular phylogenetics**, DNA sequencing is used to work out evolutionary relationships."
           ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "figure",
+            "title": "An evolutionary tree of apes",
+            "alt": "An evolutionary tree of six apes with a time scale: gibbons split off about 20 million years ago, orangutans 15, gorillas 9, humans from chimpanzees and bonobos 6, and chimpanzees from bonobos 2.",
+            "brief": {
+              "kind": "evolutionary-tree",
+              "tree": {
+                "branches": [
+                  "gibbon",
+                  {
+                    "branches": [
+                      "orangutan",
+                      {
+                        "branches": [
+                          "gorilla",
+                          {
+                            "branches": [
+                              "human",
+                              {
+                                "branches": ["chimpanzee", "bonobo"],
+                                "mya": 2,
+                                "letter": ""
+                              }
+                            ],
+                            "mya": 6,
+                            "letter": ""
+                          }
+                        ],
+                        "mya": 9,
+                        "letter": ""
+                      }
+                    ],
+                    "mya": 15,
+                    "letter": ""
+                  }
+                ],
+                "mya": 20,
+                "letter": ""
+              },
+              "axis": {
+                "max": 25,
+                "step": 5
+              }
+            }
+          }
         },
         {
           "type": "list",
@@ -297,7 +353,7 @@
       "9f75bdf1-0b4e-486e-854a-081263c53fea",
       "778c54d9-83ae-4332-93b8-1987ec53d465"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }

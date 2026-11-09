@@ -72,6 +72,54 @@
         {
           "type": "diagram",
           "diagram": {
+            "kind": "figure",
+            "title": "Steps for a reacting mass",
+            "alt": "A flow diagram of the method: the mass given ÷ its Mr gives the moles given, × the mole ratio from the equation gives the moles wanted, and × their Mr gives the mass wanted.",
+            "brief": {
+              "kind": "flow-diagram",
+              "rows": [
+                ["mass given", "÷ Mr", "moles given"],
+                ["× mole ratio"],
+                ["mass wanted", "× Mr", "moles wanted"]
+              ],
+              "arrows": [
+                {
+                  "from": "mass given",
+                  "to": "÷ Mr",
+                  "letter": ""
+                },
+                {
+                  "from": "÷ Mr",
+                  "to": "moles given",
+                  "letter": ""
+                },
+                {
+                  "from": "moles given",
+                  "to": "× mole ratio",
+                  "letter": ""
+                },
+                {
+                  "from": "× mole ratio",
+                  "to": "moles wanted",
+                  "letter": ""
+                },
+                {
+                  "from": "moles wanted",
+                  "to": "× Mr",
+                  "letter": ""
+                },
+                {
+                  "from": "× Mr",
+                  "to": "mass wanted",
+                  "letter": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
             "kind": "practice",
             "alt": "Practise calculating the mass of magnesium oxide made from a mass of magnesium.",
             "question": "Magnesium burns in oxygen: 2Mg + O₂ → 2MgO. Calculate the maximum mass of magnesium oxide made from **{m} g** of magnesium. (Ar: Mg = 24, O = 16)",
@@ -151,8 +199,8 @@
       "marks": 3
     },
     {
-      "q": "Why can you not just use the masses of the formulae in the equation as a ratio, such as 3 × 24 : 2 × 56?",
-      "a": "The equation ratio is in moles. Convert to moles using the mass and Mr of the known substance, then use the ratio.",
+      "q": "In 3Mg + 2FeCl₃ → 2Fe + 3MgCl₂, why can you not use 3 : 2 as the ratio of the masses of Mg and Fe?",
+      "a": "3 : 2 is a mole ratio. Mg and Fe have different Ar values, so convert the mass to moles first (or multiply each by its Ar: 72 g of Mg makes 112 g of Fe).",
       "marks": 1
     }
   ],
@@ -323,7 +371,7 @@
       "4ff5924f-6d1f-453a-899a-7e0bd6dbd017",
       "13f5f65d-71b6-46f8-a0dc-4bceab8266bc"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-06"
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_at": "2026-11-09"
   }
 }
