@@ -1731,6 +1731,24 @@ def misprinted_key(board, scheme, n):
     return None
 
 
+NUMERAL_ITEM = re.compile(r"^\(\s*(i{1,3}|iv|vi{0,3}|ix|x)\s*\)\s*")
+
+
+def listed_numeral(entry, roman):
+    """A lettered scheme cell that lists its numbered parts inside it
+    ("(i) planet (1)", "(ii) satellite (1)", "(iii) star (1)") gives each
+    numeral its own lines; the cell's guidance stays with all of them."""
+    lines = entry["answer"].split("\n")
+    starts = [(i, m.group(1)) for i, l in enumerate(lines) if (m := NUMERAL_ITEM.match(l.strip()))]
+    numerals = [r for _, r in starts]
+    if len(starts) < 2 or starts[0][0] != 0 or numerals != ROMAN[:len(numerals)] or roman not in numerals:
+        return None
+    k = numerals.index(roman)
+    own = lines[starts[k][0]:starts[k + 1][0] if k + 1 < len(starts) else len(lines)]
+    return {**entry, "answer": "\n".join(own).strip(),
+            "marks": [int(d) for d in re.findall(r"\((\d)\)", " ".join(own))]}
+
+
 def extract(qp_path, ms_path):
     qp, ms = pymupdf.open(qp_path), pymupdf.open(ms_path)
     board, spec = identify(qp)
@@ -1783,6 +1801,10 @@ def extract(qp_path, ms_path):
                 if other:
                     entry = scheme[other]
                     borrowed.add(other)
+            if entry is None and n.roman and not n.children and key_of(n.q, n.mid) in scheme:
+                entry = listed_numeral(scheme[key_of(n.q, n.mid)], n.roman)
+                if entry:
+                    borrowed.add(key_of(n.q, n.mid))
             if entry is None and n.roman is None and not n.children:
                 finer = [k for k in scheme if k.startswith(f"{n.q}|{n.mid or ''}|") and k != n.key]
                 if finer and not any(p_.key in finer for q_ in questions for p_, _ in leaves(q_)):

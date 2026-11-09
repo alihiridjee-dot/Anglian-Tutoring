@@ -363,6 +363,18 @@ class MisprintedKeys(unittest.TestCase):
         self.assertIsNone(X.misprinted_key("edexcel", scheme, X.Node(8, "a", "iv")))
 
 
+class ListedNumerals(unittest.TestCase):
+    def test_a_lettered_cell_listing_its_numerals(self):
+        cell = {"answer": "(i) planet (1)\n(ii) satellite (1)\n(iii) star (1)", "guidance": "in this order",
+                "ao": "", "marks": [3], "pages": [8], "ao_codes": [], "picture": False, "max": []}
+        two = X.listed_numeral(cell, "ii")
+        self.assertEqual((two["answer"], two["guidance"], two["marks"]), ("(ii) satellite (1)", "in this order", [1]))
+        self.assertIsNone(X.listed_numeral(cell, "iv"))
+        # Text before the first numeral, or numerals out of order, is not such a list.
+        self.assertIsNone(X.listed_numeral({**cell, "answer": "any two from\n(i) a\n(ii) b"}, "i"))
+        self.assertIsNone(X.listed_numeral({**cell, "answer": "(ii) a\n(iii) b"}, "ii"))
+
+
 class SpecRefs(unittest.TestCase):
     def test_spec_refs_printed_in_the_ao_column(self):
         self.assertEqual(X.printed_spec_refs({"ao": "AO3 4.4.2.5 RPA2"}), ["4.4.2.5"])
