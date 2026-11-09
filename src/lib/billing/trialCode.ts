@@ -9,8 +9,29 @@ import type { TrialCodePayload } from "../../../supabase/functions/_shared/contr
  * and allowed for this student is decided by stripe-checkout, never by this.
  */
 
-/** Days a trial code gives. Mirrors TRIAL_DAYS in supabase/functions/_shared/trialCode.ts. */
+/**
+ * Days a standard trial code gives (the landing pop-up's). Mirrors TRIAL_DAYS in
+ * supabase/functions/_shared/trialCode.ts. A code made by hand can give its own
+ * length; the plan page asks the server for it (fetchTrialTerms).
+ */
 export const TRIAL_DAYS = 14;
+
+/** "14 days" or "9 months"; as an adjective, "14-day" or "9-month". */
+export function trialLength(days: number, adjective = false): string {
+  const [n, unit] = days >= 60 ? [Math.round(days / 30.4375), "month"] : [days, "day"];
+  if (adjective) return `${n}-${unit}`;
+  return `${n} ${unit}${n === 1 ? "" : "s"}`;
+}
+
+/**
+ * A typed code with the spaces, dashes and case taken out, once it is long
+ * enough to be one ("AEK7QM3XPD" or "K7QM3XPD"), else null. Only decides when
+ * to ask the server; the server decides what is a code.
+ */
+export function typedTrialCode(raw: string): string | null {
+  const bare = raw.toUpperCase().replace(/[^A-Z0-9]/g, "");
+  return bare.length === 8 || (bare.length === 10 && bare.startsWith("AE")) ? bare : null;
+}
 
 /** Until then a trial takes no card. Mirrors NO_CARD_TRIALS_UNTIL in the same file under supabase/. */
 export const NO_CARD_TRIALS_UNTIL = Date.parse("2026-10-12T00:00:00+01:00");

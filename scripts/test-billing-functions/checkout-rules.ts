@@ -376,4 +376,50 @@ assert.equal(
   "https://app.test/onboarding/plan?checkout=success&session_id={CHECKOUT_SESSION_ID}",
 );
 
+// ── A trial code gives its own length, and can skip the card ───────────────
+// Ali, 9 Nov 2026: nine-month codes taking no card. A code with no length of
+// its own is the standard 14 days with a card, as before.
+const trialWorld = () => {
+  world({ payer: CHILD });
+  DB.tables.subscriptions = [];
+  table("trial_codes").push(
+    { code: "AE-LONG-NNNN", trial_days: 274, needs_card: false, redeemed_at: null },
+    { code: "AE-STDD-CCCC", trial_days: null, needs_card: true, redeemed_at: null },
+    { code: "AE-USED-UUUU", trial_days: null, needs_card: true, redeemed_at: "2026-11-01" },
+  );
+};
+trialWorld();
+r = await call(CHILD, { action: "checkout", tier: "monthly_1", trial_code: "ae long nnnn" });
+assert.equal(r.status, 200, JSON.stringify(r.body));
+let s = [...STRIPE.sessions.values()].at(-1);
+assert.equal(s.subscription_data.trial_period_days, 274);
+assert.equal(s.payment_method_collection, "if_required", "A no-card code asked for a card");
+assert.equal(s.subscription_data.trial_settings.end_behavior.missing_payment_method, "cancel");
+assert.equal(table("trial_codes")[0].checkout_session_id, s.id, "The code wasn't held");
+
+trialWorld();
+r = await call(CHILD, { action: "checkout", tier: "monthly_1", trial_code: "AE-STDD-CCCC" });
+assert.equal(r.status, 200, JSON.stringify(r.body));
+s = [...STRIPE.sessions.values()].at(-1);
+assert.equal(s.subscription_data.trial_period_days, 14);
+assert.equal(s.payment_method_collection, "always", "A standard code stopped taking a card");
+assert.equal(s.subscription_data.trial_settings, undefined);
+
+// The plan page asks first, and is told no more than Checkout would say.
+trialWorld();
+r = await call(CHILD, { action: "trial_terms", trial_code: "AE-LONG-NNNN" });
+assert.deepEqual(r.body, { days: 274, needs_card: false });
+r = await call(CHILD, { action: "trial_terms", trial_code: "AE-STDD-CCCC" });
+assert.deepEqual(r.body, { days: 14, needs_card: true });
+r = await call(CHILD, { action: "trial_terms", trial_code: "AE-USED-UUUU" });
+assert.equal(r.status, 409);
+assert.equal(r.body.error, "That trial code has already been used.");
+for (const bad of ["AE-NOPE-NNNN", "nonsense", 42]) {
+  r = await call(CHILD, { action: "trial_terms", trial_code: bad });
+  assert.equal(r.status, 400, `${bad}: ${JSON.stringify(r.body)}`);
+}
+r = await call("nobody", { action: "trial_terms", trial_code: "AE-LONG-NNNN" });
+assert.equal(r.status, 401, "A stranger could look codes up");
+assert.equal(STRIPE.calls.length, 0, "Looking a code up called Stripe");
+
 console.log("checkout rules: all checks passed");
