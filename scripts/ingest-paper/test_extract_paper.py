@@ -375,6 +375,49 @@ class ListedNumerals(unittest.TestCase):
         self.assertIsNone(X.listed_numeral({**cell, "answer": "(ii) a\n(iii) b"}, "ii"))
 
 
+class Misprints(unittest.TestCase):
+    def test_aqa_label_with_its_part_number_missing(self):
+        self.assertEqual(X.ms_key("aqa", "06.", (5, None))[0], "6||")
+        self.assertEqual(X.misprinted_key("aqa", {"6||": {}, "6|2|": {}}, X.Node(6, 1)), "6||")
+        self.assertIsNone(X.misprinted_key("aqa", {"6||": {}}, X.Node(6, 1)))
+
+    def test_aqa_label_with_a_space_for_its_dot(self):
+        texts = HEADER + [(48, 150, "03.3"), (108, 150, "[H+] = [OH-]"), (450, 150, "1"),
+                          (48, 190, "03 4"), (108, 190, "[OH-] = 0.0262"), (450, 190, "3")]
+        ms = X.parse_ms(scheme_doc([(texts, grid(110, 260, [130, 170]))]), "aqa")
+        self.assertEqual(ms["3|4|"]["answer"], "[OH-] = 0.0262")
+        self.assertNotIn("34||", ms)
+
+    def test_a_label_repeated_mid_page_is_kept_apart(self):
+        texts = OCR_HEADER + [(48, 150, "18 (a) (i)"), (150, 150, "Aorta"), (450, 150, "1"),
+                              (75, 180, "(ii)"), (150, 180, "Translocation"), (450, 180, "1"),
+                              (75, 210, "(ii)"), (150, 210, "Vena cava"), (450, 210, "1")]
+        ms = X.parse_ms(scheme_doc([(texts, OCR_RULES + [(102, v, 550, v) for v in (165, 195)])]), "ocr")
+        self.assertEqual(ms["18|a|ii"]["answer"], "Translocation")
+        self.assertEqual(ms["18|a|ii#18|a|ii"]["answer"], "Vena cava")
+        # OCR's numbered items "(ii)1", "(ii)2" are one part's, in order.
+        items = OCR_HEADER + [(48, 150, "2 (b) (i)"), (150, 150, "first"), (450, 150, "1"),
+                              (75, 180, "(ii)1"), (150, 180, "item one"), (75, 210, "(ii)2"), (150, 210, "item two")]
+        ms = X.parse_ms(scheme_doc([(items, OCR_RULES + [(102, v, 550, v) for v in (165, 195)])]), "ocr")
+        self.assertEqual(ms["2|b|ii"]["answer"], "1 item one\n2 item two")
+        # Reprinted at the top of the next page, it continues its part.
+        page2 = ([(48, 122, "Question"), (75, 150, "(ii)"), (150, 150, "more of (ii)")], OCR_RULES)
+        ms = X.parse_ms(scheme_doc([(texts[:-3], OCR_RULES + [(102, 165, 550, 165)]), page2]), "ocr")
+        self.assertIn("more of (ii)", ms["18|a|ii"]["answer"])
+
+    def test_a_repeat_goes_to_the_next_part_only_if_it_has_none(self):
+        e = lambda a: {"answer": a, "guidance": "", "ao": "", "marks": [1], "pages": [8], "ao_codes": [],
+                       "picture": False, "max": []}
+        scheme = {"1|h|i": e("gradient"), "1|h|ii": e("q0"), "1|h|i#1|h|ii": e("percentage error")}
+        X.place_repeats(scheme, ["1|h|i", "1|h|ii", "1|i|", "2|a|"])
+        self.assertEqual(scheme["1|i|"]["answer"], "percentage error")
+        scheme = {"1|h|i": e("gradient"), "1|h|ii": e("q0"), "1|i|": e("own"), "1|h|i#1|h|ii": e("more")}
+        X.place_repeats(scheme, ["1|h|i", "1|h|ii", "1|i|"])
+        self.assertEqual(scheme["1|h|i"]["answer"], "gradient\nmore")
+        self.assertEqual(scheme["1|i|"]["answer"], "own")
+        self.assertFalse(any("#" in k for k in scheme))
+
+
 class SpecRefs(unittest.TestCase):
     def test_spec_refs_printed_in_the_ao_column(self):
         self.assertEqual(X.printed_spec_refs({"ao": "AO3 4.4.2.5 RPA2"}), ["4.4.2.5"])

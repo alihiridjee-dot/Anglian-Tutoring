@@ -1179,6 +1179,7 @@ def ms_key(board, qtext, last):
     t = re.sub(r"\s+", " ", qtext).strip()
     t = re.sub(r"^\^(?=\d|\()", "", t)          # a label set a little high ("^2(b)(ii)", "^(c)")
     if board == "aqa":
+        t = re.sub(r"^(\d\s?\d)\s?\.(?=\s|$)", r"\1", t)       # "06." with its part number missing
         m = MS_LABEL_AQA.match(t)
         if not m:
             return None
@@ -1310,6 +1311,7 @@ def parse_ms(doc, board):
                                         "ao_codes": set(), "picture": False, "max": []})
 
     for page in doc:
+        on_page = 0                                # labels read on this page so far
         lines = visual_lines(page)
         if MS_BACK_PAGE.search(page.get_text()) and not any(header_cells(l) for l in lines):
             continue                                    # the board's back page, not a scheme
@@ -1392,6 +1394,12 @@ def parse_ms(doc, board):
                     q = f"({m.group(1)}) {q}"
                     split[j]["question"] = ""
                 found = ms_key(board, q, last) if q else None
+                # AQA can drop a label's dot: "03 4" (read as question 34) is
+                # 03.4 when that is the next part of question 3.
+                m = re.fullmatch(r"0(\d)\s(\d)", q) if board == "aqa" and last[0] is not None else None
+                if m and int(m.group(1)) == last[0] and key_of(last[0], int(m.group(2))) not in entries \
+                        and key_of(last[0], int(m.group(2)) - 1) in entries:
+                    found = (key_of(last[0], int(m.group(2))), (last[0], None), "")
                 if found and found[0].endswith("||"):
                     # "2" alone is a question's own label only before any of
                     # its parts; after them, or as 0, it is a number in the column.
@@ -1414,7 +1422,20 @@ def parse_ms(doc, board):
                     if fq < last[0] and found[0] in entries and key_of(last[0], fmid - 1) in entries \
                             and key_of(last[0], fmid) not in entries:
                         found = (key_of(last[0], fmid), (last[0], None), found[2])
+                # A label printed again lower on the same page ("(ii)" twice,
+                # "1(h)(i)" after (h)(ii)) is most likely a misprint for the part
+                # after the one in hand: keep it apart, as "label#part in hand",
+                # and extract() gives it to that next part if it has no entry of
+                # its own, or puts it back under its label. (A label reprinted at
+                # the top of a page continues its part.)
+                # (OCR's numbered items "(ii)1", "(ii)2" are one part's.)
+                if found and board != "aqa" and on_page and found[0] in entries and \
+                        not re.match(r"\(\s*(?:i{1,3}|iv|vi{0,3}|ix|x)\s*\)[1-9](?=\s|$)", q):
+                    inhand = next(reversed(entries))
+                    rep = inhand if inhand.split("#")[0] == found[0] and "#" in inhand else f"{found[0]}#{inhand}"
+                    found = (rep, found[1], found[2])
                 if found:
+                    on_page += 1
                     labels.append((i, found))
                     last = found[1]
                     parts["question"] = ""
@@ -1728,7 +1749,41 @@ def misprinted_key(board, scheme, n):
         return key_of(n.q, "a")
     if n.roman == "i" and key_of(n.q, n.mid) in scheme and key_of(n.q, n.mid, "ii") in scheme:
         return key_of(n.q, n.mid)
+    # ...and "06." where 06.1 is due, then "06.2".
+    second = {1: 2, "a": "b"}.get(n.mid)
+    if second and n.roman is None and key_of(n.q) in scheme and key_of(n.q, second) in scheme:
+        return key_of(n.q)
     return None
+
+
+def merge_entries(a, b):
+    return {"answer": "\n".join(x for x in (a["answer"], b["answer"]) if x),
+            "guidance": "\n".join(x for x in (a["guidance"], b["guidance"]) if x),
+            "ao": " ".join(x for x in (a["ao"], b["ao"]) if x), "marks": a["marks"] + b["marks"],
+            "pages": sorted(set(a["pages"]) | set(b["pages"])),
+            "ao_codes": sorted(set(a["ao_codes"]) | set(b["ao_codes"])),
+            "picture": a["picture"] or b["picture"], "max": a["max"] + b["max"]}
+
+
+def place_repeats(scheme, order):
+    """Give each label repeated mid-page ("label#part in hand") to the part
+    after the one in hand when that part has no entry of its own; otherwise it
+    goes back under its label."""
+    for k in [k for k in scheme if "#" in k]:
+        rep = scheme.pop(k)
+        base, after = k.split("#", 1)
+        after = after.split("#")[0]
+        i = order.index(after) if after in order else -1
+        nxt = order[i + 1] if 0 <= i < len(order) - 1 else None
+        q, mid, _ = (nxt or "||").split("|")
+        own = nxt in scheme or any(o.split("|")[:2] == [q, mid] and o.split("|")[2] for o in scheme
+                                   if nxt and not nxt.split("|")[2])
+        if nxt and not own:
+            scheme[nxt] = rep
+        elif base in scheme:
+            scheme[base] = merge_entries(scheme[base], rep)
+        else:
+            scheme[base] = rep
 
 
 NUMERAL_ITEM = re.compile(r"^\(\s*(i{1,3}|iv|vi{0,3}|ix|x)\s*\)\s*")
@@ -1759,6 +1814,7 @@ def extract(qp_path, ms_path):
     damaged = [name for name, doc in (("question paper", qp), ("mark scheme", ms)) if text_damaged(doc)]
     scheme = parse_ms(ms, board)
     questions, totals, cover_total, one_mark_each = parse_qp(qp, board, frozenset(scheme))
+    place_repeats(scheme, [n.key for q in questions for n, _ in leaves(q)])
     # Marks the paper states somewhere other than beside the part: a multiple
     # choice paper that scores one mark each, or a question whose only unmarked
     # part takes what is left of the question's stated total.
