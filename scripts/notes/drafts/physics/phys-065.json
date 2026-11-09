@@ -305,10 +305,19 @@
               "type": "equation",
               "label": "Wave speed from distance and time",
               "formula": "wave speed = distance ÷ time",
-              "where": [
-                "wave speed, in metres per second (m/s)",
-                "distance, in metres (m)",
-                "time, in seconds (s)"
+              "arrows": [
+                {
+                  "point": "wave speed",
+                  "label": "Metres per second (m/s)"
+                },
+                {
+                  "point": "distance",
+                  "label": "Metres (m)"
+                },
+                {
+                  "point": "time",
+                  "label": "Seconds (s)"
+                }
               ]
             },
             {
@@ -424,7 +433,7 @@
       "08560f53-ca04-449a-abaa-a1ef22ea0c6b",
       "c6be8e98-170f-45aa-aaef-4627bcae4a40"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

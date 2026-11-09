@@ -42,8 +42,11 @@
           "type": "equation",
           "label": "Rusting of iron",
           "formula": "iron + oxygen + water → hydrated iron(III) oxide (rust)",
-          "where": [
-            "Both oxygen and water must be present."
+          "arrows": [
+            {
+              "point": "oxygen + water",
+              "label": "Both must be present"
+            }
           ]
         },
         {
@@ -52,45 +55,27 @@
             "kind": "predictor",
             "alt": "Pick the conditions for an iron nail and see whether it rusts.",
             "prompt": "Pick the conditions around an iron nail",
-            "result_labels": [
-              "Does the nail rust?",
-              "Why"
-            ],
+            "result_labels": ["Does the nail rust?", "Why"],
             "options": [
               {
                 "label": "Air and water",
-                "results": [
-                  "Yes",
-                  "Both oxygen and water are present."
-                ]
+                "results": ["Yes", "Both oxygen and water are present."]
               },
               {
                 "label": "Air only (drying agent in a stoppered tube)",
-                "results": [
-                  "No",
-                  "There is no water."
-                ]
+                "results": ["No", "There is no water."]
               },
               {
                 "label": "Water only (boiled water with a layer of oil)",
-                "results": [
-                  "No",
-                  "Boiling removes dissolved air and the oil stops air getting in."
-                ]
+                "results": ["No", "Boiling removes dissolved air and the oil stops air getting in."]
               },
               {
                 "label": "Air and water, nail coated in paint",
-                "results": [
-                  "No",
-                  "The paint is a barrier to oxygen and water."
-                ]
+                "results": ["No", "The paint is a barrier to oxygen and water."]
               },
               {
                 "label": "Air and water, nail coated in zinc and then scratched",
-                "results": [
-                  "No",
-                  "Zinc is more reactive than iron, so it corrodes instead."
-                ]
+                "results": ["No", "Zinc is more reactive than iron, so it corrodes instead."]
               }
             ]
           }
@@ -158,10 +143,7 @@
             "kind": "sort",
             "alt": "Sort each method of corrosion prevention into barrier or sacrificial protection.",
             "prompt": "Which type of protection is each method?",
-            "groups": [
-              "Barrier",
-              "Sacrificial protection"
-            ],
+            "groups": ["Barrier", "Sacrificial protection"],
             "items": [
               {
                 "text": "Painting a bridge",
@@ -220,9 +202,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.10.3.1"
-      ],
+      "spec_codes": ["AQA 4.10.3.1"],
       "worked_example": {
         "exemplar_id": "439ffd4f-c2fd-4931-85df-099300ec3bed",
         "source": "AQA jun 2019, Paper 2 (F), Q06.1",
@@ -239,11 +219,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.2C",
-        "EDEX 5.3C",
-        "EDEX 5.4C"
-      ],
+      "spec_codes": ["EDEX 5.2C", "EDEX 5.3C", "EDEX 5.4C"],
       "worked_example": {
         "exemplar_id": "3bdcc0b8-ec69-4c91-a687-fc2eb6014d2f",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q1(c)",
@@ -273,10 +249,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.1p",
-        "OCR C6.1q"
-      ],
+      "spec_codes": ["OCR C6.1p", "OCR C6.1q"],
       "worked_example": {
         "exemplar_id": "e4c5c224-d7cc-4e8e-89ef-69a06238154a",
         "source": "OCR sample null, Paper 4, Q24(b)",
@@ -298,8 +271,11 @@
               "type": "equation",
               "label": "Rusting of iron",
               "formula": "4Fe(s) + 6H₂O(l) + 3O₂(g) → 2Fe₂O₃·3H₂O(s)",
-              "where": [
-                "Fe₂O₃·3H₂O = hydrated iron(III) oxide, which is rust"
+              "arrows": [
+                {
+                  "point": "Fe₂O₃·3H₂O",
+                  "label": "Hydrated iron(III) oxide: rust"
+                }
               ]
             },
             {
@@ -368,10 +344,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 2.18",
-        "IGCSE 2.19"
-      ],
+      "spec_codes": ["IGCSE 2.18", "IGCSE 2.19"],
       "worked_example": {
         "exemplar_id": "c4e0c0b1-e219-463c-b70d-2458edaa390f",
         "source": "EDEXCEL jun 2023, Paper 1 (CR), Q5(b)(iii)",
@@ -411,7 +384,7 @@
       "772d5a31-013c-4501-bd2c-7c58f2ef1554",
       "c4e0c0b1-e219-463c-b70d-2458edaa390f"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

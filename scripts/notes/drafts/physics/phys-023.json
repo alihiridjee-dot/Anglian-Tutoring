@@ -121,10 +121,20 @@
           "type": "equation",
           "label": "Density",
           "formula": "density = mass ÷ volume    (ρ = m ÷ V)",
-          "where": [
-            "density, ρ, in kilograms per metre cubed, kg/m³",
-            "mass, m, in kilograms, kg",
-            "volume, V, in metres cubed, m³"
+          "arrows": [
+            {
+              "point": "ρ",
+              "label": "Density (kg/m³)"
+            },
+            {
+              "point": "m",
+              "in": "m ÷ V",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "V",
+              "label": "Volume (m³)"
+            }
           ]
         },
         {
@@ -512,7 +522,7 @@
       "608cfb39-d7cb-4f93-85f6-eb96de15c409",
       "2ac0d615-07ab-43e5-b6cf-69e71a902aea"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

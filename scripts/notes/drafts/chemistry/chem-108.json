@@ -27,11 +27,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Change",
-            "Effect on rate",
-            "Effect on equilibrium yield of ammonia"
-          ],
+          "columns": ["Change", "Effect on rate", "Effect on equilibrium yield of ammonia"],
           "rows": [
             [
               "Higher temperature",
@@ -87,19 +83,11 @@
             "kind": "predictor",
             "alt": "Pick a change to the Haber process conditions and see the effect on rate, yield and cost.",
             "prompt": "Pick a change to the Haber process conditions",
-            "result_labels": [
-              "Rate of reaction",
-              "Equilibrium yield of ammonia",
-              "Cost"
-            ],
+            "result_labels": ["Rate of reaction", "Equilibrium yield of ammonia", "Cost"],
             "options": [
               {
                 "label": "Raise the temperature above 450 °C",
-                "results": [
-                  "Faster",
-                  "Lower",
-                  "More energy is used, so costs increase"
-                ]
+                "results": ["Faster", "Lower", "More energy is used, so costs increase"]
               },
               {
                 "label": "Lower the temperature",
@@ -127,11 +115,7 @@
               },
               {
                 "label": "Use an iron catalyst",
-                "results": [
-                  "Faster",
-                  "No change",
-                  "Reduces energy costs"
-                ]
+                "results": ["Faster", "No change", "Reduces energy costs"]
               }
             ]
           }
@@ -206,9 +190,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.10.4.1"
-      ],
+      "spec_codes": ["AQA 4.10.4.1"],
       "worked_example": {
         "exemplar_id": "2e0d3b68-5111-4e6e-8d49-9fbac85d1dc4",
         "source": "AQA jun 2022, Paper 2 (H), Q07.6",
@@ -240,10 +222,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 5.20C",
-        "EDEX 5.21C"
-      ],
+      "spec_codes": ["EDEX 5.20C", "EDEX 5.21C"],
       "worked_example": {
         "exemplar_id": "baeab4b8-30ef-460a-950f-69aa41f77959",
         "source": "EDEXCEL nov 2020, Paper 1 (H), Q10(a)(iii)",
@@ -276,11 +255,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.1d",
-        "OCR C6.1e",
-        "OCR C6.1f"
-      ],
+      "spec_codes": ["OCR C6.1d", "OCR C6.1e", "OCR C6.1f"],
       "worked_example": {
         "exemplar_id": "d65c0534-0f83-4c91-af4d-257be32e3066",
         "source": "OCR nov 2021, Paper 4, Q22(b)",
@@ -306,9 +281,24 @@
               "type": "equation",
               "label": "The Contact process",
               "formula": "2SO₂ + O₂ ⇌ 2SO₃",
-              "where": [
-                "SO₂ = sulfur dioxide, O₂ = oxygen, SO₃ = sulfur trioxide",
-                "the forward reaction is exothermic"
+              "arrows": [
+                {
+                  "point": "SO₂",
+                  "label": "Sulfur dioxide"
+                },
+                {
+                  "point": "O₂",
+                  "in": "+ O₂",
+                  "label": "Oxygen"
+                },
+                {
+                  "point": "⇌",
+                  "label": "Forward reaction is exothermic"
+                },
+                {
+                  "point": "SO₃",
+                  "label": "Sulfur trioxide"
+                }
               ]
             },
             {
@@ -336,9 +326,7 @@
       ]
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 6.3.11S"
-      ],
+      "spec_codes": ["CAIE 6.3.11S"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -351,8 +339,13 @@
               "type": "equation",
               "label": "Contact process, stage 2",
               "formula": "2SO₂(g) + O₂(g) ⇌ 2SO₃(g)",
+              "arrows": [
+                {
+                  "point": "⇌",
+                  "label": "Forward reaction is exothermic"
+                }
+              ],
               "where": [
-                "The forward reaction is exothermic.",
                 "The typical conditions are 450 °C, 2 atmospheres and a vanadium(V) oxide catalyst."
               ]
             },
@@ -399,7 +392,7 @@
       "d65c0534-0f83-4c91-af4d-257be32e3066",
       "b7009332-1d1f-43b0-88d6-716e68cdd431"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

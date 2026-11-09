@@ -118,10 +118,19 @@
           "type": "equation",
           "label": "Inverse square law",
           "formula": "light intensity ∝ 1 ÷ d²",
-          "where": [
-            "light intensity, in arbitrary units",
-            "d is the distance from the light source, in cm",
-            "∝ means \"is proportional to\""
+          "arrows": [
+            {
+              "point": "light intensity",
+              "label": "Arbitrary units"
+            },
+            {
+              "point": "∝",
+              "label": "Is proportional to"
+            },
+            {
+              "point": "d",
+              "label": "Distance from the light source (cm)"
+            }
           ]
         },
         {
@@ -247,9 +256,7 @@
         "source": "AQA jun 2024, Paper 1 (H), Q07.9",
         "question": "Photosynthesis investigations often use a light source. The spreading out of light from a source obeys the inverse square law. The inverse square law links light intensity to distance from the light source.\n\nWhich of the following shows the inverse square law?\n\nTick one box.\n\nlight intensity is proportional to 1/distance²\nlight intensity is proportional to distance²\n1/(light intensity)² is proportional to distance²\n1/(light intensity)² is proportional to 1/distance²",
         "marks": 1,
-        "answer_points": [
-          "Light intensity is proportional to 1/distance²."
-        ],
+        "answer_points": ["Light intensity is proportional to 1/distance²."],
         "tip": "Only this box scores the mark. Light intensity falls as the distance rises, so the distance squared goes on the bottom of the fraction. Doubling the distance makes the light intensity a quarter, because 1/2² = 1/4."
       }
     },
@@ -329,7 +336,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "spec_point_ids": [
       "6d5b8f89-d9dc-419a-8890-30a6f5fefe9e",

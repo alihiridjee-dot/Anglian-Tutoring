@@ -65,11 +65,7 @@
           "type": "equation",
           "label": "Mass of mycoprotein for the same protein",
           "formula": "mass of mycoprotein = (protein in 100 g of meat ÷ protein in 100 g of mycoprotein) × 100",
-          "where": [
-            "mass of mycoprotein, in g",
-            "protein in 100 g of meat, in g",
-            "protein in 100 g of mycoprotein, in g"
-          ]
+          "where": ["All masses in grams (g)."]
         },
         {
           "type": "diagram",
@@ -96,10 +92,7 @@
               "unit": "g",
               "decimals": 0
             },
-            "working": [
-              "Mass of mycoprotein = {P} ÷ {Q} × 100",
-              "= {answer} g"
-            ]
+            "working": ["Mass of mycoprotein = {P} ÷ {Q} × 100", "= {answer} g"]
           }
         },
         {
@@ -141,10 +134,7 @@
             "kind": "sort",
             "alt": "Sort statements about insect-resistant GM crops into advantages and disadvantages.",
             "prompt": "Advantage or disadvantage of insect-resistant GM crops?",
-            "groups": [
-              "Advantage",
-              "Disadvantage"
-            ],
+            "groups": ["Advantage", "Disadvantage"],
             "items": [
               {
                 "text": "Less crop damage, so a higher yield",
@@ -218,9 +208,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.15"
-      ],
+      "spec_codes": ["AQA 7.15"],
       "worked_example": {
         "exemplar_id": "399efa44-2d51-48b6-82d7-ecc91f7b17a4",
         "source": "AQA jun 2018, Paper 2 (F), Q07.1",
@@ -251,9 +239,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 4.12B"
-      ],
+      "spec_codes": ["EDEX 4.12B"],
       "worked_example": {
         "exemplar_id": "52526374-47a3-48fd-8420-51dd283f0ee8",
         "source": "EDEXCEL nov 2021, Paper 1 (F), Q7(c)",
@@ -288,9 +274,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.2g"
-      ],
+      "spec_codes": ["OCR 6.2g"],
       "worked_example": {
         "exemplar_id": "92a20a45-ec72-4f09-ad77-2606c0c0d420",
         "source": "OCR jun 2019, Paper 2, Q17(b)(ii)",
@@ -328,10 +312,7 @@
       ]
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 21.2.6S",
-        "CAIE 21.2.7S"
-      ],
+      "spec_codes": ["CAIE 21.2.6S", "CAIE 21.2.7S"],
       "worked_example": {
         "exemplar_id": "f84da997-d329-4e0e-93fb-0b2732cb4715",
         "source": "CAMBRIDGE nov 2024, Paper 41, Q6(c)(ii)",
@@ -368,10 +349,7 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Condition",
-                "Why it is controlled"
-              ],
+              "columns": ["Condition", "Why it is controlled"],
               "rows": [
                 [
                   "Temperature",
@@ -400,9 +378,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 5.8"
-      ],
+      "spec_codes": ["IGCSE 5.8"],
       "worked_example": {
         "exemplar_id": "7fb81bc0-414b-4b0f-8616-64faf2645ee5",
         "source": "EDEXCEL jun 2023, Paper 1 (B), Q8(d)(i)",
@@ -441,7 +417,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27",
     "status": "draft",
     "written_by": "sonnet-5-5",

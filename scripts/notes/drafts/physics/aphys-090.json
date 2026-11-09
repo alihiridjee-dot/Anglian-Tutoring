@@ -29,19 +29,34 @@
           "type": "equation",
           "label": "Moment of inertia of a point mass",
           "formula": "I = mr²",
-          "where": [
-            "I = moment of inertia (kg m²)",
-            "m = mass (kg)",
-            "r = distance from the axis (m)"
+          "arrows": [
+            {
+              "point": "I",
+              "label": "Moment of inertia (kg m²)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "r",
+              "label": "Distance from the axis (m)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Moment of inertia of an extended object",
           "formula": "I = Σmr²",
-          "where": [
-            "Add mr² for every small piece of the object.",
-            "Each piece has its own r from the axis."
+          "arrows": [
+            {
+              "point": "Σ",
+              "label": "Add up over every small piece"
+            },
+            {
+              "point": "r",
+              "label": "Each piece's own distance from the axis"
+            }
           ]
         },
         {
@@ -78,10 +93,15 @@
           "type": "equation",
           "label": "Rotational kinetic energy",
           "formula": "Eₖ = ½Iω²",
-          "where": [
-            "Eₖ = kinetic energy (J)",
-            "I = moment of inertia (kg m²)",
-            "ω = angular speed (rad/s)"
+          "arrows": [
+            {
+              "point": "Eₖ",
+              "label": "Kinetic energy (J)"
+            },
+            {
+              "point": "ω",
+              "label": "Angular speed (rad/s)"
+            }
           ]
         },
         {
@@ -181,18 +201,26 @@
           "type": "equation",
           "label": "Angular speed",
           "formula": "ω = Δθ ÷ Δt",
-          "where": [
-            "Δθ = change in angle (rad)",
-            "Δt = time taken (s)"
+          "arrows": [
+            {
+              "point": "Δθ",
+              "label": "Change in angle (rad)"
+            },
+            {
+              "point": "Δt",
+              "label": "Time taken (s)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Angular acceleration",
           "formula": "α = Δω ÷ Δt",
-          "where": [
-            "Δω = change in angular speed (rad/s)",
-            "Δt = time taken (s)"
+          "arrows": [
+            {
+              "point": "Δω",
+              "label": "Change in angular speed (rad/s)"
+            }
           ]
         },
         {
@@ -219,46 +247,20 @@
           "where": [
             "ω₁ = starting angular speed (rad/s)",
             "ω₂ = final angular speed (rad/s)",
-            "α = angular acceleration (rad/s²)",
-            "θ = angle turned (rad)",
             "t = time (s)"
           ]
         },
         {
           "type": "table",
-          "columns": [
-            "Straight-line motion",
-            "Rotational motion"
-          ],
+          "columns": ["Straight-line motion", "Rotational motion"],
           "rows": [
-            [
-              "displacement s",
-              "angular displacement θ"
-            ],
-            [
-              "velocity v",
-              "angular velocity ω"
-            ],
-            [
-              "acceleration a",
-              "angular acceleration α"
-            ],
-            [
-              "mass m",
-              "moment of inertia I"
-            ],
-            [
-              "force F",
-              "torque T"
-            ],
-            [
-              "momentum mv",
-              "angular momentum Iω"
-            ],
-            [
-              "kinetic energy ½mv²",
-              "kinetic energy ½Iω²"
-            ]
+            ["displacement s", "angular displacement θ"],
+            ["velocity v", "angular velocity ω"],
+            ["acceleration a", "angular acceleration α"],
+            ["mass m", "moment of inertia I"],
+            ["force F", "torque T"],
+            ["momentum mv", "angular momentum Iω"],
+            ["kinetic energy ½mv²", "kinetic energy ½Iω²"]
           ]
         },
         {
@@ -282,20 +284,35 @@
           "type": "equation",
           "label": "Torque from a force",
           "formula": "T = Fr",
-          "where": [
-            "T = torque (N m)",
-            "F = force (N)",
-            "r = perpendicular distance from the axis to the line of the force (m)"
-          ]
+          "arrows": [
+            {
+              "point": "T",
+              "label": "Torque (N m)"
+            },
+            {
+              "point": "F",
+              "label": "Force (N)"
+            },
+            {
+              "point": "r",
+              "label": "Perpendicular distance (m)"
+            }
+          ],
+          "where": ["r is measured from the axis to the line of the force"]
         },
         {
           "type": "equation",
           "label": "Torque and angular acceleration",
           "formula": "T = Iα",
-          "where": [
-            "T = resultant torque (N m)",
-            "I = moment of inertia (kg m²)",
-            "α = angular acceleration (rad/s²)"
+          "arrows": [
+            {
+              "point": "T",
+              "label": "Resultant torque (N m)"
+            },
+            {
+              "point": "α",
+              "label": "Angular acceleration (rad/s²)"
+            }
           ]
         },
         {
@@ -323,10 +340,7 @@
               "unit": "rad/s²",
               "decimals": 1
             },
-            "working": [
-              "α = T ÷ I",
-              "α = {T} ÷ {I} = {answer} rad/s²"
-            ]
+            "working": ["α = T ÷ I", "α = {T} ÷ {I} = {answer} rad/s²"]
           }
         },
         {
@@ -337,11 +351,7 @@
           "type": "equation",
           "label": "Angular momentum",
           "formula": "angular momentum = Iω",
-          "where": [
-            "I = moment of inertia (kg m²)",
-            "ω = angular speed (rad/s)",
-            "Unit: kg m² s⁻¹ (kg m² rad/s)"
-          ]
+          "where": ["Unit: kg m² s⁻¹ (kg m² rad/s)"]
         },
         {
           "type": "list",
@@ -356,10 +366,19 @@
           "type": "equation",
           "label": "Angular impulse",
           "formula": "TΔt = Δ(Iω)",
-          "where": [
-            "T = constant torque (N m)",
-            "Δt = time the torque acts (s)",
-            "Δ(Iω) = change in angular momentum"
+          "arrows": [
+            {
+              "point": "T",
+              "label": "Constant torque (N m)"
+            },
+            {
+              "point": "Δt",
+              "label": "Time the torque acts (s)"
+            },
+            {
+              "point": "Δ(Iω)",
+              "label": "Change in angular momentum"
+            }
           ]
         },
         {
@@ -370,20 +389,22 @@
           "type": "equation",
           "label": "Work done by a torque",
           "formula": "W = Tθ",
-          "where": [
-            "W = work done (J)",
-            "T = torque (N m)",
-            "θ = angle turned (rad)"
+          "arrows": [
+            {
+              "point": "W",
+              "label": "Work done (J)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Power of a torque",
           "formula": "P = Tω",
-          "where": [
-            "P = power (W)",
-            "T = torque (N m)",
-            "ω = angular speed (rad/s)"
+          "arrows": [
+            {
+              "point": "P",
+              "label": "Power (W)"
+            }
           ]
         },
         {
@@ -443,7 +464,7 @@
       "c13c404a-7424-4fc6-b02e-130c1ee505f8"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

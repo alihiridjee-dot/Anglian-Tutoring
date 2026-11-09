@@ -219,9 +219,15 @@
           "type": "equation",
           "label": "Rate of photosynthesis",
           "formula": "rate = amount ÷ time",
-          "where": [
-            "amount, for example the number of bubbles or the volume of oxygen in cm³",
-            "time, for example in s or min"
+          "arrows": [
+            {
+              "point": "amount",
+              "label": "Number of bubbles or oxygen volume (cm³)"
+            },
+            {
+              "point": "time",
+              "label": "Seconds (s) or minutes (min)"
+            }
           ]
         },
         {
@@ -325,10 +331,13 @@
               "type": "equation",
               "label": "Light intensity and distance (Higher tier)",
               "formula": "light intensity ∝ 1 ÷ distance²",
-              "where": [
-                "distance is from the lamp to the plant",
-                "doubling the distance divides the light intensity by 4"
-              ]
+              "arrows": [
+                {
+                  "point": "distance",
+                  "label": "From the lamp to the plant"
+                }
+              ],
+              "where": ["doubling the distance divides the light intensity by 4"]
             },
             {
               "type": "list",
@@ -452,7 +461,7 @@
       "20784196-a050-44c4-8d87-8371482a82e7",
       "d549fd98-b688-4dbf-866b-9ee31bb278ba"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

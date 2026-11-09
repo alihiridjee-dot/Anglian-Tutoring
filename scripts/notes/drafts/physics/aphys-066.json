@@ -41,21 +41,35 @@
           "type": "equation",
           "label": "Orbital speed",
           "formula": "v = √(G M / r)",
-          "where": [
-            "v = orbital speed (m/s)",
-            "G = gravitational constant (6.67 × 10⁻¹¹ N m² kg⁻²)",
-            "M = mass of the body being orbited (kg)",
-            "r = orbital radius, from its centre (m)"
-          ]
+          "arrows": [
+            {
+              "point": "v",
+              "label": "Orbital speed (m/s)"
+            },
+            {
+              "point": "G",
+              "label": "Gravitational constant"
+            },
+            {
+              "point": "M",
+              "label": "Mass of the body being orbited (kg)"
+            },
+            {
+              "point": "r",
+              "label": "Orbital radius, from its centre (m)"
+            }
+          ],
+          "where": ["G = 6.67 × 10⁻¹¹ N m² kg⁻²"]
         },
         {
           "type": "equation",
           "label": "Orbital period",
           "formula": "T² = (4π² / G M) r³",
-          "where": [
-            "T = orbital period (s)",
-            "M = mass of the body being orbited (kg)",
-            "r = orbital radius (m)"
+          "arrows": [
+            {
+              "point": "T",
+              "label": "Orbital period (s)"
+            }
           ]
         },
         {
@@ -118,27 +132,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Energy",
-            "Expression",
-            "Sign"
-          ],
+          "columns": ["Energy", "Expression", "Sign"],
           "rows": [
-            [
-              "Kinetic",
-              "½mv² = GMm / 2r",
-              "Positive"
-            ],
-            [
-              "Potential",
-              "−GMm / r",
-              "Negative"
-            ],
-            [
-              "Total",
-              "−GMm / 2r",
-              "Negative"
-            ]
+            ["Kinetic", "½mv² = GMm / 2r", "Positive"],
+            ["Potential", "−GMm / r", "Negative"],
+            ["Total", "−GMm / 2r", "Negative"]
           ]
         },
         {
@@ -195,24 +193,15 @@
           "diagram": {
             "kind": "compare",
             "alt": "A comparison of low orbit and geostationary orbit satellites.",
-            "items": [
-              "Low orbit",
-              "Geostationary"
-            ],
+            "items": ["Low orbit", "Geostationary"],
             "rows": [
               {
                 "feature": "Height",
-                "values": [
-                  "A few hundred km",
-                  "About 36 000 km"
-                ]
+                "values": ["A few hundred km", "About 36 000 km"]
               },
               {
                 "feature": "Period",
-                "values": [
-                  "About 90 minutes",
-                  "24 hours"
-                ]
+                "values": ["About 90 minutes", "24 hours"]
               },
               {
                 "feature": "Position",
@@ -261,29 +250,16 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.2.4"
-      ]
+      "spec_codes": ["AQA 3.7.2.4"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 12.180"
-      ]
+      "spec_codes": ["EDEX 12.180"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 13.2.3",
-        "CAIE 13.2.4"
-      ]
+      "spec_codes": ["CAIE 13.2.3", "CAIE 13.2.4"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.4.3a",
-        "OCR 5.4.3b",
-        "OCR 5.4.3c",
-        "OCR 5.4.3d",
-        "OCR 5.4.3e"
-      ],
+      "spec_codes": ["OCR 5.4.3a", "OCR 5.4.3b", "OCR 5.4.3c", "OCR 5.4.3d", "OCR 5.4.3e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -323,7 +299,7 @@
       "12a20df4-59c5-43f0-9849-b59b92ed7fe9"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

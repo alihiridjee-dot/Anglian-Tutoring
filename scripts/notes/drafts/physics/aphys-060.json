@@ -15,19 +15,50 @@
         {
           "type": "definitions",
           "items": [
-            { "term": "Displacement, x", "meaning": "The distance and direction of the object from its equilibrium position." },
-            { "term": "Amplitude, A", "meaning": "The maximum displacement from the equilibrium position." },
-            { "term": "Period, T", "meaning": "The time for one complete oscillation." },
-            { "term": "Frequency, f", "meaning": "The number of complete oscillations per second." },
-            { "term": "Angular frequency, ω", "meaning": "2π times the frequency; the rate of change of phase angle, in rad/s." },
-            { "term": "Phase difference", "meaning": "How far one oscillation is ahead of or behind another, as a fraction of a cycle or an angle in radians." }
+            {
+              "term": "Displacement, x",
+              "meaning": "The distance and direction of the object from its equilibrium position."
+            },
+            {
+              "term": "Amplitude, A",
+              "meaning": "The maximum displacement from the equilibrium position."
+            },
+            {
+              "term": "Period, T",
+              "meaning": "The time for one complete oscillation."
+            },
+            {
+              "term": "Frequency, f",
+              "meaning": "The number of complete oscillations per second."
+            },
+            {
+              "term": "Angular frequency, ω",
+              "meaning": "2π times the frequency; the rate of change of phase angle, in rad/s."
+            },
+            {
+              "term": "Phase difference",
+              "meaning": "How far one oscillation is ahead of or behind another, as a fraction of a cycle or an angle in radians."
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Period, frequency and angular frequency",
           "formula": "T = 1 / f = 2π / ω",
-          "where": ["T = period (s)", "f = frequency (Hz)", "ω = angular frequency (rad/s), with ω = 2πf"]
+          "arrows": [
+            {
+              "point": "T",
+              "label": "Period (s)"
+            },
+            {
+              "point": "f",
+              "label": "Frequency (Hz)"
+            },
+            {
+              "point": "ω",
+              "label": "Angular frequency (rad/s)"
+            }
+          ]
         },
         {
           "type": "list",
@@ -58,13 +89,29 @@
           "type": "equation",
           "label": "Defining equation of SHM",
           "formula": "a = −ω²x",
-          "where": ["a = acceleration (m/s²)", "ω = angular frequency (rad/s)", "x = displacement from equilibrium (m)"]
+          "arrows": [
+            {
+              "point": "a",
+              "label": "Acceleration (m/s²)"
+            },
+            {
+              "point": "−",
+              "label": "a is opposite to x, towards equilibrium"
+            },
+            {
+              "point": "ω",
+              "label": "Angular frequency (rad/s)"
+            },
+            {
+              "point": "x",
+              "label": "Displacement from equilibrium (m)"
+            }
+          ]
         },
         {
           "type": "list",
           "items": [
             "The acceleration is **proportional to the displacement**.",
-            "The minus sign means it is always in the opposite direction, towards the equilibrium position.",
             "The acceleration is zero at the centre and largest at the ends.",
             "ω² is the constant of proportionality, so ω fixes the period: T = 2π / ω."
           ]
@@ -94,7 +141,20 @@
           "type": "equation",
           "label": "Displacement, starting from maximum displacement",
           "formula": "x = A cos ωt",
-          "where": ["x = displacement (m)", "A = amplitude (m)", "ω = angular frequency (rad/s)", "t = time (s)"]
+          "arrows": [
+            {
+              "point": "x",
+              "label": "Displacement (m)"
+            },
+            {
+              "point": "A",
+              "label": "Amplitude (m)"
+            },
+            {
+              "point": "t",
+              "label": "Time (s)"
+            }
+          ]
         },
         {
           "type": "paragraph",
@@ -104,13 +164,31 @@
           "type": "equation",
           "label": "Velocity and acceleration against time",
           "formula": "v = −Aω sin ωt     a = −Aω² cos ωt",
-          "where": ["v = velocity (m/s)", "a = acceleration (m/s²)"]
+          "arrows": [
+            {
+              "point": "v",
+              "label": "Velocity (m/s)"
+            },
+            {
+              "point": "a",
+              "label": "Acceleration (m/s²)"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "Velocity at a given displacement",
           "formula": "v = ±ω√(A² − x²)",
-          "where": ["v = speed at displacement x (m/s)", "± = either direction of travel"]
+          "arrows": [
+            {
+              "point": "v",
+              "label": "Speed at displacement x (m/s)"
+            },
+            {
+              "point": "±",
+              "label": "Either direction of travel"
+            }
+          ]
         },
         {
           "type": "list",
@@ -128,16 +206,31 @@
             "alt": "A practice question. Find the speed of an oscillator at a given displacement using v = ω√(A² − x²).",
             "question": "An oscillator has amplitude {A} m and angular frequency {w} rad/s. Calculate its speed when its displacement is {x} m.",
             "variables": [
-              { "id": "A", "min": 0.05, "max": 0.2, "step": 0.05 },
-              { "id": "w", "min": 2, "max": 10, "step": 1 },
-              { "id": "x", "min": 0.01, "max": 0.04, "step": 0.01 }
+              {
+                "id": "A",
+                "min": 0.05,
+                "max": 0.2,
+                "step": 0.05
+              },
+              {
+                "id": "w",
+                "min": 2,
+                "max": 10,
+                "step": 1
+              },
+              {
+                "id": "x",
+                "min": 0.01,
+                "max": 0.04,
+                "step": 0.01
+              }
             ],
-            "answer": { "formula": "w * sqrt(A * A - x * x)", "unit": "m/s", "decimals": 3 },
-            "working": [
-              "v = ω√(A² − x²)",
-              "v = {w} × √({A}² − {x}²)",
-              "v = {answer} m/s"
-            ]
+            "answer": {
+              "formula": "w * sqrt(A * A - x * x)",
+              "unit": "m/s",
+              "decimals": 3
+            },
+            "working": ["v = ω√(A² − x²)", "v = {w} × √({A}² − {x}²)", "v = {answer} m/s"]
           }
         },
         {
@@ -162,12 +255,60 @@
           "diagram": {
             "kind": "line-graph",
             "alt": "Displacement, velocity and acceleration of an oscillator against time over one period, starting from maximum displacement. Velocity is a quarter of a cycle ahead of displacement, and acceleration is opposite to displacement.",
-            "x": { "label": "Time", "unit": "s", "min": 0, "max": 4, "ticks": [0, 1, 2, 3, 4] },
-            "y": { "label": "Value (shape only)", "zero": 0.5 },
+            "x": {
+              "label": "Time",
+              "unit": "s",
+              "min": 0,
+              "max": 4,
+              "ticks": [0, 1, 2, 3, 4]
+            },
+            "y": {
+              "label": "Value (shape only)",
+              "zero": 0.5
+            },
             "series": [
-              { "name": "Displacement", "points": [[0, 1], [0.5, 0.85], [1, 0.5], [1.5, 0.15], [2, 0], [2.5, 0.15], [3, 0.5], [3.5, 0.85], [4, 1]] },
-              { "name": "Velocity", "points": [[0, 0.5], [0.5, 0.15], [1, 0], [1.5, 0.15], [2, 0.5], [2.5, 0.85], [3, 1], [3.5, 0.85], [4, 0.5]] },
-              { "name": "Acceleration", "points": [[0, 0], [0.5, 0.15], [1, 0.5], [1.5, 0.85], [2, 1], [2.5, 0.85], [3, 0.5], [3.5, 0.15], [4, 0]] }
+              {
+                "name": "Displacement",
+                "points": [
+                  [0, 1],
+                  [0.5, 0.85],
+                  [1, 0.5],
+                  [1.5, 0.15],
+                  [2, 0],
+                  [2.5, 0.15],
+                  [3, 0.5],
+                  [3.5, 0.85],
+                  [4, 1]
+                ]
+              },
+              {
+                "name": "Velocity",
+                "points": [
+                  [0, 0.5],
+                  [0.5, 0.15],
+                  [1, 0],
+                  [1.5, 0.15],
+                  [2, 0.5],
+                  [2.5, 0.85],
+                  [3, 1],
+                  [3.5, 0.85],
+                  [4, 0.5]
+                ]
+              },
+              {
+                "name": "Acceleration",
+                "points": [
+                  [0, 0],
+                  [0.5, 0.15],
+                  [1, 0.5],
+                  [1.5, 0.85],
+                  [2, 1],
+                  [2.5, 0.85],
+                  [3, 0.5],
+                  [3.5, 0.15],
+                  [4, 0]
+                ]
+              }
             ]
           }
         },
@@ -238,7 +379,20 @@
               "type": "equation",
               "label": "Force condition for SHM",
               "formula": "F = −kx",
-              "where": ["F = restoring force (N)", "k = constant (N/m)", "x = displacement (m)"]
+              "arrows": [
+                {
+                  "point": "F",
+                  "label": "Restoring force (N)"
+                },
+                {
+                  "point": "k",
+                  "label": "Constant (N/m)"
+                },
+                {
+                  "point": "x",
+                  "label": "Displacement (m)"
+                }
+              ]
             },
             {
               "type": "list",
@@ -272,7 +426,15 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": ["OCR 5.3.1a", "OCR 5.3.1b", "OCR 5.3.1c", "OCR 5.3.1d", "OCR 5.3.1e", "OCR 5.3.1f", "OCR 5.3.1g"],
+      "spec_codes": [
+        "OCR 5.3.1a",
+        "OCR 5.3.1b",
+        "OCR 5.3.1c",
+        "OCR 5.3.1d",
+        "OCR 5.3.1e",
+        "OCR 5.3.1f",
+        "OCR 5.3.1g"
+      ],
       "extra": [
         {
           "heading": "Finding the period of an oscillator",
@@ -284,10 +446,22 @@
             {
               "type": "steps",
               "items": [
-                { "lead": "Set up", "text": "Displace the mass a small distance and release it. Place a fiducial marker at the centre of the oscillation." },
-                { "lead": "Time", "text": "Time 10 or more complete oscillations, starting and stopping as the mass passes the marker." },
-                { "lead": "Divide", "text": "Divide by the number of oscillations to get T. Repeat and find a mean." },
-                { "lead": "Check", "text": "Repeat with a different amplitude. The period should not change." }
+                {
+                  "lead": "Set up",
+                  "text": "Displace the mass a small distance and release it. Place a fiducial marker at the centre of the oscillation."
+                },
+                {
+                  "lead": "Time",
+                  "text": "Time 10 or more complete oscillations, starting and stopping as the mass passes the marker."
+                },
+                {
+                  "lead": "Divide",
+                  "text": "Divide by the number of oscillations to get T. Repeat and find a mean."
+                },
+                {
+                  "lead": "Check",
+                  "text": "Repeat with a different amplitude. The period should not change."
+                }
               ]
             },
             {
@@ -306,7 +480,7 @@
     "status": "draft",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "spec_point_ids": [
       "4d05954d-7f35-497d-9468-b62ff8c225dd",

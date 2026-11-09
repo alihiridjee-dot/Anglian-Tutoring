@@ -14,19 +14,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Type of variable",
-            "In this investigation"
-          ],
+          "columns": ["Type of variable", "In this investigation"],
           "rows": [
-            [
-              "Independent (what you change)",
-              "The pH, set using buffer solutions"
-            ],
-            [
-              "Dependent (what you measure)",
-              "The time taken for all the starch to be digested"
-            ],
+            ["Independent (what you change)", "The pH, set using buffer solutions"],
+            ["Dependent (what you measure)", "The time taken for all the starch to be digested"],
             [
               "Control (kept the same)",
               "Volume and concentration of starch, amylase and buffer. Temperature, kept constant in a water bath or with an electric heater."
@@ -128,9 +119,15 @@
           "type": "equation",
           "label": "Rate of reaction",
           "formula": "rate = 1 ÷ time",
-          "where": [
-            "rate, in s⁻¹ (per second)",
-            "time taken for the starch to be digested, in s"
+          "arrows": [
+            {
+              "point": "rate",
+              "label": "Per second (s⁻¹)"
+            },
+            {
+              "point": "time",
+              "label": "Time to digest the starch (s)"
+            }
           ]
         },
         {
@@ -142,16 +139,7 @@
               "label": "pH",
               "min": 0,
               "max": 14,
-              "ticks": [
-                0,
-                2,
-                4,
-                6,
-                8,
-                10,
-                12,
-                14
-              ]
+              "ticks": [0, 2, 4, 6, 8, 10, 12, 14]
             },
             "y": {
               "label": "Rate of reaction"
@@ -160,50 +148,17 @@
               {
                 "name": "Amylase",
                 "points": [
-                  [
-                    2,
-                    0
-                  ],
-                  [
-                    3,
-                    0.05
-                  ],
-                  [
-                    4,
-                    0.2
-                  ],
-                  [
-                    5,
-                    0.5
-                  ],
-                  [
-                    6,
-                    0.85
-                  ],
-                  [
-                    7,
-                    1
-                  ],
-                  [
-                    8,
-                    0.8
-                  ],
-                  [
-                    9,
-                    0.5
-                  ],
-                  [
-                    10,
-                    0.15
-                  ],
-                  [
-                    11,
-                    0.03
-                  ],
-                  [
-                    12,
-                    0
-                  ]
+                  [2, 0],
+                  [3, 0.05],
+                  [4, 0.2],
+                  [5, 0.5],
+                  [6, 0.85],
+                  [7, 1],
+                  [8, 0.8],
+                  [9, 0.5],
+                  [10, 0.15],
+                  [11, 0.03],
+                  [12, 0]
                 ]
               }
             ],
@@ -280,10 +235,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 2.5",
-        "AQA T 4.2.2.1"
-      ],
+      "spec_codes": ["AQA 2.5", "AQA T 4.2.2.1"],
       "worked_example": {
         "exemplar_id": "09499812-c61f-4e31-98eb-e9c2f473d4c2",
         "source": "AQA jun 2023, Paper 1 (F), Q05.9",
@@ -302,9 +254,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 1.10"
-      ],
+      "spec_codes": ["EDEX 1.10"],
       "worked_example": {
         "exemplar_id": "d0e5e410-0cdd-414a-a1f8-5f4ba8ce2c1f",
         "source": "EDEXCEL jun 2023, Paper 1 (H), Q2(c)",
@@ -337,10 +287,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 1.2f",
-        "OCR 7.4"
-      ],
+      "spec_codes": ["OCR 1.2f", "OCR 7.4"],
       "worked_example": {
         "exemplar_id": "c7e0c91e-feae-422e-9443-501d934e0277",
         "source": "OCR jun 2022, Paper 1, Q23(b)",
@@ -373,10 +320,19 @@
               "type": "equation",
               "label": "Rate from the volume of gas",
               "formula": "rate = volume of gas ÷ time",
-              "where": [
-                "rate, in cm³/min",
-                "volume of gas, in cm³ (use the mean of the repeats)",
-                "time, in min"
+              "arrows": [
+                {
+                  "point": "rate",
+                  "label": "Cubic centimetres per minute (cm³/min)"
+                },
+                {
+                  "point": "volume of gas",
+                  "label": "Mean of the repeats (cm³)"
+                },
+                {
+                  "point": "time",
+                  "label": "Minutes (min)"
+                }
               ]
             },
             {
@@ -391,21 +347,17 @@
       ]
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 5.1.5"
-      ]
+      "spec_codes": ["CAIE 5.1.5"]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 2.14B"
-      ]
+      "spec_codes": ["IGCSE 2.14B"]
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "spec_point_ids": [
       "82a928db-f5de-4bed-9b60-5b76834c399c",

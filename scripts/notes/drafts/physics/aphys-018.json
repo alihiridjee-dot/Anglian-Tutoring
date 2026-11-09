@@ -33,20 +33,38 @@
           "type": "equation",
           "label": "Density",
           "formula": "ρ = m / V",
-          "where": [
-            "ρ = density, in kg/m³",
-            "m = mass, in kg",
-            "V = volume, in m³"
+          "arrows": [
+            {
+              "point": "ρ",
+              "label": "Density (kg/m³)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "V",
+              "label": "Volume (m³)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Pressure",
           "formula": "p = F / A",
-          "where": [
-            "p = pressure, in Pa (N/m²)",
-            "F = force at right angles to the surface, in N",
-            "A = area, in m²"
+          "arrows": [
+            {
+              "point": "p",
+              "label": "Pressure (Pa or N/m²)"
+            },
+            {
+              "point": "F",
+              "label": "Force at right angles to surface (N)"
+            },
+            {
+              "point": "A",
+              "label": "Area (m²)"
+            }
           ]
         },
         {
@@ -98,11 +116,23 @@
           "type": "equation",
           "label": "Hydrostatic pressure",
           "formula": "Δp = ρgΔh",
-          "where": [
-            "Δp = change in pressure, in Pa",
-            "ρ = density of the fluid, in kg/m³",
-            "g = gravitational field strength, 9.81 N/kg",
-            "Δh = change in depth, in m"
+          "arrows": [
+            {
+              "point": "Δp",
+              "label": "Change in pressure (Pa)"
+            },
+            {
+              "point": "ρ",
+              "label": "Density of the fluid (kg/m³)"
+            },
+            {
+              "point": "g",
+              "label": "Field strength, 9.81 N/kg"
+            },
+            {
+              "point": "Δh",
+              "label": "Change in depth (m)"
+            }
           ]
         },
         {
@@ -190,11 +220,23 @@
           "type": "equation",
           "label": "Upthrust",
           "formula": "F = ρgV",
-          "where": [
-            "F = upthrust, in N",
-            "ρ = density of the fluid, in kg/m³",
-            "g = gravitational field strength, 9.81 N/kg",
-            "V = volume of fluid displaced, in m³"
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Upthrust (N)"
+            },
+            {
+              "point": "ρ",
+              "label": "Density of the fluid (kg/m³)"
+            },
+            {
+              "point": "g",
+              "label": "Field strength, 9.81 N/kg"
+            },
+            {
+              "point": "V",
+              "label": "Volume of fluid displaced (m³)"
+            }
           ]
         },
         {
@@ -236,10 +278,7 @@
   ],
   "boards": {
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 4.49",
-        "EDEX 4.50"
-      ]
+      "spec_codes": ["EDEX 4.49", "EDEX 4.50"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -284,11 +323,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.2.4a",
-        "OCR 3.2.4b",
-        "OCR 3.2.4c"
-      ],
+      "spec_codes": ["OCR 3.2.4a", "OCR 3.2.4b", "OCR 3.2.4c"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -323,7 +358,7 @@
       "d84a91a8-5e2d-4ab4-afd0-0fb996a86175"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

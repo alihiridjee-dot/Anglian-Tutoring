@@ -24,9 +24,11 @@
           "type": "equation",
           "label": "Conversion of sulfur dioxide to sulfur trioxide",
           "formula": "2SO₂(g) + O₂(g) ⇌ 2SO₃(g)",
-          "where": [
-            "The ⇌ sign shows the reaction is reversible.",
-            "The forward reaction is exothermic."
+          "arrows": [
+            {
+              "point": "⇌",
+              "label": "Reversible: forward reaction is exothermic"
+            }
           ]
         },
         {
@@ -63,23 +65,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Condition",
-            "Typical value"
-          ],
+          "columns": ["Condition", "Typical value"],
           "rows": [
-            [
-              "Temperature",
-              "450 °C"
-            ],
-            [
-              "Pressure",
-              "2 atm (200 kPa)"
-            ],
-            [
-              "Catalyst",
-              "Vanadium(V) oxide"
-            ]
+            ["Temperature", "450 °C"],
+            ["Pressure", "2 atm (200 kPa)"],
+            ["Catalyst", "Vanadium(V) oxide"]
           ]
         },
         {
@@ -125,12 +115,7 @@
   ],
   "boards": {
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 6.3.8S",
-        "CAIE 6.3.9S",
-        "CAIE 6.3.10S",
-        "CAIE 6.3.11S"
-      ],
+      "spec_codes": ["CAIE 6.3.8S", "CAIE 6.3.9S", "CAIE 6.3.10S", "CAIE 6.3.11S"],
       "worked_example": {
         "exemplar_id": "9dbd94f2-7b85-40f1-b657-b2187f70a5c7",
         "source": "CAMBRIDGE jun 2025, Paper 43, Q4(b)(i)",
@@ -154,10 +139,8 @@
       "bf2fec3c-3c62-4de8-8452-cb09eddffaef",
       "db06fc39-08fb-48ae-a0ab-e7a111032065"
     ],
-    "exemplar_ids": [
-      "9dbd94f2-7b85-40f1-b657-b2187f70a5c7"
-    ],
-    "checked_by": "sonnet-science-check",
+    "exemplar_ids": ["9dbd94f2-7b85-40f1-b657-b2187f70a5c7"],
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

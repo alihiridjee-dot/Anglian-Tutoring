@@ -38,10 +38,19 @@
           "type": "equation",
           "label": "Mean rate of reaction",
           "formula": "mean rate of reaction = quantity of product formed ÷ time taken",
-          "where": [
-            "quantity of product formed, in g or cm³",
-            "time taken, in s",
-            "mean rate, in g/s or cm³/s"
+          "arrows": [
+            {
+              "point": "mean rate of reaction",
+              "label": "Mean rate (g/s or cm³/s)"
+            },
+            {
+              "point": "quantity of product formed",
+              "label": "Mass (g) or volume (cm³)"
+            },
+            {
+              "point": "time taken",
+              "label": "Time (s)"
+            }
           ]
         },
         {
@@ -198,9 +207,15 @@
           "type": "equation",
           "label": "Gradient of a tangent (AQA: Higher tier)",
           "formula": "rate at that time = change in quantity ÷ change in time",
-          "where": [
-            "change in quantity, read from the vertical axis, in g or cm³",
-            "change in time, read from the horizontal axis, in s"
+          "arrows": [
+            {
+              "point": "change in quantity",
+              "label": "Vertical axis (g or cm³)"
+            },
+            {
+              "point": "change in time",
+              "label": "Horizontal axis (s)"
+            }
           ]
         },
         {
@@ -319,9 +334,12 @@
               "type": "equation",
               "label": "Rate and time",
               "formula": "rate is proportional to 1 ÷ t",
-              "where": [
-                "t, the time taken for the reaction, in s",
-                "a smaller time gives a larger rate"
+              "arrows": [
+                {
+                  "point": "t",
+                  "in": "÷ t",
+                  "label": "Time taken (s)"
+                }
               ]
             },
             {
@@ -363,7 +381,7 @@
       "c997fc4e-d93e-4fcf-883a-11ae4ede3f2c",
       "f7c6e757-f167-417e-944e-672dc6a7cfc7"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

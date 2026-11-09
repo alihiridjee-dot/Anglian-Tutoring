@@ -46,29 +46,41 @@
           "type": "equation",
           "label": "Power of a lens",
           "formula": "P = 1 ÷ f",
-          "where": [
-            "P = power (D, dioptres)",
-            "f = focal length (m)"
+          "arrows": [
+            {
+              "point": "P",
+              "label": "Power (D, dioptres)"
+            },
+            {
+              "point": "f",
+              "label": "Focal length (m)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Lens equation",
           "formula": "1 ÷ u + 1 ÷ v = 1 ÷ f",
-          "where": [
-            "u = distance from object to lens (m)",
-            "v = distance from lens to image (m)",
-            "f = focal length (m)"
+          "arrows": [
+            {
+              "point": "u",
+              "label": "Distance from object to lens (m)"
+            },
+            {
+              "point": "v",
+              "label": "Distance from lens to image (m)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Linear magnification",
           "formula": "m = v ÷ u",
-          "where": [
-            "m = magnification (no unit)",
-            "v = image distance (m)",
-            "u = object distance (m)"
+          "arrows": [
+            {
+              "point": "m",
+              "label": "Magnification (no unit)"
+            }
           ]
         },
         {
@@ -108,42 +120,18 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Rods",
-            "Cones"
-          ],
+          "columns": ["Feature", "Rods", "Cones"],
           "rows": [
-            [
-              "Works best in",
-              "Dim light",
-              "Bright light"
-            ],
-            [
-              "Colour",
-              "No colour vision",
-              "Three types give colour vision"
-            ],
-            [
-              "Where",
-              "Mostly away from the centre of the retina",
-              "Packed densely at the fovea"
-            ],
+            ["Works best in", "Dim light", "Bright light"],
+            ["Colour", "No colour vision", "Three types give colour vision"],
+            ["Where", "Mostly away from the centre of the retina", "Packed densely at the fovea"],
             [
               "Connection to nerve fibres",
               "Many rods share one nerve fibre",
               "Each cone at the fovea has its own nerve fibre"
             ],
-            [
-              "Sensitivity",
-              "Very sensitive",
-              "Less sensitive"
-            ],
-            [
-              "Resolution",
-              "Poor",
-              "Good"
-            ]
+            ["Sensitivity", "Very sensitive", "Less sensitive"],
+            ["Resolution", "Poor", "Good"]
           ]
         },
         {
@@ -339,10 +327,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.10.1.1",
-        "AQA 3.10.1.2"
-      ]
+      "spec_codes": ["AQA 3.10.1.1", "AQA 3.10.1.2"]
     }
   },
   "meta": {
@@ -354,7 +339,7 @@
       "c78d578a-02a2-48cc-9055-463ecb028d6a"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -58,7 +58,16 @@
                 {
                   "name": "small chips",
                   "curve": true,
-                  "points": [[0, 0], [1, 30], [2, 45], [3, 52], [4, 56], [6, 59], [8, 60], [14, 60]]
+                  "points": [
+                    [0, 0],
+                    [1, 30],
+                    [2, 45],
+                    [3, 52],
+                    [4, 56],
+                    [6, 59],
+                    [8, 60],
+                    [14, 60]
+                  ]
                 },
                 {
                   "name": "large chips",
@@ -104,7 +113,16 @@
                 {
                   "name": "25 cm³ of acid",
                   "curve": true,
-                  "points": [[0, 0], [1, 30], [2, 45], [3, 52], [4, 56], [6, 59], [8, 60], [14, 60]]
+                  "points": [
+                    [0, 0],
+                    [1, 30],
+                    [2, 45],
+                    [3, 52],
+                    [4, 56],
+                    [6, 59],
+                    [8, 60],
+                    [14, 60]
+                  ]
                 },
                 {
                   "name": "50 cm³ of acid",
@@ -129,11 +147,22 @@
         {
           "type": "equation",
           "label": "Magnesium and hydrochloric acid",
-          "where": [
-            "1 mol of Mg needs 2 mol of HCl.",
-            "0.5 mol of Mg and 0.5 mol of HCl: only 0.25 mol of Mg can react, so Mg is in excess."
+          "formula": "Mg + 2HCl → MgCl₂ + H₂",
+          "arrows": [
+            {
+              "point": "Mg",
+              "in": "Mg +",
+              "label": "1 mol of Mg"
+            },
+            {
+              "point": "2",
+              "in": "2HCl",
+              "label": "Needs 2 mol of HCl"
+            }
           ],
-          "formula": "Mg + 2HCl → MgCl₂ + H₂"
+          "where": [
+            "0.5 mol of Mg and 0.5 mol of HCl: only 0.25 mol of Mg can react, so Mg is in excess."
+          ]
         },
         {
           "type": "key-points",
@@ -330,7 +359,7 @@
     "status": "draft",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "spec_point_ids": [
       "f560f102-8cf7-4174-8fdd-40934a71d926",

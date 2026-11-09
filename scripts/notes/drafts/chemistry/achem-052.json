@@ -58,37 +58,17 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Reaction",
-            "Equation",
-            "Notes"
-          ],
+          "columns": ["Reaction", "Equation", "Notes"],
           "rows": [
-            [
-              "With oxygen",
-              "2M + O₂ → 2MO",
-              "Mg burns with a bright white flame"
-            ],
-            [
-              "With chlorine",
-              "M + Cl₂ → MCl₂",
-              "White solid chloride forms"
-            ],
+            ["With oxygen", "2M + O₂ → 2MO", "Mg burns with a bright white flame"],
+            ["With chlorine", "M + Cl₂ → MCl₂", "White solid chloride forms"],
             [
               "With water",
               "M + 2H₂O → M(OH)₂ + H₂",
               "Mg is very slow. Ca, Sr and Ba fizz, faster down the group"
             ],
-            [
-              "Mg with steam",
-              "Mg + H₂O → MgO + H₂",
-              "Burns with a white flame"
-            ],
-            [
-              "With dilute acid",
-              "M + 2HCl → MCl₂ + H₂",
-              "Faster down the group"
-            ]
+            ["Mg with steam", "Mg + H₂O → MgO + H₂", "Burns with a white flame"],
+            ["With dilute acid", "M + 2HCl → MCl₂ + H₂", "Faster down the group"]
           ]
         },
         {
@@ -121,23 +101,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Compound",
-            "Equation with dilute HCl"
-          ],
+          "columns": ["Compound", "Equation with dilute HCl"],
           "rows": [
-            [
-              "Oxide",
-              "MO + 2HCl → MCl₂ + H₂O"
-            ],
-            [
-              "Hydroxide",
-              "M(OH)₂ + 2HCl → MCl₂ + 2H₂O"
-            ],
-            [
-              "Carbonate",
-              "MCO₃ + 2HCl → MCl₂ + H₂O + CO₂"
-            ]
+            ["Oxide", "MO + 2HCl → MCl₂ + H₂O"],
+            ["Hydroxide", "M(OH)₂ + 2HCl → MCl₂ + 2H₂O"],
+            ["Carbonate", "MCO₃ + 2HCl → MCl₂ + H₂O + CO₂"]
           ]
         },
         {
@@ -174,10 +142,7 @@
             "kind": "sort",
             "alt": "A sorting activity. Decide which properties increase and which decrease down Group 2.",
             "prompt": "Does it increase or decrease down Group 2?",
-            "groups": [
-              "Increases down the group",
-              "Decreases down the group"
-            ],
+            "groups": ["Increases down the group", "Decreases down the group"],
             "items": [
               {
                 "text": "Atomic radius",
@@ -208,32 +173,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Compound",
-            "Use",
-            "Equation"
-          ],
+          "columns": ["Compound", "Use", "Equation"],
           "rows": [
-            [
-              "Ca(OH)₂",
-              "Neutralises acidic soil",
-              "Ca(OH)₂ + 2H⁺ → Ca²⁺ + 2H₂O"
-            ],
-            [
-              "Mg(OH)₂",
-              "Antacid for indigestion",
-              "Mg(OH)₂ + 2HCl → MgCl₂ + 2H₂O"
-            ],
-            [
-              "CaCO₃",
-              "Antacid for indigestion",
-              "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂"
-            ],
-            [
-              "CaO or CaCO₃",
-              "Removes SO₂ from flue gases",
-              "CaO + SO₂ → CaSO₃"
-            ]
+            ["Ca(OH)₂", "Neutralises acidic soil", "Ca(OH)₂ + 2H⁺ → Ca²⁺ + 2H₂O"],
+            ["Mg(OH)₂", "Antacid for indigestion", "Mg(OH)₂ + 2HCl → MgCl₂ + 2H₂O"],
+            ["CaCO₃", "Antacid for indigestion", "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂"],
+            ["CaO or CaCO₃", "Removes SO₂ from flue gases", "CaO + SO₂ → CaSO₃"]
           ]
         },
         {
@@ -265,27 +210,13 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.1.2a",
-        "OCR 3.1.2b",
-        "OCR 3.1.2c",
-        "OCR 3.1.2d",
-        "OCR 3.1.2e"
-      ]
+      "spec_codes": ["OCR 3.1.2a", "OCR 3.1.2b", "OCR 3.1.2c", "OCR 3.1.2d", "OCR 3.1.2e"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 4A.1",
-        "EDEX 4A.2",
-        "EDEX 4A.3",
-        "EDEX 4A.4",
-        "EDEX 4A.5"
-      ]
+      "spec_codes": ["EDEX 4A.1", "EDEX 4A.2", "EDEX 4A.3", "EDEX 4A.4", "EDEX 4A.5"]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.2"
-      ],
+      "spec_codes": ["AQA 3.2.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -315,13 +246,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 10.1.1",
-        "CAIE 10.1.2",
-        "CAIE 10.1.4",
-        "CAIE 10.1.5",
-        "CAIE 27.1.2"
-      ],
+      "spec_codes": ["CAIE 10.1.1", "CAIE 10.1.2", "CAIE 10.1.4", "CAIE 10.1.5", "CAIE 27.1.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -334,9 +259,15 @@
               "type": "equation",
               "label": "Enthalpy change of solution",
               "formula": "ΔHsol = (energy to break the lattice) − (energy released by hydration)",
-              "where": [
-                "Energy to break the lattice: the size of the lattice energy, in kJ/mol",
-                "Energy released by hydration: the size of the hydration enthalpies of both ions, in kJ/mol"
+              "arrows": [
+                {
+                  "point": "(energy to break the lattice)",
+                  "label": "Size of the lattice energy (kJ/mol)"
+                },
+                {
+                  "point": "(energy released by hydration)",
+                  "label": "Size of both hydration enthalpies (kJ/mol)"
+                }
               ]
             },
             {
@@ -380,7 +311,7 @@
       "161e54dd-5e72-4183-8a53-66c802cfadce"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

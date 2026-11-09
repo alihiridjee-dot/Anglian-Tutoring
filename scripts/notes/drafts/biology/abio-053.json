@@ -83,9 +83,11 @@
           "type": "equation",
           "label": "ATP and ADP",
           "formula": "ATP + H₂O ⇌ ADP + Pi + energy",
-          "where": [
-            "Forward reaction: hydrolysis, catalysed by ATP hydrolase",
-            "Reverse reaction: condensation, catalysed by ATP synthase"
+          "arrows": [
+            {
+              "point": "⇌",
+              "label": "Forward: hydrolysis; reverse: condensation"
+            }
           ]
         },
         {
@@ -153,27 +155,16 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.6a",
-        "AQA 3.1.6b",
-        "AQA 3.1.6c"
-      ]
+      "spec_codes": ["AQA 3.1.6a", "AQA 3.1.6b", "AQA 3.1.6c"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.6"
-      ]
+      "spec_codes": ["EDEX 5.6"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 12.1.2",
-        "CAIE 1.2.4"
-      ]
+      "spec_codes": ["CAIE 12.1.2", "CAIE 1.2.4"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 2.1.3c"
-      ]
+      "spec_codes": ["OCR 2.1.3c"]
     }
   },
   "meta": {
@@ -190,7 +181,7 @@
       "b02e261a-ed92-45e4-b1cb-8788dae44aed"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

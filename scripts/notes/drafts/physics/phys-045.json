@@ -95,11 +95,21 @@
           "type": "equation",
           "label": "Weight",
           "formula": "W = m × g",
-          "where": [
-            "W is weight in newtons (N).",
-            "m is mass in kilograms (kg).",
-            "g is gravitational field strength in newtons per kilogram (N/kg). It is about 9.8 N/kg on Earth. Some questions use 10 N/kg."
-          ]
+          "arrows": [
+            {
+              "point": "W",
+              "label": "Weight (N)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "g",
+              "label": "Gravitational field strength (N/kg)"
+            }
+          ],
+          "where": ["g is about 9.8 N/kg on Earth. Some questions use 10 N/kg."]
         },
         {
           "type": "steps",
@@ -125,12 +135,7 @@
         {
           "type": "equation",
           "label": "Mass",
-          "formula": "m = W ÷ g",
-          "where": [
-            "m is mass in kilograms (kg).",
-            "W is weight in newtons (N).",
-            "g is gravitational field strength in newtons per kilogram (N/kg)."
-          ]
+          "formula": "m = W ÷ g"
         },
         {
           "type": "steps",
@@ -492,7 +497,7 @@
       "2bedfa3a-ffc6-44e8-b5d2-ce73a1cea49c",
       "d1e12dcb-a8bb-4f34-892d-8da8f10a1d4e"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

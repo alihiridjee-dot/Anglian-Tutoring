@@ -41,11 +41,17 @@
         {
           "type": "equation",
           "label": "Poly(ethene)",
-          "where": [
-            "CH₂–CH₂: the repeating unit",
-            "n: a very large number of repeating units"
-          ],
-          "formula": "–(CH₂–CH₂)ₙ–"
+          "formula": "–(CH₂–CH₂)ₙ–",
+          "arrows": [
+            {
+              "point": "CH₂–CH₂",
+              "label": "The repeating unit"
+            },
+            {
+              "point": "ₙ",
+              "label": "A very large number of repeating units"
+            }
+          ]
         },
         {
           "type": "diagram",
@@ -127,22 +133,14 @@
         {
           "type": "table",
           "rows": [
-            [
-              "What holds it",
-              "Covalent bonds between atoms",
-              "Intermolecular forces"
-            ],
+            ["What holds it", "Covalent bonds between atoms", "Intermolecular forces"],
             [
               "Strength",
               "Strong",
               "Weaker than covalent bonds, but relatively strong compared with small molecules"
             ]
           ],
-          "columns": [
-            "Feature",
-            "Within a chain",
-            "Between chains"
-          ]
+          "columns": ["Feature", "Within a chain", "Between chains"]
         },
         {
           "type": "list",
@@ -159,19 +157,11 @@
             "kind": "compare",
             "rows": [
               {
-                "values": [
-                  "Small",
-                  "Very large",
-                  "Very large"
-                ],
+                "values": ["Small", "Very large", "Very large"],
                 "feature": "Size of molecule"
               },
               {
-                "values": [
-                  "Covalent",
-                  "Covalent",
-                  "Covalent"
-                ],
+                "values": ["Covalent", "Covalent", "Covalent"],
                 "feature": "Bonds in the molecule"
               },
               {
@@ -191,11 +181,7 @@
                 "feature": "At room temperature"
               }
             ],
-            "items": [
-              "Methane",
-              "Polymer without cross-links",
-              "Polymer with cross-links"
-            ]
+            "items": ["Methane", "Polymer without cross-links", "Polymer with cross-links"]
           }
         },
         {
@@ -217,27 +203,12 @@
         {
           "type": "table",
           "rows": [
-            [
-              "Chains can slide over each other",
-              "Chains are held in place"
-            ],
-            [
-              "Flexible and can stretch",
-              "Rigid and hard"
-            ],
-            [
-              "Lower melting point",
-              "Higher melting point; may not melt at all"
-            ],
-            [
-              "Held by weak intermolecular forces",
-              "Held by strong covalent bonds"
-            ]
+            ["Chains can slide over each other", "Chains are held in place"],
+            ["Flexible and can stretch", "Rigid and hard"],
+            ["Lower melting point", "Higher melting point; may not melt at all"],
+            ["Held by weak intermolecular forces", "Held by strong covalent bonds"]
           ],
-          "columns": [
-            "Without cross-links",
-            "With cross-links"
-          ]
+          "columns": ["Without cross-links", "With cross-links"]
         },
         {
           "type": "paragraph",
@@ -280,10 +251,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.2.2.5",
-        "AQA T 5.2.2.5"
-      ],
+      "spec_codes": ["AQA 4.2.2.5", "AQA T 5.2.2.5"],
       "worked_example": {
         "exemplar_id": "15641ba3-29ff-481b-8a89-4f72a24f0af2",
         "source": "AQA jun 2023, Paper 1 (H), Q04.5",
@@ -299,16 +267,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 1.39",
-        "EDEX 9.17C"
-      ]
+      "spec_codes": ["EDEX 1.39", "EDEX 9.17C"]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C2.2d",
-        "OCR C2.3f"
-      ],
+      "spec_codes": ["OCR C2.2d", "OCR C2.3f"],
       "worked_example": {
         "exemplar_id": "5c7b1662-1c3f-4014-8628-6aa470c6706b",
         "source": "OCR jun 2023, Paper 3, Q21(a)",
@@ -324,10 +286,7 @@
       }
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 11.8.1",
-        "CAIE 11.8.4"
-      ],
+      "spec_codes": ["CAIE 11.8.1", "CAIE 11.8.4"],
       "extra": [
         {
           "heading": "Disposing of plastics",
@@ -373,7 +332,7 @@
       "15641ba3-29ff-481b-8a89-4f72a24f0af2",
       "5c7b1662-1c3f-4014-8628-6aa470c6706b"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

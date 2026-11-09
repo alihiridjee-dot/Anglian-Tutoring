@@ -58,18 +58,32 @@
           "type": "equation",
           "label": "Acyl chloride with ammonia",
           "formula": "CH₃COCl + 2NH₃ → CH₃CONH₂ + NH₄Cl",
-          "where": [
-            "Product: ethanamide, a primary amide",
-            "The second NH₃ reacts with the HCl produced, forming NH₄Cl"
+          "arrows": [
+            {
+              "point": "2",
+              "in": "2NH₃",
+              "label": "Second NH₃ reacts with the HCl made"
+            },
+            {
+              "point": "CH₃CONH₂",
+              "label": "Ethanamide, a primary amide"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Acyl chloride with a primary amine",
           "formula": "CH₃COCl + 2CH₃NH₂ → CH₃CONHCH₃ + CH₃NH₃⁺Cl⁻",
-          "where": [
-            "Product: N-methylethanamide, a secondary amide",
-            "The second amine molecule reacts with the HCl produced"
+          "arrows": [
+            {
+              "point": "2",
+              "in": "2CH₃NH₂",
+              "label": "Second amine reacts with the HCl made"
+            },
+            {
+              "point": "CH₃CONHCH₃",
+              "label": "N-methylethanamide, a secondary amide"
+            }
           ]
         },
         {
@@ -86,33 +100,21 @@
             "kind": "predictor",
             "alt": "Pick a nitrogen compound to react with ethanoyl chloride and see the amide formed.",
             "prompt": "Pick what reacts with ethanoyl chloride, CH₃COCl, at room temperature.",
-            "result_labels": [
-              "Amide formed",
-              "Type of amide"
-            ],
+            "result_labels": ["Amide formed", "Type of amide"],
             "options": [
               {
                 "label": "Ammonia, NH₃",
-                "results": [
-                  "Ethanamide, CH₃CONH₂",
-                  "Primary amide"
-                ],
+                "results": ["Ethanamide, CH₃CONH₂", "Primary amide"],
                 "explanation": "Two hydrogens remain on the nitrogen."
               },
               {
                 "label": "Methylamine, CH₃NH₂",
-                "results": [
-                  "N-methylethanamide, CH₃CONHCH₃",
-                  "Secondary amide"
-                ],
+                "results": ["N-methylethanamide, CH₃CONHCH₃", "Secondary amide"],
                 "explanation": "The methyl group from the amine sits on the nitrogen."
               },
               {
                 "label": "Ethylamine, CH₃CH₂NH₂",
-                "results": [
-                  "N-ethylethanamide, CH₃CONHCH₂CH₃",
-                  "Secondary amide"
-                ],
+                "results": ["N-ethylethanamide, CH₃CONHCH₂CH₃", "Secondary amide"],
                 "explanation": "The ethyl group from the amine sits on the nitrogen."
               }
             ]
@@ -151,16 +153,17 @@
           "type": "equation",
           "label": "Acid hydrolysis of ethanamide",
           "formula": "CH₃CONH₂ + H₂O + HCl → CH₃COOH + NH₄Cl",
-          "where": [
-            "Heat with dilute aqueous acid"
-          ]
+          "where": ["Heat with dilute aqueous acid"]
         },
         {
           "type": "equation",
           "label": "Alkaline hydrolysis of ethanamide",
           "formula": "CH₃CONH₂ + NaOH → CH₃COO⁻Na⁺ + NH₃",
-          "where": [
-            "Heat with aqueous alkali; ammonia gas is given off"
+          "arrows": [
+            {
+              "point": "NH₃",
+              "label": "Ammonia gas is given off"
+            }
           ]
         },
         {
@@ -171,9 +174,15 @@
           "type": "equation",
           "label": "Reduction of an amide",
           "formula": "CH₃CONH₂ + 4[H] → CH₃CH₂NH₂ + H₂O",
-          "where": [
-            "Reagent: LiAlH₄ in dry ether",
-            "The C=O group becomes CH₂ and the product is an amine"
+          "arrows": [
+            {
+              "point": "→",
+              "label": "LiAlH₄ in dry ether"
+            },
+            {
+              "point": "CH₃CH₂NH₂",
+              "label": "Amine: C=O has become CH₂"
+            }
           ]
         },
         {
@@ -231,22 +240,13 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.2.2b"
-      ]
+      "spec_codes": ["OCR 6.2.2b"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 18B.13"
-      ]
+      "spec_codes": ["EDEX 18B.13"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 34.1.2",
-        "CAIE 34.3.1",
-        "CAIE 34.3.2",
-        "CAIE 34.3.3"
-      ]
+      "spec_codes": ["CAIE 34.1.2", "CAIE 34.3.1", "CAIE 34.3.2", "CAIE 34.3.3"]
     }
   },
   "meta": {
@@ -262,7 +262,7 @@
       "107619ee-333f-492b-bf7c-31a55e6353a3"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

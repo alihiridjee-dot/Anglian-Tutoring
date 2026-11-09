@@ -93,9 +93,19 @@
           "type": "equation",
           "label": "Formation of water",
           "formula": "4H⁺ + 4e⁻ + O₂ → 2H₂O",
-          "where": [
-            "Protons and electrons are combined with oxygen at the end of the chain",
-            "Water is a product of aerobic respiration"
+          "arrows": [
+            {
+              "point": "4H⁺",
+              "label": "Protons"
+            },
+            {
+              "point": "4e⁻",
+              "label": "Electrons"
+            },
+            {
+              "point": "2H₂O",
+              "label": "Water, a product of aerobic respiration"
+            }
           ]
         },
         {
@@ -137,9 +147,7 @@
   ],
   "boards": {
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 7.6"
-      ],
+      "spec_codes": ["EDEX 7.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -156,10 +164,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 12.2.8",
-        "CAIE 12.1.3"
-      ],
+      "spec_codes": ["CAIE 12.2.8", "CAIE 12.1.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -177,10 +182,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.2.2g",
-        "OCR 5.2.2h"
-      ],
+      "spec_codes": ["OCR 5.2.2g", "OCR 5.2.2h"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -198,9 +200,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.5.2f"
-      ],
+      "spec_codes": ["AQA 3.5.2f"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -229,7 +229,7 @@
       "64e3419f-cfa4-4e1c-b9ad-c507b5e5a92d"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

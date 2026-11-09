@@ -41,10 +41,20 @@
           "type": "equation",
           "label": "(AQA and OCR: Higher tier) Glycine making a polypeptide",
           "formula": "n H₂NCH₂COOH → [–NHCH₂CO–]ₙ + n H₂O",
-          "where": [
-            "H₂NCH₂COOH is glycine, an amino acid.",
-            "[–NHCH₂CO–] is the repeating unit of the polypeptide.",
-            "n is a large number, with no unit."
+          "arrows": [
+            {
+              "point": "n",
+              "in": "n H₂N",
+              "label": "A large number"
+            },
+            {
+              "point": "H₂NCH₂COOH",
+              "label": "Glycine, an amino acid"
+            },
+            {
+              "point": "[–NHCH₂CO–]",
+              "label": "Repeating unit of the polypeptide"
+            }
           ]
         },
         {
@@ -58,137 +68,80 @@
               "atoms": [
                 {
                   "symbol": "H",
-                  "cell": [
-                    0,
-                    1
-                  ]
+                  "cell": [0, 1]
                 },
                 {
                   "symbol": "N",
-                  "cell": [
-                    1,
-                    1
-                  ]
+                  "cell": [1, 1]
                 },
                 {
                   "symbol": "C",
-                  "cell": [
-                    2,
-                    1
-                  ]
+                  "cell": [2, 1]
                 },
                 {
                   "symbol": "C",
-                  "cell": [
-                    3,
-                    1
-                  ]
+                  "cell": [3, 1]
                 },
                 {
                   "symbol": "O",
-                  "cell": [
-                    4,
-                    1
-                  ]
+                  "cell": [4, 1]
                 },
                 {
                   "symbol": "H",
-                  "cell": [
-                    5,
-                    1
-                  ]
+                  "cell": [5, 1]
                 },
                 {
                   "symbol": "H",
-                  "cell": [
-                    1,
-                    2
-                  ]
+                  "cell": [1, 2]
                 },
                 {
                   "symbol": "H",
-                  "cell": [
-                    2,
-                    0
-                  ]
+                  "cell": [2, 0]
                 },
                 {
                   "symbol": "H",
-                  "cell": [
-                    2,
-                    2
-                  ]
+                  "cell": [2, 2]
                 },
                 {
                   "symbol": "O",
-                  "cell": [
-                    3,
-                    0
-                  ]
+                  "cell": [3, 0]
                 }
               ],
               "bonds": [
                 {
-                  "atoms": [
-                    0,
-                    1
-                  ],
+                  "atoms": [0, 1],
                   "order": 1
                 },
                 {
-                  "atoms": [
-                    1,
-                    2
-                  ],
+                  "atoms": [1, 2],
                   "order": 1
                 },
                 {
-                  "atoms": [
-                    2,
-                    3
-                  ],
+                  "atoms": [2, 3],
                   "order": 1
                 },
                 {
-                  "atoms": [
-                    3,
-                    4
-                  ],
+                  "atoms": [3, 4],
                   "order": 1
                 },
                 {
-                  "atoms": [
-                    4,
-                    5
-                  ],
+                  "atoms": [4, 5],
                   "order": 1
                 },
                 {
-                  "atoms": [
-                    1,
-                    6
-                  ],
+                  "atoms": [1, 6],
                   "order": 1
                 },
                 {
-                  "atoms": [
-                    2,
-                    7
-                  ],
+                  "atoms": [2, 7],
                   "order": 1
                 },
                 {
-                  "atoms": [
-                    2,
-                    8
-                  ],
+                  "atoms": [2, 8],
                   "order": 1
                 },
                 {
-                  "atoms": [
-                    3,
-                    9
-                  ],
+                  "atoms": [3, 9],
                   "order": 2
                 }
               ],
@@ -320,27 +273,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Natural polymer",
-            "Monomer"
-          ],
+          "columns": ["Natural polymer", "Monomer"],
           "rows": [
-            [
-              "DNA",
-              "Nucleotides"
-            ],
-            [
-              "Protein",
-              "Amino acids"
-            ],
-            [
-              "Starch",
-              "Sugars (glucose)"
-            ],
-            [
-              "Cellulose",
-              "Sugars (glucose)"
-            ]
+            ["DNA", "Nucleotides"],
+            ["Protein", "Amino acids"],
+            ["Starch", "Sugars (glucose)"],
+            ["Cellulose", "Sugars (glucose)"]
           ]
         },
         {
@@ -349,11 +287,7 @@
             "kind": "sort",
             "alt": "Sort each natural polymer or description by its monomer.",
             "prompt": "Sort each item by the monomer it is made from.",
-            "groups": [
-              "Nucleotides",
-              "Amino acids",
-              "Sugars"
-            ],
+            "groups": ["Nucleotides", "Amino acids", "Sugars"],
             "items": [
               {
                 "text": "DNA",
@@ -411,31 +345,21 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.3.3",
-        "AQA 4.7.3.4"
-      ],
+      "spec_codes": ["AQA 4.7.3.3", "AQA 4.7.3.4"],
       "worked_example": {
         "exemplar_id": "c8f7d81d-1920-4d29-a550-904e8d10c708",
         "source": "AQA jun 2020, Paper 2 (H), Q09.2",
         "question": "Glucose is produced when algae photosynthesise.\n\nName two naturally occurring polymers produced from glucose.",
         "marks": 2,
-        "answer_points": [
-          "Starch.",
-          "Cellulose (glycogen is also allowed)."
-        ],
+        "answer_points": ["Starch.", "Cellulose (glycogen is also allowed)."],
         "tip": "One mark for each polymer."
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.25C"
-      ]
+      "spec_codes": ["EDEX 9.25C"]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2h"
-      ],
+      "spec_codes": ["OCR C6.2h"],
       "worked_example": {
         "exemplar_id": "fa7ac3df-b68d-49f6-9399-979ae2c76c88",
         "source": "OCR nov 2021, Paper 4, Q21(a)",
@@ -464,18 +388,13 @@
       ]
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 11.8.12S",
-        "CAIE 11.8.13S"
-      ],
+      "spec_codes": ["CAIE 11.8.12S", "CAIE 11.8.13S"],
       "worked_example": {
         "exemplar_id": "5a4e35cb-6b1b-4732-baa7-3a07ae906b3d",
         "source": "CAMBRIDGE nov 2023, Paper 43, Q6(f)(ii)",
         "question": "Naturally occurring polyamides are found in food.\n\nName the type of monomer which forms naturally occurring polyamides.",
         "marks": 1,
-        "answer_points": [
-          "Amino acids."
-        ]
+        "answer_points": ["Amino acids."]
       },
       "extra": [
         {
@@ -520,7 +439,7 @@
       "fa7ac3df-b68d-49f6-9399-979ae2c76c88",
       "5a4e35cb-6b1b-4732-baa7-3a07ae906b3d"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

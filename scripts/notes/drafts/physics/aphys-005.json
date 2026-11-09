@@ -80,9 +80,15 @@
           "type": "equation",
           "label": "Gradient of a straight line",
           "formula": "gradient = Δy ÷ Δx",
-          "where": [
-            "Δy is the change in y between two points on the line",
-            "Δx is the change in x between the same two points"
+          "arrows": [
+            {
+              "point": "Δy",
+              "label": "Change in y between two points"
+            },
+            {
+              "point": "Δx",
+              "label": "Change in x, same two points"
+            }
           ]
         },
         {
@@ -192,31 +198,16 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Limitation",
-            "Possible improvement"
-          ],
+          "columns": ["Limitation", "Possible improvement"],
           "rows": [
-            [
-              "reaction time in timing",
-              "use light gates or time many oscillations"
-            ],
-            [
-              "few data values",
-              "take more values over a wider range"
-            ],
+            ["reaction time in timing", "use light gates or time many oscillations"],
+            ["few data values", "take more values over a wider range"],
             [
               "large percentage uncertainty in a small measurement",
               "measure a larger quantity or use a finer instrument"
             ],
-            [
-              "a variable changed during the experiment",
-              "control it, or monitor it with a sensor"
-            ],
-            [
-              "manual recording is slow",
-              "use a data logger"
-            ]
+            ["a variable changed during the experiment", "control it, or monitor it with a sensor"],
+            ["manual recording is slow", "use a data logger"]
           ]
         },
         {
@@ -300,7 +291,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",

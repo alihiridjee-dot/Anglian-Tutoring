@@ -8,13 +8,25 @@
     {
       "heading": "Drag on moving objects",
       "blocks": [
-        { "type": "paragraph", "text": "Anything moving through a liquid or a gas has a force acting against it. This section covers what drag is and what changes it." },
+        {
+          "type": "paragraph",
+          "text": "Anything moving through a liquid or a gas has a force acting against it. This section covers what drag is and what changes it."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Drag", "meaning": "The friction force on an object moving through a liquid or a gas, which acts against its motion." },
-            { "term": "Air resistance", "meaning": "Drag when the object moves through air." },
-            { "term": "Weight", "meaning": "The gravitational force on an object, which pulls it downwards." }
+            {
+              "term": "Drag",
+              "meaning": "The friction force on an object moving through a liquid or a gas, which acts against its motion."
+            },
+            {
+              "term": "Air resistance",
+              "meaning": "Drag when the object moves through air."
+            },
+            {
+              "term": "Weight",
+              "meaning": "The gravitational force on an object, which pulls it downwards."
+            }
           ]
         },
         {
@@ -39,8 +51,14 @@
     {
       "heading": "Falling objects and terminal velocity",
       "blocks": [
-        { "type": "paragraph", "text": "A falling object has two vertical forces on it: weight downwards and drag upwards. The size of drag changes as the object speeds up." },
-        { "type": "subheading", "text": "Falling with no air resistance" },
+        {
+          "type": "paragraph",
+          "text": "A falling object has two vertical forces on it: weight downwards and drag upwards. The size of drag changes as the object speeds up."
+        },
+        {
+          "type": "subheading",
+          "text": "Falling with no air resistance"
+        },
         {
           "type": "list",
           "items": [
@@ -49,33 +67,73 @@
             "Its speed keeps increasing and never levels off."
           ]
         },
-        { "type": "subheading", "text": "Falling with air or liquid resistance" },
+        {
+          "type": "subheading",
+          "text": "Falling with air or liquid resistance"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Start", "text": "At the moment of release the object is at rest, so there is no drag. The resultant force is its weight and it accelerates downwards." },
-            { "lead": "Speeding up", "text": "As its speed increases, drag increases." },
-            { "lead": "Less acceleration", "text": "The resultant force downwards decreases, so the acceleration decreases. The object is still speeding up." },
-            { "lead": "Terminal velocity", "text": "Drag becomes equal to weight. The resultant force is zero, the acceleration is zero and the object falls at a constant speed." }
+            {
+              "lead": "Start",
+              "text": "At the moment of release the object is at rest, so there is no drag. The resultant force is its weight and it accelerates downwards."
+            },
+            {
+              "lead": "Speeding up",
+              "text": "As its speed increases, drag increases."
+            },
+            {
+              "lead": "Less acceleration",
+              "text": "The resultant force downwards decreases, so the acceleration decreases. The object is still speeding up."
+            },
+            {
+              "lead": "Terminal velocity",
+              "text": "Drag becomes equal to weight. The resultant force is zero, the acceleration is zero and the object falls at a constant speed."
+            }
           ]
         },
         {
           "type": "definitions",
           "items": [
-            { "term": "Terminal velocity", "meaning": "The constant speed reached when drag equals weight, so the resultant force is zero." }
+            {
+              "term": "Terminal velocity",
+              "meaning": "The constant speed reached when drag equals weight, so the resultant force is zero."
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Resultant force on a falling object",
           "formula": "resultant force = weight − drag",
-          "where": ["resultant force is the downward force left over, in newtons (N)", "weight is in newtons (N)", "drag is in newtons (N)"]
+          "arrows": [
+            {
+              "point": "resultant force",
+              "label": "Downward force left over (N)"
+            },
+            {
+              "point": "weight",
+              "label": "Newtons (N)"
+            },
+            {
+              "point": "drag",
+              "label": "Newtons (N)"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "Acceleration",
           "formula": "resultant force = mass × acceleration",
-          "where": ["resultant force is in newtons (N)", "mass is in kilograms (kg)", "acceleration is in m/s²"]
+          "arrows": [
+            {
+              "point": "mass",
+              "label": "Kilograms (kg)"
+            },
+            {
+              "point": "acceleration",
+              "label": "Metres per second squared (m/s²)"
+            }
+          ]
         },
         {
           "type": "diagram",
@@ -83,13 +141,44 @@
             "kind": "slider",
             "alt": "A slider for a falling object. Change the mass and the drag force to see the resultant force and the acceleration.",
             "inputs": [
-              { "id": "m", "label": "Mass of the falling object", "unit": "kg", "min": 50, "max": 100, "step": 5, "value": 80 },
-              { "id": "d", "label": "Drag force", "unit": "N", "min": 0, "max": 1200, "step": 50, "value": 0 }
+              {
+                "id": "m",
+                "label": "Mass of the falling object",
+                "unit": "kg",
+                "min": 50,
+                "max": 100,
+                "step": 5,
+                "value": 80
+              },
+              {
+                "id": "d",
+                "label": "Drag force",
+                "unit": "N",
+                "min": 0,
+                "max": 1200,
+                "step": 50,
+                "value": 0
+              }
             ],
             "outputs": [
-              { "label": "Weight (using 10 N/kg)", "unit": "N", "formula": "m * 10", "decimals": 0 },
-              { "label": "Resultant force downwards (negative means upwards)", "unit": "N", "formula": "m * 10 - d", "decimals": 0 },
-              { "label": "Acceleration downwards (negative means upwards)", "unit": "m/s²", "formula": "(m * 10 - d) / m", "decimals": 1 }
+              {
+                "label": "Weight (using 10 N/kg)",
+                "unit": "N",
+                "formula": "m * 10",
+                "decimals": 0
+              },
+              {
+                "label": "Resultant force downwards (negative means upwards)",
+                "unit": "N",
+                "formula": "m * 10 - d",
+                "decimals": 0
+              },
+              {
+                "label": "Acceleration downwards (negative means upwards)",
+                "unit": "m/s²",
+                "formula": "(m * 10 - d) / m",
+                "decimals": 1
+              }
             ]
           }
         },
@@ -110,34 +199,83 @@
     {
       "heading": "A parachutist",
       "blocks": [
-        { "type": "paragraph", "text": "A parachutist reaches terminal velocity twice, once before and once after the parachute opens. The graph shows the shape of the speed." },
+        {
+          "type": "paragraph",
+          "text": "A parachutist reaches terminal velocity twice, once before and once after the parachute opens. The graph shows the shape of the speed."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "line-graph",
             "alt": "A speed-time graph for a parachutist. Speed rises and levels off at a terminal velocity. When the parachute opens the speed falls steeply to a lower terminal velocity.",
-            "x": { "label": "Time", "unit": "s", "min": 0, "max": 60, "ticks": [0, 10, 20, 30, 40, 50, 60] },
-            "y": { "label": "Speed" },
+            "x": {
+              "label": "Time",
+              "unit": "s",
+              "min": 0,
+              "max": 60,
+              "ticks": [0, 10, 20, 30, 40, 50, 60]
+            },
+            "y": {
+              "label": "Speed"
+            },
             "series": [
               {
                 "name": "Parachutist",
-                "points": [[0, 0], [3, 0.35], [6, 0.6], [10, 0.78], [15, 0.88], [20, 0.9], [30, 0.9], [32, 0.4], [35, 0.22], [40, 0.15], [50, 0.15], [60, 0.15]]
+                "points": [
+                  [0, 0],
+                  [3, 0.35],
+                  [6, 0.6],
+                  [10, 0.78],
+                  [15, 0.88],
+                  [20, 0.9],
+                  [30, 0.9],
+                  [32, 0.4],
+                  [35, 0.22],
+                  [40, 0.15],
+                  [50, 0.15],
+                  [60, 0.15]
+                ]
               }
             ],
-            "markers": [{ "x": 30, "label": "Parachute opens" }],
+            "markers": [
+              {
+                "x": 30,
+                "label": "Parachute opens"
+              }
+            ],
             "bands": [
-              { "from": 15, "to": 30, "label": "Terminal velocity" },
-              { "from": 40, "to": 60, "label": "New, lower terminal velocity" }
+              {
+                "from": 15,
+                "to": 30,
+                "label": "Terminal velocity"
+              },
+              {
+                "from": 40,
+                "to": 60,
+                "label": "New, lower terminal velocity"
+              }
             ]
           }
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Parachute opens", "text": "The area increases, so drag suddenly becomes bigger than weight." },
-            { "lead": "Slowing down", "text": "The resultant force is upwards, so the parachutist decelerates." },
-            { "lead": "Drag falls", "text": "As the speed decreases, drag decreases." },
-            { "lead": "New terminal velocity", "text": "Drag becomes equal to weight again. The speed is constant, but lower than before." }
+            {
+              "lead": "Parachute opens",
+              "text": "The area increases, so drag suddenly becomes bigger than weight."
+            },
+            {
+              "lead": "Slowing down",
+              "text": "The resultant force is upwards, so the parachutist decelerates."
+            },
+            {
+              "lead": "Drag falls",
+              "text": "As the speed decreases, drag decreases."
+            },
+            {
+              "lead": "New terminal velocity",
+              "text": "Drag becomes equal to weight again. The speed is constant, but lower than before."
+            }
           ]
         },
         {
@@ -205,11 +343,16 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-06",
-    "spec_point_ids": ["98aef786-00fc-4d25-8e03-4bc86f23a1b6", "dc0d47a7-eb5b-4dd7-b50c-04507d9b4c06", "93c6d2f3-0e8e-484c-bad1-42076ec2fdc3", "c8d500d3-b2d1-4b86-b391-15d6bb0a768d"],
+    "spec_point_ids": [
+      "98aef786-00fc-4d25-8e03-4bc86f23a1b6",
+      "dc0d47a7-eb5b-4dd7-b50c-04507d9b4c06",
+      "93c6d2f3-0e8e-484c-bad1-42076ec2fdc3",
+      "c8d500d3-b2d1-4b86-b391-15d6bb0a768d"
+    ],
     "exemplar_ids": ["0a334d09-0770-429b-81bc-40d7dfcbaed5", "720e2ef8-f1c1-455f-a0f0-957a67a84b2a"]
   }
 }

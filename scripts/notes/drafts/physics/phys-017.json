@@ -31,27 +31,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Wire",
-            "Insulation colour",
-            "Potential difference to earth"
-          ],
+          "columns": ["Wire", "Insulation colour", "Potential difference to earth"],
           "rows": [
-            [
-              "Live",
-              "brown",
-              "about 230 V"
-            ],
-            [
-              "Neutral",
-              "blue",
-              "0 V, or close to it"
-            ],
-            [
-              "Earth",
-              "green and yellow stripes",
-              "0 V"
-            ]
+            ["Live", "brown", "about 230 V"],
+            ["Neutral", "blue", "0 V, or close to it"],
+            ["Earth", "green and yellow stripes", "0 V"]
           ]
         },
         {
@@ -237,10 +221,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.2.3.2",
-        "AQA T 6.2.3.2"
-      ],
+      "spec_codes": ["AQA 4.2.3.2", "AQA T 6.2.3.2"],
       "worked_example": {
         "exemplar_id": "9067ff27-e96d-4c2c-88df-d5a2eb8908be",
         "source": "AQA jun 2020, Paper 1 (H), Q09.2",
@@ -255,13 +236,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 10.37",
-        "EDEX 10.38",
-        "EDEX 10.39",
-        "EDEX 10.40",
-        "EDEX 10.41"
-      ],
+      "spec_codes": ["EDEX 10.37", "EDEX 10.38", "EDEX 10.39", "EDEX 10.40", "EDEX 10.41"],
       "worked_example": {
         "exemplar_id": "d464d7e7-e7c4-4042-badc-610414999d28",
         "source": "EDEXCEL jun 2024, Paper 2 (F), Q6(c)(ii)",
@@ -275,10 +250,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P8.2i",
-        "OCR P8.2j"
-      ],
+      "spec_codes": ["OCR P8.2i", "OCR P8.2j"],
       "worked_example": {
         "exemplar_id": "edd5008d-566d-480a-989e-fce3f8528126",
         "source": "OCR nov 2020, Paper 2, Q21(c)(ii)",
@@ -306,13 +278,7 @@
       ]
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 4.4.1",
-        "CAIE 4.4.2",
-        "CAIE 4.4.3",
-        "CAIE 4.4.4",
-        "CAIE 4.4.5"
-      ],
+      "spec_codes": ["CAIE 4.4.1", "CAIE 4.4.2", "CAIE 4.4.3", "CAIE 4.4.4", "CAIE 4.4.5"],
       "worked_example": {
         "exemplar_id": "11f38769-1626-434c-8f22-a4aafc80f5ec",
         "source": "CAMBRIDGE jun 2025, Paper 41, Q4(b)(ii)",
@@ -366,10 +332,19 @@
               "type": "equation",
               "label": "Electrical power",
               "formula": "P = I × V",
-              "where": [
-                "P = power, in watts (W)",
-                "I = current, in amperes (A)",
-                "V = potential difference, in volts (V)"
+              "arrows": [
+                {
+                  "point": "P",
+                  "label": "Power (W)"
+                },
+                {
+                  "point": "I",
+                  "label": "Current (A)"
+                },
+                {
+                  "point": "V",
+                  "label": "Potential difference (V)"
+                }
               ]
             },
             {
@@ -390,10 +365,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 2.2",
-        "IGCSE 2.4"
-      ],
+      "spec_codes": ["IGCSE 2.2", "IGCSE 2.4"],
       "worked_example": {
         "exemplar_id": "e41ae140-0c35-47aa-98c3-2cb285c0c93a",
         "source": "EDEXCEL jun 2023, Paper 1 (P), Q3(b)(i)",
@@ -429,10 +401,19 @@
               "type": "equation",
               "label": "Electrical power",
               "formula": "P = I × V",
-              "where": [
-                "P = power, in watts (W)",
-                "I = current, in amperes (A)",
-                "V = potential difference, in volts (V)"
+              "arrows": [
+                {
+                  "point": "P",
+                  "label": "Power (W)"
+                },
+                {
+                  "point": "I",
+                  "label": "Current (A)"
+                },
+                {
+                  "point": "V",
+                  "label": "Potential difference (V)"
+                }
               ]
             },
             {
@@ -474,7 +455,7 @@
       "394618bc-8539-4f5c-a91a-89aab4a4c549",
       "bc371361-fced-4bc7-8657-a11dbc873751"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "exemplar_ids": [
       "9067ff27-e96d-4c2c-88df-d5a2eb8908be",

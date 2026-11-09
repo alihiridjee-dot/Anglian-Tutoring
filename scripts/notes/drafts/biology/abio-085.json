@@ -214,9 +214,15 @@
           "type": "equation",
           "label": "Percentage error",
           "formula": "percentage error = (uncertainty ÷ measured value) × 100",
-          "where": [
-            "uncertainty = the margin of error of the apparatus, in the same unit as the measurement",
-            "measured value = the reading taken, in the same unit"
+          "arrows": [
+            {
+              "point": "uncertainty",
+              "label": "Margin of error of the apparatus"
+            },
+            {
+              "point": "measured value",
+              "label": "The reading, in the same unit"
+            }
           ]
         },
         {
@@ -311,9 +317,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 1.17"
-      ],
+      "spec_codes": ["EDEX 1.17"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -368,7 +372,7 @@
       "db3e6ef1-6762-4859-a599-1775161eeecc"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

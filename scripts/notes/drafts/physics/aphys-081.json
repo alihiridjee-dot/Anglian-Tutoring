@@ -37,12 +37,26 @@
           "type": "equation",
           "label": "Redshift and the Doppler effect for light",
           "formula": "z = Δλ ÷ λ ≈ Δf ÷ f ≈ v ÷ c",
-          "where": [
-            "Δλ = change in wavelength (m), Δf = change in frequency (Hz)",
-            "λ = emitted wavelength (m), f = emitted frequency (Hz)",
-            "v = speed of the source relative to the observer (m/s)",
-            "c = speed of light, 3.0 × 10⁸ m/s"
-          ]
+          "arrows": [
+            {
+              "point": "Δλ",
+              "label": "Change in wavelength (m)"
+            },
+            {
+              "point": "λ",
+              "in": "÷ λ",
+              "label": "Emitted wavelength (m)"
+            },
+            {
+              "point": "v",
+              "label": "Speed of source relative to observer (m/s)"
+            },
+            {
+              "point": "c",
+              "label": "Speed of light, 3.0 × 10⁸ m/s"
+            }
+          ],
+          "where": ["Δf = change in frequency (Hz), f = emitted frequency (Hz)"]
         },
         {
           "type": "list",
@@ -72,11 +86,7 @@
               "decimals": 0,
               "tolerance_percent": 2
             },
-            "working": [
-              "z = Δλ ÷ λ = ({obs} – 656) ÷ 656",
-              "v = z × c",
-              "v = {answer} km/s"
-            ]
+            "working": ["z = Δλ ÷ λ = ({obs} – 656) ÷ 656", "v = z × c", "v = {answer} km/s"]
           }
         },
         {
@@ -100,10 +110,19 @@
           "type": "equation",
           "label": "Hubble's law",
           "formula": "v = H₀d",
-          "where": [
-            "v = speed of recession of a galaxy (km/s)",
-            "H₀ = Hubble constant, about 70 km s⁻¹ Mpc⁻¹",
-            "d = distance to the galaxy (Mpc)"
+          "arrows": [
+            {
+              "point": "v",
+              "label": "Speed of recession (km/s)"
+            },
+            {
+              "point": "H₀",
+              "label": "Hubble constant, about 70 km s⁻¹ Mpc⁻¹"
+            },
+            {
+              "point": "d",
+              "label": "Distance to the galaxy (Mpc)"
+            }
           ]
         },
         {
@@ -127,9 +146,15 @@
           "type": "equation",
           "label": "Estimated age of the Universe",
           "formula": "t ≈ 1 ÷ H₀",
-          "where": [
-            "t = age of the Universe (s)",
-            "H₀ = Hubble constant (s⁻¹)"
+          "arrows": [
+            {
+              "point": "t",
+              "label": "Age of the Universe (s)"
+            },
+            {
+              "point": "H₀",
+              "label": "Hubble constant (s⁻¹)"
+            }
           ]
         },
         {
@@ -253,10 +278,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.9.3.1",
-        "AQA 3.9.3.2"
-      ],
+      "spec_codes": ["AQA 3.9.3.1", "AQA 3.9.3.2"],
       "extra": [
         {
           "heading": "Detail this course asks for: binary stars, galaxies and quasars",
@@ -304,11 +326,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 10.161",
-        "EDEX 10.162",
-        "EDEX 10.163"
-      ],
+      "spec_codes": ["EDEX 10.161", "EDEX 10.162", "EDEX 10.163"],
       "extra": [
         {
           "heading": "Detail this course asks for: the controversy over age and fate",
@@ -335,12 +353,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 25.3.1",
-        "CAIE 25.3.2",
-        "CAIE 25.3.3",
-        "CAIE 25.3.4"
-      ]
+      "spec_codes": ["CAIE 25.3.1", "CAIE 25.3.2", "CAIE 25.3.3", "CAIE 25.3.4"]
     },
     "ocr_alevel": {
       "spec_codes": [
@@ -460,7 +473,7 @@
       "12358599-c024-43e1-9ce4-bfc69d3f4a92"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

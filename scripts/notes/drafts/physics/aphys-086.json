@@ -63,21 +63,36 @@
           "type": "equation",
           "label": "Specific acoustic impedance",
           "formula": "Z = ρc",
-          "where": [
-            "Z = acoustic impedance of the medium (kg m⁻² s⁻¹)",
-            "ρ = density of the medium (kg m⁻³)",
-            "c = speed of sound in the medium (m s⁻¹)"
+          "arrows": [
+            {
+              "point": "Z",
+              "label": "Acoustic impedance (kg m⁻² s⁻¹)"
+            },
+            {
+              "point": "ρ",
+              "label": "Density of the medium (kg m⁻³)"
+            },
+            {
+              "point": "c",
+              "label": "Speed of sound (m s⁻¹)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Intensity reflection coefficient",
           "formula": "Iᵣ ÷ Iᵢ = ((Z₂ − Z₁) ÷ (Z₂ + Z₁))²",
-          "where": [
-            "Iᵣ = reflected intensity (W m⁻²)",
-            "Iᵢ = incident intensity (W m⁻²)",
-            "Z₁, Z₂ = acoustic impedances of the two media (kg m⁻² s⁻¹)"
-          ]
+          "arrows": [
+            {
+              "point": "Iᵣ",
+              "label": "Reflected intensity (W m⁻²)"
+            },
+            {
+              "point": "Iᵢ",
+              "label": "Incident intensity (W m⁻²)"
+            }
+          ],
+          "where": ["Z₁, Z₂ = acoustic impedances of the two media"]
         },
         {
           "type": "list",
@@ -144,11 +159,24 @@
           "type": "equation",
           "label": "Attenuation",
           "formula": "I = I₀e^(−μx)",
-          "where": [
-            "I = intensity after distance x (W m⁻²)",
-            "I₀ = intensity at the start (W m⁻²)",
-            "μ = attenuation coefficient of the medium (m⁻¹)",
-            "x = distance travelled in the medium (m)"
+          "arrows": [
+            {
+              "point": "I",
+              "in": "I =",
+              "label": "Intensity after distance x (W m⁻²)"
+            },
+            {
+              "point": "I₀",
+              "label": "Intensity at the start (W m⁻²)"
+            },
+            {
+              "point": "μ",
+              "label": "Attenuation coefficient of the medium (m⁻¹)"
+            },
+            {
+              "point": "x",
+              "label": "Distance travelled in the medium (m)"
+            }
           ]
         },
         {
@@ -179,15 +207,24 @@
           "type": "equation",
           "label": "Depth from echo time",
           "formula": "d = ct ÷ 2",
-          "where": [
-            "d = depth of the boundary (m)",
-            "c = speed of sound in the tissue (m s⁻¹)",
-            "t = time between sending the pulse and receiving the echo (s)"
+          "arrows": [
+            {
+              "point": "d",
+              "label": "Depth of the boundary (m)"
+            },
+            {
+              "point": "c",
+              "label": "Speed of sound in tissue (m s⁻¹)"
+            },
+            {
+              "point": "t",
+              "label": "Time between pulse and echo (s)"
+            },
+            {
+              "point": "2",
+              "label": "Pulse travels there and back"
+            }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "The factor of 2 is there because the pulse travels to the boundary and back again."
         },
         {
           "type": "subheading",
@@ -210,14 +247,7 @@
               "label": "Time after the pulse is sent",
               "min": 0,
               "max": 100,
-              "ticks": [
-                0,
-                20,
-                40,
-                60,
-                80,
-                100
-              ],
+              "ticks": [0, 20, 40, 60, 80, 100],
               "unit": "µs"
             },
             "y": {
@@ -227,46 +257,16 @@
               {
                 "name": "A-scan",
                 "points": [
-                  [
-                    0,
-                    0.03
-                  ],
-                  [
-                    1,
-                    0.9
-                  ],
-                  [
-                    2,
-                    0.03
-                  ],
-                  [
-                    28,
-                    0.03
-                  ],
-                  [
-                    30,
-                    0.55
-                  ],
-                  [
-                    32,
-                    0.03
-                  ],
-                  [
-                    68,
-                    0.03
-                  ],
-                  [
-                    70,
-                    0.35
-                  ],
-                  [
-                    72,
-                    0.03
-                  ],
-                  [
-                    100,
-                    0.03
-                  ]
+                  [0, 0.03],
+                  [1, 0.9],
+                  [2, 0.03],
+                  [28, 0.03],
+                  [30, 0.55],
+                  [32, 0.03],
+                  [68, 0.03],
+                  [70, 0.35],
+                  [72, 0.03],
+                  [100, 0.03]
                 ]
               }
             ],
@@ -327,9 +327,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.10.4.1"
-      ],
+      "spec_codes": ["AQA 3.10.4.1"],
       "extra": [
         {
           "heading": "Ultrasound compared with other methods",
@@ -352,10 +350,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.88",
-        "EDEX 5.89"
-      ]
+      "spec_codes": ["EDEX 5.88", "EDEX 5.89"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -397,13 +392,26 @@
               "type": "equation",
               "label": "Speed of blood",
               "formula": "Δf ÷ f = 2v cos θ ÷ c",
-              "where": [
-                "Δf = change in frequency (Hz)",
-                "f = frequency sent (Hz)",
-                "v = speed of the blood (m s⁻¹)",
-                "θ = angle between the beam and the flow of blood",
-                "c = speed of ultrasound in the tissue (m s⁻¹)"
-              ]
+              "arrows": [
+                {
+                  "point": "Δf",
+                  "label": "Change in frequency (Hz)"
+                },
+                {
+                  "point": "f",
+                  "in": "÷ f",
+                  "label": "Frequency sent (Hz)"
+                },
+                {
+                  "point": "v",
+                  "label": "Speed of the blood (m s⁻¹)"
+                },
+                {
+                  "point": "θ",
+                  "label": "Angle between beam and blood flow"
+                }
+              ],
+              "where": ["c = speed of ultrasound in the tissue (m s⁻¹)"]
             },
             {
               "type": "paragraph",
@@ -437,7 +445,7 @@
       "0622b6cb-6350-4168-9668-7cb26a12073b"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -27,32 +27,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Name",
-            "Formula",
-            "Carbon atoms"
-          ],
+          "columns": ["Name", "Formula", "Carbon atoms"],
           "rows": [
-            [
-              "Methanoic acid",
-              "HCOOH",
-              "1"
-            ],
-            [
-              "Ethanoic acid",
-              "CH₃COOH",
-              "2"
-            ],
-            [
-              "Propanoic acid",
-              "CH₃CH₂COOH",
-              "3"
-            ],
-            [
-              "Butanoic acid",
-              "CH₃CH₂CH₂COOH",
-              "4"
-            ]
+            ["Methanoic acid", "HCOOH", "1"],
+            ["Ethanoic acid", "CH₃COOH", "2"],
+            ["Propanoic acid", "CH₃CH₂COOH", "3"],
+            ["Butanoic acid", "CH₃CH₂CH₂COOH", "4"]
           ]
         },
         {
@@ -145,11 +125,7 @@
             "kind": "sort",
             "alt": "Sort formulae into alcohols, carboxylic acids and neither.",
             "prompt": "Sort each formula into the right group.",
-            "groups": [
-              "Alcohol",
-              "Carboxylic acid",
-              "Neither"
-            ],
+            "groups": ["Alcohol", "Carboxylic acid", "Neither"],
             "items": [
               {
                 "text": "CH₃OH",
@@ -401,12 +377,17 @@
         {
           "type": "equation",
           "label": "Ionisation of ethanoic acid",
-          "formula": "CH₃COOH(aq) ⇌ CH₃COO⁻(aq) + H⁺(aq)"
+          "formula": "CH₃COOH(aq) ⇌ CH₃COO⁻(aq) + H⁺(aq)",
+          "arrows": [
+            {
+              "point": "⇌",
+              "label": "Reversible: ionisation is incomplete"
+            }
+          ]
         },
         {
           "type": "list",
           "items": [
-            "The ⇌ arrow shows the reaction is reversible, so ionisation is incomplete.",
             "Only some molecules form hydrogen ions.",
             "At the same concentration, a weak acid has a higher pH than a strong acid."
           ]
@@ -416,38 +397,23 @@
           "diagram": {
             "kind": "compare",
             "alt": "A strong acid compared with a weak carboxylic acid at the same concentration.",
-            "items": [
-              "Strong acid",
-              "Weak acid (ethanoic acid)"
-            ],
+            "items": ["Strong acid", "Weak acid (ethanoic acid)"],
             "rows": [
               {
                 "feature": "Ionisation",
-                "values": [
-                  "Complete",
-                  "Incomplete (partial)"
-                ]
+                "values": ["Complete", "Incomplete (partial)"]
               },
               {
                 "feature": "pH at the same concentration",
-                "values": [
-                  "Lower",
-                  "Higher"
-                ]
+                "values": ["Lower", "Higher"]
               },
               {
                 "feature": "Concentration of hydrogen ions",
-                "values": [
-                  "Higher",
-                  "Lower"
-                ]
+                "values": ["Higher", "Lower"]
               },
               {
                 "feature": "Rate with a carbonate",
-                "values": [
-                  "Faster",
-                  "Slower"
-                ]
+                "values": ["Faster", "Slower"]
               }
             ]
           }
@@ -486,9 +452,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.2.4"
-      ],
+      "spec_codes": ["AQA 4.7.2.4"],
       "worked_example": {
         "exemplar_id": "d3d0cb0d-32ea-4b02-9877-08ebdec085e9",
         "source": "AQA jun 2020, Paper 2 (H), Q07.4",
@@ -503,11 +467,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.29C",
-        "EDEX 9.30C",
-        "EDEX 9.31C"
-      ],
+      "spec_codes": ["EDEX 9.29C", "EDEX 9.30C", "EDEX 9.31C"],
       "worked_example": {
         "exemplar_id": "2728f0cf-0cca-45b9-b112-810aa2412995",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q*10(b)",
@@ -536,10 +496,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2b",
-        "OCR C6.2c"
-      ],
+      "spec_codes": ["OCR C6.2b", "OCR C6.2c"],
       "worked_example": {
         "exemplar_id": "c6047c52-9df1-4df8-97c6-055eaee064bc",
         "source": "OCR nov 2020, Paper 4, Q20(c)",
@@ -660,9 +617,15 @@
               "type": "equation",
               "label": "Ethanoic acid with magnesium",
               "formula": "2CH₃COOH + Mg → (CH₃COO)₂Mg + H₂",
-              "where": [
-                "(CH₃COO)₂Mg is magnesium ethanoate, the salt",
-                "H₂ is hydrogen gas"
+              "arrows": [
+                {
+                  "point": "(CH₃COO)₂Mg",
+                  "label": "Magnesium ethanoate, the salt"
+                },
+                {
+                  "point": "H₂",
+                  "label": "Hydrogen gas"
+                }
               ]
             }
           ]
@@ -767,7 +730,7 @@
       "b91f48bb-70c8-414f-8c9f-d788c33f8f89",
       "00777430-d01e-4fdc-bfeb-1ff7a793f7a5"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

@@ -59,48 +59,38 @@
           "type": "equation",
           "label": "Making a polyester",
           "formula": "n HOOC–R–COOH + n HO–R′–OH → [–OC–R–COO–R′–O–]ₙ + 2n H₂O",
-          "where": [
-            "The link –COO– is an ester link",
-            "One H₂O is lost for each ester link formed"
+          "arrows": [
+            {
+              "point": "COO",
+              "in": "COO–R′",
+              "label": "Ester link"
+            },
+            {
+              "point": "2n H₂O",
+              "label": "One H₂O lost per ester link"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Making a polyamide",
           "formula": "n HOOC–R–COOH + n H₂N–R′–NH₂ → [–OC–R–CONH–R′–NH–]ₙ + 2n H₂O",
-          "where": [
-            "The link –CONH– is an amide (peptide) link",
-            "Using a dioyl chloride instead of the acid loses HCl"
-          ]
+          "arrows": [
+            {
+              "point": "CONH",
+              "label": "Amide (peptide) link"
+            }
+          ],
+          "where": ["Using a dioyl chloride instead of the acid loses HCl"]
         },
         {
           "type": "table",
-          "columns": [
-            "Polymer",
-            "Monomers",
-            "Link"
-          ],
+          "columns": ["Polymer", "Monomers", "Link"],
           "rows": [
-            [
-              "Terylene (polyester)",
-              "Benzene-1,4-dicarboxylic acid + ethane-1,2-diol",
-              "Ester"
-            ],
-            [
-              "Nylon 6,6 (polyamide)",
-              "Hexanedioic acid + hexane-1,6-diamine",
-              "Amide"
-            ],
-            [
-              "Kevlar (polyamide)",
-              "Benzene-1,4-dicarboxylic acid + benzene-1,4-diamine",
-              "Amide"
-            ],
-            [
-              "Polyamide from amino acids",
-              "Amino acids, H₂NCHRCOOH",
-              "Peptide (amide)"
-            ]
+            ["Terylene (polyester)", "Benzene-1,4-dicarboxylic acid + ethane-1,2-diol", "Ester"],
+            ["Nylon 6,6 (polyamide)", "Hexanedioic acid + hexane-1,6-diamine", "Amide"],
+            ["Kevlar (polyamide)", "Benzene-1,4-dicarboxylic acid + benzene-1,4-diamine", "Amide"],
+            ["Polyamide from amino acids", "Amino acids, H₂NCHRCOOH", "Peptide (amide)"]
           ]
         },
         {
@@ -186,32 +176,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Addition",
-            "Condensation"
-          ],
+          "columns": ["Feature", "Addition", "Condensation"],
           "rows": [
-            [
-              "Monomer",
-              "Contains C=C",
-              "Two functional groups, e.g. –COOH and –OH or –NH₂"
-            ],
-            [
-              "Small molecule lost",
-              "No",
-              "Yes: H₂O or HCl"
-            ],
-            [
-              "Polymer backbone",
-              "Carbon–carbon chain only",
-              "Contains ester or amide links"
-            ],
-            [
-              "Repeat unit",
-              "Same atoms as the monomer",
-              "Fewer atoms than the monomers combined"
-            ]
+            ["Monomer", "Contains C=C", "Two functional groups, e.g. –COOH and –OH or –NH₂"],
+            ["Small molecule lost", "No", "Yes: H₂O or HCl"],
+            ["Polymer backbone", "Carbon–carbon chain only", "Contains ester or amide links"],
+            ["Repeat unit", "Same atoms as the monomer", "Fewer atoms than the monomers combined"]
           ]
         },
         {
@@ -220,10 +190,7 @@
             "kind": "sort",
             "alt": "Sort each monomer or pair of monomers by the type of polymerisation.",
             "prompt": "Which type of polymerisation does each monomer, or pair of monomers, undergo?",
-            "groups": [
-              "Addition",
-              "Condensation"
-            ],
+            "groups": ["Addition", "Condensation"],
             "items": [
               {
                 "text": "Propene",
@@ -299,11 +266,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Method",
-            "Advantage",
-            "Disadvantage"
-          ],
+          "columns": ["Method", "Advantage", "Disadvantage"],
           "rows": [
             [
               "Landfill",
@@ -315,11 +278,7 @@
               "Releases energy that can generate electricity",
               "Produces CO₂ and can release toxic gases, e.g. HCl from PVC"
             ],
-            [
-              "Recycling",
-              "Saves raw materials and energy",
-              "Needs sorting; quality may fall"
-            ]
+            ["Recycling", "Saves raw materials and energy", "Needs sorting; quality may fall"]
           ]
         },
         {
@@ -352,11 +311,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.2.3a",
-        "OCR 6.2.3b",
-        "OCR 6.2.3c"
-      ],
+      "spec_codes": ["OCR 6.2.3a", "OCR 6.2.3b", "OCR 6.2.3c"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -379,17 +334,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 17C.16",
-        "EDEX 18B.14",
-        "EDEX 18B.15"
-      ]
+      "spec_codes": ["EDEX 17C.16", "EDEX 18B.14", "EDEX 18B.15"]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.12.1",
-        "AQA 3.3.12.2"
-      ]
+      "spec_codes": ["AQA 3.3.12.1", "AQA 3.3.12.2"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -450,7 +398,7 @@
       "dda051dd-0c65-4d2d-b31d-d7205c2fe824"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

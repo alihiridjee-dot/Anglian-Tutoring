@@ -70,27 +70,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Process",
-            "Catalyst",
-            "Notes"
-          ],
+          "columns": ["Process", "Catalyst", "Notes"],
           "rows": [
-            [
-              "Haber process",
-              "Iron",
-              "N₂ + 3H₂ ⇌ 2NH₃"
-            ],
-            [
-              "Contact process",
-              "V₂O₅",
-              "2SO₂ + O₂ ⇌ 2SO₃"
-            ],
-            [
-              "Catalytic converter",
-              "Platinum, palladium or rhodium",
-              "2CO + 2NO → 2CO₂ + N₂"
-            ]
+            ["Haber process", "Iron", "N₂ + 3H₂ ⇌ 2NH₃"],
+            ["Contact process", "V₂O₅", "2SO₂ + O₂ ⇌ 2SO₃"],
+            ["Catalytic converter", "Platinum, palladium or rhodium", "2CO + 2NO → 2CO₂ + N₂"]
           ]
         },
         {
@@ -148,9 +132,7 @@
           "type": "equation",
           "label": "Overall reaction",
           "formula": "S₂O₈²⁻ + 2I⁻ → 2SO₄²⁻ + I₂",
-          "where": [
-            "Slow uncatalysed: two negative ions repel each other."
-          ]
+          "where": ["Slow uncatalysed: two negative ions repel each other."]
         },
         {
           "type": "steps",
@@ -177,8 +159,11 @@
           "type": "equation",
           "label": "Overall reaction",
           "formula": "2MnO₄⁻ + 16H⁺ + 5C₂O₄²⁻ → 2Mn²⁺ + 10CO₂ + 8H₂O",
-          "where": [
-            "Mn²⁺ is a product and also the catalyst. This is autocatalysis."
+          "arrows": [
+            {
+              "point": "Mn²⁺",
+              "label": "A product and also the catalyst"
+            }
           ]
         },
         {
@@ -190,14 +175,7 @@
               "label": "Time",
               "min": 0,
               "max": 10,
-              "ticks": [
-                0,
-                2,
-                4,
-                6,
-                8,
-                10
-              ],
+              "ticks": [0, 2, 4, 6, 8, 10],
               "unit": "min"
             },
             "y": {
@@ -207,38 +185,14 @@
               {
                 "name": "Mn²⁺",
                 "points": [
-                  [
-                    0,
-                    0.02
-                  ],
-                  [
-                    2,
-                    0.05
-                  ],
-                  [
-                    4,
-                    0.15
-                  ],
-                  [
-                    5,
-                    0.4
-                  ],
-                  [
-                    6,
-                    0.75
-                  ],
-                  [
-                    7,
-                    0.9
-                  ],
-                  [
-                    8,
-                    0.96
-                  ],
-                  [
-                    10,
-                    1
-                  ]
+                  [0, 0.02],
+                  [2, 0.05],
+                  [4, 0.15],
+                  [5, 0.4],
+                  [6, 0.75],
+                  [7, 0.9],
+                  [8, 0.96],
+                  [10, 1]
                 ]
               }
             ]
@@ -282,9 +236,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.3.1c"
-      ],
+      "spec_codes": ["OCR 5.3.1c"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -327,9 +279,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.5.6"
-      ],
+      "spec_codes": ["AQA 3.2.5.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -348,11 +298,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 28.1.5",
-        "CAIE 26.2.2",
-        "CAIE 26.2.3"
-      ],
+      "spec_codes": ["CAIE 28.1.5", "CAIE 26.2.2", "CAIE 26.2.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -388,7 +334,7 @@
       "81e5d204-d151-445f-a24a-16e267bb5d2a"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -63,16 +63,24 @@
           "type": "equation",
           "label": "Moles",
           "formula": "number of moles = mass ÷ Mr",
-          "where": [
-            "mass in grams (g)",
-            "Mr = relative formula mass (or Ar for an element)",
-            "moles in mol"
+          "arrows": [
+            {
+              "point": "number of moles",
+              "label": "Moles (mol)"
+            },
+            {
+              "point": "mass",
+              "label": "Mass (g)"
+            },
+            {
+              "point": "Mr",
+              "label": "Relative formula mass (Ar for an element)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Mass",
-          "where": ["The same equation, rearranged."],
           "formula": "mass = number of moles × Mr"
         },
         {
@@ -138,10 +146,17 @@
           "type": "equation",
           "label": "Number of particles",
           "formula": "number of particles = number of moles × 6.02 × 10²³",
-          "where": [
-            "Particles are atoms, molecules, ions or formula units.",
-            "Give very large numbers in standard form."
-          ]
+          "arrows": [
+            {
+              "point": "number of particles",
+              "label": "Atoms, molecules, ions or formula units"
+            },
+            {
+              "point": "6.02 × 10²³",
+              "label": "The Avogadro constant"
+            }
+          ],
+          "where": ["Give very large numbers in standard form."]
         },
         {
           "type": "diagram",
@@ -316,9 +331,15 @@
               "type": "equation",
               "label": "Moles from a number of particles",
               "formula": "number of moles = number of particles ÷ (6.02 × 10²³)",
-              "where": [
-                "number of moles is in mol.",
-                "number of particles is the number of atoms, molecules or ions."
+              "arrows": [
+                {
+                  "point": "number of moles",
+                  "label": "Moles (mol)"
+                },
+                {
+                  "point": "number of particles",
+                  "label": "Atoms, molecules or ions"
+                }
               ]
             },
             {
@@ -352,9 +373,15 @@
               "type": "equation",
               "label": "Moles from a number of particles",
               "formula": "number of moles = number of particles ÷ (6.02 × 10²³)",
-              "where": [
-                "number of moles is in mol.",
-                "number of particles is the number of atoms, molecules, formulae or ions."
+              "arrows": [
+                {
+                  "point": "number of moles",
+                  "label": "Moles (mol)"
+                },
+                {
+                  "point": "number of particles",
+                  "label": "Atoms, molecules, formulae or ions"
+                }
               ]
             },
             {
@@ -429,8 +456,7 @@
             {
               "type": "equation",
               "label": "Molar mass",
-              "formula": "molar mass (g/mol) = mass (g) ÷ amount (mol)",
-              "where": ["mass in grams", "amount of substance in moles"]
+              "formula": "molar mass (g/mol) = mass (g) ÷ amount (mol)"
             },
             {
               "type": "list",
@@ -482,7 +508,7 @@
       "b17dd74b-6dbd-44a4-960b-bbe39d848a06",
       "31baa827-0a5a-4c8f-a9ee-228fcc39ed5f"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

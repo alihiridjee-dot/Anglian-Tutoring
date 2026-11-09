@@ -83,11 +83,23 @@
           "type": "equation",
           "label": "Transformer turns ratio",
           "formula": "Vₚ ÷ Vₛ = Nₚ ÷ Nₛ",
-          "where": [
-            "Vₚ is the potential difference across the primary coil, in volts, V",
-            "Vₛ is the potential difference across the secondary coil, in volts, V",
-            "Nₚ is the number of turns on the primary coil",
-            "Nₛ is the number of turns on the secondary coil"
+          "arrows": [
+            {
+              "point": "Vₚ",
+              "label": "P.d. across the primary coil (V)"
+            },
+            {
+              "point": "Vₛ",
+              "label": "P.d. across the secondary coil (V)"
+            },
+            {
+              "point": "Nₚ",
+              "label": "Turns on the primary coil"
+            },
+            {
+              "point": "Nₛ",
+              "label": "Turns on the secondary coil"
+            }
           ]
         },
         {
@@ -182,11 +194,17 @@
           "type": "equation",
           "label": "Transformer power",
           "formula": "Vₛ × Iₛ = Vₚ × Iₚ",
-          "where": [
-            "Vₛ × Iₛ is the power output from the secondary coil, in watts, W",
-            "Vₚ × Iₚ is the power input to the primary coil, in watts, W",
-            "Iₛ and Iₚ are the currents in the secondary and primary coils, in amperes, A"
-          ]
+          "arrows": [
+            {
+              "point": "Vₛ × Iₛ",
+              "label": "Power out of the secondary coil (W)"
+            },
+            {
+              "point": "Vₚ × Iₚ",
+              "label": "Power into the primary coil (W)"
+            }
+          ],
+          "where": ["Iₛ and Iₚ are the currents in the secondary and primary coils, in amperes, A"]
         },
         {
           "type": "list",
@@ -528,7 +546,7 @@
       "d6c76ae4-d99f-4eb2-aeab-092e62fdef9c",
       "4caa31c1-df83-4f15-9322-bd7170fa5361"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

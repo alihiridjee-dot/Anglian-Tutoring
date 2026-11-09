@@ -29,20 +29,39 @@
           "type": "equation",
           "label": "Stress",
           "formula": "σ = F / A",
-          "where": [
-            "σ = stress, in Pa (N/m²)",
-            "F = force, in N",
-            "A = cross-sectional area, in m²"
+          "arrows": [
+            {
+              "point": "σ",
+              "label": "Stress (Pa or N/m²)"
+            },
+            {
+              "point": "F",
+              "label": "Force (N)"
+            },
+            {
+              "point": "A",
+              "label": "Cross-sectional area (m²)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Strain",
           "formula": "ε = ΔL / L",
-          "where": [
-            "ε = strain, no unit",
-            "ΔL = change in length (extension or compression), in m",
-            "L = original length, in m"
+          "arrows": [
+            {
+              "point": "ε",
+              "label": "Strain (no unit)"
+            },
+            {
+              "point": "ΔL",
+              "label": "Extension or compression (m)"
+            },
+            {
+              "point": "L",
+              "in": "/ L",
+              "label": "Original length (m)"
+            }
           ]
         },
         {
@@ -73,14 +92,11 @@
           "type": "equation",
           "label": "Young modulus",
           "formula": "E = σ / ε = FL / AΔL",
-          "where": [
-            "E = Young modulus, in Pa",
-            "σ = stress, in Pa",
-            "ε = strain, no unit",
-            "F = force, in N",
-            "L = original length, in m",
-            "A = cross-sectional area, in m²",
-            "ΔL = extension, in m"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Young modulus (Pa)"
+            }
           ]
         },
         {
@@ -192,14 +208,7 @@
               "label": "Strain (not to scale)",
               "min": 0,
               "max": 10,
-              "ticks": [
-                0,
-                2,
-                4,
-                6,
-                8,
-                10
-              ]
+              "ticks": [0, 2, 4, 6, 8, 10]
             },
             "y": {
               "label": "Stress"
@@ -208,72 +217,30 @@
               {
                 "name": "Ductile metal",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    1,
-                    0.6
-                  ],
-                  [
-                    1.5,
-                    0.65
-                  ],
-                  [
-                    3,
-                    0.8
-                  ],
-                  [
-                    5,
-                    0.92
-                  ],
-                  [
-                    6,
-                    0.9
-                  ],
-                  [
-                    8,
-                    0.8
-                  ]
+                  [0, 0],
+                  [1, 0.6],
+                  [1.5, 0.65],
+                  [3, 0.8],
+                  [5, 0.92],
+                  [6, 0.9],
+                  [8, 0.8]
                 ]
               },
               {
                 "name": "Brittle material",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    1.5,
-                    0.9
-                  ]
+                  [0, 0],
+                  [1.5, 0.9]
                 ]
               },
               {
                 "name": "Polymer",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    2,
-                    0.12
-                  ],
-                  [
-                    5,
-                    0.25
-                  ],
-                  [
-                    8,
-                    0.38
-                  ],
-                  [
-                    10,
-                    0.45
-                  ]
+                  [0, 0],
+                  [2, 0.12],
+                  [5, 0.25],
+                  [8, 0.38],
+                  [10, 0.45]
                 ]
               }
             ]
@@ -381,9 +348,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.4.2.2"
-      ],
+      "spec_codes": ["AQA 3.4.2.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -401,10 +366,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 4.54",
-        "EDEX 4.56"
-      ],
+      "spec_codes": ["EDEX 4.54", "EDEX 4.56"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -422,9 +384,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 6.1.5"
-      ],
+      "spec_codes": ["CAIE 6.1.5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -441,11 +401,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.4.2c",
-        "OCR 3.4.2d",
-        "OCR 3.4.2e"
-      ],
+      "spec_codes": ["OCR 3.4.2c", "OCR 3.4.2d", "OCR 3.4.2e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -478,7 +434,7 @@
       "1e49e970-4b89-482a-8299-0facbc530bc1"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

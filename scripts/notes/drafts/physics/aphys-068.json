@@ -16,10 +16,19 @@
           "type": "equation",
           "label": "Uniform field strength",
           "formula": "E = V / d",
-          "where": [
-            "E = electric field strength (V/m)",
-            "V = potential difference between the plates (V)",
-            "d = separation of the plates (m)"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Electric field strength (V/m)"
+            },
+            {
+              "point": "V",
+              "label": "Potential difference between the plates (V)"
+            },
+            {
+              "point": "d",
+              "label": "Separation of the plates (m)"
+            }
           ]
         },
         {
@@ -82,11 +91,7 @@
               "decimals": 1,
               "tolerance_percent": 2
             },
-            "working": [
-              "E = V/d",
-              "E = {V} ÷ ({d} × 10⁻³) V/m",
-              "E = {answer} kV/m"
-            ]
+            "working": ["E = V/d", "E = {V} ÷ ({d} × 10⁻³) V/m", "E = {answer} kV/m"]
           }
         },
         {
@@ -110,11 +115,25 @@
           "type": "equation",
           "label": "Acceleration of a charged particle",
           "formula": "a = F / m = Q E / m = Q V / (m d)",
-          "where": [
-            "a = acceleration (m/s²)",
-            "Q = charge (C)",
-            "E = field strength (V/m)",
-            "m = mass of the particle (kg)"
+          "arrows": [
+            {
+              "point": "a",
+              "label": "Acceleration (m/s²)"
+            },
+            {
+              "point": "m",
+              "in": "F / m",
+              "label": "Mass of the particle (kg)"
+            },
+            {
+              "point": "Q",
+              "in": "Q E",
+              "label": "Charge (C)"
+            },
+            {
+              "point": "E",
+              "label": "Field strength (V/m)"
+            }
           ]
         },
         {
@@ -219,26 +238,16 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.3.2"
-      ]
+      "spec_codes": ["AQA 3.7.3.2"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 7.113"
-      ]
+      "spec_codes": ["EDEX 7.113"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 18.2.1",
-        "CAIE 18.2.2"
-      ]
+      "spec_codes": ["CAIE 18.2.1", "CAIE 18.2.2"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.2.3a",
-        "OCR 6.2.3c"
-      ]
+      "spec_codes": ["OCR 6.2.3a", "OCR 6.2.3c"]
     }
   },
   "meta": {
@@ -254,7 +263,7 @@
       "d0bfb236-8adc-4644-aa25-2ff2cd7d3477"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

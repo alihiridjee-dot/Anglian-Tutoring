@@ -40,22 +40,10 @@
         {
           "type": "table",
           "rows": [
-            [
-              "T",
-              "TT",
-              "Tt"
-            ],
-            [
-              "t",
-              "Tt",
-              "tt"
-            ]
+            ["T", "TT", "Tt"],
+            ["t", "Tt", "tt"]
           ],
-          "columns": [
-            "Gametes",
-            "T",
-            "t"
-          ]
+          "columns": ["Gametes", "T", "t"]
         },
         {
           "type": "list",
@@ -95,53 +83,22 @@
               "dominant": "Tall plant",
               "recessive": "Short plant"
             },
-            "parent_labels": [
-              "Parent 1",
-              "Parent 2"
-            ],
+            "parent_labels": ["Parent 1", "Parent 2"],
             "parent_options": [
-              [
-                "TT",
-                "Tt",
-                "tt"
-              ],
-              [
-                "TT",
-                "Tt",
-                "tt"
-              ]
+              ["TT", "Tt", "tt"],
+              ["TT", "Tt", "tt"]
             ]
           }
         },
         {
           "type": "table",
           "rows": [
-            [
-              "Hh × Hh",
-              "1 HH : 2 Hh : 1 hh",
-              "3 dominant : 1 recessive (25% recessive)"
-            ],
-            [
-              "Hh × hh",
-              "1 Hh : 1 hh",
-              "1 dominant : 1 recessive (50% recessive)"
-            ],
-            [
-              "HH × hh",
-              "All Hh",
-              "All dominant (100%)"
-            ],
-            [
-              "HH × Hh",
-              "1 HH : 1 Hh",
-              "All dominant (0% recessive)"
-            ]
+            ["Hh × Hh", "1 HH : 2 Hh : 1 hh", "3 dominant : 1 recessive (25% recessive)"],
+            ["Hh × hh", "1 Hh : 1 hh", "1 dominant : 1 recessive (50% recessive)"],
+            ["HH × hh", "All Hh", "All dominant (100%)"],
+            ["HH × Hh", "1 HH : 1 Hh", "All dominant (0% recessive)"]
           ],
-          "columns": [
-            "Cross",
-            "Offspring genotypes",
-            "Offspring phenotypes"
-          ]
+          "columns": ["Cross", "Offspring genotypes", "Offspring phenotypes"]
         },
         {
           "type": "subheading",
@@ -158,11 +115,13 @@
         {
           "type": "equation",
           "label": "Expected number of offspring",
-          "where": [
-            "total number of offspring",
-            "probability of the characteristic, as a fraction or decimal"
-          ],
-          "formula": "expected number = total number of offspring × probability"
+          "formula": "expected number = total number of offspring × probability",
+          "arrows": [
+            {
+              "point": "probability",
+              "label": "Of the characteristic: fraction or decimal"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -330,11 +289,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 6.7",
-        "AQA T 4.6.1.4",
-        "AQA T 4.6.1.5"
-      ],
+      "spec_codes": ["AQA 6.7", "AQA T 4.6.1.4", "AQA T 4.6.1.5"],
       "worked_example": {
         "exemplar_id": "0770f1e0-7384-4709-a346-30def20d4202",
         "source": "AQA jun 2020, Paper 2 (H), Q05.3",
@@ -370,10 +325,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 3.14",
-        "EDEX 3.16"
-      ],
+      "spec_codes": ["EDEX 3.14", "EDEX 3.16"],
       "worked_example": {
         "exemplar_id": "0222d622-b899-4ebc-a3bc-3a603b865292",
         "source": "EDEXCEL jun 2023, Paper 1 (F), Q6(c)(ii)",
@@ -407,9 +359,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 5.1j"
-      ],
+      "spec_codes": ["OCR 5.1j"],
       "worked_example": {
         "exemplar_id": "84b6f287-b656-47f3-aa13-e65a881de69d",
         "source": "OCR jun 2018, Paper 4, Q18(b)(i)",
@@ -493,11 +443,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 3.23",
-        "IGCSE 3.24",
-        "IGCSE 3.25"
-      ],
+      "spec_codes": ["IGCSE 3.23", "IGCSE 3.24", "IGCSE 3.25"],
       "worked_example": {
         "exemplar_id": "d75fac89-e26b-4d8d-ac57-6367ec9496b5",
         "source": "EDEXCEL nov 2020, Paper 1 (BR), Q9(b)(i)",
@@ -557,7 +503,7 @@
       "b8f01430-c108-4f29-9fc4-ff47998c8cda",
       "d75fac89-e26b-4d8d-ac57-6367ec9496b5"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

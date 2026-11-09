@@ -98,35 +98,32 @@
           "type": "equation",
           "label": "Phase and path difference",
           "formula": "phase difference = 2π × (path difference / λ)",
-          "where": [
-            "phase difference = the angle between the waves (rad)",
-            "path difference = difference in distance travelled (m)",
-            "λ = wavelength (m)"
+          "arrows": [
+            {
+              "point": "phase difference",
+              "label": "In radians"
+            },
+            {
+              "point": "path difference",
+              "label": "Difference in distance travelled (m)"
+            },
+            {
+              "point": "λ",
+              "label": "Wavelength (m)"
+            }
           ]
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Constructive interference",
-            "Destructive interference"
-          ],
+          "columns": ["Feature", "Constructive interference", "Destructive interference"],
           "rows": [
-            [
-              "Path difference",
-              "0, λ, 2λ, ... = nλ",
-              "½λ, 1½λ, ... = (n + ½)λ"
-            ],
+            ["Path difference", "0, λ, 2λ, ... = nλ", "½λ, 1½λ, ... = (n + ½)λ"],
             [
               "Phase difference",
               "0, 2π, 4π, ... (waves in phase)",
               "π, 3π, 5π, ... (waves in antiphase)"
             ],
-            [
-              "Result",
-              "Maximum amplitude: loud, bright",
-              "Minimum amplitude: quiet, dark"
-            ]
+            ["Result", "Maximum amplitude: loud, bright", "Minimum amplitude: quiet, dark"]
           ]
         },
         {
@@ -178,11 +175,23 @@
           "type": "equation",
           "label": "Double-slit equation",
           "formula": "λ = ax / D",
-          "where": [
-            "λ = wavelength (m)",
-            "a = slit separation (m)",
-            "x = fringe spacing (m)",
-            "D = distance from slits to screen (m)"
+          "arrows": [
+            {
+              "point": "λ",
+              "label": "Wavelength (m)"
+            },
+            {
+              "point": "a",
+              "label": "Slit separation (m)"
+            },
+            {
+              "point": "x",
+              "label": "Fringe spacing (m)"
+            },
+            {
+              "point": "D",
+              "label": "Distance from slits to screen (m)"
+            }
           ]
         },
         {
@@ -216,11 +225,7 @@
               "unit": "mm",
               "decimals": 2
             },
-            "working": [
-              "x = λD / a",
-              "x = ({lam} × 10⁻⁹ × {D}) / ({a} × 10⁻³)",
-              "x = {answer} mm"
-            ]
+            "working": ["x = λD / a", "x = ({lam} × 10⁻⁹ × {D}) / ({a} × 10⁻³)", "x = {answer} mm"]
           }
         },
         {
@@ -259,9 +264,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.2.1"
-      ],
+      "spec_codes": ["AQA 3.3.2.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -281,19 +284,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.65",
-        "EDEX 5.66"
-      ]
+      "spec_codes": ["EDEX 5.65", "EDEX 5.66"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 8.1.1",
-        "CAIE 8.3.1",
-        "CAIE 8.3.2",
-        "CAIE 8.3.3",
-        "CAIE 8.3.4"
-      ],
+      "spec_codes": ["CAIE 8.1.1", "CAIE 8.3.1", "CAIE 8.3.2", "CAIE 8.3.3", "CAIE 8.3.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -364,7 +358,7 @@
       "a75bb139-deb2-4ce7-bc96-ac0a899d7a69"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

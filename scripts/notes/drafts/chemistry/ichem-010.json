@@ -27,13 +27,23 @@
         },
         {
           "type": "equation",
-          "formula": "solubility = (mass of solute ÷ mass of solvent) × 100",
           "label": "Solubility",
-          "where": [
-            "solubility in g per 100 g of solvent",
-            "mass of solute in g",
-            "mass of solvent in g (1.0 cm³ of water has a mass of 1.0 g)"
-          ]
+          "formula": "solubility = (mass of solute ÷ mass of solvent) × 100",
+          "arrows": [
+            {
+              "point": "solubility",
+              "label": "Solubility (g per 100 g of solvent)"
+            },
+            {
+              "point": "mass of solute",
+              "label": "Mass of solute (g)"
+            },
+            {
+              "point": "mass of solvent",
+              "label": "Mass of solvent (g)"
+            }
+          ],
+          "where": ["1.0 cm³ of water has a mass of 1.0 g."]
         },
         {
           "type": "diagram",
@@ -109,14 +119,7 @@
               "label": "Temperature",
               "min": 0,
               "max": 100,
-              "ticks": [
-                0,
-                20,
-                40,
-                60,
-                80,
-                100
-              ],
+              "ticks": [0, 20, 40, 60, 80, 100],
               "unit": "°C"
             },
             "y": {
@@ -126,59 +129,23 @@
               {
                 "name": "Solid A",
                 "points": [
-                  [
-                    0,
-                    0.08
-                  ],
-                  [
-                    20,
-                    0.15
-                  ],
-                  [
-                    40,
-                    0.28
-                  ],
-                  [
-                    60,
-                    0.45
-                  ],
-                  [
-                    80,
-                    0.68
-                  ],
-                  [
-                    100,
-                    0.95
-                  ]
+                  [0, 0.08],
+                  [20, 0.15],
+                  [40, 0.28],
+                  [60, 0.45],
+                  [80, 0.68],
+                  [100, 0.95]
                 ]
               },
               {
                 "name": "Solid B",
                 "points": [
-                  [
-                    0,
-                    0.2
-                  ],
-                  [
-                    20,
-                    0.22
-                  ],
-                  [
-                    40,
-                    0.25
-                  ],
-                  [
-                    60,
-                    0.28
-                  ],
-                  [
-                    80,
-                    0.32
-                  ],
-                  [
-                    100,
-                    0.36
-                  ]
+                  [0, 0.2],
+                  [20, 0.22],
+                  [40, 0.25],
+                  [60, 0.28],
+                  [80, 0.32],
+                  [100, 0.36]
                 ]
               }
             ]
@@ -288,11 +255,7 @@
   ],
   "boards": {
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 1.5C",
-        "IGCSE 1.6C",
-        "IGCSE 1.7C"
-      ],
+      "spec_codes": ["IGCSE 1.5C", "IGCSE 1.6C", "IGCSE 1.7C"],
       "worked_example": {
         "exemplar_id": "d1811408-0b4d-485a-9580-d76150a22e35",
         "source": "EDEXCEL nov 2021, Paper 2 (C), Q2(b)(iv)",
@@ -315,10 +278,8 @@
       "4dabcbfe-9c80-48e6-a85d-51af83ba5508",
       "9e4829d1-d2ca-4475-9e24-e713ee80dd6d"
     ],
-    "exemplar_ids": [
-      "d1811408-0b4d-485a-9580-d76150a22e35"
-    ],
-    "checked_by": "sonnet-science-check",
+    "exemplar_ids": ["d1811408-0b4d-485a-9580-d76150a22e35"],
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

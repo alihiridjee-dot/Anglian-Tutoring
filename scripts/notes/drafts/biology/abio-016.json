@@ -99,19 +99,11 @@
               },
               {
                 "label": "Plant cell in a very concentrated solution",
-                "results": [
-                  "Outside is lower",
-                  "Out of the cell",
-                  "The cell becomes plasmolysed."
-                ]
+                "results": ["Outside is lower", "Out of the cell", "The cell becomes plasmolysed."]
               },
               {
                 "label": "Plant cell in a solution of equal water potential",
-                "results": [
-                  "Equal",
-                  "None",
-                  "The cell stays the same size."
-                ]
+                "results": ["Equal", "None", "The cell stays the same size."]
               },
               {
                 "label": "Animal cell in pure water",
@@ -131,11 +123,7 @@
               },
               {
                 "label": "Animal cell in a solution of equal water potential",
-                "results": [
-                  "Equal",
-                  "None",
-                  "The cell stays the same."
-                ]
+                "results": ["Equal", "None", "The cell stays the same."]
               }
             ]
           }
@@ -214,9 +202,16 @@
           "type": "equation",
           "label": "Percentage change in mass",
           "formula": "percentage change = (final mass − initial mass) ÷ initial mass × 100",
-          "where": [
-            "final mass, in g",
-            "initial mass, in g"
+          "arrows": [
+            {
+              "point": "(final mass − initial mass)",
+              "label": "Change in mass (g)"
+            },
+            {
+              "point": "initial mass",
+              "in": "÷ initial mass",
+              "label": "Grams (g)"
+            }
           ]
         },
         {
@@ -254,10 +249,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.3 RP3",
-        "AQA 3.2.3c"
-      ],
+      "spec_codes": ["AQA 3.2.3 RP3", "AQA 3.2.3c"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -275,9 +267,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 2.3"
-      ],
+      "spec_codes": ["EDEX 2.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -295,11 +285,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 4.2.2",
-        "CAIE 4.2.5",
-        "CAIE 4.2.6"
-      ],
+      "spec_codes": ["CAIE 4.2.2", "CAIE 4.2.5", "CAIE 4.2.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -318,9 +304,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 2.1.5e"
-      ],
+      "spec_codes": ["OCR 2.1.5e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -338,7 +322,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "status": "draft",
     "written_by": "claude-sonnet-5-5",

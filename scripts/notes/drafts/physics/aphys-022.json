@@ -37,21 +37,25 @@
           "type": "equation",
           "label": "Current",
           "formula": "I = ΔQ / Δt",
-          "where": [
-            "I = current (A)",
-            "ΔQ = charge that flows (C)",
-            "Δt = time taken (s)"
+          "arrows": [
+            {
+              "point": "I",
+              "label": "Current (A)"
+            },
+            {
+              "point": "ΔQ",
+              "label": "Charge that flows (C)"
+            },
+            {
+              "point": "Δt",
+              "label": "Time taken (s)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Charge flowed in a steady current",
-          "formula": "Q = I t",
-          "where": [
-            "Q = charge (C)",
-            "I = steady current (A)",
-            "t = time (s)"
-          ]
+          "formula": "Q = I t"
         },
         {
           "type": "diagram",
@@ -78,11 +82,7 @@
               "unit": "C",
               "decimals": 1
             },
-            "working": [
-              "I = {I} mA = {I} ÷ 1000 A",
-              "t = {t} × 60 s",
-              "Q = I t = {answer} C"
-            ]
+            "working": ["I = {I} mA = {I} ÷ 1000 A", "t = {t} × 60 s", "Q = I t = {answer} C"]
           }
         },
         {
@@ -130,31 +130,28 @@
           "type": "equation",
           "label": "Quantised charge",
           "formula": "Q = N e",
-          "where": [
-            "Q = net charge on a particle or object (C)",
-            "N = a whole number, positive or negative",
-            "e = 1.6 × 10⁻¹⁹ C"
+          "arrows": [
+            {
+              "point": "Q",
+              "label": "Net charge on the object (C)"
+            },
+            {
+              "point": "N",
+              "label": "A whole number, positive or negative"
+            },
+            {
+              "point": "e",
+              "label": "Elementary charge, 1.6 × 10⁻¹⁹ C"
+            }
           ]
         },
         {
           "type": "table",
-          "columns": [
-            "Particle",
-            "Charge"
-          ],
+          "columns": ["Particle", "Charge"],
           "rows": [
-            [
-              "Electron",
-              "−e = −1.6 × 10⁻¹⁹ C"
-            ],
-            [
-              "Proton",
-              "+e = +1.6 × 10⁻¹⁹ C"
-            ],
-            [
-              "Neutron",
-              "0"
-            ]
+            ["Electron", "−e = −1.6 × 10⁻¹⁹ C"],
+            ["Proton", "+e = +1.6 × 10⁻¹⁹ C"],
+            ["Neutron", "0"]
           ]
         },
         {
@@ -166,10 +163,7 @@
         },
         {
           "type": "key-points",
-          "items": [
-            "Every charge is a whole-number multiple of e.",
-            "Electron: −e. Proton: +e."
-          ]
+          "items": ["Every charge is a whole-number multiple of e.", "Electron: −e. Proton: +e."]
         }
       ]
     },
@@ -197,12 +191,23 @@
           "type": "equation",
           "label": "Current in a conductor",
           "formula": "I = n A v q",
-          "where": [
-            "I = current (A)",
-            "n = number density of charge carriers (m⁻³)",
-            "A = cross-sectional area (m²)",
-            "v = mean drift velocity (m/s)",
-            "q = charge on each carrier (C), which is e for electrons"
+          "arrows": [
+            {
+              "point": "n",
+              "label": "Number density of carriers (m⁻³)"
+            },
+            {
+              "point": "A",
+              "label": "Cross-sectional area (m²)"
+            },
+            {
+              "point": "v",
+              "label": "Mean drift velocity (m/s)"
+            },
+            {
+              "point": "q",
+              "label": "Charge per carrier: e for electrons"
+            }
           ]
         },
         {
@@ -306,27 +311,15 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Material",
-            "Number density n",
-            "Conducts?"
-          ],
+          "columns": ["Material", "Number density n", "Conducts?"],
           "rows": [
-            [
-              "Conductor (metal)",
-              "Very large, about 10²⁸ m⁻³ or more",
-              "Very well"
-            ],
+            ["Conductor (metal)", "Very large, about 10²⁸ m⁻³ or more", "Very well"],
             [
               "Semiconductor",
               "Many orders of magnitude smaller than a metal",
               "Poorly, but better as it warms"
             ],
-            [
-              "Insulator",
-              "Almost none",
-              "Practically not at all"
-            ]
+            ["Insulator", "Almost none", "Practically not at all"]
           ]
         },
         {
@@ -365,9 +358,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.5.1.1"
-      ],
+      "spec_codes": ["AQA 3.5.1.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -389,10 +380,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 3.31",
-        "EDEX 3.41"
-      ],
+      "spec_codes": ["EDEX 3.31", "EDEX 3.41"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -415,12 +403,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 9.1.1",
-        "CAIE 9.1.2",
-        "CAIE 9.1.3",
-        "CAIE 9.1.4"
-      ]
+      "spec_codes": ["CAIE 9.1.1", "CAIE 9.1.2", "CAIE 9.1.3", "CAIE 9.1.4"]
     },
     "ocr_alevel": {
       "spec_codes": [
@@ -459,7 +442,7 @@
       "d744e4d3-4a9d-4d11-9234-56e8cab34564"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

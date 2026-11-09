@@ -70,10 +70,19 @@
           "type": "equation",
           "label": "Charge flow",
           "formula": "Q = I × t",
-          "where": [
-            "Q = charge flow, in coulombs (C)",
-            "I = current, in amperes (A)",
-            "t = time, in seconds (s)"
+          "arrows": [
+            {
+              "point": "Q",
+              "label": "Charge flow (C)"
+            },
+            {
+              "point": "I",
+              "label": "Current (A)"
+            },
+            {
+              "point": "t",
+              "label": "Time (s)"
+            }
           ]
         },
         {
@@ -83,22 +92,12 @@
         {
           "type": "equation",
           "label": "Current",
-          "formula": "I = Q ÷ t",
-          "where": [
-            "I = current, in amperes (A)",
-            "Q = charge flow, in coulombs (C)",
-            "t = time, in seconds (s)"
-          ]
+          "formula": "I = Q ÷ t"
         },
         {
           "type": "equation",
           "label": "Time",
-          "formula": "t = Q ÷ I",
-          "where": [
-            "t = time, in seconds (s)",
-            "Q = charge flow, in coulombs (C)",
-            "I = current, in amperes (A)"
-          ]
+          "formula": "t = Q ÷ I"
         },
         {
           "type": "subheading",
@@ -154,11 +153,7 @@
               "unit": "C",
               "decimals": 1
             },
-            "working": [
-              "Q = I × t",
-              "Q = {I} × {t}",
-              "Q = {answer} C"
-            ]
+            "working": ["Q = I × t", "Q = {I} × {t}", "Q = {answer} C"]
           }
         },
         {
@@ -191,10 +186,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.2.1.2",
-        "AQA T 6.2.1.2"
-      ],
+      "spec_codes": ["AQA 4.2.1.2", "AQA T 6.2.1.2"],
       "worked_example": {
         "exemplar_id": "2d2c368a-7353-4d8c-97c0-9c02ca20762c",
         "source": "AQA jun 2022, Paper 1 (F), Q07.4",
@@ -210,11 +202,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 10.8",
-        "EDEX 10.9",
-        "EDEX 10.10"
-      ],
+      "spec_codes": ["EDEX 10.8", "EDEX 10.9", "EDEX 10.10"],
       "worked_example": {
         "exemplar_id": "d94691f8-deb2-4e94-9475-e87b80c3a7fe",
         "source": "EDEXCEL jun 2022, Paper 2 (F), Q1(b)(ii)",
@@ -229,11 +217,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P3.1e",
-        "OCR P3.1f",
-        "OCR P3.1g"
-      ],
+      "spec_codes": ["OCR P3.1e", "OCR P3.1f", "OCR P3.1g"],
       "worked_example": {
         "exemplar_id": "8315952d-1964-4836-ae6a-d35de3fe3594",
         "source": "OCR jun 2024, Paper 1, Q18(c)",
@@ -301,11 +285,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 2.14",
-        "IGCSE 2.15",
-        "IGCSE 2.16"
-      ],
+      "spec_codes": ["IGCSE 2.14", "IGCSE 2.15", "IGCSE 2.16"],
       "worked_example": {
         "exemplar_id": "003de273-0dc6-4095-b560-8a31af317f02",
         "source": "EDEXCEL jun 2024, Paper 1 (P), Q11(b)(i)",
@@ -374,7 +354,7 @@
       "23bbaa42-48a9-4414-aaf6-0010b0ce5ade",
       "003de273-0dc6-4095-b560-8a31af317f02"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

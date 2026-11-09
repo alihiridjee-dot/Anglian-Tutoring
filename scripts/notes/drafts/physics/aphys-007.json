@@ -27,27 +27,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Scalars",
-            "Vectors"
-          ],
+          "columns": ["Scalars", "Vectors"],
           "rows": [
-            [
-              "distance",
-              "displacement"
-            ],
-            [
-              "speed",
-              "velocity"
-            ],
-            [
-              "mass",
-              "force and weight"
-            ],
-            [
-              "time, energy, temperature",
-              "acceleration"
-            ]
+            ["distance", "displacement"],
+            ["speed", "velocity"],
+            ["mass", "force and weight"],
+            ["time, energy, temperature", "acceleration"]
           ]
         },
         {
@@ -65,10 +50,7 @@
             "kind": "sort",
             "alt": "A sorting activity. Sort each quantity into scalar or vector.",
             "prompt": "Is each quantity a scalar or a vector?",
-            "groups": [
-              "Scalar",
-              "Vector"
-            ],
+            "groups": ["Scalar", "Vector"],
             "items": [
               {
                 "text": "Speed",
@@ -175,18 +157,39 @@
           "type": "equation",
           "label": "Magnitude of the resultant",
           "formula": "R = √(A² + B²)",
-          "where": [
-            "R = magnitude of the resultant",
-            "A, B = magnitudes of the two perpendicular vectors (same unit)"
-          ]
+          "arrows": [
+            {
+              "point": "R",
+              "label": "Magnitude of the resultant"
+            },
+            {
+              "point": "A",
+              "label": "Magnitude of one vector"
+            },
+            {
+              "point": "B",
+              "label": "Magnitude of the perpendicular vector"
+            }
+          ],
+          "where": ["A and B must be in the same unit."]
         },
         {
           "type": "equation",
           "label": "Direction of the resultant",
           "formula": "tan θ = B / A",
-          "where": [
-            "θ = angle between the resultant and vector A (degrees)",
-            "B = the vector opposite θ, A = the vector next to θ"
+          "arrows": [
+            {
+              "point": "θ",
+              "label": "Angle from A to the resultant (°)"
+            },
+            {
+              "point": "B",
+              "label": "Vector opposite θ"
+            },
+            {
+              "point": "A",
+              "label": "Vector next to θ"
+            }
           ]
         },
         {
@@ -222,11 +225,7 @@
               "unit": "N",
               "decimals": 1
             },
-            "working": [
-              "R² = A² + B²",
-              "R² = {a}² + {b}²",
-              "R = {answer} N"
-            ]
+            "working": ["R² = A² + B²", "R² = {a}² + {b}²", "R = {answer} N"]
           }
         },
         {
@@ -263,20 +262,31 @@
           "type": "equation",
           "label": "Component along the direction at angle θ",
           "formula": "Fx = F cos θ",
-          "where": [
-            "Fx = component next to the angle θ (N)",
-            "F = magnitude of the vector (N)",
-            "θ = angle between the vector and the x direction (degrees)"
+          "arrows": [
+            {
+              "point": "Fx",
+              "label": "Component next to the angle (N)"
+            },
+            {
+              "point": "F",
+              "in": "F cos",
+              "label": "Size of the vector (N)"
+            },
+            {
+              "point": "θ",
+              "label": "Angle from the x direction (°)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Component perpendicular to that direction",
           "formula": "Fy = F sin θ",
-          "where": [
-            "Fy = component opposite the angle θ (N)",
-            "F = magnitude of the vector (N)",
-            "θ = angle between the vector and the x direction (degrees)"
+          "arrows": [
+            {
+              "point": "Fy",
+              "label": "Component opposite the angle (N)"
+            }
           ]
         },
         {
@@ -347,9 +357,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.4.1.1"
-      ],
+      "spec_codes": ["AQA 3.4.1.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -373,11 +381,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 2.12",
-        "EDEX 2.13",
-        "EDEX 2.14"
-      ],
+      "spec_codes": ["EDEX 2.12", "EDEX 2.13", "EDEX 2.14"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -395,19 +399,10 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 1.4.1",
-        "CAIE 1.4.2",
-        "CAIE 1.4.3"
-      ]
+      "spec_codes": ["CAIE 1.4.1", "CAIE 1.4.2", "CAIE 1.4.3"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 2.3.1a",
-        "OCR 2.3.1b",
-        "OCR 2.3.1c",
-        "OCR 2.3.1d"
-      ],
+      "spec_codes": ["OCR 2.3.1a", "OCR 2.3.1b", "OCR 2.3.1c", "OCR 2.3.1d"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -442,7 +437,7 @@
       "e56132b9-4c77-4e3a-8038-d028d98079dd"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -127,7 +127,20 @@
           "type": "equation",
           "label": "Volume of blood flowing",
           "formula": "volume = rate of flow × time",
-          "where": ["volume in cm³", "rate of flow in cm³/minute", "time in minutes"]
+          "arrows": [
+            {
+              "point": "volume",
+              "label": "Cubic centimetres (cm³)"
+            },
+            {
+              "point": "rate of flow",
+              "label": "Cubic centimetres per minute (cm³/min)"
+            },
+            {
+              "point": "time",
+              "label": "Minutes"
+            }
+          ]
         },
         {
           "type": "diagram",
@@ -312,7 +325,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",

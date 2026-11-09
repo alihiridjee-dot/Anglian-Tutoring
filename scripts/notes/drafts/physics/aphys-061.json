@@ -16,7 +16,20 @@
           "type": "equation",
           "label": "Period of a mass-spring system",
           "formula": "T = 2π√(m / k)",
-          "where": ["T = period (s)", "m = mass (kg)", "k = spring constant (N/m)"]
+          "arrows": [
+            {
+              "point": "T",
+              "label": "Period (s)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "k",
+              "label": "Spring constant (N/m)"
+            }
+          ]
         },
         {
           "type": "list",
@@ -52,7 +65,20 @@
           "type": "equation",
           "label": "Period of a simple pendulum",
           "formula": "T = 2π√(l / g)",
-          "where": ["T = period (s)", "l = length from the pivot to the centre of the mass (m)", "g = gravitational field strength (N/kg)"]
+          "arrows": [
+            {
+              "point": "T",
+              "label": "Period (s)"
+            },
+            {
+              "point": "l",
+              "label": "Length, pivot to centre of mass (m)"
+            },
+            {
+              "point": "g",
+              "label": "Gravitational field strength (N/kg)"
+            }
+          ]
         },
         {
           "type": "list",
@@ -97,19 +123,51 @@
           "type": "equation",
           "label": "Kinetic energy at displacement x",
           "formula": "Eₖ = ½mω²(A² − x²)",
-          "where": ["Eₖ = kinetic energy (J)", "m = mass (kg)", "ω = angular frequency (rad/s)", "A = amplitude (m)", "x = displacement (m)"]
+          "arrows": [
+            {
+              "point": "Eₖ",
+              "label": "Kinetic energy (J)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "A",
+              "label": "Amplitude (m)"
+            },
+            {
+              "point": "x",
+              "label": "Displacement (m)"
+            }
+          ],
+          "where": ["ω = angular frequency (rad/s)"]
         },
         {
           "type": "equation",
           "label": "Potential energy at displacement x",
           "formula": "Eₚ = ½mω²x²",
-          "where": ["Eₚ = potential energy (J)"]
+          "arrows": [
+            {
+              "point": "Eₚ",
+              "label": "Potential energy (J)"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "Total energy",
           "formula": "E = ½mω²A²",
-          "where": ["E = total energy (J)", "A = amplitude (m); this is x₀ in some courses"]
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Total energy (J)"
+            },
+            {
+              "point": "A",
+              "label": "Amplitude, x₀ in some courses (m)"
+            }
+          ]
         },
         {
           "type": "paragraph",
@@ -120,12 +178,51 @@
           "diagram": {
             "kind": "line-graph",
             "alt": "Energy against displacement for SHM. Potential energy is a U-shaped curve, kinetic energy is an inverted U, and the total energy is a flat line equal to the peak of each.",
-            "x": { "label": "Displacement as a fraction of the amplitude", "min": -1, "max": 1, "ticks": [-1, -0.5, 0, 0.5, 1] },
-            "y": { "label": "Energy (shape only)" },
+            "x": {
+              "label": "Displacement as a fraction of the amplitude",
+              "min": -1,
+              "max": 1,
+              "ticks": [-1, -0.5, 0, 0.5, 1]
+            },
+            "y": {
+              "label": "Energy (shape only)"
+            },
             "series": [
-              { "name": "Potential energy", "points": [[-1, 1], [-0.75, 0.56], [-0.5, 0.25], [-0.25, 0.06], [0, 0], [0.25, 0.06], [0.5, 0.25], [0.75, 0.56], [1, 1]] },
-              { "name": "Kinetic energy", "points": [[-1, 0], [-0.75, 0.44], [-0.5, 0.75], [-0.25, 0.94], [0, 1], [0.25, 0.94], [0.5, 0.75], [0.75, 0.44], [1, 0]] },
-              { "name": "Total energy", "points": [[-1, 1], [1, 1]] }
+              {
+                "name": "Potential energy",
+                "points": [
+                  [-1, 1],
+                  [-0.75, 0.56],
+                  [-0.5, 0.25],
+                  [-0.25, 0.06],
+                  [0, 0],
+                  [0.25, 0.06],
+                  [0.5, 0.25],
+                  [0.75, 0.56],
+                  [1, 1]
+                ]
+              },
+              {
+                "name": "Kinetic energy",
+                "points": [
+                  [-1, 0],
+                  [-0.75, 0.44],
+                  [-0.5, 0.75],
+                  [-0.25, 0.94],
+                  [0, 1],
+                  [0.25, 0.94],
+                  [0.5, 0.75],
+                  [0.75, 0.44],
+                  [1, 0]
+                ]
+              },
+              {
+                "name": "Total energy",
+                "points": [
+                  [-1, 1],
+                  [1, 1]
+                ]
+              }
             ]
           }
         },
@@ -135,15 +232,64 @@
             "kind": "slider",
             "alt": "A slider showing how kinetic, potential and total energy change with displacement for an oscillator.",
             "inputs": [
-              { "id": "m", "label": "Mass", "unit": "kg", "min": 0.1, "max": 2, "step": 0.1, "value": 0.5 },
-              { "id": "w", "label": "Angular frequency", "unit": "rad/s", "min": 2, "max": 20, "step": 1, "value": 10 },
-              { "id": "A", "label": "Amplitude", "unit": "m", "min": 0.02, "max": 0.1, "step": 0.01, "value": 0.1 },
-              { "id": "x", "label": "Displacement", "unit": "m", "min": 0, "max": 0.1, "step": 0.01, "value": 0.05 }
+              {
+                "id": "m",
+                "label": "Mass",
+                "unit": "kg",
+                "min": 0.1,
+                "max": 2,
+                "step": 0.1,
+                "value": 0.5
+              },
+              {
+                "id": "w",
+                "label": "Angular frequency",
+                "unit": "rad/s",
+                "min": 2,
+                "max": 20,
+                "step": 1,
+                "value": 10
+              },
+              {
+                "id": "A",
+                "label": "Amplitude",
+                "unit": "m",
+                "min": 0.02,
+                "max": 0.1,
+                "step": 0.01,
+                "value": 0.1
+              },
+              {
+                "id": "x",
+                "label": "Displacement",
+                "unit": "m",
+                "min": 0,
+                "max": 0.1,
+                "step": 0.01,
+                "value": 0.05
+              }
             ],
             "outputs": [
-              { "label": "Kinetic energy", "unit": "J", "formula": "0.5 * m * w * w * max(A * A - x * x, 0)", "decimals": 3, "bar": true },
-              { "label": "Potential energy", "unit": "J", "formula": "0.5 * m * w * w * min(x, A) * min(x, A)", "decimals": 3, "bar": true },
-              { "label": "Total energy", "unit": "J", "formula": "0.5 * m * w * w * A * A", "decimals": 3 }
+              {
+                "label": "Kinetic energy",
+                "unit": "J",
+                "formula": "0.5 * m * w * w * max(A * A - x * x, 0)",
+                "decimals": 3,
+                "bar": true
+              },
+              {
+                "label": "Potential energy",
+                "unit": "J",
+                "formula": "0.5 * m * w * w * min(x, A) * min(x, A)",
+                "decimals": 3,
+                "bar": true
+              },
+              {
+                "label": "Total energy",
+                "unit": "J",
+                "formula": "0.5 * m * w * w * A * A",
+                "decimals": 3
+              }
             ]
           }
         },
@@ -222,10 +368,22 @@
             {
               "type": "steps",
               "items": [
-                { "lead": "Spring", "text": "Hang different masses from a spring. Displace slightly and time 10 or more oscillations to find T for each mass." },
-                { "lead": "Spring analysis", "text": "Plot T² against m. The line is straight with gradient 4π² / k." },
-                { "lead": "Pendulum", "text": "Vary the length l from pivot to the centre of the bob. Time 10 or more oscillations for each, using a small angle." },
-                { "lead": "Pendulum analysis", "text": "Plot T² against l. The gradient is 4π² / g, which gives g." }
+                {
+                  "lead": "Spring",
+                  "text": "Hang different masses from a spring. Displace slightly and time 10 or more oscillations to find T for each mass."
+                },
+                {
+                  "lead": "Spring analysis",
+                  "text": "Plot T² against m. The line is straight with gradient 4π² / k."
+                },
+                {
+                  "lead": "Pendulum",
+                  "text": "Vary the length l from pivot to the centre of the bob. Time 10 or more oscillations for each, using a small angle."
+                },
+                {
+                  "lead": "Pendulum analysis",
+                  "text": "Plot T² against l. The gradient is 4π² / g, which gives g."
+                }
               ]
             },
             {
@@ -298,7 +456,7 @@
     "status": "draft",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "spec_point_ids": [
       "dfa97c1b-7476-471e-908a-44666a0027cb",

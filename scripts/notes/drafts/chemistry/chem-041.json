@@ -25,7 +25,16 @@
           "type": "equation",
           "label": "Word equation for magnesium",
           "formula": "magnesium + oxygen → magnesium oxide",
-          "where": ["magnesium, oxygen: reactants", "magnesium oxide: the only product"]
+          "arrows": [
+            {
+              "point": "magnesium + oxygen",
+              "label": "Reactants"
+            },
+            {
+              "point": "magnesium oxide",
+              "label": "The only product"
+            }
+          ]
         },
         {
           "type": "equation",
@@ -420,7 +429,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06",
     "spec_point_ids": [
       "40b815dc-82d7-4f9a-a36a-29b0d868ddcb",

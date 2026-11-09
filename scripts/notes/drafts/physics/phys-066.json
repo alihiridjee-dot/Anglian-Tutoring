@@ -91,7 +91,17 @@
           "type": "equation",
           "label": "Period",
           "formula": "period = 1 ÷ frequency   (T = 1 ÷ f)",
-          "where": ["period, T, is in seconds, s", "frequency, f, is in hertz, Hz"]
+          "arrows": [
+            {
+              "point": "T",
+              "label": "Period (s)"
+            },
+            {
+              "point": "f",
+              "in": "÷ f)",
+              "label": "Frequency (Hz)"
+            }
+          ]
         },
         {
           "type": "list",
@@ -143,20 +153,37 @@
           "type": "equation",
           "label": "Wave equation",
           "formula": "wave speed = frequency × wavelength   (v = f λ)",
-          "where": [
-            "wave speed, v, is in metres per second, m/s",
-            "frequency, f, is in hertz, Hz",
-            "wavelength, λ, is in metres, m"
+          "arrows": [
+            {
+              "point": "v",
+              "in": "(v =",
+              "label": "Wave speed (m/s)"
+            },
+            {
+              "point": "f",
+              "in": "f λ",
+              "label": "Frequency (Hz)"
+            },
+            {
+              "point": "λ",
+              "label": "Wavelength (m)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Wave speed from distance and time",
           "formula": "wave speed = distance ÷ time   (v = x ÷ t)",
-          "where": [
-            "wave speed, v, is in metres per second, m/s",
-            "distance, x, is in metres, m",
-            "time, t, is in seconds, s"
+          "arrows": [
+            {
+              "point": "x",
+              "label": "Distance (m)"
+            },
+            {
+              "point": "t",
+              "in": "÷ t)",
+              "label": "Time (s)"
+            }
           ]
         },
         {
@@ -572,7 +599,7 @@
       "0edd2185-2387-4e50-8656-b18a6b913657",
       "dd0e47ee-5e8b-4133-a7ff-83d03acbfb70"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

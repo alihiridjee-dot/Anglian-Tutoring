@@ -42,10 +42,19 @@
           "type": "equation",
           "label": "Moment of a force",
           "formula": "M = F × d",
-          "where": [
-            "M is the moment of the force in newton-metres (N m).",
-            "F is the force in newtons (N).",
-            "d is the perpendicular distance from the pivot to the line of action of the force in metres (m)."
+          "arrows": [
+            {
+              "point": "M",
+              "label": "Moment (N m)"
+            },
+            {
+              "point": "F",
+              "label": "Force (N)"
+            },
+            {
+              "point": "d",
+              "label": "Perpendicular distance from pivot (m)"
+            }
           ]
         },
         {
@@ -539,7 +548,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",

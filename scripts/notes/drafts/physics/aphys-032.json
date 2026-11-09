@@ -29,10 +29,19 @@
           "type": "equation",
           "label": "Refractive index",
           "formula": "n = c / v",
-          "where": [
-            "n = refractive index (no unit)",
-            "c = speed of light in a vacuum (m/s)",
-            "v = speed of light in the material (m/s)"
+          "arrows": [
+            {
+              "point": "n",
+              "label": "Refractive index (no unit)"
+            },
+            {
+              "point": "c",
+              "label": "Speed of light in a vacuum (m/s)"
+            },
+            {
+              "point": "v",
+              "label": "Speed of light in the material (m/s)"
+            }
           ]
         },
         {
@@ -47,9 +56,23 @@
           "type": "equation",
           "label": "Snell's law",
           "formula": "n₁ sin θ₁ = n₂ sin θ₂",
-          "where": [
-            "n₁, n₂ = refractive indices of medium 1 and medium 2",
-            "θ₁, θ₂ = angles to the normal in each medium"
+          "arrows": [
+            {
+              "point": "n₁",
+              "label": "Refractive index of medium 1"
+            },
+            {
+              "point": "θ₁",
+              "label": "Angle to the normal in medium 1"
+            },
+            {
+              "point": "n₂",
+              "label": "Refractive index of medium 2"
+            },
+            {
+              "point": "θ₂",
+              "label": "Angle to the normal in medium 2"
+            }
           ]
         },
         {
@@ -77,11 +100,7 @@
               "formula": "3 / v",
               "decimals": 2
             },
-            "working": [
-              "n = c / v",
-              "n = 3.00 × 10⁸ / ({v} × 10⁸)",
-              "n = {answer}"
-            ]
+            "working": ["n = c / v", "n = 3.00 × 10⁸ / ({v} × 10⁸)", "n = {answer}"]
           }
         },
         {
@@ -141,10 +160,19 @@
           "type": "equation",
           "label": "Critical angle",
           "formula": "sin C = n₂ / n₁",
-          "where": [
-            "C = critical angle",
-            "n₁ = refractive index of the denser material",
-            "n₂ = refractive index of the less dense material"
+          "arrows": [
+            {
+              "point": "C",
+              "label": "Critical angle"
+            },
+            {
+              "point": "n₂",
+              "label": "Refractive index, less dense material"
+            },
+            {
+              "point": "n₁",
+              "label": "Refractive index, denser material"
+            }
           ]
         },
         {
@@ -237,9 +265,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.2.3"
-      ],
+      "spec_codes": ["AQA 3.3.2.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -261,17 +287,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.71",
-        "EDEX 5.72",
-        "EDEX 5.73"
-      ]
+      "spec_codes": ["EDEX 5.71", "EDEX 5.72", "EDEX 5.73"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.4.2d",
-        "OCR 4.4.2e"
-      ],
+      "spec_codes": ["OCR 4.4.2d", "OCR 4.4.2e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -301,7 +320,7 @@
       "aaf18a11-62d8-4259-b746-cfc968a6e64f"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

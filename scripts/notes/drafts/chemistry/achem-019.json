@@ -16,12 +16,25 @@
           "type": "equation",
           "label": "Heat energy transferred",
           "formula": "q = m × c × ΔT",
-          "where": [
-            "q = heat energy transferred, in J",
-            "m = mass of the liquid that changes temperature, in g",
-            "c = specific heat capacity, in J g⁻¹ K⁻¹ (water and dilute solutions: 4.18)",
-            "ΔT = temperature change, in K or °C"
-          ]
+          "arrows": [
+            {
+              "point": "q",
+              "label": "Heat energy transferred (J)"
+            },
+            {
+              "point": "m",
+              "label": "Mass of liquid heated (g)"
+            },
+            {
+              "point": "c",
+              "label": "Specific heat capacity (J g⁻¹ K⁻¹)"
+            },
+            {
+              "point": "ΔT",
+              "label": "Temperature change (K or °C)"
+            }
+          ],
+          "where": ["c = 4.18 J g⁻¹ K⁻¹ for water and dilute solutions"]
         },
         {
           "type": "list",
@@ -29,7 +42,7 @@
             "m is the mass of the water or solution being heated, not the mass of the reactants. For a dilute solution, take 1.00 cm³ as 1.00 g.",
             "A temperature change of 1 °C is the same size as a change of 1 K.",
             "In a combustion experiment, the liquid being heated is the water above the burner. The fuel is what burns.",
-            "q is in joules. Convert to kJ by dividing by 1000."
+            "Convert q to kJ by dividing by 1000."
           ]
         },
         {
@@ -74,11 +87,21 @@
           "type": "equation",
           "label": "Molar enthalpy change",
           "formula": "ΔH = −q ÷ n",
-          "where": [
-            "ΔH in kJ mol⁻¹",
-            "q = mcΔT, in kJ, using the temperature rise as positive",
-            "n = moles of the substance that reacted"
-          ]
+          "arrows": [
+            {
+              "point": "ΔH",
+              "label": "Enthalpy change (kJ mol⁻¹)"
+            },
+            {
+              "point": "q",
+              "label": "Heat from mcΔT (kJ)"
+            },
+            {
+              "point": "n",
+              "label": "Moles of the substance that reacted"
+            }
+          ],
+          "where": ["use the temperature rise as positive in q"]
         },
         {
           "type": "diagram",
@@ -137,11 +160,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Experiment",
-            "Method",
-            "Main errors"
-          ],
+          "columns": ["Experiment", "Method", "Main errors"],
           "rows": [
             [
               "Reaction in solution (neutralisation, displacement, dissolving)",
@@ -194,10 +213,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.2.1e",
-        "OCR 3.2.1h"
-      ],
+      "spec_codes": ["OCR 3.2.1e", "OCR 3.2.1h"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -214,10 +230,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 8.5",
-        "EDEX 8.6"
-      ],
+      "spec_codes": ["EDEX 8.5", "EDEX 8.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -234,9 +247,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.4.2"
-      ],
+      "spec_codes": ["AQA 3.1.4.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -253,9 +264,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 5.1.7"
-      ],
+      "spec_codes": ["CAIE 5.1.7"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -285,7 +294,7 @@
       "1e8d2fed-0abc-4c7e-9f9e-554529cc65dc"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

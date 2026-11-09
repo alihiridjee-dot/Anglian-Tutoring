@@ -74,10 +74,20 @@
           "type": "equation",
           "label": "Electrolysis of aluminium oxide",
           "formula": "2Al₂O₃ → 4Al + 3O₂",
-          "where": [
-            "Al₂O₃ is aluminium oxide",
-            "Al is aluminium, made at the negative electrode",
-            "O₂ is oxygen, made at the positive electrode"
+          "arrows": [
+            {
+              "point": "Al₂O₃",
+              "label": "Aluminium oxide"
+            },
+            {
+              "point": "Al",
+              "in": "4Al",
+              "label": "Aluminium: at the negative electrode"
+            },
+            {
+              "point": "O₂",
+              "label": "Oxygen: at the positive electrode"
+            }
           ]
         },
         {
@@ -213,7 +223,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06",
     "spec_point_ids": [
       "6a3e9328-7bac-46dd-9e4f-8c60cb7ba759",

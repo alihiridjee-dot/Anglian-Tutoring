@@ -15,18 +15,46 @@
         {
           "type": "definitions",
           "items": [
-            { "term": "Radian", "meaning": "The angle at the centre of a circle when the arc length equals the radius." },
-            { "term": "Angular displacement", "meaning": "The angle, in radians, through which an object has turned about the centre." },
-            { "term": "Period, T", "meaning": "The time for one complete revolution." },
-            { "term": "Frequency, f", "meaning": "The number of complete revolutions per second." },
-            { "term": "Angular speed, ω", "meaning": "The angle turned per unit time, in rad/s." }
+            {
+              "term": "Radian",
+              "meaning": "The angle at the centre of a circle when the arc length equals the radius."
+            },
+            {
+              "term": "Angular displacement",
+              "meaning": "The angle, in radians, through which an object has turned about the centre."
+            },
+            {
+              "term": "Period, T",
+              "meaning": "The time for one complete revolution."
+            },
+            {
+              "term": "Frequency, f",
+              "meaning": "The number of complete revolutions per second."
+            },
+            {
+              "term": "Angular speed, ω",
+              "meaning": "The angle turned per unit time, in rad/s."
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Angle in radians",
           "formula": "θ = s / r",
-          "where": ["θ = angle at the centre (rad)", "s = arc length (m)", "r = radius (m)"]
+          "arrows": [
+            {
+              "point": "θ",
+              "label": "Angle at the centre (rad)"
+            },
+            {
+              "point": "s",
+              "label": "Arc length (m)"
+            },
+            {
+              "point": "r",
+              "label": "Radius (m)"
+            }
+          ]
         },
         {
           "type": "list",
@@ -41,13 +69,36 @@
           "type": "equation",
           "label": "Angular speed",
           "formula": "ω = Δθ / Δt = 2π / T = 2πf",
-          "where": ["ω = angular speed (rad/s)", "Δθ = angle turned (rad)", "Δt = time taken (s)", "T = period (s)", "f = frequency (Hz)"]
+          "arrows": [
+            {
+              "point": "ω",
+              "label": "Angular speed (rad/s)"
+            },
+            {
+              "point": "Δθ",
+              "label": "Angle turned (rad)"
+            },
+            {
+              "point": "Δt",
+              "label": "Time taken (s)"
+            },
+            {
+              "point": "T",
+              "label": "Period (s)"
+            }
+          ],
+          "where": ["f = frequency (Hz)"]
         },
         {
           "type": "equation",
           "label": "Linear speed in a circle",
           "formula": "v = ωr",
-          "where": ["v = speed along the circle (m/s)", "ω = angular speed (rad/s)", "r = radius (m)"]
+          "arrows": [
+            {
+              "point": "v",
+              "label": "Speed along the circle (m/s)"
+            }
+          ]
         },
         {
           "type": "list",
@@ -87,7 +138,20 @@
           "type": "equation",
           "label": "Centripetal acceleration",
           "formula": "a = v² / r = ω²r",
-          "where": ["a = centripetal acceleration (m/s²)", "v = speed (m/s)", "ω = angular speed (rad/s)", "r = radius (m)"]
+          "arrows": [
+            {
+              "point": "a",
+              "label": "Centripetal acceleration (m/s²)"
+            },
+            {
+              "point": "v",
+              "label": "Speed (m/s)"
+            },
+            {
+              "point": "ω",
+              "label": "Angular speed (rad/s)"
+            }
+          ]
         },
         {
           "type": "paragraph",
@@ -114,7 +178,17 @@
           "type": "equation",
           "label": "Centripetal force",
           "formula": "F = ma = mv² / r = mω²r",
-          "where": ["F = resultant force towards the centre (N)", "m = mass (kg)", "v = speed (m/s)", "ω = angular speed (rad/s)", "r = radius (m)"]
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Resultant force towards the centre (N)"
+            },
+            {
+              "point": "m",
+              "in": "ma",
+              "label": "Mass (kg)"
+            }
+          ]
         },
         {
           "type": "list",
@@ -131,13 +205,47 @@
             "kind": "slider",
             "alt": "A slider showing how centripetal acceleration and force change with mass, speed and radius.",
             "inputs": [
-              { "id": "m", "label": "Mass", "unit": "kg", "min": 0.5, "max": 5, "step": 0.5, "value": 1 },
-              { "id": "v", "label": "Speed", "unit": "m/s", "min": 1, "max": 20, "step": 1, "value": 5 },
-              { "id": "r", "label": "Radius", "unit": "m", "min": 1, "max": 20, "step": 1, "value": 5 }
+              {
+                "id": "m",
+                "label": "Mass",
+                "unit": "kg",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5,
+                "value": 1
+              },
+              {
+                "id": "v",
+                "label": "Speed",
+                "unit": "m/s",
+                "min": 1,
+                "max": 20,
+                "step": 1,
+                "value": 5
+              },
+              {
+                "id": "r",
+                "label": "Radius",
+                "unit": "m",
+                "min": 1,
+                "max": 20,
+                "step": 1,
+                "value": 5
+              }
             ],
             "outputs": [
-              { "label": "Centripetal acceleration", "unit": "m/s²", "formula": "v * v / r", "decimals": 1 },
-              { "label": "Centripetal force", "unit": "N", "formula": "m * v * v / r", "decimals": 1 }
+              {
+                "label": "Centripetal acceleration",
+                "unit": "m/s²",
+                "formula": "v * v / r",
+                "decimals": 1
+              },
+              {
+                "label": "Centripetal force",
+                "unit": "N",
+                "formula": "m * v * v / r",
+                "decimals": 1
+              }
             ]
           }
         },
@@ -201,11 +309,26 @@
             {
               "type": "steps",
               "items": [
-                { "lead": "Draw two velocities", "text": "Draw the velocity vectors v₁ and v₂ at two points a small angle Δθ apart. They have the same length v." },
-                { "lead": "Draw the change", "text": "Place them tail to tail. The change in velocity Δv joins their tips and points towards the centre." },
-                { "lead": "Small angle", "text": "For a small angle, Δv ≈ vΔθ." },
-                { "lead": "Divide by time", "text": "a = Δv / Δt = v × Δθ / Δt = vω." },
-                { "lead": "Substitute", "text": "Using ω = v / r gives a = v² / r, and using v = ωr gives a = ω²r." }
+                {
+                  "lead": "Draw two velocities",
+                  "text": "Draw the velocity vectors v₁ and v₂ at two points a small angle Δθ apart. They have the same length v."
+                },
+                {
+                  "lead": "Draw the change",
+                  "text": "Place them tail to tail. The change in velocity Δv joins their tips and points towards the centre."
+                },
+                {
+                  "lead": "Small angle",
+                  "text": "For a small angle, Δv ≈ vΔθ."
+                },
+                {
+                  "lead": "Divide by time",
+                  "text": "a = Δv / Δt = v × Δθ / Δt = vω."
+                },
+                {
+                  "lead": "Substitute",
+                  "text": "Using ω = v / r gives a = v² / r, and using v = ωr gives a = ω²r."
+                }
               ]
             },
             {
@@ -220,7 +343,15 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": ["CAIE 12.1.1", "CAIE 12.1.2", "CAIE 12.1.3", "CAIE 12.2.1", "CAIE 12.2.2", "CAIE 12.2.3", "CAIE 12.2.4"],
+      "spec_codes": [
+        "CAIE 12.1.1",
+        "CAIE 12.1.2",
+        "CAIE 12.1.3",
+        "CAIE 12.2.1",
+        "CAIE 12.2.2",
+        "CAIE 12.2.3",
+        "CAIE 12.2.4"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -238,7 +369,15 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": ["OCR 5.2.1a", "OCR 5.2.1b", "OCR 5.2.1c", "OCR 5.2.2a", "OCR 5.2.2b", "OCR 5.2.2c", "OCR 5.2.2d"],
+      "spec_codes": [
+        "OCR 5.2.1a",
+        "OCR 5.2.1b",
+        "OCR 5.2.1c",
+        "OCR 5.2.2a",
+        "OCR 5.2.2b",
+        "OCR 5.2.2c",
+        "OCR 5.2.2d"
+      ],
       "extra": [
         {
           "heading": "Investigating circular motion with a whirling bung",
@@ -250,11 +389,26 @@
             {
               "type": "steps",
               "items": [
-                { "lead": "Set up", "text": "Hang a known weight below the tube. Its weight W gives the tension, which is the centripetal force." },
-                { "lead": "Whirl", "text": "Whirl the bung so the marker on the string stays just below the tube. This keeps the radius constant." },
-                { "lead": "Time", "text": "Time 10 or more revolutions with a stopwatch and divide to find the period T." },
-                { "lead": "Calculate", "text": "Find v = 2πr / T, or ω = 2π / T, and compare F = mv² / r with the weight." },
-                { "lead": "Vary", "text": "Change the weight, then the radius, one at a time to see how T changes." }
+                {
+                  "lead": "Set up",
+                  "text": "Hang a known weight below the tube. Its weight W gives the tension, which is the centripetal force."
+                },
+                {
+                  "lead": "Whirl",
+                  "text": "Whirl the bung so the marker on the string stays just below the tube. This keeps the radius constant."
+                },
+                {
+                  "lead": "Time",
+                  "text": "Time 10 or more revolutions with a stopwatch and divide to find the period T."
+                },
+                {
+                  "lead": "Calculate",
+                  "text": "Find v = 2πr / T, or ω = 2π / T, and compare F = mv² / r with the weight."
+                },
+                {
+                  "lead": "Vary",
+                  "text": "Change the weight, then the radius, one at a time to see how T changes."
+                }
               ]
             },
             {
@@ -273,7 +427,7 @@
     "status": "draft",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "spec_point_ids": [
       "9687413b-1910-49ca-938d-53d3fac346ab",

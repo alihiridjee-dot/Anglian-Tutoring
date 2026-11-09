@@ -146,10 +146,11 @@
           "type": "equation",
           "label": "Magnification",
           "formula": "magnification = image height ÷ object height",
-          "where": [
-            "magnification has no unit because it is a ratio.",
-            "image height is in millimetres (mm) or centimetres (cm).",
-            "object height is in the same unit as the image height."
+          "arrows": [
+            {
+              "point": "magnification",
+              "label": "No unit: it is a ratio"
+            }
           ]
         },
         {
@@ -340,7 +341,16 @@
               "type": "equation",
               "label": "Power of a lens",
               "formula": "power = 1 ÷ focal length",
-              "where": ["power is in dioptres (D).", "focal length is in metres (m)."]
+              "arrows": [
+                {
+                  "point": "power",
+                  "label": "Dioptres (D)"
+                },
+                {
+                  "point": "focal length",
+                  "label": "Metres (m)"
+                }
+              ]
             },
             {
               "type": "diagram",
@@ -651,7 +661,7 @@
       "20fdcfe3-e7d4-4506-a967-12850df0eb51",
       "fbd1967e-e836-4cc4-9156-ef1a2a4a6975"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

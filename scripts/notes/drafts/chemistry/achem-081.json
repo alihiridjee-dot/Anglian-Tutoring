@@ -58,11 +58,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Evidence",
-            "Kekulé prediction",
-            "What is found"
-          ],
+          "columns": ["Evidence", "Kekulé prediction", "What is found"],
           "rows": [
             [
               "Bond lengths",
@@ -85,10 +81,17 @@
           "type": "equation",
           "label": "Delocalisation energy",
           "formula": "stabilisation energy = 3 × ΔH(cyclohexene) − ΔH(benzene)",
-          "where": [
-            "ΔH values are enthalpy changes of hydrogenation, in kJ/mol",
-            "Use the sizes of the values, without the negative signs"
-          ]
+          "arrows": [
+            {
+              "point": "ΔH(cyclohexene)",
+              "label": "Hydrogenation of cyclohexene (kJ/mol)"
+            },
+            {
+              "point": "ΔH(benzene)",
+              "label": "Hydrogenation of benzene (kJ/mol)"
+            }
+          ],
+          "where": ["Use the sizes of the values, without the negative signs"]
         },
         {
           "type": "diagram",
@@ -205,11 +208,7 @@
             "kind": "predictor",
             "alt": "A predictor. Pick an electrophilic substitution reaction of benzene to see its reagents, its electrophile and its product.",
             "prompt": "Pick a reaction of benzene.",
-            "result_labels": [
-              "Reagents and conditions",
-              "Electrophile",
-              "Organic product"
-            ],
+            "result_labels": ["Reagents and conditions", "Electrophile", "Organic product"],
             "options": [
               {
                 "label": "Nitration",
@@ -373,13 +372,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 18A.1",
-        "EDEX 18A.2",
-        "EDEX 18A.3",
-        "EDEX 18A.4",
-        "EDEX 18A.5"
-      ],
+      "spec_codes": ["EDEX 18A.1", "EDEX 18A.2", "EDEX 18A.3", "EDEX 18A.4", "EDEX 18A.5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -402,10 +395,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.10.1",
-        "AQA 3.3.10.2"
-      ],
+      "spec_codes": ["AQA 3.3.10.1", "AQA 3.3.10.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -479,11 +469,7 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Conditions",
-                "Where halogenation occurs",
-                "Type"
-              ],
+              "columns": ["Conditions", "Where halogenation occurs", "Type"],
               "rows": [
                 [
                   "Halogen carrier (AlCl₃ or AlBr₃), in the dark, room temperature",
@@ -535,7 +521,7 @@
       "a4b9ab42-19c3-4ff7-bb14-40aac06c1619"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

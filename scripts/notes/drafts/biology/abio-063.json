@@ -126,11 +126,23 @@
           "type": "equation",
           "label": "Lincoln index (estimated population size)",
           "formula": "N = (n₁ × n₂) ÷ m",
-          "where": [
-            "N = estimated total population",
-            "n₁ = number caught and marked in the first sample",
-            "n₂ = total number caught in the second sample",
-            "m = number of marked animals in the second sample"
+          "arrows": [
+            {
+              "point": "N",
+              "label": "Estimated total population"
+            },
+            {
+              "point": "n₁",
+              "label": "Caught and marked in the first sample"
+            },
+            {
+              "point": "n₂",
+              "label": "Total caught in the second sample"
+            },
+            {
+              "point": "m",
+              "label": "Marked animals in the second sample"
+            }
           ]
         },
         {
@@ -163,11 +175,7 @@
               "formula": "n1 * n2 / m",
               "decimals": 0
             },
-            "working": [
-              "N = (n₁ × n₂) ÷ m",
-              "N = ({n1} × {n2}) ÷ {m}",
-              "N = {answer}"
-            ]
+            "working": ["N = (n₁ × n₂) ÷ m", "N = ({n1} × {n2}) ÷ {m}", "N = {answer}"]
           }
         },
         {
@@ -202,27 +210,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Method",
-            "Used to sample"
-          ],
+          "columns": ["Method", "Used to sample"],
           "rows": [
-            [
-              "Sweep net",
-              "Insects and other small animals in long grass or foliage"
-            ],
-            [
-              "Pitfall trap",
-              "Small animals that walk on the ground, such as beetles"
-            ],
-            [
-              "Pooter",
-              "Small insects, sucked gently into a tube from a surface"
-            ],
-            [
-              "Quadrat",
-              "Plants and slow-moving or non-motile animals"
-            ]
+            ["Sweep net", "Insects and other small animals in long grass or foliage"],
+            ["Pitfall trap", "Small animals that walk on the ground, such as beetles"],
+            ["Pooter", "Small insects, sucked gently into a tube from a surface"],
+            ["Quadrat", "Plants and slow-moving or non-motile animals"]
           ]
         },
         {
@@ -254,10 +247,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.4d",
-        "AQA 3.7.4 RP12"
-      ],
+      "spec_codes": ["AQA 3.7.4d", "AQA 3.7.4 RP12"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -275,10 +265,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 18.2.3",
-        "CAIE 18.2.4"
-      ],
+      "spec_codes": ["CAIE 18.2.3", "CAIE 18.2.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -296,10 +283,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.2.1b",
-        "OCR 6.3.1e"
-      ],
+      "spec_codes": ["OCR 4.2.1b", "OCR 6.3.1e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -331,7 +315,7 @@
       "72350d32-e429-41fb-a876-388f530ddf06"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

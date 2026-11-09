@@ -14,10 +14,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Evidence",
-            "Shows"
-          ],
+          "columns": ["Evidence", "Shows"],
           "rows": [
             [
               "Interference and diffraction of light",
@@ -27,10 +24,7 @@
               "The photoelectric effect",
               "Electromagnetic radiation behaves as particles (photons)"
             ],
-            [
-              "Diffraction of electrons",
-              "Particles such as electrons behave as waves"
-            ]
+            ["Diffraction of electrons", "Particles such as electrons behave as waves"]
           ]
         },
         {
@@ -95,12 +89,24 @@
           "type": "equation",
           "label": "de Broglie wavelength",
           "formula": "λ = h/p = h/mv",
-          "where": [
-            "λ = de Broglie wavelength (m)",
-            "h = Planck constant, 6.63 × 10⁻³⁴ J s",
-            "p = momentum (kg m/s)",
-            "m = mass (kg)",
-            "v = speed (m/s)"
+          "arrows": [
+            {
+              "point": "λ",
+              "label": "Wavelength (m)"
+            },
+            {
+              "point": "h",
+              "in": "h/p",
+              "label": "Planck constant, 6.63 × 10⁻³⁴ J s"
+            },
+            {
+              "point": "p",
+              "label": "Momentum (kg m/s)"
+            },
+            {
+              "point": "mv",
+              "label": "Mass (kg) × speed (m/s)"
+            }
           ]
         },
         {
@@ -178,9 +184,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.2.4"
-      ],
+      "spec_codes": ["AQA 3.2.2.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -210,25 +214,13 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.86",
-        "EDEX 5.87"
-      ]
+      "spec_codes": ["EDEX 5.86", "EDEX 5.87"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 22.3.1",
-        "CAIE 22.3.2",
-        "CAIE 22.3.3",
-        "CAIE 22.3.4"
-      ]
+      "spec_codes": ["CAIE 22.3.1", "CAIE 22.3.2", "CAIE 22.3.3", "CAIE 22.3.4"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.5.3a",
-        "OCR 4.5.3b",
-        "OCR 4.5.3c"
-      ],
+      "spec_codes": ["OCR 4.5.3a", "OCR 4.5.3b", "OCR 4.5.3c"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -274,7 +266,7 @@
       "3d2c521d-0b18-4548-b512-ade8036befba"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -132,11 +132,17 @@
         {
           "type": "equation",
           "label": "Maximum number of amino acids coded for",
-          "where": [
-            "number of bases in the coding strand",
-            "three bases code for one amino acid"
-          ],
-          "formula": "number of amino acids = number of bases ÷ 3"
+          "formula": "number of amino acids = number of bases ÷ 3",
+          "arrows": [
+            {
+              "point": "number of bases",
+              "label": "In the coding strand"
+            },
+            {
+              "point": "3",
+              "label": "Three bases code for one amino acid"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -194,9 +200,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 6.5"
-      ],
+      "spec_codes": ["AQA 6.5"],
       "worked_example": {
         "exemplar_id": "3a9b19bb-1d92-4045-92b5-20c5bfa03779",
         "source": "AQA jun 2025, Paper 2 (H), Q08.3",
@@ -212,10 +216,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 3.8B",
-        "EDEX 3.7B"
-      ],
+      "spec_codes": ["EDEX 3.8B", "EDEX 3.7B"],
       "worked_example": {
         "exemplar_id": "e0663e83-73e2-45e0-b554-b8bbde9ed1cc",
         "source": "EDEXCEL jun 2024, Paper 1 (H), Q7(b)(i)",
@@ -245,9 +246,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 1.2d"
-      ],
+      "spec_codes": ["OCR 1.2d"],
       "worked_example": {
         "exemplar_id": "81492978-c456-4cea-b5a2-5bdb1c7aa973",
         "source": "OCR nov 2020, Paper 3, Q22(a)",
@@ -265,12 +264,7 @@
       }
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 17.1.7S",
-        "CAIE 17.1.8S",
-        "CAIE 17.1.9S",
-        "CAIE 17.1.6S"
-      ],
+      "spec_codes": ["CAIE 17.1.7S", "CAIE 17.1.8S", "CAIE 17.1.9S", "CAIE 17.1.6S"],
       "worked_example": {
         "exemplar_id": "8d2856e0-ec24-4f0a-88de-d71ce362065b",
         "source": "CAMBRIDGE jun 2024, Paper 43, Q3(a)",
@@ -309,11 +303,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 3.17B",
-        "IGCSE 3.18B",
-        "IGCSE 3.35B"
-      ],
+      "spec_codes": ["IGCSE 3.17B", "IGCSE 3.18B", "IGCSE 3.35B"],
       "worked_example": {
         "exemplar_id": "28e71afa-b85c-4576-8a56-9f2e41e79f2f",
         "source": "EDEXCEL jun 2019, Paper 2 (B), Q3(a)(iii)",
@@ -367,7 +357,7 @@
       "8d2856e0-ec24-4f0a-88de-d71ce362065b",
       "28e71afa-b85c-4576-8a56-9f2e41e79f2f"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

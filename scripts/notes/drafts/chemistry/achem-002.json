@@ -49,9 +49,15 @@
           "type": "equation",
           "label": "Relative molecular or formula mass",
           "formula": "Mᵣ = sum of the Aᵣ values of all the atoms in the formula",
-          "where": [
-            "Aᵣ values are read from the Periodic Table",
-            "multiply an Aᵣ by the number of atoms of that element"
+          "arrows": [
+            {
+              "point": "Aᵣ",
+              "label": "Read from the Periodic Table"
+            },
+            {
+              "point": "all the atoms",
+              "label": "Aᵣ × number of those atoms"
+            }
           ]
         },
         {
@@ -93,13 +99,7 @@
           "diagram": {
             "kind": "flow",
             "alt": "A flow diagram of a time of flight mass spectrometer: ionisation, acceleration, ion drift, detection and data analysis.",
-            "steps": [
-              "Ionisation",
-              "Acceleration",
-              "Ion drift",
-              "Detection",
-              "Data analysis"
-            ]
+            "steps": ["Ionisation", "Acceleration", "Ion drift", "Detection", "Data analysis"]
           }
         },
         {
@@ -146,10 +146,21 @@
           "type": "equation",
           "label": "Relative atomic mass",
           "formula": "Aᵣ = Σ(isotopic mass × abundance) ÷ Σ(abundance)",
-          "where": [
-            "isotopic mass, from the m/z of each peak",
-            "abundance, as a percentage or as a peak height",
-            "Σ means add up for every isotope"
+          "arrows": [
+            {
+              "point": "Σ",
+              "in": "Σ(isotopic",
+              "label": "Add up for every isotope"
+            },
+            {
+              "point": "isotopic mass",
+              "label": "m/z of each peak"
+            },
+            {
+              "point": "abundance",
+              "in": "× abundance",
+              "label": "Percentage or peak height"
+            }
           ]
         },
         {
@@ -232,11 +243,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 2.1.1c",
-        "OCR 2.1.1d",
-        "OCR 2.1.1e"
-      ],
+      "spec_codes": ["OCR 2.1.1c", "OCR 2.1.1d", "OCR 2.1.1e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -254,13 +261,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 1.6",
-        "EDEX 1.7",
-        "EDEX 1.8",
-        "EDEX 1.9",
-        "EDEX 1.10"
-      ],
+      "spec_codes": ["EDEX 1.6", "EDEX 1.7", "EDEX 1.8", "EDEX 1.9", "EDEX 1.10"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -275,27 +276,11 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Ion",
-                "m/z",
-                "Relative height"
-              ],
+              "columns": ["Ion", "m/z", "Relative height"],
               "rows": [
-                [
-                  "³⁵Cl³⁵Cl⁺",
-                  "70",
-                  "9"
-                ],
-                [
-                  "³⁵Cl³⁷Cl⁺",
-                  "72",
-                  "6"
-                ],
-                [
-                  "³⁷Cl³⁷Cl⁺",
-                  "74",
-                  "1"
-                ]
+                ["³⁵Cl³⁵Cl⁺", "70", "9"],
+                ["³⁵Cl³⁷Cl⁺", "72", "6"],
+                ["³⁷Cl³⁷Cl⁺", "74", "1"]
               ]
             },
             {
@@ -319,10 +304,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.2.1",
-        "AQA 3.1.1.2"
-      ],
+      "spec_codes": ["AQA 3.1.2.1", "AQA 3.1.1.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -344,14 +326,35 @@
               "type": "equation",
               "label": "Kinetic energy of an ion",
               "formula": "KE = ½mv²",
-              "where": [
-                "m, the mass of the ion",
-                "v, the speed of the ion"
+              "arrows": [
+                {
+                  "point": "m",
+                  "label": "Mass of the ion"
+                },
+                {
+                  "point": "v",
+                  "label": "Speed of the ion"
+                }
               ]
             },
             {
               "type": "paragraph",
-              "text": "All the ions are accelerated to the same kinetic energy, so a smaller m means a larger v. Time of flight is t = d ÷ v, where d is the length of the flight tube. Lighter ions have a shorter time of flight."
+              "text": "All the ions are accelerated to the same kinetic energy, so a smaller m means a larger v."
+            },
+            {
+              "type": "equation",
+              "label": "Time of flight",
+              "formula": "t = d ÷ v",
+              "arrows": [
+                {
+                  "point": "d",
+                  "label": "Length of the flight tube"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Lighter ions have a shorter time of flight."
             },
             {
               "type": "key-points",
@@ -365,12 +368,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 2.1.1",
-        "CAIE 2.1.2",
-        "CAIE 22.2.1",
-        "CAIE 22.2.2"
-      ],
+      "spec_codes": ["CAIE 2.1.1", "CAIE 2.1.2", "CAIE 22.2.1", "CAIE 22.2.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -409,7 +407,7 @@
       "66c3a69a-51b8-4a72-9541-9b3aaec0b608"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

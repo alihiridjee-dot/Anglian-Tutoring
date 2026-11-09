@@ -174,7 +174,16 @@
           "type": "equation",
           "label": "Celsius to kelvin",
           "formula": "T = θ + 273",
-          "where": ["T = temperature, in kelvin (K)", "θ = temperature, in degrees Celsius (°C)"]
+          "arrows": [
+            {
+              "point": "T",
+              "label": "Temperature in kelvin (K)"
+            },
+            {
+              "point": "θ",
+              "label": "Temperature in degrees Celsius (°C)"
+            }
+          ]
         },
         {
           "type": "list",
@@ -372,10 +381,25 @@
               "type": "equation",
               "label": "Pressure and temperature at constant volume",
               "formula": "p₁ / T₁ = p₂ / T₂",
-              "where": [
-                "p₁ and p₂, the pressures, in pascals, Pa (or both in kPa)",
-                "T₁ and T₂, the temperatures, in kelvin, K"
-              ]
+              "arrows": [
+                {
+                  "point": "p₁",
+                  "label": "Starting pressure (Pa)"
+                },
+                {
+                  "point": "T₁",
+                  "label": "Starting temperature (K)"
+                },
+                {
+                  "point": "p₂",
+                  "label": "New pressure (Pa)"
+                },
+                {
+                  "point": "T₂",
+                  "label": "New temperature (K)"
+                }
+              ],
+              "where": ["Both pressures can be in kPa instead."]
             },
             {
               "type": "steps",
@@ -403,7 +427,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "spec_point_ids": [
       "a1c6178c-4bae-4d8e-a0ec-1148f48c4c69",

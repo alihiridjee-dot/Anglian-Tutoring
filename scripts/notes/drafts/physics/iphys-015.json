@@ -166,13 +166,27 @@
           "type": "equation",
           "label": "Redshift and speed",
           "formula": "(λ − λ₀) / λ₀ = Δλ / λ₀ = v / c",
-          "where": [
-            "λ = wavelength observed on the Earth, in nm or m",
-            "λ₀ = reference wavelength measured in the laboratory, in the same unit",
-            "Δλ = change in wavelength, in the same unit",
-            "v = speed of the galaxy away from the Earth, in m/s",
-            "c = speed of light, 3.0 × 10⁸ m/s"
-          ]
+          "arrows": [
+            {
+              "point": "λ",
+              "in": "(λ −",
+              "label": "Wavelength observed on Earth (nm or m)"
+            },
+            {
+              "point": "λ₀",
+              "in": "(λ − λ₀)",
+              "label": "Laboratory wavelength (same unit)"
+            },
+            {
+              "point": "v",
+              "label": "Galaxy's speed away from Earth (m/s)"
+            },
+            {
+              "point": "c",
+              "label": "Speed of light, 3.0 × 10⁸ m/s"
+            }
+          ],
+          "where": ["Δλ is the change in wavelength, in the same unit."]
         },
         {
           "type": "steps",
@@ -257,10 +271,19 @@
           "type": "equation",
           "label": "Hubble constant",
           "formula": "H₀ = v / d",
-          "where": [
-            "H₀ = Hubble constant, in per second (s⁻¹)",
-            "v = speed of the galaxy away from the Earth, in m/s",
-            "d = distance of the galaxy from the Earth, in m"
+          "arrows": [
+            {
+              "point": "H₀",
+              "label": "Hubble constant (per second, s⁻¹)"
+            },
+            {
+              "point": "v",
+              "label": "Galaxy's speed away from Earth (m/s)"
+            },
+            {
+              "point": "d",
+              "label": "Galaxy's distance from Earth (m)"
+            }
           ]
         },
         {
@@ -279,9 +302,11 @@
           "type": "equation",
           "label": "Estimate of the age of the Universe",
           "formula": "d / v = 1 / H₀",
-          "where": [
-            "d / v = the time a galaxy has taken to reach its distance, in s",
-            "H₀ = Hubble constant, in per second"
+          "arrows": [
+            {
+              "point": "d / v",
+              "label": "Time taken to reach its distance (s)"
+            }
           ]
         },
         {
@@ -364,10 +389,7 @@
       }
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 8.2",
-        "IGCSE 8.16P"
-      ],
+      "spec_codes": ["IGCSE 8.2", "IGCSE 8.16P"],
       "worked_example": {
         "exemplar_id": "8620463d-b08a-4bc8-8f9f-9aec94d25a7c",
         "source": "EDEXCEL jan 2021, Paper 2 (PR), Q6(b)",
@@ -404,7 +426,7 @@
       "9a6c1017-d342-4ecd-a466-7d884d972e36",
       "8620463d-b08a-4bc8-8f9f-9aec94d25a7c"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

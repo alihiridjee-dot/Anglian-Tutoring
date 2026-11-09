@@ -42,13 +42,21 @@
           "type": "equation",
           "label": "Maximum photon energy and minimum wavelength",
           "formula": "eV = hf = hc ÷ λ(min)",
-          "where": [
-            "e = elementary charge, 1.60 × 10⁻¹⁹ C",
-            "V = accelerating p.d. (V)",
-            "h = Planck constant, 6.63 × 10⁻³⁴ J s",
-            "c = speed of light, 3.00 × 10⁸ m s⁻¹",
-            "λ(min) = shortest wavelength produced (m)"
-          ]
+          "arrows": [
+            {
+              "point": "e",
+              "label": "Elementary charge, 1.60 × 10⁻¹⁹ C"
+            },
+            {
+              "point": "V",
+              "label": "Accelerating p.d. (V)"
+            },
+            {
+              "point": "λ(min)",
+              "label": "Shortest wavelength produced (m)"
+            }
+          ],
+          "where": ["h = Planck constant, 6.63 × 10⁻³⁴ J s", "c = speed of light, 3.00 × 10⁸ m s⁻¹"]
         },
         {
           "type": "diagram",
@@ -88,11 +96,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "To change",
-            "Adjust",
-            "Because"
-          ],
+          "columns": ["To change", "Adjust", "Because"],
           "rows": [
             [
               "Intensity of the beam",
@@ -142,11 +146,24 @@
           "type": "equation",
           "label": "Attenuation of X-rays",
           "formula": "I = I₀e^(−μx)",
-          "where": [
-            "I = transmitted intensity (W m⁻²)",
-            "I₀ = incident intensity (W m⁻²)",
-            "μ = linear attenuation (absorption) coefficient (m⁻¹)",
-            "x = thickness of the material (m)"
+          "arrows": [
+            {
+              "point": "I",
+              "in": "I =",
+              "label": "Transmitted intensity (W m⁻²)"
+            },
+            {
+              "point": "I₀",
+              "label": "Incident intensity (W m⁻²)"
+            },
+            {
+              "point": "μ",
+              "label": "Attenuation (absorption) coefficient (m⁻¹)"
+            },
+            {
+              "point": "x",
+              "label": "Thickness of the material (m)"
+            }
           ]
         },
         {
@@ -296,12 +313,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.10.5.1",
-        "AQA 3.10.5.2",
-        "AQA 3.10.5.3",
-        "AQA 3.10.5.4"
-      ],
+      "spec_codes": ["AQA 3.10.5.1", "AQA 3.10.5.2", "AQA 3.10.5.3", "AQA 3.10.5.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -314,10 +326,20 @@
               "type": "equation",
               "label": "Mass attenuation coefficient",
               "formula": "μ(m) = μ ÷ ρ",
-              "where": [
-                "μ(m) = mass attenuation coefficient (m² kg⁻¹)",
-                "μ = linear attenuation coefficient (m⁻¹)",
-                "ρ = density of the material (kg m⁻³)"
+              "arrows": [
+                {
+                  "point": "μ(m)",
+                  "label": "Mass attenuation coefficient (m² kg⁻¹)"
+                },
+                {
+                  "point": "μ",
+                  "in": "μ ÷",
+                  "label": "Linear attenuation coefficient (m⁻¹)"
+                },
+                {
+                  "point": "ρ",
+                  "label": "Density of the material (kg m⁻³)"
+                }
               ]
             },
             {
@@ -364,12 +386,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 24.2.1",
-        "CAIE 24.2.2",
-        "CAIE 24.2.3",
-        "CAIE 24.2.4"
-      ]
+      "spec_codes": ["CAIE 24.2.1", "CAIE 24.2.2", "CAIE 24.2.3", "CAIE 24.2.4"]
     },
     "ocr_alevel": {
       "spec_codes": [
@@ -391,10 +408,7 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Process",
-                "What happens"
-              ],
+              "columns": ["Process", "What happens"],
               "rows": [
                 [
                   "Simple (coherent) scatter",
@@ -460,7 +474,7 @@
       "e253ae08-5564-4298-a9e6-12e959315454"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -84,7 +84,16 @@
           "type": "equation",
           "label": "Law of reflection",
           "formula": "angle of incidence = angle of reflection",
-          "where": ["angle of incidence, in degrees (°)", "angle of reflection, in degrees (°)"]
+          "arrows": [
+            {
+              "point": "angle of incidence",
+              "label": "Degrees (°)"
+            },
+            {
+              "point": "angle of reflection",
+              "label": "Degrees (°)"
+            }
+          ]
         },
         {
           "type": "subheading",
@@ -548,7 +557,17 @@
               "type": "equation",
               "label": "Critical angle",
               "formula": "n = 1 ÷ sin c",
-              "where": ["n = refractive index of the material (no unit)", "c = critical angle (°)"]
+              "arrows": [
+                {
+                  "point": "n",
+                  "in": "n =",
+                  "label": "Refractive index (no unit)"
+                },
+                {
+                  "point": "c",
+                  "label": "Critical angle (°)"
+                }
+              ]
             },
             {
               "type": "subheading",
@@ -686,7 +705,7 @@
       "ead4d115-422b-4592-9aaf-eb9a6079855c",
       "fb7d4a65-25b7-4bf6-8a9a-a8be8832b6c3"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

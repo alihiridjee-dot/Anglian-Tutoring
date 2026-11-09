@@ -14,11 +14,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Method",
-            "What is done",
-            "Data produced"
-          ],
+          "columns": ["Method", "What is done", "Data produced"],
           "rows": [
             [
               "Initial rates",
@@ -67,14 +63,7 @@
               "label": "Time",
               "min": 0,
               "max": 50,
-              "ticks": [
-                0,
-                10,
-                20,
-                30,
-                40,
-                50
-              ],
+              "ticks": [0, 10, 20, 30, 40, 50],
               "unit": "s"
             },
             "y": {
@@ -84,59 +73,23 @@
               {
                 "name": "Zero order",
                 "points": [
-                  [
-                    0,
-                    1
-                  ],
-                  [
-                    10,
-                    0.8
-                  ],
-                  [
-                    20,
-                    0.6
-                  ],
-                  [
-                    30,
-                    0.4
-                  ],
-                  [
-                    40,
-                    0.2
-                  ],
-                  [
-                    50,
-                    0
-                  ]
+                  [0, 1],
+                  [10, 0.8],
+                  [20, 0.6],
+                  [30, 0.4],
+                  [40, 0.2],
+                  [50, 0]
                 ]
               },
               {
                 "name": "First order",
                 "points": [
-                  [
-                    0,
-                    1
-                  ],
-                  [
-                    10,
-                    0.5
-                  ],
-                  [
-                    20,
-                    0.25
-                  ],
-                  [
-                    30,
-                    0.125
-                  ],
-                  [
-                    40,
-                    0.0625
-                  ],
-                  [
-                    50,
-                    0.03
-                  ]
+                  [0, 1],
+                  [10, 0.5],
+                  [20, 0.25],
+                  [30, 0.125],
+                  [40, 0.0625],
+                  [50, 0.03]
                 ]
               }
             ]
@@ -189,9 +142,16 @@
           "type": "equation",
           "label": "Rate constant from half-life (first order)",
           "formula": "k = ln 2 ÷ t½ = 0.693 ÷ t½",
-          "where": [
-            "k in s⁻¹",
-            "t½ in s"
+          "arrows": [
+            {
+              "point": "k",
+              "label": "Rate constant (s⁻¹)"
+            },
+            {
+              "point": "t½",
+              "in": "ln 2 ÷ t½",
+              "label": "Half-life (s)"
+            }
           ]
         },
         {
@@ -213,10 +173,7 @@
               "unit": "s⁻¹",
               "decimals": 5
             },
-            "working": [
-              "k = 0.693 ÷ t½",
-              "k = 0.693 ÷ {t} = {answer} s⁻¹"
-            ]
+            "working": ["k = 0.693 ÷ t½", "k = 0.693 ÷ {t} = {answer} s⁻¹"]
           }
         },
         {
@@ -237,27 +194,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Order",
-            "Shape of rate–concentration graph",
-            "Rate depends on"
-          ],
+          "columns": ["Order", "Shape of rate–concentration graph", "Rate depends on"],
           "rows": [
-            [
-              "0",
-              "Horizontal line",
-              "Nothing: rate is constant"
-            ],
-            [
-              "1",
-              "Straight line through the origin",
-              "[A]"
-            ],
-            [
-              "2",
-              "Curve that rises more and more steeply",
-              "[A]²"
-            ]
+            ["0", "Horizontal line", "Nothing: rate is constant"],
+            ["1", "Straight line through the origin", "[A]"],
+            ["2", "Curve that rises more and more steeply", "[A]²"]
           ]
         },
         {
@@ -321,13 +262,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.1.1d",
-        "OCR 5.1.1e",
-        "OCR 5.1.1f",
-        "OCR 5.1.1g",
-        "OCR 5.1.1h"
-      ],
+      "spec_codes": ["OCR 5.1.1d", "OCR 5.1.1e", "OCR 5.1.1f", "OCR 5.1.1g", "OCR 5.1.1h"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -349,13 +284,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 16.3",
-        "EDEX 16.4",
-        "EDEX 16.5",
-        "EDEX 16.6",
-        "EDEX 16.8"
-      ],
+      "spec_codes": ["EDEX 16.3", "EDEX 16.4", "EDEX 16.5", "EDEX 16.6", "EDEX 16.8"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -380,9 +309,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.9.2"
-      ],
+      "spec_codes": ["AQA 3.1.9.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -404,9 +331,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 26.1.3"
-      ],
+      "spec_codes": ["CAIE 26.1.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -446,7 +371,7 @@
       "137035c8-749d-4f85-817f-388b5659ef2f"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

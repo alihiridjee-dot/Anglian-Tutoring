@@ -64,17 +64,39 @@
           "type": "equation",
           "label": "Pressure and volume of a fixed mass of gas at constant temperature",
           "formula": "p × V = constant",
-          "where": ["p = pressure, in pascals (Pa)", "V = volume, in metres cubed (m³)"]
+          "arrows": [
+            {
+              "point": "p",
+              "in": "p ×",
+              "label": "Pressure (Pa)"
+            },
+            {
+              "point": "V",
+              "label": "Volume (m³)"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "Pressure and volume before and after a change",
           "formula": "p₁ × V₁ = p₂ × V₂",
-          "where": [
-            "p₁ = starting pressure, in pascals (Pa)",
-            "V₁ = starting volume, in metres cubed (m³)",
-            "p₂ = new pressure, in the same unit as p₁",
-            "V₂ = new volume, in the same unit as V₁"
+          "arrows": [
+            {
+              "point": "p₁",
+              "label": "Starting pressure (Pa)"
+            },
+            {
+              "point": "V₁",
+              "label": "Starting volume (m³)"
+            },
+            {
+              "point": "p₂",
+              "label": "New pressure (same unit as p₁)"
+            },
+            {
+              "point": "V₂",
+              "label": "New volume (same unit as V₁)"
+            }
           ]
         },
         {
@@ -404,7 +426,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "spec_point_ids": [
       "74f5ee80-2911-4c81-8ca5-c0fb92292aa2",

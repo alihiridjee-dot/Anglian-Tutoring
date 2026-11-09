@@ -240,10 +240,19 @@
           "type": "equation",
           "label": "Average rate of change of temperature",
           "formula": "average rate = change in temperature ÷ time taken",
-          "where": [
-            "average rate is in °C per second (°C/s) or °C per minute.",
-            "change in temperature is in °C.",
-            "time taken is in seconds (s) or minutes."
+          "arrows": [
+            {
+              "point": "average rate",
+              "label": "°C/s or °C per minute"
+            },
+            {
+              "point": "change in temperature",
+              "label": "Degrees Celsius (°C)"
+            },
+            {
+              "point": "time taken",
+              "label": "Seconds (s) or minutes"
+            }
           ]
         },
         {
@@ -435,7 +444,7 @@
       "46f418eb-7106-4cd4-838a-a6a7342512af",
       "949f6942-e066-416a-9f1a-30ae7d8ef4b8"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

@@ -14,13 +14,29 @@
         },
         {
           "type": "equation",
-          "formula": "Q = m × c × ΔT",
           "label": "Heat energy change",
+          "formula": "Q = m × c × ΔT",
+          "arrows": [
+            {
+              "point": "Q",
+              "label": "Heat energy change (J)"
+            },
+            {
+              "point": "m",
+              "label": "Mass of water or solution (g)"
+            },
+            {
+              "point": "c",
+              "label": "Specific heat capacity (J/g/°C)"
+            },
+            {
+              "point": "ΔT",
+              "label": "Temperature change (°C)"
+            }
+          ],
           "where": [
-            "Q = heat energy change in J",
-            "m = mass of water or solution in g (1.0 cm³ of water has a mass of 1.0 g)",
-            "c = specific heat capacity in J/g/°C (4.2 for water, or the value given in the question)",
-            "ΔT = temperature change in °C"
+            "1.0 cm³ of water has a mass of 1.0 g.",
+            "c is 4.2 for water, or the value given in the question."
           ]
         },
         {
@@ -65,11 +81,7 @@
               "unit": "J",
               "decimals": 0
             },
-            "working": [
-              "Q = m × c × ΔT",
-              "Q = {m} × 4.2 × {t}",
-              "Q = **{answer}** J"
-            ]
+            "working": ["Q = m × c × ΔT", "Q = {m} × 4.2 × {t}", "Q = **{answer}** J"]
           }
         },
         {
@@ -99,12 +111,21 @@
         },
         {
           "type": "equation",
-          "formula": "ΔH = Q ÷ n",
           "label": "Molar enthalpy change",
-          "where": [
-            "ΔH = molar enthalpy change in kJ/mol",
-            "Q = heat energy change in kJ (J ÷ 1000)",
-            "n = amount of substance in mol (mass ÷ Mr)"
+          "formula": "ΔH = Q ÷ n",
+          "arrows": [
+            {
+              "point": "ΔH",
+              "label": "Molar enthalpy change (kJ/mol)"
+            },
+            {
+              "point": "Q",
+              "label": "Heat energy change (kJ): J ÷ 1000"
+            },
+            {
+              "point": "n",
+              "label": "Amount of substance (mol): mass ÷ Mr"
+            }
           ]
         },
         {
@@ -256,10 +277,7 @@
   ],
   "boards": {
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 3.3",
-        "IGCSE 3.4"
-      ],
+      "spec_codes": ["IGCSE 3.3", "IGCSE 3.4"],
       "worked_example": {
         "exemplar_id": "539a8656-b08a-413f-be0a-1ea18fef1e5f",
         "source": "EDEXCEL jun 2022, Paper 1 (CR), Q8(b)(i)",
@@ -282,10 +300,8 @@
       "74f5241b-76af-4dd9-9258-62ca40c122bf",
       "15322fc2-c7bc-4a13-ac54-3a040223e377"
     ],
-    "exemplar_ids": [
-      "539a8656-b08a-413f-be0a-1ea18fef1e5f"
-    ],
-    "checked_by": "sonnet-science-check",
+    "exemplar_ids": ["539a8656-b08a-413f-be0a-1ea18fef1e5f"],
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

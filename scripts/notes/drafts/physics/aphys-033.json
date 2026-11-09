@@ -44,9 +44,15 @@
           "type": "equation",
           "label": "Power of a lens",
           "formula": "P = 1 / f",
-          "where": [
-            "P = power (dioptres, D)",
-            "f = focal length (m)"
+          "arrows": [
+            {
+              "point": "P",
+              "label": "Power (dioptres, D)"
+            },
+            {
+              "point": "f",
+              "label": "Focal length (m)"
+            }
           ]
         },
         {
@@ -64,9 +70,16 @@
           "type": "equation",
           "label": "Thin lenses in contact",
           "formula": "P = P₁ + P₂ + P₃ + ...",
-          "where": [
-            "P = total power (D)",
-            "P₁, P₂, P₃ = powers of the separate lenses (D)"
+          "arrows": [
+            {
+              "point": "P",
+              "in": "P =",
+              "label": "Total power (D)"
+            },
+            {
+              "point": "P₁ + P₂ + P₃",
+              "label": "Powers of the separate lenses (D)"
+            }
           ]
         },
         {
@@ -75,10 +88,7 @@
         },
         {
           "type": "key-points",
-          "items": [
-            "P = 1 / f, with f in metres.",
-            "Powers of thin lenses in contact add."
-          ]
+          "items": ["P = 1 / f, with f in metres.", "Powers of thin lenses in contact add."]
         }
       ]
     },
@@ -121,23 +131,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Object position (converging lens)",
-            "Image"
-          ],
+          "columns": ["Object position (converging lens)", "Image"],
           "rows": [
-            [
-              "Beyond 2f",
-              "Real, inverted, smaller"
-            ],
-            [
-              "Between f and 2f",
-              "Real, inverted, larger"
-            ],
-            [
-              "Closer than f",
-              "Virtual, upright, larger, on the same side as the object"
-            ]
+            ["Beyond 2f", "Real, inverted, smaller"],
+            ["Between f and 2f", "Real, inverted, larger"],
+            ["Closer than f", "Virtual, upright, larger, on the same side as the object"]
           ]
         },
         {
@@ -167,10 +165,19 @@
           "type": "equation",
           "label": "Thin lens equation",
           "formula": "1/u + 1/v = 1/f",
-          "where": [
-            "u = object distance from the lens (m)",
-            "v = image distance from the lens (m)",
-            "f = focal length (m)"
+          "arrows": [
+            {
+              "point": "u",
+              "label": "Object distance (m)"
+            },
+            {
+              "point": "v",
+              "label": "Image distance (m)"
+            },
+            {
+              "point": "f",
+              "label": "Focal length (m)"
+            }
           ]
         },
         {
@@ -185,10 +192,12 @@
           "type": "equation",
           "label": "Magnification",
           "formula": "m = image height / object height = v / u",
-          "where": [
-            "m = magnification (no unit)",
-            "v = image distance (m)",
-            "u = object distance (m)"
+          "arrows": [
+            {
+              "point": "m",
+              "in": "m =",
+              "label": "Magnification (no unit)"
+            }
           ]
         },
         {
@@ -223,11 +232,7 @@
               "unit": "cm",
               "decimals": 1
             },
-            "working": [
-              "1/v = 1/f − 1/u",
-              "1/v = 1/{f} − 1/{u}",
-              "v = {answer} cm"
-            ]
+            "working": ["1/v = 1/f − 1/u", "1/v = 1/{f} − 1/{u}", "v = {answer} cm"]
           }
         },
         {
@@ -284,7 +289,7 @@
       "d273c8c9-bf95-4131-a424-3b473468b4b2"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

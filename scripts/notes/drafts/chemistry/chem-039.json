@@ -58,9 +58,11 @@
           "type": "equation",
           "label": "Percentage atom economy",
           "formula": "atom economy = (Mr of the desired product ÷ sum of the Mr of all the reactants) × 100",
-          "where": [
-            "Use the balancing numbers from the equation.",
-            "The sum of the Mr of the reactants equals the sum of the Mr of the products."
+          "arrows": [
+            {
+              "point": "sum of the Mr of all the reactants",
+              "label": "Equals the total Mr of the products"
+            }
           ]
         },
         {
@@ -293,7 +295,7 @@
       "97e2496d-3024-4787-b598-040e8bf9c661",
       "1945ce35-9355-4940-a0b6-6bb979ad7232"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

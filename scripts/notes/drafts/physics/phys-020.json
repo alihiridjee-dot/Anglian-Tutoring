@@ -68,20 +68,34 @@
           "type": "equation",
           "label": "Power from potential difference and current",
           "formula": "power = potential difference × current    (P = V I)",
-          "where": [
-            "power, P, in watts, W",
-            "potential difference, V, in volts, V",
-            "current, I, in amperes, A"
+          "arrows": [
+            {
+              "point": "P",
+              "label": "Power (W)"
+            },
+            {
+              "point": "V",
+              "label": "Potential difference (V)"
+            },
+            {
+              "point": "I",
+              "label": "Current (A)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Power lost in a cable",
           "formula": "power = current² × resistance    (P = I²R)",
-          "where": [
-            "power lost, P, in watts, W",
-            "current, I, in amperes, A",
-            "resistance of the cable, R, in ohms, Ω"
+          "arrows": [
+            {
+              "point": "P",
+              "label": "Power lost (W)"
+            },
+            {
+              "point": "R",
+              "label": "Resistance of the cable (Ω)"
+            }
           ]
         },
         {
@@ -402,7 +416,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27",
     "spec_point_ids": [
       "bac89603-adb4-493d-afa7-3891eab71e00",

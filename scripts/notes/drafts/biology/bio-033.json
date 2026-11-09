@@ -120,7 +120,20 @@
           "type": "equation",
           "label": "Body mass index (BMI)",
           "formula": "BMI = mass ÷ height²",
-          "where": ["BMI in kg/m²", "mass in kg", "height in m"]
+          "arrows": [
+            {
+              "point": "BMI",
+              "label": "Kilograms per square metre (kg/m²)"
+            },
+            {
+              "point": "mass",
+              "label": "Kilograms (kg)"
+            },
+            {
+              "point": "height",
+              "label": "Metres (m)"
+            }
+          ]
         },
         {
           "type": "diagram",
@@ -380,7 +393,7 @@
       "9b1242a8-c354-4ab8-b823-d7bc684d9632",
       "161b89c1-3431-4268-b1fb-b02fee1ab9ab"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

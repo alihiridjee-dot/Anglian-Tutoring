@@ -16,11 +16,17 @@
           "type": "equation",
           "label": "Potential divider",
           "formula": "Vout = R₂ / (R₁ + R₂) × Vin",
-          "where": [
-            "Vout = p.d. across R₂ (V)",
-            "Vin = supply p.d. across both resistors (V)",
-            "R₁, R₂ = resistances in series (Ω)"
-          ]
+          "arrows": [
+            {
+              "point": "Vout",
+              "label": "Output p.d., across R₂ (V)"
+            },
+            {
+              "point": "Vin",
+              "label": "Supply p.d. across both (V)"
+            }
+          ],
+          "where": ["R₁, R₂ = resistances in series (Ω)"]
         },
         {
           "type": "equation",
@@ -128,18 +134,8 @@
             "p.d. across the fixed resistor"
           ],
           "rows": [
-            [
-              "Hotter (thermistor) or brighter (LDR)",
-              "Falls",
-              "Falls",
-              "Rises"
-            ],
-            [
-              "Cooler (thermistor) or darker (LDR)",
-              "Rises",
-              "Rises",
-              "Falls"
-            ]
+            ["Hotter (thermistor) or brighter (LDR)", "Falls", "Falls", "Rises"],
+            ["Cooler (thermistor) or darker (LDR)", "Rises", "Rises", "Falls"]
           ]
         },
         {
@@ -254,9 +250,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.5.1.5"
-      ],
+      "spec_codes": ["AQA 3.5.1.5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -273,26 +267,13 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 3.42",
-        "EDEX 3.43",
-        "EDEX 3.44"
-      ]
+      "spec_codes": ["EDEX 3.42", "EDEX 3.43", "EDEX 3.44"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 10.3.1",
-        "CAIE 10.3.2",
-        "CAIE 10.3.3",
-        "CAIE 10.3.4"
-      ]
+      "spec_codes": ["CAIE 10.3.1", "CAIE 10.3.2", "CAIE 10.3.3", "CAIE 10.3.4"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.3.3a",
-        "OCR 4.3.3b",
-        "OCR 4.3.3c"
-      ],
+      "spec_codes": ["OCR 4.3.3a", "OCR 4.3.3b", "OCR 4.3.3c"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -341,7 +322,7 @@
       "d5655145-5853-4c59-9274-c368567f6cd8"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

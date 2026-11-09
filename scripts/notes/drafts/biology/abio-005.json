@@ -14,12 +14,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Test",
-            "For",
-            "Method",
-            "Positive result"
-          ],
+          "columns": ["Test", "For", "Method", "Positive result"],
           "rows": [
             [
               "Benedict's",
@@ -53,12 +48,7 @@
             "kind": "predictor",
             "alt": "Pick a food sample and see the result of the Benedict's, iodine, biuret and emulsion tests on it.",
             "prompt": "Pick a sample to test",
-            "result_labels": [
-              "Benedict's test",
-              "Iodine test",
-              "Biuret test",
-              "Emulsion test"
-            ],
+            "result_labels": ["Benedict's test", "Iodine test", "Biuret test", "Emulsion test"],
             "options": [
               {
                 "label": "Glucose solution",
@@ -338,11 +328,7 @@
   ],
   "boards": {
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 2.1.1",
-        "CAIE 2.1.2",
-        "CAIE 2.1.3"
-      ],
+      "spec_codes": ["CAIE 2.1.1", "CAIE 2.1.2", "CAIE 2.1.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -365,11 +351,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 2.1.2q",
-        "OCR 2.1.2r",
-        "OCR 2.1.2s"
-      ],
+      "spec_codes": ["OCR 2.1.2q", "OCR 2.1.2r", "OCR 2.1.2s"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -446,8 +428,18 @@
               "type": "equation",
               "label": "Rf value",
               "formula": "Rf = distance moved by the solute ÷ distance moved by the solvent",
+              "arrows": [
+                {
+                  "point": "distance moved by the solute",
+                  "label": "Baseline to the spot"
+                },
+                {
+                  "point": "distance moved by the solvent",
+                  "label": "Baseline to the solvent front"
+                }
+              ],
               "where": [
-                "Both distances are measured from the baseline, in the same unit.",
+                "Measure both in the same unit.",
                 "Rf has no unit and is always between 0 and 1."
               ]
             },
@@ -507,7 +499,7 @@
       "25fa9ef9-c30b-4a84-9e0f-24e40c8b0478"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -59,17 +59,20 @@
         {
           "type": "equation",
           "label": "Volume of a gas",
-          "where": [
-            "Volume in dm³ at room temperature and pressure.",
-            "Multiply by 24 000 to give cm³."
+          "formula": "volume (dm³) = number of moles × 24",
+          "arrows": [
+            {
+              "point": "24",
+              "label": "Molar gas volume at RTP (dm³/mol)"
+            }
           ],
-          "formula": "volume (dm³) = number of moles × 24"
+          "where": ["Multiply by 24 000 to give cm³."]
         },
         {
           "type": "equation",
           "label": "Moles of a gas",
           "formula": "number of moles = volume (dm³) ÷ 24",
-          "where": ["The same equation, rearranged.", "For cm³, divide by 24 000."]
+          "where": ["For cm³, divide by 24 000."]
         },
         {
           "type": "list",
@@ -138,11 +141,25 @@
         {
           "type": "equation",
           "label": "Propane burning",
-          "where": [
-            "1 volume of propane reacts with 5 volumes of oxygen.",
-            "3 volumes of carbon dioxide are made. Liquid water has a negligible volume."
-          ],
-          "formula": "C₃H₈(g) + 5O₂(g) → 3CO₂(g) + 4H₂O(l)"
+          "formula": "C₃H₈(g) + 5O₂(g) → 3CO₂(g) + 4H₂O(l)",
+          "arrows": [
+            {
+              "point": "C₃H₈",
+              "label": "1 volume"
+            },
+            {
+              "point": "5",
+              "label": "5 volumes"
+            },
+            {
+              "point": "3",
+              "label": "3 volumes"
+            },
+            {
+              "point": "(l)",
+              "label": "Liquid: negligible volume"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -417,7 +434,7 @@
       "b51b9ab0-7a4b-43eb-8ff5-9df060ea3de3",
       "64a4f5c3-85fa-4eb9-bde8-81775d6905b0"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

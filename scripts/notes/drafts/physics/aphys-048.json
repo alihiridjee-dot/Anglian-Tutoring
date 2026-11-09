@@ -34,11 +34,23 @@
           "type": "equation",
           "label": "Energy gained from a potential difference",
           "formula": "½mv² = QV",
-          "where": [
-            "m = mass of the particle (kg)",
-            "v = speed gained (m/s)",
-            "Q = charge of the particle (C)",
-            "V = accelerating potential difference (V)"
+          "arrows": [
+            {
+              "point": "m",
+              "label": "Mass of the particle (kg)"
+            },
+            {
+              "point": "v",
+              "label": "Speed gained (m/s)"
+            },
+            {
+              "point": "Q",
+              "label": "Charge of the particle (C)"
+            },
+            {
+              "point": "V",
+              "label": "Accelerating potential difference (V)"
+            }
           ]
         },
         {
@@ -61,11 +73,23 @@
           "type": "equation",
           "label": "Radius of the circular path",
           "formula": "r = p / BQ",
-          "where": [
-            "r = radius of the path (m)",
-            "p = momentum of the particle, mv (kg m/s)",
-            "B = magnetic flux density (T)",
-            "Q = charge of the particle (C)"
+          "arrows": [
+            {
+              "point": "r",
+              "label": "Radius of the path (m)"
+            },
+            {
+              "point": "p",
+              "label": "Momentum, mv (kg m/s)"
+            },
+            {
+              "point": "B",
+              "label": "Magnetic flux density (T)"
+            },
+            {
+              "point": "Q",
+              "label": "Charge of the particle (C)"
+            }
           ]
         },
         {
@@ -114,11 +138,7 @@
               "unit": "m",
               "decimals": 3
             },
-            "working": [
-              "r = p / BQ",
-              "r = ({a} × 10⁻²¹) / ({b} × 1.60 × 10⁻¹⁹)",
-              "r = {answer} m"
-            ]
+            "working": ["r = p / BQ", "r = ({a} × 10⁻²¹) / ({b} × 1.60 × 10⁻¹⁹)", "r = {answer} m"]
           }
         },
         {
@@ -246,13 +266,7 @@
   ],
   "boards": {
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 8.132",
-        "EDEX 8.133",
-        "EDEX 8.134",
-        "EDEX 8.136",
-        "EDEX 8.139"
-      ]
+      "spec_codes": ["EDEX 8.132", "EDEX 8.133", "EDEX 8.134", "EDEX 8.136", "EDEX 8.139"]
     }
   },
   "meta": {
@@ -267,7 +281,7 @@
       "f164d498-f259-4833-b7dc-b6381dac76d7"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

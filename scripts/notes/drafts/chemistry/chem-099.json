@@ -26,7 +26,17 @@
           "type": "equation",
           "label": "Burning sulfur",
           "formula": "S + O₂ → SO₂",
-          "where": ["S is sulfur, an impurity in the fuel.", "SO₂ is sulfur dioxide."]
+          "arrows": [
+            {
+              "point": "S",
+              "in": "S +",
+              "label": "Sulfur, an impurity in the fuel"
+            },
+            {
+              "point": "SO₂",
+              "label": "Sulfur dioxide"
+            }
+          ]
         },
         {
           "type": "subheading",
@@ -45,9 +55,15 @@
           "type": "equation",
           "label": "Forming nitrogen dioxide in an engine",
           "formula": "N₂ + 2O₂ → 2NO₂",
-          "where": [
-            "N₂ is nitrogen from the air.",
-            "NO₂ is nitrogen dioxide, an oxide of nitrogen."
+          "arrows": [
+            {
+              "point": "N₂",
+              "label": "Nitrogen from the air"
+            },
+            {
+              "point": "NO₂",
+              "label": "Nitrogen dioxide, an oxide of nitrogen"
+            }
           ]
         },
         {
@@ -251,11 +267,24 @@
               "type": "equation",
               "label": "Catalytic converter reaction",
               "formula": "2CO + 2NO → 2CO₂ + N₂",
-              "where": [
-                "CO is carbon monoxide",
-                "NO is nitrogen monoxide",
-                "CO₂ is carbon dioxide",
-                "N₂ is nitrogen"
+              "arrows": [
+                {
+                  "point": "CO",
+                  "in": "2CO +",
+                  "label": "Carbon monoxide"
+                },
+                {
+                  "point": "NO",
+                  "label": "Nitrogen monoxide"
+                },
+                {
+                  "point": "CO₂",
+                  "label": "Carbon dioxide"
+                },
+                {
+                  "point": "N₂",
+                  "label": "Nitrogen"
+                }
               ]
             },
             {
@@ -308,7 +337,7 @@
       "09aff86a-f0b4-4b62-a25a-cb53fb30faab",
       "66dfb74e-0f5b-4cda-a63c-7e89ed20db87"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   },
   "format": 1,

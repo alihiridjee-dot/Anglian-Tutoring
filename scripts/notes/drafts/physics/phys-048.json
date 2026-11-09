@@ -88,10 +88,19 @@
           "type": "equation",
           "label": "Spring constant",
           "formula": "k = F ÷ e",
-          "where": [
-            "k is the spring constant in newtons per metre (N/m).",
-            "F is force in newtons (N).",
-            "e is extension in metres (m)."
+          "arrows": [
+            {
+              "point": "k",
+              "label": "Spring constant (N/m)"
+            },
+            {
+              "point": "F",
+              "label": "Force (N)"
+            },
+            {
+              "point": "e",
+              "label": "Extension (m)"
+            }
           ]
         },
         {
@@ -140,10 +149,11 @@
           "type": "equation",
           "label": "Work done in stretching",
           "formula": "E = ½ × k × e²",
-          "where": [
-            "E is work done, or energy stored, in joules (J).",
-            "k is the spring constant in newtons per metre (N/m).",
-            "e is extension in metres (m)."
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Work done, or energy stored (J)"
+            }
           ]
         },
         {
@@ -403,7 +413,7 @@
       "a67fb030-0655-40fd-b507-12400c0e21a1",
       "044e0104-7480-4aa3-a0a9-caeb54eef68a"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

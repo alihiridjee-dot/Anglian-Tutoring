@@ -198,7 +198,16 @@
           "type": "equation",
           "label": "Rate of diffusion",
           "formula": "rate of diffusion = distance diffused ÷ time",
-          "where": ["distance in mm", "time in s"]
+          "arrows": [
+            {
+              "point": "distance diffused",
+              "label": "Millimetres (mm)"
+            },
+            {
+              "point": "time",
+              "label": "Seconds (s)"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -284,10 +293,19 @@
               "type": "equation",
               "label": "Fick's law",
               "formula": "rate of diffusion ∝ (surface area × concentration difference) ÷ thickness of the membrane",
-              "where": [
-                "∝ means \"is proportional to\"",
-                "Doubling the surface area or the concentration difference doubles the rate.",
-                "Doubling the thickness halves the rate."
+              "arrows": [
+                {
+                  "point": "∝",
+                  "label": "Is proportional to"
+                },
+                {
+                  "point": "surface area × concentration difference",
+                  "label": "Double either: the rate doubles"
+                },
+                {
+                  "point": "thickness of the membrane",
+                  "label": "Double it: the rate halves"
+                }
               ]
             }
           ]
@@ -367,7 +385,7 @@
               "items": [
                 "The energy for diffusion comes from the **kinetic energy** of the random movement of molecules and ions.",
                 "Because the particles move at random, more of them move down the concentration gradient than up it.",
-      "(Supplement) In the placenta, dissolved nutrients and oxygen diffuse from the mother's blood into the fetus's blood. Carbon dioxide and urea diffuse the other way. The umbilical cord carries the fetus's blood to and from the placenta."
+                "(Supplement) In the placenta, dissolved nutrients and oxygen diffuse from the mother's blood into the fetus's blood. Carbon dioxide and urea diffuse the other way. The umbilical cord carries the fetus's blood to and from the placenta."
               ]
             }
           ]
@@ -400,7 +418,16 @@
               "type": "equation",
               "label": "Surface area to volume ratio",
               "formula": "ratio = surface area ÷ volume",
-              "where": ["surface area in mm² (or cm²)", "volume in mm³ (or cm³)"]
+              "arrows": [
+                {
+                  "point": "surface area",
+                  "label": "In mm² (or cm²)"
+                },
+                {
+                  "point": "volume",
+                  "label": "In mm³ (or cm³)"
+                }
+              ]
             },
             {
               "type": "list",
@@ -434,7 +461,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",

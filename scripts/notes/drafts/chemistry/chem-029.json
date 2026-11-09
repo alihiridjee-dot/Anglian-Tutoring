@@ -54,7 +54,6 @@
         {
           "type": "list",
           "items": [
-            "A bracket with a number after it multiplies every atom inside the bracket.",
             "In a balanced equation, multiply each Mr by the number in front of its formula. The total for the reactants then equals the total for the products.",
             "If you know the Mr and all the other Ar values, you can find an unknown Ar by subtraction."
           ]
@@ -97,7 +96,16 @@
           "type": "equation",
           "label": "Percentage by mass of an element",
           "formula": "percentage by mass = (Ar × number of atoms of the element ÷ Mr of the compound) × 100",
-          "where": ["Ar of the element, from the periodic table.", "Mr of the whole compound."]
+          "arrows": [
+            {
+              "point": "Ar",
+              "label": "Of the element, from the periodic table"
+            },
+            {
+              "point": "Mr",
+              "label": "Of the whole compound"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -371,7 +379,7 @@
       "1be7d164-8da8-413d-a806-d3ccc10e0406",
       "040a58da-c60b-4dce-bcbb-d5b7e3bfc177"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

@@ -59,19 +59,34 @@
           "type": "equation",
           "label": "Allele frequencies",
           "formula": "p + q = 1",
-          "where": [
-            "p = frequency of the dominant allele",
-            "q = frequency of the recessive allele"
+          "arrows": [
+            {
+              "point": "p",
+              "label": "Frequency of the dominant allele"
+            },
+            {
+              "point": "q",
+              "label": "Frequency of the recessive allele"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Genotype frequencies",
           "formula": "p² + 2pq + q² = 1",
-          "where": [
-            "p² = frequency of the homozygous dominant genotype",
-            "2pq = frequency of the heterozygous genotype",
-            "q² = frequency of the homozygous recessive genotype"
+          "arrows": [
+            {
+              "point": "p²",
+              "label": "Homozygous dominant"
+            },
+            {
+              "point": "2pq",
+              "label": "Heterozygous"
+            },
+            {
+              "point": "q²",
+              "label": "Homozygous recessive"
+            }
           ]
         },
         {
@@ -153,11 +168,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Effect",
-            "How it happens",
-            "Result"
-          ],
+          "columns": ["Effect", "How it happens", "Result"],
           "rows": [
             [
               "Bottleneck effect",
@@ -201,18 +212,10 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.2a",
-        "AQA 3.7.2b",
-        "AQA 3.7.2c",
-        "AQA 3.7.2d",
-        "AQA 3.7.2e"
-      ]
+      "spec_codes": ["AQA 3.7.2a", "AQA 3.7.2b", "AQA 3.7.2c", "AQA 3.7.2d", "AQA 3.7.2e"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 4.5"
-      ],
+      "spec_codes": ["EDEX 4.5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -229,10 +232,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 17.2.3",
-        "CAIE 17.2.5"
-      ],
+      "spec_codes": ["CAIE 17.2.3", "CAIE 17.2.5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -250,10 +250,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.1.2e",
-        "OCR 6.1.2f"
-      ],
+      "spec_codes": ["OCR 6.1.2e", "OCR 6.1.2f"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -287,7 +284,7 @@
       "0ca5fffa-01e4-4037-86d5-79dd394ab195"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

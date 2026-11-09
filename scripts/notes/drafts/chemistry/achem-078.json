@@ -57,44 +57,31 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Alcohols are oxidised to carbonyl compounds. Only aldehydes can be oxidised further. In equations the oxidising agent is written as [O]."
+          "text": "Alcohols are oxidised to carbonyl compounds. Only aldehydes can be oxidised further."
         },
         {
           "type": "table",
-          "columns": [
-            "Starting material",
-            "Product",
-            "Conditions"
-          ],
+          "columns": ["Starting material", "Product", "Conditions"],
           "rows": [
             [
               "Primary alcohol",
               "Aldehyde",
               "Acidified dichromate(VI), heat and distil off the aldehyde as it forms"
             ],
-            [
-              "Secondary alcohol",
-              "Ketone",
-              "Acidified dichromate(VI), heat and distil"
-            ],
-            [
-              "Aldehyde",
-              "Carboxylic acid",
-              "Acidified dichromate(VI), heat under reflux"
-            ],
-            [
-              "Ketone",
-              "No reaction",
-              "Not oxidised under these conditions"
-            ]
+            ["Secondary alcohol", "Ketone", "Acidified dichromate(VI), heat and distil"],
+            ["Aldehyde", "Carboxylic acid", "Acidified dichromate(VI), heat under reflux"],
+            ["Ketone", "No reaction", "Not oxidised under these conditions"]
           ]
         },
         {
           "type": "equation",
           "label": "Oxidation of an aldehyde",
           "formula": "RCHO + [O] → RCOOH",
-          "where": [
-            "[O] = oxygen supplied by the oxidising agent"
+          "arrows": [
+            {
+              "point": "[O]",
+              "label": "Oxygen from the oxidising agent"
+            }
           ]
         },
         {
@@ -132,14 +119,20 @@
           "items": [
             "Reducing agents: NaBH₄ in aqueous solution, or LiAlH₄ in dry ether.",
             "Aldehydes are reduced to **primary** alcohols.",
-            "Ketones are reduced to **secondary** alcohols.",
-            "In equations the reducing agent is written as [H]."
+            "Ketones are reduced to **secondary** alcohols."
           ]
         },
         {
           "type": "equation",
           "label": "Reduction of a carbonyl compound",
-          "formula": "CH₃CHO + 2[H] → CH₃CH₂OH     CH₃COCH₃ + 2[H] → CH₃CH(OH)CH₃"
+          "formula": "CH₃CHO + 2[H] → CH₃CH₂OH     CH₃COCH₃ + 2[H] → CH₃CH(OH)CH₃",
+          "arrows": [
+            {
+              "point": "[H]",
+              "in": "CH₃CHO + 2[H]",
+              "label": "Hydrogen from the reducing agent"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -366,32 +359,20 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Test",
-            "Detects",
-            "Positive result"
-          ],
+          "columns": ["Test", "Detects", "Positive result"],
           "rows": [
             [
               "2,4-dinitrophenylhydrazine (2,4-DNPH)",
               "Any carbonyl group",
               "Orange or yellow precipitate"
             ],
-            [
-              "Tollens' reagent (ammoniacal silver nitrate)",
-              "Aldehyde only",
-              "Silver mirror"
-            ],
+            ["Tollens' reagent (ammoniacal silver nitrate)", "Aldehyde only", "Silver mirror"],
             [
               "Fehling's or Benedict's solution",
               "Aldehyde only",
               "Blue solution to brick-red precipitate"
             ],
-            [
-              "Alkaline iodine",
-              "CH₃CO group",
-              "Pale yellow precipitate of CHI₃"
-            ]
+            ["Alkaline iodine", "CH₃CO group", "Pale yellow precipitate of CHI₃"]
           ]
         },
         {
@@ -457,13 +438,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.1.2a",
-        "OCR 6.1.2b",
-        "OCR 6.1.2c",
-        "OCR 6.1.2d",
-        "OCR 6.1.2e"
-      ],
+      "spec_codes": ["OCR 6.1.2a", "OCR 6.1.2b", "OCR 6.1.2c", "OCR 6.1.2d", "OCR 6.1.2e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -486,11 +461,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 17B.6",
-        "EDEX 17B.7",
-        "EDEX 17B.8"
-      ],
+      "spec_codes": ["EDEX 17B.6", "EDEX 17B.7", "EDEX 17B.8"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -513,9 +484,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.8"
-      ],
+      "spec_codes": ["AQA 3.3.8"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -568,9 +537,15 @@
               "type": "equation",
               "label": "Tri-iodomethane test",
               "formula": "CH₃COR + 3I₂ + 4OH⁻ → CHI₃ + RCO₂⁻ + 3I⁻ + 3H₂O",
-              "where": [
-                "CHI₃ is the pale yellow precipitate",
-                "RCO₂⁻ stays in solution"
+              "arrows": [
+                {
+                  "point": "CHI₃",
+                  "label": "Pale yellow precipitate"
+                },
+                {
+                  "point": "RCO₂⁻",
+                  "label": "Stays in solution"
+                }
               ]
             }
           ]
@@ -600,7 +575,7 @@
       "57cb69cb-4f16-40f9-a563-9050df7d37d0"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

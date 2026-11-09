@@ -162,7 +162,22 @@
           "type": "equation",
           "label": "Surface area to volume ratio",
           "formula": "surface area to volume ratio = surface area ÷ volume",
-          "where": ["surface area, in cm²", "volume, in cm³", "ratio, in /cm"]
+          "arrows": [
+            {
+              "point": "surface area to volume ratio",
+              "label": "Ratio (/cm)"
+            },
+            {
+              "point": "surface area",
+              "in": "= surface area",
+              "label": "Surface area (cm²)"
+            },
+            {
+              "point": "volume",
+              "in": "÷ volume",
+              "label": "Volume (cm³)"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -409,7 +424,7 @@
       "0d3bee99-ccfa-40fb-b96c-062b7c14717e",
       "a435b42f-509f-4d8c-95de-e3438d3ba677"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

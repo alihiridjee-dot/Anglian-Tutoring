@@ -134,10 +134,16 @@
           "type": "equation",
           "label": "Percentage decrease",
           "formula": "percentage decrease = (mean at start − mean after) ÷ mean at start × 100",
-          "where": [
-            "mean number of weeds per quadrat at the start",
-            "mean number of weeds per quadrat after the time",
-            "percentage decrease, in %"
+          "arrows": [
+            {
+              "point": "mean at start",
+              "in": "(mean at start",
+              "label": "Mean weeds per quadrat at the start"
+            },
+            {
+              "point": "mean after",
+              "label": "Mean weeds per quadrat afterwards"
+            }
           ]
         },
         {
@@ -300,7 +306,7 @@
       "735657fb-6583-4106-8623-598f8dc9de6d",
       "2e45dafd-1438-4496-b75b-f62565ec274b"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

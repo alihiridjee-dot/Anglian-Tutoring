@@ -29,10 +29,19 @@
           "type": "equation",
           "label": "Linear momentum",
           "formula": "p = mv",
-          "where": [
-            "p = momentum, in kg m/s (or N s)",
-            "m = mass, in kg",
-            "v = velocity, in m/s"
+          "arrows": [
+            {
+              "point": "p",
+              "label": "Momentum (kg m/s or N s)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "v",
+              "label": "Velocity (m/s)"
+            }
           ]
         },
         {
@@ -63,10 +72,20 @@
           "type": "equation",
           "label": "Force as rate of change of momentum",
           "formula": "F = Δp / Δt = Δ(mv) / Δt",
-          "where": [
-            "F = resultant force, in N",
-            "Δp = change in momentum, in kg m/s",
-            "Δt = time taken, in s"
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Resultant force (N)"
+            },
+            {
+              "point": "Δp",
+              "label": "Change in momentum (kg m/s)"
+            },
+            {
+              "point": "Δt",
+              "in": "Δp / Δt",
+              "label": "Time taken (s)"
+            }
           ]
         },
         {
@@ -107,10 +126,19 @@
           "type": "equation",
           "label": "Impulse",
           "formula": "impulse = FΔt = Δp",
-          "where": [
-            "F = constant force, in N",
-            "Δt = time the force acts, in s",
-            "Δp = change in momentum, in kg m/s (or N s)"
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Constant force (N)"
+            },
+            {
+              "point": "Δt",
+              "label": "Time the force acts (s)"
+            },
+            {
+              "point": "Δp",
+              "label": "Change in momentum (N s)"
+            }
           ]
         },
         {
@@ -210,9 +238,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.4.1.6"
-      ],
+      "spec_codes": ["AQA 3.4.1.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -231,16 +257,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 2.21",
-        "EDEX 6.97"
-      ]
+      "spec_codes": ["EDEX 2.21", "EDEX 6.97"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 3.1.3",
-        "CAIE 3.1.4"
-      ],
+      "spec_codes": ["CAIE 3.1.3", "CAIE 3.1.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -258,12 +278,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.5.1b",
-        "OCR 3.5.1c",
-        "OCR 3.5.1d",
-        "OCR 3.5.1e"
-      ],
+      "spec_codes": ["OCR 3.5.1b", "OCR 3.5.1c", "OCR 3.5.1d", "OCR 3.5.1e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -297,7 +312,7 @@
       "1ba28219-995d-44a3-881c-ac209520fe2d"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

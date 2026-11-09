@@ -29,9 +29,15 @@
           "type": "equation",
           "label": "Molar volume",
           "formula": "molar volume = V ÷ n",
-          "where": [
-            "V = volume of gas in dm³",
-            "n = amount of gas in mol"
+          "arrows": [
+            {
+              "point": "V",
+              "label": "Volume of gas (dm³)"
+            },
+            {
+              "point": "n",
+              "label": "Amount of gas (mol)"
+            }
           ]
         },
         {
@@ -98,12 +104,25 @@
           "type": "equation",
           "label": "Heat energy transferred",
           "formula": "q = m c ΔT",
-          "where": [
-            "q in J",
-            "m = mass of solution in g",
-            "c = specific heat capacity, 4.18 J g⁻¹ K⁻¹ for water or solutions",
-            "ΔT = temperature change in K"
-          ]
+          "arrows": [
+            {
+              "point": "q",
+              "label": "Heat energy (J)"
+            },
+            {
+              "point": "m",
+              "label": "Mass of solution (g)"
+            },
+            {
+              "point": "c",
+              "label": "Specific heat capacity (J g⁻¹ K⁻¹)"
+            },
+            {
+              "point": "ΔT",
+              "label": "Temperature change (K)"
+            }
+          ],
+          "where": ["c = 4.18 J g⁻¹ K⁻¹ for water or solutions"]
         },
         {
           "type": "subheading",
@@ -189,13 +208,25 @@
           "type": "equation",
           "label": "Arrhenius equation (logarithmic form)",
           "formula": "ln k = −Eₐ ÷ (RT) + ln A",
-          "where": [
-            "k = rate constant",
-            "Eₐ = activation energy in J mol⁻¹",
-            "R = gas constant, 8.31 J K⁻¹ mol⁻¹",
-            "T = temperature in K",
-            "A = pre-exponential factor"
-          ]
+          "arrows": [
+            {
+              "point": "Eₐ",
+              "label": "Activation energy (J mol⁻¹)"
+            },
+            {
+              "point": "R",
+              "label": "Gas constant (8.31 J K⁻¹ mol⁻¹)"
+            },
+            {
+              "point": "T",
+              "label": "Temperature (K)"
+            },
+            {
+              "point": "A",
+              "label": "Pre-exponential factor"
+            }
+          ],
+          "where": ["k = rate constant"]
         },
         {
           "type": "diagram",
@@ -281,7 +312,7 @@
       "1e777233-4c48-4b54-82d2-893221452767"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

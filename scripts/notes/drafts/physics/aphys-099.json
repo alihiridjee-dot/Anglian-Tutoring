@@ -16,10 +16,19 @@
           "type": "equation",
           "label": "Resonant frequency",
           "formula": "f₀ = 1 ÷ (2π√(LC))",
-          "where": [
-            "f₀ = resonant frequency (Hz)",
-            "L = inductance (H)",
-            "C = capacitance (F)"
+          "arrows": [
+            {
+              "point": "f₀",
+              "label": "Resonant frequency (Hz)"
+            },
+            {
+              "point": "L",
+              "label": "Inductance (H)"
+            },
+            {
+              "point": "C",
+              "label": "Capacitance (F)"
+            }
           ]
         },
         {
@@ -78,10 +87,15 @@
           "type": "equation",
           "label": "Q factor",
           "formula": "Q = f₀ ÷ f_B",
-          "where": [
-            "Q = quality factor (no unit)",
-            "f₀ = resonant frequency (Hz)",
-            "f_B = bandwidth at the 50% energy points (Hz)"
+          "arrows": [
+            {
+              "point": "Q",
+              "label": "Quality factor (no unit)"
+            },
+            {
+              "point": "f_B",
+              "label": "Bandwidth at 50% energy points (Hz)"
+            }
           ]
         },
         {
@@ -126,39 +140,18 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Stage",
-            "Purpose"
-          ],
+          "columns": ["Stage", "Purpose"],
           "rows": [
             [
               "Input transducer (e.g. microphone)",
               "Changes the information into an electrical signal"
             ],
-            [
-              "Modulator",
-              "Puts the information signal onto a carrier wave"
-            ],
-            [
-              "Amplifier",
-              "Increases the signal's power"
-            ],
-            [
-              "Transmitter (e.g. aerial)",
-              "Sends the signal into the transmission path"
-            ],
-            [
-              "Transmission path (e.g. radio waves)",
-              "Carries the signal to the receiver"
-            ],
-            [
-              "Receiver (e.g. aerial)",
-              "Picks up the signal and selects the wanted one"
-            ],
-            [
-              "Demodulator",
-              "Recovers the information signal from the carrier"
-            ],
+            ["Modulator", "Puts the information signal onto a carrier wave"],
+            ["Amplifier", "Increases the signal's power"],
+            ["Transmitter (e.g. aerial)", "Sends the signal into the transmission path"],
+            ["Transmission path (e.g. radio waves)", "Carries the signal to the receiver"],
+            ["Receiver (e.g. aerial)", "Picks up the signal and selects the wanted one"],
+            ["Demodulator", "Recovers the information signal from the carrier"],
             [
               "Output transducer (e.g. loudspeaker)",
               "Changes the electrical signal back into the information"
@@ -183,11 +176,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Medium",
-            "Advantages",
-            "Disadvantages"
-          ],
+          "columns": ["Medium", "Advantages", "Disadvantages"],
           "rows": [
             [
               "Metal wire",
@@ -289,17 +278,22 @@
           "type": "equation",
           "label": "AM bandwidth",
           "formula": "bandwidth = 2f_M",
-          "where": [
-            "f_M = highest frequency of the information signal (Hz)"
+          "arrows": [
+            {
+              "point": "f_M",
+              "label": "Highest information signal frequency (Hz)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "FM bandwidth",
           "formula": "bandwidth = 2(Δf + f_M)",
-          "where": [
-            "Δf = maximum change in carrier frequency (Hz)",
-            "f_M = highest frequency of the information signal (Hz)"
+          "arrows": [
+            {
+              "point": "Δf",
+              "label": "Maximum change in carrier frequency (Hz)"
+            }
           ]
         },
         {
@@ -339,13 +333,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.13.3.1",
-        "AQA 3.13.6.1",
-        "AQA 3.13.6.2",
-        "AQA 3.13.6.3",
-        "AQA 3.13.6.4"
-      ]
+      "spec_codes": ["AQA 3.13.3.1", "AQA 3.13.6.1", "AQA 3.13.6.2", "AQA 3.13.6.3", "AQA 3.13.6.4"]
     }
   },
   "meta": {
@@ -360,7 +348,7 @@
       "3c5289b1-94cc-4a8b-b735-fffc0156c0ae"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

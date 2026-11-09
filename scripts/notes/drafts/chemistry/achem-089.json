@@ -14,10 +14,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Functional group",
-            "What it does"
-          ],
+          "columns": ["Functional group", "What it does"],
           "rows": [
             [
               "Alkene, C=C",
@@ -43,22 +40,10 @@
               "Carboxylic acid, –COOH",
               "Acidic. Releases CO₂ with carbonates. Forms esters with alcohols."
             ],
-            [
-              "Ester, –COO–",
-              "Hydrolysed by acid or alkali."
-            ],
-            [
-              "Amine, –NH₂",
-              "Basic and a nucleophile. Reacts with acids and acyl chlorides."
-            ],
-            [
-              "Nitrile, –C≡N",
-              "Hydrolysed to a carboxylic acid. Reduced to an amine."
-            ],
-            [
-              "Phenol, –OH on a ring",
-              "Weakly acidic, but does not release CO₂ from carbonates."
-            ],
+            ["Ester, –COO–", "Hydrolysed by acid or alkali."],
+            ["Amine, –NH₂", "Basic and a nucleophile. Reacts with acids and acyl chlorides."],
+            ["Nitrile, –C≡N", "Hydrolysed to a carboxylic acid. Reduced to an amine."],
+            ["Phenol, –OH on a ring", "Weakly acidic, but does not release CO₂ from carbonates."],
             [
               "Arene (benzene ring)",
               "Electrophilic substitution, for example nitration or halogenation."
@@ -91,102 +76,30 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Change",
-            "Reagent",
-            "Conditions"
-          ],
+          "columns": ["Change", "Reagent", "Conditions"],
           "rows": [
-            [
-              "Alkane → haloalkane",
-              "Cl₂ or Br₂",
-              "UV light"
-            ],
-            [
-              "Alkene → haloalkane",
-              "HBr (or HCl)",
-              "Room temperature"
-            ],
-            [
-              "Alkene → alcohol",
-              "Steam, H₃PO₄ catalyst",
-              "High temperature and pressure"
-            ],
-            [
-              "Alkene → alkane",
-              "H₂, nickel",
-              "Heat"
-            ],
-            [
-              "Haloalkane → alcohol",
-              "NaOH(aq)",
-              "Heat under reflux"
-            ],
-            [
-              "Haloalkane → alkene",
-              "NaOH in ethanol",
-              "Heat under reflux"
-            ],
-            [
-              "Haloalkane → nitrile",
-              "KCN in ethanol",
-              "Heat under reflux"
-            ],
-            [
-              "Haloalkane → amine",
-              "Excess NH₃ in ethanol",
-              "Heat in a sealed tube"
-            ],
-            [
-              "Alcohol → alkene",
-              "Concentrated H₂SO₄ or H₃PO₄",
-              "Heat"
-            ],
-            [
-              "Primary alcohol → aldehyde",
-              "K₂Cr₂O₇ / H₂SO₄",
-              "Distil as it forms"
-            ],
-            [
-              "Primary alcohol → carboxylic acid",
-              "K₂Cr₂O₇ / H₂SO₄",
-              "Heat under reflux"
-            ],
-            [
-              "Secondary alcohol → ketone",
-              "K₂Cr₂O₇ / H₂SO₄",
-              "Heat under reflux"
-            ],
-            [
-              "Aldehyde or ketone → alcohol",
-              "NaBH₄",
-              "Aqueous or alcoholic solution"
-            ],
-            [
-              "Aldehyde or ketone → hydroxynitrile",
-              "HCN, KCN catalyst",
-              "Gentle warming"
-            ],
+            ["Alkane → haloalkane", "Cl₂ or Br₂", "UV light"],
+            ["Alkene → haloalkane", "HBr (or HCl)", "Room temperature"],
+            ["Alkene → alcohol", "Steam, H₃PO₄ catalyst", "High temperature and pressure"],
+            ["Alkene → alkane", "H₂, nickel", "Heat"],
+            ["Haloalkane → alcohol", "NaOH(aq)", "Heat under reflux"],
+            ["Haloalkane → alkene", "NaOH in ethanol", "Heat under reflux"],
+            ["Haloalkane → nitrile", "KCN in ethanol", "Heat under reflux"],
+            ["Haloalkane → amine", "Excess NH₃ in ethanol", "Heat in a sealed tube"],
+            ["Alcohol → alkene", "Concentrated H₂SO₄ or H₃PO₄", "Heat"],
+            ["Primary alcohol → aldehyde", "K₂Cr₂O₇ / H₂SO₄", "Distil as it forms"],
+            ["Primary alcohol → carboxylic acid", "K₂Cr₂O₇ / H₂SO₄", "Heat under reflux"],
+            ["Secondary alcohol → ketone", "K₂Cr₂O₇ / H₂SO₄", "Heat under reflux"],
+            ["Aldehyde or ketone → alcohol", "NaBH₄", "Aqueous or alcoholic solution"],
+            ["Aldehyde or ketone → hydroxynitrile", "HCN, KCN catalyst", "Gentle warming"],
             [
               "Carboxylic acid + alcohol → ester",
               "Concentrated H₂SO₄ catalyst",
               "Heat under reflux"
             ],
-            [
-              "Nitrile → amine",
-              "H₂, nickel",
-              "Heat"
-            ],
-            [
-              "Nitrile → carboxylic acid",
-              "Dilute HCl",
-              "Heat under reflux"
-            ],
-            [
-              "Benzene → nitrobenzene",
-              "Concentrated HNO₃ and H₂SO₄",
-              "Below 55 °C"
-            ],
+            ["Nitrile → amine", "H₂, nickel", "Heat"],
+            ["Nitrile → carboxylic acid", "Dilute HCl", "Heat under reflux"],
+            ["Benzene → nitrobenzene", "Concentrated HNO₃ and H₂SO₄", "Below 55 °C"],
             [
               "Nitrobenzene → phenylamine",
               "Tin and concentrated HCl, then NaOH",
@@ -197,11 +110,7 @@
               "Dilute acid (or NaOH(aq), then acidify)",
               "Heat under reflux"
             ],
-            [
-              "Acyl chloride → amide",
-              "NH₃ or a primary amine",
-              "Room temperature"
-            ],
+            ["Acyl chloride → amide", "NH₃ or a primary amine", "Room temperature"],
             [
               "Benzene → alkylbenzene or phenyl ketone",
               "Haloalkane or acyl chloride, AlCl₃ catalyst",
@@ -266,11 +175,7 @@
             "kind": "predictor",
             "alt": "Pick a target molecule and see a two-step route with reagents.",
             "prompt": "Pick a synthesis",
-            "result_labels": [
-              "Step 1",
-              "Step 2",
-              "Why this order"
-            ],
+            "result_labels": ["Step 1", "Step 2", "Why this order"],
             "options": [
               {
                 "label": "Propene to propanone",
@@ -332,10 +237,7 @@
               "unit": "%",
               "decimals": 1
             },
-            "working": [
-              "Overall yield = ({a} / 100) × ({b} / 100) × 100",
-              "= {answer} %"
-            ]
+            "working": ["Overall yield = ({a} / 100) × ({b} / 100) × 100", "= {answer} %"]
           }
         },
         {
@@ -367,22 +269,13 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.2.3b",
-        "OCR 4.2.3c",
-        "OCR 6.2.5b",
-        "OCR 6.2.5c"
-      ]
+      "spec_codes": ["OCR 4.2.3b", "OCR 4.2.3c", "OCR 6.2.5b", "OCR 6.2.5c"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 18C.19"
-      ]
+      "spec_codes": ["EDEX 18C.19"]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.14"
-      ],
+      "spec_codes": ["AQA 3.3.14"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -404,8 +297,12 @@
               "type": "equation",
               "label": "Percentage atom economy",
               "formula": "atom economy = (Mᵣ of desired product ÷ sum of Mᵣ of all products) × 100",
-              "where": [
-                "Mᵣ: relative formula mass"
+              "arrows": [
+                {
+                  "point": "Mᵣ",
+                  "in": "(Mᵣ of desired",
+                  "label": "Relative formula mass"
+                }
               ]
             },
             {
@@ -466,7 +363,7 @@
       "8be00f85-8683-48b3-a8d3-37f84832c10d"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

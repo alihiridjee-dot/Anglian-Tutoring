@@ -295,9 +295,17 @@
               "type": "equation",
               "label": "Ionic equations for the anion tests",
               "formula": "Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)\nAg⁺(aq) + Cl⁻(aq) → AgCl(s)",
+              "arrows": [
+                {
+                  "point": "BaSO₄",
+                  "label": "White barium sulfate: sulfate test"
+                },
+                {
+                  "point": "AgCl",
+                  "label": "White silver chloride: chloride test"
+                }
+              ],
               "where": [
-                "BaSO₄: barium sulfate, the white precipitate in the sulfate test",
-                "AgCl: silver chloride, the white precipitate in the chloride test",
                 "Bromide and iodide ions react with silver ions in the same way, to give AgBr and AgI"
               ]
             }
@@ -398,7 +406,7 @@
       "4fe3e16f-9bad-4fb8-946c-3dfc864506a1",
       "1aba70a4-a8ed-4305-9cb1-3f0ea73048b8"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

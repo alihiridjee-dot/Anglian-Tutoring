@@ -115,42 +115,14 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Gate",
-            "Boolean expression",
-            "Output is 1 when"
-          ],
+          "columns": ["Gate", "Boolean expression", "Output is 1 when"],
           "rows": [
-            [
-              "NOT",
-              "A̅",
-              "the input is 0"
-            ],
-            [
-              "AND",
-              "A ∙ B",
-              "both inputs are 1"
-            ],
-            [
-              "NAND",
-              "A ∙ B (inverted)",
-              "not both inputs are 1"
-            ],
-            [
-              "OR",
-              "A + B",
-              "at least one input is 1"
-            ],
-            [
-              "NOR",
-              "A + B (inverted)",
-              "both inputs are 0"
-            ],
-            [
-              "EOR",
-              "A ⊕ B",
-              "the inputs are different"
-            ]
+            ["NOT", "A̅", "the input is 0"],
+            ["AND", "A ∙ B", "both inputs are 1"],
+            ["NAND", "A ∙ B (inverted)", "not both inputs are 1"],
+            ["OR", "A + B", "at least one input is 1"],
+            ["NOR", "A + B (inverted)", "both inputs are 0"],
+            ["EOR", "A ⊕ B", "the inputs are different"]
           ]
         },
         {
@@ -167,57 +139,27 @@
             "kind": "predictor",
             "alt": "An interactive truth table. Pick a gate to see its output for each pair of inputs.",
             "prompt": "Pick a gate",
-            "result_labels": [
-              "A = 0, B = 0",
-              "A = 0, B = 1",
-              "A = 1, B = 0",
-              "A = 1, B = 1"
-            ],
+            "result_labels": ["A = 0, B = 0", "A = 0, B = 1", "A = 1, B = 0", "A = 1, B = 1"],
             "options": [
               {
                 "label": "AND",
-                "results": [
-                  "0",
-                  "0",
-                  "0",
-                  "1"
-                ]
+                "results": ["0", "0", "0", "1"]
               },
               {
                 "label": "NAND",
-                "results": [
-                  "1",
-                  "1",
-                  "1",
-                  "0"
-                ]
+                "results": ["1", "1", "1", "0"]
               },
               {
                 "label": "OR",
-                "results": [
-                  "0",
-                  "1",
-                  "1",
-                  "1"
-                ]
+                "results": ["0", "1", "1", "1"]
               },
               {
                 "label": "NOR",
-                "results": [
-                  "1",
-                  "0",
-                  "0",
-                  "0"
-                ]
+                "results": ["1", "0", "0", "0"]
               },
               {
                 "label": "EOR",
-                "results": [
-                  "0",
-                  "1",
-                  "1",
-                  "0"
-                ]
+                "results": ["0", "1", "1", "0"]
               }
             ]
           }
@@ -331,9 +273,15 @@
           "type": "equation",
           "label": "Frequency and period",
           "formula": "f = 1 ÷ T",
-          "where": [
-            "f = frequency (Hz)",
-            "T = period (s)"
+          "arrows": [
+            {
+              "point": "f",
+              "label": "Frequency (Hz)"
+            },
+            {
+              "point": "T",
+              "label": "Period (s)"
+            }
           ]
         },
         {
@@ -373,12 +321,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.13.2.1",
-        "AQA 3.13.5.1",
-        "AQA 3.13.5.2",
-        "AQA 3.13.5.3"
-      ]
+      "spec_codes": ["AQA 3.13.2.1", "AQA 3.13.5.1", "AQA 3.13.5.2", "AQA 3.13.5.3"]
     }
   },
   "meta": {
@@ -392,7 +335,7 @@
       "e1be0e99-1796-4fc5-9aa6-73a290e97059"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

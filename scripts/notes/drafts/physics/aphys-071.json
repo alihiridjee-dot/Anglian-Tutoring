@@ -30,14 +30,7 @@
               "label": "Charge stored, Q",
               "min": 0,
               "max": 5,
-              "ticks": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5
-              ],
+              "ticks": [0, 1, 2, 3, 4, 5],
               "unit": "μC"
             },
             "y": {
@@ -47,14 +40,8 @@
               {
                 "name": "V = Q / C",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    5,
-                    1
-                  ]
+                  [0, 0],
+                  [5, 1]
                 ]
               }
             ],
@@ -71,10 +58,19 @@
           "type": "equation",
           "label": "Energy stored by a capacitor",
           "formula": "W = ½QV",
-          "where": [
-            "W = energy stored (J)",
-            "Q = charge stored (C)",
-            "V = final p.d. across the capacitor (V)"
+          "arrows": [
+            {
+              "point": "W",
+              "label": "Energy stored (J)"
+            },
+            {
+              "point": "Q",
+              "label": "Charge stored (C)"
+            },
+            {
+              "point": "V",
+              "label": "Final p.d. across the capacitor (V)"
+            }
           ]
         },
         {
@@ -98,21 +94,17 @@
           "type": "equation",
           "label": "Energy from capacitance and p.d.",
           "formula": "W = ½CV²",
-          "where": [
-            "W = energy stored (J)",
-            "C = capacitance (F)",
-            "V = p.d. across the capacitor (V)"
+          "arrows": [
+            {
+              "point": "C",
+              "label": "Capacitance (F)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Energy from charge and capacitance",
-          "formula": "W = ½Q² / C",
-          "where": [
-            "W = energy stored (J)",
-            "Q = charge stored (C)",
-            "C = capacitance (F)"
-          ]
+          "formula": "W = ½Q² / C"
         },
         {
           "type": "steps",
@@ -163,10 +155,7 @@
               "unit": "mJ",
               "decimals": 1
             },
-            "working": [
-              "W = ½CV² = ½ × {c} mF × ({v} V)²",
-              "W = {answer} mJ"
-            ]
+            "working": ["W = ½CV² = ½ × {c} mF × ({v} V)²", "W = {answer} mJ"]
           }
         },
         {
@@ -198,27 +187,16 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.4.3"
-      ]
+      "spec_codes": ["AQA 3.7.4.3"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 7.117"
-      ]
+      "spec_codes": ["EDEX 7.117"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 19.2.1",
-        "CAIE 19.2.2"
-      ]
+      "spec_codes": ["CAIE 19.2.1", "CAIE 19.2.2"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.1.2a",
-        "OCR 6.1.2b",
-        "OCR 6.1.2c"
-      ],
+      "spec_codes": ["OCR 6.1.2a", "OCR 6.1.2b", "OCR 6.1.2c"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -262,7 +240,7 @@
       "b3b1aac7-7c91-40ed-bd46-af0825a58579"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -16,10 +16,19 @@
           "type": "equation",
           "label": "Work done at constant pressure",
           "formula": "W = pΔV",
-          "where": [
-            "W is the work done (J)",
-            "p is the constant pressure (Pa)",
-            "ΔV is the change in volume (m³)"
+          "arrows": [
+            {
+              "point": "W",
+              "label": "Work done (J)"
+            },
+            {
+              "point": "p",
+              "label": "Constant pressure (Pa)"
+            },
+            {
+              "point": "ΔV",
+              "label": "Change in volume (m³)"
+            }
           ]
         },
         {
@@ -96,11 +105,7 @@
             "kind": "predictor",
             "alt": "Pick a process on a gas and see the work, the heating and the change in internal energy.",
             "prompt": "Choose a process for a fixed mass of ideal gas.",
-            "result_labels": [
-              "Heating",
-              "Work",
-              "Internal energy and temperature"
-            ],
+            "result_labels": ["Heating", "Work", "Internal energy and temperature"],
             "options": [
               {
                 "label": "Expands slowly at constant temperature",
@@ -170,10 +175,7 @@
   ],
   "boards": {
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 16.2.1",
-        "CAIE 16.2.2"
-      ],
+      "spec_codes": ["CAIE 16.2.1", "CAIE 16.2.2"],
       "extra": [
         {
           "heading": "The first law with symbols",
@@ -182,10 +184,19 @@
               "type": "equation",
               "label": "First law of thermodynamics",
               "formula": "ΔU = q + W",
-              "where": [
-                "ΔU is the increase in internal energy (J)",
-                "q is the energy transferred to the system by heating (J)",
-                "W is the work done on the system (J)"
+              "arrows": [
+                {
+                  "point": "ΔU",
+                  "label": "Increase in internal energy (J)"
+                },
+                {
+                  "point": "q",
+                  "label": "Energy transferred in by heating (J)"
+                },
+                {
+                  "point": "W",
+                  "label": "Work done on the system (J)"
+                }
               ]
             },
             {
@@ -201,9 +212,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.11.2.1"
-      ],
+      "spec_codes": ["AQA 3.11.2.1"],
       "extra": [
         {
           "heading": "The first law with symbols",
@@ -212,10 +221,19 @@
               "type": "equation",
               "label": "First law of thermodynamics",
               "formula": "Q = ΔU + W",
-              "where": [
-                "Q is the energy transferred to the system by heating (J)",
-                "ΔU is the increase in internal energy (J)",
-                "W is the work done by the system (J)"
+              "arrows": [
+                {
+                  "point": "Q",
+                  "label": "Energy transferred in by heating (J)"
+                },
+                {
+                  "point": "ΔU",
+                  "label": "Increase in internal energy (J)"
+                },
+                {
+                  "point": "W",
+                  "label": "Work done by the system (J)"
+                }
               ]
             },
             {
@@ -244,7 +262,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "status": "draft",
     "written_by": "claude-sonnet-5-5",

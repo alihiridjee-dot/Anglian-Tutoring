@@ -542,18 +542,39 @@
               "type": "equation",
               "label": "Resultant of two vectors at right angles",
               "formula": "R = √(a² + b²)",
-              "where": [
-                "R is the resultant, in N for forces or m/s for velocities.",
-                "a and b are the two vectors at right angles, in the same unit."
+              "arrows": [
+                {
+                  "point": "R",
+                  "label": "Resultant: N for forces, m/s for velocities"
+                },
+                {
+                  "point": "a",
+                  "label": "First vector (same unit)"
+                },
+                {
+                  "point": "b",
+                  "label": "Second vector (same unit)"
+                }
               ]
             },
             {
               "type": "equation",
               "label": "Direction of the resultant",
               "formula": "tan θ = b ÷ a",
-              "where": [
-                "θ is the angle between the resultant and the vector a.",
-                "b is the side opposite the angle θ, and a is the side next to it."
+              "arrows": [
+                {
+                  "point": "θ",
+                  "label": "Angle between the resultant and a"
+                },
+                {
+                  "point": "b",
+                  "label": "Side opposite θ"
+                },
+                {
+                  "point": "a",
+                  "in": "÷ a",
+                  "label": "Side next to θ"
+                }
               ]
             },
             {
@@ -650,7 +671,7 @@
       "0ca7d2b3-ba05-4520-b99d-df0ec5f4d6d0",
       "dab36435-90fa-447a-b7a4-49946c66228c"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

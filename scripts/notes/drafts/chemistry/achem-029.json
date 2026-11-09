@@ -37,12 +37,25 @@
           "type": "equation",
           "label": "Rate equation",
           "formula": "rate = k[A]ᵐ[B]ⁿ",
-          "where": [
-            "rate in mol/dm³/s",
-            "k, the rate constant",
-            "[A], [B], concentrations in mol/dm³",
-            "m, n, orders with respect to A and B (0, 1 or 2)"
-          ]
+          "arrows": [
+            {
+              "point": "k",
+              "label": "Rate constant"
+            },
+            {
+              "point": "[A]",
+              "label": "Concentration of A (mol/dm³)"
+            },
+            {
+              "point": "ᵐ",
+              "label": "Order for A: 0, 1 or 2"
+            },
+            {
+              "point": "[B]ⁿ",
+              "label": "Concentration and order of B"
+            }
+          ],
+          "where": ["rate in mol/dm³/s"]
         },
         {
           "type": "list",
@@ -71,27 +84,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Order",
-            "Doubling the concentration",
-            "Effect on rate"
-          ],
+          "columns": ["Order", "Doubling the concentration", "Effect on rate"],
           "rows": [
-            [
-              "0",
-              "Rate is unchanged",
-              "Rate does not depend on [A]"
-            ],
-            [
-              "1",
-              "Rate doubles",
-              "Rate is proportional to [A]"
-            ],
-            [
-              "2",
-              "Rate quadruples",
-              "Rate is proportional to [A]²"
-            ]
+            ["0", "Rate is unchanged", "Rate does not depend on [A]"],
+            ["1", "Rate doubles", "Rate is proportional to [A]"],
+            ["2", "Rate quadruples", "Rate is proportional to [A]²"]
           ]
         },
         {
@@ -158,31 +155,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Experiment",
-            "[A] / mol/dm³",
-            "[B] / mol/dm³",
-            "Initial rate / mol/dm³/s"
-          ],
+          "columns": ["Experiment", "[A] / mol/dm³", "[B] / mol/dm³", "Initial rate / mol/dm³/s"],
           "rows": [
-            [
-              "1",
-              "0.10",
-              "0.10",
-              "2.0 × 10⁻⁴"
-            ],
-            [
-              "2",
-              "0.20",
-              "0.10",
-              "4.0 × 10⁻⁴"
-            ],
-            [
-              "3",
-              "0.20",
-              "0.20",
-              "1.6 × 10⁻³"
-            ]
+            ["1", "0.10", "0.10", "2.0 × 10⁻⁴"],
+            ["2", "0.20", "0.10", "4.0 × 10⁻⁴"],
+            ["3", "0.20", "0.20", "1.6 × 10⁻³"]
           ]
         },
         {
@@ -228,27 +205,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Overall order",
-            "Units of k"
-          ],
+          "columns": ["Overall order", "Units of k"],
           "rows": [
-            [
-              "0",
-              "mol dm⁻³ s⁻¹"
-            ],
-            [
-              "1",
-              "s⁻¹"
-            ],
-            [
-              "2",
-              "dm³ mol⁻¹ s⁻¹"
-            ],
-            [
-              "3",
-              "dm⁶ mol⁻² s⁻¹"
-            ]
+            ["0", "mol dm⁻³ s⁻¹"],
+            ["1", "s⁻¹"],
+            ["2", "dm³ mol⁻¹ s⁻¹"],
+            ["3", "dm⁶ mol⁻² s⁻¹"]
           ]
         },
         {
@@ -282,10 +244,7 @@
               "unit": "dm³ mol⁻¹ s⁻¹",
               "decimals": 3
             },
-            "working": [
-              "k = rate ÷ ([A][B])",
-              "k = {rate} ÷ ({a} × {b}) = {answer} dm³ mol⁻¹ s⁻¹"
-            ]
+            "working": ["k = rate ÷ ([A][B])", "k = {rate} ÷ ({a} × {b}) = {answer} dm³ mol⁻¹ s⁻¹"]
           }
         },
         {
@@ -324,11 +283,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.1.1a",
-        "OCR 5.1.1b",
-        "OCR 5.1.1c"
-      ],
+      "spec_codes": ["OCR 5.1.1a", "OCR 5.1.1b", "OCR 5.1.1c"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -349,11 +304,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 16.1",
-        "EDEX 16.2",
-        "EDEX 16.7"
-      ],
+      "spec_codes": ["EDEX 16.1", "EDEX 16.2", "EDEX 16.7"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -374,9 +325,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.9.1"
-      ],
+      "spec_codes": ["AQA 3.1.9.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -397,11 +346,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 26.1.1",
-        "CAIE 26.1.2",
-        "CAIE 26.1.4"
-      ],
+      "spec_codes": ["CAIE 26.1.1", "CAIE 26.1.2", "CAIE 26.1.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -439,7 +384,7 @@
       "e51c6408-1a96-4606-a688-bf6ee245532b"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

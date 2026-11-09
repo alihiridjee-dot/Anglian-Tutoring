@@ -39,15 +39,7 @@
               "unit": "cm³",
               "min": 0,
               "max": 50,
-              "ticks": [
-                0,
-                10,
-                20,
-                25,
-                30,
-                40,
-                50
-              ]
+              "ticks": [0, 10, 20, 25, 30, 40, 50]
             },
             "y": {
               "label": "pH (shape only)"
@@ -56,83 +48,29 @@
               {
                 "name": "Strong acid + strong base",
                 "points": [
-                  [
-                    0,
-                    0.08
-                  ],
-                  [
-                    10,
-                    0.12
-                  ],
-                  [
-                    20,
-                    0.2
-                  ],
-                  [
-                    24,
-                    0.3
-                  ],
-                  [
-                    24.5,
-                    0.35
-                  ],
-                  [
-                    25,
-                    0.5
-                  ],
-                  [
-                    25.5,
-                    0.8
-                  ],
-                  [
-                    30,
-                    0.9
-                  ],
-                  [
-                    50,
-                    0.95
-                  ]
+                  [0, 0.08],
+                  [10, 0.12],
+                  [20, 0.2],
+                  [24, 0.3],
+                  [24.5, 0.35],
+                  [25, 0.5],
+                  [25.5, 0.8],
+                  [30, 0.9],
+                  [50, 0.95]
                 ]
               },
               {
                 "name": "Weak acid + strong base",
                 "points": [
-                  [
-                    0,
-                    0.25
-                  ],
-                  [
-                    5,
-                    0.38
-                  ],
-                  [
-                    12.5,
-                    0.45
-                  ],
-                  [
-                    20,
-                    0.52
-                  ],
-                  [
-                    24.5,
-                    0.6
-                  ],
-                  [
-                    25,
-                    0.68
-                  ],
-                  [
-                    25.5,
-                    0.82
-                  ],
-                  [
-                    30,
-                    0.9
-                  ],
-                  [
-                    50,
-                    0.95
-                  ]
+                  [0, 0.25],
+                  [5, 0.38],
+                  [12.5, 0.45],
+                  [20, 0.52],
+                  [24.5, 0.6],
+                  [25, 0.68],
+                  [25.5, 0.82],
+                  [30, 0.9],
+                  [50, 0.95]
                 ]
               }
             ],
@@ -146,37 +84,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Combination",
-            "Start pH",
-            "Vertical section",
-            "pH at equivalence"
-          ],
+          "columns": ["Combination", "Start pH", "Vertical section", "pH at equivalence"],
           "rows": [
-            [
-              "Strong acid + strong base",
-              "About 1",
-              "About 3 to 11",
-              "7"
-            ],
-            [
-              "Weak acid + strong base",
-              "About 3",
-              "About 7 to 11",
-              "Above 7, about 8.5 to 9"
-            ],
-            [
-              "Strong acid + weak base",
-              "About 1",
-              "About 3 to 7",
-              "Below 7, about 5"
-            ],
-            [
-              "Weak acid + weak base",
-              "About 3",
-              "None, or very short",
-              "About 7, no sharp change"
-            ]
+            ["Strong acid + strong base", "About 1", "About 3 to 11", "7"],
+            ["Weak acid + strong base", "About 3", "About 7 to 11", "Above 7, about 8.5 to 9"],
+            ["Strong acid + weak base", "About 1", "About 3 to 7", "Below 7, about 5"],
+            ["Weak acid + weak base", "About 3", "None, or very short", "About 7, no sharp change"]
           ]
         },
         {
@@ -208,9 +121,15 @@
           "type": "equation",
           "label": "An indicator in solution",
           "formula": "HIn(aq) ⇌ H⁺(aq) + In⁻(aq)",
-          "where": [
-            "HIn = the acid form, with one colour",
-            "In⁻ = the conjugate base form, with a different colour"
+          "arrows": [
+            {
+              "point": "HIn",
+              "label": "Acid form: one colour"
+            },
+            {
+              "point": "In⁻",
+              "label": "Conjugate base: a different colour"
+            }
           ]
         },
         {
@@ -231,24 +150,9 @@
             "Colour in alkali"
           ],
           "rows": [
-            [
-              "Methyl orange",
-              "3.1 to 4.4",
-              "Red",
-              "Yellow"
-            ],
-            [
-              "Bromothymol blue",
-              "6.0 to 7.6",
-              "Yellow",
-              "Blue"
-            ],
-            [
-              "Phenolphthalein",
-              "8.3 to 10.0",
-              "Colourless",
-              "Pink"
-            ]
+            ["Methyl orange", "3.1 to 4.4", "Red", "Yellow"],
+            ["Bromothymol blue", "6.0 to 7.6", "Yellow", "Blue"],
+            ["Phenolphthalein", "8.3 to 10.0", "Colourless", "Pink"]
           ]
         },
         {
@@ -257,11 +161,7 @@
             "kind": "predictor",
             "alt": "A predictor. Pick an acid and base combination to see the pH at equivalence and a suitable indicator.",
             "prompt": "Pick the acid and base being titrated",
-            "result_labels": [
-              "Vertical section",
-              "pH at equivalence",
-              "Suitable indicator"
-            ],
+            "result_labels": ["Vertical section", "pH at equivalence", "Suitable indicator"],
             "options": [
               {
                 "label": "Strong acid + strong base",
@@ -274,29 +174,17 @@
               },
               {
                 "label": "Weak acid + strong base",
-                "results": [
-                  "About 7 to 11",
-                  "About 8.5 to 9",
-                  "Phenolphthalein"
-                ],
+                "results": ["About 7 to 11", "About 8.5 to 9", "Phenolphthalein"],
                 "explanation": "Methyl orange changes colour before the vertical section, so it is not suitable."
               },
               {
                 "label": "Strong acid + weak base",
-                "results": [
-                  "About 3 to 7",
-                  "About 5",
-                  "Methyl orange"
-                ],
+                "results": ["About 3 to 7", "About 5", "Methyl orange"],
                 "explanation": "Phenolphthalein changes colour after the vertical section, so it is not suitable."
               },
               {
                 "label": "Weak acid + weak base",
-                "results": [
-                  "None, or very short",
-                  "About 7",
-                  "None. Use a pH meter."
-                ],
+                "results": ["None, or very short", "About 7", "None. Use a pH meter."],
                 "explanation": "The pH changes too gradually for any indicator to give a sharp end point."
               }
             ]
@@ -323,10 +211,19 @@
           "type": "equation",
           "label": "Amount in solution",
           "formula": "n = c × V",
-          "where": [
-            "n = amount (mol)",
-            "c = concentration (mol/dm³)",
-            "V = volume (dm³)"
+          "arrows": [
+            {
+              "point": "n",
+              "label": "Amount (mol)"
+            },
+            {
+              "point": "c",
+              "label": "Concentration (mol/dm³)"
+            },
+            {
+              "point": "V",
+              "label": "Volume (dm³)"
+            }
           ]
         },
         {
@@ -379,10 +276,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.1.3n",
-        "OCR 5.1.3o"
-      ],
+      "spec_codes": ["OCR 5.1.3n", "OCR 5.1.3o"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -413,12 +307,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 12.16",
-        "EDEX 12.17",
-        "EDEX 12.22",
-        "EDEX 12.23"
-      ],
+      "spec_codes": ["EDEX 12.16", "EDEX 12.17", "EDEX 12.22", "EDEX 12.23"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -455,9 +344,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.12.5"
-      ],
+      "spec_codes": ["AQA 3.1.12.5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -483,10 +370,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 7.2.9",
-        "CAIE 7.2.10"
-      ],
+      "spec_codes": ["CAIE 7.2.9", "CAIE 7.2.10"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -519,7 +403,7 @@
       "e0d72b00-ff71-4461-9f07-2b1991186271"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -116,7 +116,12 @@
           "type": "equation",
           "label": "Mean temperature change",
           "formula": "mean = sum of the results ÷ number of results",
-          "where": ["results are the temperature changes, in °C", "leave out any anomalous result"]
+          "arrows": [
+            {
+              "point": "sum of the results",
+              "label": "Temperature changes added (°C)"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -325,12 +330,25 @@
               "type": "equation",
               "label": "Heat energy change",
               "formula": "Q = m × c × ΔT",
-              "where": [
-                "Q is the heat energy change in J",
-                "m is the mass of water in g",
-                "c is the specific heat capacity of water, 4.2 J/g °C",
-                "ΔT is the temperature change in °C"
-              ]
+              "arrows": [
+                {
+                  "point": "Q",
+                  "label": "Heat energy change (J)"
+                },
+                {
+                  "point": "m",
+                  "label": "Mass of water (g)"
+                },
+                {
+                  "point": "c",
+                  "label": "Specific heat capacity of water (J/g °C)"
+                },
+                {
+                  "point": "ΔT",
+                  "label": "Temperature change (°C)"
+                }
+              ],
+              "where": ["c is 4.2 J/g °C."]
             },
             {
               "type": "steps",
@@ -372,7 +390,7 @@
       "63cbe95e-46aa-4bbd-b5b0-f8fe259f0f69",
       "0ede73ca-9822-4c43-923d-14ede3893fa0"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

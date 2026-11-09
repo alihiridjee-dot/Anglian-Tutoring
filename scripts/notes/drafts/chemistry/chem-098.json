@@ -82,13 +82,33 @@
           "type": "equation",
           "label": "Incomplete combustion of methane forming carbon monoxide",
           "formula": "2CH₄ + 3O₂ → 2CO + 4H₂O",
-          "where": ["CH₄ is methane.", "CO is carbon monoxide.", "H₂O is water."]
+          "arrows": [
+            {
+              "point": "CH₄",
+              "label": "Methane"
+            },
+            {
+              "point": "CO",
+              "in": "2CO +",
+              "label": "Carbon monoxide"
+            },
+            {
+              "point": "H₂O",
+              "label": "Water"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "Incomplete combustion of methane forming soot",
           "formula": "CH₄ + O₂ → C + 2H₂O",
-          "where": ["C is carbon, which is released as soot."]
+          "arrows": [
+            {
+              "point": "C",
+              "in": "→ C +",
+              "label": "Carbon, released as soot"
+            }
+          ]
         },
         {
           "type": "key-points",
@@ -319,7 +339,7 @@
       "77cdeb16-3dec-455e-bf4e-112783145d23",
       "d6348a1e-ef04-4dfe-8979-02edf7586189"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   },
   "format": 1,

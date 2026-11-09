@@ -29,25 +29,25 @@
           "type": "equation",
           "label": "Silver chloride",
           "formula": "AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq)",
-          "where": [
-            "Ksp = [Ag⁺][Cl⁻]",
-            "Units: mol²/dm⁶"
-          ]
+          "where": ["Ksp = [Ag⁺][Cl⁻]", "Units: mol²/dm⁶"]
         },
         {
           "type": "equation",
           "label": "Silver chromate(VI)",
           "formula": "Ag₂CrO₄(s) ⇌ 2Ag⁺(aq) + CrO₄²⁻(aq)",
-          "where": [
-            "Ksp = [Ag⁺]²[CrO₄²⁻]",
-            "Units: mol³/dm⁹"
-          ]
+          "arrows": [
+            {
+              "point": "2",
+              "in": "2Ag⁺",
+              "label": "Becomes the power of [Ag⁺]"
+            }
+          ],
+          "where": ["Ksp = [Ag⁺]²[CrO₄²⁻]", "Units: mol³/dm⁹"]
         },
         {
           "type": "list",
           "items": [
             "The solid is left out, because its concentration is constant.",
-            "Each concentration is raised to the power of the number in front of the ion.",
             "Work out the units by putting units into the expression.",
             "Ksp is constant at a given temperature."
           ]
@@ -70,27 +70,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Salt",
-            "Ion concentrations",
-            "Ksp in terms of s"
-          ],
+          "columns": ["Salt", "Ion concentrations", "Ksp in terms of s"],
           "rows": [
-            [
-              "AgCl",
-              "[Ag⁺] = s, [Cl⁻] = s",
-              "s²"
-            ],
-            [
-              "Mg(OH)₂",
-              "[Mg²⁺] = s, [OH⁻] = 2s",
-              "4s³"
-            ],
-            [
-              "Ag₂CrO₄",
-              "[Ag⁺] = 2s, [CrO₄²⁻] = s",
-              "4s³"
-            ]
+            ["AgCl", "[Ag⁺] = s, [Cl⁻] = s", "s²"],
+            ["Mg(OH)₂", "[Mg²⁺] = s, [OH⁻] = 2s", "4s³"],
+            ["Ag₂CrO₄", "[Ag⁺] = 2s, [CrO₄²⁻] = s", "4s³"]
           ]
         },
         {
@@ -138,10 +122,7 @@
         },
         {
           "type": "key-points",
-          "items": [
-            "Write the ions in terms of s.",
-            "Ksp = 4s³ for salts of the type AB₂ or A₂B."
-          ]
+          "items": ["Write the ions in terms of s.", "Ksp = 4s³ for salts of the type AB₂ or A₂B."]
         }
       ]
     },
@@ -201,12 +182,7 @@
   ],
   "boards": {
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 25.1.7",
-        "CAIE 25.1.8",
-        "CAIE 25.1.9",
-        "CAIE 25.1.10"
-      ]
+      "spec_codes": ["CAIE 25.1.7", "CAIE 25.1.8", "CAIE 25.1.9", "CAIE 25.1.10"]
     }
   },
   "meta": {
@@ -220,7 +196,7 @@
       "45949ecf-5cde-4435-b92a-3a783498042a"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

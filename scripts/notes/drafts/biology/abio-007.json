@@ -105,11 +105,7 @@
               "label": "Substrate concentration",
               "min": 0,
               "max": 10,
-              "ticks": [
-                0,
-                5,
-                10
-              ]
+              "ticks": [0, 5, 10]
             },
             "y": {
               "label": "Rate of reaction"
@@ -118,59 +114,23 @@
               {
                 "name": "Enzyme concentration × 1",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    1,
-                    0.25
-                  ],
-                  [
-                    2,
-                    0.38
-                  ],
-                  [
-                    4,
-                    0.46
-                  ],
-                  [
-                    7,
-                    0.5
-                  ],
-                  [
-                    10,
-                    0.5
-                  ]
+                  [0, 0],
+                  [1, 0.25],
+                  [2, 0.38],
+                  [4, 0.46],
+                  [7, 0.5],
+                  [10, 0.5]
                 ]
               },
               {
                 "name": "Enzyme concentration × 2",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    1,
-                    0.5
-                  ],
-                  [
-                    2,
-                    0.76
-                  ],
-                  [
-                    4,
-                    0.92
-                  ],
-                  [
-                    7,
-                    1
-                  ],
-                  [
-                    10,
-                    1
-                  ]
+                  [0, 0],
+                  [1, 0.5],
+                  [2, 0.76],
+                  [4, 0.92],
+                  [7, 1],
+                  [10, 1]
                 ]
               }
             ]
@@ -203,22 +163,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Competitive inhibitor",
-            "Non-competitive inhibitor"
-          ],
+          "columns": ["Feature", "Competitive inhibitor", "Non-competitive inhibitor"],
           "rows": [
-            [
-              "Shape",
-              "Similar to the substrate",
-              "Not like the substrate"
-            ],
-            [
-              "Where it binds",
-              "The active site",
-              "Another site on the enzyme"
-            ],
+            ["Shape", "Similar to the substrate", "Not like the substrate"],
+            ["Where it binds", "The active site", "Another site on the enzyme"],
             [
               "Effect on the enzyme",
               "Blocks the active site, so the substrate cannot bind",
@@ -229,11 +177,7 @@
               "Reduces the inhibition, because the substrate outcompetes the inhibitor",
               "Does not remove the inhibition"
             ],
-            [
-              "Effect on maximum rate",
-              "Same Vmax can still be reached",
-              "Vmax is lowered"
-            ]
+            ["Effect on maximum rate", "Same Vmax can still be reached", "Vmax is lowered"]
           ]
         },
         {
@@ -299,9 +243,7 @@
   ],
   "boards": {
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.16"
-      ],
+      "spec_codes": ["EDEX 5.16"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -324,11 +266,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 3.2.1",
-        "CAIE 3.2.2",
-        "CAIE 3.2.3"
-      ],
+      "spec_codes": ["CAIE 3.2.1", "CAIE 3.2.2", "CAIE 3.2.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -381,11 +319,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 2.1.4d",
-        "OCR 2.1.4e",
-        "OCR 2.1.4f"
-      ],
+      "spec_codes": ["OCR 2.1.4d", "OCR 2.1.4e", "OCR 2.1.4f"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -398,9 +332,15 @@
               "type": "equation",
               "label": "Temperature coefficient (Q₁₀)",
               "formula": "Q₁₀ = R₂ ÷ R₁",
-              "where": [
-                "R₁ = rate at the lower temperature",
-                "R₂ = rate at a temperature 10 °C higher"
+              "arrows": [
+                {
+                  "point": "R₂",
+                  "label": "Rate at a temperature 10 °C higher"
+                },
+                {
+                  "point": "R₁",
+                  "label": "Rate at the lower temperature"
+                }
               ]
             },
             {
@@ -437,10 +377,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.4.2 RP1",
-        "AQA 3.1.4.2c"
-      ]
+      "spec_codes": ["AQA 3.1.4.2 RP1", "AQA 3.1.4.2c"]
     }
   },
   "meta": {
@@ -458,7 +395,7 @@
       "e603c3da-199d-461a-883e-425b97a1b2fe"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

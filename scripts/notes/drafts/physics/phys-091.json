@@ -305,11 +305,23 @@
               "type": "equation",
               "label": "Speed of a receding galaxy",
               "formula": "Δλ ÷ λ₀ = v ÷ c",
-              "where": [
-                "Δλ is the change in wavelength, observed minus Earth measurement, in metres, m",
-                "λ₀ is the wavelength of the same light measured on the Earth, in metres, m",
-                "v is the speed of the galaxy away from the Earth, in metres per second, m/s",
-                "c is the speed of light, 3.0 × 10⁸ m/s"
+              "arrows": [
+                {
+                  "point": "Δλ",
+                  "label": "Change in wavelength: observed − Earth (m)"
+                },
+                {
+                  "point": "λ₀",
+                  "label": "Wavelength measured on Earth (m)"
+                },
+                {
+                  "point": "v",
+                  "label": "Galaxy's speed away from Earth (m/s)"
+                },
+                {
+                  "point": "c",
+                  "label": "Speed of light, 3.0 × 10⁸ m/s"
+                }
               ]
             }
           ]
@@ -366,13 +378,27 @@
               "type": "equation",
               "label": "Speed of a receding galaxy",
               "formula": "(λ − λ₀) ÷ λ₀ = Δλ ÷ λ₀ = v ÷ c",
-              "where": [
-                "λ is the observed wavelength, in metres, m",
-                "λ₀ is the reference wavelength, measured on the Earth, in metres, m",
-                "Δλ is the change in wavelength, in metres, m",
-                "v is the velocity of the galaxy, in metres per second, m/s",
-                "c is the speed of light, 3.0 × 10⁸ m/s"
-              ]
+              "arrows": [
+                {
+                  "point": "λ",
+                  "in": "(λ −",
+                  "label": "Observed wavelength (m)"
+                },
+                {
+                  "point": "λ₀",
+                  "in": "(λ − λ₀)",
+                  "label": "Reference wavelength, measured on Earth (m)"
+                },
+                {
+                  "point": "v",
+                  "label": "Velocity of the galaxy (m/s)"
+                },
+                {
+                  "point": "c",
+                  "label": "Speed of light, 3.0 × 10⁸ m/s"
+                }
+              ],
+              "where": ["Δλ is the change in wavelength, in metres, m."]
             }
           ]
         }
@@ -397,7 +423,7 @@
       "0f8a59ae-b385-4887-8553-a58580ae7844",
       "91dcc1fb-4fca-466e-9e8f-6bf174cd228d"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

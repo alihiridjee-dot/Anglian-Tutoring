@@ -29,21 +29,25 @@
           "type": "equation",
           "label": "Electric field strength",
           "formula": "E = F / Q",
-          "where": [
-            "E = electric field strength (N/C, same as V/m)",
-            "F = force on the charge (N)",
-            "Q = the charge in the field (C)"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Electric field strength (N/C = V/m)"
+            },
+            {
+              "point": "F",
+              "label": "Force on the charge (N)"
+            },
+            {
+              "point": "Q",
+              "label": "The charge in the field (C)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Force on a charge in a field",
-          "formula": "F = Q E",
-          "where": [
-            "F = force on the charge (N)",
-            "Q = charge (C)",
-            "E = electric field strength (N/C)"
-          ]
+          "formula": "F = Q E"
         },
         {
           "type": "list",
@@ -77,12 +81,25 @@
           "type": "equation",
           "label": "Coulomb's law",
           "formula": "F = Q₁ Q₂ / (4π ε₀ r²)",
-          "where": [
-            "F = force between the charges (N)",
-            "Q₁, Q₂ = the two charges (C)",
-            "r = distance between them (m)",
-            "ε₀ = permittivity of free space (8.85 × 10⁻¹² F/m)"
-          ]
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Force between the charges (N)"
+            },
+            {
+              "point": "Q₁ Q₂",
+              "label": "The two charges (C)"
+            },
+            {
+              "point": "ε₀",
+              "label": "Permittivity of free space"
+            },
+            {
+              "point": "r",
+              "label": "Distance between them (m)"
+            }
+          ],
+          "where": ["ε₀ = 8.85 × 10⁻¹² F/m"]
         },
         {
           "type": "list",
@@ -159,11 +176,19 @@
           "type": "equation",
           "label": "Field strength of a point charge",
           "formula": "E = Q / (4π ε₀ r²)",
-          "where": [
-            "E = electric field strength (N/C)",
-            "Q = the point charge (C)",
-            "r = distance from the charge (m)",
-            "ε₀ = permittivity of free space (8.85 × 10⁻¹² F/m)"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Electric field strength (N/C)"
+            },
+            {
+              "point": "Q",
+              "label": "The point charge (C)"
+            },
+            {
+              "point": "r",
+              "label": "Distance from the charge (m)"
+            }
           ]
         },
         {
@@ -237,9 +262,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.3.1"
-      ],
+      "spec_codes": ["AQA 3.7.3.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -261,12 +284,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 7.108",
-        "EDEX 7.109",
-        "EDEX 7.110",
-        "EDEX 7.111"
-      ]
+      "spec_codes": ["EDEX 7.108", "EDEX 7.109", "EDEX 7.110", "EDEX 7.111"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -313,7 +331,7 @@
       "0e37ec7b-3842-417c-a3c1-86de374f32e1"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

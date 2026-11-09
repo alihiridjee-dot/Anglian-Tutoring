@@ -24,10 +24,23 @@
           "type": "equation",
           "label": "Open-loop transfer function",
           "formula": "Vₒᵤₜ = A_OL (V₊ − V₋)",
-          "where": [
-            "Vₒᵤₜ = output voltage (V)",
-            "A_OL = open-loop gain (no unit)",
-            "V₊, V₋ = voltages at the two inputs (V)"
+          "arrows": [
+            {
+              "point": "Vₒᵤₜ",
+              "label": "Output voltage (V)"
+            },
+            {
+              "point": "A_OL",
+              "label": "Open-loop gain (no unit)"
+            },
+            {
+              "point": "V₊",
+              "label": "Non-inverting input voltage (V)"
+            },
+            {
+              "point": "V₋",
+              "label": "Inverting input voltage (V)"
+            }
           ]
         },
         {
@@ -110,14 +123,20 @@
           "type": "equation",
           "label": "Inverting amplifier gain",
           "formula": "Vₒᵤₜ ÷ Vᵢₙ = −R_f ÷ Rᵢₙ",
-          "where": [
-            "R_f = feedback resistance (Ω)",
-            "Rᵢₙ = input resistance (Ω)"
+          "arrows": [
+            {
+              "point": "−",
+              "label": "Output is in antiphase with the input"
+            },
+            {
+              "point": "R_f",
+              "label": "Feedback resistance (Ω)"
+            },
+            {
+              "point": "Rᵢₙ",
+              "label": "Input resistance (Ω)"
+            }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "The minus sign means the output is the inverse of the input: it is in antiphase."
         },
         {
           "type": "subheading",
@@ -127,9 +146,11 @@
           "type": "equation",
           "label": "Non-inverting amplifier gain",
           "formula": "Vₒᵤₜ ÷ Vᵢₙ = 1 + R_f ÷ R₁",
-          "where": [
-            "R_f = feedback resistance (Ω)",
-            "R₁ = resistor from the inverting input to 0 V (Ω)"
+          "arrows": [
+            {
+              "point": "R₁",
+              "label": "Resistor, inverting input to 0 V (Ω)"
+            }
           ]
         },
         {
@@ -198,19 +219,26 @@
           "type": "equation",
           "label": "Summing amplifier",
           "formula": "Vₒᵤₜ = −R_f (V₁ ÷ R₁ + V₂ ÷ R₂ + V₃ ÷ R₃ + …)",
-          "where": [
-            "V₁, V₂, V₃ = input voltages (V)",
-            "R₁, R₂, R₃ = their input resistors (Ω)",
-            "R_f = feedback resistance (Ω)"
+          "arrows": [
+            {
+              "point": "V₁",
+              "label": "Each input voltage (V)"
+            },
+            {
+              "point": "R₁",
+              "label": "Its input resistor (Ω)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Difference amplifier",
           "formula": "Vₒᵤₜ = (V₊ − V₋)(R_f ÷ R₁)",
-          "where": [
-            "V₊, V₋ = the two input voltages (V)",
-            "R_f ÷ R₁ = gain set by the resistors"
+          "arrows": [
+            {
+              "point": "R_f ÷ R₁",
+              "label": "Gain set by the resistors"
+            }
           ]
         },
         {
@@ -242,9 +270,15 @@
           "type": "equation",
           "label": "Gain-bandwidth product",
           "formula": "gain × bandwidth = constant",
-          "where": [
-            "gain = closed-loop voltage gain (no unit)",
-            "bandwidth = range of frequencies amplified (Hz)"
+          "arrows": [
+            {
+              "point": "gain",
+              "label": "Closed-loop voltage gain (no unit)"
+            },
+            {
+              "point": "bandwidth",
+              "label": "Range of frequencies amplified (Hz)"
+            }
           ]
         },
         {
@@ -283,13 +317,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.13.3.2",
-        "AQA 3.13.4.1",
-        "AQA 3.13.4.2",
-        "AQA 3.13.4.3",
-        "AQA 3.13.4.4"
-      ]
+      "spec_codes": ["AQA 3.13.3.2", "AQA 3.13.4.1", "AQA 3.13.4.2", "AQA 3.13.4.3", "AQA 3.13.4.4"]
     }
   },
   "meta": {
@@ -304,7 +332,7 @@
       "9d69a163-00dc-41a0-91a3-0c7d89232bd4"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

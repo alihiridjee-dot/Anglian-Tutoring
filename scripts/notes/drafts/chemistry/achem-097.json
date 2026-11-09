@@ -24,19 +24,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Type of data",
-            "Example"
-          ],
+          "columns": ["Type of data", "Example"],
           "rows": [
-            [
-              "Qualitative",
-              "Orange solution turns green; effervescence; white precipitate forms"
-            ],
-            [
-              "Quantitative",
-              "Titre 24.35 cm³; temperature rise 7.5 °C; mass 1.52 g"
-            ]
+            ["Qualitative", "Orange solution turns green; effervescence; white precipitate forms"],
+            ["Quantitative", "Titre 24.35 cm³; temperature rise 7.5 °C; mass 1.52 g"]
           ]
         },
         {
@@ -165,9 +156,15 @@
           "type": "equation",
           "label": "Gradient of a straight line",
           "formula": "gradient = (y₂ − y₁) ÷ (x₂ − x₁)",
-          "where": [
-            "y₂ and y₁ are two y values read from the line",
-            "x₂ and x₁ are the matching x values"
+          "arrows": [
+            {
+              "point": "(y₂ − y₁)",
+              "label": "Two y values read from the line"
+            },
+            {
+              "point": "(x₂ − x₁)",
+              "label": "The matching x values"
+            }
           ]
         },
         {
@@ -297,7 +294,7 @@
       "48073453-8157-456f-afe1-74f7d8c3e467"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

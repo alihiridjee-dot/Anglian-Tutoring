@@ -126,10 +126,19 @@
           "type": "equation",
           "label": "Critical angle",
           "formula": "sin C = n₂ ÷ n₁",
-          "where": [
-            "C = critical angle (°)",
-            "n₁ = refractive index of the core",
-            "n₂ = refractive index of the cladding, which is smaller"
+          "arrows": [
+            {
+              "point": "C",
+              "label": "Critical angle (°)"
+            },
+            {
+              "point": "n₂",
+              "label": "Refractive index of the cladding (smaller)"
+            },
+            {
+              "point": "n₁",
+              "label": "Refractive index of the core"
+            }
           ]
         },
         {
@@ -138,11 +147,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Bundle",
-            "How the fibres are arranged",
-            "Used for"
-          ],
+          "columns": ["Bundle", "How the fibres are arranged", "Used for"],
           "rows": [
             [
               "Coherent",
@@ -289,11 +294,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.10.3.1",
-        "AQA 3.10.4.2",
-        "AQA 3.10.4.3"
-      ]
+      "spec_codes": ["AQA 3.10.3.1", "AQA 3.10.4.2", "AQA 3.10.4.3"]
     }
   },
   "meta": {
@@ -306,7 +307,7 @@
       "b2c5c8c9-100e-439e-844f-4846f926c8dd"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

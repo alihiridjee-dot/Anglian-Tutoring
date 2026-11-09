@@ -95,7 +95,12 @@
           "type": "equation",
           "label": "Moles in a solution",
           "formula": "moles = concentration (mol/dm³) × volume (cm³) ÷ 1000",
-          "where": ["Divide the volume in cm³ by 1000 to get dm³."]
+          "arrows": [
+            {
+              "point": "÷ 1000",
+              "label": "Turns cm³ into dm³"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -270,7 +275,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",

@@ -134,10 +134,19 @@
           "type": "equation",
           "label": "Wave speed",
           "formula": "wave speed = frequency × wavelength",
-          "where": [
-            "wave speed is in metres per second (m/s). For electromagnetic waves in a vacuum it is 3.0 × 10⁸ m/s.",
-            "frequency is in hertz (Hz).",
-            "wavelength is in metres (m)."
+          "arrows": [
+            {
+              "point": "wave speed",
+              "label": "3.0 × 10⁸ m/s in a vacuum"
+            },
+            {
+              "point": "frequency",
+              "label": "Hertz (Hz)"
+            },
+            {
+              "point": "wavelength",
+              "label": "Metres (m)"
+            }
           ]
         },
         {
@@ -409,10 +418,19 @@
               "type": "equation",
               "label": "Time for light to travel",
               "formula": "time = distance ÷ speed",
-              "where": [
-                "time is in seconds, s",
-                "distance is in metres, m",
-                "speed is 3.0 × 10⁸ m/s"
+              "arrows": [
+                {
+                  "point": "time",
+                  "label": "Seconds (s)"
+                },
+                {
+                  "point": "distance",
+                  "label": "Metres (m)"
+                },
+                {
+                  "point": "speed",
+                  "label": "3.0 × 10⁸ m/s"
+                }
               ]
             },
             {
@@ -492,7 +510,7 @@
       "6a0d23f9-708f-4297-891e-e4de36e54b87",
       "da7bc04d-3af2-4abb-9067-0be06a0cf869"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

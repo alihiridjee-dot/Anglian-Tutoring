@@ -8,7 +8,10 @@
     {
       "heading": "Common acids and alkalis",
       "blocks": [
-        { "type": "paragraph", "text": "Learn the names and formulae of these acids and alkalis, and the ion each releases." },
+        {
+          "type": "paragraph",
+          "text": "Learn the names and formulae of these acids and alkalis, and the ion each releases."
+        },
         {
           "type": "table",
           "columns": ["Name", "Formula", "Ion released in water"],
@@ -25,8 +28,14 @@
         {
           "type": "definitions",
           "items": [
-            { "term": "Acid", "meaning": "A substance that releases H⁺ ions in aqueous solution." },
-            { "term": "Alkali", "meaning": "A water-soluble base that releases OH⁻ ions in aqueous solution." }
+            {
+              "term": "Acid",
+              "meaning": "A substance that releases H⁺ ions in aqueous solution."
+            },
+            {
+              "term": "Alkali",
+              "meaning": "A water-soluble base that releases OH⁻ ions in aqueous solution."
+            }
           ]
         },
         {
@@ -42,12 +51,21 @@
     {
       "heading": "Strong and weak acids",
       "blocks": [
-        { "type": "paragraph", "text": "Strength is about how far an acid dissociates, not how concentrated it is." },
+        {
+          "type": "paragraph",
+          "text": "Strength is about how far an acid dissociates, not how concentrated it is."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Strong acid", "meaning": "An acid that is fully dissociated in aqueous solution, e.g. HCl → H⁺ + Cl⁻." },
-            { "term": "Weak acid", "meaning": "An acid that is only partially dissociated in aqueous solution, e.g. CH₃COOH ⇌ CH₃COO⁻ + H⁺." }
+            {
+              "term": "Strong acid",
+              "meaning": "An acid that is fully dissociated in aqueous solution, e.g. HCl → H⁺ + Cl⁻."
+            },
+            {
+              "term": "Weak acid",
+              "meaning": "An acid that is only partially dissociated in aqueous solution, e.g. CH₃COOH ⇌ CH₃COO⁻ + H⁺."
+            }
           ]
         },
         {
@@ -63,7 +81,11 @@
           "rows": [
             ["pH (meter or universal indicator)", "Lower, about 1", "Higher, about 3"],
             ["Conductivity", "Higher: more ions", "Lower: fewer ions"],
-            ["Reaction with a reactive metal such as magnesium", "Faster, more bubbles", "Slower, fewer bubbles"]
+            [
+              "Reaction with a reactive metal such as magnesium",
+              "Faster, more bubbles",
+              "Slower, fewer bubbles"
+            ]
           ]
         },
         {
@@ -83,7 +105,10 @@
     {
       "heading": "Neutralisation and salts",
       "blocks": [
-        { "type": "paragraph", "text": "Neutralisation is the reaction of an acid with a base. Every neutralisation makes a salt." },
+        {
+          "type": "paragraph",
+          "text": "Neutralisation is the reaction of an acid with a base. Every neutralisation makes a salt."
+        },
         {
           "type": "equation",
           "label": "Ionic equation for neutralisation",
@@ -96,7 +121,11 @@
           "rows": [
             ["Acid + alkali", "Salt + water", "HCl + NaOH → NaCl + H₂O"],
             ["Acid + metal oxide", "Salt + water", "H₂SO₄ + CuO → CuSO₄ + H₂O"],
-            ["Acid + carbonate", "Salt + water + carbon dioxide", "2HCl + CaCO₃ → CaCl₂ + H₂O + CO₂"]
+            [
+              "Acid + carbonate",
+              "Salt + water + carbon dioxide",
+              "2HCl + CaCO₃ → CaCl₂ + H₂O + CO₂"
+            ]
           ]
         },
         {
@@ -120,23 +149,50 @@
     {
       "heading": "Titrations",
       "blocks": [
-        { "type": "paragraph", "text": "A titration finds the exact volume of one solution that reacts with a fixed volume of another. This section covers the method and the calculation." },
-        { "type": "subheading", "text": "Preparing a standard solution" },
+        {
+          "type": "paragraph",
+          "text": "A titration finds the exact volume of one solution that reacts with a fixed volume of another. This section covers the method and the calculation."
+        },
+        {
+          "type": "subheading",
+          "text": "Preparing a standard solution"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Weigh.", "text": "Weigh the solid in a weighing bottle. Dissolve it in a beaker with distilled water." },
-            { "lead": "Transfer.", "text": "Pour into a volumetric flask. Rinse the beaker and funnel into the flask." },
-            { "lead": "Make up.", "text": "Add water to the mark, with the bottom of the meniscus on the line. Stopper and invert to mix." }
+            {
+              "lead": "Weigh.",
+              "text": "Weigh the solid in a weighing bottle. Dissolve it in a beaker with distilled water."
+            },
+            {
+              "lead": "Transfer.",
+              "text": "Pour into a volumetric flask. Rinse the beaker and funnel into the flask."
+            },
+            {
+              "lead": "Make up.",
+              "text": "Add water to the mark, with the bottom of the meniscus on the line. Stopper and invert to mix."
+            }
           ]
         },
-        { "type": "subheading", "text": "Carrying out the titration" },
+        {
+          "type": "subheading",
+          "text": "Carrying out the titration"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Measure.", "text": "Pipette 25.0 cm³ of one solution into a conical flask. Add a few drops of indicator." },
-            { "lead": "Add.", "text": "Run the other solution in from a burette, swirling, until the indicator just changes colour at the end point." },
-            { "lead": "Repeat.", "text": "Do a rough titration first, then repeat until two titres agree within 0.10 cm³. Use the mean of the concordant results." }
+            {
+              "lead": "Measure.",
+              "text": "Pipette 25.0 cm³ of one solution into a conical flask. Add a few drops of indicator."
+            },
+            {
+              "lead": "Add.",
+              "text": "Run the other solution in from a burette, swirling, until the indicator just changes colour at the end point."
+            },
+            {
+              "lead": "Repeat.",
+              "text": "Do a rough titration first, then repeat until two titres agree within 0.10 cm³. Use the mean of the concordant results."
+            }
           ]
         },
         {
@@ -147,14 +203,29 @@
             ["Phenolphthalein", "Colourless", "Pink"]
           ]
         },
-        { "type": "subheading", "text": "Calculation" },
+        {
+          "type": "subheading",
+          "text": "Calculation"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Moles of the known solution.", "text": "n = c × V. 22.50 cm³ of 0.100 mol dm⁻³ HCl: n = 0.100 × 0.02250 = 2.25 × 10⁻³ mol." },
-            { "lead": "Use the equation ratio.", "text": "HCl + NaOH → NaCl + H₂O is 1 : 1, so n(NaOH) = 2.25 × 10⁻³ mol." },
-            { "lead": "Concentration of the unknown.", "text": "c = n ÷ V = 2.25 × 10⁻³ ÷ 0.0250 = 0.0900 mol dm⁻³." },
-            { "lead": "Convert if asked.", "text": "g dm⁻³ = 0.0900 × 40.0 = 3.60 g dm⁻³." }
+            {
+              "lead": "Moles of the known solution.",
+              "text": "n = c × V. 22.50 cm³ of 0.100 mol dm⁻³ HCl: n = 0.100 × 0.02250 = 2.25 × 10⁻³ mol."
+            },
+            {
+              "lead": "Use the equation ratio.",
+              "text": "HCl + NaOH → NaCl + H₂O is 1 : 1, so n(NaOH) = 2.25 × 10⁻³ mol."
+            },
+            {
+              "lead": "Concentration of the unknown.",
+              "text": "c = n ÷ V = 2.25 × 10⁻³ ÷ 0.0250 = 0.0900 mol dm⁻³."
+            },
+            {
+              "lead": "Convert if asked.",
+              "text": "g dm⁻³ = 0.0900 × 40.0 = 3.60 g dm⁻³."
+            }
           ]
         },
         {
@@ -163,9 +234,25 @@
             "kind": "practice",
             "alt": "Calculate the concentration of sodium hydroxide from a titration.",
             "question": "25.0 cm³ of sodium hydroxide is neutralised by {v} cm³ of 0.100 mol dm⁻³ hydrochloric acid. HCl + NaOH → NaCl + H₂O. Calculate the concentration of the sodium hydroxide in mol dm⁻³.",
-            "variables": [{ "id": "v", "min": 18, "max": 30, "step": 0.5 }],
-            "answer": { "formula": "0.1 * v / 25", "unit": "mol dm⁻³", "decimals": 4, "tolerance_percent": 1 },
-            "working": ["n(HCl) = 0.100 × {v} ÷ 1000 mol", "Ratio 1 : 1, so n(NaOH) is the same", "c = n ÷ 0.0250 dm³ = {answer} mol dm⁻³"]
+            "variables": [
+              {
+                "id": "v",
+                "min": 18,
+                "max": 30,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "0.1 * v / 25",
+              "unit": "mol dm⁻³",
+              "decimals": 4,
+              "tolerance_percent": 1
+            },
+            "working": [
+              "n(HCl) = 0.100 × {v} ÷ 1000 mol",
+              "Ratio 1 : 1, so n(NaOH) is the same",
+              "c = n ÷ 0.0250 dm³ = {answer} mol dm⁻³"
+            ]
           }
         },
         {
@@ -234,7 +321,14 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": ["CAIE 7.2.1", "CAIE 7.2.2", "CAIE 7.2.4", "CAIE 7.2.6", "CAIE 7.2.7", "CAIE 7.2.8"],
+      "spec_codes": [
+        "CAIE 7.2.1",
+        "CAIE 7.2.2",
+        "CAIE 7.2.4",
+        "CAIE 7.2.6",
+        "CAIE 7.2.7",
+        "CAIE 7.2.8"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -254,7 +348,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",

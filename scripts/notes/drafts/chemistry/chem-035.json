@@ -101,7 +101,12 @@
           "type": "equation",
           "label": "Concentration",
           "formula": "concentration (g/dm³) = mass of solute (g) ÷ volume of solution (dm³)",
-          "where": ["1 dm³ = 1000 cm³", "To change cm³ to dm³, divide by 1000."]
+          "arrows": [
+            {
+              "point": "volume of solution (dm³)",
+              "label": "1 dm³ = 1000 cm³"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -171,8 +176,7 @@
         {
           "type": "equation",
           "label": "Mass of solute",
-          "formula": "mass (g) = concentration (g/dm³) × volume (dm³)",
-          "where": ["Convert the volume to dm³ first."]
+          "formula": "mass (g) = concentration (g/dm³) × volume (dm³)"
         },
         {
           "type": "equation",
@@ -363,7 +367,7 @@
     "status": "draft",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "spec_point_ids": [
       "801450c1-c607-4de7-a09b-7337a91475c1",

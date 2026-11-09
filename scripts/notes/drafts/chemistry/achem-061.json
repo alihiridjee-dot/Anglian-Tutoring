@@ -38,31 +38,19 @@
           "diagram": {
             "kind": "compare",
             "alt": "Octahedral and tetrahedral complexes compared: how the five d orbitals split.",
-            "items": [
-              "Octahedral complex",
-              "Tetrahedral complex"
-            ],
+            "items": ["Octahedral complex", "Tetrahedral complex"],
             "rows": [
               {
                 "feature": "Higher-energy set",
-                "values": [
-                  "Two orbitals",
-                  "Three orbitals"
-                ]
+                "values": ["Two orbitals", "Three orbitals"]
               },
               {
                 "feature": "Lower-energy set",
-                "values": [
-                  "Three orbitals",
-                  "Two orbitals"
-                ]
+                "values": ["Three orbitals", "Two orbitals"]
               },
               {
                 "feature": "Gap between sets",
-                "values": [
-                  "ΔE",
-                  "ΔE (smaller than for the same ligands in an octahedron)"
-                ]
+                "values": ["ΔE", "ΔE (smaller than for the same ligands in an octahedron)"]
               }
             ]
           }
@@ -105,13 +93,25 @@
           "type": "equation",
           "label": "Energy absorbed",
           "formula": "ΔE = hν = hc ÷ λ",
-          "where": [
-            "ΔE = energy gap between the d orbital sets (J)",
-            "h = Planck constant, 6.63 × 10⁻³⁴ J s",
-            "ν = frequency of light absorbed (Hz)",
-            "c = speed of light, 3.00 × 10⁸ m/s",
-            "λ = wavelength of light absorbed (m)"
-          ]
+          "arrows": [
+            {
+              "point": "ΔE",
+              "label": "Gap between the d orbital sets (J)"
+            },
+            {
+              "point": "ν",
+              "label": "Frequency of light absorbed (Hz)"
+            },
+            {
+              "point": "c",
+              "label": "Speed of light (3.00 × 10⁸ m/s)"
+            },
+            {
+              "point": "λ",
+              "label": "Wavelength of light absorbed (m)"
+            }
+          ],
+          "where": ["h = Planck constant, 6.63 × 10⁻³⁴ J s"]
         },
         {
           "type": "diagram",
@@ -184,11 +184,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Change",
-            "Why ΔE changes",
-            "Example"
-          ],
+          "columns": ["Change", "Why ΔE changes", "Example"],
           "rows": [
             [
               "Oxidation number",
@@ -244,12 +240,7 @@
   ],
   "boards": {
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 15A.7",
-        "EDEX 15A.8",
-        "EDEX 15A.9",
-        "EDEX 15A.10"
-      ],
+      "spec_codes": ["EDEX 15A.7", "EDEX 15A.8", "EDEX 15A.9", "EDEX 15A.10"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -267,9 +258,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.5.4"
-      ],
+      "spec_codes": ["AQA 3.2.5.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -304,12 +293,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 28.3.1",
-        "CAIE 28.3.2",
-        "CAIE 28.3.3",
-        "CAIE 28.3.4"
-      ],
+      "spec_codes": ["CAIE 28.3.1", "CAIE 28.3.2", "CAIE 28.3.3", "CAIE 28.3.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -344,7 +328,7 @@
       "e6476fba-c4b1-4d0a-93f4-92c32647ed1c"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

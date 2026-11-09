@@ -14,47 +14,30 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Aqua ion",
-            "Colour of solution"
-          ],
+          "columns": ["Aqua ion", "Colour of solution"],
           "rows": [
-            [
-              "[Cu(H₂O)₆]²⁺",
-              "Blue"
-            ],
-            [
-              "[Fe(H₂O)₆]²⁺",
-              "Pale green"
-            ],
-            [
-              "[Fe(H₂O)₆]³⁺",
-              "Yellow-brown"
-            ],
-            [
-              "[Cr(H₂O)₆]³⁺",
-              "Green"
-            ],
-            [
-              "[Co(H₂O)₆]²⁺",
-              "Pink"
-            ],
-            [
-              "[Mn(H₂O)₆]²⁺",
-              "Pale pink"
-            ],
-            [
-              "[Al(H₂O)₆]³⁺",
-              "Colourless"
-            ]
+            ["[Cu(H₂O)₆]²⁺", "Blue"],
+            ["[Fe(H₂O)₆]²⁺", "Pale green"],
+            ["[Fe(H₂O)₆]³⁺", "Yellow-brown"],
+            ["[Cr(H₂O)₆]³⁺", "Green"],
+            ["[Co(H₂O)₆]²⁺", "Pink"],
+            ["[Mn(H₂O)₆]²⁺", "Pale pink"],
+            ["[Al(H₂O)₆]³⁺", "Colourless"]
           ]
         },
         {
           "type": "equation",
           "label": "Acid behaviour of an aqua ion",
           "formula": "[Fe(H₂O)₆]³⁺ + H₂O ⇌ [Fe(H₂O)₅(OH)]²⁺ + H₃O⁺",
-          "where": [
-            "A water ligand loses H⁺ to a water molecule in the solution."
+          "arrows": [
+            {
+              "point": "(OH)",
+              "label": "Water ligand that lost H⁺"
+            },
+            {
+              "point": "H₃O⁺",
+              "label": "Water molecule that took the H⁺"
+            }
           ]
         },
         {
@@ -387,9 +370,7 @@
           "type": "equation",
           "label": "Ligand exchange: excess NH₃ replaces water (substitution)",
           "formula": "Cu(OH)₂(H₂O)₄ + 4NH₃ → [Cu(NH₃)₄(H₂O)₂]²⁺ + 2OH⁻ + 2H₂O",
-          "where": [
-            "NH₃ replaces water ligands and the hydroxide leaves."
-          ]
+          "where": ["NH₃ replaces water ligands and the hydroxide leaves."]
         },
         {
           "type": "list",
@@ -441,10 +422,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.3.1j",
-        "OCR 5.3.1l"
-      ],
+      "spec_codes": ["OCR 5.3.1j", "OCR 5.3.1l"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -464,10 +442,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 15B.24",
-        "EDEX 15B.25"
-      ],
+      "spec_codes": ["EDEX 15B.24", "EDEX 15B.25"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -485,9 +460,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.6"
-      ],
+      "spec_codes": ["AQA 3.2.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -518,7 +491,7 @@
       "b092fc8e-9298-4e03-af66-8f9163759363"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }
