@@ -8,6 +8,30 @@ export type Database = {
   };
   public: {
     Tables: {
+      access_tiers: {
+        Row: {
+          code: string;
+          created_at: string;
+          description: string | null;
+          name: string;
+          rank: number;
+        };
+        Insert: {
+          code: string;
+          created_at?: string;
+          description?: string | null;
+          name: string;
+          rank: number;
+        };
+        Update: {
+          code?: string;
+          created_at?: string;
+          description?: string | null;
+          name?: string;
+          rank?: number;
+        };
+        Relationships: [];
+      };
       account_deletions: {
         Row: {
           attempts: number;
@@ -82,6 +106,38 @@ export type Database = {
           user_id?: string;
         };
         Relationships: [];
+      };
+      billing_accounts: {
+        Row: {
+          closed_at: string | null;
+          created_at: string;
+          currency: string;
+          id: string;
+          owner_id: string | null;
+        };
+        Insert: {
+          closed_at?: string | null;
+          created_at?: string;
+          currency?: string;
+          id?: string;
+          owner_id?: string | null;
+        };
+        Update: {
+          closed_at?: string | null;
+          created_at?: string;
+          currency?: string;
+          id?: string;
+          owner_id?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "billing_accounts_owner_id_fkey";
+            columns: ["owner_id"];
+            isOneToOne: true;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       billing_feedback: {
         Row: {
@@ -542,6 +598,154 @@ export type Database = {
         };
         Relationships: [];
       };
+      ledger_entries: {
+        Row: {
+          account_id: string;
+          amount_pence: number;
+          balance_after_pence: number;
+          created_at: string;
+          entry_type: string;
+          id: number;
+          seq: number;
+          transaction_id: string;
+        };
+        Insert: {
+          account_id: string;
+          amount_pence: number;
+          balance_after_pence: number;
+          created_at?: string;
+          entry_type: string;
+          id?: never;
+          seq: number;
+          transaction_id: string;
+        };
+        Update: {
+          account_id?: string;
+          amount_pence?: number;
+          balance_after_pence?: number;
+          created_at?: string;
+          entry_type?: string;
+          id?: never;
+          seq?: number;
+          transaction_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "ledger_entries_account_id_fkey";
+            columns: ["account_id"];
+            isOneToOne: false;
+            referencedRelation: "billing_accounts";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ledger_entries_transaction_id_fkey";
+            columns: ["transaction_id"];
+            isOneToOne: false;
+            referencedRelation: "ledger_transactions";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ledger_entries_transaction_id_fkey";
+            columns: ["transaction_id"];
+            isOneToOne: false;
+            referencedRelation: "product_entitlements";
+            referencedColumns: ["purchase_id"];
+          },
+        ];
+      };
+      ledger_transactions: {
+        Row: {
+          access_ends_at: string | null;
+          access_starts_at: string | null;
+          account_id: string;
+          amount_pence: number;
+          created_at: string;
+          created_by: string | null;
+          external_ref: string | null;
+          id: string;
+          idempotency_key: string;
+          kind: string;
+          memo: string | null;
+          price_id: string | null;
+          product_id: string | null;
+          request_fingerprint: string;
+          reverses_transaction_id: string | null;
+          student_id: string | null;
+        };
+        Insert: {
+          access_ends_at?: string | null;
+          access_starts_at?: string | null;
+          account_id: string;
+          amount_pence: number;
+          created_at?: string;
+          created_by?: string | null;
+          external_ref?: string | null;
+          id?: string;
+          idempotency_key: string;
+          kind: string;
+          memo?: string | null;
+          price_id?: string | null;
+          product_id?: string | null;
+          request_fingerprint: string;
+          reverses_transaction_id?: string | null;
+          student_id?: string | null;
+        };
+        Update: {
+          access_ends_at?: string | null;
+          access_starts_at?: string | null;
+          account_id?: string;
+          amount_pence?: number;
+          created_at?: string;
+          created_by?: string | null;
+          external_ref?: string | null;
+          id?: string;
+          idempotency_key?: string;
+          kind?: string;
+          memo?: string | null;
+          price_id?: string | null;
+          product_id?: string | null;
+          request_fingerprint?: string;
+          reverses_transaction_id?: string | null;
+          student_id?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "ledger_transactions_account_id_fkey";
+            columns: ["account_id"];
+            isOneToOne: false;
+            referencedRelation: "billing_accounts";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ledger_transactions_price_id_fkey";
+            columns: ["price_id"];
+            isOneToOne: false;
+            referencedRelation: "product_prices";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ledger_transactions_product_id_fkey";
+            columns: ["product_id"];
+            isOneToOne: false;
+            referencedRelation: "products";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ledger_transactions_reverses_transaction_id_fkey";
+            columns: ["reverses_transaction_id"];
+            isOneToOne: true;
+            referencedRelation: "ledger_transactions";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ledger_transactions_reverses_transaction_id_fkey";
+            columns: ["reverses_transaction_id"];
+            isOneToOne: true;
+            referencedRelation: "product_entitlements";
+            referencedColumns: ["purchase_id"];
+          },
+        ];
+      };
       mcq_attempts: {
         Row: {
           answers: Json;
@@ -977,6 +1181,129 @@ export type Database = {
           student_id?: string;
         };
         Relationships: [];
+      };
+      product_modules: {
+        Row: {
+          board: Database["public"]["Enums"]["board"] | null;
+          created_at: string;
+          id: string;
+          level: Database["public"]["Enums"]["level"];
+          product_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+        };
+        Insert: {
+          board?: Database["public"]["Enums"]["board"] | null;
+          created_at?: string;
+          id?: string;
+          level: Database["public"]["Enums"]["level"];
+          product_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+        };
+        Update: {
+          board?: Database["public"]["Enums"]["board"] | null;
+          created_at?: string;
+          id?: string;
+          level?: Database["public"]["Enums"]["level"];
+          product_id?: string;
+          subject?: Database["public"]["Enums"]["subject"];
+        };
+        Relationships: [
+          {
+            foreignKeyName: "product_modules_product_id_fkey";
+            columns: ["product_id"];
+            isOneToOne: false;
+            referencedRelation: "products";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      product_prices: {
+        Row: {
+          access_days: number | null;
+          active: boolean;
+          amount_pence: number;
+          billing_interval: string | null;
+          created_at: string;
+          currency: string;
+          id: string;
+          product_id: string;
+          stripe_price_id: string | null;
+        };
+        Insert: {
+          access_days?: number | null;
+          active?: boolean;
+          amount_pence: number;
+          billing_interval?: string | null;
+          created_at?: string;
+          currency?: string;
+          id?: string;
+          product_id: string;
+          stripe_price_id?: string | null;
+        };
+        Update: {
+          access_days?: number | null;
+          active?: boolean;
+          amount_pence?: number;
+          billing_interval?: string | null;
+          created_at?: string;
+          currency?: string;
+          id?: string;
+          product_id?: string;
+          stripe_price_id?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "product_prices_product_id_fkey";
+            columns: ["product_id"];
+            isOneToOne: false;
+            referencedRelation: "products";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      products: {
+        Row: {
+          access_tier: string;
+          active: boolean;
+          created_at: string;
+          description: string | null;
+          id: string;
+          name: string;
+          slug: string;
+          sort_order: number;
+          updated_at: string;
+        };
+        Insert: {
+          access_tier: string;
+          active?: boolean;
+          created_at?: string;
+          description?: string | null;
+          id?: string;
+          name: string;
+          slug: string;
+          sort_order?: number;
+          updated_at?: string;
+        };
+        Update: {
+          access_tier?: string;
+          active?: boolean;
+          created_at?: string;
+          description?: string | null;
+          id?: string;
+          name?: string;
+          slug?: string;
+          sort_order?: number;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "products_access_tier_fkey";
+            columns: ["access_tier"];
+            isOneToOne: false;
+            referencedRelation: "access_tiers";
+            referencedColumns: ["code"];
+          },
+        ];
       };
       profiles: {
         Row: {
@@ -2055,9 +2382,149 @@ export type Database = {
       };
     };
     Views: {
-      [_ in never]: never;
+      product_entitlements: {
+        Row: {
+          account_id: string | null;
+          ends_at: string | null;
+          is_current: boolean | null;
+          price_id: string | null;
+          product_id: string | null;
+          purchase_id: string | null;
+          purchased_at: string | null;
+          starts_at: string | null;
+          student_id: string | null;
+        };
+        Insert: {
+          account_id?: string | null;
+          ends_at?: string | null;
+          is_current?: never;
+          price_id?: string | null;
+          product_id?: string | null;
+          purchase_id?: string | null;
+          purchased_at?: string | null;
+          starts_at?: string | null;
+          student_id?: string | null;
+        };
+        Update: {
+          account_id?: string | null;
+          ends_at?: string | null;
+          is_current?: never;
+          price_id?: string | null;
+          product_id?: string | null;
+          purchase_id?: string | null;
+          purchased_at?: string | null;
+          starts_at?: string | null;
+          student_id?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "ledger_transactions_account_id_fkey";
+            columns: ["account_id"];
+            isOneToOne: false;
+            referencedRelation: "billing_accounts";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ledger_transactions_price_id_fkey";
+            columns: ["price_id"];
+            isOneToOne: false;
+            referencedRelation: "product_prices";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ledger_transactions_product_id_fkey";
+            columns: ["product_id"];
+            isOneToOne: false;
+            referencedRelation: "products";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
     };
     Functions: {
+      ledger_adjust: {
+        Args: {
+          p_amount_pence: number;
+          p_idempotency_key: string;
+          p_memo: string;
+          p_owner_id: string;
+        };
+        Returns: {
+          balance_pence: number;
+          replayed: boolean;
+          transaction_id: string;
+        }[];
+      };
+      ledger_grant_credit: {
+        Args: {
+          p_amount_pence: number;
+          p_idempotency_key: string;
+          p_memo?: string;
+          p_owner_id: string;
+        };
+        Returns: {
+          balance_pence: number;
+          replayed: boolean;
+          transaction_id: string;
+        }[];
+      };
+      ledger_purchase_with_credit: {
+        Args: {
+          p_idempotency_key: string;
+          p_price_id: string;
+          p_student_id: string;
+        };
+        Returns: {
+          balance_pence: number;
+          replayed: boolean;
+          transaction_id: string;
+        }[];
+      };
+      ledger_record_card_purchase: {
+        Args: {
+          p_amount_pence: number;
+          p_external_ref: string;
+          p_idempotency_key: string;
+          p_memo?: string;
+          p_payer_id: string;
+          p_period_end?: string;
+          p_period_start?: string;
+          p_price_id: string;
+          p_student_id: string;
+        };
+        Returns: {
+          balance_pence: number;
+          replayed: boolean;
+          transaction_id: string;
+        }[];
+      };
+      ledger_refund: {
+        Args: {
+          p_destination: string;
+          p_external_ref?: string;
+          p_idempotency_key: string;
+          p_memo?: string;
+          p_transaction_id: string;
+        };
+        Returns: {
+          balance_pence: number;
+          replayed: boolean;
+          transaction_id: string;
+        }[];
+      };
+      my_credit_balance: { Args: never; Returns: number };
+      my_entitlements: {
+        Args: never;
+        Returns: {
+          ends_at: string;
+          is_current: boolean;
+          product_id: string;
+          purchase_id: string;
+          purchased_at: string;
+          starts_at: string;
+          student_id: string;
+        }[];
+      };
       reorder_student_topics: {
         Args: {
           _subject: Database["public"]["Enums"]["subject"];

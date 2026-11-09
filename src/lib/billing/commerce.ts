@@ -2,10 +2,11 @@
  * Types for the products catalogue and the money ledger, matching
  * supabase/migrations/20261108120000_commercial_ledger.sql column for column.
  *
- * Hand-written for now: nothing in the app reads these tables yet, and the
- * generated `src/integrations/supabase/types.ts` follows the live database.
- * Once the migration is applied, regenerate that file and these row types can
- * be swapped for `Tables<"products">` and friends.
+ * The generated `src/integrations/supabase/types.ts` has these tables too
+ * (added 9 Nov 2026, when the migration was applied), with the same columns.
+ * These types are narrower: kinds and intervals are the CHECK lists rather
+ * than plain strings, and my_entitlements().ends_at may be null (access for
+ * good), which the generator can't see.
  *
  * The string lists below mirror the CHECK constraints; the migration's test
  * (scripts/test-commercial-ledger-db.ts) fails if the two ever drift apart.
