@@ -54,12 +54,13 @@ def api(url, key, method, path, body=None, prefer="return=minimal"):
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--write", action="store_true")
+    ap.add_argument("--final", action="append", help="pick files in out/ (default: final.json final2.json)")
     args = ap.parse_args()
 
     url = os.environ["SUPABASE_URL"].rstrip("/")
     key = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
     final = []
-    for name in ("final.json", "final2.json"):
+    for name in args.final or ("final.json", "final2.json"):
         path = os.path.join(OUT, name)
         if os.path.exists(path):
             final += json.load(open(path))
