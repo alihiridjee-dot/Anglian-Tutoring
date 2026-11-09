@@ -67,11 +67,12 @@ await db.exec(
   ),
 );
 // The reorder as production runs it now: points from another course are not
-// re-sent (test-reorder-after-board-change-db.ts), and break weeks are left as
-// they are (test-reorder-on-a-break-db.ts). Everything below must hold.
+// re-sent (test-reorder-after-board-change-db.ts), break weeks are left as
+// they are (test-reorder-on-a-break-db.ts), and the course is read once
+// (test-reorder-reads-course-once-db.ts). Everything below must hold.
 await db.exec(
   await readFile(
-    new URL("../supabase/migrations/20261007112100_reorder_skips_break_weeks.sql", import.meta.url),
+    new URL("../supabase/migrations/20261109165500_reorder_reads_course_once.sql", import.meta.url),
     "utf8",
   ),
 );
