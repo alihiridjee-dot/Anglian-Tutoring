@@ -26,6 +26,8 @@ const ARROW_ROOM = 30;
 const LINE_GAP = 8;
 /** How far the highlight stands off its characters. */
 const PAD = 2;
+/** A formula too long to point at shrinks this far, in steps, before the labels become a list. */
+const MIN_FONT_PX = 17;
 
 const INK = "text-[color-mix(in_oklab,var(--tint)_75%,var(--foreground))]";
 
@@ -89,13 +91,17 @@ export function LabelledFormula({
   const text = useRef<HTMLParagraphElement>(null);
   const tags = useRef<(HTMLSpanElement | null)[]>([]);
   const [drawn, setDrawn] = useState<Drawn | "list" | null>(null);
+  // Set while a long formula is drawn smaller to fit (a word equation on a phone).
+  const [fontPx, setFontPx] = useState<number | null>(null);
+  const fittedAt = useRef(0);
   const head = `arrowhead${useId().replace(/:/g, "")}`;
 
-  // Each arrow's characters, and whether they are small and low, small and high, or neither.
-  const parts = useMemo(() => {
+  // Each arrow's characters, and whether they are small and low, small and high, or
+  // neither; and the formula as drawn, each pointed-at phrase kept on one line.
+  const { parts, drawnText } = useMemo(() => {
     const shown = toSciNotation(formula);
     // The page draws `shown`; the arrows count characters in `formula`, so they must line up.
-    if (shown.length !== formula.length) return null;
+    if (shown.length !== formula.length) return { parts: null, drawnText: formula };
     const out = arrows.map((a) => {
       const span = arrowSpan(formula, a);
       if ("problem" in span) return null;
@@ -107,14 +113,19 @@ export function LabelledFormula({
           : "plain";
       return { ...span, script };
     });
-    return out.every((p) => p != null) ? out : null;
+    if (!out.every((p) => p != null)) return { parts: null, drawnText: formula };
+    // A no-break space for a space, one character for one, so the counts still line up.
+    const chars = formula.split("");
+    for (const p of out)
+      for (let i = p.start; i < p.end; i++) if (chars[i] === " ") chars[i] = "\u00a0";
+    return { parts: out, drawnText: chars.join("") };
   }, [formula, arrows]);
 
   useLayoutEffect(() => {
     const el = box.current;
     const f = text.current;
     if (!parts || !el || !f) return;
-    const expected = sciRuns(formula)
+    const expected = sciRuns(drawnText)
       .map((r) => r.text)
       .join("");
     const show = (next: Drawn | "list") =>
@@ -123,6 +134,8 @@ export function LabelledFormula({
     const measure = () => {
       if (f.textContent !== expected) return show("list");
       const width = el.clientWidth;
+      // A new width (a phone turned round): start again at full size.
+      if (fontPx != null && width !== fittedAt.current) return setFontPx(null);
       const fr = f.getBoundingClientRect();
       const style = getComputedStyle(f);
       const lh = parseFloat(style.lineHeight) || parseFloat(style.fontSize) * 1.2;
@@ -140,7 +153,15 @@ export function LabelledFormula({
         parts.map((p, i) => ({ ...p, line: onLine[i] })),
         lines,
       );
-      if (!sides) return show("list");
+      if (!sides) {
+        // No arrow can reach a part on a middle line: try the formula smaller first.
+        const size = parseFloat(style.fontSize);
+        if (size > MIN_FONT_PX) {
+          fittedAt.current = width;
+          return setFontPx(Math.max(MIN_FONT_PX, Math.floor(size * 0.85)));
+        }
+        return show("list");
+      }
 
       // A raised or lowered number (²³⁸, ₉₂) can stand out past the line, so
       // the labels are measured from the highest and lowest highlight.
@@ -201,11 +222,11 @@ export function LabelledFormula({
       live = false;
       watch.disconnect();
     };
-  }, [formula, parts]);
+  }, [drawnText, parts, fontPx]);
 
   const formulaText = (
-    <p ref={text} className={className}>
-      <SciText text={formula} />
+    <p ref={text} className={className} style={fontPx ? { fontSize: fontPx } : undefined}>
+      <SciText text={drawnText} />
     </p>
   );
 
@@ -222,6 +243,7 @@ export function LabelledFormula({
     <div>
       <div
         ref={box}
+        data-arrows={arrowsDrawn ? "drawn" : (drawn ?? "measuring")}
         className={`relative ${INK}`}
         style={{ paddingTop: arrowsDrawn?.above ?? 0, paddingBottom: arrowsDrawn?.below ?? 0 }}
       >
