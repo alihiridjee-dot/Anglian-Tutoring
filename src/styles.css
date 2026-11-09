@@ -2273,3 +2273,861 @@ body {
     display: none;
   }
 }
+
+/* Tutor cards (TutorsSection.tsx). Each card is dealt onto the page as it
+   scrolls into view and turns over (the kit's flip card) into a short chat
+   that hands off to WhatsApp. The photo carries three emoji stickers you can
+   pull off, and a speech bubble that types; the name gets a drawn underline
+   and every fact's emoji has its own move.
+
+   Every rule states the finished look first. A card only hides for its
+   entrance once the script has marked it `data-armed` (it started below the
+   fold), and plays it when `data-in` turns true, so without the script, or
+   with motion turned off, the card is simply there. */
+.tutor-card {
+  translate: 0 0;
+  transition: translate 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.tutor-card[data-armed]:not([data-in="true"]) {
+  opacity: 0;
+}
+.tutor-card[data-armed][data-in="true"] {
+  animation: tutor-deal 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) var(--deal-delay, 0s) both;
+}
+@keyframes tutor-deal {
+  from {
+    opacity: 0;
+    transform: translateY(70px) rotate(var(--deal, 0deg)) scale(0.92);
+  }
+  45% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (hover: hover) {
+  .tutor-card:not([data-flipped="true"]):hover {
+    translate: 0 -6px;
+  }
+}
+/* Both faces wear the card washed in the tutor's colour, a step off the page. */
+.premium-card.tutor-face {
+  background: color-mix(in oklab, var(--tint) 6%, var(--card));
+  box-shadow: var(--lift-3);
+}
+
+/* The photo, leaning a little until the card is pointed at. */
+.tutor-stage {
+  position: relative;
+  margin: 0.5rem 0.625rem 2.625rem;
+}
+.tutor-photo {
+  --rot: var(--tilt, 0deg);
+  aspect-ratio: 4 / 5;
+  border-radius: 1.25rem;
+  background-color: var(--secondary);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 12px 12px 0 0 color-mix(in oklab, var(--tint) 28%, var(--card));
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) rotate(var(--rot))
+    scale(var(--squish, 1));
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.tutor-photo:active {
+  --squish: 0.96;
+}
+.tutor-card:hover .tutor-photo {
+  --rot: 0deg;
+}
+
+.tutor-sticker {
+  position: absolute;
+  z-index: 2;
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.tutor-sticker[data-dragging] {
+  z-index: 10;
+  cursor: grabbing;
+  transition: none;
+}
+.tutor-sticker:focus-visible {
+  outline: none;
+}
+.tutor-sticker:focus-visible .tutor-sticker-face {
+  outline: 3px solid color-mix(in oklab, var(--tint) 70%, var(--primary-deep));
+  outline-offset: 3px;
+}
+.tutor-sticker-face {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--card);
+  font-size: 1.95rem;
+  line-height: 1;
+  box-shadow:
+    0 4px 0 0 color-mix(in oklab, var(--tint) 34%, transparent),
+    0 12px 22px -12px color-mix(in oklab, var(--tint) 70%, transparent);
+  transform: rotate(-6deg);
+}
+.tutor-card[data-armed]:not([data-in="true"]) .tutor-sticker-face {
+  transform: scale(0);
+}
+.tutor-card:is(:not([data-armed]), [data-in="true"]) .tutor-sticker-face {
+  animation:
+    tutor-stamp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) var(--stick-delay) both,
+    tutor-bob 3.2s ease-in-out calc(var(--stick-delay) + 0.6s) infinite alternate;
+}
+@keyframes tutor-stamp {
+  from {
+    transform: scale(0) rotate(-40deg);
+  }
+  to {
+    transform: scale(1) rotate(-6deg);
+  }
+}
+@keyframes tutor-bob {
+  from {
+    transform: translateY(0) rotate(-6deg);
+  }
+  to {
+    transform: translateY(-9px) rotate(6deg);
+  }
+}
+.tutor-sticker-1 {
+  --stick-delay: 0.45s;
+  top: 44%;
+  left: -30px;
+}
+.tutor-sticker-2 {
+  --stick-delay: 0.6s;
+  top: -22px;
+  right: -22px;
+}
+.tutor-sticker-3 {
+  --stick-delay: 0.75s;
+  bottom: -26px;
+  left: 16%;
+}
+.tutor-card:hover .tutor-sticker-1:not([data-dragging]) {
+  transform: translate(-12px, 4px) rotate(-14deg) scale(1.08);
+}
+.tutor-card:hover .tutor-sticker-2:not([data-dragging]) {
+  transform: translate(10px, -10px) rotate(14deg) scale(1.08);
+}
+.tutor-card:hover .tutor-sticker-3:not([data-dragging]) {
+  transform: translate(-6px, 10px) rotate(-10deg) scale(1.08);
+}
+
+/* What a sticker says: beside it, pointing back at it. */
+.tutor-tip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 10px);
+  z-index: 6;
+  padding: 0.625rem 0.8rem;
+  border-radius: 14px 14px 14px 4px;
+  background: var(--foreground);
+  color: var(--card);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0);
+  transform-origin: 0 50%;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.tutor-sticker-2 .tutor-tip {
+  left: auto;
+  right: calc(100% + 10px);
+  border-radius: 14px 14px 4px 14px;
+  transform-origin: 100% 50%;
+}
+.tutor-sticker[data-talking],
+.tutor-sticker:focus-visible {
+  z-index: 7;
+}
+.tutor-sticker[data-talking] .tutor-tip,
+.tutor-sticker:focus-visible .tutor-tip {
+  transform: translateY(-50%) scale(1);
+}
+@media (hover: hover) {
+  .tutor-sticker:not([data-dragging]):hover {
+    z-index: 7;
+  }
+  .tutor-sticker:not([data-dragging]):hover .tutor-tip {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* The speech bubble on the photo. */
+.tutor-bubble {
+  position: absolute;
+  right: -26px;
+  bottom: 64px;
+  z-index: 3;
+  max-width: 236px;
+  min-height: 46px;
+  padding: 0.8rem 1.05rem;
+  border-radius: 20px 20px 20px 6px;
+  background: var(--card);
+  color: var(--foreground);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.4;
+  pointer-events: none;
+  box-shadow:
+    0 4px 0 0 color-mix(in oklab, var(--tint) 30%, transparent),
+    0 16px 30px -14px color-mix(in oklab, var(--foreground) 40%, transparent);
+  transform-origin: 0 100%;
+  transform: scale(0);
+  opacity: 0;
+  transition:
+    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.2s ease;
+}
+.tutor-bubble[data-show="true"] {
+  transform: none;
+  opacity: 1;
+}
+.tutor-bubble-text {
+  white-space: pre-line;
+  animation: tutor-fade-up 0.3s ease;
+}
+@keyframes tutor-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+}
+.tutor-dots {
+  display: inline-flex;
+  gap: 5px;
+  padding: 6px 2px;
+}
+.tutor-dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--tint) 70%, var(--primary-deep));
+  animation: tutor-dot 1s ease-in-out infinite;
+}
+.tutor-dots i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.tutor-dots i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@keyframes tutor-dot {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  40% {
+    transform: translateY(-5px);
+    opacity: 1;
+  }
+}
+
+/* The name, underlined by hand. Short names still get a full wave. */
+.tutor-name {
+  position: relative;
+  display: inline-block;
+}
+.tutor-squiggle {
+  position: absolute;
+  left: -2px;
+  bottom: -9px;
+  width: max(calc(100% + 4px), 110px);
+  height: 12px;
+  overflow: visible;
+}
+.tutor-squiggle path {
+  --line-len: 1;
+  fill: none;
+  stroke: color-mix(in oklab, var(--tint) 80%, var(--card));
+  stroke-width: 4;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+}
+.tutor-card[data-armed]:not([data-in="true"]) .tutor-squiggle path {
+  stroke-dashoffset: 1;
+}
+.tutor-card:is(:not([data-armed]), [data-in="true"]) .tutor-squiggle path {
+  animation: line-draw 0.7s ease-out 0.75s both;
+}
+.tutor-role {
+  color: color-mix(in oklab, var(--tint) 75%, var(--primary-deep));
+}
+
+/* The facts slide in one by one, each emoji popping as its line lands. */
+.tutor-facts li {
+  display: grid;
+  grid-template-columns: 1.875rem minmax(0, 1fr);
+  gap: 0.625rem;
+  align-items: start;
+  color: var(--foreground);
+  font-size: 0.97rem;
+  font-weight: 600;
+  line-height: 1.45;
+  transition:
+    opacity 0.4s ease calc(0.9s + var(--i) * 0.08s),
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) calc(0.9s + var(--i) * 0.08s);
+}
+.tutor-card[data-armed]:not([data-in="true"]) .tutor-facts li {
+  opacity: 0;
+  transform: translateX(-14px);
+}
+.tutor-fact-emoji {
+  display: inline-block;
+  font-size: 1.3rem;
+  line-height: 1.1;
+  text-align: center;
+}
+.tutor-fact-emoji i {
+  display: inline-block;
+  font-style: normal;
+}
+.tutor-card[data-armed]:not([data-in="true"]) .tutor-fact-emoji {
+  transform: scale(0);
+}
+.tutor-card[data-armed][data-in="true"] .tutor-fact-emoji {
+  animation: tutor-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) calc(1s + var(--i) * 0.08s) both;
+}
+@keyframes tutor-pop {
+  from {
+    transform: scale(0) rotate(-30deg);
+  }
+  to {
+    transform: none;
+  }
+}
+.tutor-count {
+  color: color-mix(in oklab, var(--tint) 75%, var(--primary-deep));
+  font-size: 1.05em;
+}
+/* Each emoji's own move: pointed at, or tapped (`data-play`) on a phone. */
+@media (hover: hover) {
+  .tutor-facts li:hover [data-trick="beat"] {
+    animation: tutor-beat 0.9s ease-in-out;
+  }
+  .tutor-facts li:hover [data-trick="flip"] {
+    animation: tutor-flip 0.7s ease-in-out;
+  }
+  .tutor-facts li:hover [data-trick="think"] {
+    animation: tutor-think 0.8s ease-in-out;
+  }
+  .tutor-facts li:hover [data-trick="toss"] {
+    animation: tutor-toss 1s ease-in-out;
+  }
+  .tutor-facts li:hover [data-trick="ring"] {
+    animation: tutor-ring 0.7s ease-in-out;
+  }
+  .tutor-facts li:hover [data-trick="swing"] {
+    animation: tutor-swing 1s ease-in-out;
+  }
+  .tutor-facts li:hover [data-trick="fizz"] {
+    animation: tutor-fizz 0.7s ease-in-out;
+  }
+}
+.tutor-facts li[data-play] [data-trick="beat"] {
+  animation: tutor-beat 0.9s ease-in-out;
+}
+.tutor-facts li[data-play] [data-trick="flip"] {
+  animation: tutor-flip 0.7s ease-in-out;
+}
+.tutor-facts li[data-play] [data-trick="think"] {
+  animation: tutor-think 0.8s ease-in-out;
+}
+.tutor-facts li[data-play] [data-trick="toss"] {
+  animation: tutor-toss 1s ease-in-out;
+}
+.tutor-facts li[data-play] [data-trick="ring"] {
+  animation: tutor-ring 0.7s ease-in-out;
+}
+.tutor-facts li[data-play] [data-trick="swing"] {
+  animation: tutor-swing 1s ease-in-out;
+}
+.tutor-facts li[data-play] [data-trick="fizz"] {
+  animation: tutor-fizz 0.7s ease-in-out;
+}
+[data-trick="swing"] {
+  transform-origin: 50% 0;
+}
+@keyframes tutor-beat {
+  0%,
+  60%,
+  100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.35);
+  }
+  30% {
+    transform: scale(1.05);
+  }
+  45% {
+    transform: scale(1.3);
+  }
+}
+@keyframes tutor-flip {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes tutor-think {
+  0%,
+  100% {
+    transform: none;
+  }
+  25% {
+    transform: rotate(-14deg) scale(1.2);
+  }
+  50% {
+    transform: rotate(12deg) scale(1.2);
+  }
+  75% {
+    transform: rotate(-6deg) scale(1.1);
+  }
+}
+@keyframes tutor-toss {
+  0% {
+    transform: none;
+  }
+  40% {
+    transform: translateY(-30px) rotate(-200deg);
+  }
+  70% {
+    transform: rotate(-360deg);
+  }
+  82% {
+    transform: translateY(-6px) rotate(-360deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes tutor-ring {
+  0%,
+  100% {
+    transform: none;
+  }
+  15%,
+  45%,
+  75% {
+    transform: rotate(-18deg);
+  }
+  30%,
+  60%,
+  90% {
+    transform: rotate(18deg);
+  }
+}
+@keyframes tutor-swing {
+  0%,
+  100% {
+    transform: none;
+  }
+  20% {
+    transform: rotate(28deg);
+  }
+  45% {
+    transform: rotate(-20deg);
+  }
+  65% {
+    transform: rotate(12deg);
+  }
+  85% {
+    transform: rotate(-5deg);
+  }
+}
+@keyframes tutor-fizz {
+  0%,
+  100% {
+    transform: none;
+  }
+  20% {
+    transform: translate(-3px, -2px) rotate(-10deg);
+  }
+  40% {
+    transform: translate(3px, -4px) rotate(10deg);
+  }
+  60% {
+    transform: translate(-2px, -3px) rotate(-6deg);
+  }
+  80% {
+    transform: translate(2px, -1px) rotate(4deg);
+  }
+}
+
+/* The agencies: crests stacked like coins, fanning out when pointed at. */
+.tutor-agencies {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.625rem;
+}
+.tutor-crests {
+  display: flex;
+  flex-shrink: 0;
+  padding-left: 10px;
+}
+.tutor-crests > span {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-left: -10px;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--tint) 6%, var(--card)),
+    0 4px 0 2px color-mix(in oklab, var(--tint) 26%, transparent);
+  transition:
+    opacity 0.3s ease,
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    margin 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.tutor-crests img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+.tutor-card[data-armed]:not([data-in="true"]) .tutor-crests > span {
+  opacity: 0;
+  transform: scale(0.4) rotate(-30deg);
+}
+.tutor-card[data-armed][data-in="true"] .tutor-crests > span:nth-child(1) {
+  transition-delay: 1.35s, 1.35s, 0s;
+}
+.tutor-card[data-armed][data-in="true"] .tutor-crests > span:nth-child(2) {
+  transition-delay: 1.45s, 1.45s, 0s;
+}
+.tutor-card[data-armed][data-in="true"] .tutor-crests > span:nth-child(3) {
+  transition-delay: 1.55s, 1.55s, 0s;
+}
+.tutor-agencies:hover .tutor-crests > span {
+  margin-left: 4px;
+  transition-delay: 0s;
+}
+.tutor-agencies:hover .tutor-crests > span:nth-child(odd) {
+  transform: translateY(-4px) rotate(-8deg);
+}
+.tutor-agencies:hover .tutor-crests > span:nth-child(even) {
+  transform: translateY(-4px) rotate(8deg);
+}
+.tutor-agency-names {
+  color: color-mix(in oklab, var(--tint) 75%, var(--primary-deep));
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.tutor-chat-emoji {
+  display: inline-block;
+  font-size: 1.2rem;
+}
+.tutor-chat-button:hover .tutor-chat-emoji {
+  animation: tutor-wiggle 0.5s ease-in-out;
+}
+@keyframes tutor-wiggle {
+  0%,
+  100% {
+    transform: none;
+  }
+  25% {
+    transform: rotate(-16deg) scale(1.15);
+  }
+  50% {
+    transform: rotate(12deg) scale(1.15);
+  }
+  75% {
+    transform: rotate(-6deg);
+  }
+}
+
+/* The back: a chat laid over the whole face, so it never makes the card
+   taller than its front. */
+.tutor-chat {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+.tutor-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 0.375rem;
+}
+.tutor-avatar {
+  width: 144px;
+  height: 144px;
+  border: 5px solid var(--card);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  box-shadow: 0 5px 0 0 color-mix(in oklab, var(--tint) 30%, transparent);
+}
+/* The card's three stickers circle the avatar. */
+.tutor-orbit {
+  position: absolute;
+  inset: 0;
+  animation: tutor-spin 16s linear infinite;
+}
+.tutor-orbit b {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin: -21px 0 0 -21px;
+  border-radius: 50%;
+  background: var(--card);
+  font-size: 1.375rem;
+  box-shadow: 0 3px 0 0 color-mix(in oklab, var(--tint) 30%, transparent);
+  animation: tutor-spin 16s linear infinite reverse;
+}
+.tutor-orbit b:nth-child(1) {
+  left: 50%;
+  top: 4%;
+}
+.tutor-orbit b:nth-child(2) {
+  left: 89%;
+  top: 72%;
+}
+.tutor-orbit b:nth-child(3) {
+  left: 11%;
+  top: 72%;
+}
+@keyframes tutor-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.tutor-thread {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.625rem;
+  min-height: 0;
+  padding: 1rem;
+  overflow-y: auto;
+}
+/* Messages sit at the foot of the thread, as in any chat, and stay
+   scrollable once there are more than fit. */
+.tutor-thread > :first-child {
+  margin-top: auto;
+}
+.tutor-msg-in,
+.tutor-msg-out {
+  max-width: 86%;
+  padding: 0.75rem 1rem;
+  font-size: 0.97rem;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.tutor-msg-in {
+  align-self: flex-start;
+  border-radius: 18px 18px 18px 6px;
+  background: var(--card);
+  color: var(--foreground);
+  box-shadow: 0 2px 0 0 color-mix(in oklab, var(--tint) 18%, transparent);
+}
+.tutor-msg-out {
+  align-self: flex-end;
+  border-radius: 18px 18px 6px 18px;
+  background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+  color: var(--primary-foreground);
+  white-space: pre-line;
+  animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.tutor-asks {
+  display: grid;
+  justify-items: end;
+  gap: 0.5rem;
+}
+.tutor-ask.btn-soft {
+  border-radius: 18px 18px 6px 18px;
+  text-align: right;
+  opacity: 0;
+  transform: translateY(8px) scale(0.9);
+  transition:
+    opacity 0.3s ease,
+    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.15s ease;
+}
+.tutor-ask.btn-soft:hover {
+  background: color-mix(in oklab, var(--tint) 14%, var(--card));
+}
+.tutor-thread[data-said="true"] .tutor-ask {
+  opacity: 1;
+  transform: none;
+}
+.tutor-thread[data-said="true"] .tutor-ask:nth-child(1) {
+  transition-delay: 0.35s, 0.35s, 0s;
+}
+.tutor-thread[data-said="true"] .tutor-ask:nth-child(2) {
+  transition-delay: 0.5s, 0.5s, 0s;
+}
+.tutor-thread[data-said="true"] .tutor-ask:nth-child(3) {
+  transition-delay: 0.65s, 0.65s, 0s;
+}
+.tutor-note {
+  align-self: center;
+  color: #128c7e;
+  font-size: 0.9375rem;
+  font-weight: 800;
+}
+
+/* The heading: a highlighter stroke under "expert", and a hand that waves. */
+.tutor-highlight {
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+.tutor-highlight::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -6px;
+  right: -8px;
+  bottom: 4%;
+  height: 44%;
+  border-radius: 6px;
+  background: color-mix(in oklab, var(--pop) 70%, var(--card));
+  transform: scaleX(0) rotate(-1.5deg);
+  transform-origin: left center;
+  transition: transform 0.7s cubic-bezier(0.6, 0, 0.2, 1) 0.35s;
+}
+[data-lit="true"] .tutor-highlight::before {
+  transform: scaleX(1) rotate(-1.5deg);
+}
+.tutor-wave {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  transform-origin: 70% 75%;
+  animation: tutor-wave 2.6s ease-in-out infinite;
+}
+.tutor-wave[data-go] {
+  animation: tutor-wave 0.9s ease-in-out 2;
+}
+@keyframes tutor-wave {
+  0%,
+  60%,
+  100% {
+    transform: none;
+  }
+  10%,
+  30% {
+    transform: rotate(16deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+/* Science doodles in the margins, drawn in once the section is on screen. */
+.tutor-doodles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.tutor-doodle {
+  position: absolute;
+}
+.tutor-doodle svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  animation: tutor-drift 7s ease-in-out var(--drift, 0s) infinite alternate;
+}
+.tutor-doodle svg * {
+  --line-len: 1;
+  fill: none;
+  stroke: color-mix(in oklab, var(--tint) 40%, var(--card));
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+}
+.tutor-doodle .tutor-doodle-dot {
+  fill: color-mix(in oklab, var(--tint) 40%, var(--card));
+  stroke: none;
+}
+.tutors-section:not([data-lit="true"]) .tutor-doodle svg * {
+  stroke-dashoffset: 1;
+}
+[data-lit="true"] .tutor-doodle svg * {
+  animation: line-draw 1.4s ease-out var(--draw, 0.2s) both;
+}
+@keyframes tutor-drift {
+  from {
+    transform: translateY(0) rotate(-6deg);
+  }
+  to {
+    transform: translateY(-14px) rotate(6deg);
+  }
+}
+
+/* One emoji of a burst (`burst()` in TutorsSection.tsx). */
+.tutor-burst {
+  position: fixed;
+  z-index: 70;
+  font-size: 26px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+@media (width < 48rem) {
+  .tutor-bubble {
+    right: -8px;
+  }
+  .tutor-sticker-1 {
+    left: -14px;
+  }
+  .tutor-sticker-2 {
+    right: -10px;
+  }
+  .tutor-chat {
+    padding: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tutor-card,
+  .tutor-card *,
+  .tutor-wave,
+  .tutor-highlight::before,
+  .tutor-doodle svg,
+  .tutor-doodle svg * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
