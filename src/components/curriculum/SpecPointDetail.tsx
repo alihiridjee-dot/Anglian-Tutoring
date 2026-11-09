@@ -13,6 +13,7 @@ import { VideoModal, VideoThumbnail } from "@/components/VideoPlayer";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { parseVideoUrl, type VideoEmbed } from "@/lib/curriculum/videoEmbed";
 import { SpecPointVideoEditor, type EditableVideo } from "@/components/tutor/SpecPointVideoEditor";
+import { PracticeRequest } from "@/components/curriculum/PracticeRequest";
 import { useSpecPointNotes } from "@/hooks/data/useNotes";
 import { Chip } from "@/components/Shared";
 import { formatWhen, joinClick, showsJoin } from "@/lib/live/liveSessions";
@@ -176,6 +177,10 @@ export function SpecPointDetail({
           </Link>
         </div>
       )}
+
+      {/* A student can ask for this point's MCQs and task, whatever week it
+          falls in. Never in the showcase: it has no session to ask with. */}
+      {!isTutor && !isDemoStudent() && <PracticeRequest pointId={point.id} onReady={reload} />}
 
       {loadFailed && (
         <EmptyState
