@@ -18,6 +18,7 @@ import { Chip } from "@/components/Shared";
 import { formatWhen, joinClick, showsJoin } from "@/lib/live/liveSessions";
 import { useNow } from "@/hooks/useNow";
 import { plannerDateLabel } from "@/lib/planner/week";
+import { retakeOpensAt } from "@/lib/mcq/retakeLock";
 import {
   Plus,
   Pencil,
@@ -34,6 +35,38 @@ import {
   CollapsibleResourceGroup,
   Empty,
 } from "@/components/curriculum/Collapsible";
+
+/** A quiz the student has taken: their best score, and when it opens again. */
+type TakenSet = { pct: number; opensAt: Date };
+
+/**
+ * The student's own attempts at these sets, read the way the MCQs page reads
+ * them: the best score, and the week lock from the latest attempt.
+ */
+async function readMyAttempts(userId: string, setIds: string[]): Promise<Record<string, TakenSet>> {
+  const { data, error } = await supabase
+    .from("mcq_attempts")
+    .select("set_id, score, total, created_at")
+    .eq("user_id", userId)
+    .in("set_id", setIds);
+  // Only the button's word rides on this. The quiz page reads the lock itself,
+  // so a failed read still opens a taken quiz as its review.
+  if (error) {
+    console.error("Error loading the student's attempts:", error);
+    return {};
+  }
+  const out: Record<string, TakenSet> = {};
+  for (const a of data ?? []) {
+    const pct = a.total > 0 ? Math.round((a.score / a.total) * 100) : 0;
+    const opensAt = retakeOpensAt(a.created_at);
+    const prev = out[a.set_id];
+    out[a.set_id] = {
+      pct: prev ? Math.max(prev.pct, pct) : pct,
+      opensAt: prev && prev.opensAt > opensAt ? prev.opensAt : opensAt,
+    };
+  }
+  return out;
+}
 
 export function SpecPointDetail({
   point,
@@ -52,6 +85,7 @@ export function SpecPointDetail({
   const { userId } = useRoles();
   const [resources, setResources] = useState<Resource[]>([]);
   const [mcqSets, setMcqSets] = useState<McqSet[]>([]);
+  const [taken, setTaken] = useState<Record<string, TakenSet>>({});
   const [genLoading, setGenLoading] = useState(false);
   const [replacingId, setReplacingId] = useState<string | null>(null);
   // `null` inside the object means "creating"; the outer null means closed.
@@ -75,9 +109,18 @@ export function SpecPointDetail({
     try {
       const { resources: resList, mcqSets: mList } =
         await CurriculumDAL.getResourcesAndMcqSets(point);
+      // A tutor's preview files nothing, and the showcase has no account.
+      const mine =
+        isTutor || !userId || isDemoStudent() || mList.length === 0
+          ? {}
+          : await readMyAttempts(
+              userId,
+              mList.map((s) => s.id),
+            );
       if (seq !== loadSeq.current) return;
       setResources(resList);
       setMcqSets(mList);
+      setTaken(mine);
       setLoadFailed(false);
     } catch (e) {
       console.error(e);
@@ -87,7 +130,7 @@ export function SpecPointDetail({
 
   useEffect(() => {
     reload(); /* eslint-disable-next-line */
-  }, [point.id, contentRev]);
+  }, [point.id, contentRev, userId]);
 
   const generate = async () => {
     setGenLoading(true);
@@ -213,6 +256,12 @@ export function SpecPointDetail({
                         {s.published ? "Published" : "Draft"}
                       </Chip>
                     )}
+                    {/* Their best score, as on the MCQs page's quiz card. */}
+                    {!isTutor && taken[s.id] && (
+                      <span className="chip chip-solid shrink-0">
+                        <span className="numeral">{taken[s.id].pct}%</span>
+                      </span>
+                    )}
                     <span className="text-sm font-semibold break-words min-w-0 text-foreground">
                       {s.title}
                     </span>
@@ -224,8 +273,15 @@ export function SpecPointDetail({
                         params={{ setId: s.id }}
                         className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-lg border border-border bg-background hover:border-primary/50 text-foreground font-medium transition"
                       >
-                        {/* Nothing is recorded for a tutor (TakeMcqPage). */}
-                        {isTutor ? "Preview" : "Take"}
+                        {/* Nothing is recorded for a tutor (TakeMcqPage). Inside
+                            the week a taken quiz opens as its review (retakeLock). */}
+                        {isTutor
+                          ? "Preview"
+                          : !taken[s.id]
+                            ? "Take"
+                            : taken[s.id].opensAt.getTime() > Date.now()
+                              ? "Review"
+                              : "Retake"}
                       </Link>
                     )}
                     {isTutor && (
