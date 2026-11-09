@@ -209,7 +209,7 @@ export function PricingSection() {
                 options={[
                   { value: "ks3", label: "KS3" },
                   { value: "gcse", label: "GCSE" },
-                  { value: "igcse", label: "International" },
+                  { value: "igcse", label: "IGCSE" },
                   { value: "alevel", label: "A-Level" },
                 ]}
                 value={level}
@@ -556,7 +556,7 @@ function Step({
 }
 
 /** Smooth sliding segmented toggle — a pill glides under the active option.
- *  Labels keep to one line, so a long one ("International") makes its slot
+ *  Labels keep to one line, so a long one ("A-Level") makes its slot
  *  wider than the rest; the pill therefore follows the active button's own
  *  measured box, falling back to equal slots before the first measurement
  *  (server render). */
