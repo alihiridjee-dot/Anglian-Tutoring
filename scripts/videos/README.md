@@ -24,6 +24,19 @@ python3 scripts/videos/apply.py --write         # write, with a manifest for the
 python3 scripts/videos/audit.py --sample 0      # read back and re-verify every link
 ```
 
+Dead links (a video deleted or made private after it was loaded):
+
+```bash
+python3 scripts/videos/dead.py --export         # every id checked twice → out/dead-videos.tsv, queued in points.json
+#   then harvest → match → review → merge as above
+python3 scripts/videos/replace_dead.py          # preview: each dead row and its replacement
+python3 scripts/videos/replace_dead.py --write  # swap in place, with an undo file
+python3 scripts/videos/apply.py --write         # the new points; it skips the swapped ones
+```
+
+`apply.py --final <file>` (repeatable) writes another round's picks, e.g.
+`--final final3.json` after a third search.
+
 Every stage is cached and resumable, so a re-run only pays for what changed.
 `export_points.py` lists the courses it fills in `TARGETS`; edit that list for
 another course. `out/` is gitignored.
@@ -82,3 +95,21 @@ On the 6 October IGCSE run the check kept 771 picks, switched 347 to a better
 runner-up and found nothing for 42. The second pass then searched again for
 those 42 with different wording. `REVIEW_BRIEF.md` is the checker's exact job:
 one agent per batch of about 60 points, on Sonnet.
+
+## Dead links
+
+A video can be deleted or made private after it is loaded, and the page still
+shows a player that will not play. On 8 November 2026, 40 videos had gone this
+way, on 51 spec points (39 A-level, 1 IGCSE). `dead.py` finds them and checks
+each failure a second time, so a YouTube blip is not reported as dead.
+
+A dead row is fixed **in place**: `replace_dead.py` keeps the row's id and
+changes its link, title, channel and length. Nothing that points at the row
+breaks. Deleting it and adding a new one would leave the point with no video
+between the two steps.
+
+The 8–9 November run fixed the 51 dead rows and filled 309 of the 340 A-level
+points that had no video. It took three searches. The third used queries
+written by hand for points whose wording is a formula ("pH = −log[H⁺]") or a
+skill ("identifying anomalies"). 31 points were left empty on purpose, because
+no video teaches them. Most are practical-skills and ethics points.
