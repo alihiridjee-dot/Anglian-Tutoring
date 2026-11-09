@@ -14,6 +14,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { noteFigureProblems } from "../../src/lib/notes/noteFigures";
 import { validateNote, type Note } from "../../src/lib/notes/noteFormat";
 import { toSciNotation } from "../../src/lib/platform/sciNotation";
 import { layerOf, loadConceptMap } from "./conceptMap";
@@ -50,7 +51,7 @@ for (const subject of ["biology", "chemistry", "physics"]) {
       failures++;
       continue;
     }
-    errs.push(...validateNote(note));
+    errs.push(...validateNote(note), ...noteFigureProblems(note));
     const concept = map.concepts.find((c) => c.id === note.concept_id);
     if (!concept) errs.push(`concept ${note.concept_id} is not in the ${subject} concept maps`);
     else {

@@ -3,6 +3,8 @@ import { evaluate, parseFormula } from "@/lib/notes/formula";
 import { Explorer, Practice, Punnett, Sequence, Sort } from "@/components/notes/NoteInteractives";
 import { ParticlesScene, RoadScene, WaveScene } from "@/components/notes/NoteScenes";
 import { ZoomableFigure } from "@/components/notes/ZoomableFigure";
+import { CANVAS_WIDTH } from "@/lib/figures/figure";
+import { drawNoteFigure } from "@/lib/notes/noteFigures";
 import {
   CircuitView,
   DiffusionView,
@@ -22,6 +24,7 @@ import {
   resultDecimals,
   sliderDecimals,
   type CompareDiagram,
+  type FigureDiagram,
   type FlowDiagram,
   type LineGraphDiagram,
   type Note,
@@ -659,7 +662,32 @@ function Slider({ d }: { d: SliderDiagram }) {
   );
 }
 
+/**
+ * A figure drawn and checked as exam-question figures are (lib/notes/noteFigures).
+ * One that doesn't pass shows nothing: a wrong picture is worse than none.
+ */
+function Figure({ d }: { d: FigureDiagram }) {
+  const drawn = useMemo(() => drawNoteFigure(d.brief), [d.brief]);
+  if ("problem" in drawn) {
+    if (import.meta.env.DEV) console.warn(`Note figure hidden: ${drawn.problem}`);
+    return null;
+  }
+  return (
+    <figure aria-label={d.alt} className="space-y-2">
+      {d.title ? (
+        <p className="font-display text-base font-extrabold">
+          <SciText text={d.title} />
+        </p>
+      ) : null}
+      <ZoomableFigure label={d.alt} naturalWidth={CANVAS_WIDTH}>
+        <div role="img" aria-label={d.alt} dangerouslySetInnerHTML={{ __html: drawn.svg }} />
+      </ZoomableFigure>
+    </figure>
+  );
+}
+
 function Diagram({ d }: { d: NoteDiagram }) {
+  if (d.kind === "figure") return <Figure d={d} />;
   if (d.kind === "line-graph") return <LineGraph d={d} />;
   if (d.kind === "flow") return <Flow d={d} />;
   if (d.kind === "predictor") return <Predictor d={d} />;

@@ -22,6 +22,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { noteFigureProblems } from "../../src/lib/notes/noteFigures";
 import { validateNote, type Note } from "../../src/lib/notes/noteFormat";
 import { loadConceptMap } from "./conceptMap";
 
@@ -142,7 +143,8 @@ for (const f of files) {
   const id = f.replace(/\.json$/, "");
   if (only && !only.has(id)) continue;
   const note: Note = JSON.parse(readFileSync(join(dir, f), "utf8"));
-  const errs = validateNote(note);
+  // A figure that does not draw and pass its check never goes live.
+  const errs = [...validateNote(note), ...noteFigureProblems(note)];
   if (!map.concepts.some((c) => c.id === note.concept_id))
     errs.push(`concept ${note.concept_id} is not in the map`);
   else if (!scopedIds.includes(note.concept_id)) continue;
