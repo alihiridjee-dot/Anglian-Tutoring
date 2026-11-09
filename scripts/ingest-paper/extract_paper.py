@@ -1012,7 +1012,7 @@ def _inside(r, band):
 # --------------------------------------------------------------------------
 
 HEADER_WORDS = [
-    ("question", r"Q(?:uestion|u\.)(?:\s*(?:Number|No\.?))?"),
+    ("question", r"Q(?:uestion?|ustion|u\.)(?:\s*(?:Number|No\.?))?"),
     ("answer", r"Answers?|Marking\s+guidance|Acceptable\s+answers?|Expected\s+answers?|Indicative\s+content|Key"),
     ("guidance", r"Additional\s+(?:guidance|comments?(?:\s*/\s*(?:guidance|guidelines))?)|Guidance|Guidelines"
                  r"|Comments?|Notes?|Extra\s+information"),
@@ -1056,7 +1056,33 @@ def table_rules(page):
     return vertical, horizontal
 
 
-def header_cells(lines):
+def headless_header(lines, vertical):
+    """Pearson can leave the question column's heading blank ("| | Answer |
+    Additional guidance | Mark |"). Such a row is a header too, and the ruled
+    column left of Answer is the question column."""
+    if isinstance(lines, Line):
+        lines = [lines]
+    # Headings, not guidance that names them ("2 marks max. if answer…").
+    text = " ".join(l.text for l in lines)
+    if re.search(r"\d", text) or not re.search(r"\bAnswers?\b", text) or not re.search(r"\bMarks?\b", text):
+        return None
+    cols = header_cells(lines, need_question=False)
+    if not cols or "question" in cols or "answer" not in cols or "marks" not in cols:
+        return None
+    top, bottom = min(l.v0 for l in lines), max(l.v1 for l in lines)
+    edges = []
+    for u in sorted(u for u, v0, v1 in vertical if v0 <= bottom + 4 and v1 >= top - 4):
+        if not edges or u - edges[-1] > 4:
+            edges.append(u)
+    # (A cell's border can be drawn twice a few points apart.)
+    left = [u for u in edges if u < cols["answer"][0] - 2]
+    if len(left) < 2 or left[-1] - left[0] < 20:
+        return None
+    cols["question"] = (left[0] + 1, left[-1] - 1)
+    return cols
+
+
+def header_cells(lines, need_question=True):
     """{column name: (u0, u1)} if these lines are a scheme table's header row.
 
     Matched over the whole row and mapped back to positions, because two
@@ -1091,6 +1117,8 @@ def header_cells(lines):
         cols[name] = (span.u0 + (span.u1 - span.u0) * frac0, span.u0 + (span.u1 - span.u0) * frac1)
     if "question" in cols and ("answer" in cols or "marks" in cols):
         return cols
+    if not need_question and cols:
+        return cols
     return None
 
 
@@ -1105,6 +1133,11 @@ def columns_for(header, lines, rules):
     named = sorted(header.items(), key=lambda kv: kv[1][0])
     top, bottom = min(l.v0 for l in lines), max(l.v1 for l in lines)
     us = sorted(u for u, v0, v1 in rules if v0 <= bottom + 4 and v1 >= top - 4)
+    # Where the header row is ruled itself, a table that starts just under it
+    # (in the first answer) lends it no columns.
+    crossing = sorted(u for u, v0, v1 in rules if min(v1, bottom) - max(v0, top) > 2)
+    if len({round(u / 5) for u in crossing}) >= 3:
+        us = crossing
     edges = []
     for u in us:
         if not edges or u - edges[-1] > 4:
@@ -1151,8 +1184,12 @@ def ms_key(board, qtext, last):
             return None
         q = int(m.group(1) + (m.group(2) or ""))
         return key_of(q, int(m.group(3)) if m.group(3) else None), (q, None), t[m.end():].strip()
-    # Edexcel can run letter and numeral together in one bracket: "1(ai)".
-    t = re.sub(r"^(\d{1,2})\s*\(([a-h])(i{1,3}|iv|vi{0,3}|ix)\)", r"\1(\2)(\3)", t)
+    # Edexcel can run letter and numeral together in one bracket: "1(ai)", "2(c i)",
+    # or drop a bracket: "2(b(ii)".
+    t = re.sub(r"^(\d{1,2})\s*\(([a-h])\s?(i{1,3}|iv|vi{0,3}|ix)\)", r"\1(\2)(\3)", t)
+    t = re.sub(r"^(\d{1,2})\s*\(([a-h])\((i{1,3}|iv|vi{0,3}|ix)\)", r"\1(\2)(\3)", t)
+    # ...or print them unbracketed and glued, after the question number: "3ai", "1 biii".
+    t = re.sub(r"^(\d{1,2})\s*([a-h])(i{1,3}|iv|vi{0,3}|ix)(?=\s|$)", r"\1 \2 \3", t)
     m = MS_LABEL.match(t)
     if not m:
         return None
@@ -1286,25 +1323,39 @@ def parse_ms(doc, board):
             if r.width * r.height >= 1500:
                 pictures.append(to_frame(main, page.rect.width, page.rect.height, *r))
         skip = set()
+        under_header = False                     # the row below a header row opens a part's own table
+
+        def head_of(ls):
+            return header_cells(ls) or (board == "edexcel" and headless_header(ls, vertical)) or None
+
         for r, row in enumerate(rows):
             if r in skip:
                 continue
-            head = header_cells(row)
-            if not head and r + 1 < len(rows) and any("Question" in l.text for l in row) \
+            head = head_of(row)
+            # A heading wrapped onto a second line, or headings split over two
+            # rows ("Question … Mark" over "Answer  Notes  …s").
+            if (not head or "answer" not in head) and r + 1 < len(rows) and any("Question" in l.text for l in row) \
                     and rows[r + 1][0].v0 - row[-1].v1 < 14:
-                head = header_cells(row + rows[r + 1])      # a heading wrapped onto a second line
-                if head:
+                joined = header_cells(row + rows[r + 1])
+                if joined and len(joined) > len(head or {}):
+                    head = joined
+                else:
+                    joined = None
+                if joined:
                     row = row + rows[r + 1]
                     skip.add(r + 1)
             if head:
                 cols = columns_for(head, row, vertical)
+                under_header = True
                 continue
             for line in row:
-                if header_cells(line):
-                    cols = columns_for(header_cells(line), [line], vertical)
-            row = [l for l in row if not header_cells(l)]
+                if head_of(line):
+                    cols = columns_for(head_of(line), [line], vertical)
+                    under_header = True
+            row = [l for l in row if not head_of(l)]
             if not cols or not row:
                 continue
+            opens_table = under_header
             split = [l.columns(cols) for l in row]
             # Where in the row its label is; lines above it in the same row are its too.
             labels = []
@@ -1321,6 +1372,25 @@ def parse_ms(doc, board):
                     clip = False
                     parts["question"] = ""
                     continue
+                # A two-digit question number can wrap in its narrow cell:
+                # "1 (a) (i)" with "8" on the line below is 18(a)(i) when 18 is due.
+                j = next((j for j in range(i + 1, len(split)) if split[j].get("question", "").strip()), None)
+                below = split[j]["question"].strip() if j is not None and row[j].v0 - row[i].v0 < 30 else ""
+                if board != "aqa" and last[0] is not None and re.fullmatch(r"\d", below) and \
+                        re.match(r"\d(?!\d)", q) and int(q[0] + below) in (last[0], last[0] + 1) and \
+                        int(q[0]) not in (last[0], last[0] + 1):
+                    q = q[0] + below + q[1:]
+                    split[j]["question"] = ""
+                # ...and a part's letter can sit a line or two below its
+                # numeral: "(i)" over "(b)" is (b)(i) when (b) is due, and
+                # "(ii)" over "(b)" is (b)(ii) in (b).
+                m = re.fullmatch(r"\(\s*([a-h])\s*\)", below)
+                step = LETTERS.index(m.group(1)) - LETTERS.index(last[1]) if m and last[1] else None
+                if board != "aqa" and (
+                        (step == 0 and re.match(r"\(\s*(?:i{1,3}|iv|vi{0,3}|ix|x)\s*\)", q)) or
+                        (step == 1 and re.match(r"\(\s*i\s*\)", q) and key_of(last[0], last[1], "i") in entries)):
+                    q = f"({m.group(1)}) {q}"
+                    split[j]["question"] = ""
                 found = ms_key(board, q, last) if q else None
                 if found and found[0].endswith("||"):
                     # "2" alone is a question's own label only before any of
@@ -1355,13 +1425,28 @@ def parse_ms(doc, board):
                                                    v.strip(), re.I)
                                       for p in split for v in p.values())):
                 continue                           # a question's or section's total row
+            under_header = False
             bounds = [i for i, _ in labels] + [len(split)]
-            if labels:
+            lead = []
+            # Pearson sets a label at or near the top of its cell, so lines
+            # well above it in the same row, past a blank gap, end the part
+            # before: one carried onto a new page, or cut from its label by a
+            # rule mid-cell. (A label a line low, wrapped in its cell as "2"
+            # over "(b)(i)", or centred in a table of its own under a header,
+            # still starts its part.)
+            gap = None
+            if labels and board == "edexcel" and cur is not None and not opens_table:
+                gap = max((k for k in range(labels[0][0])
+                           if row[k + 1].v0 - max(l.v1 for l in row[:k + 1]) > 8), default=None)
+            if gap is not None and not any(p.get("question", "").strip() for p in split[:gap + 1]):
+                lead = [(None, split[:gap + 1])]
+                bounds[0] = gap + 1
+            elif labels:
                 # A label centred in a tall ruled row sits below its first
                 # lines; the rule above them says they are this part's too.
                 bounds[0] = 0
             segments = ([(None, split)] if not labels else
-                        [(labels[k][1][0], split[bounds[k]:bounds[k + 1]]) for k in range(len(labels))])
+                        lead + [(labels[k][1][0], split[bounds[k]:bounds[k + 1]]) for k in range(len(labels))])
             for key, seg in segments:
                 if key is not None:
                     cur = entry(key)
@@ -1633,6 +1718,19 @@ def stacked_maths(lines):
                and not OPTION_CELL.match(l.text.strip()))
 
 
+def misprinted_key(board, scheme, n):
+    """The scheme entry a leaf part with none of its own was printed under.
+    OCR can label a question with no parts "20 (a)"; a scheme can print "8(a)"
+    where 8(a)(i) is due, then go on "(ii)", "(iii)"."""
+    if n.children:
+        return None
+    if n.mid is None and board != "aqa" and [k for k in scheme if k.split("|")[0] == str(n.q)] == [key_of(n.q, "a")]:
+        return key_of(n.q, "a")
+    if n.roman == "i" and key_of(n.q, n.mid) in scheme and key_of(n.q, n.mid, "ii") in scheme:
+        return key_of(n.q, n.mid)
+    return None
+
+
 def extract(qp_path, ms_path):
     qp, ms = pymupdf.open(qp_path), pymupdf.open(ms_path)
     board, spec = identify(qp)
@@ -1660,6 +1758,7 @@ def extract(qp_path, ms_path):
     hulls = {k: figure_hulls(v) for k, v in ink.items()}
 
     parts, problems = [], []
+    borrowed = set()                       # scheme entries a part took under another label
     for q in questions:
         for n, anc in leaves(q):
             opts, own = split_options(n.lines)
@@ -1679,6 +1778,11 @@ def extract(qp_path, ms_path):
                 # a label in its answer space.
                 prompt = lines_text(own, hulls=hulls) or lines_text(n.answer_lines, hulls=hulls)
             entry = scheme.get(n.key)
+            if entry is None:
+                other = misprinted_key(board, scheme, n)
+                if other:
+                    entry = scheme[other]
+                    borrowed.add(other)
             if entry is None and n.roman is None and not n.children:
                 finer = [k for k in scheme if k.startswith(f"{n.q}|{n.mid or ''}|") and k != n.key]
                 if finer and not any(p_.key in finer for q_ in questions for p_, _ in leaves(q_)):
@@ -1824,7 +1928,7 @@ def extract(qp_path, ms_path):
         "reconciles": cover_total == found,
         "questions": len(questions), "question_totals": q_checks,
         "parts": parts,
-        "scheme_unmatched": [k for k in scheme if k not in keys],
+        "scheme_unmatched": [k for k in scheme if k not in keys | borrowed],
         "scheme": scheme,
         "problems": problems,
     }
