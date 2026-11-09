@@ -56,7 +56,7 @@ function flatten(blocks: any[], out: string[]) {
         break;
       case "equation":
         out.push(
-          `EQUATION ${b.label ? b.label + ": " : ""}${b.formula}${b.where ? " (" + b.where.join("; ") + ")" : ""}`,
+          `EQUATION ${b.label ? b.label + ": " : ""}${b.formula}${b.arrows ? " [" + b.arrows.map((a) => `${a.point} → ${a.label}`).join("; ") + "]" : ""}${b.where ? " (" + b.where.join("; ") + ")" : ""}`,
         );
         break;
       case "key-points":

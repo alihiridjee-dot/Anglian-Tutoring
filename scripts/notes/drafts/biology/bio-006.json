@@ -16,12 +16,17 @@
           "type": "equation",
           "label": "Magnification",
           "formula": "magnification = size of image ÷ size of real object",
-          "where": [
-            "size of image is measured on the picture or on the screen",
-            "size of real object is the actual size of the cell or structure",
-            "both sizes must be in the same unit",
-            "magnification has no unit"
-          ]
+          "arrows": [
+            {
+              "point": "size of image",
+              "label": "Measured on the picture"
+            },
+            {
+              "point": "size of real object",
+              "label": "Actual size of the cell"
+            }
+          ],
+          "where": ["Both sizes must be in the same unit.", "Magnification has no unit."]
         },
         {
           "type": "subheading",

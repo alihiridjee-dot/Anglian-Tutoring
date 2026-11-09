@@ -33,6 +33,9 @@ One checker takes a list of drafted notes. For each note:
    - `slider`: the formula is the real equation; values are realistic.
    - `predictor` / `sort` / `sequence` / `explorer` / `punnett`: every result,
      group, order and description is correct. A scene matches its result.
+   - equation `arrows`: each label is right for the exact characters it points
+     at (the balancing 2, not the small 2; the unit of that symbol), and no
+     arrow, `where` line or nearby bullet says the same thing twice.
 6. **Checks** (the three questions at the end) have correct answers.
 7. **Style**: light, signposted, no walls of prose; UK spelling.
 8. **Notation.** Formulas, ions, units and powers use Unicode subscripts and

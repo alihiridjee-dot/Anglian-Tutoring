@@ -33,17 +33,41 @@
           "type": "equation",
           "label": "A word equation",
           "formula": "magnesium + oxygen → magnesium oxide",
-          "where": [
-            "The arrow means \"reacts to make\".",
-            "Reactants are on the left. Products are on the right."
+          "arrows": [
+            {
+              "point": "magnesium + oxygen",
+              "label": "Reactants"
+            },
+            {
+              "point": "→",
+              "label": "Reacts to make"
+            },
+            {
+              "point": "magnesium oxide",
+              "label": "Products"
+            }
           ]
         },
         {
           "type": "list",
           "items": [
             "To write the symbol equation, replace each name with its formula.",
-            "Elements such as hydrogen, oxygen, nitrogen, chlorine and bromine are molecules of two atoms: H₂, O₂, N₂, Cl₂, Br₂.",
-            "The small number in a formula is part of the substance. It must **never** be changed to balance an equation."
+            "Elements such as hydrogen, oxygen, nitrogen, chlorine and bromine are molecules of two atoms: H₂, O₂, N₂, Cl₂, Br₂."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Two kinds of number",
+          "formula": "2H₂O",
+          "arrows": [
+            {
+              "point": "2",
+              "label": "Balancing number: you can change it"
+            },
+            {
+              "point": "₂",
+              "label": "Part of the formula: never change it"
+            }
           ]
         },
         {
@@ -67,10 +91,19 @@
           "type": "equation",
           "label": "Methane burning in oxygen",
           "formula": "CH₄ + 2O₂ → CO₂ + 2H₂O",
-          "where": [
-            "The big numbers in front are the balancing numbers.",
-            "1 carbon, 4 hydrogen and 4 oxygen atoms on each side."
-          ]
+          "arrows": [
+            {
+              "point": "2",
+              "in": "2O₂",
+              "label": "Two O₂ molecules"
+            },
+            {
+              "point": "2",
+              "in": "2H₂O",
+              "label": "Two H₂O molecules"
+            }
+          ],
+          "where": ["1 carbon, 4 hydrogen and 4 oxygen atoms on each side."]
         },
         {
           "type": "steps",
@@ -143,9 +176,21 @@
           "type": "equation",
           "label": "With state symbols",
           "formula": "2Mg(s) + O₂(g) → 2MgO(s)",
-          "where": [
-            "Magnesium and magnesium oxide are solids at room temperature.",
-            "Oxygen is a gas."
+          "arrows": [
+            {
+              "point": "(s)",
+              "in": "Mg(s)",
+              "label": "Solid"
+            },
+            {
+              "point": "(g)",
+              "label": "Gas"
+            },
+            {
+              "point": "(s)",
+              "in": "MgO(s)",
+              "label": "Solid"
+            }
           ]
         },
         {
@@ -239,10 +284,20 @@
           }
         },
         {
-          "type": "list",
-          "items": [
-            "The charges must balance as well as the atoms.",
-            "Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s) has a total charge of 2+ on each side."
+          "type": "equation",
+          "label": "Charges balance as well as atoms",
+          "formula": "Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s)",
+          "arrows": [
+            {
+              "point": "²⁺",
+              "in": "Cu²⁺",
+              "label": "2+ on the left"
+            },
+            {
+              "point": "²⁺",
+              "in": "Zn²⁺",
+              "label": "2+ on the right"
+            }
           ]
         },
         {

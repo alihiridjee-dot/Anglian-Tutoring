@@ -90,13 +90,79 @@ export type NoteBlock =
   | { type: "list"; items: string[] }
   /** Key words, each with a one-line meaning. Shown as a panel, not buried in prose. */
   | { type: "definitions"; items: { term: string; meaning: string }[] }
-  /** An equation in its own box. `where` lists each symbol or word with its unit. */
-  | { type: "equation"; label?: string; formula: string; where?: string[] }
+  /**
+   * An equation in its own box. `arrows` point a short label at a part of the
+   * formula ("W" → "Weight (N)"); `where` is for anything an arrow can't say.
+   */
+  | {
+      type: "equation";
+      label?: string;
+      formula: string;
+      arrows?: EquationArrow[];
+      where?: string[];
+    }
   /** The two to four things to take away from a section. */
   | { type: "key-points"; items: string[] }
   | { type: "steps"; items: { lead: string; text: string }[] }
   | { type: "table"; columns: string[]; rows: string[][] }
   | { type: "diagram"; diagram: NoteDiagram };
+
+/**
+ * An arrow from a short label to one part of an equation's formula, so the
+ * picture says what a sentence would: the small 2 in H₂O, the m in E = ½mv².
+ */
+export interface EquationArrow {
+  /** The characters to point at, exactly as the formula writes them: "₂", "m", "(aq)". */
+  point: string;
+  /**
+   * Where `point` is, when it comes up more than once: a stretch of the
+   * formula around it that is found only once ("2H₂O" for the small 2 in
+   * water, not the one in O₂), with `point` in it once.
+   */
+  in?: string;
+  /** What that part is, in a few words: "Part of the formula: never change it". */
+  label: string;
+}
+
+/** Enough arrows to replace a "where" list, few enough to stay clear on a phone. */
+export const MAX_EQUATION_ARROWS = 4;
+export const MAX_ARROW_LABEL_WORDS = 7;
+export const MAX_ARROW_LABEL_CHARS = 44;
+/** Arrows replace the "where" list, so a box with arrows keeps only what they can't say. */
+export const MAX_WHERE_WITH_ARROWS = 2;
+
+/** Every place `part` starts in `text`, overlapping ones included. */
+function occurrences(text: string, part: string): number[] {
+  const at: number[] = [];
+  for (let i = text.indexOf(part); i >= 0; i = text.indexOf(part, i + 1)) at.push(i);
+  return at;
+}
+
+/** The characters an arrow points at, as [start, end) in the formula, or why it can't be found. */
+export function arrowSpan(
+  formula: string,
+  arrow: Pick<EquationArrow, "point" | "in">,
+): { start: number; end: number } | { problem: string } {
+  const { point } = arrow;
+  if (!point) return { problem: "says nothing to point at" };
+  const around = arrow.in ?? point;
+  const inside = occurrences(around, point);
+  if (inside.length !== 1)
+    return {
+      problem: inside.length
+        ? `"${point}" is in "${around}" ${inside.length} times; "in" must hold it once`
+        : `"${point}" is not in "${around}"`,
+    };
+  const found = occurrences(formula, around);
+  if (found.length !== 1)
+    return {
+      problem: found.length
+        ? `"${around}" is in the formula ${found.length} times; give "in" a stretch of the formula around it that is found once`
+        : `"${around}" is not in the formula "${formula}"`,
+    };
+  const start = found[0] + inside[0];
+  return { start, end: start + point.length };
+}
 
 /** A line graph of one or more series over a shared x axis. Shape, not data: y is 0–1. */
 export interface LineGraphDiagram {
@@ -538,6 +604,39 @@ export const MAX_PARAGRAPHS_IN_A_ROW = 2;
 const isStrArr = (v: unknown, min = 1): v is string[] =>
   Array.isArray(v) && v.length >= min && v.every(isStr);
 
+/** Each arrow finds its part once, says it in a few words, and no two point at the same characters. */
+function checkArrows(block: Extract<NoteBlock, { type: "equation" }>, at: string, errs: string[]) {
+  const arrows = block.arrows as unknown;
+  if (!Array.isArray(arrows) || arrows.length < 1 || arrows.length > MAX_EQUATION_ARROWS) {
+    errs.push(`${at}: equation.arrows needs 1–${MAX_EQUATION_ARROWS} arrows`);
+    return;
+  }
+  const spans: { start: number; end: number; k: number }[] = [];
+  arrows.forEach((a: EquationArrow, k) => {
+    const where = `${at}.arrows[${k}]`;
+    if (!isStr(a?.point) || !isStr(a?.label) || (a.in != null && !isStr(a.in))) {
+      errs.push(`${where}: needs a point and a label (and "in", if given, must be text)`);
+      return;
+    }
+    if (words(a.label) > MAX_ARROW_LABEL_WORDS || a.label.trim().length > MAX_ARROW_LABEL_CHARS)
+      errs.push(
+        `${where}: label "${a.label}" is too long; keep it to ${MAX_ARROW_LABEL_WORDS} words and ${MAX_ARROW_LABEL_CHARS} characters`,
+      );
+    if (!isStr(block.formula)) return;
+    const span = arrowSpan(block.formula, a);
+    if ("problem" in span) errs.push(`${where}: ${span.problem}`);
+    else {
+      const clash = spans.find((s) => span.start < s.end && s.start < span.end);
+      if (clash) errs.push(`${where}: points at the same characters as arrows[${clash.k}]`);
+      spans.push({ ...span, k });
+    }
+  });
+  if ((block.where?.length ?? 0) > MAX_WHERE_WITH_ARROWS)
+    errs.push(
+      `${at}: an equation with arrows keeps at most ${MAX_WHERE_WITH_ARROWS} "where" lines; say the rest on the arrows or cut it`,
+    );
+}
+
 function checkBlock(b: unknown, at: string, errs: string[]) {
   const block = b as NoteBlock;
   switch (block?.type) {
@@ -566,6 +665,7 @@ function checkBlock(b: unknown, at: string, errs: string[]) {
       if (!isStr(block.formula)) errs.push(`${at}: equation needs a formula`);
       if (block.where && !isStrArr(block.where))
         errs.push(`${at}: equation.where must be a list of strings`);
+      if (block.arrows != null) checkArrows(block, at, errs);
       break;
     case "key-points":
       if (!isStrArr(block.items, 2) || block.items.length > 4)
