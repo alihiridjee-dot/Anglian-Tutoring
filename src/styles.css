@@ -463,18 +463,25 @@
     box-shadow 0.22s ease,
     border-color 0.18s ease;
 }
-a.when-link:hover {
+/* A link or a button (the spec point's Request tile) lifts; a plain tile doesn't. */
+a.when-link:hover,
+button.when-link:not(:disabled):hover {
   transform: translateY(-2px);
   box-shadow: var(--lift-2);
   border-color: color-mix(in oklab, var(--tint) 50%, var(--edge));
 }
-a.when-link:active {
+a.when-link:active,
+button.when-link:not(:disabled):active {
   transform: translateY(0);
   box-shadow: var(--lift-1);
 }
-a.when-link:focus-visible {
+a.when-link:focus-visible,
+button.when-link:focus-visible {
   outline: 2px solid var(--tint);
   outline-offset: 2px;
+}
+button.when-link:disabled {
+  opacity: 0.7;
 }
 .when-link-arrow {
   display: inline-flex;
@@ -491,8 +498,13 @@ a.when-link:focus-visible {
 a.when-link:hover .when-link-arrow {
   transform: translateX(3px);
 }
+/* The Request tile's + turns instead of sliding: it adds, it doesn't go anywhere. */
+button.when-link:not(:disabled):hover .when-link-arrow {
+  transform: rotate(90deg) scale(1.08);
+}
 @media (prefers-reduced-motion: reduce) {
   a.when-link,
+  button.when-link,
   .when-link-arrow {
     transition: none;
   }

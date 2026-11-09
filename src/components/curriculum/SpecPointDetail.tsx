@@ -13,7 +13,6 @@ import { VideoModal, VideoThumbnail } from "@/components/VideoPlayer";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { parseVideoUrl, type VideoEmbed } from "@/lib/curriculum/videoEmbed";
 import { SpecPointVideoEditor, type EditableVideo } from "@/components/tutor/SpecPointVideoEditor";
-import { PracticeRequest } from "@/components/curriculum/PracticeRequest";
 import { useSpecPointNotes } from "@/hooks/data/useNotes";
 import { Chip } from "@/components/Shared";
 import { formatWhen, joinClick, showsJoin } from "@/lib/live/liveSessions";
@@ -41,11 +40,14 @@ export function SpecPointDetail({
   isTutor,
   onChanged,
   taxonomy,
+  contentRev = 0,
 }: {
   point: SpecPoint;
   isTutor: boolean;
   onChanged: () => void;
   taxonomy: { subject: SubjectV; board: BoardV; level: LevelV };
+  /** Goes up when the point gains content from elsewhere (a student's Request). */
+  contentRev?: number;
 }) {
   const { userId } = useRoles();
   const [resources, setResources] = useState<Resource[]>([]);
@@ -85,7 +87,7 @@ export function SpecPointDetail({
 
   useEffect(() => {
     reload(); /* eslint-disable-next-line */
-  }, [point.id]);
+  }, [point.id, contentRev]);
 
   const generate = async () => {
     setGenLoading(true);
@@ -177,10 +179,6 @@ export function SpecPointDetail({
           </Link>
         </div>
       )}
-
-      {/* A student can ask for this point's MCQs and task, whatever week it
-          falls in. Never in the showcase: it has no session to ask with. */}
-      {!isTutor && !isDemoStudent() && <PracticeRequest pointId={point.id} onReady={reload} />}
 
       {loadFailed && (
         <EmptyState
