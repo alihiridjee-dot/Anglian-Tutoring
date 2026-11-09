@@ -1,4 +1,4 @@
--- Rollback for 20261109115703_trial_code_length.sql. Every code goes back to
+-- Rollback for 20261109120452_trial_code_length.sql. Every code goes back to
 -- the standard length and card rule, including any long codes already handed out.
 -- Roll back stripe-checkout first: it reads these columns.
 begin;

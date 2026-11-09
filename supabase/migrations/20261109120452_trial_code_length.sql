@@ -10,7 +10,7 @@
 --
 -- Additive: every existing row keeps working as before.
 --
--- Idempotent. Rollback: supabase/rollbacks/20261109115703_trial_code_length.down.sql
+-- Idempotent. Rollback: supabase/rollbacks/20261109120452_trial_code_length.down.sql
 
 begin;
 
