@@ -7,9 +7,15 @@ Rollback: `supabase/rollbacks/20261108120000_commercial_ledger.down.sql`
 
 ## Where it stands
 
-It is **dark**. Nothing in the app, the paywall or the Stripe webhook uses it.
-Today's plans (`packages`) and today's access (`subscriptions`, written only by
-`stripe-webhook`) are unchanged. See [STRIPE_SETUP.md](STRIPE_SETUP.md) for those.
+It is **live but dark**. The migration was applied to the live database on 9 Nov
+2026 (version `20261108120000` recorded), and its tables are in
+`src/integrations/supabase/types.ts`. Nothing in the app, the paywall or the
+Stripe webhook uses it yet, and the ledger is empty. Today's plans (`packages`)
+and today's access (`subscriptions`, written only by `stripe-webhook`) are
+unchanged. See [STRIPE_SETUP.md](STRIPE_SETUP.md) for those.
+
+Never post test rows to the live ledger: they can never be removed. Test on
+PGlite with the script below.
 
 ## The model
 
@@ -113,8 +119,6 @@ checked by reading, not by a test.
 
 ## Not done yet
 
-- Applying it to the live database.
-- Regenerating `src/integrations/supabase/types.ts` once it is applied.
 - Wiring: the Stripe webhook recording payments, a page showing credit, and
   content RLS calling `private.student_has_module`.
 - Partial refunds (only full refunds exist).
