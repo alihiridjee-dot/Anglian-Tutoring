@@ -8,8 +8,14 @@
     {
       "heading": "Formulae of ionic compounds",
       "blocks": [
-        { "type": "paragraph", "text": "An ionic formula shows the simplest ratio of ions, with total positive charge equal to total negative charge. This section covers how to predict ion charges and combine them." },
-        { "type": "subheading", "text": "Predicting a charge from the Periodic Table" },
+        {
+          "type": "paragraph",
+          "text": "An ionic formula shows the simplest ratio of ions, with total positive charge equal to total negative charge. This section covers how to predict ion charges and combine them."
+        },
+        {
+          "type": "subheading",
+          "text": "Predicting a charge from the Periodic Table"
+        },
         {
           "type": "table",
           "columns": ["Group", "Ion formed", "Example"],
@@ -22,7 +28,10 @@
             ["17", "1−", "Cl⁻, Br⁻"]
           ]
         },
-        { "type": "subheading", "text": "Ions to recall" },
+        {
+          "type": "subheading",
+          "text": "Ions to recall"
+        },
         {
           "type": "table",
           "columns": ["Ion", "Formula"],
@@ -36,13 +45,25 @@
             ["Silver", "Ag⁺"]
           ]
         },
-        { "type": "subheading", "text": "Building the formula" },
+        {
+          "type": "subheading",
+          "text": "Building the formula"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Write the ions.", "text": "Aluminium sulfate contains Al³⁺ and SO₄²⁻." },
-            { "lead": "Balance the charge.", "text": "Two Al³⁺ give +6. Three SO₄²⁻ give −6." },
-            { "lead": "Write the ratio.", "text": "Put a compound ion in brackets when you need more than one: Al₂(SO₄)₃." }
+            {
+              "lead": "Write the ions.",
+              "text": "Aluminium sulfate contains Al³⁺ and SO₄²⁻."
+            },
+            {
+              "lead": "Balance the charge.",
+              "text": "Two Al³⁺ give +6. Three SO₄²⁻ give −6."
+            },
+            {
+              "lead": "Write the ratio.",
+              "text": "Put a compound ion in brackets when you need more than one: Al₂(SO₄)₃."
+            }
           ]
         },
         {
@@ -58,22 +79,46 @@
     {
       "heading": "Balanced equations and ionic equations",
       "blocks": [
-        { "type": "paragraph", "text": "An equation must have the same atoms and the same total charge on each side. This section covers full equations, ionic equations and state symbols." },
+        {
+          "type": "paragraph",
+          "text": "An equation must have the same atoms and the same total charge on each side. This section covers full equations, ionic equations and state symbols."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "State symbols", "meaning": "(s) solid, (l) liquid, (g) gas, (aq) dissolved in water." },
-            { "term": "Spectator ion", "meaning": "An ion that is in the mixture but does not change during the reaction." },
-            { "term": "Ionic equation", "meaning": "An equation showing only the particles that react." }
+            {
+              "term": "State symbols",
+              "meaning": "(s) solid, (l) liquid, (g) gas, (aq) dissolved in water."
+            },
+            {
+              "term": "Spectator ion",
+              "meaning": "An ion that is in the mixture but does not change during the reaction."
+            },
+            {
+              "term": "Ionic equation",
+              "meaning": "An equation showing only the particles that react."
+            }
           ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Full equation.", "text": "Pb(NO₃)₂(aq) + 2KI(aq) → PbI₂(s) + 2KNO₃(aq)" },
-            { "lead": "Split the aqueous ionic compounds into ions.", "text": "Pb²⁺ + 2NO₃⁻ + 2K⁺ + 2I⁻ → PbI₂(s) + 2K⁺ + 2NO₃⁻" },
-            { "lead": "Cancel the spectator ions.", "text": "K⁺ and NO₃⁻ appear unchanged on both sides." },
-            { "lead": "Ionic equation.", "text": "Pb²⁺(aq) + 2I⁻(aq) → PbI₂(s)" }
+            {
+              "lead": "Full equation.",
+              "text": "Pb(NO₃)₂(aq) + 2KI(aq) → PbI₂(s) + 2KNO₃(aq)"
+            },
+            {
+              "lead": "Split the aqueous ionic compounds into ions.",
+              "text": "Pb²⁺ + 2NO₃⁻ + 2K⁺ + 2I⁻ → PbI₂(s) + 2K⁺ + 2NO₃⁻"
+            },
+            {
+              "lead": "Cancel the spectator ions.",
+              "text": "K⁺ and NO₃⁻ appear unchanged on both sides."
+            },
+            {
+              "lead": "Ionic equation.",
+              "text": "Pb²⁺(aq) + 2I⁻(aq) → PbI₂(s)"
+            }
           ]
         },
         {
@@ -98,14 +143,29 @@
     {
       "heading": "The mole, the Avogadro constant and molar mass",
       "blocks": [
-        { "type": "paragraph", "text": "Atoms are too small to count one by one, so chemists count them in moles. This section covers the mole and how it links mass and numbers of particles." },
+        {
+          "type": "paragraph",
+          "text": "Atoms are too small to count one by one, so chemists count them in moles. This section covers the mole and how it links mass and numbers of particles."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Amount of substance", "meaning": "A quantity measured in moles, written n." },
-            { "term": "Mole (mol)", "meaning": "The unit of amount of substance. One mole contains 6.02 × 10²³ particles." },
-            { "term": "Avogadro constant", "meaning": "The number of particles per mole: 6.02 × 10²³ mol⁻¹." },
-            { "term": "Molar mass", "meaning": "The mass of one mole of a substance, in g mol⁻¹. It has the same number as the relative formula mass." }
+            {
+              "term": "Amount of substance",
+              "meaning": "A quantity measured in moles, written n."
+            },
+            {
+              "term": "Mole (mol)",
+              "meaning": "The unit of amount of substance. One mole contains 6.02 × 10²³ particles."
+            },
+            {
+              "term": "Avogadro constant",
+              "meaning": "The number of particles per mole: 6.02 × 10²³ mol⁻¹."
+            },
+            {
+              "term": "Molar mass",
+              "meaning": "The mass of one mole of a substance, in g mol⁻¹. It has the same number as the relative formula mass."
+            }
           ]
         },
         {
@@ -121,26 +181,70 @@
           "type": "equation",
           "label": "Amount from mass",
           "formula": "n = m ÷ M",
-          "where": ["n = amount of substance (mol)", "m = mass (g)", "M = molar mass (g mol⁻¹)"]
+          "arrows": [
+            {
+              "point": "n",
+              "label": "Amount of substance (mol)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (g)"
+            },
+            {
+              "point": "M",
+              "label": "Molar mass (g mol⁻¹)"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "Number of particles",
           "formula": "N = n × L",
-          "where": ["N = number of particles", "n = amount of substance (mol)", "L = Avogadro constant (6.02 × 10²³ mol⁻¹)"]
+          "arrows": [
+            {
+              "point": "N",
+              "label": "Number of particles"
+            },
+            {
+              "point": "L",
+              "label": "Avogadro constant (6.02 × 10²³ mol⁻¹)"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "Amount from a solution",
           "formula": "n = c × V",
-          "where": ["n = amount of solute (mol)", "c = concentration (mol dm⁻³)", "V = volume (dm³)"]
+          "arrows": [
+            {
+              "point": "n",
+              "label": "Amount of solute (mol)"
+            },
+            {
+              "point": "c",
+              "label": "Concentration (mol dm⁻³)"
+            },
+            {
+              "point": "V",
+              "label": "Volume (dm³)"
+            }
+          ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Amount.", "text": "9.0 g of water: n = 9.0 ÷ 18.0 = 0.50 mol." },
-            { "lead": "Particles.", "text": "N = 0.50 × 6.02 × 10²³ = 3.01 × 10²³ molecules." },
-            { "lead": "Atoms.", "text": "Each H₂O has 3 atoms, so there are 9.03 × 10²³ atoms." }
+            {
+              "lead": "Amount.",
+              "text": "9.0 g of water: n = 9.0 ÷ 18.0 = 0.50 mol."
+            },
+            {
+              "lead": "Particles.",
+              "text": "N = 0.50 × 6.02 × 10²³ = 3.01 × 10²³ molecules."
+            },
+            {
+              "lead": "Atoms.",
+              "text": "Each H₂O has 3 atoms, so there are 9.03 × 10²³ atoms."
+            }
           ]
         },
         {
@@ -149,9 +253,25 @@
             "kind": "practice",
             "alt": "A calculation of the number of water molecules in a given mass of water.",
             "question": "How many molecules are in {m} g of water (molar mass 18.0 g mol⁻¹)? Give the answer as a multiple of 10²³.",
-            "variables": [{ "id": "m", "min": 4.5, "max": 54, "step": 4.5 }],
-            "answer": { "formula": "m / 18 * 6.02", "unit": "× 10²³ molecules", "decimals": 2, "tolerance_percent": 1 },
-            "working": ["n = {m} ÷ 18.0 mol", "N = n × 6.02 × 10²³", "N = {answer} × 10²³ molecules"]
+            "variables": [
+              {
+                "id": "m",
+                "min": 4.5,
+                "max": 54,
+                "step": 4.5
+              }
+            ],
+            "answer": {
+              "formula": "m / 18 * 6.02",
+              "unit": "× 10²³ molecules",
+              "decimals": 2,
+              "tolerance_percent": 1
+            },
+            "working": [
+              "n = {m} ÷ 18.0 mol",
+              "N = n × 6.02 × 10²³",
+              "N = {answer} × 10²³ molecules"
+            ]
           }
         },
         {
@@ -261,7 +381,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",

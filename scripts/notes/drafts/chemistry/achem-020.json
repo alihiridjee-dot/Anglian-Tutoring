@@ -84,18 +84,28 @@
           "type": "equation",
           "label": "Using enthalpies of formation",
           "formula": "ΔrH = ΣΔfH(products) − ΣΔfH(reactants)",
-          "where": [
-            "ΔrH = enthalpy change of reaction, in kJ mol⁻¹",
-            "ΣΔfH = sum of (moles × enthalpy of formation) for each substance"
+          "arrows": [
+            {
+              "point": "ΔrH",
+              "label": "Enthalpy change of reaction (kJ mol⁻¹)"
+            },
+            {
+              "point": "ΣΔfH",
+              "in": "ΣΔfH(products)",
+              "label": "Sum of (moles × ΔfH)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Using enthalpies of combustion",
           "formula": "ΔrH = ΣΔcH(reactants) − ΣΔcH(products)",
-          "where": [
-            "ΔrH = enthalpy change of reaction, in kJ mol⁻¹",
-            "ΣΔcH = sum of (moles × enthalpy of combustion) for each substance"
+          "arrows": [
+            {
+              "point": "ΣΔcH",
+              "in": "ΣΔcH(reactants)",
+              "label": "Sum of (moles × ΔcH)"
+            }
           ]
         },
         {
@@ -199,9 +209,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.2.1g"
-      ],
+      "spec_codes": ["OCR 3.2.1g"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -218,21 +226,13 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 8.7",
-        "EDEX 8.8"
-      ]
+      "spec_codes": ["EDEX 8.7", "EDEX 8.8"]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.4.3"
-      ]
+      "spec_codes": ["AQA 3.1.4.3"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 5.2.1",
-        "CAIE 5.2.2"
-      ],
+      "spec_codes": ["CAIE 5.2.1", "CAIE 5.2.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -262,7 +262,7 @@
       "5e56b670-50b2-4b39-8f1e-6e1f0a7d655c"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

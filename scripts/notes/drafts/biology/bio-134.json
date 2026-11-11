@@ -180,10 +180,14 @@
           "type": "equation",
           "label": "Percentage decrease",
           "formula": "percentage decrease = (decrease ÷ starting value) × 100",
-          "where": [
-            "decrease = starting value − final value",
-            "starting value and final value in the same unit"
-          ]
+          "arrows": [
+            {
+              "point": "decrease",
+              "in": "(decrease",
+              "label": "Starting value − final value"
+            }
+          ],
+          "where": ["starting value and final value in the same unit"]
         },
         {
           "type": "steps",
@@ -378,7 +382,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "status": "draft",
     "written_by": "sonnet-5-5",

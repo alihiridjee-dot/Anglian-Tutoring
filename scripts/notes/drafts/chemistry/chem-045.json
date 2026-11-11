@@ -41,10 +41,19 @@
           "type": "equation",
           "label": "Neutralisation (ionic equation)",
           "formula": "H⁺ + OH⁻ → H₂O",
-          "where": [
-            "H⁺: hydrogen ion from the acid",
-            "OH⁻: hydroxide ion from the alkali",
-            "H₂O: water"
+          "arrows": [
+            {
+              "point": "H⁺",
+              "label": "Hydrogen ion, from the acid"
+            },
+            {
+              "point": "OH⁻",
+              "label": "Hydroxide ion, from the alkali"
+            },
+            {
+              "point": "H₂O",
+              "label": "Water"
+            }
           ]
         },
         {
@@ -421,7 +430,7 @@
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "written_at": "2026-10-01",
     "spec_point_ids": [

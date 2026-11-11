@@ -22,32 +22,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Reaction",
-            "Colour change",
-            "Coordination number"
-          ],
+          "columns": ["Reaction", "Colour change", "Coordination number"],
           "rows": [
-            [
-              "[Cu(H₂O)₆]²⁺ + 4NH₃ ⇌ [Cu(NH₃)₄(H₂O)₂]²⁺ + 4H₂O",
-              "Pale blue to deep blue",
-              "6 to 6"
-            ],
-            [
-              "[Cu(H₂O)₆]²⁺ + 4Cl⁻ ⇌ [CuCl₄]²⁻ + 6H₂O",
-              "Pale blue to yellow-green",
-              "6 to 4"
-            ],
-            [
-              "[Co(H₂O)₆]²⁺ + 4Cl⁻ ⇌ [CoCl₄]²⁻ + 6H₂O",
-              "Pink to blue",
-              "6 to 4"
-            ],
-            [
-              "[Cr(H₂O)₆]³⁺ + 6NH₃ ⇌ [Cr(NH₃)₆]³⁺ + 6H₂O",
-              "Green or violet to purple",
-              "6 to 6"
-            ]
+            ["[Cu(H₂O)₆]²⁺ + 4NH₃ ⇌ [Cu(NH₃)₄(H₂O)₂]²⁺ + 4H₂O", "Pale blue to deep blue", "6 to 6"],
+            ["[Cu(H₂O)₆]²⁺ + 4Cl⁻ ⇌ [CuCl₄]²⁻ + 6H₂O", "Pale blue to yellow-green", "6 to 4"],
+            ["[Co(H₂O)₆]²⁺ + 4Cl⁻ ⇌ [CoCl₄]²⁻ + 6H₂O", "Pink to blue", "6 to 4"],
+            ["[Cr(H₂O)₆]³⁺ + 6NH₃ ⇌ [Cr(NH₃)₆]³⁺ + 6H₂O", "Green or violet to purple", "6 to 6"]
           ]
         },
         {
@@ -105,10 +85,7 @@
         {
           "type": "equation",
           "label": "Example: three bidentate ligands replace six water molecules",
-          "formula": "[Ni(H₂O)₆]²⁺ + 3NH₂CH₂CH₂NH₂ → [Ni(NH₂CH₂CH₂NH₂)₃]²⁺ + 6H₂O",
-          "where": [
-            "4 particles on the left, 7 on the right."
-          ]
+          "formula": "[Ni(H₂O)₆]²⁺ + 3NH₂CH₂CH₂NH₂ → [Ni(NH₂CH₂CH₂NH₂)₃]²⁺ + 6H₂O"
         },
         {
           "type": "list",
@@ -149,10 +126,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.3.1h",
-        "OCR 5.3.1i"
-      ],
+      "spec_codes": ["OCR 5.3.1h", "OCR 5.3.1i"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -170,13 +144,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 15A.18",
-        "EDEX 15A.19",
-        "EDEX 15B.26",
-        "EDEX 15B.27",
-        "EDEX 15B.28"
-      ],
+      "spec_codes": ["EDEX 15A.18", "EDEX 15A.19", "EDEX 15B.26", "EDEX 15B.27", "EDEX 15B.28"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -194,9 +162,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.5.2"
-      ],
+      "spec_codes": ["AQA 3.2.5.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -344,7 +310,7 @@
       "c0d07d8e-fe38-4ca3-8133-641e46f41407"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

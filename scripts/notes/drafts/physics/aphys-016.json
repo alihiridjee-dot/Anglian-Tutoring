@@ -29,11 +29,24 @@
           "type": "equation",
           "label": "Work done",
           "formula": "W = Fs cos θ",
-          "where": [
-            "W = work done, in J",
-            "F = force, in N",
-            "s = displacement, in m",
-            "θ = angle between the force and the displacement"
+          "arrows": [
+            {
+              "point": "W",
+              "label": "Work done (J)"
+            },
+            {
+              "point": "F",
+              "label": "Force (N)"
+            },
+            {
+              "point": "s",
+              "in": "Fs",
+              "label": "Displacement (m)"
+            },
+            {
+              "point": "θ",
+              "label": "Angle between force and displacement"
+            }
           ]
         },
         {
@@ -92,21 +105,42 @@
           "type": "equation",
           "label": "Kinetic energy",
           "formula": "Eₖ = ½mv²",
-          "where": [
-            "Eₖ = kinetic energy, in J",
-            "m = mass, in kg",
-            "v = speed, in m/s"
+          "arrows": [
+            {
+              "point": "Eₖ",
+              "label": "Kinetic energy (J)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "v",
+              "label": "Speed (m/s)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Change in gravitational potential energy",
           "formula": "ΔEₚ = mgΔh",
-          "where": [
-            "ΔEₚ = change in gravitational potential energy, in J",
-            "m = mass, in kg",
-            "g = gravitational field strength, 9.81 N/kg near the Earth's surface",
-            "Δh = change in height, in m"
+          "arrows": [
+            {
+              "point": "ΔEₚ",
+              "label": "Change in potential energy (J)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "g",
+              "label": "Field strength: 9.81 N/kg near Earth"
+            },
+            {
+              "point": "Δh",
+              "label": "Change in height (m)"
+            }
           ]
         },
         {
@@ -259,9 +293,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.4.1.8"
-      ],
+      "spec_codes": ["AQA 3.4.1.8"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -283,12 +315,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 2.25",
-        "EDEX 2.26",
-        "EDEX 2.27",
-        "EDEX 2.28"
-      ]
+      "spec_codes": ["EDEX 2.25", "EDEX 2.26", "EDEX 2.27", "EDEX 2.28"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -339,7 +366,7 @@
       "fac5fa44-82e8-4d20-836b-cac44a292942"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

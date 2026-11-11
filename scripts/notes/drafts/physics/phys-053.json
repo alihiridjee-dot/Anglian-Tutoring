@@ -61,10 +61,19 @@
           "type": "equation",
           "label": "Speed",
           "formula": "v = s ÷ t",
-          "where": [
-            "v is the (average) speed in metres per second (m/s).",
-            "s is the distance travelled in metres (m).",
-            "t is the time taken in seconds (s)."
+          "arrows": [
+            {
+              "point": "v",
+              "label": "Average speed (m/s)"
+            },
+            {
+              "point": "s",
+              "label": "Distance travelled (m)"
+            },
+            {
+              "point": "t",
+              "label": "Time taken (s)"
+            }
           ]
         },
         {
@@ -74,12 +83,7 @@
         {
           "type": "equation",
           "label": "Distance travelled",
-          "formula": "s = v × t",
-          "where": [
-            "s is the distance travelled in metres (m).",
-            "v is the speed in metres per second (m/s).",
-            "t is the time in seconds (s)."
-          ]
+          "formula": "s = v × t"
         },
         {
           "type": "list",
@@ -92,12 +96,7 @@
         {
           "type": "equation",
           "label": "Time taken",
-          "formula": "t = s ÷ v",
-          "where": [
-            "t is the time taken in seconds (s).",
-            "s is the distance travelled in metres (m).",
-            "v is the speed in metres per second (m/s)."
-          ]
+          "formula": "t = s ÷ v"
         },
         {
           "type": "steps",
@@ -569,7 +568,7 @@
       "f97cac24-3749-4a86-8c88-d498ad23c6a5",
       "a3ad4156-ba58-4e45-9bab-83a08bc170a1"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

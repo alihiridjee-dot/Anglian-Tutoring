@@ -292,10 +292,19 @@
               "type": "equation",
               "label": "Average orbital speed",
               "formula": "v = 2 × π × r ÷ T",
-              "where": [
-                "v is the average orbital speed, in metres per second, m/s",
-                "r is the average radius of the orbit, in metres, m",
-                "T is the orbital period, the time for one orbit, in seconds, s"
+              "arrows": [
+                {
+                  "point": "v",
+                  "label": "Average orbital speed (m/s)"
+                },
+                {
+                  "point": "r",
+                  "label": "Average radius of the orbit (m)"
+                },
+                {
+                  "point": "T",
+                  "label": "Orbital period: time for one orbit (s)"
+                }
               ]
             }
           ]
@@ -328,10 +337,19 @@
               "type": "equation",
               "label": "Orbital speed",
               "formula": "v = 2 × π × r ÷ T",
-              "where": [
-                "v is the orbital speed, in metres per second, m/s",
-                "r is the orbital radius, in metres, m",
-                "T is the time period, the time for one orbit, in seconds, s"
+              "arrows": [
+                {
+                  "point": "v",
+                  "label": "Orbital speed (m/s)"
+                },
+                {
+                  "point": "r",
+                  "label": "Orbital radius (m)"
+                },
+                {
+                  "point": "T",
+                  "label": "Time period: time for one orbit (s)"
+                }
               ]
             },
             {
@@ -366,7 +384,7 @@
       "ed92d6cd-a535-439b-8346-67ce71e006c6",
       "02279700-c535-489a-ac0c-6cc3989e6cfe"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

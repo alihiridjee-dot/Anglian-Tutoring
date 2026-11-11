@@ -25,11 +25,25 @@
           "type": "equation",
           "label": "Change in thermal energy",
           "formula": "change in thermal energy = mass × specific heat capacity × temperature change    (ΔE = m c Δθ)",
-          "where": [
-            "change in thermal energy, ΔE, in joules, J",
-            "mass, m, in kilograms, kg",
-            "specific heat capacity, c, in joules per kilogram per degree Celsius, J/kg °C",
-            "temperature change, Δθ, in degrees Celsius, °C"
+          "arrows": [
+            {
+              "point": "ΔE",
+              "label": "Change in thermal energy (J)"
+            },
+            {
+              "point": "m",
+              "in": "m c",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "c",
+              "in": "c Δθ",
+              "label": "Specific heat capacity (J/kg °C)"
+            },
+            {
+              "point": "Δθ",
+              "label": "Temperature change (°C)"
+            }
           ]
         },
         {
@@ -44,13 +58,7 @@
         {
           "type": "equation",
           "label": "Temperature change",
-          "formula": "temperature change = change in thermal energy ÷ (mass × specific heat capacity)    (Δθ = ΔE ÷ (m c))",
-          "where": [
-            "temperature change, Δθ, in degrees Celsius, °C",
-            "change in thermal energy, ΔE, in joules, J",
-            "mass, m, in kilograms, kg",
-            "specific heat capacity, c, in joules per kilogram per degree Celsius, J/kg °C"
-          ]
+          "formula": "temperature change = change in thermal energy ÷ (mass × specific heat capacity)    (Δθ = ΔE ÷ (m c))"
         },
         {
           "type": "steps",
@@ -224,13 +232,7 @@
         {
           "type": "equation",
           "label": "Specific heat capacity",
-          "formula": "specific heat capacity = change in thermal energy ÷ (mass × temperature change)    (c = ΔE ÷ (m Δθ))",
-          "where": [
-            "specific heat capacity, c, in joules per kilogram per degree Celsius, J/kg °C",
-            "change in thermal energy, ΔE, in joules, J",
-            "mass, m, in kilograms, kg",
-            "temperature change, Δθ, in degrees Celsius, °C"
-          ]
+          "formula": "specific heat capacity = change in thermal energy ÷ (mass × temperature change)    (c = ΔE ÷ (m Δθ))"
         },
         {
           "type": "list",
@@ -366,11 +368,24 @@
               "type": "equation",
               "label": "Energy transferred by a current",
               "formula": "energy transferred = potential difference × current × time    (E = V × I × t)",
-              "where": [
-                "E = energy transferred, in joules (J)",
-                "V = potential difference, in volts (V)",
-                "I = current, in amperes (A)",
-                "t = time, in seconds (s)"
+              "arrows": [
+                {
+                  "point": "E",
+                  "label": "Energy transferred (J)"
+                },
+                {
+                  "point": "V",
+                  "label": "Potential difference (V)"
+                },
+                {
+                  "point": "I",
+                  "label": "Current (A)"
+                },
+                {
+                  "point": "t",
+                  "in": "× t)",
+                  "label": "Time (s)"
+                }
               ]
             }
           ]
@@ -435,7 +450,7 @@
       "c1069fb5-6166-43ca-aa8e-9351621fea89",
       "8baad51e-d795-4aad-a7d5-401aebed9ede"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

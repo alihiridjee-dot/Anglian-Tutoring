@@ -33,11 +33,23 @@
           "type": "equation",
           "label": "Energy to change temperature",
           "formula": "ΔE = mcΔθ",
-          "where": [
-            "ΔE is the energy transferred (J)",
-            "m is the mass (kg)",
-            "c is the specific heat capacity (J kg⁻¹ K⁻¹)",
-            "Δθ is the change in temperature (K or °C)"
+          "arrows": [
+            {
+              "point": "ΔE",
+              "label": "Energy transferred (J)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "c",
+              "label": "Specific heat capacity (J kg⁻¹ K⁻¹)"
+            },
+            {
+              "point": "Δθ",
+              "label": "Change in temperature (K or °C)"
+            }
           ]
         },
         {
@@ -86,11 +98,7 @@
               "unit": "J",
               "decimals": 0
             },
-            "working": [
-              "ΔE = mcΔθ",
-              "ΔE = {m} × 4200 × {dt}",
-              "ΔE = {answer} J"
-            ]
+            "working": ["ΔE = mcΔθ", "ΔE = {m} × 4200 × {dt}", "ΔE = {answer} J"]
           }
         },
         {
@@ -130,10 +138,19 @@
           "type": "equation",
           "label": "Energy to change state",
           "formula": "ΔE = LΔm",
-          "where": [
-            "ΔE is the energy transferred (J)",
-            "L is the specific latent heat (J kg⁻¹)",
-            "Δm is the mass that changes state (kg)"
+          "arrows": [
+            {
+              "point": "ΔE",
+              "label": "Energy transferred (J)"
+            },
+            {
+              "point": "L",
+              "label": "Specific latent heat (J kg⁻¹)"
+            },
+            {
+              "point": "Δm",
+              "label": "Mass that changes state (kg)"
+            }
           ]
         },
         {
@@ -153,10 +170,7 @@
               "label": "Energy supplied",
               "min": 0,
               "max": 10,
-              "ticks": [
-                0,
-                10
-              ],
+              "ticks": [0, 10],
               "unit": "arbitrary units"
             },
             "y": {
@@ -166,34 +180,13 @@
               {
                 "name": "Heating curve",
                 "points": [
-                  [
-                    0,
-                    0.05
-                  ],
-                  [
-                    1.5,
-                    0.25
-                  ],
-                  [
-                    2.5,
-                    0.25
-                  ],
-                  [
-                    4,
-                    0.5
-                  ],
-                  [
-                    7,
-                    0.5
-                  ],
-                  [
-                    8,
-                    0.65
-                  ],
-                  [
-                    10,
-                    0.85
-                  ]
+                  [0, 0.05],
+                  [1.5, 0.25],
+                  [2.5, 0.25],
+                  [4, 0.5],
+                  [7, 0.5],
+                  [8, 0.65],
+                  [10, 0.85]
                 ]
               }
             ],
@@ -241,9 +234,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.6.2.1"
-      ],
+      "spec_codes": ["AQA 3.6.2.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -273,11 +264,23 @@
               "type": "equation",
               "label": "Continuous flow heating",
               "formula": "P = (Δm / Δt) c Δθ",
-              "where": [
-                "P is the power of the heater (W)",
-                "Δm / Δt is the mass of fluid flowing each second (kg s⁻¹)",
-                "c is the specific heat capacity (J kg⁻¹ K⁻¹)",
-                "Δθ is the temperature rise of the fluid (K)"
+              "arrows": [
+                {
+                  "point": "P",
+                  "label": "Power of the heater (W)"
+                },
+                {
+                  "point": "(Δm / Δt)",
+                  "label": "Mass flowing each second (kg s⁻¹)"
+                },
+                {
+                  "point": "c",
+                  "label": "Specific heat capacity (J kg⁻¹ K⁻¹)"
+                },
+                {
+                  "point": "Δθ",
+                  "label": "Temperature rise of the fluid (K)"
+                }
               ]
             },
             {
@@ -289,23 +292,13 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 9.144"
-      ]
+      "spec_codes": ["EDEX 9.144"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 14.3.1",
-        "CAIE 14.3.2"
-      ]
+      "spec_codes": ["CAIE 14.3.1", "CAIE 14.3.2"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.1.3a",
-        "OCR 5.1.3b",
-        "OCR 5.1.3c",
-        "OCR 5.1.3d"
-      ],
+      "spec_codes": ["OCR 5.1.3a", "OCR 5.1.3b", "OCR 5.1.3c", "OCR 5.1.3d"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -343,13 +336,25 @@
               "type": "equation",
               "label": "Specific heat capacity, electrical method",
               "formula": "c = VIt / (mΔθ)",
-              "where": [
-                "V is the potential difference (V)",
-                "I is the current (A)",
-                "t is the time (s)",
-                "m is the mass of the block (kg)",
-                "Δθ is the temperature rise (K)"
-              ]
+              "arrows": [
+                {
+                  "point": "V",
+                  "label": "Potential difference (V)"
+                },
+                {
+                  "point": "I",
+                  "label": "Current (A)"
+                },
+                {
+                  "point": "t",
+                  "label": "Time (s)"
+                },
+                {
+                  "point": "m",
+                  "label": "Mass of the block (kg)"
+                }
+              ],
+              "where": ["Δθ is the temperature rise (K)"]
             },
             {
               "type": "list",
@@ -392,7 +397,7 @@
       "c62359af-2c2c-4ab7-a012-5c5adaed4708"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

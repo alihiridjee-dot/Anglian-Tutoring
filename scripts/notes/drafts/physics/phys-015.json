@@ -24,19 +24,38 @@
           "type": "equation",
           "label": "Total resistance in series",
           "formula": "R_total = R₁ + R₂",
-          "where": [
-            "R_total = total resistance, in ohms (Ω)",
-            "R₁, R₂ = resistance of each component, in ohms (Ω)"
+          "arrows": [
+            {
+              "point": "R_total",
+              "label": "Total resistance (Ω)"
+            },
+            {
+              "point": "R₁",
+              "label": "First resistance (Ω)"
+            },
+            {
+              "point": "R₂",
+              "label": "Second resistance (Ω)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Potential difference, current and resistance",
           "formula": "V = I × R",
-          "where": [
-            "V = potential difference, in volts (V)",
-            "I = current, in amperes (A)",
-            "R = resistance, in ohms (Ω)"
+          "arrows": [
+            {
+              "point": "V",
+              "label": "Potential difference (V)"
+            },
+            {
+              "point": "I",
+              "label": "Current (A)"
+            },
+            {
+              "point": "R",
+              "label": "Resistance (Ω)"
+            }
           ]
         },
         {
@@ -212,32 +231,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Series",
-            "Parallel"
-          ],
+          "columns": ["Feature", "Series", "Parallel"],
           "rows": [
-            [
-              "Paths for current",
-              "One path",
-              "More than one path"
-            ],
-            [
-              "Current",
-              "Same everywhere",
-              "Splits between branches and adds up"
-            ],
-            [
-              "Potential difference",
-              "Shared between components",
-              "Same across each branch"
-            ],
-            [
-              "Adding another resistor",
-              "Total resistance increases",
-              "Total resistance decreases"
-            ]
+            ["Paths for current", "One path", "More than one path"],
+            ["Current", "Same everywhere", "Splits between branches and adds up"],
+            ["Potential difference", "Shared between components", "Same across each branch"],
+            ["Adding another resistor", "Total resistance increases", "Total resistance decreases"]
           ]
         },
         {
@@ -276,10 +275,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.2.2",
-        "AQA T 6.2.2"
-      ],
+      "spec_codes": ["AQA 4.2.2", "AQA T 6.2.2"],
       "worked_example": {
         "exemplar_id": "45b284db-52e1-4035-81a6-09d4e4512395",
         "source": "AQA jun 2023, Paper 1 (F), Q06.2",
@@ -293,12 +289,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 10.3",
-        "EDEX 10.11",
-        "EDEX 10.14",
-        "EDEX 10.15"
-      ],
+      "spec_codes": ["EDEX 10.3", "EDEX 10.11", "EDEX 10.14", "EDEX 10.15"],
       "worked_example": {
         "exemplar_id": "6f0a5b52-95a0-4080-bced-01ea8fd4d76a",
         "source": "EDEXCEL jun 2024, Paper 2 (F), Q8(b)(iv)",
@@ -313,12 +304,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P3.2a",
-        "OCR P3.2i",
-        "OCR P3.2j",
-        "OCR P3.2m"
-      ],
+      "spec_codes": ["OCR P3.2a", "OCR P3.2i", "OCR P3.2j", "OCR P3.2m"],
       "worked_example": {
         "exemplar_id": "e9b7d429-55ab-47ce-bf81-924e59ae85f5",
         "source": "OCR sample, Paper 3, Q19(b)",
@@ -442,9 +428,19 @@
               "type": "equation",
               "label": "Resistors in parallel",
               "formula": "1 ÷ R_total = 1 ÷ R₁ + 1 ÷ R₂",
-              "where": [
-                "R_total = combined resistance, in ohms (Ω)",
-                "R₁, R₂ = resistance of each resistor, in ohms (Ω)"
+              "arrows": [
+                {
+                  "point": "R_total",
+                  "label": "Combined resistance (Ω)"
+                },
+                {
+                  "point": "R₁",
+                  "label": "First resistance (Ω)"
+                },
+                {
+                  "point": "R₂",
+                  "label": "Second resistance (Ω)"
+                }
               ]
             },
             {
@@ -472,9 +468,23 @@
               "type": "equation",
               "label": "Potential divider",
               "formula": "R₁ ÷ R₂ = V₁ ÷ V₂",
-              "where": [
-                "R₁, R₂ = resistance of each resistor, in ohms (Ω)",
-                "V₁, V₂ = potential difference across each resistor, in volts (V)"
+              "arrows": [
+                {
+                  "point": "R₁",
+                  "label": "First resistance (Ω)"
+                },
+                {
+                  "point": "R₂",
+                  "label": "Second resistance (Ω)"
+                },
+                {
+                  "point": "V₁",
+                  "label": "Potential difference across R₁ (V)"
+                },
+                {
+                  "point": "V₂",
+                  "label": "Potential difference across R₂ (V)"
+                }
               ]
             }
           ]
@@ -482,13 +492,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 2.7",
-        "IGCSE 2.8",
-        "IGCSE 2.17",
-        "IGCSE 2.18",
-        "IGCSE 2.19"
-      ],
+      "spec_codes": ["IGCSE 2.7", "IGCSE 2.8", "IGCSE 2.17", "IGCSE 2.18", "IGCSE 2.19"],
       "worked_example": {
         "exemplar_id": "215339b1-9ac0-4831-bcd4-e90527af237e",
         "source": "EDEXCEL jan 2020, Paper 1 (PR), Q6(b)(iii)",
@@ -527,7 +531,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-diagram-audit",
+    "checked_by": "sonnet-science-check, opus-5-5-diagram-audit, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27",
     "spec_point_ids": [
       "dd2dfc70-cca6-469a-ae6b-c4c7ce98c051",

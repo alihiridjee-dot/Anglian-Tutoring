@@ -24,12 +24,27 @@
           "type": "equation",
           "label": "Force and change in momentum",
           "formula": "F = m Δv ÷ Δt   (also written F = (m v − m u) ÷ t)",
-          "where": [
-            "F is the force, in newtons, N",
-            "m is the mass, in kilograms, kg",
-            "Δv is the change in velocity, in metres per second, m/s (v is the final velocity and u is the initial velocity)",
-            "Δt is the time taken, in seconds, s"
-          ]
+          "arrows": [
+            {
+              "point": "F",
+              "in": "F = m Δv",
+              "label": "Force (N)"
+            },
+            {
+              "point": "m",
+              "in": "m Δv",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "Δv",
+              "label": "Change in velocity (m/s)"
+            },
+            {
+              "point": "Δt",
+              "label": "Time taken (s)"
+            }
+          ],
+          "where": ["v is the final velocity and u is the initial velocity."]
         },
         {
           "type": "paragraph",
@@ -292,11 +307,23 @@
               "type": "equation",
               "label": "Impulse",
               "formula": "impulse = F × Δt = Δ(mv)",
-              "where": [
-                "impulse is in newton seconds (N s), the same as kg m/s.",
-                "F is the force in newtons (N).",
-                "Δt is the time for which the force acts in seconds (s).",
-                "Δ(mv) is the change in momentum in kg m/s."
+              "arrows": [
+                {
+                  "point": "impulse",
+                  "label": "Newton seconds (N s) or kg m/s"
+                },
+                {
+                  "point": "F",
+                  "label": "Force (N)"
+                },
+                {
+                  "point": "Δt",
+                  "label": "Time the force acts (s)"
+                },
+                {
+                  "point": "Δ(mv)",
+                  "label": "Change in momentum (kg m/s)"
+                }
               ]
             },
             {
@@ -353,7 +380,7 @@
       "81f6a11c-e8a3-443e-bd13-adde90437ef3",
       "5593b657-e983-4c0d-ad6b-0a8792614234"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

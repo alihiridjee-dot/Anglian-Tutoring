@@ -14,32 +14,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Particle",
-            "Antiparticle",
-            "Charge of particle"
-          ],
+          "columns": ["Particle", "Antiparticle", "Charge of particle"],
           "rows": [
-            [
-              "Electron e⁻",
-              "Positron e⁺",
-              "−1"
-            ],
-            [
-              "Proton p",
-              "Antiproton p̄",
-              "+1"
-            ],
-            [
-              "Neutron n",
-              "Antineutron n̄",
-              "0"
-            ],
-            [
-              "Neutrino ν",
-              "Antineutrino ν̄",
-              "0"
-            ]
+            ["Electron e⁻", "Positron e⁺", "−1"],
+            ["Proton p", "Antiproton p̄", "+1"],
+            ["Neutron n", "Antineutron n̄", "0"],
+            ["Neutrino ν", "Antineutrino ν̄", "0"]
           ]
         },
         {
@@ -72,10 +52,19 @@
           "type": "equation",
           "label": "Mass–energy equivalence",
           "formula": "ΔE = c²Δm",
-          "where": [
-            "ΔE = change in energy (J)",
-            "c = speed of light, 3.00 × 10⁸ m/s",
-            "Δm = change in mass (kg)"
+          "arrows": [
+            {
+              "point": "ΔE",
+              "label": "Change in energy (J)"
+            },
+            {
+              "point": "c",
+              "label": "Speed of light, 3.00 × 10⁸ m/s"
+            },
+            {
+              "point": "Δm",
+              "label": "Change in mass (kg)"
+            }
           ]
         },
         {
@@ -129,13 +118,26 @@
           "type": "equation",
           "label": "Energy of a photon",
           "formula": "E = hf = hc / λ",
-          "where": [
-            "E = energy of the photon (J)",
-            "h = Planck constant, 6.63 × 10⁻³⁴ J s",
-            "f = frequency (Hz)",
-            "c = speed of light (m/s)",
-            "λ = wavelength (m)"
-          ]
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Energy of the photon (J)"
+            },
+            {
+              "point": "h",
+              "in": "hf",
+              "label": "Planck constant, 6.63 × 10⁻³⁴ J s"
+            },
+            {
+              "point": "f",
+              "label": "Frequency (Hz)"
+            },
+            {
+              "point": "λ",
+              "label": "Wavelength (m)"
+            }
+          ],
+          "where": ["c = speed of light (m/s)"]
         },
         {
           "type": "definitions",
@@ -179,9 +181,15 @@
           "type": "equation",
           "label": "Minimum photon energy for pair production",
           "formula": "E(min) = 2mc²",
-          "where": [
-            "E(min) = least photon energy needed (J or MeV)",
-            "mc² = rest energy of one of the pair (J or MeV)"
+          "arrows": [
+            {
+              "point": "E(min)",
+              "label": "Least photon energy needed (J or MeV)"
+            },
+            {
+              "point": "mc²",
+              "label": "One particle's rest energy (J or MeV)"
+            }
           ]
         },
         {
@@ -255,9 +263,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.1.3"
-      ],
+      "spec_codes": ["AQA 3.2.1.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -277,11 +283,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 8.137",
-        "EDEX 8.138",
-        "EDEX 8.141"
-      ],
+      "spec_codes": ["EDEX 8.137", "EDEX 8.138", "EDEX 8.141"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -300,16 +302,10 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 11.1.8"
-      ]
+      "spec_codes": ["CAIE 11.1.8"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.4.2a",
-        "OCR 6.4.2b",
-        "OCR 6.4.4c"
-      ]
+      "spec_codes": ["OCR 6.4.2a", "OCR 6.4.2b", "OCR 6.4.4c"]
     }
   },
   "meta": {
@@ -327,7 +323,7 @@
       "f5ef7183-c07a-48be-a21c-c8709aaa1fa6"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -44,7 +44,25 @@
           "type": "equation",
           "label": "Absorption of gamma radiation",
           "formula": "I = I₀e^(−μx)",
-          "where": ["I = corrected count rate after thickness x (counts/s)", "I₀ = corrected count rate with no lead (counts/s)", "μ = absorption coefficient of lead (m⁻¹)", "x = thickness of lead (m)"]
+          "arrows": [
+            {
+              "point": "I",
+              "in": "I =",
+              "label": "Corrected count rate after x (counts/s)"
+            },
+            {
+              "point": "I₀",
+              "label": "Corrected count rate, no lead (counts/s)"
+            },
+            {
+              "point": "μ",
+              "label": "Absorption coefficient of lead (m⁻¹)"
+            },
+            {
+              "point": "x",
+              "label": "Thickness of lead (m)"
+            }
+          ]
         },
         {
           "type": "list",
@@ -87,7 +105,20 @@
           "type": "equation",
           "label": "Natural frequency of a mass on a spring",
           "formula": "f = (1 / 2π)√(k / m)",
-          "where": ["f = natural frequency (Hz)", "k = spring constant (N/m)", "m = mass (kg)"]
+          "arrows": [
+            {
+              "point": "f",
+              "label": "Natural frequency (Hz)"
+            },
+            {
+              "point": "k",
+              "label": "Spring constant (N/m)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            }
+          ]
         },
         {
           "type": "list",
@@ -104,11 +135,26 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Set up", "text": "Hang a known mass from a spring, with the top of the spring attached to a vibration generator driven by a signal generator." },
-            { "lead": "Drive", "text": "Increase the driving frequency in small steps. The amplitude of the mass rises and then falls." },
-            { "lead": "Find resonance", "text": "Find the frequency that gives the maximum amplitude. Use a fiducial marker or a ruler to judge the largest amplitude, and refine with smaller steps near the peak." },
-            { "lead": "Repeat", "text": "Repeat for several known masses." },
-            { "lead": "Unknown mass", "text": "Hang the unknown mass, find its resonant frequency, and read its mass from the graph." }
+            {
+              "lead": "Set up",
+              "text": "Hang a known mass from a spring, with the top of the spring attached to a vibration generator driven by a signal generator."
+            },
+            {
+              "lead": "Drive",
+              "text": "Increase the driving frequency in small steps. The amplitude of the mass rises and then falls."
+            },
+            {
+              "lead": "Find resonance",
+              "text": "Find the frequency that gives the maximum amplitude. Use a fiducial marker or a ruler to judge the largest amplitude, and refine with smaller steps near the peak."
+            },
+            {
+              "lead": "Repeat",
+              "text": "Repeat for several known masses."
+            },
+            {
+              "lead": "Unknown mass",
+              "text": "Hang the unknown mass, find its resonant frequency, and read its mass from the graph."
+            }
           ]
         },
         {
@@ -156,7 +202,7 @@
     "status": "draft",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "spec_point_ids": [
       "db4419f1-46e5-496c-a368-6c50221e97bd",

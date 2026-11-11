@@ -26,20 +26,38 @@
           "type": "equation",
           "label": "Kinetic energy",
           "formula": "kinetic energy = ½ × mass × speed²",
-          "where": [
-            "kinetic energy is in joules, J",
-            "mass is in kilograms, kg",
-            "speed is in metres per second, m/s"
+          "arrows": [
+            {
+              "point": "kinetic energy",
+              "label": "Joules (J)"
+            },
+            {
+              "point": "mass",
+              "label": "Kilograms (kg)"
+            },
+            {
+              "point": "speed",
+              "label": "Metres per second (m/s)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Work done",
           "formula": "work done = force × distance",
-          "where": [
-            "work done is in joules, J",
-            "force is in newtons, N",
-            "distance is in metres, m"
+          "arrows": [
+            {
+              "point": "work done",
+              "label": "Joules (J)"
+            },
+            {
+              "point": "force",
+              "label": "Newtons (N)"
+            },
+            {
+              "point": "distance",
+              "label": "Metres (m)"
+            }
           ]
         },
         {
@@ -124,10 +142,19 @@
           "type": "equation",
           "label": "Braking distance",
           "formula": "braking distance = speed² ÷ (2 × deceleration)",
-          "where": [
-            "braking distance is in metres, m",
-            "speed is the initial speed, in metres per second, m/s",
-            "deceleration is in metres per second squared, m/s²"
+          "arrows": [
+            {
+              "point": "braking distance",
+              "label": "Metres (m)"
+            },
+            {
+              "point": "speed",
+              "label": "Initial speed (m/s)"
+            },
+            {
+              "point": "deceleration",
+              "label": "Metres per second squared (m/s²)"
+            }
           ]
         },
         {
@@ -242,10 +269,19 @@
           "type": "equation",
           "label": "Force",
           "formula": "force = mass × acceleration",
-          "where": [
-            "force is in newtons, N",
-            "mass is in kilograms, kg",
-            "acceleration is in metres per second squared, m/s²"
+          "arrows": [
+            {
+              "point": "force",
+              "label": "Newtons (N)"
+            },
+            {
+              "point": "mass",
+              "label": "Kilograms (kg)"
+            },
+            {
+              "point": "acceleration",
+              "label": "Metres per second squared (m/s²)"
+            }
           ]
         },
         {
@@ -387,11 +423,23 @@
               "type": "equation",
               "label": "Acceleration",
               "formula": "a = (v − u) ÷ t",
-              "where": [
-                "a: acceleration in metres per second squared, m/s² (negative for a deceleration)",
-                "v: final velocity in metres per second, m/s",
-                "u: initial velocity in metres per second, m/s",
-                "t: time taken in seconds, s"
+              "arrows": [
+                {
+                  "point": "a",
+                  "label": "Acceleration (m/s²), negative if slowing"
+                },
+                {
+                  "point": "v",
+                  "label": "Final velocity (m/s)"
+                },
+                {
+                  "point": "u",
+                  "label": "Initial velocity (m/s)"
+                },
+                {
+                  "point": "t",
+                  "label": "Time taken (s)"
+                }
               ]
             },
             {
@@ -427,7 +475,7 @@
       "c3cfbf60-f2ec-47ef-8409-f21d1a970b1d",
       "c4eb2704-2047-4904-a75f-6c154d296c8a"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

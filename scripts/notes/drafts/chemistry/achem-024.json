@@ -57,22 +57,14 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Change",
-            "Sign of ΔS",
-            "Reason"
-          ],
+          "columns": ["Change", "Sign of ΔS", "Reason"],
           "rows": [
             [
               "Solid to liquid to gas",
               "Positive",
               "Particles move more freely, so there are more arrangements"
             ],
-            [
-              "Gas to liquid to solid",
-              "Negative",
-              "Particles are more ordered"
-            ],
+            ["Gas to liquid to solid", "Negative", "Particles are more ordered"],
             [
               "Heating a substance",
               "Positive",
@@ -109,10 +101,7 @@
             "kind": "sort",
             "alt": "Sort six changes into those where entropy increases and those where it decreases.",
             "prompt": "Sort each change by what happens to the entropy of the system",
-            "groups": [
-              "Entropy increases",
-              "Entropy decreases"
-            ],
+            "groups": ["Entropy increases", "Entropy decreases"],
             "items": [
               {
                 "text": "Ice melts to water",
@@ -162,9 +151,16 @@
           "type": "equation",
           "label": "Entropy change of the system",
           "formula": "ΔS(system) = ΣS⦵(products) − ΣS⦵(reactants)",
-          "where": [
-            "ΔS in J K⁻¹ mol⁻¹",
-            "Σ = sum of (moles × standard entropy) for each substance"
+          "arrows": [
+            {
+              "point": "ΔS(system)",
+              "label": "Entropy change (J K⁻¹ mol⁻¹)"
+            },
+            {
+              "point": "ΣS⦵",
+              "in": "ΣS⦵(products)",
+              "label": "Sum of (moles × standard entropy)"
+            }
           ]
         },
         {
@@ -209,19 +205,26 @@
           "type": "equation",
           "label": "Entropy change of the surroundings",
           "formula": "ΔS(surroundings) = −ΔH ÷ T",
-          "where": [
-            "ΔS(surroundings) in J K⁻¹ mol⁻¹",
-            "ΔH = enthalpy change of the reaction, in J mol⁻¹ (multiply kJ by 1000)",
-            "T = temperature, in K"
+          "arrows": [
+            {
+              "point": "ΔS(surroundings)",
+              "label": "Entropy change (J K⁻¹ mol⁻¹)"
+            },
+            {
+              "point": "ΔH",
+              "label": "Enthalpy change (J mol⁻¹: kJ × 1000)"
+            },
+            {
+              "point": "T",
+              "label": "Temperature (K)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Total entropy change",
           "formula": "ΔS(total) = ΔS(system) + ΔS(surroundings)",
-          "where": [
-            "all terms in J K⁻¹ mol⁻¹"
-          ]
+          "where": ["all terms in J K⁻¹ mol⁻¹"]
         },
         {
           "type": "list",
@@ -262,11 +265,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.2.2a",
-        "OCR 5.2.2b",
-        "OCR 5.2.2c"
-      ],
+      "spec_codes": ["OCR 5.2.2a", "OCR 5.2.2b", "OCR 5.2.2c"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -308,11 +307,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 23.3.1",
-        "CAIE 23.3.2",
-        "CAIE 23.3.3"
-      ],
+      "spec_codes": ["CAIE 23.3.1", "CAIE 23.3.2", "CAIE 23.3.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -330,9 +325,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.8.2"
-      ]
+      "spec_codes": ["AQA 3.1.8.2"]
     }
   },
   "meta": {
@@ -354,7 +347,7 @@
       "f04238ef-5250-448a-a550-0b5dd962b622"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

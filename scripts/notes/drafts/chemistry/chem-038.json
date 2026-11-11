@@ -62,7 +62,16 @@
           "type": "equation",
           "label": "Percentage yield",
           "formula": "percentage yield = (mass of product actually made ÷ maximum theoretical mass of product) × 100",
-          "where": ["Both masses in the same unit, such as g or tonnes."]
+          "arrows": [
+            {
+              "point": "mass of product actually made",
+              "label": "Actual yield"
+            },
+            {
+              "point": "maximum theoretical mass of product",
+              "label": "Theoretical yield"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -326,7 +335,7 @@
       "06ed5c5c-4ca4-432c-90d5-1edd8178a3f4",
       "ef34b2c3-2841-4902-ad0d-a3e6fba3f119"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

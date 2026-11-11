@@ -62,20 +62,30 @@
           "type": "equation",
           "label": "Power from energy transferred",
           "formula": "P = E ÷ t",
-          "where": [
-            "P is power in watts (W).",
-            "E is energy transferred in joules (J).",
-            "t is time in seconds (s)."
+          "arrows": [
+            {
+              "point": "P",
+              "label": "Power (W)"
+            },
+            {
+              "point": "E",
+              "label": "Energy transferred (J)"
+            },
+            {
+              "point": "t",
+              "label": "Time (s)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Power from work done",
           "formula": "P = W ÷ t",
-          "where": [
-            "P is power in watts (W).",
-            "W is work done in joules (J).",
-            "t is time in seconds (s)."
+          "arrows": [
+            {
+              "point": "W",
+              "label": "Work done (J)"
+            }
           ]
         },
         {
@@ -188,22 +198,12 @@
         {
           "type": "equation",
           "label": "Energy transferred",
-          "formula": "E = P × t",
-          "where": [
-            "E is energy transferred in joules (J).",
-            "P is power in watts (W).",
-            "t is time in seconds (s)."
-          ]
+          "formula": "E = P × t"
         },
         {
           "type": "equation",
           "label": "Time taken",
-          "formula": "t = E ÷ P",
-          "where": [
-            "t is time in seconds (s).",
-            "E is energy transferred in joules (J).",
-            "P is power in watts (W)."
-          ]
+          "formula": "t = E ÷ P"
         },
         {
           "type": "paragraph",
@@ -288,19 +288,13 @@
       }
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 1.7.4.1",
-        "CAIE 4.2.5.4"
-      ],
+      "spec_codes": ["CAIE 1.7.4.1", "CAIE 4.2.5.4"],
       "worked_example": {
         "exemplar_id": "498bf19d-f47c-4553-9ab9-238f87333600",
         "source": "CAMBRIDGE mar 2023, Paper 42, Q3(b)(ii)",
         "question": "A wind turbine has a maximum output power of 1.8 MW. The turbine operates at maximum power for 4.0 h.\n\nCalculate the energy produced by the wind turbine operating at maximum power for 4.0 h. Give your answer in kW h.",
         "marks": 2,
-        "answer_points": [
-          "E = P × t",
-          "1.8 MW = 1800 kW, so E = 1800 × 4.0 = 7200 kW h"
-        ],
+        "answer_points": ["E = P × t", "1.8 MW = 1800 kW, so E = 1800 × 4.0 = 7200 kW h"],
         "tip": "Working in kW and hours gives the answer in kW h directly. No conversion to joules is needed."
       },
       "extra": [
@@ -332,10 +326,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 4.16",
-        "IGCSE 4.17"
-      ],
+      "spec_codes": ["IGCSE 4.16", "IGCSE 4.17"],
       "worked_example": {
         "exemplar_id": "215fa979-435f-4d2c-b5bf-d32d8a952c52",
         "source": "EDEXCEL jun 2023, Paper 1 (P), Q3(a)",
@@ -373,7 +364,7 @@
       "498bf19d-f47c-4553-9ab9-238f87333600",
       "215fa979-435f-4d2c-b5bf-d32d8a952c52"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

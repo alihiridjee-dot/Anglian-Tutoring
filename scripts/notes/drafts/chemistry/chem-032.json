@@ -16,9 +16,25 @@
           "type": "equation",
           "label": "Magnesium and hydrochloric acid",
           "formula": "Mg + 2HCl → MgCl₂ + H₂",
-          "where": [
-            "1 mol of Mg reacts with 2 mol of HCl.",
-            "This makes 1 mol of MgCl₂ and 1 mol of H₂."
+          "arrows": [
+            {
+              "point": "Mg",
+              "in": "Mg +",
+              "label": "1 mol"
+            },
+            {
+              "point": "2",
+              "in": "2HCl",
+              "label": "2 mol"
+            },
+            {
+              "point": "MgCl₂",
+              "label": "1 mol"
+            },
+            {
+              "point": "H₂",
+              "label": "1 mol"
+            }
           ]
         },
         {
@@ -49,8 +65,17 @@
         {
           "type": "equation",
           "label": "Moles from a mass",
-          "where": ["mass in grams", "Mr = relative formula mass"],
-          "formula": "moles = mass ÷ Mr"
+          "formula": "moles = mass ÷ Mr",
+          "arrows": [
+            {
+              "point": "mass",
+              "label": "Mass (g)"
+            },
+            {
+              "point": "Mr",
+              "label": "Relative formula mass"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -371,7 +396,7 @@
       "4ff5924f-6d1f-453a-899a-7e0bd6dbd017",
       "13f5f65d-71b6-46f8-a0dc-4bceab8266bc"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

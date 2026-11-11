@@ -82,15 +82,9 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Part",
-            "What it does"
-          ],
+          "columns": ["Part", "What it does"],
           "rows": [
-            [
-              "Fuel (uranium-235)",
-              "Nuclei absorb neutrons and split, releasing energy."
-            ],
+            ["Fuel (uranium-235)", "Nuclei absorb neutrons and split, releasing energy."],
             [
               "Moderator (graphite)",
               "Slows down the neutrons, so they are more likely to be absorbed and cause fission."
@@ -99,10 +93,7 @@
               "Control rods",
               "Absorb neutrons. Pushed in, they leave fewer neutrons for the chain reaction, so fewer fissions."
             ],
-            [
-              "Coolant",
-              "Carries the thermal energy away from the reactor."
-            ]
+            ["Coolant", "Carries the thermal energy away from the reactor."]
           ]
         },
         {
@@ -151,10 +142,20 @@
           "type": "equation",
           "label": "Energy released",
           "formula": "energy released = number of fissions × energy released per fission",
-          "where": [
-            "energy released in joules (J)",
-            "number of fissions in one second (a number)",
-            "energy released per fission in joules (J)"
+          "arrows": [
+            {
+              "point": "energy released",
+              "in": "energy released =",
+              "label": "Joules (J)"
+            },
+            {
+              "point": "number of fissions",
+              "label": "Fissions in one second"
+            },
+            {
+              "point": "energy released per fission",
+              "label": "Joules (J)"
+            }
           ]
         },
         {
@@ -229,9 +230,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.4.4.1"
-      ],
+      "spec_codes": ["AQA 4.4.4.1"],
       "worked_example": {
         "exemplar_id": "72f0aada-69eb-4665-8f2b-dcce84edbf6d",
         "source": "AQA jun 2020, Paper 1 (H), Q05.3",
@@ -300,9 +299,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P6.2d"
-      ],
+      "spec_codes": ["OCR P6.2d"],
       "worked_example": {
         "exemplar_id": "9e56300b-cc07-4f33-8725-a1cb1c949378",
         "source": "OCR jun 2025, Paper 2, Q21(a)",
@@ -317,9 +314,7 @@
       }
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 5.1.2.6S"
-      ],
+      "spec_codes": ["CAIE 5.1.2.6S"],
       "worked_example": {
         "exemplar_id": "e0b06a1f-7d7e-40ed-bc91-a24ac965bc43",
         "source": "CAMBRIDGE mar 2023, Paper 42, Q9(a)(i)",
@@ -432,7 +427,7 @@
       "e0b06a1f-7d7e-40ed-bc91-a24ac965bc43",
       "0f2d6dc6-e0c5-41d7-b2fd-a0c851438a77"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

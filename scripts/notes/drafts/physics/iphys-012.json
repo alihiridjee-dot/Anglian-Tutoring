@@ -29,10 +29,19 @@
           "type": "equation",
           "label": "Electromotive force",
           "formula": "E = W / Q",
-          "where": [
-            "E = e.m.f. of the source, in volts (V)",
-            "W = work done by the source, in joules (J)",
-            "Q = charge moved around the circuit, in coulombs (C)"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "E.m.f. of the source (V)"
+            },
+            {
+              "point": "W",
+              "label": "Work done by the source (J)"
+            },
+            {
+              "point": "Q",
+              "label": "Charge moved around the circuit (C)"
+            }
           ]
         },
         {
@@ -69,11 +78,7 @@
               "unit": "J",
               "decimals": 1
             },
-            "working": [
-              "W = E × Q",
-              "W = {E} × {Q}",
-              "W = {answer} J"
-            ]
+            "working": ["W = E × Q", "W = {E} × {Q}", "W = {answer} J"]
           }
         },
         {
@@ -137,9 +142,23 @@
           "type": "equation",
           "label": "Potential divider (Supplement)",
           "formula": "R₁ / R₂ = V₁ / V₂",
-          "where": [
-            "R₁, R₂ = resistances of the two resistors, in ohms (Ω)",
-            "V₁, V₂ = p.d. across each resistor, in volts (V)"
+          "arrows": [
+            {
+              "point": "R₁",
+              "label": "First resistance (Ω)"
+            },
+            {
+              "point": "R₂",
+              "label": "Second resistance (Ω)"
+            },
+            {
+              "point": "V₁",
+              "label": "P.d. across R₁ (V)"
+            },
+            {
+              "point": "V₂",
+              "label": "P.d. across R₂ (V)"
+            }
           ]
         },
         {
@@ -289,10 +308,8 @@
       "48fe7186-3ab9-4c26-9bd5-06927c81e6dd",
       "9f19fd54-30da-4812-8085-57f4678f86ad"
     ],
-    "exemplar_ids": [
-      "cce5b00e-9dc5-4e99-a83c-80f33dc12fde"
-    ],
-    "checked_by": "sonnet-science-check",
+    "exemplar_ids": ["cce5b00e-9dc5-4e99-a83c-80f33dc12fde"],
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

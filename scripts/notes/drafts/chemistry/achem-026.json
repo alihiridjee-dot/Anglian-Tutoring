@@ -65,11 +65,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Change",
-            "Effect on particles",
-            "Effect on rate"
-          ],
+          "columns": ["Change", "Effect on particles", "Effect on rate"],
           "rows": [
             [
               "Higher concentration",
@@ -106,47 +102,27 @@
             "options": [
               {
                 "label": "Increase the concentration",
-                "results": [
-                  "Increases",
-                  "Unchanged",
-                  "Increases"
-                ],
+                "results": ["Increases", "Unchanged", "Increases"],
                 "explanation": "More particles in the same volume collide more often. Each particle still has the same chance of having enough energy."
               },
               {
                 "label": "Increase the pressure of a gas",
-                "results": [
-                  "Increases",
-                  "Unchanged",
-                  "Increases"
-                ],
+                "results": ["Increases", "Unchanged", "Increases"],
                 "explanation": "The gas particles are closer together, so collisions are more frequent."
               },
               {
                 "label": "Use a powder instead of lumps",
-                "results": [
-                  "Increases",
-                  "Unchanged",
-                  "Increases"
-                ],
+                "results": ["Increases", "Unchanged", "Increases"],
                 "explanation": "More of the solid is exposed, so more collisions happen at its surface."
               },
               {
                 "label": "Increase the temperature",
-                "results": [
-                  "Increases",
-                  "Increases",
-                  "Increases"
-                ],
+                "results": ["Increases", "Increases", "Increases"],
                 "explanation": "Particles move faster and a larger fraction has energy of at least Eₐ. This second effect is the bigger one."
               },
               {
                 "label": "Add a catalyst",
-                "results": [
-                  "Unchanged",
-                  "Increases",
-                  "Increases"
-                ],
+                "results": ["Unchanged", "Increases", "Increases"],
                 "explanation": "The catalyst lowers Eₐ, so a larger fraction of collisions is effective."
               }
             ]
@@ -173,10 +149,19 @@
           "type": "equation",
           "label": "Mean rate of reaction",
           "formula": "mean rate = change in concentration ÷ time taken",
-          "where": [
-            "change in concentration in mol/dm³",
-            "time taken in s",
-            "rate in mol/dm³/s"
+          "arrows": [
+            {
+              "point": "mean rate",
+              "label": "In mol/dm³/s"
+            },
+            {
+              "point": "change in concentration",
+              "label": "In mol/dm³"
+            },
+            {
+              "point": "time taken",
+              "label": "Seconds (s)"
+            }
           ]
         },
         {
@@ -266,11 +251,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.2.2a",
-        "OCR 3.2.2b",
-        "OCR 3.2.2e"
-      ],
+      "spec_codes": ["OCR 3.2.2a", "OCR 3.2.2b", "OCR 3.2.2e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -292,25 +273,13 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 9.1",
-        "EDEX 9.2",
-        "EDEX 9.3"
-      ]
+      "spec_codes": ["EDEX 9.1", "EDEX 9.2", "EDEX 9.3"]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.5.1",
-        "AQA 3.1.5.4"
-      ]
+      "spec_codes": ["AQA 3.1.5.1", "AQA 3.1.5.4"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 8.1.1",
-        "CAIE 8.1.2",
-        "CAIE 8.1.3",
-        "CAIE 8.2.1"
-      ],
+      "spec_codes": ["CAIE 8.1.1", "CAIE 8.1.2", "CAIE 8.1.3", "CAIE 8.2.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -350,7 +319,7 @@
       "871aea58-3e0b-40d9-a9f3-4b0daaef9400"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

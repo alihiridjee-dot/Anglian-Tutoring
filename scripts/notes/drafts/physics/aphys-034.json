@@ -61,11 +61,24 @@
           "type": "equation",
           "label": "Observed frequency",
           "formula": "fₒ = fₛ v / (v ± vₛ)",
-          "where": [
-            "fₒ = observed frequency (Hz)",
-            "fₛ = source frequency (Hz)",
-            "v = speed of sound in air (m/s)",
-            "vₛ = speed of the source (m/s)"
+          "arrows": [
+            {
+              "point": "fₒ",
+              "label": "Observed frequency (Hz)"
+            },
+            {
+              "point": "fₛ",
+              "label": "Source frequency (Hz)"
+            },
+            {
+              "point": "v",
+              "in": "fₛ v",
+              "label": "Speed of sound in air (m/s)"
+            },
+            {
+              "point": "vₛ",
+              "label": "Speed of the source (m/s)"
+            }
           ]
         },
         {
@@ -136,10 +149,7 @@
   ],
   "boards": {
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 7.3.1",
-        "CAIE 7.3.2"
-      ]
+      "spec_codes": ["CAIE 7.3.1", "CAIE 7.3.2"]
     }
   },
   "meta": {
@@ -151,7 +161,7 @@
       "9b57b82e-c067-497f-94f6-576aec5a9636"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

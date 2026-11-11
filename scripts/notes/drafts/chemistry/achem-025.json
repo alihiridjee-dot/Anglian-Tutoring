@@ -16,11 +16,23 @@
           "type": "equation",
           "label": "Gibbs free energy change",
           "formula": "ΔG = ΔH − TΔS",
-          "where": [
-            "ΔG = free energy change, in kJ mol⁻¹",
-            "ΔH = enthalpy change of the system, in kJ mol⁻¹",
-            "T = temperature, in K",
-            "ΔS = entropy change of the system, in kJ K⁻¹ mol⁻¹ (divide J K⁻¹ mol⁻¹ by 1000)"
+          "arrows": [
+            {
+              "point": "ΔG",
+              "label": "Free energy change (kJ mol⁻¹)"
+            },
+            {
+              "point": "ΔH",
+              "label": "Enthalpy change of system (kJ mol⁻¹)"
+            },
+            {
+              "point": "T",
+              "label": "Temperature (K)"
+            },
+            {
+              "point": "ΔS",
+              "label": "Entropy change of system (kJ K⁻¹ mol⁻¹)"
+            }
           ]
         },
         {
@@ -52,42 +64,31 @@
         },
         {
           "type": "table",
-          "columns": [
-            "ΔH",
-            "ΔS",
-            "Feasible?"
-          ],
+          "columns": ["ΔH", "ΔS", "Feasible?"],
           "rows": [
-            [
-              "Negative",
-              "Positive",
-              "At all temperatures: ΔG is always negative"
-            ],
-            [
-              "Positive",
-              "Negative",
-              "At no temperature: ΔG is always positive"
-            ],
-            [
-              "Negative",
-              "Negative",
-              "Only at low temperatures, where ΔH outweighs TΔS"
-            ],
-            [
-              "Positive",
-              "Positive",
-              "Only at high temperatures, where TΔS outweighs ΔH"
-            ]
+            ["Negative", "Positive", "At all temperatures: ΔG is always negative"],
+            ["Positive", "Negative", "At no temperature: ΔG is always positive"],
+            ["Negative", "Negative", "Only at low temperatures, where ΔH outweighs TΔS"],
+            ["Positive", "Positive", "Only at high temperatures, where TΔS outweighs ΔH"]
           ]
         },
         {
           "type": "equation",
           "label": "Temperature at which a reaction becomes feasible",
           "formula": "T = ΔH ÷ ΔS",
-          "where": [
-            "T = the temperature at which ΔG = 0, in K",
-            "ΔH in kJ mol⁻¹",
-            "ΔS in kJ K⁻¹ mol⁻¹"
+          "arrows": [
+            {
+              "point": "T",
+              "label": "Temperature where ΔG = 0 (K)"
+            },
+            {
+              "point": "ΔH",
+              "label": "Enthalpy change (kJ mol⁻¹)"
+            },
+            {
+              "point": "ΔS",
+              "label": "Entropy change (kJ K⁻¹ mol⁻¹)"
+            }
           ]
         },
         {
@@ -186,11 +187,7 @@
               "unit": "K",
               "decimals": 0
             },
-            "working": [
-              "ΔG = 0 when T = ΔH ÷ ΔS",
-              "T = ({h} × 1000) ÷ {s}",
-              "T = **{answer}** K"
-            ]
+            "working": ["ΔG = 0 when T = ΔH ÷ ΔS", "T = ({h} × 1000) ÷ {s}", "T = **{answer}** K"]
           }
         },
         {
@@ -251,11 +248,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.2.2d",
-        "OCR 5.2.2e",
-        "OCR 5.2.2f"
-      ],
+      "spec_codes": ["OCR 5.2.2d", "OCR 5.2.2e", "OCR 5.2.2f"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -272,13 +265,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 13B.18",
-        "EDEX 13B.19",
-        "EDEX 13B.20",
-        "EDEX 13B.21",
-        "EDEX 13B.22"
-      ],
+      "spec_codes": ["EDEX 13B.18", "EDEX 13B.19", "EDEX 13B.20", "EDEX 13B.21", "EDEX 13B.22"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -287,11 +274,23 @@
               "type": "equation",
               "label": "Free energy and the equilibrium constant",
               "formula": "ΔG = −RT ln K",
-              "where": [
-                "R = gas constant, 8.31 J K⁻¹ mol⁻¹",
-                "T = temperature, in K",
-                "K = equilibrium constant",
-                "ΔG in J mol⁻¹ here"
+              "arrows": [
+                {
+                  "point": "ΔG",
+                  "label": "Free energy change (J mol⁻¹ here)"
+                },
+                {
+                  "point": "R",
+                  "label": "Gas constant (8.31 J K⁻¹ mol⁻¹)"
+                },
+                {
+                  "point": "T",
+                  "label": "Temperature (K)"
+                },
+                {
+                  "point": "K",
+                  "label": "Equilibrium constant"
+                }
               ]
             },
             {
@@ -308,9 +307,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.8.2"
-      ],
+      "spec_codes": ["AQA 3.1.8.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -328,12 +325,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 23.4.1",
-        "CAIE 23.4.2",
-        "CAIE 23.4.3",
-        "CAIE 23.4.4"
-      ],
+      "spec_codes": ["CAIE 23.4.1", "CAIE 23.4.2", "CAIE 23.4.3", "CAIE 23.4.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -370,7 +362,7 @@
       "f9f90af9-3268-4406-9363-9fd483dbed60"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

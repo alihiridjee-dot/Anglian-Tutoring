@@ -16,22 +16,43 @@
           "type": "equation",
           "label": "Equation of state of an ideal gas",
           "formula": "pV = nRT",
-          "where": [
-            "p = pressure (Pa)",
-            "V = volume (m³)",
-            "n = amount of gas (mol)",
-            "R = molar gas constant, 8.31 J mol⁻¹ K⁻¹",
-            "T = temperature (K)"
-          ]
+          "arrows": [
+            {
+              "point": "p",
+              "label": "Pressure (Pa)"
+            },
+            {
+              "point": "V",
+              "label": "Volume (m³)"
+            },
+            {
+              "point": "n",
+              "label": "Amount of gas (mol)"
+            },
+            {
+              "point": "T",
+              "label": "Temperature (K)"
+            }
+          ],
+          "where": ["R is the molar gas constant, 8.31 J mol⁻¹ K⁻¹"]
         },
         {
           "type": "equation",
           "label": "First law of thermodynamics",
           "formula": "Q = ΔU + W",
-          "where": [
-            "Q = heat transferred to the gas (J)",
-            "ΔU = increase in internal energy of the gas (J)",
-            "W = work done by the gas on its surroundings (J)"
+          "arrows": [
+            {
+              "point": "Q",
+              "label": "Heat transferred to the gas (J)"
+            },
+            {
+              "point": "ΔU",
+              "label": "Increase in the gas's internal energy (J)"
+            },
+            {
+              "point": "W",
+              "label": "Work done by the gas (J)"
+            }
           ]
         },
         {
@@ -83,32 +104,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Process",
-            "Rule",
-            "First law gives"
-          ],
+          "columns": ["Process", "Rule", "First law gives"],
           "rows": [
-            [
-              "Isothermal",
-              "pV = constant",
-              "ΔU = 0, so Q = W"
-            ],
-            [
-              "Adiabatic",
-              "pVᵞ = constant",
-              "Q = 0, so W = −ΔU"
-            ],
-            [
-              "Constant pressure",
-              "W = pΔV",
-              "Q = ΔU + pΔV"
-            ],
-            [
-              "Constant volume",
-              "W = 0",
-              "Q = ΔU"
-            ]
+            ["Isothermal", "pV = constant", "ΔU = 0, so Q = W"],
+            ["Adiabatic", "pVᵞ = constant", "Q = 0, so W = −ΔU"],
+            ["Constant pressure", "W = pΔV", "Q = ΔU + pΔV"],
+            ["Constant volume", "W = 0", "Q = ΔU"]
           ]
         },
         {
@@ -128,10 +129,11 @@
           "type": "equation",
           "label": "Work done at constant pressure",
           "formula": "W = pΔV",
-          "where": [
-            "W = work done by the gas (J)",
-            "p = pressure (Pa)",
-            "ΔV = change in volume (m³)"
+          "arrows": [
+            {
+              "point": "ΔV",
+              "label": "Change in volume (m³)"
+            }
           ]
         },
         {
@@ -159,10 +161,7 @@
               "unit": "J",
               "decimals": 0
             },
-            "working": [
-              "Using kPa × dm³ gives joules.",
-              "W = pΔV = {p} × {dV} = {answer} J"
-            ]
+            "working": ["Using kPa × dm³ gives joules.", "W = pΔV = {p} × {dV} = {answer} J"]
           }
         },
         {
@@ -234,10 +233,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.11.2.2",
-        "AQA 3.11.2.3"
-      ]
+      "spec_codes": ["AQA 3.11.2.2", "AQA 3.11.2.3"]
     }
   },
   "meta": {
@@ -249,7 +245,7 @@
       "7ae5ac6b-7f0f-43e1-bf73-d295f8590fe4"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

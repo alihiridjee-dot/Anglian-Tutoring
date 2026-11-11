@@ -75,10 +75,7 @@
           "diagram": {
             "kind": "compare",
             "alt": "Batch and continuous fermentation compared.",
-            "items": [
-              "Batch",
-              "Continuous"
-            ],
+            "items": ["Batch", "Continuous"],
             "rows": [
               {
                 "feature": "Method",
@@ -89,17 +86,11 @@
               },
               {
                 "feature": "Output",
-                "values": [
-                  "Stops at the end of each batch",
-                  "Steady and ongoing"
-                ]
+                "values": ["Stops at the end of each batch", "Steady and ongoing"]
               },
               {
                 "feature": "Contamination",
-                "values": [
-                  "A single batch is lost",
-                  "Harder to control over a long run"
-                ]
+                "values": ["A single batch is lost", "Harder to control over a long run"]
               },
               {
                 "feature": "Best for",
@@ -160,10 +151,20 @@
           "type": "equation",
           "label": "Number of organisms after n divisions",
           "formula": "N = N₀ × 2ⁿ",
-          "where": [
-            "N: number of organisms after n divisions",
-            "N₀: starting number of organisms",
-            "n: number of divisions (generations)"
+          "arrows": [
+            {
+              "point": "N",
+              "in": "N =",
+              "label": "Organisms after n divisions"
+            },
+            {
+              "point": "N₀",
+              "label": "Starting number of organisms"
+            },
+            {
+              "point": "ⁿ",
+              "label": "Number of divisions (generations)"
+            }
           ]
         },
         {
@@ -190,11 +191,7 @@
               "formula": "N0 * 2 ^ n",
               "decimals": 0
             },
-            "working": [
-              "N = N₀ × 2ⁿ",
-              "N = {N0} × 2^{n}",
-              "N = {answer}"
-            ]
+            "working": ["N = N₀ × 2ⁿ", "N = {N0} × 2^{n}", "N = {answer}"]
           }
         },
         {
@@ -224,15 +221,9 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Advantages",
-            "Disadvantages"
-          ],
+          "columns": ["Advantages", "Disadvantages"],
           "rows": [
-            [
-              "Can be reused, which lowers cost",
-              "Immobilising is an extra cost"
-            ],
+            ["Can be reused, which lowers cost", "Immobilising is an extra cost"],
             [
               "Product is not contaminated with enzyme",
               "Activity can be lower, since the substrate must reach the enzyme"
@@ -284,9 +275,7 @@
   ],
   "boards": {
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 4.14"
-      ],
+      "spec_codes": ["EDEX 4.14"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -303,9 +292,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 3.2.4"
-      ],
+      "spec_codes": ["CAIE 3.2.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -328,13 +315,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.2.1e",
-        "OCR 6.2.1f",
-        "OCR 6.2.1g",
-        "OCR 6.2.1h",
-        "OCR 6.2.1i"
-      ],
+      "spec_codes": ["OCR 6.2.1e", "OCR 6.2.1f", "OCR 6.2.1g", "OCR 6.2.1h", "OCR 6.2.1i"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -366,7 +347,7 @@
       "c261682b-1590-40a5-be88-abb3e9a22668"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

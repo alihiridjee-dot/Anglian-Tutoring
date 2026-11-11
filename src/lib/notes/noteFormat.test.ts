@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import {
+  arrowSpan,
   enzymeFactor,
   fillTemplate,
   fillWorking,
@@ -312,5 +313,67 @@ describe("a cold enzyme is slow, not denatured", () => {
     expect(
       errorsFor({ ...t, scene: { ...scene(t), factor: "heat" } } as unknown as NoteDiagram).join(),
     ).toContain("factor must be temperature or ph");
+  });
+});
+
+describe("an equation's arrows each find their part once", () => {
+  const withEquation = (eq: Record<string, unknown>) =>
+    validateNote({
+      ...noteWith({ kind: "figure", alt: "a", brief: { kind: "x" } } as NoteDiagram),
+      sections: [{ heading: "A", blocks: [{ type: "equation", ...eq }] }],
+    });
+
+  test("arrowSpan finds the part, inside its stretch when one is given", () => {
+    expect(arrowSpan("2H₂O", { point: "₂" })).toEqual({ start: 2, end: 3 });
+    expect(arrowSpan("2H₂ + O₂ → 2H₂O", { point: "₂", in: "2H₂O" })).toEqual({
+      start: 13,
+      end: 14,
+    });
+    expect(arrowSpan("Kc = [C]ᶜ / [A]ᵃ", { point: "[C]" })).toEqual({ start: 5, end: 8 });
+  });
+
+  test("a part found twice, or not at all, is refused with the reason", () => {
+    expect(arrowSpan("2H₂ + O₂ → 2H₂O", { point: "₂" })).toEqual({
+      problem:
+        '"₂" is in the formula 3 times; give "in" a stretch of the formula around it that is found once',
+    });
+    expect(arrowSpan("2H₂O", { point: "₃" })).toEqual({
+      problem: '"₃" is not in the formula "2H₂O"',
+    });
+    expect(arrowSpan("H₂O₂", { point: "₂", in: "H₂O₂" })).toEqual({
+      problem: '"₂" is in "H₂O₂" 2 times; "in" must hold it once',
+    });
+  });
+
+  test("a good box passes; long labels, clashes and a long where list don't", () => {
+    const good = {
+      formula: "2H₂O",
+      arrows: [
+        { point: "2", in: "2H", label: "Balancing number: you can change it" },
+        { point: "₂", label: "Part of the formula: never change it" },
+      ],
+    };
+    expect(withEquation(good)).toEqual([]);
+    expect(
+      withEquation({
+        ...good,
+        arrows: [
+          { point: "2", in: "2H", label: "a label that runs on far longer than seven words" },
+        ],
+      }).join(),
+    ).toContain("too long");
+    expect(
+      withEquation({
+        ...good,
+        arrows: [
+          { point: "2H", label: "Two waters" },
+          { point: "H", label: "Hydrogen" },
+        ],
+      }).join(),
+    ).toContain("same characters as arrows[0]");
+    expect(withEquation({ ...good, where: ["one", "two", "three"] }).join()).toContain(
+      'at most 2 "where" lines',
+    );
+    expect(withEquation({ ...good, arrows: [] }).join()).toContain("needs 1–4 arrows");
   });
 });

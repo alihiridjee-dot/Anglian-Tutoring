@@ -43,11 +43,17 @@
         },
         {
           "type": "equation",
-          "formula": "% oxygen = (volume of oxygen used ÷ starting volume of air) × 100",
           "label": "Percentage of oxygen in air",
-          "where": [
-            "volume of oxygen used = start volume − end volume of gas in the syringe",
-            "starting volume of air = syringe volume + volume of flask and tube, all in cm³"
+          "formula": "% oxygen = (volume of oxygen used ÷ starting volume of air) × 100",
+          "arrows": [
+            {
+              "point": "volume of oxygen used",
+              "label": "Start minus end volume in syringe (cm³)"
+            },
+            {
+              "point": "starting volume of air",
+              "label": "Syringe + flask + tube (cm³)"
+            }
           ]
         },
         {
@@ -107,31 +113,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Element",
-            "What you see",
-            "Product",
-            "Equation"
-          ],
+          "columns": ["Element", "What you see", "Product", "Equation"],
           "rows": [
-            [
-              "Magnesium",
-              "Bright white flame, white powder",
-              "Magnesium oxide",
-              "2Mg + O₂ → 2MgO"
-            ],
-            [
-              "Hydrogen",
-              "Burns with a pale flame",
-              "Water",
-              "2H₂ + O₂ → 2H₂O"
-            ],
-            [
-              "Sulfur",
-              "Blue flame, pungent choking gas",
-              "Sulfur dioxide",
-              "S + O₂ → SO₂"
-            ]
+            ["Magnesium", "Bright white flame, white powder", "Magnesium oxide", "2Mg + O₂ → 2MgO"],
+            ["Hydrogen", "Burns with a pale flame", "Water", "2H₂ + O₂ → 2H₂O"],
+            ["Sulfur", "Blue flame, pungent choking gas", "Sulfur dioxide", "S + O₂ → SO₂"]
           ]
         },
         {
@@ -214,12 +200,7 @@
   ],
   "boards": {
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 2.10",
-        "IGCSE 2.11",
-        "IGCSE 2.12",
-        "IGCSE 2.14"
-      ],
+      "spec_codes": ["IGCSE 2.10", "IGCSE 2.11", "IGCSE 2.12", "IGCSE 2.14"],
       "worked_example": {
         "exemplar_id": "6826460b-394d-4b19-9b02-88fb5dc0c0db",
         "source": "EDEXCEL jun 2022, Paper 1 (C), Q4(c)",
@@ -244,10 +225,8 @@
       "b4b4b62c-d2d1-423c-8ff3-6ef79b476cdc",
       "bf9adb60-d1fe-4603-8cc6-2c95eda63287"
     ],
-    "exemplar_ids": [
-      "6826460b-394d-4b19-9b02-88fb5dc0c0db"
-    ],
-    "checked_by": "sonnet-science-check",
+    "exemplar_ids": ["6826460b-394d-4b19-9b02-88fb5dc0c0db"],
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

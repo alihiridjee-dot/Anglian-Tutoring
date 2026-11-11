@@ -121,11 +121,24 @@
           "type": "equation",
           "label": "Grating equation",
           "formula": "d sin θ = nλ",
-          "where": [
-            "d = slit spacing (m)",
-            "θ = angle from the straight-through direction to the nth maximum",
-            "n = order of the maximum (0, 1, 2, ...)",
-            "λ = wavelength (m)"
+          "arrows": [
+            {
+              "point": "d",
+              "label": "Slit spacing (m)"
+            },
+            {
+              "point": "θ",
+              "label": "Angle from straight-through to maximum"
+            },
+            {
+              "point": "n",
+              "in": "nλ",
+              "label": "Order of the maximum"
+            },
+            {
+              "point": "λ",
+              "label": "Wavelength (m)"
+            }
           ]
         },
         {
@@ -167,11 +180,7 @@
               "formula": "n * lam * N * 0.000001",
               "decimals": 3
             },
-            "working": [
-              "d = 1 / ({N} × 10³) m",
-              "sin θ = nλ / d",
-              "sin θ = {answer}"
-            ]
+            "working": ["d = 1 / ({N} × 10³) m", "sin θ = nλ / d", "sin θ = {answer}"]
           }
         },
         {
@@ -210,9 +219,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.2.2"
-      ],
+      "spec_codes": ["AQA 3.3.2.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -230,17 +237,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.83",
-        "EDEX 5.84"
-      ]
+      "spec_codes": ["EDEX 5.83", "EDEX 5.84"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 8.2.1",
-        "CAIE 8.2.2",
-        "CAIE 8.4.1"
-      ],
+      "spec_codes": ["CAIE 8.2.1", "CAIE 8.2.2", "CAIE 8.4.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -257,10 +257,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.5.2g",
-        "OCR 5.5.2h"
-      ],
+      "spec_codes": ["OCR 5.5.2g", "OCR 5.5.2h"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -293,7 +290,7 @@
       "192c4b3d-d88e-4580-a9a1-efbfffbc47cc"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

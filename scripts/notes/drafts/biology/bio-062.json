@@ -88,10 +88,19 @@
           "type": "equation",
           "label": "Rate of oxygen uptake",
           "formula": "rate = distance moved ÷ time",
-          "where": [
-            "rate, in mm per minute",
-            "distance moved by the liquid, in mm",
-            "time, in minutes"
+          "arrows": [
+            {
+              "point": "rate",
+              "label": "Millimetres per minute (mm/min)"
+            },
+            {
+              "point": "distance moved",
+              "label": "By the liquid (mm)"
+            },
+            {
+              "point": "time",
+              "label": "Minutes"
+            }
           ]
         },
         {
@@ -403,7 +412,7 @@
       "417442eb-9d20-4e7c-b33f-6f14aa30c270",
       "e1cb783b-db07-4b94-96a1-bc2570fd666e"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

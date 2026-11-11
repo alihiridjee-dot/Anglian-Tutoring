@@ -48,10 +48,22 @@
         {
           "type": "equation",
           "label": "The balanced equation",
-          "where": [
-            "Chlorine is a molecule, Cl₂. 3 Cl atoms for every Fe means 3 Cl₂ for every 2 Fe."
-          ],
-          "formula": "2Fe + 3Cl₂ → 2FeCl₃"
+          "formula": "2Fe + 3Cl₂ → 2FeCl₃",
+          "arrows": [
+            {
+              "point": "3",
+              "in": "3Cl₂",
+              "label": "Balancing number: 3 Cl₂ per 2 Fe"
+            },
+            {
+              "point": "₂",
+              "label": "Chlorine is a molecule, Cl₂"
+            },
+            {
+              "point": "₃",
+              "label": "3 Cl atoms for every Fe"
+            }
+          ]
         },
         {
           "type": "list",
@@ -301,7 +313,7 @@
       "69bbf521-08a5-4f2c-92c1-dad04514f015",
       "9e238429-c8d9-4879-ac7e-507f873394bc"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

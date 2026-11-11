@@ -25,12 +25,20 @@
           "type": "equation",
           "label": "Concentration",
           "formula": "concentration (mol/dm³) = moles of solute ÷ volume of solution (dm³)",
-          "where": ["moles in mol", "volume in dm³: divide cm³ by 1000"]
+          "arrows": [
+            {
+              "point": "moles of solute",
+              "label": "Moles (mol)"
+            },
+            {
+              "point": "volume of solution (dm³)",
+              "label": "Divide cm³ by 1000 to get dm³"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "Moles of solute",
-          "where": ["The same equation, rearranged."],
           "formula": "moles = concentration (mol/dm³) × volume (dm³)"
         },
         {
@@ -98,13 +106,17 @@
           "type": "equation",
           "label": "mol/dm³ to g/dm³",
           "formula": "concentration in g/dm³ = concentration in mol/dm³ × Mr",
-          "where": ["Mr = relative formula mass of the solute"]
+          "arrows": [
+            {
+              "point": "Mr",
+              "label": "Relative formula mass of the solute"
+            }
+          ]
         },
         {
           "type": "equation",
           "label": "g/dm³ to mol/dm³",
-          "formula": "concentration in mol/dm³ = concentration in g/dm³ ÷ Mr",
-          "where": ["The same equation, rearranged."]
+          "formula": "concentration in mol/dm³ = concentration in g/dm³ ÷ Mr"
         },
         {
           "type": "steps",
@@ -211,10 +223,15 @@
               "type": "equation",
               "label": "Mass of solute from a concentration in mol/dm³",
               "formula": "mass (g) = concentration (mol/dm³) × volume (dm³) × Mr",
-              "where": [
-                "concentration in mol/dm³",
-                "volume of solution in dm³ (divide cm³ by 1000)",
-                "Mr is the relative formula mass of the solute"
+              "arrows": [
+                {
+                  "point": "volume (dm³)",
+                  "label": "Solution volume: divide cm³ by 1000"
+                },
+                {
+                  "point": "Mr",
+                  "label": "Relative formula mass of the solute"
+                }
               ]
             }
           ]
@@ -247,11 +264,23 @@
               "type": "equation",
               "label": "Concentration from a mass",
               "formula": "concentration (mol dm⁻³) = mass (g) ÷ Mr ÷ volume (dm³)",
-              "where": [
-                "concentration in mol dm⁻³, the same as mol/dm³",
-                "mass of solute in g",
-                "Mr is the relative formula mass of the solute",
-                "volume of solution in dm³ (divide cm³ by 1000)"
+              "arrows": [
+                {
+                  "point": "mol dm⁻³",
+                  "label": "Same as mol/dm³"
+                },
+                {
+                  "point": "mass (g)",
+                  "label": "Mass of solute"
+                },
+                {
+                  "point": "Mr",
+                  "label": "Relative formula mass of the solute"
+                },
+                {
+                  "point": "volume (dm³)",
+                  "label": "Solution volume: divide cm³ by 1000"
+                }
               ]
             }
           ]
@@ -276,10 +305,19 @@
               "type": "equation",
               "label": "Concentration from a mass and a volume",
               "formula": "concentration (mol/dm³) = mass (g) ÷ Mr ÷ volume (dm³)",
-              "where": [
-                "mass of solute in g",
-                "Mr is the relative formula mass of the solute",
-                "volume of solution in dm³ (divide cm³ by 1000)"
+              "arrows": [
+                {
+                  "point": "mass (g)",
+                  "label": "Mass of solute"
+                },
+                {
+                  "point": "Mr",
+                  "label": "Relative formula mass of the solute"
+                },
+                {
+                  "point": "volume (dm³)",
+                  "label": "Solution volume: divide cm³ by 1000"
+                }
               ]
             },
             {
@@ -314,7 +352,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-01",

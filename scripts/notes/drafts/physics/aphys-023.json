@@ -29,21 +29,25 @@
           "type": "equation",
           "label": "Potential difference",
           "formula": "V = W / Q",
-          "where": [
-            "V = potential difference (V)",
-            "W = energy transferred (J)",
-            "Q = charge that moves (C)"
+          "arrows": [
+            {
+              "point": "V",
+              "label": "Potential difference (V)"
+            },
+            {
+              "point": "W",
+              "label": "Energy transferred (J)"
+            },
+            {
+              "point": "Q",
+              "label": "Charge that moves (C)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Energy transferred by a charge",
-          "formula": "W = V Q",
-          "where": [
-            "W = energy transferred (J)",
-            "V = potential difference (V)",
-            "Q = charge (C)"
-          ]
+          "formula": "W = V Q"
         },
         {
           "type": "list",
@@ -77,11 +81,7 @@
               "unit": "J",
               "decimals": 0
             },
-            "working": [
-              "W = V Q",
-              "W = {V} × {Q}",
-              "W = {answer} J"
-            ]
+            "working": ["W = V Q", "W = {V} × {Q}", "W = {answer} J"]
           }
         },
         {
@@ -105,12 +105,25 @@
           "type": "equation",
           "label": "Charge accelerated from rest through a p.d.",
           "formula": "e V = ½ m v²",
-          "where": [
-            "e = charge on the particle (C), for an electron 1.6 × 10⁻¹⁹ C",
-            "V = accelerating potential difference (V)",
-            "m = mass of the particle (kg)",
-            "v = final speed (m/s)"
-          ]
+          "arrows": [
+            {
+              "point": "e",
+              "label": "Charge on the particle (C)"
+            },
+            {
+              "point": "V",
+              "label": "Accelerating p.d. (V)"
+            },
+            {
+              "point": "m",
+              "label": "Mass of the particle (kg)"
+            },
+            {
+              "point": "v",
+              "label": "Final speed (m/s)"
+            }
+          ],
+          "where": ["e is 1.6 × 10⁻¹⁹ C for an electron."]
         },
         {
           "type": "list",
@@ -172,21 +185,34 @@
           "type": "equation",
           "label": "Electrical power",
           "formula": "P = V I",
-          "where": [
-            "P = power (W)",
-            "V = potential difference (V)",
-            "I = current (A)"
+          "arrows": [
+            {
+              "point": "P",
+              "label": "Power (W)"
+            },
+            {
+              "point": "V",
+              "label": "Potential difference (V)"
+            },
+            {
+              "point": "I",
+              "label": "Current (A)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Energy transferred in a time t",
           "formula": "W = V I t",
-          "where": [
-            "W = energy (J)",
-            "V = potential difference (V)",
-            "I = current (A)",
-            "t = time (s)"
+          "arrows": [
+            {
+              "point": "W",
+              "label": "Energy (J)"
+            },
+            {
+              "point": "t",
+              "label": "Time (s)"
+            }
           ]
         },
         {
@@ -235,11 +261,7 @@
               "unit": "W",
               "decimals": 1
             },
-            "working": [
-              "P = I²R",
-              "P = {I}² × {R}",
-              "P = {answer} W"
-            ]
+            "working": ["P = I²R", "P = {I}² × {R}", "P = {answer} W"]
           }
         },
         {
@@ -272,9 +294,15 @@
           "type": "equation",
           "label": "Energy in kilowatt-hours",
           "formula": "energy (kW h) = power (kW) × time (h)",
-          "where": [
-            "power in kilowatts",
-            "time in hours"
+          "arrows": [
+            {
+              "point": "(kW)",
+              "label": "In kilowatts"
+            },
+            {
+              "point": "(h)",
+              "label": "In hours"
+            }
           ]
         },
         {
@@ -291,10 +319,7 @@
         },
         {
           "type": "key-points",
-          "items": [
-            "1 kW h = 3.6 × 10⁶ J.",
-            "Cost = kilowatts × hours × price per kW h."
-          ]
+          "items": ["1 kW h = 3.6 × 10⁶ J.", "Cost = kilowatts × hours × price per kW h."]
         }
       ]
     }
@@ -318,17 +343,10 @@
   ],
   "boards": {
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 3.32",
-        "EDEX 3.37"
-      ]
+      "spec_codes": ["EDEX 3.32", "EDEX 3.37"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 9.2.1",
-        "CAIE 9.2.2",
-        "CAIE 9.2.3"
-      ]
+      "spec_codes": ["CAIE 9.2.1", "CAIE 9.2.2", "CAIE 9.2.3"]
     },
     "ocr_alevel": {
       "spec_codes": [
@@ -341,9 +359,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.5.1.1"
-      ]
+      "spec_codes": ["AQA 3.5.1.1"]
     }
   },
   "meta": {
@@ -364,7 +380,7 @@
       "0fd2e46d-9a7a-453b-af01-4359adfbf098"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

@@ -86,14 +86,7 @@
               "label": "Time",
               "min": 0,
               "max": 10,
-              "ticks": [
-                0,
-                2,
-                4,
-                6,
-                8,
-                10
-              ],
+              "ticks": [0, 2, 4, 6, 8, 10],
               "unit": "s"
             },
             "y": {
@@ -103,67 +96,25 @@
               {
                 "name": "No drag",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    2,
-                    0.2
-                  ],
-                  [
-                    4,
-                    0.4
-                  ],
-                  [
-                    6,
-                    0.6
-                  ],
-                  [
-                    8,
-                    0.8
-                  ],
-                  [
-                    10,
-                    1
-                  ]
+                  [0, 0],
+                  [2, 0.2],
+                  [4, 0.4],
+                  [6, 0.6],
+                  [8, 0.8],
+                  [10, 1]
                 ]
               },
               {
                 "name": "With drag",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    1,
-                    0.2
-                  ],
-                  [
-                    2,
-                    0.36
-                  ],
-                  [
-                    3,
-                    0.48
-                  ],
-                  [
-                    4,
-                    0.57
-                  ],
-                  [
-                    6,
-                    0.68
-                  ],
-                  [
-                    8,
-                    0.71
-                  ],
-                  [
-                    10,
-                    0.72
-                  ]
+                  [0, 0],
+                  [1, 0.2],
+                  [2, 0.36],
+                  [3, 0.48],
+                  [4, 0.57],
+                  [6, 0.68],
+                  [8, 0.71],
+                  [10, 0.72]
                 ]
               }
             ],
@@ -264,11 +215,7 @@
   ],
   "boards": {
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 3.2.1",
-        "CAIE 3.2.2",
-        "CAIE 3.2.3"
-      ],
+      "spec_codes": ["CAIE 3.2.1", "CAIE 3.2.2", "CAIE 3.2.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -286,12 +233,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.2.2a",
-        "OCR 3.2.2b",
-        "OCR 3.2.2c",
-        "OCR 3.2.2d"
-      ],
+      "spec_codes": ["OCR 3.2.2a", "OCR 3.2.2b", "OCR 3.2.2c", "OCR 3.2.2d"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -309,9 +251,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 4.51"
-      ],
+      "spec_codes": ["EDEX 4.51"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -324,11 +264,23 @@
               "type": "equation",
               "label": "Stokes' law",
               "formula": "F = 6πηrv",
-              "where": [
-                "F = viscous drag force (N)",
-                "η = viscosity of the fluid (Pa s)",
-                "r = radius of the sphere (m)",
-                "v = velocity of the sphere (m/s)"
+              "arrows": [
+                {
+                  "point": "F",
+                  "label": "Viscous drag force (N)"
+                },
+                {
+                  "point": "η",
+                  "label": "Viscosity of the fluid (Pa s)"
+                },
+                {
+                  "point": "r",
+                  "label": "Radius of the sphere (m)"
+                },
+                {
+                  "point": "v",
+                  "label": "Velocity of the sphere (m/s)"
+                }
               ]
             },
             {
@@ -372,11 +324,7 @@
                   "unit": "mN",
                   "decimals": 2
                 },
-                "working": [
-                  "F = 6πηrv",
-                  "r = {r} mm = {r} × 10⁻³ m",
-                  "F = {answer} mN"
-                ]
+                "working": ["F = 6πηrv", "r = {r} mm = {r} × 10⁻³ m", "F = {answer} mN"]
               }
             }
           ]
@@ -399,7 +347,7 @@
       "9e2c0b81-d502-4151-a24a-8bd9548af1a6"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

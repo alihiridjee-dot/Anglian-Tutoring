@@ -48,62 +48,18 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Series",
-            "Functional group",
-            "Example"
-          ],
+          "columns": ["Series", "Functional group", "Example"],
           "rows": [
-            [
-              "Alkane",
-              "C–C and C–H single bonds only",
-              "CH₃CH₃ (ethane)"
-            ],
-            [
-              "Alkene",
-              "C=C",
-              "CH₂=CH₂ (ethene)"
-            ],
-            [
-              "Halogenoalkane",
-              "–F, –Cl, –Br, –I",
-              "CH₃CH₂Br (bromoethane)"
-            ],
-            [
-              "Alcohol",
-              "–OH",
-              "CH₃CH₂OH (ethanol)"
-            ],
-            [
-              "Aldehyde",
-              "–CHO",
-              "CH₃CHO (ethanal)"
-            ],
-            [
-              "Ketone",
-              "C=O in the chain",
-              "CH₃COCH₃ (propanone)"
-            ],
-            [
-              "Carboxylic acid",
-              "–COOH",
-              "CH₃COOH (ethanoic acid)"
-            ],
-            [
-              "Ester",
-              "–COO– in the chain",
-              "CH₃COOCH₃ (methyl ethanoate)"
-            ],
-            [
-              "Amine",
-              "–NH₂",
-              "CH₃CH₂NH₂ (ethylamine)"
-            ],
-            [
-              "Nitrile",
-              "–C≡N",
-              "CH₃CN (ethanenitrile)"
-            ]
+            ["Alkane", "C–C and C–H single bonds only", "CH₃CH₃ (ethane)"],
+            ["Alkene", "C=C", "CH₂=CH₂ (ethene)"],
+            ["Halogenoalkane", "–F, –Cl, –Br, –I", "CH₃CH₂Br (bromoethane)"],
+            ["Alcohol", "–OH", "CH₃CH₂OH (ethanol)"],
+            ["Aldehyde", "–CHO", "CH₃CHO (ethanal)"],
+            ["Ketone", "C=O in the chain", "CH₃COCH₃ (propanone)"],
+            ["Carboxylic acid", "–COOH", "CH₃COOH (ethanoic acid)"],
+            ["Ester", "–COO– in the chain", "CH₃COOCH₃ (methyl ethanoate)"],
+            ["Amine", "–NH₂", "CH₃CH₂NH₂ (ethylamine)"],
+            ["Nitrile", "–C≡N", "CH₃CN (ethanenitrile)"]
           ]
         },
         {
@@ -125,27 +81,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Type of formula",
-            "What it shows",
-            "Butan-2-ol"
-          ],
+          "columns": ["Type of formula", "What it shows", "Butan-2-ol"],
           "rows": [
-            [
-              "Empirical",
-              "The simplest whole-number ratio of atoms of each element",
-              "C₄H₁₀O"
-            ],
-            [
-              "Molecular",
-              "The actual number of atoms of each element",
-              "C₄H₁₀O"
-            ],
-            [
-              "General",
-              "An algebraic formula for the whole series",
-              "CₙH₂ₙ₊₁OH for alcohols"
-            ],
+            ["Empirical", "The simplest whole-number ratio of atoms of each element", "C₄H₁₀O"],
+            ["Molecular", "The actual number of atoms of each element", "C₄H₁₀O"],
+            ["General", "An algebraic formula for the whole series", "CₙH₂ₙ₊₁OH for alcohols"],
             [
               "Structural",
               "The minimum detail needed to show how the atoms are arranged",
@@ -180,8 +120,12 @@
           "type": "equation",
           "label": "General formula of an alkane",
           "formula": "CₙH₂ₙ₊₂",
-          "where": [
-            "n, the number of carbon atoms"
+          "arrows": [
+            {
+              "point": "ₙ",
+              "in": "Cₙ",
+              "label": "Number of carbon atoms"
+            }
           ]
         },
         {
@@ -244,73 +188,18 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Carbons",
-            "Stem",
-            "Alkane",
-            "Alkyl group"
-          ],
+          "columns": ["Carbons", "Stem", "Alkane", "Alkyl group"],
           "rows": [
-            [
-              "1",
-              "meth-",
-              "methane",
-              "methyl"
-            ],
-            [
-              "2",
-              "eth-",
-              "ethane",
-              "ethyl"
-            ],
-            [
-              "3",
-              "prop-",
-              "propane",
-              "propyl"
-            ],
-            [
-              "4",
-              "but-",
-              "butane",
-              "butyl"
-            ],
-            [
-              "5",
-              "pent-",
-              "pentane",
-              "pentyl"
-            ],
-            [
-              "6",
-              "hex-",
-              "hexane",
-              "hexyl"
-            ],
-            [
-              "7",
-              "hept-",
-              "heptane",
-              "heptyl"
-            ],
-            [
-              "8",
-              "oct-",
-              "octane",
-              "octyl"
-            ],
-            [
-              "9",
-              "non-",
-              "nonane",
-              "nonyl"
-            ],
-            [
-              "10",
-              "dec-",
-              "decane",
-              "decyl"
-            ]
+            ["1", "meth-", "methane", "methyl"],
+            ["2", "eth-", "ethane", "ethyl"],
+            ["3", "prop-", "propane", "propyl"],
+            ["4", "but-", "butane", "butyl"],
+            ["5", "pent-", "pentane", "pentyl"],
+            ["6", "hex-", "hexane", "hexyl"],
+            ["7", "hept-", "heptane", "heptyl"],
+            ["8", "oct-", "octane", "octyl"],
+            ["9", "non-", "nonane", "nonyl"],
+            ["10", "dec-", "decane", "decyl"]
           ]
         },
         {
@@ -377,12 +266,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.1.1a",
-        "OCR 4.1.1b",
-        "OCR 4.1.1c",
-        "OCR 4.1.1d"
-      ],
+      "spec_codes": ["OCR 4.1.1a", "OCR 4.1.1b", "OCR 4.1.1c", "OCR 4.1.1d"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -429,17 +313,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 6A.1",
-        "EDEX 6A.2",
-        "EDEX 6A.3",
-        "EDEX 6A.4"
-      ]
+      "spec_codes": ["EDEX 6A.1", "EDEX 6A.2", "EDEX 6A.3", "EDEX 6A.4"]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.1.1"
-      ],
+      "spec_codes": ["AQA 3.3.1.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -517,7 +394,7 @@
       "02199a9a-fcd6-4d26-b3fc-c7121f54e30b"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

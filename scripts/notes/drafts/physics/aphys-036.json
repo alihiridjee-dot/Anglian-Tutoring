@@ -74,11 +74,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Progressive wave",
-            "Stationary wave"
-          ],
+          "columns": ["Feature", "Progressive wave", "Stationary wave"],
           "rows": [
             [
               "Amplitude",
@@ -90,16 +86,8 @@
               "Changes steadily along the wave",
               "Same within a loop; antiphase in neighbouring loops"
             ],
-            [
-              "Energy",
-              "Transferred along the wave",
-              "Not transferred along the wave"
-            ],
-            [
-              "Pattern",
-              "Moves",
-              "Does not move"
-            ]
+            ["Energy", "Transferred along the wave", "Not transferred along the wave"],
+            ["Pattern", "Moves", "Does not move"]
           ]
         },
         {
@@ -130,21 +118,34 @@
           "type": "equation",
           "label": "Speed of a transverse wave on a string",
           "formula": "v = √(T / μ)",
-          "where": [
-            "v = wave speed (m/s)",
-            "T = tension in the string (N)",
-            "μ = mass per unit length (kg/m)"
+          "arrows": [
+            {
+              "point": "v",
+              "label": "Wave speed (m/s)"
+            },
+            {
+              "point": "T",
+              "label": "Tension in the string (N)"
+            },
+            {
+              "point": "μ",
+              "label": "Mass per unit length (kg/m)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "First harmonic on a string",
           "formula": "f₁ = (1 / 2l) √(T / μ)",
-          "where": [
-            "f₁ = frequency of the first harmonic (Hz)",
-            "l = length of vibrating string (m)",
-            "T = tension (N)",
-            "μ = mass per unit length (kg/m)"
+          "arrows": [
+            {
+              "point": "f₁",
+              "label": "Frequency of the first harmonic (Hz)"
+            },
+            {
+              "point": "l",
+              "label": "Length of vibrating string (m)"
+            }
           ]
         },
         {
@@ -182,11 +183,7 @@
               "unit": "Hz",
               "decimals": 0
             },
-            "working": [
-              "f₁ = (1 / 2l) √(T / μ)",
-              "μ = {mu} × 10⁻³ kg/m",
-              "f₁ = {answer} Hz"
-            ]
+            "working": ["f₁ = (1 / 2l) √(T / μ)", "μ = {mu} × 10⁻³ kg/m", "f₁ = {answer} Hz"]
           }
         },
         {
@@ -238,9 +235,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.1.3"
-      ],
+      "spec_codes": ["AQA 3.3.1.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -259,17 +254,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.67",
-        "EDEX 5.68"
-      ]
+      "spec_codes": ["EDEX 5.67", "EDEX 5.68"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 8.1.2",
-        "CAIE 8.1.3",
-        "CAIE 8.1.4"
-      ],
+      "spec_codes": ["CAIE 8.1.2", "CAIE 8.1.3", "CAIE 8.1.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -334,7 +322,7 @@
       "544b1e39-e0f5-426c-82c7-85ba95df26c9"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

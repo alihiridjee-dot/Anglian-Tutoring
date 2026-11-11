@@ -107,11 +107,21 @@
           "type": "equation",
           "label": "Standard cell potential",
           "formula": "Eᶿcell = Eᶿ(positive electrode) − Eᶿ(negative electrode)",
-          "where": [
-            "The positive electrode has the more positive Eᶿ.",
-            "The negative electrode has the more negative Eᶿ.",
-            "Eᶿcell is in volts. Do not multiply Eᶿ by the number of electrons."
-          ]
+          "arrows": [
+            {
+              "point": "Eᶿcell",
+              "label": "Cell potential (V)"
+            },
+            {
+              "point": "Eᶿ(positive electrode)",
+              "label": "The more positive Eᶿ"
+            },
+            {
+              "point": "Eᶿ(negative electrode)",
+              "label": "The more negative Eᶿ"
+            }
+          ],
+          "where": ["Do not multiply Eᶿ by the number of electrons."]
         },
         {
           "type": "list",
@@ -242,11 +252,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.2.3f",
-        "OCR 5.2.3g",
-        "OCR 5.2.3h"
-      ]
+      "spec_codes": ["OCR 5.2.3f", "OCR 5.2.3g", "OCR 5.2.3h"]
     },
     "edexcel_alevel": {
       "spec_codes": [
@@ -261,9 +267,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.11.1"
-      ],
+      "spec_codes": ["AQA 3.1.11.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -298,12 +302,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 24.2.1",
-        "CAIE 24.2.2",
-        "CAIE 24.2.3",
-        "CAIE 24.2.4"
-      ]
+      "spec_codes": ["CAIE 24.2.1", "CAIE 24.2.2", "CAIE 24.2.3", "CAIE 24.2.4"]
     }
   },
   "meta": {
@@ -329,7 +328,7 @@
       "2f880b85-d683-4986-a4ca-01a5dcba50b0"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

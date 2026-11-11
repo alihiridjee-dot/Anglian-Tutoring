@@ -208,10 +208,19 @@
           "type": "equation",
           "label": "Energy for a change of state",
           "formula": "E = m × L",
-          "where": [
-            "E = energy transferred, in joules (J)",
-            "m = mass that changes state, in kilograms (kg)",
-            "L = specific latent heat, in joules per kilogram (J/kg)"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Energy transferred (J)"
+            },
+            {
+              "point": "m",
+              "label": "Mass that changes state (kg)"
+            },
+            {
+              "point": "L",
+              "label": "Specific latent heat (J/kg)"
+            }
           ]
         },
         {
@@ -226,12 +235,7 @@
         {
           "type": "equation",
           "label": "Rearranged to find L or m",
-          "formula": "L = E ÷ m   or   m = E ÷ L",
-          "where": [
-            "L = specific latent heat, in joules per kilogram (J/kg)",
-            "E = energy transferred, in joules (J)",
-            "m = mass that changes state, in kilograms (kg)"
-          ]
+          "formula": "L = E ÷ m   or   m = E ÷ L"
         },
         {
           "type": "steps",
@@ -417,7 +421,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "spec_point_ids": [
       "489b9fc2-422a-4a00-8341-769cb1de00b9",

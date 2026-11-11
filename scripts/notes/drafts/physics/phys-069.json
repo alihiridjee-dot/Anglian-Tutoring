@@ -441,7 +441,14 @@
               "type": "equation",
               "label": "Refractive index",
               "formula": "n = speed of light in air ÷ speed of light in the material",
-              "where": ["n = refractive index (no unit)", "speeds in m/s"]
+              "arrows": [
+                {
+                  "point": "n",
+                  "in": "n =",
+                  "label": "Refractive index (no unit)"
+                }
+              ],
+              "where": ["Both speeds are in m/s."]
             },
             {
               "type": "list",
@@ -506,10 +513,21 @@
               "type": "equation",
               "label": "Refractive index",
               "formula": "n = sin i ÷ sin r",
-              "where": [
-                "n = refractive index (no unit)",
-                "i = angle of incidence (°)",
-                "r = angle of refraction (°)"
+              "arrows": [
+                {
+                  "point": "n",
+                  "in": "n =",
+                  "label": "Refractive index (no unit)"
+                },
+                {
+                  "point": "i",
+                  "in": "i ÷",
+                  "label": "Angle of incidence (°)"
+                },
+                {
+                  "point": "r",
+                  "label": "Angle of refraction (°)"
+                }
               ]
             },
             {
@@ -549,7 +567,7 @@
       "1d8efa40-bf6a-48ed-a9ba-11b2d1b4a130",
       "ec77e21a-d541-404c-8d57-6e556b29c4d7"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

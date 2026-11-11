@@ -37,10 +37,19 @@
           "type": "equation",
           "label": "Resistance",
           "formula": "R = V / I",
-          "where": [
-            "R = resistance (Ω)",
-            "V = potential difference (V)",
-            "I = current (A)"
+          "arrows": [
+            {
+              "point": "R",
+              "label": "Resistance (Ω)"
+            },
+            {
+              "point": "V",
+              "label": "Potential difference (V)"
+            },
+            {
+              "point": "I",
+              "label": "Current (A)"
+            }
           ]
         },
         {
@@ -70,11 +79,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Component",
-            "Shape of the I-V graph",
-            "Resistance"
-          ],
+          "columns": ["Component", "Shape of the I-V graph", "Resistance"],
           "rows": [
             [
               "Resistor or metal wire at constant temperature",
@@ -109,19 +114,11 @@
             "kind": "predictor",
             "alt": "Pick a component to see what its I-V graph looks like and how its resistance changes.",
             "prompt": "Pick a component.",
-            "result_labels": [
-              "I-V graph",
-              "Resistance as p.d. rises",
-              "Obeys Ohm's law?"
-            ],
+            "result_labels": ["I-V graph", "Resistance as p.d. rises", "Obeys Ohm's law?"],
             "options": [
               {
                 "label": "Resistor at constant temperature",
-                "results": [
-                  "Straight line through the origin",
-                  "Stays constant",
-                  "Yes"
-                ]
+                "results": ["Straight line through the origin", "Stays constant", "Yes"]
               },
               {
                 "label": "Filament lamp",
@@ -225,9 +222,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.5.1.2"
-      ],
+      "spec_codes": ["AQA 3.5.1.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -245,26 +240,13 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 3.33",
-        "EDEX 3.38"
-      ]
+      "spec_codes": ["EDEX 3.33", "EDEX 3.38"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 9.3.1",
-        "CAIE 9.3.2",
-        "CAIE 9.3.3",
-        "CAIE 9.3.4",
-        "CAIE 9.3.5"
-      ]
+      "spec_codes": ["CAIE 9.3.1", "CAIE 9.3.2", "CAIE 9.3.3", "CAIE 9.3.4", "CAIE 9.3.5"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.2.3a",
-        "OCR 4.2.3b",
-        "OCR 4.2.3c"
-      ],
+      "spec_codes": ["OCR 4.2.3a", "OCR 4.2.3b", "OCR 4.2.3c"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -321,7 +303,7 @@
       "d1236b8b-4864-42bd-8f6b-7e7ebb80a2c7"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

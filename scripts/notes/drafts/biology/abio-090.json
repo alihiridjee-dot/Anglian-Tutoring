@@ -87,9 +87,16 @@
           "type": "equation",
           "label": "Area of a clear zone",
           "formula": "area = πr²",
-          "where": [
-            "r = the radius of the clear zone, in mm",
-            "area = in mm²"
+          "arrows": [
+            {
+              "point": "area",
+              "label": "Square millimetres (mm²)"
+            },
+            {
+              "point": "r",
+              "in": "πr²",
+              "label": "Radius of the clear zone (mm)"
+            }
           ]
         },
         {
@@ -257,7 +264,7 @@
       "cd7953a6-37c0-4995-9a2b-5447464a7723"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

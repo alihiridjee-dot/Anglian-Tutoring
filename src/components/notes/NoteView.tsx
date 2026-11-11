@@ -3,6 +3,7 @@ import { evaluate, parseFormula } from "@/lib/notes/formula";
 import { Explorer, Practice, Punnett, Sequence, Sort } from "@/components/notes/NoteInteractives";
 import { ParticlesScene, RoadScene, WaveScene } from "@/components/notes/NoteScenes";
 import { ZoomableFigure } from "@/components/notes/ZoomableFigure";
+import { LabelledFormula } from "@/components/notes/LabelledFormula";
 import { CANVAS_WIDTH } from "@/lib/figures/figure";
 import { drawNoteFigure } from "@/lib/notes/noteFigures";
 import {
@@ -742,9 +743,20 @@ function Block({ b }: { b: NoteBlock }) {
               <SciText text={b.label} />
             </p>
           ) : null}
-          <p className="font-display mt-1 text-xl font-extrabold sm:text-2xl">
-            <SciText text={b.formula} />
-          </p>
+          {b.arrows?.length ? (
+            <div className="mt-3">
+              <LabelledFormula
+                formula={b.formula}
+                arrows={b.arrows}
+                // A short formula (2H₂O, ²³⁸₉₂U) is drawn big, so its small numbers are easy to point at.
+                className={`font-display font-extrabold ${b.formula.length <= 12 ? "text-4xl sm:text-5xl" : "text-2xl sm:text-[2rem]"}`}
+              />
+            </div>
+          ) : (
+            <p className="font-display mt-1 text-xl font-extrabold sm:text-2xl">
+              <SciText text={b.formula} />
+            </p>
+          )}
           {b.where?.length ? (
             <ul className="mx-auto mt-3 max-w-md space-y-1 text-left text-base">
               {b.where.map((w, i) => (

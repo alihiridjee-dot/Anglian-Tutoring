@@ -24,10 +24,19 @@
           "type": "equation",
           "label": "Fick's law of diffusion",
           "formula": "rate of diffusion ∝ (surface area × difference in concentration) ÷ thickness of the exchange surface",
-          "where": [
-            "surface area, in m²",
-            "difference in concentration between the two sides",
-            "thickness (diffusion distance), in µm"
+          "arrows": [
+            {
+              "point": "surface area",
+              "label": "Square metres (m²)"
+            },
+            {
+              "point": "difference in concentration",
+              "label": "Between the two sides"
+            },
+            {
+              "point": "thickness of the exchange surface",
+              "label": "Diffusion distance (µm)"
+            }
           ]
         },
         {
@@ -118,11 +127,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Region",
-            "What is in the wall",
-            "Job"
-          ],
+          "columns": ["Region", "What is in the wall", "Job"],
           "rows": [
             [
               "Trachea",
@@ -232,42 +237,14 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Inspiration",
-            "Expiration"
-          ],
+          "columns": ["Feature", "Inspiration", "Expiration"],
           "rows": [
-            [
-              "External intercostal muscles",
-              "Contract",
-              "Relax"
-            ],
-            [
-              "Diaphragm",
-              "Contracts and flattens",
-              "Relaxes and domes upwards"
-            ],
-            [
-              "Rib cage",
-              "Moves up and out",
-              "Moves down and in"
-            ],
-            [
-              "Volume of thorax",
-              "Increases",
-              "Decreases"
-            ],
-            [
-              "Pressure in lungs",
-              "Falls below atmospheric",
-              "Rises above atmospheric"
-            ],
-            [
-              "Air movement",
-              "Into the lungs",
-              "Out of the lungs"
-            ]
+            ["External intercostal muscles", "Contract", "Relax"],
+            ["Diaphragm", "Contracts and flattens", "Relaxes and domes upwards"],
+            ["Rib cage", "Moves up and out", "Moves down and in"],
+            ["Volume of thorax", "Increases", "Decreases"],
+            ["Pressure in lungs", "Falls below atmospheric", "Rises above atmospheric"],
+            ["Air movement", "Into the lungs", "Out of the lungs"]
           ]
         },
         {
@@ -320,10 +297,19 @@
           "type": "equation",
           "label": "Ventilation rate",
           "formula": "ventilation rate = tidal volume × breathing rate",
-          "where": [
-            "ventilation rate, in dm³ per minute",
-            "tidal volume, in dm³",
-            "breathing rate, in breaths per minute"
+          "arrows": [
+            {
+              "point": "ventilation rate",
+              "label": "Cubic decimetres per minute (dm³/min)"
+            },
+            {
+              "point": "tidal volume",
+              "label": "Cubic decimetres (dm³)"
+            },
+            {
+              "point": "breathing rate",
+              "label": "Breaths per minute"
+            }
           ]
         },
         {
@@ -362,11 +348,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.2c",
-        "AQA 3.3.2d",
-        "AQA 3.3.2e"
-      ],
+      "spec_codes": ["AQA 3.3.2c", "AQA 3.3.2d", "AQA 3.3.2e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -387,9 +369,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 2.1"
-      ],
+      "spec_codes": ["EDEX 2.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -436,12 +416,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.1.1c",
-        "OCR 3.1.1d",
-        "OCR 3.1.1e",
-        "OCR 3.1.1h"
-      ],
+      "spec_codes": ["OCR 3.1.1c", "OCR 3.1.1d", "OCR 3.1.1e", "OCR 3.1.1h"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -461,7 +436,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "status": "draft",
     "written_by": "claude-sonnet-5-5",

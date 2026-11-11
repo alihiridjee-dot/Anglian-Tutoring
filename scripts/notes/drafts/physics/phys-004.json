@@ -58,10 +58,19 @@
           "type": "equation",
           "label": "Work done",
           "formula": "W = F × s",
-          "where": [
-            "W is work done in joules (J).",
-            "F is force in newtons (N).",
-            "s is distance moved along the line of action of the force in metres (m)."
+          "arrows": [
+            {
+              "point": "W",
+              "label": "Work done (J)"
+            },
+            {
+              "point": "F",
+              "label": "Force (N)"
+            },
+            {
+              "point": "s",
+              "label": "Distance moved (m)"
+            }
           ]
         },
         {
@@ -169,12 +178,7 @@
         {
           "type": "equation",
           "label": "Rearranged to find force or distance",
-          "formula": "F = W ÷ s and s = W ÷ F",
-          "where": [
-            "F is force in newtons (N).",
-            "W is work done in joules (J).",
-            "s is distance in metres (m)."
-          ]
+          "formula": "F = W ÷ s and s = W ÷ F"
         },
         {
           "type": "key-points",
@@ -220,11 +224,23 @@
           "type": "equation",
           "label": "Work done to stop a vehicle",
           "formula": "F × s = ½ × m × v²",
-          "where": [
-            "F is braking force in newtons (N).",
-            "s is braking distance in metres (m).",
-            "m is mass in kilograms (kg).",
-            "v is initial speed in metres per second (m/s)."
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Braking force (N)"
+            },
+            {
+              "point": "s",
+              "label": "Braking distance (m)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (kg)"
+            },
+            {
+              "point": "v",
+              "label": "Initial speed (m/s)"
+            }
           ]
         },
         {
@@ -306,10 +322,7 @@
       }
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 1.7.2.1",
-        "CAIE 1.7.2.2"
-      ],
+      "spec_codes": ["CAIE 1.7.2.1", "CAIE 1.7.2.2"],
       "worked_example": {
         "exemplar_id": "22818bad-edea-4883-a39d-3b5f580bfffe",
         "source": "CAMBRIDGE jun 2025, Paper 43, Q3(a)",
@@ -342,11 +355,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 4.11",
-        "IGCSE 4.12",
-        "IGCSE 4.15"
-      ],
+      "spec_codes": ["IGCSE 4.11", "IGCSE 4.12", "IGCSE 4.15"],
       "worked_example": {
         "exemplar_id": "274bbfa7-ac07-46f9-a565-ed25247b5744",
         "source": "EDEXCEL jan 2023, Paper 1 (P), Q3(a)(ii)",
@@ -405,7 +414,7 @@
       "22818bad-edea-4883-a39d-3b5f580bfffe",
       "274bbfa7-ac07-46f9-a565-ed25247b5744"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

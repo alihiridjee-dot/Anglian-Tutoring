@@ -61,9 +61,7 @@
           "type": "equation",
           "label": "Percentage change",
           "formula": "percentage change = ((final value − initial value) ÷ initial value) × 100",
-          "where": [
-            "final value and initial value = measurements in the same unit"
-          ]
+          "where": ["final value and initial value = measurements in the same unit"]
         },
         {
           "type": "diagram",
@@ -140,9 +138,15 @@
           "type": "equation",
           "label": "Gradient",
           "formula": "gradient = change in y ÷ change in x",
-          "where": [
-            "change in y = difference in the two y values, with unit",
-            "change in x = difference in the two x values, with unit"
+          "arrows": [
+            {
+              "point": "change in y",
+              "label": "Difference in two y values, with unit"
+            },
+            {
+              "point": "change in x",
+              "label": "Difference in two x values, with unit"
+            }
           ]
         },
         {
@@ -227,10 +231,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 17.1.4",
-        "CAIE 18.2.5"
-      ],
+      "spec_codes": ["CAIE 17.1.4", "CAIE 18.2.5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -283,9 +284,16 @@
               "type": "equation",
               "label": "Spearman's rank correlation coefficient",
               "formula": "rₛ = 1 − (6 × Σd²) ÷ (n³ − n)",
-              "where": [
-                "d = the difference between the ranks of each pair of values",
-                "n = the number of pairs of values"
+              "arrows": [
+                {
+                  "point": "d",
+                  "label": "Difference in ranks for each pair"
+                },
+                {
+                  "point": "n",
+                  "in": "n³",
+                  "label": "Number of pairs of values"
+                }
               ]
             },
             {
@@ -317,7 +325,7 @@
       "82bf0859-e9d7-4843-b600-650138471918"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

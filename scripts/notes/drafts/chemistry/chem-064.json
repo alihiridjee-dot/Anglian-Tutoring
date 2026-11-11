@@ -16,7 +16,13 @@
           "type": "equation",
           "label": "Hydrogen reacting with oxygen",
           "formula": "hydrogen + oxygen → water",
-          "where": ["water is the only product", "in symbols: 2H₂ + O₂ → 2H₂O"]
+          "arrows": [
+            {
+              "point": "water",
+              "label": "The only product"
+            }
+          ],
+          "where": ["in symbols: 2H₂ + O₂ → 2H₂O"]
         },
         {
           "type": "diagram",
@@ -180,7 +186,7 @@
     "written_at": "2026-10-01",
     "spec_point_ids": ["30313bfc-b728-438f-97f4-80e6ba0644af"],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

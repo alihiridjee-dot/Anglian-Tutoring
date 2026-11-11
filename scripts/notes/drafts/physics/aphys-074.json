@@ -16,13 +16,25 @@
           "type": "equation",
           "label": "Force on a moving charge",
           "formula": "F = BQv sin θ",
-          "where": [
-            "F = force (N)",
-            "B = magnetic flux density (T)",
-            "Q = charge of the particle (C)",
-            "v = speed of the particle (m/s)",
-            "θ = angle between the velocity and the field"
-          ]
+          "arrows": [
+            {
+              "point": "B",
+              "label": "Magnetic flux density (T)"
+            },
+            {
+              "point": "Q",
+              "label": "Charge of the particle (C)"
+            },
+            {
+              "point": "v",
+              "label": "Speed of the particle (m/s)"
+            },
+            {
+              "point": "θ",
+              "label": "Angle between velocity and field"
+            }
+          ],
+          "where": ["F = force (N)"]
         },
         {
           "type": "list",
@@ -110,12 +122,15 @@
           "type": "equation",
           "label": "Radius of the circular path",
           "formula": "r = mv / (BQ)",
-          "where": [
-            "r = radius (m)",
-            "m = mass of the particle (kg)",
-            "v = speed (m/s)",
-            "B = magnetic flux density (T)",
-            "Q = charge of the particle (C)"
+          "arrows": [
+            {
+              "point": "r",
+              "label": "Radius (m)"
+            },
+            {
+              "point": "m",
+              "label": "Mass of the particle (kg)"
+            }
           ]
         },
         {
@@ -219,10 +234,15 @@
           "type": "equation",
           "label": "Speed of the particles that pass straight through",
           "formula": "v = E / B",
-          "where": [
-            "v = speed (m/s)",
-            "E = electric field strength (V/m)",
-            "B = magnetic flux density (T)"
+          "arrows": [
+            {
+              "point": "v",
+              "label": "Selected speed (m/s)"
+            },
+            {
+              "point": "E",
+              "label": "Electric field strength (V/m)"
+            }
           ]
         },
         {
@@ -262,9 +282,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.5.2"
-      ],
+      "spec_codes": ["AQA 3.7.5.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -314,9 +332,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 7.122"
-      ]
+      "spec_codes": ["EDEX 7.122"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -381,14 +397,25 @@
               "type": "equation",
               "label": "Hall voltage",
               "formula": "Vₕ = BI / (ntq)",
-              "where": [
-                "Vₕ = Hall voltage (V)",
-                "B = magnetic flux density (T)",
-                "I = current (A)",
-                "n = number density of charge carriers (m⁻³)",
-                "t = thickness of the slice (m)",
-                "q = charge on each carrier (C)"
-              ]
+              "arrows": [
+                {
+                  "point": "Vₕ",
+                  "label": "Hall voltage (V)"
+                },
+                {
+                  "point": "n",
+                  "label": "Number density of charge carriers (m⁻³)"
+                },
+                {
+                  "point": "t",
+                  "label": "Thickness of the slice (m)"
+                },
+                {
+                  "point": "q",
+                  "label": "Charge on each carrier (C)"
+                }
+              ],
+              "where": ["I = current (A)"]
             },
             {
               "type": "subheading",
@@ -415,11 +442,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.3.2a",
-        "OCR 6.3.2b",
-        "OCR 6.3.2c"
-      ]
+      "spec_codes": ["OCR 6.3.2a", "OCR 6.3.2b", "OCR 6.3.2c"]
     }
   },
   "meta": {
@@ -440,7 +463,7 @@
       "2f3e2ccb-91fd-4396-a8d7-c2e7c6abd148"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

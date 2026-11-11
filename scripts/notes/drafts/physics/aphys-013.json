@@ -37,10 +37,19 @@
           "type": "equation",
           "label": "Moment of a force",
           "formula": "moment = F × x",
-          "where": [
-            "moment = turning effect about the pivot (N m)",
-            "F = force (N)",
-            "x = perpendicular distance from the pivot to the line of action of the force (m)"
+          "arrows": [
+            {
+              "point": "moment",
+              "label": "Turning effect about the pivot (N m)"
+            },
+            {
+              "point": "F",
+              "label": "Force (N)"
+            },
+            {
+              "point": "x",
+              "label": "Perpendicular distance from pivot (m)"
+            }
           ]
         },
         {
@@ -112,10 +121,19 @@
           "type": "equation",
           "label": "Torque of a couple",
           "formula": "torque = F × d",
-          "where": [
-            "torque = turning effect of the couple (N m)",
-            "F = size of one of the forces (N)",
-            "d = perpendicular distance between the lines of action of the forces (m)"
+          "arrows": [
+            {
+              "point": "torque",
+              "label": "Turning effect of the couple (N m)"
+            },
+            {
+              "point": "F",
+              "label": "One of the two forces (N)"
+            },
+            {
+              "point": "d",
+              "label": "Perpendicular distance between forces (m)"
+            }
           ]
         },
         {
@@ -262,9 +280,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.4.1.2"
-      ],
+      "spec_codes": ["AQA 3.4.1.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -281,10 +297,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 2.23",
-        "EDEX 2.24"
-      ],
+      "spec_codes": ["EDEX 2.23", "EDEX 2.24"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -360,7 +373,7 @@
       "2d7712bb-8939-42be-ace6-7ca0f38074cc"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

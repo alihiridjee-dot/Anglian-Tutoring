@@ -59,10 +59,19 @@
           "type": "equation",
           "label": "Force on a spring",
           "formula": "F = k × e",
-          "where": [
-            "F is force in newtons (N).",
-            "k is the spring constant in newtons per metre (N/m).",
-            "e is extension in metres (m). The same equation works for compression, where e is the compression."
+          "arrows": [
+            {
+              "point": "F",
+              "label": "Force (N)"
+            },
+            {
+              "point": "k",
+              "label": "Spring constant (N/m)"
+            },
+            {
+              "point": "e",
+              "label": "Extension or compression (m)"
+            }
           ]
         },
         {
@@ -182,12 +191,7 @@
         {
           "type": "equation",
           "label": "Spring constant (linear part)",
-          "formula": "k = F ÷ e",
-          "where": [
-            "k is the spring constant in newtons per metre (N/m).",
-            "F is force in newtons (N).",
-            "e is extension in metres (m)."
-          ]
+          "formula": "k = F ÷ e"
         },
         {
           "type": "key-points",
@@ -210,10 +214,20 @@
           "type": "equation",
           "label": "Elastic potential energy",
           "formula": "Ee = ½ × k × e²",
-          "where": [
-            "Ee is elastic potential energy in joules (J). It is the same as the work done in stretching.",
-            "k is the spring constant in newtons per metre (N/m).",
-            "e is extension in metres (m). It is squared."
+          "arrows": [
+            {
+              "point": "Ee",
+              "label": "Elastic potential energy (J)"
+            },
+            {
+              "point": "k",
+              "label": "Spring constant (N/m)"
+            },
+            {
+              "point": "e",
+              "in": "e²",
+              "label": "Extension (m)"
+            }
           ]
         },
         {
@@ -496,7 +510,7 @@
       "70f3a99c-78f2-4c0f-b121-9f1f2beae5c8",
       "51ed2a8e-8840-4909-97b4-a2b0981b869e"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

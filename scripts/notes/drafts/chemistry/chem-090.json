@@ -267,9 +267,20 @@
               "type": "equation",
               "label": "Copper(II) sulfate with sodium hydroxide",
               "formula": "CuSO₄(aq) + 2NaOH(aq) → Cu(OH)₂(s) + Na₂SO₄(aq)",
-              "where": [
-                "Cu(OH)₂: copper(II) hydroxide, the blue precipitate",
-                "(s): the solid precipitate; (aq): in solution"
+              "arrows": [
+                {
+                  "point": "(aq)",
+                  "in": "CuSO₄(aq)",
+                  "label": "In solution"
+                },
+                {
+                  "point": "Cu(OH)₂",
+                  "label": "Copper(II) hydroxide: blue precipitate"
+                },
+                {
+                  "point": "(s)",
+                  "label": "Solid precipitate"
+                }
               ]
             },
             {
@@ -288,9 +299,7 @@
               "type": "equation",
               "label": "Insoluble metal hydroxides",
               "formula": "Al³⁺(aq) + 3OH⁻(aq) → Al(OH)₃(s)\nCa²⁺(aq) + 2OH⁻(aq) → Ca(OH)₂(s)\nMg²⁺(aq) + 2OH⁻(aq) → Mg(OH)₂(s)\nCu²⁺(aq) + 2OH⁻(aq) → Cu(OH)₂(s)\nFe²⁺(aq) + 2OH⁻(aq) → Fe(OH)₂(s)\nFe³⁺(aq) + 3OH⁻(aq) → Fe(OH)₃(s)",
-              "where": [
-                "OH⁻: hydroxide ion, from the sodium hydroxide solution"
-              ]
+              "where": ["OH⁻: hydroxide ion, from the sodium hydroxide solution"]
             }
           ]
         }
@@ -510,7 +519,7 @@
       "07cc4925-f123-473b-b2fa-adecf30e9ac5",
       "5a786efa-1eaf-4f92-8af2-e128ed067d90"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

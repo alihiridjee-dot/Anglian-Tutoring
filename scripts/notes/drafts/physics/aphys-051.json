@@ -16,10 +16,19 @@
           "type": "equation",
           "label": "Mass–energy equivalence",
           "formula": "ΔE = c²Δm",
-          "where": [
-            "ΔE = change in energy in J",
-            "Δm = change in mass in kg",
-            "c = speed of light, 3.00 × 10⁸ m/s"
+          "arrows": [
+            {
+              "point": "ΔE",
+              "label": "Change in energy (J)"
+            },
+            {
+              "point": "c",
+              "label": "Speed of light, 3.00 × 10⁸ m/s"
+            },
+            {
+              "point": "Δm",
+              "label": "Change in mass (kg)"
+            }
           ]
         },
         {
@@ -97,12 +106,27 @@
           "type": "equation",
           "label": "Mass defect",
           "formula": "Δm = Zm_p + (A − Z)m_n − m_nucleus",
-          "where": [
-            "Z = number of protons",
-            "A − Z = number of neutrons",
-            "m_p, m_n = masses of a proton and a neutron",
-            "m_nucleus = mass of the nucleus"
-          ]
+          "arrows": [
+            {
+              "point": "Z",
+              "in": "Zm_p",
+              "label": "Number of protons"
+            },
+            {
+              "point": "m_p",
+              "label": "Mass of a proton"
+            },
+            {
+              "point": "(A − Z)",
+              "label": "Number of neutrons"
+            },
+            {
+              "point": "m_n",
+              "in": "m_n −",
+              "label": "Mass of a neutron"
+            }
+          ],
+          "where": ["m_nucleus = mass of the nucleus"]
         },
         {
           "type": "steps",
@@ -141,10 +165,7 @@
               "decimals": 1,
               "tolerance_percent": 2
             },
-            "working": [
-              "Binding energy = mass defect × 931.5.",
-              "{dm} × 931.5 = {answer} MeV."
-            ]
+            "working": ["Binding energy = mass defect × 931.5.", "{dm} × 931.5 = {answer} MeV."]
           }
         },
         {
@@ -173,14 +194,7 @@
               "label": "Nucleon number A",
               "min": 0,
               "max": 250,
-              "ticks": [
-                0,
-                50,
-                100,
-                150,
-                200,
-                250
-              ]
+              "ticks": [0, 50, 100, 150, 200, 250]
             },
             "y": {
               "label": "Binding energy per nucleon"
@@ -189,46 +203,16 @@
               {
                 "name": "Binding energy per nucleon",
                 "points": [
-                  [
-                    1,
-                    0
-                  ],
-                  [
-                    2,
-                    0.11
-                  ],
-                  [
-                    4,
-                    0.71
-                  ],
-                  [
-                    12,
-                    0.77
-                  ],
-                  [
-                    16,
-                    0.8
-                  ],
-                  [
-                    30,
-                    0.85
-                  ],
-                  [
-                    56,
-                    0.88
-                  ],
-                  [
-                    120,
-                    0.85
-                  ],
-                  [
-                    200,
-                    0.79
-                  ],
-                  [
-                    238,
-                    0.76
-                  ]
+                  [1, 0],
+                  [2, 0.11],
+                  [4, 0.71],
+                  [12, 0.77],
+                  [16, 0.8],
+                  [30, 0.85],
+                  [56, 0.88],
+                  [120, 0.85],
+                  [200, 0.79],
+                  [238, 0.76]
                 ]
               }
             ],
@@ -266,10 +250,19 @@
           "type": "equation",
           "label": "Energy released in a reaction",
           "formula": "E = c²Δm",
-          "where": [
-            "E = energy released in J",
-            "Δm = total mass before minus total mass after, in kg",
-            "c = 3.00 × 10⁸ m/s"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Energy released (J)"
+            },
+            {
+              "point": "c",
+              "label": "Speed of light, 3.00 × 10⁸ m/s"
+            },
+            {
+              "point": "Δm",
+              "label": "Mass before minus mass after (kg)"
+            }
           ]
         },
         {
@@ -310,9 +303,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.8.1.6"
-      ],
+      "spec_codes": ["AQA 3.8.1.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -330,11 +321,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 11.164",
-        "EDEX 11.165",
-        "EDEX 11.166"
-      ]
+      "spec_codes": ["EDEX 11.164", "EDEX 11.165", "EDEX 11.166"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -376,13 +363,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.4.4a",
-        "OCR 6.4.4b",
-        "OCR 6.4.4d",
-        "OCR 6.4.4e",
-        "OCR 6.4.4f"
-      ],
+      "spec_codes": ["OCR 6.4.4a", "OCR 6.4.4b", "OCR 6.4.4d", "OCR 6.4.4e", "OCR 6.4.4f"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -423,7 +404,7 @@
       "ade5df95-7eb5-4729-8597-07457423b04e"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

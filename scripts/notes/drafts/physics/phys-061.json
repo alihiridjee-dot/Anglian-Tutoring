@@ -87,10 +87,19 @@
           "type": "equation",
           "label": "Thinking distance",
           "formula": "distance = speed × time",
-          "where": [
-            "distance is the thinking distance, in metres, m",
-            "speed is the speed of the vehicle, in metres per second, m/s",
-            "time is the reaction time, in seconds, s"
+          "arrows": [
+            {
+              "point": "distance",
+              "label": "Thinking distance (m)"
+            },
+            {
+              "point": "speed",
+              "label": "Speed of the vehicle (m/s)"
+            },
+            {
+              "point": "time",
+              "label": "Reaction time (s)"
+            }
           ]
         },
         {
@@ -391,10 +400,19 @@
               "type": "equation",
               "label": "Deceleration from braking distance",
               "formula": "a = u² ÷ (2 × s)",
-              "where": [
-                "a: deceleration in metres per second squared, m/s²",
-                "u: speed when the brakes are applied, in metres per second, m/s",
-                "s: braking distance in metres, m"
+              "arrows": [
+                {
+                  "point": "a",
+                  "label": "Deceleration (m/s²)"
+                },
+                {
+                  "point": "u",
+                  "label": "Speed when brakes applied (m/s)"
+                },
+                {
+                  "point": "s",
+                  "label": "Braking distance (m)"
+                }
               ]
             },
             {
@@ -535,7 +553,7 @@
       "ce75c31d-5c9c-4900-bb4e-3cefa8ed8e43",
       "ec0f03cb-4cdf-44c2-9f91-5cda4a6a2cc7"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

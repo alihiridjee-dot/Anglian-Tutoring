@@ -31,22 +31,8 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Species",
-            "Cl⁻",
-            "Cl₂",
-            "ClO⁻",
-            "ClO₃⁻"
-          ],
-          "rows": [
-            [
-              "Oxidation number of Cl",
-              "−1",
-              "0",
-              "+1",
-              "+5"
-            ]
-          ]
+          "columns": ["Species", "Cl⁻", "Cl₂", "ClO⁻", "ClO₃⁻"],
+          "rows": [["Oxidation number of Cl", "−1", "0", "+1", "+5"]]
         },
         {
           "type": "paragraph",
@@ -72,8 +58,11 @@
           "type": "equation",
           "label": "Chlorine with water",
           "formula": "Cl₂ + H₂O ⇌ HCl + HClO",
-          "where": [
-            "HClO: chloric(I) acid, the main disinfectant"
+          "arrows": [
+            {
+              "point": "HClO",
+              "label": "Chloric(I) acid: the main disinfectant"
+            }
           ]
         },
         {
@@ -117,22 +106,10 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Conditions",
-            "Equation",
-            "Oxidation numbers of Cl"
-          ],
+          "columns": ["Conditions", "Equation", "Oxidation numbers of Cl"],
           "rows": [
-            [
-              "Cold, dilute NaOH",
-              "Cl₂ + 2NaOH → NaCl + NaClO + H₂O",
-              "0 to −1 and +1"
-            ],
-            [
-              "Hot, concentrated NaOH",
-              "3Cl₂ + 6NaOH → 5NaCl + NaClO₃ + 3H₂O",
-              "0 to −1 and +5"
-            ]
+            ["Cold, dilute NaOH", "Cl₂ + 2NaOH → NaCl + NaClO + H₂O", "0 to −1 and +1"],
+            ["Hot, concentrated NaOH", "3Cl₂ + 6NaOH → 5NaCl + NaClO₃ + 3H₂O", "0 to −1 and +5"]
           ]
         },
         {
@@ -149,45 +126,27 @@
             "kind": "predictor",
             "alt": "A predictor. Pick the conditions to see the products of chlorine or bromine with sodium hydroxide or water and the oxidation numbers.",
             "prompt": "Pick a reaction.",
-            "result_labels": [
-              "Products",
-              "Oxidation numbers"
-            ],
+            "result_labels": ["Products", "Oxidation numbers"],
             "options": [
               {
                 "label": "Cl₂ + cold dilute NaOH",
-                "results": [
-                  "NaCl, NaClO and H₂O",
-                  "Cl: 0 to −1 and +1"
-                ]
+                "results": ["NaCl, NaClO and H₂O", "Cl: 0 to −1 and +1"]
               },
               {
                 "label": "Cl₂ + hot NaOH",
-                "results": [
-                  "NaCl, NaClO₃ and H₂O",
-                  "Cl: 0 to −1 and +5"
-                ]
+                "results": ["NaCl, NaClO₃ and H₂O", "Cl: 0 to −1 and +5"]
               },
               {
                 "label": "Br₂ + cold dilute NaOH",
-                "results": [
-                  "NaBr, NaBrO and H₂O",
-                  "Br: 0 to −1 and +1"
-                ]
+                "results": ["NaBr, NaBrO and H₂O", "Br: 0 to −1 and +1"]
               },
               {
                 "label": "Br₂ + hot NaOH",
-                "results": [
-                  "NaBr, NaBrO₃ and H₂O",
-                  "Br: 0 to −1 and +5"
-                ]
+                "results": ["NaBr, NaBrO₃ and H₂O", "Br: 0 to −1 and +5"]
               },
               {
                 "label": "Cl₂ + water",
-                "results": [
-                  "HCl and HClO",
-                  "Cl: 0 to −1 and +1"
-                ]
+                "results": ["HCl and HClO", "Cl: 0 to −1 and +1"]
               }
             ]
           }
@@ -198,10 +157,7 @@
             "kind": "sort",
             "alt": "A sorting activity. Decide which reactions are disproportionation.",
             "prompt": "Is the reaction a disproportionation?",
-            "groups": [
-              "Disproportionation",
-              "Not disproportionation"
-            ],
+            "groups": ["Disproportionation", "Not disproportionation"],
             "items": [
               {
                 "text": "Cl₂ + cold dilute NaOH",
@@ -259,10 +215,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.1.3e",
-        "OCR 3.1.3f"
-      ],
+      "spec_codes": ["OCR 3.1.3e", "OCR 3.1.3f"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -285,9 +238,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 4B.12"
-      ],
+      "spec_codes": ["EDEX 4B.12"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -309,9 +260,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.2.3.2"
-      ],
+      "spec_codes": ["AQA 3.2.3.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -333,10 +282,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 11.4.1",
-        "CAIE 11.4.2"
-      ]
+      "spec_codes": ["CAIE 11.4.1", "CAIE 11.4.2"]
     }
   },
   "meta": {
@@ -352,7 +298,7 @@
       "918a1dab-7580-46ad-8932-967c250962bd"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

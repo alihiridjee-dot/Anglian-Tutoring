@@ -2749,6 +2749,10 @@ export type Database = {
         };
         Returns: Json;
       };
+      practice_for_point: {
+        Args: { _spec_point_id: string };
+        Returns: { kind: string; requests_left: number; state: string }[];
+      };
       prune_ai_request_log: { Args: never; Returns: number };
       publish_homework_marks: {
         Args: { _submission_id: string };
@@ -2757,6 +2761,10 @@ export type Database = {
       purge_stale_live_sessions: { Args: never; Returns: number };
       record_live_join: { Args: { _resource_id: string }; Returns: boolean };
       record_reviews_atomic: { Args: { _reviews: Json }; Returns: string[] };
+      request_practice_for_point: {
+        Args: { _spec_point_id: string };
+        Returns: { kind: string; requests_left: number; state: string }[];
+      };
       respond_to_parent_invite: {
         Args: { _accept: boolean; _invite_id: string };
         Returns: Json;

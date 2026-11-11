@@ -33,23 +33,45 @@
           "type": "equation",
           "label": "Word equation for photosynthesis",
           "formula": "carbon dioxide + water → glucose + oxygen",
-          "where": [
-            "carbon dioxide and water are the reactants",
-            "glucose and oxygen are the products",
-            "light energy is needed, and chlorophyll absorbs it (both are written above the arrow)"
+          "arrows": [
+            {
+              "point": "carbon dioxide + water",
+              "label": "Reactants"
+            },
+            {
+              "point": "→",
+              "label": "Needs light, absorbed by chlorophyll"
+            },
+            {
+              "point": "glucose + oxygen",
+              "label": "Products"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Symbol equation for photosynthesis",
           "formula": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
-          "where": [
-            "CO₂ is carbon dioxide",
-            "H₂O is water",
-            "C₆H₁₂O₆ is glucose",
-            "O₂ is oxygen",
-            "the reaction is endothermic, with light and chlorophyll above the arrow"
-          ]
+          "arrows": [
+            {
+              "point": "CO₂",
+              "label": "Carbon dioxide"
+            },
+            {
+              "point": "H₂O",
+              "label": "Water"
+            },
+            {
+              "point": "C₆H₁₂O₆",
+              "label": "Glucose"
+            },
+            {
+              "point": "O₂",
+              "in": "6O₂",
+              "label": "Oxygen"
+            }
+          ],
+          "where": ["the reaction is endothermic, with light and chlorophyll above the arrow"]
         },
         {
           "type": "paragraph",
@@ -395,7 +417,7 @@
       "8b25051f-32ad-4d27-9785-c97718481cf7",
       "47889a92-0272-4956-aed8-9aea1f89650c"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

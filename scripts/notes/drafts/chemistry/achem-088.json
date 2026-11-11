@@ -69,9 +69,15 @@
           "type": "equation",
           "label": "Haloalkane to nitrile",
           "formula": "CH₃CH₂Br + CN⁻ → CH₃CH₂CN + Br⁻",
-          "where": [
-            "CH₃CH₂Br: bromoethane, two carbons",
-            "CH₃CH₂CN: propanenitrile, one carbon longer"
+          "arrows": [
+            {
+              "point": "CH₃CH₂Br",
+              "label": "Bromoethane: two carbons"
+            },
+            {
+              "point": "CH₃CH₂CN",
+              "label": "Propanenitrile: one carbon longer"
+            }
           ]
         },
         {
@@ -143,9 +149,15 @@
           "type": "equation",
           "label": "Reduction of a nitrile",
           "formula": "CH₃CH₂CN + 2H₂ → CH₃CH₂CH₂NH₂",
-          "where": [
-            "H₂ with nickel catalyst",
-            "Product: propylamine (1-aminopropane)"
+          "arrows": [
+            {
+              "point": "→",
+              "label": "Nickel catalyst"
+            },
+            {
+              "point": "CH₃CH₂CH₂NH₂",
+              "label": "Propylamine (1-aminopropane)"
+            }
           ]
         },
         {
@@ -164,8 +176,15 @@
           "type": "equation",
           "label": "Acid hydrolysis of a nitrile",
           "formula": "CH₃CH₂CN + 2H₂O + H⁺ → CH₃CH₂COOH + NH₄⁺",
-          "where": [
-            "Product: propanoic acid, plus ammonium ions"
+          "arrows": [
+            {
+              "point": "CH₃CH₂COOH",
+              "label": "Propanoic acid"
+            },
+            {
+              "point": "NH₄⁺",
+              "label": "Ammonium ion"
+            }
           ]
         },
         {
@@ -174,19 +193,11 @@
             "kind": "predictor",
             "alt": "Pick a reaction to see the reagents, the product and the change in chain length.",
             "prompt": "Pick a step in a chain-lengthening route",
-            "result_labels": [
-              "Reagents and conditions",
-              "Product",
-              "Carbons added"
-            ],
+            "result_labels": ["Reagents and conditions", "Product", "Carbons added"],
             "options": [
               {
                 "label": "Bromoethane to a nitrile",
-                "results": [
-                  "KCN in ethanol, heat under reflux",
-                  "Propanenitrile, CH₃CH₂CN",
-                  "One"
-                ],
+                "results": ["KCN in ethanol, heat under reflux", "Propanenitrile, CH₃CH₂CN", "One"],
                 "explanation": "Nucleophilic substitution: CN⁻ replaces Br⁻."
               },
               {
@@ -249,12 +260,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.2.4a",
-        "OCR 6.2.4b",
-        "OCR 6.2.4c",
-        "OCR 6.2.4d"
-      ],
+      "spec_codes": ["OCR 6.2.4a", "OCR 6.2.4b", "OCR 6.2.4c", "OCR 6.2.4d"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -275,10 +281,19 @@
               "type": "equation",
               "label": "Friedel–Crafts acylation",
               "formula": "C₆H₆ + CH₃COCl → C₆H₅COCH₃ + HCl",
-              "where": [
-                "C₆H₆: benzene",
-                "CH₃COCl: ethanoyl chloride",
-                "C₆H₅COCH₃: phenylethanone"
+              "arrows": [
+                {
+                  "point": "C₆H₆",
+                  "label": "Benzene"
+                },
+                {
+                  "point": "CH₃COCl",
+                  "label": "Ethanoyl chloride"
+                },
+                {
+                  "point": "C₆H₅COCH₃",
+                  "label": "Phenylethanone"
+                }
               ]
             },
             {
@@ -294,9 +309,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 18C.20"
-      ],
+      "spec_codes": ["EDEX 18C.20"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -316,10 +329,7 @@
             {
               "type": "equation",
               "label": "Making a Grignard reagent",
-              "formula": "CH₃CH₂Br + Mg → CH₃CH₂MgBr",
-              "where": [
-                "In dry ether, no water present"
-              ]
+              "formula": "CH₃CH₂Br + Mg → CH₃CH₂MgBr"
             },
             {
               "type": "subheading",
@@ -327,27 +337,15 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Reacts with",
-                "Product after adding dilute acid"
-              ],
+              "columns": ["Reacts with", "Product after adding dilute acid"],
               "rows": [
                 [
                   "Carbon dioxide",
                   "A carboxylic acid, one carbon longer than the Grignard's R group"
                 ],
-                [
-                  "Methanal",
-                  "A primary alcohol"
-                ],
-                [
-                  "Any other aldehyde",
-                  "A secondary alcohol"
-                ],
-                [
-                  "A ketone",
-                  "A tertiary alcohol"
-                ]
+                ["Methanal", "A primary alcohol"],
+                ["Any other aldehyde", "A secondary alcohol"],
+                ["A ketone", "A tertiary alcohol"]
               ]
             },
             {
@@ -362,11 +360,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 19.2.1",
-        "CAIE 19.2.2",
-        "CAIE 19.2.3"
-      ]
+      "spec_codes": ["CAIE 19.2.1", "CAIE 19.2.2", "CAIE 19.2.3"]
     }
   },
   "meta": {
@@ -384,7 +378,7 @@
       "3478db87-549b-4ac3-ae51-5e3fb96dda7c"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

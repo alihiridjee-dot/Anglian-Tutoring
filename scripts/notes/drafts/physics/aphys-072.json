@@ -72,27 +72,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Quantity",
-            "Charging",
-            "Discharging"
-          ],
+          "columns": ["Quantity", "Charging", "Discharging"],
           "rows": [
-            [
-              "Charge Q on the capacitor",
-              "Rises from 0 to Q₀",
-              "Falls from Q₀ to 0"
-            ],
-            [
-              "P.d. V across the capacitor",
-              "Rises from 0 to V₀",
-              "Falls from V₀ to 0"
-            ],
-            [
-              "Current I",
-              "Falls from I₀ to 0",
-              "Falls from I₀ to 0, in the opposite direction"
-            ]
+            ["Charge Q on the capacitor", "Rises from 0 to Q₀", "Falls from Q₀ to 0"],
+            ["P.d. V across the capacitor", "Rises from 0 to V₀", "Falls from V₀ to 0"],
+            ["Current I", "Falls from I₀ to 0", "Falls from I₀ to 0, in the opposite direction"]
           ]
         },
         {
@@ -104,14 +88,7 @@
               "label": "Time",
               "min": 0,
               "max": 5,
-              "ticks": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5
-              ],
+              "ticks": [0, 1, 2, 3, 4, 5],
               "unit": "× RC"
             },
             "y": {
@@ -121,179 +98,53 @@
               {
                 "name": "Charging (Q or V across the capacitor)",
                 "points": [
-                  [
-                    0.0,
-                    0.0
-                  ],
-                  [
-                    0.25,
-                    0.221
-                  ],
-                  [
-                    0.5,
-                    0.393
-                  ],
-                  [
-                    0.75,
-                    0.528
-                  ],
-                  [
-                    1.0,
-                    0.632
-                  ],
-                  [
-                    1.25,
-                    0.713
-                  ],
-                  [
-                    1.5,
-                    0.777
-                  ],
-                  [
-                    1.75,
-                    0.826
-                  ],
-                  [
-                    2.0,
-                    0.865
-                  ],
-                  [
-                    2.25,
-                    0.895
-                  ],
-                  [
-                    2.5,
-                    0.918
-                  ],
-                  [
-                    2.75,
-                    0.936
-                  ],
-                  [
-                    3.0,
-                    0.95
-                  ],
-                  [
-                    3.25,
-                    0.961
-                  ],
-                  [
-                    3.5,
-                    0.97
-                  ],
-                  [
-                    3.75,
-                    0.976
-                  ],
-                  [
-                    4.0,
-                    0.982
-                  ],
-                  [
-                    4.25,
-                    0.986
-                  ],
-                  [
-                    4.5,
-                    0.989
-                  ],
-                  [
-                    4.75,
-                    0.991
-                  ],
-                  [
-                    5.0,
-                    0.993
-                  ]
+                  [0.0, 0.0],
+                  [0.25, 0.221],
+                  [0.5, 0.393],
+                  [0.75, 0.528],
+                  [1.0, 0.632],
+                  [1.25, 0.713],
+                  [1.5, 0.777],
+                  [1.75, 0.826],
+                  [2.0, 0.865],
+                  [2.25, 0.895],
+                  [2.5, 0.918],
+                  [2.75, 0.936],
+                  [3.0, 0.95],
+                  [3.25, 0.961],
+                  [3.5, 0.97],
+                  [3.75, 0.976],
+                  [4.0, 0.982],
+                  [4.25, 0.986],
+                  [4.5, 0.989],
+                  [4.75, 0.991],
+                  [5.0, 0.993]
                 ]
               },
               {
                 "name": "Discharging (Q, V or I)",
                 "points": [
-                  [
-                    0.0,
-                    1.0
-                  ],
-                  [
-                    0.25,
-                    0.779
-                  ],
-                  [
-                    0.5,
-                    0.607
-                  ],
-                  [
-                    0.75,
-                    0.472
-                  ],
-                  [
-                    1.0,
-                    0.368
-                  ],
-                  [
-                    1.25,
-                    0.287
-                  ],
-                  [
-                    1.5,
-                    0.223
-                  ],
-                  [
-                    1.75,
-                    0.174
-                  ],
-                  [
-                    2.0,
-                    0.135
-                  ],
-                  [
-                    2.25,
-                    0.105
-                  ],
-                  [
-                    2.5,
-                    0.082
-                  ],
-                  [
-                    2.75,
-                    0.064
-                  ],
-                  [
-                    3.0,
-                    0.05
-                  ],
-                  [
-                    3.25,
-                    0.039
-                  ],
-                  [
-                    3.5,
-                    0.03
-                  ],
-                  [
-                    3.75,
-                    0.024
-                  ],
-                  [
-                    4.0,
-                    0.018
-                  ],
-                  [
-                    4.25,
-                    0.014
-                  ],
-                  [
-                    4.5,
-                    0.011
-                  ],
-                  [
-                    4.75,
-                    0.009
-                  ],
-                  [
-                    5.0,
-                    0.007
-                  ]
+                  [0.0, 1.0],
+                  [0.25, 0.779],
+                  [0.5, 0.607],
+                  [0.75, 0.472],
+                  [1.0, 0.368],
+                  [1.25, 0.287],
+                  [1.5, 0.223],
+                  [1.75, 0.174],
+                  [2.0, 0.135],
+                  [2.25, 0.105],
+                  [2.5, 0.082],
+                  [2.75, 0.064],
+                  [3.0, 0.05],
+                  [3.25, 0.039],
+                  [3.5, 0.03],
+                  [3.75, 0.024],
+                  [4.0, 0.018],
+                  [4.25, 0.014],
+                  [4.5, 0.011],
+                  [4.75, 0.009],
+                  [5.0, 0.007]
                 ]
               }
             ],
@@ -343,10 +194,19 @@
           "type": "equation",
           "label": "Time constant",
           "formula": "τ = RC",
-          "where": [
-            "τ = time constant (s)",
-            "R = resistance in the circuit (Ω)",
-            "C = capacitance (F)"
+          "arrows": [
+            {
+              "point": "τ",
+              "label": "Time constant (s)"
+            },
+            {
+              "point": "R",
+              "label": "Resistance in the circuit (Ω)"
+            },
+            {
+              "point": "C",
+              "label": "Capacitance (F)"
+            }
           ]
         },
         {
@@ -377,22 +237,40 @@
           "type": "equation",
           "label": "Discharging",
           "formula": "x = x₀ e^(−t/RC)",
-          "where": [
-            "x = Q, V or I at time t",
-            "x₀ = value at t = 0",
-            "t = time (s)",
-            "RC = time constant (s)"
+          "arrows": [
+            {
+              "point": "x",
+              "in": "x =",
+              "label": "Q, V or I at time t"
+            },
+            {
+              "point": "x₀",
+              "label": "Value at t = 0"
+            },
+            {
+              "point": "t",
+              "label": "Time (s)"
+            },
+            {
+              "point": "RC",
+              "label": "Time constant (s)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Charging charge or p.d.",
           "formula": "x = x₀ (1 − e^(−t/RC))",
-          "where": [
-            "x = Q or V at time t",
-            "x₀ = final value of Q or V",
-            "t = time (s)",
-            "RC = time constant (s)"
+          "arrows": [
+            {
+              "point": "x",
+              "in": "x =",
+              "label": "Q or V at time t"
+            },
+            {
+              "point": "x₀",
+              "label": "Final value of Q or V"
+            }
           ]
         },
         {
@@ -431,9 +309,12 @@
           "type": "equation",
           "label": "Logarithmic form",
           "formula": "ln x = ln x₀ − t / RC",
-          "where": [
-            "x = Q, V or I",
-            "ln = natural logarithm"
+          "arrows": [
+            {
+              "point": "ln",
+              "in": "ln x =",
+              "label": "Natural logarithm"
+            }
           ]
         },
         {
@@ -544,9 +425,11 @@
           "type": "equation",
           "label": "Time to halve",
           "formula": "T½ = 0.69 RC",
-          "where": [
-            "T½ = time for Q, V or I to halve (s)",
-            "RC = time constant (s)"
+          "arrows": [
+            {
+              "point": "T½",
+              "label": "Time for x to halve (s)"
+            }
           ]
         },
         {
@@ -558,10 +441,7 @@
         },
         {
           "type": "key-points",
-          "items": [
-            "Equal times give equal fractions.",
-            "T½ = 0.69RC."
-          ]
+          "items": ["Equal times give equal fractions.", "T½ = 0.69RC."]
         }
       ]
     },
@@ -635,23 +515,13 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.7.4.4"
-      ]
+      "spec_codes": ["AQA 3.7.4.4"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 7.118",
-        "EDEX 7.119",
-        "EDEX 7.120"
-      ]
+      "spec_codes": ["EDEX 7.118", "EDEX 7.119", "EDEX 7.120"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 19.3.1",
-        "CAIE 19.3.2",
-        "CAIE 19.3.3"
-      ]
+      "spec_codes": ["CAIE 19.3.1", "CAIE 19.3.2", "CAIE 19.3.3"]
     },
     "ocr_alevel": {
       "spec_codes": [
@@ -738,7 +608,7 @@
       "2bcae596-bc39-448f-89f0-9bc70ff450a7"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

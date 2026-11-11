@@ -43,43 +43,23 @@
           "diagram": {
             "kind": "compare",
             "alt": "A comparison of alpha, beta and gamma radiation by nature, charge, ionising power, range in air and what stops them.",
-            "items": [
-              "α",
-              "β",
-              "γ"
-            ],
+            "items": ["α", "β", "γ"],
             "rows": [
               {
                 "feature": "Nature",
-                "values": [
-                  "Helium nucleus",
-                  "Electron or positron",
-                  "Electromagnetic wave"
-                ]
+                "values": ["Helium nucleus", "Electron or positron", "Electromagnetic wave"]
               },
               {
                 "feature": "Charge",
-                "values": [
-                  "+2e",
-                  "−e (β⁻) or +e (β⁺)",
-                  "None"
-                ]
+                "values": ["+2e", "−e (β⁻) or +e (β⁺)", "None"]
               },
               {
                 "feature": "Ionising power",
-                "values": [
-                  "Strong",
-                  "Weak",
-                  "Very weak"
-                ]
+                "values": ["Strong", "Weak", "Very weak"]
               },
               {
                 "feature": "Range in air",
-                "values": [
-                  "A few cm",
-                  "About 1 m",
-                  "Very long, intensity falls with distance"
-                ]
+                "values": ["A few cm", "About 1 m", "Very long, intensity falls with distance"]
               },
               {
                 "feature": "Stopped by",
@@ -194,7 +174,6 @@
         {
           "type": "list",
           "items": [
-            "Nucleon number A is written at the top left of the symbol, proton number Z at the bottom left.",
             "The total A is the same before and after the decay.",
             "The total charge (the sum of Z) is the same before and after the decay."
           ]
@@ -203,30 +182,41 @@
           "type": "equation",
           "label": "α decay",
           "formula": "²³⁸₉₂U → ²³⁴₉₀Th + ⁴₂α",
-          "where": [
-            "A falls by 4",
-            "Z falls by 2"
-          ]
+          "arrows": [
+            {
+              "point": "²³⁸",
+              "label": "Nucleon number A"
+            },
+            {
+              "point": "₉₂",
+              "label": "Proton number Z"
+            }
+          ],
+          "where": ["A falls by 4", "Z falls by 2"]
         },
         {
           "type": "equation",
           "label": "β⁻ decay",
           "formula": "¹⁴₆C → ¹⁴₇N + ⁰₋₁β + ν̄ₑ",
-          "where": [
-            "A is unchanged",
-            "Z rises by 1",
-            "ν̄ₑ is an electron antineutrino"
-          ]
+          "arrows": [
+            {
+              "point": "ν̄ₑ",
+              "label": "Electron antineutrino"
+            }
+          ],
+          "where": ["A is unchanged", "Z rises by 1"]
         },
         {
           "type": "equation",
           "label": "β⁺ decay",
           "formula": "²²₁₁Na → ²²₁₀Ne + ⁰₊₁β + νₑ",
-          "where": [
-            "A is unchanged",
-            "Z falls by 1",
-            "νₑ is an electron neutrino"
-          ]
+          "arrows": [
+            {
+              "point": "νₑ",
+              "label": "Electron neutrino"
+            }
+          ],
+          "where": ["A is unchanged", "Z falls by 1"]
         },
         {
           "type": "list",
@@ -250,35 +240,19 @@
             "options": [
               {
                 "label": "α decay",
-                "results": [
-                  "Falls by 4",
-                  "Falls by 2",
-                  "Helium nucleus ⁴₂α"
-                ]
+                "results": ["Falls by 4", "Falls by 2", "Helium nucleus ⁴₂α"]
               },
               {
                 "label": "β⁻ decay",
-                "results": [
-                  "No change",
-                  "Rises by 1",
-                  "Electron and antineutrino"
-                ]
+                "results": ["No change", "Rises by 1", "Electron and antineutrino"]
               },
               {
                 "label": "β⁺ decay",
-                "results": [
-                  "No change",
-                  "Falls by 1",
-                  "Positron and neutrino"
-                ]
+                "results": ["No change", "Falls by 1", "Positron and neutrino"]
               },
               {
                 "label": "γ emission",
-                "results": [
-                  "No change",
-                  "No change",
-                  "γ photon"
-                ]
+                "results": ["No change", "No change", "γ photon"]
               }
             ]
           }
@@ -313,10 +287,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.8.1.2",
-        "AQA 3.8.1.4"
-      ],
+      "spec_codes": ["AQA 3.8.1.2", "AQA 3.8.1.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -333,10 +304,19 @@
               "type": "equation",
               "label": "Inverse-square law",
               "formula": "I = k / x²",
-              "where": [
-                "I = intensity, or corrected count rate",
-                "k = a constant for the source",
-                "x = distance from the source in m"
+              "arrows": [
+                {
+                  "point": "I",
+                  "label": "Intensity, or corrected count rate"
+                },
+                {
+                  "point": "k",
+                  "label": "A constant for the source"
+                },
+                {
+                  "point": "x",
+                  "label": "Distance from the source (m)"
+                }
               ]
             },
             {
@@ -366,11 +346,7 @@
               "type": "equation",
               "label": "Electron capture",
               "formula": "p + e⁻ → n + νₑ",
-              "where": [
-                "Z falls by 1",
-                "N rises by 1",
-                "A is unchanged"
-              ]
+              "where": ["Z falls by 1", "N rises by 1", "A is unchanged"]
             },
             {
               "type": "list",
@@ -387,18 +363,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 11.168",
-        "EDEX 11.169",
-        "EDEX 11.170"
-      ]
+      "spec_codes": ["EDEX 11.168", "EDEX 11.169", "EDEX 11.170"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 11.1.7",
-        "CAIE 11.1.10",
-        "CAIE 11.1.11"
-      ],
+      "spec_codes": ["CAIE 11.1.7", "CAIE 11.1.10", "CAIE 11.1.11"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -421,11 +389,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.4.3b",
-        "OCR 6.4.3c",
-        "OCR 6.4.4k"
-      ]
+      "spec_codes": ["OCR 6.4.3b", "OCR 6.4.3c", "OCR 6.4.4k"]
     }
   },
   "meta": {
@@ -446,7 +410,7 @@
       "409f11e2-8272-4bc8-8fec-4f2010e669a8"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

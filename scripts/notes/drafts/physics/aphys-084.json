@@ -121,20 +121,39 @@
           "type": "equation",
           "label": "Intensity",
           "formula": "I = P ÷ A",
-          "where": [
-            "I = intensity (W m⁻²)",
-            "P = power passing through the surface (W)",
-            "A = area of the surface (m²)"
+          "arrows": [
+            {
+              "point": "I",
+              "label": "Intensity (W m⁻²)"
+            },
+            {
+              "point": "P",
+              "label": "Power passing through the surface (W)"
+            },
+            {
+              "point": "A",
+              "label": "Area of the surface (m²)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Intensity level",
           "formula": "intensity level = 10 log (I ÷ I₀)",
-          "where": [
-            "intensity level (dB)",
-            "I = intensity of the sound (W m⁻²)",
-            "I₀ = threshold of hearing, 1.0 × 10⁻¹² W m⁻²"
+          "arrows": [
+            {
+              "point": "intensity level",
+              "label": "Measured in decibels (dB)"
+            },
+            {
+              "point": "I",
+              "in": "(I ÷",
+              "label": "Intensity of the sound (W m⁻²)"
+            },
+            {
+              "point": "I₀",
+              "label": "Threshold of hearing (W m⁻²)"
+            }
           ]
         },
         {
@@ -279,11 +298,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.10.2.1",
-        "AQA 3.10.2.2",
-        "AQA 3.10.2.3"
-      ]
+      "spec_codes": ["AQA 3.10.2.1", "AQA 3.10.2.2", "AQA 3.10.2.3"]
     }
   },
   "meta": {
@@ -296,7 +311,7 @@
       "0e3d873c-dc5e-45e9-ba75-829245ad56ae"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

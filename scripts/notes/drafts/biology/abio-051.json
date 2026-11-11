@@ -35,11 +35,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Level",
-            "What it covers",
-            "Example"
-          ],
+          "columns": ["Level", "What it covers", "Example"],
           "rows": [
             [
               "Habitat",
@@ -96,10 +92,21 @@
           "type": "equation",
           "label": "Index of diversity (d)",
           "formula": "d = N(N − 1) ÷ Σn(n − 1)",
-          "where": [
-            "N = total number of organisms of all species",
-            "n = total number of organisms of each species",
-            "Σ = the sum over all species"
+          "arrows": [
+            {
+              "point": "N",
+              "in": "d = N",
+              "label": "Total organisms of all species"
+            },
+            {
+              "point": "Σ",
+              "label": "Sum over all species"
+            },
+            {
+              "point": "n",
+              "in": "Σn",
+              "label": "Total organisms of each species"
+            }
           ]
         },
         {
@@ -152,10 +159,19 @@
           "type": "equation",
           "label": "Simpson's index of diversity (D)",
           "formula": "D = 1 − Σ(n ÷ N)²",
-          "where": [
-            "n = number of individuals of one species",
-            "N = total number of individuals of all species",
-            "Σ = the sum over all species"
+          "arrows": [
+            {
+              "point": "Σ",
+              "label": "Sum over all species"
+            },
+            {
+              "point": "n",
+              "label": "Individuals of one species"
+            },
+            {
+              "point": "N",
+              "label": "Total individuals of all species"
+            }
           ]
         },
         {
@@ -201,10 +217,7 @@
           "type": "equation",
           "label": "Heterozygosity index (H)",
           "formula": "H = number of heterozygotes ÷ number of individuals in the population",
-          "where": [
-            "H is between 0 and 1",
-            "A high H means high genetic diversity"
-          ]
+          "where": ["H is between 0 and 1", "A high H means high genetic diversity"]
         },
         {
           "type": "key-points",
@@ -293,10 +306,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 4.1",
-        "EDEX 4.2"
-      ],
+      "spec_codes": ["EDEX 4.1", "EDEX 4.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -314,10 +324,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 18.2.2",
-        "CAIE 18.2.6"
-      ],
+      "spec_codes": ["CAIE 18.2.2", "CAIE 18.2.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -334,13 +341,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.2.1a",
-        "OCR 4.2.1c",
-        "OCR 4.2.1d",
-        "OCR 4.2.1e",
-        "OCR 4.2.1f"
-      ],
+      "spec_codes": ["OCR 4.2.1a", "OCR 4.2.1c", "OCR 4.2.1d", "OCR 4.2.1e", "OCR 4.2.1f"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -349,8 +350,12 @@
               "type": "equation",
               "label": "Proportion of polymorphic gene loci",
               "formula": "proportion of polymorphic gene loci = number of polymorphic gene loci ÷ total number of loci",
-              "where": [
-                "A polymorphic locus has more than one allele in the population"
+              "arrows": [
+                {
+                  "point": "polymorphic",
+                  "in": "number of polymorphic",
+                  "label": "More than one allele in the population"
+                }
               ]
             },
             {
@@ -390,7 +395,7 @@
       "6cecbd82-e650-499c-b722-bc670c9970a4"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

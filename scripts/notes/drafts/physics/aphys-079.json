@@ -48,13 +48,7 @@
               "label": "Wavelength",
               "min": 0,
               "max": 2000,
-              "ticks": [
-                0,
-                500,
-                1000,
-                1500,
-                2000
-              ],
+              "ticks": [0, 500, 1000, 1500, 2000],
               "unit": "nm"
             },
             "y": {
@@ -64,124 +58,43 @@
               {
                 "name": "6000 K",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    200,
-                    0.07
-                  ],
-                  [
-                    300,
-                    0.5
-                  ],
-                  [
-                    400,
-                    0.9
-                  ],
-                  [
-                    480,
-                    0.98
-                  ],
-                  [
-                    600,
-                    0.89
-                  ],
-                  [
-                    800,
-                    0.59
-                  ],
-                  [
-                    1000,
-                    0.37
-                  ],
-                  [
-                    1500,
-                    0.12
-                  ],
-                  [
-                    2000,
-                    0.05
-                  ]
+                  [0, 0],
+                  [200, 0.07],
+                  [300, 0.5],
+                  [400, 0.9],
+                  [480, 0.98],
+                  [600, 0.89],
+                  [800, 0.59],
+                  [1000, 0.37],
+                  [1500, 0.12],
+                  [2000, 0.05]
                 ]
               },
               {
                 "name": "5000 K",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    200,
-                    0.01
-                  ],
-                  [
-                    300,
-                    0.1
-                  ],
-                  [
-                    400,
-                    0.27
-                  ],
-                  [
-                    580,
-                    0.39
-                  ],
-                  [
-                    800,
-                    0.31
-                  ],
-                  [
-                    1000,
-                    0.22
-                  ],
-                  [
-                    1500,
-                    0.08
-                  ],
-                  [
-                    2000,
-                    0.035
-                  ]
+                  [0, 0],
+                  [200, 0.01],
+                  [300, 0.1],
+                  [400, 0.27],
+                  [580, 0.39],
+                  [800, 0.31],
+                  [1000, 0.22],
+                  [1500, 0.08],
+                  [2000, 0.035]
                 ]
               },
               {
                 "name": "4000 K",
                 "points": [
-                  [
-                    0,
-                    0
-                  ],
-                  [
-                    300,
-                    0.01
-                  ],
-                  [
-                    400,
-                    0.045
-                  ],
-                  [
-                    500,
-                    0.09
-                  ],
-                  [
-                    725,
-                    0.13
-                  ],
-                  [
-                    1000,
-                    0.1
-                  ],
-                  [
-                    1500,
-                    0.05
-                  ],
-                  [
-                    2000,
-                    0.02
-                  ]
+                  [0, 0],
+                  [300, 0.01],
+                  [400, 0.045],
+                  [500, 0.09],
+                  [725, 0.13],
+                  [1000, 0.1],
+                  [1500, 0.05],
+                  [2000, 0.02]
                 ]
               }
             ]
@@ -212,9 +125,15 @@
           "type": "equation",
           "label": "Wien's displacement law",
           "formula": "λₘₐₓ T = constant = 2.9 × 10⁻³ m K",
-          "where": [
-            "λₘₐₓ = wavelength at which the curve peaks (m)",
-            "T = surface temperature of the black body (K)"
+          "arrows": [
+            {
+              "point": "λₘₐₓ",
+              "label": "Wavelength at which the curve peaks (m)"
+            },
+            {
+              "point": "T",
+              "label": "Surface temperature of the black body (K)"
+            }
           ]
         },
         {
@@ -268,12 +187,25 @@
           "type": "equation",
           "label": "Stefan–Boltzmann law",
           "formula": "L = σAT⁴",
-          "where": [
-            "L = luminosity, the total power radiated (W)",
-            "σ = Stefan–Boltzmann constant, 5.67 × 10⁻⁸ W m⁻² K⁻⁴",
-            "A = surface area (m²)",
-            "T = surface temperature (K)"
-          ]
+          "arrows": [
+            {
+              "point": "L",
+              "label": "Luminosity: total power radiated (W)"
+            },
+            {
+              "point": "σ",
+              "label": "Stefan–Boltzmann constant"
+            },
+            {
+              "point": "A",
+              "label": "Surface area (m²)"
+            },
+            {
+              "point": "T",
+              "label": "Surface temperature (K)"
+            }
+          ],
+          "where": ["σ = 5.67 × 10⁻⁸ W m⁻² K⁻⁴"]
         },
         {
           "type": "paragraph",
@@ -283,8 +215,11 @@
           "type": "equation",
           "label": "Stefan–Boltzmann law for a star",
           "formula": "L = 4πσr²T⁴",
-          "where": [
-            "r = radius of the star (m)"
+          "arrows": [
+            {
+              "point": "r",
+              "label": "Radius of the star (m)"
+            }
           ]
         },
         {
@@ -428,9 +363,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.9.2.3"
-      ],
+      "spec_codes": ["AQA 3.9.2.3"],
       "extra": [
         {
           "heading": "Detail this course asks for: comparing stars",
@@ -443,10 +376,19 @@
               "type": "equation",
               "label": "Stefan's law",
               "formula": "P = σAT⁴",
-              "where": [
-                "P = power output of the star (W)",
-                "A = surface area of the star (m²)",
-                "T = surface temperature (K)"
+              "arrows": [
+                {
+                  "point": "P",
+                  "label": "Power output of the star (W)"
+                },
+                {
+                  "point": "A",
+                  "label": "Surface area of the star (m²)"
+                },
+                {
+                  "point": "T",
+                  "label": "Surface temperature (K)"
+                }
               ]
             },
             {
@@ -470,25 +412,13 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 9.153",
-        "EDEX 9.154",
-        "EDEX 9.155"
-      ]
+      "spec_codes": ["EDEX 9.153", "EDEX 9.154", "EDEX 9.155"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 25.2.1",
-        "CAIE 25.2.2",
-        "CAIE 25.2.3"
-      ]
+      "spec_codes": ["CAIE 25.2.1", "CAIE 25.2.2", "CAIE 25.2.3"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.5.2i",
-        "OCR 5.5.2j",
-        "OCR 5.5.2k"
-      ]
+      "spec_codes": ["OCR 5.5.2i", "OCR 5.5.2j", "OCR 5.5.2k"]
     }
   },
   "meta": {
@@ -508,7 +438,7 @@
       "1d26be5f-6eb1-4d28-8c7e-e0a2fe22b4ec"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

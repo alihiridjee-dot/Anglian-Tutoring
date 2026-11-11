@@ -14,11 +14,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Quantity",
-            "Apparatus",
-            "How to use it well"
-          ],
+          "columns": ["Quantity", "Apparatus", "How to use it well"],
           "rows": [
             [
               "Mass",
@@ -40,11 +36,7 @@
               "Thermometer or temperature probe",
               "Keep the bulb in the liquid; wait for a steady reading."
             ],
-            [
-              "Length",
-              "Ruler, micrometer or graticule",
-              "Read at eye level; measure from zero."
-            ],
+            ["Length", "Ruler, micrometer or graticule", "Read at eye level; measure from zero."],
             [
               "pH",
               "pH meter, probe or indicator paper",
@@ -108,10 +100,19 @@
           "type": "equation",
           "label": "Concentration after serial dilution",
           "formula": "concentration = starting concentration ÷ (dilution factor)ⁿ",
-          "where": [
-            "starting concentration = the concentration of the first solution",
-            "dilution factor = how many times more dilute each step is",
-            "n = the number of dilution steps"
+          "arrows": [
+            {
+              "point": "starting concentration",
+              "label": "Concentration of the first solution"
+            },
+            {
+              "point": "dilution factor",
+              "label": "Times more dilute at each step"
+            },
+            {
+              "point": "ⁿ",
+              "label": "Number of dilution steps"
+            }
           ]
         },
         {
@@ -153,12 +154,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Test for",
-            "Reagent",
-            "Method",
-            "Positive result"
-          ],
+          "columns": ["Test for", "Reagent", "Method", "Positive result"],
           "rows": [
             [
               "Reducing sugar",
@@ -166,18 +162,8 @@
               "Heat with the sample in a water bath",
               "Green, yellow, orange or brick-red precipitate"
             ],
-            [
-              "Starch",
-              "Iodine in potassium iodide solution",
-              "Add to the sample",
-              "Blue-black"
-            ],
-            [
-              "Protein",
-              "Biuret reagent",
-              "Add to the sample and mix",
-              "Purple (lilac)"
-            ],
+            ["Starch", "Iodine in potassium iodide solution", "Add to the sample", "Blue-black"],
+            ["Protein", "Biuret reagent", "Add to the sample and mix", "Purple (lilac)"],
             [
               "Lipid",
               "Ethanol, then water",
@@ -227,9 +213,15 @@
           "type": "equation",
           "label": "Size of one graticule division",
           "formula": "size of one division = length on stage micrometer ÷ number of graticule divisions",
-          "where": [
-            "length on stage micrometer = the known length, in µm",
-            "number of graticule divisions = how many cover that length"
+          "arrows": [
+            {
+              "point": "length on stage micrometer",
+              "label": "The known length (µm)"
+            },
+            {
+              "point": "number of graticule divisions",
+              "label": "How many cover that length"
+            }
           ]
         },
         {
@@ -394,7 +386,7 @@
       "f930d58a-75db-483e-982d-2af1b3d3fa61"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

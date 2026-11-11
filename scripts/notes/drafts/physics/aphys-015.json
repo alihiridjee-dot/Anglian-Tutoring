@@ -55,10 +55,25 @@
           "type": "equation",
           "label": "Conservation of momentum",
           "formula": "m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂",
-          "where": [
-            "m₁, m₂ = masses, in kg",
-            "u₁, u₂ = velocities before, in m/s",
-            "v₁, v₂ = velocities after, in m/s"
+          "arrows": [
+            {
+              "point": "m₁",
+              "in": "m₁u₁",
+              "label": "Mass of object 1 (kg)"
+            },
+            {
+              "point": "u₁",
+              "label": "Velocity of object 1 before (m/s)"
+            },
+            {
+              "point": "m₂",
+              "in": "m₂u₂",
+              "label": "Mass of object 2 (kg)"
+            },
+            {
+              "point": "v₁",
+              "label": "Velocity of object 1 after (m/s)"
+            }
           ]
         },
         {
@@ -221,17 +236,9 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Property",
-            "Elastic collision",
-            "Inelastic collision"
-          ],
+          "columns": ["Property", "Elastic collision", "Inelastic collision"],
           "rows": [
-            [
-              "Total momentum",
-              "Conserved",
-              "Conserved"
-            ],
+            ["Total momentum", "Conserved", "Conserved"],
             [
               "Total kinetic energy",
               "Conserved",
@@ -282,17 +289,10 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.4.1.6"
-      ]
+      "spec_codes": ["AQA 3.4.1.6"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 2.22",
-        "EDEX 6.99",
-        "EDEX 6.101",
-        "EDEX 6.102"
-      ],
+      "spec_codes": ["EDEX 2.22", "EDEX 6.99", "EDEX 6.101", "EDEX 6.102"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -322,10 +322,19 @@
               "type": "equation",
               "label": "Kinetic energy in terms of momentum",
               "formula": "Eₖ = p² / (2m)",
-              "where": [
-                "Eₖ = kinetic energy, in J",
-                "p = momentum, in kg m/s",
-                "m = mass, in kg"
+              "arrows": [
+                {
+                  "point": "Eₖ",
+                  "label": "Kinetic energy (J)"
+                },
+                {
+                  "point": "p",
+                  "label": "Momentum (kg m/s)"
+                },
+                {
+                  "point": "m",
+                  "label": "Mass (kg)"
+                }
               ]
             },
             {
@@ -340,12 +349,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 3.3.1",
-        "CAIE 3.3.2",
-        "CAIE 3.3.3",
-        "CAIE 3.3.4"
-      ],
+      "spec_codes": ["CAIE 3.3.1", "CAIE 3.3.2", "CAIE 3.3.3", "CAIE 3.3.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -364,11 +368,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.5.2a",
-        "OCR 3.5.2b",
-        "OCR 3.5.2c"
-      ],
+      "spec_codes": ["OCR 3.5.2a", "OCR 3.5.2b", "OCR 3.5.2c"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -403,7 +403,7 @@
       "686721ad-e607-4d2e-b27c-37361af1d42c"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

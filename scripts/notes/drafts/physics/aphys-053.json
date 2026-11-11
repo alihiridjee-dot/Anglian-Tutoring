@@ -66,9 +66,15 @@
           "type": "equation",
           "label": "Converting between kelvin and degrees Celsius",
           "formula": "T / K = θ / °C + 273.15",
-          "where": [
-            "T is the thermodynamic temperature in kelvin (K)",
-            "θ is the temperature in degrees Celsius (°C)"
+          "arrows": [
+            {
+              "point": "T",
+              "label": "Thermodynamic temperature (K)"
+            },
+            {
+              "point": "θ",
+              "label": "Temperature in degrees Celsius (°C)"
+            }
           ]
         },
         {
@@ -94,11 +100,7 @@
               "unit": "K",
               "decimals": 2
             },
-            "working": [
-              "T = θ + 273.15",
-              "T = {theta} + 273.15",
-              "T = {answer} K"
-            ]
+            "working": ["T = θ + 273.15", "T = {theta} + 273.15", "T = {answer} K"]
           }
         },
         {
@@ -165,10 +167,7 @@
   ],
   "boards": {
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 9.147",
-        "EDEX 9.148"
-      ],
+      "spec_codes": ["EDEX 9.147", "EDEX 9.148"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -249,12 +248,7 @@
             },
             {
               "type": "table",
-              "columns": [
-                "State",
-                "Spacing",
-                "Ordering",
-                "Motion"
-              ],
+              "columns": ["State", "Spacing", "Ordering", "Motion"],
               "rows": [
                 [
                   "Solid",
@@ -262,12 +256,7 @@
                   "Regular, fixed pattern",
                   "Vibrate about fixed positions"
                 ],
-                [
-                  "Liquid",
-                  "Close together",
-                  "No regular pattern",
-                  "Move past each other randomly"
-                ],
+                ["Liquid", "Close together", "No regular pattern", "Move past each other randomly"],
                 [
                   "Gas",
                   "Far apart",
@@ -339,7 +328,7 @@
       "3c3c7201-5261-47ff-ad45-b0a14180df3c"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

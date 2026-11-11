@@ -56,10 +56,19 @@
           "type": "equation",
           "label": "Enthalpy change from bond enthalpies",
           "formula": "ΔH = Σ(bonds broken) − Σ(bonds made)",
-          "where": [
-            "ΔH in kJ mol⁻¹",
-            "Σ(bonds broken) = total bond enthalpy of the reactants, in kJ mol⁻¹",
-            "Σ(bonds made) = total bond enthalpy of the products, in kJ mol⁻¹"
+          "arrows": [
+            {
+              "point": "ΔH",
+              "label": "Enthalpy change (kJ mol⁻¹)"
+            },
+            {
+              "point": "Σ(bonds broken)",
+              "label": "Total bond enthalpy of the reactants"
+            },
+            {
+              "point": "Σ(bonds made)",
+              "label": "Total bond enthalpy of the products"
+            }
           ]
         },
         {
@@ -183,9 +192,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.2.1f"
-      ],
+      "spec_codes": ["OCR 3.2.1f"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -202,11 +209,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 8.9",
-        "EDEX 8.10",
-        "EDEX 8.11"
-      ],
+      "spec_codes": ["EDEX 8.9", "EDEX 8.10", "EDEX 8.11"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -223,9 +226,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.4.4"
-      ],
+      "spec_codes": ["AQA 3.1.4.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -242,11 +243,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 5.1.4",
-        "CAIE 5.1.5",
-        "CAIE 5.1.6"
-      ],
+      "spec_codes": ["CAIE 5.1.4", "CAIE 5.1.5", "CAIE 5.1.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -278,7 +275,7 @@
       "4c6e57d0-9760-40ad-97c9-239f730b257a"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

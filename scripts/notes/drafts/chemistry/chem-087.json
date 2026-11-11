@@ -148,16 +148,22 @@
         },
         {
           "type": "equation",
-          "formula": "Rf = distance moved by substance ÷ distance moved by solvent",
           "label": "Rf value",
-          "where": [
-            "distance moved by substance, from the start line to the centre of the spot, in centimetres (cm)",
-            "distance moved by solvent, from the start line to the solvent front, in centimetres (cm)"
+          "formula": "Rf = distance moved by substance ÷ distance moved by solvent",
+          "arrows": [
+            {
+              "point": "Rf",
+              "label": "No units: always between 0 and 1"
+            },
+            {
+              "point": "distance moved by substance",
+              "label": "Start line to spot centre (cm)"
+            },
+            {
+              "point": "distance moved by solvent",
+              "label": "Start line to solvent front (cm)"
+            }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rf has no units and is always between 0 and 1."
         },
         {
           "type": "steps",
@@ -178,23 +184,13 @@
         },
         {
           "type": "equation",
-          "formula": "distance moved by substance = Rf × distance moved by solvent",
           "label": "Distance moved by the substance",
-          "where": [
-            "distance moved by substance in centimetres (cm)",
-            "Rf, no units",
-            "distance moved by solvent in centimetres (cm)"
-          ]
+          "formula": "distance moved by substance = Rf × distance moved by solvent"
         },
         {
           "type": "equation",
-          "formula": "distance moved by solvent = distance moved by substance ÷ Rf",
           "label": "Distance moved by the solvent",
-          "where": [
-            "distance moved by solvent in centimetres (cm)",
-            "distance moved by substance in centimetres (cm)",
-            "Rf, no units"
-          ]
+          "formula": "distance moved by solvent = distance moved by substance ÷ Rf"
         },
         {
           "type": "paragraph",
@@ -500,7 +496,7 @@
       "af4e8544-da95-41d1-b5fd-0fc1ea1be9c2",
       "6f789992-46d7-4408-967f-1afe512507fa"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

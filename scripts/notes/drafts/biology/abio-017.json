@@ -16,9 +16,15 @@
           "type": "equation",
           "label": "Surface area to volume ratio",
           "formula": "SA:V = surface area ÷ volume",
-          "where": [
-            "surface area, in cm²",
-            "volume, in cm³"
+          "arrows": [
+            {
+              "point": "surface area",
+              "label": "Square centimetres (cm²)"
+            },
+            {
+              "point": "volume",
+              "label": "Cubic centimetres (cm³)"
+            }
           ]
         },
         {
@@ -103,17 +109,9 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Single-celled organism",
-            "Large multicellular organism"
-          ],
+          "columns": ["Feature", "Single-celled organism", "Large multicellular organism"],
           "rows": [
-            [
-              "SA:V ratio",
-              "Large",
-              "Small"
-            ],
+            ["SA:V ratio", "Large", "Small"],
             [
               "Diffusion distance",
               "Short, so substances reach the centre quickly",
@@ -154,22 +152,14 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Why it helps",
-            "Example"
-          ],
+          "columns": ["Feature", "Why it helps", "Example"],
           "rows": [
             [
               "Large surface area",
               "More room for particles to cross",
               "Root hair cells, villi and alveoli"
             ],
-            [
-              "Thin layer",
-              "Short diffusion distance",
-              "Alveoli walls are one cell thick"
-            ],
+            ["Thin layer", "Short diffusion distance", "Alveoli walls are one cell thick"],
             [
               "Good blood supply",
               "Carries substances away, so the concentration gradient is kept steep",
@@ -253,10 +243,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.1a",
-        "AQA 3.3.1b"
-      ],
+      "spec_codes": ["AQA 3.3.1a", "AQA 3.3.1b"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -273,10 +260,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 4.2.3",
-        "CAIE 4.2.4"
-      ],
+      "spec_codes": ["CAIE 4.2.3", "CAIE 4.2.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -293,10 +277,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 3.1.1a",
-        "OCR 3.1.1b"
-      ],
+      "spec_codes": ["OCR 3.1.1a", "OCR 3.1.1b"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -314,7 +295,7 @@
     }
   },
   "meta": {
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "status": "draft",
     "written_by": "claude-sonnet-5-5",

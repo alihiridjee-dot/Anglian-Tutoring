@@ -16,10 +16,19 @@
           "type": "equation",
           "label": "General formula of an α-amino acid",
           "formula": "RCH(NH₂)COOH",
-          "where": [
-            "R: a side chain, e.g. H in glycine, CH₃ in alanine",
-            "NH₂: basic amine group",
-            "COOH: acidic carboxylic acid group"
+          "arrows": [
+            {
+              "point": "R",
+              "label": "Side chain: H (glycine), CH₃ (alanine)"
+            },
+            {
+              "point": "NH₂",
+              "label": "Basic amine group"
+            },
+            {
+              "point": "COOH",
+              "label": "Acidic carboxylic acid group"
+            }
           ]
         },
         {
@@ -49,22 +58,14 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Solution",
-            "What happens",
-            "Glycine species"
-          ],
+          "columns": ["Solution", "What happens", "Glycine species"],
           "rows": [
             [
               "Strongly acidic (low pH)",
               "COO⁻ gains H⁺. Overall charge is positive.",
               "⁺H₃NCH₂COOH"
             ],
-            [
-              "At the isoelectric point",
-              "Zwitterion. Overall charge is zero.",
-              "⁺H₃NCH₂COO⁻"
-            ],
+            ["At the isoelectric point", "Zwitterion. Overall charge is zero.", "⁺H₃NCH₂COO⁻"],
             [
               "Strongly alkaline (high pH)",
               "NH₃⁺ loses H⁺. Overall charge is negative.",
@@ -105,11 +106,17 @@
           "type": "equation",
           "label": "Forming a dipeptide",
           "formula": "H₂NCH₂COOH + H₂NCH(CH₃)COOH → H₂NCH₂CONHCH(CH₃)COOH + H₂O",
-          "where": [
-            "Glycine + alanine → the dipeptide Gly–Ala",
-            "–CONH– is the peptide (amide) bond",
-            "One molecule of water is lost for each bond"
-          ]
+          "arrows": [
+            {
+              "point": "CONH",
+              "label": "Peptide (amide) bond"
+            },
+            {
+              "point": "H₂O",
+              "label": "One water lost per bond"
+            }
+          ],
+          "where": ["Glycine + alanine → the dipeptide Gly–Ala"]
         },
         {
           "type": "list",
@@ -126,17 +133,9 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Level",
-            "What it is",
-            "What holds it"
-          ],
+          "columns": ["Level", "What it is", "What holds it"],
           "rows": [
-            [
-              "Primary",
-              "The sequence of amino acids",
-              "Peptide bonds"
-            ],
+            ["Primary", "The sequence of amino acids", "Peptide bonds"],
             [
               "Secondary",
               "Regular shapes: the α-helix and the β-pleated sheet",
@@ -191,10 +190,13 @@
           "type": "equation",
           "label": "Rf value",
           "formula": "Rf = distance moved by the spot ÷ distance moved by the solvent",
-          "where": [
-            "Both distances are measured from the start line, in the same units",
-            "Rf has no unit and is always less than 1"
-          ]
+          "arrows": [
+            {
+              "point": "Rf",
+              "label": "No unit, always less than 1"
+            }
+          ],
+          "where": ["Both distances are measured from the start line, in the same units"]
         },
         {
           "type": "diagram",
@@ -246,33 +248,21 @@
             "kind": "predictor",
             "alt": "Pick a pH and see what glycine does in an electric field.",
             "prompt": "Pick the pH of the buffer for glycine, whose isoelectric point is about pH 6.",
-            "result_labels": [
-              "Main species",
-              "Movement in an electric field"
-            ],
+            "result_labels": ["Main species", "Movement in an electric field"],
             "options": [
               {
                 "label": "pH 1 (strongly acidic)",
-                "results": [
-                  "⁺H₃NCH₂COOH, positive",
-                  "Towards the negative electrode"
-                ],
+                "results": ["⁺H₃NCH₂COOH, positive", "Towards the negative electrode"],
                 "explanation": "In acid the COO⁻ group has gained H⁺, leaving a net positive charge."
               },
               {
                 "label": "pH 6 (isoelectric point)",
-                "results": [
-                  "⁺H₃NCH₂COO⁻, zwitterion",
-                  "Does not move"
-                ],
+                "results": ["⁺H₃NCH₂COO⁻, zwitterion", "Does not move"],
                 "explanation": "The positive and negative charges cancel, so there is no net charge."
               },
               {
                 "label": "pH 12 (strongly alkaline)",
-                "results": [
-                  "H₂NCH₂COO⁻, negative",
-                  "Towards the positive electrode"
-                ],
+                "results": ["H₂NCH₂COO⁻, negative", "Towards the positive electrode"],
                 "explanation": "In alkali the NH₃⁺ group has lost H⁺, leaving a net negative charge."
               }
             ]
@@ -389,15 +379,10 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.2.2a"
-      ]
+      "spec_codes": ["OCR 6.2.2a"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 18B.16",
-        "EDEX 18B.17"
-      ],
+      "spec_codes": ["EDEX 18B.16", "EDEX 18B.17"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -420,20 +405,10 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.13.1",
-        "AQA 3.3.13.2",
-        "AQA 3.3.13.3",
-        "AQA 3.3.13.4",
-        "AQA 3.3.13.5"
-      ]
+      "spec_codes": ["AQA 3.3.13.1", "AQA 3.3.13.2", "AQA 3.3.13.3", "AQA 3.3.13.4", "AQA 3.3.13.5"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 34.4.1",
-        "CAIE 34.4.2",
-        "CAIE 34.4.3"
-      ],
+      "spec_codes": ["CAIE 34.4.1", "CAIE 34.4.2", "CAIE 34.4.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -475,7 +450,7 @@
       "9d19474b-65cc-4979-aed9-bfce2ba2eb67"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

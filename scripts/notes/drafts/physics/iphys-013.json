@@ -54,32 +54,16 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Tilted towards the Sun",
-            "Tilted away from the Sun"
-          ],
+          "columns": ["Feature", "Tilted towards the Sun", "Tilted away from the Sun"],
           "rows": [
-            [
-              "Season",
-              "Summer",
-              "Winter"
-            ],
+            ["Season", "Summer", "Winter"],
             [
               "Sun's rays hit the ground at",
               "A steeper angle, so they are more concentrated",
               "A shallower angle, so they are more spread out"
             ],
-            [
-              "Hours of daylight",
-              "More",
-              "Fewer"
-            ],
-            [
-              "Temperature",
-              "Higher",
-              "Lower"
-            ]
+            ["Hours of daylight", "More", "Fewer"],
+            ["Temperature", "Higher", "Lower"]
           ]
         },
         {
@@ -131,11 +115,7 @@
             "kind": "sort",
             "alt": "A sorting activity. Statements are sorted into those caused by the Earth spinning, the Earth orbiting the Sun and the Moon orbiting the Earth.",
             "prompt": "Sort each statement into the motion it belongs to.",
-            "groups": [
-              "Earth spins on its axis",
-              "Earth orbits the Sun",
-              "Moon orbits the Earth"
-            ],
+            "groups": ["Earth spins on its axis", "Earth orbits the Sun", "Moon orbits the Earth"],
             "items": [
               {
                 "text": "Day and night",
@@ -202,10 +182,19 @@
           "type": "equation",
           "label": "Average orbital speed",
           "formula": "v = 2πr / T",
-          "where": [
-            "v = average orbital speed, in m/s",
-            "r = average radius of the orbit, in m",
-            "T = orbital period, in s"
+          "arrows": [
+            {
+              "point": "v",
+              "label": "Average orbital speed (m/s)"
+            },
+            {
+              "point": "r",
+              "label": "Average radius of the orbit (m)"
+            },
+            {
+              "point": "T",
+              "label": "Orbital period (s)"
+            }
           ]
         },
         {
@@ -301,12 +290,7 @@
   ],
   "boards": {
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 6.1.1.1",
-        "CAIE 6.1.1.2",
-        "CAIE 6.1.1.3",
-        "CAIE 6.1.1.4S"
-      ],
+      "spec_codes": ["CAIE 6.1.1.1", "CAIE 6.1.1.2", "CAIE 6.1.1.3", "CAIE 6.1.1.4S"],
       "worked_example": {
         "exemplar_id": "ed92d6cd-a535-439b-8346-67ce71e006c6",
         "source": "CAMBRIDGE nov 2024, Paper 42, Q11(b)",
@@ -322,9 +306,7 @@
       }
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 8.6"
-      ],
+      "spec_codes": ["IGCSE 8.6"],
       "worked_example": {
         "exemplar_id": "02279700-c535-489a-ac0c-6cc3989e6cfe",
         "source": "EDEXCEL jan 2023, Paper 1 (PR), Q2(b)",
@@ -354,7 +336,7 @@
       "ed92d6cd-a535-439b-8346-67ce71e006c6",
       "02279700-c535-489a-ac0c-6cc3989e6cfe"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

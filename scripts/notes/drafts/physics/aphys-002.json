@@ -31,17 +31,9 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Random error",
-            "Systematic error"
-          ],
+          "columns": ["Feature", "Random error", "Systematic error"],
           "rows": [
-            [
-              "Effect on readings",
-              "scatter about the true value",
-              "all shifted one way"
-            ],
+            ["Effect on readings", "scatter about the true value", "all shifted one way"],
             [
               "Effect on the mean",
               "reduced by averaging many readings",
@@ -129,9 +121,15 @@
           "type": "equation",
           "label": "Percentage uncertainty",
           "formula": "percentage uncertainty = (absolute uncertainty ÷ measured value) × 100%",
-          "where": [
-            "absolute uncertainty is in the same unit as the measured value",
-            "fractional uncertainty is the same ratio without × 100"
+          "arrows": [
+            {
+              "point": "absolute uncertainty",
+              "label": "Same unit as the measured value"
+            },
+            {
+              "point": "× 100%",
+              "label": "Leave out for fractional uncertainty"
+            }
           ]
         },
         {
@@ -149,23 +147,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Calculation",
-            "Uncertainty in the result"
-          ],
+          "columns": ["Calculation", "Uncertainty in the result"],
           "rows": [
-            [
-              "a + b or a − b",
-              "add the absolute uncertainties"
-            ],
-            [
-              "a × b or a ÷ b",
-              "add the percentage uncertainties"
-            ],
-            [
-              "aⁿ",
-              "multiply the percentage uncertainty by n"
-            ]
+            ["a + b or a − b", "add the absolute uncertainties"],
+            ["a × b or a ÷ b", "add the percentage uncertainties"],
+            ["aⁿ", "multiply the percentage uncertainty by n"]
           ]
         },
         {
@@ -291,9 +277,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.2"
-      ],
+      "spec_codes": ["AQA 3.1.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -324,9 +308,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 1.4"
-      ],
+      "spec_codes": ["EDEX 1.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -343,11 +325,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 1.3.1",
-        "CAIE 1.3.2",
-        "CAIE 1.3.3"
-      ],
+      "spec_codes": ["CAIE 1.3.1", "CAIE 1.3.2", "CAIE 1.3.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -365,13 +343,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 2.2.1a",
-        "OCR 2.2.1b",
-        "OCR 2.2.1c",
-        "OCR 2.2.1d",
-        "OCR 1.1.4d"
-      ],
+      "spec_codes": ["OCR 2.2.1a", "OCR 2.2.1b", "OCR 2.2.1c", "OCR 2.2.1d", "OCR 1.1.4d"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -380,8 +352,11 @@
               "type": "equation",
               "label": "Percentage difference",
               "formula": "percentage difference = (|value 1 − value 2| ÷ mean of the two values) × 100%",
-              "where": [
-                "value 1 and value 2 are the two results being compared, in the same unit"
+              "arrows": [
+                {
+                  "point": "|value 1 − value 2|",
+                  "label": "Two results being compared, same unit"
+                }
               ]
             },
             {
@@ -400,7 +375,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",

@@ -347,9 +347,20 @@
               "type": "equation",
               "label": "In a catalytic converter",
               "formula": "2CO + 2NO → 2CO₂ + N₂",
-              "where": [
-                "CO is carbon monoxide, NO is nitrogen monoxide",
-                "the products, CO₂ and N₂, are not polluting gases"
+              "arrows": [
+                {
+                  "point": "CO",
+                  "in": "2CO +",
+                  "label": "Carbon monoxide"
+                },
+                {
+                  "point": "NO",
+                  "label": "Nitrogen monoxide"
+                },
+                {
+                  "point": "2CO₂ + N₂",
+                  "label": "Not polluting gases"
+                }
               ]
             }
           ]
@@ -439,7 +450,7 @@
       "720b9196-a547-46b6-bc26-3635b51b618c",
       "d4b69e7d-2c0b-4389-b7ba-e3ad3fe5a0f7"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

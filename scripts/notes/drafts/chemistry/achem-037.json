@@ -42,18 +42,30 @@
           "type": "equation",
           "label": "An acid in water",
           "formula": "HA(aq) + H₂O(l) ⇌ H₃O⁺(aq) + A⁻(aq)",
-          "where": [
-            "HA = the acid, which donates H⁺",
-            "H₂O = the base, which accepts H⁺"
+          "arrows": [
+            {
+              "point": "HA",
+              "label": "Acid: donates H⁺"
+            },
+            {
+              "point": "H₂O",
+              "label": "Base: accepts H⁺"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "A base in water",
           "formula": "NH₃(aq) + H₂O(l) ⇌ NH₄⁺(aq) + OH⁻(aq)",
-          "where": [
-            "NH₃ = the base, which accepts H⁺",
-            "H₂O = the acid, which donates H⁺"
+          "arrows": [
+            {
+              "point": "NH₃",
+              "label": "Base: accepts H⁺"
+            },
+            {
+              "point": "H₂O",
+              "label": "Acid: donates H⁺"
+            }
           ]
         },
         {
@@ -100,35 +112,14 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Acid",
-            "Conjugate base"
-          ],
+          "columns": ["Acid", "Conjugate base"],
           "rows": [
-            [
-              "HCl",
-              "Cl⁻"
-            ],
-            [
-              "CH₃COOH",
-              "CH₃COO⁻"
-            ],
-            [
-              "H₂CO₃",
-              "HCO₃⁻"
-            ],
-            [
-              "NH₄⁺",
-              "NH₃"
-            ],
-            [
-              "H₃O⁺",
-              "H₂O"
-            ],
-            [
-              "H₂O",
-              "OH⁻"
-            ]
+            ["HCl", "Cl⁻"],
+            ["CH₃COOH", "CH₃COO⁻"],
+            ["H₂CO₃", "HCO₃⁻"],
+            ["NH₄⁺", "NH₃"],
+            ["H₃O⁺", "H₂O"],
+            ["H₂O", "OH⁻"]
           ]
         },
         {
@@ -141,10 +132,7 @@
             "kind": "sort",
             "alt": "A sorting activity. Sort the species in the ethanoic acid equilibrium into acids and bases.",
             "prompt": "In CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺, sort each species by its role in the direction given.",
-            "groups": [
-              "Acid (donates H⁺)",
-              "Base (accepts H⁺)"
-            ],
+            "groups": ["Acid (donates H⁺)", "Base (accepts H⁺)"],
             "items": [
               {
                 "text": "CH₃COOH (forward reaction)",
@@ -195,10 +183,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.1.3a",
-        "OCR 5.1.3b"
-      ],
+      "spec_codes": ["OCR 5.1.3a", "OCR 5.1.3b"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -213,27 +198,15 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Acid reacts with",
-                "Ionic equation",
-                "Products"
-              ],
+              "columns": ["Acid reacts with", "Ionic equation", "Products"],
               "rows": [
                 [
                   "A metal, e.g. magnesium",
                   "Mg(s) + 2H⁺(aq) → Mg²⁺(aq) + H₂(g)",
                   "Salt and hydrogen"
                 ],
-                [
-                  "A metal oxide",
-                  "CuO(s) + 2H⁺(aq) → Cu²⁺(aq) + H₂O(l)",
-                  "Salt and water"
-                ],
-                [
-                  "An alkali",
-                  "H⁺(aq) + OH⁻(aq) → H₂O(l)",
-                  "Salt and water"
-                ],
+                ["A metal oxide", "CuO(s) + 2H⁺(aq) → Cu²⁺(aq) + H₂O(l)", "Salt and water"],
+                ["An alkali", "H⁺(aq) + OH⁻(aq) → H₂O(l)", "Salt and water"],
                 [
                   "A carbonate, e.g. calcium carbonate",
                   "CaCO₃(s) + 2H⁺(aq) → Ca²⁺(aq) + H₂O(l) + CO₂(g)",
@@ -254,27 +227,11 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Type",
-                "Example",
-                "Protons donated per molecule"
-              ],
+              "columns": ["Type", "Example", "Protons donated per molecule"],
               "rows": [
-                [
-                  "Monobasic",
-                  "HCl, CH₃COOH, HNO₃",
-                  "1"
-                ],
-                [
-                  "Dibasic",
-                  "H₂SO₄",
-                  "2"
-                ],
-                [
-                  "Tribasic",
-                  "H₃PO₄",
-                  "3"
-                ]
+                ["Monobasic", "HCl, CH₃COOH, HNO₃", "1"],
+                ["Dibasic", "H₂SO₄", "2"],
+                ["Tribasic", "H₃PO₄", "3"]
               ]
             }
           ]
@@ -282,23 +239,13 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 12.1",
-        "EDEX 12.2",
-        "EDEX 12.3"
-      ]
+      "spec_codes": ["EDEX 12.1", "EDEX 12.2", "EDEX 12.3"]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.12.1"
-      ]
+      "spec_codes": ["AQA 3.1.12.1"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 7.2.3",
-        "CAIE 25.1.1",
-        "CAIE 25.1.2"
-      ]
+      "spec_codes": ["CAIE 7.2.3", "CAIE 25.1.1", "CAIE 25.1.2"]
     }
   },
   "meta": {
@@ -317,7 +264,7 @@
       "cd14d913-834d-474d-870c-0c47b4cc5b65"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

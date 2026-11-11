@@ -14,31 +14,16 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Component",
-            "What the symbol shows"
-          ],
+          "columns": ["Component", "What the symbol shows"],
           "rows": [
             [
               "Cell and battery",
               "A long line (positive) and a short line (negative); a battery is two or more cells"
             ],
-            [
-              "Resistor",
-              "A rectangle; a variable resistor has an arrow through it"
-            ],
-            [
-              "Ammeter and voltmeter",
-              "A circle containing A or V"
-            ],
-            [
-              "Filament lamp",
-              "A circle with a cross"
-            ],
-            [
-              "Switch and fuse",
-              "A gap with a hinged line; a rectangle with a line through it"
-            ],
+            ["Resistor", "A rectangle; a variable resistor has an arrow through it"],
+            ["Ammeter and voltmeter", "A circle containing A or V"],
+            ["Filament lamp", "A circle with a cross"],
+            ["Switch and fuse", "A gap with a hinged line; a rectangle with a line through it"],
             [
               "Diode and LED",
               "A triangle pointing in the direction of conventional current, with a bar; an LED has two outward arrows"
@@ -151,8 +136,12 @@
           "type": "equation",
           "label": "Resistors in series",
           "formula": "R = R₁ + R₂ + R₃ + …",
-          "where": [
-            "R = total resistance (Ω)"
+          "arrows": [
+            {
+              "point": "R",
+              "in": "R =",
+              "label": "Total resistance (Ω)"
+            }
           ]
         },
         {
@@ -179,10 +168,7 @@
         {
           "type": "equation",
           "label": "Resistors in parallel",
-          "formula": "1/R = 1/R₁ + 1/R₂ + 1/R₃ + …",
-          "where": [
-            "R = total resistance (Ω)"
-          ]
+          "formula": "1/R = 1/R₁ + 1/R₂ + 1/R₃ + …"
         },
         {
           "type": "list",
@@ -217,10 +203,7 @@
               "unit": "Ω",
               "decimals": 2
             },
-            "working": [
-              "1/R = 1/{A} + 1/{B}",
-              "R = {answer} Ω"
-            ]
+            "working": ["1/R = 1/{A} + 1/{B}", "R = {answer} Ω"]
           }
         },
         {
@@ -229,10 +212,7 @@
             "kind": "sort",
             "alt": "Sort statements into those true of series and those true of parallel circuits.",
             "prompt": "Is each statement true of resistors in series or in parallel?",
-            "groups": [
-              "Series",
-              "Parallel"
-            ],
+            "groups": ["Series", "Parallel"],
             "items": [
               {
                 "text": "The same current passes through each resistor",
@@ -359,16 +339,10 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.5.1.4"
-      ]
+      "spec_codes": ["AQA 3.5.1.4"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 3.34",
-        "EDEX 3.35",
-        "EDEX 3.36"
-      ]
+      "spec_codes": ["EDEX 3.34", "EDEX 3.35", "EDEX 3.36"]
     },
     "cambridge_alevel": {
       "spec_codes": [
@@ -426,7 +400,7 @@
       "72827ce6-4d97-4328-adf3-b9da5ec407ec"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

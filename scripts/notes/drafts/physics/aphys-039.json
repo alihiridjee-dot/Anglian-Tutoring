@@ -66,10 +66,19 @@
           "type": "equation",
           "label": "Photon energy",
           "formula": "E = hf",
-          "where": [
-            "E = energy of one photon (J)",
-            "h = Planck constant, 6.63 × 10⁻³⁴ J s",
-            "f = frequency (Hz)"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Energy of one photon (J)"
+            },
+            {
+              "point": "h",
+              "label": "Planck constant, 6.63 × 10⁻³⁴ J s"
+            },
+            {
+              "point": "f",
+              "label": "Frequency (Hz)"
+            }
           ]
         },
         {
@@ -80,9 +89,15 @@
           "type": "equation",
           "label": "Photon energy from wavelength",
           "formula": "E = hc/λ",
-          "where": [
-            "c = speed of light, 3.00 × 10⁸ m/s",
-            "λ = wavelength (m)"
+          "arrows": [
+            {
+              "point": "c",
+              "label": "Speed of light, 3.00 × 10⁸ m/s"
+            },
+            {
+              "point": "λ",
+              "label": "Wavelength (m)"
+            }
           ]
         },
         {
@@ -161,9 +176,7 @@
           "type": "equation",
           "label": "Converting eV to joules",
           "formula": "1 eV = 1.60 × 10⁻¹⁹ J",
-          "where": [
-            "1.60 × 10⁻¹⁹ C is the charge of one electron, e"
-          ]
+          "where": ["1.60 × 10⁻¹⁹ C is the charge of one electron, e"]
         },
         {
           "type": "steps",
@@ -213,10 +226,7 @@
         },
         {
           "type": "key-points",
-          "items": [
-            "1 eV = 1.60 × 10⁻¹⁹ J.",
-            "Convert eV to J before using E = hf with h in J s."
-          ]
+          "items": ["1 eV = 1.60 × 10⁻¹⁹ J.", "Convert eV to J before using E = hf with h in J s."]
         }
       ]
     }
@@ -240,20 +250,10 @@
   ],
   "boards": {
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.90",
-        "EDEX 5.91",
-        "EDEX 5.94"
-      ]
+      "spec_codes": ["EDEX 5.90", "EDEX 5.91", "EDEX 5.94"]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 22.1.1",
-        "CAIE 22.1.2",
-        "CAIE 22.1.3",
-        "CAIE 22.1.4",
-        "CAIE 22.1.5"
-      ],
+      "spec_codes": ["CAIE 22.1.1", "CAIE 22.1.2", "CAIE 22.1.3", "CAIE 22.1.4", "CAIE 22.1.5"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -266,10 +266,19 @@
               "type": "equation",
               "label": "Photon momentum",
               "formula": "p = E/c",
-              "where": [
-                "p = momentum of the photon (kg m/s)",
-                "E = photon energy (J)",
-                "c = speed of light (m/s)"
+              "arrows": [
+                {
+                  "point": "p",
+                  "label": "Photon momentum (kg m/s)"
+                },
+                {
+                  "point": "E",
+                  "label": "Photon energy (J)"
+                },
+                {
+                  "point": "c",
+                  "label": "Speed of light (m/s)"
+                }
               ]
             },
             {
@@ -282,23 +291,14 @@
             },
             {
               "type": "key-points",
-              "items": [
-                "A photon has momentum p = E/c.",
-                "For a photon, p = h/λ."
-              ]
+              "items": ["A photon has momentum p = E/c.", "For a photon, p = h/λ."]
             }
           ]
         }
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.5.1a",
-        "OCR 4.5.1b",
-        "OCR 4.5.1c",
-        "OCR 4.5.1d",
-        "OCR 4.5.1e"
-      ],
+      "spec_codes": ["OCR 4.5.1a", "OCR 4.5.1b", "OCR 4.5.1c", "OCR 4.5.1d", "OCR 4.5.1e"],
       "extra": [
         {
           "heading": "Estimating the Planck constant with LEDs",
@@ -320,10 +320,19 @@
               "type": "equation",
               "label": "LED relation",
               "formula": "eV = hc/λ",
-              "where": [
-                "e = electron charge (C)",
-                "V = threshold potential difference (V)",
-                "λ = wavelength emitted (m)"
+              "arrows": [
+                {
+                  "point": "e",
+                  "label": "Electron charge (C)"
+                },
+                {
+                  "point": "V",
+                  "label": "Threshold p.d. (V)"
+                },
+                {
+                  "point": "λ",
+                  "label": "Wavelength emitted (m)"
+                }
               ]
             },
             {
@@ -366,7 +375,7 @@
       "43fbe7c6-5f8d-4373-9e54-d81f89da6be6"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

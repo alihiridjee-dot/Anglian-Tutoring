@@ -137,11 +137,18 @@
           "type": "equation",
           "label": "Area of a zone of inhibition",
           "formula": "area = π × r²",
-          "where": [
-            "r is the radius of the clear zone, in mm",
-            "radius = diameter ÷ 2",
-            "area is in mm²"
-          ]
+          "arrows": [
+            {
+              "point": "area",
+              "label": "Square millimetres (mm²)"
+            },
+            {
+              "point": "r",
+              "in": "r²",
+              "label": "Radius of the clear zone (mm)"
+            }
+          ],
+          "where": ["radius = diameter ÷ 2"]
         },
         {
           "type": "steps",
@@ -322,7 +329,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "written_by": "Claude Sonnet 5.5",
     "written_at": "2026-10-01",

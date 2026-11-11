@@ -119,10 +119,19 @@
           "type": "equation",
           "label": "Speed of an impulse",
           "formula": "speed = distance ÷ time",
-          "where": [
-            "speed, in metres per second (m/s)",
-            "distance, in metres (m)",
-            "time, in seconds (s)"
+          "arrows": [
+            {
+              "point": "speed",
+              "label": "Metres per second (m/s)"
+            },
+            {
+              "point": "distance",
+              "label": "Metres (m)"
+            },
+            {
+              "point": "time",
+              "label": "Seconds (s)"
+            }
           ]
         },
         {
@@ -510,7 +519,7 @@
       "9316bf3e-6f22-4da7-b17d-637be9f191fd",
       "27c20789-427c-4e4b-bc23-8003470fa8de"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

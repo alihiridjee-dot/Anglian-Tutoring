@@ -29,10 +29,14 @@
           "type": "equation",
           "label": "Refractive index (from speeds) (Supplement)",
           "formula": "n = speed of light in air ÷ speed of light in the material",
-          "where": [
-            "n = refractive index (no unit)",
-            "speeds are in m/s"
-          ]
+          "arrows": [
+            {
+              "point": "n",
+              "in": "n =",
+              "label": "Refractive index (no unit)"
+            }
+          ],
+          "where": ["Both speeds are in m/s."]
         },
         {
           "type": "list",
@@ -87,9 +91,16 @@
           "type": "equation",
           "label": "Refractive index (from angles)",
           "formula": "n = sin i ÷ sin r",
-          "where": [
-            "i = angle of incidence, in air, measured from the normal (degrees)",
-            "r = angle of refraction, in the material, measured from the normal (degrees)"
+          "arrows": [
+            {
+              "point": "i",
+              "in": "i ÷",
+              "label": "Angle of incidence, in air (°)"
+            },
+            {
+              "point": "r",
+              "label": "Angle of refraction, in the material (°)"
+            }
           ]
         },
         {
@@ -169,9 +180,16 @@
           "type": "equation",
           "label": "Critical angle",
           "formula": "n = 1 ÷ sin c",
-          "where": [
-            "n = refractive index of the material",
-            "c = critical angle (degrees)"
+          "arrows": [
+            {
+              "point": "n",
+              "in": "n =",
+              "label": "Refractive index of the material"
+            },
+            {
+              "point": "c",
+              "label": "Critical angle (°)"
+            }
           ]
         },
         {
@@ -282,12 +300,7 @@
   ],
   "boards": {
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 3.2.2.6S",
-        "CAIE 3.2.2.7S",
-        "CAIE 3.2.2.8S",
-        "CAIE 3.2.2.9S"
-      ],
+      "spec_codes": ["CAIE 3.2.2.6S", "CAIE 3.2.2.7S", "CAIE 3.2.2.8S", "CAIE 3.2.2.9S"],
       "worked_example": {
         "exemplar_id": "dbc8034e-e43c-4c4d-ab87-dc79a0d8fcfe",
         "source": "CAMBRIDGE jun 2024, Paper 41, Q4(b)(i)",
@@ -302,12 +315,7 @@
       }
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 3.18",
-        "IGCSE 3.19",
-        "IGCSE 3.20",
-        "IGCSE 3.22"
-      ],
+      "spec_codes": ["IGCSE 3.18", "IGCSE 3.19", "IGCSE 3.20", "IGCSE 3.22"],
       "worked_example": {
         "exemplar_id": "340d59ad-f311-4acf-b810-934381bf197c",
         "source": "EDEXCEL jan 2023, Paper 1 (PR), Q7(b)(i)",
@@ -340,7 +348,7 @@
       "dbc8034e-e43c-4c4d-ab87-dc79a0d8fcfe",
       "340d59ad-f311-4acf-b810-934381bf197c"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

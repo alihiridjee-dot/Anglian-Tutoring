@@ -18,10 +18,7 @@
             "kind": "sort",
             "alt": "A sorting activity. Sort each statement into Newton's corpuscular theory or Huygens' wave theory.",
             "prompt": "Which theory does each statement belong to?",
-            "groups": [
-              "Newton's corpuscular theory",
-              "Huygens' wave theory"
-            ],
+            "groups": ["Newton's corpuscular theory", "Huygens' wave theory"],
             "items": [
               {
                 "text": "Light is a stream of tiny particles",
@@ -112,10 +109,19 @@
           "type": "equation",
           "label": "Maxwell's speed of electromagnetic waves in a vacuum",
           "formula": "c = 1 ÷ √(μ₀ε₀)",
-          "where": [
-            "c = speed of electromagnetic waves in a vacuum (m/s)",
-            "μ₀ = permeability of free space (H/m)",
-            "ε₀ = permittivity of free space (F/m)"
+          "arrows": [
+            {
+              "point": "c",
+              "label": "Speed in a vacuum (m/s)"
+            },
+            {
+              "point": "μ₀",
+              "label": "Permeability of free space (H/m)"
+            },
+            {
+              "point": "ε₀",
+              "label": "Permittivity of free space (F/m)"
+            }
           ]
         },
         {
@@ -213,11 +219,23 @@
           "type": "equation",
           "label": "Einstein's photoelectric equation",
           "formula": "hf = φ + Eₖ(max)",
-          "where": [
-            "h = Planck constant, 6.63 × 10⁻³⁴ J s",
-            "f = frequency of the radiation (Hz)",
-            "φ = work function of the metal (J)",
-            "Eₖ(max) = maximum kinetic energy of an emitted electron (J)"
+          "arrows": [
+            {
+              "point": "h",
+              "label": "Planck constant, 6.63 × 10⁻³⁴ J s"
+            },
+            {
+              "point": "f",
+              "label": "Frequency of the radiation (Hz)"
+            },
+            {
+              "point": "φ",
+              "label": "Work function of the metal (J)"
+            },
+            {
+              "point": "Eₖ(max)",
+              "label": "Maximum kinetic energy of an electron (J)"
+            }
           ]
         },
         {
@@ -250,20 +268,34 @@
           "type": "equation",
           "label": "De Broglie wavelength",
           "formula": "p = h ÷ λ",
-          "where": [
-            "p = momentum of the particle (kg m/s)",
-            "h = Planck constant, 6.63 × 10⁻³⁴ J s",
-            "λ = wavelength (m)"
+          "arrows": [
+            {
+              "point": "p",
+              "label": "Momentum of the particle (kg m/s)"
+            },
+            {
+              "point": "λ",
+              "label": "Wavelength (m)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Wavelength of an electron accelerated through a pd",
           "formula": "λ = h ÷ √(2meV)",
-          "where": [
-            "m = electron mass (kg)",
-            "e = electron charge (C)",
-            "V = accelerating pd (V)"
+          "arrows": [
+            {
+              "point": "m",
+              "label": "Electron mass (kg)"
+            },
+            {
+              "point": "e",
+              "label": "Electron charge (C)"
+            },
+            {
+              "point": "V",
+              "label": "Accelerating pd (V)"
+            }
           ]
         },
         {
@@ -416,7 +448,7 @@
       "81077b17-d4a2-42f9-9804-223580c6017a"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

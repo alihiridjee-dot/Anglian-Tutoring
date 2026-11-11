@@ -50,21 +50,25 @@
           "type": "equation",
           "label": "Distance travelled",
           "formula": "s = v × t",
-          "where": [
-            "s: distance travelled in metres, m",
-            "v: speed in metres per second, m/s",
-            "t: time in seconds, s"
+          "arrows": [
+            {
+              "point": "s",
+              "label": "Distance travelled (m)"
+            },
+            {
+              "point": "v",
+              "label": "Speed (m/s)"
+            },
+            {
+              "point": "t",
+              "label": "Time (s)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Time taken",
-          "formula": "t = s / v",
-          "where": [
-            "t: time in seconds, s",
-            "s: distance in metres, m",
-            "v: speed in metres per second, m/s"
-          ]
+          "formula": "t = s / v"
         },
         {
           "type": "diagram",
@@ -145,10 +149,19 @@
           "type": "equation",
           "label": "Average acceleration",
           "formula": "a = Δv / t",
-          "where": [
-            "a: acceleration in metres per second squared, m/s²",
-            "Δv: change in velocity in metres per second, m/s",
-            "t: time taken in seconds, s"
+          "arrows": [
+            {
+              "point": "a",
+              "label": "Acceleration (m/s²)"
+            },
+            {
+              "point": "Δv",
+              "label": "Change in velocity (m/s)"
+            },
+            {
+              "point": "t",
+              "label": "Time taken (s)"
+            }
           ]
         },
         {
@@ -366,7 +379,7 @@
       "1ff35a4a-84ae-45d8-992f-5933c20b74ce",
       "e4f5606f-b077-4a90-a3d6-301da040e09d"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

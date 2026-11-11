@@ -75,32 +75,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Alkane",
-            "Structure",
-            "Boiling point (°C)"
-          ],
+          "columns": ["Alkane", "Structure", "Boiling point (°C)"],
           "rows": [
-            [
-              "Butane",
-              "Straight chain",
-              "0"
-            ],
-            [
-              "2-methylpropane",
-              "Branched",
-              "−12"
-            ],
-            [
-              "Pentane",
-              "Straight chain",
-              "36"
-            ],
-            [
-              "2,2-dimethylpropane",
-              "Highly branched",
-              "10"
-            ]
+            ["Butane", "Straight chain", "0"],
+            ["2-methylpropane", "Branched", "−12"],
+            ["Pentane", "Straight chain", "36"],
+            ["2,2-dimethylpropane", "Highly branched", "10"]
           ]
         },
         {
@@ -131,11 +111,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Thermal cracking",
-            "Catalytic cracking"
-          ],
+          "columns": ["Feature", "Thermal cracking", "Catalytic cracking"],
           "rows": [
             [
               "Conditions",
@@ -153,8 +129,19 @@
           "type": "equation",
           "label": "Example of cracking",
           "formula": "C₁₀H₂₂ → C₈H₁₈ + C₂H₄",
-          "where": [
-            "decane cracks to octane and ethene"
+          "arrows": [
+            {
+              "point": "C₁₀H₂₂",
+              "label": "Decane"
+            },
+            {
+              "point": "C₈H₁₈",
+              "label": "Octane"
+            },
+            {
+              "point": "C₂H₄",
+              "label": "Ethene"
+            }
           ]
         },
         {
@@ -196,17 +183,9 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Pollutant",
-            "How it forms",
-            "Problem"
-          ],
+          "columns": ["Pollutant", "How it forms", "Problem"],
           "rows": [
-            [
-              "Carbon monoxide, CO",
-              "Incomplete combustion",
-              "Toxic gas"
-            ],
+            ["Carbon monoxide, CO", "Incomplete combustion", "Toxic gas"],
             [
               "Carbon particles (soot)",
               "Incomplete combustion",
@@ -222,11 +201,7 @@
               "Nitrogen and oxygen react in a hot engine",
               "Acid rain and respiratory problems"
             ],
-            [
-              "Sulfur dioxide, SO₂",
-              "Sulfur impurities in the fuel burn",
-              "Acid rain"
-            ]
+            ["Sulfur dioxide, SO₂", "Sulfur impurities in the fuel burn", "Acid rain"]
           ]
         },
         {
@@ -311,13 +286,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 4.1.2a",
-        "OCR 4.1.2b",
-        "OCR 4.1.2c",
-        "OCR 4.1.2d",
-        "OCR 4.1.2e"
-      ],
+      "spec_codes": ["OCR 4.1.2a", "OCR 4.1.2b", "OCR 4.1.2c", "OCR 4.1.2d", "OCR 4.1.2e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -363,11 +332,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.3.2.1",
-        "AQA 3.3.2.2",
-        "AQA 3.3.2.3"
-      ],
+      "spec_codes": ["AQA 3.3.2.1", "AQA 3.3.2.2", "AQA 3.3.2.3"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -386,13 +351,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 13.1.2",
-        "CAIE 14.1.1",
-        "CAIE 14.1.4",
-        "CAIE 14.1.5",
-        "CAIE 14.1.6"
-      ],
+      "spec_codes": ["CAIE 13.1.2", "CAIE 14.1.1", "CAIE 14.1.4", "CAIE 14.1.5", "CAIE 14.1.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -439,7 +398,7 @@
       "55c6deaf-2ff0-4834-bc38-e0ea8af77ebf"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

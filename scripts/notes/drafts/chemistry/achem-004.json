@@ -8,19 +8,35 @@
     {
       "heading": "Defining ionisation energy",
       "blocks": [
-        { "type": "paragraph", "text": "Ionisation energy is the energy needed to remove electrons from atoms. This section covers the definitions, the equations and what controls the size of the energy." },
+        {
+          "type": "paragraph",
+          "text": "Ionisation energy is the energy needed to remove electrons from atoms. This section covers the definitions, the equations and what controls the size of the energy."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "First ionisation energy", "meaning": "The energy needed to remove one electron from each atom in one mole of gaseous atoms, to form one mole of gaseous 1+ ions." },
-            { "term": "Successive ionisation energies", "meaning": "The energies needed to remove the second, third and later electrons, one at a time, from one mole of gaseous ions." }
+            {
+              "term": "First ionisation energy",
+              "meaning": "The energy needed to remove one electron from each atom in one mole of gaseous atoms, to form one mole of gaseous 1+ ions."
+            },
+            {
+              "term": "Successive ionisation energies",
+              "meaning": "The energies needed to remove the second, third and later electrons, one at a time, from one mole of gaseous ions."
+            }
           ]
         },
         {
           "type": "equation",
           "label": "First ionisation energy",
           "formula": "X(g) → X⁺(g) + e⁻",
-          "where": ["state symbols (g) are essential", "for magnesium: Mg(g) → Mg⁺(g) + e⁻", "measured in kJ mol⁻¹"]
+          "arrows": [
+            {
+              "point": "(g)",
+              "in": "X(g)",
+              "label": "Gaseous atoms: state symbols essential"
+            }
+          ],
+          "where": ["for magnesium: Mg(g) → Mg⁺(g) + e⁻", "measured in kJ mol⁻¹"]
         },
         {
           "type": "equation",
@@ -28,7 +44,10 @@
           "formula": "X⁺(g) → X²⁺(g) + e⁻",
           "where": ["for magnesium: Mg⁺(g) → Mg²⁺(g) + e⁻", "for the third: X²⁺(g) → X³⁺(g) + e⁻"]
         },
-        { "type": "subheading", "text": "What controls the size" },
+        {
+          "type": "subheading",
+          "text": "What controls the size"
+        },
         {
           "type": "paragraph",
           "text": "The energy is needed to pull the outer electron away from the attraction of the nucleus. A stronger attraction gives a larger ionisation energy."
@@ -56,8 +75,14 @@
     {
       "heading": "Trends across a period and down a group",
       "blocks": [
-        { "type": "paragraph", "text": "First ionisation energy follows clear patterns in the Periodic Table. Each can be explained using the factors above." },
-        { "type": "subheading", "text": "Down a group" },
+        {
+          "type": "paragraph",
+          "text": "First ionisation energy follows clear patterns in the Periodic Table. Each can be explained using the factors above."
+        },
+        {
+          "type": "subheading",
+          "text": "Down a group"
+        },
         {
           "type": "list",
           "items": [
@@ -67,7 +92,10 @@
             "These effects outweigh the larger nuclear charge, so the attraction on the outer electron is weaker."
           ]
         },
-        { "type": "subheading", "text": "Across a period" },
+        {
+          "type": "subheading",
+          "text": "Across a period"
+        },
         {
           "type": "list",
           "items": [
@@ -81,27 +109,58 @@
           "diagram": {
             "kind": "line-graph",
             "alt": "A graph of first ionisation energy against atomic number from sodium to argon. It rises generally, with small dips at aluminium and sulfur.",
-            "x": { "label": "Atomic number", "min": 11, "max": 18, "ticks": [11, 12, 13, 14, 15, 16, 17, 18] },
-            "y": { "label": "First ionisation energy" },
+            "x": {
+              "label": "Atomic number",
+              "min": 11,
+              "max": 18,
+              "ticks": [11, 12, 13, 14, 15, 16, 17, 18]
+            },
+            "y": {
+              "label": "First ionisation energy"
+            },
             "series": [
               {
                 "name": "Period 3",
-                "points": [[11, 0.31], [12, 0.46], [13, 0.36], [14, 0.49], [15, 0.63], [16, 0.62], [17, 0.78], [18, 0.95]]
+                "points": [
+                  [11, 0.31],
+                  [12, 0.46],
+                  [13, 0.36],
+                  [14, 0.49],
+                  [15, 0.63],
+                  [16, 0.62],
+                  [17, 0.78],
+                  [18, 0.95]
+                ]
               }
             ],
             "markers": [
-              { "x": 13, "label": "Al: 3p electron" },
-              { "x": 16, "label": "S: paired 3p electrons" }
+              {
+                "x": 13,
+                "label": "Al: 3p electron"
+              },
+              {
+                "x": 16,
+                "label": "S: paired 3p electrons"
+              }
             ]
           }
         },
-        { "type": "subheading", "text": "The small dips" },
+        {
+          "type": "subheading",
+          "text": "The small dips"
+        },
         {
           "type": "table",
           "columns": ["Dip", "Reason"],
           "rows": [
-            ["Be to B, Mg to Al", "The outer electron is in a p sub-shell, which has higher energy than the s sub-shell and is partly shielded by the s electrons. It is easier to remove."],
-            ["N to O, P to S", "The fourth p electron has to pair up in an orbital with another electron. Repulsion between the pair makes it easier to remove."]
+            [
+              "Be to B, Mg to Al",
+              "The outer electron is in a p sub-shell, which has higher energy than the s sub-shell and is partly shielded by the s electrons. It is easier to remove."
+            ],
+            [
+              "N to O, P to S",
+              "The fourth p electron has to pair up in an orbital with another electron. Repulsion between the pair makes it easier to remove."
+            ]
           ]
         },
         {
@@ -117,7 +176,10 @@
     {
       "heading": "Successive ionisation energies",
       "blocks": [
-        { "type": "paragraph", "text": "Removing electrons one after another from the same atom needs more and more energy. Big jumps show where one shell ends and the next begins." },
+        {
+          "type": "paragraph",
+          "text": "Removing electrons one after another from the same atom needs more and more energy. Big jumps show where one shell ends and the next begins."
+        },
         {
           "type": "list",
           "items": [
@@ -132,26 +194,60 @@
           "diagram": {
             "kind": "line-graph",
             "alt": "A graph of the logarithm of successive ionisation energy against the number of electrons removed for sodium. There is a big jump after the first electron and another after the ninth.",
-            "x": { "label": "Number of electrons removed", "min": 1, "max": 11, "ticks": [1, 3, 5, 7, 9, 11] },
-            "y": { "label": "log of ionisation energy" },
+            "x": {
+              "label": "Number of electrons removed",
+              "min": 1,
+              "max": 11,
+              "ticks": [1, 3, 5, 7, 9, 11]
+            },
+            "y": {
+              "label": "log of ionisation energy"
+            },
             "series": [
               {
                 "name": "Sodium",
-                "points": [[1, 0.07], [2, 0.39], [3, 0.45], [4, 0.49], [5, 0.54], [6, 0.57], [7, 0.6], [8, 0.64], [9, 0.65], [10, 0.88], [11, 0.9]]
+                "points": [
+                  [1, 0.07],
+                  [2, 0.39],
+                  [3, 0.45],
+                  [4, 0.49],
+                  [5, 0.54],
+                  [6, 0.57],
+                  [7, 0.6],
+                  [8, 0.64],
+                  [9, 0.65],
+                  [10, 0.88],
+                  [11, 0.9]
+                ]
               }
             ],
             "markers": [
-              { "x": 2, "label": "Now in shell 2" },
-              { "x": 10, "label": "Now in shell 1" }
+              {
+                "x": 2,
+                "label": "Now in shell 2"
+              },
+              {
+                "x": 10,
+                "label": "Now in shell 1"
+              }
             ]
           }
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Find the big jumps.", "text": "Sodium has a jump after 1 electron and another after 9." },
-            { "lead": "Count between them.", "text": "The shells hold 2, 8 and 1 electrons, counting from the nucleus." },
-            { "lead": "Give the group.", "text": "One electron in the outer shell means Group 1." }
+            {
+              "lead": "Find the big jumps.",
+              "text": "Sodium has a jump after 1 electron and another after 9."
+            },
+            {
+              "lead": "Count between them.",
+              "text": "The shells hold 2, 8 and 1 electrons, counting from the nucleus."
+            },
+            {
+              "lead": "Give the group.",
+              "text": "One electron in the outer shell means Group 1."
+            }
           ]
         },
         {
@@ -211,7 +307,10 @@
         {
           "heading": "Detail this course asks for",
           "blocks": [
-            { "type": "paragraph", "text": "Use ionisation energies as evidence for electron configuration in Period 3 (Na to Ar) and Group 2 (Be to Ba)." },
+            {
+              "type": "paragraph",
+              "text": "Use ionisation energies as evidence for electron configuration in Period 3 (Na to Ar) and Group 2 (Be to Ba)."
+            },
             {
               "type": "list",
               "items": [
@@ -226,7 +325,16 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": ["CAIE 1.4.1", "CAIE 1.4.2", "CAIE 1.4.3", "CAIE 1.4.4", "CAIE 1.4.5", "CAIE 1.4.6", "CAIE 1.4.7", "CAIE 1.4.8"],
+      "spec_codes": [
+        "CAIE 1.4.1",
+        "CAIE 1.4.2",
+        "CAIE 1.4.3",
+        "CAIE 1.4.4",
+        "CAIE 1.4.5",
+        "CAIE 1.4.6",
+        "CAIE 1.4.7",
+        "CAIE 1.4.8"
+      ],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -247,7 +355,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",

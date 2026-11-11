@@ -72,13 +72,7 @@
               "label": "Time",
               "min": 0,
               "max": 4,
-              "ticks": [
-                0,
-                1,
-                2,
-                3,
-                4
-              ],
+              "ticks": [0, 1, 2, 3, 4],
               "unit": "half-lives"
             },
             "y": {
@@ -88,42 +82,15 @@
               {
                 "name": "Activity",
                 "points": [
-                  [
-                    0,
-                    1
-                  ],
-                  [
-                    0.5,
-                    0.707
-                  ],
-                  [
-                    1,
-                    0.5
-                  ],
-                  [
-                    1.5,
-                    0.354
-                  ],
-                  [
-                    2,
-                    0.25
-                  ],
-                  [
-                    2.5,
-                    0.177
-                  ],
-                  [
-                    3,
-                    0.125
-                  ],
-                  [
-                    3.5,
-                    0.088
-                  ],
-                  [
-                    4,
-                    0.0625
-                  ]
+                  [0, 1],
+                  [0.5, 0.707],
+                  [1, 0.5],
+                  [1.5, 0.354],
+                  [2, 0.25],
+                  [2.5, 0.177],
+                  [3, 0.125],
+                  [3.5, 0.088],
+                  [4, 0.0625]
                 ]
               }
             ]
@@ -218,17 +185,21 @@
           "type": "equation",
           "label": "Number of half-lives",
           "formula": "number of half-lives = time ÷ half-life",
-          "where": [
-            "time and half-life are in the same unit, for example days."
-          ]
+          "where": ["time and half-life are in the same unit, for example days."]
         },
         {
           "type": "equation",
           "label": "Amount remaining",
           "formula": "remaining = initial × (½)ⁿ",
-          "where": [
-            "initial is the starting number of nuclei, mass or activity.",
-            "n is the number of half-lives."
+          "arrows": [
+            {
+              "point": "initial",
+              "label": "Starting number of nuclei, mass or activity"
+            },
+            {
+              "point": "ⁿ",
+              "label": "Number of half-lives"
+            }
           ]
         },
         {
@@ -397,10 +368,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.4.2.3",
-        "AQA T 6.4.2.3"
-      ],
+      "spec_codes": ["AQA 4.4.2.3", "AQA T 6.4.2.3"],
       "worked_example": {
         "exemplar_id": "9dd98a6a-d972-48fb-93cc-135719395492",
         "source": "AQA jun 2025, Paper 1 (H), Q07.4",
@@ -415,13 +383,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 6.23",
-        "EDEX 6.24",
-        "EDEX 6.25",
-        "EDEX 6.26",
-        "EDEX 6.27"
-      ],
+      "spec_codes": ["EDEX 6.23", "EDEX 6.24", "EDEX 6.25", "EDEX 6.26", "EDEX 6.27"],
       "worked_example": {
         "exemplar_id": "4d20b027-23f1-47c8-b52f-fb4acfe0d6aa",
         "source": "EDEXCEL nov 2020, Paper 1 (H), Q7(c)",
@@ -436,10 +398,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR P6.1j",
-        "OCR P6.1k"
-      ],
+      "spec_codes": ["OCR P6.1j", "OCR P6.1k"],
       "worked_example": {
         "exemplar_id": "966d3949-4543-4545-b678-28c39149070a",
         "source": "OCR jun 2025, Paper 4, Q20(b)(ii)",
@@ -454,11 +413,7 @@
       }
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 5.2.4.1",
-        "CAIE 5.2.4.2S",
-        "CAIE 5.2.4.3S"
-      ],
+      "spec_codes": ["CAIE 5.2.4.1", "CAIE 5.2.4.2S", "CAIE 5.2.4.3S"],
       "worked_example": {
         "exemplar_id": "f0c370ae-a710-4d74-ac0d-6a51e771e829",
         "source": "CAMBRIDGE jun 2023, Paper 42, Q9(c)",
@@ -502,12 +457,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 7.11",
-        "IGCSE 7.12",
-        "IGCSE 7.13",
-        "IGCSE 7.17"
-      ],
+      "spec_codes": ["IGCSE 7.11", "IGCSE 7.12", "IGCSE 7.13", "IGCSE 7.17"],
       "worked_example": {
         "exemplar_id": "9c08da0a-350b-4178-8e3e-2e9fc40c6dc3",
         "source": "EDEXCEL jun 2021, Paper 1 (P), Q7(b)(iii)",
@@ -572,7 +522,7 @@
       "f0c370ae-a710-4d74-ac0d-6a51e771e829",
       "9c08da0a-350b-4178-8e3e-2e9fc40c6dc3"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

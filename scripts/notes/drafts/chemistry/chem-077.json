@@ -85,52 +85,31 @@
           "diagram": {
             "kind": "compare",
             "alt": "Small hydrocarbon molecules compared with large hydrocarbon molecules.",
-            "items": [
-              "Small molecules",
-              "Large molecules"
-            ],
+            "items": ["Small molecules", "Large molecules"],
             "rows": [
               {
                 "feature": "Number of carbon atoms",
-                "values": [
-                  "Few",
-                  "Many"
-                ]
+                "values": ["Few", "Many"]
               },
               {
                 "feature": "Forces between molecules",
-                "values": [
-                  "Weaker",
-                  "Stronger"
-                ]
+                "values": ["Weaker", "Stronger"]
               },
               {
                 "feature": "Boiling point",
-                "values": [
-                  "Lower",
-                  "Higher"
-                ]
+                "values": ["Lower", "Higher"]
               },
               {
                 "feature": "Viscosity",
-                "values": [
-                  "Lower, flows easily",
-                  "Higher, flows slowly"
-                ]
+                "values": ["Lower, flows easily", "Higher, flows slowly"]
               },
               {
                 "feature": "Flammability",
-                "values": [
-                  "Higher, ignites easily",
-                  "Lower, ignites less easily"
-                ]
+                "values": ["Higher, ignites easily", "Lower, ignites less easily"]
               },
               {
                 "feature": "Example",
-                "values": [
-                  "Petrol, LPG",
-                  "Heavy fuel oil, bitumen"
-                ]
+                "values": ["Petrol, LPG", "Heavy fuel oil, bitumen"]
               }
             ]
           }
@@ -176,8 +155,11 @@
           "type": "equation",
           "label": "Complete combustion of a hydrocarbon",
           "formula": "hydrocarbon + oxygen → carbon dioxide + water",
-          "where": [
-            "energy is released (the reaction is exothermic)"
+          "arrows": [
+            {
+              "point": "→",
+              "label": "Releases energy: exothermic"
+            }
           ]
         },
         {
@@ -190,10 +172,7 @@
         {
           "type": "equation",
           "label": "Complete combustion of methane (word equation)",
-          "formula": "methane + oxygen → carbon dioxide + water",
-          "where": [
-            "energy is released"
-          ]
+          "formula": "methane + oxygen → carbon dioxide + water"
         },
         {
           "type": "subheading",
@@ -207,11 +186,21 @@
           "type": "equation",
           "label": "Complete combustion of propane",
           "formula": "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O",
-          "where": [
-            "3 carbon atoms: 3 in CO₂",
-            "8 hydrogen atoms: 8 in 4H₂O",
-            "10 oxygen atoms: 6 in 3CO₂ and 4 in 4H₂O"
-          ]
+          "arrows": [
+            {
+              "point": "5",
+              "label": "5 O₂ give 10 oxygen atoms"
+            },
+            {
+              "point": "3",
+              "label": "3 CO₂ hold 3 carbon atoms"
+            },
+            {
+              "point": "4",
+              "label": "4 H₂O hold 8 hydrogen atoms"
+            }
+          ],
+          "where": ["Oxygen on the right: 6 in 3CO₂ and 4 in 4H₂O."]
         },
         {
           "type": "steps",
@@ -284,10 +273,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.1.3",
-        "AQA T 5.7.1.3"
-      ],
+      "spec_codes": ["AQA 4.7.1.3", "AQA T 5.7.1.3"],
       "worked_example": {
         "exemplar_id": "5f0228ba-dbef-4d2a-be83-9e2802bdcd1f",
         "source": "AQA jun 2020, Paper 2 (H), Q05.4",
@@ -302,10 +288,7 @@
       }
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.7",
-        "EDEX 9.16C"
-      ],
+      "spec_codes": ["EDEX 8.7", "EDEX 9.16C"],
       "worked_example": {
         "exemplar_id": "91570c90-9e13-46b1-92ea-8e4461460502",
         "source": "EDEXCEL jun 2022, Paper 2 (H), Q5(b)(iii)",
@@ -330,8 +313,11 @@
               "type": "equation",
               "label": "Complete combustion of ethene",
               "formula": "C₂H₄ + 3O₂ → 2CO₂ + 2H₂O",
-              "where": [
-                "energy is released"
+              "arrows": [
+                {
+                  "point": "→",
+                  "label": "Releases energy"
+                }
               ]
             }
           ]
@@ -339,10 +325,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2c",
-        "OCR C6.2k"
-      ],
+      "spec_codes": ["OCR C6.2c", "OCR C6.2k"],
       "worked_example": {
         "exemplar_id": "9c5c714a-73f5-47a7-9249-18b8982f6fe4",
         "source": "OCR sample, Paper 1, Q21(b)(iii)",
@@ -356,10 +339,7 @@
       }
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 11.3.6",
-        "CAIE 11.4.2"
-      ],
+      "spec_codes": ["CAIE 11.3.6", "CAIE 11.4.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -385,12 +365,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 4.11",
-        "IGCSE 4.6",
-        "IGCSE 4.10",
-        "IGCSE 4.12"
-      ],
+      "spec_codes": ["IGCSE 4.11", "IGCSE 4.6", "IGCSE 4.10", "IGCSE 4.12"],
       "worked_example": {
         "exemplar_id": "7a0e58eb-c12a-400b-b2ad-3a3cd9361d94",
         "source": "EDEXCEL jun 2024, Paper 1 (CR), Q6(a)",
@@ -467,7 +442,7 @@
       "9c5c714a-73f5-47a7-9249-18b8982f6fe4",
       "7a0e58eb-c12a-400b-b2ad-3a3cd9361d94"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

@@ -71,10 +71,19 @@
           "type": "equation",
           "label": "Voltage of a battery",
           "formula": "battery voltage = number of cells × voltage of one cell",
-          "where": [
-            "battery voltage is in V",
-            "the cells are connected in series and have the same voltage",
-            "voltage of one cell is in V"
+          "arrows": [
+            {
+              "point": "battery voltage",
+              "label": "Battery voltage (V)"
+            },
+            {
+              "point": "number of cells",
+              "label": "Cells in series, all the same voltage"
+            },
+            {
+              "point": "voltage of one cell",
+              "label": "Voltage of one cell (V)"
+            }
           ]
         },
         {
@@ -301,7 +310,7 @@
       "c0be2602-19a9-4515-aeca-f14dfb34a506",
       "3f152c00-ad76-45fd-844a-5e75e793fe78"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

@@ -37,10 +37,19 @@
           "type": "equation",
           "label": "An example of cracking",
           "formula": "C₁₀H₂₂ → C₈H₁₈ + C₂H₄",
-          "where": [
-            "C₁₀H₂₂ is decane, a large alkane",
-            "C₈H₁₈ is octane, a smaller alkane",
-            "C₂H₄ is ethene, an alkene"
+          "arrows": [
+            {
+              "point": "C₁₀H₂₂",
+              "label": "Decane, a large alkane"
+            },
+            {
+              "point": "C₈H₁₈",
+              "label": "Octane, a smaller alkane"
+            },
+            {
+              "point": "C₂H₄",
+              "label": "Ethene, an alkene"
+            }
           ]
         },
         {
@@ -129,19 +138,13 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Product of cracking",
-            "Why it is useful"
-          ],
+          "columns": ["Product of cracking", "Why it is useful"],
           "rows": [
             [
               "Smaller alkanes",
               "In high demand as fuels, because small molecules are more flammable"
             ],
-            [
-              "Alkenes",
-              "Used to produce polymers and as starting materials for other chemicals"
-            ]
+            ["Alkenes", "Used to produce polymers and as starting materials for other chemicals"]
           ]
         },
         {
@@ -173,10 +176,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 4.7.1.4",
-        "AQA T 5.7.1.4"
-      ],
+      "spec_codes": ["AQA 4.7.1.4", "AQA T 5.7.1.4"],
       "worked_example": {
         "exemplar_id": "cec234ee-5d5d-46a3-8cef-5861fa858664",
         "source": "AQA jun 2022, Paper 2 (H), Q04.6",
@@ -205,10 +205,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 8.16",
-        "EDEX 8.17"
-      ],
+      "spec_codes": ["EDEX 8.16", "EDEX 8.17"],
       "worked_example": {
         "exemplar_id": "3b26ec81-fd4d-4d9d-be63-bf78ccf8a4e9",
         "source": "EDEXCEL jun 2023, Paper 2 (H), Q9(b)",
@@ -224,9 +221,7 @@
       }
     },
     "ocr": {
-      "spec_codes": [
-        "OCR C6.2o"
-      ],
+      "spec_codes": ["OCR C6.2o"],
       "worked_example": {
         "exemplar_id": "0a803438-44c3-4f13-9ecd-d54a2761a3f0",
         "source": "OCR nov 2021, Paper 4, Q20(b)(i)",
@@ -239,19 +234,13 @@
       }
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 11.5.2",
-        "CAIE 11.5.3"
-      ],
+      "spec_codes": ["CAIE 11.5.2", "CAIE 11.5.3"],
       "worked_example": {
         "exemplar_id": "69d9c54c-9754-49f8-bd59-3720c8a480a7",
         "source": "CAMBRIDGE nov 2024, Paper 42, Q5(c)(i)",
         "question": "When one molecule of dodecane, C₁₂H₂₆, is cracked, three molecules of but-1-ene, C₄H₈, and one other product are formed.\n\nUse molecular formulae to complete the symbol equation for this reaction.\n\nC₁₂H₂₆ → ______ + ______",
         "marks": 2,
-        "answer_points": [
-          "C₁₂H₂₆ → 3C₄H₈ + H₂",
-          "The other product is hydrogen, H₂."
-        ],
+        "answer_points": ["C₁₂H₂₆ → 3C₄H₈ + H₂", "The other product is hydrogen, H₂."],
         "tip": "Count the carbon and hydrogen atoms on each side to find the missing product."
       },
       "extra": [
@@ -266,10 +255,20 @@
               "type": "equation",
               "label": "Cracking that makes hydrogen",
               "formula": "C₁₂H₂₆ → 3C₄H₈ + H₂",
-              "where": [
-                "C₁₂H₂₆ is dodecane, a large alkane",
-                "C₄H₈ is but-1-ene, an alkene",
-                "H₂ is hydrogen"
+              "arrows": [
+                {
+                  "point": "C₁₂H₂₆",
+                  "label": "Dodecane, a large alkane"
+                },
+                {
+                  "point": "C₄H₈",
+                  "label": "But-1-ene, an alkene"
+                },
+                {
+                  "point": "H₂",
+                  "in": "+ H₂",
+                  "label": "Hydrogen"
+                }
               ]
             }
           ]
@@ -277,10 +276,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 4.17",
-        "IGCSE 4.18"
-      ],
+      "spec_codes": ["IGCSE 4.17", "IGCSE 4.18"],
       "worked_example": {
         "exemplar_id": "cca39f99-6192-4f3f-b3f1-54bc09ac62fa",
         "source": "EDEXCEL jun 2024, Paper 1 (CR), Q8(b)",
@@ -305,10 +301,7 @@
             },
             {
               "type": "list",
-              "items": [
-                "The catalyst is silica or alumina.",
-                "The temperature is 600 to 700 °C."
-              ]
+              "items": ["The catalyst is silica or alumina.", "The temperature is 600 to 700 °C."]
             }
           ]
         }
@@ -337,7 +330,7 @@
       "69d9c54c-9754-49f8-bd59-3720c8a480a7",
       "cca39f99-6192-4f3f-b3f1-54bc09ac62fa"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

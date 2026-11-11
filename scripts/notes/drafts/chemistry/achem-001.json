@@ -35,31 +35,11 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Particle",
-            "Relative mass",
-            "Relative charge",
-            "Where it is"
-          ],
+          "columns": ["Particle", "Relative mass", "Relative charge", "Where it is"],
           "rows": [
-            [
-              "Proton",
-              "1",
-              "+1",
-              "In the nucleus"
-            ],
-            [
-              "Neutron",
-              "1",
-              "0",
-              "In the nucleus"
-            ],
-            [
-              "Electron",
-              "1/1836 (almost zero)",
-              "−1",
-              "In shells around the nucleus"
-            ]
+            ["Proton", "1", "+1", "In the nucleus"],
+            ["Neutron", "1", "0", "In the nucleus"],
+            ["Electron", "1/1836 (almost zero)", "−1", "In shells around the nucleus"]
           ]
         },
         {
@@ -94,11 +74,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Model",
-            "Picture of the atom",
-            "Evidence that changed it"
-          ],
+          "columns": ["Model", "Picture of the atom", "Evidence that changed it"],
           "rows": [
             [
               "Solid sphere",
@@ -163,11 +139,7 @@
         {
           "type": "equation",
           "label": "Number of neutrons",
-          "formula": "number of neutrons = mass number − atomic number",
-          "where": [
-            "mass number, A",
-            "atomic number, Z"
-          ]
+          "formula": "number of neutrons = mass number − atomic number"
         },
         {
           "type": "list",
@@ -270,45 +242,27 @@
           "diagram": {
             "kind": "compare",
             "alt": "A comparison of two chlorine isotopes: chlorine-35 and chlorine-37 have the same protons and electrons, but 18 and 20 neutrons.",
-            "items": [
-              "³⁵₁₇Cl",
-              "³⁷₁₇Cl"
-            ],
+            "items": ["³⁵₁₇Cl", "³⁷₁₇Cl"],
             "rows": [
               {
                 "feature": "Protons",
-                "values": [
-                  "17",
-                  "17"
-                ]
+                "values": ["17", "17"]
               },
               {
                 "feature": "Neutrons",
-                "values": [
-                  "18",
-                  "20"
-                ]
+                "values": ["18", "20"]
               },
               {
                 "feature": "Electrons (atom)",
-                "values": [
-                  "17",
-                  "17"
-                ]
+                "values": ["17", "17"]
               },
               {
                 "feature": "Electron configuration",
-                "values": [
-                  "1s²2s²2p⁶3s²3p⁵",
-                  "1s²2s²2p⁶3s²3p⁵"
-                ]
+                "values": ["1s²2s²2p⁶3s²3p⁵", "1s²2s²2p⁶3s²3p⁵"]
               },
               {
                 "feature": "Relative mass",
-                "values": [
-                  "Lower",
-                  "Higher"
-                ]
+                "values": ["Lower", "Higher"]
               }
             ]
           }
@@ -356,25 +310,13 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 2.1.1a",
-        "OCR 2.1.1b"
-      ]
+      "spec_codes": ["OCR 2.1.1a", "OCR 2.1.1b"]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 1.1",
-        "EDEX 1.2",
-        "EDEX 1.3",
-        "EDEX 1.4",
-        "EDEX 1.5"
-      ]
+      "spec_codes": ["EDEX 1.1", "EDEX 1.2", "EDEX 1.3", "EDEX 1.4", "EDEX 1.5"]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.1.1",
-        "AQA 3.1.1.2"
-      ],
+      "spec_codes": ["AQA 3.1.1.1", "AQA 3.1.1.2"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -474,7 +416,7 @@
       "754b3057-b487-4596-8516-f7c14ad9471f"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

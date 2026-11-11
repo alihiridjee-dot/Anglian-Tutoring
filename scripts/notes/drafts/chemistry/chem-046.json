@@ -51,15 +51,11 @@
                   "arrangement": "gas",
                   "particles": [
                     {
-                      "atoms": [
-                        "white"
-                      ],
+                      "atoms": ["white"],
                       "count": 5
                     },
                     {
-                      "atoms": [
-                        "black"
-                      ],
+                      "atoms": ["black"],
                       "count": 5
                     }
                   ]
@@ -68,22 +64,15 @@
                   "arrangement": "gas",
                   "particles": [
                     {
-                      "atoms": [
-                        "white",
-                        "black"
-                      ],
+                      "atoms": ["white", "black"],
                       "count": 4
                     },
                     {
-                      "atoms": [
-                        "white"
-                      ],
+                      "atoms": ["white"],
                       "count": 1
                     },
                     {
-                      "atoms": [
-                        "black"
-                      ],
+                      "atoms": ["black"],
                       "count": 1
                     }
                   ]
@@ -229,9 +218,15 @@
           "type": "equation",
           "label": "Change in hydrogen ion concentration",
           "formula": "factor = 10 ^ (change in pH)",
-          "where": [
-            "change in pH: the number of whole pH units the pH changes by",
-            "factor: how many times the H⁺ concentration changes. A fall in pH means a rise in H⁺ concentration, and a rise in pH means a fall"
+          "arrows": [
+            {
+              "point": "factor",
+              "label": "How many times H⁺ concentration changes"
+            },
+            {
+              "point": "change in pH",
+              "label": "Whole pH units it changes by"
+            }
           ]
         },
         {
@@ -405,7 +400,7 @@
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "written_at": "2026-10-01",
     "spec_point_ids": [

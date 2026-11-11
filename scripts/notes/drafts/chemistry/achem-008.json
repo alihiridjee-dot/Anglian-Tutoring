@@ -8,7 +8,10 @@
     {
       "heading": "Where gas pressure comes from",
       "blocks": [
-        { "type": "paragraph", "text": "Gas particles move randomly at high speed. This section covers how that motion produces pressure." },
+        {
+          "type": "paragraph",
+          "text": "Gas particles move randomly at high speed. This section covers how that motion produces pressure."
+        },
         {
           "type": "list",
           "items": [
@@ -30,11 +33,17 @@
     {
       "heading": "The ideal gas",
       "blocks": [
-        { "type": "paragraph", "text": "An ideal gas is a model that makes the equation exact. Real gases behave almost ideally at high temperature and low pressure." },
+        {
+          "type": "paragraph",
+          "text": "An ideal gas is a model that makes the equation exact. Real gases behave almost ideally at high temperature and low pressure."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Ideal gas", "meaning": "A gas whose particles have zero volume and no intermolecular forces of attraction." }
+            {
+              "term": "Ideal gas",
+              "meaning": "A gas whose particles have zero volume and no intermolecular forces of attraction."
+            }
           ]
         },
         {
@@ -58,20 +67,38 @@
     {
       "heading": "Using pV = nRT",
       "blocks": [
-        { "type": "paragraph", "text": "The ideal gas equation links pressure, volume, amount and temperature. Use SI units throughout." },
+        {
+          "type": "paragraph",
+          "text": "The ideal gas equation links pressure, volume, amount and temperature. Use SI units throughout."
+        },
         {
           "type": "equation",
           "label": "Ideal gas equation",
           "formula": "pV = nRT",
-          "where": [
-            "p = pressure (Pa)",
-            "V = volume (m³)",
-            "n = amount of gas (mol)",
-            "R = gas constant (8.31 J K⁻¹ mol⁻¹)",
-            "T = temperature (K)"
-          ]
+          "arrows": [
+            {
+              "point": "p",
+              "label": "Pressure (Pa)"
+            },
+            {
+              "point": "V",
+              "label": "Volume (m³)"
+            },
+            {
+              "point": "R",
+              "label": "Gas constant (8.31 J K⁻¹ mol⁻¹)"
+            },
+            {
+              "point": "T",
+              "label": "Temperature (K)"
+            }
+          ],
+          "where": ["n = amount of gas (mol)"]
         },
-        { "type": "subheading", "text": "Convert to SI units first" },
+        {
+          "type": "subheading",
+          "text": "Convert to SI units first"
+        },
         {
           "type": "table",
           "columns": ["Quantity", "Given as", "Change to"],
@@ -85,9 +112,18 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Convert.", "text": "0.0500 mol of gas at 27 °C and 101 kPa. T = 300 K, p = 101 000 Pa." },
-            { "lead": "Rearrange.", "text": "V = nRT ÷ p." },
-            { "lead": "Calculate.", "text": "V = (0.0500 × 8.31 × 300) ÷ 101 000 = 1.23 × 10⁻³ m³ = 1.23 dm³." }
+            {
+              "lead": "Convert.",
+              "text": "0.0500 mol of gas at 27 °C and 101 kPa. T = 300 K, p = 101 000 Pa."
+            },
+            {
+              "lead": "Rearrange.",
+              "text": "V = nRT ÷ p."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "V = (0.0500 × 8.31 × 300) ÷ 101 000 = 1.23 × 10⁻³ m³ = 1.23 dm³."
+            }
           ]
         },
         {
@@ -96,22 +132,71 @@
             "kind": "slider",
             "alt": "Slider showing how the volume of 0.050 mol of an ideal gas changes with temperature and pressure.",
             "inputs": [
-              { "id": "n", "label": "Amount of gas", "unit": "mol", "min": 0.01, "max": 0.2, "step": 0.01, "value": 0.05 },
-              { "id": "T", "label": "Temperature", "unit": "K", "min": 250, "max": 500, "step": 10, "value": 300 },
-              { "id": "p", "label": "Pressure", "unit": "kPa", "min": 50, "max": 300, "step": 10, "value": 100 }
+              {
+                "id": "n",
+                "label": "Amount of gas",
+                "unit": "mol",
+                "min": 0.01,
+                "max": 0.2,
+                "step": 0.01,
+                "value": 0.05
+              },
+              {
+                "id": "T",
+                "label": "Temperature",
+                "unit": "K",
+                "min": 250,
+                "max": 500,
+                "step": 10,
+                "value": 300
+              },
+              {
+                "id": "p",
+                "label": "Pressure",
+                "unit": "kPa",
+                "min": 50,
+                "max": 300,
+                "step": 10,
+                "value": 100
+              }
             ],
-            "outputs": [{ "label": "Volume", "unit": "dm³", "formula": "n * 8.31 * T / p", "decimals": 2 }]
+            "outputs": [
+              {
+                "label": "Volume",
+                "unit": "dm³",
+                "formula": "n * 8.31 * T / p",
+                "decimals": 2
+              }
+            ]
           }
         },
-        { "type": "subheading", "text": "Finding the relative molecular mass" },
         {
-          "type": "paragraph", "text": "Measure the mass of a gas or volatile liquid, then its volume, pressure and temperature. Find n from pV = nRT, then use the molar mass."
+          "type": "subheading",
+          "text": "Finding the relative molecular mass"
+        },
+        {
+          "type": "paragraph",
+          "text": "Measure the mass of a gas or volatile liquid, then its volume, pressure and temperature. Find n from pV = nRT, then use the molar mass."
         },
         {
           "type": "equation",
           "label": "Molar mass of a gas",
           "formula": "M = m ÷ n",
-          "where": ["M = molar mass (g mol⁻¹), equal in value to Mᵣ", "m = mass (g)", "n = amount from pV = nRT (mol)"]
+          "arrows": [
+            {
+              "point": "M",
+              "label": "Molar mass (g mol⁻¹)"
+            },
+            {
+              "point": "m",
+              "label": "Mass (g)"
+            },
+            {
+              "point": "n",
+              "label": "Amount from pV = nRT (mol)"
+            }
+          ],
+          "where": ["M is equal in value to Mᵣ"]
         },
         {
           "type": "diagram",
@@ -120,11 +205,29 @@
             "alt": "Calculate the relative molecular mass of a gas from its mass, pressure, volume and temperature.",
             "question": "{m} g of a gas occupies 500 cm³ at {T} K and 101 kPa. Calculate its relative molecular mass. (R = 8.31 J K⁻¹ mol⁻¹)",
             "variables": [
-              { "id": "m", "min": 0.5, "max": 2.5, "step": 0.1 },
-              { "id": "T", "min": 290, "max": 400, "step": 10 }
+              {
+                "id": "m",
+                "min": 0.5,
+                "max": 2.5,
+                "step": 0.1
+              },
+              {
+                "id": "T",
+                "min": 290,
+                "max": 400,
+                "step": 10
+              }
             ],
-            "answer": { "formula": "m * 8.31 * T / (101000 * 0.0005)", "decimals": 0, "tolerance_percent": 2 },
-            "working": ["p = 101 000 Pa, V = 500 ÷ 1 000 000 = 5.00 × 10⁻⁴ m³", "n = pV ÷ RT = (101 000 × 5.00 × 10⁻⁴) ÷ (8.31 × {T})", "Mᵣ = m ÷ n = {answer}"]
+            "answer": {
+              "formula": "m * 8.31 * T / (101000 * 0.0005)",
+              "decimals": 0,
+              "tolerance_percent": 2
+            },
+            "working": [
+              "p = 101 000 Pa, V = 500 ÷ 1 000 000 = 5.00 × 10⁻⁴ m³",
+              "n = pV ÷ RT = (101 000 × 5.00 × 10⁻⁴) ÷ (8.31 × {T})",
+              "Mᵣ = m ÷ n = {answer}"
+            ]
           }
         },
         {
@@ -210,7 +313,7 @@
   },
   "meta": {
     "status": "draft",
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11",
     "written_by": "claude-sonnet-5-5",
     "written_at": "2026-10-11",

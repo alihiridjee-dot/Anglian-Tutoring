@@ -24,12 +24,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Tracer",
-            "Radiation",
-            "Half-life",
-            "Used for"
-          ],
+          "columns": ["Tracer", "Radiation", "Half-life", "Used for"],
           "rows": [
             [
               "Technetium-99m",
@@ -83,12 +78,21 @@
           "type": "equation",
           "label": "Effective half-life",
           "formula": "1 ÷ T(E) = 1 ÷ T(B) + 1 ÷ T(P)",
-          "where": [
-            "T(E) = effective half-life",
-            "T(B) = biological half-life",
-            "T(P) = physical half-life",
-            "All three in the same unit of time"
-          ]
+          "arrows": [
+            {
+              "point": "T(E)",
+              "label": "Effective half-life"
+            },
+            {
+              "point": "T(B)",
+              "label": "Biological half-life"
+            },
+            {
+              "point": "T(P)",
+              "label": "Physical half-life"
+            }
+          ],
+          "where": ["All three in the same unit of time"]
         },
         {
           "type": "list",
@@ -123,10 +127,7 @@
               "decimals": 1,
               "tolerance_percent": 3
             },
-            "working": [
-              "1 ÷ T(E) = 1 ÷ {tp} + 1 ÷ {tb}",
-              "T(E) = {answer} hours"
-            ]
+            "working": ["1 ÷ T(E) = 1 ÷ {tp} + 1 ÷ {tb}", "T(E) = {answer} hours"]
           }
         },
         {
@@ -274,12 +275,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.10.6.1",
-        "AQA 3.10.6.2",
-        "AQA 3.10.6.3",
-        "AQA 3.10.6.6"
-      ],
+      "spec_codes": ["AQA 3.10.6.1", "AQA 3.10.6.2", "AQA 3.10.6.3", "AQA 3.10.6.6"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -290,12 +286,7 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Tracer",
-                "Radiation",
-                "Half-life",
-                "Notes"
-              ],
+              "columns": ["Tracer", "Radiation", "Half-life", "Notes"],
               "rows": [
                 [
                   "Technetium-99m",
@@ -336,12 +327,7 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Method",
-                "Resolution",
-                "Convenience",
-                "Safety"
-              ],
+              "columns": ["Method", "Resolution", "Convenience", "Safety"],
               "rows": [
                 [
                   "X-ray and CT",
@@ -430,13 +416,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.5.2a",
-        "OCR 6.5.2b",
-        "OCR 6.5.2c",
-        "OCR 6.5.2d",
-        "OCR 6.5.2e"
-      ],
+      "spec_codes": ["OCR 6.5.2a", "OCR 6.5.2b", "OCR 6.5.2c", "OCR 6.5.2d", "OCR 6.5.2e"],
       "extra": [
         {
           "heading": "Detail this course asks for: diagnosis and cost",
@@ -477,7 +457,7 @@
       "b64420db-bd4b-455a-a975-c359e270d606"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

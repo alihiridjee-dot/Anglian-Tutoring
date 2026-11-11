@@ -16,18 +16,21 @@
           "type": "equation",
           "label": "Percentage efficiency of transfer",
           "formula": "percentage efficiency = (energy or biomass in the next level ÷ energy or biomass in the previous level) × 100",
-          "where": [
-            "energy in kJ, or biomass in g/m² or kg, in the next level",
-            "energy or biomass in the previous level, in the same unit"
+          "arrows": [
+            {
+              "point": "energy or biomass in the next level",
+              "label": "Energy (kJ) or biomass (g/m² or kg)"
+            },
+            {
+              "point": "energy or biomass in the previous level",
+              "label": "In the same unit"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Percentage lost",
-          "formula": "percentage lost = ((previous level − next level) ÷ previous level) × 100",
-          "where": [
-            "previous level and next level, in the same unit"
-          ]
+          "formula": "percentage lost = ((previous level − next level) ÷ previous level) × 100"
         },
         {
           "type": "steps",
@@ -239,9 +242,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.12"
-      ],
+      "spec_codes": ["AQA 7.12"],
       "worked_example": {
         "exemplar_id": "4f825a34-cc23-4ae9-aa40-37bfcd9ea09b",
         "source": "AQA jun 2018, Paper 2 (H), Q07.2",
@@ -316,9 +317,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.8B"
-      ],
+      "spec_codes": ["EDEX 9.8B"],
       "worked_example": {
         "exemplar_id": "77dfe0f0-2b36-4269-a803-a6bcf2b263f1",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q4(a)(iii)",
@@ -357,17 +356,10 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 4.1j"
-      ]
+      "spec_codes": ["OCR 4.1j"]
     },
     "cambridge_igcse": {
-      "spec_codes": [
-        "CAIE 19.2.17S",
-        "CAIE 19.2.18S",
-        "CAIE 19.2.19S",
-        "CAIE 19.1.2"
-      ],
+      "spec_codes": ["CAIE 19.2.17S", "CAIE 19.2.18S", "CAIE 19.2.19S", "CAIE 19.1.2"],
       "worked_example": {
         "exemplar_id": "60f1d566-de8a-4d92-98af-bfbff6c1c98b",
         "source": "CAMBRIDGE jun 2023, Paper 42, Q4(c)",
@@ -420,10 +412,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 4.9",
-        "IGCSE 4.8"
-      ],
+      "spec_codes": ["IGCSE 4.9", "IGCSE 4.8"],
       "worked_example": {
         "exemplar_id": "fc9d9c07-60a3-4cc1-8a5e-5b3190c8b9bf",
         "source": "EDEXCEL jun 2019, Paper 1 (BR), Q1(c)",
@@ -459,7 +448,7 @@
       "60f1d566-de8a-4d92-98af-bfbff6c1c98b",
       "fc9d9c07-60a3-4cc1-8a5e-5b3190c8b9bf"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

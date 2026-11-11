@@ -119,10 +119,7 @@
             "kind": "sort",
             "alt": "Sort statements into benefits of conservation and challenges of conservation.",
             "prompt": "Sort each statement into a benefit or a challenge of maintaining biodiversity.",
-            "groups": [
-              "Benefit",
-              "Challenge"
-            ],
+            "groups": ["Benefit", "Challenge"],
             "items": [
               {
                 "text": "Keeps food webs working",
@@ -188,10 +185,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.10",
-        "AQA T 4.7.3.6"
-      ],
+      "spec_codes": ["AQA 7.10", "AQA T 4.7.3.6"],
       "worked_example": {
         "exemplar_id": "83a2c2ff-5838-4580-97da-bc9d0f47a150",
         "source": "AQA jun 2025, Paper 2 (H), Q05.3",
@@ -225,9 +219,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.10"
-      ],
+      "spec_codes": ["EDEX 9.10"],
       "worked_example": {
         "exemplar_id": "8dd4856e-28cd-4352-a652-326d63900b62",
         "source": "EDEXCEL jun 2022, Paper 2 (H), Q9(c)",
@@ -255,9 +247,15 @@
               "type": "equation",
               "label": "Percentage increase",
               "formula": "percentage increase = (increase in number ÷ original number) × 100",
-              "where": [
-                "increase in number = new number − original number",
-                "original number is the number at the start"
+              "arrows": [
+                {
+                  "point": "increase in number",
+                  "label": "New number − original number"
+                },
+                {
+                  "point": "original number",
+                  "label": "Number at the start"
+                }
               ]
             },
             {
@@ -295,9 +293,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.1c"
-      ],
+      "spec_codes": ["OCR 6.1c"],
       "worked_example": {
         "exemplar_id": "595a5354-9379-4179-a67d-c345cd486989",
         "source": "OCR jun 2019, Paper 2, Q19(d)",
@@ -323,11 +319,7 @@
             },
             {
               "type": "table",
-              "columns": [
-                "Method",
-                "What it involves",
-                "A disadvantage"
-              ],
+              "columns": ["Method", "What it involves", "A disadvantage"],
               "rows": [
                 [
                   "Culling",
@@ -535,7 +527,7 @@
       "595a5354-9379-4179-a67d-c345cd486989",
       "7691169c-6f89-48f7-8aaf-d809f69adb09"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27"
   }
 }

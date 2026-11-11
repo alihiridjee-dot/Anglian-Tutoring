@@ -89,19 +89,17 @@
         {
           "type": "equation",
           "label": "Mean number per quadrat",
-          "formula": "mean = total number of organisms counted ÷ number of quadrats",
-          "where": [
-            "total number counted, in organisms",
-            "number of quadrats"
-          ]
+          "formula": "mean = total number of organisms counted ÷ number of quadrats"
         },
         {
           "type": "equation",
           "label": "Estimated population size",
           "formula": "population size = mean number per m² × total area of the habitat",
-          "where": [
-            "mean number per m², in organisms per m²",
-            "total area, in m² (length × width)"
+          "arrows": [
+            {
+              "point": "total area of the habitat",
+              "label": "Length × width (m²)"
+            }
           ]
         },
         {
@@ -112,10 +110,11 @@
           "type": "equation",
           "label": "Estimated population size (any quadrat size)",
           "formula": "population size = mean number per quadrat × (total area of the habitat ÷ area of one quadrat)",
-          "where": [
-            "mean number per quadrat, in organisms",
-            "total area of the habitat, in m²",
-            "area of one quadrat, in m² (for example 0.25 m²)"
+          "arrows": [
+            {
+              "point": "area of one quadrat",
+              "label": "In m², for example 0.25 m²"
+            }
           ]
         },
         {
@@ -174,22 +173,14 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Feature",
-            "Random quadrats",
-            "Transect"
-          ],
+          "columns": ["Feature", "Random quadrats", "Transect"],
           "rows": [
             [
               "Used for",
               "Estimating how many of a species there are in an area",
               "Investigating how distribution changes along a line, such as away from a woodland"
             ],
-            [
-              "Quadrat positions",
-              "Chosen at random",
-              "At regular intervals along a line"
-            ],
+            ["Quadrat positions", "Chosen at random", "At regular intervals along a line"],
             [
               "Factor measured",
               "Not needed to estimate a population",
@@ -292,10 +283,7 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": [
-        "AQA 7.4",
-        "AQA T 4.7.2.1"
-      ],
+      "spec_codes": ["AQA 7.4", "AQA T 4.7.2.1"],
       "worked_example": {
         "exemplar_id": "6837c0a6-4bcb-4c32-ad66-d61f4e41f0de",
         "source": "AQA jun 2019, Paper 2 (H), Q07.1",
@@ -338,9 +326,11 @@
               "type": "equation",
               "label": "Percentage cover (point quadrat)",
               "formula": "percentage cover = (number of pins touching the plant ÷ total number of pins used) × 100",
-              "where": [
-                "number of pins touching the plant, in pins",
-                "total number of pins used, in pins (add up the pins from every quadrat)"
+              "arrows": [
+                {
+                  "point": "total number of pins used",
+                  "label": "Add up the pins from every quadrat"
+                }
               ]
             },
             {
@@ -355,10 +345,7 @@
       ]
     },
     "edexcel": {
-      "spec_codes": [
-        "EDEX 9.5",
-        "EDEX 9.6"
-      ],
+      "spec_codes": ["EDEX 9.5", "EDEX 9.6"],
       "worked_example": {
         "exemplar_id": "4602cadc-a82c-49ec-9c77-4c32aca8104c",
         "source": "EDEXCEL jun 2023, Paper 2 (F), Q6(d)",
@@ -406,10 +393,11 @@
               "type": "equation",
               "label": "Population size (capture-recapture)",
               "formula": "population size = (number marked in first sample × size of second sample) ÷ number recaptured",
-              "where": [
-                "number marked in first sample, in animals",
-                "size of second sample, in animals",
-                "number recaptured (marked animals in the second sample), in animals"
+              "arrows": [
+                {
+                  "point": "number recaptured",
+                  "label": "Marked animals in the second sample"
+                }
               ]
             },
             {
@@ -446,10 +434,7 @@
       ]
     },
     "ocr": {
-      "spec_codes": [
-        "OCR 6.1a",
-        "OCR 7.6"
-      ],
+      "spec_codes": ["OCR 6.1a", "OCR 7.6"],
       "worked_example": {
         "exemplar_id": "882e3d58-44d4-4ea1-a2d4-bea2a1ae5ee4",
         "source": "OCR jun 2025, Paper 2, Q23(a)",
@@ -496,10 +481,11 @@
               "type": "equation",
               "label": "Population size (capture-recapture)",
               "formula": "population size = (number marked in first sample × size of second sample) ÷ number recaptured",
-              "where": [
-                "number marked in first sample, in animals",
-                "size of second sample, in animals",
-                "number recaptured (marked animals in the second sample), in animals"
+              "arrows": [
+                {
+                  "point": "number recaptured",
+                  "label": "Marked animals in the second sample"
+                }
               ]
             },
             {
@@ -533,10 +519,7 @@
       ]
     },
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 4.2",
-        "IGCSE 4.4B"
-      ],
+      "spec_codes": ["IGCSE 4.2", "IGCSE 4.4B"],
       "worked_example": {
         "exemplar_id": "1adb7068-f454-4399-a792-1ce4216bf7e2",
         "source": "EDEXCEL jun 2022, Paper 1 (B), Q4(a)(ii)",
@@ -607,7 +590,7 @@
       "5e7ea7fc-aeff-41a3-8346-996f061f8696",
       "1adb7068-f454-4399-a792-1ce4216bf7e2"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

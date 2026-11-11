@@ -50,10 +50,19 @@
           "type": "equation",
           "label": "Overall energy change",
           "formula": "energy change = energy to break bonds − energy released making bonds",
-          "where": [
-            "energy change is in kJ/mol",
-            "energy to break bonds is the sum of the bond energies of the reactants, in kJ/mol",
-            "energy released making bonds is the sum of the bond energies of the products, in kJ/mol"
+          "arrows": [
+            {
+              "point": "energy change",
+              "label": "In kJ/mol"
+            },
+            {
+              "point": "energy to break bonds",
+              "label": "Sum of reactant bond energies (kJ/mol)"
+            },
+            {
+              "point": "energy released making bonds",
+              "label": "Sum of product bond energies (kJ/mol)"
+            }
           ]
         },
         {
@@ -314,10 +323,19 @@
               "type": "equation",
               "label": "Enthalpy change",
               "formula": "ΔH = energy to break bonds − energy released making bonds",
-              "where": [
-                "ΔH is in kJ/mol",
-                "energy to break bonds is the sum of the bond energies of the reactants, in kJ",
-                "energy released making bonds is the sum of the bond energies of the products, in kJ"
+              "arrows": [
+                {
+                  "point": "ΔH",
+                  "label": "Enthalpy change (kJ/mol)"
+                },
+                {
+                  "point": "energy to break bonds",
+                  "label": "Sum of reactant bond energies (kJ)"
+                },
+                {
+                  "point": "energy released making bonds",
+                  "label": "Sum of product bond energies (kJ)"
+                }
               ]
             },
             {
@@ -357,10 +375,19 @@
               "type": "equation",
               "label": "Enthalpy change",
               "formula": "ΔH = energy to break bonds − energy released making bonds",
-              "where": [
-                "ΔH is in kJ/mol",
-                "energy to break bonds is the sum of the bond energies of the reactants, in kJ",
-                "energy released making bonds is the sum of the bond energies of the products, in kJ"
+              "arrows": [
+                {
+                  "point": "ΔH",
+                  "label": "Enthalpy change (kJ/mol)"
+                },
+                {
+                  "point": "energy to break bonds",
+                  "label": "Sum of reactant bond energies (kJ)"
+                },
+                {
+                  "point": "energy released making bonds",
+                  "label": "Sum of product bond energies (kJ)"
+                }
               ]
             },
             {
@@ -378,11 +405,21 @@
               "type": "equation",
               "label": "Molar enthalpy change",
               "formula": "ΔH = Q ÷ n",
-              "where": [
-                "ΔH is in J/mol",
-                "Q is the heat energy change in J, negative if energy is released",
-                "n is the amount of reactant in mol"
-              ]
+              "arrows": [
+                {
+                  "point": "ΔH",
+                  "label": "Molar enthalpy change (J/mol)"
+                },
+                {
+                  "point": "Q",
+                  "label": "Heat energy change (J)"
+                },
+                {
+                  "point": "n",
+                  "label": "Amount of reactant (mol)"
+                }
+              ],
+              "where": ["Q is negative if energy is released."]
             },
             {
               "type": "steps",
@@ -429,7 +466,7 @@
       "2215a22b-bd24-4ab5-a70a-ce1692132cf7",
       "79fa799d-c388-4326-bf27-8baefef437b6"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

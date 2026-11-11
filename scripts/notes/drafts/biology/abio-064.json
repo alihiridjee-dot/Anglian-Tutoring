@@ -41,11 +41,13 @@
           "type": "equation",
           "label": "Net primary production",
           "formula": "NPP = GPP − R",
-          "where": [
-            "NPP = net primary production (kJ ha⁻¹ year⁻¹)",
-            "GPP = gross primary production (kJ ha⁻¹ year⁻¹)",
-            "R = energy lost by the plants in respiration (kJ ha⁻¹ year⁻¹)"
-          ]
+          "arrows": [
+            {
+              "point": "R",
+              "label": "Energy lost by plants in respiration"
+            }
+          ],
+          "where": ["All three in kJ ha⁻¹ year⁻¹"]
         },
         {
           "type": "paragraph",
@@ -71,11 +73,23 @@
           "type": "equation",
           "label": "Net production of consumers",
           "formula": "N = I − (F + R)",
-          "where": [
-            "N = net production of the consumer",
-            "I = chemical energy store in the ingested food",
-            "F = chemical energy lost in faeces and urine",
-            "R = energy lost in respiration"
+          "arrows": [
+            {
+              "point": "N",
+              "label": "Net production of the consumer"
+            },
+            {
+              "point": "I",
+              "label": "Chemical energy in the ingested food"
+            },
+            {
+              "point": "F",
+              "label": "Energy lost in faeces and urine"
+            },
+            {
+              "point": "R",
+              "label": "Energy lost in respiration"
+            }
           ]
         },
         {
@@ -106,9 +120,15 @@
           "type": "equation",
           "label": "Efficiency of transfer",
           "formula": "efficiency (%) = (biomass transferred ÷ biomass intake) × 100",
-          "where": [
-            "biomass transferred = biomass (or energy) passed to the next trophic level",
-            "biomass intake = biomass (or energy) taken in from the level before"
+          "arrows": [
+            {
+              "point": "biomass transferred",
+              "label": "Passed to the next trophic level"
+            },
+            {
+              "point": "biomass intake",
+              "label": "Taken in from the level before"
+            }
           ]
         },
         {
@@ -238,15 +258,10 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 5.10",
-        "EDEX 5.11"
-      ]
+      "spec_codes": ["EDEX 5.10", "EDEX 5.11"]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 6.3.1b"
-      ],
+      "spec_codes": ["OCR 6.3.1b"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -283,7 +298,7 @@
       "e21bb37a-4231-4628-92e8-38ebde81a6ff"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

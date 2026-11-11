@@ -59,10 +59,19 @@
           "type": "equation",
           "label": "Enthalpy change of solution",
           "formula": "ΔsolH = −(lattice enthalpy of formation) + ΣΔhydH(ions)",
-          "where": [
-            "ΔsolH in kJ mol⁻¹",
-            "lattice enthalpy of formation is negative, so its minus sign gives a positive term",
-            "ΣΔhydH = the hydration enthalpies of the cation and the anion, each times the number of moles of that ion"
+          "arrows": [
+            {
+              "point": "ΔsolH",
+              "label": "Enthalpy change of solution (kJ mol⁻¹)"
+            },
+            {
+              "point": "−(lattice enthalpy of formation)",
+              "label": "Minus a negative value: a positive term"
+            },
+            {
+              "point": "ΣΔhydH(ions)",
+              "label": "Both ions, each × its moles"
+            }
           ]
         },
         {
@@ -147,11 +156,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Ion property",
-            "Lattice enthalpy",
-            "Hydration enthalpy"
-          ],
+          "columns": ["Ion property", "Lattice enthalpy", "Hydration enthalpy"],
           "rows": [
             [
               "Higher ionic charge",
@@ -203,11 +208,7 @@
   ],
   "boards": {
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.2.1c",
-        "OCR 5.2.1d",
-        "OCR 5.2.1e"
-      ],
+      "spec_codes": ["OCR 5.2.1c", "OCR 5.2.1d", "OCR 5.2.1e"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -224,11 +225,7 @@
       ]
     },
     "edexcel_alevel": {
-      "spec_codes": [
-        "EDEX 13A.9",
-        "EDEX 13A.10",
-        "EDEX 13A.11"
-      ],
+      "spec_codes": ["EDEX 13A.9", "EDEX 13A.10", "EDEX 13A.11"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -245,12 +242,7 @@
       ]
     },
     "cambridge_alevel": {
-      "spec_codes": [
-        "CAIE 23.2.1",
-        "CAIE 23.2.2",
-        "CAIE 23.2.3",
-        "CAIE 23.2.4"
-      ],
+      "spec_codes": ["CAIE 23.2.1", "CAIE 23.2.2", "CAIE 23.2.3", "CAIE 23.2.4"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -267,9 +259,7 @@
       ]
     },
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.1.8.1"
-      ],
+      "spec_codes": ["AQA 3.1.8.1"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -303,7 +293,7 @@
       "309b2edf-cbe1-421e-989e-b717b1557534"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

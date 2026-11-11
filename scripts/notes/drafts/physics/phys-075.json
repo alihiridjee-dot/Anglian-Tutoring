@@ -184,9 +184,15 @@
           "type": "equation",
           "label": "Changing millisieverts to sieverts",
           "formula": "dose in sieverts = dose in millisieverts ÷ 1000",
-          "where": [
-            "dose in sieverts is in sieverts (Sv).",
-            "dose in millisieverts is in millisieverts (mSv)."
+          "arrows": [
+            {
+              "point": "dose in sieverts",
+              "label": "Sieverts (Sv)"
+            },
+            {
+              "point": "dose in millisieverts",
+              "label": "Millisieverts (mSv)"
+            }
           ]
         },
         {
@@ -356,7 +362,7 @@
       "3af036fe-c8c3-480b-9fae-5161897aa656",
       "bacac471-33c5-45a8-8612-3f2431fcf591"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

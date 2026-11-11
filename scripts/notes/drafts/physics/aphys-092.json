@@ -48,32 +48,12 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Stage",
-            "Theoretical petrol cycle",
-            "Theoretical diesel cycle"
-          ],
+          "columns": ["Stage", "Theoretical petrol cycle", "Theoretical diesel cycle"],
           "rows": [
-            [
-              "Compression",
-              "adiabatic",
-              "adiabatic"
-            ],
-            [
-              "Heating (burning)",
-              "constant volume",
-              "constant pressure"
-            ],
-            [
-              "Expansion (power)",
-              "adiabatic",
-              "adiabatic"
-            ],
-            [
-              "Cooling (exhaust)",
-              "constant volume",
-              "constant volume"
-            ]
+            ["Compression", "adiabatic", "adiabatic"],
+            ["Heating (burning)", "constant volume", "constant pressure"],
+            ["Expansion (power)", "adiabatic", "adiabatic"],
+            ["Cooling (exhaust)", "constant volume", "constant volume"]
           ]
         },
         {
@@ -105,17 +85,28 @@
           "type": "equation",
           "label": "Input power",
           "formula": "input power = calorific value × fuel flow rate",
-          "where": [
-            "Calorific value = energy released per kg of fuel (J/kg)",
-            "Fuel flow rate = mass of fuel used per second (kg/s)"
+          "arrows": [
+            {
+              "point": "calorific value",
+              "label": "Energy released per kg of fuel (J/kg)"
+            },
+            {
+              "point": "fuel flow rate",
+              "label": "Mass of fuel used per second (kg/s)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Indicated power",
           "formula": "indicated power = (area of p–V loop) × (cycles per second) × (number of cylinders)",
+          "arrows": [
+            {
+              "point": "area of p–V loop",
+              "label": "Work per cycle (J)"
+            }
+          ],
           "where": [
-            "Area of loop = work per cycle (J)",
             "A four-stroke cycle takes two turns of the crankshaft, so cycles per second = shaft turns per second ÷ 2."
           ]
         },
@@ -123,10 +114,19 @@
           "type": "equation",
           "label": "Output or brake power",
           "formula": "P = Tω",
-          "where": [
-            "P = brake power (W)",
-            "T = torque at the output shaft (N m)",
-            "ω = angular speed of the shaft (rad/s)"
+          "arrows": [
+            {
+              "point": "P",
+              "label": "Brake power (W)"
+            },
+            {
+              "point": "T",
+              "label": "Torque at the output shaft (N m)"
+            },
+            {
+              "point": "ω",
+              "label": "Angular speed of the shaft (rad/s)"
+            }
           ]
         },
         {
@@ -194,19 +194,36 @@
           "type": "equation",
           "label": "Efficiency of a heat engine",
           "formula": "efficiency = W ÷ Q_H = (Q_H − Q_C) ÷ Q_H",
-          "where": [
-            "W = work done (J)",
-            "Q_H = heat taken from the source (J)",
-            "Q_C = heat rejected to the sink (J)"
+          "arrows": [
+            {
+              "point": "W",
+              "label": "Work done (J)"
+            },
+            {
+              "point": "Q_H",
+              "in": "W ÷ Q_H",
+              "label": "Heat taken from the source (J)"
+            },
+            {
+              "point": "Q_C",
+              "label": "Heat rejected to the sink (J)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Maximum theoretical efficiency",
           "formula": "maximum efficiency = (T_H − T_C) ÷ T_H",
-          "where": [
-            "T_H = temperature of the source (K)",
-            "T_C = temperature of the sink (K)"
+          "arrows": [
+            {
+              "point": "T_H",
+              "in": "(T_H",
+              "label": "Temperature of the source (K)"
+            },
+            {
+              "point": "T_C",
+              "label": "Temperature of the sink (K)"
+            }
           ]
         },
         {
@@ -342,11 +359,7 @@
   ],
   "boards": {
     "aqa_alevel": {
-      "spec_codes": [
-        "AQA 3.11.2.4",
-        "AQA 3.11.2.5",
-        "AQA 3.11.2.6"
-      ]
+      "spec_codes": ["AQA 3.11.2.4", "AQA 3.11.2.5", "AQA 3.11.2.6"]
     }
   },
   "meta": {
@@ -359,7 +372,7 @@
       "7777edab-050c-482c-b7d7-2e2edfe1eb47"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }

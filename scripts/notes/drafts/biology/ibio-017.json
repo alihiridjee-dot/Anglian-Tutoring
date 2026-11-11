@@ -29,10 +29,19 @@
           "type": "equation",
           "label": "Anaerobic respiration in yeast",
           "formula": "glucose → ethanol + carbon dioxide",
-          "where": [
-            "glucose: C₆H₁₂O₆, the sugar in the dough",
-            "ethanol: C₂H₅OH, which evaporates when the bread is baked",
-            "carbon dioxide: CO₂, the gas that makes the dough rise"
+          "arrows": [
+            {
+              "point": "glucose",
+              "label": "C₆H₁₂O₆: the sugar in the dough"
+            },
+            {
+              "point": "ethanol",
+              "label": "C₂H₅OH: evaporates when bread is baked"
+            },
+            {
+              "point": "carbon dioxide",
+              "label": "CO₂: the gas that makes dough rise"
+            }
           ]
         },
         {
@@ -137,22 +146,14 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Condition",
-            "Why it is needed",
-            "How it is controlled"
-          ],
+          "columns": ["Condition", "Why it is needed", "How it is controlled"],
           "rows": [
             [
               "Aseptic conditions",
               "Prevents contamination and competition from other microorganisms",
               "Steam-clean the vessel and filter the air"
             ],
-            [
-              "Nutrients",
-              "Supply the microorganisms with food",
-              "Nutrient broth"
-            ],
+            ["Nutrients", "Supply the microorganisms with food", "Nutrient broth"],
             [
               "Optimum temperature",
               "Respiration releases heat; too hot would denature enzymes",
@@ -168,11 +169,7 @@
               "Needed for aerobic respiration, which many microorganisms use",
               "Air pumped in through a sparger"
             ],
-            [
-              "Agitation",
-              "Mixes the contents and spreads heat and nutrients evenly",
-              "Stirrer"
-            ]
+            ["Agitation", "Mixes the contents and spreads heat and nutrients evenly", "Stirrer"]
           ]
         },
         {
@@ -204,12 +201,7 @@
   ],
   "boards": {
     "edexcel_igcse": {
-      "spec_codes": [
-        "IGCSE 5.5",
-        "IGCSE 5.6",
-        "IGCSE 5.7",
-        "IGCSE 5.8"
-      ],
+      "spec_codes": ["IGCSE 5.5", "IGCSE 5.6", "IGCSE 5.7", "IGCSE 5.8"],
       "worked_example": {
         "exemplar_id": "78103f61-9279-485f-a36f-868c235b6b4f",
         "source": "EDEXCEL jun 2023, Paper 1 (BR), Q1(b)",
@@ -234,10 +226,8 @@
       "2379049f-86f3-4689-b161-8d9695165b5b",
       "9d65ffac-a6ca-4b75-b570-6f94b252ec0d"
     ],
-    "exemplar_ids": [
-      "78103f61-9279-485f-a36f-868c235b6b4f"
-    ],
-    "checked_by": "sonnet-science-check",
+    "exemplar_ids": ["78103f61-9279-485f-a36f-868c235b6b4f"],
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-06"
   }
 }

@@ -184,17 +184,36 @@
           "type": "equation",
           "label": "Volume of water taken up",
           "formula": "volume = π × r² × l",
-          "where": [
-            "volume in mm³",
-            "r = radius of the capillary tube in mm (half the diameter)",
-            "l = distance the bubble moves in mm"
+          "arrows": [
+            {
+              "point": "volume",
+              "label": "Cubic millimetres (mm³)"
+            },
+            {
+              "point": "r",
+              "label": "Tube radius: half the diameter (mm)"
+            },
+            {
+              "point": "l",
+              "in": "× l",
+              "label": "Distance the bubble moves (mm)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Rate of water uptake",
           "formula": "rate = volume of water taken up ÷ time",
-          "where": ["rate in mm³ per minute", "volume in mm³", "time in minutes"]
+          "arrows": [
+            {
+              "point": "rate",
+              "label": "Cubic millimetres per minute (mm³/min)"
+            },
+            {
+              "point": "time",
+              "label": "Minutes"
+            }
+          ]
         },
         {
           "type": "diagram",
@@ -304,10 +323,19 @@
               "type": "equation",
               "label": "Rate of water loss",
               "formula": "rate of water loss = mass of water lost ÷ time",
-              "where": [
-                "mass of water lost, in g",
-                "time, in hours",
-                "rate of water loss, in g per hour"
+              "arrows": [
+                {
+                  "point": "rate of water loss",
+                  "label": "Grams per hour"
+                },
+                {
+                  "point": "mass of water lost",
+                  "label": "Grams (g)"
+                },
+                {
+                  "point": "time",
+                  "label": "Hours"
+                }
               ]
             }
           ]
@@ -350,7 +378,17 @@
               "type": "equation",
               "label": "Percentage change in mass",
               "formula": "percentage change in mass = (change in mass ÷ starting mass) × 100",
-              "where": ["change in mass = final mass − starting mass, in g", "starting mass, in g"]
+              "arrows": [
+                {
+                  "point": "change in mass",
+                  "in": "(change in mass",
+                  "label": "Final mass − starting mass (g)"
+                },
+                {
+                  "point": "starting mass",
+                  "label": "Grams (g)"
+                }
+              ]
             },
             {
               "type": "list",
@@ -449,7 +487,7 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09",
     "spec_point_ids": [
       "39deadc2-70b2-4466-bcb8-b34c34abf5c1",

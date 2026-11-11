@@ -58,31 +58,46 @@
           "type": "equation",
           "label": "Energy from power and time",
           "formula": "energy transferred = power × time    (E = P t)",
-          "where": [
-            "energy transferred, E, in joules, J",
-            "power, P, in watts, W",
-            "time, t, in seconds, s"
+          "arrows": [
+            {
+              "point": "E",
+              "label": "Energy transferred (J)"
+            },
+            {
+              "point": "P",
+              "label": "Power (W)"
+            },
+            {
+              "point": "t",
+              "in": "P t",
+              "label": "Time (s)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Energy from charge and potential difference",
           "formula": "energy transferred = charge flow × potential difference    (E = Q V)",
-          "where": [
-            "energy transferred, E, in joules, J",
-            "charge flow, Q, in coulombs, C",
-            "potential difference, V, in volts, V"
+          "arrows": [
+            {
+              "point": "Q",
+              "label": "Charge flow (C)"
+            },
+            {
+              "point": "V",
+              "label": "Potential difference (V)"
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Energy from current, potential difference and time",
           "formula": "energy transferred = current × potential difference × time    (E = I V t)",
-          "where": [
-            "energy transferred, E, in joules, J",
-            "current, I, in amperes, A",
-            "potential difference, V, in volts, V",
-            "time, t, in seconds, s"
+          "arrows": [
+            {
+              "point": "I",
+              "label": "Current (A)"
+            }
           ]
         },
         {
@@ -286,10 +301,19 @@
               "type": "equation",
               "label": "Power from potential difference and current",
               "formula": "power = potential difference × current    (P = V I)",
-              "where": [
-                "power, P, in watts, W",
-                "potential difference, V, in volts, V",
-                "current, I, in amperes, A"
+              "arrows": [
+                {
+                  "point": "P",
+                  "label": "Power (W)"
+                },
+                {
+                  "point": "V",
+                  "label": "Potential difference (V)"
+                },
+                {
+                  "point": "I",
+                  "label": "Current (A)"
+                }
               ]
             }
           ]
@@ -417,11 +441,7 @@
               "type": "equation",
               "label": "e.m.f. and potential difference",
               "formula": "e.m.f. = work done ÷ charge    (E = W / Q)\npotential difference = work done ÷ charge    (V = W / Q)",
-              "where": [
-                "E, the e.m.f., and V, the p.d., in volts, V",
-                "work done, W, in joules, J",
-                "charge, Q, in coulombs, C"
-              ]
+              "where": ["E, the e.m.f., and V, the p.d., in volts, V"]
             }
           ]
         },
@@ -441,7 +461,16 @@
               "type": "equation",
               "label": "Energy in kilowatt-hours",
               "formula": "energy (kW h) = power (kW) × time (h)",
-              "where": ["power, in kilowatts, kW", "time, in hours, h"]
+              "arrows": [
+                {
+                  "point": "(kW)",
+                  "label": "Kilowatts"
+                },
+                {
+                  "point": "(h)",
+                  "label": "Hours"
+                }
+              ]
             },
             {
               "type": "equation",
@@ -501,7 +530,7 @@
       "a949c6e0-fa7a-4582-9deb-2823a3c6576f",
       "0f95120d-906d-4577-93fb-c7ac93ad0ffd"
     ],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-27",
     "exemplar_ids": [
       "fe316077-a58d-4baa-92ac-89b56edb4901",

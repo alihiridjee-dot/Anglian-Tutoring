@@ -187,8 +187,17 @@
         {
           "type": "equation",
           "label": "Moles of an element",
-          "where": ["mass in grams", "Ar = relative atomic mass of the element"],
-          "formula": "moles = mass ÷ Ar"
+          "formula": "moles = mass ÷ Ar",
+          "arrows": [
+            {
+              "point": "mass",
+              "label": "Mass (g)"
+            },
+            {
+              "point": "Ar",
+              "label": "Relative atomic mass of the element"
+            }
+          ]
         },
         {
           "type": "steps",
@@ -501,7 +510,7 @@
       "88756516-a648-4b63-8e53-61b25a145e62",
       "c39fb763-ed77-404a-a421-d60a8973b4b2"
     ],
-    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08",
+    "checked_by": "sonnet-science-check, opus-5-5-audit-2026-11-08, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-11-09"
   }
 }

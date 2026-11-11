@@ -14,11 +14,7 @@
         },
         {
           "type": "table",
-          "columns": [
-            "Substrate",
-            "Approximate energy per gram",
-            "Why"
-          ],
+          "columns": ["Substrate", "Approximate energy per gram", "Why"],
           "rows": [
             [
               "Carbohydrate",
@@ -30,11 +26,7 @@
               "About 17 kJ/g",
               "Must be deaminated first. The amino group is lost, so some energy is lost as urea."
             ],
-            [
-              "Lipid",
-              "About 39 kJ/g",
-              "Many C–H bonds, so more hydrogen per gram"
-            ]
+            ["Lipid", "About 39 kJ/g", "Many C–H bonds, so more hydrogen per gram"]
           ]
         },
         {
@@ -68,9 +60,15 @@
           "type": "equation",
           "label": "Respiratory quotient",
           "formula": "RQ = CO₂ produced ÷ O₂ consumed",
-          "where": [
-            "CO₂ produced = molecules or volume of carbon dioxide produced",
-            "O₂ consumed = molecules or volume of oxygen taken in, in the same unit and time"
+          "arrows": [
+            {
+              "point": "CO₂ produced",
+              "label": "Molecules or volume of CO₂"
+            },
+            {
+              "point": "O₂ consumed",
+              "label": "Same unit and time as the CO₂"
+            }
           ]
         },
         {
@@ -124,11 +122,7 @@
               "decimals": 2,
               "tolerance_percent": 2
             },
-            "working": [
-              "RQ = CO₂ produced ÷ O₂ consumed",
-              "RQ = {co2} ÷ {o2}",
-              "RQ = {answer}"
-            ]
+            "working": ["RQ = CO₂ produced ÷ O₂ consumed", "RQ = {co2} ÷ {o2}", "RQ = {answer}"]
           }
         },
         {
@@ -243,11 +237,7 @@
       ]
     },
     "ocr_alevel": {
-      "spec_codes": [
-        "OCR 5.2.2j",
-        "OCR 5.2.2k",
-        "OCR 5.2.2l"
-      ],
+      "spec_codes": ["OCR 5.2.2j", "OCR 5.2.2k", "OCR 5.2.2l"],
       "extra": [
         {
           "heading": "Detail this course asks for",
@@ -280,7 +270,7 @@
       "332a37b6-6ef6-45b1-adfc-f966219d5cbe"
     ],
     "exemplar_ids": [],
-    "checked_by": "sonnet-science-check",
+    "checked_by": "sonnet-science-check, opus-5-5-arrows-check-2026-11-09",
     "checked_at": "2026-10-11"
   }
 }
