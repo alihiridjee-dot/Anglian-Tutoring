@@ -1,25 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import {
-  Brain,
-  CalendarCheck,
-  CalendarRange,
-  ClipboardCheck,
-  LineChart,
-  ListChecks,
-  MessageCircle,
-  PenLine,
-  Sparkles,
-  Video,
-  Users,
-  ArrowRight,
-  Check,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { Nav } from "@/components/landing/Nav";
 import { Footer } from "@/components/landing/Footer";
 import { FloatingWhatsApp } from "@/components/landing/FloatingWhatsApp";
 import { ExplainerVideo } from "@/components/how-it-works/ExplainerVideo";
+import { FeatureRoad, type RoadStop } from "@/components/how-it-works/FeatureRoad";
 import { ForgettingCurve } from "@/components/how-it-works/ForgettingCurve";
 import { RevisitSimulator } from "@/components/how-it-works/RevisitSimulator";
 import {
@@ -53,23 +39,14 @@ export const Route = createFileRoute("/how-it-works")({
  * The six things a place actually buys, each shown as the card the student
  * will really open. The plan first, since everything else hangs off it; then
  * the week in order: taught, practised, tested, fed back, and a way to ask when
- * none of that was enough.
+ * none of that was enough. They are the stops on the road (FeatureRoad).
  */
-interface Service {
-  icon: LucideIcon;
-  eyebrow: string;
-  title: string;
-  body: string;
-  points: string[];
-  preview: () => React.JSX.Element;
-  /** Give the preview the full column: for mocks too detailed for the narrow card. */
-  wide?: boolean;
-}
-
-const SERVICES: Service[] = [
+const SERVICES: RoadStop[] = [
   {
-    icon: CalendarRange,
-    eyebrow: "Personalised programme",
+    id: "programme",
+    emoji: "🗺️",
+    sign: "Planned",
+    tint: "tint-accent",
     title: "A course planned around your child",
     body: "We lay out the whole course on your child's exam board, from the week they join to their exam date. Each week shows what to learn, and which topics to revisit.",
     points: [
@@ -81,8 +58,10 @@ const SERVICES: Service[] = [
     wide: true,
   },
   {
-    icon: Video,
-    eyebrow: "Taught live",
+    id: "live",
+    emoji: "🎥",
+    sign: "Taught live",
+    tint: "tint-primary",
     title: "Up to 3 live sessions a week",
     body: "Small groups on Zoom, taught personally by Dr Nadia or Ali — a doctor and a medical student, never an agency tutor and never a recording standing in for a lesson. Your child is a name in the room, not a login.",
     points: [
@@ -93,8 +72,10 @@ const SERVICES: Service[] = [
     preview: LiveMock,
   },
   {
-    icon: ClipboardCheck,
-    eyebrow: "Practised",
+    id: "tasks",
+    emoji: "✍️",
+    sign: "Practised",
+    tint: "tint-bio",
     title: "Tasks set, marked and returned",
     body: "Answered inside the platform on the spec points just taught, then marked by the tutor who taught them — so the feedback comes from someone who watched your child try it, not a marking service.",
     points: [
@@ -105,8 +86,10 @@ const SERVICES: Service[] = [
     preview: HomeworkMock,
   },
   {
-    icon: ListChecks,
-    eyebrow: "Tested",
+    id: "quiz",
+    emoji: "❓",
+    sign: "Tested",
+    tint: "tint-chem",
     title: "A weekly quiz on the right topics",
     body: "Every week, a short quiz built from the spec points your child has actually covered — tutor-approved, tagged question by question, and marked the moment they finish.",
     points: [
@@ -117,8 +100,10 @@ const SERVICES: Service[] = [
     preview: QuizMock,
   },
   {
-    icon: PenLine,
-    eyebrow: "Fed back",
+    id: "note",
+    emoji: "💌",
+    sign: "Fed back",
+    tint: "tint-phys",
     title: "A tutor who tells you what they're seeing",
     body: "Not a termly report. Each week your child gets a note from their tutor about their week specifically — what has clicked, what is still leaking marks, and what the two of them are doing about it next.",
     points: [
@@ -129,8 +114,10 @@ const SERVICES: Service[] = [
     preview: FeedbackMock,
   },
   {
-    icon: MessageCircle,
-    eyebrow: "Never stuck",
+    id: "messages",
+    emoji: "💬",
+    sign: "Never stuck",
+    tint: "tint-primary",
     title: "A direct line to their tutor, all week",
     body: "Stuck at nine on a Sunday? They message their tutor from inside the platform, with the spec point, task or quiz question already attached — so the answer that comes back is about the thing they're actually stuck on.",
     points: [
@@ -144,22 +131,22 @@ const SERVICES: Service[] = [
 
 const ALSO = [
   {
-    icon: LineChart,
+    emoji: "📈",
     title: "A predicted grade that means something",
     desc: "Built from real marked work over time, not a one-off test. It moves when their work moves.",
   },
   {
-    icon: Users,
+    emoji: "👪",
     title: "Your own parent dashboard",
     desc: "A separate login: attendance, submissions, scores and progress — without having to ask them how it's going.",
   },
   {
-    icon: Sparkles,
+    emoji: "📚",
     title: "Every board, every spec point",
     desc: "AQA, Edexcel and OCR, Separate Sciences or Combined Trilogy — and iGCSE. Tagged to the specification your child is sitting.",
   },
   {
-    icon: CalendarCheck,
+    emoji: "🗓️",
     title: "Flexibility that suits you",
     desc: "Weekly, monthly or termly billing. Add or drop subjects as things change. Cancel anytime.",
   },
@@ -178,11 +165,7 @@ function HowItWorks() {
       <Nav />
 
       {/* ---------------- Hero ---------------- */}
-      <section className="page-aurora relative overflow-hidden border-b border-border pt-(--site-bar-h)">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--accent-soft)_0%,transparent_60%)] opacity-70"
-        />
+      <section className="page-aurora relative overflow-hidden pt-(--site-bar-h)">
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
           {/* The homepage lays its copy over a full-bleed photo; this page hangs
               the photo beside the copy as a print, so the two heroes don't repeat.
@@ -190,14 +173,10 @@ function HowItWorks() {
               the photo rises to meet the headline. */}
           <div className="grid items-center gap-12 split:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] split:gap-14 short:items-start">
             <div className="text-center split:text-left">
-              <motion.span {...fadeUp} className="sticker">
-                <Brain className="size-3.5" aria-hidden /> How it works
-              </motion.span>
-
               <motion.h1
                 {...fadeUp}
                 transition={{ ...fadeUp.transition, delay: 0.08 }}
-                className="font-display text-foreground mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl split:text-[clamp(2.25rem,3.6vw,3.25rem)]"
+                className="font-display text-foreground text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl split:text-[clamp(2.25rem,3.6vw,3.25rem)]"
               >
                 Your child isn&apos;t lazy.
                 <br />
@@ -226,15 +205,15 @@ function HowItWorks() {
                 <Link
                   to="/auth"
                   search={{ mode: "signup" } as never}
-                  className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold whitespace-nowrap text-white shadow-sm transition "
+                  className="btn-solid tint-primary inline-flex min-h-11 items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold whitespace-nowrap"
                 >
                   Book your child's place <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   to="/demo"
-                  className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-primary/20 bg-primary/5 px-6 py-3 text-sm font-semibold whitespace-nowrap text-primary transition hover:bg-primary/10"
+                  className="btn-soft tint-primary inline-flex min-h-11 items-center gap-1.5 rounded-xl px-6 py-3 text-sm whitespace-nowrap"
                 >
-                  <Sparkles className="h-3.5 w-3.5 text-amber-500" /> Explore the platform
+                  <span aria-hidden>✨</span> Explore the platform
                 </Link>
               </motion.div>
             </div>
@@ -244,7 +223,10 @@ function HowItWorks() {
               transition={{ ...fadeUp.transition, delay: 0.2 }}
               className="mx-auto w-full max-w-2xl"
             >
-              <div className="premium-card rotate-[1.5deg] p-2 sm:p-2.5">
+              <div className="premium-card tint-primary relative rotate-[1.5deg] p-2 sm:p-2.5">
+                <span aria-hidden className="preview-sticker">
+                  🧠
+                </span>
                 <img
                   src="/how-it-works/student-laptop-1200.webp"
                   srcSet={[800, 1200, 1800]
@@ -272,94 +254,43 @@ function HowItWorks() {
       </section>
 
       {/* ---------------- What a place includes ---------------- */}
-      <section className="border-b border-border bg-card py-20 lg:py-24">
+      <section className="bg-card py-20 lg:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <motion.div {...fadeUp} className="mx-auto mb-16 max-w-2xl text-center">
-            <span className="eyebrow">Included, every week</span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Planned around your child, taught live and marked by Dr Nadia and Ali
             </h2>
           </motion.div>
+        </div>
 
-          <div className="space-y-14 lg:space-y-20">
-            {SERVICES.map((s, i) => {
-              const Icon = s.icon;
-              const Preview = s.preview;
-              const flip = i % 2 === 1;
-              return (
-                <motion.div
-                  key={s.title}
-                  {...fadeUp}
-                  className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14"
-                >
-                  <div className={flip ? "lg:order-2" : undefined}>
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-border bg-[var(--accent-soft)]/60">
-                        <Icon className="h-5 w-5 text-[var(--primary-deep)]" />
-                      </span>
-                      <span className="eyebrow">{s.eyebrow}</span>
-                    </div>
-                    <h3 className="mt-5 font-display text-2xl font-bold tracking-tight text-foreground sm:text-[28px]">
-                      {s.title}
-                    </h3>
-                    <p className="mt-4 text-base leading-relaxed text-muted-foreground">{s.body}</p>
-                    <ul className="mt-5 space-y-2.5">
-                      {s.points.map((p) => (
-                        <li key={p} className="flex items-start gap-2.5 text-sm text-foreground/90">
-                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" />
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+        <FeatureRoad stops={SERVICES} />
 
-                  {/* The mock, floated on a soft tint so it reads as a screen. */}
-                  <div className={flip ? "lg:order-1" : undefined}>
-                    <div className="relative rounded-3xl border border-border bg-secondary/60 p-5 sm:p-8">
-                      <div
-                        aria-hidden
-                        className="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_top_left,_var(--accent-soft)_0%,transparent_65%)] opacity-70"
-                      />
-                      <div className={`relative mx-auto ${s.wide ? "max-w-lg" : "max-w-sm"}`}>
-                        <Preview />
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Everything else that comes with it, without another five sections. */}
-          <div className="mt-16 grid gap-5 border-t border-border pt-14 sm:grid-cols-2 lg:grid-cols-4">
-            {ALSO.map((f, i) => {
-              const Icon = f.icon;
-              return (
-                <motion.div
-                  key={f.title}
-                  {...fadeUp}
-                  transition={{ ...fadeUp.transition, delay: (i % 4) * 0.07 }}
-                >
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-secondary">
-                    <Icon className="h-4.5 w-4.5 text-foreground" />
-                  </div>
-                  <h3 className="font-display text-[15px] font-bold leading-snug text-foreground">
-                    {f.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
-                </motion.div>
-              );
-            })}
-          </div>
+        {/* Everything else that comes with it, without another five sections. */}
+        <div className="mx-auto mt-8 grid max-w-6xl gap-10 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
+          {ALSO.map((f, i) => (
+            <motion.div
+              key={f.title}
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: (i % 4) * 0.07 }}
+              className="hiw-extra"
+            >
+              <span aria-hidden className="hiw-extra-emoji">
+                {f.emoji}
+              </span>
+              <h3 className="font-display text-foreground mt-3 text-lg leading-snug font-extrabold">
+                {f.title}
+              </h3>
+              <p className="text-muted-foreground mt-2 text-[0.97rem] leading-relaxed">{f.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
       {/* ---------------- Try it ---------------- */}
-      <section className="border-b border-border bg-secondary/60 py-20 lg:py-24">
+      <section className="bg-secondary/60 py-20 lg:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
-            <span className="eyebrow">See it for yourself</span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Try the scheduler
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -375,11 +306,10 @@ function HowItWorks() {
       </section>
 
       {/* ---------------- The forgetting curve ---------------- */}
-      <section className="border-b border-border bg-card py-20 lg:py-24">
+      <section className="bg-card py-20 lg:py-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
-            <span className="eyebrow">The problem with normal revision</span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Most of a lesson is gone within a month
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -400,20 +330,29 @@ function HowItWorks() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <motion.div
             {...fadeUp}
-            className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[var(--primary-deep)] to-primary px-5 py-10 text-center text-white shadow-[0_40px_90px_-40px_rgba(6,78,90,0.85)] sm:px-14 sm:py-14"
+            className="tint-pop relative rounded-[2rem] bg-[var(--primary-deep)] px-5 py-10 text-center text-white sm:px-14 sm:py-14"
           >
-            <div
+            <span aria-hidden className="preview-sticker" style={{ top: "-1.5rem", left: "8%" }}>
+              🎓
+            </span>
+            <span
               aria-hidden
-              className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl"
-            />
-            <div
+              className="preview-sticker"
+              style={{ top: "36%", right: "-1.375rem", animationDelay: "-0.7s" }}
+            >
+              📈
+            </span>
+            <span
               aria-hidden
-              className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-white/5 blur-3xl"
-            />
+              className="preview-sticker"
+              style={{ top: "auto", bottom: "-1.375rem", right: "9%", animationDelay: "-1.4s" }}
+            >
+              🧪
+            </span>
             <h2 className="relative font-display text-3xl font-bold tracking-tight sm:text-4xl">
               Give them a system, not just a tutor
             </h2>
-            <p className="relative mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/80">
+            <p className="relative mx-auto mt-5 max-w-xl text-base leading-relaxed text-white">
               Small groups, a doctor and a medical student teaching every lesson personally, and a
               plan that keeps working between them.
             </p>
@@ -428,7 +367,7 @@ function HowItWorks() {
               <Link
                 to="/"
                 hash="pricing"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-7 py-3.5 text-sm font-bold text-white transition hover:bg-white/15"
               >
                 <Check className="h-4 w-4" /> See pricing
               </Link>
