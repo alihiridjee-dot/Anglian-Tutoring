@@ -3155,3 +3155,668 @@ body {
     transition: none !important;
   }
 }
+
+/* Product previews (how-it-works/ServicePreviews.tsx), on the home page and How
+   it works. One card each, coloured by the surrounding `--tint`, leaning
+   slightly with an emoji stuck on its corner: no pills or panels inside. */
+.premium-card.preview-shot {
+  position: relative;
+  padding: 1.25rem 1.375rem;
+  border-radius: 1.25rem;
+  text-align: left;
+  box-shadow:
+    10px 10px 0 0 color-mix(in oklab, var(--tint) 24%, var(--card)),
+    0 22px 44px -26px color-mix(in oklab, var(--tint) 60%, transparent);
+}
+.preview-sticker {
+  position: absolute;
+  top: -1.25rem;
+  right: -1.125rem;
+  display: grid;
+  place-items: center;
+  width: 3.375rem;
+  height: 3.375rem;
+  border-radius: 50%;
+  background: var(--card);
+  font-size: 1.6rem;
+  line-height: 1;
+  box-shadow:
+    0 4px 0 0 color-mix(in oklab, var(--tint) 34%, transparent),
+    0 10px 18px -10px color-mix(in oklab, var(--tint) 70%, transparent);
+  transform: rotate(-8deg);
+  animation: preview-bob 3.2s ease-in-out infinite alternate;
+}
+@keyframes preview-bob {
+  from {
+    transform: translateY(0) rotate(-8deg);
+  }
+  to {
+    transform: translateY(-7px) rotate(6deg);
+  }
+}
+.preview-kicker {
+  color: color-mix(in oklab, var(--tint) 80%, var(--primary-deep));
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+.preview-title {
+  margin-top: 0.25rem;
+  color: var(--foreground);
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.preview-meta {
+  margin-top: 0.25rem;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.preview-ink {
+  color: color-mix(in oklab, var(--tint) 80%, var(--primary-deep));
+}
+.preview-band {
+  display: block;
+  height: 0.625rem;
+  border-radius: 999px;
+}
+.preview-band.is-done {
+  background: var(--tint);
+}
+.preview-band.is-now {
+  background: color-mix(in oklab, var(--tint) 55%, var(--card));
+}
+.preview-band.is-ahead {
+  background: color-mix(in oklab, var(--tint) 16%, var(--card));
+}
+.preview-pin {
+  position: absolute;
+  top: -1.75rem;
+  left: 50%;
+  font-size: 1.25rem;
+  transform: translateX(-50%);
+  animation: preview-hop 1.6s ease-in-out infinite;
+}
+@keyframes preview-hop {
+  50% {
+    transform: translate(-50%, -6px);
+  }
+}
+.preview-stamp {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 50%;
+  background: var(--tint);
+  color: white;
+  font-size: 2.25rem;
+  transform: rotate(-10deg);
+  box-shadow: 0 4px 0 0 color-mix(in oklab, var(--tint) 55%, black);
+}
+.preview-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  background: color-mix(in oklab, var(--tint) 7%, var(--card));
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.preview-option.is-wrong {
+  color: var(--muted-foreground);
+  text-decoration: line-through;
+}
+.preview-option.is-right {
+  background: color-mix(in oklab, var(--tint) 85%, var(--primary-deep));
+  color: white;
+}
+.preview-avatar {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid var(--card);
+  border-radius: 50%;
+  background-size: 200%;
+  background-position: 47% 30%;
+  box-shadow: 0 3px 0 0 color-mix(in oklab, var(--tint) 30%, transparent);
+}
+.preview-bubble {
+  max-width: 88%;
+  padding: 0.625rem 0.8rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.preview-bubble.is-me {
+  margin: 0.75rem 0 0 auto;
+  border-radius: 16px 16px 5px 16px;
+  background: color-mix(in oklab, var(--tint) 85%, var(--primary-deep));
+  color: white;
+}
+.preview-bubble.is-them {
+  margin-top: 0.5rem;
+  border-radius: 16px 16px 16px 5px;
+  background: color-mix(in oklab, var(--tint) 8%, var(--card));
+  color: var(--foreground);
+}
+.preview-spark polyline {
+  fill: none;
+  stroke: var(--tint);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.preview-spark circle {
+  fill: var(--tint);
+}
+
+/* The home page's features as a scroll story (OfferSection.tsx). On a wide
+   screen the words scroll on the left while one preview holds still on the
+   right, and a half-moon dial on the screen's edge turns with the scroll. The
+   feature in view gets a see-through shadow in its colour behind its words and
+   around its preview; `--glow`, set from the scroll, is 1 when it is centred and
+   0 by halfway to the next. Narrower screens get each preview under its words. */
+.offer-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.offer-step {
+  --glow: 1;
+  padding: 1.75rem 0 2.75rem;
+}
+.offer-emoji {
+  display: inline-block;
+  font-size: 2.75rem;
+  line-height: 1;
+  transform-origin: 50% 80%;
+}
+.offer-tick {
+  color: color-mix(in oklab, var(--tint) 85%, var(--primary-deep));
+}
+.offer-inline-shot {
+  max-width: 28rem;
+  margin: 2.25rem auto 0;
+  transform: rotate(var(--r, 0deg));
+}
+.offer-stage,
+.offer-dial {
+  display: none;
+}
+@media (width >= 64rem) {
+  .offer-story {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    column-gap: 4rem;
+  }
+  .offer-step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 66vh;
+    padding: 2.5rem 0;
+    opacity: calc(0.3 + 0.7 * var(--glow));
+  }
+  .offer-step[data-active] .offer-emoji {
+    animation: offer-wiggle 0.8s ease-in-out;
+  }
+  .offer-text {
+    position: relative;
+    isolation: isolate;
+    width: fit-content;
+  }
+  .offer-text::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -30px -36px;
+    border-radius: 48px;
+    background: color-mix(in oklab, var(--tint) 16%, transparent);
+    filter: blur(30px);
+    opacity: var(--glow);
+  }
+  .offer-inline-shot {
+    display: none;
+  }
+  .offer-stage {
+    position: sticky;
+    top: 6.5rem;
+    display: grid;
+    place-items: center;
+    align-self: start;
+    height: calc(100dvh - 9rem);
+    max-height: 40rem;
+  }
+  /* Stacked in the stage's one grid cell, so they stay inside its padding. */
+  .offer-stage-shot {
+    position: relative;
+    grid-area: 1 / 1;
+    width: min(100%, 26rem);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(60px) rotate(8deg) scale(0.92);
+    transition:
+      opacity 0.35s ease,
+      transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .offer-stage-shot[data-state="gone"] {
+    transform: translateY(-60px) rotate(-8deg) scale(0.92);
+  }
+  .offer-stage-shot[data-state="active"] {
+    opacity: 1;
+    pointer-events: auto;
+    transform: rotate(var(--r, 0deg));
+  }
+  /* The glow round the preview in view. */
+  .offer-stage-shot::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: 1.25rem;
+    box-shadow: 0 0 90px 22px color-mix(in oklab, var(--tint) 42%, transparent);
+    opacity: var(--glow, 0);
+  }
+}
+@keyframes offer-wiggle {
+  25% {
+    transform: rotate(-14deg) scale(1.15);
+  }
+  60% {
+    transform: rotate(10deg) scale(1.1);
+  }
+}
+
+/* The dial needs a margin to sit in, so only the widest screens get it. It is
+   fixed to the screen's right edge and turns by `--turn`; the feature in view
+   sits at its leftmost point with the biggest emoji, the rest shrinking and
+   fading as they turn away. Tap one to jump to it. */
+@media (width >= 80rem) {
+  /* Keeps the preview clear of the dial. 69rem is the content width. */
+  .offer-stage {
+    padding-right: max(0px, 17.75rem - (100vw - 69rem) / 2);
+  }
+  .offer-dial {
+    --turn: 0deg;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: 30;
+    display: block;
+    width: 250px;
+    height: 520px;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translate(105%, -50%);
+    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .offer-dial[data-on="true"] {
+    transform: translate(0, -50%);
+  }
+}
+.offer-dial-face {
+  position: absolute;
+  top: 45px;
+  left: 35px;
+  width: 430px;
+  height: 430px;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow:
+    -10px 0 0 0 color-mix(in oklab, var(--tint) 22%, var(--card)),
+    -6px 18px 44px -18px color-mix(in oklab, var(--tint) 55%, transparent);
+  transition: box-shadow 0.4s ease;
+}
+.offer-dial-wheel {
+  position: absolute;
+  top: 260px;
+  left: 250px;
+  transform: rotate(var(--turn));
+}
+.offer-dial-ticks {
+  position: absolute;
+  top: -215px;
+  left: -215px;
+  width: 430px;
+  height: 430px;
+  overflow: visible;
+}
+.offer-dial-ticks circle {
+  fill: none;
+  stroke: color-mix(in oklab, var(--tint) 35%, var(--card));
+  transition: stroke 0.4s ease;
+}
+.offer-dial-ticks .track {
+  stroke-width: 2;
+}
+.offer-dial-ticks .marks {
+  stroke-width: 9;
+  stroke-dasharray: 0.7 5.3;
+}
+.offer-knob {
+  --k: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 56px;
+  margin: -28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  font-size: 27px;
+  line-height: 56px;
+  cursor: pointer;
+  pointer-events: auto;
+  transform: rotate(var(--a)) translateX(175px)
+    rotate(calc(-1 * (var(--a) + var(--turn)))) scale(var(--k));
+}
+.offer-knob:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--tint) 70%, var(--primary-deep));
+}
+.offer-knob[aria-current] span {
+  display: inline-block;
+  animation: offer-wiggle 0.8s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview-sticker,
+  .preview-pin,
+  .offer-step[data-active] .offer-emoji,
+  .offer-knob[aria-current] span {
+    animation: none;
+  }
+  .offer-stage-shot,
+  .offer-dial,
+  .offer-dial-face,
+  .offer-dial-ticks circle {
+    transition: none;
+  }
+}
+
+/* How it works: the week as a road (how-it-works/FeatureRoad.tsx). The stops
+   stack by default. On a wide, tall enough screen the section holds still while
+   they drive past sideways under a backpack that stays put; `--glow` (1 at the
+   backpack, crossfading to 0 by the next stop) and `--d` (how many stops away,
+   signed) are written from the scroll. */
+/* Stacked, the stops keep the page's own width and side margins. */
+.road-stops {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  list-style: none;
+}
+@media (width >= 40rem) {
+  .road-stops {
+    padding: 0 1.5rem;
+  }
+}
+.road-stop {
+  padding-bottom: 3.5rem;
+}
+.road-sign {
+  margin: 0 0 1rem;
+}
+.road-sign b {
+  display: inline-block;
+  padding: 0.5rem 1rem 0.5625rem;
+  border-radius: 0.75rem;
+  background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.1;
+  transform: rotate(-3deg);
+  box-shadow: 0 4px 0 0 color-mix(in oklab, var(--tint) 45%, var(--primary-deep));
+}
+.road-sign i {
+  display: block;
+  width: 0.375rem;
+  height: 1.5rem;
+  margin-left: 1.625rem;
+  border-radius: 0 0 3px 3px;
+  background: color-mix(in oklab, var(--tint) 40%, var(--primary-deep));
+}
+.road-emoji {
+  display: inline-block;
+  font-size: 2.75rem;
+  line-height: 1;
+  transform-origin: 50% 80%;
+}
+.road-tick {
+  color: color-mix(in oklab, var(--tint) 85%, var(--primary-deep));
+}
+.road-shot {
+  max-width: 26rem;
+  margin: 2.25rem auto 0;
+  transform: rotate(var(--r, 0deg));
+}
+.road-shot.is-wide {
+  max-width: 30rem;
+}
+.road-tarmac,
+.road-rider,
+.road-dots {
+  display: none;
+}
+@media (width >= 48rem) {
+  .road-stop {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 3rem;
+    align-items: center;
+  }
+  .road-sign {
+    grid-column: 1 / -1;
+  }
+  .road-shot {
+    margin-top: 0;
+  }
+}
+@media (width >= 64rem) and (height >= 42rem) {
+  .road {
+    --road-stop: 60rem;
+    --road-edge: max(2rem, (100vw - 69rem) / 2);
+    position: relative;
+    height: calc((var(--stops) - 1) * 85dvh + 100dvh);
+  }
+  .road-frame {
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    overflow: hidden;
+  }
+  .road-track {
+    position: absolute;
+    inset: var(--site-bar-h) auto 0 0;
+    padding-left: var(--road-edge);
+    will-change: transform;
+  }
+  .road-stops {
+    display: flex;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .road-stop {
+    --glow: 0;
+    --d: 0;
+    position: relative;
+    flex: 0 0 var(--road-stop);
+    grid-template-columns: 23.75rem minmax(0, 1fr);
+    column-gap: 3.5rem;
+    height: 100%;
+    padding: 0 2.5rem 9rem 0;
+  }
+  /* Signs sway as they pass, and stand up straight at their stop. */
+  .road-sign {
+    position: absolute;
+    bottom: 5.75rem;
+    left: 5.25rem;
+    margin: 0;
+    transform: rotate(calc(var(--d) * -9deg));
+    transform-origin: 1.8rem 100%;
+  }
+  .road-sign i {
+    height: 2.875rem;
+  }
+  /* Depth: the words drift a little slower than the road, the card a little
+     faster, tipping as it comes and goes and settling at its own lean. */
+  .road-text {
+    position: relative;
+    isolation: isolate;
+    opacity: calc(0.3 + 0.7 * var(--glow));
+    transform: translateX(calc(var(--d) * -1.75rem));
+  }
+  .road-text::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -30px -36px;
+    border-radius: 48px;
+    background: color-mix(in oklab, var(--tint) 16%, transparent);
+    filter: blur(30px);
+    opacity: var(--glow);
+  }
+  .road-stop[data-active] .road-emoji {
+    animation: offer-wiggle 0.8s ease-in-out;
+  }
+  .road-shot {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    opacity: calc(0.4 + 0.6 * var(--glow));
+    transform: translateX(calc(var(--d) * 4.375rem)) translateY(calc((1 - var(--glow)) * 1.375rem))
+      rotate(calc(var(--r) + var(--d) * 7deg)) scale(calc(0.93 + 0.07 * var(--glow)));
+  }
+  .road-shot::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: 1.25rem;
+    box-shadow: 0 0 90px 22px color-mix(in oklab, var(--tint) 40%, transparent);
+    opacity: var(--glow);
+  }
+  .road-tarmac {
+    position: absolute;
+    bottom: 2.125rem;
+    left: 0;
+    display: block;
+    width: calc((var(--stops) - 1) * var(--road-stop) + 100vw);
+    height: 6rem;
+    overflow: visible;
+    pointer-events: none;
+  }
+  .road-tarmac path {
+    fill: none;
+    stroke-linecap: round;
+  }
+  .road-tarmac .tar {
+    stroke: color-mix(in oklab, var(--primary-deep) 13%, var(--card));
+    stroke-width: 54;
+  }
+  .road-tarmac .lines {
+    stroke: var(--card);
+    stroke-width: 4;
+    stroke-dasharray: 22 18;
+  }
+  /* The backpack stays put; the road moves under it. */
+  .road-rider {
+    --lean: 0deg;
+    position: absolute;
+    bottom: 4.375rem;
+    left: var(--road-edge);
+    z-index: 3;
+    display: block;
+    font-size: 3.375rem;
+    line-height: 1;
+    transform: scaleX(-1) rotate(calc(-1 * var(--lean)));
+    transform-origin: 50% 100%;
+    transition: transform 0.3s ease;
+  }
+  .road-rider span {
+    display: inline-block;
+  }
+  .road-rider[data-moving] span {
+    animation: road-trot 0.28s ease-in-out infinite alternate;
+  }
+  /* Centred under the road, clear of the WhatsApp button in the corner. */
+  .road-dots {
+    position: absolute;
+    bottom: 0.625rem;
+    left: 50%;
+    z-index: 3;
+    translate: -50% 0;
+    display: flex;
+    gap: 0.375rem;
+  }
+  .road-dots button {
+    padding: 0.25rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background: none;
+    font-size: 1.375rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.4;
+    transition:
+      transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+      opacity 0.3s ease;
+  }
+  .road-dots button:hover,
+  .road-dots button[aria-current] {
+    opacity: 1;
+  }
+  .road-dots button[aria-current] {
+    transform: scale(1.35) translateY(-3px);
+  }
+  .road-dots button:focus-visible {
+    outline: 3px solid color-mix(in oklab, var(--primary) 70%, var(--primary-deep));
+  }
+}
+@keyframes road-trot {
+  to {
+    transform: translateY(-6px) rotate(4deg);
+  }
+}
+
+/* How it works: the four extras under the road. */
+.hiw-extra-emoji {
+  display: inline-block;
+  font-size: 2.5rem;
+  line-height: 1;
+  transform-origin: 50% 80%;
+}
+.hiw-extra:hover .hiw-extra-emoji {
+  animation: offer-wiggle 0.8s ease-in-out;
+}
+
+/* Still the road and still the crossfade, but nothing tips, drifts or sways. */
+@media (prefers-reduced-motion: reduce) {
+  .road-stop[data-active] .road-emoji,
+  .road-rider[data-moving] span,
+  .hiw-extra:hover .hiw-extra-emoji {
+    animation: none;
+  }
+  .road-text,
+  .road-sign {
+    transform: none;
+  }
+  .road-shot {
+    transform: rotate(var(--r, 0deg));
+  }
+  .road-rider,
+  .road-dots button {
+    transition: none;
+  }
+}

@@ -48,27 +48,12 @@ const OUTCOMES = [
   },
 ] as const;
 
-const TONES: Record<string, { chip: string; ring: string; text: string }> = {
-  rose: {
-    chip: "bg-rose-50 border-rose-200 hover:border-rose-400 text-rose-700",
-    ring: "ring-rose-400",
-    text: "text-rose-600",
-  },
-  amber: {
-    chip: "bg-amber-50 border-amber-200 hover:border-amber-400 text-amber-700",
-    ring: "ring-amber-400",
-    text: "text-amber-600",
-  },
-  teal: {
-    chip: "bg-primary/5 border-primary/25 hover:border-primary text-[var(--primary-deep)]",
-    ring: "ring-primary",
-    text: "text-[var(--primary-deep)]",
-  },
-  emerald: {
-    chip: "bg-emerald-50 border-emerald-200 hover:border-emerald-400 text-emerald-700",
-    ring: "ring-emerald-400",
-    text: "text-emerald-600",
-  },
+/** Each outcome's colour, from the kit's tints rather than Tailwind's palette. */
+const TONES: Record<string, string> = {
+  rose: "tint-rose",
+  amber: "tint-amber",
+  teal: "tint-primary",
+  emerald: "tint-emerald",
 };
 
 interface Step {
@@ -124,18 +109,16 @@ export function RevisitSimulator() {
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-8 items-stretch">
       {/* ---- The quiz ---- */}
-      <div className="rounded-3xl border border-border/80 bg-white p-5 sm:p-7 shadow-[0_20px_60px_-35px_rgba(15,23,42,0.4)]">
-        <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground/70">
+      <div className="premium-card tint-primary p-5 sm:p-7">
+        <p className="preview-kicker">
           {steps.length === 0 ? "This week's quiz" : `Revisit ${steps.length}`}
-        </span>
-        <h3 className="mt-2 font-display text-xl font-bold text-foreground">
+        </p>
+        <h3 className="font-display text-foreground mt-1 text-2xl font-extrabold">
           Osmosis in plant cells
         </h3>
-        <p className="mt-1 text-xs font-medium text-muted-foreground/70">
-          GCSE Biology · spec point B1.3 · AQA
-        </p>
+        <p className="preview-meta">GCSE Biology · spec point B1.3 · AQA</p>
 
-        <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+        <p className="text-foreground mt-6 text-base leading-relaxed font-semibold">
           {steps.length === 0
             ? "Say your child has just sat the weekly quiz on this topic. How did it go?"
             : "They've come back to it. How did it go this time?"}
@@ -143,16 +126,15 @@ export function RevisitSimulator() {
 
         <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
           {OUTCOMES.map((o) => {
-            const tone = TONES[o.tone];
             return (
               <button
                 key={o.id}
                 type="button"
                 onClick={() => answer(o)}
-                className={`group cursor-pointer rounded-2xl border px-4 py-3.5 text-left transition-all duration-200 hover:-translate-y-0.5 ${tone.chip}`}
+                className={`btn-soft ${TONES[o.tone]} cursor-pointer rounded-2xl px-4 py-3.5 text-left`}
               >
-                <span className="block text-sm font-bold">{o.label}</span>
-                <span className="mt-0.5 block text-[11px] font-medium opacity-70 tabular-nums">
+                <span className="block text-base font-extrabold">{o.label}</span>
+                <span className="text-foreground mt-0.5 block text-sm font-semibold tabular-nums">
                   {o.band}
                 </span>
               </button>
@@ -164,7 +146,7 @@ export function RevisitSimulator() {
           <button
             type="button"
             onClick={reset}
-            className="mt-5 inline-flex min-h-11 cursor-pointer items-center gap-1.5 text-xs font-semibold text-muted-foreground/70 transition hover:text-foreground sm:pointer-fine:min-h-0"
+            className="text-muted-foreground hover:text-foreground mt-5 inline-flex min-h-11 cursor-pointer items-center gap-1.5 text-sm font-semibold transition sm:pointer-fine:min-h-0"
           >
             <RotateCcw className="h-3.5 w-3.5" /> Start again
           </button>
@@ -172,14 +154,11 @@ export function RevisitSimulator() {
       </div>
 
       {/* ---- The response ---- */}
-      <div className="relative flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-[var(--primary-deep)] to-primary p-5 sm:p-7 text-white shadow-[0_30px_70px_-30px_rgba(6,78,90,0.85)]">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-white/10 blur-3xl"
-        />
-        <span className="relative text-[11px] font-bold uppercase tracking-widest text-white/60">
-          What the planner does
+      <div className="tint-pop relative flex flex-col rounded-3xl bg-[var(--primary-deep)] p-5 text-white sm:p-7">
+        <span aria-hidden className="preview-sticker" style={{ top: "1rem", right: "1rem" }}>
+          🗓️
         </span>
+        <p className="relative text-sm font-extrabold text-[var(--pop)]">What the planner does</p>
 
         <div className="relative mt-4 flex-1">
           <AnimatePresence mode="wait">
@@ -189,7 +168,7 @@ export function RevisitSimulator() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="text-base leading-relaxed text-white/70"
+                className="text-base leading-relaxed font-semibold text-white"
               >
                 Pick an outcome to see this point's earliest weekly review slot. Your child's actual
                 assignment also depends on the exam date and any saved weekly plan.
@@ -202,7 +181,7 @@ export function RevisitSimulator() {
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               >
-                <p className="text-sm font-medium text-white/70">We'll bring it back in</p>
+                <p className="text-base font-semibold text-white">We'll bring it back in</p>
                 <div className="mt-1 flex items-baseline gap-2">
                   <span
                     className="font-display text-6xl font-bold leading-none tracking-tight tabular-nums"
@@ -210,9 +189,9 @@ export function RevisitSimulator() {
                   >
                     {gap!.value}
                   </span>
-                  <span className="font-display text-2xl font-bold text-white/70">{gap!.unit}</span>
+                  <span className="font-display text-2xl font-extrabold">{gap!.unit}</span>
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-white/80">{lastOutcome?.blurb}</p>
+                <p className="mt-4 text-base leading-relaxed font-semibold">{lastOutcome?.blurb}</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -220,11 +199,9 @@ export function RevisitSimulator() {
 
         {/* Running history — the widening (or collapsing) gaps made visible */}
         {steps.length > 0 && (
-          <div className="relative mt-6 border-t border-white/15 pt-5">
-            <span className="text-[11px] font-bold uppercase tracking-widest text-white/50">
-              Their timeline so far
-            </span>
-            <div className="mt-3 flex flex-wrap items-center gap-x-1.5 gap-y-2">
+          <div className="relative mt-7">
+            <p className="text-sm font-extrabold text-[var(--pop)]">Their timeline so far</p>
+            <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
               {steps.map((s, i) => {
                 const g = humanGap(s.gapDays);
                 return (
@@ -235,10 +212,8 @@ export function RevisitSimulator() {
                     transition={{ duration: 0.3 }}
                     className="flex items-center gap-1.5"
                   >
-                    <span className="rounded-lg bg-white/15 px-2.5 py-1 text-[11px] font-semibold whitespace-nowrap">
-                      {s.label}
-                    </span>
-                    <span className="inline-flex items-center gap-1 text-[11px] font-medium text-white/55 whitespace-nowrap">
+                    <span className="text-sm font-bold whitespace-nowrap">{s.label}</span>
+                    <span className="inline-flex items-center gap-1 text-sm font-bold whitespace-nowrap text-[var(--pop)]">
                       <ArrowRight className="h-3 w-3" />
                       {g.value} {g.unit}
                     </span>
@@ -246,7 +221,7 @@ export function RevisitSimulator() {
                 );
               })}
             </div>
-            <p className="mt-4 text-xs leading-relaxed text-white/60">
+            <p className="mt-4 text-sm leading-relaxed text-white">
               Keep answering to see the earliest eligible weekly slots. Reviews wait at least seven
               days; the exam date and saved weekly plan can affect the actual assignment.
             </p>
