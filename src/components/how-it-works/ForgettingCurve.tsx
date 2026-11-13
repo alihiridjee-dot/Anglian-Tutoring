@@ -99,10 +99,7 @@ export function ForgettingCurve() {
   const show = inView ? "shown" : "hidden";
 
   return (
-    <figure
-      ref={ref}
-      className="relative rounded-3xl border border-border/80 bg-white/90 backdrop-blur-xl p-5 sm:p-8 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)]"
-    >
+    <figure ref={ref} className="premium-card relative p-5 sm:p-8">
       {/* Legend */}
       <figcaption className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
@@ -110,13 +107,13 @@ export function ForgettingCurve() {
             <span className="h-2.5 w-5 rounded-full bg-primary" />
             With our revisit schedule
           </span>
-          <span className="inline-flex items-center gap-2 font-semibold text-muted-foreground/70">
+          <span className="inline-flex items-center gap-2 font-semibold text-muted-foreground">
             <span className="h-2.5 w-5 rounded-full bg-border" />
             Revised once, never revisited
           </span>
         </div>
-        <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground/70">
-          How much they'd still recall
+        <span className="text-foreground text-sm font-semibold">
+          How much they&apos;d still recall
         </span>
       </figcaption>
 
@@ -129,13 +126,6 @@ export function ForgettingCurve() {
           role="img"
           aria-label={`Over four months, a topic revised once but never revisited decays to about ${END_NEGLECTED} percent recall, while the same topic on our automatic revisit schedule stays around ${END_REVISITED} percent.`}
         >
-          <defs>
-            <linearGradient id="fc-fill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.22" />
-              <stop offset="100%" stopColor="var(--primary)" stopOpacity="0.01" />
-            </linearGradient>
-          </defs>
-
           {/* Horizontal grid + y labels */}
           {Y_TICKS.map((t) => (
             <g key={t}>
@@ -227,7 +217,8 @@ export function ForgettingCurve() {
           {/* Revisited curve + fill */}
           <motion.path
             d={REVISITED_AREA}
-            fill="url(#fc-fill)"
+            fill="var(--primary)"
+            fillOpacity="0.08"
             stroke="none"
             initial="hidden"
             animate={show}
