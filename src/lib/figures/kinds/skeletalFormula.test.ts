@@ -2,9 +2,11 @@ import { describe, expect, test } from "bun:test";
 import { readBrief } from "../figureBrief";
 import { checkFigure } from "../figureCheck";
 import { drawWithCode } from "../figureDraw";
-import { skeletalFormula } from "./skeletalFormula";
+import { skeletalFormula, type SkeletalBrief } from "./skeletalFormula";
 
-const [painkiller, ketone, haloalkane] = skeletalFormula.samples.map((s) => s.brief);
+const [painkiller, ketone, haloalkane] = skeletalFormula.samples.map(
+  (s) => s.brief as unknown as SkeletalBrief,
+);
 const drawn = (brief: unknown) => drawWithCode(brief as never)!.svg;
 const problemsOf = (svg: string, brief: unknown) => checkFigure(svg, brief as never).problems;
 const problem = (value: unknown) => {
