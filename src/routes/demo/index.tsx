@@ -30,7 +30,7 @@ function DemoPage() {
       <div className="absolute top-4 left-4 z-10 sm:top-6 sm:left-6">
         <Link
           to="/"
-          className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground transition px-3 py-1.5 rounded-lg hover:bg-secondary"
+          className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-foreground transition px-3 py-1.5 rounded-lg hover:bg-secondary"
         >
           <ArrowLeft className="w-4 h-4" /> Back to home
         </Link>
@@ -43,7 +43,7 @@ function DemoPage() {
         <h1 className="font-display max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl">
           See how Anglia Educate works
         </h1>
-        <p className="text-muted-foreground max-w-xl">
+        <p className="max-w-xl text-foreground">
           Take the guided tour for a two-minute walk through everything, or pick a side and explore
           on your own.
         </p>
@@ -59,39 +59,33 @@ function DemoPage() {
         </button>
       </div>
 
-      <div className="flex-1 grid grid-cols-1 md:grid-cols-2">
-        <div className="flex items-center justify-center p-6 sm:p-12 md:p-16 border-b md:border-b-0 md:border-r border-border">
-          <DemoCard
-            to="/demo/student/dashboard"
-            tone="student"
-            icon={<GraduationCap className="w-7 h-7" />}
-            title="Student Demo"
-            blurb="See the platform as Alex, a GCSE student taking Biology, Chemistry and Physics, each with its own exam board."
-            points={[
-              "A weekly plan that covers the whole course before the exam",
-              "Quizzes that mark themselves, with an explanation for every answer",
-              "Tasks answered online, marked with written feedback",
-              "Live Zoom lessons and direct messages with the tutor",
-            ]}
-            cta="Explore Student Platform"
-          />
-        </div>
-
-        <div className="flex items-center justify-center p-6 sm:p-12 md:p-16">
-          <DemoCard
-            to="/demo/parent/dashboard"
-            tone="parent"
-            icon={<Users className="w-7 h-7" />}
-            title="Parent Demo"
-            blurb="See what a parent sees: their child's progress, attendance and the tutor's feedback, all in one place."
-            points={[
-              "Predicted grades on the 9–1 scale for each subject",
-              "Weekly quiz trends, lesson attendance and tasks handed in",
-              "Every comment the tutor writes on marked tasks",
-            ]}
-            cta="Explore Parent Platform"
-          />
-        </div>
+      <div className="relative z-10 mx-auto grid w-full max-w-4xl grid-cols-1 items-stretch gap-6 px-6 py-12 md:grid-cols-2 md:gap-8">
+        <DemoCard
+          to="/demo/student/dashboard"
+          tint="tint-emerald"
+          icon={<GraduationCap className="size-7" />}
+          title="Student demo"
+          blurb="Be Alex, a GCSE student taking Biology, Chemistry and Physics."
+          points={[
+            "A weekly plan that covers the whole course",
+            "Quizzes that mark themselves and explain why",
+            "Marked tasks, live Zoom lessons and messages",
+          ]}
+          cta="Explore as a student"
+        />
+        <DemoCard
+          to="/demo/parent/dashboard"
+          tint="tint-primary"
+          icon={<Users className="size-7" />}
+          title="Parent demo"
+          blurb="See your child's progress, attendance and feedback in one place."
+          points={[
+            "Predicted 9–1 grades for each subject",
+            "Quiz trends, attendance and tasks handed in",
+            "Every comment the tutor writes",
+          ]}
+          cta="Explore as a parent"
+        />
       </div>
     </div>
   );
@@ -99,7 +93,7 @@ function DemoPage() {
 
 function DemoCard({
   to,
-  tone,
+  tint,
   icon,
   title,
   blurb,
@@ -107,52 +101,37 @@ function DemoCard({
   cta,
 }: {
   to: string;
-  tone: "student" | "parent";
+  tint: string;
   icon: React.ReactNode;
   title: string;
   blurb: string;
   points: string[];
   cta: string;
 }) {
-  const isStudent = tone === "student";
   return (
     <Link
       to={to}
-      className={`group max-w-md w-full bg-secondary/50 hover:bg-secondary/80 border border-border rounded-3xl p-6 sm:p-10 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between min-h-[460px] ${
-        isStudent ? "hover:border-emerald-200/60" : "hover:border-primary/20"
-      }`}
+      className={`${tint} premium-card premium-card-interactive group flex h-full flex-col p-7 sm:p-9`}
     >
-      <div>
-        <div
-          className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 ${
-            isStudent ? "bg-emerald-50 text-emerald-600" : "bg-primary/5 text-primary"
-          }`}
-        >
-          {icon}
-        </div>
-        <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight mb-3">
-          {title}
-        </h2>
-        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-8">{blurb}</p>
+      <span className="icon-tile size-14 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
+        {icon}
+      </span>
+      <h2 className="mt-6 text-3xl font-extrabold">{title}</h2>
+      <p className="mt-2 text-lg text-foreground">{blurb}</p>
 
-        <ul className="space-y-3.5 mb-8 text-sm text-muted-foreground">
-          {points.map((p) => (
-            <li key={p} className="flex items-start gap-3">
-              <span
-                className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
-                  isStudent ? "bg-emerald-50 text-emerald-600" : "bg-primary/5 text-primary"
-                }`}
-              >
-                <Check className="w-3.5 h-3.5" />
-              </span>
-              <span>{p}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className="mt-6 mb-8 space-y-3 text-base font-medium text-foreground">
+        {points.map((p) => (
+          <li key={p} className="flex items-start gap-3">
+            <span className="icon-tile icon-tile-solid mt-0.5 size-6 shrink-0 rounded-full">
+              <Check className="size-3.5" strokeWidth={3} />
+            </span>
+            <span>{p}</span>
+          </li>
+        ))}
+      </ul>
 
-      <span className="btn-solid flex w-full items-center justify-center gap-2 rounded-xl py-4 transition-all duration-200">
-        {cta} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+      <span className="btn-solid mt-auto flex w-full items-center justify-center gap-2 rounded-xl py-4 text-lg">
+        {cta} <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
       </span>
     </Link>
   );
