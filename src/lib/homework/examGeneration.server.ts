@@ -2,6 +2,7 @@ import "@tanstack/react-start/server-only";
 import Anthropic from "@anthropic-ai/sdk";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
+import { layOutStructures } from "@/lib/structures/layout.server";
 import {
   FRAMEWORK_VERSION,
   buildGenerationPrompt,
@@ -219,6 +220,8 @@ function readQuestions(
   } catch {
     throw new Error("AI returned invalid JSON");
   }
+  // A skeletal formula arrives as SMILES alone: its drawing is laid out here.
+  if (figures) layOutStructures(value);
   return validateQuestions(value, count, format, figures);
 }
 

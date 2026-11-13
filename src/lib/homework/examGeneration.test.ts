@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import {
+  STRUCTURES_GUIDE,
   buildGenerationPrompt,
   generationSchema,
   selectExamples,
@@ -542,5 +543,50 @@ describe("figures, for the practice queue's sets only", () => {
       undefined,
       "is one more than the 2 a set may have",
     ]);
+  });
+});
+
+describe("an example that carries a structure the paper drew", () => {
+  const carried = example("carried", {
+    shared_context: "Glycine exists as a zwitterion, shown below.\n⟦skeletal: [NH3+]CC(=O)[O-]⟧",
+    prompt: "Explain why glycine has a high melting point. Its formula is C2H5NO2.",
+  });
+  const withCarried = { ...context, examples: [carried, example("plain")] };
+
+  test("is left out of a set that cannot draw", () => {
+    expect(selectExamples(withCarried).map((e) => e.id)).toEqual(["plain"]);
+    const prompt = buildGenerationPrompt(withCarried, 2, "written");
+    expect(prompt.user).not.toContain("⟦");
+    expect(prompt.user).not.toContain(STRUCTURES_GUIDE);
+  });
+
+  test("reaches a set with figures as written, with what it means", () => {
+    const prompt = buildGenerationPrompt(withCarried, 2, "written", "", true);
+    expect(prompt.examples.map((e) => e.id).sort()).toEqual(["carried", "plain"]);
+    // The SMILES is untouched; the formula beside it is still tidied.
+    expect(prompt.user).toContain("⟦skeletal: [NH3+]CC(=O)[O-]⟧");
+    expect(prompt.user).toContain("C₂H₅NO₂");
+    expect(prompt.user).toContain(STRUCTURES_GUIDE);
+  });
+
+  test("the guide is not sent when no example carries a structure", () => {
+    const prompt = buildGenerationPrompt(
+      { ...context, examples: [example("plain")] },
+      2,
+      "written",
+      "",
+      true,
+    );
+    expect(prompt.user).not.toContain(STRUCTURES_GUIDE);
+  });
+
+  test("a new question that prints a structure as text is refused", () => {
+    expect(() =>
+      validateQuestions(
+        { questions: [{ ...written, prompt: "Name the compound ⟦skeletal: CCO⟧." }] },
+        1,
+        "written",
+      ),
+    ).toThrow("Question 1 prints a drawn structure as text");
   });
 });
