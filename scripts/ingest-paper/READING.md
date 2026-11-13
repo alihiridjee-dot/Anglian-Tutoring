@@ -200,6 +200,74 @@ numbers must all still be the question's own.
 
 Never adjust marks or text to make a check pass.
 
+## Carrying drawn structures
+
+Section 4 skips every part that needs a figure. One kind of figure can be
+carried instead: a drawn organic structure, because a molecule can be written
+down exactly. An organic paper is mostly such parts, and skipping them leaves
+the library with a third of the paper.
+
+A structure goes into the text as a token, where the paper prints the drawing:
+
+    ⟦skeletal: CC(O)C(C)(O)CO⟧
+    ⟦displayed: CC(=O)O⟧
+
+The word is how the paper drew it: `skeletal` for zig-zag lines, `displayed`
+when the atoms and bonds are written out. After the colon is the molecule as
+SMILES. A structure the paper prints as text (CH₃CH(OH)CH₃) is text already and
+stays as printed.
+
+- **One token per drawing, exactly the drawn molecule.** Count every corner.
+  Write a charge the drawing shows. Write stereochemistry only where the
+  drawing shows it: wedges as `@`/`@@`, and the geometry of a double bond that
+  has E and Z forms as `/` and `\`. A benzene ring is aromatic SMILES whether it
+  is drawn with a circle or with alternating bonds.
+- **The token replaces the drawing and nothing else.** Every other word is
+  still the paper's own, in its place: the caption under a drawing, the letters
+  of a multiple-choice table, the `+ 3[O] →` between two drawings, the ✓ beside
+  a drawn answer. Atom labels the text layer lifted off the drawing ("HO N")
+  are part of the drawing: delete them.
+- **A drawn option is an option whose text is its token.** A drawn answer is a
+  token in the mark scheme, on the line where the scheme draws it.
+- **Words printed inside a drawing are listed.** An equation drawn as one
+  picture has its `+ 3[O] →` and `+ 2H₂O` in no text layer. Write them in place
+  from the page, and list them on the row so the check knows where they came
+  from: `"picture_text": ["+ 3[O] →", "+ 2H₂O"]`.
+- **A drawing that is not a whole molecule is left out,** with any labels the
+  text layer lifted off it: a bare bond to "OH" in the guidance, an arrow, a
+  box. The sentence it illustrates stays.
+- **A flowchart of whole molecules that the candidate does not write on is
+  carried:** its tokens and printed labels ("Stage 1", "Intermediate 1") in the
+  order its arrows run. The arrows are not written.
+- A drawing is `skeletal` when the carbons of its chain or ring are corners,
+  whatever groups are written on it (OH, COOH, OCH₃, NH₂), and `displayed`
+  when its carbons are written as letters (C, CH, H₃C).
+- A salt is written as it is drawn: "ONa" with no charges is `O[Na]`, and ions
+  drawn with their charges are `[O-].[Na+]`.
+- Say what the tokens stand for on the row, in your own words:
+  `"structures_carried": "compound C in the stem; the oxidation product in the scheme"`.
+  That is what lets the check keep a part the extractor marked as needing its
+  figure.
+
+Still skipped, because a token cannot hold them: a mechanism (curly arrows,
+dipoles, lone pairs), a spectrum, a chromatogram, a graph, apparatus, a
+polymer's repeat unit with its open bonds, a complex ion's shape, a
+dot-and-cross diagram, and any drawing the candidate is asked to complete or
+annotate. A part is carried only when every drawing it needs is a whole
+molecule.
+
+A structure is read off a picture, so the page's text cannot vouch for it. Two
+readers who do not see each other's work each carry the paper, and
+`structures.ts` holds them to each other:
+
+    bun scripts/ingest-paper/structures.ts check papers/structures/a/<stem>.json
+    bun scripts/ingest-paper/structures.ts compare papers/structures/a/<stem>.json papers/structures/b/<stem>.json
+    bun scripts/ingest-paper/structures.ts merge papers/done/<stem>.json papers/structures/a/<stem>.json papers/structures/<stem>.json
+
+A part the two disagree on is looked at again on the page, and stays skipped
+if it cannot be settled. The merged paper then goes through `check_rows.py`
+like any other.
+
 ## 7. Load it
 
     bun run scripts/ingest-paper/load-exemplars.ts papers/<stem>.json

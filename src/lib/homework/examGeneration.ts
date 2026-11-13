@@ -1,6 +1,7 @@
 /** Pure selection, prompting and response validation; no credentials or DB access. */
 import { toSciNotationTogether } from "@/lib/platform/sciNotation";
 import { flattenedLayout } from "@/lib/platform/textBlocks";
+import { STRUCTURE_TOKEN } from "@/lib/structures/structure";
 import type { KnownBrief } from "@/lib/figures/figure";
 import {
   FIGURE_FIELD,
@@ -70,6 +71,15 @@ export type GenerationContext = {
 
 const rank = { exact: 3, topic: 2, style: 1 };
 
+const exampleTexts = (e: ExamExample) => [
+  e.shared_context ?? "",
+  e.prompt,
+  e.mark_scheme ?? "",
+  ...(e.options ?? []).map((o) => (typeof o === "string" ? o : o.text)),
+];
+/** Whether the paper drew a structure in this example (lib/structures). */
+const carriesStructure = (e: ExamExample) => exampleTexts(e).some((t) => t.includes("⟦"));
+
 const isMcq = (e: ExamExample) => e.question_format === "mcq" || !!e.options;
 
 function dimensions(e: ExamExample): string[] {
@@ -94,6 +104,9 @@ function dimensions(e: ExamExample): string[] {
  * something the chosen ones do not — a new command word, objective, size or demand —
  * up to `limit`. A point with thirty look-alike questions stops at the minimum; one
  * with thirty varied questions gets up to the limit.
+ *
+ * An example that carries a drawn structure (⟦skeletal: …⟧) is left out unless
+ * `structures` says the set can draw one.
  */
 export function selectExamples(
   context: GenerationContext,
@@ -101,11 +114,15 @@ export function selectExamples(
   characterBudget = 36000,
   format?: GenerationFormat,
   minimum = 5,
+  structures = false,
 ): ExamExample[] {
   const p = context.point;
   const complete = context.examples.filter(
     (e) =>
       e.approved_at &&
+      // A structure the paper drew can only be answered with a drawing: an
+      // example that carries one is for a set that may have figures.
+      (structures || !carriesStructure(e)) &&
       !e.needs_image &&
       e.flags.length === 0 &&
       e.prompt.trim() &&
@@ -156,12 +173,14 @@ export function selectExamples(
 }
 
 function exampleForPrompt(e: ExamExample) {
-  const [shared, question, scheme, ...options] = toSciNotationTogether([
-    e.shared_context ?? "",
-    e.prompt,
-    e.mark_scheme ?? "",
-    ...(e.options ?? []).map((o) => (typeof o === "string" ? o : o.text)),
-  ]);
+  // A carried structure is SMILES, not a formula: "[NH3+]" must reach the
+  // model as written, so each one steps aside while the notation is tidied.
+  const structures: string[] = [];
+  const [shared, question, scheme, ...options] = toSciNotationTogether(
+    exampleTexts(e).map((t) =>
+      t.replace(STRUCTURE_TOKEN, (token) => `⟦${structures.push(token) - 1}⟧`),
+    ),
+  ).map((t) => t.replace(/⟦(\d+)⟧/g, (_, i: string) => structures[Number(i)]));
   return {
     id: e.id,
     relevance: e.grounding,
@@ -217,6 +236,13 @@ export const MARK_SCHEME_LAYOUT = `Lay out each mark_scheme as plain lines, one 
 - Acceptable alternatives, rejections, error carried forward and other conditions come after the points they qualify, under a "Guidance:" line, one per line starting "- ".
 - Wrap each key scientific term a student must use in double asterisks, the first time it appears in a point: "- **Alleles** are different versions of a **gene** (1)". Mark single terms or short names only, one to three per point, never a whole sentence, a part label, a level label, a credit or the words Accept, Allow or Do not.`;
 
+/**
+ * What a carried structure in an example means, sent only when one is there:
+ * the paper drew it, so the new question draws its own and never prints one.
+ */
+export const STRUCTURES_GUIDE = `DRAWN STRUCTURES
+In the examples, ⟦skeletal: …⟧ or ⟦displayed: …⟧ stands for a structure the exam paper drew, written here as SMILES. A student never sees it as text. When your own question needs a drawn structure, give it as a figure of kind "skeletal-formula", or as option_figures when the four answers are structures, and refer to it as a paper does ("The structure of compound X is shown."). A figure shows one molecule: name any other compound, or write its structural formula (CH₃CH(OH)CH₃). Where an example's mark scheme draws its answer, your mark scheme gives the answer's name and its structural formula, since a student types an answer and cannot draw. Never write ⟦, ⟧ or a SMILES string in a question, an option, an explanation or a mark scheme.`;
+
 const block = (name: string, value: unknown) =>
   `<${name}>\n${JSON.stringify(value).replace(/</g, "\\u003c")}\n</${name}>`;
 
@@ -235,7 +261,7 @@ export function buildGenerationPrompt(
   if (!Number.isInteger(count) || count < 1 || count > 20)
     throw new Error("Invalid question count");
   if (!context.point.title.trim()) throw new Error("Curriculum title is missing");
-  const examples = selectExamples(context, undefined, undefined, format);
+  const examples = selectExamples(context, undefined, undefined, format, undefined, figures);
   const grounding = examples.length
     ? [...new Set(examples.map((e) => e.grounding))].join("+")
     : "curriculum_only";
@@ -254,6 +280,7 @@ export function buildGenerationPrompt(
       ...(format === "written" ? [MARK_SCHEME_LAYOUT] : []),
       ...(figures ? [FIGURE_GUIDE] : []),
       ...(figures && format === "mcq" ? [OPTION_FIGURES_GUIDE] : []),
+      ...(examples.some(carriesStructure) ? [STRUCTURES_GUIDE] : []),
       "For each item record assessment_objectives (AO1/AO2/AO3 where applicable), mathematical_demand and practical_demand separately. These are internal labels, not student-facing text.",
     ].join("\n\n"),
   };
@@ -403,6 +430,14 @@ export function validateQuestions(
   for (const [i, q] of questions.entries()) {
     const n = i + 1;
     if (!q || typeof q !== "object") throw new Error(`Question ${n} is not a question`);
+    // A structure carried from a past paper is a drawing: as text it is noise to a student.
+    const printed = q as unknown as Record<string, unknown>;
+    if (
+      [printed.prompt, printed.question, printed.mark_scheme, printed.explanation, printed.options]
+        .flat()
+        .some((t) => typeof t === "string" && /[⟦⟧]/.test(t))
+    )
+      throw new Error(`Question ${n} prints a drawn structure as text`);
     if (
       !Array.isArray(q.assessment_objectives) ||
       !q.assessment_objectives.every((a: unknown) => ["AO1", "AO2", "AO3"].includes(String(a))) ||

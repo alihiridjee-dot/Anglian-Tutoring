@@ -33,6 +33,15 @@ is decoration and the question stands without it. Say so on the row with
 who has put a stacked fraction or formula back in reading order from the page
 says so with "page_checked": "<what was reordered>"; its words must still all
 be the question's own.
+
+A drawn structure carried as SMILES ("⟦skeletal: CCO⟧", READING.md) is the
+reader's reading of a picture, so no text layer can hold it: the words around
+it are still held to the page, and structures.ts holds the structure itself. A
+part that needs its figure only for such structures is kept when the row says
+what was drawn, "structures_carried": "<the drawings it stands for>". Words
+printed inside such a drawing (the "+ 3[O] →" between two drawn structures) are
+in no text layer either: the row lists them, "picture_text": ["+ 3[O] →"], and
+two readers must have read the same ones (structures.ts compare).
 """
 import collections
 import csv
@@ -57,6 +66,14 @@ def norm(t):
     punctuation the text layer mangles never count against a row."""
     t = unicodedata.normalize("NFKC", (t or "").translate(X.SYMBOL_PUA).translate(SCRIPTS).translate(LOOKALIKE)).lower()
     return re.sub(r"[^0-9a-zͰ-Ͽ]+", "", t)
+
+
+STRUCTURE = re.compile("⟦[^⟧]*⟧?|⟧")
+
+
+def unstructured(t):
+    """The text without the structures it carries: what must be the page's own."""
+    return STRUCTURE.sub(" ", t or "")
 
 
 ONLY_ANSWER = re.compile(r"\bthe only correct answer is\b|\bonly correct answer\b", re.I)
@@ -105,7 +122,7 @@ def chunks(text, scheme=False):
     "Guidance:" heading taken off. In a mark scheme a mark, "(1)", may sit in
     the answer or in the mark column, so marks never count either way."""
     out = []
-    for line in (text or "").split("\n"):
+    for line in unstructured(text).split("\n"):
         line = re.sub(r"^\s*Guidance:\s*", "", line)
         if scheme:
             line = MARK.sub(" ", line)
@@ -193,6 +210,7 @@ def check(rows_path, x=None):
         texts = [row.get(f) or "" for f in ("shared_context", "prompt", "mark_scheme")] + \
             [str(o.get("text") if isinstance(o, dict) else o) for o in row.get("options") or []]
         # ...and Indic letters a broken maths font maps symbols to ("ൊ" for ÷, "ଷ").
+        carried = bool(row.get("structures_carried")) and any(STRUCTURE.search(x_) for x_ in texts)
         if any(re.search("[\ue000-\uf8ff\x00-\x08\x0b-\x1f\u0900-\u0dff]", x_) for x_ in texts):
             flags.append("unmapped symbol (private-use character) left in the text")
         # A formula's atom counts are lowered; raised after an element with no
@@ -218,6 +236,8 @@ def check(rows_path, x=None):
         if part["marks"] is not None and row.get("marks") != part["marks"]:
             flags.append(f"marks {row.get('marks')} but the paper prints {part['marks']}")
         qtext, qbag = question_text(part["q"])
+        # Words read off a drawing a carried row stands for: they count as the part's own.
+        picture = words("\n".join(row.get("picture_text") or [])) if carried else collections.Counter()
         for field in ("shared_context", "prompt"):
             table_lines = {l for l in (row.get(field) or "").split("\n") if "|" in l}
             for piece, n in chunks(row.get(field)):
@@ -229,14 +249,14 @@ def check(rows_path, x=None):
                 # Re-laid but not rewritten: a table as rows, sentences joined,
                 # a list flattened, a stacked fraction on one line. Every word
                 # and number is still this question's own; new words are not.
-                if contains(qbag, piece):
+                if contains(qbag + picture, piece):
                     continue
                 where = "from another question" if n in whole_qp else "not on the paper"
                 flags.append(f"{field} {where}: “{piece[:60]}”")
         options = [o if isinstance(o, dict) else {"letter": None, "text": str(o)} for o in row.get("options") or []]
         for opt in options:
-            n = norm(opt.get("text"))
-            if n and n not in qtext and not contains(qbag, opt.get("text")):
+            n = norm(unstructured(opt.get("text")))
+            if n and n not in qtext and not contains(qbag, unstructured(opt.get("text"))):
                 flags.append(f"option {opt.get('letter') or ''} not on the paper: “{(opt.get('text') or '')[:40]}”")
         entry = part["scheme"]
         raw_entry = MARK.sub(" ", "\n".join([entry["answer"], entry["guidance"], entry["ao"]])) if entry else ""
@@ -248,7 +268,7 @@ def check(rows_path, x=None):
             # A scheme may be put back in reading order: a stacked fraction
             # written with "/", guidance regrouped. Its words must still all
             # be this part's own.
-            if n in etext or contains(ebag, piece):
+            if n in etext or contains(ebag + picture, piece):
                 continue
             # The text layer can glue a cell's lines ("2Born-Habersimilarities"):
             # every word of three letters or more must still be inside this
@@ -260,7 +280,7 @@ def check(rows_path, x=None):
                 flags.append(f"mark scheme line belongs to another part: “{piece[:60]}”")
             else:
                 flags.append(f"mark scheme line not in the mark scheme: “{piece[:60]}”")
-        if part["needs_figure"] and not row.get("figure_checked"):
+        if part["needs_figure"] and not row.get("figure_checked") and not carried:
             flags.append("needs image")
             flags.append("needs a figure: " + "; ".join(part["figure_reasons"])[:120])
         if options:

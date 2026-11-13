@@ -18,6 +18,7 @@ import { Route as OnboardingRouteRouteImport } from './routes/onboarding/route'
 import { Route as OurStoryRouteImport } from './routes/our-story'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as StructuresPreviewRouteImport } from './routes/structures-preview'
 import { Route as AuthenticatedBillingRouteImport } from './routes/_authenticated/billing'
 import { Route as AuthenticatedCurriculumRouteImport } from './routes/_authenticated/curriculum'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
@@ -109,6 +110,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
   id: '/reset-password',
   path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StructuresPreviewRoute = StructuresPreviewRouteImport.update({
+  id: '/structures-preview',
+  path: '/structures-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedBillingRoute = AuthenticatedBillingRouteImport.update({
@@ -370,6 +376,7 @@ export interface FileRoutesByFullPath {
   '/our-story': typeof OurStoryRoute
   '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/structures-preview': typeof StructuresPreviewRoute
   '/demo/parent': typeof DemoParentRouteRouteWithChildren
   '/demo/student': typeof DemoStudentRouteRouteWithChildren
   '/billing': typeof AuthenticatedBillingRoute
@@ -427,6 +434,7 @@ export interface FileRoutesByTo {
   '/our-story': typeof OurStoryRoute
   '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/structures-preview': typeof StructuresPreviewRoute
   '/demo/parent': typeof DemoParentRouteRouteWithChildren
   '/demo/student': typeof DemoStudentRouteRouteWithChildren
   '/billing': typeof AuthenticatedBillingRoute
@@ -487,6 +495,7 @@ export interface FileRoutesById {
   '/our-story': typeof OurStoryRoute
   '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/structures-preview': typeof StructuresPreviewRoute
   '/demo/parent': typeof DemoParentRouteRouteWithChildren
   '/demo/student': typeof DemoStudentRouteRouteWithChildren
   '/_authenticated/billing': typeof AuthenticatedBillingRoute
@@ -547,6 +556,7 @@ export interface FileRouteTypes {
     | '/our-story'
     | '/privacy'
     | '/reset-password'
+    | '/structures-preview'
     | '/demo/parent'
     | '/demo/student'
     | '/billing'
@@ -604,6 +614,7 @@ export interface FileRouteTypes {
     | '/our-story'
     | '/privacy'
     | '/reset-password'
+    | '/structures-preview'
     | '/demo/parent'
     | '/demo/student'
     | '/billing'
@@ -663,6 +674,7 @@ export interface FileRouteTypes {
     | '/our-story'
     | '/privacy'
     | '/reset-password'
+    | '/structures-preview'
     | '/demo/parent'
     | '/demo/student'
     | '/_authenticated/billing'
@@ -723,6 +735,7 @@ export interface RootRouteChildren {
   OurStoryRoute: typeof OurStoryRoute
   PrivacyRoute: typeof PrivacyRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
+  StructuresPreviewRoute: typeof StructuresPreviewRoute
   DemoParentRouteRoute: typeof DemoParentRouteRouteWithChildren
   DemoStudentRouteRoute: typeof DemoStudentRouteRouteWithChildren
   ApiPlanHealRoute: typeof ApiPlanHealRoute
@@ -796,6 +809,13 @@ declare module '@tanstack/react-router' {
       path: '/reset-password'
       fullPath: '/reset-password'
       preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/structures-preview': {
+      id: '/structures-preview'
+      path: '/structures-preview'
+      fullPath: '/structures-preview'
+      preLoaderRoute: typeof StructuresPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/billing': {
@@ -1265,6 +1285,7 @@ const rootRouteChildren: RootRouteChildren = {
   OurStoryRoute: OurStoryRoute,
   PrivacyRoute: PrivacyRoute,
   ResetPasswordRoute: ResetPasswordRoute,
+  StructuresPreviewRoute: StructuresPreviewRoute,
   DemoParentRouteRoute: DemoParentRouteRouteWithChildren,
   DemoStudentRouteRoute: DemoStudentRouteRouteWithChildren,
   ApiPlanHealRoute: ApiPlanHealRoute,
