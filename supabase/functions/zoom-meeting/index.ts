@@ -6,7 +6,11 @@
 // standalone MCP server (service-role bearer, for agent-driven creation).
 //
 // Required function secrets (set with `supabase secrets set ...`):
-//   ZOOM_ACCOUNT_ID, ZOOM_CLIENT_ID, ZOOM_CLIENT_SECRET
+//   ZOOM_ACCOUNT_ID, ZOOM_CLIENT_ID, ZOOM_CLIENT_SECRET (Ali's Zoom account)
+// For lessons Nadia hosts, one of (see ZOOM_SETUP.md):
+//   ZOOM_NADIA_USER (her Zoom email, when she is a user in Ali's account), or
+//   ZOOM_NADIA_ACCOUNT_ID, ZOOM_NADIA_CLIENT_ID, ZOOM_NADIA_CLIENT_SECRET
+//   (an app in her own, separate Zoom account)
 // Auto-injected by the platform:
 //   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, SUPABASE_ANON_KEY
 //
@@ -15,8 +19,11 @@ import { corsHeaders, HttpError } from "../_shared/http.ts";
 
 // CORS for browser-invoked calls (the tutor dashboard uses functions.invoke).
 
+type Host = "ali" | "nadia";
+
 interface CreatePayload {
   action: "create";
+  host?: Host; // whose Zoom the meeting is made on; default ali
   topic: string;
   start_time: string; // ISO 8601, e.g. 2026-08-01T14:00:00Z
   duration?: number; // minutes; default 60
@@ -38,18 +45,27 @@ type Payload = CreatePayload | GetPayload | DeletePayload;
 
 // --- Zoom Server-to-Server OAuth -------------------------------------------
 
-let cachedToken: { token: string; expiresAt: number } | null = null;
+// One Zoom account's S2S credentials, read from secrets named by `prefix`:
+// "ZOOM" is Ali's account, "ZOOM_NADIA" is Nadia's own account if she has one.
+type ZoomAccount = "ZOOM" | "ZOOM_NADIA";
 
-async function getZoomAccessToken(): Promise<string> {
+function hasAccount(prefix: ZoomAccount): boolean {
+  return ["ACCOUNT_ID", "CLIENT_ID", "CLIENT_SECRET"].every((k) => Deno.env.get(`${prefix}_${k}`));
+}
+
+const cachedTokens = new Map<ZoomAccount, { token: string; expiresAt: number }>();
+
+async function getZoomAccessToken(prefix: ZoomAccount = "ZOOM"): Promise<string> {
   const now = Date.now();
   // Reuse a still-valid token (minus a 60s safety margin).
+  const cachedToken = cachedTokens.get(prefix);
   if (cachedToken && cachedToken.expiresAt - 60_000 > now) {
     return cachedToken.token;
   }
 
-  const accountId = Deno.env.get("ZOOM_ACCOUNT_ID");
-  const clientId = Deno.env.get("ZOOM_CLIENT_ID");
-  const clientSecret = Deno.env.get("ZOOM_CLIENT_SECRET");
+  const accountId = Deno.env.get(`${prefix}_ACCOUNT_ID`);
+  const clientId = Deno.env.get(`${prefix}_CLIENT_ID`);
+  const clientSecret = Deno.env.get(`${prefix}_CLIENT_SECRET`);
   if (!accountId || !clientId || !clientSecret) {
     throw new HttpError(500, "Zoom credentials are not configured on the server.");
   }
@@ -67,11 +83,28 @@ async function getZoomAccessToken(): Promise<string> {
     throw new HttpError(502, `Zoom OAuth failed (${res.status}): ${await res.text()}`);
   }
   const json = await res.json();
-  cachedToken = {
+  cachedTokens.set(prefix, {
     token: json.access_token,
     expiresAt: now + (json.expires_in ?? 3600) * 1000,
-  };
-  return cachedToken.token;
+  });
+  return json.access_token;
+}
+
+// The account and Zoom user a host's meetings are made under. Nadia's own
+// account wins if it is configured; otherwise she is a user in Ali's account.
+function hostTarget(host: Host = "ali"): { account: ZoomAccount; user: string } {
+  if (host === "ali") return { account: "ZOOM", user: "me" };
+  if (host !== "nadia") throw new HttpError(400, "Unknown host. Use 'ali' or 'nadia'.");
+  if (hasAccount("ZOOM_NADIA")) return { account: "ZOOM_NADIA", user: "me" };
+  const email = Deno.env.get("ZOOM_NADIA_USER");
+  if (email) return { account: "ZOOM", user: encodeURIComponent(email) };
+  throw new HttpError(400, "Nadia's Zoom isn't connected yet. Pick Ali as host, or paste a link.");
+}
+
+// Accounts a meeting could live in. A meeting is looked up or cancelled by id
+// alone, so a meeting Ali's account doesn't know is tried in Nadia's own.
+function accountsToSearch(): ZoomAccount[] {
+  return hasAccount("ZOOM_NADIA") ? ["ZOOM", "ZOOM_NADIA"] : ["ZOOM"];
 }
 
 /**
@@ -92,8 +125,12 @@ interface ZoomMeeting {
   timezone?: string;
 }
 
-async function zoomFetch(path: string, init?: RequestInit): Promise<ZoomMeeting> {
-  const token = await getZoomAccessToken();
+async function zoomFetch(
+  path: string,
+  init?: RequestInit,
+  account: ZoomAccount = "ZOOM",
+): Promise<ZoomMeeting> {
+  const token = await getZoomAccessToken(account);
   const res = await fetch(`https://api.zoom.us/v2${path}`, {
     ...init,
     headers: {
@@ -108,6 +145,21 @@ async function zoomFetch(path: string, init?: RequestInit): Promise<ZoomMeeting>
     throw new HttpError(res.status, body?.message ?? `Zoom API error (${res.status})`);
   }
   return body;
+}
+
+// zoomFetch against each account in turn, moving on while Zoom says it has no
+// such meeting. The last account's 404 is thrown.
+async function zoomFetchAnyAccount(path: string, init?: RequestInit): Promise<ZoomMeeting> {
+  const accounts = accountsToSearch();
+  for (const [i, account] of accounts.entries()) {
+    try {
+      return await zoomFetch(path, init, account);
+    } catch (err) {
+      const last = i === accounts.length - 1;
+      if (last || !(err instanceof HttpError) || err.status !== 404) throw err;
+    }
+  }
+  throw new HttpError(404, "Meeting not found.");
 }
 
 // --- Auth: tutor JWT or trusted service role -------------------------------
@@ -145,23 +197,28 @@ async function handleCreate(p: CreatePayload) {
   if (!p.topic || !p.start_time) {
     throw new HttpError(400, "`topic` and `start_time` are required.");
   }
-  const meeting = await zoomFetch("/users/me/meetings", {
-    method: "POST",
-    body: JSON.stringify({
-      topic: p.topic,
-      type: 2, // scheduled meeting
-      start_time: p.start_time,
-      duration: p.duration ?? 60,
-      timezone: p.timezone ?? "Europe/London",
-      agenda: p.agenda ?? "",
-      settings: {
-        join_before_host: true,
-        waiting_room: true,
-        approval_type: 2, // no registration required
-        mute_upon_entry: true,
-      },
-    }),
-  });
+  const { account, user } = hostTarget(p.host);
+  const meeting = await zoomFetch(
+    `/users/${user}/meetings`,
+    {
+      method: "POST",
+      body: JSON.stringify({
+        topic: p.topic,
+        type: 2, // scheduled meeting
+        start_time: p.start_time,
+        duration: p.duration ?? 60,
+        timezone: p.timezone ?? "Europe/London",
+        agenda: p.agenda ?? "",
+        settings: {
+          join_before_host: true,
+          waiting_room: true,
+          approval_type: 2, // no registration required
+          mute_upon_entry: true,
+        },
+      }),
+    },
+    account,
+  );
   return {
     id: String(meeting.id),
     join_url: meeting.join_url,
@@ -181,7 +238,7 @@ function parseMeetingId(raw: string): string {
 async function handleGet(p: GetPayload) {
   if (!p.meeting_id) throw new HttpError(400, "`meeting_id` is required.");
   const id = parseMeetingId(p.meeting_id);
-  const meeting = await zoomFetch(`/meetings/${id}`);
+  const meeting = await zoomFetchAnyAccount(`/meetings/${id}`);
   return {
     id: String(meeting.id),
     topic: meeting.topic,
@@ -231,7 +288,7 @@ async function handleDelete(p: DeletePayload) {
   if (shared) return { deleted: false, id, reason: "shared" };
 
   try {
-    await zoomFetch(`/meetings/${id}`, { method: "DELETE" });
+    await zoomFetchAnyAccount(`/meetings/${id}`, { method: "DELETE" });
     return { deleted: true, id };
   } catch (err) {
     if (err instanceof HttpError && err.status === 404) {
