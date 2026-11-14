@@ -4,8 +4,9 @@
  * The harness test proves the rules reach the model; this proves the model
  * obeys them. One paid call marks a paper of trap answers (a false general
  * claim, a repeated idea, an instruction hidden in an answer, flat notation,
- * a correct converse) through exactly the prompt, schema, effort and checks the
- * live function uses, then compares each mark with the range it should be in.
+ * a correct converse, a unit the question already names) through exactly the
+ * prompt, schema, effort and checks the live function uses, then compares each
+ * mark with the range it should be in.
  *
  * Run it after any change to the marking prompt or the scheme writer.
  *
@@ -117,6 +118,31 @@ Guidance:
 - No unit, no mark.`,
     answer: "2.0 x 10^-6 m",
     expect: { min: 1, max: 1, held: false },
+  },
+  {
+    name: "unit named by the question",
+    why: "Ali's call, 27 Oct: the question says 'in metres', so the right number without the unit earns the mark, even though the scheme says no unit, no mark.",
+    prompt:
+      "A typical bacterial cell is 2.0 μm long. 1 μm = 1 × 10⁻⁶ m. Write the length of the bacterial cell in metres, using standard form.",
+    marks: 1,
+    scheme: `- 2.0 × 10⁻⁶ m (1)
+Guidance:
+- Allow 2 × 10⁻⁶ m.
+- Do not accept the correct number without a unit or with the wrong unit.`,
+    answer: "2.0x10^-6",
+    expect: { min: 1, max: 1 },
+  },
+  {
+    name: "unit the student had to give",
+    why: "The control: where the question leaves the unit to the student, leaving it off still loses that mark.",
+    prompt: "A bacterium swims 60 μm in 4.0 s. Calculate its average speed. Give the unit.",
+    marks: 2,
+    scheme: `- 60 ÷ 4.0 = 15 (1)
+- μm/s (1)
+Guidance:
+- Allow μm s⁻¹.`,
+    answer: "60/4 = 15",
+    expect: { min: 1, max: 1 },
   },
   {
     name: "formula wrong in substance",
