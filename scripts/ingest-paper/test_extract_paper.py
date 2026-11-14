@@ -107,6 +107,15 @@ class SchemeLabels(unittest.TestCase):
     def test_letter_and_numeral_in_one_bracket(self):
         self.assertEqual(X.ms_key("edexcel", "1(ai)", (None, None))[0], "1|a|i")
 
+    def test_edexcel_glued_and_spaced_letter_numeral(self):
+        # Pearson can print "3ai", "1 biii", or "2(c i)".
+        self.assertEqual(X.ms_key("edexcel", "3ai", (None, None))[0], "3|a|i")
+        self.assertEqual(X.ms_key("edexcel", "1 biii", (1, "b"))[0], "1|b|iii")
+        self.assertEqual(X.ms_key("edexcel", "2bii", (2, "b"))[0], "2|b|ii")
+        self.assertEqual(X.ms_key("edexcel", "2(c i)", (2, "b"))[0], "2|c|i")
+        self.assertEqual(X.ms_key("edexcel", "2(b(ii)", (2, "b"))[0], "2|b|ii")
+        self.assertIsNone(X.ms_key("edexcel", "abi", (2, "b")))
+
     def test_a_bracketed_i_alone_continues_the_letter_above(self):
         self.assertEqual(X.ms_key("edexcel", "(i)", (3, "b"))[0], "3|b|i")
 
@@ -208,6 +217,207 @@ class SchemeRows(unittest.TestCase):
         self.assertEqual(ms["1|b|"]["answer"], "second answer")
 
 
+OCR_HEADER = [(48, 122, "Question"), (150, 122, "Answer"), (450, 122, "Marks"), (500, 122, "Guidance")]
+OCR_RULES = [(x, 110, x, 320) for x in (43, 102, 442, 485, 550)] + [(43, 110, 550, 110), (43, 130, 550, 130),
+                                                                     (43, 320, 550, 320)]
+
+
+class SchemeLabelsInCells(unittest.TestCase):
+    def test_a_two_digit_question_number_wrapped_in_its_cell(self):
+        # "18" set as "1" over "8" in a narrow question column, after question 17.
+        texts = OCR_HEADER + [(48, 160, "17 (a)"), (150, 160, "first answer"), (450, 160, "1"),
+                              (48, 220, "1 (a) (i)"), (150, 220, "second answer"), (450, 220, "2"),
+                              (48, 232, "8"), (150, 244, "more of the second")]
+        ms = X.parse_ms(scheme_doc([(texts, OCR_RULES + [(102, 190, 550, 190)])]), "ocr")
+        self.assertIn("second answer", ms["18|a|i"]["answer"])
+        self.assertIn("more of the second", ms["18|a|i"]["answer"])
+        self.assertNotIn("1|a|i", ms)
+
+    def test_a_letter_set_below_its_numeral(self):
+        # "(i)" over "(b)" is (b)(i) when (b) is due; "(ii)" over "(b)" is (b)(ii).
+        texts = OCR_HEADER + [(48, 150, "16 (a) (i)"), (150, 150, "metaphase"), (450, 150, "1"),
+                              (75, 175, "(ii)"), (150, 175, "single cell"), (450, 175, "4"),
+                              (75, 210, "(i)"), (150, 210, "cell B measured"), (450, 210, "3"),
+                              (48, 226, "(b)"), (150, 236, "1.7 (± 0.4)"),
+                              (75, 270, "(ii)"), (150, 270, "light microscope"), (450, 270, "2"),
+                              (48, 286, "(b)"), (150, 296, "colour visible")]
+        rules = OCR_RULES + [(102, v, 550, v) for v in (165, 190, 255)]
+        ms = X.parse_ms(scheme_doc([(texts, rules)]), "ocr")
+        self.assertEqual(ms["16|a|i"]["answer"], "metaphase")
+        self.assertEqual(ms["16|a|ii"]["answer"], "single cell")
+        self.assertIn("1.7 (± 0.4)", ms["16|b|i"]["answer"])
+        self.assertIn("colour visible", ms["16|b|ii"]["answer"])
+        self.assertNotIn("16|b|", ms)
+
+    def test_a_first_numeral_over_the_next_letter_needs_its_own_first(self):
+        # "(i)" over "(b)" is (a)(i) when (a) has no (i) yet: (b) is a part of its own.
+        texts = OCR_HEADER + [(48, 150, "16 (a)"), (150, 150, "stem only"),
+                              (75, 210, "(i)"), (150, 210, "first numeral"), (450, 210, "1"),
+                              (48, 226, "(b)"), (150, 226, "next letter"), (450, 226, "1")]
+        ms = X.parse_ms(scheme_doc([(texts, OCR_RULES + [(102, 190, 550, 190)])]), "ocr")
+        self.assertIn("first numeral", ms["16|a|i"]["answer"])
+        self.assertIn("next letter", ms["16|b|"]["answer"])
+
+    def test_a_table_under_the_header_lends_it_no_columns(self):
+        # A small table opening the first answer starts on the header's bottom
+        # rule; its rules must not move the answer column.
+        texts = [(48, 122, "Question"), (257, 122, "Answer"), (450, 122, "Marks"), (490, 122, "Guidance"),
+                 (48, 150, "1 (a)"), (150, 150, "Somatic"), (300, 150, "Germ-line"), (450, 150, "2"),
+                 (108, 200, "2 money from tourists")]
+        inner = [(x, 127, x, 180) for x in (120, 250, 380)]
+        header = [(x, 110, x, 127) for x in (43, 102, 442, 485, 550)]
+        body = [(x, 127, x, 320) for x in (43, 102, 442, 485, 550)]
+        ms = X.parse_ms(scheme_doc([(texts, header + body + inner + [(43, 110, 550, 110), (43, 127, 550, 127),
+                                                                      (43, 320, 550, 320)])]), "ocr")
+        self.assertNotIn("2||", ms)
+        self.assertIn("2 money from tourists", ms["1|a|"]["answer"])
+
+    def test_edexcel_header_with_a_blank_question_heading(self):
+        texts = [(150, 122, "Answer"), (290, 122, "Additional guidance"), (450, 122, "Mark"),
+                 (48, 160, "1(a)"), (108, 160, "substitution (1)"), (450, 160, "(2)"),
+                 (48, 220, "1(b)"), (108, 220, "evaluation"), (450, 220, "(1)")]
+        rules = [(x, 110, x, 300) for x in (43, 102, 272, 442, 550)] + \
+                [(43, v, 550, v) for v in (110, 130, 190, 300)]
+        ms = X.parse_ms(scheme_doc([(texts, rules)]), "edexcel")
+        self.assertEqual(ms["1|a|"]["answer"], "substitution (1)")
+        self.assertEqual(ms["1|b|"]["answer"], "evaluation")
+        # Guidance that names the headings is not one.
+        guidance = X.Line(0, [span("2 marks max. if answer", 300)])
+        self.assertIsNone(X.headless_header(guidance, [(u, 0, 900) for u in (43, 102, 272, 442, 550)]))
+
+    def test_edexcel_lines_above_a_label_end_the_part_before(self):
+        # Pearson tops its labels, so lines above one in the same row (a part
+        # carried on, cut from the next by a rule mid-cell) are the part before's.
+        texts = [(48, 122, "Question number"), (150, 122, "Answer"), (290, 122, "Notes"), (450, 122, "Marks"),
+                 (48, 160, "9 (a) (i)"), (108, 160, "use of a balance;"), (450, 160, "2"),
+                 (108, 200, "calculating mean;"), (60, 240, "(ii)"), (108, 240, "C (volume = mass ÷ density);"),
+                 (450, 240, "1")]
+        rules = [(x, 110, x, 300) for x in (43, 102, 272, 442, 550)] + \
+                [(43, v, 550, v) for v in (110, 130, 185, 300)]
+        ms = X.parse_ms(scheme_doc([(texts, rules)]), "edexcel")
+        self.assertIn("calculating mean;", ms["9|a|i"]["answer"])
+        self.assertEqual(ms["9|a|ii"]["answer"], "C (volume = mass ÷ density);")
+
+    def test_edexcel_label_centred_under_its_own_header_starts_its_part(self):
+        # A new table: its first row cannot carry the part before over.
+        texts = [(48, 122, "Question number"), (150, 122, "Answer"), (450, 122, "Mark"),
+                 (48, 150, "9(b)(ii)"), (108, 150, "rate = k[X][Y]"), (450, 150, "(4)"),
+                 (48, 212, "Question number"), (150, 212, "Answer"), (450, 212, "Mark"),
+                 (108, 240, "The only correct answer is D"), (108, 254, "A is not correct"),
+                 (48, 290, "9(c)(i)"), (108, 290, "B is not correct"), (450, 290, "(1)")]
+        rules = [(x, 110, x, 180) for x in (43, 102, 442, 550)] + [(x, 200, x, 320) for x in (43, 102, 442, 550)] + \
+                [(43, v, 550, v) for v in (110, 130, 180, 200, 220, 320)]
+        ms = X.parse_ms(scheme_doc([(texts, rules)]), "edexcel")
+        self.assertEqual(ms["9|b|ii"]["answer"], "rate = k[X][Y]")
+        self.assertIn("The only correct answer is D", ms["9|c|i"]["answer"])
+
+    def test_edexcel_label_set_a_line_low_starts_its_part(self):
+        texts = [(48, 122, "Question number"), (150, 122, "Answer"), (290, 122, "Notes"), (450, 122, "Marks"),
+                 (48, 160, "1(a)"), (108, 160, "C6H14 + 9O2"), (450, 160, "2"),
+                 (108, 200, "An answer that makes reference to"), (48, 212, "1(b)"), (108, 212, "carbon (1)"),
+                 (450, 212, "2")]
+        rules = [(x, 110, x, 300) for x in (43, 102, 272, 442, 550)] + \
+                [(43, v, 550, v) for v in (110, 130, 185, 300)]
+        ms = X.parse_ms(scheme_doc([(texts, rules)]), "edexcel")
+        self.assertEqual(ms["1|a|"]["answer"], "C6H14 + 9O2")
+        self.assertIn("An answer that makes reference to", ms["1|b|"]["answer"])
+
+    def test_edexcel_label_wrapped_in_its_cell_starts_its_part(self):
+        # "2" over "(b)(i)": the line beside the "2" is (b)(i)'s first.
+        texts = [(48, 122, "Question number"), (150, 122, "Answer"), (290, 122, "Notes"), (450, 122, "Marks"),
+                 (48, 160, "2 (a)"), (108, 160, "D the normal"), (450, 160, "1"),
+                 (48, 200, "2"), (108, 200, "Any one from:-"), (450, 200, "1"),
+                 (48, 214, "(b)(i)"), (108, 214, "to view distant objects")]
+        rules = [(x, 110, x, 300) for x in (43, 102, 272, 442, 550)] + \
+                [(43, v, 550, v) for v in (110, 130, 185, 300)]
+        ms = X.parse_ms(scheme_doc([(texts, rules)]), "edexcel")
+        self.assertEqual(ms["2|a|"]["answer"], "D the normal")
+        self.assertIn("Any one from:-", ms["2|b|i"]["answer"])
+
+    def test_headings_split_over_two_rows(self):
+        # "Question … Mark" ruled off from "Answer  Notes" below it.
+        texts = [(48, 120, "Question"), (450, 120, "Mark"), (150, 130, "Answer"), (290, 130, "Notes"),
+                 (48, 160, "9 (a) (i)"), (108, 160, "B (elastic);"), (450, 160, "1"),
+                 (108, 200, "MP6. idea of amplitude decreasing")]
+        rules = [(x, 110, x, 300) for x in (43, 102, 272, 442, 550)] + \
+                [(43, v, 550, v) for v in (110, 124, 140, 185, 300)]
+        ms = X.parse_ms(scheme_doc([(texts, rules)]), "edexcel")
+        self.assertIn("MP6. idea of amplitude decreasing", ms["9|a|i"]["answer"])
+
+    def test_a_question_heading_wrapped_mid_word(self):
+        self.assertIsNotNone(X.header_cells(X.Line(0, [span("Questio", 48), span("Answer", 150),
+                                                       span("Mark", 450)])))
+        self.assertIsNotNone(X.header_cells(X.Line(0, [span("Qustion", 48), span("Answer", 150),
+                                                       span("Mark", 450)])))
+
+
+class MisprintedKeys(unittest.TestCase):
+    def test_a_question_with_no_parts_printed_as_its_a(self):
+        self.assertEqual(X.misprinted_key("ocr", {"20|a|": {}, "21|a|": {}}, X.Node(20)), "20|a|")
+        self.assertIsNone(X.misprinted_key("ocr", {"20|a|": {}, "20|b|": {}}, X.Node(20)))
+
+    def test_the_letter_printed_where_its_first_numeral_is_due(self):
+        scheme = {"8|a|": {}, "8|a|ii": {}, "8|a|iii": {}}
+        self.assertEqual(X.misprinted_key("edexcel", scheme, X.Node(8, "a", "i")), "8|a|")
+        self.assertIsNone(X.misprinted_key("edexcel", {"8|a|": {}}, X.Node(8, "a", "i")))
+        self.assertIsNone(X.misprinted_key("edexcel", scheme, X.Node(8, "a", "iv")))
+
+
+class ListedNumerals(unittest.TestCase):
+    def test_a_lettered_cell_listing_its_numerals(self):
+        cell = {"answer": "(i) planet (1)\n(ii) satellite (1)\n(iii) star (1)", "guidance": "in this order",
+                "ao": "", "marks": [3], "pages": [8], "ao_codes": [], "picture": False, "max": []}
+        two = X.listed_numeral(cell, "ii")
+        self.assertEqual((two["answer"], two["guidance"], two["marks"]), ("(ii) satellite (1)", "in this order", [1]))
+        self.assertIsNone(X.listed_numeral(cell, "iv"))
+        # Text before the first numeral, or numerals out of order, is not such a list.
+        self.assertIsNone(X.listed_numeral({**cell, "answer": "any two from\n(i) a\n(ii) b"}, "i"))
+        self.assertIsNone(X.listed_numeral({**cell, "answer": "(ii) a\n(iii) b"}, "ii"))
+
+
+class Misprints(unittest.TestCase):
+    def test_aqa_label_with_its_part_number_missing(self):
+        self.assertEqual(X.ms_key("aqa", "06.", (5, None))[0], "6||")
+        self.assertEqual(X.misprinted_key("aqa", {"6||": {}, "6|2|": {}}, X.Node(6, 1)), "6||")
+        self.assertIsNone(X.misprinted_key("aqa", {"6||": {}}, X.Node(6, 1)))
+
+    def test_aqa_label_with_a_space_for_its_dot(self):
+        texts = HEADER + [(48, 150, "03.3"), (108, 150, "[H+] = [OH-]"), (450, 150, "1"),
+                          (48, 190, "03 4"), (108, 190, "[OH-] = 0.0262"), (450, 190, "3")]
+        ms = X.parse_ms(scheme_doc([(texts, grid(110, 260, [130, 170]))]), "aqa")
+        self.assertEqual(ms["3|4|"]["answer"], "[OH-] = 0.0262")
+        self.assertNotIn("34||", ms)
+
+    def test_a_label_repeated_mid_page_is_kept_apart(self):
+        texts = OCR_HEADER + [(48, 150, "18 (a) (i)"), (150, 150, "Aorta"), (450, 150, "1"),
+                              (75, 180, "(ii)"), (150, 180, "Translocation"), (450, 180, "1"),
+                              (75, 210, "(ii)"), (150, 210, "Vena cava"), (450, 210, "1")]
+        ms = X.parse_ms(scheme_doc([(texts, OCR_RULES + [(102, v, 550, v) for v in (165, 195)])]), "ocr")
+        self.assertEqual(ms["18|a|ii"]["answer"], "Translocation")
+        self.assertEqual(ms["18|a|ii#18|a|ii"]["answer"], "Vena cava")
+        # OCR's numbered items "(ii)1", "(ii)2" are one part's, in order.
+        items = OCR_HEADER + [(48, 150, "2 (b) (i)"), (150, 150, "first"), (450, 150, "1"),
+                              (75, 180, "(ii)1"), (150, 180, "item one"), (75, 210, "(ii)2"), (150, 210, "item two")]
+        ms = X.parse_ms(scheme_doc([(items, OCR_RULES + [(102, v, 550, v) for v in (165, 195)])]), "ocr")
+        self.assertEqual(ms["2|b|ii"]["answer"], "1 item one\n2 item two")
+        # Reprinted at the top of the next page, it continues its part.
+        page2 = ([(48, 122, "Question"), (75, 150, "(ii)"), (150, 150, "more of (ii)")], OCR_RULES)
+        ms = X.parse_ms(scheme_doc([(texts[:-3], OCR_RULES + [(102, 165, 550, 165)]), page2]), "ocr")
+        self.assertIn("more of (ii)", ms["18|a|ii"]["answer"])
+
+    def test_a_repeat_goes_to_the_next_part_only_if_it_has_none(self):
+        e = lambda a: {"answer": a, "guidance": "", "ao": "", "marks": [1], "pages": [8], "ao_codes": [],
+                       "picture": False, "max": []}
+        scheme = {"1|h|i": e("gradient"), "1|h|ii": e("q0"), "1|h|i#1|h|ii": e("percentage error")}
+        X.place_repeats(scheme, ["1|h|i", "1|h|ii", "1|i|", "2|a|"])
+        self.assertEqual(scheme["1|i|"]["answer"], "percentage error")
+        scheme = {"1|h|i": e("gradient"), "1|h|ii": e("q0"), "1|i|": e("own"), "1|h|i#1|h|ii": e("more")}
+        X.place_repeats(scheme, ["1|h|i", "1|h|ii", "1|i|"])
+        self.assertEqual(scheme["1|h|i"]["answer"], "gradient\nmore")
+        self.assertEqual(scheme["1|i|"]["answer"], "own")
+        self.assertFalse(any("#" in k for k in scheme))
+
+
 class SpecRefs(unittest.TestCase):
     def test_spec_refs_printed_in_the_ao_column(self):
         self.assertEqual(X.printed_spec_refs({"ao": "AO3 4.4.2.5 RPA2"}), ["4.4.2.5"])
@@ -247,6 +457,10 @@ class Checking(unittest.TestCase):
     def test_scheme_marks_never_count(self):
         pieces = [p for p, _ in C.chunks("2H2 + O2 → 2H2O (2)\nGuidance: allow multiples (1)", scheme=True)]
         self.assertEqual(pieces[0].strip(), "2H2 + O2 → 2H2O")
+
+    def test_a_readers_answer_heading_is_not_scheme_text(self):
+        pieces = [p for p, _ in C.chunks("Answer: thermal energy (1)\nGuidance: allow heat", scheme=True)]
+        self.assertEqual(pieces, ["thermal energy", "allow heat"])
 
     def test_raised_atom_counts_are_caught_but_charges_are_not(self):
         for bad in ("C⁸H¹⁸", "2H²SO⁴", "CH₃CH²OH"):
