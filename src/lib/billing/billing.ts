@@ -266,3 +266,17 @@ export async function fetchInvoices(): Promise<Invoice[]> {
   const { invoices } = await invokeBilling<{ invoices: Invoice[] }>({ action: "invoices" });
   return invoices ?? [];
 }
+
+/** What a free-trial code gives. A bad or used code throws the server's own words. */
+export interface TrialTerms {
+  days: number;
+  needsCard: boolean;
+}
+
+export async function fetchTrialTerms(code: string): Promise<TrialTerms> {
+  const { days, needs_card } = await invokeBilling<{ days: number; needs_card: boolean }>({
+    action: "trial_terms",
+    trial_code: code,
+  });
+  return { days, needsCard: needs_card };
+}

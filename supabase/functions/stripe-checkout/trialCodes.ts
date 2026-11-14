@@ -8,11 +8,25 @@
 import Stripe from "https://esm.sh/stripe@17.5.0?target=deno";
 import { HttpError } from "../_shared/http.ts";
 import { admin } from "../_shared/clients.ts";
-import { normaliseTrialCode } from "../_shared/trialCode.ts";
+import { normaliseTrialCode, TRIAL_DAYS, trialNeedsCard } from "../_shared/trialCode.ts";
 
 type Db = ReturnType<typeof admin>;
 
-export interface TrialCheck {
+/** What a code gives: its length in days, and whether Checkout asks for a card. */
+export interface TrialTerms {
+  days: number;
+  needsCard: boolean;
+}
+
+/** A row's terms. No length of its own and a card are the standard trial. */
+function termsOf(row: { trial_days: number | null; needs_card: boolean | null }): TrialTerms {
+  return {
+    days: row.trial_days ?? TRIAL_DAYS,
+    needsCard: row.needs_card !== false && trialNeedsCard(),
+  };
+}
+
+export interface TrialCheck extends TrialTerms {
   code: string;
   /** The session holding the code before this Checkout, for the claim's guard. */
   heldBy: string | null;
@@ -35,7 +49,7 @@ export async function checkTrialCode(
 
   const { data: row } = await db
     .from("trial_codes")
-    .select("code, checkout_session_id, claimed_by, redeemed_at")
+    .select("code, checkout_session_id, claimed_by, redeemed_at, trial_days, needs_card")
     .eq("code", code)
     .maybeSingle();
   if (!row) throw invalid;
@@ -81,7 +95,27 @@ export async function checkTrialCode(
     }
   }
 
-  return { code, heldBy: row.checkout_session_id };
+  return { code, heldBy: row.checkout_session_id, ...termsOf(row) };
+}
+
+/**
+ * What a code would give, so the plan page can state it before Checkout. Tells
+ * no more than Checkout itself does: not valid, used, or these terms. Whether
+ * this student may use it is still checked at Checkout.
+ */
+export async function trialTerms(db: Db, raw: unknown): Promise<TrialTerms> {
+  const code = normaliseTrialCode(raw);
+  const invalid = new HttpError(400, "That trial code isn't valid. Check it and try again.");
+  if (!code) throw invalid;
+
+  const { data: row } = await db
+    .from("trial_codes")
+    .select("redeemed_at, trial_days, needs_card")
+    .eq("code", code)
+    .maybeSingle();
+  if (!row) throw invalid;
+  if (row.redeemed_at) throw new HttpError(409, "That trial code has already been used.");
+  return termsOf(row);
 }
 
 /**

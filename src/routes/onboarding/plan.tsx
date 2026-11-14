@@ -7,7 +7,8 @@ import { useSignOut } from "@/hooks/useSignOut";
 import { formatPence } from "@/lib/billing/billing";
 import { usePlanStep, type SearchParams } from "@/components/onboarding/usePlanStep";
 import { TrialCodeField } from "@/components/billing/TrialCodeField";
-import { TRIAL_DAYS } from "@/lib/billing/trialCode";
+import { trialLength } from "@/lib/billing/trialCode";
+import { useTrialTerms } from "@/hooks/data/useBilling";
 import { WelcomeVideo } from "@/components/WelcomeVideo";
 import { markWelcomeVideoWatched } from "@/lib/profile/welcomeTour";
 import {
@@ -82,6 +83,8 @@ function PlanStep() {
   } = step;
   // Only a student who has never had a plan can start a trial.
   const withTrial = neverSubscribed && !!trialCode.trim();
+  // How long this code's trial is, once the server has said (a code can give its own).
+  const trialDays = useTrialTerms(withTrial ? trialCode : "").data?.days;
 
   // Paid, and new here: the welcome video, full screen, then the dashboard tour.
   if (search.checkout === "success" && welcomeVideo) {
@@ -186,7 +189,8 @@ function PlanStep() {
                 </>
               ) : withTrial ? (
                 <>
-                  <Gift className="size-5" /> Start {TRIAL_DAYS}-day free trial
+                  <Gift className="size-5" /> Start{" "}
+                  {trialDays ? `${trialLength(trialDays, true)} free trial` : "free trial"}
                 </>
               ) : (
                 <>
