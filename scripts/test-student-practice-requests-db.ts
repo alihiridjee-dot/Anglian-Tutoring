@@ -394,4 +394,104 @@ const kicks = () => one<number>(`select count(*)::int v from private.kicks`);
   await db.exec(migration);
 }
 
+// ── 20261116200000: a student's request jumps the queue ───────────────────
+{
+  // The claimer and the status list, cut from the queue migration, over a
+  // stubbed budget: what's under test is only the order they take jobs in.
+  await db.exec(`
+    ${cut(queueSql, "create table if not exists private.practice_queue (", "\n);")};
+    insert into private.practice_queue default values;
+    create function private.practice_call_budget() returns integer language sql as $$ select 10 $$;
+    create function private.practice_calls_24h() returns integer language sql as $$ select 0 $$;
+    create function private.practice_in_flight() returns integer language sql as $$ select 0 $$;
+  `);
+  await db.exec(
+    cut(queueSql, "create or replace function public.claim_practice_jobs(", "$function$;"),
+  );
+  const first = await readFile(
+    "supabase/migrations/20261116200000_practice_requests_first.sql",
+    "utf8",
+  );
+  await db.exec(first);
+  await db.exec(first); // Idempotent.
+
+  // Clear the queue, then three plan jobs queued before the request.
+  await db.exec(`
+    delete from private.practice_jobs where status in ('pending', 'generating');
+    insert into public.spec_points
+      select ('00000000-0000-0000-0000-' || lpad((120 + n)::text, 12, '0'))::uuid, '${bioTopic}', 'Q' || n, 'Queue ' || n
+      from generate_series(0, 3) n;
+    insert into private.practice_jobs (spec_point_id, kind, status, run_after)
+      select ('00000000-0000-0000-0000-' || lpad((120 + n)::text, 12, '0'))::uuid, k, 'pending',
+             now() - interval '10 minutes'
+      from generate_series(1, 2) n, unnest(array['quiz', 'task']) k;`);
+  const requestedPoint = p(20); // asked for by a student, after the plan
+  const planPoint = p(21); // queued by the plan; a student asks for it too
+
+  const theirs = await request(other, requestedPoint);
+  assert.equal(states(theirs), "quiz:writing task:writing");
+  const bumped = await request(other, planPoint);
+  assert.equal(states(bumped), "quiz:writing task:writing");
+  assert.equal(bumped[0].requests_left, theirs[0].requests_left, "moving one up is free");
+
+  const order = await db.query<{ v: string }>(
+    `select sp.code || ' ' || c.kind v
+       from public.claim_practice_jobs(10) c
+       join public.spec_points sp on sp.id = c.spec_point_id`,
+  );
+  assert.deepEqual(
+    order.rows.map((r) => r.v),
+    ["Q1 quiz", "Q1 task", "Q0 quiz", "Q0 task", "Q2 quiz", "Q2 task"],
+    "the student's jobs first (the plan job they asked for, then their own), then the plan's",
+  );
+
+  // The status list puts them in the same order.
+  await db.exec(
+    `update private.practice_jobs set status = 'pending', claim_token = null, lease_until = null where status = 'generating'`,
+  );
+  await db.exec(
+    cut(queueSql, "create or replace function public.practice_queue_status()", "$function$;"),
+  );
+  await db.exec(first);
+  const ready = await one<{ code: string; kind: string }[]>(
+    `select public.practice_queue_status() -> 'ready' v`,
+  );
+  assert.deepEqual(
+    ready.map((r) => `${r.code} ${r.kind}`),
+    ["Q1 quiz", "Q1 task", "Q0 quiz", "Q0 task", "Q2 quiz", "Q2 task"],
+  );
+
+  // A request over a day old waits its turn again.
+  await db.exec(
+    `update private.practice_jobs set student_asked_at = now() - interval '25 hours' where student_asked_at is not null`,
+  );
+  const stale = await one<{ code: string; kind: string }[]>(
+    `select public.practice_queue_status() -> 'ready' v`,
+  );
+  assert.deepEqual(
+    stale.map((r) => r.code),
+    ["Q1", "Q1", "Q2", "Q2", "Q0", "Q0"],
+  );
+
+  // Who may call it.
+  assert.equal(
+    await one<boolean>(
+      `select has_function_privilege('authenticated', 'private.practice_asked_first(timestamptz)', 'execute') v`,
+    ),
+    false,
+  );
+
+  // Rollback: the old order, and the column is gone.
+  await db.exec(
+    await readFile("supabase/rollbacks/20261116200000_practice_requests_first.down.sql", "utf8"),
+  );
+  assert.equal(
+    await one<number>(
+      `select count(*)::int v from information_schema.columns where table_name = 'practice_jobs' and column_name = 'student_asked_at'`,
+    ),
+    0,
+  );
+  assert.ok((await request(other, p(22))).length === 2, "requests still work after the rollback");
+}
+
 console.log("student practice requests: all checks passed");
