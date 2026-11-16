@@ -27,6 +27,9 @@ import { describeQuizError, isQuizChanged } from "@/lib/mcq/quizErrors";
 import { retakeOpensAt, retakeOpensLabel } from "@/lib/mcq/retakeLock";
 import type { Json } from "@/integrations/supabase/types";
 import { StoredFigure } from "@/components/QuestionFigure";
+import { ExamKit } from "@/components/examKit/ExamKit";
+import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { cn } from "@/lib/utils";
 
 type Q = {
   id: string;
@@ -227,6 +230,7 @@ export function TakeMcq() {
   // and switching subject mid-quiz goes to the quiz list for the new one. The
   // answers chosen so far are kept (see saveMcqAnswers) for coming back.
   const navigate = useNavigate();
+  const { enrolments, level } = useEnrolments();
   usePinSubject(set?.subject, () => navigate({ to: demo ? "/demo/student/mcqs" : "/mcqs" }));
 
   // A new quiz starts clean — then picks up whatever this student had already
@@ -479,228 +483,244 @@ export function TakeMcq() {
 
   const opensLabel = marked?.retakeOpensAt ? retakeOpensLabel(marked.retakeOpensAt) : null;
 
+  // The same exam kit as a task sheet: the student's own board and level.
+  const board = enrolments.find((e) => e.subject === set.subject)?.board ?? null;
+  const showKit = questions.length > 0;
+
   return (
     <AppLayout title={set.title}>
-      <div className="max-w-3xl">
-        {set.description && (
-          <p className="text-sm text-muted-foreground mb-6">
-            <SciText text={set.description} />
-          </p>
+      {/* The exam kit takes the room a wide screen leaves beside the quiz. */}
+      <div
+        className={cn(
+          "xl:flex xl:items-start xl:gap-8",
+          // Room to scroll the last answer clear of the kit's button below `xl`.
+          showKit && "max-xl:pb-20",
         )}
-        {/* A quiz opened inside its week lands here, already marked: say why
+      >
+        <div className="max-w-3xl min-w-0 xl:w-3xl xl:shrink-0">
+          {set.description && (
+            <p className="text-sm text-muted-foreground mb-6">
+              <SciText text={set.description} />
+            </p>
+          )}
+          {/* A quiz opened inside its week lands here, already marked: say why
             before the student tries to change an answer. */}
-        {marked && opensLabel && (
-          <div className="mb-5 flex flex-wrap items-center gap-2">
-            <span className="chip chip-solid">
-              <span className="numeral">
-                {marked.score}/{marked.total}
+          {marked && opensLabel && (
+            <div className="mb-5 flex flex-wrap items-center gap-2">
+              <span className="chip chip-solid">
+                <span className="numeral">
+                  {marked.score}/{marked.total}
+                </span>
               </span>
-            </span>
-            <span className="chip">Retake opens {opensLabel}</span>
-          </div>
-        )}
-        <ol className="space-y-5">
-          {questions.map((q, idx) => {
-            const chosen = answers[q.id];
-            // Read together, so a wrong option is written like the right one.
-            const notation = [q.question, ...q.options].join("\n");
-            const mark = marked?.byQuestion[q.id];
-            const letter = (i: number) => String.fromCharCode(65 + i);
-            // "Which row…?": each option is a row of the table the question
-            // heads, so the options line up under its headings, as on a paper.
-            const table = rowOptions(q.question, q.options);
-            // Answers that are pictures: each drawn under its own letter.
-            const pictures = Array.isArray(q.option_figures) ? q.option_figures : null;
-            const columns = table && {
-              gridTemplateColumns: `1.5rem repeat(${table.columns.length}, minmax(0, 1fr)) 1rem`,
-            };
-            const headings = table && (
-              <div
-                className="font-display grid gap-x-3 border border-transparent px-4 text-sm font-extrabold break-words"
-                style={columns!}
-              >
-                <span />
-                {table.columns.map((c, j) => (
-                  <span key={j}>
-                    <SciText text={c} context={notation} />
-                  </span>
-                ))}
-                <span />
-              </div>
-            );
-            // An option as the card draws it, front and back alike: a row under
-            // the headings, or its letter and text. On a phone the columns are too
-            // narrow for words, so each cell sits under its column's name instead,
-            // as a table does there.
-            const option = (i: number, text: string, result?: "right" | "wrong") => {
-              const place = table ? "" : "inline ml-2";
-              // The icons are drawn only; a screen reader hears the words.
-              const icon =
-                result === "right" ? (
-                  <>
-                    <CheckCircle2 className={`w-4 h-4 text-primary ${place}`} />
-                    <span className="sr-only">Correct answer</span>
-                  </>
-                ) : result === "wrong" ? (
-                  <>
-                    <XCircle className={`w-4 h-4 text-destructive ${place}`} />
-                    <span className="sr-only">Your answer, wrong</span>
-                  </>
-                ) : null;
-              return table ? (
-                <>
-                  <span className="hidden items-baseline gap-x-3 sm:grid" style={columns!}>
-                    <span className="font-mono text-xs text-muted-foreground">{letter(i)}.</span>
-                    {table.rows[i].map((c, j) => (
-                      <span key={j}>
-                        <SciText text={c} context={notation} />
-                      </span>
-                    ))}
-                    <span className="self-center">{icon}</span>
-                  </span>
-                  <span className="flex items-start gap-2 sm:hidden">
-                    <span className="font-mono text-xs text-muted-foreground pt-0.5">
-                      {letter(i)}.
+              <span className="chip">Retake opens {opensLabel}</span>
+            </div>
+          )}
+          <ol className="space-y-5">
+            {questions.map((q, idx) => {
+              const chosen = answers[q.id];
+              // Read together, so a wrong option is written like the right one.
+              const notation = [q.question, ...q.options].join("\n");
+              const mark = marked?.byQuestion[q.id];
+              const letter = (i: number) => String.fromCharCode(65 + i);
+              // "Which row…?": each option is a row of the table the question
+              // heads, so the options line up under its headings, as on a paper.
+              const table = rowOptions(q.question, q.options);
+              // Answers that are pictures: each drawn under its own letter.
+              const pictures = Array.isArray(q.option_figures) ? q.option_figures : null;
+              const columns = table && {
+                gridTemplateColumns: `1.5rem repeat(${table.columns.length}, minmax(0, 1fr)) 1rem`,
+              };
+              const headings = table && (
+                <div
+                  className="font-display grid gap-x-3 border border-transparent px-4 text-sm font-extrabold break-words"
+                  style={columns!}
+                >
+                  <span />
+                  {table.columns.map((c, j) => (
+                    <span key={j}>
+                      <SciText text={c} context={notation} />
                     </span>
-                    <span className="min-w-0 flex-1 space-y-0.5">
+                  ))}
+                  <span />
+                </div>
+              );
+              // An option as the card draws it, front and back alike: a row under
+              // the headings, or its letter and text. On a phone the columns are too
+              // narrow for words, so each cell sits under its column's name instead,
+              // as a table does there.
+              const option = (i: number, text: string, result?: "right" | "wrong") => {
+                const place = table ? "" : "inline ml-2";
+                // The icons are drawn only; a screen reader hears the words.
+                const icon =
+                  result === "right" ? (
+                    <>
+                      <CheckCircle2 className={`w-4 h-4 text-primary ${place}`} />
+                      <span className="sr-only">Correct answer</span>
+                    </>
+                  ) : result === "wrong" ? (
+                    <>
+                      <XCircle className={`w-4 h-4 text-destructive ${place}`} />
+                      <span className="sr-only">Your answer, wrong</span>
+                    </>
+                  ) : null;
+                return table ? (
+                  <>
+                    <span className="hidden items-baseline gap-x-3 sm:grid" style={columns!}>
+                      <span className="font-mono text-xs text-muted-foreground">{letter(i)}.</span>
                       {table.rows[i].map((c, j) => (
-                        <span key={j} className="block">
-                          <b>
-                            <SciText text={table.columns[j]} context={notation} />:
-                          </b>{" "}
+                        <span key={j}>
                           <SciText text={c} context={notation} />
                         </span>
                       ))}
+                      <span className="self-center">{icon}</span>
                     </span>
-                    {icon && <span className="self-center">{icon}</span>}
-                  </span>
-                </>
-              ) : (
-                <>
-                  <span className="font-mono text-xs mr-2 text-muted-foreground">{letter(i)}.</span>
-                  {/* An answer picture's option is its letter alone, already written. */}
-                  {pictures?.[i] && text === letter(i) ? null : (
-                    <SciText text={text} context={notation} />
-                  )}
-                  {icon}
-                  {pictures?.[i] ? (
-                    <StoredFigure figure={pictures[i]} plain className="mt-2 max-w-sm" />
-                  ) : null}
-                </>
-              );
-            };
-            // The back of the card: the right answer as the front draws it, and
-            // the explanation large enough to read on a phone.
-            const back = mark?.explanation ? (
-              <>
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="icon-tile size-10 shrink-0" aria-hidden>
-                    <Lightbulb className="size-5" />
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <p className="eyebrow">Question {idx + 1}</p>
-                    <h3 className="text-2xl">Why it's {letter(mark.correctIndex)}</h3>
-                  </div>
-                  {chosen === mark.correctIndex ? (
-                    <Chip icon={CheckCircle2} tint="tint-primary">
-                      You got it
-                    </Chip>
-                  ) : chosen !== undefined ? (
-                    <Chip icon={XCircle} tint="tint-rose">
-                      You picked {letter(chosen)}
-                    </Chip>
-                  ) : null}
-                </div>
-                {headings && <div className="mt-4 hidden sm:block">{headings}</div>}
-                <div
-                  className={`${headings ? "mt-4 sm:mt-1.5" : "mt-4"} rounded-lg border border-primary bg-primary/15 px-4 py-2.5 text-sm break-words`}
-                >
-                  {option(mark.correctIndex, q.options[mark.correctIndex] ?? "", "right")}
-                </div>
-                <p className="mt-4 text-lg leading-relaxed text-foreground sm:text-xl">
-                  <SciText text={mark.explanation} context={notation} />
-                </p>
-              </>
-            ) : null;
-            return (
-              <QuestionFlipCard
-                key={q.id}
-                id={`question-${q.id}`}
-                back={back}
-                front={
-                  <>
-                    <p className="eyebrow">Question {idx + 1}</p>
-                    <SciBlock
-                      text={table ? table.question : q.question}
-                      context={notation}
-                      className="font-display text-lg mt-1 break-words"
-                    />
-                    <StoredFigure figure={q.figure} className="mt-3" />
-                    {headings && <div className="mt-3 hidden sm:block">{headings}</div>}
-                    <div className={`${headings ? "mt-3 sm:mt-1.5" : "mt-3"} space-y-2`}>
-                      {q.options.map((opt, i) => {
-                        const isChosen = chosen === i;
-                        const isCorrect = !!mark && i === mark.correctIndex;
-                        const isWrong = !!mark && isChosen && i !== mark.correctIndex;
-                        return (
-                          <button
-                            key={i}
-                            type="button"
-                            aria-pressed={isChosen}
-                            disabled={submitted}
-                            onClick={() => choose(q.id, i)}
-                            className={`w-full min-h-11 text-left px-4 py-2.5 rounded-lg border text-sm break-words transition sm:pointer-fine:min-h-0 ${
-                              isCorrect
-                                ? "bg-primary/15 border-primary text-foreground"
-                                : isWrong
-                                  ? "bg-destructive/10 border-destructive/50"
-                                  : isChosen
-                                    ? "bg-secondary border-primary/50"
-                                    : "bg-secondary/40 border-border hover:border-primary/40"
-                            }`}
-                          >
-                            {option(i, opt, isCorrect ? "right" : isWrong ? "wrong" : undefined)}
-                          </button>
-                        );
-                      })}
-                    </div>
+                    <span className="flex items-start gap-2 sm:hidden">
+                      <span className="font-mono text-xs text-muted-foreground pt-0.5">
+                        {letter(i)}.
+                      </span>
+                      <span className="min-w-0 flex-1 space-y-0.5">
+                        {table.rows[i].map((c, j) => (
+                          <span key={j} className="block">
+                            <b>
+                              <SciText text={table.columns[j]} context={notation} />:
+                            </b>{" "}
+                            <SciText text={c} context={notation} />
+                          </span>
+                        ))}
+                      </span>
+                      {icon && <span className="self-center">{icon}</span>}
+                    </span>
                   </>
-                }
-              />
-            );
-          })}
-        </ol>
-        {isTutor ? (
-          <div className="mt-6 text-center">
-            <span className="chip tint-slate">Tutor preview</span>
-          </div>
-        ) : !submitted ? (
-          <button
-            data-guide="quiz-submit"
-            onClick={submit}
-            disabled={submitting}
-            className="mt-6 w-full h-11 rounded-xl btn-solid font-semibold disabled:opacity-50"
-          >
-            {submitting ? "Marking…" : "Submit answers"}
-          </button>
-        ) : (
-          <div
-            ref={scoreRef}
-            tabIndex={-1}
-            className="mt-6 rounded-2xl premium-card p-4 text-center outline-none focus-visible:ring-2 focus-visible:ring-[var(--tint)] sm:p-6"
-          >
-            <p className="eyebrow eyebrow-bare">Your score</p>
-            <p className="font-display text-4xl font-bold mt-1">
-              {marked?.score}/{marked?.total}
-            </p>
-            {opensLabel && (
-              <div className="mt-3">
-                <span className="chip">Retake opens {opensLabel}</span>
-              </div>
-            )}
-            <div>{back}</div>
-          </div>
-        )}
+                ) : (
+                  <>
+                    <span className="font-mono text-xs mr-2 text-muted-foreground">
+                      {letter(i)}.
+                    </span>
+                    {/* An answer picture's option is its letter alone, already written. */}
+                    {pictures?.[i] && text === letter(i) ? null : (
+                      <SciText text={text} context={notation} />
+                    )}
+                    {icon}
+                    {pictures?.[i] ? (
+                      <StoredFigure figure={pictures[i]} plain className="mt-2 max-w-sm" />
+                    ) : null}
+                  </>
+                );
+              };
+              // The back of the card: the right answer as the front draws it, and
+              // the explanation large enough to read on a phone.
+              const back = mark?.explanation ? (
+                <>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="icon-tile size-10 shrink-0" aria-hidden>
+                      <Lightbulb className="size-5" />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="eyebrow">Question {idx + 1}</p>
+                      <h3 className="text-2xl">Why it's {letter(mark.correctIndex)}</h3>
+                    </div>
+                    {chosen === mark.correctIndex ? (
+                      <Chip icon={CheckCircle2} tint="tint-primary">
+                        You got it
+                      </Chip>
+                    ) : chosen !== undefined ? (
+                      <Chip icon={XCircle} tint="tint-rose">
+                        You picked {letter(chosen)}
+                      </Chip>
+                    ) : null}
+                  </div>
+                  {headings && <div className="mt-4 hidden sm:block">{headings}</div>}
+                  <div
+                    className={`${headings ? "mt-4 sm:mt-1.5" : "mt-4"} rounded-lg border border-primary bg-primary/15 px-4 py-2.5 text-sm break-words`}
+                  >
+                    {option(mark.correctIndex, q.options[mark.correctIndex] ?? "", "right")}
+                  </div>
+                  <p className="mt-4 text-lg leading-relaxed text-foreground sm:text-xl">
+                    <SciText text={mark.explanation} context={notation} />
+                  </p>
+                </>
+              ) : null;
+              return (
+                <QuestionFlipCard
+                  key={q.id}
+                  id={`question-${q.id}`}
+                  back={back}
+                  front={
+                    <>
+                      <p className="eyebrow">Question {idx + 1}</p>
+                      <SciBlock
+                        text={table ? table.question : q.question}
+                        context={notation}
+                        className="font-display text-lg mt-1 break-words"
+                      />
+                      <StoredFigure figure={q.figure} className="mt-3" />
+                      {headings && <div className="mt-3 hidden sm:block">{headings}</div>}
+                      <div className={`${headings ? "mt-3 sm:mt-1.5" : "mt-3"} space-y-2`}>
+                        {q.options.map((opt, i) => {
+                          const isChosen = chosen === i;
+                          const isCorrect = !!mark && i === mark.correctIndex;
+                          const isWrong = !!mark && isChosen && i !== mark.correctIndex;
+                          return (
+                            <button
+                              key={i}
+                              type="button"
+                              aria-pressed={isChosen}
+                              disabled={submitted}
+                              onClick={() => choose(q.id, i)}
+                              className={`w-full min-h-11 text-left px-4 py-2.5 rounded-lg border text-sm break-words transition sm:pointer-fine:min-h-0 ${
+                                isCorrect
+                                  ? "bg-primary/15 border-primary text-foreground"
+                                  : isWrong
+                                    ? "bg-destructive/10 border-destructive/50"
+                                    : isChosen
+                                      ? "bg-secondary border-primary/50"
+                                      : "bg-secondary/40 border-border hover:border-primary/40"
+                              }`}
+                            >
+                              {option(i, opt, isCorrect ? "right" : isWrong ? "wrong" : undefined)}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </>
+                  }
+                />
+              );
+            })}
+          </ol>
+          {isTutor ? (
+            <div className="mt-6 text-center">
+              <span className="chip tint-slate">Tutor preview</span>
+            </div>
+          ) : !submitted ? (
+            <button
+              data-guide="quiz-submit"
+              onClick={submit}
+              disabled={submitting}
+              className="mt-6 w-full h-11 rounded-xl btn-solid font-semibold disabled:opacity-50"
+            >
+              {submitting ? "Marking…" : "Submit answers"}
+            </button>
+          ) : (
+            <div
+              ref={scoreRef}
+              tabIndex={-1}
+              className="mt-6 rounded-2xl premium-card p-4 text-center outline-none focus-visible:ring-2 focus-visible:ring-[var(--tint)] sm:p-6"
+            >
+              <p className="eyebrow eyebrow-bare">Your score</p>
+              <p className="font-display text-4xl font-bold mt-1">
+                {marked?.score}/{marked?.total}
+              </p>
+              {opensLabel && (
+                <div className="mt-3">
+                  <span className="chip">Retake opens {opensLabel}</span>
+                </div>
+              )}
+              <div>{back}</div>
+            </div>
+          )}
+        </div>
+        {showKit && <ExamKit subject={set.subject ?? ""} board={board} level={level ?? "gcse"} />}
       </div>
     </AppLayout>
   );
