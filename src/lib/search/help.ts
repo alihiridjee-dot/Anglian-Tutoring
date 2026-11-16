@@ -21,6 +21,8 @@ export interface HelpIntent {
   describe: string;
   /** The words that select it, matched against the normalised query. */
   pattern: RegExp;
+  /** Request words the pattern doesn't cover, kept out of the content search. */
+  drop?: RegExp;
 }
 
 /**
@@ -29,6 +31,31 @@ export interface HelpIntent {
  * quiz, "my homework marks" is about grades).
  */
 export const HELP_INTENTS = [
+  {
+    id: "weak_topics",
+    label: "Topics to work on",
+    describe: "what they are worst at, their weak topics, or what they should revise",
+    // "weak" alone is chemistry (a weak acid), so it needs its noun.
+    pattern:
+      /\b(worst|weakest|weaknesses|weak (topics?|points?|areas?|spots?|at)|bad at|what (should|shall|do|can) i revise|what to revise)\b/,
+    drop: /^(should|shall|revise|topics?|points?|areas?|spots?)$/,
+  },
+  {
+    id: "practice",
+    label: "Practice",
+    describe:
+      'wants practice or more questions on a science topic; put 1 to 3 words naming the topic in "topic"',
+    pattern: /\b(practice|practise|more questions|extra questions)\b/,
+    drop: /^(give|have|more|extra|questions?|mcqs?|quiz(zes)?|tasks?)$/,
+  },
+  {
+    id: "exam_date",
+    label: "Your exams",
+    describe: "when their exams are, or how long is left until them",
+    pattern:
+      /\bexams?\b.*\b(dates?|when|long|until|till|left|away)\b|\b(dates?|when|long|until|till|weeks|days)\b.*\bexams?\b/,
+    drop: /^(exams?|dates?|long|until|till|left|away|weeks|days|many)$/,
+  },
   {
     id: "week_quizzes",
     label: "Your quizzes this week",
@@ -76,6 +103,14 @@ export const HELP_INTENTS = [
     label: "This week",
     describe: "see this week's plan or what to do next",
     pattern: /\b(plan|planner|this week|to ?do|what should i|what do i|schedule|timetable)\b/,
+  },
+  {
+    id: "break",
+    label: "Take a break",
+    describe: "pause their weekly work for a holiday, a busy week or time off",
+    // "break" alone is biology (enzymes break down starch), so it needs company.
+    pattern: /\b(take a break|a break|week off|time off|holidays?|going away|pause)\b/,
+    drop: /^(take|break|off|going)$/,
   },
   {
     id: "billing",
@@ -162,10 +197,10 @@ export function searchTerms(query: string): string[] {
  */
 export function contentTerms(query: string, intent: HelpIntentId | null): string[] {
   if (!intent) return searchTerms(query);
-  const pattern = helpIntent(intent).pattern;
+  const { pattern, drop }: HelpIntent = helpIntent(intent);
   return normalise(query)
     .split(" ")
-    .filter((t) => t && !FILLER.has(t) && !pattern.test(t));
+    .filter((t) => t && !FILLER.has(t) && !pattern.test(t) && !drop?.test(t));
 }
 
 /** Longest question sent to the model. A help request is a sentence, not an essay. */
@@ -218,9 +253,14 @@ export function scrubForModel(text: string, max: number = MAX_QUESTION_LENGTH): 
   return cutAt(scrubbed, max).trim();
 }
 
-/** What the model may answer: one of the intents, a search, or nothing fits. */
+/**
+ * What the model may answer: one of the intents (practice with its topic), a
+ * search, a science question to explain from our notes, or nothing fits.
+ */
 export type HelpReply =
-  { intent: HelpIntentId } | { intent: "search"; topic: string } | { intent: "none" };
+  | { intent: HelpIntentId; topic?: string }
+  | { intent: "search" | "explain"; topic: string }
+  | { intent: "none" };
 
 /**
  * Reads the model's JSON, trusting nothing in it. An intent outside the list, a
@@ -236,10 +276,9 @@ export function parseHelpReply(text: string): HelpReply {
   }
   if (!raw || typeof raw !== "object") return { intent: "none" };
   const { intent, topic } = raw as { intent?: unknown; topic?: unknown };
+  const words = typeof topic === "string" ? searchTerms(topic).join(" ").slice(0, 60).trim() : "";
+  if (intent === "practice") return words ? { intent, topic: words } : { intent };
   if (isHelpIntent(intent)) return { intent };
-  if (intent === "search" && typeof topic === "string") {
-    const words = searchTerms(topic).join(" ").slice(0, 60).trim();
-    if (words) return { intent: "search", topic: words };
-  }
+  if ((intent === "search" || intent === "explain") && words) return { intent, topic: words };
   return { intent: "none" };
 }
