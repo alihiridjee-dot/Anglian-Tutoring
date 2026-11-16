@@ -165,7 +165,7 @@ export async function loadGenerationContext(
  * SDK errors only; the one message read is the credit notice, which arrives as
  * an ordinary 400.
  */
-function classifyApiError(error: unknown): {
+export function classifyApiError(error: unknown): {
   failure: FailureKind;
   pauseMinutes: number;
   message: string;
@@ -235,7 +235,7 @@ function firstChars(text: string, limit: number): string {
  * call, paid or refused, can be counted. Audit only: a failed write is
  * reported and returns null, and never costs the caller a valid set.
  */
-async function recordRun(row: Record<string, unknown>): Promise<string | null> {
+export async function recordRun(row: Record<string, unknown>): Promise<string | null> {
   const id = crypto.randomUUID();
   try {
     await libraryRequest("exam_generation_runs", { id, ...row });
