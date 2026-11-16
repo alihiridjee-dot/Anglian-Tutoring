@@ -1,5 +1,10 @@
 import { describe, expect, test } from "bun:test";
-import { creditRuns, creditsToShow, levelOfCredit, parseCredited } from "@/lib/homework/creditedQuotes";
+import {
+  creditRuns,
+  creditsToShow,
+  levelOfCredit,
+  parseCredited,
+} from "@/lib/homework/creditedQuotes";
 
 /**
  * A marked answer draws the words that earned each mark under the highlighter.
@@ -72,7 +77,8 @@ describe("whether to draw the ticks at all", () => {
 });
 
 describe("a levels-of-response answer", () => {
-  const levels = "Levels:\n- Level 2 (3–4 marks): A conclusion.\n- Level 1 (1–2 marks): Some points.";
+  const levels =
+    "Levels:\n- Level 2 (3–4 marks): A conclusion.\n- Level 1 (1–2 marks): Some points.";
 
   test("one credit naming a level belongs to the whole answer", () => {
     expect(levelOfCredit([c("a", 4, "Level 2: clear conclusion")], null)).toBe("2");
