@@ -19,7 +19,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { describeError } from "@/lib/platform/errors";
 import { sciRuns } from "@/lib/platform/sciNotation";
-import { textBlocks } from "@/lib/platform/textBlocks";
+import { isGap, textBlocks } from "@/lib/platform/textBlocks";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { Confetti, Mascot, Sparkles, type MascotName, type Mood } from "@/components/Doodles";
 
@@ -660,17 +660,22 @@ function withBreaks(text: string): ReactNode {
  * A table: a header row over its rows on a wider screen. On a phone each row
  * becomes a block (its first cell as the heading, then each cell under its
  * column's name), so nothing scrolls sideways. `cell` draws each piece of
- * text, so a note can keep its **bold** and a question its notation.
+ * text, so a note can keep its **bold** and a question its notation. `gap`
+ * draws a cell the student fills in (lib/homework/answerSheet) in place of
+ * its text.
  */
 export function DataTable({
   columns,
   rows,
   cell = (text) => <SciText text={text} />,
+  gap,
 }: {
   columns: string[];
   rows: string[][];
   cell?: (text: string) => ReactNode;
+  gap?: (row: number, col: number) => ReactNode | undefined;
 }) {
+  const at = (row: number, col: number) => gap?.(row, col) ?? cell(rows[row][col]);
   return (
     <>
       {/* Its own weights, inside bold question text too. */}
@@ -684,12 +689,18 @@ export function DataTable({
             ))}
           </tr>
         </thead>
-        <tbody className="[&_td]:py-3 [&_td]:pr-4 [&_td]:align-top [&_tr]:border-b [&_tr]:border-border">
+        <tbody
+          className={cn(
+            "[&_td]:py-3 [&_td]:pr-4 [&_tr]:border-b [&_tr]:border-border",
+            // A row of boxes to fill reads across its middle.
+            gap ? "[&_td]:align-middle" : "[&_td]:align-top",
+          )}
+        >
           {rows.map((r, i) => (
             <tr key={i}>
               {r.map((c, j) => (
                 <td key={j} className={j === 0 ? "font-bold" : undefined}>
-                  {cell(c)}
+                  {at(i, j)}
                 </td>
               ))}
             </tr>
@@ -700,11 +711,11 @@ export function DataTable({
       <div className="divide-y divide-border font-normal sm:hidden">
         {rows.map((r, i) => (
           <div key={i} className="py-3">
-            <p className="font-display text-lg font-extrabold">{cell(r[0])}</p>
-            {r.slice(1).map((c, j) => (
-              <p key={j}>
-                <b>{cell(columns[j + 1])}:</b> {cell(c)}
-              </p>
+            <div className="font-display text-lg font-extrabold">{at(i, 0)}</div>
+            {r.slice(1).map((_, j) => (
+              <div key={j} className={gap ? "mt-2" : undefined}>
+                <b>{cell(columns[j + 1])}:</b> {at(i, j + 1)}
+              </div>
             ))}
           </div>
         ))}
@@ -718,27 +729,48 @@ export function DataTable({
  * steps, a list of results) and any table written as " | " rows, drawn as a
  * real table (rules in lib/platform/textBlocks). Use it wherever a question
  * is shown; `inline` draws the text inside, SciText unless a note brings its
- * own **bold**.
+ * own **bold**. `fill` draws the cells a student fills in: it is asked for
+ * each empty cell of each table that has any, the tables counted from
+ * `fillFrom` (a question drawn in pieces counts across them).
  */
 export function SciBlock({
   text,
   context,
   inline,
+  fill,
+  fillFrom = 0,
   className,
 }: {
   text: string | null | undefined;
   /** Text shown alongside (a question beside its options), so they are all written alike. */
   context?: string;
   inline?: (text: string) => ReactNode;
+  fill?: (table: number, row: number, col: number) => ReactNode;
+  fillFrom?: number;
   className?: string;
 }) {
   const blocks = useMemo(() => textBlocks(text ?? ""), [text]);
+  // Which table to fill each block is, or -1.
+  const nth = useMemo(() => {
+    let n = fillFrom;
+    return blocks.map((b) => (b.kind === "table" && b.rows.some((r) => r.some(isGap)) ? n++ : -1));
+  }, [blocks, fillFrom]);
   const draw = inline ?? ((t: string) => <SciText text={t} context={context ?? text ?? ""} />);
   return (
     <div className={cn("space-y-3", className)}>
       {blocks.map((b, i) =>
         b.kind === "table" ? (
-          <DataTable key={i} columns={b.columns} rows={b.rows} cell={draw} />
+          <DataTable
+            key={i}
+            columns={b.columns}
+            rows={b.rows}
+            cell={draw}
+            gap={
+              fill && nth[i] >= 0
+                ? (r, c) => (isGap(b.rows[r][c]) ? fill(nth[i], r, c) : undefined)
+                : undefined
+            }
+          />
         ) : (
           <p key={i}>{draw(b.text)}</p>
         ),
