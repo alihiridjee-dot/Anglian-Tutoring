@@ -7,6 +7,8 @@
  * there, folded the same way as here: case, spacing, punctuation and the form
  * of a symbol dropped. Publishing copies them onto `homework_answers.credited`.
  */
+import { isLevelRow, layoutMarkScheme } from "@/lib/homework/markSchemeLayout";
+
 export type Credit = { quote: string; point: string; marks: number };
 
 /** A run of the answer: plain, or the words that earned `credits[credit]`. */
@@ -35,6 +37,22 @@ export function creditsToShow(json: unknown, awarded: number | null | undefined)
   if (awarded == null || awarded <= 0 || !credits.length) return [];
   const total = credits.reduce((sum, c) => sum + c.marks, 0);
   return Math.abs(total - awarded) < 1e-9 ? credits : [];
+}
+
+/**
+ * A levels-of-response answer is judged whole, so its one credit carries the
+ * level's marks and belongs to the answer, not to the sentence the marker
+ * happened to quote. Returns that credit's level ("2", or null when the marker
+ * did not name one), or undefined for an answer marked point by point.
+ */
+export function levelOfCredit(
+  credits: Credit[],
+  scheme: string | null | undefined,
+): string | null | undefined {
+  if (credits.length !== 1) return undefined;
+  const named = /^\s*Level\s*(\d)/i.exec(credits[0].point);
+  if (named) return named[1];
+  return layoutMarkScheme(scheme).some(isLevelRow) ? null : undefined;
 }
 
 /** One folded character and the span of the original it came from. */
