@@ -6,6 +6,7 @@ import {
   loadGenerationContext,
 } from "../homework/examGeneration.server";
 import { QUESTIONS, runPracticeJobNow } from "../practice/practiceQueue.server";
+import { MIN_QUIZ_QUESTIONS, checkAnswers } from "./answerCheck.server";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
@@ -97,14 +98,30 @@ export const replaceMcqQuestions = createServerFn({ method: "POST" })
       ...CALL_LIMITS,
       source: "replace",
     });
+    // The same answer check the queue's quizzes pass: each key solved again,
+    // blind, and a question left out when nothing confirms it.
+    const checks = await checkAnswers(generation.point, questions, { source: "replace" });
+    const kept = questions.flatMap((q, i) => {
+      const checkedBy = checks[i];
+      if (!checkedBy) return [];
+      return [
+        {
+          question: q.question.trim(),
+          options: q.options.map((o) => o.trim()),
+          correct_index: q.correct_index,
+          explanation: q.explanation.trim(),
+          checked_run_id: checkedBy,
+        },
+      ];
+    });
+    // The quiz as it stands is better than a stub of a replacement.
+    if (kept.length < MIN_QUIZ_QUESTIONS)
+      throw new Error(
+        `Only ${kept.length} of ${QUESTIONS.quiz} new questions passed the answer check, so the quiz was left as it is. Please try again.`,
+      );
     const count = await libraryRequest("rpc/replace_generated_mcq_questions", {
       _set_id: data.setId,
-      _questions: questions.map((q) => ({
-        question: q.question.trim(),
-        options: q.options.map((o) => o.trim()),
-        correct_index: q.correct_index,
-        explanation: q.explanation.trim(),
-      })),
+      _questions: kept,
     });
     return { questions: typeof count === "number" ? count : 0 };
   });

@@ -65,9 +65,14 @@ const written = {
   practical_demand: false,
 };
 
+/** The writer's verdicts on four options when only `key` is right. */
+const verdicts = (key: number) =>
+  [0, 1, 2, 3].map((i) => ({ correct: i === key, why: i === key ? "It is." : "It isn't." }));
+
 const genetics = {
   question: "Which genotype is homozygous recessive?",
   options: ["TT", "Tt", "tt", "Tt and tt"],
+  option_checks: verdicts(2),
   correct_index: 2,
   explanation: "Homozygous recessive means two copies of the recessive allele: tt.",
   assessment_objectives: ["AO1"],
@@ -242,6 +247,7 @@ describe("generated set validation", () => {
     const q = {
       question: "Which is an acid?",
       options: ["Hydrochloric acid", "Sodium chloride", "Water", "Sodium hydroxide"],
+      option_checks: verdicts(0),
       correct_index: 0,
       explanation: "Hydrochloric acid produces hydrogen ions in aqueous solution.",
       assessment_objectives: ["AO1"],
@@ -297,7 +303,12 @@ describe("generated set validation", () => {
   });
   test("options that differ only in case are different answers", () => {
     expect(validateQuestions({ questions: [genetics] }, 1, "mcq")).toEqual([genetics]);
-    const formulas = { ...genetics, options: ["Co", "CO", "C", "O"], correct_index: 1 };
+    const formulas = {
+      ...genetics,
+      options: ["Co", "CO", "C", "O"],
+      option_checks: verdicts(1),
+      correct_index: 1,
+    };
     expect(validateQuestions({ questions: [formulas] }, 1, "mcq")).toEqual([formulas]);
   });
   test("exact duplicates still fail, however they are spaced", () => {
@@ -423,6 +434,80 @@ describe("generated set validation", () => {
   });
 });
 
+describe("the writer's own working backs the key", () => {
+  // The two questions that went live with a wrong key (16 Nov 2026), as the
+  // writer's verdicts would have had them, had it been asked for any.
+  const sulfur = {
+    ...genetics,
+    question: "In which change is sulfur oxidised?",
+    options: ["SO₃ → H₂SO₄", "H₂SO₄ → SO₂", "S → H₂S", "SO₂ → S"],
+    option_checks: [
+      { correct: false, why: "+6 to +6, no change" },
+      { correct: false, why: "+6 to +4, reduction" },
+      { correct: false, why: "0 to −2, reduction" },
+      { correct: false, why: "+4 to 0, reduction" },
+    ],
+    correct_index: 2,
+    explanation: "None of these is oxidation, so the question as keyed is invalid.",
+  };
+  const osmosis = {
+    ...genetics,
+    question:
+      "A potato cylinder had a mass of 2.50 g at the start and 2.15 g after 60 minutes. What was the percentage change in mass?",
+    options: [
+      "a decrease of 14.0%",
+      "a decrease of 16.3%",
+      "an increase of 14.0%",
+      "a decrease of 0.35%",
+    ],
+    option_checks: verdicts(0),
+    correct_index: 1,
+    explanation: "−0.35 ÷ 2.50 × 100 = −14.0%.",
+  };
+  const problem = (q: object) => validateQuestions({ questions: [q] }, 1, "mcq")[0].answerProblem;
+
+  test("a key the verdicts single out has no problem", () => {
+    expect(problem(genetics)).toBeUndefined();
+  });
+  test("no option judged correct: the sulfur question", () => {
+    expect(problem(sulfur)).toBe("has no option its writer judged correct");
+  });
+  test("keyed to an option judged wrong: the osmosis question", () => {
+    expect(problem(osmosis)).toBe("is keyed to an option its writer judged wrong");
+  });
+  test("two options judged correct, or verdicts missing or short", () => {
+    const both = verdicts(2).map((v, i) => (i === 0 ? { ...v, correct: true } : v));
+    expect(problem({ ...genetics, option_checks: both })).toBe(
+      "has more than one option its writer judged correct",
+    );
+    const { option_checks: _none, ...bare } = genetics;
+    for (const q of [
+      bare,
+      { ...genetics, option_checks: verdicts(2).slice(0, 3) },
+      { ...genetics, option_checks: [1, 2, 3, 4] },
+      { ...genetics, option_checks: "tt" },
+    ])
+      expect(problem(q)).toBe("has no verdict on each of its four options");
+  });
+  test("a question with a problem stays in the set, marked, so its own set is not lost", () => {
+    const set = validateQuestions({ questions: [sulfur, genetics] }, 2, "mcq");
+    expect(set.map((q) => q.answerProblem !== undefined)).toEqual([true, false]);
+  });
+  test("the schema asks for the verdicts before the key, and the prompt says how", () => {
+    const fields = Object.keys(
+      (
+        generationSchema("mcq") as {
+          properties: { questions: { items: { properties: Record<string, unknown> } } };
+        }
+      ).properties.questions.items.properties,
+    );
+    expect(fields.indexOf("option_checks")).toBeGreaterThan(fields.indexOf("options"));
+    expect(fields.indexOf("option_checks")).toBeLessThan(fields.indexOf("correct_index"));
+    expect(buildGenerationPrompt(context, 8, "mcq").user).toContain("option_checks");
+    expect(buildGenerationPrompt(context, 5, "written").user).not.toContain("option_checks");
+  });
+});
+
 describe("figures, for the practice queue's sets only", () => {
   const graph = {
     kind: "line-graph",
@@ -445,6 +530,7 @@ describe("figures, for the practice queue's sets only", () => {
     question:
       "The graph shows how the velocity of a car changed. How far did it travel in the first 4 s?",
     options: ["8 m", "16 m", "32 m", "4 m"],
+    option_checks: verdicts(1),
     correct_index: 1,
     // The writer gives a brief as JSON text: a schema with every kind of brief
     // spelled out was too large for structured outputs.

@@ -79,6 +79,8 @@ const mcqs = (count = 8) =>
       `Third answer ${w}`,
       `Fourth answer ${w}`,
     ],
+    // The writer's verdict on each option, given before its key.
+    option_checks: [0, 1, 2, 3].map((k) => ({ correct: k === i % 4, why: "worked out" })),
     correct_index: i % 4,
     explanation: ` The first answer explains ${w}. `,
     ...assessment,
@@ -91,8 +93,13 @@ const tasks = (count = 5) =>
     mark_scheme: ` Credit any clear point about ${w}. `,
     ...assessment,
   }));
-const message = (questions: unknown[], stop_reason = "end_turn") =>
-  Response.json({
+/** Each written question's key by its text, for the stand-in solver to agree with. */
+const keys = new Map<string, number>();
+const message = (questions: unknown[], stop_reason = "end_turn") => {
+  for (const q of questions as { question?: string; correct_index?: number }[])
+    if (typeof q?.question === "string" && typeof q.correct_index === "number")
+      keys.set(q.question.trim(), q.correct_index);
+  return Response.json({
     id: "msg_test",
     type: "message",
     role: "assistant",
@@ -102,6 +109,39 @@ const message = (questions: unknown[], stop_reason = "end_turn") =>
     content: [{ type: "text", text: JSON.stringify({ questions }) }],
     usage: { input_tokens: 1000, output_tokens: 100 },
   });
+};
+/** The questions a blind solve was sent, as the solver sees them. */
+const asked = (body: Record<string, unknown>) =>
+  JSON.parse(
+    /<questions>\n(.*)\n<\/questions>/.exec(
+      (body.messages as { content: string }[])[0].content,
+    )![1],
+  ) as { n: number; question: string; options: Record<string, string> }[];
+/** A solver's answer: `pick` chooses each question's letter. */
+const solved = (body: Record<string, unknown>, pick: (question: string, n: number) => string) =>
+  Response.json({
+    id: "msg_check",
+    type: "message",
+    role: "assistant",
+    model: body.model,
+    stop_reason: "end_turn",
+    stop_sequence: null,
+    content: [
+      {
+        type: "text",
+        text: JSON.stringify({
+          answers: asked(body).map((q) => ({
+            n: q.n,
+            working: "worked out",
+            answer: pick(q.question.trim(), q.n),
+          })),
+        }),
+      },
+    ],
+    usage: { input_tokens: 500, output_tokens: 300 },
+  });
+/** The key the question was written with: a solver that agrees with every one. */
+const itsKey = (question: string) => "ABCD"[keys.get(question)!];
 const apiError = (status: number, type: string, text: string) =>
   Response.json({ type: "error", error: { type, message: text } }, { status });
 const down = () => new Response("down", { status: 500 });
@@ -113,8 +153,10 @@ let headers: Record<string, Headers[]> = {};
 
 /**
  * The database and the model behind fetch, routed by path: `rpc/<name>`,
- * `exam_generation_runs`, `/v1/messages`. Returns every request body by path;
- * a request nothing answers fails the test.
+ * `exam_generation_runs`, `/v1/messages`. A blind solve of a quiz's answers
+ * is the same endpoint: it is routed as `answer-check`, and agrees with every
+ * key unless a test says otherwise. Returns every request body by path; a
+ * request nothing answers fails the test.
  */
 function stub(routes: Record<string, Handler>) {
   const calls: Record<string, Record<string, unknown>[]> = {};
@@ -122,13 +164,16 @@ function stub(routes: Record<string, Handler>) {
     "rpc/exam_generation_context": (body) => Response.json(context(body._spec_point_id as string)),
     exam_generation_runs: () => new Response(null, { status: 201 }),
     "rpc/fail_practice_job": () => Response.json("pending"),
+    "answer-check": (body) => solved(body, itsKey),
     ...routes,
   };
   headers = {};
   globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
     const request = input instanceof Request ? input : new Request(input, init);
-    const path = new URL(request.url).pathname.replace(/^\/rest\/v1\//, "");
     const body = (await request.json()) as Record<string, unknown>;
+    const path = JSON.stringify(body.output_config ?? "").includes('"answers"')
+      ? "answer-check"
+      : new URL(request.url).pathname.replace(/^\/rest\/v1\//, "");
     (calls[path] ??= []).push(body);
     (headers[path] ??= []).push(request.headers);
     const answer = all[path];
@@ -162,8 +207,17 @@ test("a claimed quiz is written, trimmed and saved under its claim, with its run
   expect(JSON.stringify(calls["/v1/messages"][0].messages)).toContain("Write exactly 8 MCQs");
   // The call's own limit (200 s, inside the worker's 300 s), not the SDK's ten minutes.
   expect(headers["/v1/messages"][0].get("x-stainless-timeout")).toBe("200");
-  const [run] = calls.exam_generation_runs;
+  const [run, check] = calls.exam_generation_runs;
   expect(run).toMatchObject({ outcome: "passed", source: "queue", job_id: 11, format: "mcq" });
+  // One blind solve by the cheaper model confirmed every key, so there was no tie-break.
+  expect(calls["answer-check"].map((c) => c.model)).toEqual(["claude-haiku-5-5"]);
+  expect(check).toMatchObject({
+    outcome: "passed",
+    source: "queue",
+    job_id: 11,
+    format: "mcq_check",
+    model: "claude-haiku-5-5",
+  });
   expect(calls["rpc/complete_practice_job"]).toEqual([
     {
       _job_id: 11,
@@ -174,6 +228,7 @@ test("a claimed quiz is written, trimmed and saved under its claim, with its run
         options: q.options.map((o) => o.trim()),
         correct_index: q.correct_index,
         explanation: q.explanation.trim(),
+        checked_run_id: check.id,
       })),
     },
   ]);
@@ -805,4 +860,233 @@ test("a question whose figure can't be drawn is left out, not saved without it",
       .filter((_, i) => i !== 3)
       .map((q) => q.prompt.trim()),
   );
+});
+
+// ── The answer check ──────────────────────────────────────────────────────
+
+/** The question at `i` of a written set, keyed to `key` whatever its writer's verdicts say. */
+const rekeyed = (i: number, key: number) =>
+  mcqs().map((q, k) => (k === i ? { ...q, correct_index: key } : q));
+
+test("the solver is shown each question as a student meets it, and never its key", async () => {
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job()),
+    "/v1/messages": () => message(mcqs()),
+    "rpc/complete_practice_job": saved("written", "set-1"),
+  });
+  await drainPracticeQueue();
+  const [check] = calls["answer-check"];
+  expect(asked(check)[0]).toEqual({
+    n: 1,
+    question: mcqs()[0].question,
+    options: Object.fromEntries(mcqs()[0].options.map((o, k) => ["ABCD"[k], o])),
+  });
+  const sent = JSON.stringify(check);
+  for (const hidden of ["correct_index", "option_checks", "explanation", "explains one"])
+    expect(sent).not.toContain(hidden);
+  // The curriculum point, so the answer is judged at the level it is taught.
+  expect(sent).toContain("Functions of cell structures.");
+});
+
+test("a question keyed against its writer's own verdicts is left out without a call for it", async () => {
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job()),
+    // Question three's verdicts say C; its key says A.
+    "/v1/messages": () => message(rekeyed(2, 0)),
+    "rpc/complete_practice_job": saved("written", "set-1"),
+  });
+  restore.push(spyOn(console, "warn").mockImplementation(() => {}));
+  const [outcome] = await drainPracticeQueue();
+  expect(outcome.result).toBe("written");
+  expect(asked(calls["answer-check"][0]).map((q) => q.question.trim())).not.toContain(
+    mcqs()[2].question.trim(),
+  );
+  const savedQuestions = calls["rpc/complete_practice_job"][0]._questions as { question: string }[];
+  expect(savedQuestions).toHaveLength(7);
+  expect(savedQuestions.map((q) => q.question)).not.toContain(mcqs()[2].question.trim());
+});
+
+test("a key the first solver disputes goes to the second alone: kept if it agrees, dropped if not", async () => {
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job()),
+    "/v1/messages": () => message(mcqs()),
+    "answer-check": (body) =>
+      body.model === "claude-haiku-5-5"
+        ? // The cheaper solver gets questions two and five wrong (or they are).
+          solved(body, (q, n) => (n === 2 ? "none" : n === 5 ? "D" : itsKey(q)))
+        : // The tie-break: two was sound after all; five has two right answers.
+          solved(body, (q, n) => (n === 1 ? itsKey(q) : "several")),
+    "rpc/complete_practice_job": saved("written", "set-1"),
+  });
+  restore.push(spyOn(console, "warn").mockImplementation(() => {}));
+  await drainPracticeQueue();
+  const [first, second] = calls["answer-check"];
+  expect([first.model, second.model]).toEqual(["claude-haiku-5-5", "claude-sonnet-5-5"]);
+  expect(asked(first)).toHaveLength(8);
+  expect(asked(second).map((q) => q.question.trim())).toEqual(
+    [1, 4].map((i) => mcqs()[i].question.trim()),
+  );
+  const checks = calls.exam_generation_runs.filter((r) => r.format === "mcq_check");
+  const savedQuestions = calls["rpc/complete_practice_job"][0]._questions as {
+    question: string;
+    checked_run_id: string;
+  }[];
+  expect(savedQuestions.map((q) => q.question)).toEqual(
+    mcqs()
+      .filter((_, i) => i !== 4)
+      .map((q) => q.question.trim()),
+  );
+  // Each question names the run that gave its key: the tie-break's for question two.
+  expect(savedQuestions.map((q) => q.checked_run_id)).toEqual(
+    [0, 1, 2, 3, 5, 6, 7].map((i) => (i === 1 ? checks[1].id : checks[0].id) as string),
+  );
+  expect((checks[0].generated_questions as { checked: unknown[] }).checked[1]).toEqual({
+    question: mcqs()[1].question,
+    key: "B",
+    answer: "none",
+    agreed: false,
+  });
+});
+
+test("the two questions that went live with a wrong key are both dropped", async () => {
+  const sulfur = {
+    ...mcqs()[0],
+    question: "In which change is sulfur oxidised?",
+    options: ["SO₃ → H₂SO₄", "H₂SO₄ → SO₂", "S → H₂S", "SO₂ → S"],
+    // As a writer sure of itself would have it: the verdicts back the wrong key.
+    option_checks: [0, 1, 2, 3].map((k) => ({ correct: k === 2, why: "sulfur gains hydrogen" })),
+    correct_index: 2,
+  };
+  const osmosis = {
+    ...mcqs()[1],
+    question: "A potato cylinder went from 2.50 g to 2.15 g. What was the percentage change?",
+    options: [
+      "a decrease of 14.0%",
+      "a decrease of 16.3%",
+      "an increase of 14.0%",
+      "a decrease of 0.35%",
+    ],
+    option_checks: [0, 1, 2, 3].map((k) => ({ correct: k === 1, why: "0.35 ÷ 2.15" })),
+    correct_index: 1,
+  };
+  const truth: Record<string, string> = { [sulfur.question]: "none", [osmosis.question]: "A" };
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job()),
+    "/v1/messages": () => message([sulfur, osmosis, ...mcqs().slice(2)]),
+    // Both solvers work the answers out, and neither lands on the key.
+    "answer-check": (body) => solved(body, (q) => truth[q] ?? itsKey(q)),
+    "rpc/complete_practice_job": saved("written", "set-1"),
+  });
+  restore.push(spyOn(console, "warn").mockImplementation(() => {}));
+  await drainPracticeQueue();
+  expect(calls["answer-check"]).toHaveLength(2);
+  expect(
+    (calls["rpc/complete_practice_job"][0]._questions as { question: string }[]).map(
+      (q) => q.question,
+    ),
+  ).toEqual(
+    mcqs()
+      .slice(2)
+      .map((q) => q.question.trim()),
+  );
+});
+
+test("too few questions left is a retry that closes the writer's run, and nothing is saved", async () => {
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job()),
+    "/v1/messages": () => message(mcqs()),
+    // Neither solver agrees with more than four keys.
+    "answer-check": (body) => solved(body, (q) => (keys.get(q)! < 2 ? itsKey(q) : "none")),
+  });
+  restore.push(spyOn(console, "warn").mockImplementation(() => {}));
+  const [outcome] = await drainPracticeQueue();
+  expect(outcome).toMatchObject({
+    result: "failed",
+    failure: "retry",
+    error: "Only 4 of 8 questions passed their checks",
+  });
+  expect(calls["rpc/complete_practice_job"]).toBeUndefined();
+  expect(calls["rpc/fail_practice_job"][0]._run_id).toBe(calls.exam_generation_runs[0].id);
+});
+
+test("without the first solver the second solves the whole set", async () => {
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job()),
+    "/v1/messages": () => message(mcqs()),
+    "answer-check": (body) =>
+      body.model === "claude-haiku-5-5"
+        ? apiError(529, "overloaded_error", "Overloaded")
+        : solved(body, itsKey),
+    "rpc/complete_practice_job": saved("written", "set-1"),
+  });
+  restore.push(spyOn(console, "warn").mockImplementation(() => {}));
+  const [outcome] = await drainPracticeQueue();
+  expect(outcome.result).toBe("written");
+  expect(asked(calls["answer-check"][1])).toHaveLength(8);
+  const checks = calls.exam_generation_runs.filter((r) => r.format === "mcq_check");
+  expect(checks.map((r) => [r.model, r.outcome, r.api_status ?? null])).toEqual([
+    ["claude-haiku-5-5", "failed", 529],
+    ["claude-sonnet-5-5", "passed", null],
+  ]);
+  expect(calls["rpc/complete_practice_job"][0]._questions).toHaveLength(8);
+});
+
+test("with no solver there is no check, so nothing is saved: an outage pauses the queue", async () => {
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job()),
+    "/v1/messages": () => message(mcqs()),
+    "answer-check": () => apiError(529, "overloaded_error", "Overloaded"),
+  });
+  restore.push(spyOn(console, "warn").mockImplementation(() => {}));
+  const [outcome] = await drainPracticeQueue();
+  expect(outcome).toMatchObject({ result: "failed", failure: "outage" });
+  expect(calls["rpc/complete_practice_job"]).toBeUndefined();
+  expect(calls["rpc/fail_practice_job"][0]).toMatchObject({
+    _failure: "outage",
+    _run_id: calls.exam_generation_runs[0].id,
+  });
+});
+
+test("an answer the solver cuts short, or a check that can't be recorded, confirms nothing", async () => {
+  const broken: Record<string, Handler>[] = [
+    {
+      "answer-check": (body: Record<string, unknown>) =>
+        Response.json({
+          id: "msg_check",
+          type: "message",
+          role: "assistant",
+          model: body.model,
+          stop_reason: "max_tokens",
+          stop_sequence: null,
+          content: [{ type: "text", text: '{"answers":[' }],
+          usage: { input_tokens: 500, output_tokens: 16000 },
+        }),
+    },
+    {
+      // The writer's run is recorded; the checks' rows are refused.
+      exam_generation_runs: (body: Record<string, unknown>) =>
+        body.format === "mcq_check" ? down() : new Response(null, { status: 201 }),
+    },
+  ];
+  for (const routes of broken) {
+    const calls = stub({
+      "rpc/claim_practice_jobs": claims(job()),
+      "/v1/messages": () => message(mcqs()),
+      ...routes,
+    });
+    restore.push(spyOn(console, "warn").mockImplementation(() => {}));
+    const [outcome] = await drainPracticeQueue();
+    expect(outcome).toMatchObject({ result: "failed", failure: "retry" });
+    expect(calls["rpc/complete_practice_job"]).toBeUndefined();
+  }
+});
+
+test("a task has no answer check", async () => {
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job({ kind: "task" })),
+    "/v1/messages": () => message(tasks()),
+    "rpc/complete_practice_job": saved("written", "sheet-1"),
+  });
+  await drainPracticeQueue();
+  expect(calls["answer-check"]).toBeUndefined();
 });

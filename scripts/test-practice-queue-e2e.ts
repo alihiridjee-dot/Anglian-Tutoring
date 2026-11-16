@@ -47,10 +47,17 @@ const THIS_WEEK_ONLY = new URL(
   "../supabase/migrations/20261007111000_practice_queue_this_week_only.sql",
   import.meta.url,
 );
+// The quiz writer as it is today: with figures (17 and 29 Oct), and refusing a
+// question no blind solve confirmed (16 Nov).
+const LATER = [
+  "20261017145754_question_figures",
+  "20261029123927_option_figures",
+  "20261116190000_mcq_answer_check",
+].map((name) => new URL(`../supabase/migrations/${name}.sql`, import.meta.url));
 const WORKER = new URL("../src/lib/practice/practiceQueue.server.ts", import.meta.url);
 const GENERATION = new URL("../src/lib/homework/examGeneration.ts", import.meta.url);
 const absent: string[] = [];
-for (const file of [MIGRATION, FIX, THIS_WEEK_ONLY, WORKER])
+for (const file of [MIGRATION, FIX, THIS_WEEK_ONLY, ...LATER, WORKER])
   await access(file).catch(() => absent.push(fileURLToPath(file)));
 if (absent.length) {
   console.error(`practice queue e2e: harness ready, waiting for ${absent.join(" and ")}`);
@@ -559,6 +566,7 @@ try {
   await db.exec(await readFile(MIGRATION, "utf8"));
   await db.exec(await readFile(FIX, "utf8"));
   await db.exec(await readFile(THIS_WEEK_ONLY, "utf8"));
+  for (const later of LATER) await db.exec(await readFile(later, "utf8"));
 } catch (error) {
   throw new Error(`the migration did not load on the fixture: ${(error as Error).message}`, {
     cause: error,
@@ -839,6 +847,12 @@ const model = {
   hold: null as null | { arrive: () => void; released: Promise<void> },
   /** Anything a call carried that the real API would refuse, or the contract forbids. */
   faults: [] as string[],
+  /**
+   * Blind solves of a quiz's answers: one per quiz that reached its check,
+   * each agreeing with every key. Counted apart from `calls`, as the daily
+   * cap counts them apart: the unit tests cover a solver that disagrees.
+   */
+  checks: 0,
 };
 
 const ORDINALS = (
@@ -854,6 +868,16 @@ const LABELS = {
 const replyTag = (n: number) =>
   [...n.toString(26)].map((d) => String.fromCharCode(97 + parseInt(d, 26))).join("");
 
+/** The writer's verdict on each of four options, given before its key. */
+const verdicts = (key: number) =>
+  [0, 1, 2, 3].map((k) => ({ correct: k === key, why: "worked out" }));
+/** The key mcqSet gives a question, read back from its text: what a sound blind solve answers. */
+const keyOf = (question: string) => {
+  if (question.includes("heterozygous")) return "B";
+  const nth = /Which is the (\w+) statement/.exec(question);
+  return "ABCD"[ORDINALS.indexOf(nth?.[1] ?? "") % 4];
+};
+
 function mcqSet(count: number, tag: string): Question[] {
   return Array.from({ length: count }, (_, i) =>
     i === 0
@@ -861,6 +885,7 @@ function mcqSet(count: number, tag: string): Question[] {
         {
           question: "  Which genotype is heterozygous?  ",
           options: ["TT", "Tt", "tt", "  T "],
+          option_checks: verdicts(1),
           correct_index: 1,
           explanation: ` Tt carries two different alleles (reply ${tag}). `,
           ...LABELS,
@@ -868,6 +893,7 @@ function mcqSet(count: number, tag: string): Question[] {
       : {
           question: `Which is the ${ORDINALS[i]} statement about alleles?`,
           options: ["alpha", "beta", "gamma", "delta"].map((w) => `${ORDINALS[i]} ${w}`),
+          option_checks: verdicts(i % 4),
           correct_index: i % 4,
           explanation: `The ${ORDINALS[i]} statement is the keyed one (reply ${tag}).`,
           ...LABELS,
@@ -907,6 +933,39 @@ async function anthropic(request: Request): Promise<Response> {
   };
   const content = body.messages?.[0]?.content;
   const user = typeof content === "string" ? content : "";
+  const toSolve = /<questions>\n(.*)\n<\/questions>/.exec(user);
+  if (toSolve && user.includes("Solve each of the")) {
+    if (request.headers.get("x-api-key") !== ANTHROPIC_KEY)
+      model.faults.push("a blind solve without the configured ANTHROPIC_API_KEY");
+    if (body.model !== "claude-haiku-5-5") model.faults.push(`a blind solve by ${body.model}`);
+    if (body.output_config?.format?.type !== "json_schema")
+      model.faults.push("a blind solve without the JSON schema");
+    if (/correct_index|option_checks|explanation|keyed one/.test(user))
+      model.faults.push("a blind solve that was shown the key");
+    model.checks += 1;
+    const questions = JSON.parse(toSolve[1]) as { n: number; question: string }[];
+    return Response.json({
+      id: `msg_e2e_check_${model.checks}`,
+      type: "message",
+      role: "assistant",
+      model: body.model,
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify({
+            answers: questions.map((q) => ({
+              n: q.n,
+              working: "worked out",
+              answer: keyOf(q.question),
+            })),
+          }),
+        },
+      ],
+      stop_reason: "end_turn",
+      stop_sequence: null,
+      usage: { input_tokens: 900, output_tokens: 400 },
+    });
+  }
   const ask = /Write exactly (\d+) (MCQs|written questions)\./.exec(user);
   const curriculum = /<curriculum>\n(.*)\n<\/curriculum>/.exec(user);
   if (request.headers.get("x-api-key") !== ANTHROPIC_KEY)
@@ -1185,7 +1244,8 @@ const runs = async (point: Point) =>
               case when jsonb_typeof(generated_questions) = 'array' then jsonb_array_length(generated_questions) end as questions,
               coalesce(jsonb_typeof(usage) = 'object', false) as has_usage, api_status, model,
               grounding, coalesce(duration_ms >= 0, false) as timed
-         from public.exam_generation_runs where spec_point_id = $1 order by created_at, id`,
+         from public.exam_generation_runs
+        where spec_point_id = $1 and format <> 'mcq_check' order by created_at, id`,
       [point.id],
     )
   ).rows;
@@ -1358,11 +1418,17 @@ async function settled(label: string) {
     ready: number;
     unresolved: number;
     runs: number;
+    checks: number;
+    unchecked: number;
   }>(
     `select (select count(*) from private.practice_jobs where status = 'generating')::int as generating,
             (select count(*) from private.practice_jobs where status = 'pending' and run_after <= now())::int as ready,
-            (select count(*) from public.exam_generation_runs where source = 'queue' and outcome = 'passed')::int as unresolved,
-            (select count(*) from public.exam_generation_runs where source = 'queue')::int as runs`,
+            (select count(*) from public.exam_generation_runs where source = 'queue' and outcome = 'passed' and format <> 'mcq_check')::int as unresolved,
+            (select count(*) from public.exam_generation_runs where source = 'queue' and format <> 'mcq_check')::int as runs,
+            (select count(*) from public.exam_generation_runs where source = 'queue' and format = 'mcq_check' and outcome = 'passed')::int as checks,
+            (select count(*) from public.mcq_questions q join public.mcq_sets s on s.id = q.set_id
+              where s.origin = 'generated' and s.created_by is null and q.checked_run_id is null
+                and q.question <> 'Written by the deployed site')::int as unchecked`,
   );
   const [s] = rows;
   assert.deepEqual(
@@ -1375,6 +1441,8 @@ async function settled(label: string) {
   assert.deepEqual(model.faults, [], `${label}: every model call was well formed`);
   assert.deepEqual(strays, [], `${label}: nothing left the process`);
   assert.equal(s.runs, model.calls.length, `${label}: one queue run row per model call`);
+  assert.equal(s.checks, model.checks, `${label}: one check run row per blind solve`);
+  assert.equal(s.unchecked, 0, `${label}: every question the queue saved names its check`);
   assert.equal(
     await calls24h(),
     billable(),
@@ -1684,16 +1752,29 @@ try {
     const drain = worker.drainPracticeQueue({ only: { specPointId: p7.id, kind: "quiz" } });
     await untilCalled(hold.arrived, drain, "the worker");
     // The deployed site's own writer, still live until this PR is.
-    const legacy = await rpc<string>("ensure_generated_mcq_set", {
-      _spec_point_id: p7.id,
-      _questions: [
-        {
-          question: "Written by the deployed site",
-          options: ["a", "b", "c", "d"],
-          correct_index: 2,
-          explanation: "Because.",
-        },
-      ],
+    const rival = [
+      {
+        question: "Written by the deployed site",
+        options: ["a", "b", "c", "d"],
+        correct_index: 2,
+        explanation: "Because.",
+      },
+    ];
+    // Since the answer check, the table refuses that writer its unchecked set...
+    const refused = await fetch(`${SUPABASE_URL}/rest/v1/rpc/ensure_generated_mcq_set`, {
+      method: "POST",
+      headers: { apikey: SERVICE_KEY, "Content-Type": "application/json", "x-e2e-harness": "1" },
+      body: JSON.stringify({ _spec_point_id: p7.id, _questions: rival }),
+    });
+    assert.match(await refused.text(), /needs an answer check/);
+    // ...so the set that arrives meanwhile is one a signed-in tutor saves.
+    const legacy = await db.transaction(async (tx) => {
+      await tx.query("select set_config('request.jwt.claim.sub', $1, true)", [STUDENT]);
+      const { rows } = await tx.query<{ id: string }>(
+        "select public.ensure_generated_mcq_set($1, $2::jsonb) as id",
+        [p7.id, JSON.stringify(rival)],
+      );
+      return rows[0].id;
     });
     hold.release();
     const outcomes = await drain;
