@@ -33,7 +33,7 @@ import {
   type TimestampedDraft,
 } from "@/lib/homework/homeworkDrafts";
 import { isAlreadySubmitted, markingStalled, startMarking } from "@/lib/homework/startMarking";
-import { creditRuns, creditsToShow } from "@/lib/homework/creditedQuotes";
+import { creditRuns, creditsToShow, levelOfCredit } from "@/lib/homework/creditedQuotes";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import { Meter, SciBlock, SciText, Spinner } from "@/components/Shared";
@@ -196,7 +196,12 @@ function MarkedAnswer({
       ),
     [answer?.credited, answer?.awarded_marks],
   );
-  const runs = useMemo(() => creditRuns(text, credits), [text, credits]);
+  // A levels answer is judged whole: no sentence is highlighted, one chip ends it.
+  const level = useMemo(() => levelOfCredit(credits, q.mark_scheme), [credits, q.mark_scheme]);
+  const runs = useMemo(
+    () => (level === undefined ? creditRuns(text, credits) : [{ text }]),
+    [text, credits, level],
+  );
   const [open, setOpen] = useState<number | null>(null);
   const shown = open != null ? credits[open] : undefined;
 
@@ -236,6 +241,22 @@ function MarkedAnswer({
               </span>
             );
           })
+        )}
+        {level !== undefined && !isBlank(text) && (
+          <button
+            type="button"
+            onClick={() => setOpen(open === 0 ? null : 0)}
+            aria-pressed={open === 0}
+            title={credits[0].point || undefined}
+            className={cn(
+              "chip tint-emerald mx-1 gap-1 px-2 py-0 align-[0.08em] text-[0.7rem]",
+              open === 0 && "chip-solid",
+            )}
+          >
+            <Check className="size-3" strokeWidth={3.25} aria-hidden />
+            {level ? `Level ${level} · ` : ""}
+            {credits[0].marks} mark{credits[0].marks === 1 ? "" : "s"}
+          </button>
         )}
       </div>
       {shown?.point && (

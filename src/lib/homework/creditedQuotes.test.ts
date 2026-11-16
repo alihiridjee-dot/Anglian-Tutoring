@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { creditRuns, creditsToShow, parseCredited } from "@/lib/homework/creditedQuotes";
+import { creditRuns, creditsToShow, levelOfCredit, parseCredited } from "@/lib/homework/creditedQuotes";
 
 /**
  * A marked answer draws the words that earned each mark under the highlighter.
@@ -68,5 +68,22 @@ describe("whether to draw the ticks at all", () => {
     expect(
       parseCredited([{ quote: "", marks: 1 }, { quote: "x", marks: 0 }, "junk", c("ok")]),
     ).toEqual([c("ok")]);
+  });
+});
+
+describe("a levels-of-response answer", () => {
+  const levels = "Levels:\n- Level 2 (3–4 marks): A conclusion.\n- Level 1 (1–2 marks): Some points.";
+
+  test("one credit naming a level belongs to the whole answer", () => {
+    expect(levelOfCredit([c("a", 4, "Level 2: clear conclusion")], null)).toBe("2");
+  });
+
+  test("a levels scheme makes a lone credit a level, named or not", () => {
+    expect(levelOfCredit([c("a", 4, "clear conclusion")], levels)).toBeNull();
+  });
+
+  test("point-by-point credits are left as ticks", () => {
+    expect(levelOfCredit([c("a", 1, "cell wall")], "- cell wall (1)")).toBeUndefined();
+    expect(levelOfCredit([c("a", 2, "Level 1"), c("b", 2, "Level 2")], levels)).toBeUndefined();
   });
 });
