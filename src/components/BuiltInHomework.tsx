@@ -33,7 +33,7 @@ import {
   type TimestampedDraft,
 } from "@/lib/homework/homeworkDrafts";
 import { isAlreadySubmitted, markingStalled, startMarking } from "@/lib/homework/startMarking";
-import { creditRuns, creditsToShow } from "@/lib/homework/creditedQuotes";
+import { creditRuns, creditsToShow, levelOfCredit } from "@/lib/homework/creditedQuotes";
 import {
   answerSheet,
   gapTables,
@@ -207,8 +207,10 @@ function MarkedAnswer({
   const read = useMemo(() => readAnswer(sheet, text), [sheet, text]);
   // The answer's runs cut to each cell and to the box. A quote that runs
   // across cells is highlighted in each and ticked once, in the first.
+  // A levels answer is judged whole: no sentence is highlighted, one chip ends it.
+  const level = useMemo(() => levelOfCredit(credits, q.mark_scheme), [credits, q.mark_scheme]);
   const drawn = useMemo(() => {
-    const runs = creditRuns(text, credits);
+    const runs = level === undefined ? creditRuns(text, credits) : [{ text }];
     const ticked = new Set<number>();
     const within = ({ from, to }: { from: number; to: number }): Piece[] => {
       const out: Piece[] = [];
@@ -227,7 +229,7 @@ function MarkedAnswer({
     };
     const cells = read.at.map((t) => t.map((row) => row.map(within)));
     return { cells, box: within(read.textAt) };
-  }, [text, credits, read]);
+  }, [text, credits, read, level]);
   const [open, setOpen] = useState<number | null>(null);
   const shown = open != null ? credits[open] : undefined;
 
@@ -287,6 +289,22 @@ function MarkedAnswer({
             <span className="text-muted-foreground italic">Left blank</span>
           ) : (
             draw(drawn.box)
+          )}
+          {level !== undefined && !isBlank(read.text) && (
+            <button
+              type="button"
+              onClick={() => setOpen(open === 0 ? null : 0)}
+              aria-pressed={open === 0}
+              title={credits[0].point || undefined}
+              className={cn(
+                "chip tint-emerald mx-1 gap-1 px-2 py-0 align-[0.08em] text-[0.7rem]",
+                open === 0 && "chip-solid",
+              )}
+            >
+              <Check className="size-3" strokeWidth={3.25} aria-hidden />
+              {level ? `Level ${level} · ` : ""}
+              {credits[0].marks} mark{credits[0].marks === 1 ? "" : "s"}
+            </button>
           )}
         </div>
       )}

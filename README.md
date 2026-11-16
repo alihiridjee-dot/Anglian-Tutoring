@@ -200,12 +200,33 @@ notation, the prompt spells the notation out, and every field of the reply is
 normalised before it is checked (see Science notation above).
 
 The call returns schema-constrained JSON. Code rejects incomplete sets, empty
-rubrics, invalid marks, duplicate prompts and malformed MCQ answer keys. This
-checks structure, not scientific correctness, and introduces no second AI review
-or new publishing gate. Questions retain their generated mark schemes for marking.
+rubrics, invalid marks, duplicate prompts and malformed MCQ answer keys. For
+written questions this checks structure, not scientific correctness, and there is
+no second AI review or publishing gate. Questions retain their generated mark
+schemes for marking.
 Keep curriculum descriptions complete; a title alone provides much less guidance.
 
-`exam_generation_runs` has one row per model call, passed or failed: the model that
+A multiple-choice question's key is checked, three ways
+(`src/lib/mcq/answerCheck.server.ts`). A quiz once went live with no correct
+option, keyed to an answer its own explanation called wrong.
+
+- **The writer works first.** It judges each option right or wrong
+  (`option_checks`) before it gives the key. A question is left out unless exactly
+  one option is judged right and that option is the key.
+- **A blind solve.** A different, cheaper model (Claude Haiku 5.5) answers every
+  question without seeing its key. Where it disagrees, the writer's model (Claude
+  Sonnet 5.5) answers that one question, also blind. A question neither answers
+  with its key is left out. A quiz with fewer than five questions left is not
+  saved, and its job tries again.
+- **The database refuses the rest.** Each saved question names the blind solve
+  that gave its key (`mcq_questions.checked_run_id`). A trigger refuses a new
+  question in a generated quiz without one, whoever sends it. A tutor writing a
+  question by hand is let through.
+
+Questions saved before 16 Nov 2026 have no check: their `checked_run_id` is null.
+
+`exam_generation_runs` has one row per model call, passed or failed, blind solves
+included (format `mcq_check`; the queue's daily cap leaves these out): the model that
 answered, framework version, selected exemplar IDs, fallback level, response
 (including assessment tags), API usage, the outcome (passed, saved, discarded or
 failed), and for a failed call its error and raw answer. These

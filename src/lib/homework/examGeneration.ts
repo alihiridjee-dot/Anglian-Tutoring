@@ -12,7 +12,7 @@ import {
   readBrief,
 } from "@/lib/figures/figureBrief";
 
-export const FRAMEWORK_VERSION = "exam-generation-v4";
+export const FRAMEWORK_VERSION = "exam-generation-v5";
 export type GenerationFormat = "written" | "mcq";
 export type Grounding = "exact" | "topic" | "style";
 
@@ -243,6 +243,15 @@ export const MARK_SCHEME_LAYOUT = `Lay out each mark_scheme as plain lines, one 
 export const STRUCTURES_GUIDE = `DRAWN STRUCTURES
 In the examples, ⟦skeletal: …⟧ or ⟦displayed: …⟧ stands for a structure the exam paper drew, written here as SMILES. A student never sees it as text. When your own question needs a drawn structure, give it as a figure of kind "skeletal-formula", or as option_figures when the four answers are structures, and refer to it as a paper does ("The structure of compound X is shown."). A figure shows one molecule: name any other compound, or write its structural formula (CH₃CH(OH)CH₃). Where an example's mark scheme draws its answer, your mark scheme gives the answer's name and its structural formula, since a student types an answer and cannot draw. Never write ⟦, ⟧ or a SMILES string in a question, an option, an explanation or a mark scheme.`;
 
+/**
+ * The writer's own working, asked for before the key. A key written first is
+ * a guess the explanation then has to defend: one quiz went live keyed to an
+ * option its own explanation called wrong (16 Nov). Judging every option
+ * first means the key is read off the working, and `validateQuestions` can
+ * hold the two against each other.
+ */
+export const OPTION_CHECKS_GUIDE = `Before the key, work every option out in option_checks: one entry per option, in the options' order, each saying whether that option correctly answers the question as written (correct) and the working or reason in a few words (why). Judge each option on its own, by working it out, not by which one you meant to be right. Exactly one entry is correct, and correct_index is its position.`;
+
 const block = (name: string, value: unknown) =>
   `<${name}>\n${JSON.stringify(value).replace(/</g, "\\u003c")}\n</${name}>`;
 
@@ -276,7 +285,7 @@ export function buildGenerationPrompt(
       block("request", { count, format, tutor_notes: notes, grounding }),
       format === "written"
         ? `Write exactly ${count} written questions. answer_type is short, long or numeric. marks is an integer from 1 to 30, justified by the rubric. mark_scheme must contain the answer and all credit rules.`
-        : `Write exactly ${count} MCQs. Each has exactly four distinct, plausible options and one correct answer. correct_index is a zero-based integer from 0 to 3. Vary its position across the set. explanation must identify why the keyed answer is correct.`,
+        : `Write exactly ${count} MCQs. Each has exactly four distinct, plausible options and one correct answer. ${OPTION_CHECKS_GUIDE} correct_index is a zero-based integer from 0 to 3. Vary its position across the set. explanation must identify why the keyed answer is correct.`,
       ...(format === "written" ? [MARK_SCHEME_LAYOUT] : []),
       ...(figures ? [FIGURE_GUIDE] : []),
       ...(figures && format === "mcq" ? [OPTION_FIGURES_GUIDE] : []),
@@ -314,6 +323,19 @@ export function generationSchema(
             description:
               "Exactly four different options. Letter case is meaning: TT, Tt and tt differ.",
             items: { type: "string" },
+          },
+          // Ahead of the key on purpose: fields are written in this order, so
+          // each option is worked out before one is named as the answer.
+          option_checks: {
+            type: "array",
+            description:
+              "Exactly four entries, one per option in order: is that option a correct answer, and why.",
+            items: {
+              type: "object",
+              properties: { correct: { type: "boolean" }, why: { type: "string" } },
+              required: ["correct", "why"],
+              additionalProperties: false,
+            },
           },
           correct_index: { type: "integer", enum: [0, 1, 2, 3] },
           explanation: { type: "string" },
@@ -365,8 +387,15 @@ export type WrittenQuestion = Assessment & {
 export type McqQuestion = Assessment & {
   question: string;
   options: string[];
+  /** The writer's verdict on each option, given before the key. */
+  option_checks: { correct: boolean; why: string }[];
   correct_index: number;
   explanation: string;
+  /**
+   * Why the key can't be trusted: the writer's own verdicts don't single out
+   * the keyed option. The question is left out of the set.
+   */
+  answerProblem?: string;
   /** The four answer pictures, in the options' order, when its answers are pictures. */
   optionFigures?: KnownBrief[] | null;
 };
@@ -468,6 +497,9 @@ export function validateQuestions(
       if (!Number.isInteger(q.correct_index) || q.correct_index < 0 || q.correct_index > 3)
         throw new Error(`Question ${n}'s answer key is not one of its four options`);
       if (!nonempty(q.explanation)) throw new Error(`Question ${n} has no explanation`);
+      // Costs its own question, not the set: the rest were worked out soundly.
+      const problem = keyProblem(q);
+      if (problem) q.answerProblem = problem;
     }
     // A repeat is the same question asked again. Case is kept, as for options
     // ("genotype Tt" and "genotype tt" differ), and an MCQ counts its options:
@@ -547,6 +579,25 @@ function optionFiguresProblem(
   if (!q.figure && earlier.filter((p) => p.figure || p.optionFigures).length >= MAX_FIGURES)
     return `is one more than the ${MAX_FIGURES} a set may have`;
   q.optionFigures = ok;
+  return undefined;
+}
+
+/**
+ * Whether a question's key agrees with its writer's own verdicts: exactly one
+ * option judged correct, and that one keyed. Says what is wrong, if anything.
+ */
+function keyProblem(q: McqQuestion): string | undefined {
+  const checks: unknown = q.option_checks;
+  if (
+    !Array.isArray(checks) ||
+    checks.length !== 4 ||
+    !checks.every((c) => typeof (c as { correct?: unknown } | null)?.correct === "boolean")
+  )
+    return "has no verdict on each of its four options";
+  const right = checks.flatMap((c, i) => ((c as { correct: boolean }).correct ? [i] : []));
+  if (right.length === 0) return "has no option its writer judged correct";
+  if (right.length > 1) return "has more than one option its writer judged correct";
+  if (right[0] !== q.correct_index) return "is keyed to an option its writer judged wrong";
   return undefined;
 }
 

@@ -789,6 +789,7 @@ export type Database = {
       };
       mcq_questions: {
         Row: {
+          checked_run_id: string | null;
           correct_index: number;
           created_at: string;
           explanation: string | null;
@@ -804,6 +805,7 @@ export type Database = {
           spec_point_id: string | null;
         };
         Insert: {
+          checked_run_id?: string | null;
           correct_index: number;
           created_at?: string;
           explanation?: string | null;
@@ -819,6 +821,7 @@ export type Database = {
           spec_point_id?: string | null;
         };
         Update: {
+          checked_run_id?: string | null;
           correct_index?: number;
           created_at?: string;
           explanation?: string | null;

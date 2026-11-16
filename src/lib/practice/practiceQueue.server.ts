@@ -2,6 +2,7 @@ import "@tanstack/react-start/server-only";
 import crypto from "node:crypto";
 import { drawFigure, type SavedFigure } from "../figures/drawFigure.server";
 import type { KnownBrief } from "../figures/figure";
+import { MIN_QUIZ_QUESTIONS, checkAnswers } from "../mcq/answerCheck.server";
 import {
   CALL_LIMITS,
   GenerationError,
@@ -159,19 +160,34 @@ async function writeQuestions(
       "mcq",
       options,
     );
-    const [figures, answers] = await Promise.all([
+    // A check that fails closes the writer's run as failed, not its own.
+    const unchecked = (error: unknown) => {
+      if (!(error instanceof GenerationError)) throw error;
+      const failed = new GenerationError(error.message, error.failure, error.pauseMinutes, runId);
+      failed.cause = error.cause;
+      throw failed;
+    };
+    // Each key is solved again, blind, while the figures are drawn.
+    const [figures, answers, checks] = await Promise.all([
       drawFigures(job, context.point.subject, questions, deadline),
       drawOptionFigures(job, context.point.subject, questions, deadline),
+      checkAnswers(context.point, questions, {
+        source: "queue",
+        jobId: job.job_id,
+        deadline,
+      }).catch(unchecked),
     ]);
     const payload = questions.flatMap((q, i) => {
-      const [f, a] = [figures[i], answers[i]];
-      if (f === "dropped" || a === "dropped") return [];
+      const [f, a, checkedBy] = [figures[i], answers[i], checks[i]];
+      if (f === "dropped" || a === "dropped" || !checkedBy) return [];
       return [
         {
           question: q.question.trim(),
           options: q.options.map((o) => o.trim()),
           correct_index: q.correct_index,
           explanation: q.explanation.trim(),
+          // The database refuses a generated question without it.
+          checked_run_id: checkedBy,
           ...figureFields(f),
           ...(a
             ? {
@@ -182,6 +198,14 @@ async function writeQuestions(
         },
       ];
     });
+    // Too few left to be a quiz: the job tries again rather than save a stub.
+    if (payload.length < MIN_QUIZ_QUESTIONS)
+      throw new GenerationError(
+        `Only ${payload.length} of ${QUESTIONS.quiz} questions passed their checks`,
+        "retry",
+        0,
+        runId,
+      );
     return { payload, runId };
   }
   const { questions, runId } = await generateExamQuestions(
