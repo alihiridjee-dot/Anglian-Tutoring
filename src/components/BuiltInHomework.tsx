@@ -34,11 +34,19 @@ import {
 } from "@/lib/homework/homeworkDrafts";
 import { isAlreadySubmitted, markingStalled, startMarking } from "@/lib/homework/startMarking";
 import { creditRuns, creditsToShow, levelOfCredit } from "@/lib/homework/creditedQuotes";
+import {
+  answerSheet,
+  gapTables,
+  readAnswer,
+  writeAnswer,
+  type SheetAnswer,
+} from "@/lib/homework/answerSheet";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import { Meter, SciBlock, SciText, Spinner } from "@/components/Shared";
 import { Confetti, Mascot, Sparkles } from "@/components/Doodles";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
+import { typedOnly } from "@/lib/homework/pasteGuard";
 import { MarkScheme } from "@/components/homework/MarkScheme";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { StoredFigure } from "@/components/QuestionFigure";
@@ -136,11 +144,6 @@ export function AnsweredView({
           const notation = `${q.prompt}\n${q.mark_scheme ?? ""}`;
           return (
             <li key={q.id} className="premium-card p-4 sm:p-5">
-              <QuestionHeader
-                q={q}
-                index={i}
-                awarded={a?.awarded_marks != null ? Number(a.awarded_marks) : undefined}
-              />
               <MarkedAnswer q={q} index={i} answer={a} notation={notation} />
               {a?.feedback && (
                 <TitledBox icon={PenLine} title="Feedback">
@@ -169,9 +172,13 @@ export function AnsweredView({
   );
 }
 
+/** A piece of the answer as drawn: plain, or words that earned a credit, the first of them ticked. */
+type Piece = { text: string; credit?: number; tick?: boolean };
+
 /**
- * What the student typed, on the same ruled lines they typed it on, with the
- * words that earned each mark under the highlighter and a tick after them.
+ * The question, then what the student typed: in the table's own cells when
+ * they filled it in, and on the same ruled lines they typed on. The words
+ * that earned each mark are under the highlighter with a tick after them.
  * Tapping a tick names the mark-scheme point it earned. The ticks are the
  * marker's own quotes (see `creditedQuotes`); an answer marked before they
  * were kept, or whose mark a tutor changed, shows without them.
@@ -196,69 +203,111 @@ function MarkedAnswer({
       ),
     [answer?.credited, answer?.awarded_marks],
   );
+  const sheet = useMemo(() => answerSheet(q.prompt), [q.prompt]);
+  const read = useMemo(() => readAnswer(sheet, text), [sheet, text]);
+  // The answer's runs cut to each cell and to the box. A quote that runs
+  // across cells is highlighted in each and ticked once, in the first.
   // A levels answer is judged whole: no sentence is highlighted, one chip ends it.
   const level = useMemo(() => levelOfCredit(credits, q.mark_scheme), [credits, q.mark_scheme]);
-  const runs = useMemo(
-    () => (level === undefined ? creditRuns(text, credits) : [{ text }]),
-    [text, credits, level],
-  );
+  const drawn = useMemo(() => {
+    const runs = level === undefined ? creditRuns(text, credits) : [{ text }];
+    const ticked = new Set<number>();
+    const within = ({ from, to }: { from: number; to: number }): Piece[] => {
+      const out: Piece[] = [];
+      let at = 0;
+      for (const r of runs) {
+        const a = Math.max(at, from);
+        const b = Math.min(at + r.text.length, to);
+        if (a < b) {
+          const tick = r.credit != null && !ticked.has(r.credit);
+          if (tick) ticked.add(r.credit!);
+          out.push({ text: r.text.slice(a - at, b - at), credit: r.credit, tick });
+        }
+        at += r.text.length;
+      }
+      return out;
+    };
+    const cells = read.at.map((t) => t.map((row) => row.map(within)));
+    return { cells, box: within(read.textAt) };
+  }, [text, credits, read, level]);
   const [open, setOpen] = useState<number | null>(null);
   const shown = open != null ? credits[open] : undefined;
 
+  const draw = (pieces: Piece[]) =>
+    pieces.map((r, k) => {
+      if (r.credit == null) return <SciText key={k} text={r.text} context={notation} />;
+      const c = credits[r.credit];
+      const on = open === r.credit;
+      return (
+        <span key={k} className="tint-emerald">
+          <mark className="marker bg-transparent text-inherit">
+            <SciText text={r.text} context={notation} />
+          </mark>
+          {r.tick && (
+            <button
+              type="button"
+              onClick={() => setOpen(on ? null : r.credit!)}
+              aria-pressed={on}
+              aria-label={`${c.marks} mark${c.marks === 1 ? "" : "s"}${c.point ? `: ${c.point}` : ""}`}
+              title={c.point || undefined}
+              className={cn(
+                "chip mx-0.5 gap-0.5 px-1.5 py-0 align-[0.08em] text-[0.7rem]",
+                on && "chip-solid",
+              )}
+            >
+              <Check className="size-3" strokeWidth={3.25} aria-hidden />
+              {c.marks}
+            </button>
+          )}
+        </span>
+      );
+    });
+
   return (
-    <div className="mt-4">
-      <div
-        style={linesStyle(q)}
-        aria-label={`Your answer to question ${index + 1}`}
-        className="premium-input answer-lines w-full text-base break-words whitespace-pre-wrap"
-      >
-        {isBlank(text) ? (
-          <span className="text-muted-foreground italic">Left blank</span>
-        ) : (
-          runs.map((r, k) => {
-            if (r.credit == null) return <SciText key={k} text={r.text} context={notation} />;
-            const c = credits[r.credit];
-            const on = open === r.credit;
-            return (
-              <span key={k} className="tint-emerald">
-                <mark className="marker bg-transparent text-inherit">
-                  <SciText text={r.text} context={notation} />
-                </mark>
-                <button
-                  type="button"
-                  onClick={() => setOpen(on ? null : r.credit!)}
-                  aria-pressed={on}
-                  aria-label={`${c.marks} mark${c.marks === 1 ? "" : "s"}${c.point ? `: ${c.point}` : ""}`}
-                  title={c.point || undefined}
-                  className={cn(
-                    "chip mx-0.5 gap-0.5 px-1.5 py-0 align-[0.08em] text-[0.7rem]",
-                    on && "chip-solid",
-                  )}
-                >
-                  <Check className="size-3" strokeWidth={3.25} aria-hidden />
-                  {c.marks}
-                </button>
-              </span>
-            );
-          })
-        )}
-        {level !== undefined && !isBlank(text) && (
-          <button
-            type="button"
-            onClick={() => setOpen(open === 0 ? null : 0)}
-            aria-pressed={open === 0}
-            title={credits[0].point || undefined}
-            className={cn(
-              "chip tint-emerald mx-1 gap-1 px-2 py-0 align-[0.08em] text-[0.7rem]",
-              open === 0 && "chip-solid",
-            )}
-          >
-            <Check className="size-3" strokeWidth={3.25} aria-hidden />
-            {level ? `Level ${level} · ` : ""}
-            {credits[0].marks} mark{credits[0].marks === 1 ? "" : "s"}
-          </button>
-        )}
-      </div>
+    <div>
+      <QuestionHeader
+        q={q}
+        index={index}
+        awarded={answer?.awarded_marks != null ? Number(answer.awarded_marks) : undefined}
+        fill={
+          read.tabled
+            ? (t, r, c) => (
+                <span className="premium-input block min-h-10 px-2.5 py-1.5 text-base font-normal break-words">
+                  {draw(drawn.cells[t][r][c])}
+                </span>
+              )
+            : undefined
+        }
+      />
+      {(!read.tabled || sheet.boxed || !isBlank(read.text)) && (
+        <div
+          style={linesStyle(q)}
+          aria-label={`Your answer to question ${index + 1}`}
+          className="premium-input answer-lines mt-4 w-full text-base break-words whitespace-pre-wrap"
+        >
+          {isBlank(read.text) ? (
+            <span className="text-muted-foreground italic">Left blank</span>
+          ) : (
+            draw(drawn.box)
+          )}
+          {level !== undefined && !isBlank(read.text) && (
+            <button
+              type="button"
+              onClick={() => setOpen(open === 0 ? null : 0)}
+              aria-pressed={open === 0}
+              title={credits[0].point || undefined}
+              className={cn(
+                "chip tint-emerald mx-1 gap-1 px-2 py-0 align-[0.08em] text-[0.7rem]",
+                open === 0 && "chip-solid",
+              )}
+            >
+              <Check className="size-3" strokeWidth={3.25} aria-hidden />
+              {level ? `Level ${level} · ` : ""}
+              {credits[0].marks} mark{credits[0].marks === 1 ? "" : "s"}
+            </button>
+          )}
+        </div>
+      )}
       {shown?.point && (
         <p className="tint-emerald mt-2 flex gap-1.5 text-sm font-bold" role="status">
           <Check
@@ -638,25 +687,22 @@ export function AnswerForm({
       <div className="space-y-4">
         {questions.map((q, i) => (
           <div key={q.id} className="premium-card p-4 sm:p-5">
-            <QuestionHeader q={q} index={i} />
             {showMarkScheme ? (
-              q.mark_scheme && (
-                <TitledBox icon={ClipboardCheck} title="Mark scheme" className="mt-4">
-                  <MarkScheme
-                    scheme={q.mark_scheme}
-                    context={q.prompt}
-                    marks={q.marks}
-                    className="text-sm"
-                  />
-                </TitledBox>
-              )
+              <>
+                <QuestionHeader q={q} index={i} />
+                {q.mark_scheme && (
+                  <TitledBox icon={ClipboardCheck} title="Mark scheme" className="mt-4">
+                    <MarkScheme
+                      scheme={q.mark_scheme}
+                      context={q.prompt}
+                      marks={q.marks}
+                      className="text-sm"
+                    />
+                  </TitledBox>
+                )}
+              </>
             ) : (
-              <textarea
-                disabled
-                placeholder={TYPE_HINT[q.answer_type]}
-                style={linesStyle(q)}
-                className="premium-input answer-lines mt-4 w-full text-base opacity-60"
-              />
+              <AnswerRow q={q} index={i} value="" disabled />
             )}
           </div>
         ))}
@@ -693,20 +739,13 @@ export function AnswerForm({
       <ol className="space-y-4">
         {questions.map((q, i) => (
           <li key={q.id} className="premium-card p-4 sm:p-5">
-            <QuestionHeader q={q} index={i} answered={isAnswered(q)} />
-            <div className="mt-4">
-              <SciAnswerBox
-                value={draftOf(q.id).text}
-                onValueChange={(text) => edit(q.id, text)}
-                context={q.prompt}
-                noPaste
-                maxLength={ANSWER_MAX}
-                placeholder={TYPE_HINT[q.answer_type]}
-                aria-label={`Answer to question ${i + 1}`}
-                style={linesStyle(q)}
-                className="premium-input answer-lines w-full text-base select-text"
-              />
-            </div>
+            <AnswerRow
+              q={q}
+              index={i}
+              value={draftOf(q.id).text}
+              onEdit={(text) => edit(q.id, text)}
+              answered={isAnswered(q)}
+            />
           </li>
         ))}
       </ol>
@@ -858,6 +897,127 @@ function AnswerProgress({ done }: { done: boolean[] }) {
   );
 }
 
+/** The longest a table cell's answer can be: a few words or a value. */
+const CELL_MAX = 120;
+
+/**
+ * One question to answer: its wording, then where the answer goes. A table
+ * the question asks to be completed is filled in its own cells, and the lined
+ * box is left out when that table is all the question asks for
+ * (lib/homework/answerSheet). The answer is one piece of text either way.
+ */
+function AnswerRow({
+  q,
+  index,
+  value,
+  onEdit,
+  answered = false,
+  disabled = false,
+}: {
+  q: HomeworkQuestion;
+  index: number;
+  value: string;
+  onEdit?: (text: string) => void;
+  answered?: boolean;
+  /** Read-only: the cells and the box are there, and take nothing. */
+  disabled?: boolean;
+}) {
+  const sheet = useMemo(() => answerSheet(q.prompt), [q.prompt]);
+  // What is typed is kept as typed (a space after a word, say) and stored
+  // tidied. Text arriving from elsewhere, a draft brought back or typing on
+  // another device, is read into the cells again.
+  const [seen, setSeen] = useState(value);
+  const [typed, setTyped] = useState<SheetAnswer>(() => readAnswer(sheet, value));
+  // An answer typed in the box before the cells existed keeps its box.
+  const [hadText, setHadText] = useState(() => !isBlank(typed.text));
+  if (value !== seen) {
+    const read = readAnswer(sheet, value);
+    setSeen(value);
+    setTyped(read);
+    if (!isBlank(read.text)) setHadText(true);
+  }
+  const change = (next: SheetAnswer) => {
+    const text = writeAnswer(sheet, next);
+    setTyped(next);
+    setSeen(text);
+    onEdit?.(text);
+  };
+  const setCell = (t: number, r: number, c: number, cell: string) =>
+    change({
+      ...typed,
+      cells: typed.cells.map((table, i) =>
+        i !== t
+          ? table
+          : table.map((row, j) => (j !== r ? row : row.map((was, k) => (k === c ? cell : was)))),
+      ),
+    });
+
+  const tabled = sheet.tables.length > 0;
+  const boxed = !tabled || sheet.boxed || hadText;
+  // Room left in the answer once the tables are written out.
+  const boxMax = tabled
+    ? Math.max(0, ANSWER_MAX - writeAnswer(sheet, { ...typed, text: "" }).length - 2)
+    : ANSWER_MAX;
+
+  return (
+    <>
+      <QuestionHeader
+        q={q}
+        index={index}
+        answered={answered}
+        fill={
+          tabled
+            ? (t, r, c) => {
+                const { columns, rows } = sheet.tables[t];
+                const row = c === 0 ? `Row ${r + 1}` : rows[r][0] || `Row ${r + 1}`;
+                return (
+                  <input
+                    value={typed.cells[t]?.[r]?.[c] ?? ""}
+                    onChange={(e) => setCell(t, r, c, e.target.value.replace(/\|/g, "/"))}
+                    disabled={disabled}
+                    maxLength={CELL_MAX}
+                    autoComplete="off"
+                    autoCapitalize="off"
+                    spellCheck={false}
+                    aria-label={`Question ${index + 1}, ${row}, ${columns[c]}`}
+                    {...typedOnly}
+                    className="premium-input h-11 w-full min-w-16 px-2.5 text-base font-normal select-text disabled:opacity-60 sm:pointer-fine:h-10"
+                  />
+                );
+              }
+            : undefined
+        }
+      />
+      {boxed &&
+        (disabled ? (
+          <textarea
+            disabled
+            placeholder={TYPE_HINT[q.answer_type]}
+            style={linesStyle(q)}
+            className="premium-input answer-lines mt-4 w-full text-base opacity-60"
+          />
+        ) : (
+          <div className="mt-4">
+            <SciAnswerBox
+              value={typed.text}
+              onValueChange={(text) => change({ ...typed, text })}
+              context={q.prompt}
+              noPaste
+              maxLength={boxMax}
+              placeholder={TYPE_HINT[q.answer_type]}
+              aria-label={`Answer to question ${index + 1}`}
+              style={linesStyle(q)}
+              className="premium-input answer-lines w-full text-base select-text"
+            />
+          </div>
+        ))}
+    </>
+  );
+}
+
+/** Draws a cell the student fills in: which table, row and column. */
+type Fill = (table: number, row: number, col: number) => ReactNode;
+
 /**
  * A question's number, its wording and its marks. The number turns into a tick
  * once the question has an answer, so the sheet shows at a glance what is left.
@@ -868,11 +1028,14 @@ function QuestionHeader({
   index,
   answered = false,
   awarded,
+  fill,
 }: {
   q: HomeworkQuestion;
   index: number;
   answered?: boolean;
   awarded?: number;
+  /** The cells of a table the student fills in, or what they put there. */
+  fill?: Fill;
 }) {
   return (
     <div className="flex flex-wrap items-start gap-3 sm:flex-nowrap sm:gap-4">
@@ -888,7 +1051,7 @@ function QuestionHeader({
           {answered ? ", answered" : ""}:{" "}
         </span>
         {/* Its key, a method's steps or a table, as written; then its figure. */}
-        <QuestionText text={q.prompt} />
+        <QuestionText text={q.prompt} fill={fill} />
         <StoredFigure figure={q.figure} className="mt-3" />
       </div>
       <div className="ml-auto sm:ml-0">
@@ -904,19 +1067,37 @@ function QuestionHeader({
  * apart from the facts. A question written any other way is drawn as stored
  * (rules in lib/platform/textBlocks).
  */
-function QuestionText({ text }: { text: string }) {
+function QuestionText({ text, fill }: { text: string; fill?: Fill }) {
   const { stem, parts, ask } = useMemo(() => questionLayout(text), [text]);
+  // Tables to fill are counted across the pieces, as answerSheet counts them.
+  const from = useMemo(() => {
+    let n = stem ? gapTables(spacedLines(stem)).length : 0;
+    const at = parts.map((p) => {
+      const mine = n;
+      n += gapTables(p.text).length;
+      return mine;
+    });
+    return { parts: at, ask: n };
+  }, [stem, parts]);
   return (
     <div className="space-y-3">
-      {stem && <SciBlock text={spacedLines(stem)} context={text} className="space-y-2" />}
+      {stem && (
+        <SciBlock text={spacedLines(stem)} context={text} fill={fill} className="space-y-2" />
+      )}
       {parts.length > 0 && (
         <ol className="divide-y divide-border border-y border-border">
-          {parts.map((p) => (
+          {parts.map((p, k) => (
             <li key={p.label} className="flex items-baseline gap-3 py-2.5">
               <span className="font-display shrink-0 font-extrabold text-[var(--tint)]">
                 ({p.label})
               </span>
-              <SciBlock text={p.text} context={text} className="min-w-0 flex-1 space-y-2" />
+              <SciBlock
+                text={p.text}
+                context={text}
+                fill={fill}
+                fillFrom={from.parts[k]}
+                className="min-w-0 flex-1 space-y-2"
+              />
               {p.marks !== null && (
                 <span className="chip shrink-0">
                   {p.marks} {p.marks === 1 ? "mark" : "marks"}
@@ -930,6 +1111,8 @@ function QuestionText({ text }: { text: string }) {
         <SciBlock
           text={ask}
           context={text}
+          fill={fill}
+          fillFrom={from.ask}
           className="space-y-2 border-t border-border pt-3 font-bold"
         />
       )}

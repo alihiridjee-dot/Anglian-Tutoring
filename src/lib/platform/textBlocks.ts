@@ -25,6 +25,12 @@ function cellsOf(line: string): string[] {
   return inner.split("|").map((c) => c.trim());
 }
 
+/**
+ * A cell left for the student to fill in: empty, or drawn as a rule
+ * ("______", "....."). See lib/homework/answerSheet.
+ */
+export const isGap = (cell: string) => /^(_{2,}|\.{3,}|…+)?$/.test(cell);
+
 /** A Markdown rule row, "--- | :---:", says nothing to a student. */
 const isRule = (cells: string[]) => cells.every((c) => /^:?-{3,}:?$/.test(c));
 
@@ -182,7 +188,7 @@ const PART_LABEL = /^\s*\(([a-h])\)\s+/;
 /** "(1 mark)", "[2 marks]" or "[2]", but not "(2)", which may be an equation's number. */
 const PART_MARKS = /\s*(?:\((\d{1,2})\s*marks?\)|\[(\d{1,2})(?:\s*marks?)?\])\.?\s*$/;
 // prettier-ignore
-const COMMAND = new RegExp(
+export const COMMAND = new RegExp(
   "^(Explain|Give|State|Describe|Suggest|Calculate|Compare|Evaluate|Name|Identify|Determine|" +
     "Use|Write|Predict|Show|Draw|Complete|Sketch|Deduce|Justify|Discuss|Outline|Define|" +
     "Estimate|Plan|Balance|Work out|Find|What|Which|Why|How)\\b",

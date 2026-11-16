@@ -1,6 +1,8 @@
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import type { QuestionMark } from "@/hooks/data/useAnswerMarking";
-import { SciBlock, SciText } from "@/components/Shared";
+import { useMemo } from "react";
+import { DataTable, SciBlock, SciText } from "@/components/Shared";
+import { answerSheet, readAnswer } from "@/lib/homework/answerSheet";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { MarkScheme } from "@/components/homework/MarkScheme";
 import { StoredFigure } from "@/components/QuestionFigure";
@@ -50,13 +52,7 @@ export function AnswerMarkingList({
               <p className="text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground mb-1">
                 Student's answer
               </p>
-              <p className="text-sm whitespace-pre-wrap">
-                {a?.answer_text ? (
-                  <SciText text={a.answer_text} context={notation} />
-                ) : (
-                  <span className="italic text-muted-foreground">Left blank</span>
-                )}
-              </p>
+              <StudentAnswer prompt={q.prompt} answer={a?.answer_text ?? ""} notation={notation} />
             </div>
 
             {held[q.id] && (
@@ -110,5 +106,52 @@ export function AnswerMarkingList({
         );
       })}
     </ol>
+  );
+}
+
+/**
+ * What the student wrote. A table they filled in on the sheet is drawn as
+ * that table, their entries in bold, then anything typed in the lined box.
+ */
+function StudentAnswer({
+  prompt,
+  answer,
+  notation,
+}: {
+  prompt: string;
+  answer: string;
+  notation: string;
+}) {
+  const sheet = useMemo(() => answerSheet(prompt), [prompt]);
+  const read = useMemo(() => readAnswer(sheet, answer), [sheet, answer]);
+  const text = (
+    <p className="text-sm whitespace-pre-wrap">
+      {read.text.trim() ? (
+        <SciText text={read.text} context={notation} />
+      ) : (
+        <span className="italic text-muted-foreground">Left blank</span>
+      )}
+    </p>
+  );
+  if (!read.tabled) return text;
+  return (
+    <div className="space-y-2 text-sm">
+      {sheet.tables.map((t, i) => (
+        <DataTable
+          key={i}
+          columns={t.columns}
+          rows={t.rows}
+          cell={(c) => <SciText text={c} context={notation} />}
+          gap={(r, c) =>
+            t.gaps[r][c] ? (
+              <b>
+                <SciText text={read.cells[i][r][c] || "–"} context={notation} />
+              </b>
+            ) : undefined
+          }
+        />
+      ))}
+      {(sheet.boxed || read.text.trim()) && text}
+    </div>
   );
 }
