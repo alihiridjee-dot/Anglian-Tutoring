@@ -1,4 +1,4 @@
-import { User, Users, BookOpen, MailCheck } from "lucide-react";
+import { User, Users, MailCheck } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchEnabledSsoProviders } from "@/lib/auth/ssoIntent";
 import { OtpInput } from "@/components/OtpInput";
@@ -89,55 +89,58 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
   } = flow;
   return (
     <>
-      <div className="grid grid-cols-2 gap-1 p-1 bg-secondary/70 border border-border/70 rounded-xl mb-7">
+      {/* One soft pill slides between the two, as in the sidebar. No track,
+          no outline. */}
+      <div className="auth-switch tint-primary mb-7" data-right={mode === "signup" || undefined}>
+        <span className="auth-switch-pill" aria-hidden />
         {(["signin", "signup"] as const).map((m) => (
           <button
             key={m}
+            type="button"
             onClick={() => setMode(m)}
-            className={`min-h-11 py-2.5 rounded-lg text-sm font-semibold transition sm:pointer-fine:min-h-0 ${
-              mode === m
-                ? "bg-card text-foreground shadow-sm ring-1 ring-border"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
+            aria-pressed={mode === m}
+            className="auth-switch-btn min-h-11 rounded-xl py-2.5 text-base sm:pointer-fine:min-h-0"
           >
             {m === "signin" ? "Log in" : "Sign up"}
           </button>
         ))}
       </div>
 
-      <h1 className="font-display text-[1.75rem] leading-tight font-bold tracking-tight mb-1.5">
+      <h1 className="mb-6 text-[2rem] leading-tight font-extrabold">
         {mode === "signin" ? (
           <>
-            Welcome <span className="text-gradient">back</span>
+            Welcome back{" "}
+            <span key="wave" className="tutor-wave" data-go aria-hidden>
+              👋
+            </span>
           </>
         ) : (
           <>
-            Create your <span className="text-gradient">account</span>
+            Create your account{" "}
+            <span key="spark" className="tutor-wave" data-go aria-hidden>
+              ✨
+            </span>
           </>
         )}
       </h1>
-      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-        {mode === "signin"
-          ? "Log in to see your lessons, quizzes, and tasks."
-          : tier
-            ? `Great pick — you're signing up for the ${tier.replaceAll("_", " ")} plan.`
-            : "Start with a student or parent account."}
-      </p>
+      {mode === "signup" && tier && (
+        <p className="-mt-3 mb-6 text-base leading-relaxed">
+          Great pick — you're signing up for the {tier.replaceAll("_", " ")} plan.
+        </p>
+      )}
 
       {mode === "signup" && (
-        <div className="grid grid-cols-2 gap-2.5 mb-5">
+        <div className="auth-switch tint-accent mb-5" data-right={role === "parent" || undefined}>
+          <span className="auth-switch-pill" aria-hidden />
           {(["student", "parent"] as const).map((r) => (
             <button
               key={r}
               type="button"
               onClick={() => setRole(r)}
-              className={`flex items-center justify-center gap-2 h-12 rounded-xl border text-sm font-semibold transition ${
-                role === r
-                  ? "bg-primary/[0.07] border-primary text-primary ring-2 ring-primary/15"
-                  : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
-              }`}
+              aria-pressed={role === r}
+              className="auth-switch-btn flex h-12 items-center justify-center gap-2 rounded-xl text-base"
             >
-              {r === "student" ? <User className="w-4 h-4" /> : <Users className="w-4 h-4" />}
+              {r === "student" ? <User className="size-5" /> : <Users className="size-5" />}
               {r === "student" ? "Student" : "Parent"}
             </button>
           ))}
@@ -173,7 +176,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
               className={inputCls}
               placeholder="e.g. ANG-4A2C"
             />
-            <p className="mt-1 text-xs text-muted-foreground">
+            <p className="mt-1.5 text-sm">
               Your child receives this code in their account settings.
             </p>
           </Field>
@@ -219,7 +222,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
           <button
             type="button"
             onClick={handleForgotPassword}
-            className="w-full min-h-11 text-xs text-muted-foreground hover:text-primary sm:pointer-fine:min-h-0"
+            className="w-full min-h-11 text-sm font-bold text-foreground hover:text-primary sm:pointer-fine:min-h-0"
           >
             Forgot password?
           </button>
@@ -229,8 +232,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
       <SsoButtons flow={flow} />
 
       {mode === "signup" && (
-        <p className="mt-4 text-xs text-muted-foreground text-center">
-          <BookOpen className="w-3 h-3 inline mr-1" />
+        <p className="mt-5 text-center text-base font-semibold">
           Next you'll set up your profile and choose a plan.
         </p>
       )}
@@ -241,8 +243,9 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
 /**
  * Google and Microsoft, under the email form. On sign-up they use the role and
  * invite code chosen above, so they sit below those fields rather than above.
- * Slate-tinted so they don't compete with the main button; the logos keep
- * their own brand colours, which the providers' guidelines require.
+ * Two white buttons side by side, logo and name, so they don't compete with
+ * the main button. The logos keep their own brand colours and shapes, which
+ * the providers' guidelines require.
  */
 function SsoButtons({ flow }: { flow: AuthFlow }) {
   const { mode, loading, handleOAuth } = flow;
@@ -253,44 +256,44 @@ function SsoButtons({ flow }: { flow: AuthFlow }) {
   });
   if (providers.length === 0) return null;
   const verb = mode === "signin" ? "Log in" : "Sign up";
+  const list = [
+    providers.includes("google") && {
+      id: "google" as const,
+      name: "Google",
+      Logo: GoogleLogo,
+    },
+    providers.includes("azure") && {
+      id: "azure" as const,
+      name: "Microsoft",
+      Logo: MicrosoftLogo,
+    },
+  ].filter((p) => !!p);
+
   return (
-    <div className="tint-slate mt-5">
-      <div className="flex items-center gap-3 mb-4" aria-hidden>
-        <span className="h-px flex-1 bg-border" />
-        <span className="eyebrow eyebrow-bare">or</span>
-        <span className="h-px flex-1 bg-border" />
-      </div>
-      <div className="grid gap-2.5">
-        {providers.includes("google") && (
+    <div className="tint-slate mt-6">
+      <p className="mb-4 text-center text-base font-bold">or {verb.toLowerCase()} with</p>
+      <div className="grid grid-cols-2 gap-3">
+        {list.map(({ id, name, Logo }) => (
           <button
+            key={id}
             type="button"
             disabled={loading}
-            onClick={() => handleOAuth("google")}
-            className="btn-soft flex w-full h-12 items-center justify-center gap-2.5 rounded-xl text-sm"
+            onClick={() => handleOAuth(id)}
+            aria-label={`${verb} with ${name}`}
+            className="auth-sso btn-soft flex h-14 w-full items-center justify-center gap-3 rounded-2xl text-base"
           >
-            <GoogleLogo />
-            {verb} with Google
+            <Logo className="auth-sso-logo size-6" />
+            {name}
           </button>
-        )}
-        {providers.includes("azure") && (
-          <button
-            type="button"
-            disabled={loading}
-            onClick={() => handleOAuth("azure")}
-            className="btn-soft flex w-full h-12 items-center justify-center gap-2.5 rounded-xl text-sm"
-          >
-            <MicrosoftLogo />
-            {verb} with Microsoft
-          </button>
-        )}
+        ))}
       </div>
     </div>
   );
 }
 
-function GoogleLogo() {
+function GoogleLogo({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 48 48" className="w-[18px] h-[18px]" aria-hidden>
+    <svg viewBox="0 0 48 48" className={className} aria-hidden>
       <path
         fill="#EA4335"
         d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
@@ -311,9 +314,9 @@ function GoogleLogo() {
   );
 }
 
-function MicrosoftLogo() {
+function MicrosoftLogo({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 21 21" className="w-[17px] h-[17px]" aria-hidden>
+    <svg viewBox="0 0 21 21" className={className} aria-hidden>
       <path fill="#F25022" d="M1 1h9v9H1z" />
       <path fill="#7FBA00" d="M11 1h9v9h-9z" />
       <path fill="#00A4EF" d="M1 11h9v9H1z" />
@@ -333,17 +336,13 @@ function Field({
 }) {
   return (
     <div>
-      <label
-        htmlFor={htmlFor}
-        className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
-      >
+      <label htmlFor={htmlFor} className="text-sm font-bold text-foreground">
         {label}
       </label>
-      <div className="mt-1">{children}</div>
+      <div className="mt-1.5">{children}</div>
     </div>
   );
 }
 
-const inputCls =
-  "w-full h-11 rounded-xl bg-background border border-border px-3.5 text-sm placeholder:text-muted-foreground/70 " +
-  "transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15";
+/** The kit's input, tinted by the brand. */
+const inputCls = "pop-input tint-primary w-full h-12 px-4 text-base";
