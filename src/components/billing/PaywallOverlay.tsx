@@ -1,5 +1,8 @@
+import { useState, type ReactNode } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { CreditCard, Loader2, Lock, MessageSquare, PlayCircle, RotateCw } from "lucide-react";
+import { ArrowRight, CreditCard, Lock, LockOpen, MessageSquare, RotateCw } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { Spinner } from "@/components/Shared";
 import { useOwnPlanState } from "@/hooks/data/useBilling";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 
@@ -10,6 +13,10 @@ import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
  * Deliberately an OVERLAY, not a redirect: the platform stays rendered behind a
  * backdrop blur so the student can see what they're locked out of, with a single
  * call to action.
+ *
+ * Drawn in the house style ("playful minimalism", README): no card, the title
+ * large on the frost with the highlighter stroke under it, one dark line, one
+ * big button, and the lock above springs open as the button is reached.
  *
  * That call to action is NOT always "subscribe". A paused plan — and a plan
  * running to a period end — is a live Stripe subscription that Resume brings
@@ -28,138 +35,166 @@ export function PaywallOverlay() {
   const navigate = useNavigate();
   const { resumable, paymentOverdue, neverSubscribed, isPending, error, refetch } =
     useOwnPlanState();
+  // The lock opens while the main button is pointed at or focused.
+  const [reaching, setReaching] = useState(false);
   // The locked page underneath must not scroll under a thumb.
   useBodyScrollLock(true);
+
+  const reach = {
+    onPointerEnter: () => setReaching(true),
+    onPointerLeave: () => setReaching(false),
+    onFocus: () => setReaching(true),
+    onBlur: () => setReaching(false),
+  };
+  const toBilling = () => navigate({ to: "/billing" });
+  // A lapsed plan (a free trial that ended included) gets Billing beside
+  // Messages; so does the error, where Billing shows the plan as it really is.
+  const lapsed = !isPending && !error && !resumable && !paymentOverdue && !neverSubscribed;
 
   return (
     <div
       role="dialog"
       aria-modal="true"
       aria-labelledby="paywall-title"
-      // The card is 405px tall, more than a phone turned sideways has, so the
-      // overlay scrolls; `m-auto` still centres the card wherever it fits.
-      className="fixed inset-0 z-50 flex overflow-y-auto overscroll-contain p-4 bg-background/50 backdrop-blur-xl"
+      // Taller than a phone turned sideways, so the overlay scrolls; `m-auto`
+      // still centres the words wherever they fit.
+      className="fixed inset-0 z-50 flex overflow-y-auto overscroll-contain p-4 bg-background/60 backdrop-blur-xl"
     >
-      <div className="m-auto w-full max-w-md rounded-3xl border border-white/20 bg-card/80 backdrop-blur-md shadow-2xl p-6 sm:p-8 text-center ring-1 ring-black/5">
-        <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-          <Lock className="h-6 w-6" />
-        </div>
+      <div data-reaching={reaching} className="pop-in m-auto w-full max-w-lg py-6 text-center">
+        <span className="paywall-dot">{reaching ? <LockOpen /> : <Lock />}</span>
 
         {isPending ? (
-          <div className="py-6">
-            <Loader2 className="mx-auto h-5 w-5 animate-spin text-muted-foreground" />
-          </div>
+          <Spinner label="Checking your plan" className="pt-8 pb-4" />
         ) : error ? (
           // "Couldn't read your plan" must not fall through to "Please
           // resubscribe": that is the wrong instruction for anyone who only
           // paused, and it is the one that leads to paying twice. Billing can
           // always be opened, and it shows the plan as it really is.
           <>
-            <h1 id="paywall-title" className="font-display text-2xl font-bold tracking-tight mb-6">
-              We couldn&apos;t check your plan
-            </h1>
+            <PaywallTitle>We couldn&apos;t check your plan</PaywallTitle>
             <button
               type="button"
+              {...reach}
               onClick={() => void refetch()}
-              className="w-full h-11 rounded-xl btn-solid font-semibold text-sm shadow-sm inline-flex items-center justify-center gap-2"
+              className="btn-solid paywall-btn mt-7"
             >
-              <RotateCw className="h-4 w-4" /> Try again
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate({ to: "/billing" })}
-              className="mt-3 inline-flex min-h-11 items-center px-3 text-xs text-muted-foreground hover:text-foreground sm:pointer-fine:min-h-0"
-            >
-              Open Billing
+              <RotateCw className="size-5" /> Try again
             </button>
           </>
         ) : resumable ? (
           <>
-            <h1 id="paywall-title" className="font-display text-2xl font-bold tracking-tight mb-2">
-              Your plan is on hold
-            </h1>
-            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+            <PaywallTitle>Your plan is on hold</PaywallTitle>
+            <PaywallLine>
               Nothing has been lost and there's nothing to buy again — resume from Billing and your
               dashboard, progress and history come straight back.
-            </p>
-            <button
-              type="button"
-              onClick={() => navigate({ to: "/billing" })}
-              className="w-full h-11 rounded-xl btn-solid font-semibold hover:opacity-90 text-sm shadow-sm inline-flex items-center justify-center gap-2"
-            >
-              <PlayCircle className="h-4 w-4" /> Resume my plan
-            </button>
+            </PaywallLine>
+            <PaywallButton reach={reach} onClick={toBilling}>
+              Resume my plan
+            </PaywallButton>
           </>
         ) : paymentOverdue ? (
           // A failed card is not a lapsed plan: the subscription is still there
           // and Stripe retries once the card is updated. The shop would only be
           // refused, so send them to the portal button on Billing.
           <>
-            <h1 id="paywall-title" className="font-display text-2xl font-bold tracking-tight mb-2">
-              Your last payment didn&apos;t go through
-            </h1>
-            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+            <PaywallTitle>Your last payment didn&apos;t go through</PaywallTitle>
+            <PaywallLine>
               Your plan is still here — the card just needs updating. Once it&apos;s updated in
               Billing, your dashboard, progress and history come straight back.
-            </p>
-            <button
-              type="button"
-              onClick={() => navigate({ to: "/billing" })}
-              className="w-full h-11 rounded-xl btn-solid font-semibold hover:opacity-90 text-sm shadow-sm inline-flex items-center justify-center gap-2"
-            >
-              <CreditCard className="h-4 w-4" /> Update the card
-            </button>
+            </PaywallLine>
+            <PaywallButton reach={reach} onClick={toBilling}>
+              Update the card
+            </PaywallButton>
           </>
         ) : neverSubscribed ? (
           // A new student who left the plan step: nothing to "resubscribe" to.
           <>
-            <h1 id="paywall-title" className="font-display text-2xl font-bold tracking-tight mb-6">
-              Choose a plan to start
-            </h1>
-            <button
-              type="button"
-              onClick={() => navigate({ to: "/onboarding/plan" })}
-              className="w-full h-11 rounded-xl btn-solid font-semibold hover:opacity-90 text-sm shadow-sm inline-flex items-center justify-center gap-2"
-            >
-              <CreditCard className="h-4 w-4" /> Choose a plan
-            </button>
+            <PaywallTitle>Choose a plan to start</PaywallTitle>
+            <PaywallButton reach={reach} onClick={() => navigate({ to: "/onboarding/plan" })}>
+              Choose a plan
+            </PaywallButton>
           </>
         ) : (
           <>
-            <h1 id="paywall-title" className="font-display text-2xl font-bold tracking-tight mb-2">
-              Please resubscribe
-            </h1>
-            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-              Your subscription isn't active, so your dashboard is locked. Resubscribe to pick up
-              right where you left off — your progress and history are all still here.
-            </p>
-            <button
-              type="button"
-              onClick={() => navigate({ to: "/onboarding/plan" })}
-              className="w-full h-11 rounded-xl btn-solid font-semibold hover:opacity-90 text-sm shadow-sm inline-flex items-center justify-center gap-2"
-            >
-              <CreditCard className="h-4 w-4" /> Resubscribe
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate({ to: "/billing" })}
-              className="mt-3 inline-flex min-h-11 items-center px-3 text-xs text-muted-foreground hover:text-foreground sm:pointer-fine:min-h-0"
-            >
-              Manage billing instead
-            </button>
+            <PaywallTitle>Please resubscribe</PaywallTitle>
+            <PaywallLine>Your progress and history are all still here</PaywallLine>
+            <PaywallButton reach={reach} onClick={() => navigate({ to: "/onboarding/plan" })}>
+              Resubscribe
+            </PaywallButton>
           </>
         )}
 
         {/* Messages stays open whatever the plan's state (the guard exempts
             it), so a family can always ask a tutor what happened. */}
-        <button
-          type="button"
-          onClick={() => navigate({ to: "/messages" })}
-          className="btn-soft mt-3 w-full h-11 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2"
-        >
-          <MessageSquare className="h-4 w-4" /> Message your tutor
-        </button>
+        <div className="mt-3 flex flex-wrap justify-center gap-1">
+          {(error || lapsed) && (
+            <PaywallLink icon={CreditCard} onClick={toBilling}>
+              {error ? "Open Billing" : "Manage billing"}
+            </PaywallLink>
+          )}
+          <PaywallLink icon={MessageSquare} onClick={() => navigate({ to: "/messages" })}>
+            Message your tutor
+          </PaywallLink>
+        </div>
       </div>
     </div>
+  );
+}
+
+/** The title on the frost, with the highlighter stroke drawn under it. */
+function PaywallTitle({ children }: { children: ReactNode }) {
+  return (
+    <>
+      <h1 id="paywall-title" className="paywall-title mt-6">
+        {children}
+      </h1>
+      <svg
+        aria-hidden
+        className="point-squiggle mx-auto"
+        viewBox="0 0 100 12"
+        preserveAspectRatio="none"
+      >
+        <path d="M2 8 Q 18 1 34 7 T 66 6 T 98 5" vectorEffect="non-scaling-stroke" />
+      </svg>
+    </>
+  );
+}
+
+/** The one line under the title, in normal dark text. */
+function PaywallLine({ children }: { children: ReactNode }) {
+  return <p className="mx-auto mt-4 max-w-md text-lg font-medium">{children}</p>;
+}
+
+/** The one big button. Pointing at it opens the lock above. */
+function PaywallButton({
+  reach,
+  onClick,
+  children,
+}: {
+  reach: Record<"onPointerEnter" | "onPointerLeave" | "onFocus" | "onBlur", () => void>;
+  onClick: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <button type="button" {...reach} onClick={onClick} className="btn-solid paywall-btn mt-7">
+      {children} <ArrowRight className="paywall-arrow size-5" />
+    </button>
+  );
+}
+
+/** A bare link under the button: dark bold text, its icon wiggles on hover. */
+function PaywallLink({
+  icon: Icon,
+  onClick,
+  children,
+}: {
+  icon: LucideIcon;
+  onClick: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <button type="button" onClick={onClick} className="paywall-link">
+      <Icon className="size-4" /> {children}
+    </button>
   );
 }
