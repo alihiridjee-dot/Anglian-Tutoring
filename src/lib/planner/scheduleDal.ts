@@ -337,7 +337,8 @@ export class ScheduleDAL {
           supabase
             .from("spec_points")
             .select("id, code, title, sort_order, topic_id, weight")
-            .in("topic_id", batch),
+            .in("topic_id", batch)
+            .eq("not_examined", false),
       ));
     const pointIds = pts.map((p) => p.id);
 
