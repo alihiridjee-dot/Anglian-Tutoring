@@ -1,12 +1,18 @@
 import { useState } from "react";
 import { Gift } from "lucide-react";
-import { TRIAL_DAYS, trialNeedsCard } from "@/lib/billing/trialCode";
+import { trialLength } from "@/lib/billing/trialCode";
+import { useTrialTerms } from "@/hooks/data/useBilling";
 
-/** "11 October": the day a trial started today first charges. */
-function firstChargeDay(): string {
+/** "11 October" (or "9 August 2027" next year): the day a trial started today ends. */
+function trialEndDay(days: number): string {
   const d = new Date();
-  d.setDate(d.getDate() + TRIAL_DAYS);
-  return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long" }).format(d);
+  const thisYear = d.getFullYear();
+  d.setDate(d.getDate() + days);
+  return new Intl.DateTimeFormat("en-GB", {
+    day: "numeric",
+    month: "long",
+    ...(d.getFullYear() !== thisYear ? { year: "numeric" as const } : {}),
+  }).format(d);
 }
 
 /**
@@ -29,6 +35,7 @@ export function TrialCodeField({
   className?: string;
 }) {
   const [open, setOpen] = useState(false);
+  const terms = useTrialTerms(value);
 
   if (!open && !value) {
     return (
@@ -57,19 +64,26 @@ export function TrialCodeField({
         autoFocus={!value}
         className="premium-input w-full h-11 rounded-xl px-4 text-sm mt-1 font-mono tracking-wider"
       />
-      {value.trim() &&
-        (trialNeedsCard() ? (
+      {terms.data &&
+        (terms.data.needsCard ? (
           <p className="mt-2 text-sm">
-            <span className="font-semibold">{TRIAL_DAYS} days free</span>, then{" "}
-            {thenPrice ?? "your plan"} from {firstChargeDay()}. Cancel before then and you pay
-            nothing.
+            <span className="font-semibold">{trialLength(terms.data.days)} free</span>, then{" "}
+            {thenPrice ?? "your plan"} from {trialEndDay(terms.data.days)}. Cancel before then and
+            you pay nothing.
           </p>
         ) : (
           <p className="mt-2 text-sm">
-            <span className="font-semibold">{TRIAL_DAYS} days free, no card needed.</span> The trial
-            ends on {firstChargeDay()}; pick a plan then to keep going.
+            <span className="font-semibold">
+              {trialLength(terms.data.days)} free, no card needed.
+            </span>{" "}
+            The trial ends on {trialEndDay(terms.data.days)}; pick a plan then to keep going.
           </p>
         ))}
+      {terms.error && (
+        <p role="alert" className="mt-2 tint-rose chip whitespace-normal">
+          {terms.error.message}
+        </p>
+      )}
     </div>
   );
 }

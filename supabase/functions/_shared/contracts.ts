@@ -22,6 +22,12 @@ export interface CheckoutPayload {
   return_to?: BillingReturnTo;
   /** A free-trial code from the landing page. Checked and held server-side. */
   trial_code?: string;
+  /**
+   * A linked parent moving the plan a student pays for themselves onto the
+   * parent's own card (stripe-checkout/takeOver.ts). The new plan bills from
+   * the day the student's runs out, and the student's ends then.
+   */
+  take_over?: boolean;
 }
 
 export interface PortalPayload {
@@ -102,6 +108,15 @@ export interface InvoicesPayload {
   action: "invoices";
 }
 
+export interface TrialTermsPayload {
+  /**
+   * What a free-trial code gives, for the plan page to state before Checkout:
+   * { days, needs_card }, or the refusal Checkout would give.
+   */
+  action: "trial_terms";
+  trial_code: string;
+}
+
 export type BillingPayload =
   | CheckoutPayload
   | PortalPayload
@@ -109,7 +124,8 @@ export type BillingPayload =
   | AddSubjectsPayload
   | RemoveSubjectsPayload
   | ChangeCadencePayload
-  | InvoicesPayload;
+  | InvoicesPayload
+  | TrialTermsPayload;
 
 // ── delete-account ──────────────────────────────────────────────────────────
 

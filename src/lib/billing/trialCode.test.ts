@@ -12,7 +12,32 @@ import {
   mayOfferTrial,
   NO_CARD_TRIALS_UNTIL as CLIENT_NO_CARD_TRIALS_UNTIL,
   TRIAL_DAYS as CLIENT_TRIAL_DAYS,
+  trialLength,
+  typedTrialCode,
 } from "./trialCode";
+
+describe("trialLength", () => {
+  test("a standard trial is in days", () => {
+    expect(trialLength(14)).toBe("14 days");
+    expect(trialLength(14, true)).toBe("14-day");
+    expect(trialLength(1)).toBe("1 day");
+  });
+
+  test("a long trial is in months: 274 days is nine", () => {
+    expect(trialLength(274)).toBe("9 months");
+    expect(trialLength(274, true)).toBe("9-month");
+    expect(trialLength(730)).toBe("24 months");
+  });
+});
+
+describe("typedTrialCode", () => {
+  test("waits until enough has been typed to be a code", () => {
+    expect(typedTrialCode("")).toBeNull();
+    expect(typedTrialCode("AE-K7QM")).toBeNull();
+    expect(typedTrialCode("ae-k7qm-3xpd")).toBe("AEK7QM3XPD");
+    expect(typedTrialCode("k7qm 3xpd")).toBe("K7QM3XPD");
+  });
+});
 
 describe("makeTrialCode", () => {
   test("is AE- and two groups of four, from characters that can't be misread", () => {

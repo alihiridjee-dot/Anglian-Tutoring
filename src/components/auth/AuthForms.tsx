@@ -68,8 +68,21 @@ export function VerifyCodeScreen({ flow }: { flow: AuthFlow }) {
   );
 }
 
-/** Log in or sign up. `tier` is the plan picked on the pricing page, if any. */
-export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string }) {
+/**
+ * Log in or sign up. `tier` is the plan picked on the pricing page, if any.
+ * `joining` is the child's first name on a parent's "My parent is paying" link:
+ * the account is a parent's and the link says which child, so there is no
+ * role to pick and no invite code to type.
+ */
+export function CredentialsForm({
+  flow,
+  tier,
+  joining,
+}: {
+  flow: AuthFlow;
+  tier?: string;
+  joining?: string;
+}) {
   const {
     mode,
     setMode,
@@ -87,6 +100,15 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
     handleSubmit,
     handleForgotPassword,
   } = flow;
+  // One plain line under the heading, only when it says something: which
+  // child a parent is paying for, or the plan picked on the pricing page.
+  const subline = joining
+    ? mode === "signin"
+      ? `Log in, then pay for ${joining}'s plan.`
+      : `Then you'll pay for ${joining}'s plan.`
+    : mode === "signup" && tier
+      ? `Great pick — you're signing up for the ${tier.replaceAll("_", " ")} plan.`
+      : null;
   return (
     <>
       {/* One soft pill slides between the two, as in the sidebar. No track,
@@ -114,6 +136,13 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
               👋
             </span>
           </>
+        ) : joining ? (
+          <>
+            Create your parent account{" "}
+            <span key="spark" className="tutor-wave" data-go aria-hidden>
+              ✨
+            </span>
+          </>
         ) : (
           <>
             Create your account{" "}
@@ -123,13 +152,9 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
           </>
         )}
       </h1>
-      {mode === "signup" && tier && (
-        <p className="-mt-3 mb-6 text-base leading-relaxed">
-          Great pick — you're signing up for the {tier.replaceAll("_", " ")} plan.
-        </p>
-      )}
+      {subline && <p className="-mt-3 mb-6 text-base leading-relaxed">{subline}</p>}
 
-      {mode === "signup" && (
+      {mode === "signup" && !joining && (
         <div className="auth-switch tint-accent mb-5" data-right={role === "parent" || undefined}>
           <span className="auth-switch-pill" aria-hidden />
           {(["student", "parent"] as const).map((r) => (
@@ -163,7 +188,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
             />
           </Field>
         )}
-        {mode === "signup" && role === "parent" && (
+        {mode === "signup" && role === "parent" && !joining && (
           <Field label="Student invite code" htmlFor="auth-invite-code">
             <input
               id="auth-invite-code"
@@ -231,7 +256,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
 
       <SsoButtons flow={flow} />
 
-      {mode === "signup" && (
+      {mode === "signup" && !joining && (
         <p className="mt-5 text-center text-base font-semibold">
           Next you'll set up your profile and choose a plan.
         </p>

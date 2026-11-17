@@ -167,6 +167,8 @@ export async function startCheckout(opts: {
   returnTo?: BillingReturnTo;
   /** A free-trial code; the server decides whether it applies. */
   trialCode?: string;
+  /** A parent moving the child's own plan onto their card (TakeOverCard). */
+  takeOver?: boolean;
 }) {
   const { url } = await invokeBilling<{ url: string }>({
     action: "checkout",
@@ -174,6 +176,7 @@ export async function startCheckout(opts: {
     student_id: opts.studentId,
     return_to: opts.returnTo,
     trial_code: opts.trialCode?.trim() || undefined,
+    take_over: opts.takeOver || undefined,
   });
   if (!url) throw new Error("Stripe didn't return a checkout link.");
   window.location.href = url;
@@ -265,4 +268,18 @@ export async function changeCadence(
 export async function fetchInvoices(): Promise<Invoice[]> {
   const { invoices } = await invokeBilling<{ invoices: Invoice[] }>({ action: "invoices" });
   return invoices ?? [];
+}
+
+/** What a free-trial code gives. A bad or used code throws the server's own words. */
+export interface TrialTerms {
+  days: number;
+  needsCard: boolean;
+}
+
+export async function fetchTrialTerms(code: string): Promise<TrialTerms> {
+  const { days, needs_card } = await invokeBilling<{ days: number; needs_card: boolean }>({
+    action: "trial_terms",
+    trial_code: code,
+  });
+  return { days, needsCard: needs_card };
 }

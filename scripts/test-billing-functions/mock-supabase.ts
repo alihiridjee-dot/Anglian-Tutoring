@@ -14,6 +14,11 @@ export const DB = {
   users: {} as Record<string, { id: string; email: string }>, // bearer token -> user
   /** rpc name -> stand-in; `caller` is the bearer token the client was made with. */
   rpcs: {} as Record<string, (args: any, caller: string | null) => { data: any; error: any }>,
+  /**
+   * table -> run once, just after the next read of it: another request
+   * writing in between this one's read and its write (a race).
+   */
+  onRead: {} as Record<string, () => void>,
 };
 
 export function resetDb() {
@@ -25,6 +30,7 @@ export function resetDb() {
   DB.broken = {};
   DB.users = {};
   DB.rpcs = {};
+  DB.onRead = {};
 }
 resetDb();
 
@@ -118,6 +124,11 @@ class Query implements PromiseLike<any> {
 
     switch (this.op) {
       case "select": {
+        const race = DB.onRead[this.t];
+        if (race) {
+          delete DB.onRead[this.t];
+          queueMicrotask(race);
+        }
         if (this.count) {
           const data = this.count.head ? null : match.map((r) => ({ ...r }));
           return Promise.resolve({ data, count: match.length, error: null });

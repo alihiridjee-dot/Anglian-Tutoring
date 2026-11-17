@@ -2,12 +2,15 @@ import { useOnboardingUser } from "@/hooks/useOnboardingUser";
 import { EmptyState, ErrorNote, Spinner } from "@/components/Shared";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
-import { Loader2, CreditCard, Gift, Lock } from "lucide-react";
+import { useCallback, useState } from "react";
+import { Loader2, CreditCard, Gift, Lock, Users } from "lucide-react";
 import { useSignOut } from "@/hooks/useSignOut";
 import { formatPence } from "@/lib/billing/billing";
 import { usePlanStep, type SearchParams } from "@/components/onboarding/usePlanStep";
 import { TrialCodeField } from "@/components/billing/TrialCodeField";
-import { TRIAL_DAYS } from "@/lib/billing/trialCode";
+import { trialLength } from "@/lib/billing/trialCode";
+import { useTrialTerms } from "@/hooks/data/useBilling";
+import { ParentPaysPanel } from "@/components/onboarding/ParentPaysPanel";
 import { WelcomeVideo } from "@/components/WelcomeVideo";
 import { markWelcomeVideoWatched } from "@/lib/profile/welcomeTour";
 import {
@@ -36,6 +39,9 @@ import {
  * the bank cards are usually not the same person:
  *
  *   • pay now — Stripe Checkout, in the student's own name.
+ *   • my parent is paying — a one-time link as a QR code. The parent opens it
+ *     on their own phone, signs up already linked, and pays; this page waits
+ *     and lets the student in when the payment lands.
  *   • ask a parent — a request in their account if they have one, otherwise
  *     the student's invite code to pass on. The parent links, then pays.
  */
@@ -82,6 +88,15 @@ function PlanStep() {
   } = step;
   // Only a student who has never had a plan can start a trial.
   const withTrial = neverSubscribed && !!trialCode.trim();
+  // How long this code's trial is, once the server has said (a code can give its own).
+  const trialDays = useTrialTerms(withTrial ? trialCode : "").data?.days;
+  // "My parent is paying": the QR code takes the pay button's place. When the
+  // parent's payment lands, the same welcome as a payment of the student's own.
+  const [parentPays, setParentPays] = useState(false);
+  const parentPaid = useCallback(
+    () => void navigate({ to: "/onboarding/plan", search: { checkout: "success" }, replace: true }),
+    [navigate],
+  );
 
   // Paid, and new here: the welcome video, full screen, then the dashboard tour.
   if (search.checkout === "success" && welcomeVideo) {
@@ -163,7 +178,9 @@ function PlanStep() {
           <>
             <PlanSummary {...step} />
 
-            <CadencePicker {...step} />
+            {/* The link carries the cadence picked when it was made; the parent
+                can change it on their side. */}
+            {!parentPays && <CadencePicker {...step} />}
 
             <PlanTotal selectedPkg={selectedPkg} selectedUnit={selectedUnit} />
 
@@ -174,50 +191,70 @@ function PlanStep() {
               </p>
             )}
 
-            <button
-              type="button"
-              onClick={payNow}
-              disabled={!selectedPkg || redirecting}
-              className="btn-premium mt-7 w-full h-13 rounded-2xl text-base inline-flex items-center justify-center gap-2"
-            >
-              {redirecting ? (
-                <>
-                  <Loader2 className="size-5 animate-spin" /> Taking you to Stripe…
-                </>
-              ) : withTrial ? (
-                <>
-                  <Gift className="size-5" /> Start {TRIAL_DAYS}-day free trial
-                </>
-              ) : (
-                <>
-                  <CreditCard className="size-5" /> Continue to payment
-                </>
-              )}
-            </button>
+            {parentPays ? (
+              <ParentPaysPanel
+                cadence={step.cadence}
+                onPaid={parentPaid}
+                onClose={() => setParentPays(false)}
+              />
+            ) : (
+              <>
+                <button
+                  type="button"
+                  onClick={payNow}
+                  disabled={!selectedPkg || redirecting}
+                  className="btn-premium mt-7 w-full h-13 rounded-2xl text-base inline-flex items-center justify-center gap-2"
+                >
+                  {redirecting ? (
+                    <>
+                      <Loader2 className="size-5 animate-spin" /> Taking you to Stripe…
+                    </>
+                  ) : withTrial ? (
+                    <>
+                      <Gift className="size-5" /> Start{" "}
+                      {trialDays ? `${trialLength(trialDays, true)} free trial` : "free trial"}
+                    </>
+                  ) : (
+                    <>
+                      <CreditCard className="size-5" /> Continue to payment
+                    </>
+                  )}
+                </button>
 
-            <div
-              className={`mt-5 flex flex-wrap items-center gap-3 ${
-                neverSubscribed ? "justify-between" : "justify-center"
-              }`}
-            >
-              {neverSubscribed && (
-                <TrialCodeField
-                  // Opened, the field and its terms take the whole row.
-                  className="has-[input]:basis-full"
-                  value={trialCode}
-                  onChange={setTrialCode}
-                  thenPrice={
-                    selectedPkg
-                      ? `${formatPence(selectedPkg.price_pence)} ${selectedUnit}`
-                      : undefined
-                  }
-                />
-              )}
-              <p className="inline-flex items-center gap-1.5 text-sm font-medium">
-                <Lock className="size-4 text-[color:var(--tint)]" aria-hidden /> Card details go to
-                Stripe, never to us
-              </p>
-            </div>
+                <button
+                  type="button"
+                  onClick={() => setParentPays(true)}
+                  disabled={!selectedPkg || redirecting}
+                  className="btn-soft mt-3 w-full h-13 rounded-2xl text-base inline-flex items-center justify-center gap-2"
+                >
+                  <Users className="size-5" /> My parent is paying
+                </button>
+
+                <div
+                  className={`mt-5 flex flex-wrap items-center gap-3 ${
+                    neverSubscribed ? "justify-between" : "justify-center"
+                  }`}
+                >
+                  {neverSubscribed && (
+                    <TrialCodeField
+                      // Opened, the field and its terms take the whole row.
+                      className="has-[input]:basis-full"
+                      value={trialCode}
+                      onChange={setTrialCode}
+                      thenPrice={
+                        selectedPkg
+                          ? `${formatPence(selectedPkg.price_pence)} ${selectedUnit}`
+                          : undefined
+                      }
+                    />
+                  )}
+                  <p className="inline-flex items-center gap-1.5 text-sm font-medium">
+                    <Lock className="size-4 text-[color:var(--tint)]" aria-hidden /> Card details go
+                    to Stripe, never to us
+                  </p>
+                </div>
+              </>
+            )}
           </>
         )}
       </div>
