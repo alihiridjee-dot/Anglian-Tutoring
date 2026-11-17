@@ -20,6 +20,7 @@ export const Route = createFileRoute("/auth")({
     board: typeof search.board === "string" ? search.board : undefined,
     redirect: typeof search.redirect === "string" ? search.redirect : undefined,
     trial: typeof search.trial === "string" ? search.trial : undefined,
+    invite: typeof search.invite === "string" ? search.invite : undefined,
   }),
   component: AuthPage,
 });
