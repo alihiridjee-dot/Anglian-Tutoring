@@ -64,7 +64,7 @@ export const pageGuides: Record<string, GuideStep[]> = {
     select(
       '[data-guide="point-sections"] button',
       "Learn, then practise",
-      "Expand the resource sections to find the MCQ sets, videos and other materials available for this point. Counts show what has been added.",
+      "Tap a stop on the trail to open its work: the video, the notes, the quiz and the task. A dashed stop is still being written.",
     ),
     at(
       "curriculum-back",

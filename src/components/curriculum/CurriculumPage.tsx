@@ -32,12 +32,10 @@ import { currentWeekKey } from "@/lib/planner/week";
 import { BookMarked, ChevronLeft } from "lucide-react";
 import { AddSubjectsLink, Filter } from "@/components/curriculum/CurriculumFilters";
 import { SpecPointDetail } from "@/components/curriculum/SpecPointDetail";
-import { PracticeRequest } from "@/components/curriculum/PracticeRequest";
 import { SpecSearchBar, SpecSearchResults } from "@/components/curriculum/SpecSearch";
 import { TopicCard } from "@/components/curriculum/TopicCard";
 import { TopicCreate } from "@/components/curriculum/TopicCreate";
 import { labelOf } from "@/components/curriculum/styles";
-import { CourseChip } from "@/components/CourseBadge";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 
 export function Curriculum() {
@@ -96,7 +94,6 @@ export function Curriculum() {
   // Selected specification point state to handle full sub-page navigation
   const [selectedSpecPoint, setSelectedSpecPoint] = useState<SpecPoint | null>(null);
   // Bumped when a point's requested MCQs or task arrive, so its sections reload.
-  const [contentRev, setContentRev] = useState(0);
 
   // A student's own plan for the selected course: how much of each topic is
   // covered, and when each uncovered point comes up. Only for a course they are
@@ -261,58 +258,51 @@ export function Curriculum() {
   if (selectedSpecPoint) {
     return (
       <AppLayout title="Curriculum Point">
-        <div className="max-w-4xl mx-auto space-y-6">
+        {/* The whole point carries its subject's tint: the trail's stops, the
+            panel under them and every button in it. */}
+        <div className={`max-w-4xl mx-auto ${subjectTint(subject)}`}>
           <button
             data-guide="curriculum-back"
             onClick={closeSpecPoint}
-            className="inline-flex items-center gap-2 min-h-11 sm:pointer-fine:min-h-0 text-sm text-muted-foreground hover:text-primary transition font-semibold"
+            className="inline-flex items-center gap-1.5 min-h-11 sm:pointer-fine:min-h-0 text-sm font-bold text-foreground hover:text-[color:var(--tint)] transition"
           >
-            <ChevronLeft className="w-4 h-4" /> Back to Curriculum
+            <ChevronLeft className="w-4 h-4" strokeWidth={3} /> Back to Curriculum
           </button>
 
-          <div className="rounded-2xl premium-card p-4 sm:p-6 relative overflow-hidden shadow-xs">
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary to-accent" />
-
-            <div className="mb-3">
-              <CourseChip
-                icon
-                parts={[labelOf(LEVELS, level), labelOf(BOARDS, board), labelOf(SUBJECTS, subject)]}
-              />
-            </div>
-
-            <p className="text-[10px] uppercase tracking-wider font-extrabold text-primary">
-              Specification Point {selectedSpecPoint.code}
-            </p>
-            <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mt-1.5 leading-snug break-words">
-              {selectedSpecPoint.title}
-            </h2>
-            {selectedSpecPoint.description && (
-              <p className="text-sm text-muted-foreground mt-3 leading-relaxed whitespace-pre-wrap break-words">
-                <SciText text={selectedSpecPoint.description} />
+          {/* The title sits on the page, not in a card: the course and code as
+              one plain line, the title large, and the week it's planned for as
+              a sticker beside it. */}
+          <div className="mt-5 flex flex-wrap items-start justify-between gap-x-6 gap-y-4">
+            <div className="min-w-0 flex-1 basis-72">
+              <p className="text-sm font-bold text-[color:color-mix(in_oklab,var(--tint)_75%,var(--primary-deep))]">
+                {labelOf(LEVELS, level)} {labelOf(BOARDS, board)} {labelOf(SUBJECTS, subject)} ·{" "}
+                {selectedSpecPoint.code}
               </p>
-            )}
-            {/* When the point is planned, and a student's Request for its MCQs
-                and task: tiles of one shape, side by side. Hidden when both
-                have nothing to say. */}
-            <div
-              className={`mt-5 flex flex-col gap-3 empty:hidden sm:flex-row sm:flex-wrap ${subjectTint(subject)}`}
-            >
-              {schedule?.byPoint.get(selectedSpecPoint.id) && (
-                <WhenLink
-                  when={schedule.byPoint.get(selectedSpecPoint.id)!}
-                  now={now}
-                  subject={subject}
-                />
-              )}
-              {/* Never in the showcase: it has no session to ask with. */}
-              {!isTutor && !isDemoStudent() && (
-                <PracticeRequest
-                  pointId={selectedSpecPoint.id}
-                  onReady={() => setContentRev((n) => n + 1)}
-                />
-              )}
+              <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold leading-[1.1] text-foreground break-words">
+                {selectedSpecPoint.title}
+              </h2>
+              <svg
+                aria-hidden
+                className="point-squiggle"
+                viewBox="0 0 100 12"
+                preserveAspectRatio="none"
+              >
+                <path d="M2 8 Q 18 1 34 7 T 66 6 T 98 5" vectorEffect="non-scaling-stroke" />
+              </svg>
             </div>
+            {schedule?.byPoint.get(selectedSpecPoint.id) && (
+              <WhenLink
+                when={schedule.byPoint.get(selectedSpecPoint.id)!}
+                now={now}
+                subject={subject}
+              />
+            )}
           </div>
+          {selectedSpecPoint.description && (
+            <p className="mt-4 max-w-prose text-base sm:text-lg leading-relaxed whitespace-pre-wrap break-words">
+              <SciText text={selectedSpecPoint.description} />
+            </p>
+          )}
 
           <div className="mt-8">
             <SpecPointDetail
@@ -320,7 +310,6 @@ export function Curriculum() {
               isTutor={isTutor}
               onChanged={loadTopics}
               taxonomy={{ subject, board, level }}
-              contentRev={contentRev}
             />
           </div>
         </div>
