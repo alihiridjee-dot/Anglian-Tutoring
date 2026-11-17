@@ -11,6 +11,7 @@ You must ALWAYS follow these instructions without any exception:
    - **Never hand-roll** a card, pill, progress bar, empty state, loading state or uppercase micro-label. Every one of those already exists, and a new one is how the site drifts back into several voices.
    - **Colour comes from `--tint`**, never from Tailwind's palette. `bg-emerald-500`, `text-sky-700` and friends opt the element out of the system and stay the wrong colour inside a tinted card. Set a `tint-*` class (or `SUBJECT_TINT[subject]`) on an ancestor and let the kit paint itself.
    - **Headings are display type by the element**, so `h1`–`h6` need no class — but display type is bold (700) or heavier. Never set a heading to `font-semibold`.
+   - **A page of work is a trail, not a stack of accordions.** The spec point page is the standard (README, "A page of work is a trail"): round stops on a dotted line, one card underneath for the picked stop, the title on the page with no pill, eyebrow or ALL CAPS label above it, bare rows, no small grey text, and nothing drawn for a section that is empty. The same trail on a phone, smaller.
    - A new feature is not finished until it has been looked at in the browser next to the surfaces around it.
 7. **Smallest Possible Edits:** Always implement the smallest, most precise changes possible to successfully complete the requested task. Prefer surgical edits over broad-spectrum rewrites.
 8. **Explicit Modification Reasoning:** Always provide a brief, clear explanation of why a file is being modified before editing it.

@@ -18,7 +18,7 @@ before writing a border, a shadow or an uppercase label by hand:
 | ----------------------------- | ---------------------------------------------------------------- |
 | `.premium-card`               | The card — printed outline and a two-layer offset shadow         |
 | `.chip` / `.chip-solid`       | Status and metadata pills                                        |
-| `.sticker` / `.sticker-alt`   | A chip slapped on at an angle. Celebration only — four is none   |
+| `.sticker` / `.sticker-alt`   | A chip slapped on at an angle. One per page — four is none       |
 | `.eyebrow`                    | The micro-label above a heading (`.eyebrow-bare` drops its rule) |
 | `.icon-tile`                  | The rounded square an icon sits in                               |
 | `.btn-premium` / `.btn-solid` | The pressable chassis. Buttons travel down into their shadow     |
@@ -32,6 +32,32 @@ a loading state per screen; every one of those had drifted apart before they
 existed. A pill with an icon is `<Chip icon={…} tint="tint-…">`, which keeps
 the icon one size everywhere. `src/components/Doodles.tsx` holds the mascot cast, and it belongs in
 empty states, milestones and the 404 — not inside a working tool.
+
+### A page of work is a trail, not a stack of accordions
+
+The spec point page (`SpecPointDetail.tsx`, the `point-*` block at the end of
+`src/styles.css`) is the pattern for any page that offers a learner several
+kinds of work on one thing. It is the house style, "playful minimalism": few
+surfaces, large type, and the fun carried by motion and emoji, not by more boxes.
+
+- **Stops, not sections.** Each kind of work is a round stop on a dotted line
+  (Watch → Read → Quiz → Task). Pressing a stop opens its work in **one** card
+  underneath. Never a column of collapsible cards, and never a section that
+  says "0 items": a stop with nothing behind it is not drawn. A stop whose work
+  is on its way is a dashed outline with the loading dots.
+- **The title sits on the page**, not in a card: one plain line above it (course
+  and code), the title large, a drawn highlighter stroke under it. No pill, no
+  eyebrow, no ALL CAPS label, no gradient bar.
+- **One sticker at most.** The date or status that matters most is a single
+  tilted `.sticker` beside the title (`WhenLink`).
+- **Rows are bare.** Inside the card a row is a bold title and one `.btn-solid`.
+  No border or background per row, and no small grey text: a line that matters
+  is normal dark text, and one that doesn't is deleted.
+- **Motion says something.** The picked stop grows and takes a highlighter
+  ring, the card rises in, a pencil scribbles while work is written. Each has a
+  `prefers-reduced-motion` rule.
+- **Phones get the same trail**, smaller (`--dot` shrinks under 600px), with
+  every stop still a 44px target. Do not swap it for a different phone layout.
 
 ### Everything colours itself from `--tint`
 

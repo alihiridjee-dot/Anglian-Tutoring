@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import {
   AlertTriangle,
-  ArrowRight,
   CalendarDays,
   Check,
   CheckCircle2,
@@ -13,20 +12,21 @@ import { cn } from "@/lib/utils";
 import { plannerDateLabel, weekKeyToDate } from "@/lib/planner/week";
 import type { PointWhen } from "@/lib/planner/pointSchedule";
 
+/** The planned weeks are the kit's yellow sticker; done and missed take a colour. */
 const WHEN_STYLE: Record<
   "covered" | "thisWeek" | "planned" | "catchUp" | "missed",
   { label: string; icon: LucideIcon; tint?: string }
 > = {
   covered: { label: "Covered", icon: CheckCircle2, tint: "tint-emerald" },
-  thisWeek: { label: "This week", icon: CalendarDays, tint: "tint-amber" },
-  planned: { label: "Planned for", icon: CalendarDays },
-  catchUp: { label: "Catch-up week", icon: History, tint: "tint-amber" },
-  missed: { label: "Missed · no slot yet", icon: AlertTriangle, tint: "tint-rose" },
+  thisWeek: { label: "This week", icon: CalendarDays },
+  planned: { label: "Week of", icon: CalendarDays },
+  catchUp: { label: "Catch-up, week of", icon: History },
+  missed: { label: "Missed, no slot yet", icon: AlertTriangle, tint: "tint-rose" },
 };
 
 /**
- * When a spec point is due for this student, as a button into that week of
- * their full plan. Ordinary planned weeks take the subject tint from the page.
+ * When a spec point is due for this student: a sticker beside the point's
+ * title, and a button into that week of their full plan.
  */
 export function WhenLink({
   when,
@@ -37,45 +37,39 @@ export function WhenLink({
   now: string;
   subject: string;
 }) {
-  const style = WHEN_STYLE[when.kind === "planned" && when.week === now ? "thisWeek" : when.kind];
+  const kind = when.kind === "planned" && when.week === now ? "thisWeek" : when.kind;
+  const style = WHEN_STYLE[kind];
   const Icon = style.icon;
-  const week = when.week
-    ? plannerDateLabel(weekKeyToDate(when.week), {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-      })
-    : null;
+  // The year only when it isn't this one.
+  const date = when.week ? weekKeyToDate(when.week) : null;
+  const week =
+    date &&
+    plannerDateLabel(date, {
+      day: "numeric",
+      month: "short",
+      ...(date.getFullYear() !== weekKeyToDate(now).getFullYear() && { year: "numeric" }),
+    });
+  const words =
+    week && (kind === "planned" || kind === "catchUp") ? `${style.label} ${week}` : style.label;
   const body = (
     <>
-      <span className="icon-tile size-11 shrink-0">
-        <Icon className="size-5" aria-hidden />
-      </span>
-      <span className="min-w-0 flex-1">
-        <span className="eyebrow eyebrow-bare block text-[10px]">{style.label}</span>
-        <span className="font-display mt-1 block text-base leading-tight font-extrabold">
-          {week ? `Week of ${week}` : "Nice work"}
-        </span>
-      </span>
-      {when.week && (
-        <span className="when-link-arrow" aria-hidden>
-          <ArrowRight className="size-4" />
-        </span>
-      )}
+      <Icon className="size-4 shrink-0" strokeWidth={2.5} aria-hidden />
+      {words}
     </>
   );
   const className = cn(
-    "when-link flex w-full items-center gap-3 p-2.5 pr-3 sm:w-auto sm:min-w-72 sm:inline-flex",
+    "sticker point-week min-h-11 shrink-0 items-center sm:pointer-fine:min-h-0",
+    style.tint && "sticker-alt",
     style.tint,
   );
 
-  if (!when.week) return <div className={className}>{body}</div>;
+  if (!when.week) return <span className={className}>{body}</span>;
   return (
     <Link
       to="/planner"
       search={{ subject, tab: "plan", week: when.week }}
       className={className}
-      aria-label={`${style.label}: week of ${week}. Open this week in your planner`}
+      aria-label={`${words}${week && !words.includes(week) ? `, week of ${week}` : ""}. Open this week in your planner`}
     >
       {body}
     </Link>
