@@ -46,6 +46,7 @@ import type {
   ManagePayload,
   PortalPayload,
   RemoveSubjectsPayload,
+  TrialTermsPayload,
 } from "../_shared/contracts.ts";
 import { requireUser, assertCanManage, assertCanUpgrade } from "./auth.ts";
 import {
@@ -54,8 +55,7 @@ import {
   assertNoLiveSubscription,
   expireOpenCheckouts,
 } from "./customers.ts";
-import { checkTrialCode, claimTrialCode } from "./trialCodes.ts";
-import { TRIAL_DAYS, trialNeedsCard } from "../_shared/trialCode.ts";
+import { checkTrialCode, claimTrialCode, trialTerms } from "./trialCodes.ts";
 
 /** Where Stripe sends the browser back to. Whitelisted — never client URLs. */
 const RETURN_PATHS: Record<BillingReturnTo, string> = {
@@ -339,7 +339,8 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
     ? await checkTrialCode(stripe, db, payload.trial_code, user.id, beneficiary)
     : null;
 
-  const noCard = !!trial && !trialNeedsCard();
+  // The code says how long and whether a card is taken (trialCodes.ts).
+  const noCard = !!trial && !trial.needsCard;
 
   const customerId = await resolveCustomer(stripe, user.id, user.email);
 
@@ -353,8 +354,8 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
     // set here, server-side, from values already verified above.
     subscription_data: {
       metadata: { student_id: beneficiary, payer_id: user.id, tier: pkg.tier },
-      ...(trial ? { trial_period_days: TRIAL_DAYS } : {}),
-      // A trial started without a card just ends on day 15. Stripe's default
+      ...(trial ? { trial_period_days: trial.days } : {}),
+      // A trial started without a card just ends when the trial does. Stripe's default
       // would bill a card that isn't there and leave the plan past due.
       ...(noCard
         ? { trial_settings: { end_behavior: { missing_payment_method: "cancel" as const } } }
@@ -367,9 +368,10 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
       ...(trial ? { trial_code: trial.code } : {}),
     },
     allow_promotion_codes: true,
-    // A trial normally takes the card up front, so it rolls into the plan on
-    // day 15 unless cancelled; until NO_CARD_TRIALS_UNTIL it takes none. The
-    // short expiry frees an abandoned trial code.
+    // A trial normally takes the card up front, so it rolls into the plan when
+    // the trial ends unless cancelled; a no-card code (or any code until
+    // NO_CARD_TRIALS_UNTIL) takes none. The short expiry frees an abandoned
+    // trial code.
     ...(trial
       ? {
           payment_method_collection: noCard ? ("if_required" as const) : ("always" as const),
@@ -381,6 +383,16 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
   if (trial) await claimTrialCode(stripe, db, trial, session.id, user.id, beneficiary);
 
   return { url: session.url };
+}
+
+/**
+ * What a trial code gives, for the plan page to state before Checkout. One
+ * read, no Stripe call, and it answers no more than Checkout would.
+ */
+async function handleTrialTerms(req: Request, payload: TrialTermsPayload) {
+  await requireUser(req);
+  const terms = await trialTerms(admin(), payload.trial_code);
+  return { days: terms.days, needs_card: terms.needsCard };
 }
 
 async function handlePortal(req: Request, payload: PortalPayload) {
@@ -981,6 +993,9 @@ Deno.serve(async (req) => {
         break;
       case "invoices":
         result = await handleInvoices(req);
+        break;
+      case "trial_terms":
+        result = await handleTrialTerms(req, payload);
         break;
       default:
         throw new HttpError(400, "Unknown action.");
