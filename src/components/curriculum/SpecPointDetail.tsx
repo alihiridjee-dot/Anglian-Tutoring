@@ -7,7 +7,7 @@ import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxono
 import { generateMcqSet, replaceMcqQuestions } from "@/lib/mcq/mcq.functions";
 import { toast } from "sonner";
 import { CurriculumDAL } from "@/lib/curriculum/curriculumDal";
-import { EmptyState } from "@/components/Shared";
+import { EmptyState, Spinner } from "@/components/Shared";
 import type { SpecPoint, Resource, McqSet } from "@/lib/curriculum/types";
 import { VideoModal, VideoThumbnail } from "@/components/VideoPlayer";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
@@ -19,22 +19,30 @@ import { formatWhen, joinClick, showsJoin } from "@/lib/live/liveSessions";
 import { useNow } from "@/hooks/useNow";
 import { plannerDateLabel } from "@/lib/planner/week";
 import { retakeOpensAt } from "@/lib/mcq/retakeLock";
+import { Plus, Pencil, Trash2, Sparkles, PlayCircle } from "lucide-react";
+import { cn } from "@/lib/utils";
 import {
-  Plus,
-  Pencil,
-  Trash2,
-  Sparkles,
-  PlayCircle,
-  ClipboardList,
-  CalendarClock,
-  ListChecks,
-  BookOpen,
-} from "lucide-react";
-import {
-  CollapsibleSection,
-  CollapsibleResourceGroup,
-  Empty,
-} from "@/components/curriculum/Collapsible";
+  PracticePanel,
+  practiceWaiting,
+  practiceWord,
+  usePractice,
+} from "@/components/curriculum/PracticeRequest";
+
+type StopKey = "watch" | "read" | "quiz" | "task" | "live";
+type Stop = {
+  key: StopKey;
+  label: string;
+  emoji: string;
+  /** How many things the stop opens onto. */
+  items: number;
+  /** The words under its name: a count, or where its quiz or task stands. */
+  word: string;
+  /** Every quiz taken: the stop goes green. */
+  done?: boolean;
+};
+
+/** The one button a row leads to: Read, Take, Open, Join. */
+const GO = "btn-solid inline-flex min-h-11 shrink-0 items-center rounded-xl px-4 py-2 text-sm";
 
 /** A quiz the student has taken: their best score, and when it opens again. */
 type TakenSet = { pct: number; opensAt: Date };
@@ -73,14 +81,11 @@ export function SpecPointDetail({
   isTutor,
   onChanged,
   taxonomy,
-  contentRev = 0,
 }: {
   point: SpecPoint;
   isTutor: boolean;
   onChanged: () => void;
   taxonomy: { subject: SubjectV; board: BoardV; level: LevelV };
-  /** Goes up when the point gains content from elsewhere (a student's Request). */
-  contentRev?: number;
 }) {
   const { userId } = useRoles();
   const [resources, setResources] = useState<Resource[]>([]);
@@ -101,6 +106,11 @@ export function SpecPointDetail({
   const notes = notesByPoint?.get(point.id) ?? [];
 
   const [loadFailed, setLoadFailed] = useState(false);
+  // Which point the lists above belong to: the trail waits for its own.
+  const [loadedFor, setLoadedFor] = useState<string | null>(null);
+  const loaded = loadedFor === point.id;
+  // The stop the student pressed. Until they press one, the first with work.
+  const [picked, setPicked] = useState<StopKey | null>(null);
   // Each load is numbered and only the newest may land, so a slow answer for
   // the point that was open before can't fill this one.
   const loadSeq = useRef(0);
@@ -122,6 +132,7 @@ export function SpecPointDetail({
       setMcqSets(mList);
       setTaken(mine);
       setLoadFailed(false);
+      setLoadedFor(point.id);
     } catch (e) {
       console.error(e);
       if (seq === loadSeq.current) setLoadFailed(true);
@@ -129,8 +140,12 @@ export function SpecPointDetail({
   };
 
   useEffect(() => {
+    setPicked(null);
     reload(); /* eslint-disable-next-line */
-  }, [point.id, contentRev, userId]);
+  }, [point.id, userId]);
+
+  // Never in the showcase: it has no session to ask with.
+  const practice = usePractice(point.id, !isTutor && !isDemoStudent(), () => reload());
 
   const generate = async () => {
     setGenLoading(true);
@@ -197,6 +212,58 @@ export function SpecPointDetail({
     }
   };
 
+  const videos = resources.filter((r) => r.kind === "video");
+  const tasks = resources.filter((r) => r.kind === "homework");
+  const sessions = resources.filter((r) => r.kind === "live_session");
+  // What goes under a stop's name: how many things it has, or, with none, where
+  // its quiz or task stands. A tutor is told of a gap; a student gets `null`,
+  // and a stop with nothing to say isn't drawn.
+  const word = (n: number, one: string, waiting: string | null = null, many = `${one}s`) =>
+    n > 0 ? `${n} ${n === 1 ? one : many}` : (waiting ?? (isTutor ? "None yet" : null));
+  const stops = [
+    {
+      key: "watch",
+      label: "Watch",
+      emoji: "🎬",
+      items: videos.length,
+      word: word(videos.length, "video"),
+    },
+    {
+      key: "read",
+      label: "Read",
+      emoji: "📖",
+      items: notes.length,
+      word: word(notes.length, "note"),
+    },
+    {
+      key: "quiz",
+      label: "Quiz",
+      emoji: "🎯",
+      items: mcqSets.length,
+      word: word(mcqSets.length, "quiz", practiceWord(practice, "quiz"), "quizzes"),
+      done: !isTutor && mcqSets.length > 0 && mcqSets.every((s) => taken[s.id]),
+    },
+    {
+      key: "task",
+      label: "Task",
+      emoji: "✏️",
+      items: tasks.length,
+      word: word(tasks.length, "task", practiceWord(practice, "task")),
+    },
+    // A lesson is a stop only when there is one.
+    {
+      key: "live",
+      label: "Live",
+      emoji: "👋",
+      items: sessions.length,
+      word: sessions.length ? word(sessions.length, "lesson") : null,
+    },
+  ].filter((s): s is Stop => s.word !== null);
+  const active =
+    stops.find((s) => s.key === picked)?.key ??
+    (stops.find((s) => s.items > 0) ?? stops[0])?.key ??
+    null;
+
   return (
     <div className="space-y-6">
       {isTutor && (
@@ -231,222 +298,254 @@ export function SpecPointDetail({
         />
       )}
 
-      <div data-guide="point-sections" className="space-y-4">
-        {/* MCQ Sets Section */}
-        <CollapsibleSection
-          title="MCQ Sets"
-          icon={ListChecks}
-          count={mcqSets.length}
-          defaultOpen={mcqSets.length > 0}
-        >
-          {mcqSets.length === 0 ? (
-            <Empty label="No MCQ sets yet." />
-          ) : (
-            <ul className="space-y-2.5">
-              {mcqSets.map((s) => (
-                <li
-                  key={s.id}
-                  className="flex flex-wrap items-center justify-between gap-2 px-3.5 py-3 rounded-xl bg-secondary/10 border border-border"
-                >
-                  <div className="flex items-center gap-2 min-w-0">
-                    {/* Publishing is the tutor's business: a student only
-                        ever sees the published sets, so it says nothing to them. */}
-                    {isTutor && (
-                      <Chip tint={s.published ? "tint-emerald" : "tint-slate"} className="shrink-0">
-                        {s.published ? "Published" : "Draft"}
-                      </Chip>
-                    )}
-                    {/* Their best score, as on the MCQs page's quiz card. */}
-                    {!isTutor && taken[s.id] && (
-                      <span className="chip chip-solid shrink-0">
-                        <span className="numeral">{taken[s.id].pct}%</span>
-                      </span>
-                    )}
-                    <span className="text-sm font-semibold break-words min-w-0 text-foreground">
-                      {s.title}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 shrink-0">
-                    {(s.published || isTutor) && (
-                      <Link
-                        to={isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
-                        params={{ setId: s.id }}
-                        className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-lg border border-border bg-background hover:border-primary/50 text-foreground font-medium transition"
-                      >
-                        {/* Nothing is recorded for a tutor (TakeMcqPage). Inside
-                            the week a taken quiz opens as its review (retakeLock). */}
-                        {isTutor
-                          ? "Preview"
-                          : !taken[s.id]
-                            ? "Take"
-                            : taken[s.id].opensAt.getTime() > Date.now()
-                              ? "Review"
-                              : "Retake"}
-                      </Link>
-                    )}
-                    {isTutor && (
-                      <>
+      {/* The trail: the point's work as stops, Watch → Read → Quiz → Task, and
+          the stop that's picked opens underneath. A stop with nothing behind it
+          isn't drawn, unless its quiz or task can be asked for or is on its way. */}
+      {!loaded && !loadFailed && <Spinner label="Loading this point" className="py-10" />}
+      {loaded && stops.length > 0 && (
+        <div data-guide="point-sections">
+          <div
+            role="tablist"
+            aria-label="This point's work"
+            className="point-trail"
+            style={{ "--stops": stops.length } as React.CSSProperties}
+          >
+            {stops.length > 1 && <TrailPath gaps={stops.length - 1} />}
+            {stops.map((s) => (
+              <button
+                key={s.key}
+                type="button"
+                role="tab"
+                id={`point-stop-${s.key}`}
+                aria-selected={s.key === active}
+                aria-controls="point-panel"
+                onClick={() => setPicked(s.key)}
+                className={cn("point-stop", s.done && "tint-emerald")}
+                data-state={s.items > 0 ? "open" : "waiting"}
+              >
+                <span className="point-stop-dot">
+                  {s.items > 0 || s.word !== "Being written" ? (
+                    <span aria-hidden>{s.done ? "✅" : s.emoji}</span>
+                  ) : (
+                    <Spinner compact label="Being written" />
+                  )}
+                </span>
+                <span className="point-stop-label">{s.label}</span>
+                <span className="point-stop-word">{s.word}</span>
+              </button>
+            ))}
+          </div>
+
+          <div
+            key={active}
+            id="point-panel"
+            role="tabpanel"
+            aria-labelledby={`point-stop-${active}`}
+            className="point-panel premium-card p-4 sm:p-6"
+          >
+            {active === "watch" &&
+              (videos.length === 0 ? (
+                <Empty label="No videos yet" />
+              ) : (
+                <ul className={cn("grid gap-4", videos.length > 1 ? "sm:grid-cols-2" : "max-w-xl")}>
+                  {videos.map((r) => {
+                    const embed = parseVideoUrl(r.video_url);
+                    return (
+                      <li key={r.id} className="relative">
                         <button
-                          onClick={() => publish(s.id, s.published)}
-                          className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-lg border border-border text-muted-foreground hover:text-foreground transition"
+                          type="button"
+                          disabled={!embed}
+                          onClick={() =>
+                            embed &&
+                            setActiveVideo({ embed, title: r.title, description: r.description })
+                          }
+                          className="group w-full text-left disabled:cursor-default disabled:opacity-60"
                         >
-                          {s.published ? "Unpublish" : "Publish"}
+                          <span className="block overflow-hidden rounded-2xl">
+                            <VideoThumbnail embed={embed} />
+                          </span>
+                          <span className="font-display mt-3 block text-lg leading-snug font-bold">
+                            {r.title}
+                          </span>
+                          {r.description && (
+                            <span className="mt-1 block text-sm line-clamp-2">{r.description}</span>
+                          )}
                         </button>
-                        {s.origin === "generated" && (
+                        {isTutor && (
                           <button
-                            onClick={() => replaceSet(s.id)}
-                            disabled={replacingId !== null}
-                            className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-lg border border-border text-muted-foreground hover:text-foreground transition disabled:opacity-60"
+                            type="button"
+                            onClick={() =>
+                              setEditingVideo({
+                                video: {
+                                  id: r.id,
+                                  title: r.title,
+                                  description: r.description,
+                                  video_url: r.video_url,
+                                },
+                              })
+                            }
+                            className="tap-target absolute top-2 right-2 inline-flex items-center gap-1 rounded-md border border-border bg-background/90 px-2 py-1 text-xs font-bold text-foreground shadow-xs transition hover:border-primary/50"
                           >
-                            {replacingId === s.id ? "Replacing…" : "Replace questions"}
+                            <Pencil className="w-3 h-3" /> Edit
                           </button>
                         )}
-                        <button
-                          onClick={() => delSet(s.id)}
-                          aria-label={`Delete MCQ set ${s.title}`}
-                          className="tap-target text-muted-foreground hover:text-destructive p-1 transition"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
-                      </>
-                    )}
-                  </div>
-                </li>
+                      </li>
+                    );
+                  })}
+                </ul>
               ))}
-            </ul>
-          )}
-        </CollapsibleSection>
 
-        {/* Syllabus Videos Section */}
-        <CollapsibleResourceGroup
-          label="Syllabus Videos"
-          icon={PlayCircle}
-          cards
-          items={resources.filter((r) => r.kind === "video")}
-          render={(r) => {
-            const embed = parseVideoUrl(r.video_url);
-            return (
-              <div className="relative w-full">
-                <button
-                  type="button"
-                  disabled={!embed}
-                  onClick={() =>
-                    embed && setActiveVideo({ embed, title: r.title, description: r.description })
-                  }
-                  className="group text-left rounded-xl premium-card overflow-hidden hover:border-primary/40 transition w-full disabled:opacity-60 disabled:cursor-default"
-                >
-                  <VideoThumbnail embed={embed} />
-                  <div className="p-3">
-                    <p className="font-display text-foreground text-sm leading-snug font-bold">
-                      {r.title}
-                    </p>
-                    {r.description && (
-                      <p className="text-xs font-normal text-muted-foreground mt-0.5 leading-normal line-clamp-2">
-                        {r.description}
-                      </p>
-                    )}
-                  </div>
-                </button>
-                {isTutor && (
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setEditingVideo({
-                        video: {
-                          id: r.id,
-                          title: r.title,
-                          description: r.description,
-                          video_url: r.video_url,
-                        },
-                      })
+            {active === "read" &&
+              (notes.length === 0 ? (
+                <Empty label="No revision notes yet" />
+              ) : (
+                <ul>
+                  {notes.map((n) => (
+                    <PointRow key={n.id} title={n.title}>
+                      <Link
+                        to={
+                          isDemoStudent() ? "/demo/student/notes/$conceptId" : "/notes/$conceptId"
+                        }
+                        params={{ conceptId: n.id }}
+                        className={GO}
+                      >
+                        Read
+                      </Link>
+                    </PointRow>
+                  ))}
+                </ul>
+              ))}
+
+            {active === "quiz" &&
+              (mcqSets.length === 0 ? (
+                (practiceWaiting(practice, "quiz") && (
+                  <PracticePanel practice={practice} kind="quiz" />
+                )) || <Empty label="No MCQ sets yet" />
+              ) : (
+                <ul>
+                  {mcqSets.map((s) => (
+                    <PointRow
+                      key={s.id}
+                      title={s.title}
+                      lead={
+                        // Publishing is the tutor's business: a student only
+                        // ever sees the published sets, so it says nothing to them.
+                        isTutor ? (
+                          <Chip
+                            tint={s.published ? "tint-emerald" : "tint-slate"}
+                            className="shrink-0"
+                          >
+                            {s.published ? "Published" : "Draft"}
+                          </Chip>
+                        ) : (
+                          // Their best score, as on the MCQs page's quiz card.
+                          taken[s.id] && (
+                            <span className="chip chip-solid shrink-0">
+                              <span className="numeral">{taken[s.id].pct}%</span>
+                            </span>
+                          )
+                        )
+                      }
+                    >
+                      {(s.published || isTutor) && (
+                        <Link
+                          to={isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
+                          params={{ setId: s.id }}
+                          className={GO}
+                        >
+                          {/* Nothing is recorded for a tutor (TakeMcqPage). Inside
+                              the week a taken quiz opens as its review (retakeLock). */}
+                          {isTutor
+                            ? "Preview"
+                            : !taken[s.id]
+                              ? "Take"
+                              : taken[s.id].opensAt.getTime() > Date.now()
+                                ? "Review"
+                                : "Retake"}
+                        </Link>
+                      )}
+                      {isTutor && (
+                        <>
+                          <button
+                            onClick={() => publish(s.id, s.published)}
+                            className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-lg border border-border text-muted-foreground hover:text-foreground transition"
+                          >
+                            {s.published ? "Unpublish" : "Publish"}
+                          </button>
+                          {s.origin === "generated" && (
+                            <button
+                              onClick={() => replaceSet(s.id)}
+                              disabled={replacingId !== null}
+                              className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-lg border border-border text-muted-foreground hover:text-foreground transition disabled:opacity-60"
+                            >
+                              {replacingId === s.id ? "Replacing…" : "Replace questions"}
+                            </button>
+                          )}
+                          <button
+                            onClick={() => delSet(s.id)}
+                            aria-label={`Delete MCQ set ${s.title}`}
+                            className="tap-target text-muted-foreground hover:text-destructive p-1 transition"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </>
+                      )}
+                    </PointRow>
+                  ))}
+                </ul>
+              ))}
+
+            {active === "task" &&
+              (tasks.length === 0 ? (
+                (practiceWaiting(practice, "task") && (
+                  <PracticePanel practice={practice} kind="task" />
+                )) || <Empty label="No tasks yet" />
+              ) : (
+                <ul>
+                  {tasks.map((r) => (
+                    <PointRow
+                      key={r.id}
+                      title={r.title}
+                      detail={r.description}
+                      when={r.due_at ? `Due ${plannerDateLabel(new Date(r.due_at))}` : null}
+                    >
+                      <Link
+                        to={
+                          isDemoStudent()
+                            ? "/demo/student/homework/$homeworkId"
+                            : "/homework/$homeworkId"
+                        }
+                        params={{ homeworkId: r.id }}
+                        className={GO}
+                      >
+                        Open
+                      </Link>
+                    </PointRow>
+                  ))}
+                </ul>
+              ))}
+
+            {active === "live" && (
+              <ul>
+                {sessions.map((r) => (
+                  <PointRow
+                    key={r.id}
+                    title={r.title}
+                    detail={r.description}
+                    when={
+                      r.starts_at
+                        ? formatWhen(new Date(r.starts_at).getTime(), { uk: isTutor })
+                        : null
                     }
-                    className="tap-target absolute top-2 right-2 inline-flex items-center gap-1 px-2 py-1 rounded-md bg-background/90 border border-border text-[10px] font-bold uppercase tracking-wider text-foreground hover:border-primary/50 shadow-xs transition"
                   >
-                    <Pencil className="w-3 h-3" /> Edit
-                  </button>
-                )}
-              </div>
-            );
-          }}
-        />
-
-        {/* Revision Notes Section */}
-        <CollapsibleResourceGroup
-          label="Revision Notes"
-          icon={BookOpen}
-          items={notes}
-          render={(n) => (
-            <div className="flex items-start justify-between gap-2 w-full text-sm font-semibold text-foreground leading-snug">
-              <span>{n.title}</span>
-              <Link
-                to={isDemoStudent() ? "/demo/student/notes/$conceptId" : "/notes/$conceptId"}
-                params={{ conceptId: n.id }}
-                className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
-              >
-                Read
-              </Link>
-            </div>
-          )}
-        />
-
-        {/* Live Sessions Section */}
-        <CollapsibleResourceGroup
-          label="Live Sessions"
-          icon={CalendarClock}
-          items={resources.filter((r) => r.kind === "live_session")}
-          render={(r) => (
-            <div className="flex flex-col gap-1.5 w-full">
-              <div className="flex items-start justify-between gap-2 text-sm font-semibold text-foreground leading-snug">
-                <span>{r.title}</span>
-                <SessionJoinLink session={r} isTutor={isTutor} />
-              </div>
-              {r.description && (
-                <p className="text-xs font-normal text-muted-foreground leading-normal">
-                  {r.description}
-                </p>
-              )}
-              {r.starts_at && (
-                <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold">
-                  Starts: {formatWhen(new Date(r.starts_at).getTime(), { uk: isTutor })}
-                </span>
-              )}
-            </div>
-          )}
-        />
-
-        {/* Homework Assignments Section */}
-        <CollapsibleResourceGroup
-          label="Tasks"
-          icon={ClipboardList}
-          items={resources.filter((r) => r.kind === "homework")}
-          render={(r) => (
-            <div className="flex flex-col gap-1.5 w-full">
-              <div className="flex items-start justify-between gap-2 text-sm font-semibold text-foreground leading-snug">
-                <span className="font-semibold">{r.title}</span>
-                <Link
-                  to={
-                    isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"
-                  }
-                  params={{ homeworkId: r.id }}
-                  className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground font-bold transition"
-                >
-                  Open
-                </Link>
-              </div>
-              {r.description && (
-                <p className="text-xs text-muted-foreground leading-normal font-normal">
-                  {r.description}
-                </p>
-              )}
-              {r.due_at && (
-                <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold">
-                  due {plannerDateLabel(new Date(r.due_at))}
-                </span>
-              )}
-            </div>
-          )}
-        />
-      </div>
+                    <SessionJoinLink session={r} isTutor={isTutor} />
+                  </PointRow>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      )}
 
       {activeVideo && (
         <VideoModal
@@ -485,9 +584,66 @@ function SessionJoinLink({ session, isTutor }: { session: Resource; isTutor: boo
       target="_blank"
       rel="noreferrer"
       onClick={joinClick(session.id)}
-      className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
+      className={GO}
     >
       Join
     </a>
+  );
+}
+
+/** A tutor's word for a stop with nothing behind it. */
+function Empty({ label }: { label: string }) {
+  return <p className="font-display text-lg font-bold">{label}</p>;
+}
+
+/** One thing behind a stop: its name, a line or two about it, and its button. */
+function PointRow({
+  title,
+  lead,
+  detail,
+  when,
+  children,
+}: {
+  title: string;
+  lead?: React.ReactNode;
+  detail?: string | null;
+  when?: string | null;
+  children: React.ReactNode;
+}) {
+  return (
+    <li className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-2.5">
+      <div className="min-w-0 flex-1 basis-40">
+        <p className="font-display flex items-center gap-2.5 text-lg leading-snug font-bold break-words">
+          {lead}
+          <span className="min-w-0">{title}</span>
+        </p>
+        {detail && <p className="mt-0.5 text-sm">{detail}</p>}
+        {when && <p className="mt-0.5 text-sm font-bold">{when}</p>}
+      </div>
+      <div className="flex shrink-0 flex-wrap items-center gap-2">{children}</div>
+    </li>
+  );
+}
+
+/**
+ * The dotted line the stops sit on. One gentle S per gap, stretched to run from
+ * the middle of the first stop to the middle of the last.
+ */
+function TrailPath({ gaps }: { gaps: number }) {
+  let d = "M0 20";
+  for (let i = 0; i < gaps; i++) {
+    const x = i * 100;
+    const [up, down] = i % 2 ? [36, 4] : [4, 36];
+    d += ` C${x + 30} ${up} ${x + 70} ${down} ${x + 100} 20`;
+  }
+  return (
+    <svg
+      aria-hidden
+      className="point-trail-path"
+      viewBox={`0 0 ${gaps * 100} 40`}
+      preserveAspectRatio="none"
+    >
+      <path d={d} vectorEffect="non-scaling-stroke" />
+    </svg>
   );
 }

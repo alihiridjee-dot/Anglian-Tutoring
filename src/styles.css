@@ -446,70 +446,6 @@
   }
 }
 
-/* A spec point's week, as a button into the planner: a tinted ticket with an
-   icon tile, the date, and an arrow that nudges forward on hover. */
-.when-link {
-  border-radius: 1rem;
-  color: var(--foreground);
-  background: linear-gradient(
-    135deg,
-    color-mix(in oklab, var(--tint) 12%, var(--card)),
-    var(--card) 70%
-  );
-  border: 1.5px solid color-mix(in oklab, var(--tint) 32%, var(--edge));
-  box-shadow: var(--lift-1);
-  transition:
-    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.22s ease,
-    border-color 0.18s ease;
-}
-/* A link or a button (the spec point's Request tile) lifts; a plain tile doesn't. */
-a.when-link:hover,
-button.when-link:not(:disabled):hover {
-  transform: translateY(-2px);
-  box-shadow: var(--lift-2);
-  border-color: color-mix(in oklab, var(--tint) 50%, var(--edge));
-}
-a.when-link:active,
-button.when-link:not(:disabled):active {
-  transform: translateY(0);
-  box-shadow: var(--lift-1);
-}
-a.when-link:focus-visible,
-button.when-link:focus-visible {
-  outline: 2px solid var(--tint);
-  outline-offset: 2px;
-}
-button.when-link:disabled {
-  opacity: 0.7;
-}
-.when-link-arrow {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 999px;
-  color: white;
-  background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
-  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
-}
-a.when-link:hover .when-link-arrow {
-  transform: translateX(3px);
-}
-/* The Request tile's + turns instead of sliding: it adds, it doesn't go anywhere. */
-button.when-link:not(:disabled):hover .when-link-arrow {
-  transform: rotate(90deg) scale(1.08);
-}
-@media (prefers-reduced-motion: reduce) {
-  a.when-link,
-  button.when-link,
-  .when-link-arrow {
-    transition: none;
-  }
-}
-
 /* Heavier variant for the one card that owns the screen. */
 .pop-card-hero {
   border-width: 2px;
@@ -806,7 +742,12 @@ button.when-link:not(:disabled):hover .when-link-arrow {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.55) 50%, transparent 65%);
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgb(255 255 255 / 0.55) 50%,
+    transparent 65%
+  );
   transform: translateX(-120%);
   animation: chip-shine 4.5s ease-in-out infinite;
 }
@@ -824,16 +765,33 @@ button.when-link:not(:disabled):hover .when-link-arrow {
   animation: chip-twinkle 2.2s ease-in-out infinite;
 }
 @keyframes chip-shine {
-  0%, 70% { transform: translateX(-120%); }
-  100% { transform: translateX(120%); }
+  0%,
+  70% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
 }
 @keyframes chip-twinkle {
-  0%, 100% { opacity: 0.35; transform: scale(0.7) rotate(0deg); }
-  50% { opacity: 1; transform: scale(1.1) rotate(45deg); }
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.7) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(45deg);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .chip-done::after, .chip-done .chip-sparkle { animation: none; }
-  .chip-done::after { display: none; }
+  .chip-done::after,
+  .chip-done .chip-sparkle {
+    animation: none;
+  }
+  .chip-done::after {
+    display: none;
+  }
 }
 
 /* The sticker: a chip that has been slapped on at an angle, with a hard shadow.
@@ -3515,8 +3473,8 @@ body {
   line-height: 56px;
   cursor: pointer;
   pointer-events: auto;
-  transform: rotate(var(--a)) translateX(175px)
-    rotate(calc(-1 * (var(--a) + var(--turn)))) scale(var(--k));
+  transform: rotate(var(--a)) translateX(175px) rotate(calc(-1 * (var(--a) + var(--turn))))
+    scale(var(--k));
 }
 .offer-knob:focus-visible {
   outline: 3px solid color-mix(in oklab, var(--tint) 70%, var(--primary-deep));
@@ -3818,5 +3776,181 @@ body {
   .road-rider,
   .road-dots button {
     transition: none;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   THE POINT TRAIL — a spec point's own page (SpecPointDetail)
+   The point's work as round stops on a dotted line: Watch → Read → Quiz → Task.
+   The picked stop grows and takes a highlighter ring, and its work opens in one
+   card underneath. A stop with nothing behind it yet is a dashed outline.
+   ════════════════════════════════════════════════════════════════════════════ */
+.point-trail {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--stops), minmax(0, 1fr));
+  margin-bottom: 1.5rem;
+  --dot: 5.5rem;
+}
+/* From the middle of the first stop to the middle of the last. */
+.point-trail-path {
+  position: absolute;
+  top: calc(var(--dot) / 2 - 1.25rem);
+  left: calc(50% / var(--stops));
+  width: calc(100% - 100% / var(--stops));
+  height: 2.5rem;
+  overflow: visible;
+}
+.point-trail-path path {
+  fill: none;
+  stroke: color-mix(in oklab, var(--tint) 30%, var(--edge));
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 1 12;
+}
+.point-stop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  text-align: center;
+}
+.point-stop-dot {
+  display: grid;
+  place-items: center;
+  width: var(--dot);
+  height: var(--dot);
+  margin-bottom: 0.75rem;
+  border-radius: 999px;
+  font-size: calc(var(--dot) * 0.42);
+  line-height: 1;
+  background: var(--tint);
+  border: 1.5px solid color-mix(in oklab, var(--tint) 55%, black);
+  box-shadow: 0 6px 0 0 color-mix(in oklab, var(--tint) 45%, black);
+  outline: 0 solid var(--pop);
+  outline-offset: 4px;
+  transition:
+    transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1),
+    box-shadow 0.16s ease,
+    outline-width 0.16s ease;
+}
+.point-stop[data-state="waiting"] .point-stop-dot {
+  background: color-mix(in oklab, var(--tint) 7%, var(--card));
+  border: 3px dashed color-mix(in oklab, var(--tint) 35%, var(--edge));
+  box-shadow: none;
+}
+.point-stop:hover .point-stop-dot {
+  transform: translateY(-5px) rotate(-6deg);
+}
+.point-stop:active .point-stop-dot {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 0 color-mix(in oklab, var(--tint) 45%, black);
+}
+.point-stop[aria-selected="true"] .point-stop-dot {
+  transform: scale(1.1);
+  outline-width: 5px;
+}
+.point-stop:focus-visible {
+  outline: none;
+}
+.point-stop:focus-visible .point-stop-dot {
+  outline: 3px solid var(--foreground);
+}
+.point-stop-label {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.point-stop-word {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: color-mix(in oklab, var(--tint) 72%, var(--primary-deep));
+}
+/* The picked stop's work arrives with a small bounce. */
+.point-panel {
+  animation: point-rise 0.35s cubic-bezier(0.2, 1.3, 0.4, 1);
+}
+@keyframes point-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+}
+/* A quiz or task on its way: a pencil, writing. */
+.point-pencil {
+  flex-shrink: 0;
+  font-size: 2.75rem;
+  line-height: 1;
+  transform-origin: 20% 90%;
+  animation: point-scribble 1.1s ease-in-out infinite;
+}
+@keyframes point-scribble {
+  50% {
+    transform: rotate(-14deg) translateX(8px);
+  }
+}
+/* The highlighter stroke under the point's title, drawn as the page opens. */
+.point-squiggle {
+  display: block;
+  width: 9rem;
+  height: 0.75rem;
+  margin-top: 0.5rem;
+  overflow: visible;
+}
+.point-squiggle path {
+  fill: none;
+  stroke: var(--pop);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 320;
+  stroke-dashoffset: 320;
+  animation: point-draw 0.9s 0.3s ease-out forwards;
+}
+@keyframes point-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+/* The week sticker straightens up to be pressed. */
+.point-week {
+  transition: transform 0.2s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+a.point-week:hover {
+  transform: rotate(1deg) scale(1.05);
+}
+/* A phone: the same trail, smaller, and the stop's name alone under it. */
+@media (max-width: 599px) {
+  .point-trail {
+    --dot: 3.75rem;
+  }
+  .point-stop-dot {
+    margin-bottom: 0.875rem;
+    box-shadow: 0 4px 0 0 color-mix(in oklab, var(--tint) 45%, black);
+  }
+  .point-stop-label {
+    font-size: 1rem;
+  }
+  .point-stop-word {
+    font-size: 0.75rem;
+    line-height: 1.25;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .point-panel,
+  .point-pencil {
+    animation: none;
+  }
+  .point-squiggle path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .point-stop-dot,
+  .point-week {
+    transition: none;
+  }
+  .point-stop:hover .point-stop-dot {
+    transform: none;
   }
 }

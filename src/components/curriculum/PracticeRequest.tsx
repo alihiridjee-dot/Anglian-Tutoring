@@ -1,11 +1,8 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { AlertTriangle, Clock, Plus, Sparkles, type LucideIcon } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { Spinner } from "@/components/Shared";
 import { dbError } from "@/lib/platform/errors";
-import { cn } from "@/lib/utils";
 
 // A student asks for a spec point's MCQs and task, whatever week it falls in.
 // They are library content: written once by the practice queue and shared by
@@ -15,7 +12,8 @@ import { cn } from "@/lib/utils";
 // (their own course, students only), whether the point already has them, and
 // the day's 10 requests.
 
-type Kind = "quiz" | "task";
+export type PracticeKind = "quiz" | "task";
+type Kind = PracticeKind;
 type State = "ready" | "writing" | "failed" | "missing";
 type Row = { kind: Kind; state: State; requests_left: number };
 
@@ -30,17 +28,20 @@ function what(kinds: Kind[], article = true) {
   return words.join(" and ");
 }
 
-/** "MCQs or task", "MCQs", "task": for "No … yet". */
-const whatOr = (kinds: Kind[]) => what(kinds, false).replace(" and ", " or ");
-
 /** MCQs are plural; a task on its own isn't. */
 const plural = (kinds: Kind[]) => kinds.length > 1 || kinds[0] === "quiz";
 
-export function PracticeRequest({ pointId, onReady }: { pointId: string; onReady: () => void }) {
+/**
+ * A spec point's quiz and task, as the database sees them for this student,
+ * and the way to ask for the ones it lacks. `enabled` is false for a tutor and
+ * in the showcase, which have no student to ask as.
+ */
+export function usePractice(pointId: string, enabled: boolean, onReady: () => void) {
   const queryClient = useQueryClient();
 
   const { data } = useQuery({
     queryKey: queryKey(pointId),
+    enabled,
     queryFn: async () => {
       const { data, error } = await supabase.rpc("practice_for_point", {
         _spec_point_id: pointId,
@@ -81,91 +82,75 @@ export function PracticeRequest({ pointId, onReady }: { pointId: string; onReady
     toast.success(`Your ${what(kinds, false)} ${plural(kinds) ? "are" : "is"} ready`);
   }, [data]);
 
-  if (!data || data.length === 0) return null;
-  const of = (state: State) => data.filter((r) => r.state === state).map((r) => r.kind);
-  const missing = of("missing");
-  const inProgress = of("writing");
-  const failed = of("failed");
-  const left = data[0].requests_left;
-
-  // One tile per thing to say. Usually that's one: Request, then Writing,
-  // then nothing (the point's MCQs and task are in the sections below).
-  return (
-    <>
-      {missing.length > 0 && left > 0 && (
-        <button
-          type="button"
-          onClick={() => request.mutate()}
-          disabled={request.isPending}
-          className={TILE}
-        >
-          <TileBody
-            icon={Sparkles}
-            label={`No ${whatOr(missing)} yet`}
-            line={request.isPending ? "Asking…" : `Request ${what(missing)}`}
-            end={
-              <span className="when-link-arrow" aria-hidden>
-                <Plus className="size-4" strokeWidth={3} />
-              </span>
-            }
-          />
-        </button>
-      )}
-      {inProgress.length > 0 && (
-        <div className={TILE} role="status">
-          <TileBody
-            icon={Sparkles}
-            label={`Writing your ${what(inProgress, false)}`}
-            line="Ready in a few minutes"
-            end={<Spinner compact label={`Writing your ${what(inProgress, false)}`} />}
-          />
-        </div>
-      )}
-      {missing.length > 0 && left === 0 && (
-        <div className={cn(TILE, "tint-slate")}>
-          <TileBody icon={Clock} label="Today's 10 requests used" line="Ask again tomorrow" />
-        </div>
-      )}
-      {failed.length > 0 && (
-        <div className={cn(TILE, "tint-rose")}>
-          <TileBody
-            icon={AlertTriangle}
-            label={`${what(failed, false)} couldn't be written`}
-            line="Try again tomorrow"
-          />
-        </div>
-      )}
-    </>
-  );
+  const rows = enabled ? (data ?? []) : [];
+  return {
+    rows,
+    /** Today's requests still to spend. */
+    left: rows[0]?.requests_left ?? 0,
+    ask: () => request.mutate(),
+    asking: request.isPending,
+  };
 }
 
-/** The "Planned for" tile's shape (WhenLink), so the two sit side by side. */
-const TILE =
-  "when-link flex w-full items-center gap-3 p-2.5 pr-3 text-left sm:w-auto sm:min-w-72 sm:inline-flex";
+export type Practice = ReturnType<typeof usePractice>;
 
-function TileBody({
-  icon: Icon,
-  label,
-  line,
-  end,
-}: {
-  icon: LucideIcon;
-  label: string;
-  line: string;
-  end?: ReactNode;
-}) {
+/** Where one kind stands, when the point doesn't have it yet. */
+export function practiceWaiting(practice: Practice, kind: Kind): Exclude<State, "ready"> | null {
+  const state = practice.rows.find((r) => r.kind === kind)?.state;
+  return !state || state === "ready" ? null : state;
+}
+
+/** Two words for under a trail stop that has nothing behind it yet. */
+export function practiceWord(practice: Practice, kind: Kind): string | null {
+  const state = practiceWaiting(practice, kind);
+  if (!state) return null;
+  if (state === "writing") return "Being written";
+  if (state === "failed") return "Not written";
+  return practice.left > 0 ? "Request it" : "Ask tomorrow";
+}
+
+/**
+ * What a Quiz or Task stop opens onto while the point has none: the Request
+ * button, the pencil while it's written, or why it can't be asked for today.
+ */
+export function PracticePanel({ practice, kind }: { practice: Practice; kind: Kind }) {
+  const state = practiceWaiting(practice, kind);
+  if (!state) return null;
+  const name = what([kind], false);
+  const missing = practice.rows.filter((r) => r.state === "missing").map((r) => r.kind);
+
+  if (state === "missing" && practice.left > 0)
+    return (
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+        <p className="font-display text-lg font-bold">No {name} yet</p>
+        <button
+          type="button"
+          onClick={practice.ask}
+          disabled={practice.asking}
+          className="btn-solid min-h-11 rounded-xl px-4 py-2 text-sm"
+        >
+          {practice.asking ? "Asking…" : `Request ${what(missing)}`}
+        </button>
+      </div>
+    );
+
+  const [line, next] =
+    state === "writing"
+      ? [`Your ${name} ${plural([kind]) ? "are" : "is"} being written`, "Ready in a few minutes"]
+      : state === "failed"
+        ? [`The ${name} couldn't be written`, "Try again tomorrow"]
+        : ["Today's 10 requests are used", "Ask again tomorrow"];
   return (
-    <>
-      <span className="icon-tile size-11 shrink-0">
-        <Icon className="size-5" aria-hidden />
-      </span>
-      <span className="min-w-0 flex-1">
-        <span className="eyebrow eyebrow-bare block text-[10px]">{label}</span>
-        <span className="font-display mt-1 block text-base leading-tight font-extrabold">
-          {line}
+    <div className="flex items-center gap-4" role="status">
+      {state === "writing" && (
+        <span aria-hidden className="point-pencil">
+          ✏️
         </span>
-      </span>
-      {end}
-    </>
+      )}
+      <p className="font-display text-lg leading-snug font-bold">
+        {line}
+        <span className="block font-sans text-base font-semibold">{next}</span>
+      </p>
+    </div>
   );
 }
