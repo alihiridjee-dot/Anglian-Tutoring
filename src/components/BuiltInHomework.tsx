@@ -43,7 +43,7 @@ import {
 } from "@/lib/homework/answerSheet";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
-import { Meter, SciBlock, SciText, Spinner } from "@/components/Shared";
+import { AbovePage, Meter, SciBlock, SciText, Spinner } from "@/components/Shared";
 import { Confetti, Mascot, Sparkles } from "@/components/Doodles";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { typedOnly } from "@/lib/homework/pasteGuard";
@@ -802,42 +802,44 @@ export function AnswerForm({
  */
 function HandInScreen({ done }: { done: boolean }) {
   return (
-    <div
-      role="status"
-      aria-live="polite"
-      className="bg-primary-deep/50 fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
-    >
-      <div className="premium-card pop-in relative flex w-full max-w-sm flex-col items-center overflow-hidden px-6 pt-8 text-center">
-        {done && (
-          <>
-            <Confetti />
-            {/* A second burst, mirrored and a beat behind, so it falls both ways. */}
-            <Confetti delay="0.45s" className="-scale-x-100" />
-          </>
-        )}
-        <Mascot
-          name="rocket"
-          mood={done ? "proud" : "happy"}
-          size={112}
-          idle={!done}
-          inheritTint
-          className={cn(done && "cheer")}
-        />
-        {done && (
-          <span className="sticker stamp-in mt-4">
-            <Sparkles className="size-3.5 text-[color:var(--pop-ink)]" />
-            Well done!
-          </span>
-        )}
-        <h2 className="mt-3 text-2xl font-extrabold">
-          {done ? "Task handed in" : "Handing it in"}
-        </h2>
-        <Spinner
-          label={done ? "Taking you to your task list" : "Sending your answers"}
-          className="pt-4 pb-7"
-        />
+    <AbovePage>
+      <div
+        role="status"
+        aria-live="polite"
+        className="bg-primary-deep/50 fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
+      >
+        <div className="premium-card pop-in relative flex w-full max-w-sm flex-col items-center overflow-hidden px-6 pt-8 text-center">
+          {done && (
+            <>
+              <Confetti />
+              {/* A second burst, mirrored and a beat behind, so it falls both ways. */}
+              <Confetti delay="0.45s" className="-scale-x-100" />
+            </>
+          )}
+          <Mascot
+            name="rocket"
+            mood={done ? "proud" : "happy"}
+            size={112}
+            idle={!done}
+            inheritTint
+            className={cn(done && "cheer")}
+          />
+          {done && (
+            <span className="sticker stamp-in mt-4">
+              <Sparkles className="size-3.5 text-[color:var(--pop-ink)]" />
+              Well done!
+            </span>
+          )}
+          <h2 className="mt-3 text-2xl font-extrabold">
+            {done ? "Task handed in" : "Handing it in"}
+          </h2>
+          <Spinner
+            label={done ? "Taking you to your task list" : "Sending your answers"}
+            className="pt-4 pb-7"
+          />
+        </div>
       </div>
-    </div>
+    </AbovePage>
   );
 }
 

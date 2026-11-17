@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { Lightbulb, Loader2, MessageSquarePlus, Users, X } from "lucide-react";
 import { toast } from "sonner";
-import { SciText, Spinner } from "@/components/Shared";
+import { AbovePage, SciText, Spinner } from "@/components/Shared";
 import { useQuestionIdeas, useStartThread, useTutorDirectory } from "@/hooks/data/useChat";
 import { ContextPicker } from "@/components/chat/ContextPicker";
 import { ErrorNote } from "@/components/Shared";
@@ -133,163 +133,166 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
     );
   };
 
+  // Above the page, or the sticky top bar sits on the title.
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-primary-deep/50 p-4"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="new-thread-title"
-      onClick={(e) => {
-        if (e.target === e.currentTarget && !dirty) onClose();
-      }}
-    >
-      {/* The title and the Send row stay put and the form scrolls between
+    <AbovePage>
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center bg-primary-deep/50 p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="new-thread-title"
+        onClick={(e) => {
+          if (e.target === e.currentTarget && !dirty) onClose();
+        }}
+      >
+        {/* The title and the Send row stay put and the form scrolls between
           them. On a phone turned sideways the form is twice the height of the
           box, and Send used to be the last thing in it, 286px below the fold. */}
-      <div className="flex w-full max-w-lg flex-col overflow-hidden rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)]">
-        <div className="flex shrink-0 items-start justify-between gap-3 p-4 sm:p-6 short:p-3 border-b border-border">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
-              <MessageSquarePlus className="w-5 h-5 text-primary" />
-            </div>
-            <div className="min-w-0">
-              <h2 id="new-thread-title" className="font-display text-lg font-bold leading-tight">
-                {about ? "Message a tutor" : "Ask your tutor"}
-              </h2>
-              <p className="text-xs text-muted-foreground mt-0.5">
-                {about
-                  ? `About ${about.name}`
-                  : "Attach the spec point, task or quiz you're stuck on and they'll see it straight away."}
-              </p>
-            </div>
-          </div>
-          <button
-            onClick={onClose}
-            aria-label="Close"
-            className="tap-target text-muted-foreground hover:text-foreground shrink-0"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 short:p-4 space-y-4">
-          <div>
-            <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              {about ? "Who are you writing to?" : "Who are you asking?"}
-            </label>
-            {toTeam ? (
-              <div className="mt-2 flex">
-                <span className="inline-flex h-11 sm:pointer-fine:h-9 items-center gap-2 px-3.5 rounded-lg border border-primary bg-primary/10 text-sm font-semibold">
-                  <Users className="w-4 h-4 text-primary" aria-hidden /> The team
-                </span>
+        <div className="flex w-full max-w-lg flex-col overflow-hidden rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)]">
+          <div className="flex shrink-0 items-start justify-between gap-3 p-4 sm:p-6 short:p-3 border-b border-border">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
+                <MessageSquarePlus className="w-5 h-5 text-primary" />
               </div>
-            ) : tutorsPending ? (
-              <Spinner label="Loading tutors" className="mt-2 py-3" />
-            ) : tutors.length === 0 ? (
-              // A failed read leaves the list empty too, but it isn't "no tutors".
-              tutorsError ? (
-                <div className="mt-2">
-                  <ErrorNote error={tutorsError} onRetry={() => void refetchTutors()} />
-                </div>
-              ) : (
-                <p className="mt-2 text-sm text-muted-foreground">
-                  No tutors are available to message right now.
+              <div className="min-w-0">
+                <h2 id="new-thread-title" className="font-display text-lg font-bold leading-tight">
+                  {about ? "Message a tutor" : "Ask your tutor"}
+                </h2>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  {about
+                    ? `About ${about.name}`
+                    : "Attach the spec point, task or quiz you're stuck on and they'll see it straight away."}
                 </p>
-              )
-            ) : (
-              <div className="mt-2 flex flex-wrap gap-2">
-                {tutors.map((t) => (
-                  <button
-                    key={t.id}
-                    type="button"
-                    onClick={() => setTutorId(t.id)}
-                    className={`h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
-                      tutorId === t.id
-                        ? "border-primary bg-primary/10"
-                        : "border-border text-muted-foreground hover:border-primary/40"
-                    }`}
-                  >
-                    {t.display_name}
-                  </button>
-                ))}
               </div>
-            )}
+            </div>
+            <button
+              onClick={onClose}
+              aria-label="Close"
+              className="tap-target text-muted-foreground hover:text-foreground shrink-0"
+            >
+              <X className="w-5 h-5" />
+            </button>
           </div>
 
-          {!about && (
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 short:p-4 space-y-4">
             <div>
               <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                What's it about?
+                {about ? "Who are you writing to?" : "Who are you asking?"}
               </label>
-              <div className="mt-2">
-                <ContextPicker value={context} onChange={setContext} />
-              </div>
+              {toTeam ? (
+                <div className="mt-2 flex">
+                  <span className="inline-flex h-11 sm:pointer-fine:h-9 items-center gap-2 px-3.5 rounded-lg border border-primary bg-primary/10 text-sm font-semibold">
+                    <Users className="w-4 h-4 text-primary" aria-hidden /> The team
+                  </span>
+                </div>
+              ) : tutorsPending ? (
+                <Spinner label="Loading tutors" className="mt-2 py-3" />
+              ) : tutors.length === 0 ? (
+                // A failed read leaves the list empty too, but it isn't "no tutors".
+                tutorsError ? (
+                  <div className="mt-2">
+                    <ErrorNote error={tutorsError} onRetry={() => void refetchTutors()} />
+                  </div>
+                ) : (
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    No tutors are available to message right now.
+                  </p>
+                )
+              ) : (
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {tutors.map((t) => (
+                    <button
+                      key={t.id}
+                      type="button"
+                      onClick={() => setTutorId(t.id)}
+                      className={`h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
+                        tutorId === t.id
+                          ? "border-primary bg-primary/10"
+                          : "border-border text-muted-foreground hover:border-primary/40"
+                      }`}
+                    >
+                      {t.display_name}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
 
-          <div>
-            <label
-              htmlFor="thread-subject"
-              className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
-            >
-              Subject
-            </label>
-            <input
-              id="thread-subject"
-              value={subjectLine}
-              onChange={(e) => setSubjectLine(e.target.value)}
-              maxLength={140}
-              placeholder={
-                about ? `e.g. How is ${about.name} getting on with chemistry?` : "e.g. Osmosis"
-              }
-              className="mt-2 w-full h-11 rounded-xl border border-border bg-background px-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="thread-body"
-              className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
-            >
-              {about ? "Your message" : "Your question"}
-            </label>
-            <textarea
-              id="thread-body"
-              value={body}
-              onChange={(e) => setBody(e.target.value)}
-              rows={5}
-              maxLength={CHAT_MESSAGE_MAX}
-              placeholder={
-                about
-                  ? "Write your message"
-                  : "Tell them what you've tried and where you got stuck — the more specific, the faster the answer."
-              }
-              className="mt-2 w-full rounded-xl border border-border bg-background p-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
-            />
-            {ideas.length > 0 && (!body.trim() || ideas.some((i) => i.question === body)) && (
-              <QuestionIdeas ideas={ideas} picked={body} onPick={pickIdea} />
+            {!about && (
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  What's it about?
+                </label>
+                <div className="mt-2">
+                  <ContextPicker value={context} onChange={setContext} />
+                </div>
+              </div>
             )}
-          </div>
-        </div>
 
-        <div className="flex shrink-0 justify-end gap-2 p-4 sm:p-6 short:p-3 border-t border-border">
-          <button
-            onClick={onClose}
-            className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted"
-          >
-            Cancel
-          </button>
-          <button
-            onClick={submit}
-            disabled={!canSend || start.isPending}
-            className="btn-premium h-11 sm:pointer-fine:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50"
-          >
-            {start.isPending && <Loader2 className="w-4 h-4 animate-spin" />}{" "}
-            {about ? "Send message" : "Send question"}
-          </button>
+            <div>
+              <label
+                htmlFor="thread-subject"
+                className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+              >
+                Subject
+              </label>
+              <input
+                id="thread-subject"
+                value={subjectLine}
+                onChange={(e) => setSubjectLine(e.target.value)}
+                maxLength={140}
+                placeholder={
+                  about ? `e.g. How is ${about.name} getting on with chemistry?` : "e.g. Osmosis"
+                }
+                className="mt-2 w-full h-11 rounded-xl border border-border bg-background px-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="thread-body"
+                className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+              >
+                {about ? "Your message" : "Your question"}
+              </label>
+              <textarea
+                id="thread-body"
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
+                rows={5}
+                maxLength={CHAT_MESSAGE_MAX}
+                placeholder={
+                  about
+                    ? "Write your message"
+                    : "Tell them what you've tried and where you got stuck — the more specific, the faster the answer."
+                }
+                className="mt-2 w-full rounded-xl border border-border bg-background p-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
+              />
+              {ideas.length > 0 && (!body.trim() || ideas.some((i) => i.question === body)) && (
+                <QuestionIdeas ideas={ideas} picked={body} onPick={pickIdea} />
+              )}
+            </div>
+          </div>
+
+          <div className="flex shrink-0 justify-end gap-2 p-4 sm:p-6 short:p-3 border-t border-border">
+            <button
+              onClick={onClose}
+              className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={submit}
+              disabled={!canSend || start.isPending}
+              className="btn-premium h-11 sm:pointer-fine:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50"
+            >
+              {start.isPending && <Loader2 className="w-4 h-4 animate-spin" />}{" "}
+              {about ? "Send message" : "Send question"}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </AbovePage>
   );
 }
 

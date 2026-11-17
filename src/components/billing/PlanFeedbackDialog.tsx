@@ -3,6 +3,7 @@ import { Loader2, PauseCircle, X } from "lucide-react";
 import { BILLING_FEEDBACK_REASONS } from "@/lib/billing/billingFeedback";
 import { FEEDBACK_MAX } from "@/lib/platform/textLimits";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
+import { AbovePage } from "@/components/Shared";
 
 interface PlanFeedbackDialogProps {
   /**
@@ -73,101 +74,106 @@ export function PlanFeedbackDialog({
   };
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-primary-deep/50 p-4"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="plan-feedback-title"
-      onClick={(e) => {
-        if (e.target === e.currentTarget && !dirty && !pending) onClose();
-      }}
-    >
-      <div className="w-full max-w-lg rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)] overflow-y-auto">
-        <div className="flex items-start justify-between gap-3 p-4 sm:p-6 border-b border-border">
-          <div className="flex items-center gap-3">
-            <div
-              className={`w-10 h-10 rounded-xl ${copy.iconBg} flex items-center justify-center shrink-0`}
-            >
-              {copy.icon}
+    <AbovePage>
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center bg-primary-deep/50 p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="plan-feedback-title"
+        onClick={(e) => {
+          if (e.target === e.currentTarget && !dirty && !pending) onClose();
+        }}
+      >
+        <div className="w-full max-w-lg rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)] overflow-y-auto">
+          <div className="flex items-start justify-between gap-3 p-4 sm:p-6 border-b border-border">
+            <div className="flex items-center gap-3">
+              <div
+                className={`w-10 h-10 rounded-xl ${copy.iconBg} flex items-center justify-center shrink-0`}
+              >
+                {copy.icon}
+              </div>
+              <div className="min-w-0">
+                <h2
+                  id="plan-feedback-title"
+                  className="font-display text-lg font-bold leading-tight"
+                >
+                  {copy.title}
+                </h2>
+                <p className="text-xs text-muted-foreground mt-0.5">{planName}</p>
+              </div>
             </div>
-            <div className="min-w-0">
-              <h2 id="plan-feedback-title" className="font-display text-lg font-bold leading-tight">
-                {copy.title}
-              </h2>
-              <p className="text-xs text-muted-foreground mt-0.5">{planName}</p>
-            </div>
-          </div>
-          <button
-            onClick={onClose}
-            className="size-11 sm:pointer-fine:size-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
-            aria-label="Close"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-
-        <div className="p-4 sm:p-6 space-y-4 text-sm">
-          <p className="text-muted-foreground">{copy.body}</p>
-
-          <div>
-            <label
-              htmlFor="pause-reason"
-              className="block text-xs font-semibold text-muted-foreground mb-1"
-            >
-              Reason <span className="text-rose-600">*</span>
-            </label>
-            <select
-              id="pause-reason"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              className="w-full min-h-11 rounded-lg border border-border bg-background p-2.5 text-sm sm:pointer-fine:min-h-0"
-            >
-              <option value="">Choose a reason…</option>
-              {BILLING_FEEDBACK_REASONS.map((r) => (
-                <option key={r.value} value={r.value}>
-                  {r.label}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label
-              htmlFor="pause-comment"
-              className="block text-xs font-semibold text-muted-foreground mb-1"
-            >
-              Anything else? (optional)
-            </label>
-            <textarea
-              id="pause-comment"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              rows={2}
-              maxLength={FEEDBACK_MAX}
-              placeholder="Tell us more — it helps us improve."
-              className="w-full rounded-lg border border-border bg-background p-2.5 text-sm resize-none"
-            />
-          </div>
-
-          <div className="flex gap-2 pt-1">
             <button
               onClick={onClose}
-              disabled={pending}
-              className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
+              className="size-11 sm:pointer-fine:size-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
+              aria-label="Close"
             >
-              {copy.keep}
+              <X className="w-4 h-4" />
             </button>
-            <button
-              onClick={() => onConfirm(category, comment)}
-              disabled={!category || pending}
-              className={`flex-1 h-11 sm:pointer-fine:h-10 px-4 rounded-lg ${copy.confirmClass} text-white text-sm font-semibold hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2`}
-            >
-              {pending && <Loader2 className="w-4 h-4 animate-spin" />}
-              {copy.confirm}
-            </button>
+          </div>
+
+          <div className="p-4 sm:p-6 space-y-4 text-sm">
+            <p className="text-muted-foreground">{copy.body}</p>
+
+            <div>
+              <label
+                htmlFor="pause-reason"
+                className="block text-xs font-semibold text-muted-foreground mb-1"
+              >
+                Reason <span className="text-rose-600">*</span>
+              </label>
+              <select
+                id="pause-reason"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="w-full min-h-11 rounded-lg border border-border bg-background p-2.5 text-sm sm:pointer-fine:min-h-0"
+              >
+                <option value="">Choose a reason…</option>
+                {BILLING_FEEDBACK_REASONS.map((r) => (
+                  <option key={r.value} value={r.value}>
+                    {r.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label
+                htmlFor="pause-comment"
+                className="block text-xs font-semibold text-muted-foreground mb-1"
+              >
+                Anything else? (optional)
+              </label>
+              <textarea
+                id="pause-comment"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                rows={2}
+                maxLength={FEEDBACK_MAX}
+                placeholder="Tell us more — it helps us improve."
+                className="w-full rounded-lg border border-border bg-background p-2.5 text-sm resize-none"
+              />
+            </div>
+
+            <div className="flex gap-2 pt-1">
+              <button
+                onClick={onClose}
+                disabled={pending}
+                className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
+              >
+                {copy.keep}
+              </button>
+              <button
+                onClick={() => onConfirm(category, comment)}
+                disabled={!category || pending}
+                className={`flex-1 h-11 sm:pointer-fine:h-10 px-4 rounded-lg ${copy.confirmClass} text-white text-sm font-semibold hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2`}
+              >
+                {pending && <Loader2 className="w-4 h-4 animate-spin" />}
+                {copy.confirm}
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </AbovePage>
   );
 }

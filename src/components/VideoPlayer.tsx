@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { PlayCircle, X, ExternalLink } from "lucide-react";
 import { type VideoEmbed } from "@/lib/curriculum/videoEmbed";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
+import { AbovePage } from "@/components/Shared";
 
 /**
  * Poster tile for a video. Uses the real YouTube thumbnail when we can derive
@@ -65,58 +66,60 @@ export function VideoModal({
   }, [onClose]);
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-fade-in"
-      onClick={onClose}
-    >
-      {/* As wide as the screen's height allows, so the whole 16:9 frame and the
+    <AbovePage>
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-fade-in"
+        onClick={onClose}
+      >
+        {/* As wide as the screen's height allows, so the whole 16:9 frame and the
           title under it fit: 6rem is the title block, 2rem the gutter. At full
           width on a phone turned sideways the frame was 431px tall in a 358px
           box, and its bottom 74px (the play bar, full screen) was cut off. */}
-      <div
-        className="relative w-full max-w-[min(48rem,calc((100dvh-8rem)*16/9))] max-h-[calc(100dvh-2rem)] overflow-y-auto overflow-x-hidden bg-card rounded-2xl shadow-2xl border border-border"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
-          onClick={onClose}
-          aria-label="Close player"
-          className="absolute top-3 right-3 z-10 size-11 sm:pointer-fine:size-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center"
+        <div
+          className="relative w-full max-w-[min(48rem,calc((100dvh-8rem)*16/9))] max-h-[calc(100dvh-2rem)] overflow-y-auto overflow-x-hidden bg-card rounded-2xl shadow-2xl border border-border"
+          onClick={(e) => e.stopPropagation()}
         >
-          <X className="w-5 h-5" />
-        </button>
+          <button
+            onClick={onClose}
+            aria-label="Close player"
+            className="absolute top-3 right-3 z-10 size-11 sm:pointer-fine:size-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center"
+          >
+            <X className="w-5 h-5" />
+          </button>
 
-        <div className="aspect-video bg-black">
-          {embed.embedUrl ? (
-            <iframe
-              src={embed.embedUrl}
-              title={title}
-              className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
-          ) : embed.fileUrl ? (
-            <video src={embed.fileUrl} controls autoPlay className="w-full h-full" />
-          ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-white/80">
-              <p className="text-sm">This video can't be embedded here.</p>
-              <a
-                href={embed.originalUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 min-h-11 sm:pointer-fine:min-h-0 rounded-lg btn-solid text-sm font-semibold"
-              >
-                <ExternalLink className="w-4 h-4" />
-                Open in new tab
-              </a>
-            </div>
-          )}
-        </div>
+          <div className="aspect-video bg-black">
+            {embed.embedUrl ? (
+              <iframe
+                src={embed.embedUrl}
+                title={title}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            ) : embed.fileUrl ? (
+              <video src={embed.fileUrl} controls autoPlay className="w-full h-full" />
+            ) : (
+              <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-white/80">
+                <p className="text-sm">This video can't be embedded here.</p>
+                <a
+                  href={embed.originalUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 min-h-11 sm:pointer-fine:min-h-0 rounded-lg btn-solid text-sm font-semibold"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Open in new tab
+                </a>
+              </div>
+            )}
+          </div>
 
-        <div className="p-4">
-          <p className="font-display font-bold">{title}</p>
-          {description && <p className="text-sm text-muted-foreground mt-1">{description}</p>}
+          <div className="p-4">
+            <p className="font-display font-bold">{title}</p>
+            {description && <p className="text-sm text-muted-foreground mt-1">{description}</p>}
+          </div>
         </div>
       </div>
-    </div>
+    </AbovePage>
   );
 }

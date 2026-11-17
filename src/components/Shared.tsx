@@ -12,7 +12,17 @@
  * those classes a given block earns.
  */
 import { Link } from "@tanstack/react-router";
-import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, type ReactNode } from "react";
+import {
+  Fragment,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
+import { createPortal } from "react-dom";
 import type { LucideIcon } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
@@ -244,6 +254,39 @@ export function ErrorNote({ error, onRetry }: { error: unknown; onRetry?: () => 
         )}
       </div>
     </div>
+  );
+}
+
+/**
+ * A pop-up, lifted out of the page into <body>.
+ *
+ * The page area (`.page-aurora`) is its own stacking context, so nothing in it
+ * can rise over the sticky top bar or the sidebar, whatever its z-index: they
+ * stayed bright over a dimmed backdrop, and a tall sheet lost its title under
+ * the bar. Wrap a pop-up's backdrop in this. It brings the `--tint` of the
+ * spot it was opened from, so a chemistry sheet's periodic table is still
+ * chemistry-coloured outside the sheet.
+ */
+export function AbovePage({ children }: { children: ReactNode }) {
+  const anchor = useRef<HTMLSpanElement>(null);
+  const [tint, setTint] = useState<string | null>(null);
+  useLayoutEffect(() => {
+    if (anchor.current) setTint(getComputedStyle(anchor.current).getPropertyValue("--tint").trim());
+  }, []);
+  return (
+    <>
+      <span ref={anchor} hidden />
+      {tint !== null &&
+        createPortal(
+          <div
+            className="contents"
+            style={tint ? ({ "--tint": tint } as CSSProperties) : undefined}
+          >
+            {children}
+          </div>,
+          document.body,
+        )}
+    </>
   );
 }
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Loader2, Trash2, Undo2, X } from "lucide-react";
 import { toast } from "sonner";
-import { SectionHeading } from "@/components/Shared";
+import { AbovePage, SectionHeading } from "@/components/Shared";
 import { inputCls } from "@/components/tutor/Field";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { useAccountDeletion, useScheduleDeletion, useUndoDeletion } from "@/hooks/data/useStudents";
@@ -154,90 +154,92 @@ function DeleteAccountDialog({
     );
 
   return (
-    <div
-      className="bg-primary-deep/50 fixed inset-0 z-50 flex items-center justify-center p-4"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="delete-account-title"
-      onClick={(e) => {
-        if (e.target === e.currentTarget && !typed.trim() && !schedule.isPending) onClose();
-      }}
-    >
-      <div className="premium-card tint-rose max-h-[calc(100dvh-2rem)] w-full max-w-lg overflow-y-auto rounded-2xl">
-        <div className="border-border flex items-start justify-between gap-3 border-b p-4 sm:p-6">
-          <div className="flex items-center gap-3">
-            <span className="icon-tile size-10 shrink-0">
-              <Trash2 className="size-5" aria-hidden />
-            </span>
-            <h2 id="delete-account-title" className="min-w-0 text-lg leading-tight break-words">
-              Delete {name}'s account
-            </h2>
-          </div>
-          <button
-            type="button"
-            onClick={onClose}
-            disabled={schedule.isPending}
-            aria-label="Close"
-            className="tap-target text-muted-foreground hover:text-foreground shrink-0"
-          >
-            <X className="size-5" />
-          </button>
-        </div>
-
-        <div className="space-y-4 p-4 sm:p-6 text-sm">
-          <ul className="list-disc space-y-2 pl-5">
-            <li>
-              <strong>Today</strong> {name} is locked out and the plan is paused. No more charges,
-              and no refund.
-            </li>
-            <li>{name}, any linked parent and you get an email.</li>
-            <li>
-              <strong>On {date}</strong> the account, work, marks, messages, files and billing
-              details are deleted. This can't be undone.
-            </li>
-            <li>Until then you can undo it from this page.</li>
-          </ul>
-
-          <label className="block">
-            <span className="font-semibold">Type {name} to confirm</span>
-            <input
-              autoFocus
-              value={typed}
-              onChange={(e) => setTyped(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && matches && !schedule.isPending) confirm();
-              }}
-              className={`${inputCls} mt-2`}
-              autoComplete="off"
-              spellCheck={false}
-            />
-          </label>
-
-          <div className="flex flex-wrap justify-end gap-2 pt-1">
+    <AbovePage>
+      <div
+        className="bg-primary-deep/50 fixed inset-0 z-50 flex items-center justify-center p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="delete-account-title"
+        onClick={(e) => {
+          if (e.target === e.currentTarget && !typed.trim() && !schedule.isPending) onClose();
+        }}
+      >
+        <div className="premium-card tint-rose max-h-[calc(100dvh-2rem)] w-full max-w-lg overflow-y-auto rounded-2xl">
+          <div className="border-border flex items-start justify-between gap-3 border-b p-4 sm:p-6">
+            <div className="flex items-center gap-3">
+              <span className="icon-tile size-10 shrink-0">
+                <Trash2 className="size-5" aria-hidden />
+              </span>
+              <h2 id="delete-account-title" className="min-w-0 text-lg leading-tight break-words">
+                Delete {name}'s account
+              </h2>
+            </div>
             <button
               type="button"
               onClick={onClose}
               disabled={schedule.isPending}
-              className="btn-soft tint-slate inline-flex h-11 items-center rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
+              aria-label="Close"
+              className="tap-target text-muted-foreground hover:text-foreground shrink-0"
             >
-              Keep account
+              <X className="size-5" />
             </button>
-            <button
-              type="button"
-              onClick={confirm}
-              disabled={!matches || schedule.isPending}
-              className="btn-solid tint-rose inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
-            >
-              {schedule.isPending ? (
-                <Loader2 className="size-4 animate-spin" aria-hidden />
-              ) : (
-                <Trash2 className="size-4" aria-hidden />
-              )}
-              Delete account
-            </button>
+          </div>
+
+          <div className="space-y-4 p-4 sm:p-6 text-sm">
+            <ul className="list-disc space-y-2 pl-5">
+              <li>
+                <strong>Today</strong> {name} is locked out and the plan is paused. No more charges,
+                and no refund.
+              </li>
+              <li>{name}, any linked parent and you get an email.</li>
+              <li>
+                <strong>On {date}</strong> the account, work, marks, messages, files and billing
+                details are deleted. This can't be undone.
+              </li>
+              <li>Until then you can undo it from this page.</li>
+            </ul>
+
+            <label className="block">
+              <span className="font-semibold">Type {name} to confirm</span>
+              <input
+                autoFocus
+                value={typed}
+                onChange={(e) => setTyped(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && matches && !schedule.isPending) confirm();
+                }}
+                className={`${inputCls} mt-2`}
+                autoComplete="off"
+                spellCheck={false}
+              />
+            </label>
+
+            <div className="flex flex-wrap justify-end gap-2 pt-1">
+              <button
+                type="button"
+                onClick={onClose}
+                disabled={schedule.isPending}
+                className="btn-soft tint-slate inline-flex h-11 items-center rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
+              >
+                Keep account
+              </button>
+              <button
+                type="button"
+                onClick={confirm}
+                disabled={!matches || schedule.isPending}
+                className="btn-solid tint-rose inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
+              >
+                {schedule.isPending ? (
+                  <Loader2 className="size-4 animate-spin" aria-hidden />
+                ) : (
+                  <Trash2 className="size-4" aria-hidden />
+                )}
+                Delete account
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </AbovePage>
   );
 }
