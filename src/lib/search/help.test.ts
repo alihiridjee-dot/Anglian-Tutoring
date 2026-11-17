@@ -23,13 +23,31 @@ describe("matchHelpIntent", () => {
     ["what should I do this week", "week_plan"],
     ["how do I change my password", "account"],
     ["cancel subscription", "billing"],
+    ["what am I worst at?", "weak_topics"],
+    ["What should I revise?", "weak_topics"],
+    ["my weak topics", "weak_topics"],
+    ["give me practice on moles", "practice"],
+    ["more questions on osmosis", "practice"],
+    ["when is my exam", "exam_date"],
+    ["how long until my exams", "exam_date"],
+    ["I need a break", "break"],
+    ["we are going on holiday", "break"],
   ])("%s → %s", (query, intent) => {
     expect(matchHelpIntent(query)).toBe(intent);
   });
 
-  test.each(["photosynthesis", "cell structure", "4.1.2", "planet orbits", "classification"])(
-    "a plain search (%s) is not a help request",
-    (query) => expect(matchHelpIntent(query)).toBeNull(),
+  test.each([
+    "photosynthesis",
+    "cell structure",
+    "4.1.2",
+    "planet orbits",
+    "classification",
+    // Science that shares a word with a request.
+    "weak acids",
+    "enzymes break down starch",
+    "why does osmosis happen",
+  ])("a plain search (%s) is not a help request", (query) =>
+    expect(matchHelpIntent(query)).toBeNull(),
   );
 });
 
@@ -154,5 +172,31 @@ describe("parseHelpReply", () => {
     "[]",
   ])("anything else is none: %p", (text) => {
     expect(parseHelpReply(text)).toEqual({ intent: "none" });
+  });
+});
+
+describe("the new requests", () => {
+  test("practice keeps only the topic to search for", () => {
+    expect(contentTerms("give me practice on moles", "practice")).toEqual(["moles"]);
+    expect(contentTerms("can I have more questions on osmosis", "practice")).toEqual(["osmosis"]);
+  });
+
+  test("a request about the student leaves nothing to search for", () => {
+    expect(contentTerms("what should I revise?", "weak_topics")).toEqual([]);
+    expect(contentTerms("how long until my exams", "exam_date")).toEqual([]);
+    expect(contentTerms("I need to take a break", "break")).toEqual([]);
+  });
+
+  test("the model may name a topic to explain or to practise", () => {
+    expect(parseHelpReply('{"intent":"explain","topic":"osmosis"}')).toEqual({
+      intent: "explain",
+      topic: "osmosis",
+    });
+    expect(parseHelpReply('{"intent":"practice","topic":"the moles"}')).toEqual({
+      intent: "practice",
+      topic: "moles",
+    });
+    expect(parseHelpReply('{"intent":"practice","topic":null}')).toEqual({ intent: "practice" });
+    expect(parseHelpReply('{"intent":"explain","topic":""}')).toEqual({ intent: "none" });
   });
 });

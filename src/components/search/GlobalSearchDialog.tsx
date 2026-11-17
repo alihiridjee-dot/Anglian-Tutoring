@@ -10,10 +10,12 @@ import {
   Loader2,
   MessageCircleQuestion,
 } from "lucide-react";
-import { useGlobalSearch } from "@/hooks/useGlobalSearch";
+import { useGlobalSearch, useSearchContext } from "@/hooks/useGlobalSearch";
 import { MIN_QUERY_LENGTH } from "@/lib/search/match";
 import { searchTerms, type HelpIntentId } from "@/lib/search/help";
-import { askHelp } from "@/lib/search/helpAsk.functions";
+import { askHelp, explainHelp } from "@/lib/search/helpAsk.functions";
+import { explainSection, findNote } from "@/lib/search/helpAnswers";
+import type { SearchSection } from "@/lib/search/globalSearch";
 import type { SearchHit } from "@/lib/search/types";
 import { Highlight } from "./Highlight";
 
@@ -21,9 +23,16 @@ import { Highlight } from "./Highlight";
 const HELP_EXAMPLES = [
   "Find my MCQ for this week",
   "What tasks are due?",
+  "What should I revise?",
   "When is my next live session?",
-  "Where are my grades?",
 ];
+
+/** One science question per subject, so the box shows it answers those too. */
+const SCIENCE_EXAMPLE: Record<string, string> = {
+  biology: "Why does osmosis happen?",
+  chemistry: "Why do ionic compounds conduct when molten?",
+  physics: "Why does a current make a wire hot?",
+};
 
 /**
  * The global search palette — one box that reaches every page and every piece
@@ -37,6 +46,8 @@ const HELP_EXAMPLES = [
  * For a student it is also the help box. A sentence the rules recognise is
  * answered on top as they type; one they don't gets a last row, "Ask for
  * help", which asks the model what it means — only when chosen, never per key.
+ * A science question comes back as a short answer written from one of our
+ * notes, with the note beside it.
  */
 export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [query, setQuery] = useState("");
@@ -48,10 +59,21 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
   // The model's reading of one query, kept only while that query is on screen.
   const [asked, setAsked] = useState<{ query: string; intent: HelpIntentId } | null>(null);
   const forced = asked && asked.query === query.trim() ? asked.intent : null;
-  const { sections, terms, loading, active, error, helpOn, intent } = useGlobalSearch(
-    query,
-    forced,
-  );
+  const {
+    sections: found,
+    terms,
+    loading,
+    active,
+    error,
+    helpOn,
+    intent,
+  } = useGlobalSearch(query, forced);
+  const ctx = useSearchContext();
+
+  // A science answer for one query, kept only while that query is on screen.
+  const [answered, setAnswered] = useState<{ query: string; section: SearchSection } | null>(null);
+  const answer = answered && answered.query === query.trim() ? answered.section : null;
+  const sections = useMemo(() => (answer ? [answer, ...found] : found), [answer, found]);
 
   // Keyboard navigation walks one flat list; the group headers are purely visual.
   const flat = useMemo(() => sections.flatMap((s) => s.hits), [sections]);
@@ -59,16 +81,38 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
   const latestQuery = useRef(query);
   latestQuery.current = query;
   const ask = useMutation({
-    mutationFn: (question: string) => askHelp({ data: { question } }),
-    onSuccess: (reply, question) => {
+    mutationFn: async (question: string) => {
+      const reply = await askHelp({ data: { question } });
+      if (reply.intent !== "explain") return { reply, section: null };
+      // A science question: answered from the note that covers it, if one does.
+      const note = await findNote(reply.topic, ctx);
+      if (!note) return { reply, section: null };
+      const { answer } = await explainHelp({ data: { question, conceptId: note.conceptId } });
+      return { reply, section: explainSection(note, answer) };
+    },
+    onSuccess: ({ reply, section }, question) => {
       // The student has typed on since; this answer is for a query that's gone.
       if (latestQuery.current.trim() !== question) return;
-      if (reply.intent === "search" && reply.topic !== searchTerms(question).join(" ")) {
-        setQuery(reply.topic);
+      if (section) {
+        setAnswered({ query: question, section });
+        return;
+      }
+      // Practice on a topic reads the topic from the box, so it is put there.
+      if (reply.intent === "practice" && reply.topic) {
+        setQuery(`Practice ${reply.topic}`);
+        return;
+      }
+      // A topic with no note to answer from is still worth searching for.
+      const topic = reply.intent === "search" || reply.intent === "explain" ? reply.topic : null;
+      if (topic && topic !== searchTerms(question).join(" ")) {
+        setQuery(topic);
         return;
       }
       // Nothing on the list fits: their tutor is the help.
-      const understood = reply.intent === "search" || reply.intent === "none" ? null : reply.intent;
+      const understood =
+        reply.intent === "search" || reply.intent === "explain" || reply.intent === "none"
+          ? null
+          : reply.intent;
       setAsked({ query: question, intent: understood ?? "messages" });
     },
   });
@@ -76,7 +120,7 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
   useEffect(() => resetAsk(), [query, resetAsk]);
 
   // Offered once a sentence has been typed that no rule recognised.
-  const askable = helpOn && active && !intent && query.trim().split(/\s+/).length >= 2;
+  const askable = helpOn && active && !intent && !answer && query.trim().split(/\s+/).length >= 2;
   const total = flat.length + (askable ? 1 : 0);
   const runAsk = () => {
     if (!ask.isPending) ask.mutate(query.trim());
@@ -90,6 +134,7 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
     if (open) {
       setQuery("");
       setAsked(null);
+      setAnswered(null);
       setActiveIndex(0);
       // Autofocus after the element is actually in the tree.
       requestAnimationFrame(() => inputRef.current?.focus());
@@ -173,6 +218,10 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
         <div ref={listRef} className="max-h-[60dvh] overflow-y-auto">
           {!active && helpOn ? (
             <HelpStart
+              examples={[
+                ...HELP_EXAMPLES,
+                ...ctx.entitledSubjects.slice(0, 1).map((s) => SCIENCE_EXAMPLE[s] ?? []),
+              ].flat()}
               onPick={(q) => {
                 setQuery(q);
                 inputRef.current?.focus();
@@ -196,7 +245,7 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
             />
           ) : (
             sections.map((section) => (
-              <div key={section.group}>
+              <div key={section.answer ? "answer" : section.group}>
                 <div className="sticky top-0 z-10 flex items-baseline justify-between gap-2 px-4 py-1.5 bg-muted/85 backdrop-blur text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground">
                   <span>{section.label}</span>
                   {section.total > section.hits.length && (
@@ -205,6 +254,11 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
                     </span>
                   )}
                 </div>
+                {section.answer && (
+                  <p className="text-foreground px-4 pt-3 pb-2 text-sm leading-relaxed font-medium">
+                    {section.answer}
+                  </p>
+                )}
                 {section.hits.map((hit) => {
                   cursor += 1;
                   const index = cursor;
@@ -341,12 +395,12 @@ function AskRow({
 }
 
 /** A student's empty box: what it can do, shown as things to press. */
-function HelpStart({ onPick }: { onPick: (query: string) => void }) {
+function HelpStart({ examples, onPick }: { examples: string[]; onPick: (query: string) => void }) {
   return (
     <div className="px-6 py-8 text-center">
       <p className="font-display text-foreground text-sm font-bold">Search or ask for help</p>
       <div className="mt-4 flex flex-wrap justify-center gap-2">
-        {HELP_EXAMPLES.map((q) => (
+        {examples.map((q) => (
           <button
             key={q}
             type="button"
