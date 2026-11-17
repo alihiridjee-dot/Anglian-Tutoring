@@ -494,7 +494,8 @@ export class WeeklyPlanDAL {
     const { data: pts, error } = await supabase
       .from("spec_points")
       .select("id")
-      .eq("topic_id", params.topicId);
+      .eq("topic_id", params.topicId)
+      .eq("not_examined", false);
     if (error) throw dbError(error);
     const ids = (pts ?? []).map((p) => p.id);
     if (ids.length === 0) return 0;

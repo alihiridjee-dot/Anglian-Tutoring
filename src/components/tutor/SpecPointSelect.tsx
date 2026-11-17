@@ -106,7 +106,8 @@ export function SpecPointSelect({
         .from("spec_points")
         .select("id, code, title, sort_order, topics!inner(id, title, code, board, sort_order)")
         .eq("topics.subject", subject)
-        .eq("topics.level", level);
+        .eq("topics.level", level)
+        .eq("not_examined", false);
       // Board-agnostic mode (live sessions): load every board's points.
       if (board) q = q.eq("topics.board", board);
       const { data, error } = await q;

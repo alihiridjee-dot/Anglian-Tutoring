@@ -82,6 +82,8 @@ export class CurriculumDAL {
       .from("spec_points")
       .select("id, topic_id, code, title, description")
       .eq("topic_id", topicId)
+      // A point no written paper examines is not part of the course.
+      .eq("not_examined", false)
       .order("sort_order")
       .order("code");
     // Thrown, not []: a topic whose points didn't load must not read as empty.
@@ -152,6 +154,7 @@ export class CurriculumDAL {
         .eq("topics.subject", subject)
         .eq("topics.board", board)
         .eq("topics.level", level)
+        .eq("not_examined", false)
         .or(`code.ilike.${value},title.ilike.${value},description.ilike.${value}`)
         .limit(SEARCH_FETCH_LIMIT);
 

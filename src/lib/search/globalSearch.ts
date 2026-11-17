@@ -274,6 +274,7 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
       .select(
         "id, code, title, description, topic_id, topics!inner(id, code, title, subject, board, level)",
       )
+      .eq("not_examined", false)
       .or(`code.ilike.${value},title.ilike.${value},description.ilike.${value}`)
       .limit(FETCH_LIMIT);
     if (!ctx.isTutor) {
