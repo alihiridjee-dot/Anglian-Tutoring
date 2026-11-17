@@ -15,6 +15,8 @@ export const STRIPE = {
   calls: [] as string[],
   /** How many upcoming subscriptions.retrieve calls fail as if Stripe were down. */
   failRetrieves: 0,
+  /** How many upcoming subscriptions.update calls fail the same way. */
+  failUpdates: 0,
   /** The card on file refuses every charge made now (a prorated swap). */
   declineCharges: false,
 };
@@ -28,6 +30,7 @@ export function resetStripe() {
   STRIPE.n = 0;
   STRIPE.calls = [];
   STRIPE.failRetrieves = 0;
+  STRIPE.failUpdates = 0;
   STRIPE.declineCharges = false;
 }
 
@@ -59,8 +62,10 @@ export function completeSession(sessionId: string) {
   const s = STRIPE.sessions.get(sessionId);
   if (!s || s.status !== "open") throw new Error(`session ${sessionId} is not open`);
   const id = `sub_${++STRIPE.n}`;
-  const trial = s.subscription_data?.trial_period_days;
-  const end = now() + (trial ? trial * 86400 : 30 * 86400);
+  // A trial by length, or one that ends on a set day (a take-over).
+  const trialEnd: number | undefined = s.subscription_data?.trial_end;
+  const trial = s.subscription_data?.trial_period_days || (trialEnd ? 1 : 0);
+  const end = trialEnd ?? now() + (trial ? trial * 86400 : 30 * 86400);
   const invoiceId = `in_${++STRIPE.n}`;
   STRIPE.invoices.set(invoiceId, {
     id: invoiceId,
@@ -93,6 +98,16 @@ export function completeSession(sessionId: string) {
   };
 }
 
+/** A copy of each item, handed out by `for await`. */
+function iterate(items: any[]) {
+  const copies = items.map(clone);
+  return {
+    async *[Symbol.asyncIterator]() {
+      yield* copies;
+    },
+  };
+}
+
 export function event(type: string, object: unknown) {
   return { id: `evt_${++STRIPE.n}`, type, data: { object: clone(object) } };
 }
@@ -119,6 +134,12 @@ export default class Stripe {
     },
     update: async (id: string, p: any) => {
       STRIPE.calls.push(`subscriptions.update ${id}`);
+      if (STRIPE.failUpdates > 0) {
+        STRIPE.failUpdates--;
+        throw Object.assign(new Error("An error occurred with our connection to Stripe."), {
+          code: "api_connection_error",
+        });
+      }
       const s = STRIPE.subs.get(id);
       if (!s) throw missing(`subscription: '${id}'`);
       if (STRIPE.declineCharges && p.proration_behavior === "always_invoice") {
@@ -137,6 +158,9 @@ export default class Stripe {
       if ("cancel_at_period_end" in p) s.cancel_at_period_end = p.cancel_at_period_end;
       return clone(s);
     },
+    // Iterated with `for await`, like the SDK's auto-paging list.
+    list: (p: { customer?: string }) =>
+      iterate([...STRIPE.subs.values()].filter((s) => !p?.customer || s.customer === p.customer)),
     cancel: async (id: string) => {
       STRIPE.calls.push(`subscriptions.cancel ${id}`);
       const s = STRIPE.subs.get(id);
@@ -207,6 +231,13 @@ export default class Stripe {
         if (!s) throw missing(`checkout.session: '${id}'`);
         return clone(s);
       },
+      list: (p: { customer?: string; status?: string }) =>
+        iterate(
+          [...STRIPE.sessions.values()].filter(
+            (s) =>
+              (!p?.customer || s.customer === p.customer) && (!p?.status || s.status === p.status),
+          ),
+        ),
       expire: async (id: string) => {
         STRIPE.calls.push(`checkout.sessions.expire ${id}`);
         const s = STRIPE.sessions.get(id);

@@ -22,6 +22,12 @@ export interface CheckoutPayload {
   return_to?: BillingReturnTo;
   /** A free-trial code from the landing page. Checked and held server-side. */
   trial_code?: string;
+  /**
+   * A linked parent moving the plan a student pays for themselves onto the
+   * parent's own card (stripe-checkout/takeOver.ts). The new plan bills from
+   * the day the student's runs out, and the student's ends then.
+   */
+  take_over?: boolean;
 }
 
 export interface PortalPayload {

@@ -64,8 +64,15 @@ function subscriptionRow(sub: Stripe.Subscription) {
     stripe_customer_id: typeof sub.customer === "string" ? sub.customer : sub.customer.id,
     stripe_subscription_id: sub.id,
     // Stripe leaves pause_collection set on a subscription it cancels, so a
-    // paused plan that ends would otherwise read as "paused" for ever.
-    status: sub.status !== "canceled" && sub.pause_collection ? "paused" : sub.status,
+    // paused plan that ends would otherwise read as "paused" for ever. A
+    // take-over's trial is the time the student's plan already covers, not a
+    // free trial, so it reads as active.
+    status:
+      sub.status !== "canceled" && sub.pause_collection
+        ? "paused"
+        : sub.status === "trialing" && sub.metadata?.replaces
+          ? "active"
+          : sub.status,
     cancel_at_period_end: sub.cancel_at_period_end ?? false,
     plan: sub.metadata?.tier ?? null,
     current_period_end: periodEnd(sub),
@@ -117,6 +124,24 @@ async function refundDuplicate(sub: Stripe.Subscription, keptId: string) {
 }
 
 /**
+ * End the student's own plan at its period end, once a parent's take-over
+ * (stripe-checkout/takeOver.ts) has replaced it. The days it already covers
+ * are kept, and the parent's plan starts billing when they run out, so
+ * nobody pays twice. Safe to repeat: every event for the take-over calls it.
+ */
+async function endReplacedPlan(replacedId: string, studentId: string) {
+  const old = await stripe.subscriptions.retrieve(replacedId).catch((err: unknown) => {
+    if (isMissing(err)) return null;
+    throw err;
+  });
+  if (!old || old.metadata?.student_id !== studentId) return;
+  if (old.status === "canceled" || old.status === "incomplete_expired") return;
+  if (old.cancel_at_period_end) return;
+  await stripe.subscriptions.update(replacedId, { cancel_at_period_end: true });
+  console.log(`stripe-webhook: ${replacedId} ends at its period end; ${studentId} was taken over`);
+}
+
+/**
  * Write a subscription's state to public.subscriptions.
  *
  * Reads the subscription back from Stripe rather than trusting the event's
@@ -160,14 +185,23 @@ async function upsertSubscription(subscriptionId: string, snapshot?: Stripe.Subs
         if (isMissing(err)) return null;
         throw err;
       });
+    // The student's own plan, which a parent's take-over has replaced. It
+    // runs to its period end, paid for, and the row stays on the parent's.
+    if (kept && kept.metadata?.replaces === sub.id && KEEPABLE_STATUSES.has(kept.status)) {
+      await endReplacedPlan(sub.id, row.student_id);
+      console.log(`stripe-webhook: ${sub.id} was taken over by ${kept.id}; row left as it is`);
+      return;
+    }
+    // A parent's take-over of the plan the row holds replaces it: no duplicate.
+    const takingOver = sub.metadata?.replaces === tracked.stripe_subscription_id;
     // A late or resent event for the plan the tracked one replaced: it had
     // ended before the tracked one began, so it is no duplicate. Its last
     // invoice was a real payment, and the row already follows the newer plan.
-    if (kept && sub.ended_at && sub.ended_at < kept.created) {
+    if (!takingOver && kept && sub.ended_at && sub.ended_at < kept.created) {
       console.log(`stripe-webhook: ${sub.id} ended before ${kept.id} began; row left as it is`);
       return;
     }
-    if (kept && KEEPABLE_STATUSES.has(kept.status)) {
+    if (!takingOver && kept && KEEPABLE_STATUSES.has(kept.status)) {
       await refundDuplicate(sub, kept.id);
       return;
     }
@@ -184,6 +218,14 @@ async function upsertSubscription(subscriptionId: string, snapshot?: Stripe.Subs
   if (error) throw new Error(`subscriptions upsert failed: ${error.message}`);
 
   console.log(`stripe-webhook: ${sub.id} → student ${row.student_id} is ${row.status}`);
+
+  // Only after the row follows the take-over: the old plan's own update event
+  // then finds the new one tracked, and leaves the row alone. A failure here
+  // answers 500, so Stripe retries until the old plan is set to end.
+  const replaced = sub.metadata?.replaces;
+  if (replaced && KEEPABLE_STATUSES.has(sub.status)) {
+    await endReplacedPlan(replaced, row.student_id);
+  }
 }
 
 Deno.serve(async (req) => {

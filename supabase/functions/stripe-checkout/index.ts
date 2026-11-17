@@ -55,6 +55,7 @@ import {
   expireOpenCheckouts,
 } from "./customers.ts";
 import { checkTrialCode, claimTrialCode } from "./trialCodes.ts";
+import { TAKE_OVER_CHECKOUT_SECONDS, takeOverNote, takeOverTarget } from "./takeOver.ts";
 import { TRIAL_DAYS, trialNeedsCard } from "../_shared/trialCode.ts";
 
 /** Where Stripe sends the browser back to. Whitelisted — never client URLs. */
@@ -300,12 +301,19 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
       .maybeSingle();
     if (!link) throw new HttpError(403, "You aren't linked to that student.");
   }
+  // Moving a plan onto your own card is for a parent, never the student.
+  if (payload.take_over === true && beneficiary === user.id) {
+    throw new HttpError(403, "Only a linked parent can move this plan to their card.");
+  }
 
   // Expire any other open Checkout for this student first, then check for a
   // live plan. In that order, a session paid just before it could be expired
-  // has already created its subscription, and the check below sees it.
+  // has already created its subscription, and the check below sees it. A
+  // take-over is allowed past exactly one live plan: the one it replaces.
   await expireOpenCheckouts(stripe, beneficiary);
-  await assertNoLiveSubscription(stripe, db, beneficiary);
+  const replacing =
+    payload.take_over === true ? await takeOverTarget(stripe, db, beneficiary) : null;
+  await assertNoLiveSubscription(stripe, db, beneficiary, replacing?.subscriptionId);
 
   // The subject COUNT is what's priced, so it must come from what the student is
   // actually enrolled in — never from the tier the client sent. Otherwise a
@@ -335,9 +343,11 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
     throw new Error(`The "${pkg.name}" plan has no Stripe price. Run scripts/stripe-seed.ts.`);
   }
 
-  const trial = payload.trial_code
-    ? await checkTrialCode(stripe, db, payload.trial_code, user.id, beneficiary)
-    : null;
+  // A take-over is no trial: the student already had the plan.
+  const trial =
+    payload.trial_code && !replacing
+      ? await checkTrialCode(stripe, db, payload.trial_code, user.id, beneficiary)
+      : null;
 
   const noCard = !!trial && !trialNeedsCard();
 
@@ -352,8 +362,16 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
     // The webhook reads these back to decide who to grant access to. They are
     // set here, server-side, from values already verified above.
     subscription_data: {
-      metadata: { student_id: beneficiary, payer_id: user.id, tier: pkg.tier },
+      metadata: {
+        student_id: beneficiary,
+        payer_id: user.id,
+        tier: pkg.tier,
+        // The webhook moves the student onto this plan and ends the old one.
+        ...(replacing ? { replaces: replacing.subscriptionId } : {}),
+      },
       ...(trial ? { trial_period_days: TRIAL_DAYS } : {}),
+      // Billing starts the day the plan it replaces runs out (takeOver.ts).
+      ...(replacing ? { trial_end: replacing.startsAt } : {}),
       // A trial started without a card just ends on day 15. Stripe's default
       // would bill a card that isn't there and leave the plan past due.
       ...(noCard
@@ -365,8 +383,17 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
       payer_id: user.id,
       tier: pkg.tier,
       ...(trial ? { trial_code: trial.code } : {}),
+      ...(replacing ? { replaces: replacing.subscriptionId } : {}),
     },
     allow_promotion_codes: true,
+    // Stripe shows a take-over as "days free"; say what they really are. The
+    // short expiry keeps the start date right when the session is paid.
+    ...(replacing
+      ? {
+          custom_text: { submit: { message: takeOverNote(replacing.startsAt) } },
+          expires_at: Math.floor(Date.now() / 1000) + TAKE_OVER_CHECKOUT_SECONDS,
+        }
+      : {}),
     // A trial normally takes the card up front, so it rolls into the plan on
     // day 15 unless cancelled; until NO_CARD_TRIALS_UNTIL it takes none. The
     // short expiry frees an abandoned trial code.

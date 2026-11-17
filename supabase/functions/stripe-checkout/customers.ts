@@ -99,18 +99,23 @@ const DEAD_STRIPE_STATUSES = new Set(["canceled", "incomplete_expired"]);
  * while the webhook is failing and retrying, is live in Stripe with no row
  * here. So Stripe is also asked directly, across every customer in the
  * student's household, for any live subscription that names this student.
+ *
+ * `except` is the one plan a parent's take-over replaces (takeOver.ts): it is
+ * meant to be live, and ends when the new one starts. Any other live plan still
+ * refuses, including a take-over already paid in another tab.
  */
 export async function assertNoLiveSubscription(
   stripe: Stripe,
   db: ReturnType<typeof admin>,
   studentId: string,
+  except?: string,
 ) {
   const { data: row } = await db
     .from("subscriptions")
     .select("stripe_subscription_id")
     .eq("student_id", studentId)
     .maybeSingle();
-  if (row?.stripe_subscription_id) {
+  if (row?.stripe_subscription_id && row.stripe_subscription_id !== except) {
     let sub: Stripe.Subscription | null = null;
     try {
       sub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
@@ -127,6 +132,7 @@ export async function assertNoLiveSubscription(
   for (const customer of await householdCustomerIds(studentId)) {
     for await (const sub of stripe.subscriptions.list({ customer, status: "all", limit: 100 })) {
       if (sub.metadata?.student_id !== studentId || DEAD_STRIPE_STATUSES.has(sub.status)) continue;
+      if (sub.id === except) continue;
       throw new HttpError(409, liveSubscriptionMessage(sub));
     }
   }
