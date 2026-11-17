@@ -41,10 +41,18 @@ type Role = "student" | "parent";
 /**
  * Sign-in, sign-up, email verification and password reset: the state, the
  * effects and the calls to Supabase Auth. The page only lays the result out.
+ *
+ * `parentJoin`: the form on a parent's "My parent is paying" link
+ * (/parent-join). The account is a parent's, the link itself proves which child,
+ * so no invite code is asked for, and a verified email goes back to `redirect`.
  */
-export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: SearchParams) {
+export function useAuthFlow(
+  navigate: ReturnType<typeof useNavigate>,
+  search: SearchParams,
+  { parentJoin = false }: { parentJoin?: boolean } = {},
+) {
   const [mode, setMode] = useState<"signin" | "signup">(search.mode ?? "signin");
-  const [role, setRole] = useState<Role>("student");
+  const [role, setRole] = useState<Role>(parentJoin ? "parent" : "student");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -226,7 +234,8 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
       }
       toast.success("Email verified");
       // verifyOtp returns a session, so the onboarding guard will let them in.
-      navigate({ to: "/onboarding/board" as never, replace: true });
+      // A parent from a "My parent is paying" link goes back to it, to pay.
+      navigate({ to: (parentJoin ? dest : "/onboarding/board") as never, replace: true });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "That code didn't work");
       setOtp("");
@@ -255,7 +264,7 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
   // with the visitor (see `@/lib/auth/ssoIntent`); on log in nothing does, and
   // an unknown account is made as a student, as an email sign-up defaults to.
   const handleOAuth = async (provider: SsoProvider) => {
-    if (mode === "signup" && role === "parent" && !inviteCode.trim()) {
+    if (mode === "signup" && role === "parent" && !inviteCode.trim() && !parentJoin) {
       return toast.error("Enter your child's invite code first");
     }
     if (mode === "signup") {

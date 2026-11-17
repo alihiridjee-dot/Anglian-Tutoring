@@ -16,6 +16,7 @@ import { Route as FiguresPreviewRouteImport } from './routes/figures-preview'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as OnboardingRouteRouteImport } from './routes/onboarding/route'
 import { Route as OurStoryRouteImport } from './routes/our-story'
+import { Route as ParentJoinRouteImport } from './routes/parent-join'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as StructuresPreviewRouteImport } from './routes/structures-preview'
@@ -100,6 +101,11 @@ const OnboardingRouteRoute = OnboardingRouteRouteImport.update({
 const OurStoryRoute = OurStoryRouteImport.update({
   id: '/our-story',
   path: '/our-story',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentJoinRoute = ParentJoinRouteImport.update({
+  id: '/parent-join',
+  path: '/parent-join',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -374,6 +380,7 @@ export interface FileRoutesByFullPath {
   '/figures-preview': typeof FiguresPreviewRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
+  '/parent-join': typeof ParentJoinRoute
   '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
   '/structures-preview': typeof StructuresPreviewRoute
@@ -432,6 +439,7 @@ export interface FileRoutesByTo {
   '/figures-preview': typeof FiguresPreviewRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
+  '/parent-join': typeof ParentJoinRoute
   '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
   '/structures-preview': typeof StructuresPreviewRoute
@@ -493,6 +501,7 @@ export interface FileRoutesById {
   '/figures-preview': typeof FiguresPreviewRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
+  '/parent-join': typeof ParentJoinRoute
   '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
   '/structures-preview': typeof StructuresPreviewRoute
@@ -554,6 +563,7 @@ export interface FileRouteTypes {
     | '/figures-preview'
     | '/how-it-works'
     | '/our-story'
+    | '/parent-join'
     | '/privacy'
     | '/reset-password'
     | '/structures-preview'
@@ -612,6 +622,7 @@ export interface FileRouteTypes {
     | '/figures-preview'
     | '/how-it-works'
     | '/our-story'
+    | '/parent-join'
     | '/privacy'
     | '/reset-password'
     | '/structures-preview'
@@ -672,6 +683,7 @@ export interface FileRouteTypes {
     | '/figures-preview'
     | '/how-it-works'
     | '/our-story'
+    | '/parent-join'
     | '/privacy'
     | '/reset-password'
     | '/structures-preview'
@@ -733,6 +745,7 @@ export interface RootRouteChildren {
   FiguresPreviewRoute: typeof FiguresPreviewRoute
   HowItWorksRoute: typeof HowItWorksRoute
   OurStoryRoute: typeof OurStoryRoute
+  ParentJoinRoute: typeof ParentJoinRoute
   PrivacyRoute: typeof PrivacyRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   StructuresPreviewRoute: typeof StructuresPreviewRoute
@@ -795,6 +808,13 @@ declare module '@tanstack/react-router' {
       path: '/our-story'
       fullPath: '/our-story'
       preLoaderRoute: typeof OurStoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parent-join': {
+      id: '/parent-join'
+      path: '/parent-join'
+      fullPath: '/parent-join'
+      preLoaderRoute: typeof ParentJoinRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -1283,6 +1303,7 @@ const rootRouteChildren: RootRouteChildren = {
   FiguresPreviewRoute: FiguresPreviewRoute,
   HowItWorksRoute: HowItWorksRoute,
   OurStoryRoute: OurStoryRoute,
+  ParentJoinRoute: ParentJoinRoute,
   PrivacyRoute: PrivacyRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   StructuresPreviewRoute: StructuresPreviewRoute,
