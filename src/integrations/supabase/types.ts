@@ -2598,6 +2598,7 @@ export type Database = {
         };
         Returns: undefined;
       };
+      create_parent_join_link: { Args: { _cadence: string }; Returns: Json };
       create_linked_resource: {
         Args: {
           _board: Database["public"]["Enums"]["board"] | null;
@@ -2745,6 +2746,8 @@ export type Database = {
           sessions_held: number;
         }[];
       };
+      parent_join_link_status: { Args: { _token: string }; Returns: Json };
+      peek_parent_join_link: { Args: { _token: string }; Returns: Json };
       planner_attempt_sources: { Args: { _ids: string[] }; Returns: Json };
       planner_course_snapshot: {
         Args: {
@@ -2767,6 +2770,7 @@ export type Database = {
       purge_stale_live_sessions: { Args: never; Returns: number };
       record_live_join: { Args: { _resource_id: string }; Returns: boolean };
       record_reviews_atomic: { Args: { _reviews: Json }; Returns: string[] };
+      redeem_parent_join_link: { Args: { _token: string }; Returns: Json };
       request_practice_for_point: {
         Args: { _spec_point_id: string };
         Returns: { kind: string; requests_left: number; state: string }[];

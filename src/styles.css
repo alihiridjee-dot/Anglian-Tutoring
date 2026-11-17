@@ -4116,6 +4116,12 @@ body {
   transform: scale(1.1);
   outline-width: 5px;
 }
+/* The same trail as a progress line ("My parent is paying"): nothing to press,
+   so nothing jumps under the pointer. */
+.point-trail-static .point-stop:hover .point-stop-dot,
+.point-trail-static .point-stop:active .point-stop-dot {
+  transform: none;
+}
 .point-stop:focus-visible {
   outline: none;
 }

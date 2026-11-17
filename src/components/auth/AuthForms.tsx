@@ -68,8 +68,21 @@ export function VerifyCodeScreen({ flow }: { flow: AuthFlow }) {
   );
 }
 
-/** Log in or sign up. `tier` is the plan picked on the pricing page, if any. */
-export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string }) {
+/**
+ * Log in or sign up. `tier` is the plan picked on the pricing page, if any.
+ * `joining` is the child's first name on a parent's "My parent is paying" link:
+ * the account is a parent's and the link says which child, so there is no
+ * role to pick and no invite code to type.
+ */
+export function CredentialsForm({
+  flow,
+  tier,
+  joining,
+}: {
+  flow: AuthFlow;
+  tier?: string;
+  joining?: string;
+}) {
   const {
     mode,
     setMode,
@@ -110,6 +123,10 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
           <>
             Welcome <span className="text-gradient">back</span>
           </>
+        ) : joining ? (
+          <>
+            Create your <span className="text-gradient">parent account</span>
+          </>
         ) : (
           <>
             Create your <span className="text-gradient">account</span>
@@ -117,14 +134,18 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
         )}
       </h1>
       <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-        {mode === "signin"
-          ? "Log in to see your lessons, quizzes, and tasks."
-          : tier
-            ? `Great pick — you're signing up for the ${tier.replaceAll("_", " ")} plan.`
-            : "Start with a student or parent account."}
+        {joining
+          ? mode === "signin"
+            ? `Log in, then pay for ${joining}'s plan.`
+            : `Then you'll pay for ${joining}'s plan.`
+          : mode === "signin"
+            ? "Log in to see your lessons, quizzes, and tasks."
+            : tier
+              ? `Great pick — you're signing up for the ${tier.replaceAll("_", " ")} plan.`
+              : "Start with a student or parent account."}
       </p>
 
-      {mode === "signup" && (
+      {mode === "signup" && !joining && (
         <div className="grid grid-cols-2 gap-2.5 mb-5">
           {(["student", "parent"] as const).map((r) => (
             <button
@@ -160,7 +181,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
             />
           </Field>
         )}
-        {mode === "signup" && role === "parent" && (
+        {mode === "signup" && role === "parent" && !joining && (
           <Field label="Student invite code" htmlFor="auth-invite-code">
             <input
               id="auth-invite-code"
@@ -228,7 +249,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
 
       <SsoButtons flow={flow} />
 
-      {mode === "signup" && (
+      {mode === "signup" && !joining && (
         <p className="mt-4 text-xs text-muted-foreground text-center">
           <BookOpen className="w-3 h-3 inline mr-1" />
           Next you'll set up your profile and choose a plan.

@@ -150,10 +150,26 @@ verified, in `/onboarding/*`:
    enrolments**
 3. `learning` — pedagogy sliders (optional)
 4. `school` — school + per-subject grades (optional); **marks setup complete**
-5. `plan` — Stripe Checkout, or invite a parent to pay
+5. `plan` — Stripe Checkout, "My parent is paying", or invite a parent to pay
 
 These routes sit **outside** `/_authenticated` on purpose: that guard redirects
 unpaid students _to_ them, so nesting them under it would loop.
+
+### "My parent is paying"
+
+The plan page's second button makes a one-time link (`create_parent_join_link`)
+and shows it as a QR code. The parent opens `/parent-join` on their own phone,
+signs up or logs in there (email, Google or Microsoft; no invite code), is
+linked to the child by `redeem_parent_join_link`, and goes to Stripe with the
+child's plan. The student's page polls and lets them in when the payment lands.
+
+- A link works for one parent, once, for 24 hours. A newer link kills the older.
+- Only the token's SHA-256 is stored (`parent_join_links`, no client access).
+- Signed out, a live link shows the child's first name, level, subjects and
+  cadence, and nothing else.
+- A child who unlinks the parent is not re-linked by the old link.
+- A Google or Microsoft account made from the link's "Log in" tab arrives as a
+  student; `/parent-join` offers it `claim_parent_role()` first.
 
 ### Google and Microsoft
 
