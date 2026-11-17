@@ -34,6 +34,8 @@ export type SearchParams = {
   redirect?: string;
   /** A free-trial code from the emailed link; remembered for the plan page. */
   trial?: string;
+  /** A student's invite code, from the QR on their Linked Parents page. */
+  invite?: string;
 };
 
 type Role = "student" | "parent";
@@ -52,11 +54,12 @@ export function useAuthFlow(
   { parentJoin = false }: { parentJoin?: boolean } = {},
 ) {
   const [mode, setMode] = useState<"signin" | "signup">(search.mode ?? "signin");
-  const [role, setRole] = useState<Role>(parentJoin ? "parent" : "student");
+  // A scanned invite QR opens sign-up as a parent with the code filled in.
+  const [role, setRole] = useState<Role>(parentJoin || search.invite ? "parent" : "student");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [inviteCode, setInviteCode] = useState("");
+  const [inviteCode, setInviteCode] = useState(search.invite ?? "");
   const [loading, setLoading] = useState(false);
   const [emailSentTo, setEmailSentTo] = useState<string | null>(null);
   const [otp, setOtp] = useState("");
