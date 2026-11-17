@@ -45,6 +45,7 @@ const deliver = async (...events: unknown[]) => {
 const row = () => table("subscriptions").find((r) => r.student_id === CHILD);
 const childSub = () => STRIPE.subs.get("sub_child");
 const updatesOf = (id: string) => STRIPE.calls.filter((c) => c === `subscriptions.update ${id}`);
+const cancelsOf = (id: string) => STRIPE.calls.filter((c) => c === `subscriptions.cancel ${id}`);
 const sessionOf = (url: string) => STRIPE.sessions.get(url.split("/").pop()!);
 
 /** A student on their own monthly plan, with a linked parent who has no card on file yet. */
@@ -127,33 +128,37 @@ family();
   assert.match(s.custom_text.submit.message, /Nothing is taken today/);
   assert.ok(s.expires_at - now() <= 31 * 60 && s.expires_at - now() > 30 * 60);
   assert.deepEqual(updatesOf("sub_child"), [], "the student's plan changed before anyone paid");
+  assert.deepEqual(cancelsOf("sub_child"), [], "the student's plan ended before anyone paid");
   assert.equal(row()?.stripe_subscription_id, "sub_child");
 
-  // 2. Paid: the row follows the parent's plan, the student's is set to end
-  //    at its period end, and nothing is cancelled or refunded.
+  // 2. Paid: the row follows the parent's plan, whose trial covers the days
+  //    the student already paid for, and the student's plan is cancelled so
+  //    it can never bill again. Nothing is refunded.
   const paid = completeSession(s.id);
   await deliver(paid.completed, paid.created);
   const taken = paid.created.data.object.id;
   assert.equal(row()?.stripe_subscription_id, taken);
   assert.equal(row()?.user_id, PARENT);
   assert.equal(row()?.status, "active", "a take-over read as a free trial");
-  assert.equal(childSub().cancel_at_period_end, true);
-  assert.equal(childSub().status, "active", "the days the student paid for were cut short");
+  assert.equal(childSub().status, "canceled");
+  assert.equal(STRIPE.subs.get(taken).current_period_end, s.subscription_data.trial_end);
   assert.deepEqual(STRIPE.refunds, []);
-  assert.ok(!STRIPE.calls.some((c) => c.startsWith("subscriptions.cancel")));
+  assert.deepEqual(cancelsOf(taken), [], "the parent's plan was cancelled");
 
-  // 3. The student's plan's own events (the cancel just set, and its end) and
-  //    Stripe's resends leave the row on the parent's plan, and touch nothing.
-  await deliver(event("customer.subscription.updated", childSub()), paid.created, paid.completed);
-  const ended = childSub();
-  ended.status = "canceled";
-  ended.ended_at = ended.current_period_end;
-  await deliver(event("customer.subscription.deleted", ended));
+  // 3. The student's plan's own events (its cancellation) and Stripe's
+  //    resends leave the row on the parent's plan, and touch nothing.
+  await deliver(
+    event("customer.subscription.deleted", childSub()),
+    paid.created,
+    paid.completed,
+    event("customer.subscription.updated", childSub()),
+  );
   assert.equal(row()?.stripe_subscription_id, taken);
   assert.equal(row()?.user_id, PARENT);
-  assert.equal(updatesOf("sub_child").length, 1, "the student's plan was updated twice");
+  assert.equal(cancelsOf("sub_child").length, 1, "the student's plan was cancelled twice");
+  assert.deepEqual(updatesOf("sub_child"), []);
   assert.deepEqual(STRIPE.refunds, [], "the student's last real payment was refunded");
-  assert.ok(!STRIPE.calls.some((c) => c.startsWith("subscriptions.cancel")));
+  assert.deepEqual(cancelsOf(taken), []);
 
   // 4. The parent's plan starts billing: the row stays theirs, and active.
   const live = STRIPE.subs.get(taken);
@@ -168,7 +173,7 @@ family();
 }
 
 // 6. Robert's case: the student had already cancelled. The plan moves, and
-//    the student's is left ending as it was.
+//    the student's ends now; the parent's covers the days left.
 family({ cancelling: true });
 {
   const r = await takeOver();
@@ -177,12 +182,13 @@ family({ cancelling: true });
   await deliver(paid.completed, paid.created);
   assert.equal(row()?.user_id, PARENT);
   assert.equal(row()?.cancel_at_period_end, false);
-  assert.deepEqual(updatesOf("sub_child"), []);
+  assert.equal(childSub().status, "canceled");
+  assert.deepEqual(STRIPE.refunds, []);
 }
 
 // 7. Fewer than 48 hours left: Stripe's shortest trial, so the family gets the
 //    difference free rather than paying twice.
-family({ endsIn: 3 * 3600 });
+family({ endsIn: 30 * 3600 });
 {
   const r = await takeOver();
   assert.equal(r.status, 200, JSON.stringify(r.body));
@@ -192,7 +198,9 @@ family({ endsIn: 3 * 3600 });
 
 // 8. Who and what can be taken over.
 const refusals: [string, () => void, string, number?][] = [
-  ["renewing right now", () => family({ endsIn: 20 * 60 }), "renewing right now"],
+  ["renewing in 20 minutes", () => family({ endsIn: 20 * 60 }), "renews in the next few hours"],
+  ["renewing in 5 hours", () => family({ endsIn: 5 * 3600 }), "renews in the next few hours"],
+  ["already ended", () => family({ status: "canceled" }), "no plan to move"],
   ["paused", () => family({ paused: true }), "paused"],
   ["payment overdue", () => family({ status: "past_due" }), "didn't go through"],
   ["another parent pays", () => family({ payer: OTHER_PARENT }), "pays for themselves"],
@@ -243,7 +251,8 @@ family();
   assert.equal(row()?.stripe_subscription_id, "sub_newer");
   assert.equal(STRIPE.subs.get(paid.created.data.object.id).status, "canceled");
   assert.deepEqual(STRIPE.refunds, []);
-  assert.deepEqual(updatesOf("sub_child"), []);
+  assert.deepEqual(cancelsOf("sub_child"), []);
+  assert.equal(childSub().status, "active");
 }
 
 // 13. Stripe fails while ending the student's plan: the webhook answers 500,
@@ -255,10 +264,32 @@ family();
   STRIPE.failUpdates = 1;
   const res = await webhook(post(paid.created, { "stripe-signature": "test" }));
   assert.equal(res.status, 500);
-  assert.equal(childSub().cancel_at_period_end, false);
+  assert.equal(childSub().status, "active");
   await deliver(paid.created);
-  assert.equal(childSub().cancel_at_period_end, true);
+  assert.equal(childSub().status, "canceled");
   assert.equal(row()?.user_id, PARENT);
+}
+
+// 14. Two deliveries race: the student's own event reads the row, the
+//     take-over is written, then the student's event would write the old plan
+//     back. It may not: it answers 500, and Stripe's retry leaves the row alone.
+family();
+{
+  const r = await takeOver();
+  const paid = completeSession(sessionOf(r.body.url).id);
+  const taken = paid.created.data.object.id;
+  childSub().cancel_at_period_end = true; // the student cancels in the same moment
+  const studentEvent = event("customer.subscription.updated", childSub());
+  DB.onRead.subscriptions = () => {
+    Object.assign(row()!, { user_id: PARENT, stripe_subscription_id: taken, status: "active" });
+  };
+  const res = await webhook(post(studentEvent, { "stripe-signature": "test" }));
+  assert.equal(res.status, 500, "the stale write went through");
+  assert.equal(row()?.stripe_subscription_id, taken);
+  await deliver(paid.created, studentEvent);
+  assert.equal(row()?.stripe_subscription_id, taken);
+  assert.equal(row()?.user_id, PARENT);
+  assert.equal(childSub().status, "canceled");
 }
 
 console.log("take-over: all checks passed");

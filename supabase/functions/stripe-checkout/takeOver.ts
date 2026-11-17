@@ -8,10 +8,10 @@
 //
 // So the parent buys a second plan that starts billing only when the
 // student's current one runs out: a Stripe trial up to that day, which takes
-// nothing. The webhook moves the student's row onto the new plan and sets the
-// old one to end at its period end, so nobody pays twice for the same days
-// (stripe-webhook, "take-over"). Checkout only opens it; nothing changes until
-// the parent pays.
+// nothing. The webhook moves the student's row onto the new plan and cancels
+// the old one, whose remaining days the new plan's trial now covers, so nobody
+// pays twice for the same days (stripe-webhook, "take-over"). Checkout only
+// opens it; nothing changes until the parent pays.
 import Stripe from "https://esm.sh/stripe@17.5.0?target=deno";
 import { HttpError } from "../_shared/http.ts";
 import { admin } from "../_shared/clients.ts";
@@ -28,6 +28,15 @@ const MIN_TRIAL_SECONDS = 48 * 3600 + 10 * 60;
  * Short, so the start date it was opened with is still right when it's paid.
  */
 export const TAKE_OVER_CHECKOUT_SECONDS = 31 * 60;
+
+/**
+ * No take-over in the last six hours before the student's plan renews. The
+ * webhook cancels that plan once the parent has paid; if Stripe fails it,
+ * Stripe retries the webhook, and six hours leaves room for those retries to
+ * land before the renewal could charge the student for a period the parent's
+ * plan is about to pay for too. Mirrored in TakeOverCard.tsx.
+ */
+export const TAKE_OVER_LEAD_SECONDS = 6 * 3600;
 
 const nowSeconds = () => Math.floor(Date.now() / 1000);
 
@@ -77,6 +86,9 @@ export async function takeOverTarget(
       "This plan is paused. It can move to your card once it's running again.",
     );
   }
+  if (sub.status === "canceled" || sub.status === "incomplete_expired") {
+    throw new HttpError(409, "There's no plan to move. Pick how often to pay instead.");
+  }
   if (sub.status !== "active" && sub.status !== "trialing") {
     throw new HttpError(
       409,
@@ -86,10 +98,11 @@ export async function takeOverTarget(
 
   const ends = periodEndSeconds(sub);
   if (!ends) throw new Error(`subscription ${sub.id} has no period end`);
-  // Renewing while the Checkout is open would charge the student for a new
-  // period that the parent's plan then pays for again.
-  if (ends - nowSeconds() < TAKE_OVER_CHECKOUT_SECONDS + 5 * 60) {
-    throw new HttpError(409, "This plan is renewing right now. Try again in an hour.");
+  if (ends - nowSeconds() < TAKE_OVER_LEAD_SECONDS) {
+    throw new HttpError(
+      409,
+      "This plan renews in the next few hours. Try again once it has, and nothing is charged twice.",
+    );
   }
 
   return {

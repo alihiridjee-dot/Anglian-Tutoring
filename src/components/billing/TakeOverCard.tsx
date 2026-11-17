@@ -11,6 +11,12 @@ import { startCheckout, type SubscriptionRow } from "@/lib/billing/billing";
 const MIN_START_MS = 48 * 3600 * 1000 + 10 * 60 * 1000;
 
 /**
+ * The server refuses a take-over in the last six hours before the child's plan
+ * renews (TAKE_OVER_LEAD_SECONDS in takeOver.ts), so the card isn't offered then.
+ */
+const LEAD_MS = 6 * 3600 * 1000;
+
+/**
  * Offered to a linked parent when the child pays for their own plan — often a
  * parent's card typed into the child's checkout, which leaves the parent
  * unable to see its invoices or change its card. One press moves the plan to
@@ -38,6 +44,8 @@ export function TakeOverCard({
   const ends = sub.current_period_end ? new Date(sub.current_period_end).getTime() : null;
   const starts = ends ? new Date(Math.max(ends, Date.now() + MIN_START_MS)) : null;
   const startDay = starts?.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
+
+  if (ends !== null && ends - Date.now() < LEAD_MS) return null;
 
   const moveToMyCard = async () => {
     setBusy(true);

@@ -15,7 +15,7 @@ export const STRIPE = {
   calls: [] as string[],
   /** How many upcoming subscriptions.retrieve calls fail as if Stripe were down. */
   failRetrieves: 0,
-  /** How many upcoming subscriptions.update calls fail the same way. */
+  /** How many upcoming subscriptions.update or .cancel calls fail the same way. */
   failUpdates: 0,
   /** The card on file refuses every charge made now (a prorated swap). */
   declineCharges: false,
@@ -161,8 +161,14 @@ export default class Stripe {
     // Iterated with `for await`, like the SDK's auto-paging list.
     list: (p: { customer?: string }) =>
       iterate([...STRIPE.subs.values()].filter((s) => !p?.customer || s.customer === p.customer)),
-    cancel: async (id: string) => {
+    cancel: async (id: string, _p?: unknown) => {
       STRIPE.calls.push(`subscriptions.cancel ${id}`);
+      if (STRIPE.failUpdates > 0) {
+        STRIPE.failUpdates--;
+        throw Object.assign(new Error("An error occurred with our connection to Stripe."), {
+          code: "api_connection_error",
+        });
+      }
       const s = STRIPE.subs.get(id);
       if (!s) throw missing(`subscription: '${id}'`);
       if (s.status === "canceled") throw new Error(`subscription ${id} is already canceled`);
