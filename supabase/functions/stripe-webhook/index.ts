@@ -125,6 +125,15 @@ async function refundDuplicate(sub: Stripe.Subscription, keptId: string) {
 
 const isEnded = (status: string) => status === "canceled" || status === "incomplete_expired";
 
+/** A subscription's period end in seconds (see periodEnd). */
+function periodEndSeconds(sub: Stripe.Subscription): number | null {
+  return (
+    sub.current_period_end ??
+    (sub.items?.data?.[0] as { current_period_end?: number } | undefined)?.current_period_end ??
+    null
+  );
+}
+
 /**
  * Cancel the student's own plan, now, once a parent's take-over
  * (stripe-checkout/takeOver.ts) has replaced it. Now rather than at its
@@ -132,13 +141,41 @@ const isEnded = (status: string) => status === "canceled" || status === "incompl
  * keeps every day already paid for, and a cancelled plan can't be un-cancelled
  * in Stripe's portal or renew. No refund and no proration: those days are
  * still used. Safe to repeat, and two deliveries may both get here.
+ *
+ * If the student's plan was paid up further than the take-over expected (it
+ * renewed, or moved to a longer cadence, before this landed), the take-over's
+ * start moves back to match first, so the parent doesn't pay for those days
+ * as well. A take-over already billing by then can't be moved: that is logged
+ * for a person to refund, never refunded here.
  */
-async function endReplacedPlan(replacedId: string, studentId: string) {
+async function endReplacedPlan(
+  replacedId: string,
+  studentId: string,
+  takeOver: Stripe.Subscription,
+) {
   const old = await stripe.subscriptions.retrieve(replacedId).catch((err: unknown) => {
     if (isMissing(err)) return null;
     throw err;
   });
   if (!old || old.metadata?.student_id !== studentId || isEnded(old.status)) return;
+
+  const paidUntil = periodEndSeconds(old);
+  const startsAt = takeOver.trial_end ?? periodEndSeconds(takeOver);
+  if (paidUntil && startsAt && paidUntil > startsAt) {
+    if (takeOver.status === "trialing") {
+      await stripe.subscriptions.update(takeOver.id, {
+        trial_end: paidUntil,
+        proration_behavior: "none",
+      });
+      console.log(`stripe-webhook: ${takeOver.id} now starts when ${replacedId} was paid up to`);
+    } else {
+      console.error(
+        `stripe-webhook: NEEDS A PERSON: ${replacedId} was paid up to ${new Date(paidUntil * 1000).toISOString()}, ` +
+          `after take-over ${takeOver.id} began billing; the family paid twice for those days`,
+      );
+    }
+  }
+
   try {
     await stripe.subscriptions.cancel(replacedId, { invoice_now: false, prorate: false });
   } catch (err) {
@@ -196,7 +233,7 @@ async function upsertSubscription(subscriptionId: string, snapshot?: Stripe.Subs
     // The student's own plan, which a parent's take-over has replaced: it is
     // ended (if it isn't yet), and the row stays on the parent's.
     if (kept && kept.metadata?.replaces === sub.id && KEEPABLE_STATUSES.has(kept.status)) {
-      await endReplacedPlan(sub.id, row.student_id);
+      await endReplacedPlan(sub.id, row.student_id, kept);
       console.log(`stripe-webhook: ${sub.id} was taken over by ${kept.id}; row left as it is`);
       return;
     }
@@ -252,7 +289,7 @@ async function upsertSubscription(subscriptionId: string, snapshot?: Stripe.Subs
   // 500, so Stripe retries until the old plan is cancelled.
   const replaced = sub.metadata?.replaces;
   if (replaced && KEEPABLE_STATUSES.has(sub.status)) {
-    await endReplacedPlan(replaced, row.student_id);
+    await endReplacedPlan(replaced, row.student_id, sub);
   }
 }
 

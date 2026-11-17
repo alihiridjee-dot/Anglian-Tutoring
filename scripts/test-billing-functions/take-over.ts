@@ -292,4 +292,141 @@ family();
   assert.equal(childSub().status, "canceled");
 }
 
+// 15. The student's plan renewed before the webhook caught up (an outage):
+//     the parent's start moves back to the day the student is now paid up to,
+//     so that period is paid once. Nothing is refunded.
+family();
+{
+  const r = await takeOver();
+  const paid = completeSession(sessionOf(r.body.url).id);
+  const taken = paid.created.data.object.id;
+  childSub().current_period_end += 30 * DAY; // renewed, and charged, meanwhile
+  const paidUntil = childSub().current_period_end;
+  await deliver(paid.completed, paid.created);
+  assert.equal(
+    STRIPE.subs.get(taken).trial_end,
+    paidUntil,
+    "the parent pays for days already paid",
+  );
+  assert.equal(childSub().status, "canceled");
+  assert.deepEqual(STRIPE.refunds, []);
+  await deliver(event("customer.subscription.updated", STRIPE.subs.get(taken)));
+  assert.equal(row()?.current_period_end, new Date(paidUntil * 1000).toISOString());
+}
+
+// 16. Until the parent's plan starts, it can't grow or change cadence (a
+//     trial charges nothing for either); dropping a subject is fine. And the
+//     page is told the date.
+family();
+{
+  table("student_enrolments").push({ student_id: CHILD, subject: "chemistry", board: "aqa" });
+  table("packages").push({
+    tier: "monthly_2",
+    name: "monthly_2",
+    stripe_price_id: "price_monthly_2",
+    level: null,
+    active: true,
+  });
+  table("packages").push({
+    tier: "monthly_3",
+    name: "monthly_3",
+    stripe_price_id: "price_monthly_3",
+    level: null,
+    active: true,
+  });
+  table("packages").push({
+    tier: "weekly_2",
+    name: "weekly_2",
+    stripe_price_id: "price_weekly_2",
+    level: null,
+    active: true,
+  });
+  DB.rpcs.curriculum_coverage = () => ({
+    data: [{ level: "gcse", board: "aqa", subject: "physics" }],
+    error: null,
+  });
+  DB.rpcs.take_billing_lease = () => ({ data: true, error: null });
+  DB.rpcs.release_billing_lease = () => ({ data: null, error: null });
+  DB.rpcs.apply_enrolment_change = ({ _student_id, _add, _remove }) => {
+    DB.tables.student_enrolments = table("student_enrolments").filter(
+      (e) => !(e.student_id === _student_id && _remove.includes(e.subject)),
+    );
+    for (const a of _add) table("student_enrolments").push({ student_id: _student_id, ...a });
+    return { data: [], error: null };
+  };
+  const r = await call(PARENT, {
+    action: "checkout",
+    tier: "monthly_2",
+    student_id: CHILD,
+    return_to: "billing",
+    take_over: true,
+  });
+  assert.equal(r.status, 200, JSON.stringify(r.body));
+  const paid = completeSession(sessionOf(r.body.url).id);
+  await deliver(paid.completed, paid.created);
+  const taken = paid.created.data.object.id;
+
+  const add = await call(PARENT, {
+    action: "add_subjects",
+    student_id: CHILD,
+    subjects: [{ subject: "physics", board: "aqa" }],
+  });
+  assert.equal(add.status, 409, JSON.stringify(add.body));
+  assert.match(add.body.error, /starts on .*add subjects from then/);
+  for (const preview of [true, false]) {
+    const c = await call(PARENT, {
+      action: "change_cadence",
+      student_id: CHILD,
+      cadence: "weekly",
+      preview,
+    });
+    assert.equal(c.status, 409, JSON.stringify(c.body));
+    assert.match(c.body.error, /starts on .*switch how often you pay from then/);
+  }
+  assert.equal(STRIPE.subs.get(taken).items.data[0].price.id, "price_monthly_2", "the price moved");
+
+  const drop = await call(PARENT, {
+    action: "remove_subjects",
+    student_id: CHILD,
+    subjects: ["chemistry"],
+  });
+  assert.equal(drop.status, 200, JSON.stringify(drop.body));
+
+  // Once it has started, it changes like any plan.
+  STRIPE.subs.get(taken).status = "active";
+  const later = await call(PARENT, {
+    action: "add_subjects",
+    student_id: CHILD,
+    subjects: [{ subject: "physics", board: "aqa" }],
+  });
+  assert.equal(later.status, 200, JSON.stringify(later.body));
+}
+
+// 17. A change to the student's plan while the parent's take-over Checkout is
+//     open closes it, so it can't be paid on the plan as it was.
+for (const change of [
+  { action: "cancel", student_id: CHILD },
+  { action: "change_cadence", student_id: CHILD, cadence: "weekly" },
+]) {
+  family();
+  DB.rpcs.take_billing_lease = () => ({ data: true, error: null });
+  DB.rpcs.release_billing_lease = () => ({ data: null, error: null });
+  const r = await takeOver();
+  const s = sessionOf(r.body.url);
+  assert.equal(s.status, "open");
+  await call(CHILD, change);
+  assert.equal(
+    STRIPE.sessions.get(s.id).status,
+    "expired",
+    `${change.action} left the take-over open`,
+  );
+}
+
+// 18. No coupons on a plan changing hands; an ordinary Checkout keeps them.
+family();
+{
+  const r = await takeOver();
+  assert.equal(sessionOf(r.body.url).allow_promotion_codes, false);
+}
+
 console.log("take-over: all checks passed");

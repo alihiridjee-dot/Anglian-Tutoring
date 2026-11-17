@@ -175,8 +175,11 @@ async function webhookRun(seed: number) {
   const queue: unknown[] = [paid.completed, paid.created];
   const delivered: unknown[] = [];
   const charges: string[] = [];
-  const fingerprint = (s: { status: string; cancel_at_period_end: boolean }) =>
-    `${s.status}|${s.cancel_at_period_end}`;
+  const fingerprint = (s: {
+    status: string;
+    cancel_at_period_end: boolean;
+    current_period_end: number;
+  }) => `${s.status}|${s.cancel_at_period_end}|${s.current_period_end}`;
   const seen = new Map<string, string>();
   for (const [id, s] of STRIPE.subs) seen.set(id, fingerprint(s));
   /** Stripe sends an event for every change to a subscription. */
@@ -202,6 +205,13 @@ async function webhookRun(seed: number) {
     trace.push("advance to the renewal day");
     advanced = true;
     const c = child();
+    // The parent's first payment may not fall inside days the student paid for.
+    const t0 = takeOver();
+    const firstPayment = t0.trial_end ?? t0.current_period_end;
+    assert.ok(
+      t0.status !== "trialing" || firstPayment >= c.current_period_end,
+      `seed ${seed}: the parent's first payment falls in days the student already paid for`,
+    );
     if (c.status !== "canceled") {
       if (c.cancel_at_period_end) {
         c.status = "canceled";
@@ -229,6 +239,13 @@ async function webhookRun(seed: number) {
     emitChanges();
   };
   if (rand() < 0.3) studentActs();
+  // The student's plan renews, or moves to a longer cadence, before the
+  // take-over lands (a webhook outage): that student payment must not be paid twice.
+  if (rand() < 0.2) {
+    child().current_period_end += pick([30, 90]) * DAY;
+    trace.push("student's plan paid further ahead before the take-over landed");
+    emitChanges();
+  }
 
   // Once the parent's plan is written, nothing may move the row off it.
   let taken = false;

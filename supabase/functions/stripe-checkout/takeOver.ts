@@ -111,12 +111,34 @@ export async function takeOverTarget(
   };
 }
 
-/** What the parent reads under Stripe's pay button. */
-export function takeOverNote(startsAt: number): string {
-  const day = new Date(startsAt * 1000).toLocaleDateString("en-GB", {
+/** "24 November", as families read it. */
+function ukDay(seconds: number): string {
+  return new Date(seconds * 1000).toLocaleDateString("en-GB", {
     day: "numeric",
     month: "long",
     timeZone: "Europe/London",
   });
+}
+
+/**
+ * A take-over takes nothing until the day the student's own plan was paid up
+ * to (its trial). Stripe charges no proration during a trial, so a subject
+ * added then would be free until that day, and a new cadence could start
+ * billing over days already paid for. Both wait for the first payment.
+ */
+export function assertTakeOverStarted(sub: Stripe.Subscription, what: string) {
+  if (!sub.metadata?.replaces || sub.status !== "trialing") return;
+  const starts = sub.trial_end ?? periodEndSeconds(sub);
+  throw new HttpError(
+    409,
+    starts
+      ? `This plan starts on ${ukDay(starts)}. You can ${what} from then.`
+      : `This plan hasn't started yet. You can ${what} once it has.`,
+  );
+}
+
+/** What the parent reads under Stripe's pay button. */
+export function takeOverNote(startsAt: number): string {
+  const day = ukDay(startsAt);
   return `Nothing is taken today. The current plan is already covered until ${day}. Your first payment is on ${day}, and the plan carries on with your card from then.`;
 }

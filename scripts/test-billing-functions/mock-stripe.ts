@@ -83,6 +83,7 @@ export function completeSession(sessionId: string) {
     cancel_at_period_end: false,
     pause_collection: null,
     current_period_end: end,
+    trial_end: trial ? end : null,
     latest_invoice: invoiceId,
     metadata: { ...(s.subscription_data?.metadata ?? {}) },
     items: {
@@ -156,6 +157,19 @@ export default class Stripe {
       if ("pause_collection" in p)
         s.pause_collection = p.pause_collection === "" ? null : p.pause_collection;
       if ("cancel_at_period_end" in p) s.cancel_at_period_end = p.cancel_at_period_end;
+      // A trial's end is its period end, on the subscription and its item.
+      if ("trial_end" in p && s.status === "trialing") {
+        s.trial_end = p.trial_end;
+        s.current_period_end = p.trial_end;
+        for (const item of s.items?.data ?? []) item.current_period_end = p.trial_end;
+      }
+      if (p.items) {
+        for (const change of p.items) {
+          const item = s.items?.data?.find((i: any) => i.id === change.id);
+          if (item && change.price) item.price = { id: change.price };
+        }
+      }
+      if (p.metadata) s.metadata = { ...p.metadata };
       return clone(s);
     },
     // Iterated with `for await`, like the SDK's auto-paging list.
