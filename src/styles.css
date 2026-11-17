@@ -4211,3 +4211,86 @@ body {
     transform: none;
   }
 }
+
+/* ── The paywall ─────────────────────────────────────────────────────────────
+   No card: the words sit on the frost (PaywallOverlay). The lock is a solid
+   round dot like the spec point's stops, and it hops and springs open while
+   the one big button is pointed at. The links under it are bare dark text. */
+.paywall-dot {
+  display: grid;
+  place-items: center;
+  width: 4.75rem;
+  height: 4.75rem;
+  margin: 0 auto;
+  border-radius: 999px;
+  color: var(--primary-foreground);
+  /* Mixed toward navy like `.btn-solid`, so a light tint still carries white. */
+  background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+  box-shadow: 0 6px 0 0 color-mix(in oklab, var(--tint) 40%, var(--primary-deep));
+  transition: transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.paywall-dot svg {
+  width: 2rem;
+  height: 2rem;
+}
+[data-reaching="true"] .paywall-dot {
+  transform: translateY(-6px) rotate(-8deg) scale(1.08);
+}
+.paywall-title {
+  font-size: clamp(2.25rem, 7vw, 3.25rem);
+  line-height: 1.05;
+  font-weight: 800;
+}
+.paywall-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  height: 3.5rem;
+  padding: 0 2.5rem;
+  border-radius: 0.875rem;
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+.paywall-arrow {
+  transition: translate 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.paywall-btn:hover .paywall-arrow,
+.paywall-btn:focus-visible .paywall-arrow {
+  translate: 5px 0;
+}
+.paywall-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  padding: 0 0.85rem;
+  border-radius: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--foreground);
+  transition: background-color 0.2s ease;
+}
+.paywall-link:hover {
+  background: color-mix(in oklab, var(--tint) 9%, var(--card));
+}
+.paywall-link svg {
+  color: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+}
+@media (hover: hover) {
+  .paywall-link:hover svg {
+    animation: side-wiggle 0.5s ease-in-out;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .paywall-dot,
+  .paywall-arrow {
+    transition: none;
+  }
+  [data-reaching="true"] .paywall-dot {
+    transform: none;
+  }
+  .paywall-link:hover svg {
+    animation: none;
+  }
+}
