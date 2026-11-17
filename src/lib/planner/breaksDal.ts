@@ -149,7 +149,8 @@ export class BreakDAL {
       const { data: points, error: pointsError } = await supabase
         .from("spec_points")
         .select("id, code, title, weight, topic_id, sort_order")
-        .in("topic_id", topicIds);
+        .in("topic_id", topicIds)
+        .eq("not_examined", false);
       if (pointsError) throw pointsError;
       // The planner's own order (ScheduleDAL): sort order, then code.
       const byTopic = new Map<string, NonNullable<typeof points>>();

@@ -1514,6 +1514,7 @@ export type Database = {
           created_by: string;
           description: string | null;
           id: string;
+          not_examined: boolean;
           sort_order: number;
           title: string;
           topic_id: string;
@@ -1526,6 +1527,7 @@ export type Database = {
           created_by: string;
           description?: string | null;
           id?: string;
+          not_examined?: boolean;
           sort_order?: number;
           title: string;
           topic_id: string;
@@ -1538,6 +1540,7 @@ export type Database = {
           created_by?: string;
           description?: string | null;
           id?: string;
+          not_examined?: boolean;
           sort_order?: number;
           title?: string;
           topic_id?: string;
