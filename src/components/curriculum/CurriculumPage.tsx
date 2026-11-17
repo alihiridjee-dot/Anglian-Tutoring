@@ -25,7 +25,7 @@ import { useDebounced } from "@/hooks/useGlobalSearch";
 import { MIN_QUERY_LENGTH } from "@/lib/search/match";
 import { searchTerms } from "@/lib/search/help";
 import { CurriculumSyncPanel } from "@/components/CurriculumSyncPanel";
-import { WhenLink } from "@/components/curriculum/ScheduleBadges";
+import { WhenPanel } from "@/components/curriculum/ScheduleBadges";
 import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
 import { courseSchedule } from "@/lib/planner/pointSchedule";
 import { currentWeekKey } from "@/lib/planner/week";
@@ -256,12 +256,13 @@ export function Curriculum() {
 
   // Handle viewing full-page specification point details
   if (selectedSpecPoint) {
+    const when = schedule?.byPoint.get(selectedSpecPoint.id);
     return (
       <AppLayout title="Curriculum Point">
         {/* The whole point carries its subject's tint: the trail's stops, the
             panel under them and every button in it. It sits on the left, in
             line with the page title, however wide the screen. */}
-        <div className={`max-w-4xl ${subjectTint(subject)}`}>
+        <div className={`${when ? "max-w-6xl" : "max-w-4xl"} ${subjectTint(subject)}`}>
           <button
             data-guide="curriculum-back"
             onClick={closeSpecPoint}
@@ -270,11 +271,15 @@ export function Curriculum() {
             <ChevronLeft className="w-4 h-4" strokeWidth={3} /> Back to Curriculum
           </button>
 
-          {/* The title sits on the page, not in a card: the course and code as
-              one plain line, the title large, and the week it was due as a
-              calendar page beside it. */}
-          <div className="mt-5 flex flex-wrap items-start justify-between gap-x-6 gap-y-4">
-            <div className="min-w-0 flex-1 basis-72">
+          {/* Two columns on a wide screen: the point and its work on the left,
+              and when it was due in a straight panel on the right that stays
+              in view. Narrower, the panel sits under the work. */}
+          <div
+            className={`mt-5 grid gap-x-10 gap-y-8 ${when ? "lg:grid-cols-[minmax(0,1fr)_20rem]" : ""}`}
+          >
+            {/* The title sits on the page, not in a card: the course and code
+                as one plain line, then the title large. */}
+            <div className="min-w-0">
               <p className="text-sm font-bold text-[color:color-mix(in_oklab,var(--tint)_75%,var(--primary-deep))]">
                 {labelOf(LEVELS, level)} {labelOf(BOARDS, board)} {labelOf(SUBJECTS, subject)} ·{" "}
                 {selectedSpecPoint.code}
@@ -296,22 +301,24 @@ export function Curriculum() {
                 </p>
               )}
             </div>
-            {schedule?.byPoint.get(selectedSpecPoint.id) && (
-              <WhenLink
-                when={schedule.byPoint.get(selectedSpecPoint.id)!}
+            <div className="min-w-0">
+              <SpecPointDetail
+                point={selectedSpecPoint}
+                isTutor={isTutor}
+                onChanged={loadTopics}
+                taxonomy={{ subject, board, level }}
+              />
+            </div>
+            {/* Last in the page, so a narrower screen shows it under the work;
+                a wide one lifts it into the right-hand column. */}
+            {when && (
+              <WhenPanel
+                when={when}
                 now={now}
                 subject={subject}
+                className="lg:sticky lg:top-24 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start"
               />
             )}
-          </div>
-
-          <div className="mt-8">
-            <SpecPointDetail
-              point={selectedSpecPoint}
-              isTutor={isTutor}
-              onChanged={loadTopics}
-              taxonomy={{ subject, board, level }}
-            />
           </div>
         </div>
       </AppLayout>

@@ -48,12 +48,13 @@ surfaces, large type, and the fun carried by motion and emoji, not by more boxes
 - **The title sits on the page**, not in a card: one plain line above it (course
   and code), the title large, a drawn highlighter stroke under it. No pill, no
   eyebrow, no ALL CAPS label, no gradient bar.
-- **The due week is a calendar page.** Beside the title, a tilted page torn
-  off a calendar (`WhenLink`, `.point-cal`): the month, the Monday of the week
-  the point was due, and under the tear how it went (Covered, This week,
-  Catch-up and its week, Missed). Every point draws it in the same place, and
-  a phone lays it sideways. The topic list says the same thing in words on each
-  row (`WhenWord`: "Due 2 Nov", "Catch-up 16 Nov").
+- **When it was due sits in a straight panel.** On a wide screen the page is
+  two columns: the title, trail and card on the left, and the "When" panel
+  (`WhenPanel`) on the right, staying in view. It has the same three rows on
+  every point (Due week, Status, Catch-up) and a button into that week of the
+  plan. Nothing is tilted. On a narrower screen the panel sits under the work.
+  The topic list says the same thing on each row (`WhenWord`: "Due 2 Nov",
+  "Catch-up 16 Nov").
 - **Rows are bare.** Inside the card a row is a bold title and one `.btn-solid`.
   No border or background per row, and no small grey text: a line that matters
   is normal dark text, and one that doesn't is deleted.
