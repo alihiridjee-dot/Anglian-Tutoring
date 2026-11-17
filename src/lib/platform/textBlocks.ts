@@ -4,13 +4,104 @@
  * Questions are plain text. Whoever writes one (the generator, a tutor, a
  * past paper) puts a key, a method's steps or a set of results one item per
  * line, and a table as a header row then one row per line, its cells
- * separated by " | ". The page draws by these rules (`SciBlock`) and the
- * generator is held to them (`flattenedLayout`), so what is written one way
- * is never drawn another.
+ * separated by " | ". An equation on its own line is lifted out of the
+ * paragraph, and the lines under it say what goes on its arrows (`reactionAt`).
+ * The page draws by these rules (`SciBlock`) and the generator is held to
+ * them (`flattenedLayout`), so what is written one way is never drawn another.
  */
 
+/** What is written on an arrow: a reagent, a condition, or a catalyst, which is highlighted. */
+export type ReactionLabel = { text: string; catalyst: boolean };
+/** One arrow of an equation: which way it points and what is written over and under it. */
+export type ReactionArrow = { reversible: boolean; above: ReactionLabel[]; below: ReactionLabel[] };
+/** An equation or a route: its stops in the order written, and the arrow after each but the last. */
+export type Reaction = { stops: string[]; arrows: ReactionArrow[] };
+
 export type TextBlock =
-  { kind: "text"; text: string } | { kind: "table"; columns: string[]; rows: string[][] };
+  | { kind: "text"; text: string }
+  | { kind: "table"; columns: string[]; rows: string[][] }
+  | ({ kind: "reaction" } & Reaction);
+
+/** Words of a sentence, never of a substance: a line holding one is prose with an arrow in it. */
+const PROSE =
+  /\b(the|this|that|these|is|are|was|were|which|what|when|shows?|shown|reacts?|forms?|gives?|equation|reaction)\b/i;
+
+/** One side of an arrow: substances joined by " + ", each a formula or a short name. */
+function isSide(side: string): boolean {
+  return side.split(/\s+\+\s+/).every((term) => {
+    const t = term.trim();
+    if (!t || t.split(/\s+/).length > 4) return false;
+    // Sentence punctuation; a decimal point or a comma inside a name (2,4-D) is fine.
+    return !/[?!;:]|[.,](\s|$)/.test(t) && !PROSE.test(t);
+  });
+}
+
+/**
+ * A line that is an equation and nothing else: "Cl₂ + 2KBr → 2KCl + Br₂",
+ * a word equation, or a route of several steps, "propene → Y → propanone".
+ * The arrows are the ones written, in the places written. Null for a
+ * sentence that only mentions an equation, which stays a sentence.
+ */
+function equationOf(line: string): Reaction | null {
+  const t = line.trim();
+  if (!/[→⇌]/.test(t) || t.length > 160) return null;
+  const pieces = t.split(/\s*([→⇌])\s*/);
+  const stops = pieces.filter((_, i) => i % 2 === 0);
+  if (!stops.every(isSide)) return null;
+  const arrows = pieces
+    .filter((_, i) => i % 2 === 1)
+    .map((a) => ({ reversible: a === "⇌", above: [], below: [] }));
+  return { stops, arrows };
+}
+
+/** "Step 2: NaOH(aq); heat under reflux", or "Conditions: …" under a one-step equation. */
+const ON_ARROW = /^\s*(?:Step\s+(\d{1,2})|Conditions?)\s*:\s*(\S.*)$/i;
+
+/** The labels in one half of a step line, a catalyst told apart by the word itself. */
+function labelsOf(text: string): ReactionLabel[] {
+  return text
+    .split(/,\s+/)
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .map((item) => {
+      const catalyst = /\bcatalyst\b/i.test(item);
+      const name = item
+        .replace(/\(?\bcatalyst\b\)?:?/i, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+      return { text: catalyst ? name : item, catalyst };
+    });
+}
+
+/**
+ * The equation that starts at line `i`, with the lines under it that say
+ * what goes on its arrows, and how many lines that took. "Step n:" names
+ * the nth arrow; "Conditions:" the only arrow of a one-step equation. What
+ * is written before a ";" goes over the arrow (reagents) and what follows
+ * goes under it (conditions); with no ";" it all goes over. A line that
+ * names no arrow of this equation, or reads as a sentence (a method's
+ * "Step 1: Weigh the crucible."), is left as text.
+ */
+function reactionAt(lines: string[], i: number): { reaction: Reaction; used: number } | null {
+  const reaction = equationOf(lines[i]);
+  if (!reaction) return null;
+  let j = i + 1;
+  const seen = new Set<number>();
+  for (; j < lines.length; j++) {
+    const m = ON_ARROW.exec(lines[j]);
+    if (!m || m[2].length > 80 || /[.?!]$/.test(m[2].trim())) break;
+    const n = m[1] ? Number(m[1]) - 1 : reaction.arrows.length === 1 ? 0 : -1;
+    if (n < 0 || n >= reaction.arrows.length || seen.has(n)) break;
+    seen.add(n);
+    const [over, ...under] = m[2].split(/\s*;\s*/);
+    reaction.arrows[n].above = labelsOf(over);
+    reaction.arrows[n].below = labelsOf(under.join(", "));
+  }
+  return { reaction, used: j - i };
+}
+
+/** A compound the student has to work out, written as its letter: "Y", "compound Y". */
+export const isUnknown = (stop: string) => /^(?:[Cc]ompound\s+)?[A-Z]$/.test(stop.trim());
 
 /** A table row: cells separated by a spaced pipe, or a row fenced by pipes. */
 const isRow = (line: string) => / \| /.test(line) || /^\|.+\|$/.test(line.trim());
@@ -80,9 +171,25 @@ export function textBlocks(text: string): TextBlock[] {
       } else paragraph.push(...lines.slice(i, j));
       i = j;
     } else {
-      if (lines[i].trim()) paragraph.push(lines[i]);
-      else flush();
-      i++;
+      // "Hydrochloric acid reacts with calcium oxide: CaO + 2HCl → …": the
+      // words stay a line of the paragraph and the equation is lifted out.
+      const lead = /^(.*[^\s:]:)\s+(\S.*)$/.exec(lines[i]);
+      const own = reactionAt(lines, i);
+      const led =
+        !own && lead && !/[→⇌]/.test(lead[1])
+          ? reactionAt([lead[2], ...lines.slice(i + 1)], 0)
+          : null;
+      const found = own ?? led;
+      if (found) {
+        if (led) paragraph.push(lead![1]);
+        flush();
+        blocks.push({ kind: "reaction", ...found.reaction });
+        i += found.used;
+      } else {
+        if (lines[i].trim()) paragraph.push(lines[i]);
+        else flush();
+        i++;
+      }
     }
   }
   flush();
@@ -200,5 +307,14 @@ export const COMMAND = new RegExp(
  */
 export function spacedLines(text: string): string {
   const lines = text.split("\n");
-  return lines.map((l, i) => (i && !(isRow(l) && isRow(lines[i - 1])) ? `\n${l}` : l)).join("\n");
+  // The lines under an equation that label its arrows stay with it too.
+  const held = new Set<number>();
+  for (let i = 0; i < lines.length; i++) {
+    const used = isRow(lines[i]) ? 1 : (reactionAt(lines, i)?.used ?? 1);
+    for (let k = 1; k < used; k++) held.add(i + k);
+    i += used - 1;
+  }
+  return lines
+    .map((l, i) => (i && !(isRow(l) && isRow(lines[i - 1])) && !held.has(i) ? `\n${l}` : l))
+    .join("\n");
 }
