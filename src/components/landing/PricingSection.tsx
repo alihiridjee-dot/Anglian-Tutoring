@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Check, ChevronDown, Sparkles } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "motion/react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { SectionSeam } from "@/components/landing/SectionSeam";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
 import { boardLabel } from "@/lib/curriculum/courseSummary";
@@ -42,24 +43,55 @@ import {
 
 type PricingLevel = "ks3" | "gcse" | "igcse" | "alevel";
 
+// Each plan is a stop on the price trail: its emoji sits in the stop, and its
+// tint colours the stop, the card it opens and that card's Enrol button. The
+// highlighted plan is the one picked when the page opens.
 const CADENCES: {
   cadence: Cadence;
   name: string;
   billing: string;
   badge: string;
+  emoji: string;
+  tint: string;
   highlight: boolean;
 }[] = [
-  { cadence: "weekly", name: "Weekly", billing: "per week", badge: "Flexible", highlight: false },
+  {
+    cadence: "weekly",
+    name: "Weekly",
+    billing: "per week",
+    badge: "Flexible",
+    emoji: "🤸",
+    tint: "tint-primary",
+    highlight: false,
+  },
   {
     cadence: "monthly",
     name: "Monthly Saver",
     billing: "per month",
     badge: "Saving",
+    emoji: "💰",
+    tint: "tint-accent",
     highlight: true,
   },
   // "Best value" goes on BEST_VALUE_CADENCE, shared with the plan step, so the
   // badges below are what each card says when it isn't that one.
-  { cadence: "termly", name: "Termly", billing: "per term", badge: "Saving", highlight: false },
+  {
+    cadence: "termly",
+    name: "Termly",
+    billing: "per term",
+    badge: "Saving",
+    emoji: "🏆",
+    tint: "tint-rose",
+    highlight: false,
+  },
+];
+
+// The same for every plan, so it is said once, in the picked plan's card.
+const INCLUDED = [
+  { emoji: "✏️", text: "Tasks & marking" },
+  { emoji: "🧪", text: "Weekly quizzes" },
+  { emoji: "👪", text: "Parent portal" },
+  { emoji: "👋", text: "Cancel anytime" },
 ];
 
 // Maths is the one subject not taught at all yet. Whether a science is taught at
@@ -333,8 +365,8 @@ export function PricingSection() {
             </Step>
           </div>
 
-          {/* Live pricing tiers — all three shown at once, each a full-height
-              premium card that matches the builder's height (items-stretch) */}
+          {/* Live pricing: the plans as a trail, the picked one in a card that
+              grows to the builder's height (items-stretch) */}
           <PricingTiers
             ladder={priceLadderFor(curriculumLevel)}
             count={count}
@@ -348,10 +380,12 @@ export function PricingSection() {
   );
 }
 
-/** Live pricing tiers — all three shown side by side, each a full-height
- *  premium card. The wrapper is h-full so the row (items-stretch on the outer
- *  grid) makes every card match the builder's height exactly. The middle
- *  highlighted tier is lifted and styled dark to draw the eye. */
+/** Live pricing as a trail, the spec point page's pattern (README, "A page of
+ *  work is a trail"): each way of paying is a round stop on a dotted line, with
+ *  its price per live session underneath, so the three can still be compared
+ *  at a glance. The picked plan opens in one card below, with what it costs
+ *  each time it is billed and its Enrol button. The column is h-full and the
+ *  card grows, so its foot lines up with the builder beside it. */
 function PricingTiers({
   ladder,
   count,
@@ -365,134 +399,158 @@ function PricingTiers({
   chosenSubjects: string[];
   board: string;
 }) {
+  const [picked, setPicked] = useState<Cadence>(
+    () => CADENCES.find((t) => t.highlight)?.cadence ?? "monthly",
+  );
+  const tier = CADENCES.find((t) => t.cadence === picked) ?? CADENCES[0];
+  const isBest = tier.cadence === BEST_VALUE_CADENCE;
+  const included = [
+    {
+      emoji: "🎥",
+      text: `${count} live ${count === 1 ? "session" : "sessions"} a week · 1 per subject`,
+    },
+    ...INCLUDED,
+  ];
+
   return (
-    <div className="grid h-full grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
-      {CADENCES.map((tier) => {
-        const pence = ladder[tier.cadence][count];
-        // One live session per subject per week, over the shared weeks per cycle.
-        const perSession = pence / (WEEKS_PER_CYCLE[tier.cadence] * count);
-        const weeklyLessons = count;
-        const dark = tier.highlight;
+    <div className="flex h-full flex-col">
+      <div
+        role="tablist"
+        aria-label="How often you pay"
+        className="point-trail price-trail"
+        style={{ "--stops": CADENCES.length } as CSSProperties}
+      >
+        <svg
+          aria-hidden
+          className="point-trail-path"
+          viewBox="0 0 200 40"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 20 C30 4 70 36 100 20 C130 36 170 4 200 20"
+            vectorEffect="non-scaling-stroke"
+          />
+        </svg>
+        {CADENCES.map((t) => {
+          // One live session per subject per week, over the shared weeks per cycle.
+          const perSession = ladder[t.cadence][count] / (WEEKS_PER_CYCLE[t.cadence] * count);
+          return (
+            <button
+              key={t.cadence}
+              type="button"
+              role="tab"
+              id={`price-stop-${t.cadence}`}
+              aria-selected={t.cadence === picked}
+              aria-controls="price-panel"
+              onClick={() => setPicked(t.cadence)}
+              className={`point-stop ${t.tint}`}
+            >
+              {t.cadence === BEST_VALUE_CADENCE && (
+                <span className="sticker stamp-in price-sticker">{BEST_VALUE_LABEL}</span>
+              )}
+              <span className="point-stop-dot">
+                <span aria-hidden>{t.emoji}</span>
+              </span>
+              <span className="point-stop-label">{t.name}</span>
+              <Price pence={Math.round(perSession)} trim className="numeral price-each" />
+              <span className="price-per">per live session</span>
+            </button>
+          );
+        })}
+      </div>
 
-        return (
-          <div
-            key={tier.cadence}
-            className={`relative flex h-full flex-col overflow-hidden rounded-3xl p-5 transition-transform duration-300 ${
-              dark
-                ? "bg-gradient-to-br from-[var(--primary-deep)] to-primary text-white shadow-[0_30px_70px_-30px_rgba(6,78,90,0.85)] ring-2 ring-[var(--primary-deep)]/20"
-                : "premium-card premium-card-interactive text-foreground"
-            }`}
-          >
-            {/* Soft premium sheen */}
-            <div
+      <div
+        key={tier.cadence}
+        id="price-panel"
+        role="tabpanel"
+        aria-labelledby={`price-stop-${tier.cadence}`}
+        className={`point-panel premium-card ${tier.tint} flex flex-1 flex-col p-5 sm:p-7`}
+      >
+        <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
+          <div>
+            <h3 className="text-foreground text-3xl leading-tight font-extrabold">{tier.name}</h3>
+            <svg
               aria-hidden
-              className={`pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full blur-3xl ${
-                dark ? "bg-white/10" : "bg-[var(--accent-soft)]/60"
-              }`}
-            />
-
-            {/* Identity */}
-            <div className="relative">
-              <span
-                className={
-                  dark
-                    ? "sticker stamp-in text-[10px] tracking-wider uppercase"
-                    : "chip text-[9px] tracking-wider uppercase"
-                }
-              >
-                {tier.cadence === BEST_VALUE_CADENCE ? BEST_VALUE_LABEL : tier.badge}
-              </span>
-              <h3 className="mt-2.5 font-display text-lg font-bold leading-tight">{tier.name}</h3>
-            </div>
-
-            {/* Premium price button — headline per-session cost in a lifted pill */}
-            <div
-              className={`relative mt-4 rounded-2xl px-4 py-3.5 ${
-                dark
-                  ? "bg-white/10 ring-1 ring-inset ring-white/20"
-                  : "bg-[var(--accent-soft)]/70 ring-1 ring-inset ring-[var(--primary-deep)]/10"
-              }`}
+              className="point-squiggle"
+              viewBox="0 0 100 12"
+              preserveAspectRatio="none"
             >
-              <div className="flex items-baseline gap-1">
-                <span
-                  className={`font-display text-3xl font-bold leading-none tracking-tight tabular-nums ${
-                    dark ? "text-white" : "text-[var(--primary-deep)]"
-                  }`}
-                  style={{ fontFeatureSettings: '"ss01","tnum"' }}
-                >
-                  {gbp(Math.round(perSession)).replace(".00", "")}
-                </span>
-              </div>
-              <span
-                className={`mt-1 block text-[11px] font-medium ${
-                  dark ? "text-white/70" : "text-muted-foreground"
-                }`}
-              >
-                per live session
-              </span>
-            </div>
-
-            <p
-              className={`relative mt-3 text-xs ${dark ? "text-white/75" : "text-muted-foreground"}`}
-            >
-              {weeklyLessons} live {weeklyLessons === 1 ? "session" : "sessions"} a week · 1 per
-              subject
-            </p>
-
-            {/* Feature list — fills the middle so cards feel substantial */}
-            <ul className="relative mt-4 space-y-2 text-xs">
-              {["Tasks & marking", "Weekly quizzes", "Parent portal", "Cancel anytime"].map((f) => (
-                <li key={f} className="flex items-center gap-2">
-                  <span
-                    className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${
-                      dark
-                        ? "bg-white/15 text-white"
-                        : "bg-[var(--accent-soft)] text-[var(--primary-deep)]"
-                    }`}
-                  >
-                    <Check className="h-2.5 w-2.5" />
-                  </span>
-                  <span className={dark ? "text-white/85" : "text-muted-foreground"}>{f}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* Billed price + CTA pinned to the bottom */}
-            <div
-              className={`relative mt-auto border-t pt-4 ${dark ? "border-white/15" : "border-border"}`}
-            >
-              <span className="font-display text-xl font-bold tracking-tight tabular-nums">
-                {gbp(pence)}
-              </span>
-              <span
-                className={`block text-[11px] ${dark ? "text-white/70" : "text-muted-foreground"}`}
-              >
-                {tier.billing}
-              </span>
-              <Link
-                to="/auth"
-                search={
-                  {
-                    mode: "signup",
-                    tier: `${tier.cadence}_${count}`,
-                    level: level_key,
-                    subjects: chosenSubjects.join(","),
-                    board,
-                  } as never
-                }
-                className={`mt-3 flex min-h-11 items-center justify-center rounded-xl py-2.5 text-center text-sm font-bold transition-all duration-200 sm:pointer-fine:min-h-0 ${
-                  dark
-                    ? "bg-white text-[var(--primary-deep)] hover:bg-white/90 shadow-lg"
-                    : "btn-solid hover:bg-[var(--primary-deep)]"
-                }`}
-              >
-                Enrol
-              </Link>
-            </div>
+              <path d="M2 8 Q 18 1 34 7 T 66 6 T 98 5" vectorEffect="non-scaling-stroke" />
+            </svg>
+            {!isBest && <p className="price-word mt-2 text-[1.0625rem] font-bold">{tier.badge}</p>}
           </div>
-        );
-      })}
+          <p className="flex items-baseline gap-2">
+            <Price pence={ladder[tier.cadence][count]} className="numeral price-bill" />
+            <span className="text-lg font-bold">{tier.billing}</span>
+          </p>
+        </div>
+
+        <ul className="price-included mt-6 grid gap-x-5 gap-y-3 sm:grid-cols-2">
+          {included.map((f) => (
+            <li key={f.emoji}>
+              <span aria-hidden className="price-emoji">
+                {f.emoji}
+              </span>
+              <span>{f.text}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-auto pt-6">
+          <Link
+            to="/auth"
+            search={
+              {
+                mode: "signup",
+                tier: `${tier.cadence}_${count}`,
+                level: level_key,
+                subjects: chosenSubjects.join(","),
+                board,
+              } as never
+            }
+            className="btn-solid flex min-h-12 items-center justify-center rounded-2xl px-5 py-3 text-base font-bold"
+          >
+            Enrol
+          </Link>
+        </div>
+      </div>
     </div>
+  );
+}
+
+/** A price that rolls from the figure it showed to a new one, with a little
+ *  bump as it lands, so a parent sees it change as they build the plan. `trim`
+ *  drops a whole pound's ".00". Under reduced motion it just changes. */
+function Price({ pence, trim, className }: { pence: number; trim?: boolean; className?: string }) {
+  const reduce = useReducedMotion() ?? false;
+  const [shown, setShown] = useState(pence);
+  const shownRef = useRef(pence);
+
+  useEffect(() => {
+    const from = shownRef.current;
+    if (reduce || from === pence) {
+      shownRef.current = pence;
+      setShown(pence);
+      return;
+    }
+    let frame = 0;
+    const t0 = performance.now();
+    const step = (t: number) => {
+      const p = Math.min(1, (t - t0) / 650);
+      shownRef.current = Math.round(from + (pence - from) * (1 - Math.pow(1 - p, 3)));
+      setShown(shownRef.current);
+      if (p < 1) frame = requestAnimationFrame(step);
+    };
+    frame = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frame);
+  }, [pence, reduce]);
+
+  const text = gbp(shown);
+  // Keyed on the target, so the bump replays each time the price moves.
+  return (
+    <span key={pence} className={`price-bump ${className ?? ""}`}>
+      {trim ? text.replace(".00", "") : text}
+    </span>
   );
 }
 
