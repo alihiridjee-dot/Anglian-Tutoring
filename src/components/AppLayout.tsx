@@ -18,7 +18,14 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import { useEffect, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type MouseEvent,
+  type ReactNode,
+} from "react";
 import { useRoles } from "@/hooks/useRole";
 import { useSignOut } from "@/hooks/useSignOut";
 import { useViewer } from "@/hooks/useViewer";
@@ -61,6 +68,26 @@ const demoStudentNav = [
 const demoParentNav = [
   { to: "/demo/parent/dashboard", label: "Parent Portal", icon: LayoutDashboard },
 ] as const;
+
+/**
+ * Each page's colour in the sidebar, keyed by the last part of its route so the
+ * showcase's `/demo/*` entries share it. Anything unlisted is slate.
+ */
+const NAV_TINT: Record<string, string> = {
+  dashboard: "tint-primary",
+  tutor: "tint-primary",
+  "parent-dashboard": "tint-primary",
+  planner: "tint-amber",
+  curriculum: "tint-emerald",
+  homework: "tint-rose",
+  live: "tint-chem",
+  mcqs: "tint-accent",
+  messages: "tint-phys",
+  billing: "tint-emerald",
+};
+/** Where the sidebar's pill last stood, so the next page's pill slides from there. */
+let lastPill: { y: number; tint: string } | null = null;
+const navTint = (to: string) => NAV_TINT[to.split("/").pop() ?? ""] ?? "tint-slate";
 
 export function AppLayout({ title, children }: { title: string; children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -134,6 +161,47 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
       : demoStudentNav
     : buildAuthedNav({ isTutor, role: userRole });
 
+  // The sidebar's two moving layers (`.side-pill`, `.side-wash` in styles.css).
+  // The pill is one element that slides to the page you are on, so its spot is
+  // measured from that row; the wash follows the mouse the same way.
+  const railRef = useRef<HTMLElement>(null);
+  const pillRef = useRef<HTMLSpanElement>(null);
+  const washRef = useRef<HTMLSpanElement>(null);
+  const activeNav = nav.find(({ to }) => pathname === to || pathname.startsWith(to + "/"));
+  useLayoutEffect(() => {
+    const pill = pillRef.current;
+    const row = railRef.current?.querySelector<HTMLElement>('.side-row[data-active="true"]');
+    if (!pill || !row) return;
+    const y = row.offsetTop;
+    if (!pill.dataset.ready) {
+      // Every route draws its own AppLayout, so this is a new pill. Start it
+      // where the last page's pill stood, in that page's colour, and commit
+      // that before the slide is switched on: it then glides across pages.
+      pill.style.transform = `translateY(${lastPill?.y ?? y}px)`;
+      if (lastPill) pill.style.setProperty("--tint", lastPill.tint);
+      pill.dataset.ready = "true";
+      void pill.offsetWidth;
+      pill.dataset.slide = "true";
+    }
+    pill.style.transform = `translateY(${y}px)`;
+    pill.style.removeProperty("--tint");
+    lastPill = { y, tint: getComputedStyle(row).getPropertyValue("--tint") };
+  }, [pathname, nav.length]);
+  const onRailOver = (e: MouseEvent<HTMLElement>) => {
+    const wash = washRef.current;
+    if (!wash) return;
+    const row = (e.target as HTMLElement).closest<HTMLElement>(".side-row");
+    if (!row) {
+      // The gaps between rows are the rail itself: keep the wash where it is
+      // rather than blink. Anything else (the logo, Sign out) puts it away.
+      if (e.target !== e.currentTarget) delete wash.dataset.on;
+      return;
+    }
+    wash.style.transform = `translateY(${row.offsetTop}px)`;
+    wash.style.setProperty("--tint", getComputedStyle(row).getPropertyValue("--tint"));
+    wash.dataset.on = "true";
+  };
+
   // The showcase has no account, so its avatar comes from the fixture persona
   // rather than a signed-in profile.
   const initials = isDemo
@@ -189,10 +257,26 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             so the drawer widens and pads by the left inset itself. */}
         <aside
           id="app-sidebar"
-          className={`group/sidebar scroll-none fixed inset-y-0 left-0 z-50 flex w-[calc(15rem+env(safe-area-inset-left))] flex-col gap-1 overflow-y-auto overflow-x-hidden overscroll-contain border-r border-sidebar-border bg-sidebar py-5 pr-3 pl-[calc(0.75rem+env(safe-area-inset-left))] pb-[calc(1.25rem+env(safe-area-inset-bottom))] transition-[width,box-shadow,transform,visibility] duration-200 ease-out motion-reduce:transition-none rail:absolute rail:w-20 rail:translate-x-0 rail:pl-3 rail:pb-5 rail:hover:w-60 rail:hover:shadow-2xl ${
+          ref={railRef}
+          onMouseOver={onRailOver}
+          onMouseLeave={() => delete washRef.current?.dataset.on}
+          className={`group/sidebar scroll-none fixed inset-y-0 left-0 z-50 flex w-[calc(15rem+env(safe-area-inset-left))] flex-col gap-1 overflow-y-auto overflow-x-hidden overscroll-contain bg-sidebar shadow-[8px_0_28px_-18px_var(--primary-deep)] py-5 pr-3 pl-[calc(0.75rem+env(safe-area-inset-left))] pb-[calc(1.25rem+env(safe-area-inset-bottom))] transition-[width,box-shadow,transform,visibility] duration-200 ease-out motion-reduce:transition-none rail:absolute rail:w-20 rail:translate-x-0 rail:pl-3 rail:pb-5 rail:hover:w-60 rail:hover:shadow-2xl ${
             navOpen ? "translate-x-0 shadow-2xl" : "drawer:invisible drawer:-translate-x-full"
           }`}
         >
+          <span
+            ref={washRef}
+            aria-hidden
+            className="side-wash right-3 left-[calc(0.75rem+env(safe-area-inset-left))] rail:left-3"
+          />
+          <span
+            ref={pillRef}
+            aria-hidden
+            data-on={activeNav ? "true" : undefined}
+            className={`side-pill right-3 left-[calc(0.75rem+env(safe-area-inset-left))] rail:left-3 ${
+              activeNav ? navTint(activeNav.to) : ""
+            }`}
+          />
           <div className="mb-6 flex items-center justify-between gap-2">
             {/* Signed in, the logo is the way home: this role's dashboard, the
                 sidebar's first entry. The showcase keeps it as the way out. */}
@@ -235,13 +319,11 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 key={to}
                 data-guide={to.split("/").pop()}
                 to={to}
-                title={badge > 0 ? `${label} (${badge} unread)` : label}
+                aria-label={badge > 0 ? `${label} (${badge} unread)` : undefined}
                 data-active={active ? "true" : undefined}
-                className={`relative flex min-h-11 items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition ${
-                  active ? "btn-solid" : "btn-ghost"
-                }`}
+                className={`side-row ${navTint(to)} flex min-h-11 items-center gap-3 rounded-xl px-3 py-2.5 text-sm`}
               >
-                <span className="tab-pop relative shrink-0">
+                <span className="side-ic tab-pop shrink-0">
                   <Icon className="size-5" aria-hidden />
                   {badge > 0 && (
                     <span className="bg-destructive text-destructive-foreground absolute -top-1.5 -right-1.5 flex h-4 min-w-4 items-center justify-center rounded-full border-[1.5px] border-white px-1 text-[10px] font-extrabold">
@@ -260,7 +342,6 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 Exit Sandbox does, and never touches auth. */}
             <button
               onClick={isDemo ? handleExitDemo : signOut}
-              title={isDemo ? "Exit demo" : "Sign out"}
               className="w-full flex min-h-11 items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-sidebar-foreground/70 hover:text-destructive hover:bg-destructive/10"
             >
               <LogOut className="w-5 h-5 shrink-0" />

@@ -1739,6 +1739,125 @@ button.trail-step:active .trail-dot {
   animation: tab-pop 0.4s cubic-bezier(0.34, 1.5, 0.64, 1);
 }
 
+/* ── The sidebar's rows ──────────────────────────────────────────────────────
+   Every row is grey until it is touched. Each page has its own `tint-*`, and
+   the page you are on shows it twice: the icon sits in a solid dot, and one
+   soft pill (`.side-pill`, a single element shared by the whole rail) slides
+   to the row with a bounce. A second layer, `.side-wash`, follows the mouse,
+   so there is never a second outlined pill. AppLayout places both layers. */
+.side-row {
+  position: relative;
+  z-index: 1;
+  color: var(--muted-foreground);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+.side-row:hover,
+.side-row[data-active="true"] {
+  color: var(--foreground);
+}
+.side-row[data-active="true"] {
+  font-weight: 800;
+}
+.side-ic {
+  position: relative;
+}
+.side-ic::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 9999px;
+  /* Mixed toward navy like `.btn-solid`, so amber can still carry a white icon. */
+  background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+  box-shadow: 0 2.5px 0 0 color-mix(in oklab, var(--tint) 40%, var(--primary-deep));
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.side-ic svg {
+  position: relative;
+  transition:
+    color 0.2s ease,
+    scale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.side-row:hover .side-ic svg {
+  color: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+}
+.side-row[data-active="true"] .side-ic::before {
+  transform: scale(1);
+}
+.side-row[data-active="true"] .side-ic svg {
+  color: var(--primary-foreground);
+  scale: 0.85;
+}
+@keyframes side-wiggle {
+  30% {
+    rotate: -14deg;
+  }
+  65% {
+    rotate: 10deg;
+  }
+}
+@keyframes side-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+@media (hover: hover) {
+  .side-row:hover .side-ic svg {
+    animation: side-wiggle 0.5s ease-in-out;
+  }
+  .side-row:hover .side-ic svg.lucide-compass {
+    animation: side-spin 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+.side-pill,
+.side-wash {
+  position: absolute;
+  top: 0;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  pointer-events: none;
+  opacity: 0;
+}
+.side-pill {
+  background: color-mix(in oklab, var(--tint) 15%, var(--card));
+}
+/* Hidden until AppLayout has placed it (`data-ready`), and still until its
+   starting spot is committed (`data-slide`), so it never slides down from the
+   top of the rail. */
+.side-pill[data-slide] {
+  transition:
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.35s ease;
+}
+.side-pill[data-ready][data-on] {
+  opacity: 1;
+}
+.side-wash {
+  background: color-mix(in oklab, var(--tint) 9%, var(--sidebar));
+  transition:
+    transform 0.22s ease-out,
+    opacity 0.18s ease,
+    background-color 0.25s ease;
+}
+@media (hover: hover) {
+  .side-wash[data-on] {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .side-ic::before,
+  .side-ic svg,
+  .side-pill[data-slide],
+  .side-wash {
+    transition: none;
+  }
+  .side-row:hover .side-ic svg,
+  .side-row:hover .side-ic svg.lucide-compass {
+    animation: none;
+  }
+}
+
 @keyframes cheer {
   0%,
   100% {
