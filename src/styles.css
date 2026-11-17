@@ -1688,6 +1688,78 @@ button.trail-step:active .trail-dot {
     cheer 0.7s ease-in-out var(--cheer-delay, 2s);
 }
 
+/* ── The sign-in page, playful minimalism ────────────────────────────────────
+   Few surfaces: the headline and points sit on the page, the form is the one
+   card. The owl peeks over the card's top edge from behind it (the card is
+   z-index 1), and Log in / Sign up is one soft pill that slides with a bounce,
+   as in the sidebar. */
+.auth-perch {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  line-height: 0;
+  right: 2.25rem;
+  top: -5.4rem;
+}
+.auth-dot {
+  border-radius: 9999px;
+}
+@media (hover: hover) {
+  .auth-point:hover .auth-dot svg {
+    animation: side-wiggle 0.5s ease-in-out;
+  }
+}
+.auth-switch {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.auth-switch-pill {
+  position: absolute;
+  inset: 0 50% 0 0;
+  border-radius: 0.875rem;
+  background: color-mix(in oklab, var(--tint) 14%, var(--card));
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.auth-switch[data-right] .auth-switch-pill {
+  transform: translateX(100%);
+}
+.auth-switch-btn {
+  position: relative;
+  color: var(--muted-foreground);
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+.auth-switch-btn:hover {
+  color: var(--foreground);
+}
+.auth-switch-btn[aria-pressed="true"] {
+  color: color-mix(in oklab, var(--tint) 75%, var(--primary-deep));
+  font-weight: 800;
+}
+/* Google and Microsoft: two white buttons side by side, logo and name, and
+   the logo hops when the pointer reaches it. The logos
+   themselves are never recoloured or stretched (the providers' rules). */
+.auth-sso.btn-soft {
+  background: var(--card);
+  color: var(--foreground);
+  font-weight: 700;
+}
+@media (hover: hover) {
+  .auth-sso:hover:not(:disabled) .auth-sso-logo {
+    animation: hop 0.55s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .auth-switch-pill {
+    transition: none;
+  }
+  .auth-point:hover .auth-dot svg,
+  .auth-sso:hover .auth-sso-logo {
+    animation: none;
+  }
+}
+
 /* The monogram tile's squash-and-stretch on hover of the wordmark. Silent until
    someone reaches for it, which is what keeps it chic rather than busy. */
 @keyframes hop {
