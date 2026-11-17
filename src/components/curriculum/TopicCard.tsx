@@ -9,8 +9,10 @@ import {
   CoverageBox,
   TopicCoverage,
   TopicCoverageLoading,
+  WhenWord,
 } from "@/components/curriculum/ScheduleBadges";
 import { type CourseSchedule } from "@/lib/planner/pointSchedule";
+import { currentWeekKey } from "@/lib/planner/week";
 import { Plus, Trash2, ChevronRight } from "lucide-react";
 import { inputCls } from "@/components/curriculum/styles";
 import { EmptyState, SciText, Spinner } from "@/components/Shared";
@@ -140,7 +142,8 @@ export function TopicCard({
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {points.map((p) => {
-                const covered = schedule?.byPoint.get(p.id)?.kind === "covered";
+                const when = schedule?.byPoint.get(p.id);
+                const covered = when?.kind === "covered";
                 return (
                   <button
                     key={p.id}
@@ -160,7 +163,14 @@ export function TopicCard({
                         </p>
                       )}
                     </div>
-                    {schedule && <CoverageBox covered={covered} />}
+                    {/* The week it was due over its tick, by the calendar
+                        tile's rule, so a row says when without being opened. */}
+                    {schedule && (
+                      <span className="ml-auto flex shrink-0 flex-col items-end gap-1.5">
+                        {when && <WhenWord when={when} now={currentWeekKey()} />}
+                        <CoverageBox covered={covered} />
+                      </span>
+                    )}
                   </button>
                 );
               })}

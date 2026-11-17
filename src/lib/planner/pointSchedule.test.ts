@@ -41,7 +41,7 @@ describe("courseSchedule", () => {
     expect(byPoint.get("d")).toEqual({ kind: "missed", week: "2026-08-03" });
   });
 
-  test("a missed point returning in catch-up shows the catch-up week", () => {
+  test("a missed point returning in catch-up shows the catch-up week and the week it was due", () => {
     const { byPoint } = courseSchedule(
       {
         ...base,
@@ -65,6 +65,10 @@ describe("courseSchedule", () => {
       },
       "2026-08-10",
     );
-    expect(byPoint.get("b")).toEqual({ kind: "catchUp", week: "2026-08-24" });
+    expect(byPoint.get("b")).toEqual({
+      kind: "catchUp",
+      week: "2026-08-24",
+      planned: "2026-07-20",
+    });
   });
 });
