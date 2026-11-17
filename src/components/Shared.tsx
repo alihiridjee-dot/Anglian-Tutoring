@@ -12,14 +12,20 @@
  * those classes a given block earns.
  */
 import { Link } from "@tanstack/react-router";
-import { Fragment, useEffect, useMemo, useRef, type ReactNode } from "react";
+import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, type ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 import { describeError } from "@/lib/platform/errors";
 import { sciRuns } from "@/lib/platform/sciNotation";
-import { isGap, textBlocks } from "@/lib/platform/textBlocks";
+import {
+  isGap,
+  isUnknown,
+  textBlocks,
+  type Reaction,
+  type ReactionArrow,
+} from "@/lib/platform/textBlocks";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { Confetti, Mascot, Sparkles, type MascotName, type Mood } from "@/components/Doodles";
 
@@ -725,6 +731,138 @@ export function DataTable({
 }
 
 /**
+ * One arrow of an equation, drawn from what was written: → or ⇌ (two
+ * half-headed arrows), stretched to the width of its labels, reagents over
+ * it and conditions under it. A catalyst is a solid chip, so it is never
+ * read as something used up. Both an across and a down arrow are drawn and
+ * the stylesheet shows the one the layout needs.
+ */
+function ReactionArrowMark({
+  arrow,
+  cell,
+}: {
+  arrow: ReactionArrow;
+  cell: (text: string) => ReactNode;
+}) {
+  const labels = (list: ReactionArrow["above"], side: string) =>
+    list.length ? (
+      <span className={`reaction-labels ${side}`}>
+        {list.map((l, i) =>
+          l.catalyst ? (
+            <span key={i} className="chip chip-solid">
+              {l.text ? <span>{cell(l.text)}</span> : null}
+              <span className="font-medium">catalyst</span>
+            </span>
+          ) : (
+            <span key={i}>{cell(l.text)}</span>
+          ),
+        )}
+      </span>
+    ) : null;
+  return (
+    <span className="reaction-arrow">
+      <span className="sr-only">{arrow.reversible ? " ⇌ " : " → "}</span>
+      {labels(arrow.above, "reaction-above")}
+      <svg className="reaction-across" height="14" aria-hidden>
+        {arrow.reversible ? (
+          <>
+            <line x1="1" y1="5" x2="100%" y2="5" />
+            <line x1="0" y1="10" x2="100%" y2="10" transform="translate(-1)" />
+            <svg x="100%" overflow="visible">
+              <path d="M-1 5 L-7 1" />
+            </svg>
+            <path d="M1 10 L7 14" />
+          </>
+        ) : (
+          <>
+            <line x1="1" y1="7" x2="100%" y2="7" transform="translate(-2)" />
+            <svg x="100%" overflow="visible">
+              <path d="M-8 2 L-2 7 L-8 12" />
+            </svg>
+          </>
+        )}
+      </svg>
+      <svg className="reaction-down" width="14" height="36" aria-hidden>
+        {arrow.reversible ? (
+          <>
+            <line x1="5" y1="1" x2="5" y2="100%" transform="translate(0 -1)" />
+            <line x1="10" y1="1" x2="10" y2="100%" />
+            <svg y="100%" overflow="visible">
+              <path d="M5 -1 L1 -7" />
+            </svg>
+            <path d="M10 1 L14 7" />
+          </>
+        ) : (
+          <>
+            <line x1="7" y1="1" x2="7" y2="100%" transform="translate(0 -2)" />
+            <svg y="100%" overflow="visible">
+              <path d="M2 -8 L7 -2 L12 -8" />
+            </svg>
+          </>
+        )}
+      </svg>
+      {labels(arrow.below, "reaction-below")}
+    </span>
+  );
+}
+
+/**
+ * An equation lifted out of its question (rules in lib/platform/textBlocks).
+ * One step is a strip: its substances in display type either side of the
+ * arrow. Several steps are a route: each compound in a box, an unknown one
+ * ("Y") dashed, the arrows between them in the order written. A route runs
+ * across when it fits on one line and down the page when it doesn't, so an
+ * arrow never points off the end of a line at a box on the next.
+ */
+function ReactionStrip({
+  reaction,
+  cell,
+}: {
+  reaction: Reaction;
+  cell: (text: string) => ReactNode;
+}) {
+  const route = reaction.arrows.length > 1;
+  const ref = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el || !route) return;
+    // Measured as a row: the class is put on by hand, so React, which never
+    // changes this element's className, leaves it be.
+    const fit = () => {
+      el.classList.remove("reaction-route-down");
+      el.classList.toggle("reaction-route-down", el.scrollWidth > el.clientWidth + 1);
+    };
+    fit();
+    const seen = new ResizeObserver(fit);
+    seen.observe(el);
+    return () => seen.disconnect();
+  }, [route, reaction]);
+  return (
+    <div ref={ref} className={route ? "reaction reaction-route" : "reaction"}>
+      {reaction.stops.map((stop, i) => (
+        <Fragment key={i}>
+          {i > 0 && <ReactionArrowMark arrow={reaction.arrows[i - 1]} cell={cell} />}
+          {route ? (
+            <span className={isUnknown(stop) ? "reaction-box reaction-unknown" : "reaction-box"}>
+              {cell(stop)}
+            </span>
+          ) : (
+            // Each substance is one piece, so a long equation wraps at a "+".
+            stop.split(/\s+\+\s+/).map((term, k) => (
+              <Fragment key={k}>
+                {k > 0 && <span aria-hidden>+</span>}
+                {k > 0 && <span className="sr-only"> + </span>}
+                <span>{cell(term)}</span>
+              </Fragment>
+            ))
+          )}
+        </Fragment>
+      ))}
+    </div>
+  );
+}
+
+/**
  * Question text as a block: its paragraphs, its lines (a key, a method's
  * steps, a list of results) and any table written as " | " rows, drawn as a
  * real table (rules in lib/platform/textBlocks). Use it wherever a question
@@ -771,6 +909,8 @@ export function SciBlock({
                 : undefined
             }
           />
+        ) : b.kind === "reaction" ? (
+          <ReactionStrip key={i} reaction={b} cell={draw} />
         ) : (
           <p key={i}>{draw(b.text)}</p>
         ),

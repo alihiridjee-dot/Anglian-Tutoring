@@ -250,3 +250,105 @@ describe("a task question in steps", () => {
     ]);
   });
 });
+
+describe("equations lifted out of a question", () => {
+  const arrow = (above: string[] = [], below: string[] = [], reversible = false) => ({
+    reversible,
+    above: above.map((text) => ({ text, catalyst: false })),
+    below: below.map((text) => ({ text, catalyst: false })),
+  });
+
+  test("an equation on its own line stands between the sentences round it", () => {
+    const q = lines(
+      "Chlorine gas is bubbled through potassium bromide solution.",
+      "Cl₂ + 2KBr → 2KCl + Br₂",
+      "Which statement describes what happens to the bromide ions?",
+    );
+    expect(textBlocks(q)).toEqual([
+      { kind: "text", text: "Chlorine gas is bubbled through potassium bromide solution." },
+      { kind: "reaction", stops: ["Cl₂ + 2KBr", "2KCl + Br₂"], arrows: [arrow()] },
+      { kind: "text", text: "Which statement describes what happens to the bromide ions?" },
+    ]);
+  });
+
+  test("the words that lead into an equation stay words", () => {
+    expect(
+      textBlocks(
+        "Hydrochloric acid reacts with calcium oxide: CaO(s) + 2HCl(aq) → CaCl₂(aq) + H₂O(l)",
+      ),
+    ).toEqual([
+      { kind: "text", text: "Hydrochloric acid reacts with calcium oxide:" },
+      { kind: "reaction", stops: ["CaO(s) + 2HCl(aq)", "CaCl₂(aq) + H₂O(l)"], arrows: [arrow()] },
+    ]);
+  });
+
+  test("a sentence that mentions an equation stays a sentence", () => {
+    for (const q of [
+      "The reaction is C₆H₅OH + 3Br₂ → C₆H₂Br₃OH + 3HBr. The yield is 80%. What mass is obtained?",
+      "The Haber process is represented by the equation N₂(g) + 3H₂(g) ⇌ 2NH₃(g)",
+      "Aluminium reacts with acid: 2Al + 6HCl → 2AlCl₃ + 3H₂. Which statement is correct?",
+    ])
+      expect(textBlocks(q)).toEqual([{ kind: "text", text: q }]);
+  });
+
+  test("word equations and reversible reactions are equations too", () => {
+    expect(textBlocks("calcium carbonate → calcium oxide + carbon dioxide")[0].kind).toBe(
+      "reaction",
+    );
+    expect(textBlocks("N₂(g) + 3H₂(g) ⇌ 2NH₃(g)")).toEqual([
+      { kind: "reaction", stops: ["N₂(g) + 3H₂(g)", "2NH₃(g)"], arrows: [arrow([], [], true)] },
+    ]);
+  });
+
+  test("a route's step lines go on its arrows, reagents over and conditions under", () => {
+    const q = lines(
+      "Propene is converted into propanone in three steps.",
+      "propene → Y → propan-2-ol → propanone",
+      "Step 1: HBr",
+      "Step 2: NaOH(aq); heat under reflux",
+      "Step 3: K₂Cr₂O₇, H₂SO₄; heat under reflux",
+      "What is the structure of compound Y?",
+    );
+    expect(textBlocks(q)).toEqual([
+      { kind: "text", text: "Propene is converted into propanone in three steps." },
+      {
+        kind: "reaction",
+        stops: ["propene", "Y", "propan-2-ol", "propanone"],
+        arrows: [
+          arrow(["HBr"]),
+          arrow(["NaOH(aq)"], ["heat under reflux"]),
+          arrow(["K₂Cr₂O₇", "H₂SO₄"], ["heat under reflux"]),
+        ],
+      },
+      { kind: "text", text: "What is the structure of compound Y?" },
+    ]);
+    // On a task sheet each line is its own paragraph, but the steps stay with their route.
+    expect(textBlocks(spacedLines(q))).toEqual(textBlocks(q));
+  });
+
+  test("a catalyst is marked, by the word itself", () => {
+    const [b] = textBlocks("C₂H₄ + H₂ → C₂H₆\nConditions: Ni catalyst, 150 °C");
+    expect(b).toEqual({
+      kind: "reaction",
+      stops: ["C₂H₄ + H₂", "C₂H₆"],
+      arrows: [
+        {
+          reversible: false,
+          above: [
+            { text: "Ni", catalyst: true },
+            { text: "150 °C", catalyst: false },
+          ],
+          below: [],
+        },
+      ],
+    });
+  });
+
+  test("a method's steps under an equation are not its arrows", () => {
+    const q = "2Mg + O₂ → 2MgO\nStep 1: Weigh the crucible and lid.\nStep 3: Heat strongly";
+    expect(textBlocks(q)).toEqual([
+      { kind: "reaction", stops: ["2Mg + O₂", "2MgO"], arrows: [arrow()] },
+      { kind: "text", text: "Step 1: Weigh the crucible and lid.\nStep 3: Heat strongly" },
+    ]);
+  });
+});
