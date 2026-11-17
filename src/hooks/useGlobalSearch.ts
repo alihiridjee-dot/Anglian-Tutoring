@@ -105,9 +105,12 @@ export function useGlobalSearch(
 
   // Keyed by the intent, not the query: typing on past "find my mcq" doesn't
   // re-read the week for every letter.
+  // Practice is the one answer that is about the topic typed, so it alone
+  // follows the words.
+  const helpTopic = intent === "practice" ? contentQuery : "";
   const help = useQuery({
-    queryKey: ["global-search-help", intent, scopeKey],
-    queryFn: () => helpSection(intent!, ctx),
+    queryKey: ["global-search-help", intent, helpTopic, scopeKey],
+    queryFn: () => helpSection(intent!, ctx, helpTopic ? terms : []),
     enabled: !!intent,
     staleTime: 60_000,
   });

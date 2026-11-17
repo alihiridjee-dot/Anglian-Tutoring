@@ -657,6 +657,8 @@ function searchDemo(ctx: SearchContext, terms: string[]): SearchHit[] {
 export interface SearchSection {
   group: SearchGroup;
   label: string;
+  /** A science answer written from one of our notes, shown above the hits. */
+  answer?: string;
   hits: SearchHit[];
   /** How many matched before the per-group cap, for a "+N more" note. */
   total: number;
