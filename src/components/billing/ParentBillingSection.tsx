@@ -28,6 +28,8 @@ import { AddSubjectTiles } from "@/components/billing/AddSubjectCard";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
 import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
 import { TakeABreakCard } from "@/components/billing/TakeABreakCard";
+import { TakeOverCard } from "@/components/billing/TakeOverCard";
+import { planCadence, tierFor } from "@/lib/billing/entitlements";
 import { resolveDisplayName } from "@/lib/profile/displayName";
 import { summariseCourse } from "@/lib/curriculum/courseSummary";
 import { type LevelV } from "@/lib/curriculum/taxonomy";
@@ -57,6 +59,7 @@ function ChildPlan({
   level,
   isPayer,
   hadPlan,
+  awaitingPayment,
 }: {
   studentId: string;
   /** Their live/paused subscription, or null when they have no plan. */
@@ -67,6 +70,8 @@ function ChildPlan({
   packages: PackageRow[];
   level: string | null | undefined;
   isPayer: boolean;
+  /** Just back from Checkout: a take-over may not show yet. */
+  awaitingPayment: boolean;
 }) {
   // The Portal's own read. This page had its own under the same cache key that
   // fetched only subject and board, so a parent who came from here found the
@@ -80,9 +85,30 @@ function ChildPlan({
   const changeable = !!sub?.plan && isPlanChangeable(sub);
   const planName = sub ? planLabel(sub.plan, packages) : "";
   const course = summariseCourse(level as LevelV | null, enrolments);
+  // The child pays for this plan on their own account: offer to move it onto
+  // the parent's card. Paused or overdue plans have their own fixes first.
+  const takeOverTier =
+    sub &&
+    sub.user_id === studentId &&
+    !!sub.stripe_subscription_id &&
+    isSubscriptionLive(sub.status) &&
+    !awaitingPayment &&
+    // Priced on the subject count, so not before the subjects have loaded.
+    enrolments.length > 0
+      ? tierFor(planCadence(sub.plan) ?? "monthly", enrolments.length)
+      : null;
 
   return (
     <>
+      {sub && takeOverTier && (
+        <TakeOverCard
+          sub={sub}
+          childName={childName}
+          tier={takeOverTier}
+          priceLabel={priceLabelFor(packages, takeOverTier)}
+        />
+      )}
+
       {/* Subjects first — what a parent comes here to change — then the plan,
           folded away, then pause or cancel. */}
       {changeable && sub?.plan && (
@@ -328,6 +354,7 @@ export function ParentBillingSection({
                       level={levels[child.student_id]}
                       isPayer={sub?.user_id === parentId}
                       hadPlan={!!sub}
+                      awaitingPayment={awaitingPayment}
                     />
                   )}
                 </div>

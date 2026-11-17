@@ -56,6 +56,12 @@ import {
   expireOpenCheckouts,
 } from "./customers.ts";
 import { checkTrialCode, claimTrialCode, trialTerms } from "./trialCodes.ts";
+import {
+  TAKE_OVER_CHECKOUT_SECONDS,
+  assertTakeOverStarted,
+  takeOverNote,
+  takeOverTarget,
+} from "./takeOver.ts";
 
 /** Where Stripe sends the browser back to. Whitelisted — never client URLs. */
 const RETURN_PATHS: Record<BillingReturnTo, string> = {
@@ -300,12 +306,19 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
       .maybeSingle();
     if (!link) throw new HttpError(403, "You aren't linked to that student.");
   }
+  // Moving a plan onto your own card is for a parent, never the student.
+  if (payload.take_over === true && beneficiary === user.id) {
+    throw new HttpError(403, "Only a linked parent can move this plan to their card.");
+  }
 
   // Expire any other open Checkout for this student first, then check for a
   // live plan. In that order, a session paid just before it could be expired
-  // has already created its subscription, and the check below sees it.
+  // has already created its subscription, and the check below sees it. A
+  // take-over is allowed past exactly one live plan: the one it replaces.
   await expireOpenCheckouts(stripe, beneficiary);
-  await assertNoLiveSubscription(stripe, db, beneficiary);
+  const replacing =
+    payload.take_over === true ? await takeOverTarget(stripe, db, beneficiary) : null;
+  await assertNoLiveSubscription(stripe, db, beneficiary, replacing?.subscriptionId);
 
   // The subject COUNT is what's priced, so it must come from what the student is
   // actually enrolled in — never from the tier the client sent. Otherwise a
@@ -335,9 +348,11 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
     throw new Error(`The "${pkg.name}" plan has no Stripe price. Run scripts/stripe-seed.ts.`);
   }
 
-  const trial = payload.trial_code
-    ? await checkTrialCode(stripe, db, payload.trial_code, user.id, beneficiary)
-    : null;
+  // A take-over is no trial: the student already had the plan.
+  const trial =
+    payload.trial_code && !replacing
+      ? await checkTrialCode(stripe, db, payload.trial_code, user.id, beneficiary)
+      : null;
 
   // The code says how long and whether a card is taken (trialCodes.ts).
   const noCard = !!trial && !trial.needsCard;
@@ -353,8 +368,16 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
     // The webhook reads these back to decide who to grant access to. They are
     // set here, server-side, from values already verified above.
     subscription_data: {
-      metadata: { student_id: beneficiary, payer_id: user.id, tier: pkg.tier },
+      metadata: {
+        student_id: beneficiary,
+        payer_id: user.id,
+        tier: pkg.tier,
+        // The webhook moves the student onto this plan and ends the old one.
+        ...(replacing ? { replaces: replacing.subscriptionId } : {}),
+      },
       ...(trial ? { trial_period_days: trial.days } : {}),
+      // Billing starts the day the plan it replaces runs out (takeOver.ts).
+      ...(replacing ? { trial_end: replacing.startsAt } : {}),
       // A trial started without a card just ends when the trial does. Stripe's default
       // would bill a card that isn't there and leave the plan past due.
       ...(noCard
@@ -366,8 +389,18 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
       payer_id: user.id,
       tier: pkg.tier,
       ...(trial ? { trial_code: trial.code } : {}),
+      ...(replacing ? { replaces: replacing.subscriptionId } : {}),
     },
-    allow_promotion_codes: true,
+    // A coupon is for a new family, not a plan changing hands.
+    allow_promotion_codes: !replacing,
+    // Stripe shows a take-over as "days free"; say what they really are. The
+    // short expiry keeps the start date right when the session is paid.
+    ...(replacing
+      ? {
+          custom_text: { submit: { message: takeOverNote(replacing.startsAt) } },
+          expires_at: Math.floor(Date.now() / 1000) + TAKE_OVER_CHECKOUT_SECONDS,
+        }
+      : {}),
     // A trial normally takes the card up front, so it rolls into the plan when
     // the trial ends unless cancelled; a no-card code (or any code until
     // NO_CARD_TRIALS_UNTIL) takes none. The short expiry frees an abandoned
@@ -504,6 +537,9 @@ async function handleManage(req: Request, payload: ManagePayload) {
     .maybeSingle();
   if (!row?.stripe_subscription_id) throw new HttpError(404, "No subscription found.");
   await assertCanManage(user.id, payload.student_id, row.user_id);
+  // A parent's take-over opened before this change was priced and dated
+  // from the plan as it was. Close it: they reopen it on the plan as it is.
+  await expireOpenCheckouts(stripe, payload.student_id);
 
   const id = row.stripe_subscription_id;
   let sub: Stripe.Subscription;
@@ -581,6 +617,9 @@ async function handleAddSubjects(req: Request, payload: AddSubjectsPayload) {
     .eq("student_id", payload.student_id)
     .maybeSingle();
   await assertCanUpgrade(user.id, payload.student_id, row?.user_id);
+  // A parent's take-over opened before this change was priced and dated
+  // from the plan as it was. Close it: they reopen it on the plan as it is.
+  await expireOpenCheckouts(stripe, payload.student_id);
   if (!row?.stripe_subscription_id) throw new HttpError(404, "No active plan to add to.");
   const live = row.status === "active" || row.status === "trialing";
   if (!live || row.cancel_at_period_end) {
@@ -622,6 +661,7 @@ async function handleAddSubjects(req: Request, payload: AddSubjectsPayload) {
     // prorated difference now. metadata.tier is updated so the webhook (which reads
     // it) writes the same plan we mirror below.
     const stripeSub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
+    assertTakeOverStarted(stripeSub, "add subjects");
     const itemId = stripeSub.items.data[0]?.id;
     if (!itemId) throw new HttpError(500, "Couldn't find the subscription item to upgrade.");
 
@@ -686,6 +726,9 @@ async function handleRemoveSubjects(req: Request, payload: RemoveSubjectsPayload
   // Stricter than adding: shrinking the plan takes away access, so it belongs to
   // whoever controls the money, not to anyone who can grow it.
   await assertCanManage(user.id, payload.student_id, row.user_id);
+  // A parent's take-over opened before this change was priced and dated
+  // from the plan as it was. Close it: they reopen it on the plan as it is.
+  await expireOpenCheckouts(stripe, payload.student_id);
 
   const live = row.status === "active" || row.status === "trialing";
   if (!live || row.cancel_at_period_end) {
@@ -837,6 +880,11 @@ async function handleChangeCadence(req: Request, payload: ChangeCadencePayload) 
   if (!row?.stripe_subscription_id) throw new HttpError(404, "No active plan to change.");
 
   await assertCanManage(user.id, payload.student_id, row.user_id);
+  if (!payload.preview) {
+    // A parent's take-over opened before this change was priced and dated
+    // from the plan as it was. Close it: they reopen it on the plan as it is.
+    await expireOpenCheckouts(stripe, payload.student_id);
+  }
 
   const live = row.status === "active" || row.status === "trialing";
   if (!live || row.cancel_at_period_end) {
@@ -862,6 +910,7 @@ async function handleChangeCadence(req: Request, payload: ChangeCadencePayload) 
     if (!pkg?.stripe_price_id) throw new Error(`The ${newTier} plan has no Stripe price.`);
 
     const stripeSub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
+    assertTakeOverStarted(stripeSub, "switch how often you pay");
     const itemId = stripeSub.items.data[0]?.id;
     if (!itemId) throw new HttpError(500, "Couldn't find the subscription item to change.");
 

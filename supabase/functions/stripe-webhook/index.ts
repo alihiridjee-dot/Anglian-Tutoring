@@ -64,8 +64,15 @@ function subscriptionRow(sub: Stripe.Subscription) {
     stripe_customer_id: typeof sub.customer === "string" ? sub.customer : sub.customer.id,
     stripe_subscription_id: sub.id,
     // Stripe leaves pause_collection set on a subscription it cancels, so a
-    // paused plan that ends would otherwise read as "paused" for ever.
-    status: sub.status !== "canceled" && sub.pause_collection ? "paused" : sub.status,
+    // paused plan that ends would otherwise read as "paused" for ever. A
+    // take-over's trial is the time the student's plan already covers, not a
+    // free trial, so it reads as active.
+    status:
+      sub.status !== "canceled" && sub.pause_collection
+        ? "paused"
+        : sub.status === "trialing" && sub.metadata?.replaces
+          ? "active"
+          : sub.status,
     cancel_at_period_end: sub.cancel_at_period_end ?? false,
     plan: sub.metadata?.tier ?? null,
     current_period_end: periodEnd(sub),
@@ -116,6 +123,69 @@ async function refundDuplicate(sub: Stripe.Subscription, keptId: string) {
   );
 }
 
+const isEnded = (status: string) => status === "canceled" || status === "incomplete_expired";
+
+/** A subscription's period end in seconds (see periodEnd). */
+function periodEndSeconds(sub: Stripe.Subscription): number | null {
+  return (
+    sub.current_period_end ??
+    (sub.items?.data?.[0] as { current_period_end?: number } | undefined)?.current_period_end ??
+    null
+  );
+}
+
+/**
+ * Cancel the student's own plan, now, once a parent's take-over
+ * (stripe-checkout/takeOver.ts) has replaced it. Now rather than at its
+ * period end: the take-over takes nothing until that day, so the student
+ * keeps every day already paid for, and a cancelled plan can't be un-cancelled
+ * in Stripe's portal or renew. No refund and no proration: those days are
+ * still used. Safe to repeat, and two deliveries may both get here.
+ *
+ * If the student's plan was paid up further than the take-over expected (it
+ * renewed, or moved to a longer cadence, before this landed), the take-over's
+ * start moves back to match first, so the parent doesn't pay for those days
+ * as well. A take-over already billing by then can't be moved: that is logged
+ * for a person to refund, never refunded here.
+ */
+async function endReplacedPlan(
+  replacedId: string,
+  studentId: string,
+  takeOver: Stripe.Subscription,
+) {
+  const old = await stripe.subscriptions.retrieve(replacedId).catch((err: unknown) => {
+    if (isMissing(err)) return null;
+    throw err;
+  });
+  if (!old || old.metadata?.student_id !== studentId || isEnded(old.status)) return;
+
+  const paidUntil = periodEndSeconds(old);
+  const startsAt = takeOver.trial_end ?? periodEndSeconds(takeOver);
+  if (paidUntil && startsAt && paidUntil > startsAt) {
+    if (takeOver.status === "trialing") {
+      await stripe.subscriptions.update(takeOver.id, {
+        trial_end: paidUntil,
+        proration_behavior: "none",
+      });
+      console.log(`stripe-webhook: ${takeOver.id} now starts when ${replacedId} was paid up to`);
+    } else {
+      console.error(
+        `stripe-webhook: NEEDS A PERSON: ${replacedId} was paid up to ${new Date(paidUntil * 1000).toISOString()}, ` +
+          `after take-over ${takeOver.id} began billing; the family paid twice for those days`,
+      );
+    }
+  }
+
+  try {
+    await stripe.subscriptions.cancel(replacedId, { invoice_now: false, prorate: false });
+  } catch (err) {
+    const again = await stripe.subscriptions.retrieve(replacedId).catch(() => null);
+    if (again && isEnded(again.status)) return; // the other delivery won
+    throw err;
+  }
+  console.log(`stripe-webhook: ${replacedId} cancelled; ${studentId} was taken over`);
+}
+
 /**
  * Write a subscription's state to public.subscriptions.
  *
@@ -160,20 +230,49 @@ async function upsertSubscription(subscriptionId: string, snapshot?: Stripe.Subs
         if (isMissing(err)) return null;
         throw err;
       });
+    // The student's own plan, which a parent's take-over has replaced: it is
+    // ended (if it isn't yet), and the row stays on the parent's.
+    if (kept && kept.metadata?.replaces === sub.id && KEEPABLE_STATUSES.has(kept.status)) {
+      await endReplacedPlan(sub.id, row.student_id, kept);
+      console.log(`stripe-webhook: ${sub.id} was taken over by ${kept.id}; row left as it is`);
+      return;
+    }
+    // A parent's take-over of the plan the row holds replaces it: no duplicate.
+    const takingOver = sub.metadata?.replaces === tracked.stripe_subscription_id;
     // A late or resent event for the plan the tracked one replaced: it had
     // ended before the tracked one began, so it is no duplicate. Its last
     // invoice was a real payment, and the row already follows the newer plan.
-    if (kept && sub.ended_at && sub.ended_at < kept.created) {
+    if (!takingOver && kept && sub.ended_at && sub.ended_at < kept.created) {
       console.log(`stripe-webhook: ${sub.id} ended before ${kept.id} began; row left as it is`);
       return;
     }
-    if (kept && KEEPABLE_STATUSES.has(kept.status)) {
+    if (!takingOver && kept && KEEPABLE_STATUSES.has(kept.status)) {
       await refundDuplicate(sub, kept.id);
       return;
     }
   }
 
-  const { error } = await db.from("subscriptions").upsert(row, { onConflict: "student_id" });
+  // Written only over the row read above. Two deliveries can run at once, and
+  // one that read the row before the other moved it (a take-over landing in
+  // the same instant) would put back the plan it replaced. The loser answers
+  // 500; Stripe retries it, and the retry reads the row as it now is.
+  let error: { code?: string; message: string } | null;
+  if (!tracked) {
+    ({ error } = await db.from("subscriptions").insert(row));
+    if (error?.code === "23505") {
+      throw new Error(`a row for ${row.student_id} was written meanwhile; Stripe will retry`);
+    }
+  } else {
+    const held = tracked.stripe_subscription_id;
+    const same = db.from("subscriptions").update(row).eq("student_id", row.student_id);
+    const { data: written, error: updateError } = await (
+      held ? same.eq("stripe_subscription_id", held) : same.is("stripe_subscription_id", null)
+    ).select("student_id");
+    error = updateError;
+    if (!error && (written ?? []).length === 0) {
+      throw new Error(`the row for ${row.student_id} moved meanwhile; Stripe will retry`);
+    }
+  }
   // 23503: the student's profile is gone. The account was deleted and this is
   // Stripe reporting the cancellation that went with it — there is no row left
   // to update, and failing would only make Stripe retry it for days.
@@ -181,9 +280,17 @@ async function upsertSubscription(subscriptionId: string, snapshot?: Stripe.Subs
     console.log(`stripe-webhook: ${sub.id} → student ${row.student_id} no longer exists`);
     return;
   }
-  if (error) throw new Error(`subscriptions upsert failed: ${error.message}`);
+  if (error) throw new Error(`subscriptions write failed: ${error.message}`);
 
   console.log(`stripe-webhook: ${sub.id} → student ${row.student_id} is ${row.status}`);
+
+  // Only after the row follows the take-over: the old plan's own events then
+  // find the new one tracked, and leave the row alone. A failure here answers
+  // 500, so Stripe retries until the old plan is cancelled.
+  const replaced = sub.metadata?.replaces;
+  if (replaced && KEEPABLE_STATUSES.has(sub.status)) {
+    await endReplacedPlan(replaced, row.student_id, sub);
+  }
 }
 
 Deno.serve(async (req) => {
