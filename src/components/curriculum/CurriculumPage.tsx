@@ -259,8 +259,9 @@ export function Curriculum() {
     return (
       <AppLayout title="Curriculum Point">
         {/* The whole point carries its subject's tint: the trail's stops, the
-            panel under them and every button in it. */}
-        <div className={`max-w-4xl mx-auto ${subjectTint(subject)}`}>
+            panel under them and every button in it. It sits on the left, in
+            line with the page title, however wide the screen. */}
+        <div className={`max-w-4xl ${subjectTint(subject)}`}>
           <button
             data-guide="curriculum-back"
             onClick={closeSpecPoint}
@@ -270,8 +271,8 @@ export function Curriculum() {
           </button>
 
           {/* The title sits on the page, not in a card: the course and code as
-              one plain line, the title large, and the week it's planned for as
-              a sticker beside it. */}
+              one plain line, the title large, and the week it was due as a
+              calendar page beside it. */}
           <div className="mt-5 flex flex-wrap items-start justify-between gap-x-6 gap-y-4">
             <div className="min-w-0 flex-1 basis-72">
               <p className="text-sm font-bold text-[color:color-mix(in_oklab,var(--tint)_75%,var(--primary-deep))]">
@@ -289,6 +290,11 @@ export function Curriculum() {
               >
                 <path d="M2 8 Q 18 1 34 7 T 66 6 T 98 5" vectorEffect="non-scaling-stroke" />
               </svg>
+              {selectedSpecPoint.description && (
+                <p className="mt-4 max-w-prose text-base sm:text-lg leading-relaxed whitespace-pre-wrap break-words">
+                  <SciText text={selectedSpecPoint.description} />
+                </p>
+              )}
             </div>
             {schedule?.byPoint.get(selectedSpecPoint.id) && (
               <WhenLink
@@ -298,11 +304,6 @@ export function Curriculum() {
               />
             )}
           </div>
-          {selectedSpecPoint.description && (
-            <p className="mt-4 max-w-prose text-base sm:text-lg leading-relaxed whitespace-pre-wrap break-words">
-              <SciText text={selectedSpecPoint.description} />
-            </p>
-          )}
 
           <div className="mt-8">
             <SpecPointDetail

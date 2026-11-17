@@ -4178,12 +4178,80 @@ body {
     stroke-dashoffset: 0;
   }
 }
-/* The week sticker straightens up to be pressed. */
-.point-week {
+/* When the point was due: a page torn off a calendar, the month in the
+   subject's tint, the Monday big, and under the tear how it went. Tilted like
+   the kit's stickers, and it straightens up to be pressed. */
+.point-cal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 9.5rem;
+  overflow: hidden;
+  border-radius: 1.1rem;
+  background: var(--card);
+  color: var(--foreground);
+  text-align: center;
+  border: 2px solid color-mix(in oklab, var(--tint) 55%, var(--edge));
+  box-shadow: 0 5px 0 0 color-mix(in oklab, var(--tint) 35%, transparent);
+  transform: rotate(2deg);
   transition: transform 0.2s cubic-bezier(0.3, 1.6, 0.5, 1);
 }
-a.point-week:hover {
-  transform: rotate(1deg) scale(1.05);
+a.point-cal:hover {
+  transform: rotate(0deg) scale(1.04);
+}
+/* The two binder holes the page was torn from. */
+.point-cal::before,
+.point-cal::after {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--tint) 40%, black);
+}
+.point-cal::before {
+  left: 0.75rem;
+}
+.point-cal::after {
+  right: 0.75rem;
+}
+.point-cal-page {
+  display: flex;
+  flex-direction: column;
+}
+.point-cal-month {
+  padding: 0.3rem 1.5rem;
+  background: var(--tint);
+  color: white;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 800;
+}
+.point-cal-day {
+  padding-top: 0.6rem;
+  font-size: 3.25rem;
+}
+.point-cal-sub {
+  padding: 0.2rem 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.point-cal-outcome {
+  padding: 0.5rem 0.5rem 0.6rem;
+  border-top: 2px dashed color-mix(in oklab, var(--tint) 40%, var(--edge));
+  background: color-mix(in oklab, var(--tint) 14%, var(--card));
+  color: color-mix(in oklab, var(--tint) 65%, var(--foreground));
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.point-cal-outcome[data-tone="pop"] {
+  background: var(--pop);
+  color: var(--pop-ink);
 }
 /* A phone: the same trail, smaller, and the stop's name alone under it. */
 @media (max-width: 599px) {
@@ -4201,6 +4269,36 @@ a.point-week:hover {
     font-size: 0.75rem;
     line-height: 1.25;
   }
+  /* Sideways on a phone: the calendar page, then how it went beside it. */
+  .point-cal {
+    flex-direction: row;
+    width: min(100%, 18rem);
+    transform: rotate(-1deg);
+  }
+  .point-cal-page {
+    width: 6.5rem;
+    flex-shrink: 0;
+  }
+  .point-cal::after {
+    right: auto;
+    left: 5.3rem;
+  }
+  .point-cal-day {
+    padding-top: 0.4rem;
+    font-size: 2.5rem;
+  }
+  .point-cal-sub {
+    padding-bottom: 0.45rem;
+  }
+  .point-cal-outcome {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 0;
+    border-left: 2px dashed color-mix(in oklab, var(--tint) 40%, var(--edge));
+    font-size: 1rem;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .point-panel,
@@ -4212,7 +4310,7 @@ a.point-week:hover {
     stroke-dashoffset: 0;
   }
   .point-stop-dot,
-  .point-week {
+  .point-cal {
     transition: none;
   }
   .point-stop:hover .point-stop-dot {

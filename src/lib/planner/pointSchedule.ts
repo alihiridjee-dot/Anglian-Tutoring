@@ -11,13 +11,14 @@ import { isTeachBand, withWeeklyPoints, type FocusPointRef } from "./pacing";
  *    same test the backlog uses ({@link isDelivered}), so a point never reads as
  *    covered here and missed in the planner.
  *  • `planned` — its first-teaching week, this week or later.
- *  • `catchUp` — missed, and returning in this week's catch-up allocation.
+ *  • `catchUp` — missed, and returning in a catch-up week (`week`); `planned` is
+ *    the week it was first due, so the page can say both.
  *  • `missed` — its week has passed and no catch-up week before the exams holds it.
  */
 export type PointWhen =
   | { kind: "covered"; week?: string }
   | { kind: "planned"; week: string }
-  | { kind: "catchUp"; week: string }
+  | { kind: "catchUp"; week: string; planned?: string }
   | { kind: "missed"; week: string };
 
 export interface CourseSchedule {
@@ -67,12 +68,13 @@ export function courseSchedule(data: ScheduleInput, now: string): CourseSchedule
         if (!plannedWeek.has(ref.specPointId)) plannedWeek.set(ref.specPointId, week);
   }
 
-  const catchUpWeek = new Map<string, string>();
+  const catchUpWeek = new Map<string, { week: string; planned: string }>();
   for (const [week, points] of Object.entries(data.catchUpSchedule?.weeks ?? {}).sort(([a], [b]) =>
     a.localeCompare(b),
   ))
     for (const point of points)
-      if (!catchUpWeek.has(point.specPointId)) catchUpWeek.set(point.specPointId, week);
+      if (!catchUpWeek.has(point.specPointId))
+        catchUpWeek.set(point.specPointId, { week, planned: point.plannedWeek });
 
   const byPoint = new Map<string, PointWhen>();
   const byTopic = new Map<string, { covered: number; total: number }>();
@@ -84,7 +86,12 @@ export function courseSchedule(data: ScheduleInput, now: string): CourseSchedule
       if (covered.has(point.id)) {
         done++;
         byPoint.set(point.id, { kind: "covered", week: planned });
-      } else if (returning) byPoint.set(point.id, { kind: "catchUp", week: returning });
+      } else if (returning)
+        byPoint.set(point.id, {
+          kind: "catchUp",
+          week: returning.week,
+          planned: returning.planned ?? planned,
+        });
       else if (planned && planned >= now) byPoint.set(point.id, { kind: "planned", week: planned });
       else if (planned) byPoint.set(point.id, { kind: "missed", week: planned });
     }
