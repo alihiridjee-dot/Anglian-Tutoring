@@ -81,6 +81,9 @@ function StudentPlannerGate() {
         to: "/planner",
         search: (prev) => ({ ...prev, subject: undefined }),
         replace: true,
+        // The plan has already scrolled to the linked `?week=`; a reset here
+        // threw it back to the top.
+        resetScroll: false,
       }),
   );
 

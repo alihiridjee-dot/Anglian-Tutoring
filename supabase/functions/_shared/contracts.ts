@@ -108,6 +108,15 @@ export interface InvoicesPayload {
   action: "invoices";
 }
 
+export interface TrialTermsPayload {
+  /**
+   * What a free-trial code gives, for the plan page to state before Checkout:
+   * { days, needs_card }, or the refusal Checkout would give.
+   */
+  action: "trial_terms";
+  trial_code: string;
+}
+
 export type BillingPayload =
   | CheckoutPayload
   | PortalPayload
@@ -115,7 +124,8 @@ export type BillingPayload =
   | AddSubjectsPayload
   | RemoveSubjectsPayload
   | ChangeCadencePayload
-  | InvoicesPayload;
+  | InvoicesPayload
+  | TrialTermsPayload;
 
 // ── delete-account ──────────────────────────────────────────────────────────
 

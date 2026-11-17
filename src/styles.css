@@ -4178,81 +4178,6 @@ body {
     stroke-dashoffset: 0;
   }
 }
-/* When the point was due: a page torn off a calendar, the month in the
-   subject's tint, the Monday big, and under the tear how it went. Tilted like
-   the kit's stickers, and it straightens up to be pressed. */
-.point-cal {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  width: 9.5rem;
-  overflow: hidden;
-  border-radius: 1.1rem;
-  background: var(--card);
-  color: var(--foreground);
-  text-align: center;
-  border: 2px solid color-mix(in oklab, var(--tint) 55%, var(--edge));
-  box-shadow: 0 5px 0 0 color-mix(in oklab, var(--tint) 35%, transparent);
-  transform: rotate(2deg);
-  transition: transform 0.2s cubic-bezier(0.3, 1.6, 0.5, 1);
-}
-a.point-cal:hover {
-  transform: rotate(0deg) scale(1.04);
-}
-/* The two binder holes the page was torn from. */
-.point-cal::before,
-.point-cal::after {
-  content: "";
-  position: absolute;
-  top: 0.55rem;
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 999px;
-  background: color-mix(in oklab, var(--tint) 40%, black);
-}
-.point-cal::before {
-  left: 0.75rem;
-}
-.point-cal::after {
-  right: 0.75rem;
-}
-.point-cal-page {
-  display: flex;
-  flex-direction: column;
-}
-.point-cal-month {
-  padding: 0.3rem 1.5rem;
-  background: var(--tint);
-  color: white;
-  font-family: var(--font-display);
-  font-size: 0.9375rem;
-  font-weight: 800;
-}
-.point-cal-day {
-  padding-top: 0.6rem;
-  font-size: 3.25rem;
-}
-.point-cal-sub {
-  padding: 0.2rem 0 0.65rem;
-  font-family: var(--font-display);
-  font-size: 0.875rem;
-  font-weight: 700;
-}
-.point-cal-outcome {
-  padding: 0.5rem 0.5rem 0.6rem;
-  border-top: 2px dashed color-mix(in oklab, var(--tint) 40%, var(--edge));
-  background: color-mix(in oklab, var(--tint) 14%, var(--card));
-  color: color-mix(in oklab, var(--tint) 65%, var(--foreground));
-  font-family: var(--font-display);
-  font-size: 0.875rem;
-  font-weight: 800;
-  line-height: 1.25;
-}
-.point-cal-outcome[data-tone="pop"] {
-  background: var(--pop);
-  color: var(--pop-ink);
-}
 /* A phone: the same trail, smaller, and the stop's name alone under it. */
 @media (max-width: 599px) {
   .point-trail {
@@ -4269,36 +4194,6 @@ a.point-cal:hover {
     font-size: 0.75rem;
     line-height: 1.25;
   }
-  /* Sideways on a phone: the calendar page, then how it went beside it. */
-  .point-cal {
-    flex-direction: row;
-    width: min(100%, 18rem);
-    transform: rotate(-1deg);
-  }
-  .point-cal-page {
-    width: 6.5rem;
-    flex-shrink: 0;
-  }
-  .point-cal::after {
-    right: auto;
-    left: 5.3rem;
-  }
-  .point-cal-day {
-    padding-top: 0.4rem;
-    font-size: 2.5rem;
-  }
-  .point-cal-sub {
-    padding-bottom: 0.45rem;
-  }
-  .point-cal-outcome {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: center;
-    border-top: 0;
-    border-left: 2px dashed color-mix(in oklab, var(--tint) 40%, var(--edge));
-    font-size: 1rem;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   .point-panel,
@@ -4309,11 +4204,202 @@ a.point-cal:hover {
     animation: none;
     stroke-dashoffset: 0;
   }
-  .point-stop-dot,
-  .point-cal {
+  .point-stop-dot {
     transition: none;
   }
   .point-stop:hover .point-stop-dot {
     transform: none;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   THE PRICE TRAIL — the pricing section's plans (PricingSection)
+   The point trail above, with prices: each way of paying is a stop, its price
+   per live session under it, and the picked plan opens in one card below.
+   ════════════════════════════════════════════════════════════════════════════ */
+/* Room above the stops for the Best value sticker. Margin, not padding: the
+   dotted line is placed from the trail's padding edge. */
+.price-trail {
+  margin-top: 1.25rem;
+  grid-template-rows: repeat(4, auto);
+}
+/* Dot, name, price and its words share rows across the stops, so the three
+   prices sit level even when "Monthly Saver" wraps on a phone. */
+.price-trail .point-stop {
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+  justify-items: center;
+  align-content: start;
+}
+.price-trail .point-stop-label {
+  align-self: start;
+}
+.price-each {
+  margin-top: 0.5rem;
+  font-size: 1.75rem;
+  color: var(--primary-deep);
+}
+.price-per {
+  margin-top: 0.3rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+/* Slapped on the dot's top right. Held to the stop's right edge, so it stays
+   inside the column however narrow the trail gets. */
+.price-sticker {
+  position: absolute;
+  top: -1.15rem;
+  right: 0;
+  z-index: 1;
+  white-space: nowrap;
+}
+.price-word {
+  color: color-mix(in oklab, var(--tint) 75%, var(--primary-deep));
+}
+.price-bill {
+  font-size: 3rem;
+  color: var(--primary-deep);
+}
+.price-included li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+.price-emoji {
+  display: inline-block;
+  width: 1.75rem;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  transform-origin: 50% 85%;
+}
+.price-included li:hover .price-emoji {
+  animation: price-wiggle 0.6s ease;
+}
+@keyframes price-wiggle {
+  25% {
+    transform: rotate(-14deg) scale(1.12);
+  }
+  60% {
+    transform: rotate(9deg) scale(1.05);
+  }
+}
+/* A price that has just moved lands with a little bump. */
+.price-bump {
+  display: inline-block;
+  animation: price-bump 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes price-bump {
+  40% {
+    transform: scale(1.08);
+  }
+}
+@media (max-width: 599px) {
+  .price-each {
+    font-size: 1.35rem;
+  }
+  .price-per {
+    font-size: 0.875rem;
+  }
+  .price-sticker {
+    top: -1.4rem;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  .price-bill {
+    font-size: 2.5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .price-bump,
+  .price-included li:hover .price-emoji {
+    animation: none;
+  }
+}
+
+/* ── The paywall ─────────────────────────────────────────────────────────────
+   No card: the words sit on the frost (PaywallOverlay). The lock is a solid
+   round dot like the spec point's stops, and it hops and springs open while
+   the one big button is pointed at. The links under it are bare dark text. */
+.paywall-dot {
+  display: grid;
+  place-items: center;
+  width: 4.75rem;
+  height: 4.75rem;
+  margin: 0 auto;
+  border-radius: 999px;
+  color: var(--primary-foreground);
+  /* Mixed toward navy like `.btn-solid`, so a light tint still carries white. */
+  background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+  box-shadow: 0 6px 0 0 color-mix(in oklab, var(--tint) 40%, var(--primary-deep));
+  transition: transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.paywall-dot svg {
+  width: 2rem;
+  height: 2rem;
+}
+[data-reaching="true"] .paywall-dot {
+  transform: translateY(-6px) rotate(-8deg) scale(1.08);
+}
+.paywall-title {
+  font-size: clamp(2.25rem, 7vw, 3.25rem);
+  line-height: 1.05;
+  font-weight: 800;
+}
+.paywall-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  height: 3.5rem;
+  padding: 0 2.5rem;
+  border-radius: 0.875rem;
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+.paywall-arrow {
+  transition: translate 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.paywall-btn:hover .paywall-arrow,
+.paywall-btn:focus-visible .paywall-arrow {
+  translate: 5px 0;
+}
+.paywall-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  padding: 0 0.85rem;
+  border-radius: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--foreground);
+  transition: background-color 0.2s ease;
+}
+.paywall-link:hover {
+  background: color-mix(in oklab, var(--tint) 9%, var(--card));
+}
+.paywall-link svg {
+  color: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+}
+@media (hover: hover) {
+  .paywall-link:hover svg {
+    animation: side-wiggle 0.5s ease-in-out;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .paywall-dot,
+  .paywall-arrow {
+    transition: none;
+  }
+  [data-reaching="true"] .paywall-dot {
+    transform: none;
+  }
+  .paywall-link:hover svg {
+    animation: none;
   }
 }
