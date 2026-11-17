@@ -4,9 +4,10 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { invalidateGuardState } from "@/lib/auth/guardState";
 import { isDemoMode, getSessionUserId } from "@/lib/auth/session";
-import { forgetTrialCode } from "@/lib/billing/trialCode";
+import { forgetTrialCode, typedTrialCode } from "@/lib/billing/trialCode";
 import {
   fetchInvoices,
+  fetchTrialTerms,
   manageSubscription,
   addSubjects,
   removeSubjects,
@@ -180,6 +181,22 @@ export function useInvoices(enabled = true) {
     queryFn: (): Promise<Invoice[]> => fetchInvoices(),
     enabled: enabled && !isDemoMode(),
     staleTime: 1000 * 60 * 5,
+  });
+}
+
+/**
+ * What a typed free-trial code gives (its length, and whether a card is
+ * taken), once it is long enough to be a code. A bad or used code is an error
+ * carrying the server's own words. Shared by the field and the pay button.
+ */
+export function useTrialTerms(raw: string) {
+  const code = typedTrialCode(raw);
+  return useQuery({
+    queryKey: [...BILLING_KEY, "trial-terms", code],
+    queryFn: () => fetchTrialTerms(code!),
+    enabled: !!code && !isDemoMode(),
+    staleTime: 1000 * 60 * 5,
+    retry: false,
   });
 }
 
