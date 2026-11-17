@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
-import { Check, Copy, Link2, Mail, RefreshCw, Users, X } from "lucide-react";
+import { QRCodeSVG } from "qrcode.react";
+import { Check, Copy, Link2, Mail, QrCode, RefreshCw, Users, X } from "lucide-react";
 import { Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { Field, inputCls, submitBtn } from "@/components/tutor/Field";
@@ -141,6 +142,11 @@ function StudentView() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [showQr, setShowQr] = useState(false);
+  // Scanned, it opens sign-up as a parent with this code already filled in.
+  const inviteUrl = inviteCode
+    ? `${window.location.origin}/auth?mode=signup&invite=${encodeURIComponent(inviteCode)}`
+    : null;
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -241,6 +247,16 @@ function StudentView() {
           </button>
           <button
             type="button"
+            onClick={() => setShowQr((v) => !v)}
+            disabled={!inviteCode}
+            aria-expanded={showQr}
+            className="h-11 sm:pointer-fine:h-10 px-3 rounded-lg border border-border hover:bg-muted text-sm font-medium inline-flex items-center gap-2 disabled:opacity-60 cursor-pointer"
+          >
+            {showQr ? <X className="w-4 h-4" /> : <QrCode className="w-4 h-4" />}
+            {showQr ? "Hide QR" : "QR code"}
+          </button>
+          <button
+            type="button"
             onClick={doRotate}
             disabled={rotate.isPending}
             className="h-11 sm:pointer-fine:h-10 px-3 rounded-lg border border-border hover:bg-muted text-sm font-medium inline-flex items-center gap-2 disabled:opacity-60 cursor-pointer"
@@ -249,6 +265,21 @@ function StudentView() {
             New code
           </button>
         </div>
+        {showQr && inviteUrl && (
+          <div className="mt-4 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
+            <div className="premium-card shrink-0 rounded-2xl p-3">
+              <QRCodeSVG
+                value={inviteUrl}
+                size={160}
+                marginSize={1}
+                title="Invite code for your parent"
+              />
+            </div>
+            <p className="text-[0.9375rem] leading-relaxed text-center sm:text-left">
+              Scan with your parent&apos;s phone. It opens sign-up with your code already filled in.
+            </p>
+          </div>
+        )}
         <p className="text-xs text-muted-foreground mt-3">
           Treat it like a password — anyone who signs up with it can follow your progress. Generate
           a new one if you've shared it too widely.
