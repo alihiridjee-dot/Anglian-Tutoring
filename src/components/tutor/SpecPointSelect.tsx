@@ -3,7 +3,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { Field } from "./Field";
 import { Search, X, ChevronDown, Layers } from "lucide-react";
 import { BOARDS, type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
-import { Spinner } from "@/components/Shared";
+import { ErrorNote, Spinner } from "@/components/Shared";
+import { selectInHistory } from "@/lib/platform/db/chunked";
 
 type Row = {
   id: string;
@@ -66,6 +67,8 @@ export function SpecPointSelect({
 }) {
   const [groups, setGroups] = useState<Group[]>([]);
   const [loading, setLoading] = useState(false);
+  const [loadError, setLoadError] = useState<unknown>(null);
+  const [reloadKey, setReloadKey] = useState(0);
   const [query, setQuery] = useState("");
   const [openTopics, setOpenTopics] = useState<Set<string>>(new Set());
   const [closedBoards, setClosedBoards] = useState<Set<string>>(new Set());
@@ -102,18 +105,37 @@ export function SpecPointSelect({
     let cancelled = false;
     (async () => {
       setLoading(true);
-      let q = supabase
-        .from("spec_points")
-        .select("id, code, title, sort_order, topics!inner(id, title, code, board, sort_order)")
-        .eq("topics.subject", subject)
-        .eq("topics.level", level)
-        .eq("not_examined", false);
-      // Board-agnostic mode (live sessions): load every board's points.
-      if (board) q = q.eq("topics.board", board);
-      const { data, error } = await q;
+      setLoadError(null);
+      // Every point, read in id-ordered pages: one plain select stops at
+      // PostgREST's 1,000-row cap, and every board's points for one subject
+      // (live sessions) can be past it.
+      let rows: Row[];
+      try {
+        const found = await selectInHistory<{ id: string }>(["spec-points"], (_batch, after) => {
+          let q = supabase
+            .from("spec_points")
+            .select("id, code, title, sort_order, topics!inner(id, title, code, board, sort_order)")
+            .eq("topics.subject", subject)
+            .eq("topics.level", level)
+            .eq("not_examined", false);
+          // Board-agnostic mode (live sessions): load every board's points.
+          if (board) q = q.eq("topics.board", board);
+          const page = q.order("id").limit(500);
+          return after ? page.gt("id", after) : page;
+        });
+        rows = found as unknown as Row[];
+      } catch (e) {
+        if (cancelled) return;
+        // A failed read is not an empty course. Say so, and keep the tutor's
+        // picks: treating the error as no points used to drop every one of
+        // them as "no longer in this course".
+        setGroups([]);
+        setLoadError(e);
+        setLoading(false);
+        return;
+      }
       if (cancelled) return;
 
-      const rows = (error ? [] : ((data ?? []) as unknown as Row[])) ?? [];
       const byTopic = new Map<string, Group>();
       for (const r of rows) {
         const t = r.topics;
@@ -153,7 +175,7 @@ export function SpecPointSelect({
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [subject, board, level]);
+  }, [subject, board, level, reloadKey]);
 
   const selected = useMemo(() => new Set(value), [value]);
 
@@ -270,6 +292,10 @@ export function SpecPointSelect({
         <div className="max-h-56 overflow-auto">
           {loading ? (
             <Spinner label="Loading spec points" className="py-6" />
+          ) : loadError ? (
+            <div className="p-2">
+              <ErrorNote error={loadError} onRetry={() => setReloadKey((k) => k + 1)} />
+            </div>
           ) : sections.length === 0 ? (
             <p className="px-3 py-6 text-center text-sm text-muted-foreground">
               {groups.length === 0
