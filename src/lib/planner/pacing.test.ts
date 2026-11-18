@@ -12,6 +12,7 @@ import {
   weightOf,
   focusLoadFor,
   weeksBetween,
+  weeksToExam,
   selectWeekPoints,
   splitAcrossWeeks,
   withWeeklyPoints,
@@ -23,6 +24,16 @@ import { spineIsForAnotherCourse } from "./roadmap";
 
 const currentMonday = mondayOf(new Date("2026-09-07T00:00:00+01:00"));
 const examMonday = mondayOf(new Date("2027-06-07T00:00:00+01:00")); // ~39 weeks out
+
+describe('weeksToExam — the one "weeks to go"', () => {
+  test("counts Monday to Monday, whatever the day, and never goes below 0", () => {
+    // Exams on Friday 11 Dec: 3 weeks and 4 days after Monday 16 Nov.
+    expect(weeksToExam("2026-12-11", weekKeyToDate("2026-11-16"))).toBe(3);
+    expect(weeksToExam("2026-12-11", new Date("2026-11-19T15:00:00Z"))).toBe(3);
+    expect(weeksToExam("2026-11-20", weekKeyToDate("2026-11-16"))).toBe(0);
+    expect(weeksToExam("2026-11-02", weekKeyToDate("2026-11-16"))).toBe(0);
+  });
+});
 
 describe("computePacing — the fixed core spine", () => {
   const topics = [

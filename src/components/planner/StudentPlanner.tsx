@@ -22,7 +22,7 @@ import {
   Undo2,
   type LucideIcon,
 } from "lucide-react";
-import { isTeachBand } from "@/lib/planner/pacing";
+import { isTeachBand, weeksToExam } from "@/lib/planner/pacing";
 import { reviewLock } from "@/lib/planner/reviewLock";
 import { ProgramDAL, examDateBounds } from "@/lib/planner/programDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
@@ -518,8 +518,6 @@ function ThisWeekTab({
 /* Tab 2 — Full plan                                                   */
 /* ------------------------------------------------------------------ */
 
-const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
-
 function SummaryLabel({ icon: Icon, children }: { icon: LucideIcon; children: ReactNode }) {
   return (
     <p className="eyebrow eyebrow-bare flex items-center gap-2">
@@ -631,12 +629,7 @@ function FullPlanTab({
   const backlog = data.backlogByTopic ?? [];
   const owed = backlog.reduce((count, topic) => count + topic.points.length, 0);
   const held = data.catchUpSchedule?.held.length ?? 0;
-  const weeksToGo = Math.max(
-    0,
-    Math.round(
-      (weekKeyToDate(data.examDate).getTime() - weekKeyToDate(nowKey).getTime()) / WEEK_MS,
-    ),
-  );
+  const weeksToGo = weeksToExam(data.examDate, weekKeyToDate(nowKey));
 
   return (
     <div>

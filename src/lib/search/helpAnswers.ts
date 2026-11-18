@@ -20,6 +20,7 @@ import { getSessionUserId } from "@/lib/auth/session";
 import { SUBJECTS, type SubjectV } from "@/lib/curriculum/taxonomy";
 import { WeeklyPlanDAL, type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import { WeeklyActivityDAL } from "@/lib/planner/weeklyActivityDal";
+import { weeksToExam } from "@/lib/planner/pacing";
 import { PLANNER_TIME_ZONE, currentWeekKey } from "@/lib/planner/week";
 import { weakestPoints } from "@/lib/chat/questionIdeas";
 import { recentMarks } from "@/lib/chat/recentMarks";
@@ -203,8 +204,6 @@ async function weakTopics(ctx: SearchContext): Promise<SearchHit[]> {
   return hits.length ? hits : [PLANNER("Nothing to fix yet: carry on with this week")];
 }
 
-const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
-
 /** Each subject's exam date and how far off it is. */
 async function examDates(ctx: SearchContext): Promise<SearchHit[]> {
   const uid = await getSessionUserId();
@@ -220,7 +219,7 @@ async function examDates(ctx: SearchContext): Promise<SearchHit[]> {
     .flatMap((p): SearchHit[] => {
       const at = Date.parse(`${p.exam_date}T00:00:00Z`);
       if (!Number.isFinite(at)) return [];
-      const weeks = Math.ceil((at - Date.now()) / WEEK_MS);
+      const weeks = weeksToExam(p.exam_date);
       const day = new Date(at).toLocaleDateString("en-GB", {
         day: "numeric",
         month: "long",
