@@ -1,6 +1,7 @@
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
 import type { SubjectV } from "@/lib/curriculum/taxonomy";
+import { selectIn } from "@/lib/platform/db/chunked";
 
 /**
  * Data Access Layer for student ↔ tutor messaging.
@@ -188,12 +189,15 @@ export class ChatDAL {
           ),
       ),
     ];
+    // In batches (`selectIn`): one `.in()` over every member of a busy inbox
+    // outgrows the request line. Thrown on failure like the reads around it:
+    // a dropped read used to relabel every conversation "Student".
     if (memberIds.length > 0) {
-      const { data: profiles } = await supabase
-        .from("profiles")
-        .select("id, display_name")
-        .in("id", memberIds);
-      for (const p of profiles ?? []) {
+      const profiles = await selectIn<{ id: string; display_name: string | null }>(
+        memberIds,
+        (batch) => supabase.from("profiles").select("id, display_name").in("id", batch),
+      );
+      for (const p of profiles) {
         const name = p.display_name?.trim();
         if (name) memberNames.set(p.id, name);
       }
@@ -213,12 +217,13 @@ export class ChatDAL {
     ];
     const linkedPairs = new Set<string>();
     if (aboutIds.length > 0) {
-      const { data: links, error: linksError } = await supabase
-        .from("parent_student_links")
-        .select("parent_id, student_id")
-        .in("student_id", aboutIds);
-      if (linksError) throw new Error(linksError.message);
-      for (const l of links ?? []) linkedPairs.add(`${l.parent_id}:${l.student_id}`);
+      const links = await selectIn<{ parent_id: string; student_id: string }>(aboutIds, (batch) =>
+        supabase
+          .from("parent_student_links")
+          .select("parent_id, student_id")
+          .in("student_id", batch),
+      );
+      for (const l of links) linkedPairs.add(`${l.parent_id}:${l.student_id}`);
     }
 
     const summaryOf = new Map((summaries ?? []).map((s) => [s.thread_id, s]));
