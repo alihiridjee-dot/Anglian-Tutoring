@@ -46,7 +46,7 @@ import {
   writeAnswer,
   type SheetAnswer,
 } from "@/lib/homework/answerSheet";
-import { invalidatePlanner } from "@/lib/planner/assessmentSync";
+import { invalidatePlanner } from "@/lib/planner/queries";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import { AbovePage, Meter, SciBlock, SciText, Spinner } from "@/components/Shared";
 import { Confetti, Mascot, Sparkles } from "@/components/Doodles";
