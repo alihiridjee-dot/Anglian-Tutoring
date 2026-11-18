@@ -2,9 +2,8 @@ import { createServerFn } from "@tanstack/react-start";
 import { CALL_LIMITS, generateExamQuestions, loadGenerationContext } from "./examGeneration.server";
 import type { WrittenQuestion } from "./examGeneration";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 import { SUBJECTS, LEVELS, BOARDS } from "@/lib/curriculum/taxonomy";
-import type { SupabaseClient } from "@supabase/supabase-js";
-import type { Database } from "@/integrations/supabase/types";
 
 /**
  * Drafting the written questions that make up a built-in homework.
@@ -23,14 +22,6 @@ export type DraftQuestion = {
   mark_scheme: string;
   spec_point_id: string | null;
 };
-
-type SupabaseServer = SupabaseClient<Database>;
-
-async function requireTutor(supabase: SupabaseServer, userId: string) {
-  const { data: role } = await supabase.from("user_roles").select("role").eq("user_id", userId);
-  const roles = ((role ?? []) as Array<{ role: string }>).map((r) => r.role);
-  if (!roles.includes("tutor")) throw new Error("Tutor access required");
-}
 
 /** The shared framework validates the whole set before these drafts are exposed. */
 function toDrafts(raw: WrittenQuestion[], specPointId: string): DraftQuestion[] {
@@ -85,7 +76,8 @@ export const generateHomeworkQuestions = createServerFn({ method: "POST" })
   })
   .handler(async ({ data, context }): Promise<{ questions: DraftQuestion[] }> => {
     const { supabase, userId } = context;
-    await requireTutor(supabase, userId);
+    // Tutor check, then one claim on the hourly budget before any model call.
+    await requireTutorAi(supabase, userId, "homework_generation");
 
     const { data: pointRows, error: pointErr } = await supabase
       .from("spec_points")
