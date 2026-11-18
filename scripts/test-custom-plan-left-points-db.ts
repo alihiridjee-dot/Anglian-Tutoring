@@ -1,5 +1,5 @@
 /** Isolated PostgreSQL checks: a custom calendar can still be re-planned after
- * a point one of its past weeks set leaves the course (20261118181500, audit
+ * a point one of its past weeks set leaves the course (20261118181946, audit
  * finding H2). No production data is read or written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-custom-plan-left-points-db.ts
@@ -30,7 +30,7 @@ import { addWeeks, currentWeekKey, toDateKey, weekKeyToDate } from "../src/lib/p
 
 const { PGlite } = await import(process.env.PGLITE_MODULE ?? "@electric-sql/pglite");
 
-const FIX = "20261118181500_custom_plan_left_points";
+const FIX = "20261118181946_custom_plan_left_points";
 const BEFORE = "20261116210000_not_examined_points.sql";
 const BREAKS = "20261005160000_student_breaks.sql";
 const PAUSES = "20261004090000_subject_pauses.sql";

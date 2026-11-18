@@ -23,7 +23,7 @@
 -- Both bodies are 20261116210000's with only these changes. Same signatures,
 -- grants and security. Idempotent.
 --
--- Rollback: supabase/rollbacks/20261118181500_custom_plan_left_points.down.sql
+-- Rollback: supabase/rollbacks/20261118181946_custom_plan_left_points.down.sql
 
 create or replace function public.resume_programme_after_pause(
   _pause_id uuid,
