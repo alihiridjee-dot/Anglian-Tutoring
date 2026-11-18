@@ -10,7 +10,6 @@ import {
   applyReview,
   pointMastery,
   pointStatus,
-  isDueBy,
   isFirstContact,
   retrievability,
   reviewEligibleAt,
@@ -90,24 +89,6 @@ export interface TopicProgress {
   assessment: TopicAssessment;
 }
 
-/** One course's memory snapshot for the planner dashboard. */
-export interface MemoryStats {
-  /** Spec points in the course. */
-  total: number;
-  /** Never practised — no card yet. */
-  newCount: number;
-  /** Practised and due right now. */
-  dueNow: number;
-  /** Practised, due within the next 7 days. */
-  dueThisWeek: number;
-  /** Practised, not due for over a week — holding. */
-  stable: number;
-  /** Mean FSRS retrievability across practised points (0–1), null if none. */
-  avgRetention: number | null;
-  /** The three practised points closest to being forgotten. */
-  weakest: { code: string; title: string; retention: number }[];
-}
-
 /** One review event before it's applied — used to replay history in time order. */
 export interface ReviewEvent {
   specPointId: string;
@@ -172,15 +153,6 @@ export function foldReviews(
 
 /** Reconstruct derived memory from graded source evidence; never trust stored client cards. */
 export class ScheduleDAL {
-  /** FSRS cards for a set of spec points (revived to real Dates). */
-  static async getSchedule(studentId: string, specPointIds: string[]): Promise<Map<string, Card>> {
-    const { events } = await this.assessmentEvents(studentId, specPointIds);
-    const cards = new Map<string, Card>();
-    for (const row of foldReviews(events, new Map(), new Set()))
-      cards.set(row.specPointId, row.card);
-    return cards;
-  }
-
   /**
    * Canonical assessed history. Replayed on read: no destructive migration,
    * no stale confidence cards, and corrected/late marks take their proper place.
@@ -432,61 +404,6 @@ export class ScheduleDAL {
       })
       .sort((a, b) => a._sort - b._sort || a.topicId.localeCompare(b.topicId))
       .map(({ _sort, ...t }) => t);
-  }
-
-  /**
-   * The planner dashboard's memory snapshot for one course: how many spec
-   * points sit in each scheduling bucket, and how well the practised ones are
-   * held right now (mean FSRS retrievability). One pass over the same cards the
-   * scheduler plans from, so the panel can never disagree with the plan.
-   */
-  static async getMemoryStats(params: {
-    studentId: string;
-    subject: SubjectV;
-    board: BoardV;
-    level: LevelV;
-    now?: Date;
-    progress?: TopicProgress[];
-  }): Promise<MemoryStats> {
-    const now = params.now ?? new Date();
-    const empty: MemoryStats = {
-      total: 0,
-      newCount: 0,
-      dueNow: 0,
-      dueThisWeek: 0,
-      stable: 0,
-      avgRetention: null,
-      weakest: [],
-    };
-    const progress = params.progress ?? (await this.getTopicProgress(params));
-    const pts = progress.flatMap((t) => t.points);
-    const weekEnd = new Date(now.getTime() + 7 * 86_400_000);
-    const stats = { ...empty, total: pts.length };
-    const retained: number[] = [];
-    const held: { code: string; title: string; retention: number }[] = [];
-    for (const p of pts) {
-      const card = p.card;
-      const r = retrievability(card, now);
-      if (r === null) {
-        stats.newCount++;
-        continue;
-      }
-      retained.push(r);
-      held.push({ code: p.code, title: p.title, retention: r });
-      if (isDueBy(card, now)) stats.dueNow++;
-      else if (isDueBy(card, weekEnd)) stats.dueThisWeek++;
-      else stats.stable++;
-    }
-    if (retained.length > 0) {
-      stats.avgRetention = retained.reduce((s, r) => s + r, 0) / retained.length;
-      // Only points actually decaying belong here — a just-reviewed card sits at
-      // ~100% and "closest to slipping: 100%" is noise, not a warning.
-      stats.weakest = held
-        .filter((h) => h.retention < 0.9)
-        .sort((a, b) => a.retention - b.retention)
-        .slice(0, 3);
-    }
-    return stats;
   }
 
   /** Best homework/quiz mark per spec point from graded source records. */
