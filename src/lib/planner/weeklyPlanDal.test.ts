@@ -34,7 +34,6 @@ let denied: string | null;
 let refused: string | null;
 /** A table or function whose writes never get an answer: the connection dropped. */
 let offline: string | null;
-let version: number;
 let writes: { name: string; body: Record<string, unknown> }[];
 let network: ReturnType<typeof spyOn<typeof globalThis, "fetch">>;
 let viewer: ReturnType<typeof spyOn<typeof session, "getSessionUserId">>;
@@ -89,7 +88,6 @@ beforeEach(() => {
   denied = null;
   refused = null;
   offline = null;
-  version = 4;
   writes = [];
   viewer = spyOn(session, "getSessionUserId").mockResolvedValue("student");
   tables = {
@@ -121,9 +119,7 @@ beforeEach(() => {
     if (init?.method !== "GET" && name === offline) throw new TypeError("Failed to fetch");
     if (url.pathname.includes("/rpc/")) {
       writes.push({ name, body: JSON.parse(String(init?.body ?? "{}")) });
-      return new Response(
-        JSON.stringify(name === "assessment_scheduler_version" ? version : "plan"),
-      );
+      return new Response(JSON.stringify("plan"));
     }
     if (init?.method === "POST") {
       writes.push({ name, body: JSON.parse(String(init.body)) });
@@ -215,8 +211,11 @@ test("both write paths apply the same acknowledged pacing rule as reads", async 
   expect(writes).toEqual([]);
 });
 
-test("old databases cannot erase attempted history through savePlan", async () => {
-  version = 3;
+test("saving a week does not ask the database for its scheduler version", async () => {
+  // The gate on `assessment_scheduler_version()` guarded an update live since
+  // September. A dropped read of it used to stop the save with a message about
+  // an update that was already installed.
+  offline = "assessment_scheduler_version";
   await expect(
     WeeklyPlanDAL.savePlan({
       studentId: "student",
@@ -225,8 +224,8 @@ test("old databases cannot erase attempted history through savePlan", async () =
       specPointIds: [],
       source: "ai",
     }),
-  ).rejects.toThrow("history protection");
-  expect(writes.some((w) => w.name === "save_weekly_plan")).toBe(false);
+  ).resolves.toBe("plan");
+  expect(writes.map((w) => w.name)).toEqual(["save_weekly_plan"]);
 });
 
 test("manual off-course additions throw instead of reporting false success", async () => {
