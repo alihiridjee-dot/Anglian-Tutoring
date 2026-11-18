@@ -7,6 +7,7 @@ import {
   formatWhen,
   hasSessionFinished,
   joinClick,
+  liveWindowStart,
   nextSession,
   recordLiveJoin,
   sessionStartMs,
@@ -39,6 +40,28 @@ describe("sessionTiming", () => {
     expect(sessionTiming(sessionStartMs(ended)!, NOW).joinable).toBe(false);
     expect(hasSessionFinished(ended, NOW)).toBe(true);
     expect(hasSessionFinished(at(-LIVE_TAIL_MS + 1), NOW)).toBe(false);
+  });
+});
+
+describe("liveWindowStart", () => {
+  // The parent's upcoming list and the help box read from this bound, so a
+  // lesson stays in both for as long as it runs, not until it starts (or an hour).
+  const bound = Date.parse(liveWindowStart(NOW));
+
+  test("it is the start of a lesson whose running window closes now", () => {
+    expect(bound).toBe(NOW - LIVE_TAIL_MS);
+    expect(hasSessionFinished({ starts_at: liveWindowStart(NOW) }, NOW)).toBe(true);
+  });
+
+  test("a lesson that started 89 minutes ago, or is just starting, is still read", () => {
+    expect(Date.parse(at(-89 * MINUTE_MS).starts_at)).toBeGreaterThanOrEqual(bound);
+    expect(Date.parse(at(-61 * MINUTE_MS).starts_at)).toBeGreaterThanOrEqual(bound);
+    expect(Date.parse(at(0).starts_at)).toBeGreaterThanOrEqual(bound);
+    expect(hasSessionFinished(at(-89 * MINUTE_MS), NOW)).toBe(false);
+  });
+
+  test("a lesson whose window has closed is not", () => {
+    expect(Date.parse(at(-91 * MINUTE_MS).starts_at)).toBeLessThan(bound);
   });
 });
 

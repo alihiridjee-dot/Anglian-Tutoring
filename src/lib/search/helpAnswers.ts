@@ -26,6 +26,7 @@ import { recentMarks } from "@/lib/chat/recentMarks";
 import { curriculumTarget, isVisible, runGlobalSearch, type SearchSection } from "./globalSearch";
 import { helpIntent, type HelpIntentId } from "./help";
 import type { SearchContext, SearchHit } from "./types";
+import { liveWindowStart } from "@/lib/live/liveSessions";
 
 /**
  * The answer to a help intent: the student's own quizzes, tasks and sessions
@@ -139,9 +140,9 @@ async function weekTasks(ctx: SearchContext): Promise<SearchHit[]> {
   ];
 }
 
-/** Sessions still to come, or started within the last hour (so still joinable). */
+/** Sessions still to come, or running now (so still joinable). */
 async function nextLive(ctx: SearchContext): Promise<SearchHit[]> {
-  const since = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+  const since = liveWindowStart(Date.now());
   const { data, error } = await supabase
     .from("resources")
     .select("id, title, subject, board, level, starts_at")
