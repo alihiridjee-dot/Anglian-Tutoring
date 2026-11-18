@@ -3,6 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import {
   checkCourse,
   handlePlanHealRequest,
+  nightlyOrder,
   tally,
   withClient,
   type CheckRun,
@@ -327,6 +328,39 @@ describe("checkCourse", () => {
       outcome: "failed",
       error: "This is a break week",
     });
+  });
+});
+
+describe("nightlyOrder", () => {
+  // Ten students with two subjects each, in the order the database lists them.
+  const rows = Array.from({ length: 10 }, (_, i) => `s${String(i).padStart(2, "0")}`).flatMap(
+    (student_id) => ["biology", "chemistry"].map((subject) => ({ student_id, subject })),
+  );
+  const key = (r: { student_id: string; subject: string }) => `${r.student_id}|${r.subject}`;
+  const night = (day: number) => new Date(Date.UTC(2026, 10, day, 2, 30));
+
+  test("keeps every row exactly once", () => {
+    const order = nightlyOrder(rows, night(18));
+    expect(order).toHaveLength(rows.length);
+    expect(new Set(order.map(key)).size).toBe(rows.length);
+    expect(order.map(key).sort()).toEqual(rows.map(key).sort());
+  });
+
+  test("gives one order for one UTC date, whatever the time or the input order", () => {
+    const first = nightlyOrder(rows, night(18)).map(key);
+    const later = nightlyOrder([...rows].reverse(), new Date(Date.UTC(2026, 10, 18, 23, 59)));
+    expect(later.map(key)).toEqual(first);
+  });
+
+  test("starts somewhere else on another date, so no student is always last", () => {
+    const tonight = nightlyOrder(rows, night(18)).map(key);
+    const tomorrow = nightlyOrder(rows, night(19)).map(key);
+    expect(tomorrow).not.toEqual(tonight);
+    expect(tonight).not.toEqual(rows.map(key));
+    const lastEachNight = new Set(
+      Array.from({ length: 7 }, (_, i) => nightlyOrder(rows, night(18 + i)).at(-1)!.student_id),
+    );
+    expect(lastEachNight.size).toBeGreaterThan(1);
   });
 });
 
