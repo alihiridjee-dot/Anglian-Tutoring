@@ -41,6 +41,8 @@ export const roadmapQuery = (client: QueryClient, p: PlannerCourse, projectOnly 
     },
     staleTime: 30_000,
   });
+// Grading writes authoritative source records. Derived memory is read-only;
+// invalidate all views of that student rather than writing a client-made card.
 export const invalidatePlanner = (client: QueryClient, studentId: string) =>
   client.invalidateQueries({ queryKey: plannerKey(studentId) });
 
