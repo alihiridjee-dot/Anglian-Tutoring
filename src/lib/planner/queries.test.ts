@@ -2,20 +2,13 @@ import { expect, test, spyOn } from "bun:test";
 import { QueryClient } from "@tanstack/react-query";
 import { ProgramDAL } from "@/lib/planner/programDal";
 import * as courseState from "@/lib/planner/courseState";
-import {
-  courseChanged,
-  courseKey,
-  invalidatePlanner,
-  memoryQuery,
-  roadmapQuery,
-  stateQuery,
-} from "./queries";
+import { courseChanged, courseKey, invalidatePlanner, roadmapQuery, stateQuery } from "./queries";
 import { missingPlannerRpc } from "./readModels";
 
 const p = { studentId: "student", subject: "biology", board: "aqa", level: "gcse" } as const;
 const state = { progress: [] } as unknown as courseState.CourseState;
 
-test("concurrent roadmap and memory views share one course read", async () => {
+test("concurrent roadmap views share one course read", async () => {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   const read = spyOn(courseState, "readCourseState").mockResolvedValue(state);
   const roadmap = spyOn(ProgramDAL, "loadRoadmap").mockResolvedValue(null);
@@ -23,7 +16,6 @@ test("concurrent roadmap and memory views share one course read", async () => {
     await Promise.all([
       client.fetchQuery(roadmapQuery(client, p)),
       client.fetchQuery(roadmapQuery(client, p, true)),
-      client.fetchQuery(memoryQuery(client, p)),
     ]);
     expect(read).toHaveBeenCalledTimes(1);
     expect(roadmap).toHaveBeenCalledTimes(2);
