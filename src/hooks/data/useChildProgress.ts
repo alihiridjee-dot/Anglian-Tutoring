@@ -7,6 +7,7 @@ import { WeeklyPlanDAL, type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import { WeeklyNotesDAL } from "@/lib/planner/weeklyNotesDal";
 import { weeklyQuizAverages, type ScoredWorkRow } from "@/lib/profile/analytics";
 import { scoredWorkQuery } from "@/hooks/data/useAnalytics";
+import { liveWindowStart } from "@/lib/live/liveSessions";
 
 export type { WeeklyTrendPoint } from "@/lib/profile/analytics";
 
@@ -307,7 +308,7 @@ export function useChildUpcomingSessions(
           "subject",
           enrolments.map((e) => e.subject),
         )
-        .gte("starts_at", new Date().toISOString())
+        .gte("starts_at", liveWindowStart(Date.now()))
         .order("starts_at", { ascending: true })
         .limit(50);
       if (level) q = q.eq("level", level);

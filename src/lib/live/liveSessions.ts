@@ -218,6 +218,14 @@ export function hasSessionFinished(session: Pick<LiveSession, "starts_at">, now:
   return start !== null && start + LIVE_TAIL_MS <= now;
 }
 
+/**
+ * The earliest start a session can have and still be on, for a read of the
+ * sessions running or to come: a lesson stays in those lists while it runs.
+ */
+export function liveWindowStart(now: number): string {
+  return new Date(now - LIVE_TAIL_MS).toISOString();
+}
+
 export interface SessionTiming {
   /** Ms until the start; zero or negative once it has begun. */
   untilStart: number;
