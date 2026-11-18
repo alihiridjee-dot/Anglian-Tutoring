@@ -501,16 +501,27 @@ function liveSpine(params: {
   if (!baseline) return computed;
   // As it stood when it was cut: still the spine for this exam date.
   const unmoved = custom ? stored : computed;
-  if (spineMatchesExam(stored, baseline.exam_date)) return unmoved;
-
   const from = [custom?.from ?? baseline.program_start, toDateKey(thisMonday)].sort().at(-1)!;
   const orderTopics = progress.map((t) => ({
     topicId: t.topicId,
     title: t.title,
     points: pointsByTopic.get(t.topicId)!,
   }));
+  // A change to the course itself (topic order, weights, the point list) also
+  // changes the curriculum-order spine recomputed from the programme start.
+  // That is only taken as it stands while it leaves the weeks already gone as
+  // they were; otherwise it would re-deal them and the work they really set
+  // would turn into "missed". Then the stored spine is re-spread from this
+  // week instead, as for a moved exam date.
+  const sameExam = spineMatchesExam(stored, baseline.exam_date);
+  const drifted =
+    sameExam &&
+    !custom &&
+    pastWeeks(computed, orderTopics, from) !== pastWeeks(stored, orderTopics, from);
+  if (sameExam && !drifted) return unmoved;
+
   const remaining = orderInputs(stored, orderTopics, from).remaining;
-  if (!remaining.length) return unmoved;
+  if (!remaining.length) return drifted ? stored : unmoved;
   try {
     return reorderTopics({
       bands: stored,
