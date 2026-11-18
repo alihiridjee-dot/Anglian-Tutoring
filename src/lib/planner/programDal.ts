@@ -190,6 +190,11 @@ export class ProgramDAL {
       //
       // The read still answers normally; it just doesn't leave a mark. The
       // student's own first visit does the seeding, as intended.
+      //
+      // A true first view (nothing stored) never overwrites: the course state
+      // it was cut from can be up to 30 seconds old, and a plan saved since
+      // from another tab or device wins. A plan for another course is
+      // replaced, as above.
       const viewerId = await getSessionUserId();
       if (viewerId === studentId) {
         const { error: seedError } = await supabase.from("student_program_plan").upsert(
@@ -200,7 +205,7 @@ export class ProgramDAL {
             exam_date: roadmap.examDate,
             pacing: roadmap.baselineBands as unknown as Json,
           },
-          { onConflict: "student_id,subject" },
+          { onConflict: "student_id,subject", ignoreDuplicates: !baseline },
         );
         if (seedError) throw dbError(seedError);
       }

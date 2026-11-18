@@ -5,10 +5,12 @@ import { MAX_WEEK_POINTS, WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal"
 import { WeeklyActivityDAL } from "./weeklyActivityDal";
 import { SubjectPauseDAL } from "./pausesDal";
 import { BreakDAL } from "./breaksDal";
-import { currentWeekKey, toDateKey } from "./week";
-import { examMondayFor, examMondayIn } from "./pacing";
+import { currentWeekKey, toDateKey, weekKeyToDate } from "./week";
+import { computePacing, examMondayFor, examMondayIn } from "./pacing";
 import { type RejectionReason } from "./admissibility";
 import type { ProgressPoint, TopicProgress } from "./scheduleDal";
+import type { CourseState } from "./courseState";
+import * as session from "../auth/session";
 
 const point = (id: string, values: Partial<ProgressPoint> = {}): ProgressPoint => ({
   id,
@@ -467,5 +469,74 @@ describe("saved-week catch-up", () => {
     } finally {
       add.mockRestore();
     }
+  });
+});
+describe("the first view's seed", () => {
+  const course = { subject: "biology", board: "aqa", level: "gcse" } as const;
+  /** The course as its one read hands it over. Only what loadRoadmap reads is filled. */
+  const state = (baseline: CourseState["baseline"]): CourseState => ({
+    course: { studentId: "student", ...course },
+    weekStart: currentWeekKey(),
+    progress: [topic([point("a"), point("b")])],
+    baseline,
+    examYear: null,
+    pauses: [],
+    pause: null,
+    breaks: [],
+    overrides: [],
+    ledger: { done: new Set(), outstanding: new Set() },
+    week: null,
+    facts: { pacing: [], examDate: undefined, boards: [], level: null },
+  });
+  /** The student's own view: the seed's write, its conflict target and how it treats a row already there. */
+  async function seedWrites(baseline: CourseState["baseline"]) {
+    const writes: { onConflict: string | null; prefer: string | null }[] = [];
+    const viewer = spyOn(session, "getSessionUserId").mockResolvedValue("student");
+    // Cast: Bun's `typeof fetch` also carries `preconnect`, which a mock has no use for.
+    const api = spyOn(globalThis, "fetch").mockImplementation((async (input, init) => {
+      const url = new URL(
+        typeof input === "string" ? input : input instanceof URL ? input.href : input.url,
+      );
+      if (!url.pathname.endsWith("/student_program_plan") || init?.method !== "POST")
+        throw new Error(`Unexpected request: ${init?.method ?? "GET"} ${url.pathname}`);
+      writes.push({
+        onConflict: url.searchParams.get("on_conflict"),
+        prefer: new Headers(init.headers).get("prefer"),
+      });
+      return new Response(null, { status: 201 });
+    }) as typeof fetch);
+    try {
+      await ProgramDAL.loadRoadmap({ studentId: "student", ...course, state: state(baseline) });
+    } finally {
+      viewer.mockRestore();
+      api.mockRestore();
+    }
+    return writes;
+  }
+
+  test("a true first view never overwrites a plan saved in the meantime", async () => {
+    // The state can be 30 seconds old: another tab may have saved a plan since.
+    const writes = await seedWrites(null);
+    expect(writes).toHaveLength(1);
+    expect(writes[0].onConflict).toBe("student_id,subject");
+    expect(writes[0].prefer).toContain("resolution=ignore-duplicates");
+  });
+
+  test("a stored plan for another course is still replaced", async () => {
+    const start = currentWeekKey();
+    const exam = toDateKey(examMondayIn(examMondayFor().getUTCFullYear() + 1));
+    const oldCourse = computePacing(
+      [{ topicId: "old", title: "Old", weight: 1 }],
+      weekKeyToDate(start),
+      weekKeyToDate(exam),
+    );
+    const writes = await seedWrites({
+      program_start: start,
+      exam_date: exam,
+      pacing: oldCourse as never,
+    });
+    expect(writes).toHaveLength(1);
+    expect(writes[0].onConflict).toBe("student_id,subject");
+    expect(writes[0].prefer).toContain("resolution=merge-duplicates");
   });
 });
