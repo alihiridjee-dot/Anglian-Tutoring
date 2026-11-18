@@ -98,6 +98,10 @@ export function weeksBetween(a: Date, b: Date): number {
   return Math.round((mondayOf(b).getTime() - mondayOf(a).getTime()) / (7 * 86_400_000));
 }
 
+/** "Weeks to go": from this week's Monday to the exam's Monday, never below 0. */
+export const weeksToExam = (examDate: string, now: Date = new Date()): number =>
+  Math.max(0, weeksBetween(now, weekKeyToDate(examDate)));
+
 /** The first Monday on/after 1 June: where a summer exam series is anchored. */
 function firstMondayOfJune(year: number): Date {
   const june1 = weekKeyToDate(`${year}-06-01`);
