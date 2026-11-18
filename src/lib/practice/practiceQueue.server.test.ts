@@ -862,6 +862,48 @@ test("a question whose figure can't be drawn is left out, not saved without it",
   );
 });
 
+/** A task whose questions at `broken` have a figure that won't read, so each is left out. */
+const unreadable = (...broken: number[]) =>
+  tasks().map((q, i) => (broken.includes(i) ? { ...q, figure: "{ not json" } : q));
+
+test("a task left with fewer than four questions is a retry that closes its run, and nothing is saved", async () => {
+  restore.push(spyOn(console, "warn").mockImplementation(() => {}));
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job({ kind: "task" })),
+    "/v1/messages": () => message(unreadable(1, 3)),
+  });
+  const [outcome] = await drainPracticeQueue();
+  expect(outcome).toMatchObject({
+    kind: "task",
+    result: "failed",
+    failure: "retry",
+    error: "Only 3 of 5 questions passed their checks",
+  });
+  expect(calls["rpc/complete_practice_job"]).toBeUndefined();
+  expect(calls["rpc/fail_practice_job"][0]).toMatchObject({
+    _failure: "retry",
+    _run_id: calls.exam_generation_runs[0].id,
+  });
+});
+
+test("a task with one question left out still saves the other four", async () => {
+  restore.push(spyOn(console, "warn").mockImplementation(() => {}));
+  const calls = stub({
+    "rpc/claim_practice_jobs": claims(job({ kind: "task" })),
+    "/v1/messages": () => message(unreadable(2)),
+    "rpc/complete_practice_job": saved("written", "sheet-1"),
+  });
+  const [outcome] = await drainPracticeQueue();
+  expect(outcome).toMatchObject({ kind: "task", result: "written", result_id: "sheet-1" });
+  const saved_ = calls["rpc/complete_practice_job"][0]._questions as { prompt: string }[];
+  expect(saved_.map((q) => q.prompt)).toEqual(
+    tasks()
+      .filter((_, i) => i !== 2)
+      .map((q) => q.prompt.trim()),
+  );
+  expect(calls["rpc/fail_practice_job"]).toBeUndefined();
+});
+
 // ── The answer check ──────────────────────────────────────────────────────
 
 /** The question at `i` of a written set, keyed to `key` whatever its writer's verdicts say. */

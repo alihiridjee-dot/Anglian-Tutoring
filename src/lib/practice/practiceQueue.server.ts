@@ -29,6 +29,9 @@ export type PracticeKind = "quiz" | "task";
 /** Questions in each point's shared quiz and task. */
 export const QUESTIONS: Record<PracticeKind, number> = { quiz: 8, task: 5 };
 
+/** The fewest questions a point's shared task is saved with. */
+const MIN_TASK_QUESTIONS = 4;
+
 /** A job this worker holds, from `claim_practice_jobs`. */
 export interface ClaimedJob {
   job_id: number;
@@ -237,6 +240,14 @@ async function writeQuestions(
       },
     ];
   });
+  // Too few left to be a task: the job tries again rather than save a stub.
+  if (payload.length < MIN_TASK_QUESTIONS)
+    throw new GenerationError(
+      `Only ${payload.length} of ${QUESTIONS.task} questions passed their checks`,
+      "retry",
+      0,
+      runId,
+    );
   return { payload, runId };
 }
 
