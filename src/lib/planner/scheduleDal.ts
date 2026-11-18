@@ -181,7 +181,9 @@ export class ScheduleDAL {
           source: "homework",
           scorePct: pct,
           sourceId: sub.id,
-          reviewedAt: new Date(sub.graded_at ?? sub.submitted_at),
+          // The memory clock starts when the student did the work, not when
+          // it was marked: a task marked days later was not revised days later.
+          reviewedAt: new Date(sub.submitted_at),
         });
     }
     for (const attempt of attempts) {
