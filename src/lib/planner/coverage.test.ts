@@ -139,6 +139,24 @@ describe("verdictCopy", () => {
     expect(verdictCopy(s.verdict, s).sub).toContain("1 point is");
   });
 
+  test("each verdict is coloured by a kit tint, never a Tailwind palette class", () => {
+    const s = summarize([
+      { specPointId: "a", coverage: cov(), activity: act({ hasHomework: true }) },
+    ]);
+    const verdicts = ["no_signal", "move_on", "almost", "keep_going"] as const;
+    expect(verdicts.map((v) => verdictCopy(v, s).tint)).toEqual([
+      "tint-slate",
+      "tint-emerald",
+      "tint-amber",
+      "tint-rose",
+    ]);
+    for (const v of verdicts) {
+      expect(Object.values(verdictCopy(v, s)).join(" ")).not.toMatch(
+        /\b(bg|text|border)-(emerald|amber|rose)-\d|dark:/,
+      );
+    }
+  });
+
   test("names no week to carry into, since a week further back carries into this one", () => {
     const s = summarize([
       { specPointId: "a", coverage: cov(), activity: act({ hasHomework: true }) },

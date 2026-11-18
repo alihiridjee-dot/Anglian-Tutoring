@@ -163,7 +163,7 @@ const LANE_ICON: Record<Lane, typeof CircleDot> = {
 
 const LANE_ACCENT: Record<Lane, string> = {
   core: "text-primary",
-  focus: "text-rose-600 dark:text-rose-400",
+  focus: "tint-rose text-[color:var(--tint)]",
   tutor: "tint-accent text-[color:var(--tint)]",
   yours: "text-muted-foreground",
 };
@@ -188,7 +188,7 @@ export function LaneReview({
     : copy.sub;
 
   return (
-    <div className={`rounded-xl border p-3.5 ${copy.tone}`}>
+    <div className={`premium-card wash-top rounded-xl p-3.5 ${copy.tint}`}>
       <div className="flex items-center gap-1.5 mb-2">
         <Icon className={`w-3.5 h-3.5 ${LANE_ACCENT[lane]}`} />
         <span className={`text-[10px] font-bold uppercase tracking-wide ${LANE_ACCENT[lane]}`}>
@@ -199,15 +199,17 @@ export function LaneReview({
         </span>
       </div>
       <div className="flex items-start gap-2.5">
-        {summary.verdict === "move_on" ? (
-          <CheckCircle2 className={`w-5 h-5 mt-0.5 shrink-0 ${copy.accent}`} />
-        ) : summary.verdict === "no_signal" ? (
-          <MinusCircle className="w-5 h-5 mt-0.5 shrink-0 text-muted-foreground" />
-        ) : (
-          <RotateCcw className={`w-5 h-5 mt-0.5 shrink-0 ${copy.accent}`} />
-        )}
+        <span className="icon-tile size-8 shrink-0">
+          {summary.verdict === "move_on" ? (
+            <CheckCircle2 className="size-4" aria-hidden />
+          ) : summary.verdict === "no_signal" ? (
+            <MinusCircle className="size-4" aria-hidden />
+          ) : (
+            <RotateCcw className="size-4" aria-hidden />
+          )}
+        </span>
         <div>
-          <p className={`text-sm font-semibold ${copy.accent}`}>{headline}</p>
+          <p className="text-sm font-semibold">{headline}</p>
           <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>
         </div>
       </div>
