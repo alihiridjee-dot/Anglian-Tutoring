@@ -16,6 +16,7 @@ import type { TopicRef } from "@/lib/curriculum/topicGroups";
 import type { LevelV } from "@/lib/curriculum/taxonomy";
 import { courseParts, type LibraryFilter } from "@/lib/curriculum/libraryFilter";
 import { ilikePattern } from "@/lib/search/match";
+import { BRIEF_PAGE, readStudentBriefs } from "@/lib/homework/studentBriefs";
 
 /** How often an open sheet checks whether its mark has been released. */
 const AWAITING_MARK_POLL_MS = 30_000;
@@ -55,15 +56,31 @@ export function useHomework({
       // Demo student: render the self-contained fixture set, never real content.
       if (isDemoStudent()) return DEMO_HOMEWORK.map(demoHomework);
 
-      let q = supabase
+      // A student's list is read in pages: one select stops at 1,000 rows.
+      // Board stays with the page, which keeps handed-in work from another board.
+      if (!isTutor)
+        return readStudentBriefs((after) => {
+          let q = supabase
+            .from("resources")
+            .select("id, title, instructions, subject, board, level, due_at, created_at, origin")
+            .eq("kind", "homework")
+            .order("id", { ascending: true })
+            .limit(BRIEF_PAGE);
+          if (subjects.length > 0)
+            q = q.in("subject", subjects as ("biology" | "chemistry" | "physics")[]);
+          if (level) q = q.eq("level", level);
+          if (after) q = q.gt("id", after);
+          return q as unknown as PromiseLike<{
+            data: Homework[] | null;
+            error: { message: string } | null;
+          }>;
+        });
+
+      const { data, error } = await supabase
         .from("resources")
         .select("id, title, instructions, subject, board, level, due_at, created_at, origin")
         .eq("kind", "homework")
         .order("due_at", { ascending: true });
-      if (!isTutor && subjects.length > 0)
-        q = q.in("subject", subjects as ("biology" | "chemistry" | "physics")[]);
-      if (!isTutor && level) q = q.eq("level", level);
-      const { data, error } = await q;
       if (error) throw error;
       return (data ?? []) as Homework[];
     },
