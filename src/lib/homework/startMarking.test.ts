@@ -6,6 +6,7 @@ import {
   markingStalled,
   needsMarkingStart,
   startMarking,
+  startMarkingOwnSubmission,
 } from "@/lib/homework/startMarking";
 
 /**
@@ -89,6 +90,48 @@ describe("starting the marker", () => {
 
   test("a failed call never reaches the page", () => {
     expect(() => startMarking("sub-3", () => Promise.reject(new Error("down")))).not.toThrow();
+  });
+});
+
+describe("a retry that ends in 'already submitted', with no id", () => {
+  test("finds the student's own submission and starts its marking once", async () => {
+    const reads: string[][] = [];
+    const calls: string[] = [];
+    const read = async (resourceId: string, studentId: string) => {
+      reads.push([resourceId, studentId]);
+      return "sub-retry-1";
+    };
+    const invoke = async (id: string) => void calls.push(id);
+    await startMarkingOwnSubmission("task-1", "student-1", read, invoke);
+    await startMarkingOwnSubmission("task-1", "student-1", read, invoke);
+    expect(reads[0]).toEqual(["task-1", "student-1"]);
+    expect(calls).toEqual(["sub-retry-1"]);
+  });
+
+  test("no stored submission: nothing starts", async () => {
+    const calls: string[] = [];
+    await startMarkingOwnSubmission(
+      "task-2",
+      "student-1",
+      async () => null,
+      async (id) => {
+        calls.push(id);
+      },
+    );
+    expect(calls).toEqual([]);
+  });
+
+  test("the read fails: nothing starts, and the page never hears of it", async () => {
+    const calls: string[] = [];
+    await expect(
+      startMarkingOwnSubmission(
+        "task-3",
+        "student-1",
+        () => Promise.reject(new Error("offline")),
+        async (id) => void calls.push(id),
+      ),
+    ).resolves.toBeUndefined();
+    expect(calls).toEqual([]);
   });
 });
 

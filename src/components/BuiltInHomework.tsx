@@ -32,7 +32,12 @@ import {
   syncServerDraft,
   type TimestampedDraft,
 } from "@/lib/homework/homeworkDrafts";
-import { isAlreadySubmitted, markingStalled, startMarking } from "@/lib/homework/startMarking";
+import {
+  isAlreadySubmitted,
+  markingStalled,
+  startMarking,
+  startMarkingOwnSubmission,
+} from "@/lib/homework/startMarking";
 import { creditRuns, creditsToShow, levelOfCredit } from "@/lib/homework/creditedQuotes";
 import {
   answerSheet,
@@ -656,6 +661,9 @@ export function AnswerForm({
       // work is safely handed in either way; a submission that goes unmarked
       // simply waits for a tutor, which is what used to happen to all of them.
       if (submissionId) startMarking(submissionId);
+      // A retry after a lost reply ends in "already submitted" with no id:
+      // start the marking of the submission its first try saved.
+      else if (retry && error) void startMarkingOwnSubmission(hw.id, userId);
 
       toast.success("Task submitted");
       unsaved.current = { local: false, remote: false };
