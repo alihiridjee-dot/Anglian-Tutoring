@@ -1,4 +1,3 @@
-import { Mascot } from "@/components/Doodles";
 import { ErrorNote, Spinner } from "@/components/Shared";
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
@@ -10,6 +9,7 @@ import { useChatThreads, usePinnedThread, type ThreadSummary } from "@/hooks/dat
 import { ThreadList } from "@/components/chat/ThreadList";
 import { ThreadView } from "@/components/chat/ThreadView";
 import { NewThreadDialog } from "@/components/chat/NewThreadDialog";
+import { EmptyInbox } from "@/components/chat/EmptyInbox";
 
 /**
  * Messages — one route, both sides of the same conversation.
@@ -65,102 +65,82 @@ function MessagesPage() {
   return (
     <AppLayout title="Messages">
       <div className="max-w-6xl">
-        <div className="mb-4 flex items-center justify-between gap-3">
-          <div>
-            <p className="text-sm text-muted-foreground">
-              {isTutor
-                ? unreadTotal > 0
-                  ? `${unreadTotal} message${unreadTotal === 1 ? "" : "s"} waiting for a reply.`
-                  : "Everything's answered."
-                : "Ask your tutor anything — attach the spec point, task or quiz you're stuck on."}
-            </p>
-          </div>
-          {!isTutor && (
-            <button
-              data-guide="ask-question"
-              onClick={() => setComposing(true)}
-              className="btn-hero inline-flex h-11 sm:pointer-fine:h-10 shrink-0 items-center gap-2 rounded-xl px-4 text-sm"
-            >
-              <MessageSquarePlus className="size-4" aria-hidden /> Ask a question
-            </button>
-          )}
-        </div>
-
         {error && threads.length === 0 ? (
           // Nothing to fall back on, so say so — not "No conversations yet",
           // which is a claim about the inbox that a failed request can't make.
           <ErrorNote error={error} onRetry={() => void refetch()} />
         ) : threads.length === 0 ? (
-          <div className="pop-card p-10 text-center">
-            <Mascot name="owl" mood="happy" size={104} className="mx-auto mb-4" />
-            <h2 className="font-display text-xl font-extrabold">
-              {isTutor ? "No questions yet" : "No conversations yet"}
-            </h2>
-            <p className="text-muted-foreground mx-auto mt-2 max-w-sm text-sm leading-relaxed">
-              {isTutor
-                ? "When a student asks a question it lands here, with the spec point or task they were working on attached."
-                : "Stuck on something? Ask your tutor — they'll see exactly which part of the spec you mean."}
-            </p>
-            {!isTutor && (
-              <button
-                data-guide="ask-question"
-                onClick={() => setComposing(true)}
-                className="btn-hero mt-6 inline-flex h-11 items-center gap-2 rounded-xl px-5 text-sm"
-              >
-                <MessageSquarePlus className="size-4" aria-hidden /> Ask a question
-              </button>
-            )}
-          </div>
+          <EmptyInbox isTutor={isTutor} onAsk={() => setComposing(true)} />
         ) : (
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,20rem)_1fr]">
-            <div
-              data-guide="message-list"
-              className={`pop-card scroll-slim max-h-[70vh] overflow-y-auto ${threadOpen ? "max-lg:hidden" : ""}`}
-            >
-              <ThreadList
-                threads={threads}
-                selectedId={selectedId}
-                onSelect={(id) => {
-                  setSelectedId(id);
-                  setThreadOpen(true);
-                }}
-                showCounterpart={isTutor}
-              />
+          <>
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <p className="font-medium">
+                {isTutor
+                  ? unreadTotal > 0
+                    ? `${unreadTotal} message${unreadTotal === 1 ? "" : "s"} waiting for a reply`
+                    : "Everything's answered"
+                  : "Ask your tutor anything — attach the spec point, task or quiz you're stuck on"}
+              </p>
+              {!isTutor && (
+                <button
+                  data-guide="ask-question"
+                  onClick={() => setComposing(true)}
+                  className="btn-hero inline-flex h-11 sm:pointer-fine:h-10 shrink-0 items-center gap-2 rounded-xl px-4 text-sm"
+                >
+                  <MessageSquarePlus className="size-4" aria-hidden /> Ask a question
+                </button>
+              )}
             </div>
-            {/* Open on a phone turned sideways, the thread takes the whole
+            <div className="grid gap-4 lg:grid-cols-[minmax(0,20rem)_1fr]">
+              <div
+                data-guide="message-list"
+                className={`pop-card scroll-slim max-h-[70vh] overflow-y-auto ${threadOpen ? "max-lg:hidden" : ""}`}
+              >
+                <ThreadList
+                  threads={threads}
+                  selectedId={selectedId}
+                  onSelect={(id) => {
+                    setSelectedId(id);
+                    setThreadOpen(true);
+                  }}
+                  showCounterpart={isTutor}
+                />
+              </div>
+              {/* Open on a phone turned sideways, the thread takes the whole
                 screen (`.thread-sideways`) and its own title row carries the
                 way back, so this row steps aside there. */}
-            <div
-              data-guide="message-thread"
-              className={`premium-card flex h-[70vh] min-h-0 flex-col overflow-hidden rounded-2xl ${threadOpen ? "thread-sideways" : "max-lg:hidden"}`}
-            >
-              <button
-                type="button"
-                onClick={() => setThreadOpen(false)}
-                className="inline-flex min-h-11 items-center gap-2 border-b border-border px-4 text-sm font-semibold text-muted-foreground hover:text-foreground lg:hidden short:hidden"
+              <div
+                data-guide="message-thread"
+                className={`premium-card flex h-[70vh] min-h-0 flex-col overflow-hidden rounded-2xl ${threadOpen ? "thread-sideways" : "max-lg:hidden"}`}
               >
-                <ArrowLeft className="size-4" aria-hidden /> All conversations
-              </button>
-              <div className="min-h-0 flex-1">
-                {selected && userId ? (
-                  // Keyed by thread: an AI draft or a send still in flight
-                  // when the tutor switches finishes in the old, unmounted
-                  // view instead of filling the next student's reply box.
-                  <ThreadView
-                    key={selected.id}
-                    thread={selected}
-                    viewerId={userId}
-                    isTutor={isTutor}
-                    onBack={() => setThreadOpen(false)}
-                  />
-                ) : (
-                  <p className="p-10 text-center text-sm text-muted-foreground">
-                    Pick a conversation.
-                  </p>
-                )}
+                <button
+                  type="button"
+                  onClick={() => setThreadOpen(false)}
+                  className="inline-flex min-h-11 items-center gap-2 border-b border-border px-4 text-sm font-semibold text-muted-foreground hover:text-foreground lg:hidden short:hidden"
+                >
+                  <ArrowLeft className="size-4" aria-hidden /> All conversations
+                </button>
+                <div className="min-h-0 flex-1">
+                  {selected && userId ? (
+                    // Keyed by thread: an AI draft or a send still in flight
+                    // when the tutor switches finishes in the old, unmounted
+                    // view instead of filling the next student's reply box.
+                    <ThreadView
+                      key={selected.id}
+                      thread={selected}
+                      viewerId={userId}
+                      isTutor={isTutor}
+                      onBack={() => setThreadOpen(false)}
+                    />
+                  ) : (
+                    <p className="p-10 text-center text-sm text-muted-foreground">
+                      Pick a conversation.
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
+          </>
         )}
       </div>
 
