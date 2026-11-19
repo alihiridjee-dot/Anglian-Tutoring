@@ -12,7 +12,6 @@ import {
   Check,
   CheckCheck,
   ClipboardCheck,
-  Clock,
   MessageCircle,
   Palmtree,
   Users,
@@ -54,6 +53,39 @@ const OTHER_KIND = { icon: Bell, tint: "tint-slate" };
 function splitScore(body: string | null): { text: string | null; pct: number | null } {
   const m = body?.match(/^(.*?)\s+—\s+(\d{1,3})%$/);
   return m ? { text: m[1], pct: Number(m[2]) } : { text: body, pct: null };
+}
+
+/**
+ * The title on one line, so what happened fits before the line runs out (and
+ * before a score chip). The database writes the long forms: "Eddie Miles
+ * acknowledged your feedback" (`acknowledge_submission`) is shown as "Eddie
+ * Miles read your feedback", and "Your task has been marked" as "Task marked".
+ */
+function shortTitle(n: Notification): string {
+  if (n.type === "feedback_acknowledged")
+    return n.title.replace(/ acknowledged your feedback$/, " read your feedback");
+  if (n.type === "homework_marked")
+    return n.title.replace(/^Your (task|homework) has been marked$/, "Task marked");
+  return n.title;
+}
+
+/** The time as a short chip: "Now", "5m", "3h", "2d", "3w", then "6 Oct". */
+function shortAgo(iso: string): string {
+  const mins = Math.floor((Date.now() - new Date(iso).getTime()) / 60_000);
+  if (mins < 1) return "Now";
+  if (mins < 60) return `${mins}m`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return `${hours}h`;
+  const days = Math.floor(hours / 24);
+  if (days < 7) return `${days}d`;
+  const weeks = Math.floor(days / 7);
+  if (weeks < 5) return `${weeks}w`;
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    ...(d.getFullYear() !== new Date().getFullYear() && { year: "numeric" }),
+  });
 }
 
 /**
@@ -206,42 +238,41 @@ export function NotificationBell() {
               </div>
             )
           ) : (
-            <ul className="space-y-2 p-2.5">
+            <ul className="bell-trail">
               {items.map((n, i) => {
                 const kind = KIND[n.type] ?? OTHER_KIND;
                 const Icon = kind.icon;
                 const { text, pct } = splitScore(n.body);
                 const unseen = !n.read_at;
+                const title = shortTitle(n);
                 const body = (
                   <div
-                    className={cn(
-                      "flex items-start gap-3 rounded-xl border px-3 py-2.5 transition-transform hover:-translate-y-0.5",
-                      kind.tint,
-                      unseen
-                        ? "border-[color-mix(in_oklab,var(--tint)_20%,transparent)] bg-[color-mix(in_oklab,var(--tint)_6%,var(--card))]"
-                        : "border-border bg-card",
-                    )}
+                    className={cn("bell-stop", kind.tint)}
+                    title={`${n.title}${text ? ` — ${text}` : ""}`}
                   >
-                    <span className="icon-tile size-10 shrink-0">
-                      <Icon className="size-5" aria-hidden />
+                    <span className={cn("icon-tile bell-stop-dot", unseen && "icon-tile-solid")}>
+                      <Icon className="size-4" aria-hidden />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm font-bold leading-snug break-words">{n.title}</p>
-                      {text && <p className="text-sm leading-snug mt-0.5 line-clamp-2">{text}</p>}
-                      <Chip icon={Clock} tint="tint-slate" className="mt-1.5">
-                        {timeAgo(n.created_at)}
-                      </Chip>
-                    </div>
-                    {pct != null && (
-                      <span
-                        className={cn(
-                          "numeral icon-tile h-10 min-w-12 shrink-0 justify-center px-2 text-base",
-                          scoreTint(pct),
+                      <div className="flex items-center gap-1.5">
+                        <p className="truncate text-sm font-bold leading-snug">{title}</p>
+                        {pct != null && (
+                          <Chip tint={scoreTint(pct)} className="numeral shrink-0">
+                            {pct}%
+                          </Chip>
                         )}
-                      >
-                        {pct}%
-                      </span>
-                    )}
+                      </div>
+                      {text && <p className="truncate text-sm leading-snug">{text}</p>}
+                    </div>
+                    {/* Unread takes the notice's own colour; read goes quiet. */}
+                    <Chip
+                      tint={unseen ? undefined : "tint-slate"}
+                      className="shrink-0 whitespace-nowrap"
+                    >
+                      <time dateTime={n.created_at} title={timeAgo(n.created_at)}>
+                        {shortAgo(n.created_at)}
+                      </time>
+                    </Chip>
                   </div>
                 );
                 return (
