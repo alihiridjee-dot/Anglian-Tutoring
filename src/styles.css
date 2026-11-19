@@ -866,6 +866,15 @@
   );
 }
 
+/* A pen line under a run of text: a tutor's "look at this again" on a marked
+   answer. Wavy, so it is never taken for one of the sheet's ruled lines. */
+.pen-line {
+  text-decoration: underline wavy color-mix(in oklab, var(--tint) 90%, transparent);
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.2em;
+  text-decoration-skip-ink: none;
+}
+
 /* The rounded square an icon sits in. */
 .icon-tile {
   justify-content: center;
