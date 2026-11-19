@@ -182,7 +182,7 @@ export function TutorWeekTab({ state }: { state: TutorPlannerState }) {
               {lane.groups.map((g) => (
                 <div key={g.topicId}>
                   {lane.groups.length > 1 || lane.key === "course" ? (
-                    <h4 className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">
+                    <h4 className="text-[11px] font-bold uppercase tracking-wide text-muted-foreground mb-1.5">
                       {g.title}
                     </h4>
                   ) : null}

@@ -169,7 +169,7 @@ export function WeekReview({
     <div className="mt-4 rounded-2xl border border-border bg-muted/20 p-4 sm:p-5">
       <div className="flex items-center gap-2 mb-3">
         <Target className="w-4 h-4 text-muted-foreground" />
-        <h3 className="text-sm font-semibold">
+        <h3 className="text-sm font-bold">
           {readOnly ? "This week's performance" : "How this week went"}
         </h3>
       </div>

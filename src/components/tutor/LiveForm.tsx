@@ -99,7 +99,7 @@ export function LiveForm({ userId, taxonomy }: LiveFormProps) {
           <button
             onClick={generateDescription}
             disabled={generatingBlurb}
-            className="self-end min-h-11 sm:min-h-0 sm:absolute sm:right-1.5 sm:top-1.5 px-2.5 py-1 rounded bg-primary/10 hover:bg-primary/15 text-primary text-xs font-semibold inline-flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
+            className="self-end min-h-11 sm:pointer-fine:min-h-0 sm:absolute sm:right-1.5 sm:top-1.5 px-2.5 py-1 rounded bg-primary/10 hover:bg-primary/15 text-primary text-xs font-semibold inline-flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
             title="Draft a description with AI from the title"
           >
             {generatingBlurb ? (

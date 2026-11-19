@@ -23,6 +23,7 @@ import {
 } from "@/lib/planner/coverage";
 import { reviewLock } from "@/lib/planner/reviewLock";
 import { CHECKIN_NOTE_MAX } from "@/lib/platform/textLimits";
+import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { type WeekReviewBusy } from "./useWeekReview";
 
 /** The student's self-report: the two feel-buttons, and the note that goes to their tutor. */
@@ -98,10 +99,10 @@ export function WeeklyCheckinForm({
         <p className="text-[11px] text-muted-foreground mb-2">
           Ali reads this alongside your marks and replies here as "Ali's take".
         </p>
-        <textarea
+        <SciAnswerBox
           value={reflection}
-          onChange={(e) => {
-            setReflection(e.target.value);
+          onValueChange={(text) => {
+            setReflection(text);
             if (noteState === "sent") setNoteState("idle");
           }}
           onBlur={saveNote}
