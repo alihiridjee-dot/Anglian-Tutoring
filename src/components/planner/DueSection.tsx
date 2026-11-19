@@ -1,42 +1,29 @@
-import { useId, type ReactNode } from "react";
-import {
-  BookMarked,
-  ChevronDown,
-  CircleDot,
-  History,
-  Plus,
-  Repeat,
-  type LucideIcon,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
-import { useEntryState } from "@/hooks/useEntryState";
+import type { ReactNode } from "react";
 import { DUE_LANE_LABEL, type DueLane } from "@/lib/planner/dueLanes";
 
-/** A lane card in its own colour, washed at the top behind its heading. */
-const LANE_CARD = "premium-card wash-top";
-/** The quieter box the dashboard gives the tutor's points and the student's own. */
-const SIDE_BOX = "border border-border bg-muted/20";
-
-/** Each lane's icon and colour, the dashboard's (see `ThisWeekLanes`). */
-const LANE_LOOK: Record<DueLane, { icon: LucideIcon; className: string }> = {
-  new: { icon: CircleDot, className: `${LANE_CARD} tint-primary` },
-  returning: { icon: History, className: `${LANE_CARD} tint-amber` },
-  revision: { icon: Repeat, className: `${LANE_CARD} tint-rose` },
-  tutor: { icon: BookMarked, className: `${SIDE_BOX} tint-accent` },
-  yours: { icon: Plus, className: `${SIDE_BOX} tint-slate` },
+/** Each lane's emoji and colour; the colours are the dashboard's (see `ThisWeekLanes`). */
+const LANE_LOOK: Record<DueLane, { emoji: string; tint: string }> = {
+  new: { emoji: "🌱", tint: "tint-primary" },
+  returning: { emoji: "⏪", tint: "tint-amber" },
+  revision: { emoji: "🔁", tint: "tint-rose" },
+  tutor: { emoji: "📌", tint: "tint-accent" },
+  yours: { emoji: "✋", tint: "tint-slate" },
 };
 
+/** The one button on a row. */
+export const DUE_GO =
+  "btn-solid inline-flex min-h-11 shrink-0 items-center rounded-xl px-4 py-2 text-sm";
+
 /**
- * One lane of Due, in the dashboard's colour, icon and name. The work inside
- * takes the lane's colour, as the dashboard's rows do.
+ * One lane of Due: a plain heading inside the one card, then its work as bare
+ * rows.
  *
- * The heading is built from the kit to read as a section of a revision guide:
- * the lane's icon in a solid tile, its name in display type, and how much is
- * left as a chip. Open to begin with, so the week's work is on screen, and
- * folds away from the heading. A folded lane with work still in it pulses
- * lightly in its own colour, so tidying a lane away never reads as having
- * finished it (Ali, 6 Oct 2026). Open or folded is kept with the visit, so Back
- * from a task finds it as left.
+ * Due used to be a card per lane, a card per sheet inside it and a box for the
+ * marks inside that, with a "to do" pill and a fold arrow on every lane. Ali
+ * found it overwhelming (17 Nov 2026) and picked "one list": one card, the
+ * lanes as headings in the dashboard's names and colours (an emoji in a round
+ * dot, the name, how many are left), and each piece of work a bare row. Nothing
+ * folds, so the whole week is on screen.
  *
  * Tasks and MCQs both use it, so the two pages split the week the same way and
  * the student meets one set of names and colours: the dashboard's.
@@ -50,50 +37,59 @@ export function DueSection({
   count: number;
   children: ReactNode;
 }) {
-  const { icon: Icon, className } = LANE_LOOK[lane];
-  const [open, setOpen] = useEntryState(`due.${lane}`, true);
-  const body = useId();
+  const { emoji, tint } = LANE_LOOK[lane];
   return (
-    <section
-      className={cn("min-w-0 rounded-xl p-4", className, !open && count > 0 && "pulse-ring")}
-    >
-      <h2>
-        <button
-          type="button"
-          onClick={() => setOpen((o) => !o)}
-          aria-expanded={open}
-          aria-controls={body}
-          className="group flex w-full items-center gap-3 text-left"
+    <section className={`${tint} min-w-0`}>
+      <h2 className="flex items-center gap-2.5 text-xl leading-tight font-extrabold">
+        <span
+          aria-hidden
+          className="grid size-9 shrink-0 place-items-center rounded-full bg-[var(--tint)] text-lg"
         >
-          <span className="icon-tile icon-tile-solid size-10 shrink-0">
-            <Icon className="size-5" aria-hidden />
-          </span>
-          <span className="font-display min-w-0 text-base leading-tight font-extrabold sm:text-lg">
-            {DUE_LANE_LABEL[lane]}
-          </span>
-          <span className="chip shrink-0">
-            <span className="numeral">{count}</span> to do
-          </span>
-          {/* The open/fold control: a round button in the lane's colour. */}
-          <span className="ml-auto inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-[color-mix(in_oklab,var(--tint)_12%,transparent)] text-[color:var(--tint)] transition-colors group-hover:bg-[color-mix(in_oklab,var(--tint)_20%,transparent)] sm:pointer-fine:size-8">
-            <ChevronDown
-              className={cn("size-4 transition-transform", !open && "-rotate-90")}
-              aria-hidden
-            />
-          </span>
-        </button>
+          {emoji}
+        </span>
+        <span className="min-w-0">{DUE_LANE_LABEL[lane]}</span>
+        <span className="numeral text-[color:var(--tint)]">
+          {count}
+          <span className="sr-only"> to do</span>
+        </span>
       </h2>
-      <div id={body} hidden={!open} className="mt-4">
-        {children}
-      </div>
+      <ul className="mt-1 sm:pl-12">{children}</ul>
     </section>
   );
 }
 
 /**
- * The lanes, stacked, with the subject's colour glowing softly behind them. The
- * lanes wear the dashboard's colours; the glow keeps the page the subject's.
+ * A piece of work in a lane: the title in bold, one dark line under it, and one
+ * button. No border or background of its own, as on a spec point's page.
+ */
+export function DueRow({
+  title,
+  detail,
+  children,
+}: {
+  title: string;
+  detail?: string;
+  children: ReactNode;
+}) {
+  return (
+    <li className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-2.5">
+      <div className="min-w-0 flex-1 basis-40">
+        <p className="font-display text-lg leading-snug font-bold break-words">{title}</p>
+        {detail && <p className="mt-0.5 text-sm">{detail}</p>}
+      </div>
+      {children}
+    </li>
+  );
+}
+
+/**
+ * The lanes, in one card, with the subject's colour glowing softly behind it.
+ * The lanes wear the dashboard's colours; the glow keeps the page the subject's.
  */
 export function DueLanes({ children }: { children: ReactNode }) {
-  return <div className="glow-behind space-y-5">{children}</div>;
+  return (
+    <div className="glow-behind">
+      <div className="premium-card space-y-6 p-4 sm:p-6">{children}</div>
+    </div>
+  );
 }

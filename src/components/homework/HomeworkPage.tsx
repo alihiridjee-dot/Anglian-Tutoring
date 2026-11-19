@@ -25,7 +25,7 @@ import {
   type HomeworkItem,
 } from "@/lib/homework/homeworkBuckets";
 import { useDueThisWeek } from "@/components/planner/useDueThisWeek";
-import { DueLanes, DueSection } from "@/components/planner/DueSection";
+import { DUE_GO, DueLanes, DueRow, DueSection } from "@/components/planner/DueSection";
 import { MarkedTopic } from "@/components/planner/MarkedTopic";
 import { CalendarCheck, ChevronDown, Clock, Plus } from "lucide-react";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
@@ -293,19 +293,17 @@ function StudentHomework({
             active && (
               <div data-guide="homework-list">
                 {active.bucket === "due" ? (
-                  // Every lane open at once, under the dashboard's names.
+                  // One card, the lanes as headings under the dashboard's names.
                   <DueLanes>
                     {splitDue(active.items).map(({ lane, items: work }) => (
                       <DueSection key={lane} lane={lane} count={work.length}>
-                        <div className="space-y-3">
-                          {work.map((item) => (
-                            <HomeworkCard
-                              key={item.hw.id}
-                              item={item}
-                              summary={summaries[item.hw.id]}
-                            />
-                          ))}
-                        </div>
+                        {work.map((item) => (
+                          <DueTaskRow
+                            key={item.hw.id}
+                            item={item}
+                            summary={summaries[item.hw.id]}
+                          />
+                        ))}
                       </DueSection>
                     ))}
                   </DueLanes>
@@ -324,6 +322,37 @@ function StudentHomework({
         </div>
       )}
     </AppLayout>
+  );
+}
+
+/**
+ * A task in Due, as a bare row: its title, one line (how many questions and
+ * marks, who set it, when it's due) and a Start button.
+ */
+function DueTaskRow({ item, summary }: { item: HomeworkItem; summary?: HomeworkSummary }) {
+  const { hw } = item;
+  const overdue = isOverdue(item);
+  const detail = [
+    summary && summary.count > 0
+      ? `${summary.count} question${summary.count === 1 ? "" : "s"} · ${summary.marks} mark${summary.marks === 1 ? "" : "s"}`
+      : null,
+    hw.origin === "tutor" ? "Set by your tutor" : null,
+    hw.due_at ? `${overdue ? "Overdue" : "Due"} ${plannerDateLabel(new Date(hw.due_at))}` : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+  return (
+    <DueRow title={hw.title} detail={detail}>
+      <Link
+        // The showcase mounts the same sheet page under /demo/student, outside
+        // the auth guard (see HomeworkCard).
+        to={isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"}
+        params={{ homeworkId: hw.id }}
+        className={DUE_GO}
+      >
+        Start
+      </Link>
+    </DueRow>
   );
 }
 
