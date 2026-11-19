@@ -23,7 +23,7 @@ export function LiveSessionsBanner({
 }) {
   return (
     <div className="relative rounded-2xl">
-      <span className="pointer-events-none absolute inset-0 rounded-2xl ring-2 ring-emerald-500/40 animate-pulse" />
+      <span className="pointer-events-none absolute inset-0 rounded-2xl ring-2 tint-emerald ring-[color:color-mix(in_oklab,var(--tint)_40%,transparent)] animate-pulse" />
       <div className="relative">
         <NextSessionCountdown className="!mb-0" subject={subject} />
         <LiveSessionsFallback to={to} plansPresent={plansPresent} subject={subject} />
@@ -57,20 +57,20 @@ function LiveSessionsFallback({
   return (
     <Link
       to={to}
-      className="flex items-center gap-3 rounded-2xl border border-emerald-500/40 bg-emerald-500/5 px-5 py-4 hover:bg-emerald-500/10 transition group"
+      className="tint-emerald flex items-center gap-3 rounded-2xl border border-[color:color-mix(in_oklab,var(--tint)_40%,transparent)] bg-[color:color-mix(in_oklab,var(--tint)_5%,transparent)] px-5 py-4 hover:bg-[color:color-mix(in_oklab,var(--tint)_10%,transparent)] transition group"
     >
-      <span className="w-11 h-11 rounded-xl bg-emerald-500/15 text-emerald-600 flex items-center justify-center shrink-0">
+      <span className="w-11 h-11 rounded-xl bg-[color:color-mix(in_oklab,var(--tint)_15%,transparent)] text-[color:var(--tint)] flex items-center justify-center shrink-0">
         <Radio className="w-5 h-5 animate-pulse" />
       </span>
       <div className="min-w-0 flex-1">
-        <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-600">
+        <p className="text-[10px] font-bold uppercase tracking-widest text-[color:var(--tint)]">
           Live sessions
         </p>
         <p className="font-display font-bold leading-tight mt-0.5">
           {plansPresent ? "Join your live lessons this week" : "See your upcoming live lessons"}
         </p>
       </div>
-      <ChevronRight className="w-5 h-5 text-emerald-600 group-hover:translate-x-0.5 transition shrink-0" />
+      <ChevronRight className="w-5 h-5 text-[color:var(--tint)] group-hover:translate-x-0.5 transition shrink-0" />
     </Link>
   );
 }

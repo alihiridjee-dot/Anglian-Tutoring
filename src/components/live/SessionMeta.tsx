@@ -22,13 +22,13 @@ export function SessionIdentity({
 }) {
   const eyebrowColor =
     tone === "emerald"
-      ? "text-emerald-600"
+      ? "tint-emerald text-[color:var(--tint)]"
       : tone === "muted"
         ? "text-muted-foreground"
         : "text-[#2D8CFF]";
   const chipColor =
     tone === "emerald"
-      ? "bg-emerald-500/15 text-emerald-700"
+      ? "tint-emerald bg-[color:color-mix(in_oklab,var(--tint)_15%,transparent)] text-[color:color-mix(in_oklab,var(--tint)_72%,var(--primary-deep))]"
       : tone === "muted"
         ? "bg-secondary text-muted-foreground"
         : "bg-[#2D8CFF]/12 text-[#2D8CFF]";
