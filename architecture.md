@@ -361,9 +361,9 @@ violation.
 Deploy `20260907120000_planner_read_models.sql` after the assessment snapshot and
 weekly-completion migrations listed in `docs/ASSESSMENT_SCHEDULER.md`. It revokes
 client writes to historical memory tables and execution of the old client-card RPC.
-Historical rows remain archived. Until the new RPCs exist, the app uses direct
-source reads; only missing-function errors enable that compatibility path.
-Permission/network errors surface instead of being mistaken for empty plans.
+Historical rows remain archived. The app reads these RPCs with no fallback:
+any error, a missing function included, surfaces instead of being mistaken for
+an empty plan.
 
 This is read aggregation and cache consolidation, **not a server scheduling service**.
 FSRS still runs in the consuming application. A client can alter its own display,

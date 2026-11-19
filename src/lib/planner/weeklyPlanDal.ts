@@ -110,11 +110,6 @@ function toPlanPoints(rows: WeekPointRow[]): PlanPoint[] {
 const WEEK_COLUMNS =
   "id, subject, board, level, week_start, source, note, ai_rationale, student_weekly_plan_points(origin, carried_from, done_at, spec_points(id, code, title, description, topic_id, sort_order, topics(title, sort_order, subject, board, level)))";
 
-async function schedulerVersion(): Promise<number> {
-  const { data, error } = await supabase.rpc("assessment_scheduler_version" as never);
-  return error ? NaN : Number(data);
-}
-
 type IncomingPoint = {
   spec_point_id: string;
   origin: PlanPointOrigin;
@@ -343,12 +338,6 @@ export class WeeklyPlanDAL {
       })),
       params.facts,
     );
-
-    const version = params.facts?.schedulerVersion ?? (await schedulerVersion());
-    if (!Number.isFinite(version) || version < 4)
-      throw new Error(
-        "The planner history protection update must be installed before saving a week.",
-      );
 
     const { data: planId, error } = await supabase.rpc("save_weekly_plan", {
       _student_id: studentId,

@@ -2,20 +2,17 @@ import { expect, test, spyOn } from "bun:test";
 import { QueryClient } from "@tanstack/react-query";
 import { ProgramDAL } from "@/lib/planner/programDal";
 import * as courseState from "@/lib/planner/courseState";
-import {
-  courseChanged,
-  courseKey,
-  invalidatePlanner,
-  memoryQuery,
-  roadmapQuery,
-  stateQuery,
-} from "./queries";
-import { missingPlannerRpc } from "./readModels";
+import { courseChanged, courseKey, invalidatePlanner, roadmapQuery, stateQuery } from "./queries";
+import { readCourseSnapshot, readSourceRows } from "./readModels";
+
+// `fetch` is stubbed where it is used, so these only have to exist.
+process.env.SUPABASE_URL ??= "https://database.example";
+process.env.SUPABASE_PUBLISHABLE_KEY ??= "sb_publishable_test";
 
 const p = { studentId: "student", subject: "biology", board: "aqa", level: "gcse" } as const;
 const state = { progress: [] } as unknown as courseState.CourseState;
 
-test("concurrent roadmap and memory views share one course read", async () => {
+test("concurrent roadmap views share one course read", async () => {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   const read = spyOn(courseState, "readCourseState").mockResolvedValue(state);
   const roadmap = spyOn(ProgramDAL, "loadRoadmap").mockResolvedValue(null);
@@ -23,7 +20,6 @@ test("concurrent roadmap and memory views share one course read", async () => {
     await Promise.all([
       client.fetchQuery(roadmapQuery(client, p)),
       client.fetchQuery(roadmapQuery(client, p, true)),
-      client.fetchQuery(memoryQuery(client, p)),
     ]);
     expect(read).toHaveBeenCalledTimes(1);
     expect(roadmap).toHaveBeenCalledTimes(2);
@@ -59,8 +55,27 @@ test("a course change re-reads its state and views, never the week that made it"
   expect(stale(other)).toBe(false);
   client.clear();
 });
-test("RPC fallback never hides permission or connection failures", () => {
-  expect(missingPlannerRpc({ code: "PGRST202", message: "missing RPC" })).toBe(true);
-  expect(missingPlannerRpc({ code: "42501", message: "permission denied" })).toBe(false);
-  expect(missingPlannerRpc({ message: "Failed to fetch" })).toBe(false);
+test("a missing planner function is an error, never an empty course", async () => {
+  const missing = (name: string) => ({
+    code: "PGRST202",
+    message: `Could not find the function public.${name} in the schema cache`,
+    details: null,
+    hint: null,
+  });
+  // Cast: Bun's `typeof fetch` also carries `preconnect`, which a mock has no use for.
+  const network = spyOn(globalThis, "fetch").mockImplementation((async (
+    input: RequestInfo | URL,
+  ) => {
+    const name = String(input).split("/rpc/")[1]?.split("?")[0] ?? "unknown";
+    return new Response(JSON.stringify(missing(name)), {
+      status: 404,
+      headers: { "content-type": "application/json" },
+    });
+  }) as unknown as typeof fetch);
+  try {
+    await expect(readCourseSnapshot(p)).rejects.toThrow("planner_course_snapshot");
+    await expect(readSourceRows(["point"])).rejects.toThrow("planner_attempt_sources");
+  } finally {
+    network.mockRestore();
+  }
 });

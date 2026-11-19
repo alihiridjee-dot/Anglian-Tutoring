@@ -259,7 +259,8 @@ export interface CatchUpSchedule {
  * clears the backlog before the exam it is the whole answer, so a student with
  * time in hand sees nothing change. Otherwise each week takes the larger of the
  * steady pace and its **fair share**: what is still owed, divided by the weeks
- * left before the exam, rounded up to whole points.
+ * left before the exam that are open to it (a break is not), rounded up to
+ * whole points.
  *
  * Rounding up is what keeps it gentle. A week that takes at least its share
  * leaves the next week's share no larger, so for a student who keeps up the
@@ -295,6 +296,17 @@ export function projectCatchUp(params: {
     week = toDateKey(addWeeks(weekKeyToDate(week), 1))
   )
     weekKeys.push(week);
+  // A week closed to every backlog point (a break) can take none of it, so it
+  // is not a week to share the backlog over. openFrom[i]: open weeks from i on.
+  const { isBlocked } = params;
+  const openFrom = new Array<number>(weekKeys.length + 1).fill(0);
+  for (let i = weekKeys.length - 1; i >= 0; i--) {
+    const closed =
+      !!isBlocked &&
+      backlog.length > 0 &&
+      backlog.every((p) => isBlocked(p.specPointId, weekKeys[i]));
+    openFrom[i] = openFrom[i + 1] + (closed ? 0 : 1);
+  }
 
   const schedule = (fairShare: boolean) => {
     let remaining = backlog;
@@ -314,7 +326,7 @@ export function projectCatchUp(params: {
       if (fairShare) {
         // What this week already carries counts towards its share, so saving
         // or finishing this week's catch-up never refills it.
-        const share = (backlogWeight(remaining) + carried) / (weekKeys.length - index);
+        const share = (backlogWeight(remaining) + carried) / Math.max(1, openFrom[index]);
         let spent = carried;
         let count = 0;
         // The tolerance stops float noise from costing a whole extra point.

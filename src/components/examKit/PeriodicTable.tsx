@@ -8,6 +8,7 @@ import {
 } from "@/lib/examKit/periodicTable";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { cn } from "@/lib/utils";
+import { AbovePage } from "@/components/Shared";
 
 /** The main-group columns the sheet labels (groups 1, 2, 13–18). */
 const LABELLED = [1, 2, 13, 14, 15, 16, 17, 18];
@@ -163,89 +164,91 @@ function FullTable({
   }, [onClose]);
 
   return (
-    <div
-      className="bg-primary-deep/50 fixed inset-0 z-[60] flex items-center justify-center p-4 short:p-2"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="periodic-full-title"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
-      }}
-    >
-      <div className="premium-card flex max-h-[calc(100dvh-2rem)] w-full max-w-6xl flex-col overflow-hidden shadow-xl">
-        <div className="border-border flex shrink-0 items-center justify-between gap-3 border-b p-4 short:p-2">
-          <h2 id="periodic-full-title" className="font-display text-lg font-extrabold">
-            {sheet.label} periodic table
-          </h2>
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close"
-            className="btn-ghost flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl sm:pointer-fine:size-9"
-          >
-            <X className="size-5" aria-hidden />
-          </button>
-        </div>
-        <div className="overflow-auto p-4 short:p-2">
-          <div
-            className="grid min-w-[52rem] gap-[3px]"
-            style={{ gridTemplateColumns: "repeat(18, minmax(0, 1fr))" }}
-          >
-            {LABELLED.map((g, i) => (
-              <span
-                key={`g${g}`}
-                style={{ gridRow: 1, gridColumn: g }}
-                className="font-display text-center text-sm font-extrabold text-[color:var(--tint)]"
-              >
-                {sheet.groups[i]}
-              </span>
-            ))}
-            {cells.map((c) => (
-              <div
-                key={c.key}
-                style={{ gridRow: c.row, gridColumn: c.col }}
-                className={cn(
-                  "flex flex-col items-center justify-center rounded-md px-0.5 py-1 text-center leading-tight",
-                  c.element
-                    ? "bg-[color:color-mix(in_oklab,var(--tint)_8%,var(--card))] border border-[color:color-mix(in_oklab,var(--tint)_20%,transparent)]"
-                    : "border border-dashed border-[color:color-mix(in_oklab,var(--tint)_30%,transparent)]",
-                )}
-              >
-                {c.element ? (
-                  <>
-                    <span className="numeral text-[0.7rem]">
-                      {sheet.massFirst ? sheet.masses[c.element.z] : c.element.z}
-                    </span>
-                    <span className="font-display text-base font-extrabold">
-                      {c.element.symbol}
-                      {c.starred && "*"}
-                    </span>
-                    <span className="text-[0.55rem] font-semibold">{c.element.name}</span>
-                    <span className="numeral text-[0.7rem]">
-                      {sheet.massFirst ? c.element.z : sheet.masses[c.element.z]}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <span className="numeral text-[0.7rem]">{c.placeholder?.range}</span>
-                    <span className="text-[0.55rem] font-semibold">{c.placeholder?.name}</span>
-                  </>
-                )}
+    <AbovePage>
+      <div
+        className="bg-primary-deep/50 fixed inset-0 z-[60] flex items-center justify-center p-4 short:p-2"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="periodic-full-title"
+        onClick={(e) => {
+          if (e.target === e.currentTarget) onClose();
+        }}
+      >
+        <div className="premium-card flex max-h-[calc(100dvh-2rem)] w-full max-w-6xl flex-col overflow-hidden shadow-xl">
+          <div className="border-border flex shrink-0 items-center justify-between gap-3 border-b p-4 short:p-2">
+            <h2 id="periodic-full-title" className="font-display text-lg font-extrabold">
+              {sheet.label} periodic table
+            </h2>
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Close"
+              className="btn-ghost flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl sm:pointer-fine:size-9"
+            >
+              <X className="size-5" aria-hidden />
+            </button>
+          </div>
+          <div className="overflow-auto p-4 short:p-2">
+            <div
+              className="grid min-w-[52rem] gap-[3px]"
+              style={{ gridTemplateColumns: "repeat(18, minmax(0, 1fr))" }}
+            >
+              {LABELLED.map((g, i) => (
+                <span
+                  key={`g${g}`}
+                  style={{ gridRow: 1, gridColumn: g }}
+                  className="font-display text-center text-sm font-extrabold text-[color:var(--tint)]"
+                >
+                  {sheet.groups[i]}
+                </span>
+              ))}
+              {cells.map((c) => (
+                <div
+                  key={c.key}
+                  style={{ gridRow: c.row, gridColumn: c.col }}
+                  className={cn(
+                    "flex flex-col items-center justify-center rounded-md px-0.5 py-1 text-center leading-tight",
+                    c.element
+                      ? "bg-[color:color-mix(in_oklab,var(--tint)_8%,var(--card))] border border-[color:color-mix(in_oklab,var(--tint)_20%,transparent)]"
+                      : "border border-dashed border-[color:color-mix(in_oklab,var(--tint)_30%,transparent)]",
+                  )}
+                >
+                  {c.element ? (
+                    <>
+                      <span className="numeral text-[0.7rem]">
+                        {sheet.massFirst ? sheet.masses[c.element.z] : c.element.z}
+                      </span>
+                      <span className="font-display text-base font-extrabold">
+                        {c.element.symbol}
+                        {c.starred && "*"}
+                      </span>
+                      <span className="text-[0.55rem] font-semibold">{c.element.name}</span>
+                      <span className="numeral text-[0.7rem]">
+                        {sheet.massFirst ? c.element.z : sheet.masses[c.element.z]}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="numeral text-[0.7rem]">{c.placeholder?.range}</span>
+                      <span className="text-[0.55rem] font-semibold">{c.placeholder?.name}</span>
+                    </>
+                  )}
+                </div>
+              ))}
+              {sheet.fBlock === "rows" && (
+                <span style={{ gridRow: 9, gridColumn: 1 }} className="h-2" />
+              )}
+            </div>
+            {sheet.notes.length > 0 && (
+              <div className="mt-4 space-y-1 text-sm font-semibold">
+                {sheet.notes.map((n) => (
+                  <p key={n}>{n}</p>
+                ))}
               </div>
-            ))}
-            {sheet.fBlock === "rows" && (
-              <span style={{ gridRow: 9, gridColumn: 1 }} className="h-2" />
             )}
           </div>
-          {sheet.notes.length > 0 && (
-            <div className="mt-4 space-y-1 text-sm font-semibold">
-              {sheet.notes.map((n) => (
-                <p key={n}>{n}</p>
-              ))}
-            </div>
-          )}
         </div>
       </div>
-    </div>
+    </AbovePage>
   );
 }

@@ -22,7 +22,7 @@ import {
   Undo2,
   type LucideIcon,
 } from "lucide-react";
-import { isTeachBand } from "@/lib/planner/pacing";
+import { isTeachBand, weeksToExam } from "@/lib/planner/pacing";
 import { reviewLock } from "@/lib/planner/reviewLock";
 import { ProgramDAL, examDateBounds } from "@/lib/planner/programDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
@@ -518,8 +518,6 @@ function ThisWeekTab({
 /* Tab 2 — Full plan                                                   */
 /* ------------------------------------------------------------------ */
 
-const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
-
 function SummaryLabel({ icon: Icon, children }: { icon: LucideIcon; children: ReactNode }) {
   return (
     <p className="eyebrow eyebrow-bare flex items-center gap-2">
@@ -631,12 +629,7 @@ function FullPlanTab({
   const backlog = data.backlogByTopic ?? [];
   const owed = backlog.reduce((count, topic) => count + topic.points.length, 0);
   const held = data.catchUpSchedule?.held.length ?? 0;
-  const weeksToGo = Math.max(
-    0,
-    Math.round(
-      (weekKeyToDate(data.examDate).getTime() - weekKeyToDate(nowKey).getTime()) / WEEK_MS,
-    ),
-  );
+  const weeksToGo = weeksToExam(data.examDate, weekKeyToDate(nowKey));
 
   return (
     <div>
@@ -716,14 +709,16 @@ function FullPlanTab({
 
       {/* Your new schedule — what the latest ratings changed in the focus lane. */}
       {newFocusKeys.size > 0 && (
-        <div className="flex items-start gap-2 rounded-xl border border-rose-500/30 bg-rose-500/[0.06] px-3 py-2.5 mb-3">
-          <Repeat className="w-4 h-4 text-rose-600 dark:text-rose-400 mt-0.5 shrink-0" />
+        <div className="premium-card wash-top tint-rose rounded-xl flex items-center gap-2.5 px-3 py-2.5 mb-3">
+          <span className="icon-tile size-8 shrink-0">
+            <Repeat className="size-4" aria-hidden />
+          </span>
           <p className="text-[12px] leading-relaxed">
             <span className="font-semibold">Your revision schedule updated.</span>{" "}
             <span>
               {newFocusKeys.size} focus {newFocusKeys.size === 1 ? "slot" : "slots"} moved or added
-              — flagged <span className="font-semibold text-rose-600 dark:text-rose-400">New</span>{" "}
-              in the revision sections below.
+              — flagged <span className="font-semibold text-[color:var(--tint)]">New</span> in the
+              revision sections below.
             </span>
           </p>
         </div>
@@ -735,9 +730,11 @@ function FullPlanTab({
           same value. Rating them individually is both the lighter plan and the
           better data, so the nudge points there rather than at the workload. */}
       {data.focusLoad.overloaded && (
-        <div className="flex flex-wrap items-start gap-3 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] px-3.5 py-3 mb-3">
-          <Scale className="w-4 h-4 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
-          <p className="flex-1 min-w-[240px] text-[12px] leading-relaxed">
+        <div className="premium-card wash-top tint-amber rounded-xl flex items-center gap-3 px-3.5 py-3 mb-3">
+          <span className="icon-tile size-8 shrink-0">
+            <Scale className="size-4" aria-hidden />
+          </span>
+          <p className="flex-1 text-[12px] leading-relaxed">
             <span className="font-semibold">This plan is asking a lot each week.</span>{" "}
             <span>
               {data.reviewBacklog.length} reviews and {data.unscheduledTopicTitles.length} topics

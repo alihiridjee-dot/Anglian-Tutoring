@@ -112,20 +112,10 @@ export interface PlannerStateRows {
   scheduler_version: number;
 }
 
-/** Only an absent migration permits the compatibility read path. RLS/network
- * errors must propagate rather than silently changing the source of truth. */
-export function missingPlannerRpc(error: { code?: string; message: string }): boolean {
-  return (
-    error.code === "PGRST202" ||
-    (error.code === "42883" && /planner_(course_snapshot|attempt_sources)/.test(error.message))
-  );
-}
-async function readRpc<T>(name: string, args: Record<string, unknown>): Promise<T | null> {
+/** A read with no fallback: the app ships after the migration that adds it. */
+async function readRequired<T>(name: string, args: Record<string, unknown>): Promise<T> {
   const { data, error } = await supabase.rpc(name as never, args as never);
-  if (error) {
-    if (missingPlannerRpc(error)) return null;
-    throw new Error(error.message);
-  }
+  if (error) throw dbError(error);
   if (!data || typeof data !== "object") throw new Error(`Invalid ${name} response`);
   return data as unknown as T;
 }
@@ -135,22 +125,14 @@ export const readCourseSnapshot = (p: {
   board: BoardV;
   level: LevelV;
 }) =>
-  readRpc<CourseSnapshot>("planner_course_snapshot", {
+  readRequired<CourseSnapshot>("planner_course_snapshot", {
     _student: p.studentId,
     _subject: p.subject,
     _board: p.board,
     _level: p.level,
   });
 export const readSourceRows = (ids: string[]) =>
-  readRpc<SourceRows>("planner_attempt_sources", { _ids: [...new Set(ids)] });
-
-/** A read with no fallback: the app ships after the migration that adds it. */
-async function readRequired<T>(name: string, args: Record<string, unknown>): Promise<T> {
-  const { data, error } = await supabase.rpc(name as never, args as never);
-  if (error) throw dbError(error);
-  if (!data || typeof data !== "object") throw new Error(`Invalid ${name} response`);
-  return data as unknown as T;
-}
+  readRequired<SourceRows>("planner_attempt_sources", { _ids: [...new Set(ids)] });
 /** One course for one week, in one trip ([[courseState]]). */
 export const readPlannerState = (
   p: { studentId: string; subject: SubjectV; board: BoardV; level: LevelV },

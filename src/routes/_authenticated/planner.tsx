@@ -26,23 +26,16 @@ function PlannerPage() {
   return (
     <AppLayout title={isTutor ? "Student Planner" : "My Planner"}>
       {/* Intro ribbon — one sentence on what this page is for. */}
-      <div className="rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-700 text-white px-5 py-4 sm:px-6 sm:py-5 mb-6 relative overflow-hidden border border-indigo-700/50 shadow-sm">
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: "radial-gradient(circle at 80% 20%, white 1.5px, transparent 1.5px)",
-            backgroundSize: "22px 22px",
-          }}
-        />
-        <div className="relative flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
-            <Compass className="w-5 h-5" />
-          </div>
+      <div className="premium-card wash-top tint-primary rounded-2xl px-5 py-4 sm:px-6 sm:py-5 mb-6">
+        <div className="flex items-center gap-3">
+          <span className="icon-tile icon-tile-solid size-10 shrink-0">
+            <Compass className="size-5" aria-hidden />
+          </span>
           <div>
-            <h2 className="font-display text-lg sm:text-xl font-bold tracking-tight">
+            <h2 className="text-lg sm:text-xl font-bold tracking-tight">
               {isTutor ? "Student weekly plans" : "Your plan to the exams"}
             </h2>
-            <p className="text-xs sm:text-sm text-indigo-100">
+            <p className="text-sm">
               {isTutor
                 ? "Every student's week at a glance. Open one to change what they'll work on."
                 : "What to work on this week, the road ahead, and your practice history."}

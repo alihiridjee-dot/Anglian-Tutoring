@@ -20,6 +20,7 @@ import {
 } from "@/lib/planner/breaks";
 import { invalidatePlanner } from "@/lib/planner/queries";
 import { currentWeekKey } from "@/lib/planner/week";
+import { AbovePage } from "@/components/Shared";
 
 type StartChoice = "this" | "next" | "later";
 
@@ -150,143 +151,157 @@ export function TakeABreakDialog({
   };
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-primary-deep/50 p-4"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby={`${ids}-title`}
-      onClick={(e) => {
-        if (e.target === e.currentTarget && !dirty && !pending) onClose();
-      }}
-    >
-      <div className="tint-accent premium-card w-full max-w-lg rounded-2xl max-h-[calc(100dvh-2rem)] overflow-y-auto">
-        <div className="flex items-start justify-between gap-3 border-b border-border p-4 sm:p-6">
-          <div className="flex items-center gap-3">
-            <span className="icon-tile size-10 shrink-0">
-              <TreePalm className="size-5" />
-            </span>
-            <div className="flex flex-wrap items-center gap-2">
-              <h2 id={`${ids}-title`} className="text-lg leading-tight">
-                Take a break
-              </h2>
-              {name && <span className="chip">{name}</span>}
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={onClose}
-            disabled={pending}
-            className="btn-ghost flex size-11 shrink-0 items-center justify-center rounded-lg sm:pointer-fine:size-8"
-            aria-label="Close"
-          >
-            <X className="size-4" />
-          </button>
-        </div>
-
-        <div className="space-y-6 p-4 text-sm sm:p-6">
-          <section className="space-y-2.5">
-            <h3 id={`${ids}-start`} className="text-sm">
-              When does it start?
-            </h3>
-            <div
-              role="radiogroup"
-              aria-labelledby={`${ids}-start`}
-              className="flex flex-wrap gap-2"
-            >
-              <Choice picked={start === "this"} onPick={() => setStart("this")}>
-                This week
-              </Choice>
-              <Choice picked={start === "next"} onPick={() => setStart("next")}>
-                Next week
-              </Choice>
-              <Choice picked={start === "later"} onPick={() => setStart("later")}>
-                Later
-              </Choice>
-            </div>
-            {start === "later" && (
-              <label className="flex flex-wrap items-center gap-2">
-                <span className="font-semibold">The week of</span>
-                <input
-                  type="date"
-                  value={laterDate}
-                  min={shiftKey(thisWeek, 14)}
-                  max={shiftKey(thisWeek, 364)}
-                  onChange={(e) => setLaterDate(e.target.value)}
-                  className="min-h-11 rounded-lg border border-border bg-background px-2.5 text-sm sm:pointer-fine:min-h-9"
-                />
-              </label>
-            )}
-            {startsOn && <span className="chip">Starts {breakDay(startsOn)}</span>}
-          </section>
-
-          <section className="space-y-2.5">
-            <h3 id={`${ids}-back`} className="text-sm">
-              When will {name ? `${name} be` : "you be"} back?
-            </h3>
-            <div role="radiogroup" aria-labelledby={`${ids}-back`} className="flex flex-wrap gap-2">
-              {options.map((o) => (
-                <Choice
-                  key={o.weeks}
-                  picked={picked?.weeks === o.weeks}
-                  disabled={!o.back || !!o.refusal}
-                  onPick={() => setWeeks(o.weeks)}
-                >
-                  {o.back && `${breakDay(o.back)} · `}
-                  {o.weeks} {o.weeks === 1 ? "week" : "weeks"}
-                </Choice>
-              ))}
-            </div>
-            {refusals.length > 0 && (
-              <div className="tint-rose flex flex-wrap gap-1.5">
-                {refusals.map((r) => (
-                  <span key={r} className="chip">
-                    {r}
-                  </span>
-                ))}
+    <AbovePage>
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center bg-primary-deep/50 p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={`${ids}-title`}
+        onClick={(e) => {
+          if (e.target === e.currentTarget && !dirty && !pending) onClose();
+        }}
+      >
+        <div className="tint-accent premium-card w-full max-w-lg rounded-2xl max-h-[calc(100dvh-2rem)] overflow-y-auto">
+          <div className="flex items-start justify-between gap-3 border-b border-border p-4 sm:p-6">
+            <div className="flex items-center gap-3">
+              <span className="icon-tile size-10 shrink-0">
+                <TreePalm className="size-5" />
+              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                <h2 id={`${ids}-title`} className="text-lg leading-tight">
+                  Take a break
+                </h2>
+                {name && <span className="chip">{name}</span>}
               </div>
-            )}
-          </section>
-
-          <section className="space-y-2.5">
-            <h3 id={`${ids}-why`} className="text-sm">
-              Why {name ? `is ${name}` : "are you"} taking a break?
-            </h3>
-            <div role="radiogroup" aria-labelledby={`${ids}-why`} className="flex flex-wrap gap-2">
-              {BREAK_REASONS.map((r) => (
-                <Choice key={r.value} picked={reason === r.value} onPick={() => setReason(r.value)}>
-                  {r.label}
-                </Choice>
-              ))}
             </div>
-          </section>
-
-          {error && (
-            <p role="alert" className="tint-rose chip whitespace-normal">
-              {error}
-            </p>
-          )}
-
-          <div className="flex gap-2 pt-1">
             <button
               type="button"
               onClick={onClose}
               disabled={pending}
-              className="btn-ghost h-11 rounded-lg px-4 text-sm sm:pointer-fine:h-10"
+              className="btn-ghost flex size-11 shrink-0 items-center justify-center rounded-lg sm:pointer-fine:size-8"
+              aria-label="Close"
             >
-              Not now
+              <X className="size-4" />
             </button>
-            <button
-              type="button"
-              onClick={() => void book()}
-              disabled={!ready}
-              className="btn-solid inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-lg px-4 text-sm sm:pointer-fine:h-10"
-            >
-              {pending && <Loader2 className="size-4 animate-spin" />}
-              Book the break
-            </button>
+          </div>
+
+          <div className="space-y-6 p-4 text-sm sm:p-6">
+            <section className="space-y-2.5">
+              <h3 id={`${ids}-start`} className="text-sm">
+                When does it start?
+              </h3>
+              <div
+                role="radiogroup"
+                aria-labelledby={`${ids}-start`}
+                className="flex flex-wrap gap-2"
+              >
+                <Choice picked={start === "this"} onPick={() => setStart("this")}>
+                  This week
+                </Choice>
+                <Choice picked={start === "next"} onPick={() => setStart("next")}>
+                  Next week
+                </Choice>
+                <Choice picked={start === "later"} onPick={() => setStart("later")}>
+                  Later
+                </Choice>
+              </div>
+              {start === "later" && (
+                <label className="flex flex-wrap items-center gap-2">
+                  <span className="font-semibold">The week of</span>
+                  <input
+                    type="date"
+                    value={laterDate}
+                    min={shiftKey(thisWeek, 14)}
+                    max={shiftKey(thisWeek, 364)}
+                    onChange={(e) => setLaterDate(e.target.value)}
+                    className="min-h-11 rounded-lg border border-border bg-background px-2.5 text-sm sm:pointer-fine:min-h-9"
+                  />
+                </label>
+              )}
+              {startsOn && <span className="chip">Starts {breakDay(startsOn)}</span>}
+            </section>
+
+            <section className="space-y-2.5">
+              <h3 id={`${ids}-back`} className="text-sm">
+                When will {name ? `${name} be` : "you be"} back?
+              </h3>
+              <div
+                role="radiogroup"
+                aria-labelledby={`${ids}-back`}
+                className="flex flex-wrap gap-2"
+              >
+                {options.map((o) => (
+                  <Choice
+                    key={o.weeks}
+                    picked={picked?.weeks === o.weeks}
+                    disabled={!o.back || !!o.refusal}
+                    onPick={() => setWeeks(o.weeks)}
+                  >
+                    {o.back && `${breakDay(o.back)} · `}
+                    {o.weeks} {o.weeks === 1 ? "week" : "weeks"}
+                  </Choice>
+                ))}
+              </div>
+              {refusals.length > 0 && (
+                <div className="tint-rose flex flex-wrap gap-1.5">
+                  {refusals.map((r) => (
+                    <span key={r} className="chip">
+                      {r}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </section>
+
+            <section className="space-y-2.5">
+              <h3 id={`${ids}-why`} className="text-sm">
+                Why {name ? `is ${name}` : "are you"} taking a break?
+              </h3>
+              <div
+                role="radiogroup"
+                aria-labelledby={`${ids}-why`}
+                className="flex flex-wrap gap-2"
+              >
+                {BREAK_REASONS.map((r) => (
+                  <Choice
+                    key={r.value}
+                    picked={reason === r.value}
+                    onPick={() => setReason(r.value)}
+                  >
+                    {r.label}
+                  </Choice>
+                ))}
+              </div>
+            </section>
+
+            {error && (
+              <p role="alert" className="tint-rose chip whitespace-normal">
+                {error}
+              </p>
+            )}
+
+            <div className="flex gap-2 pt-1">
+              <button
+                type="button"
+                onClick={onClose}
+                disabled={pending}
+                className="btn-ghost h-11 rounded-lg px-4 text-sm sm:pointer-fine:h-10"
+              >
+                Not now
+              </button>
+              <button
+                type="button"
+                onClick={() => void book()}
+                disabled={!ready}
+                className="btn-solid inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-lg px-4 text-sm sm:pointer-fine:h-10"
+              >
+                {pending && <Loader2 className="size-4 animate-spin" />}
+                Book the break
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </AbovePage>
   );
 }

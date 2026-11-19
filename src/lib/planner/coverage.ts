@@ -271,9 +271,8 @@ export function summarize(
 export interface VerdictCopy {
   headline: string;
   sub: string;
-  /** Tailwind classes for the banner (bg + border). */
-  tone: string;
-  accent: string;
+  /** The verdict's colour: a kit tint the banner paints itself from. */
+  tint: "tint-slate" | "tint-emerald" | "tint-amber" | "tint-rose";
 }
 
 /** "1 point" / "3 points", with a verb that agrees. */
@@ -288,8 +287,7 @@ export function verdictCopy(v: Verdict, s: WeekSummary): VerdictCopy {
       sub: `No tasks or quizzes were set on ${
         s.total === 1 ? "this point" : "these points"
       }, so there's nothing to score yet. Tell us how you feel about it below.`,
-      tone: "bg-muted/40 border-border",
-      accent: "text-foreground",
+      tint: "tint-slate",
     };
   }
   if (v === "move_on") {
@@ -299,8 +297,7 @@ export function verdictCopy(v: Verdict, s: WeekSummary): VerdictCopy {
         s.total === 0
           ? "No topics were planned for this week."
           : "Nice work. When you're happy, roll on to your next focus area.",
-      tone: "bg-emerald-500/5 border-emerald-500/20",
-      accent: "text-emerald-700 dark:text-emerald-300",
+      tint: "tint-emerald",
     };
   }
   if (v === "almost") {
@@ -309,8 +306,7 @@ export function verdictCopy(v: Verdict, s: WeekSummary): VerdictCopy {
       sub: `You covered most of it. ${points(
         s.weak + s.notDone,
       )} worth a bit more before you move on.`,
-      tone: "bg-amber-500/5 border-amber-500/20",
-      accent: "text-amber-700 dark:text-amber-300",
+      tint: "tint-amber",
     };
   }
   return {
@@ -318,8 +314,7 @@ export function verdictCopy(v: Verdict, s: WeekSummary): VerdictCopy {
     sub: `${points(
       s.weak + s.notDone,
     )} still shaky or not done. Carry them forward to keep the focus.`,
-    tone: "bg-rose-500/5 border-rose-500/20",
-    accent: "text-rose-700 dark:text-rose-300",
+    tint: "tint-rose",
   };
 }
 

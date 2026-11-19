@@ -1,8 +1,9 @@
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
 import type { Database } from "@/integrations/supabase/types";
-import type { BoardV, LevelV, SubjectV } from "@/lib/curriculum/taxonomy";
+import { SUBJECTS, type BoardV, type LevelV, type SubjectV } from "@/lib/curriculum/taxonomy";
 import type { SubscriptionRow } from "@/lib/billing/billing";
+import { selectInHistory } from "@/lib/platform/db/chunked";
 import type { DeleteAccountPayload } from "../../../supabase/functions/_shared/contracts";
 
 /**
@@ -165,6 +166,31 @@ export type EnrolmentPatch = Partial<
 const SUBSCRIPTION_COLUMNS =
   "user_id, student_id, status, plan, current_period_end, cancel_at_period_end, stripe_subscription_id";
 
+/** Rows per request for the roster's whole-table reads. */
+export const ROSTER_PAGE = 500;
+
+type RosterEnrolmentRow = StudentEnrolment & { student_id: string };
+
+/**
+ * Group enrolment rows by student, each student's subjects in course order
+ * (the `subject` enum's order, which `SUBJECTS` lists). The rows arrive in id
+ * order from the paged read, so the order is set here, not by the query.
+ */
+export function groupEnrolmentsByStudent(
+  rows: readonly RosterEnrolmentRow[],
+): Record<string, StudentEnrolment[]> {
+  const rank = (s: string) => {
+    const i = SUBJECTS.findIndex((x) => x.value === s);
+    return i === -1 ? SUBJECTS.length : i;
+  };
+  const sorted = [...rows].sort(
+    (a, b) => rank(a.subject) - rank(b.subject) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0),
+  );
+  const out: Record<string, StudentEnrolment[]> = {};
+  for (const { student_id, ...rest } of sorted) (out[student_id] ??= []).push(rest);
+  return out;
+}
+
 export class StudentsDAL {
   /** Every student, with email — tutor-only, refused server-side for anyone else. */
   static async listDirectory(): Promise<DirectoryStudent[]> {
@@ -173,27 +199,38 @@ export class StudentsDAL {
     return data ?? [];
   }
 
-  /** Subjects per student, for the roster columns. One read for the whole list. */
+  /**
+   * Subjects per student, for the roster columns. One plain select stops at
+   * PostgREST's 1,000-row cap, so the whole table is read in id-ordered pages
+   * (the house keyset pattern in `chunked.ts`).
+   */
   static async listEnrolmentsByStudent(): Promise<Record<string, StudentEnrolment[]>> {
-    const { data, error } = await supabase
-      .from("student_enrolments")
-      .select("id, student_id, subject, board, previous_grade, current_grade, target_grade")
-      .order("subject");
-    if (error) throw new Error(error.message);
-    const out: Record<string, StudentEnrolment[]> = {};
-    for (const row of data ?? []) {
-      const { student_id, ...rest } = row;
-      (out[student_id] ??= []).push(rest as StudentEnrolment);
-    }
-    return out;
+    const rows = await selectInHistory<RosterEnrolmentRow>(["enrolments"], (_batch, after) => {
+      const query = supabase
+        .from("student_enrolments")
+        .select("id, student_id, subject, board, previous_grade, current_grade, target_grade")
+        .order("id")
+        .limit(ROSTER_PAGE);
+      return after ? query.gt("id", after) : query;
+    });
+    return groupEnrolmentsByStudent(rows);
   }
 
-  /** Subscriptions per student, for the roster's plan column. */
+  /** Subscriptions per student (one each), for the roster's plan column. Paged as above. */
   static async listSubscriptionsByStudent(): Promise<Record<string, SubscriptionRow>> {
-    const { data, error } = await supabase.from("subscriptions").select(SUBSCRIPTION_COLUMNS);
-    if (error) throw new Error(error.message);
+    const rows = await selectInHistory<SubscriptionRow & { id: string }>(
+      ["subscriptions"],
+      (_batch, after) => {
+        const query = supabase
+          .from("subscriptions")
+          .select(`id, ${SUBSCRIPTION_COLUMNS}`)
+          .order("id")
+          .limit(ROSTER_PAGE);
+        return after ? query.gt("id", after) : query;
+      },
+    );
     const out: Record<string, SubscriptionRow> = {};
-    for (const row of (data ?? []) as SubscriptionRow[]) out[row.student_id] = row;
+    for (const { id: _id, ...row } of rows) out[row.student_id] = row;
     return out;
   }
 

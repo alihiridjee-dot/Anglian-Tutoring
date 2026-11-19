@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Maximize2, X } from "lucide-react";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
+import { AbovePage } from "@/components/Shared";
 
 /**
  * A note picture that fits its card on any screen and opens full size when
@@ -73,34 +74,36 @@ function FullSize({
   }, [onClose]);
 
   return (
-    // Fixed, so it misses the body's notch padding: it pads itself.
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={label}
-      onClick={onClose}
-      className="bg-primary-deep/50 fixed inset-0 z-50 flex items-center justify-center py-4 pr-[max(1rem,env(safe-area-inset-right))] pl-[max(1rem,env(safe-area-inset-left))]"
-    >
+    <AbovePage>
+      {/* Fixed, so it misses the body's notch padding: it pads itself. */}
       <div
-        onClick={(e) => e.stopPropagation()}
-        className="premium-card flex max-h-[calc(100dvh-2rem)] w-full max-w-5xl flex-col overflow-hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-label={label}
+        onClick={onClose}
+        className="bg-primary-deep/50 fixed inset-0 z-50 flex items-center justify-center py-4 pr-[max(1rem,env(safe-area-inset-right))] pl-[max(1rem,env(safe-area-inset-left))]"
       >
-        {/* The close button stays put while a wide picture scrolls under it. */}
-        <div className="flex shrink-0 justify-end p-2">
-          <button
-            type="button"
-            autoFocus
-            onClick={onClose}
-            aria-label="Close"
-            className="btn-soft flex size-11 cursor-pointer items-center justify-center rounded-xl"
-          >
-            <X className="size-5" aria-hidden />
-          </button>
-        </div>
-        <div className="scroll-slim min-h-0 overflow-auto overscroll-contain px-4 pb-4">
-          <div style={{ minWidth: naturalWidth }}>{children}</div>
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="premium-card flex max-h-[calc(100dvh-2rem)] w-full max-w-5xl flex-col overflow-hidden"
+        >
+          {/* The close button stays put while a wide picture scrolls under it. */}
+          <div className="flex shrink-0 justify-end p-2">
+            <button
+              type="button"
+              autoFocus
+              onClick={onClose}
+              aria-label="Close"
+              className="btn-soft flex size-11 cursor-pointer items-center justify-center rounded-xl"
+            >
+              <X className="size-5" aria-hidden />
+            </button>
+          </div>
+          <div className="scroll-slim min-h-0 overflow-auto overscroll-contain px-4 pb-4">
+            <div style={{ minWidth: naturalWidth }}>{children}</div>
+          </div>
         </div>
       </div>
-    </div>
+    </AbovePage>
   );
 }

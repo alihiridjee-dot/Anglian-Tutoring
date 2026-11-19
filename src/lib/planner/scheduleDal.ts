@@ -1,6 +1,4 @@
-import { supabase } from "@/integrations/supabase/client";
 import { type SubjectV, type BoardV, type LevelV } from "../curriculum/taxonomy";
-import { type Json } from "@/integrations/supabase/types";
 import {
   type Card,
   type Grade,
@@ -10,7 +8,6 @@ import {
   applyReview,
   pointMastery,
   pointStatus,
-  isDueBy,
   isFirstContact,
   retrievability,
   reviewEligibleAt,
@@ -23,20 +20,13 @@ import { BreakDAL } from "./breaksDal";
 import { backOn, type StudentBreak } from "./breaks";
 import { weekKeyToDate } from "./week";
 import { readCourseSnapshot, type CourseSnapshot } from "./readModels";
-import {
-  assessablePoints,
-  mapAttemptSources,
-  sourcesFromRows,
-  type AttemptSources,
-} from "./attemptSources";
+import { assessablePoints, sourcesFromRows, type AttemptSources } from "./attemptSources";
 import {
   assessTopic,
   pointAssessability,
   type PointAssessability,
   type TopicAssessment,
 } from "./assessability";
-import { selectIn, selectInSafe, selectInHistory } from "../platform/db/chunked";
-import { dbError } from "../platform/errors";
 
 /** One spec point's standing for the programme's expandable topic breakdown. */
 export interface ProgressPoint {
@@ -88,24 +78,6 @@ export interface TopicProgress {
   practisedCount: number;
   /** Assessed / awaiting / unassessable counts and state — see [[assessability]]. */
   assessment: TopicAssessment;
-}
-
-/** One course's memory snapshot for the planner dashboard. */
-export interface MemoryStats {
-  /** Spec points in the course. */
-  total: number;
-  /** Never practised — no card yet. */
-  newCount: number;
-  /** Practised and due right now. */
-  dueNow: number;
-  /** Practised, due within the next 7 days. */
-  dueThisWeek: number;
-  /** Practised, not due for over a week — holding. */
-  stable: number;
-  /** Mean FSRS retrievability across practised points (0–1), null if none. */
-  avgRetention: number | null;
-  /** The three practised points closest to being forgotten. */
-  weakest: { code: string; title: string; retention: number }[];
 }
 
 /** One review event before it's applied — used to replay history in time order. */
@@ -172,15 +144,6 @@ export function foldReviews(
 
 /** Reconstruct derived memory from graded source evidence; never trust stored client cards. */
 export class ScheduleDAL {
-  /** FSRS cards for a set of spec points (revived to real Dates). */
-  static async getSchedule(studentId: string, specPointIds: string[]): Promise<Map<string, Card>> {
-    const { events } = await this.assessmentEvents(studentId, specPointIds);
-    const cards = new Map<string, Card>();
-    for (const row of foldReviews(events, new Map(), new Set()))
-      cards.set(row.specPointId, row.card);
-    return cards;
-  }
-
   /**
    * Canonical assessed history. Replayed on read: no destructive migration,
    * no stale confidence cards, and corrected/late marks take their proper place.
@@ -191,58 +154,22 @@ export class ScheduleDAL {
    * library; one with no events and material waiting is a student who has not
    * done it. See [[assessability]].
    */
-  private static async assessmentEvents(
-    studentId: string,
+  private static assessmentEvents(
     ids: string[],
-    snapshot?: CourseSnapshot | null,
-  ): Promise<{ events: ReviewEvent[]; sources: AttemptSources }> {
+    snapshot: CourseSnapshot,
+  ): { events: ReviewEvent[]; sources: AttemptSources } {
     const empty: AttemptSources = {
       resourceToPoints: new Map(),
       setToPoints: new Map(),
       setScope: new Map(),
     };
     if (!ids.length) return { events: [], sources: empty };
-    const sources = snapshot ? sourcesFromRows(snapshot.sources) : await mapAttemptSources(ids);
-    const { resourceToPoints, setToPoints, setScope } = sources;
+    const sources = sourcesFromRows(snapshot.sources);
+    const { resourceToPoints, setScope } = sources;
     const requestedIds = new Set(ids);
-    const [subs, attempts] = snapshot
-      ? [snapshot.submissions, snapshot.attempts]
-      : await Promise.all([
-          selectInHistory<HwRow>([...resourceToPoints.keys()], (batch, after) => {
-            const query = supabase
-              .from("homework_submissions")
-              .select("id, resource_id, score_pct, graded_at, submitted_at")
-              .eq("student_id", studentId)
-              .in("resource_id", batch)
-              .order("id")
-              .limit(500);
-            return after ? query.gt("id", after) : query;
-          }),
-          selectInHistory<AttemptRow>([...setToPoints.keys()], (batch, after) => {
-            const query = supabase
-              .from("mcq_attempts")
-              .select("id, set_id, score, total, created_at")
-              .eq("user_id", studentId)
-              .in("set_id", batch)
-              .order("id")
-              .limit(500);
-            return after ? query.gt("id", after) : query;
-          }),
-        ]);
-    const snapshots = snapshot
-      ? snapshot.attempts.map((a) => ({ id: a.id, point_scores: a.point_scores }))
-      : await selectInSafe<{ id: string; point_scores: Json | null }>(
-          attempts.map((a) => a.id),
-          (batch) =>
-            // Column is introduced by the assessment-snapshot migration. Before rollout,
-            // only safely single-point aggregate attempts remain eligible evidence.
-            supabase.from("mcq_attempts").select("id, point_scores").in("id", batch) as never,
-          (message) => {
-            if (!/point_scores.*does not exist|Could not find.*point_scores/i.test(message))
-              throw new Error(message);
-          },
-        );
-    const byAttempt = new Map(snapshots.map((a) => [a.id, a.point_scores]));
+    const subs = snapshot.submissions;
+    const attempts = snapshot.attempts;
+    const byAttempt = new Map(attempts.map((a) => [a.id, a.point_scores]));
     const events: ReviewEvent[] = [];
     for (const sub of subs) {
       if (sub.score_pct == null || !Number.isFinite(Number(sub.score_pct))) continue;
@@ -254,7 +181,9 @@ export class ScheduleDAL {
           source: "homework",
           scorePct: pct,
           sourceId: sub.id,
-          reviewedAt: new Date(sub.graded_at ?? sub.submitted_at),
+          // The memory clock starts when the student did the work, not when
+          // it was marked: a task marked days later was not revised days later.
+          reviewedAt: new Date(sub.submitted_at),
         });
     }
     for (const attempt of attempts) {
@@ -302,7 +231,7 @@ export class ScheduleDAL {
     subject: SubjectV;
     board: BoardV;
     level: LevelV;
-    snapshot: CourseSnapshot | null;
+    snapshot: CourseSnapshot;
     /** The subject's recorded stops, oldest first. */
     pauses: PauseRecord[];
     /** The student's breaks that stand. */
@@ -311,50 +240,21 @@ export class ScheduleDAL {
   }): Promise<TopicProgress[]> {
     const now = params.now ?? new Date();
     const { snapshot } = params;
-    const { data: topics, error: topicsError } = snapshot
-      ? { data: snapshot.topics, error: null }
-      : await supabase
-          .from("topics")
-          .select("id, title, sort_order")
-          .eq("subject", params.subject)
-          .eq("board", params.board)
-          .eq("level", params.level);
-    if (topicsError) throw dbError(topicsError);
+    const topics = snapshot.topics;
     if (!topics || topics.length === 0) return [];
 
-    const pts =
-      snapshot?.points ??
-      (await selectIn<{
-        id: string;
-        code: string;
-        title: string;
-        sort_order: number | null;
-        topic_id: string;
-        weight: number | null;
-      }>(
-        topics.map((t) => t.id),
-        (batch) =>
-          supabase
-            .from("spec_points")
-            .select("id, code, title, sort_order, topic_id, weight")
-            .in("topic_id", batch)
-            .eq("not_examined", false),
-      ));
+    const pts = snapshot.points;
     const pointIds = pts.map((p) => p.id);
 
     // Read-only reconstruction also serves parent/tutor views without requiring
     // a write permission or mutating historical confidence records.
-    const { events: evidence, sources } = await this.assessmentEvents(
-      params.studentId,
-      pointIds,
-      snapshot,
-    );
+    const { events: evidence, sources } = this.assessmentEvents(pointIds, snapshot);
     // Which points anything could have marked, independent of whether it did.
     const assessable = assessablePoints(sources);
     const cards = new Map<string, Card>();
     for (const row of foldReviews(evidence, new Map(), new Set()))
       cards.set(row.specPointId, row.card);
-    const marks = await this.getMarks(params.studentId, pointIds, evidence);
+    const marks = this.getMarks(pointIds, evidence);
     // Paused time doesn't count. A review's clock stops while its subject is
     // stopped, so a pause never comes back as a pile of overdue reviews.
     const spans = [
@@ -434,76 +334,18 @@ export class ScheduleDAL {
       .map(({ _sort, ...t }) => t);
   }
 
-  /**
-   * The planner dashboard's memory snapshot for one course: how many spec
-   * points sit in each scheduling bucket, and how well the practised ones are
-   * held right now (mean FSRS retrievability). One pass over the same cards the
-   * scheduler plans from, so the panel can never disagree with the plan.
-   */
-  static async getMemoryStats(params: {
-    studentId: string;
-    subject: SubjectV;
-    board: BoardV;
-    level: LevelV;
-    now?: Date;
-    progress?: TopicProgress[];
-  }): Promise<MemoryStats> {
-    const now = params.now ?? new Date();
-    const empty: MemoryStats = {
-      total: 0,
-      newCount: 0,
-      dueNow: 0,
-      dueThisWeek: 0,
-      stable: 0,
-      avgRetention: null,
-      weakest: [],
-    };
-    const progress = params.progress ?? (await this.getTopicProgress(params));
-    const pts = progress.flatMap((t) => t.points);
-    const weekEnd = new Date(now.getTime() + 7 * 86_400_000);
-    const stats = { ...empty, total: pts.length };
-    const retained: number[] = [];
-    const held: { code: string; title: string; retention: number }[] = [];
-    for (const p of pts) {
-      const card = p.card;
-      const r = retrievability(card, now);
-      if (r === null) {
-        stats.newCount++;
-        continue;
-      }
-      retained.push(r);
-      held.push({ code: p.code, title: p.title, retention: r });
-      if (isDueBy(card, now)) stats.dueNow++;
-      else if (isDueBy(card, weekEnd)) stats.dueThisWeek++;
-      else stats.stable++;
-    }
-    if (retained.length > 0) {
-      stats.avgRetention = retained.reduce((s, r) => s + r, 0) / retained.length;
-      // Only points actually decaying belong here — a just-reviewed card sits at
-      // ~100% and "closest to slipping: 100%" is noise, not a warning.
-      stats.weakest = held
-        .filter((h) => h.retention < 0.9)
-        .sort((a, b) => a.retention - b.retention)
-        .slice(0, 3);
-    }
-    return stats;
-  }
-
   /** Best homework/quiz mark per spec point from graded source records. */
-  private static async getMarks(
-    studentId: string,
+  private static getMarks(
     specPointIds: string[],
-    evidence?: ReviewEvent[],
-  ): Promise<Map<string, { homework: number | null; quiz: number | null }>> {
+    evidence: ReviewEvent[],
+  ): Map<string, { homework: number | null; quiz: number | null }> {
     const out = new Map<string, { homework: number | null; quiz: number | null }>();
     if (specPointIds.length === 0) return out;
-    const reviews = (evidence ?? (await this.assessmentEvents(studentId, specPointIds)).events).map(
-      (e) => ({
-        spec_point_id: e.specPointId,
-        source: e.source,
-        score_pct: e.scorePct,
-      }),
-    );
+    const reviews = evidence.map((e) => ({
+      spec_point_id: e.specPointId,
+      source: e.source,
+      score_pct: e.scorePct,
+    }));
     const max = (a: number | null, b: number | null) =>
       b == null ? a : a == null ? b : Math.max(a, b);
     for (const r of reviews) {
@@ -536,18 +378,3 @@ export function assessmentPointScores(
   }
   return out;
 }
-
-type HwRow = {
-  id: string;
-  resource_id: string;
-  score_pct: number | null;
-  graded_at: string | null;
-  submitted_at: string;
-};
-type AttemptRow = {
-  id: string;
-  set_id: string;
-  score: number | null;
-  total: number | null;
-  created_at: string;
-};

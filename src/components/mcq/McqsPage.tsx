@@ -153,19 +153,29 @@ function StudentMCQs() {
         return;
       }
 
-      const { data: attemptRows, error: attemptsError } = await supabase
-        .from("mcq_attempts")
-        .select("set_id, score, total, created_at")
-        .eq("user_id", uid);
-      if (cancelled) return;
-      // A failed read is not an empty shelf. Swallowing an error here is what
-      // turned a 403 into a confident "No quizzes yet" on a page whose quizzes
-      // all existed.
-      if (attemptsError) {
-        settle(attemptsError.message);
+      // Every attempt, read in id-ordered pages: one plain select stops at
+      // PostgREST's 1,000-row cap, and past it arbitrary quizzes fell out of
+      // Marked and back into Due.
+      let taken: AttemptRow[];
+      try {
+        taken = await selectInHistory<AttemptRow & { id: string }>([uid], (_batch, after) => {
+          const query = supabase
+            .from("mcq_attempts")
+            .select("id, set_id, score, total, created_at")
+            .eq("user_id", uid)
+            .order("id")
+            .limit(500);
+          return after ? query.gt("id", after) : query;
+        });
+      } catch (e) {
+        if (cancelled) return;
+        // A failed read is not an empty shelf. Swallowing an error here is what
+        // turned a 403 into a confident "No quizzes yet" on a page whose quizzes
+        // all existed.
+        settle(e instanceof Error ? e.message : "Couldn't load your quizzes.");
         return;
       }
-      const taken = (attemptRows ?? []) as unknown as AttemptRow[];
+      if (cancelled) return;
 
       // Only the sets the page can show: those taken (Marked) and this week's
       // (Due). Asked of the database by id rather than fetched whole and
