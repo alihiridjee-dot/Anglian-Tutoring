@@ -3,6 +3,7 @@ import { ClipboardList, ListChecks } from "lucide-react";
 import { type ProgressPoint } from "@/lib/planner/scheduleDal";
 import { type PointStatus } from "@/lib/planner/scheduler";
 import { describeAssessability } from "@/lib/planner/assessability";
+import { Chip } from "@/components/Shared";
 
 /**
  * One spec point as every expanded topic on the plan shows it.
@@ -134,20 +135,14 @@ export function BarePointRow({
 function MarkChip({ kind, score }: { kind: "homework" | "quiz"; score: number }) {
   const strong = score >= 70;
   return (
-    <span
-      className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-medium ${
-        strong
-          ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
-          : "bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-300"
-      }`}
-      title={`${kind === "homework" ? "Task" : "Quiz"}: best ${score}%`}
-    >
-      {kind === "homework" ? (
-        <ClipboardList className="w-2.5 h-2.5" />
-      ) : (
-        <ListChecks className="w-2.5 h-2.5" />
-      )}
-      <span className="tabular-nums font-semibold">{score}%</span>
+    <span title={`${kind === "homework" ? "Task" : "Quiz"}: best ${score}%`}>
+      <Chip
+        icon={kind === "homework" ? ClipboardList : ListChecks}
+        tint={strong ? "tint-emerald" : "tint-amber"}
+        className="text-[11px]"
+      >
+        <span className="tabular-nums">{score}%</span>
+      </Chip>
     </span>
   );
 }
