@@ -1,4 +1,4 @@
--- Rollback for 20261118181946_custom_plan_left_points: both functions check
+-- Rollback for 20261119222800_custom_plan_left_points: both functions check
 -- every placed point against today's course again, in every week, and count
 -- every placed point (the 20261116210000 bodies, unchanged).
 create or replace function public.resume_programme_after_pause(
