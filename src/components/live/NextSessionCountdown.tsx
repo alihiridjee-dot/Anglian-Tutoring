@@ -69,7 +69,7 @@ export function NextSessionCountdown({
     <div
       className={`rounded-2xl border p-4 sm:p-5 mb-6 ${
         isLive
-          ? "border-emerald-500/50 bg-emerald-500/5"
+          ? "tint-emerald border-[color:color-mix(in_oklab,var(--tint)_50%,transparent)] bg-[color:color-mix(in_oklab,var(--tint)_5%,transparent)]"
           : withinDay
             ? "border-[#2D8CFF]/40 bg-[#2D8CFF]/5"
             : "border-border bg-card"
@@ -79,7 +79,9 @@ export function NextSessionCountdown({
         <div className="flex items-start gap-3 lg:w-72 shrink-0">
           <div
             className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${
-              isLive ? "bg-emerald-500/15 text-emerald-600" : "bg-[#2D8CFF]/10 text-[#2D8CFF]"
+              isLive
+                ? "bg-[color:color-mix(in_oklab,var(--tint)_15%,transparent)] text-[color:var(--tint)]"
+                : "bg-[#2D8CFF]/10 text-[#2D8CFF]"
             }`}
           >
             {isLive ? (
@@ -118,7 +120,7 @@ export function NextSessionCountdown({
               rel="noreferrer"
               onClick={joinClick(next.id)}
               className={`min-h-11 sm:pointer-fine:min-h-0 px-4 py-2.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2 text-white transition-colors ${
-                isLive ? "bg-emerald-600 hover:bg-emerald-700" : "bg-[#2D8CFF] hover:bg-[#2681F2]"
+                isLive ? "btn-solid tint-emerald" : "bg-[#2D8CFF] hover:bg-[#2681F2]"
               }`}
             >
               <Video className="w-4 h-4" />

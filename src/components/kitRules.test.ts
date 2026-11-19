@@ -27,6 +27,11 @@ describe("design kit rules", () => {
       "components/planner/WeekReviewParts.tsx",
       "components/planner/ThisWeekLanes.tsx",
       "components/curriculum/TopicCard.tsx",
+      // Zoom's own blue (#2D8CFF) on the live-lesson surfaces is deliberate.
+      "components/live/LiveSessionsBanner.tsx",
+      "components/live/NextSessionCountdown.tsx",
+      "components/live/SessionMeta.tsx",
+      "components/live/HeaderLiveButton.tsx",
     ].flatMap((path) => (read(path).match(palette) ?? []).map((cls) => `${path}: ${cls}`));
     expect(found).toEqual([]);
   });
