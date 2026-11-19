@@ -8,7 +8,7 @@ import { BreakDAL } from "./breaksDal";
 import { currentWeekKey, toDateKey, weekKeyToDate } from "./week";
 import { computePacing, examMondayFor, examMondayIn } from "./pacing";
 import { type RejectionReason } from "./admissibility";
-import type { ProgressPoint, TopicProgress } from "./scheduleDal";
+import { ScheduleDAL, type ProgressPoint, type TopicProgress } from "./scheduleDal";
 import type { CourseState } from "./courseState";
 import * as session from "../auth/session";
 
@@ -543,5 +543,104 @@ describe("the first view's seed", () => {
     expect(writes).toHaveLength(1);
     expect(writes[0].onConflict).toBe("student_id,subject");
     expect(writes[0].prefer).toContain("resolution=merge-duplicates");
+  });
+});
+
+describe("a tutor's reorder of a subject the student has never opened", () => {
+  const course = { subject: "biology", board: "aqa", level: "gcse" } as const;
+  const progress = [
+    topic([point("a"), point("b")]),
+    { ...topic([point("c"), point("d")]), topicId: "u", title: "U" },
+  ];
+  const state = (baseline: CourseState["baseline"]): CourseState => ({
+    course: { studentId: "student", ...course },
+    weekStart: currentWeekKey(),
+    progress,
+    baseline,
+    examYear: null,
+    pauses: [],
+    pause: null,
+    breaks: [],
+    overrides: [],
+    ledger: { done: new Set(), outstanding: new Set() },
+    week: null,
+    facts: { pacing: [], examDate: undefined, boards: [], level: null },
+  });
+  /** The tutor opens the plan, then saves an order: every write that makes, in order. */
+  async function reorderWrites(baseline: CourseState["baseline"]) {
+    const writes: { path: string; prefer: string | null; body: Record<string, unknown> }[] = [];
+    const viewer = spyOn(session, "getSessionUserId").mockResolvedValue("tutor");
+    const course$ = spyOn(ScheduleDAL, "getTopicProgress").mockResolvedValue(progress);
+    const week = spyOn(WeeklyPlanDAL, "getPlan").mockResolvedValue(null);
+    const api = spyOn(globalThis, "fetch").mockImplementation((async (input, init) => {
+      const url = new URL(
+        typeof input === "string" ? input : input instanceof URL ? input.href : input.url,
+      );
+      if (init?.method !== "POST")
+        throw new Error(`Unexpected request: ${init?.method ?? "GET"} ${url.pathname}`);
+      writes.push({
+        path: url.pathname.replace("/rest/v1/", ""),
+        prefer: new Headers(init.headers).get("prefer"),
+        body: JSON.parse(String(init.body)),
+      });
+      return new Response(null, { status: 204 });
+    }) as typeof fetch);
+    try {
+      const data = await ProgramDAL.loadRoadmap({
+        studentId: "student",
+        ...course,
+        state: state(baseline),
+      });
+      // The tutor's look alone leaves no mark.
+      expect(writes).toEqual([]);
+      await ProgramDAL.reorder({
+        studentId: "student",
+        ...course,
+        data: data!,
+        from: data!.programStart,
+        order: ["u", "t"],
+      });
+      return { data: data!, writes };
+    } finally {
+      viewer.mockRestore();
+      course$.mockRestore();
+      week.mockRestore();
+      api.mockRestore();
+    }
+  }
+
+  test("the plan the tutor was shown is saved first, and never over one saved meanwhile", async () => {
+    const { data, writes } = await reorderWrites(null);
+    expect(writes.map((w) => w.path)).toEqual([
+      "student_program_plan",
+      "rpc/reorder_student_topics",
+    ]);
+    const [seed, reorder] = writes;
+    expect(seed.prefer).toContain("resolution=ignore-duplicates");
+    expect(seed.body).toMatchObject({
+      student_id: "student",
+      subject: "biology",
+      program_start: data.programStart,
+      exam_date: data.examDate,
+    });
+    // The database checks the order against what it holds: the plan just saved.
+    expect(reorder.body._expected_pacing).toEqual(seed.body.pacing);
+    expect(reorder.body._student_id).toBe("student");
+  });
+
+  test("a plan the student already has is only reordered", async () => {
+    const start = currentWeekKey();
+    const exam = toDateKey(examMondayIn(examMondayFor().getUTCFullYear() + 1));
+    const stored = computePacing(
+      progress.map((t) => ({ topicId: t.topicId, title: t.title, weight: t.points.length })),
+      weekKeyToDate(start),
+      weekKeyToDate(exam),
+    );
+    const { writes } = await reorderWrites({
+      program_start: start,
+      exam_date: exam,
+      pacing: stored as never,
+    });
+    expect(writes.map((w) => w.path)).toEqual(["rpc/reorder_student_topics"]);
   });
 });
