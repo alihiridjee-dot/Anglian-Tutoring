@@ -93,7 +93,7 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
             <CloudLightning className="w-5 h-5 animate-pulse" />
           </div>
           <div>
-            <h3 className="font-semibold text-foreground text-sm">Curriculum Sync Service</h3>
+            <h3 className="font-bold text-foreground text-sm">Curriculum Sync Service</h3>
             <p className="text-xs text-muted-foreground">
               OCR manual OCR/Syllabus PDF importer to Production and isolated Demo spaces.
             </p>
@@ -135,7 +135,7 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
             {/* Preview Column */}
             <div className="rounded-xl bg-secondary/50 border border-border p-4 flex flex-col justify-between">
               <div>
-                <h4 className="text-xs font-medium text-muted-foreground mb-3 uppercase tracking-wider">
+                <h4 className="text-xs font-bold text-muted-foreground mb-3 uppercase tracking-wider">
                   Live Parsing Blueprint Preview
                 </h4>
                 {parsedData ? (
