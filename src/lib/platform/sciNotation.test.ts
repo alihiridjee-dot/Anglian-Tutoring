@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import {
+  insertSymbol,
   sciRuns,
   scriptTyped,
   toSciNotation,
@@ -182,6 +183,20 @@ describe("toSciNotation", () => {
     ]);
   });
 
+  test("micrometres however they were typed, and per degree", () => {
+    cases([
+      ["20 um", "20 μm"],
+      ["20um", "20μm"],
+      ["5 um2", "5 μm²"],
+      ["20 \u00b5m", "20 μm"],
+      ["5 \u00b5m2", "5 μm²"],
+      ["4200 J kg-1 oC-1", "4200 J kg⁻¹ °C⁻¹"],
+      ["J/kg/°C-1", "J/kg/°C⁻¹"],
+      ["um, I think 4 umbrellas", "um, I think 4 umbrellas"],
+      ["medium", "medium"],
+    ]);
+  });
+
   test("a charge typed after a space", () => {
     cases([
       ["OH⁻ and SO₄ 2-", "OH⁻ and SO₄²⁻"],
@@ -303,5 +318,19 @@ describe("scriptTyped", () => {
 
   test("deleting changes nothing", () => {
     expect(scriptTyped("H₂O", "H₂", 2, "sub")).toEqual({ value: "H₂", done: false });
+  });
+});
+
+describe("insertSymbol", () => {
+  test("a unit after a number or word takes a space; after a space it does not", () => {
+    expect(insertSymbol("40", 2, 2, "cm³", true)).toEqual({ value: "40 cm³", caret: 6 });
+    expect(insertSymbol("40 ", 3, 3, "cm³", true)).toEqual({ value: "40 cm³", caret: 6 });
+    expect(insertSymbol("10⁻⁶", 4, 4, "m", true).value).toBe("10⁻⁶ m");
+    expect(insertSymbol("", 0, 0, "Ω", true)).toEqual({ value: "Ω", caret: 1 });
+  });
+
+  test("a symbol goes in bare, in the middle too, over any selection", () => {
+    expect(insertSymbol("20 m", 3, 3, "μ", false)).toEqual({ value: "20 μm", caret: 4 });
+    expect(insertSymbol("20 xx", 3, 5, "°C", true)).toEqual({ value: "20 °C", caret: 5 });
   });
 });

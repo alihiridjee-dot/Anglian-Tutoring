@@ -2225,6 +2225,16 @@ body {
   }
 }
 
+/* A tab row stood on its end beside the page (the student record's sections).
+   The pill ends that suit a sideways row made a tall one a capsule, and the
+   chosen segment poked out of its curves, so standing up it takes a card's
+   corners. Below lg it is the ordinary sideways row. */
+@media (min-width: 64rem) {
+  .tab-row-stack {
+    border-radius: 1.25rem;
+  }
+}
+
 /* An open conversation on a phone turned sideways. Inside the page, under the
    pinned header, its box had 34px left for messages once the title row and the
    typing box were in, so it takes the whole screen instead, over the header, and

@@ -11,9 +11,35 @@ import {
 } from "react";
 import { SciText } from "@/components/Shared";
 import { typedOnly } from "@/lib/homework/pasteGuard";
-import { scriptTyped, toSciNotation, toggleScript } from "@/lib/platform/sciNotation";
+import { insertSymbol, scriptTyped, toSciNotation, toggleScript } from "@/lib/platform/sciNotation";
 
 type Script = "sub" | "sup";
+
+/** One button in the Units panel: what it puts in, and whether x² comes on after it. */
+type Pick = { text: string; spaced: boolean; label?: string; then?: Script };
+
+const unit = (text: string): Pick => ({ text, spaced: true });
+const symbol = (text: string): Pick => ({ text, spaced: false });
+
+/**
+ * The Units panel, a row per kind: the units a GCSE or A-level science
+ * answer is given in, and the symbols a keyboard has no key for (μ, Ω, °).
+ */
+const UNITS: Pick[][] = [
+  ["nm", "μm", "mm", "cm", "m", "km"].map(unit),
+  ["mm²", "cm²", "m²", "cm³", "dm³", "m³"].map(unit),
+  ["s", "m/s", "m/s²", "kg", "N", "Pa", "kPa", "kg/m³"].map(unit),
+  ["J", "kJ", "W", "kW", "kWh", "V", "A", "Ω", "C", "Hz"].map(unit),
+  ["g", "mol", "g/mol", "mol/dm³", "g/dm³", "°C", "K"].map(unit),
+  [
+    { text: "× 10", spaced: true, label: "× 10ⁿ", then: "sup" },
+    ...["μ", "°", "±", "Δ", "λ"].map(symbol),
+    ...["→", "⇌"].map(unit),
+  ],
+];
+
+const SMALL_BUTTON =
+  "inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg px-2 text-sm font-semibold disabled:opacity-60 sm:pointer-fine:min-h-8 sm:pointer-fine:min-w-8";
 
 /**
  * A text box for science: answers, questions, mark schemes and feedback.
@@ -46,6 +72,7 @@ export function SciAnswerBox({
 } & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "value" | "onChange">) {
   const read = useMemo(() => recognised(value, context), [value, context]);
   const [held, setHeld] = useState<Script | null>(null);
+  const [unitsOpen, setUnitsOpen] = useState(false);
   // The box itself, kept from its own events: the dev server's component
   // tagger replaces a textarea's ref, which left the buttons dead in preview.
   const box = useRef<HTMLTextAreaElement | null>(null);
@@ -84,11 +111,16 @@ export function SciAnswerBox({
     if (from !== null) typed(e.currentTarget, from);
   };
 
-  const press = (kind: Script, e: MouseEvent<HTMLButtonElement>) => {
+  const boxOf = (e: MouseEvent<HTMLButtonElement>) => {
     const el =
       box.current ?? e.currentTarget.closest("[data-sci-answer]")?.querySelector("textarea");
+    if (el) box.current = el;
+    return el;
+  };
+
+  const press = (kind: Script, e: MouseEvent<HTMLButtonElement>) => {
+    const el = boxOf(e);
     if (!el) return;
-    box.current = el;
     if (el.selectionStart !== el.selectionEnd) {
       const next = toggleScript(value, el.selectionStart, el.selectionEnd, kind);
       caret.current = { start: next.start, end: next.end };
@@ -97,6 +129,17 @@ export function SciAnswerBox({
     } else {
       setHeld(held === kind ? null : kind);
     }
+    el.focus();
+  };
+
+  // A unit from the panel goes in at the cursor; the panel stays open for the next.
+  const pick = (p: Pick, e: MouseEvent<HTMLButtonElement>) => {
+    const el = boxOf(e);
+    if (!el) return;
+    const next = insertSymbol(value, el.selectionStart, el.selectionEnd, p.text, p.spaced);
+    caret.current = { start: next.caret, end: next.caret };
+    onValueChange(next.value);
+    setHeld(p.then ?? null);
     el.focus();
   };
 
@@ -130,6 +173,17 @@ export function SciAnswerBox({
           </span>
         ))}
         <span className="ml-auto flex gap-1.5">
+          <button
+            type="button"
+            disabled={rest.disabled}
+            onMouseDown={(e) => e.preventDefault()}
+            onClick={() => setUnitsOpen((o) => !o)}
+            aria-expanded={unitsOpen}
+            title="Units and symbols: μm, cm³, Ω, °C and more"
+            className={`${unitsOpen ? "btn-solid" : "btn-soft"} ${SMALL_BUTTON}`}
+          >
+            Units
+          </button>
           {(["sub", "sup"] as const).map((kind) => (
             <button
               key={kind}
@@ -145,13 +199,34 @@ export function SciAnswerBox({
                   ? "Subscript: press, type the small figures, press again (H₂O)"
                   : "Superscript: press, type the small figures, press again (Mg²⁺)"
               }
-              className={`${held === kind ? "btn-solid" : "btn-soft"} inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg px-2 text-sm font-semibold disabled:opacity-60 sm:pointer-fine:min-h-8 sm:pointer-fine:min-w-8`}
+              className={`${held === kind ? "btn-solid" : "btn-soft"} ${SMALL_BUTTON}`}
             >
               x<SciText text={kind === "sub" ? "₂" : "²"} />
             </button>
           ))}
         </span>
       </div>
+      {unitsOpen && !rest.disabled && (
+        <div role="group" aria-label="Units and symbols" className="space-y-1.5">
+          {UNITS.map((row, i) => (
+            <div key={i} className="flex flex-wrap gap-1.5">
+              {row.map((p) => (
+                <button
+                  key={p.text}
+                  type="button"
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={(e) => pick(p, e)}
+                  // Said in full: SciText's small figures aren't read out (cm³, not cm).
+                  aria-label={p.label ?? p.text}
+                  className={`btn-soft ${SMALL_BUTTON}`}
+                >
+                  <SciText text={p.label ?? p.text} />
+                </button>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
