@@ -3,6 +3,7 @@ import { Suspense, lazy } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowLeft,
+  ArrowUpRight,
   ClipboardList,
   Compass,
   CreditCard,
@@ -105,12 +106,24 @@ export function StudentRecordPage({ studentId, tab }: { studentId: string; tab: 
 
   return (
     <AppLayout title={name}>
-      <Link
-        to="/students"
-        className="text-muted-foreground hover:text-foreground mb-4 inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 text-sm font-semibold"
-      >
-        <ArrowLeft className="size-4" aria-hidden /> All students
-      </Link>
+      {/* Planner opens another page, so it sits up here with the way back
+          rather than among the record's sections as if it were one of them. */}
+      <div className="mb-4 flex items-center justify-between gap-4">
+        <Link
+          to="/students"
+          className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 text-sm font-semibold"
+        >
+          <ArrowLeft className="size-4" aria-hidden /> All students
+        </Link>
+        <Link
+          to="/planner"
+          search={{ student: studentId }}
+          className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 text-sm font-semibold"
+        >
+          <Compass className="size-4" aria-hidden /> Planner
+          <ArrowUpRight className="size-4" aria-hidden />
+        </Link>
+      </div>
 
       <StudentHeader name={name} email={email} record={data}>
         {data.profile.level && (
@@ -142,7 +155,7 @@ export function StudentRecordPage({ studentId, tab }: { studentId: string; tab: 
           aria-label="Student record sections"
           className="scroll-slim min-w-0 overflow-x-auto pb-1 lg:sticky lg:top-6 lg:self-start lg:overflow-visible lg:pb-0"
         >
-          <ul className="tab-row lg:flex-col lg:items-stretch">
+          <ul className="tab-row tab-row-stack lg:flex-col lg:items-stretch">
             {NAV.map(({ tab: t, label, icon: Icon }) => (
               <li key={t} className="shrink-0">
                 <button
@@ -157,16 +170,6 @@ export function StudentRecordPage({ studentId, tab }: { studentId: string; tab: 
                 </button>
               </li>
             ))}
-            <li className="shrink-0 lg:mt-2">
-              <Link
-                to="/planner"
-                search={{ student: studentId }}
-                className="tab-item w-full justify-start gap-2"
-              >
-                <Compass className="size-4 shrink-0" aria-hidden />
-                Planner
-              </Link>
-            </li>
           </ul>
         </nav>
 
