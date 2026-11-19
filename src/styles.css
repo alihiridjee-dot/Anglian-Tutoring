@@ -949,6 +949,62 @@ button.trail-step:active .trail-dot {
   );
 }
 
+/* The bell trail: the notifications panel (NotificationBell). Each notice is a
+   round stop on a dotted line, newest at the top, in a bare row: one line of
+   title, one of topic, the time as a chip. An unread stop is solid. The line
+   runs from the middle of the first stop to the middle of the last, so a lone
+   notice has none. */
+.bell-trail {
+  position: relative;
+  --stop: 2.25rem;
+  --row-pad: 0.625rem;
+  padding: 0.5rem;
+}
+.bell-trail::before {
+  content: "";
+  position: absolute;
+  left: calc(0.5rem + var(--row-pad) + var(--stop) / 2 - 2px);
+  top: calc(0.5rem + 0.5rem + var(--stop) / 2);
+  bottom: calc(0.5rem + 0.5rem + var(--stop) / 2);
+  width: 4px;
+  background: radial-gradient(
+      circle,
+      color-mix(in oklab, var(--tint) 45%, var(--edge)) 1.75px,
+      transparent 2.25px
+    )
+    center top / 4px 7px repeat-y;
+}
+.bell-stop {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem var(--row-pad);
+  border-radius: 0.875rem;
+  transition: background-color 0.15s ease;
+}
+.bell-stop:hover {
+  background: color-mix(in oklab, var(--tint) 7%, transparent);
+}
+.bell-stop-dot {
+  width: var(--stop);
+  height: var(--stop);
+  flex-shrink: 0;
+  border-radius: 999px;
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.bell-stop:hover .bell-stop-dot {
+  transform: translateY(-2px) rotate(-8deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .bell-stop-dot {
+    transition: none;
+  }
+  .bell-stop:hover .bell-stop-dot {
+    transform: none;
+  }
+}
+
 /* Big numeral, for stat tiles and week counters. */
 .numeral {
   font-family: var(--font-display);
