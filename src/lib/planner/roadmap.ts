@@ -477,7 +477,8 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
 
 /**
  * The spine as it would be cut today. Curriculum order is recomputed from the
- * topic weights. A custom order is kept as stored. When the exam date has
+ * topic weights. A custom order is kept as stored while it holds every point
+ * of the course. When the exam date has
  * moved since the spine was cut, either kind is re-spread over the topics
  * still to come, from this week: what earlier weeks promised stands.
  * Recomputing curriculum order from the programme start instead re-dealt the
@@ -512,12 +513,19 @@ function liveSpine(params: {
   // That is only taken as it stands while it leaves the weeks already gone as
   // they were; otherwise it would re-deal them and the work they really set
   // would turn into "missed". Then the stored spine is re-spread from this
-  // week instead, as for a moved exam date.
+  // week instead, as for a moved exam date. A custom order keeps its own
+  // weeks, so only a point added to the course since it was cut changes it:
+  // that point is in none of them, so it was never taught or chased. It is
+  // re-spread from this week the same way.
   const sameExam = spineMatchesExam(stored, baseline.exam_date);
   const drifted =
     sameExam &&
-    !custom &&
-    pastWeeks(computed, orderTopics, from) !== pastWeeks(stored, orderTopics, from);
+    (custom
+      ? topicsWithUnpromisedPoints(
+          progress,
+          withWeeklyPoints(stored.filter(isTeachBand), pointsByTopic),
+        ).length > 0
+      : pastWeeks(computed, orderTopics, from) !== pastWeeks(stored, orderTopics, from));
   if (sameExam && !drifted) return unmoved;
 
   const remaining = orderInputs(stored, orderTopics, from).remaining;
