@@ -7,7 +7,6 @@ import { toast } from "sonner";
 import { Loader2, ListChecks, Check, ChevronDown, RotateCcw } from "lucide-react";
 import { type ProgressPoint, type TopicProgress } from "@/lib/planner/scheduleDal";
 import { WeeklyPlanDAL } from "@/lib/planner/weeklyPlanDal";
-import { isDueBy, retrievability } from "@/lib/planner/scheduler";
 import { type Enrolment } from "@/lib/profile/enrolment";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { currentWeekKey } from "@/lib/planner/week";
@@ -23,10 +22,10 @@ const isDone = (p: ProgressPoint) =>
 /**
  * A review is due when a practised point's memory card has come round again —
  * the same rule the planner's memory stats count as "due now". Never-practised
- * points have no card to review, so they are new work, not a review.
+ * points have no card to review, so they are new work, not a review. The status
+ * is read on the planner's clock, which stops during a pause or a break.
  */
-const isReviewDue = (p: ProgressPoint, now: Date) =>
-  retrievability(p.card, now) !== null && isDueBy(p.card, now);
+const isReviewDue = (p: ProgressPoint) => p.status === "due";
 
 /**
  * Every topic and specification point in the course as one scrollable table:
@@ -85,7 +84,7 @@ export function CoveredLedger({
     enabled: !!active,
   });
   const data = progress.data ?? [];
-  // Reviews come due with the clock, not only with new work.
+  // This week moves with the clock.
   const now = new Date(useNow(60_000));
   // A retake goes into this week, and nothing new can be planned for a break week.
   const breaks = useQuery({ ...studentBreaksQuery(studentId), enabled: canRetake && !!active });
@@ -132,7 +131,7 @@ export function CoveredLedger({
 
   const points = data.flatMap((t) => t.points);
   const doneTotal = points.filter(isDone).length;
-  const dueTotal = points.filter((p) => isReviewDue(p, now)).length;
+  const dueTotal = points.filter(isReviewDue).length;
 
   return (
     <div className="tint-emerald rounded-2xl premium-card shadow-sm mt-6 overflow-hidden">
@@ -208,7 +207,7 @@ export function CoveredLedger({
             {data.map((t) => {
               const isOpen = expanded.has(t.topicId);
               const done = t.points.filter(isDone).length;
-              const due = t.points.filter((p) => isReviewDue(p, now)).length;
+              const due = t.points.filter(isReviewDue).length;
               return (
                 <tbody key={t.topicId} className="border-b border-foreground/20 last:border-b-0">
                   <tr
@@ -262,7 +261,7 @@ export function CoveredLedger({
                           <Tick done={isDone(p)} title={markTitle(p)} />
                         </td>
                         <td className="px-2 py-2.5 text-center sm:px-5">
-                          {isReviewDue(p, now) && (
+                          {isReviewDue(p) && (
                             <span className="chip tint-amber text-[10px]">Due</span>
                           )}
                         </td>

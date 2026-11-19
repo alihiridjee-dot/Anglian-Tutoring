@@ -58,6 +58,34 @@ export function startMarking(
   void invoke(submissionId).catch(() => undefined);
 }
 
+/** The student's own submission of a task: null when there is none or it can't be read. */
+async function readOwnSubmissionId(resourceId: string, studentId: string): Promise<string | null> {
+  const { data, error } = await supabase
+    .from("homework_submissions")
+    .select("id")
+    .eq("resource_id", resourceId)
+    .eq("student_id", studentId)
+    .maybeSingle();
+  return error ? null : (data?.id ?? null);
+}
+
+/**
+ * A retry whose first try got through but whose reply was lost: the database
+ * says "already submitted" and sends no id, so nothing started the marker, and
+ * the page leaves for the dashboard before it could find the submission
+ * itself. Read the submission that first try saved and start its marking. If
+ * the read fails, start nothing: the work is in, and waits for a tutor.
+ */
+export async function startMarkingOwnSubmission(
+  resourceId: string,
+  studentId: string,
+  read: (resourceId: string, studentId: string) => Promise<string | null> = readOwnSubmissionId,
+  invoke?: (submissionId: string) => Promise<unknown>,
+): Promise<void> {
+  const id = await read(resourceId, studentId).catch(() => null);
+  if (id) startMarking(id, invoke);
+}
+
 /**
  * A submission the marker hasn't reached: not marked, not staged, not held for
  * a tutor, and recent.

@@ -2225,6 +2225,16 @@ body {
   }
 }
 
+/* A tab row stood on its end beside the page (the student record's sections).
+   The pill ends that suit a sideways row made a tall one a capsule, and the
+   chosen segment poked out of its curves, so standing up it takes a card's
+   corners. Below lg it is the ordinary sideways row. */
+@media (min-width: 64rem) {
+  .tab-row-stack {
+    border-radius: 1.25rem;
+  }
+}
+
 /* An open conversation on a phone turned sideways. Inside the page, under the
    pinned header, its box had 34px left for messages once the title row and the
    typing box were in, so it takes the whole screen instead, over the header, and
@@ -4478,6 +4488,69 @@ body {
     transform: none;
   }
   .paywall-link:hover svg {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------------
+   Rocket dodge — the game in the 404 card (`RocketDodge.tsx`). A night sky
+   washed from the card's own tint, falling rocks that turn as they come, and
+   a shake when the rocket is hit. The game only moves once Play is pressed.
+   ------------------------------------------------------------------------ */
+.rocket-dodge {
+  background:
+    radial-gradient(
+      circle at 50% 110%,
+      color-mix(in oklab, var(--tint) 22%, transparent),
+      transparent 60%
+    ),
+    color-mix(in oklab, var(--tint) 9%, var(--card));
+  border: 1.5px solid color-mix(in oklab, var(--tint) 24%, var(--edge));
+  cursor: pointer;
+}
+.rocket-dodge-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--tint) 45%, var(--card));
+}
+@keyframes rocket-dodge-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+.rocket-dodge-spin {
+  animation: rocket-dodge-spin 3s linear infinite;
+}
+.rocket-dodge-spin-back {
+  animation: rocket-dodge-spin 3.6s linear infinite reverse;
+}
+@keyframes rocket-dodge-crash {
+  0%,
+  100% {
+    transform: translateX(0px);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+}
+.rocket-dodge-crash {
+  animation: rocket-dodge-crash 0.4s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rocket-dodge-spin,
+  .rocket-dodge-spin-back,
+  .rocket-dodge-crash {
     animation: none;
   }
 }

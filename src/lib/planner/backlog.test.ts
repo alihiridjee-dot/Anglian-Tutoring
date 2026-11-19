@@ -360,6 +360,21 @@ describe("catch-up forecast", () => {
     expect(Object.values(result.weeks).flat()).toHaveLength(5);
   });
 
+  test("a break week is not a week to share the backlog over", () => {
+    // Ten weeks, the fifth and sixth a break closed to every point: 40 owed / 8 open = 5.
+    const examDate = toDateKey(addWeeks(weekKeyToDate(params.weekStart), 10));
+    const breakWeeks = new Set(
+      [4, 5].map((n) => toDateKey(addWeeks(weekKeyToDate(params.weekStart), n))),
+    );
+    const course = { ...params, backlog: owed(40), examDate };
+    const result = projectCatchUp({ ...course, isBlocked: (_, week) => breakWeeks.has(week) });
+    expect(result.weeks[params.weekStart]).toHaveLength(5);
+    expect(perWeek(result)).toEqual([5, 5, 5, 5, 0, 0, 5, 5, 5, 5]);
+    expect(result.held).toEqual([]);
+    // With no break, the share is over all ten weeks, as before.
+    expect(perWeek(projectCatchUp(course))).toEqual(Array(10).fill(4));
+  });
+
   test("with no measured week the fair share alone still clears it", () => {
     const result = projectCatchUp({ ...params, weeklyWeight: 0 });
     expect(perWeek(result)).toEqual([1, 1, 1, 1]);

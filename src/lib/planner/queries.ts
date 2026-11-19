@@ -1,6 +1,5 @@
 import { queryOptions, type QueryClient } from "@tanstack/react-query";
 import { ProgramDAL } from "@/lib/planner/programDal";
-import { ScheduleDAL } from "@/lib/planner/scheduleDal";
 import { readCourseState } from "@/lib/planner/courseState";
 import { currentWeekKey } from "@/lib/planner/week";
 import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
@@ -42,21 +41,13 @@ export const roadmapQuery = (client: QueryClient, p: PlannerCourse, projectOnly 
     },
     staleTime: 30_000,
   });
-export const memoryQuery = (client: QueryClient, p: PlannerCourse) =>
-  queryOptions({
-    queryKey: [...courseKey(p), "memory", currentWeekKey()],
-    queryFn: async () =>
-      ScheduleDAL.getMemoryStats({
-        ...p,
-        progress: (await client.fetchQuery(stateQuery(p))).progress,
-      }),
-    staleTime: 30_000,
-  });
+// Grading writes authoritative source records. Derived memory is read-only;
+// invalidate all views of that student rather than writing a client-made card.
 export const invalidatePlanner = (client: QueryClient, studentId: string) =>
   client.invalidateQueries({ queryKey: plannerKey(studentId) });
 
 /** What a course's views are built from, and the views built from it alone. */
-const FROM_STATE = new Set(["state", "roadmap", "memory"]);
+const FROM_STATE = new Set(["state", "roadmap"]);
 /**
  * After a write to a course: its state is read again, once, and every view
  * built from it follows. The week that made the write is left to finish and

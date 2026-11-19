@@ -16,6 +16,7 @@ import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { Field, inputCls, submitBtn } from "./Field";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
+import { AbovePage } from "@/components/Shared";
 
 export interface EditableVideo {
   id: string;
@@ -168,125 +169,127 @@ export function SpecPointVideoEditor({ video, specPointId, taxonomy, onClose, on
   };
 
   return (
-    <div
-      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start justify-center p-4 overflow-y-auto"
-      onClick={onClose}
-    >
-      <form
-        onSubmit={save}
-        onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-lg my-4 sm:my-8 max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-2xl premium-card p-4 sm:p-6 space-y-4"
+    <AbovePage>
+      <div
+        className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start justify-center p-4 overflow-y-auto"
+        onClick={onClose}
       >
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="font-display text-lg font-bold text-foreground">
-            {isNew ? "Add a video to this spec point" : "Edit video"}
-          </h3>
-          <button
-            type="button"
-            onClick={onClose}
-            className="tap-target text-muted-foreground hover:text-foreground p-1"
-            aria-label="Close"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
+        <form
+          onSubmit={save}
+          onClick={(e) => e.stopPropagation()}
+          className="w-full max-w-lg my-4 sm:my-8 max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-2xl premium-card p-4 sm:p-6 space-y-4"
+        >
+          <div className="flex items-start justify-between gap-3">
+            <h3 className="font-display text-lg font-bold text-foreground">
+              {isNew ? "Add a video to this spec point" : "Edit video"}
+            </h3>
+            <button
+              type="button"
+              onClick={onClose}
+              className="tap-target text-muted-foreground hover:text-foreground p-1"
+              aria-label="Close"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
 
-        <Field label="Title">
-          <input
-            required
-            className={inputCls}
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </Field>
-
-        <Field label="Video URL (YouTube / Vimeo / mp4)">
-          <input
-            required
-            type="url"
-            inputMode="url"
-            className={inputCls}
-            value={videoUrl}
-            onChange={(e) => setVideoUrl(e.target.value)}
-            placeholder="https://www.youtube.com/watch?v=…"
-          />
-        </Field>
-
-        <div className="flex items-center gap-2 flex-wrap">
-          <button
-            type="button"
-            onClick={runCheck}
-            disabled={!videoUrl || check.status === "checking"}
-            className="inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-foreground hover:bg-secondary/40 disabled:opacity-60"
-          >
-            {check.status === "checking" ? (
-              <Loader2 className="w-3.5 h-3.5 animate-spin" />
-            ) : (
-              <ShieldCheck className="w-3.5 h-3.5" />
-            )}
-            Check link
-          </button>
-          {check.status === "ok" && (
-            <span className="inline-flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-medium">
-              <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
-              Live — “{check.title}” by {check.author}
-            </span>
-          )}
-          {check.status === "bad" && (
-            <span className="inline-flex items-center gap-1.5 text-xs text-destructive font-medium">
-              <ShieldAlert className="w-3.5 h-3.5 shrink-0" />
-              {check.reason}
-            </span>
-          )}
-        </div>
-
-        {/* Live preview of exactly what the student will see in the card. */}
-        {embed?.embedUrl && (
-          <div className="aspect-video w-full rounded-xl overflow-hidden border border-border bg-black">
-            <iframe
-              key={embed.embedUrl}
-              src={embed.embedUrl}
-              title="Video preview"
-              className="w-full h-full"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+          <Field label="Title">
+            <input
+              required
+              className={inputCls}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             />
-          </div>
-        )}
+          </Field>
 
-        <Field label="Description">
-          <textarea
-            className={`${inputCls} h-24 py-2`}
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </Field>
+          <Field label="Video URL (YouTube / Vimeo / mp4)">
+            <input
+              required
+              type="url"
+              inputMode="url"
+              className={inputCls}
+              value={videoUrl}
+              onChange={(e) => setVideoUrl(e.target.value)}
+              placeholder="https://www.youtube.com/watch?v=…"
+            />
+          </Field>
 
-        <button disabled={busy} className={submitBtn}>
-          {busy ? "Saving…" : isNew ? "Add video" : "Save changes"}
-        </button>
-
-        {!isNew && (
-          <div className="flex flex-wrap gap-2 pt-1 border-t border-border">
+          <div className="flex items-center gap-2 flex-wrap">
             <button
               type="button"
-              onClick={unlink}
-              disabled={busy}
-              className="inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-60"
+              onClick={runCheck}
+              disabled={!videoUrl || check.status === "checking"}
+              className="inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-foreground hover:bg-secondary/40 disabled:opacity-60"
             >
-              <Link2Off className="w-3.5 h-3.5" /> Remove from this point
+              {check.status === "checking" ? (
+                <Loader2 className="w-3.5 h-3.5 animate-spin" />
+              ) : (
+                <ShieldCheck className="w-3.5 h-3.5" />
+              )}
+              Check link
             </button>
-            <button
-              type="button"
-              onClick={destroy}
-              disabled={busy}
-              className="inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-destructive/40 text-xs font-semibold text-destructive hover:bg-destructive/10 disabled:opacity-60"
-            >
-              <Trash2 className="w-3.5 h-3.5" /> Delete everywhere
-            </button>
+            {check.status === "ok" && (
+              <span className="inline-flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-medium">
+                <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
+                Live — “{check.title}” by {check.author}
+              </span>
+            )}
+            {check.status === "bad" && (
+              <span className="inline-flex items-center gap-1.5 text-xs text-destructive font-medium">
+                <ShieldAlert className="w-3.5 h-3.5 shrink-0" />
+                {check.reason}
+              </span>
+            )}
           </div>
-        )}
-      </form>
-    </div>
+
+          {/* Live preview of exactly what the student will see in the card. */}
+          {embed?.embedUrl && (
+            <div className="aspect-video w-full rounded-xl overflow-hidden border border-border bg-black">
+              <iframe
+                key={embed.embedUrl}
+                src={embed.embedUrl}
+                title="Video preview"
+                className="w-full h-full"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          )}
+
+          <Field label="Description">
+            <textarea
+              className={`${inputCls} h-24 py-2`}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </Field>
+
+          <button disabled={busy} className={submitBtn}>
+            {busy ? "Saving…" : isNew ? "Add video" : "Save changes"}
+          </button>
+
+          {!isNew && (
+            <div className="flex flex-wrap gap-2 pt-1 border-t border-border">
+              <button
+                type="button"
+                onClick={unlink}
+                disabled={busy}
+                className="inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-60"
+              >
+                <Link2Off className="w-3.5 h-3.5" /> Remove from this point
+              </button>
+              <button
+                type="button"
+                onClick={destroy}
+                disabled={busy}
+                className="inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-destructive/40 text-xs font-semibold text-destructive hover:bg-destructive/10 disabled:opacity-60"
+              >
+                <Trash2 className="w-3.5 h-3.5" /> Delete everywhere
+              </button>
+            </div>
+          )}
+        </form>
+      </div>
+    </AbovePage>
   );
 }

@@ -195,9 +195,36 @@ async function savedWeeks(week: string): Promise<SavedWeekRow[]> {
   }
 }
 
+/** FNV-1a, 32-bit: a small, fixed hash for shuffling, not for security. */
+function fnv1a(text: string): number {
+  let hash = 0x811c9dc5;
+  for (let i = 0; i < text.length; i++) {
+    hash ^= text.charCodeAt(i);
+    hash = Math.imul(hash, 0x01000193) >>> 0;
+  }
+  return hash;
+}
+
 /**
- * Check every week saved for this week, in student order, until the
- * deadline. Each run is recorded (`private.plan_heal_runs`), dry runs too.
+ * The order one night's run checks the saved weeks in: by a hash of each
+ * row's student, subject and that night's UTC date. A run that hits its
+ * deadline leaves the end of the list unchecked, and in student order that
+ * was the same students every night. The same date always gives the same order.
+ */
+export function nightlyOrder<Row extends { student_id: string; subject: string }>(
+  rows: readonly Row[],
+  now: Date,
+): Row[] {
+  const day = now.toISOString().slice(0, 10);
+  return rows
+    .map((row) => ({ row, key: fnv1a(`${row.student_id}|${row.subject}|${day}`) }))
+    .sort((a, b) => a.key - b.key)
+    .map(({ row }) => row);
+}
+
+/**
+ * Check every week saved for this week, in tonight's order (`nightlyOrder`),
+ * until the deadline. Each run is recorded (`private.plan_heal_runs`), dry runs too.
  */
 export async function checkThisWeek(opts: {
   dryRun: boolean;
@@ -209,7 +236,7 @@ export async function checkThisWeek(opts: {
   return withClient(serviceClient(), async () => {
     const courses: CourseCheck[] = [];
     let unreached = 0;
-    for (const row of await savedWeeks(week)) {
+    for (const row of nightlyOrder(await savedWeeks(week), opts.now ?? new Date())) {
       if (opts.deadline && Date.now() > opts.deadline) unreached++;
       else courses.push(await checkCourse({ ...row, week_start: week }, opts.dryRun));
     }

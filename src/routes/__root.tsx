@@ -15,6 +15,7 @@ import appCss from "../styles.css?url";
 import { supabase } from "@/integrations/supabase/client";
 import { scrubAnalyticsEvent } from "@/lib/platform/analyticsUrl";
 import { Mascot } from "@/components/Doodles";
+import { RocketDodge } from "@/components/RocketDodge";
 import { markHydrated } from "@/lib/auth/hydration";
 import { createAuthChangeHandler } from "@/lib/auth/authChange";
 import { createDemoCrossingHandler } from "@/lib/auth/demoCrossing";
@@ -25,12 +26,12 @@ import { isStaleBuildError, reloadForNewBuild } from "@/lib/platform/staleBuild"
 function NotFoundComponent() {
   return (
     <div className="page-aurora flex min-h-screen items-center justify-center px-4">
-      <div className="pop-card pop-card-hero max-w-md p-8 text-center">
-        <Mascot name="rocket" mood="wow" size={104} className="mx-auto" />
-        <p className="numeral mt-4 text-6xl text-[color:var(--tint)]">404</p>
-        <h1 className="font-display mt-2 text-xl font-extrabold">
+      <div className="pop-card pop-card-hero w-full max-w-md p-8 text-center short:p-5">
+        <p className="numeral text-6xl text-[color:var(--tint)] short:text-4xl">404</p>
+        <h1 className="font-display mt-2 mb-5 text-xl font-extrabold short:mb-3">
           Nothing here — wrong turn somewhere
         </h1>
+        <RocketDodge />
         <Link to="/" className="btn-hero mt-6 inline-flex rounded-xl px-6 py-3 text-sm">
           Back to home
         </Link>

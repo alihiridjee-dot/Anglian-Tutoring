@@ -12,6 +12,7 @@ import {
 import { BILLING_FEEDBACK_REASONS } from "@/lib/billing/billingFeedback";
 import { FEEDBACK_MAX } from "@/lib/platform/textLimits";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
+import { AbovePage } from "@/components/Shared";
 
 /** The exact word the user has to type before the cancel button unlocks. */
 const CONFIRM_WORD = "CANCEL";
@@ -102,258 +103,261 @@ export function CancelPlanDialog({
   }, [onClose, pending]);
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-primary-deep/50 p-4"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="cancel-plan-title"
-      onClick={(e) => {
-        if (e.target === e.currentTarget && !dirty && !pending) onClose();
-      }}
-    >
-      <div className="w-full max-w-lg rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)] overflow-y-auto">
-        <div className="flex items-start justify-between gap-3 p-4 sm:p-6 border-b border-border">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center shrink-0">
-              <XCircle className="w-5 h-5 text-rose-600" />
-            </div>
-            <div className="min-w-0">
-              <h2 id="cancel-plan-title" className="font-display text-lg font-bold leading-tight">
-                Cancel this plan
-              </h2>
-              <p className="text-xs text-muted-foreground mt-0.5">
-                {planName} · step {stepIndex + 1} of {STEPS.length}
-              </p>
-            </div>
-          </div>
-          <button
-            onClick={onClose}
-            className="size-11 sm:pointer-fine:size-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
-            aria-label="Close"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-
-        {/* Progress rail — makes the length of the flow visible up front rather
-            than springing another screen on them each time they click. */}
-        <div className="flex gap-1 px-4 sm:px-6 pt-4">
-          {STEPS.map((s, i) => (
-            <div
-              key={s}
-              className={`h-1 flex-1 rounded-full ${i <= stepIndex ? "bg-rose-500" : "bg-border"}`}
-            />
-          ))}
-        </div>
-
-        <div className="p-4 sm:p-6 space-y-4 text-sm">
-          {step === "consequences" && (
-            <>
-              <p className="text-muted-foreground">
-                Here's exactly what cancelling does. Nothing happens until the last step.
-              </p>
-              <ul className="space-y-2.5">
-                <li className="flex gap-2.5">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span>
-                    {Whose} access stays on until <strong>{endsAt}</strong> — you keep everything
-                    you've already paid for.
-                  </span>
-                </li>
-                <li className="flex gap-2.5">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span>
-                    No further charges. You can resume any time before that date and nothing
-                    changes.
-                  </span>
-                </li>
-                <li className="flex gap-2.5">
-                  <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                  <span>
-                    After that date {whose} lessons, quizzes, task marking and revision planner lock
-                    {subjectLabels.length ? ` for ${subjectLabels.join(" and ")}` : ""}.
-                  </span>
-                </li>
-                <li className="flex gap-2.5">
-                  <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                  <span>
-                    {Whose} progress, marks and revision history are kept for{" "}
-                    <strong>7 days</strong> after that date, then <strong>deleted</strong> for good.
-                    Restart in that time and nothing is lost.
-                  </span>
-                </li>
-                <li className="flex gap-2.5">
-                  <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                  <span>
-                    The current period isn't refunded, and restarting later means checking out at
-                    whatever the price is then.
-                  </span>
-                </li>
-              </ul>
-            </>
-          )}
-
-          {step === "alternatives" && (
-            <>
-              <p className="text-muted-foreground">
-                Most families who get this far want a smaller bill rather than no plan. These take
-                effect straight away:
-              </p>
-              <div className="space-y-2">
-                {canPauseInstead && (
-                  <button
-                    onClick={onPauseInstead}
-                    className="w-full text-left rounded-xl border border-border p-4 hover:border-primary hover:bg-primary/5 transition"
-                  >
-                    <div className="flex items-center gap-2 font-semibold">
-                      <PauseCircle className="w-4 h-4 text-amber-600" /> Pause instead
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Payments stop and access is locked until you resume. Nothing is lost. Away on
-                      holiday or busy with school? Take a break at the top of Billing instead: the
-                      work stops and the plan carries on.
-                    </p>
-                  </button>
-                )}
-                {canRemoveInstead && (
-                  <button
-                    onClick={onRemoveInstead}
-                    className="w-full text-left rounded-xl border border-border p-4 hover:border-primary hover:bg-primary/5 transition"
-                  >
-                    <div className="flex items-center gap-2 font-semibold">
-                      <MinusCircle className="w-4 h-4 text-primary" /> Drop a subject instead
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Keep the subjects that matter and pay less. Your bill drops to the smaller
-                      plan and the unused part of this period is credited.
-                    </p>
-                  </button>
-                )}
-                <div className="rounded-xl border border-border p-4">
-                  <div className="font-semibold">Something we could fix?</div>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    If it's a tutor, a subject or a timetable problem, tell us on the next step — we
-                    read every one of these.
-                  </p>
-                </div>
+    <AbovePage>
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center bg-primary-deep/50 p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cancel-plan-title"
+        onClick={(e) => {
+          if (e.target === e.currentTarget && !dirty && !pending) onClose();
+        }}
+      >
+        <div className="w-full max-w-lg rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)] overflow-y-auto">
+          <div className="flex items-start justify-between gap-3 p-4 sm:p-6 border-b border-border">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center shrink-0">
+                <XCircle className="w-5 h-5 text-rose-600" />
               </div>
-            </>
-          )}
-
-          {step === "reason" && (
-            <>
-              <p className="text-muted-foreground">
-                Before you cancel, please tell us why. This is the only part we ask of you.
-              </p>
-              <div>
-                <label
-                  htmlFor="cancel-reason"
-                  className="block text-xs font-semibold text-muted-foreground mb-1"
-                >
-                  Reason <span className="text-rose-600">*</span>
-                </label>
-                <select
-                  id="cancel-reason"
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                  className="w-full min-h-11 rounded-lg border border-border bg-background p-2.5 text-sm sm:pointer-fine:min-h-0"
-                >
-                  <option value="">Choose a reason…</option>
-                  {BILLING_FEEDBACK_REASONS.map((r) => (
-                    <option key={r.value} value={r.value}>
-                      {r.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label
-                  htmlFor="cancel-comment"
-                  className="block text-xs font-semibold text-muted-foreground mb-1"
-                >
-                  Anything else? (optional)
-                </label>
-                <textarea
-                  id="cancel-comment"
-                  value={comment}
-                  onChange={(e) => setComment(e.target.value)}
-                  rows={3}
-                  maxLength={FEEDBACK_MAX}
-                  placeholder="Tell us more — it helps us improve."
-                  className="w-full rounded-lg border border-border bg-background p-2.5 text-sm resize-none"
-                />
-              </div>
-            </>
-          )}
-
-          {step === "confirm" && (
-            <>
-              <div className="rounded-xl border border-rose-200 bg-rose-50 p-4">
-                <p className="font-semibold text-rose-900">
-                  {planName} will end on {endsAt}.
-                </p>
-                <p className="text-xs text-rose-800 mt-1">
-                  This is the last step — the next click sends it to Stripe.
+              <div className="min-w-0">
+                <h2 id="cancel-plan-title" className="font-display text-lg font-bold leading-tight">
+                  Cancel this plan
+                </h2>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  {planName} · step {stepIndex + 1} of {STEPS.length}
                 </p>
               </div>
-              <div>
-                <label
-                  htmlFor="cancel-confirm-word"
-                  className="block text-xs font-semibold text-muted-foreground mb-1"
-                >
-                  Type <span className="font-mono font-bold text-foreground">{CONFIRM_WORD}</span>{" "}
-                  to confirm
-                </label>
-                <input
-                  id="cancel-confirm-word"
-                  value={typed}
-                  onChange={(e) => setTyped(e.target.value)}
-                  autoComplete="off"
-                  placeholder={CONFIRM_WORD}
-                  className="w-full rounded-lg border border-border bg-background p-2.5 text-sm font-mono tracking-widest"
-                />
-              </div>
-            </>
-          )}
-
-          <div className="flex flex-wrap gap-2 pt-1">
-            {stepIndex > 0 && (
-              <button
-                onClick={back}
-                disabled={pending}
-                className="h-11 sm:pointer-fine:h-10 px-3 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50 inline-flex items-center gap-1.5"
-              >
-                <ArrowLeft className="w-4 h-4" /> Back
-              </button>
-            )}
+            </div>
             <button
               onClick={onClose}
-              disabled={pending}
-              className="flex-1 h-11 sm:pointer-fine:h-10 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+              className="size-11 sm:pointer-fine:size-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
+              aria-label="Close"
             >
-              Keep my plan
+              <X className="w-4 h-4" />
             </button>
-            {step === "confirm" ? (
-              <button
-                onClick={() => onConfirm(category, comment)}
-                disabled={typed.trim().toUpperCase() !== CONFIRM_WORD || pending}
-                className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg bg-rose-600 text-white text-sm font-semibold hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
-              >
-                {pending && <Loader2 className="w-4 h-4 animate-spin" />}
-                Cancel plan
-              </button>
-            ) : (
-              <button
-                onClick={next}
-                disabled={step === "reason" && !category}
-                className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-rose-200 text-rose-600 text-sm font-semibold hover:bg-rose-50 disabled:opacity-40 disabled:cursor-not-allowed"
-              >
-                Continue
-              </button>
+          </div>
+
+          {/* Progress rail — makes the length of the flow visible up front rather
+            than springing another screen on them each time they click. */}
+          <div className="flex gap-1 px-4 sm:px-6 pt-4">
+            {STEPS.map((s, i) => (
+              <div
+                key={s}
+                className={`h-1 flex-1 rounded-full ${i <= stepIndex ? "bg-rose-500" : "bg-border"}`}
+              />
+            ))}
+          </div>
+
+          <div className="p-4 sm:p-6 space-y-4 text-sm">
+            {step === "consequences" && (
+              <>
+                <p className="text-muted-foreground">
+                  Here's exactly what cancelling does. Nothing happens until the last step.
+                </p>
+                <ul className="space-y-2.5">
+                  <li className="flex gap-2.5">
+                    <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span>
+                      {Whose} access stays on until <strong>{endsAt}</strong> — you keep everything
+                      you've already paid for.
+                    </span>
+                  </li>
+                  <li className="flex gap-2.5">
+                    <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span>
+                      No further charges. You can resume any time before that date and nothing
+                      changes.
+                    </span>
+                  </li>
+                  <li className="flex gap-2.5">
+                    <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                    <span>
+                      After that date {whose} lessons, quizzes, task marking and revision planner
+                      lock
+                      {subjectLabels.length ? ` for ${subjectLabels.join(" and ")}` : ""}.
+                    </span>
+                  </li>
+                  <li className="flex gap-2.5">
+                    <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                    <span>
+                      {Whose} progress, marks and revision history are kept for{" "}
+                      <strong>7 days</strong> after that date, then <strong>deleted</strong> for
+                      good. Restart in that time and nothing is lost.
+                    </span>
+                  </li>
+                  <li className="flex gap-2.5">
+                    <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                    <span>
+                      The current period isn't refunded, and restarting later means checking out at
+                      whatever the price is then.
+                    </span>
+                  </li>
+                </ul>
+              </>
             )}
+
+            {step === "alternatives" && (
+              <>
+                <p className="text-muted-foreground">
+                  Most families who get this far want a smaller bill rather than no plan. These take
+                  effect straight away:
+                </p>
+                <div className="space-y-2">
+                  {canPauseInstead && (
+                    <button
+                      onClick={onPauseInstead}
+                      className="w-full text-left rounded-xl border border-border p-4 hover:border-primary hover:bg-primary/5 transition"
+                    >
+                      <div className="flex items-center gap-2 font-semibold">
+                        <PauseCircle className="w-4 h-4 text-amber-600" /> Pause instead
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Payments stop and access is locked until you resume. Nothing is lost. Away
+                        on holiday or busy with school? Take a break at the top of Billing instead:
+                        the work stops and the plan carries on.
+                      </p>
+                    </button>
+                  )}
+                  {canRemoveInstead && (
+                    <button
+                      onClick={onRemoveInstead}
+                      className="w-full text-left rounded-xl border border-border p-4 hover:border-primary hover:bg-primary/5 transition"
+                    >
+                      <div className="flex items-center gap-2 font-semibold">
+                        <MinusCircle className="w-4 h-4 text-primary" /> Drop a subject instead
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Keep the subjects that matter and pay less. Your bill drops to the smaller
+                        plan and the unused part of this period is credited.
+                      </p>
+                    </button>
+                  )}
+                  <div className="rounded-xl border border-border p-4">
+                    <div className="font-semibold">Something we could fix?</div>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      If it's a tutor, a subject or a timetable problem, tell us on the next step —
+                      we read every one of these.
+                    </p>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {step === "reason" && (
+              <>
+                <p className="text-muted-foreground">
+                  Before you cancel, please tell us why. This is the only part we ask of you.
+                </p>
+                <div>
+                  <label
+                    htmlFor="cancel-reason"
+                    className="block text-xs font-semibold text-muted-foreground mb-1"
+                  >
+                    Reason <span className="text-rose-600">*</span>
+                  </label>
+                  <select
+                    id="cancel-reason"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    className="w-full min-h-11 rounded-lg border border-border bg-background p-2.5 text-sm sm:pointer-fine:min-h-0"
+                  >
+                    <option value="">Choose a reason…</option>
+                    {BILLING_FEEDBACK_REASONS.map((r) => (
+                      <option key={r.value} value={r.value}>
+                        {r.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="cancel-comment"
+                    className="block text-xs font-semibold text-muted-foreground mb-1"
+                  >
+                    Anything else? (optional)
+                  </label>
+                  <textarea
+                    id="cancel-comment"
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    rows={3}
+                    maxLength={FEEDBACK_MAX}
+                    placeholder="Tell us more — it helps us improve."
+                    className="w-full rounded-lg border border-border bg-background p-2.5 text-sm resize-none"
+                  />
+                </div>
+              </>
+            )}
+
+            {step === "confirm" && (
+              <>
+                <div className="rounded-xl border border-rose-200 bg-rose-50 p-4">
+                  <p className="font-semibold text-rose-900">
+                    {planName} will end on {endsAt}.
+                  </p>
+                  <p className="text-xs text-rose-800 mt-1">
+                    This is the last step — the next click sends it to Stripe.
+                  </p>
+                </div>
+                <div>
+                  <label
+                    htmlFor="cancel-confirm-word"
+                    className="block text-xs font-semibold text-muted-foreground mb-1"
+                  >
+                    Type <span className="font-mono font-bold text-foreground">{CONFIRM_WORD}</span>{" "}
+                    to confirm
+                  </label>
+                  <input
+                    id="cancel-confirm-word"
+                    value={typed}
+                    onChange={(e) => setTyped(e.target.value)}
+                    autoComplete="off"
+                    placeholder={CONFIRM_WORD}
+                    className="w-full rounded-lg border border-border bg-background p-2.5 text-sm font-mono tracking-widest"
+                  />
+                </div>
+              </>
+            )}
+
+            <div className="flex flex-wrap gap-2 pt-1">
+              {stepIndex > 0 && (
+                <button
+                  onClick={back}
+                  disabled={pending}
+                  className="h-11 sm:pointer-fine:h-10 px-3 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50 inline-flex items-center gap-1.5"
+                >
+                  <ArrowLeft className="w-4 h-4" /> Back
+                </button>
+              )}
+              <button
+                onClick={onClose}
+                disabled={pending}
+                className="flex-1 h-11 sm:pointer-fine:h-10 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+              >
+                Keep my plan
+              </button>
+              {step === "confirm" ? (
+                <button
+                  onClick={() => onConfirm(category, comment)}
+                  disabled={typed.trim().toUpperCase() !== CONFIRM_WORD || pending}
+                  className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg bg-rose-600 text-white text-sm font-semibold hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
+                >
+                  {pending && <Loader2 className="w-4 h-4 animate-spin" />}
+                  Cancel plan
+                </button>
+              ) : (
+                <button
+                  onClick={next}
+                  disabled={step === "reason" && !category}
+                  className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-rose-200 text-rose-600 text-sm font-semibold hover:bg-rose-50 disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                  Continue
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </AbovePage>
   );
 }

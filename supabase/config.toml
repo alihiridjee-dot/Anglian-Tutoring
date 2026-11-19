@@ -37,3 +37,8 @@ verify_jwt = false
 # `supabase functions deploy` cannot turn the check back on.
 [functions.stripe-webhook]
 verify_jwt = false
+
+# Must stay on: the function's own service-role check (requireServiceRole) only
+# reads the token's role claim and relies on this gateway check for the signature.
+[functions.stripe-reconcile]
+verify_jwt = true

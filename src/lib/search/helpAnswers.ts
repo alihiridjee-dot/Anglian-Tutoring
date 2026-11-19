@@ -20,12 +20,14 @@ import { getSessionUserId } from "@/lib/auth/session";
 import { SUBJECTS, type SubjectV } from "@/lib/curriculum/taxonomy";
 import { WeeklyPlanDAL, type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import { WeeklyActivityDAL } from "@/lib/planner/weeklyActivityDal";
+import { weeksToExam } from "@/lib/planner/pacing";
 import { PLANNER_TIME_ZONE, currentWeekKey } from "@/lib/planner/week";
 import { weakestPoints } from "@/lib/chat/questionIdeas";
 import { recentMarks } from "@/lib/chat/recentMarks";
 import { curriculumTarget, isVisible, runGlobalSearch, type SearchSection } from "./globalSearch";
 import { helpIntent, type HelpIntentId } from "./help";
 import type { SearchContext, SearchHit } from "./types";
+import { liveWindowStart } from "@/lib/live/liveSessions";
 
 /**
  * The answer to a help intent: the student's own quizzes, tasks and sessions
@@ -139,9 +141,9 @@ async function weekTasks(ctx: SearchContext): Promise<SearchHit[]> {
   ];
 }
 
-/** Sessions still to come, or started within the last hour (so still joinable). */
+/** Sessions still to come, or running now (so still joinable). */
 async function nextLive(ctx: SearchContext): Promise<SearchHit[]> {
-  const since = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+  const since = liveWindowStart(Date.now());
   const { data, error } = await supabase
     .from("resources")
     .select("id, title, subject, board, level, starts_at")
@@ -203,8 +205,6 @@ async function weakTopics(ctx: SearchContext): Promise<SearchHit[]> {
   return hits.length ? hits : [PLANNER("Nothing to fix yet: carry on with this week")];
 }
 
-const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
-
 /** Each subject's exam date and how far off it is. */
 async function examDates(ctx: SearchContext): Promise<SearchHit[]> {
   const uid = await getSessionUserId();
@@ -220,7 +220,7 @@ async function examDates(ctx: SearchContext): Promise<SearchHit[]> {
     .flatMap((p): SearchHit[] => {
       const at = Date.parse(`${p.exam_date}T00:00:00Z`);
       if (!Number.isFinite(at)) return [];
-      const weeks = Math.ceil((at - Date.now()) / WEEK_MS);
+      const weeks = weeksToExam(p.exam_date);
       const day = new Date(at).toLocaleDateString("en-GB", {
         day: "numeric",
         month: "long",
