@@ -119,6 +119,9 @@ stored question, mark scheme, exemplar and note without losing a character.
   instructions, question and mark-scheme boxes. It shows how formulas will
   read, and its x₂ and x² buttons work as in a word processor: press, type,
   press again (or type a space); with text selected, a press converts it.
+  Its Units button opens the units and symbols a keyboard lacks (μm, cm³, Ω,
+  °C, × 10ⁿ, ⇌), each put in at the cursor; "20 um" and the micro sign µ are
+  read as μm.
 - Generated questions are normalised before saving, tutor-written ones on
   save, and every prompt whose reply a student reads states the notation
   (`NOTATION_RULE` in `src/lib/platform/aiText.ts`; the marker and generator

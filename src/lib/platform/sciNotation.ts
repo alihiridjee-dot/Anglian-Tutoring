@@ -404,6 +404,10 @@ export function toSciNotation(text: string, context = ""): string {
     (_m, d: string, sign: string) => charge(d, sign),
   );
 
+  // Micrometres. Keyboards type the micro sign (µ, Option-M), which is read
+  // as the Greek μ, and "um" after a number is the μm there is no key for.
+  s = s.replace(/µ/g, "μ").replace(/(?<=\d ?)um(?=[23]?(?![A-Za-z0-9]))/g, "μm");
+
   // Units. cm3 and dm3 are never anything else.
   s = s.replace(
     new RegExp(`(?<![A-Za-z0-9])(cm|dm|mm|km|nm|μm)([23])(?![A-Za-z0-9])`, "g"),
@@ -420,6 +424,8 @@ export function toSciNotation(text: string, context = ""): string {
     new RegExp(`${after}(${UNIT_ROOTS})(${SIGN}[1-4])(?![A-Za-z0-9])`, "g"),
     (_m, u: string, p: string) => u + toSup(p),
   );
+  // Per degree after another unit: J kg-1 oC-1, J/kg/°C-1.
+  s = s.replace(new RegExp(`${after}[oº˚°]C${SIGN}1(?![A-Za-z0-9])`, "g"), "°C⁻¹");
   // A unit alone in brackets, as a table heading: (s-1), (m2).
   s = s.replace(
     /(?<=\()(s|ms|min|h|m|cm|dm|mm|km|g|kg|mol)([−–-][1-4]|(?<=\(m|\(s)[23])(?=\))/g,
@@ -495,6 +501,23 @@ export function toggleScript(
     start,
     end: start + swapped.length,
   };
+}
+
+/**
+ * A unit or symbol picked from the Units panel, put in at the cursor in place
+ * of any selection. A unit straight after a number or a word takes a space
+ * first, as it is written: 40 cm³, not 40cm³. `caret` is just past it.
+ */
+export function insertSymbol(
+  value: string,
+  start: number,
+  end: number,
+  text: string,
+  spaced: boolean,
+): { value: string; caret: number } {
+  const gap = spaced && /[A-Za-z0-9⁰¹²³⁴-⁹₀-₉)%]$/.test(value.slice(0, start)) ? " " : "";
+  const put = gap + text;
+  return { value: value.slice(0, start) + put + value.slice(end), caret: start + put.length };
 }
 
 /**
