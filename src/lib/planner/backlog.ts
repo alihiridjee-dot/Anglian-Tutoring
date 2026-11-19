@@ -101,7 +101,10 @@ export function spineBacklog(params: {
   /** Monday date-key of the week being planned. Earlier weeks have passed. */
   weekStart: string;
   ledger: DeliveryLedger;
-  /** Topic id → its points, for bands with no stored weekly division. */
+  /**
+   * Topic id → its points: today's course. Fills bands with no stored weekly
+   * division, and leaves out a stored point that is no longer on the course.
+   */
   pointsByTopic?: ReadonlyMap<
     string,
     { specPointId: string; code: string; title: string; weight?: number }[]
@@ -109,6 +112,13 @@ export function spineBacklog(params: {
 }): BacklogPoint[] {
   const out: BacklogPoint[] = [];
   const seen = new Set<string>();
+  // A custom calendar keeps the points its weeks were saved with. One that has
+  // left the course since (marked not examined, or deleted) is not owed:
+  // nothing can teach, set or mark it now. One that moved topic is still on
+  // the course, so it still is.
+  const onCourse = params.pointsByTopic
+    ? new Set([...params.pointsByTopic.values()].flat().map((p) => p.specPointId))
+    : null;
 
   for (const band of params.bands) {
     if (!isTeachBand(band)) continue;
@@ -125,6 +135,7 @@ export function spineBacklog(params: {
       if (week >= params.weekStart) continue; // not passed yet
       for (const p of points) {
         if (seen.has(p.specPointId)) continue;
+        if (onCourse && !onCourse.has(p.specPointId)) continue;
         if (isDelivered(p.specPointId, params.ledger)) continue;
         seen.add(p.specPointId);
         out.push({
