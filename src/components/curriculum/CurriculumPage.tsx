@@ -19,6 +19,7 @@ import {
 } from "@/lib/curriculum/taxonomy";
 import { toast } from "sonner";
 import { CurriculumDAL } from "@/lib/curriculum/curriculumDal";
+import { breakSpecList } from "@/lib/curriculum/specListBreaks";
 import type { Topic, SpecPoint } from "@/lib/curriculum/types";
 import { type CurriculumSearchParams } from "@/lib/curriculum/curriculumParams";
 import { useDebounced } from "@/hooks/useGlobalSearch";
@@ -297,7 +298,7 @@ export function Curriculum() {
               </svg>
               {selectedSpecPoint.description && (
                 <p className="mt-4 max-w-prose text-base sm:text-lg leading-relaxed whitespace-pre-wrap break-words">
-                  <SciText text={selectedSpecPoint.description} />
+                  <SciText text={breakSpecList(selectedSpecPoint.description)} />
                 </p>
               )}
             </div>
