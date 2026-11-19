@@ -2795,6 +2795,10 @@ export type Database = {
         };
         Returns: string;
       };
+      save_homework_mark_draft: {
+        Args: { _marks: Json; _submission_id: string; _summary?: string };
+        Returns: undefined;
+      };
       save_student_enrolments: { Args: { _subjects: Json }; Returns: undefined };
       save_weekly_plan: {
         Args: {

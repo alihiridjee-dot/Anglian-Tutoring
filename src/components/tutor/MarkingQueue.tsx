@@ -6,7 +6,16 @@ import { dbError } from "@/lib/platform/errors";
 import { useRoles } from "@/hooks/useRole";
 import { FilterBar, type Filters } from "@/components/FilterBar";
 import { toast } from "sonner";
-import { ClipboardCheck, Clock, Inbox, Loader2, MessageSquare } from "lucide-react";
+import {
+  Check,
+  ClipboardCheck,
+  Clock,
+  Inbox,
+  Loader2,
+  MessageSquare,
+  PenLine,
+  Save,
+} from "lucide-react";
 import { AnswerMarkingList } from "./AnswerMarking";
 import { ErrorNote, SciText } from "@/components/Shared";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
@@ -427,6 +436,34 @@ function MarkSubmissionCard({
   const subject = sub.resource?.subject ?? "";
   const isPending = status === "PENDING_REVIEW";
 
+  // "Save draft": the marks and comments so far, kept on the tutor's account
+  // without publishing, so a paper can be left half-marked and picked up again
+  // on any device. What was on screen when it was pressed is remembered, so the
+  // button reads "Draft saved" until something is changed.
+  const [savingDraft, setSavingDraft] = useState(false);
+  const [savedWork, setSavedWork] = useState<string | null>(null);
+  const work = JSON.stringify([marking.marks, feedback]);
+  const draftSaved = savedWork === work;
+  const hasDraft = isPending && (!!sub.tutor_reviewed_at || savedWork != null);
+
+  const saveDraft = async () => {
+    setSavingDraft(true);
+    try {
+      await marking.saveDraft(feedback.trim() || null);
+      setSavedWork(work);
+      // The release clock is not stopped: say what it will send.
+      toast.success(
+        minutesToRelease(sub) == null
+          ? `Draft saved. Nothing goes to ${studentName} until you publish.`
+          : `Draft saved. If the timer runs out first, ${studentName} gets these marks as saved.`,
+      );
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't save the draft");
+    } finally {
+      setSavingDraft(false);
+    }
+  };
+
   return (
     <div
       className={`rounded-2xl bg-card border-2 overflow-hidden shadow-xs transition ${
@@ -448,6 +485,11 @@ function MarkSubmissionCard({
                 </span>
               )}
               {isPending ? <UrgencyBadge sub={sub} /> : <GradedBadge />}
+              {hasDraft && (
+                <span className="tint-primary chip inline-flex items-center gap-1">
+                  <PenLine className="size-2.5" /> Draft saved
+                </span>
+              )}
               {isLate(sub, studentBreaks) && (
                 <span className="text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">
                   Late
@@ -567,18 +609,38 @@ function MarkSubmissionCard({
                 Last marked {new Date(sub.graded_at).toLocaleString()}
               </span>
             )}
-            <button
-              onClick={save}
-              disabled={saving || marking.loading || !!marking.error}
-              className="ml-auto inline-flex items-center gap-2 h-11 sm:pointer-fine:h-10 px-5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
-            >
-              {saving ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : (
-                <ClipboardCheck className="w-4 h-4" />
+            <div className="ml-auto flex flex-wrap gap-2">
+              {/* Published work has no draft: "Update mark" is the only save. */}
+              {isPending && (
+                <button
+                  type="button"
+                  onClick={() => void saveDraft()}
+                  disabled={saving || savingDraft || marking.loading || !!marking.error}
+                  className="btn-premium inline-flex h-11 items-center gap-2 rounded-lg px-4 text-sm font-semibold disabled:opacity-60 sm:pointer-fine:h-10"
+                >
+                  {savingDraft ? (
+                    <Loader2 className="size-4 animate-spin" />
+                  ) : draftSaved ? (
+                    <Check className="size-4" />
+                  ) : (
+                    <Save className="size-4" />
+                  )}
+                  {draftSaved ? "Draft saved" : "Save draft"}
+                </button>
               )}
-              {isPending ? "Confirm & publish" : "Update mark"}
-            </button>
+              <button
+                onClick={save}
+                disabled={saving || savingDraft || marking.loading || !!marking.error}
+                className="inline-flex items-center gap-2 h-11 sm:pointer-fine:h-10 px-5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
+              >
+                {saving ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  <ClipboardCheck className="w-4 h-4" />
+                )}
+                {isPending ? "Confirm & publish" : "Update mark"}
+              </button>
+            </div>
           </div>
         </div>
       )}
