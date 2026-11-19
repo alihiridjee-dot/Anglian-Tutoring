@@ -18,7 +18,7 @@ import { practiceInWeek } from "@/lib/planner/coverage";
 import { DUE_LANE_ORDER, type DueSlot } from "@/lib/planner/dueLanes";
 import { retakeOpensAt } from "@/lib/mcq/retakeLock";
 import { useDueThisWeek } from "@/components/planner/useDueThisWeek";
-import { DueLanes, DueSection } from "@/components/planner/DueSection";
+import { DUE_GO, DueLanes, DueRow, DueSection } from "@/components/planner/DueSection";
 import { MarkedTopic } from "@/components/planner/MarkedTopic";
 import { groupUnderTopics, noTopic, type TopicRef } from "@/lib/curriculum/topicGroups";
 
@@ -363,11 +363,13 @@ function StudentMCQs() {
 
               <div data-guide="mcq-list">
                 {tab === "due" ? (
-                  // Every lane open at once, under the dashboard's names.
+                  // One card, the lanes as headings under the dashboard's names.
                   <DueLanes>
                     {dueByLane.map(({ lane, sets: work }) => (
                       <DueSection key={lane} lane={lane} count={work.length}>
-                        <QuizGrid sets={work} attempts={attempts} />
+                        {work.map((s) => (
+                          <DueQuizRow key={s.id} set={s} attempt={attempts[s.id]} />
+                        ))}
                       </DueSection>
                     ))}
                   </DueLanes>
@@ -396,6 +398,46 @@ function StudentMCQs() {
         </div>
       )}
     </AppLayout>
+  );
+}
+
+/**
+ * A quiz in Due, as a bare row: its title, one line (how many questions, how
+ * the last go went) and one button.
+ */
+function DueQuizRow({ set, attempt }: { set: QuizSet; attempt?: Attempt }) {
+  const pct =
+    attempt && attempt.total > 0 ? Math.round((attempt.score / attempt.total) * 100) : null;
+  const title =
+    set.specCode && !set.title.startsWith(set.specCode)
+      ? `${set.specCode} ${set.title}`
+      : set.title;
+  const detail = [
+    set.questionCount > 0
+      ? `${set.questionCount} question${set.questionCount === 1 ? "" : "s"}`
+      : null,
+    !set.published ? "Draft" : null,
+    pct !== null && attempt?.lastAt
+      ? `${pct}% on ${plannerDateLabel(new Date(attempt.lastAt))}`
+      : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+  return (
+    <DueRow title={title} detail={detail}>
+      <Link
+        // The showcase mounts the same quiz page under /demo/student (see QuizCard).
+        to={isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
+        params={{ setId: set.id }}
+        className={DUE_GO}
+      >
+        {!attempt
+          ? "Start"
+          : attempt.opensAt && attempt.opensAt.getTime() > Date.now()
+            ? "Review"
+            : "Retake"}
+      </Link>
+    </DueRow>
   );
 }
 
