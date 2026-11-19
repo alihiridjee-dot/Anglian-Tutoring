@@ -533,6 +533,25 @@ export class ProgramDAL {
       from,
       examDate: data.examDate,
     });
+    // A tutor's look at a subject the student has never opened leaves no mark
+    // (see loadRoadmap), so there may be no programme to reorder yet, and the
+    // database refuses with "Open the planner…" — which the tutor has open.
+    // Saving an order is a decision, not a look: the programme the tutor was
+    // shown is stored first, starting this week. A plan saved in the meantime
+    // is never overwritten; the database's own check below answers for it.
+    if (viewer !== studentId && !data.storedBands) {
+      const { error: seedError } = await supabase.from("student_program_plan").upsert(
+        {
+          student_id: studentId,
+          subject,
+          program_start: data.programStart,
+          exam_date: data.examDate,
+          pacing: data.baselineBands as unknown as Json,
+        },
+        { onConflict: "student_id,subject", ignoreDuplicates: true },
+      );
+      if (seedError) throw dbError(seedError);
+    }
     const { error } = await supabase.rpc("reorder_student_topics", {
       _subject: subject,
       _board: board,
