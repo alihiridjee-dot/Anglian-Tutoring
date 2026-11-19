@@ -175,10 +175,10 @@ export function useAnswerMarking(
    * then overwrote with the AI's. A comment the tutor emptied is sent as "",
    * so it stays cleared rather than the proposal filling it back in.
    */
-  const confirm = useCallback(
-    async (scorePct: number | null, feedback: string | null) => {
-      if (error) throw new Error("The answers didn't load. Retry before publishing.");
-      const payload = questions
+  /** Every answer's marks and comment as typed, checked against each maximum. */
+  const markPayload = useCallback(
+    () =>
+      questions
         .filter((q) => answers[q.id])
         .map((q) => {
           const m = marks[q.id];
@@ -188,16 +188,42 @@ export function useAnswerMarking(
             throw new Error(`Q${q.position + 1}: marks must be between 0 and ${q.marks}`);
           }
           return { question_id: q.id, marks: value, feedback: m?.feedback?.trim() ?? "" };
-        });
+        }),
+    [questions, answers, marks],
+  );
+
+  const confirm = useCallback(
+    async (scorePct: number | null, feedback: string | null) => {
+      if (error) throw new Error("The answers didn't load. Retry before publishing.");
       const { error: rpcError } = await supabase.rpc("confirm_homework_marks", {
         _submission_id: submissionId,
-        _marks: payload,
+        _marks: markPayload(),
         _score_pct: scorePct,
         _feedback: feedback,
       });
       if (rpcError) throw dbError(rpcError);
     },
-    [error, questions, answers, marks, submissionId],
+    [error, markPayload, submissionId],
+  );
+
+  /**
+   * Save without publishing (`save_homework_mark_draft`): the marks and
+   * comments so far take the proposal's place, so they are what the boxes
+   * hold when the paper is next opened, on any device, and what the release
+   * clock publishes if it runs out first. The student sees nothing yet. A
+   * question whose mark is blank is not kept, as nothing is proposed for it.
+   */
+  const saveDraft = useCallback(
+    async (feedback: string | null) => {
+      if (error) throw new Error("The answers didn't load. Retry before saving.");
+      const { error: rpcError } = await supabase.rpc("save_homework_mark_draft", {
+        _submission_id: submissionId,
+        _marks: markPayload(),
+        _summary: feedback ?? undefined,
+      });
+      if (rpcError) throw dbError(rpcError);
+    },
+    [error, markPayload, submissionId],
   );
 
   return {
@@ -222,5 +248,6 @@ export function useAnswerMarking(
     markedCount,
     scorePct,
     confirm,
+    saveDraft,
   };
 }

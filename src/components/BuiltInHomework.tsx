@@ -16,6 +16,7 @@ import {
   Clock3,
   Loader2,
   PenLine,
+  Save,
   Send,
   type LucideIcon,
 } from "lucide-react";
@@ -589,14 +590,49 @@ export function AnswerForm({
 
   const hasUnsent = Object.values(work.answers).some((text) => !isBlank(text));
 
+  // "Save draft": the saves above, now, with an answer the student can see.
+  // The typing was being kept all along, but nothing on the sheet said so, and
+  // a student who has to stop wants to be told their work will be there. The
+  // edit count it was pressed at is kept, so the button reads "Draft saved"
+  // until they type again.
+  const [savedAt, setSavedAt] = useState<number | null>(null);
+  const [savingDraft, setSavingDraft] = useState(false);
+  const draftSaved = savedAt === edits;
+  const saveDraftNow = async () => {
+    if (demo) {
+      toast("This is a demo, so nothing is saved. Sign up and your answers are kept as you type.");
+      return;
+    }
+    if (!userId) return toast.error("Not signed in");
+    if (!hasUnsent) return toast("Nothing to save yet. Answer a question first.");
+    const at = edits;
+    setSavingDraft(true);
+    try {
+      saveHere();
+      // Not before the server's copy has arrived (see `ready`): the save that
+      // waits on it sends these answers as soon as it does.
+      const server = may.current.remote ? await sendNow() : null;
+      takeIn(server);
+      setSavedAt(at);
+      toast.success(
+        server
+          ? "Draft saved. Come back and finish it any time."
+          : "Draft saved on this device. Come back and finish it any time.",
+      );
+    } finally {
+      setSavingDraft(false);
+    }
+  };
+
   // A reload or a closed tab is recoverable now, but a student who navigates
-  // away mid-answer still deserves the browser's own warning.
+  // away mid-answer still deserves the browser's own warning. Not straight
+  // after Save draft, though: "changes may not be saved" would contradict it.
   useEffect(() => {
-    if (!hasUnsent) return;
+    if (!hasUnsent || draftSaved) return;
     const warn = (e: BeforeUnloadEvent) => e.preventDefault();
     window.addEventListener("beforeunload", warn);
     return () => window.removeEventListener("beforeunload", warn);
-  }, [hasUnsent]);
+  }, [hasUnsent, draftSaved]);
 
   // Invisible characters alone are blank, as the server stores them.
   const isAnswered = (q: HomeworkQuestion) => !isBlank(draftOf(q.id).text);
@@ -788,13 +824,30 @@ export function AnswerForm({
           </div>
         </div>
       ) : (
-        <button
-          type="submit"
-          className="btn-solid inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl text-base font-semibold"
-        >
-          <Send className="size-4" />
-          Submit answers
-        </button>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={() => void saveDraftNow()}
+            disabled={savingDraft}
+            className="btn-premium inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-xl px-4 text-base font-semibold disabled:opacity-60 sm:px-5"
+          >
+            {savingDraft ? (
+              <Loader2 className="size-4 animate-spin" />
+            ) : draftSaved ? (
+              <Check className="size-4" />
+            ) : (
+              <Save className="size-4" />
+            )}
+            {draftSaved ? "Draft saved" : "Save draft"}
+          </button>
+          <button
+            type="submit"
+            className="btn-solid inline-flex h-12 min-w-0 flex-1 items-center justify-center gap-2 rounded-xl text-base font-semibold"
+          >
+            <Send className="size-4" />
+            Submit answers
+          </button>
+        </div>
       )}
     </form>
   );
