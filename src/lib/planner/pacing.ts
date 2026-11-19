@@ -164,10 +164,9 @@ function allocateWeeks(topics: PacingInput[], weeks: number): number[] {
   const exact = topics.map((t) => (Math.max(t.weight, 1) / total) * budget);
   const base = exact.map((x) => Math.max(1, Math.floor(x)));
   let remaining = budget - base.reduce((s, x) => s + x, 0);
-  // Hand out leftover weeks to the largest fractional parts.
-  const order = exact
-    .map((x, i) => ({ i, frac: x - Math.floor(x) }))
-    .sort((a, b) => b.frac - a.frac);
+  // Hand out leftover weeks to the topics still owed the most after their base.
+  // A topic worth under a week was already rounded up to 1, so it ranks last.
+  const order = exact.map((x, i) => ({ i, frac: x - base[i] })).sort((a, b) => b.frac - a.frac);
   let k = 0;
   while (remaining > 0 && order.length > 0) {
     base[order[k % order.length].i] += 1;
