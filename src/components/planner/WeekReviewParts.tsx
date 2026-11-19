@@ -55,7 +55,7 @@ export function WeeklyCheckinForm({
           onClick={() => report(true)}
           disabled={!!busy}
           className={`inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg text-sm font-semibold transition disabled:opacity-50 ${
-            coveredOk === true ? "bg-emerald-600 text-white" : "border border-border hover:bg-muted"
+            coveredOk === true ? "btn-solid tint-emerald" : "border border-border hover:bg-muted"
           }`}
         >
           {busy === "confident" ? (
@@ -70,7 +70,7 @@ export function WeeklyCheckinForm({
           onClick={() => report(false)}
           disabled={!!busy}
           className={`inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg text-sm font-semibold transition disabled:opacity-50 ${
-            coveredOk === false ? "bg-amber-500 text-white" : "border border-border hover:bg-muted"
+            coveredOk === false ? "btn-solid tint-amber" : "border border-border hover:bg-muted"
           }`}
         >
           {busy === "practice" ? (
@@ -91,7 +91,7 @@ export function WeeklyCheckinForm({
             <Loader2 className="w-3 h-3 animate-spin text-muted-foreground ml-auto" />
           )}
           {noteState === "sent" && (
-            <span className="ml-auto inline-flex items-center gap-1 text-[11px] font-medium text-emerald-600 dark:text-emerald-400">
+            <span className="ml-auto inline-flex items-center gap-1 text-[11px] font-medium tint-emerald text-[color:var(--tint)]">
               <CheckCircle2 className="w-3 h-3" /> Sent to your tutor
             </span>
           )}

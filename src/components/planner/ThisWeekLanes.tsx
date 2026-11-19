@@ -103,7 +103,7 @@ export function NewLearningLane({
       <div className="flex items-center gap-1.5 mb-1">
         {covered ? (
           <>
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+            <CheckCircle2 className="w-3.5 h-3.5 tint-emerald text-[color:var(--tint)]" />
             <span className="eyebrow eyebrow-bare text-xs tint-emerald">
               New learning · covered
             </span>
