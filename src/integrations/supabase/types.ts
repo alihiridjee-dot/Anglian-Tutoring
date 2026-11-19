@@ -362,6 +362,7 @@ export type Database = {
           images: Json;
           question_id: string;
           submission_id: string;
+          tutor_marks: Json | null;
         };
         Insert: {
           answer_text?: string | null;
@@ -373,6 +374,7 @@ export type Database = {
           images?: Json;
           question_id: string;
           submission_id: string;
+          tutor_marks?: Json | null;
         };
         Update: {
           answer_text?: string | null;
@@ -384,6 +386,7 @@ export type Database = {
           images?: Json;
           question_id?: string;
           submission_id?: string;
+          tutor_marks?: Json | null;
         };
         Relationships: [
           {

@@ -4,6 +4,7 @@ import { dbError } from "@/lib/platform/errors";
 import { QUESTION_COLUMNS, withMarkSchemes } from "@/lib/homework/markSchemes";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import { toSciNotation } from "@/lib/platform/sciNotation";
+import { parseTutorMarks, type TutorMark } from "@/lib/homework/tutorMarks";
 
 /**
  * Loads one submission's questions and answers, and holds the marks the tutor
@@ -21,6 +22,11 @@ import { toSciNotation } from "@/lib/platform/sciNotation";
  * corrections and not the proposal they corrected. Once the work is published,
  * the proposal is not offered at all: what was saved is the mark, including a
  * comment the tutor cleared.
+ *
+ * The tutor's own highlights and underlines on an answer (`tutorMarks`) are
+ * held here too, published with the marks and kept by a saved draft. They are
+ * the tutor's alone: the AI's ticks are not loaded, shown or changed on this
+ * screen.
  *
  * The paper is the questions this student was set: those on the sheet when they
  * handed in, plus any they answered. A question a tutor adds afterwards is not
@@ -44,6 +50,7 @@ export function useAnswerMarking(
   const [questions, setQuestions] = useState<HomeworkQuestion[]>([]);
   const [answers, setAnswers] = useState<Record<string, HomeworkAnswer>>({});
   const [marks, setMarks] = useState<Record<string, QuestionMark>>({});
+  const [tutorMarks, setTutorMarksState] = useState<Record<string, TutorMark[]>>({});
   const [summary, setSummary] = useState<string | null>(null);
   const [held, setHeld] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
@@ -65,7 +72,9 @@ export function useAnswerMarking(
           .order("position", { ascending: true }),
         supabase
           .from("homework_answers")
-          .select("id, submission_id, question_id, answer_text, awarded_marks, feedback")
+          .select(
+            "id, submission_id, question_id, answer_text, awarded_marks, feedback, tutor_marks",
+          )
           .eq("submission_id", submissionId),
         supabase
           .from("homework_ai_marks")
@@ -106,9 +115,11 @@ export function useAnswerMarking(
       const map: Record<string, HomeworkAnswer> = {};
       const initial: Record<string, QuestionMark> = {};
       const reasons: Record<string, string> = {};
+      const penned: Record<string, TutorMark[]> = {};
       for (const a of aRes.data ?? []) {
         const row = a as HomeworkAnswer;
         map[row.question_id] = row;
+        penned[row.question_id] = parseTutorMarks(row.tutor_marks, row.answer_text);
         const proposal = graded ? undefined : staged.get(row.question_id);
         if (proposal?.held) reasons[row.question_id] = proposal.held;
         initial[row.question_id] = {
@@ -128,6 +139,7 @@ export function useAnswerMarking(
       setQuestions(qs);
       setAnswers(map);
       setMarks(initial);
+      setTutorMarksState(penned);
       setHeld(reasons);
       setSummary(graded || !sRes.data?.summary ? null : toSciNotation(sRes.data.summary));
       setLoaded(true);
@@ -143,6 +155,10 @@ export function useAnswerMarking(
       ...prev,
       [questionId]: { ...{ marks: "", feedback: "" }, ...prev[questionId], ...changes },
     }));
+  }, []);
+
+  const setTutorMarks = useCallback((questionId: string, next: TutorMark[]) => {
+    setTutorMarksState((prev) => ({ ...prev, [questionId]: next }));
   }, []);
 
   const totalMarks = useMemo(() => questions.reduce((sum, q) => sum + q.marks, 0), [questions]);
@@ -187,9 +203,14 @@ export function useAnswerMarking(
           if (value != null && (!Number.isFinite(value) || value < 0 || value > q.marks)) {
             throw new Error(`Q${q.position + 1}: marks must be between 0 and ${q.marks}`);
           }
-          return { question_id: q.id, marks: value, feedback: m?.feedback?.trim() ?? "" };
+          return {
+            question_id: q.id,
+            marks: value,
+            feedback: m?.feedback?.trim() ?? "",
+            tutor_marks: tutorMarks[q.id] ?? [],
+          };
         }),
-    [questions, answers, marks],
+    [questions, answers, marks, tutorMarks],
   );
 
   const confirm = useCallback(
@@ -212,6 +233,11 @@ export function useAnswerMarking(
    * hold when the paper is next opened, on any device, and what the release
    * clock publishes if it runs out first. The student sees nothing yet. A
    * question whose mark is blank is not kept, as nothing is proposed for it.
+   *
+   * The tutor's highlights and underlines are kept as well. They are not part
+   * of the proposal: they go straight onto the answers they were drawn on
+   * (only a tutor may write there), and the student's sheet draws them only
+   * once the paper is published.
    */
   const saveDraft = useCallback(
     async (feedback: string | null) => {
@@ -222,8 +248,42 @@ export function useAnswerMarking(
         _summary: feedback ?? undefined,
       });
       if (rpcError) throw dbError(rpcError);
+
+      // Only the answers whose pen marks changed since they were loaded or saved.
+      const changed = questions.flatMap((q) => {
+        const answer = answers[q.id];
+        if (!answer) return [];
+        const next = tutorMarks[q.id] ?? [];
+        const was = parseTutorMarks(answer.tutor_marks, answer.answer_text);
+        return JSON.stringify(next) === JSON.stringify(was) ? [] : [{ answer, next }];
+      });
+      const saved = await Promise.all(
+        changed.map(({ answer, next }) =>
+          supabase
+            .from("homework_answers")
+            .update({ tutor_marks: next.length ? next : null })
+            .eq("id", answer.id)
+            .select("id"),
+        ),
+      );
+      const failed = saved.find((r) => r.error);
+      if (failed?.error) throw dbError(failed.error);
+      if (saved.some((r) => !r.data?.length)) {
+        throw new Error(
+          "Your marks are saved, but the highlights and underlines are not. Try again.",
+        );
+      }
+      if (changed.length) {
+        setAnswers((prev) => {
+          const now = { ...prev };
+          for (const { answer, next } of changed) {
+            now[answer.question_id] = { ...answer, tutor_marks: next };
+          }
+          return now;
+        });
+      }
     },
-    [error, markPayload, submissionId],
+    [error, markPayload, submissionId, questions, answers, tutorMarks],
   );
 
   return {
@@ -231,6 +291,9 @@ export function useAnswerMarking(
     answers,
     marks,
     setMark,
+    /** The tutor's highlights and underlines on each answer, by question id. */
+    tutorMarks,
+    setTutorMarks,
     /** The proposed overall comment, offered as a starting point for feedback. */
     summary,
     /** Why the marker held a question for the tutor, by question id. */

@@ -536,6 +536,8 @@ function MarkSubmissionCard({
                   answers={marking.answers}
                   marks={marking.marks}
                   setMark={marking.setMark}
+                  tutorMarks={marking.tutorMarks}
+                  setTutorMarks={marking.setTutorMarks}
                 />
               </div>
             ) : (

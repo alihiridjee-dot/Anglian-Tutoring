@@ -40,6 +40,8 @@ import {
   startMarkingOwnSubmission,
 } from "@/lib/homework/startMarking";
 import { creditRuns, creditsToShow, levelOfCredit } from "@/lib/homework/creditedQuotes";
+import { cutByMarks, parseTutorMarks, type Pen } from "@/lib/homework/tutorMarks";
+import { PenMark } from "@/components/homework/PenMark";
 import {
   answerSheet,
   gapTables,
@@ -150,7 +152,7 @@ export function AnsweredView({
           const notation = `${q.prompt}\n${q.mark_scheme ?? ""}`;
           return (
             <li key={q.id} className="premium-card p-4 sm:p-5">
-              <MarkedAnswer q={q} index={i} answer={a} notation={notation} />
+              <MarkedAnswer q={q} index={i} answer={a} notation={notation} marked={marked} />
               {a?.feedback && (
                 <TitledBox icon={PenLine} title="Feedback">
                   <p className="text-sm leading-relaxed font-medium whitespace-pre-wrap">
@@ -178,8 +180,11 @@ export function AnsweredView({
   );
 }
 
-/** A piece of the answer as drawn: plain, or words that earned a credit, the first of them ticked. */
-type Piece = { text: string; credit?: number; tick?: boolean };
+/**
+ * A piece of the answer as drawn: plain, or words that earned a credit (the
+ * tick after the last of them), and the tutor's pen over it, if any.
+ */
+type Piece = { text: string; credit?: number; tick?: boolean; pen?: Pen };
 
 /**
  * The question, then what the student typed: in the table's own cells when
@@ -188,17 +193,23 @@ type Piece = { text: string; credit?: number; tick?: boolean };
  * Tapping a tick names the mark-scheme point it earned. The ticks are the
  * marker's own quotes (see `creditedQuotes`); an answer marked before they
  * were kept, or whose mark a tutor changed, shows without them.
+ *
+ * A tutor's own highlights and underlines (see `tutorMarks`) are drawn as
+ * well, whatever the ticks do: they are kept apart and carry no marks.
  */
 function MarkedAnswer({
   q,
   index,
   answer,
   notation,
+  marked,
 }: {
   q: HomeworkQuestion;
   index: number;
   answer: HomeworkAnswer | undefined;
   notation: string;
+  /** Published. A tutor's pen marks saved in a draft stay off the sheet until then. */
+  marked: boolean;
 }) {
   const text = answer?.answer_text ?? "";
   const credits = useMemo(
@@ -208,6 +219,10 @@ function MarkedAnswer({
         answer?.awarded_marks != null ? Number(answer.awarded_marks) : null,
       ),
     [answer?.credited, answer?.awarded_marks],
+  );
+  const pens = useMemo(
+    () => parseTutorMarks(marked ? answer?.tutor_marks : null, text),
+    [marked, answer?.tutor_marks, text],
   );
   const sheet = useMemo(() => answerSheet(q.prompt), [q.prompt]);
   const read = useMemo(() => readAnswer(sheet, text), [sheet, text]);
@@ -227,7 +242,16 @@ function MarkedAnswer({
         if (a < b) {
           const tick = r.credit != null && !ticked.has(r.credit);
           if (tick) ticked.add(r.credit!);
-          out.push({ text: r.text.slice(a - at, b - at), credit: r.credit, tick });
+          // Cut again where a tutor's pen starts or stops.
+          const cuts = cutByMarks({ from: a, to: b }, pens);
+          cuts.forEach((c, n) =>
+            out.push({
+              text: text.slice(c.from, c.to),
+              credit: r.credit,
+              tick: tick && n === cuts.length - 1,
+              pen: c.pen,
+            }),
+          );
         }
         at += r.text.length;
       }
@@ -235,18 +259,28 @@ function MarkedAnswer({
     };
     const cells = read.at.map((t) => t.map((row) => row.map(within)));
     return { cells, box: within(read.textAt) };
-  }, [text, credits, read, level]);
+  }, [text, credits, pens, read, level]);
   const [open, setOpen] = useState<number | null>(null);
   const shown = open != null ? credits[open] : undefined;
 
   const draw = (pieces: Piece[]) =>
     pieces.map((r, k) => {
-      if (r.credit == null) return <SciText key={k} text={r.text} context={notation} />;
+      if (r.credit == null)
+        return (
+          <PenMark key={k} pen={r.pen}>
+            <SciText text={r.text} context={notation} />
+          </PenMark>
+        );
       const c = credits[r.credit];
       const on = open === r.credit;
       return (
         <span key={k} className="tint-emerald">
-          <mark className="marker bg-transparent text-inherit">
+          <mark
+            className={cn(
+              "marker bg-transparent text-inherit",
+              r.pen === "underline" && "tint-rose pen-line",
+            )}
+          >
             <SciText text={r.text} context={notation} />
           </mark>
           {r.tick && (
