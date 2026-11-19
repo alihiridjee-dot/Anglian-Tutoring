@@ -4699,3 +4699,16 @@ body {
     transition: none;
   }
 }
+
+/* ── An empty inbox (EmptyInbox) ─────────────────────────────────────────────
+   The paywall's look: no card, a solid round dot, the title on the page with
+   the highlighter stroke, one dark line and one big button. Pointing at the
+   button makes the speech bubble in the dot hop. */
+[data-reaching="true"] .inbox-dot {
+  transform: translateY(-6px) rotate(-8deg) scale(1.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reaching="true"] .inbox-dot {
+    transform: none;
+  }
+}
