@@ -433,7 +433,7 @@ function ThisWeekTab({
           week.pastGap ? (
             <PastWeek gap={week.pastGap} subject={subject} own />
           ) : (
-            <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
+            <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm">
               No plan was set for this week.
             </p>
           )

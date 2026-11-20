@@ -75,11 +75,6 @@ export function WeekProgressCard({
           </span>
         </p>
       )}
-      {done && (
-        <p className="text-sm text-muted-foreground">
-          Your results will guide future reviews. You can finish here for this week.
-        </p>
-      )}
     </div>
   );
 }
@@ -98,6 +93,8 @@ export function NewLearningLane({
   extraCore: TopicGroup[];
   row: Row;
 }) {
+  // A topic with no points this week is not drawn.
+  const shownBand = coreThisWeek.length > 0 ? band : null;
   return (
     <div className="min-w-0 rounded-xl premium-card tint-primary p-4 bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]">
       <div className="flex items-center gap-1.5 mb-1">
@@ -114,28 +111,25 @@ export function NewLearningLane({
             <span className="eyebrow eyebrow-bare text-xs">New learning</span>
           </>
         )}
-        {band && (
+        {shownBand && (
           <span className="ml-auto text-[11px] text-muted-foreground">
-            {fmtRange(band.startWeek, band.endWeek)}
+            {fmtRange(shownBand.startWeek, shownBand.endWeek)}
           </span>
         )}
       </div>
 
-      {band || extraCore.length > 0 ? (
+      {shownBand || extraCore.length > 0 ? (
         <div className="space-y-5">
-          {band && (
-            <TopicBlock title={band.title} accent="primary">
-              {coreThisWeek.length > 0 ? (
-                <SpecPointList>{coreThisWeek.map(row)}</SpecPointList>
-              ) : (
-                <p className="mt-3 text-sm text-muted-foreground">
-                  No new learning is assigned here this week.
-                </p>
-              )}
+          {shownBand && (
+            <TopicBlock title={shownBand.title} accent="primary">
+              <SpecPointList>{coreThisWeek.map(row)}</SpecPointList>
             </TopicBlock>
           )}
-          {extraCore.map((g) => (
-            <div key={g.topicId} className="border-t border-border pt-4">
+          {extraCore.map((g, i) => (
+            <div
+              key={g.topicId}
+              className={shownBand || i > 0 ? "border-t border-border pt-4" : undefined}
+            >
               <TopicBlock title={g.title} accent="primary">
                 <SpecPointList>{g.points.map(row)}</SpecPointList>
               </TopicBlock>

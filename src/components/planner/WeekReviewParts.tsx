@@ -96,9 +96,6 @@ export function WeeklyCheckinForm({
             </span>
           )}
         </div>
-        <p className="text-[11px] text-muted-foreground mb-2">
-          Ali reads this alongside your marks and replies here as "Ali's take".
-        </p>
         <SciAnswerBox
           value={reflection}
           onValueChange={(text) => {
@@ -121,13 +118,11 @@ export function WeeklyCheckinForm({
 export function CarryForwardBar({
   count,
   busy,
-  nextWeekLabel,
   intoThisWeek,
   onCarry,
 }: {
   count: number;
   busy: WeekReviewBusy;
-  nextWeekLabel: string;
   /** The week being reviewed has passed, so the points land in this week. */
   intoThisWeek: boolean;
   onCarry: () => void;
@@ -147,10 +142,6 @@ export function CarryForwardBar({
         )}
         Carry {count} into {intoThisWeek ? "this week" : "next week"}
       </button>
-      <span className="text-[11px] text-muted-foreground">
-        An explicit request for extra practice in {nextWeekLabel}; normal reviews follow their
-        scheduled dates.
-      </span>
     </div>
   );
 }
@@ -211,7 +202,7 @@ export function LaneReview({
         </span>
         <div>
           <p className="text-sm font-semibold">{headline}</p>
-          <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>
+          <p className="text-sm mt-0.5">{sub}</p>
         </div>
       </div>
       <CoverageBar summary={summary} />
@@ -251,11 +242,11 @@ function CoverageBar({ summary }: { summary: WeekSummary }) {
       </div>
       <ul className="mt-2.5 space-y-1">
         {bands.map((b) => (
-          <li key={b.status} className="flex items-center gap-2 text-[11px] leading-tight">
+          <li key={b.status} className="flex items-center gap-2 text-sm">
             <span className={`w-2 h-2 rounded-full shrink-0 ${b.dot}`} />
             <span className="font-bold tabular-nums">{b.n}</span>
             <span className="font-semibold">{b.label}</span>
-            <span className="text-muted-foreground truncate">— {b.meaning}</span>
+            <span>— {b.meaning}</span>
           </li>
         ))}
       </ul>
@@ -297,7 +288,7 @@ export function LockedCard({ lock }: { lock: ReturnType<typeof reviewLock> }) {
         <Lock className="w-5 h-5 mt-0.5 shrink-0 text-muted-foreground" />
         <div className="min-w-0">
           <p className="text-sm font-semibold">Your week in review opens {opens}</p>
-          <p className="text-xs text-muted-foreground mt-0.5">
+          <p className="text-sm mt-0.5">
             {lock.homeworkTotal === 0
               ? "There's still time left in this week, so there's nothing to sum up yet."
               : outstanding === 1

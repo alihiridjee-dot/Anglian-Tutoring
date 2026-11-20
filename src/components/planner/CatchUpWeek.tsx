@@ -24,11 +24,7 @@ export function CatchUpWeek({
             <ul className="mt-3 space-y-1.5">
               {topic.points.map((point) => (
                 <li key={point.specPointId}>
-                  <PlannerPointItem code={point.code} title={point.title}>
-                    <p className="text-muted-foreground">
-                      {estimated ? "Expected" : "Assigned"} in this week’s catch-up allocation.
-                    </p>
-                  </PlannerPointItem>
+                  <PlannerPointItem code={point.code} title={point.title} />
                 </li>
               ))}
             </ul>

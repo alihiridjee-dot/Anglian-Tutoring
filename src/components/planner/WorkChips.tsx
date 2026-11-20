@@ -10,12 +10,7 @@ import {
   Sparkle,
   type LucideIcon,
 } from "lucide-react";
-import {
-  type PointCoverage,
-  type PointWork,
-  type PointWorkItem,
-  workItems,
-} from "@/lib/planner/coverage";
+import { type PointCoverage, type PointWork, type PointWorkItem } from "@/lib/planner/coverage";
 import type { SpecPointNote } from "@/hooks/data/useNotes";
 
 /**
@@ -170,8 +165,6 @@ export function WorkChips({
   coverage?: PointCoverage | null;
   onPlay: (item: PointWorkItem) => void;
 }) {
-  const nothingAttached = workItems(work).length === 0;
-
   return (
     <>
       {work?.videos.map((v) => (
@@ -183,10 +176,6 @@ export function WorkChips({
       {work?.quizzes.map((q) => (
         <QuizChip key={q.id} item={q} coverage={coverage} />
       ))}
-
-      {nothingAttached && (
-        <span className="text-[11px] text-muted-foreground/60">Read the spec point</span>
-      )}
     </>
   );
 }
