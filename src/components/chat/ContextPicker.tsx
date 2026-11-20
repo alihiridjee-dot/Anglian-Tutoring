@@ -1,13 +1,13 @@
 import { ErrorNote, Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { BookMarked, ClipboardList, ListChecks, MessageSquare, X } from "lucide-react";
+import { X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { CurriculumDAL } from "@/lib/curriculum/curriculumDal";
 import type { SpecPointMatch } from "@/lib/curriculum/types";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
-import { EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chat/chatContext";
+import { CONTEXT_EMOJI, EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chat/chatContext";
 import { courseScopeFilter } from "@/lib/chat/contextScope";
 import { selectIn } from "@/lib/platform/db/chunked";
 import { CHAT_KEY } from "@/hooks/data/useChat";
@@ -29,10 +29,10 @@ import type { BoardV, LevelV, SubjectV } from "@/lib/curriculum/taxonomy";
  */
 
 const TABS = [
-  { key: "general", label: "General", icon: MessageSquare },
-  { key: "spec_point", label: "Spec point", icon: BookMarked },
-  { key: "homework", label: "Tasks", icon: ClipboardList },
-  { key: "mcq_set", label: "Quiz", icon: ListChecks },
+  { key: "general", label: "General" },
+  { key: "spec_point", label: "Spec point" },
+  { key: "homework", label: "Task" },
+  { key: "mcq_set", label: "Quiz" },
 ] as const;
 
 interface Props {
@@ -47,35 +47,25 @@ export function ContextPicker({ value, onChange }: Props) {
 
   return (
     <div>
-      <div className="flex flex-wrap gap-1.5">
-        {TABS.map(({ key, label, icon: Icon }) => {
-          const active = tab === key;
-          return (
-            <button
-              key={key}
-              type="button"
-              onClick={() => {
-                setTab(key);
-                // Changing tab drops the previous attachment: a thread carries
-                // at most one piece of context (the database enforces it too).
-                if (key === "general") select(EMPTY_CONTEXT);
-                else select({ kind: key });
-              }}
-              className={`inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-8 px-3 rounded-lg border text-xs font-semibold transition ${
-                active
-                  ? "border-primary bg-primary/10 text-foreground"
-                  : "border-border text-muted-foreground hover:border-primary/40"
-              }`}
-            >
-              <Icon className="w-3.5 h-3.5" /> {label}
-            </button>
-          );
-        })}
-      </div>
+      <StopTrail
+        label="What it's about"
+        stops={TABS.map(({ key, label }) => ({ key, label, glyph: CONTEXT_EMOJI[key] }))}
+        picked={tab}
+        onPick={(key) => {
+          setTab(key);
+          // Changing stop drops the previous attachment: a thread carries at
+          // most one piece of context (the database enforces it too).
+          if (key === "general") select(EMPTY_CONTEXT);
+          else select({ kind: key });
+        }}
+      />
 
       {value.label && (
-        <div className="mt-2.5 flex items-center gap-2 rounded-xl border border-primary/30 bg-primary/5 px-3 py-2 text-sm">
-          <span className="min-w-0 flex-1 truncate font-medium">{value.label}</span>
+        <div className="ask-attached point-panel">
+          <span aria-hidden className="text-xl leading-none">
+            📎
+          </span>
+          <span className="min-w-0 flex-1 truncate font-bold">{value.label}</span>
           <button
             type="button"
             onClick={() => {
@@ -83,9 +73,9 @@ export function ContextPicker({ value, onChange }: Props) {
               select(EMPTY_CONTEXT);
             }}
             aria-label="Remove attachment"
-            className="tap-target shrink-0 text-muted-foreground hover:text-foreground"
+            className="btn-ghost flex size-11 shrink-0 items-center justify-center rounded-full sm:pointer-fine:size-9"
           >
-            <X className="w-4 h-4" />
+            <X className="size-4" />
           </button>
         </div>
       )}
@@ -97,12 +87,81 @@ export function ContextPicker({ value, onChange }: Props) {
   );
 }
 
-/** Shared shell for the three attachment lists. */
+/**
+ * A few choices as round stops on a dotted line, the spec point trail drawn
+ * small: the picked stop grows and takes the highlighter ring. The question
+ * dialog uses it for what a question is about, and for a parent's tutor.
+ */
+export function StopTrail<K extends string>({
+  label,
+  stops,
+  picked,
+  onPick,
+}: {
+  /** Names the group for a screen reader. */
+  label: string;
+  stops: readonly { key: K; label: string; glyph: string }[];
+  picked: K;
+  onPick: (key: K) => void;
+}) {
+  return (
+    <div
+      role="group"
+      aria-label={label}
+      className="point-trail ask-trail"
+      style={{ "--stops": stops.length } as React.CSSProperties}
+    >
+      {stops.length > 1 && <TrailLine gaps={stops.length - 1} />}
+      {stops.map((s) => (
+        <button
+          key={s.key}
+          type="button"
+          aria-pressed={s.key === picked}
+          onClick={() => onPick(s.key)}
+          className="point-stop"
+        >
+          <span aria-hidden className="point-stop-dot">
+            {s.glyph}
+          </span>
+          <span className="point-stop-label">{s.label}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/**
+ * The dotted line between the stops: SpecPointDetail's TrailPath, drawn here
+ * rather than imported, so the question dialog doesn't load the spec point page.
+ */
+function TrailLine({ gaps }: { gaps: number }) {
+  let d = "M0 20";
+  for (let i = 0; i < gaps; i++) {
+    const x = i * 100;
+    const [up, down] = i % 2 ? [36, 4] : [4, 36];
+    d += ` C${x + 30} ${up} ${x + 70} ${down} ${x + 100} 20`;
+  }
+  return (
+    <svg
+      aria-hidden
+      className="point-trail-path"
+      viewBox={`0 0 ${gaps * 100} 40`}
+      preserveAspectRatio="none"
+    >
+      <path d={d} vectorEffect="non-scaling-stroke" />
+    </svg>
+  );
+}
+
+/**
+ * Where the three attachment lists open: one soft panel under the stops, bare
+ * rows inside, no dividers.
+ */
 function PickerShell({ children }: { children: React.ReactNode }) {
   return (
     // Shorter on a phone turned sideways, so the list can't fill the dialog's
     // scrolling form and catch every swipe meant for the form around it.
-    <div className="mt-2.5 max-h-52 short:max-h-32 overflow-y-auto rounded-xl border border-border divide-y divide-border">
+    <div className="ask-list point-panel scroll-slim max-h-56 short:max-h-32 overflow-y-auto">
       {children}
     </div>
   );
@@ -118,13 +177,9 @@ function PickerRow({
   onClick: () => void;
 }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="block w-full min-h-11 px-3 py-2.5 text-left hover:bg-muted/50"
-    >
-      <div className="text-sm font-medium truncate">{title}</div>
-      {subtitle && <div className="text-xs text-muted-foreground truncate">{subtitle}</div>}
+    <button type="button" onClick={onClick} className="ask-row">
+      <span className="block truncate font-bold">{title}</span>
+      {subtitle && <span className="block truncate text-sm">{subtitle}</span>}
     </button>
   );
 }
@@ -132,14 +187,14 @@ function PickerRow({
 /** A failed list read, in the same slot the list would fill. */
 function PickerError({ error, onRetry }: { error: unknown; onRetry: () => void }) {
   return (
-    <div className="mt-2.5">
+    <div className="mt-3">
       <ErrorNote error={error} onRetry={onRetry} />
     </div>
   );
 }
 
 function EmptyRow({ children }: { children: React.ReactNode }) {
-  return <p className="px-3 py-4 text-center text-xs text-muted-foreground">{children}</p>;
+  return <p className="px-3 py-4 text-center font-medium">{children}</p>;
 }
 
 /**
@@ -194,13 +249,13 @@ function SpecPointSearch({ onPick }: { onPick: (s: ChatContextSelection) => void
   }, [query, courses]);
 
   return (
-    <div className="mt-2.5">
+    <div className="point-panel mt-3">
       <input
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search your spec — e.g. osmosis, 4.1.2…"
         aria-label="Search your spec"
-        className="w-full h-10 rounded-xl border border-border bg-background px-3 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
+        className="pop-input h-12 w-full px-4 text-base"
       />
       {query.trim().length >= 2 && (
         <PickerShell>

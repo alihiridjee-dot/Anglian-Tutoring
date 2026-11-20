@@ -162,9 +162,9 @@ function DemoMessagesPage() {
   return (
     <AppLayout title="Messages">
       <div className="max-w-6xl">
-        <div className="mb-4">
-          <p className="text-sm text-muted-foreground">
-            Ask your tutor anything — attach the spec point, task or quiz you're stuck on.
+        <div className="mb-5">
+          <p className="text-lg font-medium">
+            Ask your tutor anything — attach the spec point, task or quiz you're stuck on
           </p>
         </div>
 

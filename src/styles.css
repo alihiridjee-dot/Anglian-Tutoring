@@ -4700,15 +4700,220 @@ body {
   }
 }
 
-/* ── An empty inbox (EmptyInbox) ─────────────────────────────────────────────
-   The paywall's look: no card, a solid round dot, the title on the page with
-   the highlighter stroke, one dark line and one big button. Pointing at the
-   button makes the speech bubble in the dot hop. */
+/* ── The inbox (EmptyInbox, ThreadList, NewThreadDialog) ─────────────────────
+   Playful minimalism, as on the paywall and the spec point page.
+   Empty, the inbox is the paywall's look: no card, a solid round dot, the
+   title on the page with the highlighter stroke, one dark line and one big
+   button. Pointing at the button makes the speech bubble in the dot hop. */
 [data-reaching="true"] .inbox-dot {
   transform: translateY(-6px) rotate(-8deg) scale(1.08);
 }
+/* The Ask a question button: its speech bubble hops when pointed at. */
+@media (hover: hover) {
+  .inbox-ask:hover .inbox-ask-icon {
+    animation: hop 0.5s ease-in-out;
+  }
+}
+
+/* A conversation in the list: a bare row, no divider. Its dot is a small
+   point-trail stop in the subject's colour, holding what it is about, with a
+   count of unread replies on it. The open one is washed in its colour. */
+.inbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  text-align: left;
+  transition: background-color 0.18s ease;
+}
+.inbox-row:hover {
+  background: color-mix(in oklab, var(--tint) 6%, var(--card));
+}
+.inbox-row[aria-current="true"] {
+  background: color-mix(in oklab, var(--tint) 12%, var(--card));
+}
+.inbox-row-dot {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  font-size: 1.25rem;
+  line-height: 1;
+  background: var(--tint);
+  border: 1.5px solid color-mix(in oklab, var(--tint) 55%, black);
+  box-shadow: 0 3px 0 0 color-mix(in oklab, var(--tint) 45%, black);
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.inbox-row:hover .inbox-row-dot {
+  transform: translateY(-3px) rotate(-6deg);
+}
+.inbox-row-count {
+  position: absolute;
+  top: -0.4rem;
+  right: -0.45rem;
+  display: grid;
+  place-items: center;
+  min-width: 1.375rem;
+  height: 1.375rem;
+  padding: 0 0.3rem;
+  border-radius: 999px;
+  border: 2px solid var(--card);
+  background: var(--pop);
+  color: var(--primary-deep);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.inbox-row-context {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: color-mix(in oklab, var(--tint) 72%, var(--primary-deep));
+}
+/* Show / hide the older conversations: bare dark words, no line above. */
+.inbox-more {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.75rem;
+  margin: 0 0.5rem 0.5rem;
+  padding: 0 0.75rem;
+  border-radius: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  transition: background-color 0.18s ease;
+}
+.inbox-more:hover {
+  background: color-mix(in oklab, var(--tint) 8%, var(--card));
+}
+
+/* The Ask your tutor dialog. It rises in, its dot hops while Send is pointed
+   at, its labels are plain bold words, and its choices are the point trail
+   drawn small. */
+.ask-sheet {
+  animation: point-rise 0.35s cubic-bezier(0.2, 1.3, 0.4, 1);
+}
+.ask-dot {
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0.15rem 0 0;
+  box-shadow: 0 4px 0 0 color-mix(in oklab, var(--tint) 40%, var(--primary-deep));
+}
+.ask-dot svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.ask-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.point-trail.ask-trail {
+  --dot: 3.5rem;
+  margin-bottom: 0;
+}
+.ask-trail .point-stop {
+  min-height: 2.75rem;
+}
+.ask-trail .point-stop-label {
+  font-size: 1rem;
+}
+.ask-trail .point-stop[aria-pressed="true"] .point-stop-dot {
+  transform: scale(1.1);
+  outline-width: 4px;
+}
+/* What is attached, and the list it was picked from: soft panels in the
+   tint, no border, bare rows inside. */
+.ask-attached {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.25rem 0.25rem 0.25rem 0.875rem;
+  border-radius: 1rem;
+  background: color-mix(in oklab, var(--tint) 10%, var(--card));
+}
+.ask-list {
+  margin-top: 0.75rem;
+  padding: 0.375rem;
+  border-radius: 1rem;
+  background: color-mix(in oklab, var(--tint) 5%, var(--card));
+}
+.ask-row {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.75rem;
+  text-align: left;
+  transition: background-color 0.18s ease;
+}
+.ask-row:hover,
+.ask-row[aria-pressed="true"] {
+  background: color-mix(in oklab, var(--tint) 10%, var(--card));
+}
+/* A question idea: a 💡 in a round dot of its subject's colour. */
+.ask-idea {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.ask-idea-dot {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  line-height: 1;
+  background: var(--tint);
+  border: 1.5px solid color-mix(in oklab, var(--tint) 55%, black);
+  box-shadow: 0 3px 0 0 color-mix(in oklab, var(--tint) 45%, black);
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.ask-idea:hover .ask-idea-dot,
+.ask-idea[aria-pressed="true"] .ask-idea-dot {
+  transform: translateY(-3px) rotate(-6deg);
+}
+/* The paywall's big button, sized for the dialog's foot. */
+.paywall-btn.ask-send {
+  height: 3rem;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+}
+@media (max-width: 599px) {
+  .point-trail.ask-trail {
+    --dot: 3rem;
+  }
+  .ask-trail .point-stop-label {
+    font-size: 0.875rem;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
-  [data-reaching="true"] .inbox-dot {
+  [data-reaching="true"] .inbox-dot,
+  .inbox-row:hover .inbox-row-dot,
+  .ask-idea:hover .ask-idea-dot,
+  .ask-idea[aria-pressed="true"] .ask-idea-dot {
     transform: none;
+  }
+  .inbox-row-dot,
+  .ask-idea-dot {
+    transition: none;
+  }
+  .inbox-ask:hover .inbox-ask-icon,
+  .ask-sheet {
+    animation: none;
   }
 }

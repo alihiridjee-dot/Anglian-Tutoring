@@ -1,15 +1,10 @@
 import { useState } from "react";
-import { BookMarked, ChevronRight, ClipboardList, ListChecks, MessageSquare } from "lucide-react";
-import type { ChatContextKind } from "@/lib/chat/chatDal";
+import { ChevronRight } from "lucide-react";
 import type { ThreadSummary } from "@/hooks/data/useChat";
 import { SciText } from "@/components/Shared";
-
-const CONTEXT_ICON: Record<ChatContextKind, typeof MessageSquare> = {
-  spec_point: BookMarked,
-  homework: ClipboardList,
-  mcq_set: ListChecks,
-  general: MessageSquare,
-};
+import { CONTEXT_EMOJI } from "@/lib/chat/chatContext";
+import { subjectTint } from "@/lib/curriculum/subjectTheme";
+import { cn } from "@/lib/utils";
 
 /** Short, human relative time — "2h", "3d". Long enough for an inbox row. */
 function ago(iso: string): string {
@@ -90,11 +85,11 @@ export function ThreadList({ threads, selectedId, onSelect, showCounterpart }: P
         <button
           type="button"
           onClick={() => setShowDormant((v) => !v)}
-          className="flex w-full min-h-11 items-center gap-1.5 border-t border-border px-4 py-2.5 text-left text-xs font-medium text-muted-foreground transition hover:bg-muted/40"
+          className="inbox-more"
           aria-expanded={showDormant}
         >
           <ChevronRight
-            className={`h-3.5 w-3.5 shrink-0 transition-transform ${showDormant ? "rotate-90" : ""}`}
+            className={`size-4 shrink-0 transition-transform ${showDormant ? "rotate-90" : ""}`}
           />
           {showDormant ? "Hide" : "Show"} {dormant.length} older conversation
           {dormant.length === 1 ? "" : "s"}
@@ -104,54 +99,61 @@ export function ThreadList({ threads, selectedId, onSelect, showCounterpart }: P
   );
 }
 
+/**
+ * The conversations as bare rows, as on a spec point's page: no dividers and no
+ * grey. Each row leads with a round dot in its subject's colour holding what
+ * the question is about (❓ 🔬 ✏️ 🎯), with a count of unread replies on it.
+ * The title is bold, the attachment is one line in the subject's colour when
+ * it says more than the title, and the last message is one dark line. The open
+ * conversation is washed in its colour, and pointing at a row makes its dot hop.
+ */
 function ThreadRows({ threads, selectedId, onSelect, showCounterpart }: Props) {
   return (
-    <ul className="divide-y divide-border">
+    <ul className="space-y-1 p-2">
       {threads.map((t) => {
-        const Icon = CONTEXT_ICON[t.contextKind];
         const active = t.id === selectedId;
+        // A subject line seeded from the attachment says the same thing twice.
+        const context =
+          t.context_label &&
+          t.context_label.trim().toLowerCase() !== t.subject_line.trim().toLowerCase()
+            ? t.context_label
+            : null;
         return (
           <li key={t.id}>
             <button
               type="button"
               onClick={() => onSelect(t.id)}
-              className={`block w-full px-4 py-3 text-left transition ${
-                active ? "bg-primary/[0.07]" : "hover:bg-muted/40"
-              }`}
+              aria-current={active ? "true" : undefined}
+              className={cn("inbox-row", subjectTint(t.subject ?? ""))}
             >
-              <div className="flex items-start gap-2">
+              <span className="inbox-row-dot">
+                <span aria-hidden>{CONTEXT_EMOJI[t.contextKind]}</span>
                 {t.unread > 0 && (
-                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                  <span className="inbox-row-count">
+                    {t.unread}
+                    <span className="sr-only"> unread</span>
+                  </span>
                 )}
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-baseline justify-between gap-2">
-                    <span
-                      className={`truncate text-sm ${t.unread > 0 ? "font-bold" : "font-medium"}`}
-                    >
-                      {t.subject_line}
-                    </span>
-                    <span className="shrink-0 text-[11px] text-muted-foreground tabular-nums">
-                      {ago(t.last_message_at)}
-                    </span>
-                  </div>
-                  {showCounterpart && (
-                    <div className="mt-0.5 text-xs font-medium text-muted-foreground truncate">
-                      {t.counterpartName}
-                    </div>
-                  )}
-                  {t.context_label && (
-                    <div className="mt-1 inline-flex max-w-full items-center gap-1 rounded-md bg-secondary px-1.5 py-0.5 text-[11px] text-muted-foreground">
-                      <Icon className="h-3 w-3 shrink-0" />
-                      <span className="truncate">{t.context_label}</span>
-                    </div>
-                  )}
-                  {t.lastMessage && (
-                    <p className="mt-1 truncate text-xs text-muted-foreground">
-                      <SciText text={t.lastMessage} oneLine />
-                    </p>
-                  )}
-                </div>
-              </div>
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="flex items-baseline justify-between gap-3">
+                  <span className="font-display truncate text-lg leading-snug font-bold">
+                    {t.subject_line}
+                  </span>
+                  <span className="shrink-0 text-sm font-semibold tabular-nums">
+                    {ago(t.last_message_at)}
+                  </span>
+                </span>
+                {showCounterpart && (
+                  <span className="block truncate text-sm font-semibold">{t.counterpartName}</span>
+                )}
+                {context && <span className="inbox-row-context">{context}</span>}
+                {t.lastMessage && (
+                  <span className="mt-0.5 block truncate text-sm">
+                    <SciText text={t.lastMessage} oneLine />
+                  </span>
+                )}
+              </span>
             </button>
           </li>
         );

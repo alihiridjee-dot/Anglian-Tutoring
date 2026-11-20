@@ -2,11 +2,11 @@ import { useState } from "react";
 import { ArrowRight, Inbox, MessageSquarePlus } from "lucide-react";
 
 /** The highlighter stroke under a title, as on the spec point and paywall. */
-function Squiggle() {
+export function Squiggle({ className = "mx-auto" }: { className?: string }) {
   return (
     <svg
       aria-hidden
-      className="point-squiggle mx-auto"
+      className={`point-squiggle ${className}`}
       viewBox="0 0 100 12"
       preserveAspectRatio="none"
     >
