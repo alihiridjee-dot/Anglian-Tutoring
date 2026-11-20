@@ -59,7 +59,7 @@ export function HeaderLiveButton({ liveHref }: { liveHref: "/live" | "/demo/stud
         onClick={joinClick(next.id)}
         title={`${next.title}${isLive ? " — live now" : " — starting soon"}`}
         className={`tap-target inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-bold text-white shadow-sm transition ${
-          isLive ? "bg-emerald-600 hover:bg-emerald-700" : "bg-[#2D8CFF] hover:bg-[#2681F2]"
+          isLive ? "btn-solid tint-emerald" : "bg-[#2D8CFF] hover:bg-[#2681F2]"
         }`}
       >
         {isLive ? (

@@ -130,6 +130,61 @@ describe("spineBacklog", () => {
   test("nothing is owed when the programme has not started", () => {
     expect(spineBacklog({ bands: HYDRATED, weekStart: "2026-07-13", ledger: EMPTY })).toEqual([]);
   });
+
+  /** A custom calendar: its weeks hold the points they were saved with. */
+  const CUSTOM: PacingBand[] = [
+    {
+      topicId: "t1",
+      title: "Topic 1",
+      startWeek: "2026-07-13",
+      endWeek: "2026-07-27",
+      weeks: 3,
+      fixedPoints: true,
+      pointsByWeek: {
+        "2026-07-13": [point("a"), point("x")],
+        "2026-07-20": [point("b"), point("m")],
+        "2026-07-27": [point("c")],
+      },
+    },
+  ];
+
+  test("a saved week's point that has left the course is not owed", () => {
+    // `x` was marked not examined (or deleted) after its week was saved.
+    const out = spineBacklog({
+      bands: CUSTOM,
+      weekStart: NOW,
+      ledger: EMPTY,
+      pointsByTopic: new Map([
+        ["t1", [point("a"), point("b"), point("c"), point("m")]],
+        ["t2", [point("d"), point("e")]],
+      ]),
+    });
+    expect(out.map((p) => p.specPointId)).toEqual(["a", "b", "m", "c"]);
+  });
+
+  test("a point that moved to another topic is still owed", () => {
+    const out = spineBacklog({
+      bands: CUSTOM,
+      weekStart: NOW,
+      ledger: EMPTY,
+      pointsByTopic: new Map([
+        ["t1", [point("a"), point("b"), point("c")]],
+        ["t2", [point("m"), point("d"), point("e")]],
+      ]),
+    });
+    expect(out.map((p) => p.specPointId)).toContain("m");
+    expect(out.map((p) => p.specPointId)).not.toContain("x");
+  });
+
+  test("a curriculum-order spine owes the same with or without the course", () => {
+    const course = new Map([
+      ["t1", [point("a"), point("b"), point("c")]],
+      ["t2", [point("d"), point("e")]],
+    ]);
+    expect(
+      spineBacklog({ bands: HYDRATED, weekStart: NOW, ledger: EMPTY, pointsByTopic: course }),
+    ).toEqual(spineBacklog({ bands: HYDRATED, weekStart: NOW, ledger: EMPTY }));
+  });
 });
 
 describe("isDelivered", () => {

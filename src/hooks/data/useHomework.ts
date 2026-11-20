@@ -325,7 +325,7 @@ export function useHomeworkSheet({
           const { data: rows, error: answersError } = await supabase
             .from("homework_answers")
             .select(
-              "id, submission_id, question_id, answer_text, awarded_marks, feedback, credited",
+              "id, submission_id, question_id, answer_text, awarded_marks, feedback, credited, tutor_marks",
             )
             .eq("submission_id", submission.id);
           if (answersError) throw answersError;

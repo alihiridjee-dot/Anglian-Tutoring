@@ -375,4 +375,91 @@ const notices = async (sub: string) =>
   assert.equal((await notices(sub))[0]?.body, "Cells");
 }
 
+// ── A tutor's pen marks are saved with the marks, apart from the AI's ticks ─
+await db.exec("reset role");
+await as(null);
+await db.exec(await sql("migrations/20261027184100_answer_credited_quotes.sql"));
+await db.exec(await sql("migrations/20261119225700_tutor_answer_marks.sql"));
+const penned = async (sub: string) =>
+  (
+    await db.query<{ tutor_marks: unknown; credited: unknown; awarded_marks: string }>(
+      "select tutor_marks, credited, awarded_marks from homework_answers where submission_id = $1",
+      [sub],
+    )
+  ).rows[0];
+{
+  const { qs, sub } = await handedIn([2], ["The cell wall is made of chitin"]);
+  const tick = [{ quote: "cell wall", point: "names the wall", marks: 1 }];
+  await db.query("insert into homework_ai_marks(submission_id, marks, credited) values($1,$2,$3)", [
+    sub,
+    JSON.stringify([{ question_id: qs[0], marks: 1, feedback: "" }]),
+    JSON.stringify({ [qs[0]]: tick }),
+  ]);
+  await db.exec("set role authenticated");
+  await as(tutor);
+
+  const good = { from: 4, to: 13, kind: "highlight", quote: "cell wall" };
+  const wrong = { from: 25, to: 31, kind: "underline", quote: "chitin" };
+  await confirm(
+    sub,
+    [
+      {
+        question_id: qs[0],
+        marks: 1,
+        feedback: "",
+        tutor_marks: [
+          good,
+          wrong,
+          { from: 0, to: 3, kind: "circle", quote: "The" },
+          { from: 9, to: 4, kind: "highlight", quote: "" },
+          { from: 0, to: 9999, kind: "highlight", quote: "x" },
+          { from: "1; drop table", to: 3, kind: "highlight", quote: "x" },
+          { from: 0, to: 3, kind: "highlight" },
+          "cell wall",
+        ],
+      },
+    ],
+    50,
+    null,
+  );
+  let row = await penned(sub);
+  assert.deepEqual(row.tutor_marks, [good, wrong], "The pen marks weren't saved as sent");
+  assert.deepEqual(row.credited, tick, "Saving pen marks changed the AI's ticks");
+  assert.equal(Number(row.awarded_marks), 1, "A pen mark changed the score");
+
+  // "Update mark" with the pen marks rubbed out, or from a page that sends none.
+  await confirm(sub, [{ question_id: qs[0], marks: 1, feedback: "", tutor_marks: [] }], 50, null);
+  assert.equal((await penned(sub)).tutor_marks, null, "Rubbed-out marks were kept");
+  await confirm(
+    sub,
+    [{ question_id: qs[0], marks: 1, feedback: "", tutor_marks: [good] }],
+    50,
+    null,
+  );
+  await confirm(sub, [{ question_id: qs[0], marks: 1, feedback: "" }], 50, null);
+  row = await penned(sub);
+  assert.equal(row.tutor_marks, null);
+  assert.deepEqual(row.credited, tick);
+
+  // The timer never writes them.
+  await db.exec("reset role");
+  await as(null);
+  const timed = await handedIn([2], ["Osmosis"]);
+  await stage(timed.sub, [{ question_id: timed.qs[0], marks: 2 }]);
+  assert.equal(await publish(timed.sub), true);
+  assert.equal((await penned(timed.sub)).tutor_marks, null);
+
+  // The rollback puts the old function back and takes the column away.
+  await db.exec(await sql("rollbacks/20261119225700_tutor_answer_marks.down.sql"));
+  await db.exec("set role authenticated");
+  await as(tutor);
+  await confirm(
+    sub,
+    [{ question_id: qs[0], marks: 2, feedback: "", tutor_marks: [good] }],
+    100,
+    null,
+  );
+  await assert.rejects(() => penned(sub), /tutor_marks/);
+}
+
 console.log("homework publish: all checks passed");

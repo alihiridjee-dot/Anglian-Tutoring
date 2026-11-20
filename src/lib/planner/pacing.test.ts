@@ -81,6 +81,36 @@ describe("computePacing — the fixed core spine", () => {
       expect(weeks.get("b")!).toBeGreaterThanOrEqual(weeks.get("c")!);
     }
   });
+
+  // Audit L4: the weeks each topic gets, for a course over a runway of `weeks`.
+  const weeksFor = (weights: number[], weeks: number) =>
+    computePacing(
+      weights.map((weight, i) => ({ topicId: `t${i}`, title: `T${i}`, weight })),
+      currentMonday,
+      addWeeks(currentMonday, weeks),
+    ).map((b) => b.weeks);
+
+  test("a topic worth under a week, already given its one, never takes a second", () => {
+    // Exact shares 0.9 / 4.55 / 4.55. The small topic is rounded up to 1, so
+    // the one week left over is owed to a big topic (the first, on a tie).
+    expect(weeksFor([9, 45.5, 45.5], 10)).toEqual([1, 5, 4]);
+    for (const [weights, weeks] of [
+      [[9, 45.5, 45.5], 10],
+      [[1, 1, 30, 30, 1], 12],
+      [[2, 50, 3, 45], 9],
+    ] as const) {
+      const got = weeksFor([...weights], weeks);
+      expect(got.reduce((s, w) => s + w, 0)).toBe(weeks);
+      expect(Math.min(...got)).toBeGreaterThanOrEqual(1);
+    }
+  });
+
+  test("a course where every topic is worth a week or more is shared out as before", () => {
+    // Exact 9.75 / 19.5 / 9.75: the two .75s take the two weeks left over.
+    expect(weeksFor([10, 20, 10], 39)).toEqual([10, 19, 10]);
+    // Exact 2.31 / 3.85 / 5.38 / 8.46: the .85 and .46 take the two left over.
+    expect(weeksFor([3, 5, 7, 11], 20)).toEqual([2, 4, 5, 9]);
+  });
 });
 
 describe("assessment-driven review queue", () => {

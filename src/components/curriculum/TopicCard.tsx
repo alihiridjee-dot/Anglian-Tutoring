@@ -148,7 +148,7 @@ export function TopicCard({
                   <button
                     key={p.id}
                     onClick={() => onSelectSpecPoint(p)}
-                    className={`text-left p-4 rounded-xl border transition flex items-start gap-3 group ${covered ? "border-emerald-500/40 bg-emerald-500/[0.05] hover:border-emerald-500/60" : "border-border bg-secondary/10 hover:border-primary/50 hover:bg-secondary/30"}`}
+                    className={`text-left p-4 rounded-xl border transition flex items-start gap-3 group ${covered ? "tint-emerald border-[color-mix(in_oklab,var(--tint)_40%,transparent)] bg-[color-mix(in_oklab,var(--tint)_5%,transparent)] hover:border-[color-mix(in_oklab,var(--tint)_60%,transparent)]" : "border-border bg-secondary/10 hover:border-primary/50 hover:bg-secondary/30"}`}
                   >
                     <span className="text-[11px] font-bold tracking-wide text-primary bg-primary/10 px-2 py-0.5 rounded shrink-0 mt-0.5">
                       {p.code}

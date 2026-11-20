@@ -23,6 +23,7 @@ import {
 } from "@/lib/planner/coverage";
 import { reviewLock } from "@/lib/planner/reviewLock";
 import { CHECKIN_NOTE_MAX } from "@/lib/platform/textLimits";
+import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { type WeekReviewBusy } from "./useWeekReview";
 
 /** The student's self-report: the two feel-buttons, and the note that goes to their tutor. */
@@ -54,7 +55,7 @@ export function WeeklyCheckinForm({
           onClick={() => report(true)}
           disabled={!!busy}
           className={`inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg text-sm font-semibold transition disabled:opacity-50 ${
-            coveredOk === true ? "bg-emerald-600 text-white" : "border border-border hover:bg-muted"
+            coveredOk === true ? "btn-solid tint-emerald" : "border border-border hover:bg-muted"
           }`}
         >
           {busy === "confident" ? (
@@ -69,7 +70,7 @@ export function WeeklyCheckinForm({
           onClick={() => report(false)}
           disabled={!!busy}
           className={`inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg text-sm font-semibold transition disabled:opacity-50 ${
-            coveredOk === false ? "bg-amber-500 text-white" : "border border-border hover:bg-muted"
+            coveredOk === false ? "btn-solid tint-amber" : "border border-border hover:bg-muted"
           }`}
         >
           {busy === "practice" ? (
@@ -90,7 +91,7 @@ export function WeeklyCheckinForm({
             <Loader2 className="w-3 h-3 animate-spin text-muted-foreground ml-auto" />
           )}
           {noteState === "sent" && (
-            <span className="ml-auto inline-flex items-center gap-1 text-[11px] font-medium text-emerald-600 dark:text-emerald-400">
+            <span className="ml-auto inline-flex items-center gap-1 text-[11px] font-medium tint-emerald text-[color:var(--tint)]">
               <CheckCircle2 className="w-3 h-3" /> Sent to your tutor
             </span>
           )}
@@ -98,10 +99,10 @@ export function WeeklyCheckinForm({
         <p className="text-[11px] text-muted-foreground mb-2">
           Ali reads this alongside your marks and replies here as "Ali's take".
         </p>
-        <textarea
+        <SciAnswerBox
           value={reflection}
-          onChange={(e) => {
-            setReflection(e.target.value);
+          onValueChange={(text) => {
+            setReflection(text);
             if (noteState === "sent") setNoteState("idle");
           }}
           onBlur={saveNote}

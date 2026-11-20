@@ -20,7 +20,7 @@ export function TutorTakeReadOnly({ take }: { take: TutorTakeState }) {
     <div className="mt-4 rounded-2xl border border-primary/20 bg-primary/[0.03] p-4 sm:p-5">
       <div className="flex items-center gap-2 mb-2.5">
         <MessageSquareQuote className="w-4 h-4 text-primary" />
-        <h3 className="text-sm font-semibold">Ali's take</h3>
+        <h3 className="text-sm font-bold">Ali's take</h3>
       </div>
       {savedNote ? (
         <p className="text-sm text-foreground/90 whitespace-pre-wrap leading-relaxed">
@@ -66,7 +66,7 @@ export function TutorFeedbackEditor({
     <div className="rounded-2xl border border-primary/25 bg-primary/[0.03] p-4 sm:p-5">
       <div className="flex items-center gap-2 mb-1">
         <MessageSquareQuote className="w-4 h-4 text-primary" />
-        <h3 className="text-sm font-semibold">Feedback for the student</h3>
+        <h3 className="text-sm font-bold">Feedback for the student</h3>
         <span className="text-[10px] font-semibold uppercase tracking-wide text-primary/70 bg-primary/10 px-1.5 py-0.5 rounded">
           Tutor
         </span>
@@ -192,7 +192,7 @@ export function NextWeekAssigner({
     <div className="rounded-2xl premium-card p-4 sm:p-5">
       <div className="flex items-center gap-2 mb-1">
         <CalendarRange className="w-4 h-4 text-muted-foreground" />
-        <h3 className="text-sm font-semibold">Assign to {nextLabel}</h3>
+        <h3 className="text-sm font-bold">Assign to {nextLabel}</h3>
       </div>
       <p className="text-xs text-muted-foreground mb-3">
         Line up next week's focus. This writes to the plan for{" "}

@@ -3,6 +3,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { NOTATION_RULE, NO_THINKING, completeText } from "@/lib/platform/aiText";
 import { toSciNotation } from "@/lib/platform/sciNotation";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 
 /**
  * Drafts a tutor's reply to a student's question.
@@ -106,11 +107,9 @@ export const generateChatDraft = createServerFn({ method: "POST" })
     const { supabase, userId } = context;
 
     // Tutor-only. Checked here rather than trusted from the client: this spends
-    // credits and reads a whole conversation.
-    const { data: roles } = await supabase.from("user_roles").select("role").eq("user_id", userId);
-    if (!(roles ?? []).some((r) => r.role === "tutor")) {
-      throw new Error("Only tutors can draft replies.");
-    }
+    // credits and reads a whole conversation. Then one claim on the hourly
+    // budget before the thread is read or the model is called.
+    await requireTutorAi(supabase, userId, "chat_draft");
 
     // RLS still applies to this client, so a thread the caller can't see simply
     // isn't found — the role check above is the authorisation, this is the fetch.
