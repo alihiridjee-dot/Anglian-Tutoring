@@ -19,7 +19,7 @@ import {
 import { AnswerMarkingList } from "./AnswerMarking";
 import { ErrorNote, SciText } from "@/components/Shared";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
-import { useAnswerMarking } from "@/hooks/data/useAnswerMarking";
+import { MARKED_MEANWHILE, useAnswerMarking } from "@/hooks/data/useAnswerMarking";
 import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { gradeFromPct } from "@/lib/profile/analytics";
@@ -214,6 +214,18 @@ export function MarkingQueue() {
 
   const nameOf = useCallback((id: string) => names[id] || `Student ${id.slice(0, 8)}`, [names]);
 
+  // A card refused because someone else published the paper while it was open
+  // is drawn again, closed, once the list has the fresh row: reopened, it
+  // loads their marks, not the stale ones it would otherwise send over them.
+  const [redrawn, setRedrawn] = useState<Record<string, number>>({});
+  const redraw = useCallback(
+    async (id: string) => {
+      await reload();
+      setRedrawn((r) => ({ ...r, [id]: (r[id] ?? 0) + 1 }));
+    },
+    [reload],
+  );
+
   const pending = useMemo(
     () =>
       [...pendingSeg.rows]
@@ -292,12 +304,13 @@ export function MarkingQueue() {
         <div className="space-y-4">
           {shown.map((s) => (
             <MarkSubmissionCard
-              key={s.id}
+              key={`${s.id}:${redrawn[s.id] ?? 0}`}
               sub={s}
               studentName={nameOf(s.student_id)}
               studentBreaks={breaks[s.student_id]}
               graderId={userId}
               onSaved={reload}
+              onMarkedMeanwhile={() => void redraw(s.id)}
             />
           ))}
           {shown.length < shownTotal && (
@@ -368,6 +381,7 @@ function MarkSubmissionCard({
   studentBreaks,
   graderId,
   onSaved,
+  onMarkedMeanwhile,
 }: {
   sub: Submission;
   studentName: string;
@@ -375,6 +389,8 @@ function MarkSubmissionCard({
   studentBreaks?: StudentBreak[];
   graderId: string | null;
   onSaved: () => void;
+  /** Publishing was refused: someone else published this paper since it loaded. */
+  onMarkedMeanwhile: () => void;
 }) {
   const plannerQueryClient = useQueryClient();
   const status = statusOf(sub);
@@ -422,12 +438,13 @@ function MarkSubmissionCard({
       // derived from the score on the server, by the rule gradeFromPct shows
       // below; the write also records that a person looked at it, which is the
       // difference between a checked mark and one that ran out of clock.
-      await marking.confirm(pct, feedback.trim() || null);
+      await marking.confirm(pct, feedback.trim() || null, sub.graded_at);
       toast.success(`Marked ${studentName}'s submission`);
       void invalidatePlanner(plannerQueryClient, sub.student_id);
       onSaved();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Failed to save mark");
+      if ((err as { code?: unknown } | null)?.code === MARKED_MEANWHILE) onMarkedMeanwhile();
     } finally {
       setSaving(false);
     }

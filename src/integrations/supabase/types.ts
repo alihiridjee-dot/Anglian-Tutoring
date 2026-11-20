@@ -2594,9 +2594,11 @@ export type Database = {
       claim_parent_role: { Args: never; Returns: Json };
       confirm_homework_marks: {
         Args: {
+          _check_seen?: boolean;
           _feedback: string | null;
           _marks: Json;
           _score_pct: number | null;
+          _seen_graded_at?: string;
           _submission_id: string;
         };
         Returns: undefined;
