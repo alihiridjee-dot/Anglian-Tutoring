@@ -12,6 +12,8 @@ import assert from "node:assert/strict";
 import { loadHandler, post } from "./harness.ts";
 import { DB, resetDb, table } from "./mock-supabase.ts";
 import { ANTHROPIC, resetAnthropic } from "./mock-anthropic.ts";
+// The real SDK, past the import map (it maps only the bare specifier), for section 16.
+import { Anthropic as RealAnthropic } from "npm:@anthropic-ai/sdk@0.111.0/client";
 
 Deno.env.set("SUPABASE_ANON_KEY", "anon-dummy");
 Deno.env.set("ANTHROPIC_API_KEY", "sk-ant-dummy");
@@ -413,5 +415,93 @@ assert.equal(
   "A question without a figure was given one",
 );
 assert.match(ANTHROPIC.calls[0].system as string, /you are given exactly what it shows, as data/);
+
+// 16. L21: the model call gives up on its own, inside the 150 seconds the
+//     platform waits for an answer. A run the platform kills releases nothing,
+//     so the claim would be held for ten minutes. Each try gets 70 s (twice
+//     the longest real run in 14 days, 34.2 s) and one retry, so a quick 529,
+//     500 or dropped connection is tried again. These runs use the real SDK the
+//     function imports, on a fake network and a clock that skips every wait:
+//     nothing goes over the network and nothing really waits.
+world();
+ANTHROPIC.reply = () => ({ questions: [mark(Q1, 2), mark(Q2, 0)], summary: "" });
+await call();
+assert.equal(ANTHROPIC.options?.timeout, 70_000, "The model call has no 70 s timeout of its own");
+assert.equal(ANTHROPIC.options?.maxRetries, 1, "The model call is not retried exactly once");
+
+/** The model's reply as the API sends it. */
+const apiReply = (body: unknown, status = 200) =>
+  new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json" } });
+const message = (reply: unknown) => ({
+  id: "msg_test",
+  type: "message",
+  role: "assistant",
+  model: "claude-opus-5-5",
+  content: [{ type: "text", text: JSON.stringify(reply) }],
+  stop_reason: "end_turn",
+  stop_sequence: null,
+  usage: { input_tokens: 1, output_tokens: 1 },
+});
+/** A request that never answers: it ends only when the SDK gives up on it. */
+const hang = (_url: unknown, init?: RequestInit) =>
+  new Promise<Response>((_, reject) =>
+    init?.signal?.addEventListener("abort", () =>
+      reject(new DOMException("The signal has been aborted", "AbortError")),
+    ),
+  );
+/** Runs the function on the real SDK, every try answered by the next of `tries`, and
+ *  every timer fired at once. Gives the waits the SDK asked for, in milliseconds. */
+async function withRealSdk(tries: ((url: unknown, init?: RequestInit) => Promise<Response>)[]) {
+  let n = 0;
+  ANTHROPIC.real = (opts) =>
+    new RealAnthropic({
+      ...opts,
+      fetch: (url: unknown, init?: RequestInit) => tries[n++](url, init),
+    });
+  const waits: number[] = [];
+  const realSetTimeout = globalThis.setTimeout;
+  globalThis.setTimeout = ((fn: () => void, ms?: number) => {
+    waits.push(ms ?? 0);
+    return realSetTimeout(fn, 0);
+  }) as typeof setTimeout;
+  try {
+    r = await call();
+  } finally {
+    globalThis.setTimeout = realSetTimeout;
+  }
+  return { tries: n, waits };
+}
+
+// A call that hangs gives up at 70 s and is tried once more; when the second
+// try hangs too, the run ends in an error, stages nothing and lets the claim go.
+world();
+let run = await withRealSdk([hang, hang]);
+assert.equal(run.tries, 2, "A call that timed out was not tried exactly once more");
+assert.equal(run.waits.length, 3, `Unexpected timers: ${run.waits}`);
+assert.equal(run.waits[0], 70_000, "The first try did not give up at 70 s");
+assert.ok(run.waits[1] > 0 && run.waits[1] <= 500, `Backoff before the retry: ${run.waits[1]} ms`);
+assert.equal(run.waits[2], 70_000, "The retry did not give up at 70 s");
+assert.ok(
+  run.waits.reduce((a, b) => a + b, 0) < 150_000,
+  "Two timed-out tries outlast the platform's 150 s",
+);
+assert.equal(r.status, 500);
+assert.equal(staged(), undefined, "A timed-out call staged marks");
+assert.equal(submission().ai_marked_at, null);
+assert.equal(submission().ai_marking_started_at, null, "A timed-out call kept its claim");
+
+// A quick failure (529 overloaded) is tried once more, and the second try marks.
+world();
+run = await withRealSdk([
+  () =>
+    Promise.resolve(
+      apiReply({ type: "error", error: { type: "overloaded_error", message: "Overloaded" } }, 529),
+    ),
+  () => Promise.resolve(apiReply(message({ questions: [mark(Q1, 2), mark(Q2, 0)], summary: "" }))),
+]);
+assert.equal(run.tries, 2, "A 529 was not tried once more");
+assert.equal(r.status, 200, JSON.stringify(r.body));
+assert.equal(r.body.marked, true);
+assert.equal(staged()?.marks.length, 2, "The retried call's marks were not staged");
 
 console.log("mark-homework: all checks passed");

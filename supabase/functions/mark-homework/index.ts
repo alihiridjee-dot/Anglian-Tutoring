@@ -91,7 +91,8 @@ async function mark(
   const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
   if (!apiKey) throw new HttpError(500, "ANTHROPIC_API_KEY is not configured");
 
-  const client = new Anthropic({ apiKey });
+  // Longest run in 14 days 34.2 s; two 70 s tries end by ~141 s, inside the platform's 150 s.
+  const client = new Anthropic({ apiKey, timeout: 70_000, maxRetries: 1 });
 
   const response = await client.messages.create({
     model: MODEL,
