@@ -19,7 +19,8 @@
 //   • who is paying — the payer is taken from the verified JWT, never the body.
 //   • whose subscription is managed — pause/resume/cancel and add/remove
 //     subjects run assertCanManage first: the payer, or a linked parent of the
-//     student. Invoices are scoped to the caller's billing household.
+//     student. Invoices are scoped to the caller's billing household, and
+//     within it to the caller's own plans and their children's.
 //
 // A caller may nominate a *beneficiary* (a parent paying for their child), but
 // only if an active parent_student_links row already proves the relationship.
@@ -997,7 +998,8 @@ async function handleChangeCadence(req: Request, payload: ChangeCadencePayload) 
  * linked student's invoices merged into one shared list (see
  * householdCustomerIds). Each customer's invoices are fetched, combined, sorted
  * by date and capped, so both personas see the same history for the plans that
- * connect them.
+ * connect them, and no one else's: a parent's card can also carry a sibling's
+ * plan.
  */
 async function handleInvoices(req: Request) {
   const user = await requireUser(req);
@@ -1007,6 +1009,25 @@ async function handleInvoices(req: Request) {
   if (customerIds.length === 0) return { invoices: [] };
   await claimBillingSession(req, "stripe_invoices");
 
+  // An invoice is shown when its plan is for the caller or one of the
+  // caller's own children (the plan's metadata.student_id, as the webhook
+  // reads it). One with no student recorded only to the account that paid it.
+  const db = admin();
+  const [children, own] = await Promise.all([
+    db.from("parent_student_links").select("student_id").eq("parent_id", user.id),
+    db.from("stripe_customers").select("stripe_customer_id").eq("user_id", user.id),
+  ]);
+  if (children.error) throw new Error(`parent_student_links: ${children.error.message}`);
+  if (own.error) throw new Error(`stripe_customers: ${own.error.message}`);
+  const students = new Set([user.id, ...(children.data ?? []).map((c) => c.student_id)]);
+  const paidBy = new Set((own.data ?? []).map((c) => c.stripe_customer_id));
+  const forCaller = (inv: Stripe.Invoice) => {
+    const student = inv.subscription_details?.metadata?.student_id;
+    if (student) return students.has(student);
+    const customer = typeof inv.customer === "string" ? inv.customer : inv.customer?.id;
+    return !!customer && paidBy.has(customer);
+  };
+
   // Under Deno the SDK's list() resolves to `any`, so the shape is named here
   // rather than on each callback below.
   const lists: Stripe.ApiList<Stripe.Invoice>[] = await Promise.all(
@@ -1015,6 +1036,7 @@ async function handleInvoices(req: Request) {
 
   const invoices = lists
     .flatMap((list) => list.data)
+    .filter(forCaller)
     .sort((a, b) => b.created - a.created)
     .slice(0, 24)
     .map((inv) => ({
