@@ -38,6 +38,19 @@ export function table(name: string): Row[] {
   return (DB.tables[name] ??= []);
 }
 
+/**
+ * Tables whose BEFORE UPDATE trigger sets updated_at = now(), whatever the
+ * writer sent (t_subs_updated on subscriptions).
+ */
+const STAMPED = new Set(["subscriptions"]);
+let micros = 0;
+/** now() as PostgREST sends it back: to the microsecond, never the same twice. */
+function dbNow() {
+  micros = Math.max(micros + 1, Date.now() * 1000);
+  const ms = new Date(Math.floor(micros / 1000)).toISOString().slice(0, 23);
+  return `${ms}${String(micros % 1000).padStart(3, "0")}+00:00`;
+}
+
 type Filter = (r: Row) => boolean;
 
 class Query implements PromiseLike<any> {
@@ -153,7 +166,10 @@ class Query implements PromiseLike<any> {
         return Promise.resolve(this.returning ? this.shape(list) : { data: null, error: null });
       }
       case "update":
-        for (const r of match) Object.assign(r, this.payload);
+        for (const r of match) {
+          Object.assign(r, this.payload);
+          if (STAMPED.has(this.t)) r.updated_at = dbNow();
+        }
         return Promise.resolve(this.returning ? this.shape(match) : { data: null, error: null });
       case "upsert": {
         const list = Array.isArray(this.payload) ? this.payload : [this.payload];
