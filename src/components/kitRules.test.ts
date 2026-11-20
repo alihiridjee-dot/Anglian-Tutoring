@@ -32,6 +32,9 @@ describe("design kit rules", () => {
       "components/live/NextSessionCountdown.tsx",
       "components/live/SessionMeta.tsx",
       "components/live/HeaderLiveButton.tsx",
+      "routes/our-story.tsx",
+      "components/billing/InvoiceHistory.tsx",
+      "components/billing/SwitchBoardDialog.tsx",
     ].flatMap((path) => (read(path).match(palette) ?? []).map((cls) => `${path}: ${cls}`));
     expect(found).toEqual([]);
   });
