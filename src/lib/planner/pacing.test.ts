@@ -544,6 +544,27 @@ describe("weekly review budget (S-28)", () => {
     expect(idsIn(r, "2026-10-05")).toEqual(["later"]);
   });
 
+  test("only reviews this week could hold are 'waiting': not tutor-removed, not before their topic opens", () => {
+    // Twenty due now, plus one for a topic not open yet, against a budget of 18.
+    const due = overdue.slice(0, 20);
+    const removed = due[0].specPointId; // the tutor took it out of this week
+    const unopened = { ...due[1], specPointId: "unopened", topicId: "late" };
+    const nextWeek = toDateKey(addWeeks(currentMonday, 1));
+    const r = projectReviews({
+      candidates: [...due, unopened],
+      topicOpenings: new Map([["late", nextWeek]]),
+      currentMonday,
+      examMonday,
+      weeklyBudget: budget,
+      isBlocked: (id, week) => id === removed && week === thisWeek,
+      readyBy: currentMonday,
+    });
+    // Both are still placed in a later week; they are only not offered now.
+    expect(idsIn(r, nextWeek)).toEqual(expect.arrayContaining([removed, "unopened"]));
+    // The budget pushed p019 out, and the removed one freed a place for p018.
+    expect(r.waiting.map((c) => c.specPointId)).toEqual(["p019"]);
+  });
+
   test("a review heavier than the whole budget still gets a week of its own", () => {
     const heavy = { ...overdue[0], specPointId: "heavy", weight: 40 };
     const r = projectReviews({

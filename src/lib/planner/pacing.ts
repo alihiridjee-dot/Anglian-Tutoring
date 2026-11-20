@@ -275,7 +275,8 @@ export interface ReviewProjection {
   beyondExam: FocusCandidate[];
   /**
    * Reviews already due by `readyBy` that the weekly budget pushed into a later
-   * week, oldest due first — what "Review more now" offers.
+   * week, oldest due first — what "Review more now" offers. Only ones the
+   * `readyBy` week may hold: not closed to them by a tutor, topic open.
    */
   waiting: FocusCandidate[];
 }
@@ -324,7 +325,10 @@ export function projectReviews(params: {
    * reviews are unlimited.
    */
   weeklyBudget?: number;
-  /** Reviews due by this Monday but placed later are reported as `waiting`. */
+  /**
+   * Reviews due by this Monday but placed later are reported as `waiting`,
+   * if this Monday's week could hold them (topic open, week not closed).
+   */
   readyBy?: Date;
 }): ReviewProjection {
   const current = mondayOf(params.currentMonday);
@@ -380,9 +384,20 @@ export function projectReviews(params: {
     .filter((t) => t.week < horizon)
     .sort((a, b) => a.week.getTime() - b.week.getTime() || order(a, b));
   const readyBy = params.readyBy ? mondayOf(params.readyBy) : null;
+  const readyKey = readyBy ? toDateKey(readyBy) : "";
+  // Waiting means it could have gone into the readyBy week itself: not one
+  // the tutor closed to it, and not before its topic opens. Offering those
+  // read "10 more ready", then "0 added", for ever. Date-keys compare
+  // lexically, as spineReach builds them.
   const waiting = readyBy
     ? scheduled
-        .filter((t) => t.opening <= readyBy && t.week > readyBy)
+        .filter(
+          (t) =>
+            t.opening <= readyBy &&
+            t.week > readyBy &&
+            !((params.topicOpenings?.get(t.c.topicId) ?? "") > readyKey) &&
+            !params.isBlocked?.(t.c.specPointId, readyKey),
+        )
         .sort(order)
         .map((t) => t.c)
     : [];
