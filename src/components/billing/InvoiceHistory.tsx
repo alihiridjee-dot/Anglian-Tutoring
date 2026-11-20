@@ -15,7 +15,9 @@ export function InvoiceHistory() {
     return <Spinner label="Loading payment history" className="py-8" />;
   }
   if (error) {
-    return <p className="text-sm text-rose-600">Couldn't load payment history: {error.message}</p>;
+    return (
+      <p className="text-sm text-destructive">Couldn't load payment history: {error.message}</p>
+    );
   }
   if (!invoices || invoices.length === 0) {
     return (

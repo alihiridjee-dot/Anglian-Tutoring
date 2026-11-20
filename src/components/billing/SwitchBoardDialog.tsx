@@ -90,7 +90,7 @@ export function SwitchBoardDialog({
           <div className="p-4 sm:p-6 space-y-4 text-sm">
             <ul className="space-y-2.5">
               <li className="flex gap-2.5">
-                <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <Check className="tint-emerald w-4 h-4 text-[color:var(--tint)] shrink-0 mt-0.5" />
                 <span>
                   <strong>Nothing changes about your bill.</strong> Every board is included in every
                   plan — you're charged for how many subjects you study, not which spec you sit.
@@ -111,7 +111,7 @@ export function SwitchBoardDialog({
                 </span>
               </li>
               <li className="flex gap-2.5">
-                <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <Check className="tint-emerald w-4 h-4 text-[color:var(--tint)] shrink-0 mt-0.5" />
                 <span>
                   Confidence and marks you've recorded against the {fromLabel} spec points are{" "}
                   <strong>kept</strong> — move back and they're still there.

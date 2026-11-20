@@ -127,8 +127,8 @@ function OurStory() {
                   {f.sticker}
                 </motion.span>
                 <figcaption className="mt-3 text-center">
-                  <div className="font-display text-lg font-bold text-slate-900">{f.name}</div>
-                  <div className="text-xs font-semibold text-slate-500">{f.role}</div>
+                  <div className="font-display text-lg font-bold text-foreground">{f.name}</div>
+                  <div className="text-xs font-semibold text-muted-foreground">{f.role}</div>
                 </figcaption>
               </motion.figure>
             ))}
