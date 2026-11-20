@@ -23,3 +23,14 @@ export type ChatContextSelection = {
 
 /** No attachment — a plain question. */
 export const EMPTY_CONTEXT: ChatContextSelection = { kind: "general" };
+
+/**
+ * What a question is about, as one emoji: the picker's stops and the inbox's
+ * rows both wear it. Task and Quiz are the spec point trail's own (✏️ 🎯).
+ */
+export const CONTEXT_EMOJI: Record<ChatContextSelection["kind"], string> = {
+  general: "❓",
+  spec_point: "🔬",
+  homework: "✏️",
+  mcq_set: "🎯",
+};

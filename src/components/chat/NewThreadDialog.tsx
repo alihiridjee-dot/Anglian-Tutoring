@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
-import { Lightbulb, Loader2, MessageSquarePlus, Users, X } from "lucide-react";
+import { ArrowRight, Loader2, MessageSquarePlus, X } from "lucide-react";
 import { toast } from "sonner";
 import { AbovePage, SciText, Spinner } from "@/components/Shared";
 import { useQuestionIdeas, useStartThread, useTutorDirectory } from "@/hooks/data/useChat";
-import { ContextPicker } from "@/components/chat/ContextPicker";
+import { ContextPicker, StopTrail } from "@/components/chat/ContextPicker";
+import { Squiggle } from "@/components/chat/EmptyInbox";
 import { ErrorNote } from "@/components/Shared";
 import { EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chat/chatContext";
 import type { QuestionIdea } from "@/lib/chat/questionIdeas";
@@ -50,6 +51,8 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
   const [subjectLine, setSubjectLine] = useState("");
   const [body, setBody] = useState("");
   const [context, setContext] = useState<ChatContextSelection>(initialContext ?? EMPTY_CONTEXT);
+  // Pointing at Send makes the speech bubble at the top hop, as on the inbox.
+  const [reaching, setReaching] = useState(false);
 
   // A student's question goes to the team. Only a parent names a tutor.
   const toTeam = !about;
@@ -147,93 +150,93 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
       >
         {/* The title and the Send row stay put and the form scrolls between
           them. On a phone turned sideways the form is twice the height of the
-          box, and Send used to be the last thing in it, 286px below the fold. */}
-        <div className="flex w-full max-w-lg flex-col overflow-hidden rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)]">
-          <div className="flex shrink-0 items-start justify-between gap-3 p-4 sm:p-6 short:p-3 border-b border-border">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
-                <MessageSquarePlus className="w-5 h-5 text-primary" />
+          box, and Send used to be the last thing in it, 286px below the fold.
+
+          Playful minimalism, as on the empty inbox: a solid round dot, the
+          title with the highlighter stroke, one dark line, plain bold labels,
+          the choices as stops, and no lines across the box. */}
+        <div
+          data-reaching={reaching}
+          className="ask-sheet tint-primary premium-card flex w-full max-w-lg flex-col overflow-hidden rounded-3xl shadow-xl max-h-[calc(100dvh-2rem)]"
+        >
+          <div className="shrink-0 px-5 pt-5 sm:px-7 sm:pt-7 short:px-4 short:pt-3">
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex min-w-0 items-center gap-4">
+                <span className="paywall-dot inbox-dot ask-dot">
+                  <MessageSquarePlus />
+                </span>
+                <div className="min-w-0">
+                  <h2
+                    id="new-thread-title"
+                    className="text-2xl leading-tight font-extrabold sm:text-3xl"
+                  >
+                    {about ? "Message a tutor" : "Ask your tutor"}
+                  </h2>
+                  <Squiggle className="w-28" />
+                </div>
               </div>
-              <div className="min-w-0">
-                <h2 id="new-thread-title" className="font-display text-lg font-bold leading-tight">
-                  {about ? "Message a tutor" : "Ask your tutor"}
-                </h2>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  {about
-                    ? `About ${about.name}`
-                    : "Attach the spec point, task or quiz you're stuck on and they'll see it straight away."}
-                </p>
-              </div>
+              <button
+                onClick={onClose}
+                aria-label="Close"
+                className="btn-ghost flex size-11 shrink-0 items-center justify-center rounded-full"
+              >
+                <X className="size-5" />
+              </button>
             </div>
-            <button
-              onClick={onClose}
-              aria-label="Close"
-              className="tap-target text-muted-foreground hover:text-foreground shrink-0"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            {/* Under the title beside the dot on a wide screen; the box's full
+                width on a phone, where beside the dot it wrapped four times. */}
+            <p className="mt-3 font-medium sm:pl-[4.5rem]">
+              {about
+                ? `About ${about.name}`
+                : "It goes to the whole team, and they'll see what you attach straight away."}
+            </p>
           </div>
 
-          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 short:p-4 space-y-4">
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                {about ? "Who are you writing to?" : "Who are you asking?"}
-              </label>
-              {toTeam ? (
-                <div className="mt-2 flex">
-                  <span className="inline-flex h-11 sm:pointer-fine:h-9 items-center gap-2 px-3.5 rounded-lg border border-primary bg-primary/10 text-sm font-semibold">
-                    <Users className="w-4 h-4 text-primary" aria-hidden /> The team
-                  </span>
-                </div>
-              ) : tutorsPending ? (
-                <Spinner label="Loading tutors" className="mt-2 py-3" />
-              ) : tutors.length === 0 ? (
-                // A failed read leaves the list empty too, but it isn't "no tutors".
-                tutorsError ? (
-                  <div className="mt-2">
-                    <ErrorNote error={tutorsError} onRetry={() => void refetchTutors()} />
-                  </div>
+          <div className="min-h-0 flex-1 space-y-6 overflow-y-auto overscroll-contain px-5 py-6 sm:px-7 short:px-4 short:py-4">
+            {about && (
+              <div>
+                <h3 className="ask-label">Who are you writing to?</h3>
+                {tutorsPending ? (
+                  <Spinner label="Loading tutors" className="mt-2 py-3" />
+                ) : tutors.length === 0 ? (
+                  // A failed read leaves the list empty too, but it isn't "no tutors".
+                  tutorsError ? (
+                    <div className="mt-2">
+                      <ErrorNote error={tutorsError} onRetry={() => void refetchTutors()} />
+                    </div>
+                  ) : (
+                    <p className="mt-2 font-medium">
+                      No tutors are available to message right now.
+                    </p>
+                  )
                 ) : (
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    No tutors are available to message right now.
-                  </p>
-                )
-              ) : (
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {tutors.map((t) => (
-                    <button
-                      key={t.id}
-                      type="button"
-                      onClick={() => setTutorId(t.id)}
-                      className={`h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
-                        tutorId === t.id
-                          ? "border-primary bg-primary/10"
-                          : "border-border text-muted-foreground hover:border-primary/40"
-                      }`}
-                    >
-                      {t.display_name}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+                  <div className="mt-3">
+                    <StopTrail
+                      label="Tutor"
+                      stops={tutors.map((t) => ({
+                        key: t.id,
+                        label: t.display_name,
+                        glyph: t.display_name.trim().charAt(0).toUpperCase() || "👋",
+                      }))}
+                      picked={tutorId}
+                      onPick={setTutorId}
+                    />
+                  </div>
+                )}
+              </div>
+            )}
 
             {!about && (
               <div>
-                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  What's it about?
-                </label>
-                <div className="mt-2">
+                <h3 className="ask-label">What&apos;s it about?</h3>
+                <div className="mt-3">
                   <ContextPicker value={context} onChange={setContext} />
                 </div>
               </div>
             )}
 
             <div>
-              <label
-                htmlFor="thread-subject"
-                className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
-              >
+              <label htmlFor="thread-subject" className="ask-label">
                 Subject
               </label>
               <input
@@ -244,15 +247,12 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
                 placeholder={
                   about ? `e.g. How is ${about.name} getting on with chemistry?` : "e.g. Osmosis"
                 }
-                className="mt-2 w-full h-11 rounded-xl border border-border bg-background px-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
+                className="pop-input mt-2 h-12 w-full px-4 text-base"
               />
             </div>
 
             <div>
-              <label
-                htmlFor="thread-body"
-                className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
-              >
+              <label htmlFor="thread-body" className="ask-label">
                 {about ? "Your message" : "Your question"}
               </label>
               <textarea
@@ -266,7 +266,7 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
                     ? "Write your message"
                     : "Tell them what you've tried and where you got stuck — the more specific, the faster the answer."
                 }
-                className="mt-2 w-full rounded-xl border border-border bg-background p-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
+                className="pop-input mt-2 w-full p-4 text-base"
               />
               {ideas.length > 0 && (!body.trim() || ideas.some((i) => i.question === body)) && (
                 <QuestionIdeas ideas={ideas} picked={body} onPick={pickIdea} />
@@ -274,20 +274,25 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
             </div>
           </div>
 
-          <div className="flex shrink-0 justify-end gap-2 p-4 sm:p-6 short:p-3 border-t border-border">
-            <button
-              onClick={onClose}
-              className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted"
-            >
+          <div className="flex shrink-0 items-center justify-end gap-2 px-5 pt-3 pb-5 sm:px-7 sm:pb-7 short:px-4 short:pb-3">
+            <button onClick={onClose} className="paywall-link">
               Cancel
             </button>
             <button
               onClick={submit}
+              onPointerEnter={() => setReaching(true)}
+              onPointerLeave={() => setReaching(false)}
+              onFocus={() => setReaching(true)}
+              onBlur={() => setReaching(false)}
               disabled={!canSend || start.isPending}
-              className="btn-premium h-11 sm:pointer-fine:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50"
+              className="btn-solid paywall-btn ask-send"
             >
-              {start.isPending && <Loader2 className="w-4 h-4 animate-spin" />}{" "}
               {about ? "Send message" : "Send question"}
+              {start.isPending ? (
+                <Loader2 className="size-5 animate-spin" />
+              ) : (
+                <ArrowRight className="paywall-arrow size-5" />
+              )}
             </button>
           </div>
         </div>
@@ -312,40 +317,35 @@ function QuestionIdeas({
   onPick: (idea: QuestionIdea) => void;
 }) {
   return (
-    <div className="mt-3">
-      <p className="eyebrow">Ask about a topic you found hard</p>
-      <div className="mt-2 space-y-2">
+    <div className="mt-5">
+      <h3 className="ask-label">Ask about a topic you found hard</h3>
+      <ul className="mt-2 space-y-1">
         {ideas.map((idea) => {
           const chosen = idea.question === picked;
           return (
-            <button
-              key={idea.specPointId}
-              type="button"
-              onClick={() => onPick(idea)}
-              aria-pressed={chosen}
-              className={cn(
-                subjectTint(idea.subject),
-                "flex w-full min-h-11 items-start gap-3 rounded-xl border px-3 py-2.5 text-left transition",
-                chosen
-                  ? "border-[color:var(--tint)] bg-[color:color-mix(in_oklab,var(--tint)_8%,var(--card))]"
-                  : "border-border hover:border-[color:color-mix(in_oklab,var(--tint)_45%,transparent)]",
-              )}
-            >
-              <span className={cn("icon-tile size-8 shrink-0", chosen && "icon-tile-solid")}>
-                <Lightbulb className="w-4 h-4" aria-hidden />
-              </span>
-              <span className="min-w-0">
-                <span className="block text-sm font-bold">
-                  <SciText text={idea.topic} />
+            <li key={idea.specPointId}>
+              <button
+                type="button"
+                onClick={() => onPick(idea)}
+                aria-pressed={chosen}
+                className={cn(subjectTint(idea.subject), "ask-row ask-idea")}
+              >
+                <span aria-hidden className="ask-idea-dot">
+                  💡
                 </span>
-                <span className="block text-sm">
-                  <SciText text={idea.question} />
+                <span className="min-w-0">
+                  <span className="block font-bold">
+                    <SciText text={idea.topic} />
+                  </span>
+                  <span className="block text-sm">
+                    <SciText text={idea.question} />
+                  </span>
                 </span>
-              </span>
-            </button>
+              </button>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 }

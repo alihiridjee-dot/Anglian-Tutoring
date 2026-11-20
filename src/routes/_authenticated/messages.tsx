@@ -73,8 +73,8 @@ function MessagesPage() {
           <EmptyInbox isTutor={isTutor} onAsk={() => setComposing(true)} />
         ) : (
           <>
-            <div className="mb-4 flex items-center justify-between gap-3">
-              <p className="font-medium">
+            <div className="mb-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+              <p className="min-w-0 flex-1 basis-64 text-lg font-medium">
                 {isTutor
                   ? unreadTotal > 0
                     ? `${unreadTotal} message${unreadTotal === 1 ? "" : "s"} waiting for a reply`
@@ -85,9 +85,9 @@ function MessagesPage() {
                 <button
                   data-guide="ask-question"
                   onClick={() => setComposing(true)}
-                  className="btn-hero inline-flex h-11 sm:pointer-fine:h-10 shrink-0 items-center gap-2 rounded-xl px-4 text-sm"
+                  className="btn-solid inbox-ask inline-flex h-12 shrink-0 items-center gap-2 rounded-xl px-5 text-base font-extrabold"
                 >
-                  <MessageSquarePlus className="size-4" aria-hidden /> Ask a question
+                  <MessageSquarePlus className="inbox-ask-icon size-5" aria-hidden /> Ask a question
                 </button>
               )}
             </div>
