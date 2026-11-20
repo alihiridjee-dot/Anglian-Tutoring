@@ -21,6 +21,12 @@ export const STRIPE = {
   failUpdates: 0,
   /** The card on file refuses every charge made now (a prorated swap). */
   declineCharges: false,
+  /**
+   * subscription id -> run once by the next subscriptions.retrieve of it,
+   * after it has read Stripe and before it answers: another delivery
+   * overtaking a slow read.
+   */
+  onRetrieve: new Map<string, () => Promise<unknown>>(),
 };
 
 export function resetStripe() {
@@ -35,6 +41,7 @@ export function resetStripe() {
   STRIPE.failSessionRetrieves = 0;
   STRIPE.failUpdates = 0;
   STRIPE.declineCharges = false;
+  STRIPE.onRetrieve.clear();
 }
 
 /** Open a Checkout Session as stripe-checkout would, for completeSession to pay. */
@@ -134,7 +141,13 @@ export default class Stripe {
       }
       const s = STRIPE.subs.get(id);
       if (!s) throw missing(`subscription: '${id}'`);
-      return clone(s);
+      const read = clone(s);
+      const overtake = STRIPE.onRetrieve.get(id);
+      if (overtake) {
+        STRIPE.onRetrieve.delete(id);
+        await overtake();
+      }
+      return read;
     },
     update: async (id: string, p: any) => {
       STRIPE.calls.push(`subscriptions.update ${id}`);

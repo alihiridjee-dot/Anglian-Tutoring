@@ -250,7 +250,7 @@ async function webhookRun(seed: number) {
   // Once the parent's plan is written, nothing may move the row off it.
   let taken = false;
   const armRace = () => {
-    DB.onRead.subscriptions = () => {
+    const race = () => {
       const r = row();
       if (!r || r.stripe_subscription_id !== "sub_child" || !isLive(takeOver().status)) return;
       // The take-over's own delivery lands between this one's read and write.
@@ -266,6 +266,8 @@ async function webhookRun(seed: number) {
       });
       taken = true;
     };
+    // The webhook reads the row before Stripe's read and again after it: land after either.
+    DB.onRead.subscriptions = rand() < 0.5 ? race : () => void (DB.onRead.subscriptions = race);
   };
 
   const deliver = async (ev: unknown) => {
