@@ -15,6 +15,8 @@ export const STRIPE = {
   calls: [] as string[],
   /** How many upcoming subscriptions.retrieve calls fail as if Stripe were down. */
   failRetrieves: 0,
+  /** How many upcoming checkout.sessions.retrieve calls fail the same way. */
+  failSessionRetrieves: 0,
   /** How many upcoming subscriptions.update or .cancel calls fail the same way. */
   failUpdates: 0,
   /** The card on file refuses every charge made now (a prorated swap). */
@@ -30,6 +32,7 @@ export function resetStripe() {
   STRIPE.n = 0;
   STRIPE.calls = [];
   STRIPE.failRetrieves = 0;
+  STRIPE.failSessionRetrieves = 0;
   STRIPE.failUpdates = 0;
   STRIPE.declineCharges = false;
 }
@@ -247,6 +250,12 @@ export default class Stripe {
         return clone(s);
       },
       retrieve: async (id: string) => {
+        if (STRIPE.failSessionRetrieves > 0) {
+          STRIPE.failSessionRetrieves--;
+          throw Object.assign(new Error("An error occurred with our connection to Stripe."), {
+            code: "api_connection_error",
+          });
+        }
         const s = STRIPE.sessions.get(id);
         if (!s) throw missing(`checkout.session: '${id}'`);
         return clone(s);
