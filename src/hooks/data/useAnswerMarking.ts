@@ -41,6 +41,9 @@ export type QuestionMark = { marks: string; feedback: string };
  */
 type StagedMark = { question_id: string; marks: number; feedback: string; held?: string };
 
+/** The code `confirm_homework_marks` refuses with when someone else published the paper first. */
+export const MARKED_MEANWHILE = "40001";
+
 export function useAnswerMarking(
   resourceId: string | undefined,
   submissionId: string,
@@ -213,14 +216,20 @@ export function useAnswerMarking(
     [questions, answers, marks, tutorMarks],
   );
 
+  // `seenGradedAt` is the paper's graded_at as the queue loaded it, sent back
+  // as the server's own text: a trip through a Date drops the microseconds and
+  // never matches. If a person has published it since, the server refuses with
+  // MARKED_MEANWHILE instead of writing over their marks.
   const confirm = useCallback(
-    async (scorePct: number | null, feedback: string | null) => {
+    async (scorePct: number | null, feedback: string | null, seenGradedAt: string | null) => {
       if (error) throw new Error("The answers didn't load. Retry before publishing.");
       const { error: rpcError } = await supabase.rpc("confirm_homework_marks", {
         _submission_id: submissionId,
         _marks: markPayload(),
         _score_pct: scorePct,
         _feedback: feedback,
+        _seen_graded_at: seenGradedAt ?? undefined,
+        _check_seen: true,
       });
       if (rpcError) throw dbError(rpcError);
     },
