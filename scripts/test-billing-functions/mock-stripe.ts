@@ -21,6 +21,12 @@ export const STRIPE = {
   failUpdates: 0,
   /** The card on file refuses every charge made now (a prorated swap). */
   declineCharges: false,
+  /**
+   * subscription id -> run once by the next subscriptions.retrieve of it,
+   * after it has read Stripe and before it answers: another delivery
+   * overtaking a slow read.
+   */
+  onRetrieve: new Map<string, () => Promise<unknown>>(),
 };
 
 export function resetStripe() {
@@ -35,6 +41,7 @@ export function resetStripe() {
   STRIPE.failSessionRetrieves = 0;
   STRIPE.failUpdates = 0;
   STRIPE.declineCharges = false;
+  STRIPE.onRetrieve.clear();
 }
 
 /** Open a Checkout Session as stripe-checkout would, for completeSession to pay. */
@@ -134,7 +141,13 @@ export default class Stripe {
       }
       const s = STRIPE.subs.get(id);
       if (!s) throw missing(`subscription: '${id}'`);
-      return clone(s);
+      const read = clone(s);
+      const overtake = STRIPE.onRetrieve.get(id);
+      if (overtake) {
+        STRIPE.onRetrieve.delete(id);
+        await overtake();
+      }
+      return read;
     },
     update: async (id: string, p: any) => {
       STRIPE.calls.push(`subscriptions.update ${id}`);
@@ -202,9 +215,15 @@ export default class Stripe {
       return clone(i);
     },
     retrieveUpcoming: async () => ({ amount_due: 0, currency: "gbp" }),
-    list: async (p: { customer?: string }) => {
+    // The customer's invoices, newest first, capped as Stripe does.
+    list: async (p: { customer?: string; limit?: number }) => {
       STRIPE.calls.push(`invoices.list ${p?.customer}`);
-      return { data: [] };
+      const data = [...STRIPE.invoices.values()]
+        .filter((i) => i.customer && i.customer === p?.customer)
+        .sort((a, b) => b.created - a.created)
+        .slice(0, p?.limit ?? 10)
+        .map(clone);
+      return { data };
     },
   };
 

@@ -22,15 +22,13 @@ export function TutorTakeReadOnly({ take }: { take: TutorTakeState }) {
         <MessageSquareQuote className="w-4 h-4 text-primary" />
         <h3 className="text-sm font-bold">Ali's take</h3>
       </div>
-      {savedNote ? (
+      {savedNote && (
         <p className="text-sm text-foreground/90 whitespace-pre-wrap leading-relaxed">
           <SciText text={savedNote} />
         </p>
-      ) : (
-        <p className="text-sm text-muted-foreground">Your tutor lined up next week for you.</p>
       )}
       {existingNext.length > 0 && (
-        <div className="mt-3 pt-3 border-t border-primary/15">
+        <div className={savedNote ? "mt-3 pt-3 border-t border-primary/15" : undefined}>
           <p className="text-[11px] font-semibold text-muted-foreground mb-1.5">
             What Ali lined up for {nextLabel}
           </p>

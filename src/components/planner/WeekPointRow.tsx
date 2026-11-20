@@ -4,7 +4,12 @@ import { RotateCcw } from "lucide-react";
 import { type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { mondayOnOrAfter } from "@/lib/planner/pacing";
-import { type PointCoverage, type PointWorkItem, statusOfPoint } from "@/lib/planner/coverage";
+import {
+  type PointCoverage,
+  type PointWorkItem,
+  statusOfPoint,
+  workItems,
+} from "@/lib/planner/coverage";
 import { CoveragePill } from "./CoveragePill";
 import { WorkChips } from "./WorkChips";
 import { type Activity } from "./useWeekPlan";
@@ -55,13 +60,8 @@ export function WeekPointRow({
         ) : undefined
       }
     >
-      {!hasPractice && (
-        <p className="text-muted-foreground">
-          Your tutor can attach practice to this point. It does not count as unfinished practice.
-        </p>
-      )}
       {nextReview && (
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm">
           {roadmap && nextReview >= weekKeyToDate(roadmap.examDate)
             ? "Next memory review falls beyond this exam period."
             : `Next review from ${plannerDateLabel(nextReview)}. It is added to your week when it comes round.`}
@@ -73,15 +73,21 @@ export function WeekPointRow({
           Carried from an earlier week
         </span>
       )}
-      <div className="flex flex-wrap items-center gap-2">
-        <WorkChips work={work} coverage={showCoverage ? cov : null} onPlay={onPlay} />
-        {hasPractice && isPast && onFocusAgain && (
-          <button type="button" onClick={() => onFocusAgain(p)} className="chip tap-target text-xs">
-            <RotateCcw className="size-3" />
-            Focus again
-          </button>
-        )}
-      </div>
+      {(hasPractice || workItems(work).length > 0) && (
+        <div className="flex flex-wrap items-center gap-2">
+          <WorkChips work={work} coverage={showCoverage ? cov : null} onPlay={onPlay} />
+          {hasPractice && isPast && onFocusAgain && (
+            <button
+              type="button"
+              onClick={() => onFocusAgain(p)}
+              className="chip tap-target text-xs"
+            >
+              <RotateCcw className="size-3" />
+              Focus again
+            </button>
+          )}
+        </div>
+      )}
     </PlannerPointItem>
   );
 }

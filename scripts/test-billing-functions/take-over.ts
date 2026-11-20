@@ -280,8 +280,11 @@ family();
   const taken = paid.created.data.object.id;
   childSub().cancel_at_period_end = true; // the student cancels in the same moment
   const studentEvent = event("customer.subscription.updated", childSub());
+  // The first read is the one before Stripe's; the take-over lands after the second.
   DB.onRead.subscriptions = () => {
-    Object.assign(row()!, { user_id: PARENT, stripe_subscription_id: taken, status: "active" });
+    DB.onRead.subscriptions = () => {
+      Object.assign(row()!, { user_id: PARENT, stripe_subscription_id: taken, status: "active" });
+    };
   };
   const res = await webhook(post(studentEvent, { "stripe-signature": "test" }));
   assert.equal(res.status, 500, "the stale write went through");

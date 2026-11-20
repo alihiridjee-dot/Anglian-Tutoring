@@ -16,7 +16,7 @@ export function WithheldPlanPoints({
       <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
         Kept aside from this week ({points.length})
       </summary>
-      <p className="text-sm text-muted-foreground mt-2">
+      <p className="text-sm mt-2">
         These were set for you but no longer fit your plan. They don’t count as unfinished, and your
         marks are unchanged.
       </p>
@@ -37,7 +37,7 @@ export function WithheldPlanPoints({
                       ? "Carried assignment"
                       : "Saved assignment"}
               </span>
-              <p className="text-muted-foreground mt-1">Not assigned: {describeReason(reason)}.</p>
+              <p className="mt-1">Not assigned: {describeReason(reason)}.</p>
               {work?.bestScore != null && (
                 <p className="mt-1">
                   Recorded score: <span className="numeral">{work.bestScore}%</span>

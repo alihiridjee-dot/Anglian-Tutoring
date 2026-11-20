@@ -227,7 +227,6 @@ export function WeekReview({
         <CarryForwardBar
           count={loose.length}
           busy={busy}
-          nextWeekLabel={nextWeekLabel}
           intoThisWeek={nextStart === currentWeekKey()}
           onCarry={carryForward}
         />
