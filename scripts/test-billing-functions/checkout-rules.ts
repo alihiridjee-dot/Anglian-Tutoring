@@ -492,4 +492,27 @@ r = await call("nobody", { action: "trial_terms", trial_code: "AE-LONG-NNNN" });
 assert.equal(r.status, 401, "A stranger could look codes up");
 assert.equal(STRIPE.calls.length, 0, "Looking a code up called Stripe");
 
+// ── L13: only a session Stripe has no record of frees a held code ──────────
+// Stripe down while another family's Checkout holds the code: no proof it is
+// free, so nothing opens and the code stays with that Checkout.
+trialWorld();
+STRIPE.sessions.set("cs_held", { id: "cs_held", status: "open" });
+Object.assign(table("trial_codes")[1], { checkout_session_id: "cs_held", claimed_by: "payer-X" });
+STRIPE.failSessionRetrieves = 1;
+r = await call(CHILD, { action: "checkout", tier: "monthly_1", trial_code: "AE-STDD-CCCC" });
+assert.equal(r.status, 500, JSON.stringify(r.body));
+assert.equal(table("trial_codes")[1].checkout_session_id, "cs_held", "An outage freed a held code");
+assert.equal(STRIPE.sessions.size, 1, "A second Checkout opened on a held code");
+assert.equal(STRIPE.sessions.get("cs_held").status, "open");
+// Once Stripe answers, the same request is refused for what it is.
+r = await call(CHILD, { action: "checkout", tier: "monthly_1", trial_code: "AE-STDD-CCCC" });
+assert.equal(r.status, 409);
+assert.equal(r.body.error, "That trial code is being used in another checkout right now.");
+// A session Stripe no longer has holds nothing.
+STRIPE.sessions.delete("cs_held");
+r = await call(CHILD, { action: "checkout", tier: "monthly_1", trial_code: "AE-STDD-CCCC" });
+assert.equal(r.status, 200, JSON.stringify(r.body));
+s = [...STRIPE.sessions.values()].at(-1);
+assert.equal(table("trial_codes")[1].checkout_session_id, s.id, "A missing session kept the code");
+
 console.log("checkout rules: all checks passed");

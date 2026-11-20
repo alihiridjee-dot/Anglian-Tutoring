@@ -75,8 +75,10 @@ export async function checkTrialCode(
     let session: Stripe.Checkout.Session | null = null;
     try {
       session = await stripe.checkout.sessions.retrieve(row.checkout_session_id);
-    } catch {
-      // Gone from Stripe: nothing holds the code.
+    } catch (err) {
+      // Gone from Stripe: nothing holds the code. Any other failure (Stripe
+      // down, a timeout) is no proof of that, so the code stays held.
+      if ((err as { code?: string })?.code !== "resource_missing") throw err;
     }
     if (session?.status === "complete") {
       // The webhook normally stamps this; catch it up if it hasn't yet.
