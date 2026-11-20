@@ -90,9 +90,7 @@ export function TutorRoster({ state }: { state: TutorPlannerState }) {
       </div>
       <ul className="overflow-y-auto max-h-[70vh] lg:max-h-[calc(100vh-18rem)] divide-y divide-border">
         {visibleStudents.length === 0 && (
-          <li className="p-4 text-sm text-muted-foreground">
-            {total === 0 ? "No students yet." : "No students match."}
-          </li>
+          <li className="p-4 text-sm">{total === 0 ? "No students yet." : "No students match."}</li>
         )}
         {visibleStudents.map((s: PlannerStudent) => {
           const mine = summaries?.get(s.id) ?? [];

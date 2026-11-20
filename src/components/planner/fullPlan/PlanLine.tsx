@@ -73,7 +73,7 @@ export function PlanLine({ line, isNow }: { line: Line; isNow: boolean }) {
           </span>
         )}
         {line.kind === "teach" && line.replaces && (
-          <span className="basis-full text-xs text-muted-foreground">Replaces {line.replaces}</span>
+          <span className="basis-full text-sm">Replaces {line.replaces}</span>
         )}
       </span>
       <span className="col-start-2 row-start-1 flex items-center justify-end gap-1.5 sm:col-start-3">

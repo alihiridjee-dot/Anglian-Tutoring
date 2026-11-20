@@ -82,11 +82,11 @@ export function TutorStudentPane({ state }: { state: TutorPlannerState }) {
 
       <div className="p-4 sm:p-5">
         {!active ? (
-          <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
+          <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm">
             {name} has no subject enrolments yet.
           </p>
         ) : !student.level ? (
-          <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
+          <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm">
             {name} has no exam level set — set it on their profile before planning.
           </p>
         ) : tab === "week" ? (

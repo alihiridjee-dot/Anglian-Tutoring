@@ -69,7 +69,7 @@ export function TutorFeedbackEditor({
           Tutor
         </span>
       </div>
-      <p className="text-xs text-muted-foreground mb-3">
+      <p className="text-sm mb-3">
         How did they do this week? The student sees this note on their planner.
       </p>
 
@@ -109,11 +109,6 @@ export function TutorFeedbackEditor({
               </button>
             ))}
           </div>
-          <p className="mt-1.5 text-[11px] text-muted-foreground">
-            {mode === "reply"
-              ? "Responds directly to what the student wrote in their check-in."
-              : "Standalone feedback, independent of the student's check-in."}
-          </p>
         </div>
       )}
 
@@ -176,27 +171,14 @@ export function NextWeekAssigner({
   board: BoardV;
   level: LevelV;
 }) {
-  const {
-    nextLabel,
-    thisLabel,
-    nextPoints,
-    setNextPoints,
-    preview,
-    existingNext,
-    applyToNextWeek,
-    busy,
-  } = take;
+  const { nextLabel, nextPoints, setNextPoints, preview, existingNext, applyToNextWeek, busy } =
+    take;
   return (
     <div className="rounded-2xl premium-card p-4 sm:p-5">
       <div className="flex items-center gap-2 mb-1">
         <CalendarRange className="w-4 h-4 text-muted-foreground" />
         <h3 className="text-sm font-bold">Assign to {nextLabel}</h3>
       </div>
-      <p className="text-xs text-muted-foreground mb-3">
-        Line up next week's focus. This writes to the plan for{" "}
-        <span className="font-medium text-foreground">{nextLabel}</span> — separate from{" "}
-        <span className="font-medium text-foreground">{thisLabel}</span> above.
-      </p>
 
       <SpecPointSelect
         subject={subject}
@@ -206,19 +188,15 @@ export function NextWeekAssigner({
         onChange={setNextPoints}
       />
 
-      {/* Preview: how next week's schedule ends up */}
-      <div className="mt-3 rounded-xl border border-border bg-muted/20 p-3">
-        <div className="flex items-center gap-1.5 mb-2">
-          <Sparkles className="w-3.5 h-3.5 text-primary" />
-          <p className="text-[11px] font-semibold">
-            {nextLabel} will focus on {preview.length} {preview.length === 1 ? "topic" : "topics"}
-          </p>
-        </div>
-        {preview.length === 0 ? (
-          <p className="text-xs text-muted-foreground">
-            Nothing lined up yet — pick some points above.
-          </p>
-        ) : (
+      {/* Preview: how next week's schedule ends up, once anything is lined up */}
+      {preview.length > 0 && (
+        <div className="mt-3 rounded-xl border border-border bg-muted/20 p-3">
+          <div className="flex items-center gap-1.5 mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <p className="text-[11px] font-semibold">
+              {nextLabel} will focus on {preview.length} {preview.length === 1 ? "topic" : "topics"}
+            </p>
+          </div>
           <div className="flex flex-wrap gap-1.5">
             {preview.map((p) => {
               const isNew = !existingNext.some((e) => e.id === p.id);
@@ -238,8 +216,8 @@ export function NextWeekAssigner({
               );
             })}
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
       <div className="mt-3">
         <button
