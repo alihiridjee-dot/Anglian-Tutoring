@@ -7,8 +7,6 @@ import {
   type WeeklyPlan,
 } from "@/lib/planner/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
-import { indexOverrides, programmeMayAssign } from "@/lib/planner/overrides";
-import { spineReach } from "@/lib/planner/admissibility";
 
 /** How many waiting reviews one press of "Review more now" pulls into the week. */
 export const REVIEW_MORE_BATCH = 10;
@@ -32,22 +30,8 @@ export function useReviewMore(params: {
   reload: () => Promise<void>;
 }) {
   const [busy, setBusy] = useState(false);
-  const weekStart = params.plan?.week_start ?? "";
-  const overrides = indexOverrides(params.roadmap?.overrides);
-  const reach = spineReach(params.roadmap?.baselineBands ?? [], true);
-  // Only reviews this week may actually hold: not ones the tutor took out of
-  // it, and not ones for a topic the programme has not opened yet. Offering
-  // those read "10 more ready", then "0 added", for ever.
-  const waiting = params.isCurrent
-    ? (params.roadmap?.reviewsWaiting ?? []).filter(
-        (c) =>
-          programmeMayAssign(
-            overrides,
-            { specPointId: c.specPointId, origin: "focus" },
-            weekStart,
-          ) && !((reach.get(c.topicId) ?? "") > weekStart),
-      )
-    : [];
+  // The projection already keeps only reviews this week may hold (projectReviews).
+  const waiting = params.isCurrent ? (params.roadmap?.reviewsWaiting ?? []) : [];
   const room = Math.max(0, MAX_WEEK_POINTS - params.points.length);
   const next = waiting.slice(0, Math.min(REVIEW_MORE_BATCH, room));
 
