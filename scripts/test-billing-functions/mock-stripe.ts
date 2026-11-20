@@ -215,9 +215,15 @@ export default class Stripe {
       return clone(i);
     },
     retrieveUpcoming: async () => ({ amount_due: 0, currency: "gbp" }),
-    list: async (p: { customer?: string }) => {
+    // The customer's invoices, newest first, capped as Stripe does.
+    list: async (p: { customer?: string; limit?: number }) => {
       STRIPE.calls.push(`invoices.list ${p?.customer}`);
-      return { data: [] };
+      const data = [...STRIPE.invoices.values()]
+        .filter((i) => i.customer && i.customer === p?.customer)
+        .sort((a, b) => b.created - a.created)
+        .slice(0, p?.limit ?? 10)
+        .map(clone);
+      return { data };
     },
   };
 

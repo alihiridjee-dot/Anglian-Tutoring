@@ -515,4 +515,56 @@ assert.equal(r.status, 200, JSON.stringify(r.body));
 s = [...STRIPE.sessions.values()].at(-1);
 assert.equal(table("trial_codes")[1].checkout_session_id, s.id, "A missing session kept the code");
 
+// ── L14: a linked account sees invoices for its own plans only ─────────────
+// One household: the parent's card carries the child's plan and a sibling's,
+// and the child also paid a plan of their own. An invoice shows when its plan
+// is for the caller or one of the caller's own children; one with no student
+// recorded only to the account that paid it.
+world({ payer: PARENT, linked: true });
+{
+  const SIBLING = "sibling-S";
+  DB.users[SIBLING] = { id: SIBLING, email: "s@test" };
+  table("profiles").push({ id: SIBLING, role: "student", level: "gcse" });
+  table("parent_student_links").push({ parent_id: PARENT, student_id: SIBLING });
+  table("stripe_customers").push(
+    { user_id: PARENT, stripe_customer_id: "cus_P" },
+    { user_id: CHILD, stripe_customer_id: "cus_C" },
+  );
+  const invoice = (id: string, customer: string, created: number, student?: string) =>
+    STRIPE.invoices.set(id, {
+      id,
+      customer,
+      created,
+      status: "paid",
+      currency: "gbp",
+      amount_paid: 4999,
+      amount_due: 0,
+      subscription_details: student === undefined ? null : { metadata: { student_id: student } },
+    });
+  invoice("in_sibling", "cus_P", 500, SIBLING);
+  invoice("in_child_by_parent", "cus_P", 400, CHILD);
+  invoice("in_child_self", "cus_C", 300, CHILD);
+  invoice("in_parent_none", "cus_P", 200);
+  invoice("in_child_none", "cus_C", 100);
+  STRIPE.invoices.get("in_child_none").subscription_details = { metadata: {} };
+  const seen = async (who: string) => {
+    const res = await call(who, { action: "invoices" });
+    assert.equal(res.status, 200, JSON.stringify(res.body));
+    return res.body.invoices.map((i: { id: string }) => i.id);
+  };
+  // The child: their own plan's invoices, whoever paid, and the one they paid
+  // with no student on it. Not the sibling's, not the parent's own.
+  assert.deepEqual(await seen(CHILD), ["in_child_by_parent", "in_child_self", "in_child_none"]);
+  // The sibling, who pays nothing: only their own plan's.
+  assert.deepEqual(await seen(SIBLING), ["in_sibling"]);
+  // The parent: every child's, the one the child paid included, and their own
+  // with no student on it. Not the one the child paid with no student on it.
+  assert.deepEqual(await seen(PARENT), [
+    "in_sibling",
+    "in_child_by_parent",
+    "in_child_self",
+    "in_parent_none",
+  ]);
+}
+
 console.log("checkout rules: all checks passed");
