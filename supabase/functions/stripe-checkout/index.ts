@@ -676,7 +676,28 @@ async function handleAddSubjects(req: Request, payload: AddSubjectsPayload) {
     );
 
     // Enrol the student in the new subjects and grow the RLS grant, together.
-    await applyEnrolmentChange(db, payload.student_id, toAdd, []);
+    // The swap above has already charged, so a failure here would leave the
+    // family paying for a subject they can't open. Try once more; if that fails
+    // too, flag it for a person and ask them to press Add again, which is safe:
+    // the repeat swaps to the same price, so it charges nothing more.
+    try {
+      await applyEnrolmentChange(db, payload.student_id, toAdd, []);
+    } catch (err) {
+      console.error("stripe-checkout: enrolling after a paid swap failed, trying once more:", err);
+      try {
+        await applyEnrolmentChange(db, payload.student_id, toAdd, []);
+      } catch (again) {
+        console.error(
+          `stripe-checkout: NEEDS A PERSON: ${row.stripe_subscription_id} was charged for ${newTier}, ` +
+            `but ${payload.student_id} was not enrolled in ${toAdd.map((r) => r.subject).join(", ")}:`,
+          again,
+        );
+        throw new HttpError(
+          500,
+          "The payment went through, but the subject didn't switch on. Press Add again to finish: it won't charge a second time.",
+        );
+      }
+    }
 
     // Mirror plan immediately so the UI reflects the upgrade before the webhook.
     await db
