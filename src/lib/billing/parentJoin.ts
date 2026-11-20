@@ -58,7 +58,10 @@ export async function peekParentJoinLink(token: string) {
 export async function redeemParentJoinLink(token: string) {
   const { data, error } = await supabase.rpc("redeem_parent_join_link", { _token: token });
   if (error) throw new Error(error.message);
-  return data as unknown as ParentJoinRedeem;
+  const result = data as unknown as ParentJoinRedeem;
+  // Linked: the link has done its job, so this browser stops holding it.
+  if (result.status === "linked" || result.status === "already_linked") forgetParentJoin();
+  return result;
 }
 
 export async function parentJoinLinkStatus(token: string) {
@@ -70,7 +73,8 @@ export async function parentJoinLinkStatus(token: string) {
 // The token waits in this browser while the parent makes an account: email
 // sign-up stops for a code, and Google or Microsoft leave the site and come
 // back to /auth. It is dropped from the address bar as soon as it is read, so
-// it isn't left in the history or sent on as a referrer.
+// it isn't left in the history or sent on as a referrer, and from storage once
+// it has linked the parent or they leave without linking.
 const KEY = "parent-join";
 const MAX_AGE_MS = 24 * 60 * 60_000;
 
