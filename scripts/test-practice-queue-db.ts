@@ -1,11 +1,13 @@
 /** Isolated PostgreSQL checks for the practice queue (20261005220000): one job
  * per point and kind, the trigger on saved weeks, claiming, saving, failing,
- * waking the worker, and the rollback; and 20261007111000, under which only
- * this week's plan queues. No production data is read or written.
+ * waking the worker, and the rollback; 20261007111000, under which only this
+ * week's plan queues; and 20261120105655, under which a failed job gets three
+ * fresh rounds on its own. No production data is read or written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-practice-queue-db.ts
  */
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 
 const { PGlite } = await import(process.env.PGLITE_MODULE ?? "@electric-sql/pglite");
@@ -2948,6 +2950,288 @@ assert.deepEqual(await legacy(), legacyBefore, "ensure_generated_* as they were,
   assert.equal(await jobCount(back), 2, "after the rollback an old week queues again");
   await db.exec(thisWeekOnly);
   assert.equal(await jobCount(back), 0);
+}
+
+// ── 24. A job that keeps failing stops after three rounds (20261120105655) ─
+// Audit finding L8 (18 Nov): a failed job got a fresh round every day for as
+// long as its point was on a week, for ever. Now it gets three on its own,
+// then waits for a tutor's press or retry-failed.
+{
+  const read = (path: string) => readFile(new URL(path, import.meta.url), "utf8");
+  const cap = await read("../supabase/migrations/20261120105655_practice_retry_rounds_cap.sql");
+  const uncap = await read(
+    "../supabase/rollbacks/20261120105655_practice_retry_rounds_cap.down.sql",
+  );
+  // practice_state as production has it (20261109170711). It reads the same
+  // rule as enqueue_practice, so the cap changes it too.
+  const requests = await read(
+    "../supabase/migrations/20261109170711_student_practice_requests.sql",
+  );
+  const from = requests.indexOf("create or replace function private.practice_state(");
+  const to = requests.indexOf("$function$;", from) + "$function$;".length;
+  assert.ok(from >= 0 && to > from);
+  await db.exec(requests.slice(from, to));
+  await db.exec(
+    "revoke all on function private.practice_state(uuid, text) from public, anon, authenticated",
+  );
+
+  const functions = [
+    "private.enqueue_practice(uuid,text)",
+    "private.practice_state(uuid,text)",
+    "public.request_practice_job(uuid,text,boolean)",
+    "public.rearm_failed_practice_jobs(uuid[])",
+  ];
+  /** md5 of each body installed now. */
+  const installed = async () =>
+    Promise.all(
+      functions.map(
+        async (f) =>
+          (
+            await db.query<{ m: string }>(
+              "select md5(prosrc) as m from pg_proc where oid = $1::regprocedure",
+              [f],
+            )
+          ).rows[0].m,
+      ),
+    );
+  /** md5 of each body as a file writes it, in the order above. */
+  const written = (sql: string) =>
+    functions.map((f) => {
+      const name = f.slice(0, f.indexOf("("));
+      const start = sql.indexOf(`create or replace function ${name}(`);
+      assert.ok(start >= 0, `${name} is in the file`);
+      const open = sql.indexOf("$function$", start) + "$function$".length;
+      const close = sql.indexOf("$function$;", open);
+      return createHash("md5").update(sql.slice(open, close)).digest("hex");
+    });
+  const acl = async () =>
+    (
+      await db.query<{ f: string; a: string }>(
+        `select p.oid::regprocedure::text as f, coalesce(p.proacl::text, '') as a from pg_proc p
+         where p.oid = any ($1::regprocedure[]) order by 1`,
+        [functions],
+      )
+    ).rows;
+  const hasColumn = async () =>
+    (
+      await db.query<{ n: number }>(
+        `select count(*)::int as n from pg_attribute
+         where attrelid = 'private.practice_jobs'::regclass and attname = 'rounds' and not attisdropped`,
+      )
+    ).rows[0].n;
+  const state = async (point: string) =>
+    (await db.query<{ s: string }>("select private.practice_state($1, 'quiz') as s", [point]))
+      .rows[0].s;
+  /** The worker claims the point's quiz and the model refuses it. */
+  const failOut = async (point: string) => {
+    const [held] = await claim(1, point, "quiz");
+    assert.ok(held, "the job is handed out");
+    assert.equal(await fail(held, "The request was refused", "give_up"), "failed");
+  };
+  /** A day later the point's week is saved again: does it get another go? */
+  const nextDay = async (point: string) => {
+    await backdate((await job(point, "quiz")).id, 25);
+    return enqueue(point);
+  };
+  const rounds = async (point: string) =>
+    (
+      await db.query<{ r: number }>(
+        "select rounds as r from private.practice_jobs where spec_point_id = $1 and kind = 'quiz'",
+        [point],
+      )
+    ).rows[0].r;
+
+  // Before: the defect. A point the model can never write is given another
+  // round every day, however often it has failed.
+  await resetQueue();
+  const bodiesBefore = await installed();
+  assert.deepEqual(bodiesBefore, written(uncap), "the rollback holds the bodies installed today");
+  const aclBefore = await acl();
+  const forever = await newPoint();
+  await enqueue(forever);
+  for (let day = 1; day <= 5; day += 1) {
+    await failOut(forever);
+    assert.equal(await nextDay(forever), 1, `before the fix, day ${day}: another round`);
+  }
+  const waiting = await newPoint(); // queued before the column exists
+  await enqueue(waiting);
+
+  await db.exec(cap);
+  await db.exec(cap); // safe to run twice
+  assert.equal(await hasColumn(), 1);
+  assert.deepEqual(await installed(), written(cap), "the bodies are the file's");
+  assert.deepEqual(await acl(), aclBefore, "grants unchanged");
+  for (const f of functions)
+    for (const role of ["anon", "authenticated"])
+      assert.equal(
+        (
+          await db.query<{ x: boolean }>("select has_function_privilege($1, $2, 'execute') as x", [
+            role,
+            f,
+          ])
+        ).rows[0].x,
+        false,
+        `${role} can't call ${f}`,
+      );
+  assert.equal(await rounds(waiting), 0, "a job already there starts with none used");
+  assert.equal(await rounds(forever), 0, "so does one that has failed before");
+
+  // Three rounds on its own, then none, however many days pass.
+  const stuck = await newPoint();
+  await enqueue(stuck);
+  await failOut(stuck);
+  assert.equal(await enqueue(stuck), 0, "not within the day");
+  assert.equal(await state(stuck), "failed");
+  for (let round = 1; round <= 3; round += 1) {
+    assert.equal(await state(stuck), "failed");
+    await backdate((await job(stuck, "quiz")).id, 25);
+    assert.equal(await state(stuck), "missing", `round ${round}: a request would queue it`);
+    assert.equal(await enqueue(stuck), 1, `round ${round}: another go`);
+    const rearmed = await job(stuck, "quiz");
+    assert.deepEqual(
+      [rearmed.status, rearmed.attempts, await rounds(stuck), rearmed.last_error],
+      ["pending", 0, round, "The request was refused"],
+    );
+    await failOut(stuck);
+  }
+  const done = await job(stuck, "quiz");
+  const lockedBy = async (jobId: number) =>
+    (
+      await db.query<{ x: string }>(
+        "select xmax::text as x from private.practice_jobs where id = $1",
+        [jobId],
+      )
+    ).rows[0].x;
+  for (const hours of [25, 24 * 30]) {
+    await backdate(done.id, hours);
+    const lock = await lockedBy(done.id);
+    assert.equal(await enqueue(stuck), 0, `${hours} hours on: no fourth round`);
+    assert.equal(await lockedBy(done.id), lock, "and no write or lock (section 5b)");
+    assert.equal(await state(stuck), "failed", "and a student isn't offered a Request");
+  }
+
+  // The test under the row's lock counts rounds too, on its own: another
+  // session may use the last round between the first look and the lock. One
+  // connection can't play that, so take the first look away and ask again.
+  const firstLook =
+    "continue when _job.updated_at >= now() - interval '24 hours' or _job.rounds >= 3;";
+  assert.ok(cap.includes(firstLook));
+  const enqueueStart = cap.indexOf("create or replace function private.enqueue_practice(");
+  const enqueueEnd = cap.indexOf("$function$;", enqueueStart) + "$function$;".length;
+  await db.exec(cap.slice(enqueueStart, enqueueEnd).replace(firstLook, "null;"));
+  assert.equal(await enqueue(stuck), 0, "the look under the lock gives no fourth round");
+  assert.deepEqual([(await job(stuck, "quiz")).status, await rounds(stuck)], ["failed", 3]);
+  await db.exec(cap);
+  assert.deepEqual(await installed(), written(cap));
+  // Nor through a week saved with it, the trigger's way in: not even a write.
+  const beforeSave = await job(stuck, "quiz");
+  const alongside = await newPoint();
+  await as(
+    student,
+    "select public.save_weekly_plan($1, 'biology', 'aqa', 'gcse', $2, 'ai', null, $3::jsonb)",
+    [
+      student,
+      mon(0),
+      JSON.stringify([stuck, alongside].map((p) => ({ spec_point_id: p, origin: "core" }))),
+    ],
+  );
+  assert.equal(await jobCount(alongside), 2, "the week's save reached the queue");
+  assert.deepEqual(await job(stuck, "quiz"), beforeSave, "a saved week gives it no round");
+  assert.equal(await rounds(stuck), 3);
+
+  // A tutor's press sets it going, with its three rounds again.
+  const pressed = await request(stuck, "quiz", true);
+  assert.equal(pressed.status, "pending");
+  assert.deepEqual([(await job(stuck, "quiz")).attempts, await rounds(stuck)], [0, 0]);
+  assert.equal(await state(stuck), "writing");
+  for (let round = 1; round <= 3; round += 1) {
+    await failOut(stuck);
+    assert.equal(await nextDay(stuck), 1, `after the press, round ${round}`);
+  }
+  await failOut(stuck);
+  assert.equal(await nextDay(stuck), 0, "then none again");
+
+  // Asking without a press changes nothing.
+  assert.equal((await request(stuck, "quiz")).status, "failed");
+  assert.equal(await rounds(stuck), 3);
+
+  // retry-failed (rearm_failed_practice_jobs) sets them going too.
+  const other = await newPoint();
+  await enqueue(other);
+  for (let round = 1; round <= 3; round += 1) {
+    await failOut(other);
+    assert.equal(await nextDay(other), 1);
+  }
+  await failOut(other);
+  const [rearmedCount] = await svc<{ n: number }>(
+    "select public.rearm_failed_practice_jobs($1::uuid[]) as n",
+    [[stuck, other]],
+  );
+  assert.equal(rearmedCount.n, 2);
+  for (const point of [stuck, other]) {
+    const j = await job(point, "quiz");
+    assert.deepEqual([j.status, j.attempts, await rounds(point)], ["pending", 0, 0]);
+    await failOut(point);
+    assert.equal(await nextDay(point), 1, "and the rounds start again");
+  }
+
+  // A press on a job already waiting gives it its rounds back too.
+  assert.equal((await job(other, "quiz")).status, "pending");
+  assert.equal(await rounds(other), 1);
+  await request(other, "quiz", true);
+  assert.equal(await rounds(other), 0);
+
+  // A job whose content was removed is queued again whatever its rounds,
+  // and keeps them: only a failed job's fresh round is counted.
+  const removed = await newPoint();
+  const set = await addSet(removed, { published: true });
+  await enqueue(removed);
+  assert.equal((await job(removed, "quiz")).status, "completed");
+  await db.query(
+    "update private.practice_jobs set rounds = 3 where spec_point_id = $1 and kind = 'quiz'",
+    [removed],
+  );
+  await db.query("delete from public.mcq_sets where id = $1", [set]);
+  assert.equal(await enqueue(removed), 1);
+  assert.deepEqual([(await job(removed, "quiz")).status, await rounds(removed)], ["pending", 3]);
+
+  // Every UPDATE still names its rows (section 22).
+  for (const f of functions) {
+    const body = (
+      await db.query<{ b: string }>(
+        "select prosrc as b from pg_proc where oid = $1::regprocedure",
+        [f],
+      )
+    ).rows[0].b;
+    for (const statement of body.replace(/--[^\n]*/g, "").split(";"))
+      if (/\bupdate\s+private\.practice_jobs\b/i.test(statement))
+        assert.match(statement, /\bwhere\b/i, `${f}: an UPDATE without WHERE`);
+  }
+
+  // The rollback puts today's bodies back and the column goes, and a failed
+  // job is given a round every day again.
+  await db.exec(uncap);
+  await db.exec(uncap); // safe to run twice
+  assert.equal(await hasColumn(), 0);
+  assert.deepEqual(await installed(), bodiesBefore, "today's bodies exactly");
+  assert.deepEqual(await acl(), aclBefore);
+  const back = await newPoint();
+  await enqueue(back);
+  for (let day = 1; day <= 4; day += 1) {
+    await failOut(back);
+    assert.equal(await nextDay(back), 1, `after the rollback, day ${day}`);
+  }
+
+  // And it goes back on: every job starts with no rounds used.
+  await db.exec(cap);
+  assert.deepEqual(await installed(), written(cap));
+  assert.equal(await rounds(back), 0);
+  await failOut(back);
+  for (let round = 1; round <= 3; round += 1) {
+    assert.equal(await nextDay(back), 1);
+    await failOut(back);
+  }
+  assert.equal(await nextDay(back), 0);
 }
 
 console.log("practice queue: all checks passed");
