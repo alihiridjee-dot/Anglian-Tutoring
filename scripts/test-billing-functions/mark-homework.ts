@@ -414,4 +414,24 @@ assert.equal(
 );
 assert.match(ANTHROPIC.calls[0].system as string, /you are given exactly what it shows, as data/);
 
+// 16. L21: the model call gives up on its own, inside the 150 seconds the
+//     platform waits for an answer, and is not retried. A run the platform
+//     kills releases nothing, so the claim would be held for ten minutes; a
+//     call that times out here throws inside the handler, and the claim is
+//     let go at once.
+world();
+ANTHROPIC.reply = () => ({ questions: [mark(Q1, 2), mark(Q2, 0)], summary: "" });
+await call();
+assert.equal(ANTHROPIC.options?.timeout, 140_000, "The model call has no timeout of its own");
+assert.equal(ANTHROPIC.options?.maxRetries, 0, "A slow model call is retried past the limit");
+world();
+ANTHROPIC.reply = () => {
+  throw new Error("Request timed out.");
+};
+r = await call();
+assert.equal(r.status, 500);
+assert.equal(staged(), undefined, "A timed-out call staged marks");
+assert.equal(submission().ai_marked_at, null);
+assert.equal(submission().ai_marking_started_at, null, "A timed-out call kept its claim");
+
 console.log("mark-homework: all checks passed");

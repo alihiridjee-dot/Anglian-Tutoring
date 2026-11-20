@@ -3,20 +3,25 @@
 // so the real function code runs against it. No network.
 //
 // A test sets ANTHROPIC.reply to decide what the "model" answers, and reads
-// ANTHROPIC.calls to see exactly what it was sent.
+// ANTHROPIC.calls to see exactly what it was sent, and ANTHROPIC.options to
+// see how the client was made.
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const ANTHROPIC = {
   calls: [] as any[],
+  options: undefined as any,
   reply: (_request: any): any => ({ questions: [], summary: "" }),
 };
 
 export function resetAnthropic() {
   ANTHROPIC.calls = [];
+  ANTHROPIC.options = undefined;
   ANTHROPIC.reply = () => ({ questions: [], summary: "" });
 }
 
 export default class Anthropic {
-  constructor(_opts?: unknown) {}
+  constructor(opts?: unknown) {
+    ANTHROPIC.options = opts;
+  }
   messages = {
     create: async (request: any) => {
       ANTHROPIC.calls.push(request);

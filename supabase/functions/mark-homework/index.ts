@@ -91,7 +91,7 @@ async function mark(
   const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
   if (!apiKey) throw new HttpError(500, "ANTHROPIC_API_KEY is not configured");
 
-  const client = new Anthropic({ apiKey });
+  const client = new Anthropic({ apiKey, timeout: 140_000, maxRetries: 0 });
 
   const response = await client.messages.create({
     model: MODEL,
