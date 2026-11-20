@@ -9,7 +9,7 @@
  */
 import assert from "node:assert/strict";
 import { loadHandler, post } from "./harness.ts";
-import { resetDb, table } from "./mock-supabase.ts";
+import { DB, resetDb, table } from "./mock-supabase.ts";
 import { STRIPE, completeSession, event, openSession, resetStripe } from "./mock-stripe.ts";
 
 const webhook = await loadHandler("../../supabase/functions/stripe-webhook/index.ts");
@@ -180,6 +180,98 @@ family();
   await deliver(event("customer.subscription.deleted", duplicate));
   assert.equal(STRIPE.refunds.length, 1, "the duplicate was never refunded");
   assert.equal(row()?.stripe_subscription_id, subIdOf(first));
+}
+
+const signed = { "stripe-signature": "test" };
+
+// 10. Two deliveries for the same plan overlap, and the one that read Stripe
+//     first would write last. It is refused (500, so Stripe retries), the
+//     newer state stays, and the retry reads Stripe again.
+family();
+{
+  const paid = pays(CHILD);
+  await deliver(paid.completed, paid.created);
+  const sub = STRIPE.subs.get(subIdOf(paid));
+  const older = event("customer.subscription.updated", sub);
+  // A reads Stripe while the plan is active. Before A writes, the renewal
+  // fails and B delivers that all the way to the row.
+  let newer = 0;
+  STRIPE.onRetrieve.set(sub.id, async () => {
+    sub.status = "past_due";
+    newer = (await webhook(post(event("customer.subscription.updated", sub), signed))).status;
+  });
+  const res = await webhook(post(older, signed));
+  assert.equal(newer, 200, "the newer delivery was refused");
+  assert.equal(res.status, 500, "the older read was written over the newer one");
+  assert.equal(row()?.status, "past_due", "the plan reads as active again");
+  await deliver(older); // Stripe's retry
+  assert.equal(row()?.status, "past_due");
+}
+
+// 11. The same before the plan has a row: B writes the first row while A is
+//     reading Stripe, and A may not write its older copy over it.
+family();
+{
+  const paid = pays(CHILD);
+  const id = subIdOf(paid);
+  let newer = 0;
+  STRIPE.onRetrieve.set(id, async () => {
+    STRIPE.subs.get(id).cancel_at_period_end = true; // the student cancels at once
+    newer = (await webhook(post(paid.created, signed))).status;
+  });
+  const res = await webhook(post(paid.completed, signed));
+  assert.equal(newer, 200, "the newer delivery was refused");
+  assert.equal(res.status, 500, "the older read was written over the first row");
+  assert.equal(row()?.cancel_at_period_end, true, "the cancellation was undone");
+  await deliver(paid.completed); // Stripe's retry
+  assert.equal(row()?.cancel_at_period_end, true);
+  assert.equal(table("subscriptions").length, 1);
+}
+
+// 12. No row when A looks, but one is written just before A inserts: student_id
+//     is unique, so A's insert is refused like a lost update (500), and the
+//     retry writes over the row instead.
+family();
+{
+  const paid = pays(CHILD);
+  const id = subIdOf(paid);
+  // The first read is the one before Stripe's; the row lands after the second.
+  DB.onRead.subscriptions = () => {
+    DB.onRead.subscriptions = () => {
+      table("subscriptions").push({
+        student_id: CHILD,
+        user_id: CHILD,
+        stripe_subscription_id: id,
+        status: "incomplete",
+        updated_at: "2026-11-20T17:00:00.000001+00:00",
+      });
+    };
+  };
+  const res = await webhook(post(paid.completed, signed));
+  assert.equal(res.status, 500, "the insert over a row written meanwhile was not refused");
+  assert.equal(table("subscriptions").length, 1);
+  await deliver(paid.completed); // Stripe's retry
+  assert.equal(row()?.status, "active");
+}
+
+// 13. One delivery at a time is as before: the first inserts the row, a later
+//     one writes Stripe's state over it, and so does a resend.
+family();
+{
+  const paid = pays(CHILD);
+  await deliver(paid.created);
+  assert.equal(row()?.status, "active");
+  assert.equal(table("subscriptions").length, 1);
+  const sub = STRIPE.subs.get(subIdOf(paid));
+  sub.cancel_at_period_end = true;
+  const cancelled = event("customer.subscription.updated", sub);
+  const before = row()?.updated_at;
+  await deliver(cancelled);
+  assert.equal(row()?.cancel_at_period_end, true);
+  assert.notEqual(row()?.updated_at, before, "the write did not move updated_at");
+  await deliver(cancelled);
+  assert.equal(row()?.cancel_at_period_end, true);
+  assert.equal(table("subscriptions").length, 1);
 }
 
 console.log("one plan per student: all checks passed");

@@ -196,6 +196,18 @@ async function endReplacedPlan(
  * Stripe no longer has the subscription at all.
  */
 async function upsertSubscription(subscriptionId: string, snapshot?: Stripe.Subscription) {
+  // The row holding this plan, as it is before Stripe is asked. Every write
+  // to it moves updated_at (the t_subs_updated trigger), so the write below
+  // goes only over this version: a delivery whose Stripe read is older than a
+  // write that landed meanwhile is refused, and its retry reads both again.
+  // Kept as the database's text: a trip through a Date drops the
+  // microseconds and would never match.
+  const { data: holding, error: holdingError } = await db
+    .from("subscriptions")
+    .select("student_id, updated_at")
+    .eq("stripe_subscription_id", subscriptionId);
+  if (holdingError) throw new Error(`subscriptions read failed: ${holdingError.message}`);
+
   let sub: Stripe.Subscription;
   try {
     sub = await stripe.subscriptions.retrieve(subscriptionId);
@@ -264,10 +276,19 @@ async function upsertSubscription(subscriptionId: string, snapshot?: Stripe.Subs
     }
   } else {
     const held = tracked.stripe_subscription_id;
-    const same = db.from("subscriptions").update(row).eq("student_id", row.student_id);
-    const { data: written, error: updateError } = await (
-      held ? same.eq("stripe_subscription_id", held) : same.is("stripe_subscription_id", null)
-    ).select("student_id");
+    let same = db.from("subscriptions").update(row).eq("student_id", row.student_id);
+    same = held ? same.eq("stripe_subscription_id", held) : same.is("stripe_subscription_id", null);
+    // Two deliveries for this same plan: only over the version read before
+    // Stripe was. A row that holds the plan now but didn't then was written
+    // by another delivery meanwhile, whose Stripe read may be the newer one.
+    if (held === sub.id) {
+      const seen = (holding ?? []).find((h) => h.student_id === row.student_id);
+      if (!seen) {
+        throw new Error(`the row for ${row.student_id} was written meanwhile; Stripe will retry`);
+      }
+      same = same.eq("updated_at", seen.updated_at);
+    }
+    const { data: written, error: updateError } = await same.select("student_id");
     error = updateError;
     if (!error && (written ?? []).length === 0) {
       throw new Error(`the row for ${row.student_id} moved meanwhile; Stripe will retry`);
