@@ -163,7 +163,7 @@ export function TutorWeekTab({ state }: { state: TutorPlannerState }) {
         // course before a board or level change.
         <PastWeek gap={state.week.pastGap} subject={active.subject} />
       ) : rows.length === 0 ? (
-        <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm">
           {editable
             ? `Nothing set or planned for ${weekLabel}.`
             : `No plan was set for ${weekLabel}.`}
@@ -176,7 +176,6 @@ export function TutorWeekTab({ state }: { state: TutorPlannerState }) {
                 {lane.title}{" "}
                 <span className="text-muted-foreground font-medium tabular-nums">{lane.count}</span>
               </h3>
-              <p className="text-[11px] text-muted-foreground">{lane.hint}</p>
             </div>
             <div className="space-y-3">
               {lane.groups.map((g) => (

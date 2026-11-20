@@ -150,11 +150,7 @@ export function AddPointsBox({ state }: { state: TutorPlannerState }) {
             </button>
           </div>
         </>
-      ) : (
-        <p className="text-sm text-muted-foreground">
-          This student has no exam level set — set it on their profile before planning.
-        </p>
-      )}
+      ) : null}
     </div>
   ) : (
     <button

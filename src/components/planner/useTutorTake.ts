@@ -223,7 +223,6 @@ export function useTutorTake({
     error: savedQuery.error,
     retry: () => void savedQuery.refetch(),
     nextLabel,
-    thisLabel,
     nextOnBreak,
     hasCheckin,
     note,

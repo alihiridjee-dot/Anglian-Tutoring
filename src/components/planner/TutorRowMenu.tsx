@@ -162,7 +162,7 @@ export function TutorRowMenu({
                 <X className="w-4 h-4 text-muted-foreground" aria-hidden />
                 <span>
                   Remove from this week
-                  <span className="block text-[11px] text-muted-foreground">
+                  <span className="block text-sm">
                     {row.pinned ? "Un-sets your choice" : "The programme won't put it back"}
                   </span>
                 </span>
@@ -176,9 +176,7 @@ export function TutorRowMenu({
                 <Ban className="w-4 h-4 text-muted-foreground" aria-hidden />
                 <span>
                   Skip in the programme
-                  <span className="block text-[11px] text-muted-foreground">
-                    Never set automatically, in any week
-                  </span>
+                  <span className="block text-sm">Never set automatically, in any week</span>
                 </span>
               </button>
             </>

@@ -129,12 +129,7 @@ export function PlanAttention({
                       })),
                       ...overload.topics.map((t) => ({
                         key: `topic:${t}`,
-                        content: (
-                          <>
-                            {t}
-                            <span className="text-muted-foreground"> — needs teaching time</span>
-                          </>
-                        ),
+                        content: <>{t} — needs teaching time</>,
                       })),
                     ],
                   }
@@ -195,7 +190,7 @@ function AttentionItem({
         </span>
         <div className="min-w-0 flex-1 basis-48">
           <p className="text-sm font-semibold leading-snug">{title}</p>
-          {meta && <p className="text-xs text-muted-foreground">{meta}</p>}
+          {meta && <p className="text-sm">{meta}</p>}
         </div>
         {action}
         {details && (
