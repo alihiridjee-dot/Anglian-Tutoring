@@ -264,6 +264,76 @@ for (const [caller, payer, body] of [
   assert.equal(table("subscriptions")[0].plan, "monthly_1");
 }
 
+// ── L11: a paid swap is not left without its enrolment ────────────────────
+// The swap charges before the enrolment is written. When that write fails, it
+// is tried once more; if it fails again a person is flagged, the family is told
+// to press Add again, and the repeat finishes the job on the same price.
+const ADD_CHEM = {
+  action: "add_subjects",
+  student_id: CHILD,
+  subjects: [{ subject: "chemistry", board: "aqa" }],
+};
+const failEnrolments = (times: number) => {
+  const enrol = DB.rpcs.apply_enrolment_change;
+  DB.rpcs.apply_enrolment_change = (args, caller) => {
+    if (times > 0) {
+      times--;
+      rpcCalls.push("enrol failed");
+      return { data: null, error: { message: "canceling statement due to lock timeout" } };
+    }
+    return enrol(args, caller);
+  };
+};
+const logged: string[] = [];
+const realError = console.error;
+console.error = (...args: unknown[]) => logged.push(args.map(String).join(" "));
+const enrolled = () =>
+  table("student_enrolments")
+    .filter((e) => e.student_id === CHILD)
+    .map((e) => e.subject)
+    .sort();
+
+// One failure: the second try enrols, and the family never hears of it.
+world({ payer: CHILD });
+failEnrolments(1);
+r = await call(CHILD, ADD_CHEM);
+assert.equal(r.status, 200, JSON.stringify(r.body));
+assert.equal(r.body.plan, "monthly_2");
+assert.deepEqual(rpcCalls, ["take", "enrol failed", "enrol +chemistry/aqa -", "release"]);
+assert.deepEqual(enrolled(), ["biology", "chemistry"], "The retry didn't enrol");
+assert.equal(table("subscriptions")[0].plan, "monthly_2");
+
+// Two failures: charged, not enrolled, so a person is flagged with the
+// subscription and the family is told to press Add again.
+world({ payer: CHILD });
+logged.length = 0;
+failEnrolments(2);
+r = await call(CHILD, ADD_CHEM);
+assert.equal(r.status, 500, JSON.stringify(r.body));
+assert.match(r.body.error, /payment went through/);
+assert.match(r.body.error, /Press Add again/);
+assert.doesNotMatch(r.body.error, /lock timeout/, "The database's text reached the family");
+assert.deepEqual(rpcCalls, ["take", "enrol failed", "enrol failed", "release"]);
+assert.equal(STRIPE.subs.get("sub_1").items.data[0].price.id, "price_monthly_2", "No swap to flag");
+assert.deepEqual(enrolled(), ["biology"]);
+assert.equal(leaseHeld, false, "A flagged change kept the lease");
+assert.ok(
+  logged.some(
+    (l) => l.includes("NEEDS A PERSON") && l.includes("sub_1") && l.includes("chemistry"),
+  ),
+  `No person was flagged: ${JSON.stringify(logged)}`,
+);
+
+// Pressing Add again lands on the same tier and price, so nothing more is
+// charged, and this time the subject switches on.
+r = await call(CHILD, ADD_CHEM);
+assert.equal(r.status, 200, JSON.stringify(r.body));
+assert.equal(r.body.plan, "monthly_2", "The repeat moved up another tier");
+assert.equal(STRIPE.subs.get("sub_1").items.data[0].price.id, "price_monthly_2");
+assert.deepEqual(enrolled(), ["biology", "chemistry"]);
+assert.equal(table("subscriptions")[0].plan, "monthly_2");
+console.error = realError;
+
 // ── Two first checkouts at once share one customer ────────────────────────
 // Both find no customer row and both ask Stripe for one. Before, that made two
 // live Stripe customers and the second checkout failed on the duplicate row.
