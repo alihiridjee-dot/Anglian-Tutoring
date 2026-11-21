@@ -83,11 +83,14 @@ pattern, and Ali's rules for it are:
   in `workbench/figures.tsx`.
 - **Kinds are told apart by a stripe, an icon and a name in one colour**: the
   lanes of a week (Course, Catch-up, Revision), and the kinds of thing beside
-  the plan (check-in, message, missed work).
+  the plan (check-in, message, a problem with the plan).
 - **A panel is named for what is in it.** "To answer" holds what a student or
-  parent has sent, "Missed work" what was not covered, "About the plan" what is
-  wrong with the plan. One panel called "Needs you" over all three read as a
-  question, not a heading.
+  parent has sent, "About the plan" what is wrong with the plan. One panel
+  called "Needs you" over both read as a question, not a heading.
+- **Only what waits on the tutor gets a panel.** Missed work had one until
+  21 Nov 2026 and lost it: it comes back as catch-up on its own. The grid's
+  "Missed" filter finds those lines, and "About the plan" says when they won't
+  fit before the exams.
 - **The roster is the page.** With nobody open, every student is a row and
   every subject a column (`workbench/RosterGrid.tsx`); a cell opens that
   student on that subject.
