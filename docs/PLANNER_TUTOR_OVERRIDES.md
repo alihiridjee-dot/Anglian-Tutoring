@@ -48,6 +48,7 @@ history and cannot be changed.
 | Database | `enforce_plan_overrides` | Drops an automatic insert/update of an overridden point, whatever client wrote it; pins pass |
 | Database | `remove_plan_point`, `skip_plan_point` | Tutor/admin only; refuse past weeks, wrong subject; report when the student's work kept a point |
 | Database | `reorder_student_topics` | New trailing `_student_id`; a tutor or admin may name a student |
+| Database | `student_plan_changes` (20261121124500) | The log of changes to a plan: a row per change, written by triggers on `student_plan_overrides`, `student_weekly_plan_points`, `student_program_plan` and `student_breaks`, saying who made it. Staff read it; nobody writes it. The workbench's Changes tab reads it (`lib/planner/planChangesDal.ts`) |
 | UI | `TutorPlannerPanel.tsx` | The roster, and one student opened as a workbench across the whole page; student, subject and week live in the URL (`lib/planner/plannerSearch.ts`) |
 | UI | `TutorRoster.tsx` | Every student with "6 set · 2 done · 1 by you" per subject from one read (`PlannerRosterDAL.weekSummaries`); the week control; search; filters for "Not opened" and "Set by you" |
 | UI | `workbench/TutorWorkbench.tsx` | One student: the plan grid, "Needs you" and the topic order beside it, with Week review and Practice history one switch away (21 Nov 2026; it replaced the This week / Full plan / Practice history tabs) |

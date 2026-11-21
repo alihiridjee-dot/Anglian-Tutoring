@@ -1,11 +1,15 @@
 import {
   ArrowRight,
   Ban,
+  CalendarClock,
   CalendarOff,
   CalendarPlus,
+  Flag,
+  ListOrdered,
   Minus,
   Plus,
   Redo2,
+  Undo2,
   type LucideIcon,
 } from "lucide-react";
 import { EmptyState } from "@/components/Shared";
@@ -17,18 +21,24 @@ import { TINT_TEXT } from "./figures";
 const KINDS: Record<PlanChange["kind"], { tint: string; icon: LucideIcon }> = {
   moved: { tint: "tint-primary", icon: ArrowRight },
   added: { tint: "tint-emerald", icon: Plus },
+  restored: { tint: "tint-emerald", icon: Undo2 },
+  unskipped: { tint: "tint-emerald", icon: Undo2 },
   carried: { tint: "tint-amber", icon: Redo2 },
   removed: { tint: "tint-rose", icon: Minus },
   skipped: { tint: "tint-rose", icon: Ban },
+  "plan-started": { tint: "tint-primary", icon: Flag },
+  "exam-date": { tint: "tint-accent", icon: CalendarClock },
+  "topic-order": { tint: "tint-accent", icon: ListOrdered },
   break: { tint: "tint-slate", icon: CalendarPlus },
   "break-cancelled": { tint: "tint-slate", icon: CalendarOff },
+  "break-ended": { tint: "tint-slate", icon: CalendarOff },
 };
 
 /**
  * What has been changed in a student's plan, newest first, a day at a time.
  * Each line is one sentence with the kind of change marked by its icon and
- * colour. It shows what the database still holds of each change; a change that
- * was undone, a new topic order and a new exam date leave nothing to show.
+ * colour. From 21 Nov 2026 it is the database's own log of each change; before
+ * that, what the older rows still show.
  */
 export function ChangesPanel({
   changes,

@@ -1729,6 +1729,45 @@ export type Database = {
           },
         ];
       };
+      student_plan_changes: {
+        Row: {
+          actor_id: string | null;
+          actor_role: string;
+          created_at: string;
+          detail: Json;
+          id: string;
+          kind: string;
+          spec_point_id: string | null;
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"] | null;
+          week_start: string | null;
+        };
+        Insert: {
+          actor_id?: string | null;
+          actor_role: string;
+          created_at?: string;
+          detail?: Json;
+          id?: string;
+          kind: string;
+          spec_point_id?: string | null;
+          student_id: string;
+          subject?: Database["public"]["Enums"]["subject"] | null;
+          week_start?: string | null;
+        };
+        Update: {
+          actor_id?: string | null;
+          actor_role?: string;
+          created_at?: string;
+          detail?: Json;
+          id?: string;
+          kind?: string;
+          spec_point_id?: string | null;
+          student_id?: string;
+          subject?: Database["public"]["Enums"]["subject"] | null;
+          week_start?: string | null;
+        };
+        Relationships: [];
+      };
       student_plan_overrides: {
         Row: {
           created_at: string;
