@@ -14,6 +14,8 @@ import {
 import { ChangesPanel } from "@/components/planner/workbench/ChangesPanel";
 import { NeedsYou, type Need } from "@/components/planner/workbench/NeedsYou";
 import { PlanGrid } from "@/components/planner/workbench/PlanGrid";
+import { RosterGrid, type RosterRow } from "@/components/planner/workbench/RosterGrid";
+import type { RosterFilter } from "@/components/planner/useTutorPlanner";
 import { TopicOrderPanel } from "@/components/planner/workbench/TopicOrderPanel";
 import { WeekReviewView } from "@/components/planner/workbench/WeekReviewPanel";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
@@ -299,9 +301,50 @@ const NONE: WeekSummary = {
   verdict: "no_signal",
 };
 
+const set = (total: number, done = 0, pinned = 0) => ({ total, done, pinned });
+const unopened = { note: "Not opened yet" };
+const ROSTER: RosterRow[] = [
+  {
+    id: "1",
+    name: "Sam Carter",
+    level: "GCSE",
+    lastOn: "Thu 19 Nov",
+    cells: { biology: set(10, 4), chemistry: set(12, 2, 3) },
+  },
+  {
+    id: "2",
+    name: "Priya Nair",
+    level: "GCSE",
+    lastOn: "Mon 16 Nov",
+    cells: { physics: set(10), biology: unopened },
+  },
+  {
+    id: "3",
+    name: "Tom Okafor-Whitmore",
+    level: "A-Level",
+    lastOn: "Fri 20 Nov",
+    cells: { chemistry: set(11, 11) },
+  },
+  {
+    id: "4",
+    name: "Mia Kowalski",
+    level: "International GCSE",
+    lastOn: null,
+    cells: { biology: unopened, chemistry: unopened, physics: unopened },
+  },
+  {
+    id: "5",
+    name: "Leo Hart",
+    level: "International GCSE",
+    lastOn: "Sat 14 Nov",
+    cells: { biology: set(7, 1), chemistry: set(6, 0, 6), physics: { note: "On a break" } },
+  },
+  { id: "6", name: "Ava Lin", level: "GCSE", lastOn: "Wed 18 Nov", cells: { biology: set(0) } },
+];
+
 type Part = "needs" | "plan" | "review" | "changes" | "order";
 const PARTS: { key: Part; label: string }[] = [
-  { key: "needs", label: "Needs you" },
+  { key: "needs", label: "Alerts" },
   { key: "plan", label: "Plan" },
   { key: "review", label: "Week review" },
   { key: "changes", label: "Changes" },
@@ -343,8 +386,9 @@ function PlannerPreview() {
     {
       id: "missed",
       kind: "missed",
+      name: "Topic 1: Cell biology",
       when: "Since 26 Oct",
-      text: "2 points in Cell biology",
+      text: "2 points not covered",
       action: {
         label: "Show in the plan",
         run: () => {
@@ -372,10 +416,38 @@ function PlannerPreview() {
         })),
       })),
     );
+  const [find, setFind] = useState("");
+  const [rosterShow, setRosterShow] = useState<RosterFilter>("all");
+  const [rosterWeek, setRosterWeek] = useState(0);
+  const roster = ROSTER.filter((row) => row.name.toLowerCase().includes(find.trim().toLowerCase()));
   const part = (key: Part) => cn("min-w-0 lg:block", solo !== key && "hidden");
   return (
     <div className={cn(SUBJECT_TINT.biology, "bg-background min-h-screen px-3 py-4 sm:px-5")}>
       <div className="mx-auto max-w-[110rem] space-y-3">
+        {/* The page with nobody open: the roster. */}
+        <RosterGrid
+          rows={roster}
+          total={ROSTER.length}
+          subjects={["biology", "chemistry", "physics"]}
+          week={{
+            title:
+              rosterWeek === 0
+                ? "This week"
+                : rosterWeek === 1
+                  ? "Next week"
+                  : `${rosterWeek} weeks away`,
+            dates: "16–22 Nov 2026",
+            isCurrent: rosterWeek === 0,
+            onShift: (n) => setRosterWeek((w) => w + n),
+            onToday: () => setRosterWeek(0),
+          }}
+          query={find}
+          onQuery={setFind}
+          filter={rosterShow}
+          onFilter={setRosterShow}
+          onOpen={(id, subject) => toast(`Opens student ${id}${subject ? ` on ${subject}` : ""}.`)}
+        />
+        {/* The page with a student open: their workbench. */}
         <header className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
           <h1 className="text-xl font-extrabold">Sam Carter</h1>
           <b>GCSE · AQA</b>
@@ -522,17 +594,27 @@ function PlannerPreview() {
             />
           </div>
           <aside className="space-y-3 lg:sticky lg:top-3">
-            <div className={part("needs")}>
-              <NeedsYou
-                needs={needs}
-                busy={null}
-                onReply={async (need) => {
-                  setWaiting((now) => now.filter((n) => n.id !== need.id));
-                  toast.success("Sent, in the made-up data.");
-                  return true;
-                }}
-                onSettle={(need) => setWaiting((now) => now.filter((n) => n.id !== need.id))}
-              />
+            <div className={cn(part("needs"), "space-y-3")}>
+              {(
+                [
+                  ["To answer", (n: Need) => n.canReply === true],
+                  ["Missed work", (n: Need) => n.kind === "missed"],
+                  ["About the plan", (n: Need) => n.kind === "plan"],
+                ] as const
+              ).map(([title, mine]) => (
+                <NeedsYou
+                  key={title}
+                  title={title}
+                  needs={needs.filter(mine)}
+                  busy={null}
+                  onReply={async (need) => {
+                    setWaiting((now) => now.filter((n) => n.id !== need.id));
+                    toast.success("Sent, in the made-up data.");
+                    return true;
+                  }}
+                  onSettle={(need) => setWaiting((now) => now.filter((n) => n.id !== need.id))}
+                />
+              ))}
             </div>
             <div className={part("order")}>
               <TopicOrderPanel

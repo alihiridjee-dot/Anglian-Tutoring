@@ -25,6 +25,8 @@ const KINDS: Record<NeedKind, { name: string; tint: string; icon: LucideIcon }> 
 export interface Need {
   id: string;
   kind: NeedKind;
+  /** What the item is called, when its kind's own name would only repeat the panel's. */
+  name?: string;
   /** When, in words: "Wed 18 Nov", "Since 2 Nov". */
   when: string;
   text: ReactNode;
@@ -35,17 +37,27 @@ export interface Need {
 }
 
 /**
- * What the student needs from the tutor, dealt with where it is read. Each item
- * is marked by its kind (a stripe, an icon and its name, in one colour), with
- * its date opposite. A check-in or a message has its reply box under it, or can
- * be cleared with "No reply needed". Not drawn when nothing is waiting.
+ * One list of things about a student, under a title that says what they are.
+ * The workbench draws up to three: what the student has sent and is waiting on
+ * an answer to ("To answer"), what they have missed ("Missed work"), and what
+ * is wrong with the plan itself ("About the plan"). They were one panel called
+ * "Needs you", which Ali could not read: missed work is not waiting on anyone.
+ *
+ * Each item is marked by its kind (a stripe, an icon and a name, in one
+ * colour), with its date opposite. A check-in or a message has its reply box
+ * under it, or can be cleared with "No reply needed". Not drawn when empty.
  */
 export function NeedsYou({
+  title,
+  id,
   needs,
   busy,
   onReply,
   onSettle,
 }: {
+  /** What these items are, in the tutor's words: "To answer", "Missed work". */
+  title: string;
+  id?: string;
   needs: Need[];
   /** The item being saved, by id. */
   busy: string | null;
@@ -57,10 +69,11 @@ export function NeedsYou({
   const [draft, setDraft] = useState("");
   if (needs.length === 0) return null;
   return (
-    <Panel id="workbench-needs" title="Needs you">
+    <Panel id={id} title={title}>
       <ul className="space-y-4 p-3 text-sm">
         {needs.map((need) => {
-          const { name, tint, icon: Icon } = KINDS[need.kind];
+          const { tint, icon: Icon } = KINDS[need.kind];
+          const name = need.name ?? KINDS[need.kind].name;
           const mine = busy === need.id;
           return (
             <li key={need.id} className={cn(tint, "border-l-4 border-[var(--tint)] pl-3")}>
