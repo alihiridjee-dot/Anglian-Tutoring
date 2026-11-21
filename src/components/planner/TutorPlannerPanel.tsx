@@ -1,5 +1,4 @@
 import { ErrorNote, Spinner } from "@/components/Shared";
-import { UserRound } from "lucide-react";
 import { TutorRoster } from "./TutorRoster";
 import { useTutorPlanner } from "./useTutorPlanner";
 import { TutorWorkbench } from "./workbench/TutorWorkbench";
@@ -39,25 +38,12 @@ export function TutorPlannerPanel() {
       </WorkbenchBoundary>
     );
 
+  // Nobody open: the roster is the page. An address naming a student who is
+  // not on the roster says so above it.
   return (
-    // minmax(0, …) on both tracks: a grid track defaults to min-content, and a
-    // long name would widen the page past a phone screen.
-    <div className="grid gap-4 grid-cols-[minmax(0,1fr)] lg:grid-cols-[19rem_minmax(0,1fr)] items-start">
-      <div className="min-w-0">
-        <TutorRoster state={state} />
-      </div>
-      <div className="hidden min-w-0 lg:block">
-        <div className="rounded-2xl premium-card p-6 sm:p-10 text-center shadow-sm">
-          <span className="icon-tile size-10 mx-auto mb-3">
-            <UserRound className="size-5" aria-hidden />
-          </span>
-          <p className="text-sm font-semibold">
-            {studentId
-              ? "That student isn't on your roster."
-              : "Pick a student to open their plan."}
-          </p>
-        </div>
-      </div>
+    <div className="min-w-0 space-y-3">
+      {studentId && <ErrorNote error={new Error("That student isn't on your roster.")} />}
+      <TutorRoster state={state} />
     </div>
   );
 }

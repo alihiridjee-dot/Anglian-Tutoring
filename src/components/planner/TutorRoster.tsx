@@ -1,145 +1,80 @@
-import { Search, Users } from "lucide-react";
-import { type PlannerStudent, type RosterWeekSummary } from "@/lib/planner/plannerRosterDal";
-import { subjectLabel } from "@/lib/curriculum/courseSummary";
-import { type RosterFilter, type TutorPlannerState } from "./useTutorPlanner";
-import { WeekSwitcher } from "./WeekSwitcher";
+import { useStudentDirectory } from "@/hooks/data/useStudents";
+import { LEVELS, SUBJECTS, type SubjectV } from "@/lib/curriculum/taxonomy";
+import { type RosterWeekSummary } from "@/lib/planner/plannerRosterDal";
+import {
+  relativeWeekLabel,
+  shortDayLabel,
+  weekKeyToDate,
+  weekRangeLabel,
+} from "@/lib/planner/week";
+import { type TutorPlannerState } from "./useTutorPlanner";
+import { RosterGrid, type RosterCell, type RosterRow } from "./workbench/RosterGrid";
 
-const FILTERS: { key: RosterFilter; label: string }[] = [
-  { key: "all", label: "All" },
-  { key: "unopened", label: "Not opened" },
-  { key: "pinned", label: "Set by you" },
-];
-
-/** "6 set · 2 done · 1 by you", or why there is nothing to count. */
-function summaryLine(
-  s: RosterWeekSummary | undefined,
+/** One subject's week for one student: its counts, or why there are none. */
+function rosterCell(
+  summary: RosterWeekSummary | undefined,
   editable: boolean,
   onBreak: boolean,
-): string {
-  if (!s) return onBreak ? "on a break" : editable ? "not opened yet" : "no plan";
-  if (s.total === 0) return "nothing set";
-  const parts = [`${s.total} set`];
-  if (s.done > 0) parts.push(`${s.done} done`);
-  if (s.pinned > 0) parts.push(`${s.pinned} by you`);
-  return parts.join(" · ");
+): RosterCell {
+  if (summary) return { total: summary.total, done: summary.done, pinned: summary.pinned };
+  return { note: onBreak ? "On a break" : editable ? "Not opened yet" : "No plan" };
 }
 
 /**
- * Every student, with how their week stands, in one scrollable list.
+ * Every student, with how their week stands, as a grid across the page.
  *
- * A dropdown of names was fine for five students and useless for fifty: the
- * tutor could not see who had nothing set, who had not opened the week, or
- * whose plan they had already touched, without opening each one. The roster
- * answers those at a glance, from one read of the week's plan rows.
+ * It was a narrow list down the side with the page beside it empty until a
+ * student was picked. Now the roster is the page: a row per student, a column
+ * per subject, the week's counts in each cell, and when each student was last
+ * on. The counts come from one read of the week's plan rows, as before.
  */
 export function TutorRoster({ state }: { state: TutorPlannerState }) {
   const { students, visibleStudents, summaries, query, setQuery, filter, setFilter } = state;
-  const { onBreak } = state;
-  const { studentId, selectStudent, editable, weekStart, currentWeek, shiftWeek, setWeek } = state;
-  const total = students?.length ?? 0;
+  const { onBreak, editable, weekStart, currentWeek, shiftWeek, setWeek, openStudent } = state;
+  const directory = useStudentDirectory();
+  const seen = new Map(
+    (directory.data ?? []).map((s) => [s.id, s.last_active_at ?? s.last_sign_in_at ?? null]),
+  );
+  // A column for each subject someone is on, in the app's own order.
+  const subjects = SUBJECTS.map((s) => s.value).filter((subject) =>
+    (students ?? []).some((s) => s.enrolments.some((e) => e.subject === subject)),
+  );
+  const rows = visibleStudents.map((s): RosterRow => {
+    const mine = summaries?.get(s.id) ?? [];
+    const away = onBreak(s.id);
+    const last = seen.get(s.id);
+    const cells: Partial<Record<SubjectV, RosterCell>> = {};
+    for (const e of s.enrolments)
+      cells[e.subject] = rosterCell(
+        mine.find((w) => w.subject === e.subject),
+        editable,
+        away,
+      );
+    return {
+      id: s.id,
+      name: s.name ?? s.id.slice(0, 8),
+      level: LEVELS.find((l) => l.value === s.level)?.label ?? null,
+      lastOn: last ? shortDayLabel(new Date(last)) : null,
+      cells,
+    };
+  });
   return (
-    <aside
-      className="rounded-2xl premium-card shadow-sm flex flex-col min-h-0"
-      aria-label="Students"
-    >
-      <div className="p-3 border-b border-border space-y-3">
-        <div className="flex items-center gap-2">
-          <span className="icon-tile size-8 shrink-0">
-            <Users className="size-4" aria-hidden />
-          </span>
-          <h2 className="text-sm font-bold">
-            Students <span className="text-muted-foreground font-medium">({total})</span>
-          </h2>
-        </div>
-        {/* The week every count below is for — and, on a wide screen, the
-            open student's week too. */}
-        <WeekSwitcher
-          weekStart={weekStart}
-          currentWeek={currentWeek}
-          onShift={shiftWeek}
-          onToday={() => setWeek(currentWeek)}
-          className="rounded-xl bg-muted/50 px-2.5 py-2"
-        />
-        <label className="flex items-center gap-2 h-11 sm:pointer-fine:h-9 rounded-lg premium-card px-2.5">
-          <Search className="w-3.5 h-3.5 text-muted-foreground shrink-0" aria-hidden />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Find a student"
-            aria-label="Find a student"
-            className="flex-1 min-w-0 bg-transparent text-sm focus:outline-none"
-          />
-        </label>
-        <div className="flex flex-wrap gap-1" role="group" aria-label="Filter students">
-          {FILTERS.map((f) => (
-            <button
-              key={f.key}
-              type="button"
-              aria-pressed={filter === f.key}
-              onClick={() => setFilter(f.key)}
-              className={`h-11 sm:pointer-fine:h-7 px-2.5 rounded-full text-[11px] font-semibold transition ${
-                filter === f.key
-                  ? "btn-solid"
-                  : "bg-muted text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
-      </div>
-      <ul className="overflow-y-auto max-h-[70vh] lg:max-h-[calc(100vh-18rem)] divide-y divide-border">
-        {visibleStudents.length === 0 && (
-          <li className="p-4 text-sm">{total === 0 ? "No students yet." : "No students match."}</li>
-        )}
-        {visibleStudents.map((s: PlannerStudent) => {
-          const mine = summaries?.get(s.id) ?? [];
-          const selected = s.id === studentId;
-          const away = onBreak(s.id);
-          return (
-            <li key={s.id}>
-              <button
-                type="button"
-                onClick={() => selectStudent(s.id)}
-                aria-current={selected ? "true" : undefined}
-                className={`w-full text-left px-3 py-2.5 transition ${
-                  selected ? "bg-primary/10" : "hover:bg-muted/60"
-                }`}
-              >
-                <div className="flex items-baseline justify-between gap-2">
-                  <span
-                    className={`text-sm font-semibold truncate ${selected ? "text-primary" : ""}`}
-                  >
-                    {s.name ?? s.id.slice(0, 8)}
-                  </span>
-                  {s.level && (
-                    <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground shrink-0">
-                      {s.level.replace("_", " ")}
-                    </span>
-                  )}
-                </div>
-                {s.enrolments.length === 0 ? (
-                  <p className="text-[11px] text-muted-foreground mt-0.5">No enrolments</p>
-                ) : (
-                  <ul className="mt-0.5 space-y-0.5">
-                    {s.enrolments.map((e) => {
-                      const sum = mine.find((w) => w.subject === e.subject);
-                      return (
-                        <li key={e.subject} className="text-[11px] text-muted-foreground truncate">
-                          <span className="font-medium text-foreground/80">
-                            {subjectLabel(e.subject)}
-                          </span>{" "}
-                          · {summaryLine(sum, editable, away)}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </aside>
+    <RosterGrid
+      rows={rows}
+      total={students?.length ?? 0}
+      subjects={subjects}
+      week={{
+        title: relativeWeekLabel(weekStart, currentWeek),
+        dates: weekRangeLabel(weekKeyToDate(weekStart)),
+        isCurrent: weekStart === currentWeek,
+        onShift: shiftWeek,
+        onToday: () => setWeek(currentWeek),
+      }}
+      query={query}
+      onQuery={setQuery}
+      filter={filter}
+      onFilter={setFilter}
+      onOpen={openStudent}
+    />
   );
 }

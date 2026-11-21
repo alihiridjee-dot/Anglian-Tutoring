@@ -82,8 +82,15 @@ pattern, and Ali's rules for it are:
   inside (`Mark`), and a status is a coloured dot and a word (`StatusWord`), all
   in `workbench/figures.tsx`.
 - **Kinds are told apart by a stripe, an icon and a name in one colour**: the
-  lanes of a week (Course, Catch-up, Revision), and the kinds of thing in
-  "Needs you" (check-in, message, missed work).
+  lanes of a week (Course, Catch-up, Revision), and the kinds of thing beside
+  the plan (check-in, message, missed work).
+- **A panel is named for what is in it.** "To answer" holds what a student or
+  parent has sent, "Missed work" what was not covered, "About the plan" what is
+  wrong with the plan. One panel called "Needs you" over all three read as a
+  question, not a heading.
+- **The roster is the page.** With nobody open, every student is a row and
+  every subject a column (`workbench/RosterGrid.tsx`); a cell opens that
+  student on that subject.
 
 No session can sign in as a tutor, so the workbench is looked at on the
 dev-only `/planner-preview`, which draws the same panels over made-up data.
