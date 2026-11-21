@@ -4,7 +4,7 @@ import { type PlanOverride } from "@/lib/planner/overrides";
 import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { type TutorPlannerState } from "./useTutorPlanner";
-import { type AssignmentWarning } from "./tutorWeekRows";
+import { WARNING_COPY } from "./tutorWeekRows";
 
 /** What the tutor has set aside — removed from this week, or skipped in the programme — with the way back. */
 export function OverridesPanel({ state }: { state: TutorPlannerState }) {
@@ -87,13 +87,6 @@ export function OverridesUnavailable() {
     </p>
   );
 }
-
-const WARNING_COPY: Record<AssignmentWarning["reason"], (w: AssignmentWarning) => string> = {
-  covered: (w) => `already assessed at ${w.bestScore}%`,
-  done: () => "already ticked off by the student",
-  skipped: () => "skipped in the programme — this week's pin will still stand",
-  "in-week": () => "already in this week",
-};
 
 /** Add spec points to the week: the closed button, or the open picker with its warnings. */
 export function AddPointsBox({ state }: { state: TutorPlannerState }) {

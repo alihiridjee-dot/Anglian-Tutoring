@@ -22,7 +22,14 @@ const TABS: { key: TutorTab; label: string; icon: typeof CalendarDays }[] = [
  * not repeat the name or the subject, which is most of what made the full plan
  * read as boxes inside boxes.
  */
-export function TutorStudentPane({ state }: { state: TutorPlannerState }) {
+export function TutorStudentPane({
+  state,
+  onWorkbench,
+}: {
+  state: TutorPlannerState;
+  /** Switch to the workbench layout (the plan as a grid, with what needs the tutor beside it). */
+  onWorkbench?: () => void;
+}) {
   const { student, ordered, active, activeSubject, setSubject, tab, setTab, selectStudent } = state;
   const { weekStart, currentWeek } = state;
   if (!student) return null;
@@ -47,6 +54,15 @@ export function TutorStudentPane({ state }: { state: TutorPlannerState }) {
             <span className="chip tint-slate text-[11px] uppercase tracking-wide">
               {courseLabel}
             </span>
+          )}
+          {onWorkbench && (
+            <button
+              type="button"
+              onClick={onWorkbench}
+              className="btn-soft ml-auto inline-flex h-11 items-center rounded-lg px-3 text-sm sm:pointer-fine:h-9"
+            >
+              New layout
+            </button>
           )}
         </div>
         {ordered.length > 1 && (
