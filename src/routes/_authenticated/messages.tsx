@@ -9,14 +9,16 @@ import { useChatThreads, usePinnedThread, type ThreadSummary } from "@/hooks/dat
 import { ThreadList } from "@/components/chat/ThreadList";
 import { ThreadView } from "@/components/chat/ThreadView";
 import { NewThreadDialog } from "@/components/chat/NewThreadDialog";
+import { TutorNewThreadDialog } from "@/components/chat/TutorNewThreadDialog";
 import { EmptyInbox } from "@/components/chat/EmptyInbox";
 
 /**
  * Messages — one route, both sides of the same conversation.
  *
  * A student writes questions here and a tutor answers them, so the page is a
- * list plus a thread for everyone; the only differences are who can start a
- * conversation (students) and who gets the AI draft button (tutors). Keeping it
+ * list plus a thread for everyone; the differences are how a conversation is
+ * started (a student asks the team; a tutor picks a student or a parent) and
+ * who gets the AI draft button (tutors). Keeping it
  * as one route rather than two means the two views cannot drift apart, which is
  * the failure mode that matters for a messaging surface.
  *
@@ -54,6 +56,12 @@ function MessagesPage() {
   );
   const unreadTotal = threads.reduce((n, t) => n + t.unread, 0);
 
+  const onCreated = (id: string) => {
+    setComposing(false);
+    setSelectedId(id);
+    setThreadOpen(true);
+  };
+
   if (rolesLoading || isPending) {
     return (
       <AppLayout title="Messages">
@@ -81,15 +89,14 @@ function MessagesPage() {
                     : "Everything's answered"
                   : "Ask your tutor anything — attach the spec point, task or quiz you're stuck on"}
               </p>
-              {!isTutor && (
-                <button
-                  data-guide="ask-question"
-                  onClick={() => setComposing(true)}
-                  className="btn-solid inbox-ask inline-flex h-12 shrink-0 items-center gap-2 rounded-xl px-5 text-base font-extrabold"
-                >
-                  <MessageSquarePlus className="inbox-ask-icon size-5" aria-hidden /> Ask a question
-                </button>
-              )}
+              <button
+                data-guide={isTutor ? undefined : "ask-question"}
+                onClick={() => setComposing(true)}
+                className="btn-solid inbox-ask inline-flex h-12 shrink-0 items-center gap-2 rounded-xl px-5 text-base font-extrabold"
+              >
+                <MessageSquarePlus className="inbox-ask-icon size-5" aria-hidden />{" "}
+                {isTutor ? "New message" : "Ask a question"}
+              </button>
             </div>
             <div className="grid gap-4 lg:grid-cols-[minmax(0,20rem)_1fr]">
               <div
@@ -144,16 +151,12 @@ function MessagesPage() {
         )}
       </div>
 
-      {composing && (
-        <NewThreadDialog
-          onClose={() => setComposing(false)}
-          onCreated={(id) => {
-            setComposing(false);
-            setSelectedId(id);
-            setThreadOpen(true);
-          }}
-        />
-      )}
+      {composing &&
+        (isTutor ? (
+          <TutorNewThreadDialog onClose={() => setComposing(false)} onCreated={onCreated} />
+        ) : (
+          <NewThreadDialog onClose={() => setComposing(false)} onCreated={onCreated} />
+        ))}
     </AppLayout>
   );
 }

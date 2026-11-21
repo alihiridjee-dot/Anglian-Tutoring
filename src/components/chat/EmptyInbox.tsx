@@ -19,8 +19,8 @@ export function Squiggle({ className = "mx-auto" }: { className?: string }) {
  * An inbox with nothing in it, in the paywall's look: no card, a solid round
  * dot, the title on the page with the highlighter stroke, one dark line and
  * one big button. Pointing at the button makes the speech bubble in the dot
- * hop. A tutor gets the same look with no button, since a question arrives on
- * its own.
+ * hop. A tutor gets the same look, and their button writes to a student or a
+ * parent first.
  */
 export function EmptyInbox({ isTutor, onAsk }: { isTutor: boolean; onAsk: () => void }) {
   const [reaching, setReaching] = useState(false);
@@ -36,6 +36,9 @@ export function EmptyInbox({ isTutor, onAsk }: { isTutor: boolean; onAsk: () => 
         <p className="mx-auto mt-4 max-w-md text-lg font-medium">
           When a student asks one, it lands here with the spec point or task they were on.
         </p>
+        <button type="button" onClick={onAsk} className="btn-solid paywall-btn mt-7">
+          New message <ArrowRight className="paywall-arrow size-5" />
+        </button>
       </div>
     );
   }

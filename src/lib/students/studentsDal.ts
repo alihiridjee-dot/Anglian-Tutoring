@@ -151,7 +151,7 @@ export interface StudentThread {
   context_label: string | null;
   last_message_at: string;
   tutor_last_read_at: string | null;
-  /** Set on a thread one of the student's parents opened about them. */
+  /** Set on a thread with one of the student's parents: about this student. */
   about_student_id: string | null;
 }
 
