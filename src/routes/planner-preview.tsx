@@ -384,21 +384,6 @@ function PlannerPreview() {
   const needs: Need[] = [
     ...waiting,
     {
-      id: "missed",
-      kind: "missed",
-      name: "Topic 1: Cell biology",
-      when: "Since 26 Oct",
-      text: "2 points not covered",
-      action: {
-        label: "Show in the plan",
-        run: () => {
-          setShow("missed");
-          setMonth("2026-10");
-          setSolo("plan");
-        },
-      },
-    },
-    {
       id: "plan",
       kind: "plan",
       when: "Waiting",
@@ -598,7 +583,6 @@ function PlannerPreview() {
               {(
                 [
                   ["To answer", (n: Need) => n.canReply === true],
-                  ["Missed work", (n: Need) => n.kind === "missed"],
                   ["About the plan", (n: Need) => n.kind === "plan"],
                 ] as const
               ).map(([title, mine]) => (

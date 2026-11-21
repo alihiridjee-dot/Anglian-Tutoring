@@ -1,23 +1,15 @@
 import { useState, type ReactNode } from "react";
-import {
-  CalendarX,
-  ClipboardCheck,
-  MessageCircle,
-  TriangleAlert,
-  type LucideIcon,
-} from "lucide-react";
+import { ClipboardCheck, MessageCircle, TriangleAlert, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { QUIET, SOLID, TINT_TEXT } from "./figures";
 import { Panel } from "./PlanGrid";
 
 /** What kind of thing is waiting, which decides its colour, icon and name. */
-export type NeedKind = "checkin" | "message" | "parent" | "missed" | "plan";
+export type NeedKind = "checkin" | "message" | "parent" | "plan";
 const KINDS: Record<NeedKind, { name: string; tint: string; icon: LucideIcon }> = {
   checkin: { name: "Check-in", tint: "tint-accent", icon: ClipboardCheck },
   message: { name: "Message", tint: "tint-primary", icon: MessageCircle },
   parent: { name: "Message from a parent", tint: "tint-primary", icon: MessageCircle },
-  // The same amber as the grid's Catch-up lane: it is the same work.
-  missed: { name: "Missed work", tint: "tint-amber", icon: CalendarX },
   plan: { name: "The plan", tint: "tint-rose", icon: TriangleAlert },
 };
 
@@ -27,21 +19,20 @@ export interface Need {
   kind: NeedKind;
   /** What the item is called, when its kind's own name would only repeat the panel's. */
   name?: string;
-  /** When, in words: "Wed 18 Nov", "Since 2 Nov". */
+  /** When, in words: "Wed 18 Nov", "Now". */
   when: string;
   text: ReactNode;
   /** It can be answered in place. */
   canReply?: boolean;
-  /** One plain action that isn't a reply: "Show in the plan". */
-  action?: { label: string; run: () => void };
 }
 
 /**
  * One list of things about a student, under a title that says what they are.
- * The workbench draws up to three: what the student has sent and is waiting on
- * an answer to ("To answer"), what they have missed ("Missed work"), and what
- * is wrong with the plan itself ("About the plan"). They were one panel called
- * "Needs you", which Ali could not read: missed work is not waiting on anyone.
+ * The workbench draws two: what the student has sent and is waiting on an
+ * answer to ("To answer"), and what is wrong with the plan itself ("About the
+ * plan"). They were one panel called "Needs you", which Ali could not read.
+ * Missed work had a panel too until 21 Nov; it comes back as catch-up on its
+ * own, so it waited on nobody.
  *
  * Each item is marked by its kind (a stripe, an icon and a name, in one
  * colour), with its date opposite. A check-in or a message has its reply box
@@ -55,7 +46,7 @@ export function NeedsYou({
   onReply,
   onSettle,
 }: {
-  /** What these items are, in the tutor's words: "To answer", "Missed work". */
+  /** What these items are, in the tutor's words: "To answer", "About the plan". */
   title: string;
   id?: string;
   needs: Need[];
@@ -120,7 +111,7 @@ export function NeedsYou({
                   </div>
                 </div>
               ) : (
-                (need.canReply || need.action) && (
+                need.canReply && (
                   <div className="-ml-2 flex flex-wrap">
                     {need.canReply && (
                       <>
@@ -144,11 +135,6 @@ export function NeedsYou({
                           No reply needed
                         </button>
                       </>
-                    )}
-                    {need.action && (
-                      <button type="button" className={QUIET} onClick={need.action.run}>
-                        {need.action.label}
-                      </button>
                     )}
                   </div>
                 )
