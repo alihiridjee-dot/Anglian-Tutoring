@@ -11,11 +11,13 @@ import {
   type Show,
   type TopicRow,
 } from "@/components/planner/workbench/gridData";
+import { ChangesPanel } from "@/components/planner/workbench/ChangesPanel";
 import { NeedsYou, type Need } from "@/components/planner/workbench/NeedsYou";
 import { PlanGrid } from "@/components/planner/workbench/PlanGrid";
 import { TopicOrderPanel } from "@/components/planner/workbench/TopicOrderPanel";
+import { WeekReviewView } from "@/components/planner/workbench/WeekReviewPanel";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
-import type { PointStatus } from "@/lib/planner/coverage";
+import type { PointStatus, WeekSummary } from "@/lib/planner/coverage";
 import { cn } from "@/lib/utils";
 
 // DEV ONLY — the tutor's workbench panels (the real ones the planner mounts in
@@ -88,7 +90,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-10-12",
           "course",
-          "1.1",
+          "AQA 3.1.4.2",
           "Eukaryotes and prokaryotes",
           CELL,
           mark(74),
@@ -110,7 +112,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-10-26",
           "course",
-          "1.3",
+          "EDEX 3.13",
           "Cell specialisation and differentiation",
           CELL,
           say("Not done"),
@@ -180,7 +182,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-11-16",
           "course",
-          "5.1",
+          "EDEX 1.1",
           "Principles of homeostasis",
           HOM,
           say("To do"),
@@ -190,7 +192,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-11-16",
           "course",
-          "5.2",
+          "EDEX 2.17B",
           "Structure and function of the nervous system",
           HOM,
           say("Handed in"),
@@ -200,7 +202,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-11-16",
           "course",
-          "5.3",
+          "EDEX 3.9B",
           "Reflex actions",
           HOM,
           say("None yet"),
@@ -210,7 +212,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-11-16",
           "catchup",
-          "1.3",
+          "EDEX 3.13",
           "Cell specialisation and differentiation",
           CELL,
           mark(39),
@@ -220,7 +222,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-11-16",
           "revision",
-          "1.1",
+          "AQA 3.1.4.2",
           "Eukaryotes and prokaryotes",
           CELL,
           say("None yet"),
@@ -284,10 +286,25 @@ const TOPICS: TopicRow[] = [
   { topicId: "4", title: "Bioenergetics", when: "18 Jan – 14 Feb 2027", state: null },
 ];
 
-type Part = "needs" | "plan" | "order";
+/** An empty week summary, for the made-up lanes to fill in. */
+const NONE: WeekSummary = {
+  total: 0,
+  strong: 0,
+  practised: 0,
+  weak: 0,
+  notDone: 0,
+  notSet: 0,
+  toRevisit: [],
+  covered: [],
+  verdict: "no_signal",
+};
+
+type Part = "needs" | "plan" | "review" | "changes" | "order";
 const PARTS: { key: Part; label: string }[] = [
   { key: "needs", label: "Needs you" },
   { key: "plan", label: "Plan" },
+  { key: "review", label: "Week review" },
+  { key: "changes", label: "Changes" },
   { key: "order", label: "Topic order" },
 ];
 
@@ -297,6 +314,7 @@ function PlannerPreview() {
   const [month, setMonth] = useState<string | null>(null);
   const [show, setShow] = useState<Show>("all");
   const [solo, setSolo] = useState<Part>("needs");
+  const [note, setNote] = useState("");
   const [waiting, setWaiting] = useState<Need[]>([
     {
       id: "c",
@@ -419,6 +437,88 @@ function PlannerPreview() {
               }}
               onSkip={(rows) => toast(`Skip ${rows.length}: nothing to skip in made-up data.`)}
               onAdd={(week) => toast(`Add to ${week.dates}: the point picker needs a real course.`)}
+            />
+          </div>
+          <div
+            className={cn(part("review"), "premium-card p-3 sm:p-4 lg:order-last lg:col-span-2")}
+          >
+            <WeekReviewView
+              firstName="Sam"
+              lanes={[
+                {
+                  lane: "core",
+                  summary: {
+                    ...NONE,
+                    total: 10,
+                    notDone: 7,
+                    weak: 2,
+                    strong: 1,
+                    verdict: "keep_going",
+                  },
+                },
+                {
+                  lane: "focus",
+                  summary: { ...NONE, total: 3, strong: 2, practised: 1, verdict: "move_on" },
+                },
+                { lane: "tutor", summary: { ...NONE, total: 1, notSet: 1, verdict: "no_signal" } },
+              ]}
+              checkin={{
+                felt: "Wanted more practice.",
+                said: "I keep mixing up the order of the reflex arc.",
+              }}
+              note={{
+                state: "ready",
+                value: note,
+                onChange: setNote,
+                saving: false,
+                drafting: false,
+                onSave: () => toast.success("Saved, in the made-up data."),
+                onDraft: () => toast("The draft needs a real week's marks."),
+              }}
+            />
+          </div>
+          <div
+            className={cn(part("changes"), "premium-card p-3 sm:p-4 lg:order-last lg:col-span-2")}
+          >
+            <ChangesPanel
+              changes={[
+                {
+                  id: "1",
+                  at: "2026-11-19T16:20:00Z",
+                  kind: "moved",
+                  text: "Nadia moved EDEX 2.17B Structure and function of the nervous system from 16–22 Nov 2026 to 23–29 Nov 2026.",
+                },
+                {
+                  id: "2",
+                  at: "2026-11-19T16:18:00Z",
+                  kind: "added",
+                  text: "A tutor added EDEX 2.7 Coronary heart disease to 16–22 Nov 2026.",
+                },
+                {
+                  id: "3",
+                  at: "2026-11-18T10:02:00Z",
+                  kind: "removed",
+                  text: "Ali removed EDEX 3.9B Reflex actions from 16–22 Nov 2026.",
+                },
+                {
+                  id: "4",
+                  at: "2026-11-18T09:40:00Z",
+                  kind: "skipped",
+                  text: "Ali skipped EDEX 1.5 Culturing microorganisms for good.",
+                },
+                {
+                  id: "5",
+                  at: "2026-11-16T08:05:00Z",
+                  kind: "carried",
+                  text: "EDEX 3.13 Cell specialisation and differentiation was carried from 26 Oct – 1 Nov 2026 into 16–22 Nov 2026.",
+                },
+                {
+                  id: "6",
+                  at: "2026-11-14T19:00:00Z",
+                  kind: "break",
+                  text: "A break was booked: 30 Nov – 6 Dec.",
+                },
+              ]}
             />
           </div>
           <aside className="space-y-3 lg:sticky lg:top-3">

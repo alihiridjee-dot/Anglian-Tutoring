@@ -258,7 +258,7 @@ export function PlanGrid({
                 <table className="w-full table-fixed border-collapse text-left text-sm">
                   <colgroup>
                     <col className="w-12" />
-                    <col className="w-16" />
+                    <col className="w-32" />
                     <col />
                     <col className="w-52 max-2xl:hidden" />
                     <col className="w-24" />
@@ -326,7 +326,7 @@ export function PlanGrid({
                                 </span>
                               )}
                             </td>
-                            <td className="font-bold whitespace-nowrap">{row.code}</td>
+                            <td className="font-bold break-words">{row.code}</td>
                             <td className="font-bold">{row.title}</td>
                             <td className="max-2xl:hidden">{row.topic}</td>
                             <td className="whitespace-nowrap">

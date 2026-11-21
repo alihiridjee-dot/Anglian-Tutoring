@@ -2,13 +2,21 @@ import { useMemo, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { ArrowLeft, Plus } from "lucide-react";
 import { toast } from "sonner";
-import { EmptyState, Ring, SegmentedToggle, Spinner, SubjectToggle } from "@/components/Shared";
+import {
+  EmptyState,
+  ErrorNote,
+  Ring,
+  SegmentedToggle,
+  Spinner,
+  SubjectToggle,
+} from "@/components/Shared";
 import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
-import { CHAT_KEY } from "@/hooks/data/useChat";
+import { CHAT_KEY, useTutorDirectory } from "@/hooks/data/useChat";
 import { useStudentDirectory } from "@/hooks/data/useStudents";
 import { type BoardV, type SubjectV } from "@/lib/curriculum/taxonomy";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { NeedsYouDAL } from "@/lib/planner/needsYouDal";
+import { describeChange, PlanChangesDAL } from "@/lib/planner/planChangesDal";
 import { PlanOverridesDAL } from "@/lib/planner/planOverridesDal";
 import { invalidatePlanner, plannerKey } from "@/lib/planner/queries";
 import { shortDayLabel } from "@/lib/planner/week";
@@ -19,22 +27,24 @@ import { TopicOrderEditor } from "../TopicOrderEditor";
 import { OverridesPanel, OverridesUnavailable } from "../TutorPlannerParts";
 import { assignmentWarnings, WARNING_COPY } from "../tutorWeekRows";
 import { type TutorPlannerState } from "../useTutorPlanner";
-import { WeekReview } from "../WeekReview";
 import { WeekSwitcher } from "../WeekSwitcher";
 import { WithheldPlanPoints } from "../WithheldPlanPoints";
 import { formatSchedule } from "../fullPlan/formatSchedule";
 import { BulkActions, describeOutcome, type BulkOutcome } from "./bulkActions";
 import { CTRL, QUIET, SOLID, Tally } from "./figures";
 import { gridMonths, topicRows, type GridRow, type GridWeek, type Show } from "./gridData";
+import { ChangesPanel } from "./ChangesPanel";
 import { NeedsYou, type Need } from "./NeedsYou";
 import { PlanGrid } from "./PlanGrid";
 import { TopicOrderPanel } from "./TopicOrderPanel";
+import { WeekReviewPanel } from "./WeekReviewPanel";
 
-type View = "plan" | "review" | "history";
+type View = "plan" | "review" | "history" | "changes";
 const VIEWS: { value: View; label: string }[] = [
   { value: "plan", label: "Plan" },
   { value: "review", label: "Week review" },
   { value: "history", label: "Practice history" },
+  { value: "changes", label: "Changes" },
 ];
 /** A phone shows one part at a time: one of the main views, or one of the two beside them. */
 type Solo = "main" | "needs" | "order";
@@ -53,21 +63,13 @@ const reasonOf = (e: unknown, fallback: string) =>
  *   place, and the work they have missed.
  * - **Topic order**: the topics as they will be taught, and the way into the
  *   order editor.
- * - **Week review** and **Practice history** are the classic tabs' own panels,
- *   one switch away.
+ * - **Week review** and **Practice history** are one switch away.
  *
- * It reads the planner's existing state ({@link TutorPlannerState}) and changes
- * the plan through the same rules as the classic row menu, so the two layouts
- * can't disagree about a student.
+ * It reads the planner's state ({@link TutorPlannerState}) and changes the plan
+ * through the database's own rules for a tutor's change (remove, skip, pin),
+ * called once per line.
  */
-export function TutorWorkbench({
-  state,
-  onClassic,
-}: {
-  state: TutorPlannerState;
-  /** Go back to the classic three-tab layout. */
-  onClassic: () => void;
-}) {
+export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
   const { student, ordered, active, activeSubject, setSubject, selectStudent } = state;
   const { course, roadmap, weekStart, currentWeek } = state;
   const client = useQueryClient();
@@ -86,6 +88,14 @@ export function TutorWorkbench({
   const breaks = useQuery({ ...studentBreaksQuery(studentId), enabled: ready });
   const directory = useStudentDirectory();
   const needsKey = [...plannerKey(studentId), "needs-you", course.subject];
+  const staff = useTutorDirectory();
+  // Read when the tab is opened, and again after any change to the plan.
+  const changes = useQuery({
+    queryKey: [...plannerKey(studentId), "changes", course.subject],
+    queryFn: () => PlanChangesDAL.list(studentId, course.subject),
+    enabled: ready && view === "changes",
+    staleTime: 30_000,
+  });
   const waiting = useQuery({
     queryKey: needsKey,
     queryFn: () => NeedsYouDAL.list(studentId, course.subject),
@@ -297,6 +307,30 @@ export function TutorWorkbench({
       title={`${name} has no exam level set`}
       body="Set it on their profile before planning."
     />
+  ) : view === "changes" ? (
+    <div className="premium-card p-3 sm:p-4">
+      {changes.error ? (
+        <ErrorNote error={changes.error} onRetry={() => void changes.refetch()} />
+      ) : !changes.data ? (
+        <Spinner className="py-10" />
+      ) : (
+        <ChangesPanel
+          changes={changes.data.map((change) => ({
+            id: change.id,
+            at: change.at,
+            kind: change.kind,
+            text: describeChange(change, {
+              point: (id) => {
+                const label = state.labels.get(id);
+                return label ? `${label.code} ${label.title}` : null;
+              },
+              staff: (id) => staff.data?.find((t) => t.id === id)?.display_name ?? null,
+              student: first,
+            }),
+          }))}
+        />
+      )}
+    </div>
   ) : view === "history" ? (
     <div className="premium-card p-3 sm:p-4">
       <CoveredLedger
@@ -318,8 +352,9 @@ export function TutorWorkbench({
       {state.loading ? (
         <Spinner className="py-10" />
       ) : state.showReview && state.plan ? (
-        <WeekReview
+        <WeekReviewPanel
           studentId={student.id}
+          firstName={first}
           plan={state.plan}
           points={state.points}
           coverage={state.coverage}
@@ -328,9 +363,7 @@ export function TutorWorkbench({
           board={active.board as BoardV}
           level={student.level}
           weekStart={weekStart}
-          examDate={roadmap?.examDate}
           onChanged={() => void state.refreshAll()}
-          readOnly
         />
       ) : (
         <EmptyState compact title={`Nothing to review for ${state.weekLabel}`} />
@@ -511,9 +544,6 @@ export function TutorWorkbench({
               items={VIEWS}
             />
           </div>
-          <button type="button" className={QUIET} onClick={onClassic}>
-            Classic layout
-          </button>
         </div>
       </header>
 
