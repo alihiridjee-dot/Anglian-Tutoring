@@ -64,6 +64,30 @@ surfaces, large type, and the fun carried by motion and emoji, not by more boxes
 - **Phones get the same trail**, smaller (`--dot` shrinks under 600px), with
   every stop still a 44px target. Do not swap it for a different phone layout.
 
+### A tutor's tool is a workbench
+
+The trail above is for a learner. A tutor's working screen is the other way
+round: function first, plain and dense. The planner's workbench
+(`src/components/planner/workbench/`, one student across the whole page) is the
+pattern, and Ali's rules for it are:
+
+- **The work surface fills the page**, and what waits on the tutor sits beside
+  it. On a phone it is one part at a time, never a squeezed copy of the laptop.
+- **One way to change things.** Tick lines, then act on them in the bar that
+  appears. No menu per row.
+- **An action happens where it is read.** A reply box opens under the message;
+  nothing jumps to another page to be answered.
+- **No loose numbers, and no pills.** A count sits inside a round dot beside its
+  word (`Tally`), a mark is a ring filled as far as the mark with the figure
+  inside (`Mark`), and a status is a coloured dot and a word (`StatusWord`), all
+  in `workbench/figures.tsx`.
+- **Kinds are told apart by a stripe, an icon and a name in one colour**: the
+  lanes of a week (Course, Catch-up, Revision), and the kinds of thing in
+  "Needs you" (check-in, message, missed work).
+
+No session can sign in as a tutor, so the workbench is looked at on the
+dev-only `/planner-preview`, which draws the same panels over made-up data.
+
 ### Everything colours itself from `--tint`
 
 The kit mixes against a single inherited `--tint`, so a card, its meter, its

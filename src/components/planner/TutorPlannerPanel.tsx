@@ -3,6 +3,8 @@ import { UserRound } from "lucide-react";
 import { TutorRoster } from "./TutorRoster";
 import { TutorStudentPane } from "./TutorStudentPane";
 import { useTutorPlanner } from "./useTutorPlanner";
+import { usePlannerLayout, WorkbenchBoundary } from "./workbench/layoutChoice";
+import { TutorWorkbench } from "./workbench/TutorWorkbench";
 
 /**
  * The tutor's planner: every student down the side, one student's plan in
@@ -19,6 +21,7 @@ import { useTutorPlanner } from "./useTutorPlanner";
 export function TutorPlannerPanel() {
   const state = useTutorPlanner();
   const { roster, students, student, studentId } = state;
+  const [layout, setLayout] = usePlannerLayout();
 
   if (roster.error || state.week.error)
     return <ErrorNote error={roster.error ?? state.week.error} />;
@@ -30,6 +33,18 @@ export function TutorPlannerPanel() {
     );
   }
 
+  // The workbench is one student across the whole page: its grid and the two
+  // panels beside it leave no room for the roster, which is one button away.
+  if (student && layout === "workbench")
+    return (
+      <WorkbenchBoundary
+        key={`${student.id}:${state.activeSubject}`}
+        onClassic={() => setLayout("classic")}
+      >
+        <TutorWorkbench state={state} onClassic={() => setLayout("classic")} />
+      </WorkbenchBoundary>
+    );
+
   return (
     // minmax(0, …) on both tracks: a grid track defaults to min-content, and a
     // long spec-point title would widen the pane past a phone screen.
@@ -39,7 +54,7 @@ export function TutorPlannerPanel() {
       </div>
       <div className={`min-w-0 ${studentId ? "" : "hidden lg:block"}`}>
         {student ? (
-          <TutorStudentPane state={state} />
+          <TutorStudentPane state={state} onWorkbench={() => setLayout("workbench")} />
         ) : (
           <div className="rounded-2xl premium-card p-6 sm:p-10 text-center shadow-sm">
             <span className="icon-tile size-10 mx-auto mb-3">

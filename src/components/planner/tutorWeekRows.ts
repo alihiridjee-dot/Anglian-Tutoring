@@ -240,3 +240,11 @@ export function assignmentWarnings(params: {
   }
   return out;
 }
+
+/** Each warning in a few words, after the point's code and title. */
+export const WARNING_COPY: Record<AssignmentWarning["reason"], (w: AssignmentWarning) => string> = {
+  covered: (w) => `already assessed at ${w.bestScore}%`,
+  done: () => "already ticked off by the student",
+  skipped: () => "skipped in the programme — this week's pin will still stand",
+  "in-week": () => "already in this week",
+};
