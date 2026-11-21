@@ -11,6 +11,7 @@ import {
   type Show,
   type TopicRow,
 } from "@/components/planner/workbench/gridData";
+import { ChangesPanel } from "@/components/planner/workbench/ChangesPanel";
 import { NeedsYou, type Need } from "@/components/planner/workbench/NeedsYou";
 import { PlanGrid } from "@/components/planner/workbench/PlanGrid";
 import { TopicOrderPanel } from "@/components/planner/workbench/TopicOrderPanel";
@@ -298,11 +299,12 @@ const NONE: WeekSummary = {
   verdict: "no_signal",
 };
 
-type Part = "needs" | "plan" | "review" | "order";
+type Part = "needs" | "plan" | "review" | "changes" | "order";
 const PARTS: { key: Part; label: string }[] = [
   { key: "needs", label: "Needs you" },
   { key: "plan", label: "Plan" },
   { key: "review", label: "Week review" },
+  { key: "changes", label: "Changes" },
   { key: "order", label: "Topic order" },
 ];
 
@@ -473,6 +475,50 @@ function PlannerPreview() {
                 onSave: () => toast.success("Saved, in the made-up data."),
                 onDraft: () => toast("The draft needs a real week's marks."),
               }}
+            />
+          </div>
+          <div
+            className={cn(part("changes"), "premium-card p-3 sm:p-4 lg:order-last lg:col-span-2")}
+          >
+            <ChangesPanel
+              changes={[
+                {
+                  id: "1",
+                  at: "2026-11-19T16:20:00Z",
+                  kind: "moved",
+                  text: "Nadia moved EDEX 2.17B Structure and function of the nervous system from 16–22 Nov 2026 to 23–29 Nov 2026.",
+                },
+                {
+                  id: "2",
+                  at: "2026-11-19T16:18:00Z",
+                  kind: "added",
+                  text: "A tutor added EDEX 2.7 Coronary heart disease to 16–22 Nov 2026.",
+                },
+                {
+                  id: "3",
+                  at: "2026-11-18T10:02:00Z",
+                  kind: "removed",
+                  text: "Ali removed EDEX 3.9B Reflex actions from 16–22 Nov 2026.",
+                },
+                {
+                  id: "4",
+                  at: "2026-11-18T09:40:00Z",
+                  kind: "skipped",
+                  text: "Ali skipped EDEX 1.5 Culturing microorganisms for good.",
+                },
+                {
+                  id: "5",
+                  at: "2026-11-16T08:05:00Z",
+                  kind: "carried",
+                  text: "EDEX 3.13 Cell specialisation and differentiation was carried from 26 Oct – 1 Nov 2026 into 16–22 Nov 2026.",
+                },
+                {
+                  id: "6",
+                  at: "2026-11-14T19:00:00Z",
+                  kind: "break",
+                  text: "A break was booked: 30 Nov – 6 Dec.",
+                },
+              ]}
             />
           </div>
           <aside className="space-y-3 lg:sticky lg:top-3">
