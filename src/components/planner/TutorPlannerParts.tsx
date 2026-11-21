@@ -1,10 +1,7 @@
-import { AlertTriangle, Ban, Loader2, Plus, Undo2 } from "lucide-react";
-import { type SubjectV, type BoardV } from "@/lib/curriculum/taxonomy";
+import { AlertTriangle, Ban, Loader2, Undo2 } from "lucide-react";
 import { type PlanOverride } from "@/lib/planner/overrides";
-import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { type TutorPlannerState } from "./useTutorPlanner";
-import { WARNING_COPY } from "./tutorWeekRows";
 
 /** What the tutor has set aside — removed from this week, or skipped in the programme — with the way back. */
 export function OverridesPanel({ state }: { state: TutorPlannerState }) {
@@ -85,73 +82,5 @@ export function OverridesUnavailable() {
         points still works.
       </span>
     </p>
-  );
-}
-
-/** Add spec points to the week: the closed button, or the open picker with its warnings. */
-export function AddPointsBox({ state }: { state: TutorPlannerState }) {
-  const { picking, setPicking, student, active, toAdd, setToAdd, adding, addSelected } = state;
-  const { weekLabel, warnings } = state;
-  if (!student || !active) return null;
-  return picking ? (
-    <div className="rounded-xl border border-border bg-muted/20 p-3">
-      {student.level ? (
-        <>
-          <SpecPointSelect
-            subject={active.subject as SubjectV}
-            board={active.board as BoardV}
-            level={student.level}
-            value={toAdd}
-            onChange={setToAdd}
-          />
-          {warnings.length > 0 && (
-            <div className="mt-2 rounded-lg border border-amber-500/30 bg-amber-500/[0.06] px-3 py-2">
-              <p className="text-[12px] font-semibold flex items-center gap-1.5">
-                <AlertTriangle className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
-                {warnings.length === 1 ? "One of these" : `${warnings.length} of these`} may not
-                need setting
-              </p>
-              <ul className="mt-1 space-y-0.5 text-[12px]">
-                {warnings.map((w) => (
-                  <li key={w.specPointId}>
-                    <span className="font-semibold">{w.code}</span> {w.title} —{" "}
-                    {WARNING_COPY[w.reason](w)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-          <div className="mt-2 flex justify-end gap-2">
-            <button
-              type="button"
-              onClick={() => {
-                setPicking(false);
-                setToAdd([]);
-              }}
-              className="h-11 sm:pointer-fine:h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              onClick={addSelected}
-              disabled={adding || toAdd.length === 0}
-              className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
-            >
-              {adding ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
-              {warnings.length > 0 ? "Add anyway" : "Add"} {toAdd.length > 0 ? toAdd.length : ""}
-            </button>
-          </div>
-        </>
-      ) : null}
-    </div>
-  ) : (
-    <button
-      type="button"
-      onClick={() => setPicking(true)}
-      className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
-    >
-      <Plus className="w-4 h-4" /> Add spec points to {weekLabel}
-    </button>
   );
 }

@@ -142,9 +142,10 @@ the same debt minus whatever the current week already carries — **read that on
 for display**, or a panel goes on offering "practise Topic 1" straight after the
 student has put all of Topic 1 into their week.
 
-The on-demand path is the tutor's: "Add to this week" on a missed topic in the
-tutor's Full plan (`useAddMissedToWeek`) puts the topic's outstanding points
-into the current week, hand-picked (`tutor`), so it survives a re-cut. Students
+The on-demand path is the tutor's: in the planner's workbench a missed point is
+ticked in the plan grid and moved into a week, or added to one with "Add",
+hand-picked (`tutor`), so it survives a re-cut. ("Add to this week" on a missed
+topic went with the old Full plan tab on 21 Nov 2026, at Ali's request.) Students
 had the same control ("Practise now", `CatchUpPanel`) until 7 Oct 2026, when Ali
 removed it with "Retake this topic": students don't add to their own week.
 Admissibility already permitted this — `admit()` tests

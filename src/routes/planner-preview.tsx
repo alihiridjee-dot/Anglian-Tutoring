@@ -88,7 +88,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-10-12",
           "course",
-          "1.1",
+          "AQA 3.1.4.2",
           "Eukaryotes and prokaryotes",
           CELL,
           mark(74),
@@ -110,7 +110,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-10-26",
           "course",
-          "1.3",
+          "EDEX 3.13",
           "Cell specialisation and differentiation",
           CELL,
           say("Not done"),
@@ -180,7 +180,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-11-16",
           "course",
-          "5.1",
+          "EDEX 1.1",
           "Principles of homeostasis",
           HOM,
           say("To do"),
@@ -190,7 +190,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-11-16",
           "course",
-          "5.2",
+          "EDEX 2.17B",
           "Structure and function of the nervous system",
           HOM,
           say("Handed in"),
@@ -200,7 +200,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-11-16",
           "course",
-          "5.3",
+          "EDEX 3.9B",
           "Reflex actions",
           HOM,
           say("None yet"),
@@ -210,7 +210,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-11-16",
           "catchup",
-          "1.3",
+          "EDEX 3.13",
           "Cell specialisation and differentiation",
           CELL,
           mark(39),
@@ -220,7 +220,7 @@ const MONTHS: GridMonth[] = [
         r(
           "2026-11-16",
           "revision",
-          "1.1",
+          "AQA 3.1.4.2",
           "Eukaryotes and prokaryotes",
           CELL,
           say("None yet"),

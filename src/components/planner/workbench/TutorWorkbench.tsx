@@ -53,21 +53,13 @@ const reasonOf = (e: unknown, fallback: string) =>
  *   place, and the work they have missed.
  * - **Topic order**: the topics as they will be taught, and the way into the
  *   order editor.
- * - **Week review** and **Practice history** are the classic tabs' own panels,
- *   one switch away.
+ * - **Week review** and **Practice history** are one switch away.
  *
- * It reads the planner's existing state ({@link TutorPlannerState}) and changes
- * the plan through the same rules as the classic row menu, so the two layouts
- * can't disagree about a student.
+ * It reads the planner's state ({@link TutorPlannerState}) and changes the plan
+ * through the database's own rules for a tutor's change (remove, skip, pin),
+ * called once per line.
  */
-export function TutorWorkbench({
-  state,
-  onClassic,
-}: {
-  state: TutorPlannerState;
-  /** Go back to the classic three-tab layout. */
-  onClassic: () => void;
-}) {
+export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
   const { student, ordered, active, activeSubject, setSubject, selectStudent } = state;
   const { course, roadmap, weekStart, currentWeek } = state;
   const client = useQueryClient();
@@ -511,9 +503,6 @@ export function TutorWorkbench({
               items={VIEWS}
             />
           </div>
-          <button type="button" className={QUIET} onClick={onClassic}>
-            Classic layout
-          </button>
         </div>
       </header>
 
