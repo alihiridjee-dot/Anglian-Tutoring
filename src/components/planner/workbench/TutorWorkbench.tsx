@@ -59,8 +59,8 @@ const reasonOf = (e: unknown, fallback: string) =>
  * - **Plan**: the course a month at a time, each week's lines under their lane.
  *   Lines are ticked and then moved, removed or skipped together; points are
  *   added to any week still to come.
- * - **Needs you**: the student's unanswered check-ins and messages, answered in
- *   place, and the work they have missed.
+ * - Beside it: **To answer** (the student's unanswered check-ins and messages,
+ *   answered in place), **Missed work**, and **About the plan**.
  * - **Topic order**: the topics as they will be taught, and the way into the
  *   order editor.
  * - **Week review** and **Practice history** are one switch away.
@@ -244,8 +244,9 @@ export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
     ...(schedule?.attention.missed ?? []).map((topic): Need => ({
       id: `missed:${topic.topicId}`,
       kind: "missed",
+      name: topic.title,
       when: `Since ${topic.since}`,
-      text: `${topic.specPointIds.length} ${topic.specPointIds.length === 1 ? "point" : "points"} in ${topic.title}`,
+      text: `${topic.specPointIds.length} ${topic.specPointIds.length === 1 ? "point" : "points"} not covered`,
       action: { label: "Show in the plan", run: showMissed },
     })),
     ...(schedule?.attention.overload
@@ -480,7 +481,7 @@ export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
     if (v) setView(v);
   };
   const PARTS: { key: string; label: string; on: boolean; go: () => void }[] = [
-    { key: "needs", label: "Needs you", on: solo === "needs", go: () => pick("needs") },
+    { key: "needs", label: "Alerts", on: solo === "needs", go: () => pick("needs") },
     ...VIEWS.map((v) => ({
       key: v.value,
       label: v.label,
@@ -569,30 +570,40 @@ export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
       <div className="grid items-start gap-3 lg:grid-cols-[minmax(0,1fr)_21rem]">
         <div className={cn("min-w-0 lg:block", solo !== "main" && "hidden")}>{main}</div>
         <aside className="space-y-3 lg:sticky lg:top-3 lg:max-h-[calc(100vh-1.5rem)] lg:overflow-y-auto">
-          <div className={cn("min-w-0 lg:block", solo !== "needs" && "hidden")}>
-            <NeedsYou
-              needs={needs}
-              busy={needBusy}
-              onReply={(need, words) => {
-                const item = itemOf(need);
-                if (!item) return Promise.resolve(false);
-                return settleNeed(
-                  need,
-                  () => NeedsYouDAL.reply(student.id, item, words),
-                  item.planId
-                    ? `Saved as your note on that week. ${first} sees it on their planner.`
-                    : "Sent.",
-                );
-              }}
-              onSettle={(need) => {
-                const item = itemOf(need);
-                if (item)
-                  void settleNeed(need, () => NeedsYouDAL.settle(student.id, item), "Cleared.");
-              }}
-            />
+          <div className={cn("min-w-0 space-y-3 lg:block", solo !== "needs" && "hidden")}>
+            {(
+              [
+                ["To answer", (n: Need) => n.canReply === true],
+                ["Missed work", (n: Need) => n.kind === "missed"],
+                ["About the plan", (n: Need) => n.kind === "plan"],
+              ] as const
+            ).map(([title, mine]) => (
+              <NeedsYou
+                key={title}
+                title={title}
+                needs={needs.filter(mine)}
+                busy={needBusy}
+                onReply={(need, words) => {
+                  const item = itemOf(need);
+                  if (!item) return Promise.resolve(false);
+                  return settleNeed(
+                    need,
+                    () => NeedsYouDAL.reply(student.id, item, words),
+                    item.planId
+                      ? `Saved as your note on that week. ${first} sees it on their planner.`
+                      : "Sent.",
+                  );
+                }}
+                onSettle={(need) => {
+                  const item = itemOf(need);
+                  if (item)
+                    void settleNeed(need, () => NeedsYouDAL.settle(student.id, item), "Cleared.");
+                }}
+              />
+            ))}
             {needs.length === 0 && !waiting.isLoading && (
               <div className="lg:hidden">
-                <EmptyState compact title="Nothing needs you" />
+                <EmptyState compact title="Nothing to answer, nothing missed" />
               </div>
             )}
           </div>

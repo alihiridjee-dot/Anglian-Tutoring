@@ -128,6 +128,11 @@ export function useTutorPlanner() {
     (id: string | null) => setSearch({ student: id ?? undefined, subject: undefined }),
     [setSearch],
   );
+  /** Open a student straight on one of their subjects (the roster's subject cells). */
+  const openStudent = useCallback(
+    (id: string, subject?: string) => setSearch({ student: id, subject }),
+    [setSearch],
+  );
 
   const ordered = useMemo(
     () =>
@@ -323,6 +328,7 @@ export function useTutorPlanner() {
     studentId,
     student,
     selectStudent,
+    openStudent,
     ordered,
     activeSubject,
     setSubject,
