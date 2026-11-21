@@ -1,6 +1,12 @@
 import { describe, expect, test } from "bun:test";
 import type { PlanOverride } from "./overrides";
-import { changesFrom, describeChange } from "./planChangesDal";
+import {
+  changesFrom,
+  changesFromLog,
+  describeChange,
+  mergeChanges,
+  type LogRow,
+} from "./planChangesDal";
 
 // The module builds the real client on import, which needs these to exist.
 process.env.SUPABASE_URL ??= "https://database.example";
@@ -93,5 +99,99 @@ describe("the plan's changes, pieced together", () => {
       "The break starting Mon 30 Nov was cancelled.",
       "A break was booked: 30 Nov – 6 Dec.",
     ]);
+  });
+});
+
+describe("the database's own log", () => {
+  const row = (id: string, kind: string, values: Partial<LogRow> = {}): LogRow => ({
+    id,
+    kind,
+    actor_id: "nadia",
+    actor_role: "tutor",
+    spec_point_id: "p1",
+    week_start: "2026-11-23",
+    detail: {},
+    created_at: "2026-11-21T10:00:00Z",
+    ...values,
+  });
+
+  test("every kind reads as a sentence, with who did it", () => {
+    const changes = changesFromLog([
+      row("1", "moved", { detail: { to_week: "2026-12-07" } }),
+      row("2", "restored"),
+      row("3", "unskipped", { week_start: null }),
+      row("4", "exam-date", {
+        spec_point_id: null,
+        week_start: null,
+        detail: { from: "2027-06-21", to: "2027-06-28" },
+      }),
+      row("5", "topic-order", {
+        spec_point_id: null,
+        week_start: null,
+        detail: {
+          before: ["Cells", "Genetics", "Ecology"],
+          after: ["Genetics", "Ecology", "Cells"],
+        },
+      }),
+      row("6", "topic-order", {
+        spec_point_id: null,
+        week_start: null,
+        actor_id: null,
+        actor_role: "system",
+        detail: {
+          before: ["Cells", "Genetics", "Ecology"],
+          after: ["Ecology", "Genetics", "Cells"],
+        },
+      }),
+      row("7", "added", { actor_id: "student", actor_role: "student" }),
+      row("8", "break-booked", {
+        spec_point_id: null,
+        week_start: "2027-01-04",
+        actor_id: null,
+        actor_role: "system",
+        detail: { ends_on: "2027-01-10" },
+      }),
+      row("9", "plan-started", { spec_point_id: null, actor_role: "student", actor_id: "student" }),
+      // A kind a later version of the log may add: left out, not guessed at.
+      row("10", "something-new"),
+    ]);
+    expect(changes.map((c) => describeChange(c, names))).toEqual([
+      "Nadia moved EDEX 2.17B Reflex actions from 23–29 Nov 2026 to 7–13 Dec 2026.",
+      "Nadia put EDEX 2.17B Reflex actions back into 23–29 Nov 2026.",
+      "Nadia brought EDEX 2.17B Reflex actions back into the programme.",
+      "Nadia changed the exam date from 21 Jun 2027 to 28 Jun 2027.",
+      // One topic moved: say which, and which way.
+      "Nadia moved Cells later in the topic order.",
+      // More than one moved, and by a nightly job.
+      "The planner changed the topic order.",
+      "Sam added EDEX 2.17B Reflex actions to 23–29 Nov 2026.",
+      "A break was booked: 4 Jan – 10 Jan.",
+      "The plan started, from the week of 23–29 Nov 2026.",
+    ]);
+  });
+
+  test("the log speaks from the day it began; older rows fill in before it, and a move stays one change", () => {
+    const log = changesFromLog([
+      row("m", "moved", { created_at: "2026-11-22T09:00:00Z", detail: { to_week: "2026-12-07" } }),
+      // The other half of that move, logged a second later.
+      row("a", "added", { created_at: "2026-11-22T09:00:01Z", week_start: "2026-12-07" }),
+      row("first", "removed", { created_at: "2026-11-21T13:00:00Z" }),
+    ]);
+    const older = changesFrom({
+      overrides: [
+        // The same removal, seen from the row it left: the log already has it.
+        override("o-new", { createdAt: "2026-11-21T13:00:00Z" }),
+        override("o-old", { createdAt: "2026-11-10T10:00:00Z" }),
+      ],
+      plans: [],
+      breaks: [],
+    });
+    expect(mergeChanges(log, older).map((c) => c.id)).toEqual([
+      "log:m",
+      "log:first",
+      "override:o-old",
+    ]);
+    // With no log yet, everything the older rows show is shown.
+    expect(mergeChanges([], older).map((c) => c.id)).toEqual(["override:o-new", "override:o-old"]);
   });
 });
