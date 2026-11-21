@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { lastLine, memberLabel, sendRefusal } from "./chatDal";
+import { lastLine, memberLabel, openRefusal, sendRefusal } from "./chatDal";
 
 const names = new Map([
   ["mum", "Mum"],
@@ -49,6 +49,23 @@ describe("sendRefusal", () => {
       "Slow down a little",
     );
     expect(sendRefusal({ message: "Failed to fetch" })).toBe("Failed to fetch");
+  });
+});
+
+describe("openRefusal", () => {
+  test("a tutor's refused new conversation says why in plain words", () => {
+    const rls = {
+      code: "42501",
+      message: 'new row violates row-level security policy for table "chat_threads"',
+    };
+    expect(openRefusal(rls)).toBe(
+      "This person can't be messaged. A parent may have been unlinked from the student.",
+    );
+  });
+
+  test("any other refusal keeps the database's own words", () => {
+    expect(openRefusal({ code: "23514", message: "Too long" })).toBe("Too long");
+    expect(openRefusal({ message: "Failed to fetch" })).toBe("Failed to fetch");
   });
 });
 

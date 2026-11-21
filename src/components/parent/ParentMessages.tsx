@@ -15,7 +15,8 @@ const EMPTY_THREADS: ThreadSummary[] = [];
  * The same list and thread the Messages page uses — a parent is simply the
  * thread's member, as a student is on theirs — narrowed to the child being
  * viewed, so switching child switches conversation. A parent only ever sees
- * threads they opened: never their child's own questions.
+ * their own threads, the ones they opened or a tutor opened with them: never
+ * their child's own questions.
  *
  * `openThreadId` opens one conversation and brings it into view: the Portal
  * passes it once when a reply's notification is followed, and `onOpened` hands

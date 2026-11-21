@@ -133,6 +133,18 @@ export function sendRefusal(error: { message: string; code?: string | null }): s
     : error.message;
 }
 
+/**
+ * What a tutor's refused new conversation says. The insert policy lets a tutor
+ * write first only to a student, or to a parent linked to the child right
+ * now, so the one real way to reach it is a parent unlinked while the tutor
+ * was typing.
+ */
+export function openRefusal(error: { message: string; code?: string | null }): string {
+  return error.code === "42501" && /row-level security/i.test(error.message)
+    ? "This person can't be messaged. A parent may have been unlinked from the student."
+    : error.message;
+}
+
 export class ChatDAL {
   /** Tutors a student may address a question to, by name. */
   static async listTutors(): Promise<TutorOption[]> {
@@ -264,7 +276,11 @@ export class ChatDAL {
 
   /**
    * Opens a thread and posts its first message, as the signed-in student — or
-   * as a parent, who names the linked child it is about (`aboutStudentId`).
+   * as a parent, who names the linked child it is about (`aboutStudentId`) —
+   * or as a tutor writing first, who names the member (`memberId`): a student,
+   * or a parent with the child in `aboutStudentId`. A tutor's thread names no
+   * tutor, so the member's replies reach every tutor
+   * (20261121160000_tutors_start_conversations).
    *
    * The two writes are separate statements, so a failure between them would
    * leave an empty thread. That is the harmless direction — an empty thread is
@@ -283,6 +299,8 @@ export class ChatDAL {
     mcqSetId?: string | null;
     contextLabel?: string | null;
     aboutStudentId?: string | null;
+    /** Set only by a tutor writing first: who the thread is with. */
+    memberId?: string | null;
   }): Promise<string> {
     const uid = await getSessionUserId();
     if (!uid) throw new Error("Not signed in");
@@ -290,7 +308,7 @@ export class ChatDAL {
     const { data, error } = await supabase
       .from("chat_threads")
       .insert({
-        student_id: uid,
+        student_id: input.memberId ?? uid,
         tutor_id: input.tutorId,
         subject_line: input.subjectLine.trim(),
         subject: input.subject ?? null,
@@ -302,7 +320,7 @@ export class ChatDAL {
       })
       .select("id")
       .single();
-    if (error) throw new Error(error.message);
+    if (error) throw new Error(input.memberId ? openRefusal(error) : error.message);
 
     try {
       await ChatDAL.sendMessage({ threadId: data.id, body: input.body });

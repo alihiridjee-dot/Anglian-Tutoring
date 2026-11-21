@@ -147,21 +147,28 @@ export function EmptyState({
   title: string;
   /** Optional: a title that says it all needs no grey line under it. */
   body?: string;
-  action?: { to: string; label: string };
+  /** A page to go to, or something to do here (open a dialog). */
+  action?: { to: string; label: string } | { onClick: () => void; label: string };
   mascot?: MascotName;
   mood?: Mood;
   compact?: boolean;
 }) {
+  const act = (className: string) =>
+    !action ? null : "onClick" in action ? (
+      <button type="button" onClick={action.onClick} className={className}>
+        {action.label}
+      </button>
+    ) : (
+      <Link to={action.to as never} className={className}>
+        {action.label}
+      </Link>
+    );
   if (compact)
     return (
       <div className="space-y-2 text-sm">
         <h3 className="text-sm font-bold">{title}</h3>
         {body && <p className="text-muted-foreground">{body}</p>}
-        {action && (
-          <Link to={action.to as never} className="btn-premium inline-flex px-3 py-2">
-            {action.label}
-          </Link>
-        )}
+        {act("btn-premium inline-flex px-3 py-2")}
       </div>
     );
   return (
@@ -173,14 +180,7 @@ export function EmptyState({
           {body}
         </p>
       )}
-      {action ? (
-        <Link
-          to={action.to as never}
-          className="btn-soft mt-6 inline-flex items-center rounded-xl px-5 py-2.5 text-sm"
-        >
-          {action.label}
-        </Link>
-      ) : null}
+      {act("btn-soft mt-6 inline-flex items-center rounded-xl px-5 py-2.5 text-sm")}
     </div>
   );
 }
