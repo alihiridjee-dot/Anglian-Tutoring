@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate, useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Check, CreditCard, Loader2, Lock, LogOut } from "lucide-react";
+import { Check, CreditCard, Link2, Loader2, Lock, LogOut } from "lucide-react";
 import { toast } from "sonner";
 import { AuthShell } from "@/components/auth/AuthShell";
 import { CredentialsForm, VerifyCodeScreen } from "@/components/auth/AuthForms";
@@ -35,7 +35,7 @@ import { UserRole } from "@/types/user";
  *
  * The child pressed "My parent is paying" on their plan page and showed a QR
  * code. Here the parent sees the child's plan, makes a parent account (or logs
- * in), is linked to the child by the link itself, and goes to Stripe. The
+ * in), says yes to being linked to the child, and goes to Stripe. The
  * child's screen is waiting and opens the moment the payment lands.
  *
  * Outside /_authenticated on purpose: the parent arrives signed out. The rules
@@ -96,7 +96,7 @@ function ParentJoinPage() {
   else if (peek.data.status !== "ok")
     body = <DeadLink reason={peek.data.status} signedIn={!!joiner} />;
   else if (!joiner) body = <SignUpStep plan={peek.data} />;
-  else if (joiner.role === UserRole.PARENT) body = <PayStep token={token} />;
+  else if (joiner.role === UserRole.PARENT) body = <ConfirmStep token={token} plan={peek.data} />;
   else body = <NotAParent role={joiner.role} />;
 
   return <AuthShell>{body}</AuthShell>;
@@ -160,7 +160,52 @@ function PlanPrice({
   );
 }
 
-/** Signed in as a parent: linked to the child by the link, then Stripe. */
+/**
+ * Signed in as a parent: whose plan the link is for, before it links them. A
+ * shared phone can still hold an unused link, so nothing is linked until the
+ * parent presses. A link they already used goes straight on.
+ */
+function ConfirmStep({
+  token,
+  plan,
+}: {
+  token: string;
+  plan: ParentJoinPlan & { joined: boolean };
+}) {
+  const navigate = useNavigate();
+  const [confirmed, setConfirmed] = useState(plan.joined);
+  if (confirmed) return <PayStep token={token} />;
+
+  const leave = () => {
+    forgetParentJoin();
+    void navigate({ to: "/dashboard", replace: true });
+  };
+
+  return (
+    <div className="premium-card rise-in mx-auto max-w-2xl rounded-3xl p-6 sm:p-8">
+      <h1 className="mb-4 text-2xl font-bold tracking-tight">
+        Link your account to {plan.student_name}?
+      </h1>
+      <PlanPrice plan={plan} cadence={plan.cadence} />
+      <button
+        type="button"
+        onClick={() => setConfirmed(true)}
+        className="btn-premium mt-7 inline-flex h-13 w-full items-center justify-center gap-2 rounded-2xl text-base"
+      >
+        <Link2 className="size-5" aria-hidden /> Yes, link me to {plan.student_name}
+      </button>
+      <button
+        type="button"
+        onClick={leave}
+        className="btn-soft mt-3 inline-flex h-11 w-full items-center justify-center rounded-2xl text-sm"
+      >
+        Leave without linking
+      </button>
+    </div>
+  );
+}
+
+/** Confirmed: linked to the child by the link, then Stripe. */
 function PayStep({ token }: { token: string }) {
   const redeem = useMutation({ mutationFn: () => redeemParentJoinLink(token) });
   useEffect(() => {
