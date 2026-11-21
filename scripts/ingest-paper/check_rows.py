@@ -125,6 +125,7 @@ def chunks(text, scheme=False):
     for line in unstructured(text).split("\n"):
         line = re.sub(r"^\s*Guidance:\s*", "", line)
         if scheme:
+            line = re.sub(r"^\s*Answer:\s*", "", line)     # a reader's heading, like Guidance:
             line = MARK.sub(" ", line)
         for piece in re.split(r"\s+·\s+|\s*\|\s*|\t", line):
             piece = re.sub(r"^\s*\((?:[a-h]|i{1,3}|iv|vi{0,3}|ix|x)\)\s*", "", piece)
