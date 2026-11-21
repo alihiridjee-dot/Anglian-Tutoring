@@ -19,7 +19,6 @@ import { TopicOrderEditor } from "../TopicOrderEditor";
 import { OverridesPanel, OverridesUnavailable } from "../TutorPlannerParts";
 import { assignmentWarnings, WARNING_COPY } from "../tutorWeekRows";
 import { type TutorPlannerState } from "../useTutorPlanner";
-import { WeekReview } from "../WeekReview";
 import { WeekSwitcher } from "../WeekSwitcher";
 import { WithheldPlanPoints } from "../WithheldPlanPoints";
 import { formatSchedule } from "../fullPlan/formatSchedule";
@@ -29,6 +28,7 @@ import { gridMonths, topicRows, type GridRow, type GridWeek, type Show } from ".
 import { NeedsYou, type Need } from "./NeedsYou";
 import { PlanGrid } from "./PlanGrid";
 import { TopicOrderPanel } from "./TopicOrderPanel";
+import { WeekReviewPanel } from "./WeekReviewPanel";
 
 type View = "plan" | "review" | "history";
 const VIEWS: { value: View; label: string }[] = [
@@ -310,8 +310,9 @@ export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
       {state.loading ? (
         <Spinner className="py-10" />
       ) : state.showReview && state.plan ? (
-        <WeekReview
+        <WeekReviewPanel
           studentId={student.id}
+          firstName={first}
           plan={state.plan}
           points={state.points}
           coverage={state.coverage}
@@ -320,9 +321,7 @@ export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
           board={active.board as BoardV}
           level={student.level}
           weekStart={weekStart}
-          examDate={roadmap?.examDate}
           onChanged={() => void state.refreshAll()}
-          readOnly
         />
       ) : (
         <EmptyState compact title={`Nothing to review for ${state.weekLabel}`} />

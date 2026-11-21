@@ -14,8 +14,9 @@ import {
 import { NeedsYou, type Need } from "@/components/planner/workbench/NeedsYou";
 import { PlanGrid } from "@/components/planner/workbench/PlanGrid";
 import { TopicOrderPanel } from "@/components/planner/workbench/TopicOrderPanel";
+import { WeekReviewView } from "@/components/planner/workbench/WeekReviewPanel";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
-import type { PointStatus } from "@/lib/planner/coverage";
+import type { PointStatus, WeekSummary } from "@/lib/planner/coverage";
 import { cn } from "@/lib/utils";
 
 // DEV ONLY — the tutor's workbench panels (the real ones the planner mounts in
@@ -284,10 +285,24 @@ const TOPICS: TopicRow[] = [
   { topicId: "4", title: "Bioenergetics", when: "18 Jan – 14 Feb 2027", state: null },
 ];
 
-type Part = "needs" | "plan" | "order";
+/** An empty week summary, for the made-up lanes to fill in. */
+const NONE: WeekSummary = {
+  total: 0,
+  strong: 0,
+  practised: 0,
+  weak: 0,
+  notDone: 0,
+  notSet: 0,
+  toRevisit: [],
+  covered: [],
+  verdict: "no_signal",
+};
+
+type Part = "needs" | "plan" | "review" | "order";
 const PARTS: { key: Part; label: string }[] = [
   { key: "needs", label: "Needs you" },
   { key: "plan", label: "Plan" },
+  { key: "review", label: "Week review" },
   { key: "order", label: "Topic order" },
 ];
 
@@ -297,6 +312,7 @@ function PlannerPreview() {
   const [month, setMonth] = useState<string | null>(null);
   const [show, setShow] = useState<Show>("all");
   const [solo, setSolo] = useState<Part>("needs");
+  const [note, setNote] = useState("");
   const [waiting, setWaiting] = useState<Need[]>([
     {
       id: "c",
@@ -419,6 +435,44 @@ function PlannerPreview() {
               }}
               onSkip={(rows) => toast(`Skip ${rows.length}: nothing to skip in made-up data.`)}
               onAdd={(week) => toast(`Add to ${week.dates}: the point picker needs a real course.`)}
+            />
+          </div>
+          <div
+            className={cn(part("review"), "premium-card p-3 sm:p-4 lg:order-last lg:col-span-2")}
+          >
+            <WeekReviewView
+              firstName="Sam"
+              lanes={[
+                {
+                  lane: "core",
+                  summary: {
+                    ...NONE,
+                    total: 10,
+                    notDone: 7,
+                    weak: 2,
+                    strong: 1,
+                    verdict: "keep_going",
+                  },
+                },
+                {
+                  lane: "focus",
+                  summary: { ...NONE, total: 3, strong: 2, practised: 1, verdict: "move_on" },
+                },
+                { lane: "tutor", summary: { ...NONE, total: 1, notSet: 1, verdict: "no_signal" } },
+              ]}
+              checkin={{
+                felt: "Wanted more practice.",
+                said: "I keep mixing up the order of the reflex arc.",
+              }}
+              note={{
+                state: "ready",
+                value: note,
+                onChange: setNote,
+                saving: false,
+                drafting: false,
+                onSave: () => toast.success("Saved, in the made-up data."),
+                onDraft: () => toast("The draft needs a real week's marks."),
+              }}
             />
           </div>
           <aside className="space-y-3 lg:sticky lg:top-3">
