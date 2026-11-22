@@ -60,7 +60,7 @@ const reasonOf = (e: unknown, fallback: string) =>
  *   Lines are ticked and then moved, removed or skipped together; points are
  *   added to any week still to come.
  * - Beside it: **To answer** (the student's unanswered check-ins and messages,
- *   answered in place), **Missed work**, and **About the plan**.
+ *   answered in place) and **About the plan**.
  * - **Topic order**: the topics as they will be taught, and the way into the
  *   order editor.
  * - **Week review** and **Practice history** are one switch away.
@@ -225,14 +225,9 @@ export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
   };
 
   const items = waiting.data ?? [];
-  const showMissed = () => {
-    setShow("missed");
-    setMonth(
-      months.find((m) => m.weeks.some((w) => w.rows.some((row) => row.missed)))?.key ?? null,
-    );
-    setView("plan");
-    setSolo("main");
-  };
+  // Missed work has no panel here (Ali, 21 Nov): it comes back as catch-up on
+  // its own, so nothing in it waits on the tutor. The grid's "Missed" filter
+  // still finds those lines, and "About the plan" says when they won't fit.
   const needs: Need[] = [
     ...items.map((item): Need => ({
       id: item.id,
@@ -240,14 +235,6 @@ export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
       when: shortDayLabel(new Date(item.at)),
       text: item.text,
       canReply: true,
-    })),
-    ...(schedule?.attention.missed ?? []).map((topic): Need => ({
-      id: `missed:${topic.topicId}`,
-      kind: "missed",
-      name: topic.title,
-      when: `Since ${topic.since}`,
-      text: `${topic.specPointIds.length} ${topic.specPointIds.length === 1 ? "point" : "points"} not covered`,
-      action: { label: "Show in the plan", run: showMissed },
     })),
     ...(schedule?.attention.overload
       ? [
@@ -574,7 +561,6 @@ export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
             {(
               [
                 ["To answer", (n: Need) => n.canReply === true],
-                ["Missed work", (n: Need) => n.kind === "missed"],
                 ["About the plan", (n: Need) => n.kind === "plan"],
               ] as const
             ).map(([title, mine]) => (
@@ -603,7 +589,7 @@ export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
             ))}
             {needs.length === 0 && !waiting.isLoading && (
               <div className="lg:hidden">
-                <EmptyState compact title="Nothing to answer, nothing missed" />
+                <EmptyState compact title="Nothing to answer" />
               </div>
             )}
           </div>
