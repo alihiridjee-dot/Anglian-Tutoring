@@ -4,7 +4,7 @@ import { Chip, EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/compone
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
-import { CalendarCheck, ChevronRight } from "lucide-react";
+import { CalendarCheck } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ, DEMO_MCQ_ATTEMPTS, DEMO_MCQ_SETS } from "@/lib/demo/studentDemo";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -83,11 +83,11 @@ export function MCQs() {
  *    this week's points that haven't been taken this week, split into the
  *    dashboard's lanes ({@link useDueThisWeek}) — the same names, in the same
  *    order, as the dashboard and the Tasks page.
- * 3. **Done moves to Marked.** A quiz marks itself, so there is no "handed in"
- *    step: taking it moves it to Marked with its best score, filed under its
- *    topic as Tasks' Marked is (see `MarkedTopic`). That replaced "Past MCQs",
- *    every reached quiz filed by topic, which read as optional extras beside a
- *    week that was mostly the same quizzes.
+ * 3. **Every quiz taken is in Marked.** A quiz marks itself, so there is no
+ *    "handed in" step: taking it puts it in Marked with its best score, filed
+ *    under its topic and drawn as Tasks' marked rows are (see `MarkedTopic`).
+ *    It stays there when revision brings it back to Due, as a marked task
+ *    stays in Marked — Ali, 21 Nov 2026: "the same template as tasks".
  */
 function StudentMCQs() {
   const { loading: enrolmentsLoading } = useEnrolments();
@@ -277,7 +277,8 @@ function StudentMCQs() {
 
   // Due: this week's quizzes not yet taken this week, in the week's order. A
   // revision quiz taken in an earlier week is due again — that is what revision
-  // is. Marked: every quiz taken, filed under its topic below.
+  // is. Marked: every quiz taken, filed under its topic below — a revision quiz
+  // due again keeps its score there too.
   const { dueByLane, marked } = useMemo(() => {
     const mine = sets.filter((s) => s.subject === subject);
     const dueSets: Array<{ set: QuizSet; slot: DueSlot }> = [];
@@ -287,7 +288,7 @@ function StudentMCQs() {
       const a = attempts[s.id];
       const takenThisWeek = !!a && (!a.lastAt || practiceInWeek(a.lastAt, due.weekStart));
       if (slot && !takenThisWeek) dueSets.push({ set: s, slot });
-      else if (a) marked.push(s);
+      if (a) marked.push(s);
     }
     dueSets.sort((a, b) => a.slot.order - b.slot.order);
     marked.sort((a, b) => (attempts[b.id].lastAt ?? "").localeCompare(attempts[a.id].lastAt ?? ""));
@@ -387,7 +388,11 @@ function StudentMCQs() {
                         count={group.items.length}
                         noun={["quiz", "quizzes"]}
                       >
-                        <QuizGrid sets={group.items} attempts={attempts} />
+                        <div className="space-y-3">
+                          {group.items.map((s) => (
+                            <QuizCard key={s.id} set={s} attempt={attempts[s.id]} />
+                          ))}
+                        </div>
                       </MarkedTopic>
                     ))}
                   </div>
@@ -408,10 +413,7 @@ function StudentMCQs() {
 function DueQuizRow({ set, attempt }: { set: QuizSet; attempt?: Attempt }) {
   const pct =
     attempt && attempt.total > 0 ? Math.round((attempt.score / attempt.total) * 100) : null;
-  const title =
-    set.specCode && !set.title.startsWith(set.specCode)
-      ? `${set.specCode} ${set.title}`
-      : set.title;
+  const title = quizTitle(set);
   const detail = [
     set.questionCount > 0
       ? `${set.questionCount} question${set.questionCount === 1 ? "" : "s"}`
@@ -427,6 +429,7 @@ function DueQuizRow({ set, attempt }: { set: QuizSet; attempt?: Attempt }) {
     <DueRow title={title} detail={detail}>
       <Link
         // The showcase mounts the same quiz page under /demo/student (see QuizCard).
+        // Inside the week a taken quiz opens as its review (retakeLock).
         to={isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
         params={{ setId: set.id }}
         className={DUE_GO}
@@ -441,22 +444,17 @@ function DueQuizRow({ set, attempt }: { set: QuizSet; attempt?: Attempt }) {
   );
 }
 
-function QuizGrid({ sets, attempts }: { sets: QuizSet[]; attempts: Record<string, Attempt> }) {
-  return (
-    <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
-      {sets.map((s) => (
-        <QuizCard key={s.id} set={s} attempt={attempts[s.id]} />
-      ))}
-    </div>
-  );
+/** A quiz's name with its spec code in front, as a task sheet's title carries it. */
+function quizTitle(set: QuizSet): string {
+  return set.specCode && !set.title.startsWith(set.specCode)
+    ? `${set.specCode} ${set.title}`
+    : set.title;
 }
 
 /**
- * One quiz, as a card you press.
- *
- * Everything on it answers "should I open this?" — what it covers, how long it
- * is, and how you did last time. Built from the kit so a Biology quiz card and
- * a Biology homework card are recognisably the same object.
+ * A taken quiz in Marked, drawn as a marked task is on Tasks & Grades
+ * (`HomeworkCard`): the title, one line (how many questions, when it was last
+ * taken) and the best score boxed on the right. The whole row opens the quiz.
  */
 function QuizCard({ set, attempt }: { set: QuizSet; attempt?: Attempt }) {
   const pct =
@@ -469,44 +467,34 @@ function QuizCard({ set, attempt }: { set: QuizSet; attempt?: Attempt }) {
       // sign-in from a page whose whole job is to be browsable without an account.
       to={isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
       params={{ setId: set.id }}
-      className="premium-card premium-card-interactive group flex flex-col p-4"
+      className="premium-card flex items-center justify-between gap-4 p-4 transition hover:brightness-[0.99]"
     >
-      <div className="flex flex-wrap items-center gap-2">
-        {set.specCode && <span className="chip">{set.specCode}</span>}
-        {!set.published && <span className="chip tint-slate">Draft</span>}
-        {pct !== null && (
-          <span className="chip chip-solid">
-            <span className="numeral">{pct}%</span>
-          </span>
-        )}
-      </div>
-
-      <p className="font-display mt-2 flex-1 font-bold leading-snug">{set.title}</p>
-
-      <div className="text-muted-foreground mt-3 flex items-center justify-between gap-2 text-xs">
-        <span className="flex flex-wrap items-center gap-2">
+      <div className="min-w-0">
+        <p className="font-display font-bold">{quizTitle(set)}</p>
+        <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-sm">
           <span>
-            {set.questionCount > 0
-              ? `${set.questionCount} question${set.questionCount === 1 ? "" : "s"}`
-              : plannerDateLabel(new Date(set.created_at))}
+            {[
+              set.questionCount > 0
+                ? `${set.questionCount} question${set.questionCount === 1 ? "" : "s"}`
+                : null,
+              !set.published ? "Draft" : null,
+            ]
+              .filter(Boolean)
+              .join(" · ")}
           </span>
-          {/* When it was last taken, as a pill like a task's "Marked" date. */}
+          {/* When it was last taken, where a task carries its "Marked" date. */}
           {attempt?.lastAt && (
             <Chip icon={CalendarCheck}>Taken {plannerDateLabel(new Date(attempt.lastAt))}</Chip>
           )}
-        </span>
-        <span className="inline-flex items-center gap-1 font-semibold text-[color:var(--tint)]">
-          {!attempt
-            ? "Start"
-            : attempt.opensAt && attempt.opensAt.getTime() > Date.now()
-              ? "Review"
-              : "Retake"}
-          <ChevronRight
-            className="size-3 transition-transform group-hover:translate-x-0.5"
-            aria-hidden
-          />
-        </span>
+        </div>
       </div>
+
+      {pct !== null && (
+        <div className="icon-tile icon-tile-solid min-w-16 shrink-0 flex-col px-3 py-2">
+          <span className="numeral text-2xl">{pct}%</span>
+          <span className="mt-0.5 text-xs font-bold">score</span>
+        </div>
+      )}
     </Link>
   );
 }
