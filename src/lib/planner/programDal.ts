@@ -1,4 +1,5 @@
 import {
+  backOnWeek,
   customSchedule,
   examDateTooSoon,
   reorderTopics,
@@ -263,9 +264,6 @@ export class ProgramDAL {
       resumeFrom: currentWeekKey(new Date(r.endedAt!)),
     });
     // Every stop picked up already; each one below joins them once handled.
-    // Not caught: a break recorded only after a lapse that began inside it was
-    // picked up, where the break ends first. That needs a database change, and
-    // it is a one-hour race.
     const handled = p.pauses.filter((r) => r.endedAt && r.programmeResumedAt).map(weeksOf);
     const stored = p.baseline.pacing as unknown as PacingBand[];
     // A spine for another course is rebuilt from this week anyway.
@@ -279,10 +277,12 @@ export class ProgramDAL {
       // A stop inside one already handled has had its weeks emptied: it moves nothing.
       if (!otherCourse && !stopIsCovered(stop, handled)) {
         try {
+          // From the furthest back-on week of any stop it overlaps that was picked up first.
           const moved = resumeAfterPause({
             bands,
             topics,
-            ...stop,
+            pausedFrom: stop.pausedFrom,
+            resumeFrom: backOnWeek(stop, handled),
             examDate: p.baseline.exam_date,
           });
           if (moved !== bands) next = moved;

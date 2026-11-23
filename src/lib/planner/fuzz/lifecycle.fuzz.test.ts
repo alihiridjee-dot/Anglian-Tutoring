@@ -18,6 +18,7 @@ import {
   examDateTooSoon,
   orderInputs,
   reorderTopics,
+  backOnWeek,
   resumeAfterPause,
   spineMatchesExam,
   stopIsCovered,
@@ -82,7 +83,7 @@ interface Sim {
 
 const teach = (b: PacingBand[]) => b.filter(isTeachBand);
 
-/** pickUpAfterPauses + resume_programme_after_pause, oldest start first; a stop inside one handled moves nothing. */
+/** pickUpAfterPauses + resume_programme_after_pause, oldest start first; a stop inside one handled moves nothing, and one that overlaps a handled stop picks up from its back-on week. */
 function pickUp(sim: Sim) {
   if (sim.openPause) return; // the database refuses while the subject is stopped
   const pending = sim.stops.filter((s) => !s.resumed).sort((a, b) => a.from.localeCompare(b.from));
@@ -95,18 +96,19 @@ function pickUp(sim: Sim) {
     handled.push(weeks(stop));
     stop.resumed = true;
     if (covered) continue;
+    const back = backOnWeek(weeks(stop), handled);
     try {
       const bands = teach(sim.stored);
       const moved = resumeAfterPause({
         bands,
         topics: sim.topics,
         pausedFrom: stop.from,
-        resumeFrom: stop.to,
+        resumeFrom: back,
         examDate: sim.examDate,
       });
       if (moved !== bands) {
         // The database's own check on the new calendar.
-        if (moved.some((b) => b.startWeek >= stop.from && b.startWeek < stop.to))
+        if (moved.some((b) => b.startWeek >= stop.from && b.startWeek < back))
           throw new Error("refused by the database");
         sim.stored = moved;
       }
