@@ -284,8 +284,8 @@ describe("catch-up (trickle and fair share)", () => {
     return { backlog, examDate, weeklyWeight, isBlocked, assigned, weeksLeft, offWeeks };
   }
 
-  const run = (name: string, base: number, tutorBlocks: boolean, open = false) =>
-    (open ? test.failing : test)(
+  const run = (name: string, base: number, tutorBlocks: boolean) =>
+    test(
       name,
       () => {
         const tally = new Tally();
@@ -362,8 +362,6 @@ describe("catch-up (trickle and fair share)", () => {
   run(
     "B4 · A4: the same with a tutor's remove/skip on single points in the last weeks before the exam",
     230_000,
-    true,
-    // Open by decision (A4, fair share under a tutor's single-point removal): fails until Ali decides.
     true,
   );
 });
