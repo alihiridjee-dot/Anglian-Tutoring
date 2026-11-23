@@ -1,10 +1,50 @@
-import { useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { toast } from "sonner";
-import { Send, PhoneCall, Mail } from "lucide-react";
+import { useInView } from "motion/react";
+import { ArrowRight, Send } from "lucide-react";
 import { SectionSeam } from "@/components/landing/SectionSeam";
 import { submitContactLead } from "@/lib/leads/contactLead.functions";
+import { WHATSAPP_DISPLAY, WHATSAPP_NUMBER, whatsappLink } from "@/lib/leads/whatsapp";
+import { cn } from "@/lib/utils";
 
+const EMAIL = "angliaeducate@gmail.com";
+
+/** The ways to reach us, as stops on the trail. */
+type Way = "write" | "email" | "whatsapp";
+const WAYS: { key: Way; name: string; emoji: string; tint: string }[] = [
+  { key: "write", name: "Write to us", emoji: "✍️", tint: "tint-primary" },
+  { key: "email", name: "Email", emoji: "✉️", tint: "tint-amber" },
+  { key: "whatsapp", name: "WhatsApp", emoji: "💬", tint: "tint-emerald" },
+];
+
+/**
+ * Whether the section has been reached. A section that starts below the fold
+ * waits to be scrolled to before its underline draws; one already on screen,
+ * or a reader who asked for less motion, gets it at once.
+ */
+function useArrived(ref: React.RefObject<HTMLElement | null>) {
+  const inView = useInView(ref, { once: true, amount: 0.25 });
+  const [armed, setArmed] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (el.getBoundingClientRect().top > window.innerHeight) setArmed(true);
+  }, [ref]);
+  return !armed || inView;
+}
+
+/**
+ * The contact section, in the house style ("playful minimalism", README): the
+ * title on the page with a highlighter stroke under the words that carry it,
+ * one dark line, then the ways to reach us as stops on a dotted line. The
+ * picked stop opens in one card underneath: the form, our email address, or
+ * WhatsApp. The form's Send button carries a paper plane that takes off.
+ */
 export function ContactSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const arrived = useArrived(sectionRef);
+  const [way, setWay] = useState<Way>("write");
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -30,45 +70,81 @@ export function ContactSection() {
     }
   };
 
+  const picked = WAYS.find((w) => w.key === way) ?? WAYS[0];
+
   return (
-    <section id="contact" className="page-aurora pb-20 lg:pb-24">
+    <section
+      ref={sectionRef}
+      id="contact"
+      data-in={arrived}
+      className="contact page-aurora pb-20 lg:pb-24"
+    >
       <SectionSeam from="var(--secondary)" className="mb-12 lg:mb-16" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <div>
-            <span className="eyebrow">Get in touch</span>
-            <h2 className="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-              Have questions? Let's talk science tutoring.
-            </h2>
-            <p className="mt-4 text-base text-muted-foreground leading-relaxed max-w-md">
-              We're happy to discuss your child's specific needs, assess their current levels, and
-              find the best fit for our classes.
-            </p>
+      <div className="mx-auto max-w-2xl px-4 sm:px-6">
+        <h2 className="text-foreground text-center text-4xl leading-[1.1] font-extrabold sm:text-5xl">
+          Have questions? Let&apos;s talk{" "}
+          <span className="contact-mark">
+            science tutoring
+            <svg
+              aria-hidden
+              className="contact-squiggle"
+              viewBox="0 0 120 12"
+              preserveAspectRatio="none"
+            >
+              <path d="M2 7 Q 12 1 22 7 T 42 7 T 62 7 T 82 7 T 102 7 T 118 6" />
+            </svg>
+          </span>
+        </h2>
+        <p className="text-foreground mx-auto mt-7 max-w-md text-center text-lg leading-relaxed font-medium">
+          We&apos;re happy to discuss your child&apos;s specific needs, assess their current levels,
+          and find the best fit for our classes.
+        </p>
 
-            <div className="mt-8 space-y-4">
-              <a
-                href="mailto:angliaeducate@gmail.com"
-                className="group flex min-h-11 items-center gap-3.5 text-sm text-muted-foreground hover:text-foreground transition"
-              >
-                <div className="surface-soft w-10 h-10 rounded-xl flex items-center justify-center transition group-hover:border-primary/30">
-                  <Mail className="w-4 h-4 text-primary" />
-                </div>
-                <span className="break-all">angliaeducate@gmail.com</span>
-              </a>
-              <a
-                href="tel:07410116988"
-                className="group flex min-h-11 items-center gap-3.5 text-sm text-muted-foreground hover:text-foreground transition"
-              >
-                <div className="surface-soft w-10 h-10 rounded-xl flex items-center justify-center transition group-hover:border-primary/30">
-                  <PhoneCall className="w-4 h-4 text-primary" />
-                </div>
-                07410 116988
-              </a>
-            </div>
-          </div>
+        <div
+          role="tablist"
+          aria-label="How to reach us"
+          className="point-trail contact-trail mt-12"
+          style={{ "--stops": WAYS.length } as CSSProperties}
+        >
+          <svg
+            aria-hidden
+            className="point-trail-path"
+            viewBox="0 0 200 40"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0 20 C30 4 70 36 100 20 C130 36 170 4 200 20"
+              vectorEffect="non-scaling-stroke"
+            />
+          </svg>
+          {WAYS.map((w) => (
+            <button
+              key={w.key}
+              type="button"
+              role="tab"
+              id={`contact-stop-${w.key}`}
+              aria-selected={w.key === way}
+              aria-controls="contact-panel"
+              onClick={() => setWay(w.key)}
+              className={`point-stop ${w.tint}`}
+            >
+              <span className="point-stop-dot">
+                <span aria-hidden>{w.emoji}</span>
+              </span>
+              <span className="point-stop-label">{w.name}</span>
+            </button>
+          ))}
+        </div>
 
-          <div className="premium-card rounded-2xl p-5 sm:p-8">
-            <form onSubmit={handleSubmit} className="space-y-4">
+        <div
+          key={way}
+          id="contact-panel"
+          role="tabpanel"
+          aria-labelledby={`contact-stop-${way}`}
+          className={`point-panel premium-card ${picked.tint} rounded-3xl p-5 sm:p-8`}
+        >
+          {way === "write" && (
+            <form onSubmit={handleSubmit} className="space-y-5">
               {/* Honeypot — hidden from people, catnip for bots. Not tab-reachable. */}
               <input
                 type="text"
@@ -81,7 +157,7 @@ export function ContactSection() {
                 className="hidden"
               />
               <div>
-                <label htmlFor="contact-name" className="eyebrow text-[10px]">
+                <label htmlFor="contact-name" className="ask-label">
                   Name
                 </label>
                 <input
@@ -92,13 +168,13 @@ export function ContactSection() {
                   placeholder="Your full name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="premium-input w-full h-11 rounded-xl px-4 text-sm mt-1"
+                  className="pop-input mt-2 h-12 w-full px-4 text-base"
                 />
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid gap-5 sm:grid-cols-2 sm:gap-4">
                 <div>
-                  <label htmlFor="contact-email" className="eyebrow text-[10px]">
+                  <label htmlFor="contact-email" className="ask-label">
                     Email
                   </label>
                   <input
@@ -110,12 +186,12 @@ export function ContactSection() {
                     placeholder="you@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="premium-input w-full h-11 rounded-xl px-4 text-sm mt-1"
+                    className="pop-input mt-2 h-12 w-full px-4 text-base"
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-phone" className="eyebrow text-[10px]">
-                    Phone (optional)
+                  <label htmlFor="contact-phone" className="ask-label">
+                    Phone <span className="font-sans text-base font-semibold">(optional)</span>
                   </label>
                   <input
                     id="contact-phone"
@@ -124,13 +200,13 @@ export function ContactSection() {
                     placeholder="07123 456789"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="premium-input w-full h-11 rounded-xl px-4 text-sm mt-1"
+                    className="pop-input mt-2 h-12 w-full px-4 text-base"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="contact-message" className="eyebrow text-[10px]">
+                <label htmlFor="contact-message" className="ask-label">
                   Message
                 </label>
                 <textarea
@@ -140,19 +216,56 @@ export function ContactSection() {
                   placeholder="How can we help?"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="premium-input w-full rounded-xl px-4 py-3 text-sm mt-1 resize-none"
+                  className="pop-input mt-2 w-full resize-none p-4 text-base"
                 />
               </div>
 
               <button
+                type="submit"
                 disabled={submitting}
-                className="btn-premium w-full h-11 rounded-xl text-sm font-semibold flex items-center justify-center gap-2"
+                className="btn-solid paywall-btn contact-send w-full"
               >
-                <Send className="w-3.5 h-3.5" />
-                {submitting ? "Sending..." : "Send message"}
+                {submitting ? "Sending…" : "Send message"}
+                <Send
+                  className={cn("contact-plane size-5", submitting && "contact-plane-off")}
+                  aria-hidden
+                />
               </button>
             </form>
-          </div>
+          )}
+
+          {way === "email" && (
+            <div className="flex flex-col items-center gap-6 py-3 text-center">
+              <p className="text-foreground font-display text-2xl font-extrabold break-all sm:text-3xl">
+                {EMAIL}
+              </p>
+              <a href={`mailto:${EMAIL}`} className="btn-solid paywall-btn">
+                Write an email
+                <ArrowRight className="paywall-arrow size-5" aria-hidden />
+              </a>
+            </div>
+          )}
+
+          {way === "whatsapp" && (
+            <div className="flex flex-col items-center gap-6 py-3 text-center">
+              {/* The same number takes calls, so on a phone it still rings. */}
+              <a
+                href={`tel:+${WHATSAPP_NUMBER}`}
+                className="text-foreground font-display text-2xl font-extrabold sm:text-3xl"
+              >
+                {WHATSAPP_DISPLAY}
+              </a>
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-solid paywall-btn"
+              >
+                Chat on WhatsApp
+                <ArrowRight className="paywall-arrow size-5" aria-hidden />
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </section>
