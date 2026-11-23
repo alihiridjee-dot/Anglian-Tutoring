@@ -45,6 +45,7 @@ import {
 import { SubjectPauseDAL, type PauseRecord } from "./pausesDal";
 import { readCourseState, type CourseState } from "./courseState";
 import { BreakDAL } from "./breaksDal";
+import { plainReorderError } from "./reorderErrors";
 import { breakCovering, breakWeekKeys, layBreaksOver, type StudentBreak } from "./breaks";
 
 export { handPicked } from "./weekCut";
@@ -618,7 +619,7 @@ export class ProgramDAL {
             ? "Reordering a student's topics needs the planner override update installed. The plan is unchanged."
             : "Topic ordering is not available yet. Your current plan is unchanged. Please try again later.",
         );
-      throw new Error(error.message);
+      throw new Error(plainReorderError(error.message));
     }
   }
 
