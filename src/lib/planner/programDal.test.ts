@@ -719,4 +719,21 @@ describe("picking up two stops, one inside the other", () => {
     const calls = await pickUps([{ ...lapse, programmeResumedAt: "2026-11-02T10:00:00Z" }, away]);
     expect(calls.map((c) => [c.pauseId, c.pacing])).toEqual([["break", null]]);
   });
+
+  test("a break recorded after a lapse that began inside it was picked up starts from the lapse's back-on week", async () => {
+    // The break began 5 Oct and ended 26 Oct; the lapse began 12 Oct and was picked up on 2 Nov.
+    const late = { ...away, startedAt: "2026-10-05T09:00:00Z" };
+    const inside = {
+      ...lapse,
+      startedAt: "2026-10-12T09:00:00Z",
+      programmeResumedAt: "2026-11-02T10:00:00Z",
+    };
+    const [call] = await pickUps([late, inside]);
+    expect(call.pauseId).toBe("break");
+    const bands = call.pacing!;
+    expect(bands.every((b) => b.schedule?.from === "2026-11-02")).toBe(true);
+    expect(bands.some((b) => b.startWeek >= "2026-10-05" && b.startWeek < "2026-11-02")).toBe(
+      false,
+    );
+  });
 });

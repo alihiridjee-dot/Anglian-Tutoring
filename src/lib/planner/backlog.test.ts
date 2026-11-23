@@ -415,6 +415,20 @@ describe("catch-up forecast", () => {
     expect(Object.values(result.weeks).flat()).toHaveLength(5);
   });
 
+  test("a point a tutor shuts out of the last weeks goes in its last open week, never held", () => {
+    // Six owed over four weeks; the youngest is closed in weeks three and four.
+    const youngest = owed(6).at(-1)!.specPointId;
+    const weeks = [2, 3].map((n) => toDateKey(addWeeks(weekKeyToDate(params.weekStart), n)));
+    const result = projectCatchUp({
+      ...params,
+      backlog: owed(6),
+      isBlocked: (id, week) => id === youngest && weeks.includes(week),
+    });
+    // Week two takes it, and every older point still owed, so none is jumped.
+    expect(perWeek(result)).toEqual([2, 4]);
+    expect(result.held).toEqual([]);
+  });
+
   test("a break week is not a week to share the backlog over", () => {
     // Ten weeks, the fifth and sixth a break closed to every point: 40 owed / 8 open = 5.
     const examDate = toDateKey(addWeeks(weekKeyToDate(params.weekStart), 10));

@@ -8,6 +8,7 @@ import {
   type PacingBand,
 } from "./pacing";
 import {
+  backOnWeek,
   customSchedule,
   examDateTooSoon,
   orderInputs,
@@ -406,6 +407,38 @@ describe("two stops, one inside the other", () => {
     expect(stopIsCovered(stop("2026-10-12", "2026-11-09"), [outer])).toBe(false);
     expect(stopIsCovered(stop("2026-09-28", "2026-10-19"), [outer])).toBe(false);
     expect(stopIsCovered(outer, [])).toBe(false);
+  });
+  test("a break recorded late, after a lapse that began inside it was picked up, teaches in neither", () => {
+    // The break (5 Oct, back 26 Oct) is recorded after the lapse (12 Oct, back 2 Nov) was picked up.
+    const lapse = stop("2026-10-12", "2026-11-02");
+    const brk = stop("2026-10-05", "2026-10-26");
+    const inTurn = (rule: boolean) => {
+      const first = resumeAfterPause({ bands: spine, topics: course, ...lapse, examDate: exam });
+      return resumeAfterPause({
+        bands: first,
+        topics: course,
+        pausedFrom: brk.pausedFrom,
+        resumeFrom: rule ? backOnWeek(brk, [lapse]) : brk.resumeFrom,
+        examDate: exam,
+      });
+    };
+    // Picked up from its own back-on week, the break taught on 26 Oct, inside the lapse.
+    expect(taughtIn(inTurn(false), ["2026-10-26"]).length).toBeGreaterThan(0);
+    const bands = inTurn(true);
+    expect(taughtIn(bands, gap)).toEqual([]);
+    expect(taughtIn(bands, ["2026-11-02"]).length).toBeGreaterThan(0);
+    everyPointOnce(bands);
+  });
+  test("a stop picks up from the furthest back-on week of a picked-up stop it overlaps or touches", () => {
+    const own = stop("2026-10-05", "2026-10-26");
+    expect(backOnWeek(own, [])).toBe("2026-10-26");
+    expect(backOnWeek(own, [stop("2026-10-12", "2026-11-02")])).toBe("2026-11-02");
+    expect(backOnWeek(own, [stop("2026-10-26", "2026-11-09")])).toBe("2026-11-09");
+    expect(backOnWeek(own, [stop("2026-11-02", "2026-11-09")])).toBe("2026-10-26");
+    expect(backOnWeek(own, [stop("2026-09-07", "2026-09-21")])).toBe("2026-10-26");
+    // A chain: the first reaches 2 Nov, and one that touches 2 Nov reaches 16 Nov.
+    const chain = [stop("2026-11-02", "2026-11-16"), stop("2026-10-19", "2026-11-02")];
+    expect(backOnWeek(own, chain)).toBe("2026-11-16");
   });
 });
 

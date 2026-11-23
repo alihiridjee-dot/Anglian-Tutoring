@@ -589,11 +589,15 @@ function FullPlanTab({
   const { min: minExamDate, max: maxExamDate } = examDateBounds();
   const lastSavedDate = useRef(data.examDate);
   const examDateBox = useRef<HTMLInputElement>(null);
+  // A mouse press with no typing since: the change is a pick from the pop-up.
+  const pickingDate = useRef(false);
 
   // A date box fires a complete date on every keystroke: changing the month
   // from 06 to 12 passes through January, and a pause there re-planned the
-  // whole course for 21 January. So the date is saved only when the box loses
-  // focus (Enter does that too), and only ever a date in range.
+  // whole course for 21 January. So a typed date is saved only when the box
+  // loses focus (Enter does that too), and only ever a date in range. A day
+  // picked from the desktop pop-up is saved at once. A phone's date wheel
+  // changes as it spins, so there the date saves on Done, which blurs the box.
   const commitExamDate = (box: HTMLInputElement) => {
     const entry = examDateEntry(box.value, lastSavedDate.current, {
       min: minExamDate,
@@ -615,6 +619,9 @@ function FullPlanTab({
     if (value === lastSavedDate.current) return;
     lastSavedDate.current = value;
     setSavingDate(true);
+    // A day picked from the pop-up saves with the box still focused, so a
+    // second pick can come with no focus to clear the last one's line.
+    setDateSaved(false);
     try {
       await ProgramDAL.setExamDate({ studentId, subject, examDate: value });
     } catch (e) {
@@ -701,10 +708,20 @@ function FullPlanTab({
               max={maxExamDate}
               disabled={savingDate}
               onFocus={() => setDateSaved(false)}
+              onPointerDown={(e) => {
+                pickingDate.current = e.pointerType === "mouse";
+              }}
               onKeyDown={(e) => {
+                pickingDate.current = false;
                 if (e.key === "Enter") e.currentTarget.blur();
               }}
-              onBlur={(e) => commitExamDate(e.currentTarget)}
+              onChange={(e) => {
+                if (pickingDate.current) commitExamDate(e.currentTarget);
+              }}
+              onBlur={(e) => {
+                pickingDate.current = false;
+                commitExamDate(e.currentTarget);
+              }}
               className="btn-soft h-11 sm:pointer-fine:h-9 w-full rounded-xl px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--tint)] disabled:opacity-50"
             />
           </label>
