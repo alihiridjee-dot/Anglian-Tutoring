@@ -49,7 +49,7 @@ const PROCESSORS = [
   },
   {
     name: "Resend",
-    what: "Sends free-trial codes and account-deletion notices.",
+    what: "Sends free-trial codes and account-deletion notices, and passes contact-form messages on to us.",
     where: "USA",
   },
   {

@@ -1,10 +1,12 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
-import { requestAddresses, retryWait, takeTokens } from "@/lib/platform/rateLimit";
+import { requestAddresses, retryWait, takeToken, takeTokens } from "@/lib/platform/rateLimit";
+import { emailContactLead } from "./contactEmail";
 import { saveLead } from "./saveLead.server";
 
 /**
- * The landing page's contact form: a visitor's enquiry, written to the CRM.
+ * The landing page's contact form: a visitor's enquiry, written to the CRM
+ * and emailed to the team (contactEmail.ts).
  *
  * This is a public, session-less endpoint — the same shape as `sendWhatsAppLead`
  * in the demo, and it carries the same two guards for the same reasons:
@@ -32,6 +34,12 @@ const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 const PER_IP = { limit: 4, windowMs: 10 * 60_000 };
 /** Enquiries through one connecting address, which behind Cloudflare many visitors share. */
 const PER_HOP = { limit: 30, windowMs: 10 * 60_000 };
+/**
+ * Enquiry emails this instance sends per hour. A flood that beats the per-IP
+ * limits must not spend the Resend quota the trial-code emails share. Past the
+ * cap the lead is still saved; only the email is skipped.
+ */
+const EMAILS = { limit: 30, windowMs: 60 * 60_000 };
 
 export interface ContactInput {
   name: string;
@@ -92,6 +100,14 @@ export const submitContactLead = createServerFn({ method: "POST" })
     if (error) {
       console.error("[contact] lead insert failed:", error);
       throw new Error("We couldn't send that just now. Please try again, or email us directly.");
+    }
+
+    // Saved first, emailed second: a failed email must not lose the lead.
+    // Prefixed, so no visitor key can be the hourly budget's own.
+    if (takeToken("__contact_email__", EMAILS.limit, EMAILS.windowMs).ok) {
+      await emailContactLead(lead);
+    } else {
+      console.error("[contact] hourly email cap reached; enquiry saved, not emailed");
     }
 
     return { ok: true as const };
