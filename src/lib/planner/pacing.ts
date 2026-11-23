@@ -517,7 +517,8 @@ export function splitAcrossWeeks<T>(
   // where the boundaries fall, never what goes where.
   const n = points.length;
   // Whole thousandths, so sums are exact: with decimals (0.1 + 0.2 is not 0.3)
-  // float noise, not the rules below, decided one split in five.
+  // float noise, not the rules below, decided one brute-test split in five
+  // (about one real topic split in 150).
   const w0 = points.map((p) => Math.round(Math.max(0, weight(p)) * 1000));
   const prefix = [0];
   for (let i = 0; i < n; i++) prefix.push(prefix[i] + w0[i]);
