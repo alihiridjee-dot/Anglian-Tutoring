@@ -3688,7 +3688,7 @@ body {
 
 /* The home page's features as a scroll story (OfferSection.tsx). On a wide
    screen the words scroll on the left while one preview holds still on the
-   right, and a half-moon dial on the screen's edge turns with the scroll. The
+   right, inside a ring of the features' emoji that turns with the scroll. The
    feature in view gets a see-through shadow in its colour behind its words and
    around its preview; `--glow`, set from the scroll, is 1 when it is centred and
    0 by halfway to the next. Narrower screens get each preview under its words. */
@@ -3754,7 +3754,10 @@ body {
   .offer-inline-shot {
     display: none;
   }
+  /* `--w` is the ring's width: as big as the column and the screen's height
+     allow. It is resolved where it's used, so `cqi` measures the stage. */
   .offer-stage {
+    --w: min(34rem, 100cqi, 100dvh - 10rem);
     position: sticky;
     top: 6.5rem;
     display: grid;
@@ -3762,12 +3765,14 @@ body {
     align-self: start;
     height: calc(100dvh - 9rem);
     max-height: 40rem;
+    container-type: inline-size;
   }
-  /* Stacked in the stage's one grid cell, so they stay inside its padding. */
+  /* Stacked with the ring in the stage's one grid cell, narrow enough to clear
+     the beads. The ring's top bead stands in for the preview's sticker. */
   .offer-stage-shot {
     position: relative;
     grid-area: 1 / 1;
-    width: min(100%, 26rem);
+    width: calc(var(--w) * 0.56);
     opacity: 0;
     pointer-events: none;
     transform: translateY(60px) rotate(8deg) scale(0.92);
@@ -3793,6 +3798,33 @@ body {
     box-shadow: 0 0 90px 22px color-mix(in oklab, var(--tint) 42%, transparent);
     opacity: var(--glow, 0);
   }
+  .offer-stage .preview-sticker {
+    display: none;
+  }
+  /* The ring round the preview. It turns by `--turn` so the feature in view
+     sits at the top under a pointer with the biggest bead, the rest smaller and
+     paler as they turn away. Tap one to jump to it. */
+  .offer-dial {
+    --turn: 0deg;
+    position: relative;
+    display: block;
+    grid-area: 1 / 1;
+    width: var(--w);
+    height: var(--w);
+    pointer-events: none;
+  }
+  .offer-dial::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - var(--w) * 0.472 - 3.3rem);
+    left: 50%;
+    width: 1.25rem;
+    height: 0.9rem;
+    margin-left: -0.625rem;
+    background: color-mix(in oklab, var(--tint) 85%, var(--primary-deep));
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transition: background 0.4s ease;
+  }
 }
 @keyframes offer-wiggle {
   25% {
@@ -3803,90 +3835,50 @@ body {
   }
 }
 
-/* The dial needs a margin to sit in, so only the widest screens get it. It is
-   fixed to the screen's right edge and turns by `--turn`; the feature in view
-   sits at its leftmost point with the biggest emoji, the rest shrinking and
-   fading as they turn away. Tap one to jump to it. */
-@media (width >= 80rem) {
-  /* Keeps the preview clear of the dial. 69rem is the content width. */
-  .offer-stage {
-    padding-right: max(0px, 17.75rem - (100vw - 69rem) / 2);
-  }
-  .offer-dial {
-    --turn: 0deg;
-    position: fixed;
-    top: 50%;
-    right: 0;
-    z-index: 30;
-    display: block;
-    width: 250px;
-    height: 520px;
-    overflow: hidden;
-    pointer-events: none;
-    transform: translate(105%, -50%);
-    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  .offer-dial[data-on="true"] {
-    transform: translate(0, -50%);
-  }
-}
-.offer-dial-face {
-  position: absolute;
-  top: 45px;
-  left: 35px;
-  width: 430px;
-  height: 430px;
-  border-radius: 50%;
-  background: var(--card);
-  box-shadow:
-    -10px 0 0 0 color-mix(in oklab, var(--tint) 22%, var(--card)),
-    -6px 18px 44px -18px color-mix(in oklab, var(--tint) 55%, transparent);
-  transition: box-shadow 0.4s ease;
-}
+/* The wheel's centre, its ticks and its beads. 0.472 puts the beads on the
+   tick circle (203 of the SVG's 430). */
 .offer-dial-wheel {
   position: absolute;
-  top: 260px;
-  left: 250px;
+  top: 50%;
+  left: 50%;
   transform: rotate(var(--turn));
 }
 .offer-dial-ticks {
   position: absolute;
-  top: -215px;
-  left: -215px;
-  width: 430px;
-  height: 430px;
+  top: calc(var(--w) / -2);
+  left: calc(var(--w) / -2);
+  width: var(--w);
+  height: var(--w);
   overflow: visible;
 }
 .offer-dial-ticks circle {
   fill: none;
   stroke: color-mix(in oklab, var(--tint) 35%, var(--card));
-  transition: stroke 0.4s ease;
-}
-.offer-dial-ticks .track {
-  stroke-width: 2;
-}
-.offer-dial-ticks .marks {
   stroke-width: 9;
   stroke-dasharray: 0.7 5.3;
+  transition: stroke 0.4s ease;
 }
 .offer-knob {
   --k: 1;
   position: absolute;
   top: 0;
   left: 0;
-  width: 56px;
-  height: 56px;
-  margin: -28px;
+  width: 52px;
+  height: 52px;
+  margin: -26px;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: none;
-  font-size: 27px;
-  line-height: 56px;
+  background: var(--card);
+  font-size: 25px;
+  line-height: 52px;
   cursor: pointer;
   pointer-events: auto;
-  transform: rotate(var(--a)) translateX(175px) rotate(calc(-1 * (var(--a) + var(--turn))))
-    scale(var(--k));
+  box-shadow:
+    0 4px 0 0 color-mix(in oklab, var(--tint) 34%, transparent),
+    0 10px 18px -10px color-mix(in oklab, var(--tint) 70%, transparent);
+  transform: rotate(var(--a)) translateX(calc(var(--w) * 0.472))
+    rotate(calc(-1 * (var(--a) + var(--turn)))) scale(var(--k));
 }
 .offer-knob:focus-visible {
   outline: 3px solid color-mix(in oklab, var(--tint) 70%, var(--primary-deep));
@@ -3904,8 +3896,7 @@ body {
     animation: none;
   }
   .offer-stage-shot,
-  .offer-dial,
-  .offer-dial-face,
+  .offer-dial::after,
   .offer-dial-ticks circle {
     transition: none;
   }

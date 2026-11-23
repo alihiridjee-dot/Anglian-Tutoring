@@ -105,8 +105,8 @@ const FEATURES: Feature[] = [
   },
 ];
 
-/** Degrees between one feature's notch on the dial and the next. */
-const NOTCH = 26;
+/** Degrees between one feature's bead on the ring and the next: all the way round. */
+const NOTCH = 360 / FEATURES.length;
 /** Each preview leans a little, alternately, so the set doesn't look stamped out. */
 const TILT = ["-2deg", "2deg", "-1.5deg", "1.5deg", "-2deg", "1deg", "-1deg", "2deg"];
 
@@ -126,8 +126,8 @@ export function OfferSection() {
 
 /**
  * The features as a scroll story. On a wide screen the words scroll on the
- * left while one preview at a time holds still on the right, and a half-moon
- * dial on the screen's edge turns with the scroll. The feature in view is lit
+ * left while one preview at a time holds still on the right, inside a ring of
+ * the features' emoji that turns with the scroll. The feature in view is lit
  * by a see-through shadow in its colour, behind its words and around its
  * preview, which fades as the next one comes up. On a narrower screen each
  * feature simply shows its preview under its words.
@@ -137,13 +137,11 @@ export function OfferSection() {
  * scroll re-renders nothing until the feature in view changes.
  */
 function OfferStory() {
-  const storyRef = useRef<HTMLDivElement>(null);
   const dialRef = useRef<HTMLElement>(null);
   const stepRefs = useRef<(HTMLLIElement | null)[]>([]);
   const shotRefs = useRef<(HTMLDivElement | null)[]>([]);
   const knobRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [active, setActive] = useState(0);
-  const [dialOn, setDialOn] = useState(false);
 
   useEffect(() => {
     const wide = window.matchMedia("(width >= 64rem)");
@@ -178,7 +176,7 @@ function OfferStory() {
         const knob = knobRefs.current[j];
         if (knob) {
           knob.style.setProperty("--k", (1.35 - Math.min(d, 1) * 0.5).toFixed(3));
-          knob.style.opacity = d < 0.5 ? "1" : Math.max(0, Math.min(0.5, 3.4 - d)).toFixed(2);
+          knob.style.opacity = (1 - Math.min(d, 1) * 0.45).toFixed(2);
         }
       });
       setActive(Math.round(p));
@@ -190,18 +188,10 @@ function OfferStory() {
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
 
-    // The dial slides in while the story is on screen, and away after it.
-    const story = storyRef.current;
-    const seen = new IntersectionObserver(([e]) => setDialOn(e.isIntersecting), {
-      rootMargin: "-30% 0px -30% 0px",
-    });
-    if (story) seen.observe(story);
-
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       cancelAnimationFrame(frame);
-      seen.disconnect();
     };
   }, []);
 
@@ -211,7 +201,7 @@ function OfferStory() {
   };
 
   return (
-    <div ref={storyRef} className="offer-story mt-12 lg:mt-16">
+    <div className="offer-story mt-12 lg:mt-16">
       <ol className="offer-steps">
         {FEATURES.map((f, i) => {
           const Preview = f.preview;
@@ -257,7 +247,31 @@ function OfferStory() {
         })}
       </ol>
 
-      <div className="offer-stage" aria-hidden>
+      <div className="offer-stage">
+        {/* First, so the previews sit on top of the ring. */}
+        <nav ref={dialRef} aria-label="Features" className={`offer-dial ${FEATURES[active].tint}`}>
+          <div className="offer-dial-wheel">
+            <svg className="offer-dial-ticks" viewBox="-215 -215 430 430" aria-hidden>
+              <circle r="203" pathLength={360} />
+            </svg>
+            {FEATURES.map((f, i) => (
+              <button
+                key={f.id}
+                ref={(el) => {
+                  knobRefs.current[i] = el;
+                }}
+                type="button"
+                aria-label={f.title}
+                aria-current={i === active ? "step" : undefined}
+                className="offer-knob"
+                style={{ "--a": `${-90 - i * NOTCH}deg` } as CSSProperties}
+                onClick={() => jumpTo(i)}
+              >
+                <span aria-hidden>{f.emoji}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
         {FEATURES.map((f, i) => {
           const Preview = f.preview;
           return (
@@ -266,6 +280,7 @@ function OfferStory() {
               ref={(el) => {
                 shotRefs.current[i] = el;
               }}
+              aria-hidden
               data-state={i === active ? "active" : i < active ? "gone" : "next"}
               className={`offer-stage-shot ${f.tint}`}
               style={{ "--r": TILT[i] } as CSSProperties}
@@ -275,38 +290,6 @@ function OfferStory() {
           );
         })}
       </div>
-
-      <nav
-        ref={dialRef}
-        aria-label="Features"
-        inert={!dialOn}
-        data-on={dialOn}
-        className={`offer-dial ${FEATURES[active].tint}`}
-      >
-        <div className="offer-dial-face" />
-        <div className="offer-dial-wheel">
-          <svg className="offer-dial-ticks" viewBox="-215 -215 430 430" aria-hidden>
-            <circle className="track" r="175" />
-            <circle className="marks" r="203" pathLength={360} />
-          </svg>
-          {FEATURES.map((f, i) => (
-            <button
-              key={f.id}
-              ref={(el) => {
-                knobRefs.current[i] = el;
-              }}
-              type="button"
-              aria-label={f.title}
-              aria-current={i === active ? "step" : undefined}
-              className="offer-knob"
-              style={{ "--a": `${180 - i * NOTCH}deg` } as CSSProperties}
-              onClick={() => jumpTo(i)}
-            >
-              <span aria-hidden>{f.emoji}</span>
-            </button>
-          ))}
-        </div>
-      </nav>
     </div>
   );
 }
