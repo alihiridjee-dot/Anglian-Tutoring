@@ -14,7 +14,10 @@ function refusalsOf(fn: string): string[] {
     .find((f) => readFileSync(join(MIGRATIONS, f), "utf8").includes(`function ${fn}(`))!;
   const sql = readFileSync(join(MIGRATIONS, file), "utf8");
   const start = sql.indexOf(`function ${fn}(`);
-  const body = sql.slice(start, sql.indexOf("$function$;", sql.indexOf("$function$", start) + 1));
+  // The body is quoted with whatever tag it opens with: $function$, or $$.
+  const open = /\bas (\$[a-z_]*\$)/i.exec(sql.slice(start))!;
+  const from = start + open.index + open[0].length;
+  const body = sql.slice(from, sql.indexOf(open[1], from));
   return [...body.matchAll(/raise exception '((?:[^']|'')*)'/g)].map((m) =>
     m[1].replaceAll("''", "'").replaceAll("%", "x"),
   );
