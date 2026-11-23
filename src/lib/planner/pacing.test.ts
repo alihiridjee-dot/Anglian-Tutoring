@@ -589,6 +589,20 @@ describe("weekly review budget (S-28)", () => {
     expect(idsIn(r, toDateKey(addWeeks(currentMonday, 1)))).toEqual([a.specPointId]);
   });
 
+  test("two small reviews that fill the budget exactly share a week", () => {
+    // 0.1 + 0.2 is 0.30000000000000004 in floating point: the second used to wait a week.
+    const r = projectReviews({
+      candidates: [
+        { ...overdue[0], weight: 0.1 },
+        { ...overdue[1], weight: 0.2 },
+      ],
+      currentMonday,
+      examMonday,
+      weeklyBudget: 0.3,
+    });
+    expect(idsIn(r, thisWeek)).toEqual([overdue[0].specPointId, overdue[1].specPointId]);
+  });
+
   test("reviews with no room before the exam are reported as backlog", () => {
     const nearExam = addWeeks(currentMonday, 2);
     const r = projectReviews({

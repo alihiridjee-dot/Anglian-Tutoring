@@ -1,4 +1,4 @@
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, TreePalm } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { PacingBand } from "@/lib/planner/pacing";
 import { plannerDateLabel, toDateKey, weekKeyToDate } from "@/lib/planner/week";
@@ -39,7 +39,11 @@ export function TopicCalendar({
   from: string;
   examDate: string;
   tintOf: (topicId: string) => string;
-  /** The topic's place in the new order, as shown on its card. */
+  /**
+   * The topic's place in the new order, as shown on its card. 0 for a topic
+   * with no card: one that fell in a break's past weeks, and carries on first
+   * after the break without being part of the order.
+   */
   numberOf: (topicId: string) => number;
   /** A topic the student is pointing at in the list: its weeks stay bright. */
   focus: string | null;
@@ -105,8 +109,10 @@ export function TopicCalendar({
                         <span className="icon-tile numeral size-5 rounded-md text-[0.65rem]">
                           {row.exam ? (
                             <GraduationCap className="size-3" aria-label="Exams start" />
-                          ) : (
+                          ) : numberOf(row.topicId!) ? (
                             numberOf(row.topicId!)
+                          ) : (
+                            <TreePalm className="size-3" aria-label="Carries on after the break" />
                           )}
                         </span>
                       )}

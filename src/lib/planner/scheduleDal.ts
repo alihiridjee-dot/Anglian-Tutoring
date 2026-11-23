@@ -373,7 +373,16 @@ export function assessmentPointScores(
     }
     return out;
   }
-  if (scope.size === 1 && !scope.has("__unattributed__") && total && score != null) {
+  // A score or total that isn't a real number (NaN, Infinity) gives no score at all.
+  if (
+    scope.size === 1 &&
+    !scope.has("__unattributed__") &&
+    score != null &&
+    total != null &&
+    Number.isFinite(score) &&
+    Number.isFinite(total) &&
+    total > 0
+  ) {
     out.set([...scope][0], Math.max(0, Math.min(100, (score / total) * 100)));
   }
   return out;

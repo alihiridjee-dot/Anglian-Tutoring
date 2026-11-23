@@ -1,9 +1,12 @@
 import {
+  backOnWeek,
   customSchedule,
   examDateTooSoon,
   reorderTopics,
   resumeAfterPause,
   spineMatchesExam,
+  stopIsCovered,
+  type StopWeeks,
 } from "./topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
@@ -60,7 +63,28 @@ export function isReadableExamDate(key: string): boolean {
 /** The dates a student may choose as their exam: today to four years out. */
 export function examDateBounds(today: Date = new Date()): { min: string; max: string } {
   const min = toDateKey(today);
-  return { min, max: `${Number(min.slice(0, 4)) + 4}${min.slice(4)}` };
+  const year = Number(min.slice(0, 4)) + 4;
+  // 29 Feb four years on is not always a date (2100 is no leap year): then 28 Feb.
+  const leap = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  const day = min.slice(5) === "02-29" && !leap ? "02-28" : min.slice(5);
+  return { min, max: `${year}-${day}` };
+}
+
+/**
+ * What the exam date box does with its date once it loses focus. The date
+ * the plan already uses is no change. An emptied box is put back without a
+ * word, a date out of range is put back with a message, and any other date is
+ * saved.
+ */
+export function examDateEntry(
+  value: string,
+  saved: string,
+  bounds: { min: string; max: string },
+): "unchanged" | "refuse" | "putBack" | "save" {
+  if (value === saved) return "unchanged";
+  if (!value) return "putBack";
+  if (value < bounds.min || value > bounds.max) return "refuse";
+  return "save";
 }
 
 /** The course as the topic-order moves take it: topics in order, points with their weights. */
@@ -174,7 +198,12 @@ export class ProgramDAL {
       overrides,
       breakWeeks: breakWeekKeys(breaks),
     });
-    if (current && storedBands) roadmap.storedBands = storedBands;
+    if (current && storedBands) {
+      roadmap.storedBands = storedBands;
+      const ahead = breaks.filter((b) => !b.recordedAt);
+      if (ahead.length)
+        roadmap.breaksAhead = ahead.map((b) => ({ startsOn: b.startsOn, endsOn: b.endsOn }));
+    }
 
     if (!current) {
       // Seed the acknowledged baseline so the first view is calm (no diff) —
@@ -230,6 +259,12 @@ export class ProgramDAL {
   }): Promise<PacingBand[] | null> {
     const pending = p.pauses.filter((r) => r.endedAt && !r.programmeResumedAt);
     if (!pending.length) return null;
+    const weeksOf = (r: PauseRecord): StopWeeks => ({
+      pausedFrom: currentWeekKey(new Date(r.startedAt)),
+      resumeFrom: currentWeekKey(new Date(r.endedAt!)),
+    });
+    // Every stop picked up already; each one below joins them once handled.
+    const handled = p.pauses.filter((r) => r.endedAt && r.programmeResumedAt).map(weeksOf);
     const stored = p.baseline.pacing as unknown as PacingBand[];
     // A spine for another course is rebuilt from this week anyway.
     const otherCourse = spineIsForAnotherCourse(stored, p.progress);
@@ -238,13 +273,16 @@ export class ProgramDAL {
     let changed = false;
     for (const pause of pending) {
       let next: PacingBand[] | null = null;
-      if (!otherCourse) {
+      const stop = weeksOf(pause);
+      // A stop inside one already handled has had its weeks emptied: it moves nothing.
+      if (!otherCourse && !stopIsCovered(stop, handled)) {
         try {
+          // From the furthest back-on week of any stop it overlaps that was picked up first.
           const moved = resumeAfterPause({
             bands,
             topics,
-            pausedFrom: currentWeekKey(new Date(pause.startedAt)),
-            resumeFrom: currentWeekKey(new Date(pause.endedAt!)),
+            pausedFrom: stop.pausedFrom,
+            resumeFrom: backOnWeek(stop, handled),
             examDate: p.baseline.exam_date,
           });
           if (moved !== bands) next = moved;
@@ -253,6 +291,7 @@ export class ProgramDAL {
           console.warn("[planner] couldn't re-plan after a pause", e);
         }
       }
+      handled.push(stop);
       try {
         await SubjectPauseDAL.resumeProgramme({ pauseId: pause.id, expected: bands, pacing: next });
       } catch (e) {

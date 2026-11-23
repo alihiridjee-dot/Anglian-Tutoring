@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { computePacing, withWeeklyPoints, type PacingBand } from "./pacing";
-import { resumeAfterPause, type OrderTopic } from "./topicOrder";
+import { orderInputs, reorderTopics, resumeAfterPause, type OrderTopic } from "./topicOrder";
 import { weekKeyToDate } from "./week";
 import {
   backOn,
@@ -11,6 +11,7 @@ import {
   layBreaksOver,
   mondayKeyOf,
   overlapsBreak,
+  reorderPreview,
   runWeeks,
   shiftKey,
   touchesExam,
@@ -57,6 +58,10 @@ describe("the booking rules, as the form checks them", () => {
     expect(runWeeks([booked[0]], "2026-10-26", 3)).toBe(5); // runs on from the first
     expect(runWeeks(booked, "2026-10-05", 1)).toBe(3); // in front of the first
     expect(runWeeks(booked, "2026-12-07", 3)).toBe(3); // touching none
+  });
+  test("a break that ended last Sunday still counts, as book_break counts it", () => {
+    const over = [brk("2026-11-02", "2026-11-22")];
+    expect(runWeeks(over, "2026-11-23", 2)).toBe(5);
   });
   test("a break can't overlap one already booked", () => {
     expect(overlapsBreak(booked, "2026-10-19", 1)).toBe(true);
@@ -181,5 +186,79 @@ describe("whether a new break fits a course (the booking form)", () => {
     expect(fits("2026-10-19", 1)).toBe(true);
     expect(fits("2026-09-14", 1)).toBe(true);
     expect(fits("2026-09-14", 1, [later])).toBe(false);
+  });
+});
+
+describe("the topic-order preview with a break booked", () => {
+  /** `n` topics, each with its own number of points of weight 1. */
+  const course = (sizes: number[]): OrderTopic[] =>
+    sizes.map((size, i) => ({
+      topicId: `t${i}`,
+      title: `t${i}`,
+      points: Array.from({ length: size }, (_, j) => ({
+        specPointId: `t${i}p${j}`,
+        code: `t${i}p${j}`,
+        title: `t${i}p${j}`,
+        weight: 1,
+      })),
+    }));
+  const spineOf = (topics: OrderTopic[], start: string, examDate: string) =>
+    computePacing(
+      topics.map((t) => ({ ...t, weight: t.points.length })),
+      weekKeyToDate(start),
+      weekKeyToDate(examDate),
+    );
+  const teachingWeeks = (spine: PacingBand[], topics: OrderTopic[]) =>
+    withWeeklyPoints(spine, new Map(topics.map((t) => [t.topicId, t.points])))
+      .flatMap((b) => Object.entries(b.pointsByWeek ?? {}).filter(([, ps]) => ps.length))
+      .map(([week]) => week);
+
+  test("shows the dates a save gives, with nothing taught in the break", () => {
+    // Six topics over ten weeks from 2 Nov, a week off from 7 Dec, and topic 5
+    // moved up to second from 30 Nov.
+    const topics = course([2, 2, 2, 2, 2, 2]);
+    const examDate = "2027-01-11";
+    const stored = spineOf(topics, "2026-11-02", examDate);
+    const breaks = [brk("2026-12-07", "2026-12-13")];
+    const from = "2026-11-30";
+    const left = orderInputs(stored, topics, from).remaining.map((t) => t.topicId);
+    const order = [left[0], "t4", ...left.slice(1).filter((id) => id !== "t4")];
+    expect(left).toContain("t4");
+    const preview = reorderPreview({ stored, topics, order, from, examDate, breaks, today: from });
+    expect(teachingWeeks(preview, topics)).not.toContain("2026-12-07");
+    // What a save stores, then what the next load lays over it.
+    const saved = reorderTopics({ bands: stored, topics, order, from, examDate, today: from });
+    expect(preview).toEqual(layBreaksOver({ bands: saved, topics, breaks, examDate }));
+    // The order cut from the spine with the break already laid taught straight through it.
+    const laid = layBreaksOver({ bands: stored, topics, breaks, examDate });
+    const before = reorderTopics({ bands: laid, topics, order, from, examDate, today: from });
+    expect(teachingWeeks(before, topics)).toContain("2026-12-07");
+  });
+
+  test("in the second week of a break under way, the order offered can be saved", () => {
+    // Topic 2 was set for 9 Nov, the break's first week. The break isn't
+    // recorded yet, so the stored spine still promises it there.
+    const topics = course([1, 1, 6, 6, 6]);
+    const examDate = "2027-03-01";
+    const stored = spineOf(topics, "2026-11-02", examDate);
+    const breaks = [brk("2026-11-09", "2026-11-22")];
+    const today = "2026-11-16";
+    const offered = orderInputs(stored, topics, today).remaining.map((t) => t.topicId);
+    expect(() =>
+      reorderTopics({
+        bands: stored,
+        topics,
+        order: offered.reverse(),
+        from: today,
+        examDate,
+        today,
+      }),
+    ).not.toThrow();
+    // The list cut from the laid spine also offered topic 2, and every save was refused.
+    const laid = layBreaksOver({ bands: stored, topics, breaks, examDate });
+    const old = orderInputs(laid, topics, today).remaining.map((t) => t.topicId);
+    expect(() =>
+      reorderTopics({ bands: stored, topics, order: old, from: today, examDate, today }),
+    ).toThrow(/exactly once/);
   });
 });

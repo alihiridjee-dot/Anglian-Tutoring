@@ -1,4 +1,4 @@
-import { resumeAfterPause, type OrderTopic } from "./topicOrder";
+import { reorderTopics, resumeAfterPause, type OrderTopic } from "./topicOrder";
 import type { PacingBand } from "./pacing";
 import { plannerDateLabel, weekKeyToDate } from "./week";
 
@@ -133,6 +133,30 @@ function layEach(params: LayParams): { bands: PacingBand[]; unlaid: number } {
     }
   }
   return { bands, unlaid };
+}
+
+/**
+ * A new topic order as the student will get it: cut from the spine as stored,
+ * as a save stores it (ProgramDAL.reorder), with the breaks still to come laid
+ * over it, as the next load shows it. The topic-order screen draws this, so the
+ * dates it shows are the dates that are saved.
+ */
+export function reorderPreview(params: {
+  stored: PacingBand[];
+  topics: OrderTopic[];
+  order: string[];
+  from: string;
+  examDate: string;
+  breaks: readonly Pick<StudentBreak, "startsOn" | "endsOn">[];
+  today?: string;
+}): PacingBand[] {
+  const { stored, breaks, ...order } = params;
+  return layBreaksOver({
+    bands: reorderTopics({ bands: stored, ...order }),
+    topics: params.topics,
+    breaks,
+    examDate: params.examDate,
+  });
 }
 
 /**

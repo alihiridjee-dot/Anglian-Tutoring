@@ -463,7 +463,8 @@ function placeWithinBudget<T extends { week: Date; c: FocusCandidate }>(
     for (const t of ready) {
       const w = weightOf(t.c);
       if (isBlocked?.(t.c.specPointId, key)) held.push(t);
-      else if (spent + w <= budget || took === 0) {
+      // The tolerance stops float noise from costing a whole extra review.
+      else if (spent + w <= budget + 1e-9 || took === 0) {
         out.push({ ...t, week });
         spent += w;
         took++;
@@ -515,9 +516,12 @@ export function splitAcrossWeeks<T>(
   // in spec order — a week is always a contiguous run — so this only chooses
   // where the boundaries fall, never what goes where.
   const n = points.length;
-  const w0 = points.map(weight);
+  // Whole thousandths, so sums are exact: with decimals (0.1 + 0.2 is not 0.3)
+  // float noise, not the rules below, decided one brute-test split in five
+  // (about one real topic split in 150).
+  const w0 = points.map((p) => Math.round(Math.max(0, weight(p)) * 1000));
   const prefix = [0];
-  for (let i = 0; i < n; i++) prefix.push(prefix[i] + Math.max(0, w0[i]));
+  for (let i = 0; i < n; i++) prefix.push(prefix[i] + w0[i]);
 
   // Two objectives, in order: make the heaviest week as light as possible, then
   // make the lightest week as heavy as possible. The second matters — minimising

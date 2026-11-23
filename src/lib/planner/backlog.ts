@@ -318,6 +318,16 @@ export function projectCatchUp(params: {
       backlog.every((p) => isBlocked(p.specPointId, weekKeys[i]));
     openFrom[i] = openFrom[i + 1] + (closed ? 0 : 1);
   }
+  // The last week each point may go in. A tutor can close a single point's
+  // last weeks, and a fair share counts those weeks as open.
+  const lastOpen = new Map<string, number>();
+  if (isBlocked)
+    for (const p of backlog)
+      for (let i = weekKeys.length - 1; i >= 0; i--)
+        if (!isBlocked(p.specPointId, weekKeys[i])) {
+          lastOpen.set(p.specPointId, i);
+          break;
+        }
 
   const schedule = (fairShare: boolean) => {
     let remaining = backlog;
@@ -343,6 +353,13 @@ export function projectCatchUp(params: {
         // The tolerance stops float noise from costing a whole extra point.
         while (count < open.length && spent < share - 1e-9) spent += open[count++].weight;
         if (count > selection.length) selection = open.slice(0, count);
+        // A point in its last open week goes now, with every older point open
+        // this week, so nothing is held while a week was open to it.
+        let last = -1;
+        open.forEach((p, k) => {
+          if (lastOpen.get(p.specPointId) === index) last = k;
+        });
+        if (last + 1 > selection.length) selection = open.slice(0, last + 1);
       }
       const selected = new Set(selection.map((p) => p.specPointId));
       weeks[week] = [...reserved, ...selection];

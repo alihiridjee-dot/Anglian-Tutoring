@@ -484,7 +484,14 @@ test("an ended stop is picked up before anything is cut from the programme", asy
     exam_date: "2027-06-07",
     pacing: seeded("2026-08-24", "2027-06-07"),
   };
-  arrange({ pauses: [stop({ id: "p0", programmeResumedAt: "2026-08-20T10:00:00Z" }), stop()] });
+  // An older stop, picked up already, is left alone.
+  const older = stop({
+    id: "p0",
+    startedAt: "2026-08-03T10:00:00Z",
+    endedAt: "2026-08-17T10:00:00Z",
+    programmeResumedAt: "2026-08-20T10:00:00Z",
+  });
+  arrange({ pauses: [older, stop()] });
   const result = await load();
   expect(io.filter((e) => (e as unknown[])[0] === "resumeProgramme")).toHaveLength(1);
   expect(taughtIn(result!.baselineBands, "2026-08-31", "2026-09-14")).toEqual([]);
@@ -523,6 +530,8 @@ test("a break still to come shows the course as it will be picked up, and saves 
   expect(result!.storedBands?.map((b) => [b.topicId, b.startWeek, b.endWeek])).toEqual(
     pacing.map((b) => [b.topicId, b.startWeek, b.endWeek]),
   );
+  // And the topic-order preview lays the same break over a new order.
+  expect(result!.breaksAhead).toEqual([{ startsOn: "2026-10-12", endsOn: "2026-10-25" }]);
   expect(io.filter((e) => (e as unknown[])[0] === "resumeProgramme")).toEqual([]);
   expect(io.some((e) => Array.isArray(e) && e[0] === "db" && e[1] !== "GET")).toBe(false);
   // Nor is any catch-up or review forecast into it.
