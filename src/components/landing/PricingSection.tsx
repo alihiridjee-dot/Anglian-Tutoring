@@ -74,7 +74,8 @@ const CADENCES: {
     highlight: true,
   },
   // "Best value" goes on BEST_VALUE_CADENCE, shared with the plan step, so the
-  // badges below are what each card says when it isn't that one.
+  // badges below are what each card says when it isn't that one. Every card
+  // says one, so the three headers keep the same shape.
   {
     cadence: "termly",
     name: "Termly",
@@ -477,7 +478,9 @@ function PricingTiers({
             >
               <path d="M2 8 Q 18 1 34 7 T 66 6 T 98 5" vectorEffect="non-scaling-stroke" />
             </svg>
-            {!isBest && <p className="price-word mt-2 text-[1.0625rem] font-bold">{tier.badge}</p>}
+            <p className="price-word mt-2 text-[1.0625rem] font-bold">
+              {isBest ? BEST_VALUE_LABEL : tier.badge}
+            </p>
           </div>
           <p className="flex items-baseline gap-2">
             <Price pence={ladder[tier.cadence][count]} className="numeral price-bill" />
@@ -486,8 +489,10 @@ function PricingTiers({
         </div>
 
         <ul className="price-included mt-6 grid gap-x-5 gap-y-3 sm:grid-cols-2">
-          {included.map((f) => (
-            <li key={f.emoji}>
+          {/* The sessions line is the long one, so it takes the whole row and
+              the four perks every plan shares sit two by two under it. */}
+          {included.map((f, i) => (
+            <li key={f.emoji} className={i === 0 ? "sm:col-span-2" : undefined}>
               <span aria-hidden className="price-emoji">
                 {f.emoji}
               </span>
