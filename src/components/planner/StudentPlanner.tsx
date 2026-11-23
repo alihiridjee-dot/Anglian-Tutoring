@@ -45,6 +45,8 @@ import { PastWeek } from "./PastWeek";
 import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
+import { TINT_TEXT } from "./workbench/figures";
+import { describeError } from "@/lib/platform/errors";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { useNow } from "@/hooks/useNow";
 import { DoNowPanel } from "./DoNowPanel";
@@ -556,6 +558,9 @@ function FullPlanTab({
   const now = useNow(60_000);
   const { nowKey, covered, spine } = useRoadmapView(data, now);
   const [savingDate, setSavingDate] = useState(false);
+  // A toast is gone in four seconds; the tile says the date took until it is
+  // changed again.
+  const [dateSaved, setDateSaved] = useState(false);
 
   const { min: minExamDate, max: maxExamDate } = examDateBounds();
   const lastSavedDate = useRef(data.examDate);
@@ -593,9 +598,10 @@ function FullPlanTab({
       // Refused (too few weeks, or the server): the box shows the plan's date again.
       if (examDateBox.current) examDateBox.current.value = data.examDate;
       setSavingDate(false);
-      toast.error(e instanceof Error ? e.message : "Couldn't update the exam date — try again.");
+      toast.error(describeError(e, "Couldn't update the exam date — try again."));
       return;
     }
+    setDateSaved(true);
     try {
       // The new date is the decision; the re-flowed weeks follow from it.
       const applied = await ProgramDAL.applyPending({ studentId, subject, board, level });
@@ -653,6 +659,14 @@ function FullPlanTab({
               date
             </span>
           )}
+          {dateSaved && !savingDate && (
+            <b
+              role="status"
+              className={`tint-emerald inline-flex items-center gap-1.5 text-sm ${TINT_TEXT}`}
+            >
+              <CheckCircle2 className="size-4" aria-hidden /> Exam date saved
+            </b>
+          )}
           <label className="mt-auto">
             <span className="sr-only">Exam date</span>
             <input
@@ -662,6 +676,7 @@ function FullPlanTab({
               min={minExamDate}
               max={maxExamDate}
               disabled={savingDate}
+              onFocus={() => setDateSaved(false)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") e.currentTarget.blur();
               }}
