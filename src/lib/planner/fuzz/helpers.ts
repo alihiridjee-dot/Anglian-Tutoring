@@ -4,6 +4,11 @@
  * Everything is seeded: a failing case prints its seed, and running the same
  * seed again gives the same course, dates and moves. Nothing here reads the
  * network or the clock.
+ *
+ * A plain `bun test` runs about a tenth of the cases, so CI stays quick. The
+ * test names give the full counts. The full run takes a few minutes:
+ *
+ *   FUZZ_FULL=1 bun test src/lib/planner/fuzz --timeout 300000
  */
 import {
   isTeachBand,
@@ -23,6 +28,13 @@ export interface Rng {
   bool(p?: number): boolean;
   shuffle<T>(items: readonly T[]): T[];
 }
+
+/** Every case, or about a tenth (see the header). */
+export const FULL = process.env.FUZZ_FULL === "1";
+
+/** How many cases to run: all of them in the full run, else a tenth and never under `least`. */
+export const scaled = (full: number, least = 50) =>
+  FULL ? full : Math.min(full, Math.max(least, Math.round(full / 10)));
 
 /** mulberry32: small, fast, and the same on every machine. */
 export function rng(seed: number): Rng {

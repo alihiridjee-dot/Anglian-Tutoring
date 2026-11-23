@@ -16,7 +16,7 @@ import {
 import { assessmentPointScores, foldReviews, ScheduleDAL, type ReviewEvent } from "../scheduleDal";
 import { pausedMsSince, type PauseSpan } from "../pauseTime";
 import type { CourseSnapshot } from "../readModels";
-import { rng, Tally } from "./helpers";
+import { rng, scaled, Tally } from "./helpers";
 
 const DAY = 86_400_000;
 const grades: Grade[] = [Rating.Again, Rating.Hard, Rating.Good, Rating.Easy];
@@ -30,7 +30,7 @@ const sound = (c: Card) =>
 describe("FSRS card under any run of marks", () => {
   test("F1 · 3,000 runs of 1–14 reviews in time order: never throws, card stays sound, due never before the review", () => {
     const tally = new Tally();
-    for (let seed = 0; seed < 3000; seed++) {
+    for (let seed = 0; seed < scaled(3000); seed++) {
       const r = rng(seed);
       const problems: string[] = [];
       let card: Card | null = null;
@@ -70,7 +70,7 @@ describe("FSRS card under any run of marks", () => {
 
   test("F2 · 2,000 reviews stamped BEFORE the last one (clock skew, incl. across UTC midnight): never throws", () => {
     const tally = new Tally();
-    for (let seed = 0; seed < 2000; seed++) {
+    for (let seed = 0; seed < scaled(2000); seed++) {
       const r = rng(10_000 + seed);
       const problems: string[] = [];
       // Half the cases sit a few hundred ms either side of UTC midnight.
@@ -94,7 +94,7 @@ describe("FSRS card under any run of marks", () => {
   test("F2b · 2,000 READS with the device clock behind the last review (what a slow phone clock does): never throws, retention 0–1", async () => {
     const tally = new Tally();
     const course = { studentId: "s", subject: "biology", board: "aqa", level: "gcse" } as const;
-    for (let seed = 0; seed < 2000; seed++) {
+    for (let seed = 0; seed < scaled(2000); seed++) {
       const r = rng(15_000 + seed);
       const problems: string[] = [];
       const base = r.bool()
@@ -169,7 +169,7 @@ describe("the fold of graded work", () => {
 
   test("F3 · 1,500 histories: the order events arrive in never changes the cards (late marks, same-instant quiz + task)", () => {
     const tally = new Tally();
-    for (let seed = 0; seed < 1500; seed++) {
+    for (let seed = 0; seed < scaled(1500); seed++) {
       const r = rng(20_000 + seed);
       const start = Date.UTC(2026, 8, 1, 9);
       const events: ReviewEvent[] = [];
@@ -250,7 +250,7 @@ describe("the fold of graded work", () => {
   test("F7 · 2,000 junk quiz snapshots: every score that comes out is a finite 0–100", () => {
     const tally = new Tally();
     const junk = [NaN, Infinity, -5, 101, "80", null, undefined, {}, [], true, 0, 100, 55.5];
-    for (let seed = 0; seed < 2000; seed++) {
+    for (let seed = 0; seed < scaled(2000); seed++) {
       const r = rng(30_000 + seed);
       const snapshot = r.bool(0.7)
         ? Object.fromEntries(Array.from({ length: r.int(0, 5) }, (_, i) => [`p${i}`, r.pick(junk)]))
@@ -288,7 +288,7 @@ describe("paused time", () => {
 
   test("F8 · 4,000 sets of overlapping break + pause spans: counted once, never more than the time elapsed", () => {
     const tally = new Tally();
-    for (let seed = 0; seed < 4000; seed++) {
+    for (let seed = 0; seed < scaled(4000); seed++) {
       const r = rng(40_000 + seed);
       const since = Date.UTC(2026, 8, 1) + r.int(0, 30) * DAY;
       const now = since + r.int(0, 200) * DAY + r.int(0, DAY);
@@ -312,7 +312,7 @@ describe("paused time", () => {
   test("F9 · 1,000 students with a pause and a break laid over one review: 'due' and the dates shown always agree", async () => {
     const tally = new Tally();
     const course = { studentId: "s", subject: "biology", board: "aqa", level: "gcse" } as const;
-    for (let seed = 0; seed < 1000; seed++) {
+    for (let seed = 0; seed < scaled(1000); seed++) {
       const r = rng(50_000 + seed);
       const reviewed = Date.UTC(2026, 8, 7, 9) + r.int(0, 20) * DAY;
       const now = new Date(reviewed + r.int(0, 120) * DAY + r.int(0, DAY));
