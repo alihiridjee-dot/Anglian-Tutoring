@@ -4926,3 +4926,248 @@ body {
     animation: none;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   THE FORGETTING CURVE — How it works (ForgettingCurve)
+   No card, no legend, no grid: two lines on the page, each quiz a round dot
+   that pops up as the line reaches it, and the figures inside rings. Under the
+   lines, the visitor answers quizzes as their child on a small point trail,
+   and the planner books the next one where the line ends.
+   ════════════════════════════════════════════════════════════════════════════ */
+.curve {
+  --curve-stop: 2.5rem;
+}
+.curve-plot {
+  position: relative;
+  height: clamp(11rem, 23vw, 15rem);
+  /* Room either side for a dot centred on the line's first and last point. */
+  margin: calc(var(--curve-stop) / 2 + 0.5rem) 0.75rem 0;
+}
+.curve-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+/* Time runs along a dotted line, like the trail's. */
+.curve-floor {
+  stroke: color-mix(in oklab, var(--tint) 30%, var(--edge));
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 1 12;
+  vector-effect: non-scaling-stroke;
+}
+.curve-line {
+  fill: none;
+  stroke: var(--tint);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+/* Everything laid over the plot is centred on its point. */
+.curve-stop,
+.curve-end {
+  position: absolute;
+  translate: -50% -50%;
+}
+.curve-stop {
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--curve-stop);
+  height: var(--curve-stop);
+  border-radius: 999px;
+  font-size: calc(var(--curve-stop) * 0.5);
+  line-height: 1;
+  background: var(--card);
+  border: 3px solid var(--tint);
+  box-shadow: 0 4px 0 0 color-mix(in oklab, var(--tint) 45%, var(--primary-deep));
+  scale: 0;
+  transition:
+    scale 0.45s cubic-bezier(0.3, 1.6, 0.5, 1),
+    translate 0.25s cubic-bezier(0.3, 1.6, 0.5, 1),
+    rotate 0.25s ease;
+}
+.curve-stop[data-on] {
+  scale: 1;
+}
+.curve-stop[data-on]:hover {
+  translate: -50% -65%;
+  rotate: -10deg;
+}
+/* The quiz the planner has booked: a dashed stop, a pencil writing in it. */
+.curve-next {
+  z-index: 2;
+  border: 3px dashed color-mix(in oklab, var(--tint) 55%, var(--edge));
+  box-shadow: none;
+  animation: curve-pop 0.45s cubic-bezier(0.3, 1.6, 0.5, 1) both;
+}
+.curve-pencil {
+  display: block;
+  transform-origin: 20% 90%;
+  animation: point-scribble 1.1s ease-in-out infinite;
+}
+.curve-end {
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 999px;
+  background: var(--tint);
+  border: 3px solid var(--card);
+  animation: curve-pop 0.4s cubic-bezier(0.3, 1.6, 0.5, 1) both;
+}
+@keyframes curve-pop {
+  from {
+    scale: 0;
+  }
+}
+.curve-ticks {
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 0;
+  right: 0;
+}
+.curve-ticks span {
+  position: absolute;
+  translate: -50% 0;
+  white-space: nowrap;
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+.curve-ticks span[data-edge="start"] {
+  translate: 0 0;
+}
+.curve-ticks span[data-edge="end"] {
+  translate: -100% 0;
+}
+/* Under the lines: the quiz on one side, what they'd remember on the other. */
+.curve-below {
+  display: grid;
+  gap: 3rem 4rem;
+  margin-top: 4.5rem;
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  .curve-below {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    text-align: left;
+  }
+}
+.curve-h {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.curve-ask {
+  margin-top: 0.5rem;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+.point-trail.curve-trail {
+  --dot: 4.25rem;
+  margin: 1.5rem 0 0;
+}
+.curve-trail .point-stop {
+  min-height: 2.75rem;
+}
+.curve-trail .point-stop-label {
+  font-size: 1.0625rem;
+}
+.curve-trail .point-stop[aria-pressed="true"] .point-stop-dot {
+  transform: scale(1.1);
+  outline-width: 4px;
+}
+.curve-reply {
+  margin-top: 1.75rem;
+}
+.curve-booked {
+  font-family: var(--font-display);
+  font-size: 1.625rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--primary-deep);
+}
+.curve-blurb {
+  margin-top: 0.4rem;
+  font-size: 1.0625rem;
+  font-weight: 500;
+}
+.curve-rings {
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+  justify-items: center;
+}
+@media (min-width: 1024px) {
+  .curve-rings {
+    justify-items: start;
+  }
+}
+.curve-result {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+}
+.curve-name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: color-mix(in oklab, var(--tint) 72%, var(--primary-deep));
+}
+.curve-tally {
+  margin-top: 0.4rem;
+  font-weight: 600;
+}
+.curve-close {
+  max-width: 36rem;
+  margin: 3rem auto 0;
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+@media (max-width: 599px) {
+  .curve {
+    --curve-stop: 2rem;
+  }
+  .curve-ticks span {
+    font-size: 0.8125rem;
+  }
+  .curve-ticks span[data-minor] {
+    display: none;
+  }
+  .curve-h {
+    font-size: 1.3rem;
+  }
+  .point-trail.curve-trail {
+    --dot: 3.25rem;
+  }
+  .curve-trail .point-stop-label {
+    font-size: 0.875rem;
+  }
+  .curve-trail .point-stop-word {
+    font-size: 0.75rem;
+  }
+  .curve-booked {
+    font-size: 1.375rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .curve-stop {
+    transition: none;
+  }
+  .curve-stop[data-on]:hover {
+    translate: -50% -50%;
+    rotate: none;
+  }
+  .curve-end,
+  .curve-next,
+  .curve-pencil {
+    animation: none;
+  }
+}
