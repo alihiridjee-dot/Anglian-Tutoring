@@ -21,6 +21,7 @@ import {
 import { invalidatePlanner } from "@/lib/planner/queries";
 import { currentWeekKey } from "@/lib/planner/week";
 import { AbovePage } from "@/components/Shared";
+import { describeError } from "@/lib/platform/errors";
 
 type StartChoice = "this" | "next" | "later";
 
@@ -146,7 +147,7 @@ export function TakeABreakDialog({
       toast.success(`Break booked. Back ${breakDay(picked.back!)}.`);
       onClose();
     } catch (e) {
-      setError(e instanceof Error ? e.message : "The break couldn't be booked. Try again.");
+      setError(describeError(e, "The break couldn't be booked. Try again."));
       setPending(false);
     }
   };

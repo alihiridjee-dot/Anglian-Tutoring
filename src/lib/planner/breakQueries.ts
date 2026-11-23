@@ -16,6 +16,18 @@ export const studentBreaksQuery = (studentId: string) =>
     staleTime: 30_000,
   });
 
+/**
+ * The same breaks for the break card, where a failed read is said with a
+ * retry rather than read as "no break" (BreakDAL.read). Under the same key,
+ * so a planner refresh re-reads it too.
+ */
+export const breakCardQuery = (studentId: string) =>
+  queryOptions({
+    queryKey: [...plannerKey(studentId), "breaks", "card"],
+    queryFn: () => BreakDAL.read(studentId),
+    staleTime: 30_000,
+  });
+
 /** Each programme's exam date, for the booking form's exam rule (BreakDAL.examDates). */
 export const examDatesQuery = (studentId: string) =>
   queryOptions({
