@@ -4927,6 +4927,96 @@ body {
   }
 }
 
+/* ── The contact section (ContactSection), playful minimalism ────────────────
+   The title on the page with a highlighter stroke under "science tutoring",
+   drawn once the section is scrolled to (`data-in`). The ways to reach us are
+   the point trail drawn a little smaller, and the Send button's paper plane
+   lifts when pointed at and flies while sending. */
+.contact-mark {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+.contact-squiggle {
+  position: absolute;
+  left: -2px;
+  bottom: -0.55rem;
+  width: calc(100% + 4px);
+  height: 0.75rem;
+  overflow: visible;
+}
+/* The stroke doesn't scale with the stretched box, so its dashes are counted
+   in screen pixels: one dash longer than the widest line hides it all. */
+.contact-squiggle path {
+  --line-len: 480;
+  fill: none;
+  stroke: var(--pop);
+  stroke-width: 6;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 480;
+}
+.contact[data-in="false"] .contact-squiggle path {
+  stroke-dashoffset: 480;
+}
+.contact[data-in="true"] .contact-squiggle path {
+  animation: line-draw 0.8s ease-out 0.35s both;
+}
+.contact-send {
+  overflow: hidden;
+}
+.contact-plane {
+  transition:
+    translate 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    rotate 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.contact-send:hover:not(:disabled) .contact-plane,
+.contact-send:focus-visible .contact-plane {
+  translate: 4px -3px;
+  rotate: -10deg;
+}
+@keyframes contact-fly {
+  0% {
+    translate: 0 0;
+    opacity: 1;
+  }
+  45% {
+    translate: 2.75rem -1.75rem;
+    opacity: 0;
+  }
+  55% {
+    translate: -2.75rem 1.75rem;
+    opacity: 0;
+  }
+  100% {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
+.contact-send .contact-plane-off {
+  animation: contact-fly 1s cubic-bezier(0.5, 0, 0.3, 1) infinite;
+}
+/* The stops, a little smaller than a spec point's. */
+.point-trail.contact-trail {
+  --dot: 4.5rem;
+}
+@media (max-width: 599px) {
+  .point-trail.contact-trail {
+    --dot: 3.75rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact[data-in] .contact-squiggle path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .contact-plane,
+  .contact-send .contact-plane-off {
+    transition: none;
+    animation: none;
+  }
+}
+
 /* ════════════════════════════════════════════════════════════════════════════
    THE FORGETTING CURVE — How it works (ForgettingCurve)
    No card, no legend, no grid: two lines on the page, each quiz a round dot
