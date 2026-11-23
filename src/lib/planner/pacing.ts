@@ -516,9 +516,11 @@ export function splitAcrossWeeks<T>(
   // in spec order — a week is always a contiguous run — so this only chooses
   // where the boundaries fall, never what goes where.
   const n = points.length;
-  const w0 = points.map(weight);
+  // Whole thousandths, so sums are exact: with decimals (0.1 + 0.2 is not 0.3)
+  // float noise, not the rules below, decided one split in five.
+  const w0 = points.map((p) => Math.round(Math.max(0, weight(p)) * 1000));
   const prefix = [0];
-  for (let i = 0; i < n; i++) prefix.push(prefix[i] + Math.max(0, w0[i]));
+  for (let i = 0; i < n; i++) prefix.push(prefix[i] + w0[i]);
 
   // Two objectives, in order: make the heaviest week as light as possible, then
   // make the lightest week as heavy as possible. The second matters — minimising
