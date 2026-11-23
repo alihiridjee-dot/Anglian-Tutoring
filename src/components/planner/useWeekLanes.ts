@@ -3,7 +3,7 @@ import { currentWeekKey } from "@/lib/planner/week";
 import { type PlanPoint, type WeeklyPlan } from "@/lib/planner/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
-import { type PointCoverage, laneOf, practiceComplete } from "@/lib/planner/coverage";
+import { type PointCoverage, laneOf, pointDone } from "@/lib/planner/coverage";
 import { type Activity } from "./useWeekPlan";
 
 /** Is this point core curriculum? See {@link laneOf} for what `ai` means. */
@@ -13,6 +13,18 @@ function isCoreLane(p: PlanPoint): boolean {
 
 /** One topic's share of a lane. */
 export type TopicGroup = { topicId: string; title: string; points: PlanPoint[] };
+
+/**
+ * The points this week's "Missed work returning" holds: what the catch-up rule
+ * set for this week, and anything still owed from a week before it. The lane
+ * and the week's "Returning" count both read this, so they never disagree.
+ */
+export function returningIdsFor(roadmap: RoadmapResult | null, weekStart: string): Set<string> {
+  return new Set([
+    ...(roadmap?.catchUpSchedule?.weeks[weekStart] ?? []).map((p) => p.specPointId),
+    ...(roadmap?.backlog ?? []).filter((p) => p.plannedWeek < weekStart).map((p) => p.specPointId),
+  ]);
+}
 
 /**
  * Sorts a saved week into the lanes "This week" shows: new learning, missed
@@ -48,16 +60,7 @@ export function useWeekLanes({
 
   const covered = !!band && (roadmap?.coveredTopicIds ?? []).includes(band.topicId);
 
-  const returningIds = useMemo(
-    () =>
-      new Set([
-        ...(roadmap?.catchUpSchedule?.weeks[weekStart] ?? []).map((p) => p.specPointId),
-        ...(roadmap?.backlog ?? [])
-          .filter((p) => p.plannedWeek < weekStart)
-          .map((p) => p.specPointId),
-      ]),
-    [roadmap, weekStart],
-  );
+  const returningIds = useMemo(() => returningIdsFor(roadmap, weekStart), [roadmap, weekStart]);
 
   // The saved assignment is authoritative; roadmap points are never added here.
   const coreThisWeek = useMemo(
@@ -112,12 +115,10 @@ export function useWeekLanes({
   const upcomingCatchUp =
     !plan && weekStart > currentWeekKey() && !!roadmap?.catchUpSchedule?.weeks[weekStart]?.length;
 
-  const assigned = points.filter((p) => {
-    const a = activity.get(p.spec_point_id);
-    return a?.hasHomework || a?.hasQuiz;
-  });
-  const completed = assigned.filter((p) =>
-    practiceComplete(activity.get(p.spec_point_id), coverage.get(p.spec_point_id)),
+  // Every point of the week, done by the task list's own rule, so the
+  // progress card and the list below it give the same count.
+  const completed = points.filter((p) =>
+    pointDone(p.done_at, activity.get(p.spec_point_id), coverage.get(p.spec_point_id)),
   ).length;
 
   return {
@@ -131,7 +132,6 @@ export function useWeekLanes({
     returning,
     focusPointCount,
     upcomingCatchUp,
-    assigned,
     completed,
   };
 }

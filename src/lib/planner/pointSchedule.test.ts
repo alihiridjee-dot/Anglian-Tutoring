@@ -14,6 +14,16 @@ const SPINE: PacingBand[] = [
   { topicId: "t2", title: "T2", startWeek: "2026-08-03", endWeek: "2026-08-17", weeks: 3 },
 ];
 
+const owed = (id: string, topicId: string, plannedWeek: string) => ({
+  specPointId: id,
+  topicId,
+  topicTitle: topicId,
+  code: id,
+  title: id,
+  weight: 1,
+  plannedWeek,
+});
+
 const base = {
   bands: SPINE,
   baselineBands: SPINE,
@@ -23,6 +33,8 @@ const base = {
     topic("t2", [point("d"), point("e"), point("f")]),
   ],
   completedPointIds: ["c"],
+  // What the roadmap says is owed at 10 Aug: b and d, the two passed over.
+  backlog: [owed("b", "t1", "2026-07-20"), owed("d", "t2", "2026-08-03")],
 };
 
 describe("courseSchedule", () => {
@@ -39,6 +51,16 @@ describe("courseSchedule", () => {
     expect(byPoint.get("e")).toEqual({ kind: "planned", week: "2026-08-10" });
     expect(byPoint.get("f")).toEqual({ kind: "planned", week: "2026-08-17" });
     expect(byPoint.get("d")).toEqual({ kind: "missed", week: "2026-08-03" });
+  });
+
+  test("missed is what the planner owes: a passed point it does not count gets no answer", () => {
+    // d already sits in a later week's plan, so the roadmap does not owe it.
+    const { byPoint } = courseSchedule(
+      { ...base, backlog: base.backlog.filter((p) => p.specPointId !== "d") },
+      "2026-08-10",
+    );
+    expect(byPoint.get("d")).toBeUndefined();
+    expect(byPoint.get("b")).toEqual({ kind: "missed", week: "2026-07-20" });
   });
 
   test("a missed point returning in catch-up shows the catch-up week and the week it was due", () => {

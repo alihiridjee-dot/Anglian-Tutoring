@@ -1,5 +1,5 @@
 import { PlannerPointItem } from "./PlannerPointItem";
-import { ClipboardList, ListChecks } from "lucide-react";
+import { ClipboardList, History, ListChecks } from "lucide-react";
 import { type ProgressPoint } from "@/lib/planner/scheduleDal";
 import { type PointStatus } from "@/lib/planner/scheduler";
 import { describeAssessability } from "@/lib/planner/assessability";
@@ -41,7 +41,16 @@ const statusMeta: Record<PointStatus, { label: string; cls: string }> = {
  * a gap in the library, which on this course is the overwhelmingly common case.
  * See [[assessability]].
  */
-export function PointRow({ point, card = false }: { point: ProgressPoint; card?: boolean }) {
+export function PointRow({
+  point,
+  card = false,
+  missed = false,
+}: {
+  point: ProgressPoint;
+  card?: boolean;
+  /** Owed from a week that has passed: said in place of its standing. */
+  missed?: boolean;
+}) {
   const unassessable = point.assessability === "unassessable";
   const s = unassessable
     ? {
@@ -57,11 +66,17 @@ export function PointRow({ point, card = false }: { point: ProgressPoint; card?:
           title={point.title}
           status={
             <div className="flex flex-wrap gap-1.5">
-              <span
-                className={`chip text-[11px] ${unassessable ? "tint-slate" : point.status === "strong" ? "tint-emerald" : ""}`}
-              >
-                {unassessable ? "Practice not attached" : s.label}
-              </span>
+              {missed ? (
+                <span className="chip tint-amber text-[11px]">
+                  <History className="size-3" aria-hidden /> To catch up
+                </span>
+              ) : (
+                <span
+                  className={`chip text-[11px] ${unassessable ? "tint-slate" : point.status === "strong" ? "tint-emerald" : ""}`}
+                >
+                  {unassessable ? "Practice not attached" : s.label}
+                </span>
+              )}
               {point.assessability === "awaiting" && (
                 <span className="chip tint-amber text-[11px]">
                   <ClipboardList className="size-3" aria-hidden /> Practice set

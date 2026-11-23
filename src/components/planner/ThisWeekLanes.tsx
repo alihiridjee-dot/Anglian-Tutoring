@@ -27,27 +27,26 @@ type Row = (p: PlanPoint) => React.ReactNode;
  * opens — the one progress card on the week.
  */
 export function WeekProgressCard({
-  assigned,
+  total,
   completed,
   lock,
 }: {
-  assigned: PlanPoint[];
+  /** Every point of the week, as the weekly task list counts them. */
+  total: number;
   completed: number;
   lock: ReviewLock;
 }) {
-  const done = completed === assigned.length;
+  const done = completed === total;
   return (
     <div className="premium-card tint-primary rounded-xl p-4 space-y-2">
       <h3 className="text-base font-bold">
-        {done
-          ? "This week’s assigned practice is complete"
-          : `${completed} of ${assigned.length} points practised`}
+        {done ? "This week’s points are all done" : `${completed} of ${total} points done`}
       </h3>
       {/* The bar runs up to where the week has got to; the trophy is the end of it. */}
       <div className="flex items-center gap-3">
         <Meter
           key={completed}
-          value={(completed / assigned.length) * 100}
+          value={(completed / total) * 100}
           size="lg"
           fillIn
           className="min-w-0 flex-1"
