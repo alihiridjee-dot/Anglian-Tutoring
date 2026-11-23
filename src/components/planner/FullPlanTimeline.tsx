@@ -16,6 +16,7 @@ import type { RoadmapResult } from "@/lib/planner/roadmap";
 import { isTeachBand, withWeeklyPoints } from "@/lib/planner/pacing";
 import { byTopic } from "@/lib/planner/backlog";
 import { breakCovering } from "@/lib/planner/breaks";
+import { spineExamDate } from "@/lib/planner/topicOrder";
 import { BreakWeek } from "./BreakWeek";
 import {
   addWeeks,
@@ -43,9 +44,13 @@ export function FullPlanTimeline({
   focusWeek?: string;
 }) {
   const now = currentWeekKey();
+  const reviewing = data.needsAck && data.baselineBands.length > 0;
+  // A moved exam date not applied yet: the plan the student had stays on
+  // screen whole, up to the exam it was cut for, until the re-flow lands.
+  const horizon = (reviewing && spineExamDate(data.baselineBands)) || data.examDate;
   // The exam date is stored as the day it falls on; the week it lands in is
   // keyed by its Monday, or a Wednesday exam never showed an "Exams" week.
-  const examWeek = toDateKey(mondayOf(weekKeyToDate(data.examDate)));
+  const examWeek = toDateKey(mondayOf(weekKeyToDate(horizon)));
   const viewport = useRef<HTMLDivElement>(null);
   const cards = useRef(new Map<string, HTMLElement>());
   const [expanded, setExpanded] = useState(new Set<string>());
@@ -55,9 +60,8 @@ export function FullPlanTimeline({
   const progress = new Map(data.progress.map((topic) => [topic.topicId, topic]));
   const missed = new Set(data.backlog.map((point) => point.specPointId));
   const assigned = new Set(data.catchUpSchedule?.assignedIds ?? []);
-  const reviewing = data.needsAck && data.baselineBands.length > 0;
   const teaching = withWeeklyPoints(
-    (reviewing ? data.baselineBands : data.bands).filter(isTeachBand),
+    (reviewing ? (data.lastSeenBands ?? data.baselineBands) : data.bands).filter(isTeachBand),
     new Map(
       data.progress.map((topic) => [
         topic.topicId,
@@ -73,7 +77,7 @@ export function FullPlanTimeline({
   const weeks: string[] = [];
   for (
     let week = data.programStart;
-    week <= data.examDate;
+    week <= horizon;
     week = toDateKey(addWeeks(weekKeyToDate(week), 1))
   )
     weeks.push(week);

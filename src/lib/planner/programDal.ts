@@ -3,6 +3,7 @@ import {
   examDateTooSoon,
   reorderTopics,
   resumeAfterPause,
+  spineExamDate,
   spineMatchesExam,
   stopIsCovered,
   type StopWeeks,
@@ -204,6 +205,27 @@ export class ProgramDAL {
       const ahead = breaks.filter((b) => !b.recordedAt);
       if (ahead.length)
         roadmap.breaksAhead = ahead.map((b) => ({ startsOn: b.startsOn, endsOn: b.endsOn }));
+      // The exam moved and the re-flow hasn't landed (applyPending failed, or
+      // hasn't run yet). withBreaksAhead left the breaks off the old spine, so
+      // the Full plan drew teaching in the holiday and stopped at the new date,
+      // dropping topics. Shown instead: the old spine as the student last saw
+      // it, breaks laid against the date it was cut for.
+      const spine = current.pacing as unknown as PacingBand[];
+      const cutFor = spineExamDate(spine);
+      if (
+        roadmap.needsAck &&
+        ahead.length &&
+        cutFor &&
+        !spineMatchesExam(spine, current.exam_date)
+      ) {
+        const laid = layBreaksOver({
+          bands: roadmap.baselineBands,
+          topics: orderTopicsOf(progress),
+          breaks: ahead,
+          examDate: cutFor,
+        });
+        if (laid !== roadmap.baselineBands) roadmap.lastSeenBands = laid;
+      }
     }
 
     if (!current) {

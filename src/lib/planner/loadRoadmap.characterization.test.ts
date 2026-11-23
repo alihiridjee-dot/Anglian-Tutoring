@@ -557,6 +557,36 @@ test("an exam date moved with a break still to come is noticed, not hidden by th
   expect(result!.changes.length).toBeGreaterThan(0);
 });
 
+test("until that move lands, the Full plan has the plan as last seen: break laid, old exam", async () => {
+  const pacing = seeded("2026-08-24", "2027-06-07");
+  baseline = { program_start: "2026-08-24", exam_date: "2027-05-10", pacing };
+  arrange({ breaks: [holiday()] });
+  const result = await load();
+  const shown = result!.lastSeenBands!;
+  // Nothing taught in the fortnight away, as before the date moved.
+  expect(taughtIn(shown, "2026-10-12", "2026-10-26")).toEqual([]);
+  // Every topic still has its weeks, up to the exam the spine was cut for.
+  expect(new Set(shown.map((b) => b.topicId))).toEqual(new Set(pacing.map((b) => b.topicId)));
+  expect(
+    shown
+      .map((b) => b.endWeek)
+      .sort()
+      .at(-1),
+  ).toBe("2027-05-31");
+  // Display only: the re-flow and any save still start from the spine as stored.
+  expect(result!.baselineBands.map((b) => [b.topicId, b.startWeek, b.endWeek])).toEqual(
+    pacing.map((b) => [b.topicId, b.startWeek, b.endWeek]),
+  );
+  expect(io.some((e) => Array.isArray(e) && e[0] === "db" && e[1] !== "GET")).toBe(false);
+});
+
+test("a plan that has taken its exam date has no last-seen copy", async () => {
+  const pacing = seeded("2026-08-24", "2027-06-07");
+  baseline = { program_start: "2026-08-24", exam_date: "2027-06-07", pacing };
+  arrange({ breaks: [holiday()] });
+  expect((await load())!.lastSeenBands).toBeUndefined();
+});
+
 test("a recorded break is left to the stop it became", async () => {
   const pacing = seeded("2026-08-24", "2027-06-07");
   baseline = { program_start: "2026-08-24", exam_date: "2027-06-07", pacing };

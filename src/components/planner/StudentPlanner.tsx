@@ -150,24 +150,39 @@ export function StudentPlanner({
   // was cut short. It is settled quietly on sight, once per proposal, rather
   // than handed to the student as something to review.
   const settled = useRef(new Set<string>());
-  useEffect(() => {
-    if (!data?.needsAck || !activeCourseSubject || !activeBoard) return;
-    const key = `${studentId}|${activeCourseSubject}|${JSON.stringify(data.changes)}`;
-    if (settled.current.has(key)) return;
-    settled.current.add(key);
+  // The course whose re-flow failed. Its plan stays on screen as the student
+  // last saw it (loadRoadmap's lastSeenBands) under one line with a retry.
+  const [reflowFailed, setReflowFailed] = useState<string | null>(null);
+  const course = `${studentId}|${activeCourseSubject}`;
+  const reflow = () =>
     ProgramDAL.applyPending({
       studentId,
       subject: activeCourseSubject as SubjectV,
       board: activeBoard as BoardV,
       level,
-    })
-      .then(() => setBoardRev((r) => r + 1))
+    }).then(
+      () => {
+        setReflowFailed(null);
+        setBoardRev((r) => r + 1);
+      },
       // Stays pending and is tried again on the next visit — said out loud,
       // because the topic-order page waits on it and would otherwise send the
       // student back here for ever.
-      .catch(() =>
-        toast.error("Your plan couldn't update just now. Reload the page to try again."),
-      );
+      () => setReflowFailed(course),
+    );
+  const [retrying, setRetrying] = useState(false);
+  const retryReflow = () => {
+    setRetrying(true);
+    void reflow().finally(() => setRetrying(false));
+  };
+  useEffect(() => {
+    if (!data?.needsAck || !activeCourseSubject || !activeBoard) return;
+    const key = `${studentId}|${activeCourseSubject}|${JSON.stringify(data.changes)}`;
+    if (settled.current.has(key)) return;
+    settled.current.add(key);
+    void reflow();
+    // `reflow` reads only what is listed here.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, studentId, activeCourseSubject, activeBoard, level]);
   // Both tabs open as soon as the plan is built. This week's tasks, quizzes and
   // attempts load inside its own tab, side by side, behind its own spinner.
@@ -219,6 +234,15 @@ export function StudentPlanner({
       </div>
 
       <div className="p-4 sm:p-5">
+        {reflowFailed === course && data?.needsAck && (
+          <div role="alert" className="mb-4">
+            <ErrorNote
+              error="Your plan hasn't updated yet, so this is still your plan as it was."
+              // Gone while it runs, so a press is seen to do something.
+              onRetry={retrying ? undefined : retryReflow}
+            />
+          </div>
+        )}
         {tab === "topics" ? (
           // Practice history reads its own query, so a week that failed to
           // build must not take this tab down with it.
@@ -625,10 +649,10 @@ function FullPlanTab({
         );
       onChanged();
     } catch {
-      // The date is saved; only the re-flow failed, and it is retried on the
-      // next visit. Reporting that as "couldn't update" sent students back to
-      // type the same date again.
-      toast.success("Exam date saved. Your plan updates next time you open the planner.");
+      // The date is saved (the tile says so); only the re-flow failed.
+      // Reporting that as "couldn't update" sent students back to type the
+      // same date again. The reload below finds the re-flow still pending and
+      // tries it once more; if that fails too, the planner says so with a retry.
       onChanged();
     } finally {
       setSavingDate(false);

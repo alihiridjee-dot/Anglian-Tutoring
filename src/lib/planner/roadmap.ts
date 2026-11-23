@@ -120,6 +120,13 @@ export interface RoadmapResult {
    */
   storedBands?: PacingBand[];
   /**
+   * While a moved exam date waits to be applied: `baselineBands` with the
+   * breaks laid over it, against the date that spine was cut for. The plan as
+   * the student last saw it, for the Full plan to show until the re-flow
+   * lands. Display only; nothing is saved or cut from it.
+   */
+  lastSeenBands?: PacingBand[];
+  /**
    * The breaks not yet recorded, which the next load lays over whatever is
    * saved: the topic-order preview lays them over the new order the same way.
    */

@@ -35,6 +35,18 @@ export function spineMatchesExam(bands: PacingBand[], examDate: string): boolean
   );
 }
 
+/** The exam date a stored spine was cut for, by the same rule; null for an empty one. */
+export function spineExamDate(bands: PacingBand[]): string | null {
+  const custom = customSchedule(bands);
+  if (custom) return custom.examDate;
+  const last = bands
+    .filter(isTeachBand)
+    .map((b) => b.endWeek)
+    .sort()
+    .at(-1);
+  return last ? toDateKey(addWeeks(weekKeyToDate(last), 1)) : null;
+}
+
 /**
  * How many topics still have work promised from `from` on: what a move of the
  * exam date re-spreads (orderInputs' `remaining`), each needing a week at

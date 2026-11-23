@@ -36,6 +36,7 @@ type ScheduleInput = Pick<
   RoadmapResult,
   | "bands"
   | "baselineBands"
+  | "lastSeenBands"
   | "needsAck"
   | "progress"
   | "completedPointIds"
@@ -65,7 +66,7 @@ export function courseSchedule(data: ScheduleInput, now: string): CourseSchedule
     ]),
   );
   const teaching = withWeeklyPoints(
-    (reviewing ? data.baselineBands : data.bands).filter(isTeachBand),
+    (reviewing ? (data.lastSeenBands ?? data.baselineBands) : data.bands).filter(isTeachBand),
     pointsByTopic,
   );
 
