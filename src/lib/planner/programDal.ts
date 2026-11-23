@@ -197,6 +197,7 @@ export class ProgramDAL {
       overrides,
       breakWeeks: breakWeekKeys(breaks),
     });
+    if (breaks.length) roadmap.breaks = breaks;
     if (current && storedBands) {
       roadmap.storedBands = storedBands;
       const ahead = breaks.filter((b) => !b.recordedAt);

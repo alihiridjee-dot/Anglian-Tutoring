@@ -34,6 +34,7 @@ import {
 } from "./backlog";
 import { blockedBy, indexOverrides, type PlanOverride } from "./overrides";
 import { type PlanPoint, type WithheldPlanPoint } from "./weeklyPlanDal";
+import type { StudentBreak } from "./breaks";
 
 /** Assessment-backed cards supply one next review per point. */
 /** Each topic's teaching weight, the input the spine and its weekly load are cut from. */
@@ -123,6 +124,8 @@ export interface RoadmapResult {
    * saved: the topic-order preview lays them over the new order the same way.
    */
   breaksAhead?: { startsOn: string; endsOn: string }[];
+  /** The student's breaks that stand, so the Full plan can draw their weeks as a break. */
+  breaks?: StudentBreak[];
   /** Topics whose start week moved since the student last acknowledged. */
   changes: PacingChange[];
   needsAck: boolean;

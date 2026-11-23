@@ -532,6 +532,8 @@ test("a break still to come shows the course as it will be picked up, and saves 
   );
   // And the topic-order preview lays the same break over a new order.
   expect(result!.breaksAhead).toEqual([{ startsOn: "2026-10-12", endsOn: "2026-10-25" }]);
+  // The Full plan draws its weeks as the break, with its reason.
+  expect(result!.breaks).toEqual([holiday()]);
   expect(io.filter((e) => (e as unknown[])[0] === "resumeProgramme")).toEqual([]);
   expect(io.some((e) => Array.isArray(e) && e[0] === "db" && e[1] !== "GET")).toBe(false);
   // Nor is any catch-up or review forecast into it.
