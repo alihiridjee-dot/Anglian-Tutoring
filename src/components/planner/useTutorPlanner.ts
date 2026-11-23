@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { PlannerRosterDAL, type PlannerStudent } from "@/lib/planner/plannerRosterDal";
 import { BreakDAL } from "@/lib/planner/breaksDal";
-import { breakCovering, mondayKeyOf } from "@/lib/planner/breaks";
+import { breakCovering } from "@/lib/planner/breaks";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { PlanOverridesDAL } from "@/lib/planner/planOverridesDal";
 import { selectWeek } from "@/lib/planner/weekCut";
@@ -265,7 +265,7 @@ export function useTutorPlanner() {
     if (!roadmap) return out;
     for (
       let w = currentWeek;
-      w < mondayKeyOf(roadmap.examDate) && out.length < 60;
+      w < roadmap.examDate && out.length < 60;
       w = toDateKey(addWeeks(weekKeyToDate(w), 1))
     )
       if (w !== weekStart && !breakCovering(studentBreaks.data ?? [], w)) out.push(w);

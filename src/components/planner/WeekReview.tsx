@@ -10,7 +10,7 @@ import {
 } from "@/lib/planner/weeklyPlanDal";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { carryOrigin, type PointCoverage } from "@/lib/planner/coverage";
-import { breakCovering, mondayKeyOf } from "@/lib/planner/breaks";
+import { breakCovering } from "@/lib/planner/breaks";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import {
   addWeeks,
@@ -103,7 +103,7 @@ export function WeekReview({
     .at(-1)!;
   const nextWeekLabel = weekRangeLabel(weekKeyToDate(nextStart));
   // Nothing is ever planned at or after the exam date, so there is nothing to carry into.
-  const beyondExam = !!examDate && nextStart >= mondayKeyOf(examDate);
+  const beyondExam = !!examDate && nextStart >= examDate;
   // Nor for a week the student is on a break for.
   const { data: breaks = [] } = useQuery(studentBreaksQuery(studentId));
   const intoBreak = !!breakCovering(breaks, nextStart);

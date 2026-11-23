@@ -1,7 +1,6 @@
 import { isTeachBand, selectWeekPoints, withWeeklyPoints } from "./pacing";
 import { hasStudentHistory } from "./admissibility";
 import { catchUpBudget, trickle } from "./backlog";
-import { mondayKeyOf } from "./breaks";
 import { applyOverrides, indexOverrides } from "./overrides";
 import { type PointCoverage } from "./coverage";
 import { type PlanPoint, type PlanPointOrigin, type WithheldPlanPoint } from "./weeklyPlanDal";
@@ -90,8 +89,7 @@ export const MAX_WEEK_POINTS = 200;
  */
 export function selectWeek(roadmap: RoadmapResult | null, weekStart: string): WeekSelection {
   if (roadmap) {
-    // Nothing is set in the exam week, whatever day the exam falls on.
-    if (weekStart >= mondayKeyOf(roadmap.examDate)) return emptyWeek();
+    if (weekStart >= roadmap.examDate) return emptyWeek();
     // Only what was promised strictly before the week being cut: the roadmap
     // measures the backlog from today, and a week planned further ahead has
     // not yet passed the weeks between.
@@ -270,7 +268,7 @@ export function weekDrift(
   roadmap: RoadmapResult | null,
   weekStart: string,
 ): WeekDrift | null {
-  if (!roadmap || weekStart >= mondayKeyOf(roadmap.examDate)) return null;
+  if (!roadmap || weekStart >= roadmap.examDate) return null;
   // Where each point is taught on the spine this week is cut from (selectWeek
   // reads the same bands). A topic split around a break can teach a point in
   // two bands, so "later" is measured from the first.

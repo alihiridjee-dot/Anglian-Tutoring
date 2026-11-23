@@ -332,14 +332,9 @@ export function projectReviews(params: {
   readyBy?: Date;
 }): ReviewProjection {
   const current = mondayOf(params.currentMonday);
-  const exam = params.examMonday;
-  if (!Number.isFinite(current.getTime()) || !Number.isFinite(exam.getTime()))
+  const horizon = params.examMonday;
+  if (!Number.isFinite(current.getTime()) || !Number.isFinite(horizon.getTime()))
     throw new Error("Review projection requires valid start and exam dates.");
-  // The exam day says what comes due before the exam. Its week's Monday says
-  // where a review can go: an exam on a Wednesday has none set in its week,
-  // and what came due too late for the week before it waits, as it does for
-  // an exam on a Monday.
-  const horizon = mondayOf(exam);
   const pending = [...new Map(params.candidates.map((c) => [c.specPointId, c])).values()]
     .filter((c) =>
       [c.dueAt, c.eligibleAt, c.lastReviewedAt].every((d) =>
@@ -358,11 +353,11 @@ export function projectReviews(params: {
       );
       return { c, eligible, opening: mondayOnOrAfter(eligible) };
     });
-  const beyondExam = pending.filter((t) => t.eligible >= exam).map((t) => t.c);
+  const beyondExam = pending.filter((t) => t.eligible >= horizon).map((t) => t.c);
   // With uncapped reviews, each point goes directly into its first eligible
   // week. Sort once, rather than scanning and splicing the queue for every week.
   const due = pending
-    .filter((t) => t.eligible < exam)
+    .filter((t) => t.eligible < horizon)
     .map((t) => {
       let week = new Date(
         Math.max(
