@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { ProgramDAL } from "@/lib/planner/programDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { orderInputs } from "@/lib/planner/topicOrder";
-import { reorderPreview } from "@/lib/planner/breaks";
+import { mondayKeyOf, reorderPreview } from "@/lib/planner/breaks";
 import { currentWeekKey, weekKeyToDate, weekRangeLabel } from "@/lib/planner/week";
 import type { PlannerCourse } from "@/lib/planner/queries";
 import { TopicCalendar } from "./TopicCalendar";
@@ -168,7 +168,7 @@ export function TopicOrderEditor({
       <SectionHeading
         title={asTutor ? `Make the plan match ${whose} school` : "Make the plan match your school"}
       />
-      {from >= snapshot.examDate ? (
+      {from >= mondayKeyOf(snapshot.examDate) ? (
         // The exam date has passed: no week is left to change the order from.
         <div className="space-y-3">
           <EmptyState

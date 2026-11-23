@@ -2,6 +2,7 @@ import { GraduationCap } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { PacingBand } from "@/lib/planner/pacing";
 import { plannerDateLabel, toDateKey, weekKeyToDate } from "@/lib/planner/week";
+import { mondayKeyOf } from "@/lib/planner/breaks";
 
 const DAYS = ["M", "T", "W", "T", "F", "S", "S"];
 const ROW = "grid grid-cols-[1.75rem_repeat(7,minmax(0,1fr))] items-center";
@@ -46,6 +47,9 @@ export function TopicCalendar({
   label: string;
 }) {
   const today = toDateKey(new Date());
+  // The rows are weeks, so the exam is marked on its week: a Wednesday exam
+  // never matched a Monday row and had no exam row at all.
+  const examWeek = mondayKeyOf(examDate);
   const months: string[] = [];
   for (
     let ym = from.slice(0, 7);
@@ -67,7 +71,7 @@ export function TopicCalendar({
           ) {
             const band =
               week >= from ? bands.find((b) => b.startWeek <= week && b.endWeek >= week) : null;
-            rows.push({ week, topicId: band?.topicId ?? null, exam: week === examDate });
+            rows.push({ week, topicId: band?.topicId ?? null, exam: week === examWeek });
           }
           return (
             <section key={ym} className="text-xs">

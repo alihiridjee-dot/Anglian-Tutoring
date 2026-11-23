@@ -1,5 +1,6 @@
 import { addWeeks, toDateKey, weekKeyToDate } from "./week";
 import { isTeachBand, weightOf, type PacingBand } from "./pacing";
+import { mondayKeyOf } from "./breaks";
 
 /**
  * The catch-up rule — what the programme scheduled, walked past, and never
@@ -301,9 +302,11 @@ export function projectCatchUp(params: {
   const backlog = params.backlog.filter((p) => !assigned.has(p.specPointId));
   const budget = catchUpBudget(params.weeklyWeight);
   const weekKeys: string[] = [];
+  // Up to the exam week, not into it: a Wednesday exam leaves its Monday out.
+  const examWeek = mondayKeyOf(params.examDate);
   for (
     let week = params.weekStart;
-    week < params.examDate;
+    week < examWeek;
     week = toDateKey(addWeeks(weekKeyToDate(week), 1))
   )
     weekKeys.push(week);

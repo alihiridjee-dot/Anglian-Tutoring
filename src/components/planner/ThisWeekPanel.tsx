@@ -7,6 +7,7 @@ import { type PlanPoint, type WeeklyPlan } from "@/lib/planner/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { type PointCoverage, type PointWorkItem } from "@/lib/planner/coverage";
 import { reviewLock } from "@/lib/planner/reviewLock";
+import { mondayKeyOf } from "@/lib/planner/breaks";
 import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { VideoModal } from "@/components/VideoPlayer";
 import { type Activity } from "./useWeekPlan";
@@ -107,7 +108,7 @@ export function ThisWeekPanel({
   return (
     <div className="space-y-4">
       {points.length === 0 &&
-        (roadmap && weekStart >= roadmap.examDate ? (
+        (roadmap && weekStart >= mondayKeyOf(roadmap.examDate) ? (
           // Nothing is ever planned at or after the exam date. Said so, with the
           // way forward: the old copy told the student to wait for a review that
           // could never come.

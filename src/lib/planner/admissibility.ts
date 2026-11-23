@@ -1,4 +1,5 @@
 import { isTeachBand, type PacingBand } from "./pacing";
+import { mondayKeyOf } from "./breaks";
 
 /**
  * Admissibility — the one rule for "is this spec point allowed in this week?".
@@ -155,7 +156,9 @@ export interface AdmissionContext {
 export function admit(point: AdmissionCandidate, ctx: AdmissionContext): Verdict {
   if (!point.topicId) return { ok: false, reason: "orphaned" };
   if (point.onCourse === false) return { ok: false, reason: "off-course" };
-  if (ctx.examDate && ctx.weekStart >= ctx.examDate) return { ok: false, reason: "beyond-exam" };
+  // From the exam week's Monday, as the database's check reads it.
+  if (ctx.examDate && ctx.weekStart >= mondayKeyOf(ctx.examDate))
+    return { ok: false, reason: "beyond-exam" };
 
   const origin = point.origin ?? "ai";
   if (isHandPicked(origin)) return ADMITTED;

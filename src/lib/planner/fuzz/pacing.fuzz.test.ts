@@ -364,53 +364,50 @@ describe("T3 · an exam date that is not a Monday", () => {
   for (let weekday = 0; weekday < 7; weekday++) {
     const examDate = shiftKey(examMonday, weekday);
     const name = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][weekday];
-    // Open by decision (T3, mid-week exam dates): only the Monday passes until Ali decides.
-    (weekday === 0 ? test : test.failing)(
-      `P7 · exam on a ${name} (${examDate}): nothing is scheduled into the exam week itself`,
-      () => {
-        const problems: string[] = [];
-        // Reviews: 30 due, budget 1 a week, 2 weeks before the exam week.
-        const reviews = projectReviews({
-          candidates: Array.from({ length: 30 }, (_, i) => candidate(`r${i}`)),
-          currentMonday: weekKeyToDate(weeksOn(examMonday, -2)),
-          examMonday: weekKeyToDate(examDate),
-          weeklyBudget: 1,
-        });
-        if (reviews.bands.some((b) => b.startWeek >= examMonday))
-          problems.push("reviews were placed in the exam week");
-        // Catch-up: 10 owed, 2 weeks before the exam week.
-        const catchUp = projectCatchUp({
-          backlog: Array.from({ length: 10 }, (_, i) => owed(`c${i}`)),
-          assigned: [],
-          weekStart: weeksOn(examMonday, -2),
-          examDate,
-          weeklyWeight: 5,
-        });
-        if (Object.keys(catchUp.weeks).some((w) => w >= examMonday))
-          problems.push("catch-up was placed in the exam week");
-        // The week cut and the admission rule, asked about the exam week.
-        if (
-          admit(
-            { specPointId: "x", topicId: "t0", origin: "core" },
-            { reach: new Map(), weekStart: examMonday, examDate },
-          ).ok
-        )
-          problems.push("admit() allows an automatic point in the exam week");
-        const roadmap = {
-          examDate,
-          backlog: [owed("c0")],
-          catchUpSchedule: { weeks: { [examMonday]: [owed("c0")] }, assignedIds: [], held: [] },
-          baselineBands: [],
-          bands: [],
-          progress: [],
-          overrides: [],
-          completedPointIds: [],
-        } as unknown as RoadmapResult;
-        if (selectWeek(roadmap, examMonday).specPointIds.length)
-          problems.push("selectWeek cuts work into the exam week");
-        expect(problems).toEqual([]);
-      },
-    );
+    // T3: every lane plans to the exam week's Monday, whatever day the exam is.
+    test(`P7 · exam on a ${name} (${examDate}): nothing is scheduled into the exam week itself`, () => {
+      const problems: string[] = [];
+      // Reviews: 30 due, budget 1 a week, 2 weeks before the exam week.
+      const reviews = projectReviews({
+        candidates: Array.from({ length: 30 }, (_, i) => candidate(`r${i}`)),
+        currentMonday: weekKeyToDate(weeksOn(examMonday, -2)),
+        examMonday: weekKeyToDate(examDate),
+        weeklyBudget: 1,
+      });
+      if (reviews.bands.some((b) => b.startWeek >= examMonday))
+        problems.push("reviews were placed in the exam week");
+      // Catch-up: 10 owed, 2 weeks before the exam week.
+      const catchUp = projectCatchUp({
+        backlog: Array.from({ length: 10 }, (_, i) => owed(`c${i}`)),
+        assigned: [],
+        weekStart: weeksOn(examMonday, -2),
+        examDate,
+        weeklyWeight: 5,
+      });
+      if (Object.keys(catchUp.weeks).some((w) => w >= examMonday))
+        problems.push("catch-up was placed in the exam week");
+      // The week cut and the admission rule, asked about the exam week.
+      if (
+        admit(
+          { specPointId: "x", topicId: "t0", origin: "core" },
+          { reach: new Map(), weekStart: examMonday, examDate },
+        ).ok
+      )
+        problems.push("admit() allows an automatic point in the exam week");
+      const roadmap = {
+        examDate,
+        backlog: [owed("c0")],
+        catchUpSchedule: { weeks: { [examMonday]: [owed("c0")] }, assignedIds: [], held: [] },
+        baselineBands: [],
+        bands: [],
+        progress: [],
+        overrides: [],
+        completedPointIds: [],
+      } as unknown as RoadmapResult;
+      if (selectWeek(roadmap, examMonday).specPointIds.length)
+        problems.push("selectWeek cuts work into the exam week");
+      expect(problems).toEqual([]);
+    });
   }
 });
 
