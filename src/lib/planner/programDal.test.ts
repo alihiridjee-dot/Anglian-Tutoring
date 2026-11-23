@@ -644,3 +644,79 @@ describe("a tutor's reorder of a subject the student has never opened", () => {
     expect(writes.map((w) => w.path)).toEqual(["rpc/reorder_student_topics"]);
   });
 });
+
+describe("picking up two stops, one inside the other", () => {
+  const course = { subject: "biology", board: "aqa", level: "gcse" } as const;
+  const progress = [
+    topic([point("a"), point("b")]),
+    { ...topic([point("c"), point("d")]), topicId: "u", title: "U" },
+  ];
+  const start = "2026-09-07";
+  const exam = "2027-05-31";
+  const stored = computePacing(
+    progress.map((t) => ({ topicId: t.topicId, title: t.title, weight: t.points.length })),
+    weekKeyToDate(start),
+    weekKeyToDate(exam),
+  );
+  const lapse = {
+    id: "lapse",
+    reason: "payment" as const,
+    startedAt: "2026-10-05T09:00:00Z",
+    endedAt: "2026-11-02T09:00:00Z",
+    programmeResumedAt: null as string | null,
+  };
+  const away = {
+    id: "break",
+    reason: "break" as const,
+    startedAt: "2026-10-12T09:00:00Z",
+    endedAt: "2026-10-26T09:00:00Z",
+    programmeResumedAt: null,
+  };
+  /** Every pick-up the planner saves on one load. */
+  async function pickUps(pauses: CourseState["pauses"]) {
+    const calls: Parameters<typeof SubjectPauseDAL.resumeProgramme>[0][] = [];
+    const save = spyOn(SubjectPauseDAL, "resumeProgramme").mockImplementation(async (p) => {
+      calls.push(p);
+    });
+    const api = spyOn(globalThis, "fetch").mockImplementation((async () => {
+      throw new Error("No request expected");
+    }) as unknown as typeof fetch);
+    try {
+      await ProgramDAL.loadRoadmap({
+        studentId: "student",
+        ...course,
+        state: {
+          course: { studentId: "student", ...course },
+          weekStart: currentWeekKey(),
+          progress,
+          baseline: { program_start: start, exam_date: exam, pacing: stored as never },
+          examYear: null,
+          pauses,
+          pause: null,
+          breaks: [],
+          overrides: [],
+          ledger: { done: new Set(), outstanding: new Set() },
+          week: null,
+          facts: { pacing: [], examDate: undefined, boards: [], level: null },
+        },
+      });
+    } finally {
+      save.mockRestore();
+      api.mockRestore();
+    }
+    return calls;
+  }
+
+  test("the outer stop moves the plan; the one inside it is marked picked up with nothing moved", async () => {
+    const calls = await pickUps([lapse, away]);
+    expect(calls.map((c) => c.pauseId)).toEqual(["lapse", "break"]);
+    expect(calls[0].pacing).not.toBeNull();
+    expect(calls[1].pacing).toBeNull();
+    expect(calls[1].expected).toEqual(calls[0].pacing!);
+  });
+
+  test("a stop inside one picked up on an earlier load moves nothing either", async () => {
+    const calls = await pickUps([{ ...lapse, programmeResumedAt: "2026-11-02T10:00:00Z" }, away]);
+    expect(calls.map((c) => [c.pauseId, c.pacing])).toEqual([["break", null]]);
+  });
+});

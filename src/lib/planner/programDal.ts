@@ -4,6 +4,8 @@ import {
   reorderTopics,
   resumeAfterPause,
   spineMatchesExam,
+  stopIsCovered,
+  type StopWeeks,
 } from "./topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
@@ -230,6 +232,15 @@ export class ProgramDAL {
   }): Promise<PacingBand[] | null> {
     const pending = p.pauses.filter((r) => r.endedAt && !r.programmeResumedAt);
     if (!pending.length) return null;
+    const weeksOf = (r: PauseRecord): StopWeeks => ({
+      pausedFrom: currentWeekKey(new Date(r.startedAt)),
+      resumeFrom: currentWeekKey(new Date(r.endedAt!)),
+    });
+    // Every stop picked up already; each one below joins them once handled.
+    // Not caught: a break recorded only after a lapse that began inside it was
+    // picked up, where the break ends first. That needs a database change, and
+    // it is a one-hour race.
+    const handled = p.pauses.filter((r) => r.endedAt && r.programmeResumedAt).map(weeksOf);
     const stored = p.baseline.pacing as unknown as PacingBand[];
     // A spine for another course is rebuilt from this week anyway.
     const otherCourse = spineIsForAnotherCourse(stored, p.progress);
@@ -238,13 +249,14 @@ export class ProgramDAL {
     let changed = false;
     for (const pause of pending) {
       let next: PacingBand[] | null = null;
-      if (!otherCourse) {
+      const stop = weeksOf(pause);
+      // A stop inside one already handled has had its weeks emptied: it moves nothing.
+      if (!otherCourse && !stopIsCovered(stop, handled)) {
         try {
           const moved = resumeAfterPause({
             bands,
             topics,
-            pausedFrom: currentWeekKey(new Date(pause.startedAt)),
-            resumeFrom: currentWeekKey(new Date(pause.endedAt!)),
+            ...stop,
             examDate: p.baseline.exam_date,
           });
           if (moved !== bands) next = moved;
@@ -253,6 +265,7 @@ export class ProgramDAL {
           console.warn("[planner] couldn't re-plan after a pause", e);
         }
       }
+      handled.push(stop);
       try {
         await SubjectPauseDAL.resumeProgramme({ pauseId: pause.id, expected: bands, pacing: next });
       } catch (e) {

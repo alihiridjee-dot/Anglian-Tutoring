@@ -14,7 +14,13 @@ import {
   type FocusCandidate,
   type PacingBand,
 } from "../pacing";
-import { orderInputs, reorderTopics, resumeAfterPause } from "../topicOrder";
+import {
+  orderInputs,
+  reorderTopics,
+  resumeAfterPause,
+  stopIsCovered,
+  type StopWeeks,
+} from "../topicOrder";
 import { addWeeks, mondayOf, toDateKey, weekKeyToDate } from "../week";
 import {
   breakEndsOn,
@@ -624,18 +630,18 @@ describe("moves on a spine: nothing is ever lost or doubled", () => {
         if (second.from >= first.to) continue; // only stops that overlap
         const isNested = second.to < first.to;
         if (isNested) nested++;
-        // pickUpAfterPauses (programDal.ts:231) and resume_programme_after_pause both go by started_at.
+        // pickUpAfterPauses and resume_programme_after_pause both go by started_at,
+        // and a stop inside one already handled moves nothing (stopIsCovered).
         const stops = [first, second].sort((x, y) => x.from.localeCompare(y.from));
         const problems: string[] = [];
         try {
-          for (const s of stops)
-            bands = resumeAfterPause({
-              bands,
-              topics,
-              pausedFrom: s.from,
-              resumeFrom: s.to,
-              examDate,
-            });
+          const handled: StopWeeks[] = [];
+          for (const s of stops) {
+            const stop = { pausedFrom: s.from, resumeFrom: s.to };
+            if (!stopIsCovered(stop, handled))
+              bands = resumeAfterPause({ bands, topics, ...stop, examDate });
+            handled.push(stop);
+          }
           for (const [week] of teachingWeeks(bands, topics))
             if (stops.some((s) => week >= s.from && week < s.to))
               problems.push(`teaching in stopped week ${week}`);

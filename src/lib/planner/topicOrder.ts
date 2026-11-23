@@ -190,6 +190,25 @@ export function reorderTopics(params: {
   return [...frozen, ...future].map((b) => ({ ...b, schedule: { version: 1, from, examDate } }));
 }
 
+/** One stop of a subject in whole weeks: the Monday it began and the Monday the student came back. */
+export interface StopWeeks {
+  pausedFrom: string;
+  resumeFrom: string;
+}
+
+/**
+ * Does this stop lie inside one already picked up? Then it moves nothing.
+ *
+ * Stops are picked up oldest first. A break inside a payment lapse (or a lapse
+ * inside a break) would otherwise be picked up second, and re-spread teaching
+ * from its own back-on week, which is inside the other stop. Those weeks would
+ * then count as missed. A stop that only partly overlaps another is picked up
+ * as usual: in start order, the two give their union.
+ */
+export function stopIsCovered(stop: StopWeeks, handled: readonly StopWeeks[]): boolean {
+  return handled.some((h) => h.pausedFrom <= stop.pausedFrom && h.resumeFrom >= stop.resumeFrom);
+}
+
 /**
  * The programme after a pause: it picks up where it stopped.
  *

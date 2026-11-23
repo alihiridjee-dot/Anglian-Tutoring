@@ -20,6 +20,7 @@ import {
   reorderTopics,
   resumeAfterPause,
   spineMatchesExam,
+  stopIsCovered,
 } from "../topicOrder";
 import { computePacing } from "../pacing";
 import { buildRoadmap, type RoadmapResult } from "../roadmap";
@@ -80,13 +81,19 @@ interface Sim {
 
 const teach = (b: PacingBand[]) => b.filter(isTeachBand);
 
-/** pickUpAfterPauses + resume_programme_after_pause, oldest start first. */
+/** pickUpAfterPauses + resume_programme_after_pause, oldest start first; a stop inside one handled moves nothing. */
 function pickUp(sim: Sim) {
   if (sim.openPause) return; // the database refuses while the subject is stopped
   const pending = sim.stops.filter((s) => !s.resumed).sort((a, b) => a.from.localeCompare(b.from));
   if (pending.some((a, i) => pending.slice(i + 1).some((b) => b.from < a.to && b.to < a.to)))
     sim.trail.push("two stops, one inside the other, picked up in start order");
+  const weeks = (s: Sim["stops"][number]) => ({ pausedFrom: s.from, resumeFrom: s.to });
+  const handled = sim.stops.filter((s) => s.resumed).map(weeks);
   for (const stop of pending) {
+    const covered = stopIsCovered(weeks(stop), handled);
+    handled.push(weeks(stop));
+    stop.resumed = true;
+    if (covered) continue;
     try {
       const bands = teach(sim.stored);
       const moved = resumeAfterPause({
@@ -108,7 +115,6 @@ function pickUp(sim: Sim) {
         `pick-up of ${stop.why} ${stop.from}→${stop.to} moved nothing: ${(e as Error).message.slice(0, 60)}`,
       );
     }
-    stop.resumed = true;
   }
 }
 

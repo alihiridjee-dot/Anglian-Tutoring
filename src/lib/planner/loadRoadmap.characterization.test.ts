@@ -484,7 +484,14 @@ test("an ended stop is picked up before anything is cut from the programme", asy
     exam_date: "2027-06-07",
     pacing: seeded("2026-08-24", "2027-06-07"),
   };
-  arrange({ pauses: [stop({ id: "p0", programmeResumedAt: "2026-08-20T10:00:00Z" }), stop()] });
+  // An older stop, picked up already, is left alone.
+  const older = stop({
+    id: "p0",
+    startedAt: "2026-08-03T10:00:00Z",
+    endedAt: "2026-08-17T10:00:00Z",
+    programmeResumedAt: "2026-08-20T10:00:00Z",
+  });
+  arrange({ pauses: [older, stop()] });
   const result = await load();
   expect(io.filter((e) => (e as unknown[])[0] === "resumeProgramme")).toHaveLength(1);
   expect(taughtIn(result!.baselineBands, "2026-08-31", "2026-09-14")).toEqual([]);

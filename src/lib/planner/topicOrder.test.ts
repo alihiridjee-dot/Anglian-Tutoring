@@ -13,8 +13,10 @@ import {
   orderInputs,
   reorderTopics,
   resumeAfterPause,
+  stopIsCovered,
   topicsLeftFrom,
   type OrderTopic,
+  type StopWeeks,
 } from "./topicOrder";
 import { spineReach, admit } from "./admissibility";
 import { spineBacklog } from "./backlog";
@@ -321,6 +323,89 @@ describe("resuming after a pause", () => {
     expect(() =>
       resumeAfterPause({ bands: baseline, topics, pausedFrom, resumeFrom: "2026-11-02", examDate }),
     ).toThrow(/not enough weeks/);
+  });
+});
+
+describe("two stops, one inside the other", () => {
+  // A course with room to spare: six topics from 7 Sept to the end of May.
+  const start = "2026-09-07";
+  const exam = "2027-05-31";
+  const course: OrderTopic[] = Array.from({ length: 6 }, (_, i) => ({
+    topicId: `s${i}`,
+    title: `s${i}`,
+    points: Array.from({ length: 3 }, (_, j) => ({
+      specPointId: `s${i}p${j}`,
+      code: `s${i}p${j}`,
+      title: `s${i}p${j}`,
+      weight: 1,
+    })),
+  }));
+  const spine = withWeeklyPoints(
+    computePacing(
+      course.map((t) => ({ ...t, weight: 3 })),
+      weekKeyToDate(start),
+      weekKeyToDate(exam),
+    ),
+    new Map(course.map((t) => [t.topicId, t.points])),
+  );
+  const stop = (pausedFrom: string, resumeFrom: string): StopWeeks => ({ pausedFrom, resumeFrom });
+  /** As pickUpAfterPauses does it: oldest first, and a covered stop moves nothing. */
+  const pickUp = (stops: StopWeeks[], rule = true) => {
+    let bands = spine;
+    const handled: StopWeeks[] = [];
+    for (const s of [...stops].sort((a, b) => a.pausedFrom.localeCompare(b.pausedFrom))) {
+      if (!rule || !stopIsCovered(s, handled))
+        bands = resumeAfterPause({ bands, topics: course, ...s, examDate: exam });
+      handled.push(s);
+    }
+    return bands;
+  };
+  const taughtIn = (bands: PacingBand[], weeks: string[]) =>
+    scheduled(bands).filter(([, w]) => weeks.includes(w));
+  const gap = ["2026-10-05", "2026-10-12", "2026-10-19", "2026-10-26"];
+  const everyPointOnce = (bands: PacingBand[]) =>
+    expect(
+      scheduled(bands)
+        .map(([id]) => id)
+        .sort(),
+    ).toEqual(course.flatMap((t) => t.points.map((p) => p.specPointId)).sort());
+
+  test("a break inside a payment lapse teaches nothing in either", () => {
+    const stops = [stop("2026-10-05", "2026-11-02"), stop("2026-10-12", "2026-10-26")];
+    // Without the rule the break re-spread teaching from 26 Oct, inside the lapse.
+    expect(taughtIn(pickUp(stops, false), ["2026-10-26"]).length).toBeGreaterThan(0);
+    const bands = pickUp(stops);
+    expect(taughtIn(bands, gap)).toEqual([]);
+    expect(taughtIn(bands, ["2026-11-02"]).length).toBeGreaterThan(0);
+    everyPointOnce(bands);
+  });
+  test("a lapse inside a break the student was away for teaches nothing in either", () => {
+    const stops = [stop("2026-10-05", "2026-11-02"), stop("2026-10-12", "2026-10-19")];
+    expect(taughtIn(pickUp(stops, false), ["2026-10-19", "2026-10-26"]).length).toBeGreaterThan(0);
+    const bands = pickUp(stops);
+    expect(taughtIn(bands, gap)).toEqual([]);
+    everyPointOnce(bands);
+  });
+  test("two stops that only overlap still both move: teaching after the later end", () => {
+    const bands = pickUp([stop("2026-10-05", "2026-10-19"), stop("2026-10-12", "2026-11-02")]);
+    expect(taughtIn(bands, gap)).toEqual([]);
+    expect(taughtIn(bands, ["2026-11-02"]).length).toBeGreaterThan(0);
+    everyPointOnce(bands);
+  });
+  test("two stops apart are picked up as before", () => {
+    const stops = [stop("2026-10-05", "2026-10-12"), stop("2026-11-02", "2026-11-16")];
+    const bands = pickUp(stops);
+    expect(bands).toEqual(pickUp(stops, false));
+    expect(taughtIn(bands, ["2026-10-05", "2026-11-02", "2026-11-09"])).toEqual([]);
+    everyPointOnce(bands);
+  });
+  test("a stop is covered only by one that began no later and ended no earlier", () => {
+    const outer = stop("2026-10-05", "2026-11-02");
+    expect(stopIsCovered(stop("2026-10-05", "2026-11-02"), [outer])).toBe(true);
+    expect(stopIsCovered(stop("2026-10-12", "2026-10-19"), [outer])).toBe(true);
+    expect(stopIsCovered(stop("2026-10-12", "2026-11-09"), [outer])).toBe(false);
+    expect(stopIsCovered(stop("2026-09-28", "2026-10-19"), [outer])).toBe(false);
+    expect(stopIsCovered(outer, [])).toBe(false);
   });
 });
 
