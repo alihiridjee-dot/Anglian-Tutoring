@@ -304,6 +304,17 @@ export function installReturnSpots(router: AnyRouter) {
   };
 }
 
+/**
+ * The path of the page this one was opened from in this tab, which is where
+ * Back lands. Null on the first page in the tab, or when the visit before
+ * wasn't recorded (storage blocked).
+ */
+export function pageBehind(location: Pick<ParsedLocation, "state">): string | null {
+  if (typeof window === "undefined") return null;
+  const index = indexOf(location);
+  return index > 0 ? (readStore()[index - 1]?.path ?? null) : null;
+}
+
 // ── The header's Back when there is nothing behind ─────────────────────────
 
 /** A page that is one of a list goes back to the list. */
