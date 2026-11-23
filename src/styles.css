@@ -5252,3 +5252,125 @@ body {
     animation: none;
   }
 }
+
+/* ---------- How it works: the explainer on the laptop in the hero photo ----------
+   The photo hangs as a tilted print with no frame round it, the brain sticker
+   on its corner. A play dot sits on the laptop's screen, mapped onto it at the
+   screen's angle, and breathes a ripple so it reads as something to press.
+   Pressing it springs the player out of the laptop over the page. */
+.lapvid {
+  position: relative;
+  border-radius: 1.5rem;
+  rotate: 1.5deg;
+  box-shadow:
+    10px 10px 0 0 color-mix(in oklab, var(--tint) 24%, var(--card)),
+    0 22px 44px -26px color-mix(in oklab, var(--tint) 60%, transparent);
+}
+.lapvid-sticker {
+  z-index: 2;
+}
+.lapvid-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  border-radius: inherit;
+  background: var(--muted);
+}
+.lapvid-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  container-type: inline-size;
+}
+.lapvid-hit {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.lapvid-hit:focus-visible {
+  outline: none;
+}
+.lapvid-dot {
+  --lapvid-edge: color-mix(in oklab, var(--tint) 40%, var(--primary-deep));
+  display: grid;
+  place-items: center;
+  width: 22cqw;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  color: var(--primary-foreground);
+  background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+  box-shadow: 0 1.6cqw 0 0 var(--lapvid-edge);
+  animation: lapvid-ripple 2.2s ease-out infinite;
+  transition: transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.lapvid-dot svg {
+  width: 42%;
+  height: 42%;
+  margin-left: 9%;
+  fill: currentColor;
+}
+@keyframes lapvid-ripple {
+  0% {
+    box-shadow:
+      0 1.6cqw 0 0 var(--lapvid-edge),
+      0 0 0 0 color-mix(in oklab, var(--tint) 55%, transparent);
+  }
+  70%,
+  100% {
+    box-shadow:
+      0 1.6cqw 0 0 var(--lapvid-edge),
+      0 0 0 6cqw color-mix(in oklab, var(--tint) 0%, transparent);
+  }
+}
+.lapvid-hit:hover .lapvid-dot,
+.lapvid-hit:focus-visible .lapvid-dot {
+  transform: scale(1.12) rotate(-8deg);
+}
+.lapvid-hit:focus-visible .lapvid-dot {
+  outline: 1cqw solid var(--pop);
+  outline-offset: 1.2cqw;
+}
+.lapvid-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: color-mix(in oklab, var(--primary-deep) 72%, transparent);
+  backdrop-filter: blur(4px);
+}
+.lapvid-player {
+  position: relative;
+  width: min(64rem, 100%);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: color-mix(in oklab, var(--primary-deep) 30%, black);
+  box-shadow: 10px 10px 0 0 color-mix(in oklab, var(--tint) 55%, var(--primary-deep));
+}
+.lapvid-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+}
+.lapvid-close svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lapvid-dot {
+    animation: none;
+  }
+}
