@@ -280,7 +280,12 @@ export function FullPlanTimeline({
                       {weekly.length > 0 && (
                         <ul className="space-y-1.5">
                           {weekly.map((point) => (
-                            <PointRow key={point.id} point={point} card />
+                            <PointRow
+                              key={point.id}
+                              point={point}
+                              card
+                              missed={isPast && missed.has(point.id)}
+                            />
                           ))}
                         </ul>
                       )}

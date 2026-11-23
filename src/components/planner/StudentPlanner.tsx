@@ -630,8 +630,9 @@ function FullPlanTab({
   };
   const topicIds = new Set(spine.map((b) => b.topicId));
   const doneCount = [...topicIds].filter((id) => covered.has(id)).length;
-  const backlog = data.backlogByTopic ?? [];
-  const owed = backlog.reduce((count, topic) => count + topic.points.length, 0);
+  // Everything still owed, this week's returning points included: the same
+  // list the past-week cards count from, so the weeks add up to this figure.
+  const owed = data.backlog.length;
   const held = data.catchUpSchedule?.held.length ?? 0;
   const weeksToGo = weeksToExam(data.examDate, weekKeyToDate(nowKey));
 

@@ -15,6 +15,18 @@ function isCoreLane(p: PlanPoint): boolean {
 export type TopicGroup = { topicId: string; title: string; points: PlanPoint[] };
 
 /**
+ * The points this week's "Missed work returning" holds: what the catch-up rule
+ * set for this week, and anything still owed from a week before it. The lane
+ * and the week's "Returning" count both read this, so they never disagree.
+ */
+export function returningIdsFor(roadmap: RoadmapResult | null, weekStart: string): Set<string> {
+  return new Set([
+    ...(roadmap?.catchUpSchedule?.weeks[weekStart] ?? []).map((p) => p.specPointId),
+    ...(roadmap?.backlog ?? []).filter((p) => p.plannedWeek < weekStart).map((p) => p.specPointId),
+  ]);
+}
+
+/**
  * Sorts a saved week into the lanes "This week" shows: new learning, missed
  * work returning, revision, and anything the student added. Also works out how
  * much of the assigned practice is done.
@@ -48,16 +60,7 @@ export function useWeekLanes({
 
   const covered = !!band && (roadmap?.coveredTopicIds ?? []).includes(band.topicId);
 
-  const returningIds = useMemo(
-    () =>
-      new Set([
-        ...(roadmap?.catchUpSchedule?.weeks[weekStart] ?? []).map((p) => p.specPointId),
-        ...(roadmap?.backlog ?? [])
-          .filter((p) => p.plannedWeek < weekStart)
-          .map((p) => p.specPointId),
-      ]),
-    [roadmap, weekStart],
-  );
+  const returningIds = useMemo(() => returningIdsFor(roadmap, weekStart), [roadmap, weekStart]);
 
   // The saved assignment is authoritative; roadmap points are never added here.
   const coreThisWeek = useMemo(

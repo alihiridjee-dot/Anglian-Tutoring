@@ -163,7 +163,8 @@ export interface RoadmapResult {
   /**
    * The backlog grouped by topic, oldest first — **minus** anything the current
    * week's plan is already carrying, which is what a surface should offer to
-   * put right. Read this, not `backlog`, for display.
+   * put right. A count of what is owed reads `backlog` instead: the student's
+   * "To catch up", past weeks and curriculum page all count that one list.
    */
   backlogByTopic: TopicBacklog[];
   catchUpSchedule?: CatchUpSchedule;

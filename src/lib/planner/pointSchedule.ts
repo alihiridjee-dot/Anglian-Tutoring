@@ -14,6 +14,11 @@ import { isTeachBand, withWeeklyPoints, type FocusPointRef } from "./pacing";
  *  • `catchUp` — missed, and returning in a catch-up week (`week`); `planned` is
  *    the week it was first due, so the page can say both.
  *  • `missed` — its week has passed and no catch-up week before the exams holds it.
+ *
+ * `catchUp` and `missed` are only ever the roadmap's own `backlog`: what the
+ * planner's "To catch up" counts. A point that is neither covered nor owed (it
+ * already sits in a later week's plan, or the tutor set it aside) gets no
+ * answer here rather than a "Missed" the planner never counted.
  */
 export type PointWhen =
   | { kind: "covered"; week?: string }
@@ -29,7 +34,13 @@ export interface CourseSchedule {
 
 type ScheduleInput = Pick<
   RoadmapResult,
-  "bands" | "baselineBands" | "needsAck" | "progress" | "completedPointIds" | "catchUpSchedule"
+  | "bands"
+  | "baselineBands"
+  | "needsAck"
+  | "progress"
+  | "completedPointIds"
+  | "catchUpSchedule"
+  | "backlog"
 >;
 
 export function courseSchedule(data: ScheduleInput, now: string): CourseSchedule {
@@ -76,6 +87,8 @@ export function courseSchedule(data: ScheduleInput, now: string): CourseSchedule
       if (!catchUpWeek.has(point.specPointId))
         catchUpWeek.set(point.specPointId, { week, planned: point.plannedWeek });
 
+  const owed = new Set(data.backlog.map((p) => p.specPointId));
+
   const byPoint = new Map<string, PointWhen>();
   const byTopic = new Map<string, { covered: number; total: number }>();
   for (const topic of data.progress) {
@@ -93,7 +106,8 @@ export function courseSchedule(data: ScheduleInput, now: string): CourseSchedule
           planned: returning.planned ?? planned,
         });
       else if (planned && planned >= now) byPoint.set(point.id, { kind: "planned", week: planned });
-      else if (planned) byPoint.set(point.id, { kind: "missed", week: planned });
+      else if (planned && owed.has(point.id))
+        byPoint.set(point.id, { kind: "missed", week: planned });
     }
     byTopic.set(topic.topicId, { covered: done, total: topic.points.length });
   }
