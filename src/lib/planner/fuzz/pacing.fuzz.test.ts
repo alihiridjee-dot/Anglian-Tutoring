@@ -29,6 +29,7 @@ import {
   layBreaksOver,
   mondayKeyOf,
   overlapsBreak,
+  reorderPreview,
   runWeeks,
   shiftKey,
   touchesExam,
@@ -548,18 +549,18 @@ describe("moves on a spine: nothing is ever lost or doubled", () => {
         const breaks = bookBreaks(r, { bands: stored, topics, examDate, today, count: 1 });
         if (!breaks.length) continue;
         withBreak++;
-        // What ProgramDAL.loadRoadmap hands the editor: the break laid over the stored spine.
-        const shown = layBreaksOver({ bands: stored, topics, breaks, examDate });
-        const order = r.shuffle(orderInputs(shown, topics, today).remaining.map((t) => t.topicId));
+        // The list TopicOrderEditor offers: from the stored spine (storedBands).
+        const order = r.shuffle(orderInputs(stored, topics, today).remaining.map((t) => t.topicId));
         const problems: string[] = [];
         try {
-          // TopicOrderEditor.tsx:124 — the preview is cut from baselineBands (break laid).
-          const preview = reorderTopics({
-            bands: shown,
+          // TopicOrderEditor's preview: the new order with the breaks ahead laid over it.
+          const preview = reorderPreview({
+            stored,
             topics,
             order,
             from: today,
             examDate,
+            breaks,
             today,
           });
           // ProgramDAL.reorder (programDal.ts:528) — the save is cut from storedBands,

@@ -377,6 +377,15 @@ for (const [label, b, breakWeeks] of [
   await t.db.close();
 }
 
+// The second week of a break under way. The editor offers the order cut from
+// the spine as stored, not as the break shows it, and that order is saved.
+{
+  const t = await build([{ from: -1, weeks: 2 }], true);
+  await t.reorder(student);
+  await expectReorder(t, "the second week of a break under way", [0]);
+  await t.db.close();
+}
+
 // A called-off break is no break, and another student's break is not theirs:
 // a tutor, who can read every student's breaks, must not skip for it either.
 for (const [who, as] of [
@@ -425,5 +434,5 @@ for (const [who, as] of [
 }
 
 console.log(
-  "PASS: unfixed reorder refused with a saved week in a break (this week or later); fixed reorder saves the new order, leaves break weeks exactly as they were, re-cuts every other week keeping ticks, picks and pins, works for a tutor and a second time, ignores called-off and other students' breaks; rollback restores the old body.",
+  "PASS: unfixed reorder refused with a saved week in a break (this week or later); fixed reorder saves the new order, leaves break weeks exactly as they were, re-cuts every other week keeping ticks, picks and pins, works for a tutor, a second time and in a break's second week, ignores called-off and other students' breaks; rollback restores the old body.",
 );

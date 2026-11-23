@@ -6,7 +6,8 @@ import { Chip, SectionHeading, EmptyState, ErrorNote, Spinner } from "@/componen
 import { cn } from "@/lib/utils";
 import { ProgramDAL } from "@/lib/planner/programDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
-import { orderInputs, reorderTopics } from "@/lib/planner/topicOrder";
+import { orderInputs } from "@/lib/planner/topicOrder";
+import { reorderPreview } from "@/lib/planner/breaks";
 import { currentWeekKey, weekKeyToDate, weekRangeLabel } from "@/lib/planner/week";
 import type { PlannerCourse } from "@/lib/planner/queries";
 import { TopicCalendar } from "./TopicCalendar";
@@ -108,10 +109,11 @@ export function TopicOrderEditor({
       })),
     [snapshot],
   );
-  const inputs = useMemo(
-    () => orderInputs(snapshot.baselineBands, topics, from),
-    [snapshot, topics, from],
-  );
+  // A save is cut from the spine as stored, not as a break still to come shows
+  // it (ProgramDAL.reorder), so the list is too; the breaks are laid over the
+  // preview below, as the next load lays them over what is saved.
+  const base = snapshot.storedBands ?? snapshot.baselineBands;
+  const inputs = useMemo(() => orderInputs(base, topics, from), [base, topics, from]);
   const [chosen, setChosen] = useState<string[] | null>(null);
   const order = chosen ?? inputs.remaining.map((t) => t.topicId);
   const [saving, setSaving] = useState(false);
@@ -121,12 +123,13 @@ export function TopicOrderEditor({
   const preview = useMemo(() => {
     try {
       return {
-        bands: reorderTopics({
-          bands: snapshot.baselineBands,
+        bands: reorderPreview({
+          stored: base,
           topics,
           order,
           from,
           examDate: snapshot.examDate,
+          breaks: snapshot.breaksAhead ?? [],
         }),
         error: null,
       };
@@ -136,7 +139,7 @@ export function TopicOrderEditor({
         error: e instanceof Error ? e : new Error("Unable to build this order."),
       };
     }
-  }, [snapshot, topics, order, from]);
+  }, [base, snapshot, topics, order, from]);
   const byId = new Map(inputs.remaining.map((t) => [t.topicId, t]));
   const future = preview.bands.filter((b) => b.startWeek >= from);
   const tintOf = (id: string) => topicTint(topics.findIndex((t) => t.topicId === id));
@@ -212,7 +215,11 @@ export function TopicOrderEditor({
             >
               {order.map((id, index) => {
                 const topic = byId.get(id)!;
-                const band = future.find((b) => b.topicId === id);
+                // A topic a break splits has a run each side of it: its dates span both.
+                const runs = future
+                  .filter((b) => b.topicId === id)
+                  .flatMap((b) => [b.startWeek, b.endWeek])
+                  .sort();
                 const partial =
                   topic.points.length < topics.find((t) => t.topicId === id)!.points.length;
                 return (
@@ -223,12 +230,9 @@ export function TopicOrderEditor({
                     <div className="min-w-0 flex-1">
                       <h3 className="text-sm sm:text-base font-bold leading-snug">{topic.title}</h3>
                       <div className="mt-2 flex flex-wrap gap-1.5">
-                        {band ? (
+                        {runs.length ? (
                           <Chip icon={CalendarDays} tint={tintOf(id)}>
-                            {weekRangeLabel(
-                              weekKeyToDate(band.startWeek),
-                              weekKeyToDate(band.endWeek),
-                            )}
+                            {weekRangeLabel(weekKeyToDate(runs[0]), weekKeyToDate(runs.at(-1)!))}
                           </Chip>
                         ) : (
                           <Chip tint="tint-slate">Dates unavailable</Chip>

@@ -118,6 +118,11 @@ export interface RoadmapResult {
    * programme is saved from this, because it is what the database holds.
    */
   storedBands?: PacingBand[];
+  /**
+   * The breaks not yet recorded, which the next load lays over whatever is
+   * saved: the topic-order preview lays them over the new order the same way.
+   */
+  breaksAhead?: { startsOn: string; endsOn: string }[];
   /** Topics whose start week moved since the student last acknowledged. */
   changes: PacingChange[];
   needsAck: boolean;

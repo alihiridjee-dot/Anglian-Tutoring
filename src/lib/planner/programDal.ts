@@ -176,7 +176,12 @@ export class ProgramDAL {
       overrides,
       breakWeeks: breakWeekKeys(breaks),
     });
-    if (current && storedBands) roadmap.storedBands = storedBands;
+    if (current && storedBands) {
+      roadmap.storedBands = storedBands;
+      const ahead = breaks.filter((b) => !b.recordedAt);
+      if (ahead.length)
+        roadmap.breaksAhead = ahead.map((b) => ({ startsOn: b.startsOn, endsOn: b.endsOn }));
+    }
 
     if (!current) {
       // Seed the acknowledged baseline so the first view is calm (no diff) —

@@ -530,6 +530,8 @@ test("a break still to come shows the course as it will be picked up, and saves 
   expect(result!.storedBands?.map((b) => [b.topicId, b.startWeek, b.endWeek])).toEqual(
     pacing.map((b) => [b.topicId, b.startWeek, b.endWeek]),
   );
+  // And the topic-order preview lays the same break over a new order.
+  expect(result!.breaksAhead).toEqual([{ startsOn: "2026-10-12", endsOn: "2026-10-25" }]);
   expect(io.filter((e) => (e as unknown[])[0] === "resumeProgramme")).toEqual([]);
   expect(io.some((e) => Array.isArray(e) && e[0] === "db" && e[1] !== "GET")).toBe(false);
   // Nor is any catch-up or review forecast into it.
