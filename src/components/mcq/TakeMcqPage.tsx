@@ -1,6 +1,6 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { invalidatePlanner } from "@/lib/planner/queries";
-import { Link, useNavigate, useParams } from "@tanstack/react-router";
+import { Link, useNavigate, useParams, useRouter, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Chip, EmptyState, ErrorNote, SciBlock, SciText, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
@@ -29,9 +29,31 @@ import { StoredFigure } from "@/components/QuestionFigure";
 import { ExamKit } from "@/components/examKit/ExamKit";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { cn } from "@/lib/utils";
+import { pageBehind } from "@/lib/shell/returnSpot";
 
 /** Stable identity for "no questions yet", so effects keyed on it don't re-run every render. */
 const EMPTY_QUESTIONS: Q[] = [];
+
+/** What the quiz's Back calls the page a quiz is opened from. */
+function nameOfPage(path: string | null): string | null {
+  switch (path?.replace(/^\/demo\/student(?=\/)/, "")) {
+    case "/student-dashboard":
+    case "/dashboard":
+      return "dashboard";
+    case "/planner":
+      return "planner";
+    case "/curriculum":
+      return "curriculum";
+    case "/mcqs":
+      return "quizzes";
+    case "/homework":
+      return "tasks";
+    case "/messages":
+      return "messages";
+    default:
+      return null;
+  }
+}
 
 export function TakeMcq() {
   const plannerQueryClient = useQueryClient();
@@ -246,11 +268,22 @@ export function TakeMcq() {
     }
   };
 
-  const back = (
-    <Link
-      to={backTo}
-      className="mt-4 inline-flex min-h-11 items-center text-sm text-primary hover:underline sm:pointer-fine:min-h-0"
-    >
+  // Back goes to the page the quiz was opened from — a spec point on the
+  // curriculum, the planner, the dashboard, the quiz list — and lands on the
+  // card that opened it (returnSpot). A quiz opened in a fresh tab or from a
+  // shared link has nothing behind it, and goes to the dashboard.
+  const router = useRouter();
+  const location = useRouterState({ select: (s) => s.location });
+  const canGoBack = location.state.__TSR_index > 0;
+  const behind = canGoBack ? nameOfPage(pageBehind(location)) : null;
+  const backClass =
+    "mt-4 inline-flex min-h-11 items-center text-sm text-primary hover:underline sm:pointer-fine:min-h-0";
+  const back = canGoBack ? (
+    <button type="button" onClick={() => router.history.back()} className={backClass}>
+      ← {behind ? `Back to ${behind}` : "Back"}
+    </button>
+  ) : (
+    <Link to={backTo} className={backClass}>
       ← Back to dashboard
     </Link>
   );

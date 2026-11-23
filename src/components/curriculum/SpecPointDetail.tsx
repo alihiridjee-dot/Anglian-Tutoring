@@ -17,6 +17,7 @@ import { useSpecPointNotes } from "@/hooks/data/useNotes";
 import { Chip } from "@/components/Shared";
 import { formatWhen, joinClick, showsJoin } from "@/lib/live/liveSessions";
 import { useNow } from "@/hooks/useNow";
+import { useEntryState } from "@/hooks/useEntryState";
 import { plannerDateLabel } from "@/lib/planner/week";
 import { retakeOpensAt } from "@/lib/mcq/retakeLock";
 import { Plus, Pencil, Trash2, Sparkles, PlayCircle } from "lucide-react";
@@ -110,7 +111,10 @@ export function SpecPointDetail({
   const [loadedFor, setLoadedFor] = useState<string | null>(null);
   const loaded = loadedFor === point.id;
   // The stop the student pressed. Until they press one, the first with work.
-  const [picked, setPicked] = useState<StopKey | null>(null);
+  // Kept with the visit, so coming back from a quiz or a task reopens the stop
+  // it was opened from (useEntryState).
+  const [picked, setPicked] = useEntryState<StopKey | null>("point-stop", null);
+  const shownFor = useRef(point.id);
   // Each load is numbered and only the newest may land, so a slow answer for
   // the point that was open before can't fill this one.
   const loadSeq = useRef(0);
@@ -140,7 +144,12 @@ export function SpecPointDetail({
   };
 
   useEffect(() => {
-    setPicked(null);
+    // Another point starts on its first stop; the same one, opened again by
+    // Back, keeps the stop it was left on.
+    if (shownFor.current !== point.id) {
+      shownFor.current = point.id;
+      setPicked(null);
+    }
     reload(); /* eslint-disable-next-line */
   }, [point.id, userId]);
 
