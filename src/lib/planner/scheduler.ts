@@ -56,7 +56,9 @@ function dueMs(card: Card): number {
  * strong pass stretches the interval.
  */
 export function scoreToRating(pct: number): Grade {
-  if (pct < 50) return Rating.Again;
+  // A score that isn't a real number is no evidence of recall: NaN fails every
+  // test below and read as a top mark.
+  if (!Number.isFinite(pct) || pct < 50) return Rating.Again;
   if (pct < 70) return Rating.Hard;
   if (pct < 90) return Rating.Good;
   return Rating.Easy;
@@ -70,7 +72,12 @@ export function applyReview(
   { countsAsLapse = true }: { countsAsLapse?: boolean } = {},
 ): Card {
   const base: Card = card ?? createEmptyCard<Card>(now);
-  const next = scheduler.next(base, now, grade).card;
+  // A review stamped before the card's last one (a clock behind) is taken as
+  // happening at that last review: FSRS throws on time running backwards. The
+  // fold sorts events first, so this is a guard, not a path in use.
+  const last = base.last_review ? new Date(base.last_review) : null;
+  const at = last && last.getTime() > now.getTime() ? last : now;
+  const next = scheduler.next(base, at, grade).card;
   return { ...next, lapses: countsAsLapse ? next.lapses : base.lapses };
 }
 

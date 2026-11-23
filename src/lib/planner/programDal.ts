@@ -62,7 +62,11 @@ export function isReadableExamDate(key: string): boolean {
 /** The dates a student may choose as their exam: today to four years out. */
 export function examDateBounds(today: Date = new Date()): { min: string; max: string } {
   const min = toDateKey(today);
-  return { min, max: `${Number(min.slice(0, 4)) + 4}${min.slice(4)}` };
+  const year = Number(min.slice(0, 4)) + 4;
+  // 29 Feb four years on is not always a date (2100 is no leap year): then 28 Feb.
+  const leap = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  const day = min.slice(5) === "02-29" && !leap ? "02-28" : min.slice(5);
+  return { min, max: `${year}-${day}` };
 }
 
 /**

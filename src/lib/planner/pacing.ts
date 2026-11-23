@@ -463,7 +463,8 @@ function placeWithinBudget<T extends { week: Date; c: FocusCandidate }>(
     for (const t of ready) {
       const w = weightOf(t.c);
       if (isBlocked?.(t.c.specPointId, key)) held.push(t);
-      else if (spent + w <= budget || took === 0) {
+      // The tolerance stops float noise from costing a whole extra review.
+      else if (spent + w <= budget + 1e-9 || took === 0) {
         out.push({ ...t, week });
         spent += w;
         took++;

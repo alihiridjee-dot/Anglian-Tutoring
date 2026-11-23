@@ -20,6 +20,12 @@ describe("exam date guards", () => {
     expect("2027-06-01" >= min && "2027-06-01" <= max).toBe(true);
   });
 
+  test("from 29 February the latest date is a real one", () => {
+    expect(examDateBounds(new Date("2024-02-29T12:00:00Z")).max).toBe("2028-02-29");
+    // 2100 is no leap year.
+    expect(examDateBounds(new Date("2096-02-29T12:00:00Z")).max).toBe("2100-02-28");
+  });
+
   test("the box saves only a new date in range, and puts anything else back", () => {
     const bounds = examDateBounds(new Date("2026-09-28T12:00:00Z"));
     const saved = "2027-06-07";

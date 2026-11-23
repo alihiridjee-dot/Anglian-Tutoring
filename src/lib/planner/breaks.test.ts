@@ -59,6 +59,10 @@ describe("the booking rules, as the form checks them", () => {
     expect(runWeeks(booked, "2026-10-05", 1)).toBe(3); // in front of the first
     expect(runWeeks(booked, "2026-12-07", 3)).toBe(3); // touching none
   });
+  test("a break that ended last Sunday still counts, as book_break counts it", () => {
+    const over = [brk("2026-11-02", "2026-11-22")];
+    expect(runWeeks(over, "2026-11-23", 2)).toBe(5);
+  });
   test("a break can't overlap one already booked", () => {
     expect(overlapsBreak(booked, "2026-10-19", 1)).toBe(true);
     expect(overlapsBreak(booked, "2026-10-05", 2)).toBe(true);

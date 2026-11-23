@@ -108,7 +108,8 @@ export function TakeABreakDialog({
     if (exams.some((e) => touchesExam({ startsOn, weeks: w, examDate: e.examDate })))
       return "Too close to an exam";
     if (overlapsBreak(standing, startsOn, w)) return "Clashes with a break already booked";
-    if (runWeeks(standing, startsOn, w) > MAX_BREAK_WEEKS) return "More than 4 weeks in a row";
+    // Every break counts here, one that ended last Sunday too: book_break runs on through it.
+    if (runWeeks(breaks, startsOn, w) > MAX_BREAK_WEEKS) return "More than 4 weeks in a row";
     if (courses.some((c) => !breakFits({ ...c, breaks: ahead, startsOn, weeks: w })))
       return "Too few weeks left to finish the course";
     return null;

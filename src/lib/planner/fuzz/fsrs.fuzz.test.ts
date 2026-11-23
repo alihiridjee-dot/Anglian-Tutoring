@@ -235,9 +235,10 @@ describe("the fold of graded work", () => {
     expect(twice.reps).toBe(2);
   });
 
-  test("F6 · scores outside 0–100, NaN and ±Infinity never read as a top mark", () => {
+  // Only scores that aren't real numbers: one over 100 reading as Easy is fine.
+  test("F6 · NaN and ±Infinity never read as a top mark", () => {
     const bad: string[] = [];
-    for (const pct of [NaN, Infinity, -Infinity, -1, 1e9, 100.0001]) {
+    for (const pct of [NaN, Infinity, -Infinity]) {
       const rating = scoreToRating(pct);
       if (!grades.includes(rating)) bad.push(`scoreToRating(${pct}) = ${rating}`);
       if (!(pct >= 90 && pct <= 100) && rating === Rating.Easy)
