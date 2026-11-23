@@ -6,8 +6,7 @@ import { Footer } from "@/components/landing/Footer";
 import { FloatingWhatsApp } from "@/components/landing/FloatingWhatsApp";
 import { ExplainerVideo } from "@/components/how-it-works/ExplainerVideo";
 import { FeatureRoad, type RoadStop } from "@/components/how-it-works/FeatureRoad";
-import { ForgettingCurve } from "@/components/how-it-works/ForgettingCurve";
-import { RevisitSimulator } from "@/components/how-it-works/RevisitSimulator";
+import { CurveSquiggle, ForgettingCurve } from "@/components/how-it-works/ForgettingCurve";
 import {
   ChatMock,
   FeedbackMock,
@@ -263,33 +262,15 @@ function HowItWorks() {
         </div>
       </section>
 
-      {/* ---------------- Try it ---------------- */}
+      {/* ---------------- The forgetting curve, and the scheduler to try ---------------- */}
       <section className="bg-secondary/60 py-20 lg:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
-            <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Try the scheduler
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Play the part of your child for a moment. Answer a quiz, and watch the plan react in
-              real time, using the same memory and weekly eligibility rules.
-            </p>
-          </motion.div>
-
-          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}>
-            <RevisitSimulator />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ---------------- The forgetting curve ---------------- */}
-      <section className="bg-card py-20 lg:py-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
             <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Most of a lesson is gone within a month
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            <CurveSquiggle />
+            <p className="mt-4 text-lg leading-relaxed font-medium">
               Memory fades on a predictable curve — and because it's predictable, it can be beaten.
               Bring a topic back just before it slips, and each time it sticks for longer. This is
               the same principle medical students use to hold thousands of facts through finals.
