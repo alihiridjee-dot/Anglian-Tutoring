@@ -65,6 +65,23 @@ export function examDateBounds(today: Date = new Date()): { min: string; max: st
   return { min, max: `${Number(min.slice(0, 4)) + 4}${min.slice(4)}` };
 }
 
+/**
+ * What the exam date box does with its date once it loses focus. The date
+ * the plan already uses is no change. An emptied box is put back without a
+ * word, a date out of range is put back with a message, and any other date is
+ * saved.
+ */
+export function examDateEntry(
+  value: string,
+  saved: string,
+  bounds: { min: string; max: string },
+): "unchanged" | "refuse" | "putBack" | "save" {
+  if (value === saved) return "unchanged";
+  if (!value) return "putBack";
+  if (value < bounds.min || value > bounds.max) return "refuse";
+  return "save";
+}
+
 /** The course as the topic-order moves take it: topics in order, points with their weights. */
 function orderTopicsOf(progress: TopicProgress[]) {
   return progress.map((t) => ({

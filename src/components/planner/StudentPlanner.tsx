@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import { isTeachBand, weeksToExam } from "@/lib/planner/pacing";
 import { reviewLock } from "@/lib/planner/reviewLock";
-import { ProgramDAL, examDateBounds } from "@/lib/planner/programDal";
+import { ProgramDAL, examDateBounds, examDateEntry } from "@/lib/planner/programDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { ScheduleDAL, type TopicProgress } from "@/lib/planner/scheduleDal";
 import { type Enrolment } from "@/lib/profile/enrolment";
@@ -559,25 +559,27 @@ function FullPlanTab({
 
   const { min: minExamDate, max: maxExamDate } = examDateBounds();
   const lastSavedDate = useRef(data.examDate);
-  const pendingDate = useRef<ReturnType<typeof setTimeout>>(undefined);
-  useEffect(() => () => clearTimeout(pendingDate.current), []);
+  const examDateBox = useRef<HTMLInputElement>(null);
 
-  // Typing into a date box fires a change per keystroke, and the first digit of
-  // the year is already a complete date ("0002-06-01"). So wait for a pause (or
-  // for the box to lose focus) and only ever save a date in range.
-  const queueExamDate = (value: string, now = false): boolean => {
-    clearTimeout(pendingDate.current);
-    // The date the plan already uses is no change. Once the exams had passed,
-    // just clicking into the box and out again called it out of range.
-    if (value === lastSavedDate.current) return true;
-    if (!value || value < minExamDate || value > maxExamDate) {
-      // A date the box can't take used to vanish without a word.
-      if (now && value) toast.error("Choose an exam date between today and four years from now.");
-      return false;
+  // A date box fires a complete date on every keystroke: changing the month
+  // from 06 to 12 passes through January, and a pause there re-planned the
+  // whole course for 21 January. So the date is saved only when the box loses
+  // focus (Enter does that too), and only ever a date in range.
+  const commitExamDate = (box: HTMLInputElement) => {
+    const entry = examDateEntry(box.value, lastSavedDate.current, {
+      min: minExamDate,
+      max: maxExamDate,
+    });
+    if (entry === "unchanged") return;
+    if (entry === "save") {
+      void saveExamDate(box.value);
+      return;
     }
-    if (now) void saveExamDate(value);
-    else pendingDate.current = setTimeout(() => void saveExamDate(value), 800);
-    return true;
+    // A date the box can't take used to vanish without a word.
+    if (entry === "refuse")
+      toast.error("Choose an exam date between today and four years from now.");
+    // A refused date is put back, so the box never shows a date the plan is not using.
+    box.value = lastSavedDate.current;
   };
 
   const saveExamDate = async (value: string) => {
@@ -588,6 +590,8 @@ function FullPlanTab({
       await ProgramDAL.setExamDate({ studentId, subject, examDate: value });
     } catch (e) {
       lastSavedDate.current = data.examDate;
+      // Refused (too few weeks, or the server): the box shows the plan's date again.
+      if (examDateBox.current) examDateBox.current.value = data.examDate;
       setSavingDate(false);
       toast.error(e instanceof Error ? e.message : "Couldn't update the exam date — try again.");
       return;
@@ -651,17 +655,16 @@ function FullPlanTab({
           <label className="mt-auto">
             <span className="sr-only">Exam date</span>
             <input
+              ref={examDateBox}
               type="date"
               defaultValue={data.examDate}
               min={minExamDate}
               max={maxExamDate}
               disabled={savingDate}
-              onChange={(e) => queueExamDate(e.target.value)}
-              onBlur={(e) => {
-                // A refused date is put back, so the box never shows a date the
-                // plan is not using.
-                if (!queueExamDate(e.target.value, true)) e.target.value = lastSavedDate.current;
+              onKeyDown={(e) => {
+                if (e.key === "Enter") e.currentTarget.blur();
               }}
+              onBlur={(e) => commitExamDate(e.currentTarget)}
               className="btn-soft h-11 sm:pointer-fine:h-9 w-full rounded-xl px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--tint)] disabled:opacity-50"
             />
           </label>
