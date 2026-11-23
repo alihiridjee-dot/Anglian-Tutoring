@@ -1,5 +1,6 @@
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoMode } from "@/lib/auth/session";
+import { dbError } from "@/lib/platform/errors";
 import type { BreakReason, StudentBreak } from "./breaks";
 import { isTeachBand, type PacingBand } from "./pacing";
 import { spineMatchesExam, type OrderTopic } from "./topicOrder";
@@ -31,20 +32,28 @@ export class BreakDAL {
    * to plan a break week whatever the planner believes.
    */
   static async list(studentId: string): Promise<StudentBreak[]> {
-    if (isDemoMode()) return [];
     try {
-      const { data, error } = await supabase
-        .from("student_breaks")
-        .select("id, starts_on, ends_on, reason, recorded_at")
-        .eq("student_id", studentId)
-        .is("cancelled_at", null)
-        .order("starts_on");
-      if (error) throw error;
-      return (data ?? []).map(toBreak);
+      return await this.read(studentId);
     } catch (e) {
       console.warn("[planner] couldn't read the student's breaks", e);
       return [];
     }
+  }
+
+  /**
+   * {@link list}, but a failed read throws. For the break card, which must not
+   * offer "Take a break" to a student whose break it simply couldn't read.
+   */
+  static async read(studentId: string): Promise<StudentBreak[]> {
+    if (isDemoMode()) return [];
+    const { data, error } = await supabase
+      .from("student_breaks")
+      .select("id, starts_on, ends_on, reason, recorded_at")
+      .eq("student_id", studentId)
+      .is("cancelled_at", null)
+      .order("starts_on");
+    if (error) throw dbError(error);
+    return (data ?? []).map(toBreak);
   }
 
   /**

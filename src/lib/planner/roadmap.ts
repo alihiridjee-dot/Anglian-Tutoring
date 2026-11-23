@@ -34,6 +34,7 @@ import {
 } from "./backlog";
 import { blockedBy, indexOverrides, type PlanOverride } from "./overrides";
 import { type PlanPoint, type WithheldPlanPoint } from "./weeklyPlanDal";
+import type { StudentBreak } from "./breaks";
 
 /** Assessment-backed cards supply one next review per point. */
 /** Each topic's teaching weight, the input the spine and its weekly load are cut from. */
@@ -119,10 +120,19 @@ export interface RoadmapResult {
    */
   storedBands?: PacingBand[];
   /**
+   * While a moved exam date waits to be applied: `baselineBands` with the
+   * breaks laid over it, against the date that spine was cut for. The plan as
+   * the student last saw it, for the Full plan to show until the re-flow
+   * lands. Display only; nothing is saved or cut from it.
+   */
+  lastSeenBands?: PacingBand[];
+  /**
    * The breaks not yet recorded, which the next load lays over whatever is
    * saved: the topic-order preview lays them over the new order the same way.
    */
   breaksAhead?: { startsOn: string; endsOn: string }[];
+  /** The student's breaks that stand, so the Full plan can draw their weeks as a break. */
+  breaks?: StudentBreak[];
   /** Topics whose start week moved since the student last acknowledged. */
   changes: PacingChange[];
   needsAck: boolean;
@@ -163,7 +173,8 @@ export interface RoadmapResult {
   /**
    * The backlog grouped by topic, oldest first — **minus** anything the current
    * week's plan is already carrying, which is what a surface should offer to
-   * put right. Read this, not `backlog`, for display.
+   * put right. A count of what is owed reads `backlog` instead: the student's
+   * "To catch up", past weeks and curriculum page all count that one list.
    */
   backlogByTopic: TopicBacklog[];
   catchUpSchedule?: CatchUpSchedule;

@@ -79,7 +79,6 @@ export function ThisWeekPanel({
     returning,
     focusPointCount,
     upcomingCatchUp,
-    assigned,
     completed,
   } = useWeekLanes({ plan, points, activity, coverage, roadmap, weekStart });
 
@@ -162,9 +161,9 @@ export function ThisWeekPanel({
             }
           />
         ))}
-      {showCoverage && assigned.length > 0 && (
+      {showCoverage && points.length > 0 && (
         <WeekProgressCard
-          assigned={assigned}
+          total={points.length}
           completed={completed}
           lock={reviewLock({
             weekStart,

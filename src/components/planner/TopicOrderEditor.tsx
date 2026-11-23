@@ -1,6 +1,7 @@
 import { useMemo, useState, type ReactNode } from "react";
 import { Reorder, useDragControls } from "motion/react";
 import { Link } from "@tanstack/react-router";
+import { useQueryClient } from "@tanstack/react-query";
 import { ArrowDown, ArrowUp, CalendarDays, GripVertical, Undo2 } from "lucide-react";
 import { Chip, SectionHeading, EmptyState, ErrorNote, Spinner } from "@/components/Shared";
 import { cn } from "@/lib/utils";
@@ -9,7 +10,8 @@ import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { orderInputs } from "@/lib/planner/topicOrder";
 import { reorderPreview } from "@/lib/planner/breaks";
 import { currentWeekKey, weekKeyToDate, weekRangeLabel } from "@/lib/planner/week";
-import type { PlannerCourse } from "@/lib/planner/queries";
+import { invalidatePlanner, roadmapQuery, type PlannerCourse } from "@/lib/planner/queries";
+import { isNetworkError } from "@/lib/platform/errors";
 import { TopicCalendar } from "./TopicCalendar";
 
 /**
@@ -92,9 +94,12 @@ export function TopicOrderEditor({
   const whose = asTutor ? `${studentName ?? "the student"}'s` : "your";
   const Whose = asTutor ? `${studentName ?? "The student"}'s` : "Your";
   // An open preview has a stable baseline. The write compares it with the database.
-  const [snapshot] = useState(data);
+  // Only Reload, after a refused save, takes a new one.
+  const [snapshot, setSnapshot] = useState(data);
   // The change always starts this week (or when the programme does).
-  const [from] = useState([currentWeekKey(), data.programStart].sort().at(-1)!);
+  const startOf = (plan: RoadmapResult) => [currentWeekKey(), plan.programStart].sort().at(-1)!;
+  const [from, setFrom] = useState(() => startOf(data));
+  const client = useQueryClient();
   const topics = useMemo(
     () =>
       snapshot.progress.map((t) => ({
@@ -115,8 +120,16 @@ export function TopicOrderEditor({
   const base = snapshot.storedBands ?? snapshot.baselineBands;
   const inputs = useMemo(() => orderInputs(base, topics, from), [base, topics, from]);
   const [chosen, setChosen] = useState<string[] | null>(null);
-  const order = chosen ?? inputs.remaining.map((t) => t.topicId);
+  const remainingIds = inputs.remaining.map((t) => t.topicId);
+  // After a Reload the order chosen is kept while it is the same topics left.
+  const order =
+    chosen &&
+    chosen.length === remainingIds.length &&
+    remainingIds.every((id) => chosen.includes(id))
+      ? chosen
+      : remainingIds;
   const [saving, setSaving] = useState(false);
+  const [reloading, setReloading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
   const [announcement, setAnnouncement] = useState("");
   const [focus, setFocus] = useState<string | null>(null);
@@ -163,6 +176,25 @@ export function TopicOrderEditor({
       setSaving(false);
     }
   };
+  // A refused save was a plan that moved under the open page. Read it again
+  // here, so the student stays where they are and saves once more.
+  const reload = async () => {
+    setReloading(true);
+    setError(null);
+    try {
+      await invalidatePlanner(client, course.studentId);
+      const fresh = await client.fetchQuery(roadmapQuery(client, course));
+      if (!fresh)
+        throw new Error("The plan couldn't be read. Go back to the planner and open it again.");
+      setSnapshot(fresh);
+      setFrom(startOf(fresh));
+    } catch (e) {
+      setError(e instanceof Error ? e : new Error("The plan couldn't be read. Try again."));
+    } finally {
+      setReloading(false);
+    }
+  };
+  const busy = saving || reloading;
   return (
     <div className="space-y-5 tint-primary">
       <SectionHeading
@@ -205,7 +237,7 @@ export function TopicOrderEditor({
               axis="y"
               values={order}
               onReorder={(next) => {
-                if (!saving) {
+                if (!busy) {
                   setChosen(next);
                   setAnnouncement("Topic order and dates updated.");
                 }
@@ -223,7 +255,7 @@ export function TopicOrderEditor({
                 const partial =
                   topic.points.length < topics.find((t) => t.topicId === id)!.points.length;
                 return (
-                  <DraggableTopic key={id} id={id} disabled={saving} onFocusChange={setFocus}>
+                  <DraggableTopic key={id} id={id} disabled={busy} onFocusChange={setFocus}>
                     <span className={cn("icon-tile numeral size-9 shrink-0 text-base", tintOf(id))}>
                       {index + 1}
                     </span>
@@ -244,7 +276,7 @@ export function TopicOrderEditor({
                       <button
                         type="button"
                         className="btn-premium rounded-lg p-3.5 sm:pointer-fine:p-2"
-                        disabled={saving || index === 0}
+                        disabled={busy || index === 0}
                         aria-label={`Move ${topic.title} up`}
                         onPointerDown={(e) => e.stopPropagation()}
                         onClick={() => move(id, -1)}
@@ -254,7 +286,7 @@ export function TopicOrderEditor({
                       <button
                         type="button"
                         className="btn-premium rounded-lg p-3.5 sm:pointer-fine:p-2"
-                        disabled={saving || index === order.length - 1}
+                        disabled={busy || index === order.length - 1}
                         aria-label={`Move ${topic.title} down`}
                         onPointerDown={(e) => e.stopPropagation()}
                         onClick={() => move(id, 1)}
@@ -290,48 +322,61 @@ export function TopicOrderEditor({
       <p className="sr-only" role="status" aria-live="polite">
         {announcement}
       </p>
-      {error && <ErrorNote error={error} />}
-      {/* On a phone the reset takes the top row and Back/Save share the second,
-          so the pinned bar stays two rows tall rather than three. */}
-      <div className="premium-card sticky bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-10 rounded-2xl p-3 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3">
-        {!snapshot.needsAck && (
-          <button
-            type="button"
-            className="btn-premium col-span-2 px-3 sm:px-5 py-2.5 min-h-11 sm:pointer-fine:min-h-0 rounded-xl inline-flex gap-2 items-center justify-center text-sm sm:text-base"
-            disabled={saving}
-            onClick={() => {
-              setChosen(topics.filter((t) => byId.has(t.topicId)).map((t) => t.topicId));
-              setAnnouncement("Remaining topics restored to curriculum order. Dates updated.");
-            }}
-          >
-            <Undo2 className="size-4" /> Use curriculum order
-          </button>
+      {/* A refused save is pinned with the bar, just above the button that was
+          pressed: at the foot of a long list it was a screen and a half away. */}
+      <div className="sticky bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-10 space-y-2">
+        {error && (
+          <div role="alert">
+            <ErrorNote
+              error={error}
+              // The connection dropped: the same save again. Anything else: read the plan again.
+              onRetry={isNetworkError(error) ? save : reload}
+              retryLabel={isNetworkError(error) ? "Try again" : "Reload"}
+            />
+          </div>
         )}
-        <div className="contents sm:flex sm:flex-wrap sm:gap-3 sm:ml-auto">
-          <button
-            type="button"
-            onClick={onCancel}
-            disabled={saving}
-            className="btn-premium px-3 sm:px-5 py-2.5 min-h-11 sm:pointer-fine:min-h-0 rounded-xl text-sm sm:text-base"
-          >
-            {asTutor ? "Close" : "Back to planner"}
-          </button>
-          <button
-            type="button"
-            onClick={save}
-            disabled={
-              saving ||
-              !!preview.error ||
-              snapshot.needsAck ||
-              order.every((id, i) => id === inputs.remaining[i]?.topicId)
-            }
-            className="btn-solid px-3 sm:px-5 py-2.5 min-h-11 sm:pointer-fine:min-h-0 rounded-xl text-sm sm:text-base"
-          >
-            {saving ? (asTutor ? "Saving the order…" : "Saving your order…") : "Save topic order"}
-          </button>
+        {/* On a phone the reset takes the top row and Back/Save share the second,
+          so the pinned bar stays two rows tall rather than three. */}
+        <div className="premium-card rounded-2xl p-3 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3">
+          {!snapshot.needsAck && (
+            <button
+              type="button"
+              className="btn-premium col-span-2 px-3 sm:px-5 py-2.5 min-h-11 sm:pointer-fine:min-h-0 rounded-xl inline-flex gap-2 items-center justify-center text-sm sm:text-base"
+              disabled={busy}
+              onClick={() => {
+                setChosen(topics.filter((t) => byId.has(t.topicId)).map((t) => t.topicId));
+                setAnnouncement("Remaining topics restored to curriculum order. Dates updated.");
+              }}
+            >
+              <Undo2 className="size-4" /> Use curriculum order
+            </button>
+          )}
+          <div className="contents sm:flex sm:flex-wrap sm:gap-3 sm:ml-auto">
+            <button
+              type="button"
+              onClick={onCancel}
+              disabled={busy}
+              className="btn-premium px-3 sm:px-5 py-2.5 min-h-11 sm:pointer-fine:min-h-0 rounded-xl text-sm sm:text-base"
+            >
+              {asTutor ? "Close" : "Back to planner"}
+            </button>
+            <button
+              type="button"
+              onClick={save}
+              disabled={
+                busy ||
+                !!preview.error ||
+                snapshot.needsAck ||
+                order.every((id, i) => id === inputs.remaining[i]?.topicId)
+              }
+              className="btn-solid px-3 sm:px-5 py-2.5 min-h-11 sm:pointer-fine:min-h-0 rounded-xl text-sm sm:text-base"
+            >
+              {saving ? (asTutor ? "Saving the order…" : "Saving your order…") : "Save topic order"}
+            </button>
+          </div>
         </div>
       </div>
-      {saving && <Spinner className="py-2" />}
+      {busy && <Spinner className="py-2" />}
     </div>
   );
 }

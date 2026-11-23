@@ -3,7 +3,9 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Loader2, TreePalm } from "lucide-react";
 import { toast } from "sonner";
 import { BreakDAL } from "@/lib/planner/breaksDal";
-import { studentBreaksQuery } from "@/lib/planner/breakQueries";
+import { breakCardQuery } from "@/lib/planner/breakQueries";
+import { ErrorNote } from "@/components/Shared";
+import { describeError, isNetworkError } from "@/lib/platform/errors";
 import { backOn, breakDay, breakReasonLabel, type StudentBreak } from "@/lib/planner/breaks";
 import { invalidatePlanner } from "@/lib/planner/queries";
 import { currentWeekKey } from "@/lib/planner/week";
@@ -36,7 +38,7 @@ function StandingBreak({
       await invalidatePlanner(client, studentId);
       toast.success(underWay ? (name ? `${name} is back` : "Welcome back") : "Break called off");
     } catch (e) {
-      toast.error(e instanceof Error ? e.message : "That didn't work. Try again.");
+      toast.error(describeError(e, "That didn't work. Try again."));
     } finally {
       setPending(false);
       setConfirming(false);
@@ -106,10 +108,25 @@ export function TakeABreakCard({
   /** The student's first name, on a parent's or tutor's page. */
   name?: string;
 }) {
-  const { data: breaks = [], isPending } = useQuery(studentBreaksQuery(studentId));
+  const { data: breaks = [], isPending, error, refetch } = useQuery(breakCardQuery(studentId));
   const [open, setOpen] = useState(false);
   // Until the breaks are read, the card can't say which state it is in.
   if (isPending) return null;
+  // Nor when they couldn't be read: a failed read used to show "Take a
+  // break" to a student who might be on one.
+  if (error)
+    return (
+      <section data-guide="take-a-break">
+        {/* Named, because on its own at the top of Billing "That didn't work"
+            didn't say what. */}
+        <ErrorNote
+          error={`${name ? `${name}'s` : "Your"} breaks couldn't be checked just now.${
+            isNetworkError(error) ? " Check your connection and try again." : ""
+          }`}
+          onRetry={() => void refetch()}
+        />
+      </section>
+    );
 
   const thisWeek = currentWeekKey();
   const standing = breaks.filter((b) => b.endsOn >= thisWeek);

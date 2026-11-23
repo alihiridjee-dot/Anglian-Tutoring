@@ -6,8 +6,7 @@ import { Footer } from "@/components/landing/Footer";
 import { FloatingWhatsApp } from "@/components/landing/FloatingWhatsApp";
 import { ExplainerVideo } from "@/components/how-it-works/ExplainerVideo";
 import { FeatureRoad, type RoadStop } from "@/components/how-it-works/FeatureRoad";
-import { ForgettingCurve } from "@/components/how-it-works/ForgettingCurve";
-import { RevisitSimulator } from "@/components/how-it-works/RevisitSimulator";
+import { CurveSquiggle, ForgettingCurve } from "@/components/how-it-works/ForgettingCurve";
 import {
   ChatMock,
   FeedbackMock,
@@ -192,9 +191,9 @@ function HowItWorks() {
                 transition={{ ...fadeUp.transition, delay: 0.16 }}
                 className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground split:mx-0"
               >
-                Every parent has watched it happen. They revise a topic in October, swear they know
-                it, and by the mock in February it's gone. That isn't a discipline problem — it's
-                how memory works. So we built the tutoring around it.
+                We see it every year. A student learns a topic in October and really knows it. By
+                the February mock, it's gone. They did the work. Nobody brought it back. So we bring
+                every topic back just before it fades.
               </motion.p>
 
               <motion.div
@@ -223,33 +222,10 @@ function HowItWorks() {
               transition={{ ...fadeUp.transition, delay: 0.2 }}
               className="mx-auto w-full max-w-2xl"
             >
-              <div className="premium-card tint-primary relative rotate-[1.5deg] p-2 sm:p-2.5">
-                <span aria-hidden className="preview-sticker">
-                  🧠
-                </span>
-                <img
-                  src="/how-it-works/student-laptop-1200.webp"
-                  srcSet={[800, 1200, 1800]
-                    .map((w) => `/how-it-works/student-laptop-${w}.webp ${w}w`)
-                    .join(", ")}
-                  sizes="(min-width: 64rem) 50vw, 100vw"
-                  width={1800}
-                  height={1200}
-                  alt="A student at a laptop with the Anglia Educate student dashboard open"
-                  fetchPriority="high"
-                  className="aspect-[3/2] w-full rounded-[calc(var(--radius)-0.5rem)] object-cover"
-                />
-              </div>
+              {/* The explainer plays from the laptop in the photo. */}
+              <ExplainerVideo />
             </motion.figure>
           </div>
-
-          <motion.div
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 0.32 }}
-            className="mx-auto mt-12 max-w-3xl"
-          >
-            <ExplainerVideo />
-          </motion.div>
         </div>
       </section>
 
@@ -286,33 +262,15 @@ function HowItWorks() {
         </div>
       </section>
 
-      {/* ---------------- Try it ---------------- */}
+      {/* ---------------- The forgetting curve, and the scheduler to try ---------------- */}
       <section className="bg-secondary/60 py-20 lg:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
-            <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Try the scheduler
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Play the part of your child for a moment. Answer a quiz, and watch the plan react in
-              real time, using the same memory and weekly eligibility rules.
-            </p>
-          </motion.div>
-
-          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}>
-            <RevisitSimulator />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ---------------- The forgetting curve ---------------- */}
-      <section className="bg-card py-20 lg:py-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
             <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Most of a lesson is gone within a month
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            <CurveSquiggle />
+            <p className="mt-4 text-lg leading-relaxed font-medium">
               Memory fades on a predictable curve — and because it's predictable, it can be beaten.
               Bring a topic back just before it slips, and each time it sticks for longer. This is
               the same principle medical students use to hold thousands of facts through finals.
