@@ -64,6 +64,19 @@ export function practiceComplete(
   return (!a.hasHomework || !!c?.homeworkDone) && (!a.hasQuiz || !!c?.quizDone);
 }
 
+/**
+ * Is this point of the week done? Ticked off, or all its practice handed in.
+ * The progress card and the weekly task list both count every point of the
+ * week with this, so "3 of 14" means the same thing in both.
+ */
+export function pointDone(
+  done_at: string | null | undefined,
+  a: PointActivity | undefined,
+  c: PointCoverage | undefined,
+): boolean {
+  return !!done_at || practiceComplete(a, c);
+}
+
 /** One thing a student can actually open: a video, a homework, a quiz. */
 export interface PointWorkItem {
   /** Resource id — or, for a quiz, the MCQ set id the player route takes. */
