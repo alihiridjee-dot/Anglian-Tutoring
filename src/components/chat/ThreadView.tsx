@@ -220,7 +220,12 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
           <ErrorNote error={error} onRetry={() => void refetch()} />
         ) : (
           messages.map((m) => {
-            const mine = m.sender_id === viewerId;
+            // Sided by party, not by person. A thread has one member (the
+            // student or parent, `student_id`) and the team on the other side,
+            // so a tutor reading a conversation Nadia started sees Nadia's
+            // messages on their own side. Sided by person, both parties' bubbles
+            // sat on the left and looked like the student talking to themself.
+            const mine = (m.sender_id === thread.student_id) === (viewerId === thread.student_id);
             return (
               <div key={m.id} className={`flex ${mine ? "justify-end" : "justify-start"}`}>
                 <div
