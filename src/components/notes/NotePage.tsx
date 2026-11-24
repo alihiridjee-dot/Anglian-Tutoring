@@ -30,11 +30,11 @@ export function NotePage() {
   );
 
   // Show the layer for the student's own course (board and level) in this
-  // subject. If the note has none, use another layer at the same level; a
-  // student is never shown a different level's codes or question.
+  // subject. If the note has none, it shows without one: a student is never
+  // shown another board's codes or question.
   const enrolled = enrolments.find((e) => e.subject === note?.subject)?.board as string | undefined;
   const layers = note ? NOTE_BOARDS.filter((b) => note.boards[b]) : [];
-  const board = pickNoteLayer(layers, noteLayerFor(enrolled, level), level);
+  const board = pickNoteLayer(layers, noteLayerFor(enrolled, level), level, !!enrolled);
 
   // A note in a subject the student doesn't take is hidden from them with the
   // rest of that subject, so it arrives as no note at all. Its id still names

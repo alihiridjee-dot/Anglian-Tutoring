@@ -41,6 +41,7 @@ import {
   MIN_QUERY_LENGTH,
 } from "./match";
 import { searchTerms } from "./help";
+import { noteLayerFor, type NoteBoard } from "@/lib/notes/noteFormat";
 import {
   GROUP_LABEL,
   SEARCH_GROUPS,
@@ -114,6 +115,57 @@ export function noteLevelsFor(level: LevelV): LevelV[] {
   if (level === "alevel") return ["alevel"];
   if (level === "igcse") return ["gcse", "igcse"];
   return ["gcse"];
+}
+
+/** The note layer a student reads in each subject: their board's, at their level. */
+function noteLayersFor(ctx: SearchContext): Partial<Record<string, NoteBoard>> {
+  const out: Partial<Record<string, NoteBoard>> = {};
+  if (ctx.isTutor) return out;
+  for (const subject of ctx.entitledSubjects) {
+    const layer = noteLayerFor(ctx.boardBySubject[subject], ctx.level);
+    if (layer) out[subject] = layer;
+  }
+  return out;
+}
+
+/**
+ * Is this note written for the student's course? Only then does it have a
+ * layer for their board. One without would open on another board's codes and
+ * worked example, so it isn't offered. `codes` holds the spec codes of each
+ * layer the search asked for, null where the note has no such layer.
+ *
+ * A student whose board isn't known is not filtered, as {@link isVisible}
+ * doesn't filter them either.
+ */
+export function noteOnCourse(
+  ctx: SearchContext,
+  subject: string,
+  codes: Record<string, unknown>,
+): boolean {
+  if (ctx.isTutor) return true;
+  const sat = ctx.boardBySubject[subject];
+  if (!sat) return true;
+  const layer = noteLayerFor(sat, ctx.level);
+  return !!layer && codes[layer] != null;
+}
+
+/**
+ * Is this quiz on the student's course? A quiz belongs to the course of the
+ * spec point it tests, so its board and level are that point's topic's.
+ */
+export function quizVisible(
+  ctx: SearchContext,
+  row: {
+    subject: string | null;
+    spec_points: { topics: { subject: string; board: string; level: string } | null } | null;
+  },
+): boolean {
+  const topic = row.spec_points?.topics;
+  return isVisible(ctx, {
+    subject: row.subject ?? topic?.subject,
+    board: topic?.board,
+    level: topic?.level,
+  });
 }
 
 /** Where a spec point or topic opens: the curriculum page, pre-filtered to it. */
@@ -257,6 +309,21 @@ type SpecPointRow = {
   } | null;
 };
 
+type QuizRow = {
+  id: string;
+  title: string;
+  description: string | null;
+  published: boolean;
+  subject: string | null;
+  spec_points: { topics: { subject: string; board: string; level: string } | null } | null;
+};
+
+/** A note hit, with the spec codes of each layer asked for, keyed by layer. */
+type NoteRow = {
+  concept_id: string;
+  note_concepts: { title: string; chapter: string | null; subject: string; level: string } | null;
+} & Record<string, unknown>;
+
 /** Runs the live (authenticated) half of the search. */
 async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHit[]> {
   const value = ilikeValue(broadestTerm(terms));
@@ -313,21 +380,37 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
   };
 
   const mcqSetsQ = () => {
-    let q = supabase
-      .from("mcq_sets")
-      .select("id, title, description, published, subject, spec_point_id")
-      .or(`title.ilike.${value},description.ilike.${value}`)
-      .limit(FETCH_LIMIT);
-    // Drafts are a tutor's working state; a student only ever sees published sets.
-    if (!ctx.isTutor) q = q.eq("published", true);
-    return q;
+    // A quiz is on the course of the spec point it tests. A student's are
+    // narrowed to their subjects and level here, as the spec points are, so a
+    // pile of A-level quizzes can't fill the fetch before their own arrive;
+    // the board is checked per subject below.
+    let q = ctx.isTutor
+      ? supabase
+          .from("mcq_sets")
+          .select(
+            "id, title, description, published, subject, spec_point_id, spec_points(topics(subject, board, level))",
+          )
+      : supabase
+          .from("mcq_sets")
+          .select(
+            "id, title, description, published, subject, spec_point_id, spec_points!inner(topics!inner(subject, board, level))",
+          )
+          // Drafts are a tutor's working state; a student only ever sees published sets.
+          .eq("published", true)
+          .in("spec_points.topics.subject", subjects);
+    if (!ctx.isTutor && ctx.level) q = q.eq("spec_points.topics.level", ctx.level);
+    return q.or(`title.ilike.${value},description.ilike.${value}`).limit(FETCH_LIMIT);
   };
 
   // Published notes only, for a tutor too: a tutor sees what students see.
+  // A student's carry the spec codes of their own layer in each subject, just
+  // the codes, a few bytes: a note with none isn't written for their course.
+  const layers = [...new Set(Object.values(noteLayersFor(ctx)))];
+  const layerCodes = layers.map((l) => `${l}:body->boards->${l}->spec_codes, `).join("");
   const notesQ = () => {
     let q = supabase
       .from("notes")
-      .select("concept_id, note_concepts!inner(title, chapter, subject, level)")
+      .select(`concept_id, ${layerCodes}note_concepts!inner(title, chapter, subject, level)`)
       .eq("status", "approved")
       .ilike("note_concepts.title", pattern)
       .limit(FETCH_LIMIT);
@@ -438,8 +521,8 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
     });
   }
 
-  for (const row of mcqSets?.data ?? []) {
-    if (!isVisible(ctx, { subject: row.subject })) continue;
+  for (const row of (mcqSets?.data ?? []) as unknown as QuizRow[]) {
+    if (!quizVisible(ctx, row)) continue;
     const score = scoreRecord(
       [
         { text: row.title, weight: 1 },
@@ -461,9 +544,10 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
     });
   }
 
-  for (const row of notes?.data ?? []) {
+  for (const row of (notes?.data ?? []) as unknown as NoteRow[]) {
     const concept = row.note_concepts;
     if (!concept || !isVisible(ctx, { subject: concept.subject })) continue;
+    if (!noteOnCourse(ctx, concept.subject, row)) continue;
     const score = scoreRecord(
       [
         { text: concept.title, weight: 1 },
