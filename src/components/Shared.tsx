@@ -236,7 +236,16 @@ export function Spinner({
  * student mid-homework shouldn't have to know about, and which throws away
  * whatever else on the page had loaded fine.
  */
-export function ErrorNote({ error, onRetry }: { error: unknown; onRetry?: () => void }) {
+export function ErrorNote({
+  error,
+  onRetry,
+  retryLabel = "Try again",
+}: {
+  error: unknown;
+  onRetry?: () => void;
+  /** What the button does, when that is not simply the same thing again ("Reload"). */
+  retryLabel?: string;
+}) {
   return (
     <div className="tint-rose pop-card flex items-start gap-3 p-4 text-sm">
       <span className="icon-tile size-8 shrink-0 text-base font-black">!</span>
@@ -249,7 +258,7 @@ export function ErrorNote({ error, onRetry }: { error: unknown; onRetry?: () => 
             onClick={onRetry}
             className="btn-soft mt-3 inline-flex h-9 items-center rounded-lg px-4 text-sm font-semibold"
           >
-            Try again
+            {retryLabel}
           </button>
         )}
       </div>

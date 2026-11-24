@@ -1,6 +1,7 @@
 import type { PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import type { RoadmapResult } from "@/lib/planner/roadmap";
 import { laneOf } from "@/lib/planner/coverage";
+import { returningIdsFor } from "./useWeekLanes";
 
 export function WeekBreakdown({
   points,
@@ -14,12 +15,10 @@ export function WeekBreakdown({
   id: string;
 }) {
   const focusPointCount = points.filter((p) => laneOf(p.origin) === "focus").length;
-  const returningIds = new Set([
-    ...(roadmap?.catchUpSchedule?.weeks[weekStart] ?? []).map((p) => p.specPointId),
-    ...(roadmap?.backlog ?? []).filter((p) => p.plannedWeek < weekStart).map((p) => p.specPointId),
-  ]);
+  // The same points the "Missed work returning" lane lists, so the two agree.
+  const returningIds = returningIdsFor(roadmap, weekStart);
   const returningCount = points.filter(
-    (p) => laneOf(p.origin) === "core" && (returningIds.has(p.spec_point_id) || p.carried_from),
+    (p) => laneOf(p.origin) === "core" && returningIds.has(p.spec_point_id),
   ).length;
   const learningCount = points.filter((p) => laneOf(p.origin) === "core").length - returningCount;
   const tutorCount = points.filter((p) => laneOf(p.origin) === "tutor").length;

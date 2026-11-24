@@ -266,6 +266,7 @@ for (const [rule, pattern] of [
   ["an unquoted mark is not earned", /cannot tie to the student's own words is not earned/],
   ["say when unsure", /say in unsure, in one sentence/],
   ["the summary never guesses intent", /never guesses at what they meant to write/],
+  ["the words never state a score", /Never state a score, a total or a number of marks/],
 ] as const) {
   assert.match(request.system as string, pattern, `The marking prompt lost a rule: ${rule}`);
 }

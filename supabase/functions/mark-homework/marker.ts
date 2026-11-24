@@ -134,6 +134,8 @@ The comment for each question is written to the student, in the second person, a
 
 The summary is two or three sentences to the student about the paper as a whole: the pattern across their answers, and the single most useful thing to work on next. Keep it upbeat: lead with what went well and end on an encouraging note. It describes what they wrote and never guesses at what they meant to write.
 
+Never state a score, a total or a number of marks in the summary or in a comment: no "You scored 19 out of 22", no "3/4". The page shows the score beside your words, and a mark can still change after you write it, when the evidence check takes one away or a tutor changes it, so a number in your words can end up disagreeing with the score.
+
 Students type on a keyboard, so they often write notation flat: H2O, Mg2+, SO4 2-, cm3, 3 x 10^8. Read it as the student evidently meant it (H₂O, Mg²⁺, SO₄²⁻, cm³, 3 × 10⁸) and never deduct for its form. A formula, charge or unit that is wrong in substance is still wrong: MgCl for MgCl₂, or Mg+ for Mg²⁺. In your comments and summary write formulas, ions, units and powers with Unicode subscripts and superscripts (H₂O, Mg²⁺, cm³, 10⁻³), never LaTeX or Markdown. Quotes are the one exception: a quote copies the student's typing as it is.
 
 Some questions come with a figure: a graph, chart or diagram. The student saw it drawn under the question; you are given exactly what it shows, as data, after the question. Judge an answer about the figure against that data. Where a mark depends on a value the student read off the figure, follow the mark scheme's accepted range.
@@ -467,6 +469,11 @@ export function stageMarks(
           ? `A mark was given for words that are not in the answer: "${missing[0].slice(0, 80)}". The mark is taken down to what the quoted evidence supports.`
           : `More marks were given than the quoted evidence supports. The mark is taken down to match.`,
       );
+      // The comment was written for the model's mark, so it can praise marks
+      // the student no longer has ("Full marks, well done!" on 3 out of 4).
+      reasons.push(
+        `The comment was written for ${asked} ${asked === 1 ? "mark" : "marks"}, so check it still fits ${awarded}.`,
+      );
     }
     const unsure = typeof row.unsure === "string" ? row.unsure.trim() : "";
     if (unsure) reasons.push(`The marker was unsure: ${unsure}`);
@@ -491,7 +498,22 @@ export function stageMarks(
 
   return {
     questions: marks,
-    summary: typeof body.summary === "string" ? body.summary.trim().slice(0, 2000) : "",
+    summary: withoutScore(typeof body.summary === "string" ? body.summary : "").slice(0, 2000),
     credited,
   };
+}
+
+/**
+ * The summary with any sentence that states a score taken out. The model is
+ * told not to write one, but it did ("You scored 19 out of 22"), the evidence
+ * check then took a mark away, and the student read 19 beside a chip that
+ * said 82%. The chip is worked out from the marks as published, so it is the
+ * only place a score is shown.
+ */
+export function withoutScore(summary: string): string {
+  return summary
+    .trim()
+    .split(/(?<=[.!?])\s+/)
+    .filter((sentence) => !/\d+(?:\.\d+)?\s*(?:out of|\/)\s*\d+/i.test(sentence))
+    .join(" ");
 }

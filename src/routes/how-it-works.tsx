@@ -191,9 +191,9 @@ function HowItWorks() {
                 transition={{ ...fadeUp.transition, delay: 0.16 }}
                 className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground split:mx-0"
               >
-                Every parent has watched it happen. They revise a topic in October, swear they know
-                it, and by the mock in February it's gone. That isn't a discipline problem — it's
-                how memory works. So we built the tutoring around it.
+                We see it every year. A student learns a topic in October and really knows it. By
+                the February mock, it's gone. They did the work. Nobody brought it back. So we bring
+                every topic back just before it fades.
               </motion.p>
 
               <motion.div
@@ -222,33 +222,10 @@ function HowItWorks() {
               transition={{ ...fadeUp.transition, delay: 0.2 }}
               className="mx-auto w-full max-w-2xl"
             >
-              <div className="premium-card tint-primary relative rotate-[1.5deg] p-2 sm:p-2.5">
-                <span aria-hidden className="preview-sticker">
-                  🧠
-                </span>
-                <img
-                  src="/how-it-works/student-laptop-1200.webp"
-                  srcSet={[800, 1200, 1800]
-                    .map((w) => `/how-it-works/student-laptop-${w}.webp ${w}w`)
-                    .join(", ")}
-                  sizes="(min-width: 64rem) 50vw, 100vw"
-                  width={1800}
-                  height={1200}
-                  alt="A student at a laptop with the Anglia Educate student dashboard open"
-                  fetchPriority="high"
-                  className="aspect-[3/2] w-full rounded-[calc(var(--radius)-0.5rem)] object-cover"
-                />
-              </div>
+              {/* The explainer plays from the laptop in the photo. */}
+              <ExplainerVideo />
             </motion.figure>
           </div>
-
-          <motion.div
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 0.32 }}
-            className="mx-auto mt-12 max-w-3xl"
-          >
-            <ExplainerVideo />
-          </motion.div>
         </div>
       </section>
 

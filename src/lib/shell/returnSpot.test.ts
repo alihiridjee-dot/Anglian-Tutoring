@@ -1,5 +1,5 @@
-import { describe, expect, it } from "bun:test";
-import { pageAbove } from "./returnSpot";
+import { afterEach, beforeEach, describe, expect, it } from "bun:test";
+import { pageAbove, pageBehind } from "./returnSpot";
 
 const at = (pathname: string, search: Record<string, unknown> = {}) => ({ pathname, search });
 const ID = "2c9f0e7a-1111-4222-8333-944455556666";
@@ -36,5 +36,40 @@ describe("pageAbove", () => {
     expect(pageAbove(at("/billing"), "/parent-dashboard")).toBe("/parent-dashboard");
     expect(pageAbove(at("/student-dashboard"), "/student-dashboard")).toBeNull();
     expect(pageAbove(at("/tutor"), "/tutor")).toBeNull();
+  });
+});
+
+describe("pageBehind", () => {
+  const held = new Map<string, string>();
+  const g = globalThis as Record<string, unknown>;
+  beforeEach(() => {
+    held.clear();
+    g.window = globalThis;
+    g.sessionStorage = {
+      getItem: (k: string) => held.get(k) ?? null,
+      setItem: (k: string, v: string) => void held.set(k, v),
+    };
+  });
+  afterEach(() => {
+    delete g.window;
+    delete g.sessionStorage;
+  });
+  const entry = (index: number) => ({ state: { __TSR_index: index } }) as never;
+  const visits = (store: Record<number, { path: string }>) =>
+    held.set("return-spots-v1", JSON.stringify(store));
+
+  it("names the page this one was opened from", () => {
+    visits({ 0: { path: "/student-dashboard" }, 1: { path: "/curriculum" } });
+    expect(pageBehind(entry(2))).toBe("/curriculum");
+    expect(pageBehind(entry(1))).toBe("/student-dashboard");
+  });
+
+  it("has nothing behind the first page in the tab", () => {
+    visits({ 0: { path: "/curriculum" } });
+    expect(pageBehind(entry(0))).toBeNull();
+  });
+
+  it("has nothing when the visit before wasn't recorded", () => {
+    expect(pageBehind(entry(3))).toBeNull();
   });
 });

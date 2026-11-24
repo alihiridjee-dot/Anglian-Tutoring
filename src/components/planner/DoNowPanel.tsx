@@ -6,6 +6,7 @@ import {
   type PointCoverage,
   type PointWork,
   type PointWorkItem,
+  pointDone,
   practiceComplete,
 } from "@/lib/planner/coverage";
 import { type Activity } from "./useWeekPlan";
@@ -105,7 +106,9 @@ export function DoNowPanel({
 
   const workDone = (p: PlanPoint) =>
     practiceComplete(activity.get(p.spec_point_id), coverage?.get(p.spec_point_id));
-  const isDone = (p: PlanPoint) => !!p.done_at || workDone(p);
+  // The progress card above counts with the same rule (pointDone).
+  const isDone = (p: PlanPoint) =>
+    pointDone(p.done_at, activity.get(p.spec_point_id), coverage?.get(p.spec_point_id));
 
   const doneCount = points.filter(isDone).length;
   const total = points.length;

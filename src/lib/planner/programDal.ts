@@ -4,6 +4,7 @@ import {
   examDateTooSoon,
   reorderTopics,
   resumeAfterPause,
+  spineExamDate,
   spineMatchesExam,
   stopIsCovered,
   type StopWeeks,
@@ -46,6 +47,7 @@ import {
 import { SubjectPauseDAL, type PauseRecord } from "./pausesDal";
 import { readCourseState, type CourseState } from "./courseState";
 import { BreakDAL } from "./breaksDal";
+import { plainReorderError } from "./reorderErrors";
 import { breakCovering, breakWeekKeys, layBreaksOver, type StudentBreak } from "./breaks";
 
 export { handPicked } from "./weekCut";
@@ -198,11 +200,33 @@ export class ProgramDAL {
       overrides,
       breakWeeks: breakWeekKeys(breaks),
     });
+    if (breaks.length) roadmap.breaks = breaks;
     if (current && storedBands) {
       roadmap.storedBands = storedBands;
       const ahead = breaks.filter((b) => !b.recordedAt);
       if (ahead.length)
         roadmap.breaksAhead = ahead.map((b) => ({ startsOn: b.startsOn, endsOn: b.endsOn }));
+      // The exam moved and the re-flow hasn't landed (applyPending failed, or
+      // hasn't run yet). withBreaksAhead left the breaks off the old spine, so
+      // the Full plan drew teaching in the holiday and stopped at the new date,
+      // dropping topics. Shown instead: the old spine as the student last saw
+      // it, breaks laid against the date it was cut for.
+      const spine = current.pacing as unknown as PacingBand[];
+      const cutFor = spineExamDate(spine);
+      if (
+        roadmap.needsAck &&
+        ahead.length &&
+        cutFor &&
+        !spineMatchesExam(spine, current.exam_date)
+      ) {
+        const laid = layBreaksOver({
+          bands: roadmap.baselineBands,
+          topics: orderTopicsOf(progress),
+          breaks: ahead,
+          examDate: cutFor,
+        });
+        if (laid !== roadmap.baselineBands) roadmap.lastSeenBands = laid;
+      }
     }
 
     if (!current) {
@@ -617,7 +641,7 @@ export class ProgramDAL {
             ? "Reordering a student's topics needs the planner override update installed. The plan is unchanged."
             : "Topic ordering is not available yet. Your current plan is unchanged. Please try again later.",
         );
-      throw new Error(error.message);
+      throw new Error(plainReorderError(error.message));
     }
   }
 

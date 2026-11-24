@@ -15,6 +15,9 @@ import { EmptyState, SectionHeading } from "@/components/Shared";
 import type { RoadmapResult } from "@/lib/planner/roadmap";
 import { isTeachBand, withWeeklyPoints } from "@/lib/planner/pacing";
 import { byTopic } from "@/lib/planner/backlog";
+import { breakCovering } from "@/lib/planner/breaks";
+import { spineExamDate } from "@/lib/planner/topicOrder";
+import { BreakWeek } from "./BreakWeek";
 import {
   addWeeks,
   currentWeekKey,
@@ -41,9 +44,13 @@ export function FullPlanTimeline({
   focusWeek?: string;
 }) {
   const now = currentWeekKey();
+  const reviewing = data.needsAck && data.baselineBands.length > 0;
+  // A moved exam date not applied yet: the plan the student had stays on
+  // screen whole, up to the exam it was cut for, until the re-flow lands.
+  const horizon = (reviewing && spineExamDate(data.baselineBands)) || data.examDate;
   // The exam date is stored as the day it falls on; the week it lands in is
   // keyed by its Monday, or a Wednesday exam never showed an "Exams" week.
-  const examWeek = toDateKey(mondayOf(weekKeyToDate(data.examDate)));
+  const examWeek = toDateKey(mondayOf(weekKeyToDate(horizon)));
   const viewport = useRef<HTMLDivElement>(null);
   const cards = useRef(new Map<string, HTMLElement>());
   const [expanded, setExpanded] = useState(new Set<string>());
@@ -53,9 +60,8 @@ export function FullPlanTimeline({
   const progress = new Map(data.progress.map((topic) => [topic.topicId, topic]));
   const missed = new Set(data.backlog.map((point) => point.specPointId));
   const assigned = new Set(data.catchUpSchedule?.assignedIds ?? []);
-  const reviewing = data.needsAck && data.baselineBands.length > 0;
   const teaching = withWeeklyPoints(
-    (reviewing ? data.baselineBands : data.bands).filter(isTeachBand),
+    (reviewing ? (data.lastSeenBands ?? data.baselineBands) : data.bands).filter(isTeachBand),
     new Map(
       data.progress.map((topic) => [
         topic.topicId,
@@ -71,7 +77,7 @@ export function FullPlanTimeline({
   const weeks: string[] = [];
   for (
     let week = data.programStart;
-    week <= data.examDate;
+    week <= horizon;
     week = toDateKey(addWeeks(weekKeyToDate(week), 1))
   )
     weeks.push(week);
@@ -226,6 +232,9 @@ export function FullPlanTimeline({
           const reviews = data.bands.filter(
             (band) => !isTeachBand(band) && band.startWeek <= week && band.endWeek >= week,
           );
+          // Nothing is planned in a break week, so it shows the break, as
+          // This week does, and no empty lanes.
+          const onBreak = breakCovering(data.breaks ?? [], week);
           return (
             <article
               key={week}
@@ -251,153 +260,167 @@ export function FullPlanTimeline({
                   </span>
                 )}
               </header>
-              <div className="grid gap-3 p-3 sm:p-4 lg:grid-cols-3">
-                <section
-                  className="min-w-0 premium-card rounded-xl p-4 space-y-3 tint-primary bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
-                  aria-label={`New learning for ${week}`}
-                >
-                  <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
-                    <BookOpen className="size-4" />
-                    {isPast ? "Scheduled learning" : "New learning"}
-                  </p>
-                  {core ? (
-                    <>
-                      <h4 className="text-base font-bold leading-snug">{core.title}</h4>
-                      {(isCovered || (isPast && owing > 0)) && (
-                        <div className="flex flex-wrap gap-1.5">
-                          {isCovered && (
-                            <span className="chip tint-emerald text-xs">
-                              <CheckCircle2 className="size-3" aria-hidden /> Topic covered
-                            </span>
-                          )}
-                          {isPast && owing > 0 && (
-                            <span className="chip tint-amber text-xs">
-                              <History className="size-3" aria-hidden /> {owing} to catch up
-                            </span>
-                          )}
-                        </div>
-                      )}
-                      {weekly.length > 0 && (
-                        <ul className="space-y-1.5">
-                          {weekly.map((point) => (
-                            <PointRow key={point.id} point={point} card />
-                          ))}
-                        </ul>
-                      )}
-                    </>
-                  ) : week >= examWeek ? (
-                    <NothingDue mascot="panda" mood="proud" title="Exam time. Good luck!" />
-                  ) : (
-                    <NothingDue mascot="panda" mood="sleepy" title="No new topic this week" />
-                  )}
-                </section>
-                <section
-                  className="min-w-0 premium-card rounded-xl p-4 space-y-3 tint-amber bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
-                  aria-label={`Missed work returning for ${week}`}
-                >
-                  <div className="flex flex-wrap items-center justify-between gap-2">
+              {onBreak ? (
+                <BreakWeek brk={onBreak} />
+              ) : (
+                <div className="grid gap-3 p-3 sm:p-4 lg:grid-cols-3">
+                  <section
+                    className="min-w-0 premium-card rounded-xl p-4 space-y-3 tint-primary bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
+                    aria-label={`New learning for ${week}`}
+                  >
                     <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
-                      <History className="size-4" />
-                      Missed work returning
+                      <BookOpen className="size-4" />
+                      {isPast ? "Scheduled learning" : "New learning"}
                     </p>
-                    {catchUp.length > 0 && (
-                      <span className="chip text-xs">
-                        {isNow &&
-                        catchUp.every((group) =>
-                          group.points.every((point) => assigned.has(point.specPointId)),
-                        )
-                          ? "Assigned this week"
-                          : "Expected this week"}
-                      </span>
+                    {core ? (
+                      <>
+                        <h4 className="text-base font-bold leading-snug">{core.title}</h4>
+                        {(isCovered || (isPast && owing > 0)) && (
+                          <div className="flex flex-wrap gap-1.5">
+                            {isCovered && (
+                              <span className="chip tint-emerald text-xs">
+                                <CheckCircle2 className="size-3" aria-hidden /> Topic covered
+                              </span>
+                            )}
+                            {isPast && owing > 0 && (
+                              <span className="chip tint-amber text-xs">
+                                <History className="size-3" aria-hidden /> {owing} to catch up
+                              </span>
+                            )}
+                          </div>
+                        )}
+                        {weekly.length > 0 && (
+                          <ul className="space-y-1.5">
+                            {weekly.map((point) => (
+                              <PointRow
+                                key={point.id}
+                                point={point}
+                                card
+                                missed={isPast && missed.has(point.id)}
+                              />
+                            ))}
+                          </ul>
+                        )}
+                      </>
+                    ) : week >= examWeek ? (
+                      <NothingDue mascot="panda" mood="proud" title="Exam time. Good luck!" />
+                    ) : (
+                      <NothingDue mascot="panda" mood="sleepy" title="No new topic this week" />
                     )}
-                  </div>
-                  {!catchUp.length && <NothingDue mascot="cat" title="Nothing to catch up" />}
-                  {catchUp.map((group) => (
-                    <div key={group.topicId} className="space-y-3">
-                      <ReturningTopicInfo
-                        title={group.topicTitle}
-                        points={group.points}
-                        onOriginalWeek={jump}
-                      />
-                      <ul className="space-y-1.5">
-                        {group.points.map((point) => {
-                          const assessed = progress
-                            .get(group.topicId)
-                            ?.points.find((p) => p.id === point.specPointId);
-                          return assessed ? (
-                            <PointRow key={point.specPointId} point={assessed} card />
-                          ) : (
-                            <BarePointRow
-                              key={point.specPointId}
-                              code={point.code}
-                              title={point.title}
-                              card
-                            />
+                  </section>
+                  <section
+                    className="min-w-0 premium-card rounded-xl p-4 space-y-3 tint-amber bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
+                    aria-label={`Missed work returning for ${week}`}
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
+                        <History className="size-4" />
+                        Missed work returning
+                      </p>
+                      {catchUp.length > 0 && (
+                        <span className="chip text-xs">
+                          {isNow &&
+                          catchUp.every((group) =>
+                            group.points.every((point) => assigned.has(point.specPointId)),
+                          )
+                            ? "Assigned this week"
+                            : "Expected this week"}
+                        </span>
+                      )}
+                    </div>
+                    {!catchUp.length && <NothingDue mascot="cat" title="Nothing to catch up" />}
+                    {catchUp.map((group) => (
+                      <div key={group.topicId} className="space-y-3">
+                        <ReturningTopicInfo
+                          title={group.topicTitle}
+                          points={group.points}
+                          onOriginalWeek={jump}
+                        />
+                        <ul className="space-y-1.5">
+                          {group.points.map((point) => {
+                            const assessed = progress
+                              .get(group.topicId)
+                              ?.points.find((p) => p.id === point.specPointId);
+                            return assessed ? (
+                              <PointRow key={point.specPointId} point={assessed} card />
+                            ) : (
+                              <BarePointRow
+                                key={point.specPointId}
+                                code={point.code}
+                                title={point.title}
+                                card
+                              />
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    ))}
+                  </section>
+                  <section
+                    className="min-w-0 premium-card rounded-xl p-4 space-y-3 tint-rose bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
+                    aria-label={`Revision for ${week}`}
+                  >
+                    <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
+                      <Repeat className="size-4" />
+                      Revision
+                    </p>
+                    {reviews.length ? (
+                      <>
+                        {reviews.map((band) => {
+                          const bandKey = `${band.topicId}|${band.kind}|${band.startWeek}`;
+                          const key = `${bandKey}@${week}`;
+                          const items = progress.get(band.topicId)?.points ?? [];
+                          const byId = new Map(items.map((point) => [point.id, point]));
+                          const rows =
+                            expanded.has(`${key}@all`) || !band.points?.length
+                              ? items.map((point) => ({ point, ref: null }))
+                              : band.points.map((ref) => ({
+                                  point: byId.get(ref.specPointId),
+                                  ref,
+                                }));
+                          return (
+                            <details key={key} className="text-sm">
+                              <summary className="cursor-pointer text-base font-bold leading-snug py-2.5 -my-2.5 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
+                                {band.title}{" "}
+                                {newFocusKeys.has(bandKey) && (
+                                  <span className="chip text-xs">New</span>
+                                )}
+                              </summary>
+                              <button
+                                className="btn-premium rounded-lg px-2 py-1 my-2 min-h-11 sm:pointer-fine:min-h-0 text-xs"
+                                type="button"
+                                onClick={() => toggle(`${key}@all`)}
+                              >
+                                {expanded.has(`${key}@all`)
+                                  ? "Show due points"
+                                  : "Show whole topic"}
+                              </button>
+                              <ul className="space-y-1.5">
+                                {rows.map(({ point, ref }) =>
+                                  point ? (
+                                    <PointRow key={point.id} point={point} card />
+                                  ) : (
+                                    ref && (
+                                      <BarePointRow
+                                        key={ref.specPointId}
+                                        code={ref.code}
+                                        title={ref.title}
+                                        card
+                                      />
+                                    )
+                                  ),
+                                )}
+                              </ul>
+                            </details>
                           );
                         })}
-                      </ul>
-                    </div>
-                  ))}
-                </section>
-                <section
-                  className="min-w-0 premium-card rounded-xl p-4 space-y-3 tint-rose bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
-                  aria-label={`Revision for ${week}`}
-                >
-                  <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
-                    <Repeat className="size-4" />
-                    Revision
-                  </p>
-                  {reviews.length ? (
-                    <>
-                      {reviews.map((band) => {
-                        const bandKey = `${band.topicId}|${band.kind}|${band.startWeek}`;
-                        const key = `${bandKey}@${week}`;
-                        const items = progress.get(band.topicId)?.points ?? [];
-                        const byId = new Map(items.map((point) => [point.id, point]));
-                        const rows =
-                          expanded.has(`${key}@all`) || !band.points?.length
-                            ? items.map((point) => ({ point, ref: null }))
-                            : band.points.map((ref) => ({ point: byId.get(ref.specPointId), ref }));
-                        return (
-                          <details key={key} className="text-sm">
-                            <summary className="cursor-pointer text-base font-bold leading-snug py-2.5 -my-2.5 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
-                              {band.title}{" "}
-                              {newFocusKeys.has(bandKey) && (
-                                <span className="chip text-xs">New</span>
-                              )}
-                            </summary>
-                            <button
-                              className="btn-premium rounded-lg px-2 py-1 my-2 min-h-11 sm:pointer-fine:min-h-0 text-xs"
-                              type="button"
-                              onClick={() => toggle(`${key}@all`)}
-                            >
-                              {expanded.has(`${key}@all`) ? "Show due points" : "Show whole topic"}
-                            </button>
-                            <ul className="space-y-1.5">
-                              {rows.map(({ point, ref }) =>
-                                point ? (
-                                  <PointRow key={point.id} point={point} card />
-                                ) : (
-                                  ref && (
-                                    <BarePointRow
-                                      key={ref.specPointId}
-                                      code={ref.code}
-                                      title={ref.title}
-                                      card
-                                    />
-                                  )
-                                ),
-                              )}
-                            </ul>
-                          </details>
-                        );
-                      })}
-                    </>
-                  ) : (
-                    <NothingDue mascot="owl" mood="sleepy" title="No revision due" />
-                  )}
-                </section>
-              </div>
+                      </>
+                    ) : (
+                      <NothingDue mascot="owl" mood="sleepy" title="No revision due" />
+                    )}
+                  </section>
+                </div>
+              )}
             </article>
           );
         })}
