@@ -1,4 +1,4 @@
-import { useMemo, type ReactNode } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import {
   ArrowRight,
   ChartNoAxesColumnIncreasing,
@@ -10,6 +10,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { SciText } from "@/components/Shared";
+import { StopTrail } from "@/components/chat/ContextPicker";
 import {
   isLevelRow,
   keyTermRuns,
@@ -25,6 +26,8 @@ type Point = Extract<MarkSchemeRow, { kind: "point" }>;
 
 /** Guidance that takes credit away, drawn with a cross rather than an arrow. */
 const REJECTS = /^\(?(?:do not|don['’]t|reject|ignore|no (?:marks?|credit)|not\b|penalise)/i;
+/** Guidance that allows another answer, drawn with a tick. */
+const ACCEPTS = /^\(?(?:accept|allow|credit|award|also accept)/i;
 
 const SECTION: Record<
   MarkSchemeSection["kind"],
@@ -41,16 +44,21 @@ const SECTION: Record<
 
 /**
  * A mark scheme, however it was written, signposted for a student: what earns
- * marks (each point ticked), how the levels give them (a ladder of marks), and
- * the examiner's tips (→ accepted, ✗ not credited). Key terms the generator
- * wrapped in **…** are drawn with the highlighter. `layoutMarkScheme` finds
- * the structure and `sectionMarkScheme` the sections. Size and colour come
- * from the parent; `compact` (the tutor's marking card) drops the icon tiles.
+ * marks (each point ticked), how the levels give them, and the examiner's tips
+ * (✓ also accepted, ✗ not credited). Key terms the generator wrapped in **…**
+ * are drawn with the highlighter. `layoutMarkScheme` finds the structure and
+ * `sectionMarkScheme` the sections.
+ *
+ * On a student's sheet the parts are stops on a trail (✅ Earns marks, 🪜 the
+ * marks, 💡 Tips) with one panel open underneath, and the levels are a row of
+ * dots from 0 up, a 📍 on the one the answer reached. `compact` (the tutor's
+ * marking card) keeps every part on show under small headings instead.
  */
 export function MarkScheme({
   scheme,
   context,
   marks,
+  level,
   compact,
   className,
 }: {
@@ -59,10 +67,22 @@ export function MarkScheme({
   context?: string;
   /** The question's marks, named in the levels heading. */
   marks?: number;
+  /** The level the student's answer reached ("2"), when it was marked as a whole. */
+  level?: string | null;
   compact?: boolean;
   className?: string;
 }) {
   const sections = useMemo(() => sectionMarkScheme(layoutMarkScheme(scheme)), [scheme]);
+  if (!compact)
+    return (
+      <SchemeTrail
+        sections={sections}
+        marks={marks}
+        level={level}
+        context={context}
+        className={className}
+      />
+    );
   // One list of points needs no heading: the "Mark scheme" label above says it.
   const headed = sections.length > 1 || sections[0]?.kind !== "points";
 
@@ -93,6 +113,158 @@ export function MarkScheme({
   );
 }
 
+const STOPS: {
+  kind: MarkSchemeSection["kind"];
+  label: (marks?: number) => string;
+  glyph: string;
+}[] = [
+  { kind: "points", label: () => "Earns marks", glyph: "✅" },
+  { kind: "levels", label: (marks) => (marks ? `The ${marks} marks` : "Levels"), glyph: "🪜" },
+  { kind: "guidance", label: () => "Tips", glyph: "💡" },
+];
+
+/**
+ * The scheme as a trail: a stop for each kind of part it has, and the picked
+ * stop's parts in one panel. It opens on the levels when the answer reached
+ * one, otherwise on the first stop. A scheme of one kind needs no trail.
+ */
+function SchemeTrail({
+  sections,
+  marks,
+  level,
+  context,
+  className,
+}: {
+  sections: MarkSchemeSection[];
+  marks?: number;
+  level?: string | null;
+  context?: string;
+  className?: string;
+}) {
+  const stops = STOPS.filter((s) => sections.some((section) => section.kind === s.kind));
+  const [picked, setPicked] = useState<MarkSchemeSection["kind"] | null>(null);
+  const opening = level != null && stops.some((s) => s.kind === "levels") ? "levels" : null;
+  const shown = stops.find((s) => s.kind === picked)?.kind ?? opening ?? stops[0]?.kind ?? "points";
+  const body = sections
+    .filter((s) => s.kind === shown)
+    .map((s, i) => <SectionBody key={i} section={s} level={level} context={context} />);
+
+  if (stops.length < 2) return <div className={cn("space-y-4", className)}>{body}</div>;
+  return (
+    <div className={className}>
+      <StopTrail
+        label="Mark scheme"
+        stops={stops.map((s) => ({ key: s.kind, label: s.label(marks), glyph: s.glyph }))}
+        picked={shown}
+        onPick={setPicked}
+      />
+      <div key={shown} className="point-panel scheme-panel space-y-4">
+        {body}
+      </div>
+    </div>
+  );
+}
+
+/** One part in the panel: its rows, or for the levels, the dots and the rest. */
+function SectionBody({
+  section,
+  level,
+  context,
+}: {
+  section: MarkSchemeSection;
+  level?: string | null;
+  context?: string;
+}) {
+  const heading = section.part && <h5 className="mb-2 font-extrabold">For {section.part}</h5>;
+  if (section.kind !== "levels")
+    return (
+      <div>
+        {heading}
+        <Rows section={section} context={context} />
+      </div>
+    );
+  // Levels next to each other share one row of dots; any other line reads as rows.
+  const runs: { levels: boolean; rows: MarkSchemeRow[] }[] = [];
+  for (const row of section.rows) {
+    const isLevel = isLevelRow(row);
+    const last = runs[runs.length - 1];
+    if (last?.levels === isLevel) last.rows.push(row);
+    else runs.push({ levels: isLevel, rows: [row] });
+  }
+  return (
+    <div className="space-y-3">
+      {heading}
+      {runs.map((run, i) =>
+        run.levels ? (
+          <LevelSteps key={i} rows={run.rows as Point[]} level={level} context={context} />
+        ) : (
+          <Rows key={i} section={{ ...section, rows: run.rows }} context={context} />
+        ),
+      )}
+    </div>
+  );
+}
+
+/** "Level 3 (5–6 marks)" or "0 marks", with nothing more in it. */
+const PLAIN_LEVEL =
+  /^(?:Level\s*\d+\s*(?:\(\s*\d+(?:\s*[–-]\s*\d+)?\s*marks?\s*\))?|\d+(?:\s*[–-]\s*\d+)?\s*marks?)$/i;
+
+/** A level as a dot: its marks ("5–6"), or "L3" when it names none. */
+function stepOf(point: Point, i: number) {
+  const label = (point.label ?? "").trim().replace(/\s*:$/, "");
+  const number = /^Level\s*(\d+)/i.exec(label)?.[1] ?? null;
+  const range = /(\d+(?:\s*[–-]\s*\d+)?)\s*marks?\b/i.exec(label)?.[1].replace(/\s+/g, "") ?? null;
+  const name = PLAIN_LEVEL.test(label) ? (number ? `Level ${number}` : null) : label;
+  const top = Math.max(...(range ?? number ?? "0").split(/[–-]/).map(Number));
+  return { key: point.label ?? String(i), number, range, name, top, point };
+}
+
+/**
+ * The levels as a row of dots from no marks up, on a dotted line. The picked
+ * level's words sit under them; it starts on the student's level (marked 📍),
+ * or on the top one.
+ */
+function LevelSteps({
+  rows,
+  level,
+  context,
+}: {
+  rows: Point[];
+  level?: string | null;
+  context?: string;
+}) {
+  const steps = rows.map(stepOf).sort((a, b) => a.top - b.top);
+  const yours = level != null ? steps.find((s) => s.number === level) : undefined;
+  const [picked, setPicked] = useState<string | null>(null);
+  const open = steps.find((s) => s.key === picked) ?? yours ?? steps[steps.length - 1];
+  return (
+    <div>
+      <div role="group" aria-label="Levels" className="scheme-steps">
+        {steps.map((s) => (
+          <button
+            key={s.key}
+            type="button"
+            className="scheme-step"
+            aria-pressed={s === open}
+            aria-label={[s.name, s.range && `${s.range} marks`, s === yours && "your answer"]
+              .filter(Boolean)
+              .join(", ")}
+            onClick={() => setPicked(s.key)}
+          >
+            <span aria-hidden className="scheme-step-dot numeral">
+              {s.range ?? (s.number ? `L${s.number}` : "0")}
+              {s === yours && <span className="scheme-pin">📍</span>}
+            </span>
+          </button>
+        ))}
+      </div>
+      <div key={open.key} className="scheme-step-words">
+        <PointBody point={{ ...open.point, label: open.name }} context={context} />
+      </div>
+    </div>
+  );
+}
+
 function Rows({ section, context }: { section: MarkSchemeSection; context?: string }) {
   // Points next to each other share one list.
   const groups: (MarkSchemeRow | Point[])[] = [];
@@ -114,7 +286,7 @@ function Rows({ section, context }: { section: MarkSchemeSection; context?: stri
               ) : (
                 <IconRow
                   key={j}
-                  {...guidanceIcon(guidance, p.text || p.label || "")}
+                  {...guidanceIcon(guidance, said(p))}
                   body={<PointBody point={p} context={context} />}
                 />
               ),
@@ -123,7 +295,7 @@ function Rows({ section, context }: { section: MarkSchemeSection; context?: stri
         ) : guidance && !group.items.length ? (
           <ul key={i}>
             <IconRow
-              {...guidanceIcon(true, group.text || group.label || "")}
+              {...guidanceIcon(true, said(group))}
               body={<Labelled label={group.label} text={group.text} context={context} />}
             />
           </ul>
@@ -138,7 +310,7 @@ function Rows({ section, context }: { section: MarkSchemeSection; context?: stri
                 {group.items.map((item, k) => (
                   <IconRow
                     key={k}
-                    {...guidanceIcon(guidance, item.text || item.label || "")}
+                    {...guidanceIcon(guidance, said(item))}
                     body={<Labelled label={item.label} text={item.text} context={context} />}
                   />
                 ))}
@@ -151,20 +323,46 @@ function Rows({ section, context }: { section: MarkSchemeSection; context?: stri
   );
 }
 
-/** A point earns a tick; a tip points on, or crosses out what isn't credited. */
-function guidanceIcon(guidance: boolean, text: string): { icon: LucideIcon; tint?: string } {
+/** A row's words as a reader meets them: "Accept relative ordering: alpha…". */
+const said = (row: { label: string | null; text: string }) =>
+  `${row.label ?? ""} ${row.text}`.trim();
+
+/**
+ * A point earns a tick. A tip sits in a solid dot: a tick for another answer
+ * that is accepted, a cross for one that isn't, an arrow for anything else.
+ */
+function guidanceIcon(
+  guidance: boolean,
+  text: string,
+): { icon: LucideIcon; tint?: string; dot?: boolean } {
   if (!guidance) return { icon: Check };
-  return REJECTS.test(text)
-    ? { icon: X, tint: "tint-rose" }
-    : { icon: ArrowRight, tint: "tint-emerald" };
+  if (REJECTS.test(text)) return { icon: X, tint: "tint-rose", dot: true };
+  if (ACCEPTS.test(text)) return { icon: Check, tint: "tint-emerald", dot: true };
+  return { icon: ArrowRight, dot: true };
 }
 
-function IconRow({ icon: Icon, tint, body }: { icon: LucideIcon; tint?: string; body: ReactNode }) {
+function IconRow({
+  icon: Icon,
+  tint,
+  dot,
+  body,
+}: {
+  icon: LucideIcon;
+  tint?: string;
+  dot?: boolean;
+  body: ReactNode;
+}) {
   return (
     <li className="flex gap-2">
-      <span className={cn("mt-[0.2em] shrink-0", tint)} aria-hidden>
-        <Icon className="size-[1.1em] text-[color:var(--tint)]" strokeWidth={2.75} />
-      </span>
+      {dot ? (
+        <span className={cn("scheme-tip-dot", tint)} aria-hidden>
+          <Icon strokeWidth={3.25} />
+        </span>
+      ) : (
+        <span className={cn("mt-[0.2em] shrink-0", tint)} aria-hidden>
+          <Icon className="size-[1.1em] text-[color:var(--tint)]" strokeWidth={2.75} />
+        </span>
+      )}
       <div className="min-w-0 flex-1">{body}</div>
     </li>
   );

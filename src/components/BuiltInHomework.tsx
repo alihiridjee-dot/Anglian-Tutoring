@@ -10,16 +10,7 @@ import {
 import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
-import {
-  Check,
-  ClipboardCheck,
-  Clock3,
-  Loader2,
-  PenLine,
-  Save,
-  Send,
-  type LucideIcon,
-} from "lucide-react";
+import { Check, Clock3, Loader2, Save, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 import { dbError } from "@/lib/platform/errors";
@@ -154,23 +145,29 @@ export function AnsweredView({
             <li key={q.id} className="premium-card p-4 sm:p-5">
               <MarkedAnswer q={q} index={i} answer={a} notation={notation} marked={marked} />
               {a?.feedback && (
-                <TitledBox icon={PenLine} title="Feedback">
-                  <p className="text-sm leading-relaxed font-medium whitespace-pre-wrap">
+                <TitledPart emoji="💬" title="Feedback">
+                  <p className="leading-relaxed font-medium whitespace-pre-wrap">
                     <SciText text={a.feedback} context={notation} />
                   </p>
-                </TitledBox>
+                </TitledPart>
               )}
               {/* The mark scheme is the answer — it stays hidden until the work
                   has actually been marked. */}
               {marked && q.mark_scheme && (
-                <TitledBox icon={ClipboardCheck} title="Mark scheme">
+                <TitledPart emoji="📋" title="Mark scheme">
                   <MarkScheme
                     scheme={q.mark_scheme}
                     context={notation}
                     marks={q.marks}
-                    className="text-sm"
+                    level={levelOfCredit(
+                      creditsToShow(
+                        a?.credited,
+                        a?.awarded_marks != null ? Number(a.awarded_marks) : null,
+                      ),
+                      q.mark_scheme,
+                    )}
                   />
-                </TitledBox>
+                </TitledPart>
               )}
             </li>
           );
@@ -365,25 +362,28 @@ function MarkedAnswer({
   );
 }
 
-/** A boxed part of a marked question — the feedback, the mark scheme — under its own heading. */
-function TitledBox({
-  icon: Icon,
+/**
+ * A part of a marked question — the feedback, the mark scheme — on the
+ * question's own card: a solid round dot holding its emoji, then its title.
+ */
+function TitledPart({
+  emoji,
   title,
   className,
   children,
 }: {
-  icon: LucideIcon;
+  emoji: string;
   title: string;
   className?: string;
   children: ReactNode;
 }) {
   return (
-    <section className={cn("premium-card wash-top mt-3 p-3.5 sm:p-4", className)}>
-      <div className="mb-3 flex items-center gap-2.5">
-        <span className="icon-tile size-8 shrink-0" aria-hidden>
-          <Icon className="size-4" />
+    <section className={cn("mt-6", className)}>
+      <div className="scheme-head">
+        <span aria-hidden className="scheme-head-dot">
+          {emoji}
         </span>
-        <h4 className="text-base font-extrabold">{title}</h4>
+        <h4 className="text-lg font-extrabold">{title}</h4>
       </div>
       {children}
     </section>
@@ -769,14 +769,9 @@ export function AnswerForm({
               <>
                 <QuestionHeader q={q} index={i} />
                 {q.mark_scheme && (
-                  <TitledBox icon={ClipboardCheck} title="Mark scheme" className="mt-4">
-                    <MarkScheme
-                      scheme={q.mark_scheme}
-                      context={q.prompt}
-                      marks={q.marks}
-                      className="text-sm"
-                    />
-                  </TitledBox>
+                  <TitledPart emoji="📋" title="Mark scheme">
+                    <MarkScheme scheme={q.mark_scheme} context={q.prompt} marks={q.marks} />
+                  </TitledPart>
                 )}
               </>
             ) : (
