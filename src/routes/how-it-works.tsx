@@ -285,7 +285,7 @@ function HowItWorks() {
         </div>
       </section>
 
-      {/* ---------------- The forgetting curve, and the scheduler to try ---------------- */}
+      {/* ---------------- The forgetting curve ---------------- */}
       <section className="bg-secondary/60 py-20 lg:py-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
