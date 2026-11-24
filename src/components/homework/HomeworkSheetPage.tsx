@@ -93,6 +93,12 @@ export function HomeworkSheetPage() {
   const { hw, questions, answers } = data;
   const marked = !!submission?.graded_at;
   const totalMarks = questions.reduce((sum, q) => sum + q.marks, 0);
+  // The score is added up here from the marks on the answers, the numbers each
+  // question's own box shows, so it can't disagree with them the way the
+  // marker's words once did ("19 out of 22" on a paper marked 18).
+  const awardedTotal = marked
+    ? questions.reduce((sum, q) => sum + Number(answers[q.id]?.awarded_marks ?? 0), 0)
+    : undefined;
   // The same rule as the list, so a brief set before the student joined, or
   // due during their break, isn't Overdue here either.
   const overdue = isOverdue({
@@ -161,7 +167,9 @@ export function HomeworkSheetPage() {
                 )}
               </div>
             </div>
-            {questions.length > 0 && <MarksBox marks={totalMarks} size="lg" />}
+            {questions.length > 0 && (
+              <MarksBox marks={totalMarks} awarded={awardedTotal} size="lg" />
+            )}
           </div>
 
           {hw.instructions && (
