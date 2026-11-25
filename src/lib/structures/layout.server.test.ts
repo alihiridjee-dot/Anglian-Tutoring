@@ -2,6 +2,7 @@ import { describe, expect, test } from "bun:test";
 import { readBrief } from "@/lib/figures/figureBrief";
 import { checkFigure } from "@/lib/figures/figureCheck";
 import { drawWithCode } from "@/lib/figures/figureDraw";
+import type { DotCrossBrief } from "@/lib/figures/kinds/dotAndCross";
 import { layOutStructures } from "./layout.server";
 
 describe("a writer's skeletal formulae are laid out before the questions are checked", () => {
@@ -88,9 +89,8 @@ describe("a writer's dot-and-cross SMILES becomes atoms and bonds before it is c
 
   test("benzene comes with its single and double bonds in turn", () => {
     const benzene = laid("c1ccccc1");
-    expect("brief" in benzene && benzene.brief.bonds.slice(0, 6).map((x) => x.order)).toEqual([
-      2, 1, 2, 1, 2, 1,
-    ]);
+    const brief = "brief" in benzene ? (benzene.brief as unknown as DotCrossBrief) : null;
+    expect(brief?.bonds.slice(0, 6).map((x) => x.order)).toEqual([2, 1, 2, 1, 2, 1]);
   });
 
   test("the longest rows and rings still draw true, with a description short enough to save", () => {
