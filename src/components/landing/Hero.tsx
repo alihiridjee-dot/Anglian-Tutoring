@@ -412,9 +412,6 @@ export function Hero() {
 
   return (
     <section id="top" ref={sectionRef} className="page-aurora relative overflow-hidden">
-      {/* Radial wash for smooth edges behind the copy. */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,color-mix(in_oklab,var(--primary)_8%,var(--background)),var(--background))] opacity-90" />
-
       {/* On a phone the photo fills the hero and the copy is laid over its
           foot, white on a navy scrim. Side by side (a wide screen, or a phone
           on its side), the photo fills the right and the copy sits over its
@@ -439,23 +436,17 @@ export function Hero() {
               care.
             </h1>
 
-            <div className="mt-7 flex flex-wrap gap-3 sm:gap-4 short:mt-4">
+            <div className="hero-cta mt-7 flex flex-wrap gap-3 short:mt-4">
               <Link
                 to="/auth"
                 search={{ mode: "signup" } as never}
-                className="btn-hero group inline-flex cursor-pointer items-center gap-2 rounded-xl px-7 py-3.5"
+                className="btn-solid paywall-btn cursor-pointer"
               >
-                Get started{" "}
-                <ArrowRight
-                  className="size-4 transition-transform group-hover:translate-x-0.5"
-                  aria-hidden
-                />
+                Get started
+                <ArrowRight className="paywall-arrow size-5" aria-hidden />
               </Link>
-              <Link
-                to="/demo"
-                className="btn-soft inline-flex cursor-pointer items-center gap-2 rounded-xl px-7 py-3.5"
-              >
-                <Sparkles className="text-accent size-4" aria-hidden />
+              <Link to="/demo" className="btn-soft paywall-btn cursor-pointer">
+                <Sparkles className="text-accent size-5" aria-hidden />
                 Try Demo Platform
               </Link>
             </div>

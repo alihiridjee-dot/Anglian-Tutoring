@@ -259,23 +259,13 @@
 }
 
 /* ── Page backdrop ───────────────────────────────────────────────────────────
-   Printed-page dot grid under two soft brand washes. The dots are what make an
-   empty screen read as paper instead of a blank div. */
+   Printed-page dot grid on the plain page colour. The dots are what make an
+   empty screen read as paper instead of a blank div. No colour washes: Ali
+   called the gradient "very AI" (25 Nov). */
 .page-aurora,
 .auth-aurora {
   isolation: isolate;
-  background:
-    radial-gradient(
-      44rem 30rem at 8% -10%,
-      color-mix(in oklab, var(--primary) 14%, transparent),
-      transparent 70%
-    ),
-    radial-gradient(
-      38rem 28rem at 102% 4%,
-      color-mix(in oklab, var(--accent) 13%, transparent),
-      transparent 68%
-    ),
-    var(--background);
+  background: var(--background);
 }
 
 .page-aurora::before,
@@ -2670,6 +2660,7 @@ body {
   }
 }
 
+
 /* Hero trust banner: a full-width band of stars, icons and figures sliding left
    forever, like a "featured in" row. Two identical halves move by one half's
    width plus the gap, so the loop has no seam; the edges fade out instead of
@@ -4617,6 +4608,11 @@ body {
 }
 .paywall-arrow {
   transition: translate 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+/* The hero's two buttons share a 26rem column, so they come in from the sides
+   to stay on one line. */
+.hero-cta .paywall-btn {
+  padding-inline: 1rem;
 }
 .paywall-btn:hover .paywall-arrow,
 .paywall-btn:focus-visible .paywall-arrow {
