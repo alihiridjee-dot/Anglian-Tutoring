@@ -9,6 +9,7 @@ import {
   useDeleteThread,
   useMarkThreadRead,
   useSendMessage,
+  useTutorDirectory,
 } from "@/hooks/data/useChat";
 import { generateChatDraft } from "@/lib/chat/chatDraft.functions";
 import { contextTarget, type ChatMessage } from "@/lib/chat/chatDal";
@@ -47,6 +48,13 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
   const send = useSendMessage();
   const markRead = useMarkThreadRead();
   const remove = useDeleteThread();
+  // The team side is more than one person, so each team bubble is signed with
+  // its tutor's first name (Nadia, Ali). The directory is readable by everyone
+  // signed in, so students and parents see who wrote too.
+  const { data: tutors } = useTutorDirectory();
+  const tutorFirstName = new Map(
+    (tutors ?? []).map((t) => [t.id, t.display_name.trim().split(/\s+/)[0]]),
+  );
   const [body, setBody] = useState("");
   const [drafting, setDrafting] = useState(false);
   const [usedDraft, setUsedDraft] = useState(false);
@@ -220,7 +228,16 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
           <ErrorNote error={error} onRetry={() => void refetch()} />
         ) : (
           messages.map((m) => {
-            const mine = m.sender_id === viewerId;
+            // Sided by party, not by person. A thread has one member (the
+            // student or parent, `student_id`) and the team on the other side,
+            // so a tutor reading a conversation Nadia started sees Nadia's
+            // messages on their own side. Sided by person, both parties' bubbles
+            // sat on the left and looked like the student talking to themself.
+            const mine = (m.sender_id === thread.student_id) === (viewerId === thread.student_id);
+            const signedBy =
+              m.sender_id && m.sender_id !== thread.student_id
+                ? tutorFirstName.get(m.sender_id)
+                : undefined;
             return (
               <div key={m.id} className={`flex ${mine ? "justify-end" : "justify-start"}`}>
                 <div
@@ -234,14 +251,23 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
                 >
                   <SciText text={m.body} />
                   <div
-                    className={`mt-1 text-[10px] ${mine ? "text-primary-foreground/70" : "text-muted-foreground"}`}
+                    className={`mt-1 flex items-baseline justify-between gap-3 text-[10px] ${mine ? "text-primary-foreground/70" : "text-muted-foreground"}`}
                   >
-                    {new Date(m.created_at).toLocaleString("en-GB", {
-                      day: "numeric",
-                      month: "short",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
+                    <span>
+                      {new Date(m.created_at).toLocaleString("en-GB", {
+                        day: "numeric",
+                        month: "short",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </span>
+                    {signedBy && (
+                      <span
+                        className={`text-xs font-bold ${mine ? "text-primary-foreground" : "text-foreground"}`}
+                      >
+                        {signedBy}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>

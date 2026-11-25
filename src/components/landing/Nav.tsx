@@ -1,7 +1,8 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { GraduationCap, Menu, Sparkles, X } from "lucide-react";
+import { ArrowRight, GraduationCap, Menu, X } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
+import { Sparkles } from "@/components/Doodles";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { cn } from "@/lib/utils";
 
@@ -29,13 +30,11 @@ export function Wordmark() {
 }
 
 /**
- * Section links sit together in the kit's tab row, so the page you are on is
- * the raised tab. They still underline with the highlighter on hover — the
- * same yellow that marks the one word in the hero, so the nav belongs to the
- * same drawing. The underline spans the label, inside the tab's own padding.
+ * Section links are bare dark words, with no tray behind them. The page you
+ * are on is circled in pen, and a word wiggles when the pointer reaches it
+ * (`.site-nav-*`, see styles.css).
  */
-const NAV_LINK =
-  "tab-item relative inline-flex items-center after:absolute after:inset-x-[0.85rem] after:bottom-1 after:h-[3px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[color:var(--pop)] after:transition-transform hover:after:scale-x-100";
+const NAV_LINK = "site-nav-link";
 
 /**
  * A section of the landing page is the current tab only while the address
@@ -43,26 +42,39 @@ const NAV_LINK =
  */
 const SECTION_ACTIVE = { includeHash: true } as const;
 
+/** A loose pen loop round a word: drawn by hand, not a neat oval. */
+function PenCircle() {
+  return (
+    <svg aria-hidden className="site-nav-pen" viewBox="0 0 120 44" preserveAspectRatio="none">
+      <path
+        d="M70 5 C 30 2, 4 10, 5 23 C 6 37, 40 41, 66 40 C 96 39, 117 32, 115 19 C 113 7, 88 3, 52 6"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  );
+}
+
 /**
- * A tab's label, over the raised pill when it is the current tab. There is one
- * pill (`layoutId`), and it glides from tab to tab, across a page change too,
- * rather than each tab lighting up on its own — as in the kit's
- * `SegmentedToggle`, whose spring this borrows.
+ * A link's label, circled in pen when it is the current page. There is one
+ * circle (`layoutId`), and it glides from link to link, across a page change
+ * too, then draws itself again where it lands.
  */
 function tabLabel(label: string, reduceMotion: boolean | null) {
   return ({ isActive }: { isActive: boolean }) => (
-    <>
+    <span className="site-nav-word">
       {isActive && (
         <motion.span
-          layoutId="site-nav-pill"
-          className="tab-pill absolute inset-0"
+          layoutId="site-nav-pen"
+          className="site-nav-pen-wrap"
           transition={
-            reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 36 }
+            reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 300, damping: 30 }
           }
-        />
+        >
+          <PenCircle />
+        </motion.span>
       )}
       <span className="relative">{label}</span>
-    </>
+    </span>
   );
 }
 
@@ -122,7 +134,7 @@ export function Nav() {
 
         {/* Section links route back to the landing page by path + hash, so they
             work from standalone pages (e.g. /how-it-works) as well as from "/". */}
-        <nav className="tab-row hidden items-center lg:flex">
+        <nav className="hidden items-center gap-0.5 lg:flex">
           <Link to="/" hash="tutors" activeOptions={SECTION_ACTIVE} className={NAV_LINK}>
             {tabLabel("Our Tutors", reduceMotion)}
           </Link>
@@ -146,9 +158,11 @@ export function Nav() {
         <div className="flex items-center gap-1.5 justify-self-end sm:gap-2.5">
           <Link
             to="/demo"
-            className="btn-soft inline-flex min-h-11 cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-xl px-3 py-2 text-sm sm:pointer-fine:min-h-0 sm:px-3.5"
+            className="btn-soft site-nav-demo inline-flex min-h-11 cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-xl px-3 py-2 text-sm sm:pointer-fine:min-h-0 sm:px-3.5"
           >
-            <Sparkles className="size-3.5 text-[color:var(--pop-ink)]" aria-hidden />
+            <span aria-hidden className="site-nav-spark">
+              ✨
+            </span>
             <span className="hidden sm:inline">Demo Platform</span>
             <span className="sm:hidden">Demo</span>
           </Link>
@@ -161,13 +175,18 @@ export function Nav() {
           >
             Login
           </Link>
-          <Link
-            to="/auth"
-            search={{ mode: "signup" } as never}
-            className="btn-hero inline-flex min-h-11 items-center whitespace-nowrap rounded-xl px-3 py-2 text-sm sm:pointer-fine:min-h-0 sm:px-4"
-          >
-            Sign up
-          </Link>
+          {/* A solid button, not the hero's gradient, with a yellow sparkle
+              twinkling on its corner. */}
+          <span className="relative inline-flex">
+            <Sparkles className="site-nav-twinkle" />
+            <Link
+              to="/auth"
+              search={{ mode: "signup" } as never}
+              className="btn-solid site-nav-signup inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded-xl px-3 py-2 text-sm sm:pointer-fine:min-h-0 sm:px-4"
+            >
+              Sign up <ArrowRight className="site-nav-arrow hidden size-4 sm:block" aria-hidden />
+            </Link>
+          </span>
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
