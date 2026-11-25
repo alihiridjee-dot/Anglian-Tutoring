@@ -218,6 +218,7 @@ export function StudentPlanner({
             <button
               key={key}
               type="button"
+              data-guide={`planner-tab-${key}`}
               onClick={() => setTab(key)}
               aria-current={tab === key ? "page" : undefined}
               className={`inline-flex shrink-0 whitespace-nowrap items-center gap-1.5 px-3.5 h-11 sm:pointer-fine:h-10 text-sm font-medium border-b-2 transition ${
@@ -678,7 +679,10 @@ function FullPlanTab({
       {/* The course at a glance. The exam date leads because every week below is
           paced from it; each tile carries the one action that changes its number. */}
       <div className="grid gap-3 md:grid-cols-3 mb-4">
-        <div className="premium-card tint-primary rounded-2xl p-4 flex flex-col gap-3">
+        <div
+          data-guide="plan-exams"
+          className="premium-card tint-primary rounded-2xl p-4 flex flex-col gap-3"
+        >
           <SummaryLabel icon={CalendarDays}>Exams</SummaryLabel>
           <p className="numeral text-3xl text-[color:var(--tint)]">
             {weeksToGo}{" "}
@@ -727,7 +731,10 @@ function FullPlanTab({
           </label>
         </div>
 
-        <div className="premium-card tint-emerald rounded-2xl p-4 flex flex-col gap-3">
+        <div
+          data-guide="plan-covered"
+          className="premium-card tint-emerald rounded-2xl p-4 flex flex-col gap-3"
+        >
           <SummaryLabel icon={CheckCircle2}>Topics covered</SummaryLabel>
           <p className="numeral text-3xl text-[color:var(--tint)]">
             {doneCount} <span className="text-base">of {topicIds.size}</span>
@@ -742,7 +749,10 @@ function FullPlanTab({
           </Link>
         </div>
 
-        <div className="premium-card tint-amber rounded-2xl p-4 flex flex-col gap-3">
+        <div
+          data-guide="plan-catch-up"
+          className="premium-card tint-amber rounded-2xl p-4 flex flex-col gap-3"
+        >
           <SummaryLabel icon={History}>To catch up</SummaryLabel>
           <p className="numeral text-3xl text-[color:var(--tint)]">
             {owed} <span className="text-base">{owed === 1 ? "point" : "points"}</span>

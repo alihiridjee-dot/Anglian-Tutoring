@@ -96,6 +96,42 @@ describe("welcomeSteps", () => {
     }
   });
 
+  it("takes the week's three boxes one at a time, then the list that holds them all", () => {
+    const dashboard = student().filter((s) => s.chapter === "Dashboard");
+    expect(dashboard.map((s) => s.targets[0])).toEqual([
+      '[data-guide="week-plan"]',
+      '[data-guide="lane-new"]',
+      '[data-guide="lane-returning"]',
+      '[data-guide="lane-revision"]',
+      "#weekly-task-list",
+    ]);
+    expect(dashboard.every((s) => s.path === welcomeHome("student"))).toBe(true);
+  });
+
+  it("goes to the planner next, and has each of its tiles tapped", () => {
+    const steps = student();
+    const planner = steps.filter((s) => s.chapter === "Planner");
+    // Straight after the dashboard's boxes.
+    expect(steps.indexOf(planner[0])).toBe(
+      steps.findLastIndex((s) => s.chapter === "Dashboard") + 1,
+    );
+    expect(planner.map((s) => s.tap?.label)).toEqual([
+      "Full plan",
+      "Exams",
+      "Topics covered",
+      "To catch up",
+    ]);
+    // Only the tab is pressed for real; the tiles' taps change nothing.
+    expect(planner.map((s) => !!s.tap?.open)).toEqual([true, false, false, false]);
+  });
+
+  it("keeps a page's steps together, so each page is one stop on the trail", () => {
+    for (const steps of [student(), parent(["Sam"]), parent([])]) {
+      const chapters = steps.map((s) => s.chapter).filter((c, i, all) => c !== all[i - 1]);
+      expect(new Set(chapters).size).toBe(chapters.length);
+    }
+  });
+
   it("gives every page step something to point at", () => {
     for (const step of [...student(), ...parent(["Sam"])]) {
       if (step.path !== welcomeHome("student") && step.path !== welcomeHome("parent")) {

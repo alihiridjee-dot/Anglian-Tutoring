@@ -1,12 +1,17 @@
 import type { ComponentType } from "react";
 import {
   BookMarked,
+  CalendarDays,
+  CheckCircle2,
+  CircleDot,
   ClipboardList,
   Compass,
   CreditCard,
+  History,
   LayoutDashboard,
   ListChecks,
   MessagesSquare,
+  Repeat,
   Users,
   Video,
 } from "lucide-react";
@@ -49,7 +54,11 @@ export interface WelcomeStep {
    * the card in the middle of the screen, for a step that explains an idea.
    */
   targets: string[];
-  /** The step's name, read out with the tour's trail. */
+  /**
+   * The step's page, read out with the tour's trail. Steps in a row with the
+   * same chapter are one page's parts: the first is the page's stop on the
+   * trail and the rest are small stops beside it.
+   */
   chapter: string;
   /** The step's stop on the trail. */
   emoji: string;
@@ -63,6 +72,14 @@ export interface WelcomeStep {
   /** A picture under the words: the student's course, or the parts of the plan. */
   visual?: "course" | "week";
   week?: WeekRow[];
+  /**
+   * Moved on from by tapping what the step rings, not by Next. `label` names
+   * it as the page does ("Tap Exams"). The tap is the tour's, so it changes
+   * nothing on the page: the step's words show once it lands. With `open`, the
+   * tour then presses it for real (a tab) and goes straight on to the next
+   * step, so the words show from the start.
+   */
+  tap?: { label: string; open?: boolean };
 }
 
 /** What the tour knows about the person taking it. */
@@ -162,8 +179,117 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       icon: LayoutDashboard,
       title: "Start here every time",
       body: [
-        "Your dashboard shows this week’s work and your next live lesson. Open it whenever you sit down to study.",
+        "Your dashboard shows this week’s work. Open it whenever you sit down to study.",
+        "This week’s points come in three boxes. Here’s what each one is for.",
       ],
+    },
+    // The three boxes of the week, one at a time, each saying why its points
+    // are there; then the list that holds all of them.
+    {
+      path: home,
+      targets: ['[data-guide="lane-new"]', '[data-guide="week-plan"]'],
+      chapter: "Dashboard",
+      emoji: "🌱",
+      tint: "tint-primary",
+      icon: CircleDot,
+      title: "New learning",
+      body: [
+        "The next topic on your course. Your plan spreads the whole course over the weeks before your exams, so this is where you’re up to.",
+      ],
+    },
+    {
+      path: home,
+      targets: ['[data-guide="lane-returning"]', '[data-guide="week-plan"]'],
+      chapter: "Dashboard",
+      emoji: "🪃",
+      tint: "tint-amber",
+      icon: History,
+      title: "Missed work returning",
+      body: [
+        "Points from earlier weeks that aren’t finished yet. They come back a few at a time, so you catch up before your exams without one huge week.",
+        "When a topic is here, press its ⓘ to see the week it was first planned for.",
+      ],
+    },
+    {
+      path: home,
+      targets: ['[data-guide="lane-revision"]', '[data-guide="week-plan"]'],
+      chapter: "Dashboard",
+      emoji: "🧠",
+      tint: "tint-rose",
+      icon: Repeat,
+      title: "Revision",
+      body: [
+        "Points you’ve already done a quiz or task on come back, so you don’t forget them.",
+        "Your marks decide when. A low mark brings a point back sooner, a high mark later, and never within a week.",
+      ],
+    },
+    {
+      path: home,
+      targets: ["#weekly-task-list", '[data-guide="week-plan"]'],
+      chapter: "Dashboard",
+      emoji: "📋",
+      tint: "tint-primary",
+      icon: ListChecks,
+      title: "Your weekly task list",
+      body: [
+        "All the points from the three boxes, together in one list. This is everything to work through this week.",
+        "Each row has the point’s video, notes, quiz and task. A point ticks itself off once its quiz and task are in.",
+      ],
+    },
+    // The planner's three tiles, each tapped before it's explained. The tour
+    // catches the taps, so none of them moves the exam date or leaves the page.
+    {
+      path: "/planner",
+      targets: ['[data-guide="planner-tab-plan"]'],
+      chapter: "Planner",
+      emoji: "🧭",
+      tint: "tint-amber",
+      icon: Compass,
+      title: "Your whole plan",
+      body: ["Your planner maps out your whole course, week by week, all the way to your exams."],
+      tap: { label: "Full plan", open: true },
+    },
+    {
+      path: "/planner",
+      targets: ['[data-guide="plan-exams"]'],
+      chapter: "Planner",
+      emoji: "📅",
+      tint: "tint-primary",
+      icon: CalendarDays,
+      title: "Your exam date",
+      body: [
+        "Your plan is paced to finish before this date. The number is how many weeks you have left.",
+        "If the date is wrong, change it here and your weeks move to fit.",
+      ],
+      tap: { label: "Exams" },
+    },
+    {
+      path: "/planner",
+      targets: ['[data-guide="plan-covered"]'],
+      chapter: "Planner",
+      emoji: "🧩",
+      tint: "tint-emerald",
+      icon: CheckCircle2,
+      title: "Topics covered",
+      body: [
+        "A topic counts as covered once every point in it has a quiz or task mark of 70% or more.",
+        "Reorder topics lets you put your topics in the order your school teaches them.",
+      ],
+      tap: { label: "Topics covered" },
+    },
+    {
+      path: "/planner",
+      targets: ['[data-guide="plan-catch-up"]'],
+      chapter: "Planner",
+      emoji: "🪃",
+      tint: "tint-amber",
+      icon: History,
+      title: "Points to catch up",
+      body: [
+        "Points from earlier weeks that aren’t finished yet. They come back to your dashboard a few a week, under Missed work returning.",
+        "Finish them and this number goes down.",
+      ],
+      tap: { label: "To catch up" },
     },
     {
       path: "/live",
@@ -176,19 +302,6 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       body: [
         "This is your timetable. Each lesson shows the topics it will cover.",
         "The Join button opens 10 minutes before each lesson starts.",
-      ],
-    },
-    {
-      path: "/planner",
-      targets: ['[data-guide="planner-week"]', '[aria-label="Planner sections"]'],
-      chapter: "Planner",
-      emoji: "🧭",
-      tint: "tint-amber",
-      icon: Compass,
-      title: "Your plan for the week",
-      body: [
-        "Your plan covers your whole course, a few points each week, so you finish in time for your exams.",
-        "Anything that doesn’t stick comes back later for revision. Your quiz and task marks decide when.",
       ],
     },
     {

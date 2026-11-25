@@ -30,6 +30,18 @@ import { UserRole } from "@/types/user";
 const SETTLE_MS = 700;
 
 /**
+ * The step whose tap opened what this step is about (a tab), earlier on the
+ * same page; -1 when there is none.
+ */
+function openerOf(steps: WelcomeStep[], index: number) {
+  const { path, chapter } = steps[index];
+  for (let k = index - 1; k >= 0 && steps[k].path === path && steps[k].chapter === chapter; k--) {
+    if (steps[k].tap?.open) return k;
+  }
+  return -1;
+}
+
+/**
  * The welcome tour: what Anglia Educate is, what the plan pays for, and where
  * each part of it lives, shown on the student's or parent's own pages.
  *
@@ -85,6 +97,9 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
 
   const [index, setIndex] = useState<number | null>(null);
   const [video, setVideo] = useState<"required" | "skippable" | null>(null);
+  // Steps whose tap has landed. Kept for the run, so Back to one shows its
+  // words without asking for the tap again.
+  const [tapped, setTapped] = useState<ReadonlySet<number>>(() => new Set());
   const step = index === null ? null : steps[index];
   const started = useRef(false);
   const here = useRef(pathname);
@@ -110,6 +125,7 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
     (n: number) => {
       const next = steps[n];
       if (!next) return finish();
+      if (n === 0) setTapped(new Set());
       setIndex(n);
       if (next.path !== here.current) {
         heading.current = next.path;
@@ -159,6 +175,24 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
     else finish();
   }, [finish, index, pathname, steps]);
 
+  // A step after a tab's tap needs that tab open. Coming back to one from
+  // another page finds the page on its first tab again, so the tour presses
+  // the tab itself when what the step rings isn't there. Pressing an open tab
+  // changes nothing, so a page still loading is no harm.
+  const opener = index === null || !steps[index] ? -1 : openerOf(steps, index);
+  useEffect(() => {
+    if (index === null || opener < 0 || pathname !== steps[index].path) return;
+    const tab = steps[opener].targets[0];
+    const wanted = steps[index].targets[0];
+    let tries = 0;
+    const timer = window.setInterval(() => {
+      const button = document.querySelector<HTMLElement>(tab);
+      if (button && !document.querySelector(wanted)) button.click();
+      if (button || ++tries > 40) window.clearInterval(timer);
+    }, 150);
+    return () => window.clearInterval(timer);
+  }, [index, opener, pathname, steps]);
+
   if (video) {
     return (
       <WelcomeVideo
@@ -174,6 +208,11 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
 
   if (!step || index === null) return null;
   const last = index === steps.length - 1;
+  // A step that waits for a tap keeps its words back until the tap, unless the
+  // tap only opens something (a tab) and the tour moves straight on.
+  const { tap } = step;
+  const waiting = !!tap && !tapped.has(index);
+  const words = !waiting || !!tap?.open;
 
   return (
     <GuideOverlay
@@ -183,7 +222,12 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
       place={step.targets.length > 0 ? "dock" : "centre"}
       // Nothing is searched for until the step's own page is showing.
       targets={pathname === step.path ? step.targets : undefined}
-      stops={steps.map((s) => ({ emoji: s.emoji, label: s.chapter, tint: s.tint }))}
+      stops={steps.map((s, i) => ({
+        emoji: s.emoji,
+        label: s.chapter,
+        tint: s.tint,
+        minor: i > 0 && steps[i - 1].chapter === s.chapter,
+      }))}
       current={index}
       tint={step.tint}
       icon={step.icon ? <step.icon className="size-5" /> : undefined}
@@ -199,10 +243,28 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
       onNext={() => (last ? finish() : go(index + 1))}
       nextLabel={index === 0 ? "Show me around" : last ? "Let’s go" : "Next"}
       closeLabel={last ? null : "Skip tour"}
+      tap={
+        waiting && tap
+          ? {
+              label: tap.label,
+              onTap: (element) => {
+                if (!tap.open) return setTapped((done) => new Set(done).add(index));
+                // A tab: pressed for real, then on to what it opened.
+                element?.click();
+                go(index + 1);
+              },
+            }
+          : undefined
+      }
     >
-      {step.body.map((paragraph) => (
-        <p key={paragraph}>{paragraph}</p>
-      ))}
+      {words && (
+        // Its own drop-in, so words that arrive with a tap are seen to arrive.
+        <div className="tour-step space-y-3">
+          {step.body.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      )}
       {step.visual === "course" && course.perSubject.length > 0 && (
         // Drawn as the dashboard ribbon draws the course, so it's recognised there.
         <ul className="flex flex-wrap gap-1.5" aria-label="Your course">
