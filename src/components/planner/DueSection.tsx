@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 import { DUE_LANE_LABEL, type DueLane } from "@/lib/planner/dueLanes";
 
-/** Each lane's emoji and colour; the colours are the dashboard's (see `ThisWeekLanes`). */
-const LANE_LOOK: Record<DueLane, { emoji: string; tint: string }> = {
-  new: { emoji: "🌱", tint: "tint-primary" },
-  returning: { emoji: "⏪", tint: "tint-amber" },
-  revision: { emoji: "🔁", tint: "tint-rose" },
-  tutor: { emoji: "📌", tint: "tint-accent" },
-  yours: { emoji: "✋", tint: "tint-slate" },
+/** Each lane's colour, the dashboard's (see `ThisWeekLanes`). */
+const LANE_TINT: Record<DueLane, string> = {
+  new: "tint-primary",
+  returning: "tint-amber",
+  revision: "tint-rose",
+  tutor: "tint-accent",
+  yours: "tint-slate",
 };
 
 /** The one button on a row. */
@@ -21,8 +21,8 @@ export const DUE_GO =
  * Due used to be a card per lane, a card per sheet inside it and a box for the
  * marks inside that, with a "to do" pill and a fold arrow on every lane. Ali
  * found it overwhelming (17 Nov 2026) and picked "one list": one card, the
- * lanes as headings in the dashboard's names and colours (an emoji in a round
- * dot, the name, how many are left), and each piece of work a bare row. Nothing
+ * lanes as headings in the dashboard's names and colours (how many are left
+ * in a round dot, then the name), and each piece of work a bare row. Nothing
  * folds, so the whole week is on screen.
  *
  * Tasks and MCQs both use it, so the two pages split the week the same way and
@@ -37,20 +37,19 @@ export function DueSection({
   count: number;
   children: ReactNode;
 }) {
-  const { emoji, tint } = LANE_LOOK[lane];
   return (
-    <section className={`${tint} min-w-0`}>
+    <section className={`${LANE_TINT[lane]} min-w-0`}>
       <h2 className="flex items-center gap-2.5 text-xl leading-tight font-extrabold">
+        {/* How many are left, in a dot of the lane's colour (Ali, 19 Nov). */}
         <span
           aria-hidden
-          className="grid size-9 shrink-0 place-items-center rounded-full bg-[var(--tint)] text-lg"
+          className="icon-tile icon-tile-solid numeral grid size-9 shrink-0 place-items-center rounded-full text-lg"
         >
-          {emoji}
-        </span>
-        <span className="min-w-0">{DUE_LANE_LABEL[lane]}</span>
-        <span className="numeral text-[color:var(--tint)]">
           {count}
-          <span className="sr-only"> to do</span>
+        </span>
+        <span className="min-w-0">
+          {DUE_LANE_LABEL[lane]}
+          <span className="sr-only">, {count} to do</span>
         </span>
       </h2>
       <ul className="mt-1 sm:pl-12">{children}</ul>
