@@ -88,7 +88,8 @@ const BOND = 34;
  * The molecule as a dot-and-cross diagram's brief (figures/kinds/dotAndCross):
  * every atom, its hydrogens written out, and every bond with its order. The
  * kind's own `read` then holds each atom to a full shell and the drawing to
- * the canvas. Ions, radicals and aromatic rings are not drawn that way.
+ * the canvas. Ions and radicals are not drawn that way. An aromatic ring
+ * comes with its single and double bonds in turn, as OpenChemLib reads it.
  */
 export function dotCrossBrief(
   chem: Chem,
@@ -108,7 +109,6 @@ export function dotCrossBrief(
     if (m.getAtomCharge(i) !== 0 || m.getAtomRadical(i) !== 0)
       return { problem: "is an ion or a radical, not a neutral molecule" };
   const bonds = Array.from({ length: m.getAllBonds() }, (_, k) => k);
-  if (bonds.some((k) => m.isAromaticBond(k))) return { problem: "has an aromatic ring" };
   return {
     brief: {
       kind: "dot-and-cross",
