@@ -1,5 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { readBrief } from "@/lib/figures/figureBrief";
+import { checkFigure } from "@/lib/figures/figureCheck";
+import { drawWithCode } from "@/lib/figures/figureDraw";
 import { layOutStructures } from "./layout.server";
 
 describe("a writer's skeletal formulae are laid out before the questions are checked", () => {
@@ -64,6 +66,11 @@ describe("a writer's dot-and-cross SMILES becomes atoms and bonds before it is c
       "CO",
       "OO",
       "CCO",
+      "CCCC",
+      "c1ccccc1",
+      "C1=CC=CC=C1",
+      "c1ccncc1",
+      "Clc1ccccc1",
     ])
       expect([smiles, "brief" in laid(smiles)]).toEqual([smiles, true]);
     // Hydrogens come written out: NH₃ is four atoms and three bonds.
@@ -79,10 +86,49 @@ describe("a writer's dot-and-cross SMILES becomes atoms and bonds before it is c
     expect("brief" in laid("O", "X")).toBe(true);
   });
 
-  test("an ion, a ring, a letter on a row, or SMILES that does not read is refused", () => {
+  test("benzene comes with its single and double bonds in turn", () => {
+    const benzene = laid("c1ccccc1");
+    expect("brief" in benzene && benzene.brief.bonds.slice(0, 6).map((x) => x.order)).toEqual([
+      2, 1, 2, 1, 2, 1,
+    ]);
+  });
+
+  test("the longest rows and rings still draw true, with a description short enough to save", () => {
+    for (const smiles of [
+      "CCC=O",
+      "OCCC=O",
+      "C=CC=O",
+      "C=CC=C",
+      "OC=CO",
+      "Clc1ccccc1",
+      "Clc1ccc(Cl)cc1",
+      "O=C1C=CC(=O)C=C1",
+      "O=C1C(Cl)=CC(=O)C(Br)=C1",
+      "c1ccncc1",
+    ]) {
+      const read = laid(smiles);
+      if ("problem" in read) throw new Error(`${smiles}: ${read.problem}`);
+      const figure = drawWithCode(read.brief)!;
+      expect([smiles, checkFigure(figure.svg, read.brief).problems]).toEqual([smiles, []]);
+      expect([smiles, figure.alt.length < 1000]).toEqual([smiles, true]);
+    }
+  });
+
+  test("an ion, a ring that is not benzene's, a letter on a row, or SMILES that does not read is refused", () => {
     expect(laid("[NH4+]")).toEqual({ problem: "could not be laid out from its SMILES" });
-    expect(laid("c1ccccc1")).toEqual({ problem: "could not be laid out from its SMILES" });
-    expect(laid("C1CC1")).toEqual({ problem: "must be one molecule with no rings" });
+    expect(laid("C1CC1")).toEqual({
+      problem: "has a ring of 3 atoms; only a ring of six is drawn",
+    });
+    expect(laid("C1=CCC=CC1")).toEqual({
+      problem: "has a ring atom with too many atoms and lone pairs around it to draw",
+    });
+    expect(laid("Cc1ccccc1")).toEqual({
+      problem: "has a group of atoms on its ring: only single atoms outside a ring are drawn",
+    });
+    expect(laid("C12CC1C2")).toEqual({
+      problem: "must be one molecule with at most one ring",
+    });
+    expect(laid("CCCCO")).toEqual({ problem: "has more than 4 central atoms in a row" });
     expect(laid("CC", "X")).toEqual({ problem: "letter needs a molecule with one central atom" });
     expect(laid("C1CC")).toEqual({ problem: "could not be laid out from its SMILES" });
   });
