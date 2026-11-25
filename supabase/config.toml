@@ -30,7 +30,7 @@ verify_jwt = false
 verify_jwt = false
 
 # Called by a trigger and a 15-minute cron with no key (see
-# 20261125140000_new_student_alerts.sql). It only emails rows the trigger
+# 20261125222319_new_student_alerts.sql). It only emails rows the trigger
 # already queued, always to the one team inbox, so an early call changes nothing.
 [functions.new-student-alert]
 verify_jwt = false

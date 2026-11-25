@@ -3,7 +3,7 @@
 // Emails the team when a student finishes setting up their account.
 //
 // The database does the noticing. When a student's profile gets its
-// onboarding_completed_at stamp, a trigger (20261125140000_new_student_alerts)
+// onboarding_completed_at stamp, a trigger (20261125222319_new_student_alerts)
 // adds one row to public.new_student_alerts and calls this function. A cron
 // every 15 minutes calls it again while any row is still unsent, so an email
 // that failed (Resend down, the function mid-deploy) is retried, up to

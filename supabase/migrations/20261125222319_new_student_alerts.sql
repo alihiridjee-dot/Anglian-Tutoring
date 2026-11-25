@@ -17,7 +17,7 @@
 --
 -- Students who finished setup before this migration get no email.
 --
--- Idempotent. Rollback: supabase/rollbacks/20261125140000_new_student_alerts.down.sql
+-- Idempotent. Rollback: supabase/rollbacks/20261125222319_new_student_alerts.down.sql
 
 begin;
 

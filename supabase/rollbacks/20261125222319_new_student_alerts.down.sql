@@ -1,4 +1,4 @@
--- Undo 20261125140000_new_student_alerts: no more new-student emails. Nothing
+-- Undo 20261125222319_new_student_alerts: no more new-student emails. Nothing
 -- a student sees changes.
 
 select cron.unschedule('new-student-alerts')
