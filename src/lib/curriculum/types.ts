@@ -14,6 +14,11 @@ export type SpecPoint = {
   description: string | null;
 };
 
+/** A point opened from a link, with the course its topic belongs to. */
+export type LinkedSpecPoint = SpecPoint & {
+  topics?: { subject: string; board: string; level: string } | null;
+};
+
 export type Resource = {
   id: string;
   kind: string;

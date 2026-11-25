@@ -20,6 +20,7 @@ import { useRoles } from "@/hooks/useRole";
 import { useEntitlements } from "@/hooks/data/useEntitlements";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
+import { useOwnCourse } from "@/hooks/useOwnCourse";
 
 function tagLabel(kind: "subject" | "board" | "level", v: string) {
   const src = kind === "subject" ? SUBJECTS : kind === "board" ? BOARDS : LEVELS;
@@ -91,23 +92,29 @@ export function Videos() {
   // filter's grid.
   const unreachable = videos.isPaused && (!data || videos.isPlaceholderData);
 
-  // A search hit links to one video, which opens over the page.
+  // A search hit links to one video, which opens over the page. A link to a
+  // video for another board or level opens nothing: it isn't the student's.
   const linkedId = isDemoStudent() ? undefined : search.video;
+  const course = useOwnCourse();
   const { data: linked } = useQuery({
     queryKey: ["video", linkedId],
     enabled: !!linkedId,
-    queryFn: async (): Promise<PlayingVideo | null> => {
+    queryFn: async () => {
       const { data, error } = await supabase
         .from("resources")
-        .select("title, description, video_url")
+        .select("title, description, video_url, subject, board, level")
         .eq("id", linkedId!)
         .eq("kind", "video")
         .maybeSingle();
       if (error) throw dbError(error);
-      return data && { title: data.title, description: data.description, url: data.video_url };
+      return data;
     },
   });
-  const shown = playing ?? (linkedId ? linked : null) ?? null;
+  const linkedVideo: PlayingVideo | null =
+    linkedId && linked && course.ready && course.onCourse(linked)
+      ? { title: linked.title, description: linked.description, url: linked.video_url }
+      : null;
+  const shown = playing ?? linkedVideo;
   const closePlayer = () => {
     setPlaying(null);
     if (linkedId)

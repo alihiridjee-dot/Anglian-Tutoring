@@ -1,9 +1,9 @@
-import { PlannerPointItem } from "./PlannerPointItem";
-import { ClipboardList, History, ListChecks } from "lucide-react";
+import { ClipboardList, ListChecks } from "lucide-react";
 import { type ProgressPoint } from "@/lib/planner/scheduleDal";
 import { type PointStatus } from "@/lib/planner/scheduler";
 import { describeAssessability } from "@/lib/planner/assessability";
 import { Chip } from "@/components/Shared";
+import { DotWord, Mark } from "./workbench/figures";
 
 /**
  * One spec point as every expanded topic on the plan shows it.
@@ -29,6 +29,14 @@ const statusMeta: Record<PointStatus, { label: string; cls: string }> = {
     label: "Strong",
     cls: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30",
   },
+};
+
+/** The colour of each standing's dot on the plan's bare row. */
+const STANDING_TINT: Record<PointStatus, string> = {
+  new: "tint-slate",
+  due: "tint-amber",
+  learning: "tint-primary",
+  strong: "tint-emerald",
 };
 
 /**
@@ -58,40 +66,33 @@ export function PointRow({
         cls: "bg-muted text-muted-foreground border-border opacity-70",
       }
     : statusMeta[point.status];
+  // The plan's row is bare: the code and title, then where the point stands as
+  // a dot and a word, and each mark inside its ring. No card, no pills, and
+  // nothing folded away to be opened.
   if (card)
     return (
       <li>
-        <PlannerPointItem
-          code={point.code}
-          title={point.title}
-          status={
-            <div className="flex flex-wrap gap-1.5">
-              {missed ? (
-                <span className="chip tint-amber text-[11px]">
-                  <History className="size-3" aria-hidden /> To catch up
-                </span>
-              ) : (
-                <span
-                  className={`chip text-[11px] ${unassessable ? "tint-slate" : point.status === "strong" ? "tint-emerald" : ""}`}
-                >
-                  {unassessable ? "Practice not attached" : s.label}
-                </span>
-              )}
-              {point.assessability === "awaiting" && (
-                <span className="chip tint-amber text-[11px]">
-                  <ClipboardList className="size-3" aria-hidden /> Practice set
-                </span>
-              )}
-            </div>
-          }
-        >
-          <div className="flex flex-wrap gap-2">
-            {point.homeworkScore != null && (
-              <MarkChip kind="homework" score={point.homeworkScore} />
-            )}
-            {point.quizScore != null && <MarkChip kind="quiz" score={point.quizScore} />}
-          </div>
-        </PlannerPointItem>
+        <BareTitle code={point.code} title={point.title} />
+        <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm">
+          {missed ? (
+            <DotWord tint="tint-amber">To catch up</DotWord>
+          ) : (
+            <DotWord tint={unassessable ? "tint-slate" : STANDING_TINT[point.status]}>
+              {unassessable ? "Practice not attached" : s.label}
+            </DotWord>
+          )}
+          {point.assessability === "awaiting" && <DotWord tint="tint-amber">Practice set</DotWord>}
+          {point.homeworkScore != null && (
+            <span className="inline-flex items-center gap-1.5">
+              Task <Mark value={point.homeworkScore} />
+            </span>
+          )}
+          {point.quizScore != null && (
+            <span className="inline-flex items-center gap-1.5">
+              Quiz <Mark value={point.quizScore} />
+            </span>
+          )}
+        </div>
       </li>
     );
   return (
@@ -132,11 +133,10 @@ export function BarePointRow({
   if (card)
     return (
       <li>
-        <PlannerPointItem
-          code={code}
-          title={title}
-          status={<span className="chip tint-slate text-[11px]">No results yet</span>}
-        />
+        <BareTitle code={code} title={title} />
+        <div className="mt-1.5 text-sm">
+          <DotWord tint="tint-slate">No results yet</DotWord>
+        </div>
       </li>
     );
   return (
@@ -144,6 +144,16 @@ export function BarePointRow({
       <span className="text-[11px] font-semibold text-muted-foreground">{code}</span>
       <span className="text-[13px] flex-1 min-w-0">{title}</span>
     </li>
+  );
+}
+
+/** A point's code, subdued, and its title in bold, as one line that wraps. */
+function BareTitle({ code, title }: { code: string; title: string }) {
+  return (
+    <p className="text-sm leading-snug">
+      <span className="mr-1.5 text-xs font-bold text-muted-foreground">{code}</span>
+      <span className="font-bold">{title}</span>
+    </p>
   );
 }
 

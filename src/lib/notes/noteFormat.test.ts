@@ -207,14 +207,22 @@ describe("a student reads the layer for their own course", () => {
     expect(noteLayerFor("oxford_aqa", "alevel")).toBeUndefined();
   });
 
-  test("a missing layer falls back within the level, never across it", () => {
-    expect(pickNoteLayer(["aqa", "edexcel_igcse"], "cambridge_igcse", "igcse")).toBe(
+  test("a student reads their own layer or none, never another board's", () => {
+    expect(pickNoteLayer(["cambridge_igcse", "edexcel_igcse"], "edexcel_igcse", "igcse")).toBe(
       "edexcel_igcse",
     );
-    expect(pickNoteLayer(["aqa", "edexcel_igcse"], undefined, "gcse")).toBe("aqa");
+    expect(pickNoteLayer(["aqa", "cambridge_igcse"], "edexcel_igcse", "igcse")).toBeUndefined();
+    expect(pickNoteLayer(["aqa", "ocr_alevel"], "aqa_alevel", "alevel")).toBeUndefined();
     expect(pickNoteLayer(["aqa"], "cambridge_igcse", "igcse")).toBeUndefined();
-    expect(pickNoteLayer(["aqa", "ocr_alevel"], "aqa_alevel", "alevel")).toBe("ocr_alevel");
+    // A board notes have no layer for at all (OxfordAQA) still sits the subject.
+    expect(pickNoteLayer(["cambridge_igcse"], undefined, "igcse", true)).toBeUndefined();
+  });
+
+  test("a reader with no course falls back within the level, never across it", () => {
+    expect(pickNoteLayer(["aqa", "edexcel_igcse"], undefined, "gcse")).toBe("aqa");
+    expect(pickNoteLayer(["aqa", "edexcel_igcse"], undefined, "igcse")).toBe("edexcel_igcse");
     expect(pickNoteLayer(["aqa", "ocr_alevel"], undefined, "gcse")).toBe("aqa");
+    expect(pickNoteLayer(["aqa"], undefined, "alevel")).toBeUndefined();
   });
 
   test("IGCSE layers validate", () => {
