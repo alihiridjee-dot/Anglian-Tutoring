@@ -1,6 +1,6 @@
 import { ReturningTopicInfo } from "./ReturningTopicInfo";
 import { NothingDue } from "./NothingDue";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { BookOpen, ChevronDown, ChevronLeft, ChevronRight, History, Repeat } from "lucide-react";
 import { EmptyState, SectionHeading } from "@/components/Shared";
 import { DotWord, Tally, TINT_TEXT } from "./workbench/figures";
@@ -20,6 +20,7 @@ import {
   weekRangeLabel,
 } from "@/lib/planner/week";
 import { PointRow, BarePointRow } from "./PointRow";
+import { useEntryState } from "@/hooks/useEntryState";
 
 /** A lane of a week: a stripe down its left side in the lane's colour. */
 const LANE = "min-w-0 space-y-3 border-l-4 border-[color:var(--tint)] pl-4";
@@ -57,6 +58,13 @@ export function FullPlanTimeline({
   const viewport = useRef<HTMLDivElement>(null);
   const cards = useRef(new Map<string, HTMLElement>());
   const [expanded, setExpanded] = useState(new Set<string>());
+  // Every week but this one is folded until it is opened (Ali, 25 Nov 2026).
+  // Kept with the visit, so Back from a point finds the weeks as they were left.
+  const [openWeeks, setOpenWeeks] = useEntryState<string[]>(
+    "planner.openWeeks",
+    focusWeek ? [focusWeek] : [],
+  );
+  const bodyId = useId();
   const [selectedMonth, setSelectedMonth] = useState((focusWeek ?? now).slice(0, 7));
   const [pendingJump, setPendingJump] = useState<string | null>(focusWeek ?? null);
   const [destination, setDestination] = useState<string | null>(focusWeek ?? null);
@@ -106,8 +114,14 @@ export function FullPlanTimeline({
       else next.add(key);
       return next;
     });
+  const toggleWeek = (week: string) =>
+    setOpenWeeks((open) =>
+      open.includes(week) ? open.filter((key) => key !== week) : [...open, week],
+    );
   const jump = (week: string) => {
     if (!weeks.includes(week)) return;
+    // A jump lands on the week opened, or it would land on a bare date.
+    setOpenWeeks((open) => (open.includes(week) ? open : [...open, week]));
     setSelectedMonth(week.slice(0, 7));
     setDestination(week);
     setPendingJump(week);
@@ -258,6 +272,22 @@ export function FullPlanTimeline({
           // This week does, and no empty lanes.
           const onBreak = breakCovering(data.breaks ?? [], week);
           const lanes = Number(!!core) + Number(catchUp.length > 0) + Number(reviews.length > 0);
+          const isOpen = isNow || openWeeks.includes(week);
+          const title = weekRangeLabel(weekKeyToDate(week));
+          const marks = (isNow || week >= examWeek) && (
+            <span className="flex flex-wrap items-center gap-x-4 gap-y-1">
+              {isNow && (
+                <b className={`inline-flex items-center gap-1.5 ${TINT_TEXT}`}>
+                  <span aria-hidden>📍</span> This week
+                </b>
+              )}
+              {week >= examWeek && (
+                <b className={`tint-rose inline-flex items-center gap-1.5 ${TINT_TEXT}`}>
+                  <span aria-hidden>🎓</span> Exams
+                </b>
+              )}
+            </span>
+          );
           return (
             <article
               key={week}
@@ -270,184 +300,196 @@ export function FullPlanTimeline({
               }}
               className={`premium-card rounded-2xl focus-visible:ring-2 focus-visible:ring-[var(--tint)] outline-none ${isNow ? "tint-primary current-week" : "tint-slate"} ${destination === week && !isNow ? "ring-2 ring-[var(--tint)]" : ""}`}
             >
-              <header className="flex flex-wrap items-center justify-between gap-2 px-4 pt-4 sm:px-5 sm:pt-5">
-                <h3 className="text-lg font-extrabold">{weekRangeLabel(weekKeyToDate(week))}</h3>
-                {(isNow || week >= examWeek) && (
-                  <span className="flex flex-wrap items-center gap-x-4 gap-y-1">
-                    {isNow && (
-                      <b className={`inline-flex items-center gap-1.5 ${TINT_TEXT}`}>
-                        <span aria-hidden>📍</span> This week
-                      </b>
-                    )}
-                    {week >= examWeek && (
-                      <b className={`tint-rose inline-flex items-center gap-1.5 ${TINT_TEXT}`}>
-                        <span aria-hidden>🎓</span> Exams
-                      </b>
-                    )}
-                  </span>
-                )}
-              </header>
-              {onBreak ? (
-                <BreakWeek brk={onBreak} />
-              ) : !lanes ? (
-                // Nothing in any lane: one doodle for the week, not three.
-                <div className="px-4 pb-4 sm:px-5">
-                  {week >= examWeek ? (
-                    <NothingDue mascot="panda" mood="proud" title="Exam time. Good luck!" />
-                  ) : (
-                    <NothingDue mascot="panda" mood="sleepy" title="No new topic this week" />
-                  )}
-                </div>
+              {isNow ? (
+                <header className="flex flex-wrap items-center justify-between gap-2 px-4 pt-4 sm:px-5 sm:pt-5">
+                  <h3 className="text-lg font-extrabold">{title}</h3>
+                  {marks}
+                </header>
               ) : (
-                // Each kind of work is a lane told apart by a stripe, an icon
-                // and its name in one colour. A lane with nothing in it is not
-                // drawn, and the lanes left share the width.
-                <div className={`grid gap-6 p-4 sm:p-5 ${LANE_COLS[lanes]}`}>
-                  {core && (
-                    <section
-                      className={`tint-primary ${LANE}`}
-                      aria-label={`New learning for ${week}`}
+                // Any other week folds to its date bar; the whole bar opens it.
+                <header>
+                  <h3 className="text-lg font-extrabold">
+                    <button
+                      type="button"
+                      onClick={() => toggleWeek(week)}
+                      aria-expanded={isOpen}
+                      aria-controls={`${bodyId}-${week}`}
+                      className={`flex w-full flex-wrap items-center gap-x-4 gap-y-1 px-4 pt-4 text-left sm:px-5 sm:pt-5 ${isOpen ? "" : "pb-4 sm:pb-5"}`}
                     >
-                      <p className={LANE_NAME}>
-                        <BookOpen className="size-5" aria-hidden />
-                        {isPast ? "Scheduled learning" : "New learning"}
-                      </p>
-                      <h4 className="text-base font-bold leading-snug">{core.title}</h4>
-                      {(isCovered || (isPast && owing > 0)) && (
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm font-bold">
-                          {isCovered && <DotWord tint="tint-emerald">Topic covered</DotWord>}
-                          {isPast && owing > 0 && (
-                            <Tally n={owing} word="to catch up" tint="tint-amber" />
-                          )}
-                        </div>
-                      )}
-                      {weekly.length > 0 && (
-                        <ul className="space-y-3">
-                          {weekly.map((point) => (
-                            <PointRow
-                              key={point.id}
-                              point={point}
-                              card
-                              missed={isPast && missed.has(point.id)}
-                            />
-                          ))}
-                        </ul>
-                      )}
-                    </section>
-                  )}
-                  {catchUp.length > 0 && (
-                    <section
-                      className={`tint-amber ${LANE}`}
-                      aria-label={`Missed work returning for ${week}`}
-                    >
-                      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+                      <span className="min-w-0 flex-1">{title}</span>
+                      {marks}
+                      <ChevronDown
+                        className={`size-5 shrink-0 text-[color:color-mix(in_oklab,var(--tint)_70%,var(--primary-deep))] transition-transform ${isOpen ? "" : "-rotate-90"}`}
+                        strokeWidth={3}
+                        aria-hidden
+                      />
+                    </button>
+                  </h3>
+                </header>
+              )}
+              <div id={`${bodyId}-${week}`} hidden={!isOpen}>
+                {onBreak ? (
+                  <BreakWeek brk={onBreak} />
+                ) : !lanes ? (
+                  // Nothing in any lane: one doodle for the week, not three.
+                  <div className="px-4 pb-4 sm:px-5">
+                    {week >= examWeek ? (
+                      <NothingDue mascot="panda" mood="proud" title="Exam time. Good luck!" />
+                    ) : (
+                      <NothingDue mascot="panda" mood="sleepy" title="No new topic this week" />
+                    )}
+                  </div>
+                ) : (
+                  // Each kind of work is a lane told apart by a stripe, an icon
+                  // and its name in one colour. A lane with nothing in it is not
+                  // drawn, and the lanes left share the width.
+                  <div className={`grid gap-6 p-4 sm:p-5 ${LANE_COLS[lanes]}`}>
+                    {core && (
+                      <section
+                        className={`tint-primary ${LANE}`}
+                        aria-label={`New learning for ${week}`}
+                      >
                         <p className={LANE_NAME}>
-                          <History className="size-5" aria-hidden />
-                          Missed work returning
+                          <BookOpen className="size-5" aria-hidden />
+                          {isPast ? "Scheduled learning" : "New learning"}
                         </p>
-                        <span className="text-sm font-bold">
-                          <DotWord tint="tint-amber">
-                            {isNow &&
-                            catchUp.every((group) =>
-                              group.points.every((point) => assigned.has(point.specPointId)),
-                            )
-                              ? "Assigned this week"
-                              : "Expected this week"}
-                          </DotWord>
-                        </span>
-                      </div>
-                      {catchUp.map((group) => (
-                        <div key={group.topicId} className="space-y-3">
-                          <ReturningTopicInfo
-                            title={group.topicTitle}
-                            points={group.points}
-                            onOriginalWeek={jump}
-                          />
-                          <ul className="space-y-3">
-                            {group.points.map((point) => {
-                              const assessed = progress
-                                .get(group.topicId)
-                                ?.points.find((p) => p.id === point.specPointId);
-                              return assessed ? (
-                                <PointRow key={point.specPointId} point={assessed} card />
-                              ) : (
-                                <BarePointRow
-                                  key={point.specPointId}
-                                  code={point.code}
-                                  title={point.title}
-                                  card
-                                />
-                              );
-                            })}
-                          </ul>
-                        </div>
-                      ))}
-                    </section>
-                  )}
-                  {reviews.length > 0 && (
-                    <section className={`tint-rose ${LANE}`} aria-label={`Revision for ${week}`}>
-                      <p className={LANE_NAME}>
-                        <Repeat className="size-5" aria-hidden />
-                        Revision
-                      </p>
-                      {reviews.map((band) => {
-                        const bandKey = `${band.topicId}|${band.kind}|${band.startWeek}`;
-                        const key = `${bandKey}@${week}`;
-                        const items = progress.get(band.topicId)?.points ?? [];
-                        const byId = new Map(items.map((point) => [point.id, point]));
-                        const rows =
-                          expanded.has(`${key}@all`) || !band.points?.length
-                            ? items.map((point) => ({ point, ref: null }))
-                            : band.points.map((ref) => ({
-                                point: byId.get(ref.specPointId),
-                                ref,
-                              }));
-                        // The points due are shown, not folded away; the
-                        // button swaps them for the whole topic and back.
-                        return (
-                          <div key={key} className="space-y-3">
-                            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                              <h4 className="text-base font-bold leading-snug">{band.title}</h4>
-                              {newFocusKeys.has(bandKey) && (
-                                <span className="text-sm font-bold">
-                                  <DotWord tint="tint-pop">New</DotWord>
-                                </span>
-                              )}
-                            </div>
-                            <ul className="space-y-3">
-                              {rows.map(({ point, ref }) =>
-                                point ? (
-                                  <PointRow key={point.id} point={point} card />
-                                ) : (
-                                  ref && (
-                                    <BarePointRow
-                                      key={ref.specPointId}
-                                      code={ref.code}
-                                      title={ref.title}
-                                      card
-                                    />
-                                  )
-                                ),
-                              )}
-                            </ul>
-                            {!!band.points?.length && (
-                              <button
-                                className="btn-soft inline-flex min-h-11 items-center rounded-xl px-3 text-sm sm:pointer-fine:min-h-9"
-                                type="button"
-                                onClick={() => toggle(`${key}@all`)}
-                              >
-                                {expanded.has(`${key}@all`)
-                                  ? "Show due points"
-                                  : "Show whole topic"}
-                              </button>
+                        <h4 className="text-base font-bold leading-snug">{core.title}</h4>
+                        {(isCovered || (isPast && owing > 0)) && (
+                          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm font-bold">
+                            {isCovered && <DotWord tint="tint-emerald">Topic covered</DotWord>}
+                            {isPast && owing > 0 && (
+                              <Tally n={owing} word="to catch up" tint="tint-amber" />
                             )}
                           </div>
-                        );
-                      })}
-                    </section>
-                  )}
-                </div>
-              )}
+                        )}
+                        {weekly.length > 0 && (
+                          <ul className="space-y-3">
+                            {weekly.map((point) => (
+                              <PointRow
+                                key={point.id}
+                                point={point}
+                                card
+                                missed={isPast && missed.has(point.id)}
+                              />
+                            ))}
+                          </ul>
+                        )}
+                      </section>
+                    )}
+                    {catchUp.length > 0 && (
+                      <section
+                        className={`tint-amber ${LANE}`}
+                        aria-label={`Missed work returning for ${week}`}
+                      >
+                        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+                          <p className={LANE_NAME}>
+                            <History className="size-5" aria-hidden />
+                            Missed work returning
+                          </p>
+                          <span className="text-sm font-bold">
+                            <DotWord tint="tint-amber">
+                              {isNow &&
+                              catchUp.every((group) =>
+                                group.points.every((point) => assigned.has(point.specPointId)),
+                              )
+                                ? "Assigned this week"
+                                : "Expected this week"}
+                            </DotWord>
+                          </span>
+                        </div>
+                        {catchUp.map((group) => (
+                          <div key={group.topicId} className="space-y-3">
+                            <ReturningTopicInfo
+                              title={group.topicTitle}
+                              points={group.points}
+                              onOriginalWeek={jump}
+                            />
+                            <ul className="space-y-3">
+                              {group.points.map((point) => {
+                                const assessed = progress
+                                  .get(group.topicId)
+                                  ?.points.find((p) => p.id === point.specPointId);
+                                return assessed ? (
+                                  <PointRow key={point.specPointId} point={assessed} card />
+                                ) : (
+                                  <BarePointRow
+                                    key={point.specPointId}
+                                    code={point.code}
+                                    title={point.title}
+                                    card
+                                  />
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        ))}
+                      </section>
+                    )}
+                    {reviews.length > 0 && (
+                      <section className={`tint-rose ${LANE}`} aria-label={`Revision for ${week}`}>
+                        <p className={LANE_NAME}>
+                          <Repeat className="size-5" aria-hidden />
+                          Revision
+                        </p>
+                        {reviews.map((band) => {
+                          const bandKey = `${band.topicId}|${band.kind}|${band.startWeek}`;
+                          const key = `${bandKey}@${week}`;
+                          const items = progress.get(band.topicId)?.points ?? [];
+                          const byId = new Map(items.map((point) => [point.id, point]));
+                          const rows =
+                            expanded.has(`${key}@all`) || !band.points?.length
+                              ? items.map((point) => ({ point, ref: null }))
+                              : band.points.map((ref) => ({
+                                  point: byId.get(ref.specPointId),
+                                  ref,
+                                }));
+                          // The points due are shown, not folded away; the
+                          // button swaps them for the whole topic and back.
+                          return (
+                            <div key={key} className="space-y-3">
+                              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                                <h4 className="text-base font-bold leading-snug">{band.title}</h4>
+                                {newFocusKeys.has(bandKey) && (
+                                  <span className="text-sm font-bold">
+                                    <DotWord tint="tint-pop">New</DotWord>
+                                  </span>
+                                )}
+                              </div>
+                              <ul className="space-y-3">
+                                {rows.map(({ point, ref }) =>
+                                  point ? (
+                                    <PointRow key={point.id} point={point} card />
+                                  ) : (
+                                    ref && (
+                                      <BarePointRow
+                                        key={ref.specPointId}
+                                        code={ref.code}
+                                        title={ref.title}
+                                        card
+                                      />
+                                    )
+                                  ),
+                                )}
+                              </ul>
+                              {!!band.points?.length && (
+                                <button
+                                  className="btn-soft inline-flex min-h-11 items-center rounded-xl px-3 text-sm sm:pointer-fine:min-h-9"
+                                  type="button"
+                                  onClick={() => toggle(`${key}@all`)}
+                                >
+                                  {expanded.has(`${key}@all`)
+                                    ? "Show due points"
+                                    : "Show whole topic"}
+                                </button>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </section>
+                    )}
+                  </div>
+                )}
+              </div>
             </article>
           );
         })}
