@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter, useRouterState } from "@tanstack/react-router";
 import { CourseChip } from "@/components/CourseBadge";
+import { Mascot } from "@/components/Doodles";
 import { GuideOverlay } from "@/components/StudentGuide";
 import { WelcomeVideo } from "@/components/WelcomeVideo";
 import { useViewer } from "@/hooks/useViewer";
@@ -177,18 +178,27 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
   return (
     <GuideOverlay
       stepId={String(index)}
+      // A step that explains an idea sits in the middle of the screen; a step
+      // about a page docks under it and rings what it is about.
+      place={step.targets.length > 0 ? "dock" : "centre"}
       // Nothing is searched for until the step's own page is showing.
       targets={pathname === step.path ? step.targets : undefined}
-      eyebrow={`${step.chapter} · ${index + 1} / ${steps.length}`}
+      stops={steps.map((s) => ({ emoji: s.emoji, label: s.chapter, tint: s.tint }))}
+      current={index}
+      tint={step.tint}
       icon={step.icon ? <step.icon className="size-5" /> : undefined}
       title={step.title}
-      progress={(index + 1) / steps.length}
+      peek={
+        index === 0 ? (
+          <Mascot name="star" mood="happy" size={76} idle={false} className="peek-in" />
+        ) : undefined
+      }
+      celebrate={last}
       onClose={finish}
       onBack={index > 0 ? () => go(index - 1) : undefined}
       onNext={() => (last ? finish() : go(index + 1))}
       nextLabel={index === 0 ? "Show me around" : last ? "Let’s go" : "Next"}
       closeLabel={last ? null : "Skip tour"}
-      wide={!!step.visual}
     >
       {step.body.map((paragraph) => (
         <p key={paragraph}>{paragraph}</p>
@@ -214,22 +224,23 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
         </ul>
       )}
       {step.visual === "week" && step.week && (
-        <ol className="space-y-2.5">
+        // Bare rows: each part of the plan in a dot of its page's colour.
+        <ul className="space-y-3 pt-1">
           {step.week.map((row, i) => (
             <li
               key={row.label}
-              className="rise-in flex items-center gap-3"
-              style={{ "--rise-delay": `${i * 90}ms` } as React.CSSProperties}
+              className="tour-row flex items-center gap-3"
+              style={{ "--drop-delay": `${i * 90}ms` } as React.CSSProperties}
             >
-              <span className="icon-tile size-9 shrink-0" aria-hidden>
-                <row.icon className="size-4" />
+              <span className={`ask-idea-dot ${row.tint}`} aria-hidden>
+                {row.emoji}
               </span>
               <span>
                 <strong className="font-bold">{row.label}.</strong> {row.detail}
               </span>
             </li>
           ))}
-        </ol>
+        </ul>
       )}
     </GuideOverlay>
   );

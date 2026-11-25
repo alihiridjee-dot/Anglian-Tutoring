@@ -32,9 +32,11 @@ import {
 
 export type WelcomeAudience = "student" | "parent";
 
-/** One line of the "what you get" picture. */
+/** One line of the "what you get" picture: an emoji in a dot of its page's colour. */
 export interface WeekRow {
-  icon: ComponentType<{ className?: string }>;
+  emoji: string;
+  /** The `tint-*` class of the page it lives on, as the sidebar colours it. */
+  tint: string;
   label: string;
   detail: string;
 }
@@ -42,10 +44,17 @@ export interface WeekRow {
 export interface WelcomeStep {
   /** The page the step is shown on. The tour goes there itself. */
   path: string;
-  /** Selectors for the element to point at, tried in order. Empty centres the card. */
+  /**
+   * Selectors for the element to ring on the page, tried in order. Empty puts
+   * the card in the middle of the screen, for a step that explains an idea.
+   */
   targets: string[];
-  /** The label above the title. */
+  /** The step's name, read out with the tour's trail. */
   chapter: string;
+  /** The step's stop on the trail. */
+  emoji: string;
+  /** The step's colour: its page's, as the sidebar colours it. */
+  tint: string;
   /** The page's sidebar icon, so the step also teaches where to find it. */
   icon?: ComponentType<{ className?: string }>;
   title: string;
@@ -93,6 +102,8 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       path: home,
       targets: [],
       chapter: "Welcome",
+      emoji: "👋",
+      tint: "tint-primary",
       title: greet(name),
       body: [
         "This is your science tutoring. Real tutors teach you in live lessons every week.",
@@ -104,28 +115,39 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       path: home,
       targets: [],
       chapter: "What your plan includes",
+      emoji: "🎁",
+      tint: "tint-pop",
       title: "What you get",
       body: ["Five things that work together:"],
       visual: "week",
       week: [
-        { icon: Video, label: "Live lessons", detail: "On Zoom, taught by our tutors." },
         {
-          icon: Compass,
+          emoji: "🎥",
+          tint: "tint-chem",
+          label: "Live lessons",
+          detail: "On Zoom, taught by our tutors.",
+        },
+        {
+          emoji: "🧭",
+          tint: "tint-amber",
           label: "A weekly plan",
           detail: "What to study each week, all the way to your exams.",
         },
         {
-          icon: ListChecks,
+          emoji: "✅",
+          tint: "tint-accent",
           label: "Practice quizzes",
           detail: "They mark themselves and explain every answer.",
         },
         {
-          icon: ClipboardList,
+          emoji: "📝",
+          tint: "tint-rose",
           label: "Tasks",
           detail: "Answer it on the page. It comes back marked, with feedback.",
         },
         {
-          icon: MessagesSquare,
+          emoji: "💬",
+          tint: "tint-phys",
           label: "Help when you’re stuck",
           detail: "Message a tutor about anything.",
         },
@@ -135,6 +157,8 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       path: home,
       targets: ['[data-guide="week-plan"]', '[data-tour="welcome"]'],
       chapter: "Dashboard",
+      emoji: "🏠",
+      tint: "tint-primary",
       icon: LayoutDashboard,
       title: "Start here every time",
       body: [
@@ -145,6 +169,8 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       path: "/live",
       targets: ['[data-guide="live-list"]', '[data-guide="live-tabs"]'],
       chapter: "Live Sessions",
+      emoji: "🎥",
+      tint: "tint-chem",
       icon: Video,
       title: "Your live lessons",
       body: [
@@ -156,6 +182,8 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       path: "/planner",
       targets: ['[data-guide="planner-week"]', '[aria-label="Planner sections"]'],
       chapter: "Planner",
+      emoji: "🧭",
+      tint: "tint-amber",
       icon: Compass,
       title: "Your plan for the week",
       body: [
@@ -167,6 +195,8 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       path: "/curriculum",
       targets: ['[data-guide="curriculum-topics"]', '[data-guide="curriculum-search"]'],
       chapter: "Curriculum",
+      emoji: "📚",
+      tint: "tint-emerald",
       icon: BookMarked,
       title: "Everything on your course",
       body: [
@@ -177,6 +207,8 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       path: "/mcqs",
       targets: ['[data-guide="mcq-list"]', '[data-guide="page-content"] .pop-card'],
       chapter: "MCQs",
+      emoji: "✅",
+      tint: "tint-accent",
       icon: ListChecks,
       title: "Quick quizzes",
       body: [
@@ -191,6 +223,8 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
         '[data-guide="page-content"] .pop-card',
       ],
       chapter: "Tasks & Grades",
+      emoji: "📝",
+      tint: "tint-rose",
       icon: ClipboardList,
       title: "Tasks and grades",
       body: [
@@ -202,6 +236,8 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       path: "/messages",
       targets: ['[data-guide="ask-question"]'],
       chapter: "Messages",
+      emoji: "💬",
+      tint: "tint-phys",
       icon: MessagesSquare,
       title: "Stuck? Ask a tutor",
       body: [
@@ -212,6 +248,8 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       path: "/parents",
       targets: ['[data-guide="invite-parent"]'],
       chapter: "Linked Parents",
+      emoji: "👪",
+      tint: "tint-slate",
       icon: Users,
       title: "Bring a parent along",
       body: [
@@ -223,6 +261,8 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
       path: home,
       targets: ['[data-guide="guide"]'],
       chapter: "All set",
+      emoji: "🎉",
+      tint: "tint-primary",
       title: allSet(name),
       body: [
         "Start with this week’s plan on your dashboard.",
@@ -244,6 +284,8 @@ function parentSteps({ name, children }: WelcomeFacts): WelcomeStep[] {
     path: home,
     targets: [],
     chapter: "Welcome",
+    emoji: "👋",
+    tint: "tint-primary",
     title: greet(name),
     body: [
       `Anglia Educate is science tutoring. ${They} gets live lessons with real tutors every week.`,
@@ -257,28 +299,39 @@ function parentSteps({ name, children }: WelcomeFacts): WelcomeStep[] {
     path: home,
     targets: [],
     chapter: "What the plan includes",
+    emoji: "🎁",
+    tint: "tint-pop",
     title: "What you’re paying for",
     body: [`${They} gets five things that work together:`],
     visual: "week",
     week: [
-      { icon: Video, label: "Live lessons", detail: "On Zoom, taught by our tutors." },
       {
-        icon: Compass,
+        emoji: "🎥",
+        tint: "tint-chem",
+        label: "Live lessons",
+        detail: "On Zoom, taught by our tutors.",
+      },
+      {
+        emoji: "🧭",
+        tint: "tint-amber",
         label: "A weekly plan",
         detail: "What to study each week, all the way to the exams.",
       },
       {
-        icon: ListChecks,
+        emoji: "✅",
+        tint: "tint-accent",
         label: "Practice quizzes",
         detail: "Marked straight away, with every answer explained.",
       },
       {
-        icon: ClipboardList,
+        emoji: "📝",
+        tint: "tint-rose",
         label: "Marked tasks",
         detail: "Answered online, and returned with written feedback.",
       },
       {
-        icon: MessagesSquare,
+        emoji: "💬",
+        tint: "tint-phys",
         label: "Help between lessons",
         detail: "They can message a tutor whenever they’re stuck.",
       },
@@ -291,6 +344,8 @@ function parentSteps({ name, children }: WelcomeFacts): WelcomeStep[] {
           path: home,
           targets: ['[data-tour="parent-grades"]', '[data-tour="parent-welcome"]'],
           chapter: "Parent Portal",
+          emoji: "📈",
+          tint: "tint-primary",
           icon: LayoutDashboard,
           title: "How they’re doing",
           body: [
@@ -302,6 +357,8 @@ function parentSteps({ name, children }: WelcomeFacts): WelcomeStep[] {
           path: home,
           targets: ['section[data-tour="parent-messages"]'],
           chapter: "Parent Portal",
+          emoji: "💬",
+          tint: "tint-phys",
           icon: MessagesSquare,
           title: "Talk to the tutors",
           body: [
@@ -315,6 +372,8 @@ function parentSteps({ name, children }: WelcomeFacts): WelcomeStep[] {
     path: "/billing",
     targets: ['[data-guide="parent-billing"]'],
     chapter: "Billing",
+    emoji: "💳",
+    tint: "tint-emerald",
     icon: CreditCard,
     title: "The plan and payments",
     body: [`See ${them}’s plan and what it costs. You can pay for it or change it here.`],
@@ -324,6 +383,8 @@ function parentSteps({ name, children }: WelcomeFacts): WelcomeStep[] {
     path: "/parents",
     targets: ['[data-guide="link-child"]'],
     chapter: "Linked Students",
+    emoji: "🔗",
+    tint: "tint-slate",
     icon: Users,
     title: linked ? "Link another child" : "Link your child",
     body: [
@@ -337,6 +398,8 @@ function parentSteps({ name, children }: WelcomeFacts): WelcomeStep[] {
     path: home,
     targets: ['[data-guide="guide"]'],
     chapter: "All set",
+    emoji: "🎉",
+    tint: "tint-primary",
     title: allSet(name),
     body: [
       "Check in whenever you like.",

@@ -2660,7 +2660,6 @@ body {
   }
 }
 
-
 /* Hero trust banner: a full-width band of stars, icons and figures sliding left
    forever, like a "featured in" row. Two identical halves move by one half's
    width plus the gap, so the loop has no seam; the edges fade out instead of
@@ -5511,6 +5510,248 @@ body {
   }
   .scheme-pin,
   .scheme-step-words {
+    animation: none;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   THE TOUR — the welcome tour and each page's 🧭 guide (GuideOverlay)
+   One card, only ever in two places and centred in both: the middle of a dimmed
+   screen for a step that explains an idea, and docked at the foot of the page
+   for a step about that page. It glides between them. What a page step is
+   about is ringed by its own outline, so the ring is always exactly round it.
+   Progress is a trail of stops on a dotted line that draws in as it goes.
+   ════════════════════════════════════════════════════════════════════════════ */
+.tour-dim {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in oklab, var(--primary-deep) 42%, transparent);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+.tour[data-place="centre"] .tour-dim {
+  opacity: 1;
+  pointer-events: auto;
+}
+.tour-card {
+  container: tour-card / inline-size;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: min(34rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: 1.25rem;
+  border-radius: 1.75rem;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  box-shadow:
+    var(--lift-2),
+    0 1.75rem 3.5rem -1.25rem color-mix(in oklab, var(--primary-deep) 45%, transparent);
+  transition:
+    left 0.55s cubic-bezier(0.2, 1, 0.3, 1),
+    top 0.55s cubic-bezier(0.2, 1, 0.3, 1),
+    translate 0.55s cubic-bezier(0.2, 1, 0.3, 1);
+}
+/* Docked: its foot on the bottom of the screen, clear of a phone's home bar. */
+.tour-card[data-place="dock"] {
+  top: 100%;
+  translate: -50% calc(-100% - 1rem - env(safe-area-inset-bottom));
+}
+@media (min-width: 40rem) {
+  .tour-card {
+    padding: 1.5rem;
+  }
+}
+/* Beside the sidebar rail, docked means centred under the page, not the screen. */
+@media (width >= 48rem) and (height > 31.25rem) {
+  .tour-card[data-place="dock"] {
+    left: calc(50% + 2.5rem);
+  }
+}
+/* A phone on its side has no height to dock under: the card keeps to the
+   right, and the start of each section, where its heading is, stays in view. */
+@media (height <= 31.25rem) {
+  .tour-card {
+    padding: 1rem;
+  }
+  .tour-card[data-place="dock"] {
+    width: min(24rem, 50%);
+    left: calc(100% - 1rem - env(safe-area-inset-right) - min(12rem, 25%));
+    top: 50%;
+    translate: -50% -50%;
+  }
+  .tour-peek {
+    display: none;
+  }
+}
+/* A character looking over the card's top edge. */
+.tour-peek {
+  position: absolute;
+  top: -3.6rem;
+  right: 1.75rem;
+  pointer-events: none;
+}
+/* Each step's words, and the rows of a list in them, drop into place. From
+   above, not below: anything pushed past the card's foot, even for a moment,
+   would flash a scrollbar in the words. */
+.tour-step {
+  animation: tour-drop 0.4s cubic-bezier(0.2, 1.3, 0.4, 1);
+}
+.tour-row {
+  animation: tour-drop 0.45s cubic-bezier(0.2, 1.3, 0.4, 1) both;
+  animation-delay: var(--drop-delay, 0s);
+}
+@keyframes tour-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+/* Next gives a little shake when the page behind is pressed. */
+.tour-nudge {
+  animation: tour-nudge 0.5s ease;
+}
+@keyframes tour-nudge {
+  20% {
+    transform: translateX(-5px) rotate(-3deg);
+  }
+  45% {
+    transform: translateX(5px) rotate(3deg);
+  }
+  70% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+}
+
+/* The trail: a stop per step, the one you're on grown and ringed in
+   highlighter, the dotted line coloured in up to it. */
+.tour-trail {
+  --d: 1.75rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  padding: 0.5rem calc(var(--d) * 0.3);
+  margin: -0.25rem 0 0.875rem;
+}
+.tour-trail::before,
+.tour-trail::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 2px);
+  left: calc(var(--d) * 0.8);
+  height: 4px;
+  background: radial-gradient(circle, var(--line) 1.75px, transparent 2.25px) left center / 0.625rem
+    4px repeat-x;
+}
+.tour-trail::before {
+  --line: color-mix(in oklab, var(--tint) 28%, var(--edge));
+  right: calc(var(--d) * 0.8);
+}
+.tour-trail::after {
+  --line: var(--tint);
+  width: calc((100% - var(--d) * 1.6) * var(--progress));
+  transition: width 0.55s cubic-bezier(0.2, 1, 0.3, 1);
+}
+.tour-stop {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--d);
+  height: var(--d);
+  border-radius: 999px;
+  font-size: calc(var(--d) * 0.5);
+  line-height: 1;
+  font-family: var(--font-display);
+  font-weight: 800;
+  background: var(--card);
+  border: 2px dashed color-mix(in oklab, var(--tint) 40%, var(--edge));
+  outline: 0 solid var(--pop);
+  outline-offset: 2px;
+  transition:
+    transform 0.3s cubic-bezier(0.3, 1.6, 0.5, 1),
+    background-color 0.2s ease,
+    outline-width 0.2s ease;
+}
+.tour-stop[data-state="done"],
+.tour-stop[data-state="now"] {
+  background: var(--tint);
+  color: white;
+  border: 1.5px solid color-mix(in oklab, var(--tint) 55%, black);
+  box-shadow: 0 2px 0 0 color-mix(in oklab, var(--tint) 45%, black);
+}
+.tour-stop[data-state="now"] {
+  transform: scale(1.5);
+  outline-width: 3px;
+}
+/* A narrow card (a phone either way up): the stop you're on keeps its emoji,
+   and the rest shrink to dots, so eleven of them fit across with room
+   between. Keyed off the card's own width, which a phone on its side halves. */
+@container tour-card (width < 30rem) {
+  .tour-trail {
+    --d: 0.875rem;
+    padding-inline: 0.5rem;
+  }
+  .tour-stop {
+    font-size: 0;
+    border-width: 1.5px;
+    border-style: solid;
+  }
+  .tour-stop[data-state="now"] {
+    width: 1.625rem;
+    height: 1.625rem;
+    margin-inline: -0.375rem;
+    font-size: 0.8125rem;
+    transform: none;
+    outline-width: 2.5px;
+    outline-offset: 1.5px;
+  }
+}
+
+/* What a page step is about: its own outline, in the step's colour, breathing.
+   Drawn by the browser round the element, so it is always exactly on it. */
+[data-tour-lit] {
+  outline: 4px solid var(--tour-ring, var(--primary));
+  outline-offset: 6px;
+  animation: tour-ring 1.8s ease-in-out infinite;
+}
+@keyframes tour-ring {
+  50% {
+    outline-offset: 9px;
+  }
+}
+/* Inside a parent that would clip a ring drawn outside it. */
+[data-tour-lit="inset"] {
+  outline-offset: -4px;
+  animation-name: tour-ring-inset;
+}
+@keyframes tour-ring-inset {
+  50% {
+    outline-offset: -6px;
+  }
+}
+/* Room at the foot of the page while the card is docked, so whatever a step is
+   about can be scrolled clear of the card. */
+html[data-tour="dock"] [data-guide="page-content"] {
+  padding-bottom: calc(var(--tour-card-h, 16rem) + 3rem);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour-card,
+  .tour-dim,
+  .tour-trail::after,
+  .tour-stop {
+    transition: none;
+  }
+  .tour-step,
+  .tour-row,
+  .tour-nudge,
+  [data-tour-lit] {
     animation: none;
   }
 }

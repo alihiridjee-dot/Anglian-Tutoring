@@ -1,4 +1,5 @@
 import { describe, expect, it } from "bun:test";
+import { readFileSync } from "node:fs";
 import { buildAuthedNav } from "./nav";
 import { firstName, welcomeHome, welcomeSteps, type WelcomeStep } from "./welcomeTour";
 
@@ -79,6 +80,19 @@ describe("welcomeSteps", () => {
       /rated|confidence/i, // the plan doesn't use setup ratings
     ]) {
       expect(all).not.toMatch(claim);
+    }
+  });
+
+  // The trail of stops along the card's top is drawn from these, and the card
+  // and its ring take the step's colour: a tint the kit doesn't define would
+  // leave them grey.
+  it("gives every stop and week row an emoji and a colour from the kit", () => {
+    const kit = readFileSync(new URL("../../styles.css", import.meta.url), "utf8");
+    for (const step of [...student(), ...parent(["Sam"]), ...parent([])]) {
+      for (const item of [step, ...(step.week ?? [])]) {
+        expect(item.emoji.trim().length).toBeGreaterThan(0);
+        expect(kit).toMatch(new RegExp(`\\.${item.tint}\\b`));
+      }
     }
   });
 
