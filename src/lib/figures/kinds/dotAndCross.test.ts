@@ -32,12 +32,12 @@ describe("a dot-and-cross diagram is held to each atom's electrons", () => {
     // Nitrogen's lone pair would read as one electron of its own and one of hydrogen's.
     const svg = swap(
       drawn(ammonia),
-      '<circle class="qf-ink" cx="174" cy="27" r="3.5"/>',
-      cross(174, 27),
+      '<circle class="qf-ink" cx="174" cy="16" r="3.5"/>',
+      cross(174, 16),
     );
     expect(problemsOf(svg, ammonia)).toEqual([
       "The central N's own part of its shell holds 1 dot and 1 cross; it needs 2 dots and 0 crosses",
-      "The cross at (174, 27) is not where an electron goes",
+      "The cross at (174, 16) is not where an electron goes",
     ]);
   });
 

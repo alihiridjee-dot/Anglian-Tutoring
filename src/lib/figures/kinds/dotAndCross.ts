@@ -40,10 +40,10 @@ const OUTER: Record<string, number> = {
 /** A full outer shell: hydrogen's holds 2. */
 const full = (symbol: string) => (symbol === "H" ? 2 : 8);
 
-/** Each shell's radius, how far apart two bonded atoms' centres are, and where lone pairs sit. */
+/** Each shell's radius, how far apart two bonded atoms' centres are, and where lone pairs sit: on the shell's line, as exam boards draw them. */
 const R = 48;
 const D = 72;
-const LONE = 37;
+const LONE = R;
 /** Half a dot's or a cross's width; a lone pair's two electrons sit this far either side of its middle. */
 const MARK = 3.5;
 const PAIR = 6;
@@ -79,7 +79,7 @@ type Mark = { at: Pt; dot: boolean; region: string };
 /** Each atom's centre, every electron's place and which shells it is inside, and the canvas height. */
 function layout(b: DotCrossBrief) {
   const n = b.around.length;
-  const H = n === 4 ? 260 : 200;
+  const H = n === 4 ? 280 : 200;
   const centre: Pt = n === 1 ? [180 - D / 2, 100] : [180, n === 3 ? (H - D) / 2 : H / 2];
   const dirs = PLACES[n];
   const atoms: Pt[] = [
@@ -293,9 +293,10 @@ export const dotAndCross: FigureKind<DotCrossBrief> = {
     });
 
     // Count what each region holds: an atom's own part of its shell, and each overlap.
+    // An electron sitting on a shell's line belongs to that shell.
     const regionOf = (p: Pt) => {
       const inside = L.atoms.flatMap((a, k) =>
-        Math.hypot(p[0] - a[0], p[1] - a[1]) < R ? [k] : [],
+        Math.hypot(p[0] - a[0], p[1] - a[1]) < R + MARK + 1 ? [k] : [],
       );
       return inside.join("+");
     };
