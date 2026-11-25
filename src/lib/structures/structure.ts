@@ -85,6 +85,45 @@ export function sameStructure(chem: Chem, a: string, b: string): boolean | null 
 const BOND = 34;
 
 /**
+ * The molecule as a dot-and-cross diagram's brief (figures/kinds/dotAndCross):
+ * every atom, its hydrogens written out, and every bond with its order. The
+ * kind's own `read` then holds each atom to a full shell and the drawing to
+ * the canvas. Ions, radicals and aromatic rings are not drawn that way.
+ */
+export function dotCrossBrief(
+  chem: Chem,
+  smiles: string,
+  letter: unknown,
+): { brief: Record<string, unknown> } | { problem: string } {
+  let m: InstanceType<Chem["Molecule"]>;
+  try {
+    m = chem.Molecule.fromSmiles(smiles.trim());
+  } catch {
+    return { problem: "That is not a structure SMILES can spell" };
+  }
+  m.addImplicitHydrogens();
+  const count = m.getAllAtoms();
+  if (count < 2) return { problem: "needs at least two atoms" };
+  for (let i = 0; i < count; i++)
+    if (m.getAtomCharge(i) !== 0 || m.getAtomRadical(i) !== 0)
+      return { problem: "is an ion or a radical, not a neutral molecule" };
+  const bonds = Array.from({ length: m.getAllBonds() }, (_, k) => k);
+  if (bonds.some((k) => m.isAromaticBond(k))) return { problem: "has an aromatic ring" };
+  return {
+    brief: {
+      kind: "dot-and-cross",
+      smiles: smiles.trim(),
+      atoms: Array.from({ length: count }, (_, i) => m.getAtomLabel(i)),
+      bonds: bonds.map((k) => ({
+        atoms: [m.getBondAtom(0, k), m.getBondAtom(1, k)],
+        order: m.getBondOrder(k),
+      })),
+      letter: letter ?? null,
+    },
+  };
+}
+
+/**
  * The molecule laid out as a skeletal formula's brief (figures/kinds/
  * skeletalFormula): each atom but hydrogen with its place, hydrogens and
  * charge, each bond with its order and wedge, each benzene ring. Scaled so a
