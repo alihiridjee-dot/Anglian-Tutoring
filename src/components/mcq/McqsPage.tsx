@@ -11,6 +11,7 @@ import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { useEntryState } from "@/hooks/useEntryState";
 import { McqManager } from "@/components/tutor/McqManager";
+import { McqAttempts } from "@/components/tutor/McqAttempts";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { selectIn, selectInHistory } from "@/lib/platform/db/chunked";
 import { plannerDateLabel } from "@/lib/planner/week";
@@ -65,6 +66,8 @@ export function MCQs() {
   if (isTutor) {
     return (
       <AppLayout title="Weekly MCQs">
+        {/* Who took what first, as Tasks & Marking puts the hand-ins first. */}
+        <McqAttempts />
         <McqManager />
       </AppLayout>
     );
