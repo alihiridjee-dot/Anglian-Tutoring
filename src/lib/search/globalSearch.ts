@@ -99,6 +99,20 @@ export function isVisible(
 ): boolean {
   if (ctx.isTutor) return true;
   if (row.subject && !ctx.entitledSubjects.includes(row.subject as SubjectV)) return false;
+  return onOwnCourse(ctx, row);
+}
+
+/**
+ * Is this row written for the student's own course: their level, and the
+ * board they sit its subject with? The subject itself is the database's
+ * check. The pages that open one item from a link ask this too (useOwnCourse),
+ * so a link can't open what search hides.
+ */
+export function onOwnCourse(
+  ctx: SearchContext,
+  row: { subject?: string | null; board?: string | null; level?: string | null },
+): boolean {
+  if (ctx.isTutor) return true;
   if (row.level && ctx.level && row.level !== ctx.level) return false;
   if (row.board && row.subject) {
     const sat = ctx.boardBySubject[row.subject];

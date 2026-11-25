@@ -1,5 +1,11 @@
 import { afterEach, beforeEach, describe, expect, spyOn, test } from "bun:test";
-import { noteLevelsFor, noteOnCourse, quizVisible, runGlobalSearch } from "./globalSearch";
+import {
+  noteLevelsFor,
+  noteOnCourse,
+  onOwnCourse,
+  quizVisible,
+  runGlobalSearch,
+} from "./globalSearch";
 import type { SearchContext } from "./types";
 
 // The real client is built and `fetch` is stubbed below, so these only have to
@@ -41,6 +47,37 @@ describe("a student is offered only notes written for their course", () => {
   test("a tutor, and a subject with no known board, are not filtered", () => {
     expect(noteOnCourse(tutor, "chemistry", {})).toBe(true);
     expect(noteOnCourse(student, "physics", {})).toBe(true);
+  });
+});
+
+describe("a page opened from a link holds the student to their own course", () => {
+  test("another board or level is turned away", () => {
+    expect(onOwnCourse(student, { subject: "chemistry", board: "edexcel", level: "igcse" })).toBe(
+      true,
+    );
+    expect(onOwnCourse(student, { subject: "chemistry", board: "cambridge", level: "igcse" })).toBe(
+      false,
+    );
+    expect(onOwnCourse(student, { subject: "chemistry", board: "edexcel", level: "alevel" })).toBe(
+      false,
+    );
+    expect(onOwnCourse(student, { subject: "biology", board: "cambridge", level: "igcse" })).toBe(
+      true,
+    );
+  });
+
+  test("what isn't known passes: the subject is the database's to refuse", () => {
+    // No board on the row (a brief for every board), and no level on the profile.
+    expect(onOwnCourse(student, { subject: "chemistry", board: null, level: "igcse" })).toBe(true);
+    expect(onOwnCourse({ ...student, level: null }, { subject: "chemistry", level: "gcse" })).toBe(
+      true,
+    );
+    // A subject they don't take: the database hides it, and the pages say so.
+    expect(onOwnCourse(student, { subject: "physics", board: "aqa", level: "igcse" })).toBe(true);
+  });
+
+  test("a tutor is never turned away", () => {
+    expect(onOwnCourse(tutor, { subject: "chemistry", board: "ocr", level: "alevel" })).toBe(true);
   });
 });
 

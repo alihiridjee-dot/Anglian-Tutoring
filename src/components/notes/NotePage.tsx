@@ -6,7 +6,8 @@ import { NoteView } from "@/components/notes/NoteView";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useEntitlements } from "@/hooks/data/useEntitlements";
 import { usePinSubject } from "@/hooks/useActiveSubject";
-import { useNote } from "@/hooks/data/useNotes";
+import { useNote, useNoteCourses } from "@/hooks/data/useNotes";
+import { useOwnCourse } from "@/hooks/useOwnCourse";
 import { SUBJECT_LABEL } from "@/lib/curriculum/subjectTheme";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { NOTE_BOARDS, noteLayerFor, pickNoteLayer, subjectOfNoteId } from "@/lib/notes/noteFormat";
@@ -34,7 +35,15 @@ export function NotePage() {
   // shown another board's codes or question.
   const enrolled = enrolments.find((e) => e.subject === note?.subject)?.board as string | undefined;
   const layers = note ? NOTE_BOARDS.filter((b) => note.boards[b]) : [];
-  const board = pickNoteLayer(layers, noteLayerFor(enrolled, level), level, !!enrolled);
+  const own = noteLayerFor(enrolled, level);
+  const board = pickNoteLayer(layers, own, level, !!enrolled);
+
+  // A note without the student's own layer was written for another course,
+  // and is turned away, unless a spec point on their own course links to it.
+  const course = useOwnCourse();
+  const checkLinks = course.guarded && !!note && !!enrolled && !(own && layers.includes(own));
+  const links = useNoteCourses(conceptId, checkLinks);
+  const offCourse = checkLinks && !!links.data && !links.data.some((c) => course.onCourse(c));
 
   // A note in a subject the student doesn't take is hidden from them with the
   // rest of that subject, so it arrives as no note at all. Its id still names
@@ -61,9 +70,12 @@ export function NotePage() {
         >
           <ArrowLeft className="size-4" aria-hidden /> Back
         </button>
-        {isPending || (!note && idSubject && !demo && ent.loading) ? (
+        {isPending ||
+        (!note && idSubject && !demo && ent.loading) ||
+        (note && !course.ready) ||
+        (checkLinks && links.isPending) ? (
           <Spinner label="Loading the note" />
-        ) : error ? (
+        ) : error || (checkLinks && links.error) ? (
           <EmptyState
             compact
             title="This note didn't load"
@@ -90,6 +102,15 @@ export function NotePage() {
           <EmptyState
             title="This note isn't ready yet"
             body="It will appear here as soon as it's published."
+            mascot="books"
+          />
+        ) : offCourse ? (
+          <EmptyState
+            title="This note isn't on your course"
+            action={{
+              to: demo ? "/demo/student/curriculum" : "/curriculum",
+              label: "Go to the curriculum",
+            }}
             mascot="books"
           />
         ) : (

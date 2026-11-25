@@ -8,6 +8,7 @@ import { AwaitingMark, BuiltInHomework, MarksBox } from "@/components/BuiltInHom
 import { EmptyState, ErrorNote, SciText, SectionHeading, Spinner } from "@/components/Shared";
 import { useHomeworkSheet, useInvalidateHomework } from "@/hooks/data/useHomework";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useOwnCourse } from "@/hooks/useOwnCourse";
 import { isOverdue } from "@/lib/homework/homeworkBuckets";
 import type { SubmissionRow } from "@/lib/homework/types";
 import { useRoles } from "@/hooks/useRole";
@@ -35,6 +36,7 @@ export function HomeworkSheetPage() {
   const sheet = useNoCopy<HTMLDivElement>(!isTutor);
   const reload = useInvalidateHomework();
   const { enrolments } = useEnrolments();
+  const course = useOwnCourse();
   const { data: breaks } = useQuery({
     ...studentBreaksQuery(userId ?? ""),
     enabled: !!userId && !isTutor && !isDemoStudent(),
@@ -91,6 +93,32 @@ export function HomeworkSheetPage() {
   }
 
   const { hw, questions, answers } = data;
+
+  // A task written for another board or level is turned away, unless this
+  // student has handed it in: their own work always opens.
+  if (!course.ready) {
+    return (
+      <AppLayout title="Task">
+        <BackLink />
+        <Spinner label="Opening this task" />
+      </AppLayout>
+    );
+  }
+  if (!submission && !course.onCourse(hw)) {
+    return (
+      <AppLayout title="Task">
+        <BackLink />
+        <div className="mt-6">
+          <EmptyState
+            mascot="books"
+            title="This task isn't on your course"
+            action={{ to: "/homework", label: "Back to tasks" }}
+          />
+        </div>
+      </AppLayout>
+    );
+  }
+
   const marked = !!submission?.graded_at;
   const totalMarks = questions.reduce((sum, q) => sum + q.marks, 0);
   // The score is added up here from the marks on the answers, the numbers each
