@@ -1,6 +1,6 @@
 import { supabase } from "@/integrations/supabase/client";
 import { type LevelV, type BoardV, type SubjectV } from "./taxonomy";
-import type { Topic, SpecPoint, Resource, McqSet, SpecPointMatch } from "./types";
+import type { Topic, SpecPoint, LinkedSpecPoint, Resource, McqSet, SpecPointMatch } from "./types";
 import { joinUrlsFor } from "@/lib/live/liveSessions";
 import { dbError } from "@/lib/platform/errors";
 import {
@@ -194,7 +194,7 @@ export class CurriculumDAL {
    * One spec point by id, for restoring a link straight to it (from the global
    * search, a bookmark, or a shared URL) without expanding its topic first.
    */
-  static async getSpecPointById(id: string): Promise<SpecPoint | null> {
+  static async getSpecPointById(id: string): Promise<LinkedSpecPoint | null> {
     if (isDemoStudent()) {
       for (const points of Object.values(DEMO_CURRICULUM_SPEC_POINTS)) {
         const found = points.find((p) => p.id === id);
@@ -205,7 +205,7 @@ export class CurriculumDAL {
 
     const { data, error } = await supabase
       .from("spec_points")
-      .select("id, topic_id, code, title, description")
+      .select("id, topic_id, code, title, description, topics(subject, board, level)")
       .eq("id", id)
       .maybeSingle();
     if (error) {

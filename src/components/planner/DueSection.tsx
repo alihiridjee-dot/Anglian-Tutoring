@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { Children, createContext, useContext, useSyncExternalStore, type ReactNode } from "react";
 import { DUE_LANE_LABEL, type DueLane } from "@/lib/planner/dueLanes";
 
 /** Each lane's colour, the dashboard's (see `ThisWeekLanes`). */
@@ -10,13 +10,38 @@ const LANE_TINT: Record<DueLane, string> = {
   yours: "tint-slate",
 };
 
+/**
+ * A desktop screen: from here up the lanes stand side by side, each its own
+ * panel (Ali, 25 Nov 2026). Below it they stay one card, one lane under another.
+ */
+const WIDE = "(min-width: 64rem)";
+
+/** Whether the screen is wide enough for panels; false until the page has hydrated. */
+function useWide() {
+  return useSyncExternalStore(
+    (onChange) => {
+      const query = window.matchMedia(WIDE);
+      query.addEventListener("change", onChange);
+      return () => query.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia(WIDE).matches,
+    () => false,
+  );
+}
+
+/** True inside `DueLanes` on a wide screen, where each lane is its own card. */
+const AsPanels = createContext(false);
+
+/** How many panels stand in a row: as many as there are lanes, three at most. */
+const COLUMNS = ["", "lg:grid-cols-1", "lg:grid-cols-2", "lg:grid-cols-3"];
+
 /** The one button on a row. */
 export const DUE_GO =
   "btn-solid inline-flex min-h-11 shrink-0 items-center rounded-xl px-4 py-2 text-sm";
 
 /**
- * One lane of Due: a plain heading inside the one card, then its work as bare
- * rows.
+ * One lane of Due: a plain heading inside the one card (on a desktop, its own
+ * panel), then its work as bare rows.
  *
  * Due used to be a card per lane, a card per sheet inside it and a box for the
  * marks inside that, with a "to do" pill and a fold arrow on every lane. Ali
@@ -37,8 +62,9 @@ export function DueSection({
   count: number;
   children: ReactNode;
 }) {
+  const panel = useContext(AsPanels);
   return (
-    <section className={`${LANE_TINT[lane]} min-w-0`}>
+    <section className={`${LANE_TINT[lane]} min-w-0 ${panel ? "premium-card p-5" : ""}`}>
       <h2 className="flex items-center gap-2.5 text-xl leading-tight font-extrabold">
         {/* How many are left, in a dot of the lane's colour (Ali, 19 Nov). */}
         <span
@@ -52,7 +78,9 @@ export function DueSection({
           <span className="sr-only">, {count} to do</span>
         </span>
       </h2>
-      <ul className="mt-1 sm:pl-12">{children}</ul>
+      {/* A panel is narrow, so its rows use the full width rather than
+          lining up under the heading's words. */}
+      <ul className={panel ? "mt-2" : "mt-1 sm:pl-12"}>{children}</ul>
     </section>
   );
 }
@@ -82,10 +110,26 @@ export function DueRow({
 }
 
 /**
- * The lanes, in one card, with the subject's colour glowing softly behind it.
- * The lanes wear the dashboard's colours; the glow keeps the page the subject's.
+ * The lanes, with the subject's colour glowing softly behind them. The lanes
+ * wear the dashboard's colours; the glow keeps the page the subject's.
+ *
+ * On a phone or tablet they are one card, one lane under another. On a desktop
+ * (Ali, 25 Nov 2026) each lane is its own panel and they stand side by side, as
+ * many across as there are lanes up to three, all the same height; a fourth or
+ * fifth lane starts the next row.
  */
 export function DueLanes({ children }: { children: ReactNode }) {
+  const wide = useWide();
+  if (wide) {
+    const across = Math.min(Children.count(children), 3);
+    return (
+      <div className="glow-behind">
+        <div className={`grid items-stretch gap-5 ${COLUMNS[across]}`}>
+          <AsPanels.Provider value>{children}</AsPanels.Provider>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="glow-behind">
       <div className="premium-card space-y-6 p-4 sm:p-6">{children}</div>

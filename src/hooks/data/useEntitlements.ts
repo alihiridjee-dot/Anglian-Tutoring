@@ -10,6 +10,8 @@ import { useEnrolments } from "@/hooks/data/useEnrolments";
  * (kept in lockstep with the plan by onboarding and the add-subject upgrade), and
  * it is the same set the server RLS on topics/spec_points/resources enforces — so
  * the client greying here and the database guardrail can never disagree.
+ * That guardrail is the subject only: within a subject the database shows every
+ * board and level, and the app narrows to the student's own (useOwnCourse).
  *
  * Tutors are unscoped: they author across every subject.
  */

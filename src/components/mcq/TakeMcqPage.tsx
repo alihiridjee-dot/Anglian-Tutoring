@@ -22,12 +22,20 @@ import {
   savedAttemptId,
   type McqAnswers,
 } from "@/lib/mcq/mcqAnswers";
-import { fetchLockedAttempt, fetchPaper, fileAttempt, type Marked, type Q } from "@/lib/mcq/mcqDal";
+import {
+  fetchLockedAttempt,
+  fetchPaper,
+  fileAttempt,
+  hasAttempted,
+  type Marked,
+  type Q,
+} from "@/lib/mcq/mcqDal";
 import { describeQuizError, isQuizChanged } from "@/lib/mcq/quizErrors";
 import { retakeOpensAt, retakeOpensLabel } from "@/lib/mcq/retakeLock";
 import { StoredFigure } from "@/components/QuestionFigure";
 import { ExamKit } from "@/components/examKit/ExamKit";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useOwnCourse } from "@/hooks/useOwnCourse";
 import { cn } from "@/lib/utils";
 import { pageBehind } from "@/lib/shell/returnSpot";
 
@@ -101,6 +109,25 @@ export function TakeMcq() {
     refetchOnReconnect: false,
   });
   const lockPending = checkLock && locked.isPending;
+
+  // A quiz written for another board or level is turned away, unless this
+  // student has taken it before: their own work always opens.
+  const course = useOwnCourse();
+  const topic = set?.spec_points?.topics;
+  const offCourse =
+    !!set &&
+    course.ready &&
+    !course.onCourse({
+      subject: set.subject ?? topic?.subject,
+      board: topic?.board,
+      level: topic?.level,
+    });
+  const attempted = useQuery({
+    queryKey: ["mcq", "attempted", setId, userId],
+    queryFn: () => hasAttempted(userId!, setId),
+    enabled: offCourse && !!userId,
+    staleTime: Infinity,
+  });
 
   // A quiz belongs to one subject: opening it moves the header slider there,
   // and switching subject mid-quiz goes to the quiz list for the new one. The
@@ -312,6 +339,35 @@ export function TakeMcq() {
             mascot="books"
             title="That quiz isn't available"
             action={{ to: demo ? "/demo/student/mcqs" : "/mcqs", label: "Back to quizzes" }}
+          />
+        </div>
+      </AppLayout>
+    );
+  }
+  if (!course.ready || (offCourse && (!userId || attempted.isPending)))
+    return (
+      <AppLayout title="MCQ">
+        <Spinner label="Loading the quiz" />
+      </AppLayout>
+    );
+  if (offCourse && attempted.error) {
+    return (
+      <AppLayout title="MCQ">
+        <div className="max-w-3xl">
+          <ErrorNote error={attempted.error} onRetry={() => void attempted.refetch()} />
+          {back}
+        </div>
+      </AppLayout>
+    );
+  }
+  if (offCourse && !attempted.data) {
+    return (
+      <AppLayout title="MCQ">
+        <div className="max-w-3xl">
+          <EmptyState
+            mascot="books"
+            title="This quiz isn't on your course"
+            action={{ to: "/mcqs", label: "Back to quizzes" }}
           />
         </div>
       </AppLayout>

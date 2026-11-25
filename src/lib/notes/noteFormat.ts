@@ -73,13 +73,20 @@ export function subjectOfNoteId(id: string): "biology" | "chemistry" | "physics"
   return m[1] === "bio" ? "biology" : m[1] === "chem" ? "chemistry" : "physics";
 }
 
-/** The layer to show: the student's own, else the first layer at the same level, else none. */
+/**
+ * The layer to show. A student who sits the subject sees their own layer or
+ * none: another board's codes, extra sections and worked example are not
+ * theirs to revise from. Only a reader with no course in the subject falls
+ * back, to the first layer at the same level.
+ */
 export function pickNoteLayer(
   layers: NoteBoard[],
   own: NoteBoard | undefined,
   level: string | null | undefined,
+  sitsSubject = own !== undefined,
 ): NoteBoard | undefined {
   if (own && layers.includes(own)) return own;
+  if (sitsSubject) return undefined;
   const want = level === "igcse" ? "IGCSE" : level === "alevel" ? "A-level" : "GCSE";
   return layers.find((b) => NOTE_COURSE[b].level === want);
 }

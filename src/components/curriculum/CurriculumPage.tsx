@@ -1,4 +1,4 @@
-import { SciText, Spinner } from "@/components/Shared";
+import { EmptyState, SciText, Spinner } from "@/components/Shared";
 import { useNavigate, useSearch } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
@@ -7,6 +7,7 @@ import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEntitlements } from "@/hooks/data/useEntitlements";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useOwnCourse } from "@/hooks/useOwnCourse";
 import { useEntryState } from "@/hooks/useEntryState";
 import { useActiveSubject, useSubjectFromLink } from "@/hooks/useActiveSubject";
 import {
@@ -20,7 +21,7 @@ import {
 import { toast } from "sonner";
 import { CurriculumDAL } from "@/lib/curriculum/curriculumDal";
 import { breakSpecList } from "@/lib/curriculum/specListBreaks";
-import type { Topic, SpecPoint } from "@/lib/curriculum/types";
+import type { Topic, SpecPoint, LinkedSpecPoint } from "@/lib/curriculum/types";
 import { type CurriculumSearchParams } from "@/lib/curriculum/curriculumParams";
 import { useDebounced } from "@/hooks/useGlobalSearch";
 import { MIN_QUERY_LENGTH } from "@/lib/search/match";
@@ -42,9 +43,11 @@ import { isDemoStudent } from "@/lib/demo/studentDemo";
 export function Curriculum() {
   const { isTutor, userId } = useRoles();
   // Students are scoped to the subjects (and board/level) their subscription
-  // covers; tutors author freely across everything. This is the client half of
-  // the guardrail — topics/spec_points RLS enforces the same thing server-side.
+  // covers; tutors author freely across everything. The database enforces the
+  // subject only: board and level are held here, and by useOwnCourse for a
+  // point opened from a link.
   const ent = useEntitlements();
+  const course = useOwnCourse();
   const { level: profileLevel } = useEnrolments();
   // Read loosely (`strict: false`) rather than through `Route.useSearch()`:
   // the /demo/* showcase mounts this same component under a different route,
@@ -93,7 +96,7 @@ export function Curriculum() {
   }, [isTutor, subject, ent.boardBySubject, board]);
 
   // Selected specification point state to handle full sub-page navigation
-  const [selectedSpecPoint, setSelectedSpecPoint] = useState<SpecPoint | null>(null);
+  const [selectedSpecPoint, setSelectedSpecPoint] = useState<LinkedSpecPoint | null>(null);
   // Bumped when a point's requested MCQs or task arrive, so its sections reload.
 
   // A student's own plan for the selected course: how much of each topic is
@@ -254,6 +257,28 @@ export function Curriculum() {
     if (openedUnder.current === null) openedUnder.current = subject;
     else if (openedUnder.current !== subject) closeSpecPoint();
   }, [isTutor, selectedSpecPoint, search.subject, subject, closeSpecPoint]);
+
+  // A point opened from a link carries its own course. One for another board
+  // or level is turned away: under this page's header it would read as the
+  // student's own.
+  const linkedCourse = selectedSpecPoint?.topics;
+  if (linkedCourse && (!course.ready || !course.onCourse(linkedCourse))) {
+    return (
+      <AppLayout title="Curriculum Point">
+        {!course.ready ? (
+          <Spinner label="Opening this point" />
+        ) : (
+          <div className="max-w-4xl">
+            <EmptyState
+              mascot="books"
+              title="This spec point isn't on your course"
+              action={{ onClick: closeSpecPoint, label: "Back to Curriculum" }}
+            />
+          </div>
+        )}
+      </AppLayout>
+    );
+  }
 
   // Handle viewing full-page specification point details
   if (selectedSpecPoint) {
