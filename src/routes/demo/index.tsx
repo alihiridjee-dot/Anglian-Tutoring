@@ -27,7 +27,7 @@ function DemoPage() {
   const navigate = useNavigate();
   return (
     <div className="page-aurora min-h-screen relative flex flex-col">
-      <div className="absolute top-4 left-4 z-10 sm:top-6 sm:left-6">
+      <div className="absolute top-4 left-4 z-20 sm:top-6 sm:left-6">
         <Link
           to="/"
           className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-foreground transition px-3 py-1.5 rounded-lg hover:bg-secondary"
