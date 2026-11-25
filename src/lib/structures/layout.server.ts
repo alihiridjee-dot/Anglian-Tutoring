@@ -1,6 +1,6 @@
 import "@tanstack/react-start/server-only";
 import * as chem from "openchemlib";
-import { dotCrossBrief, skeletalBrief } from "./structure";
+import { dotCrossBrief, ionicBrief, skeletalBrief } from "./structure";
 
 /**
  * A figure brief the writer sent, with a skeletal formula laid out. The
@@ -10,7 +10,12 @@ import { dotCrossBrief, skeletalBrief } from "./structure";
  * it came, and the kind's own `read` then refuses it.
  */
 function laidOut(brief: unknown): unknown {
-  const b = brief as { kind?: unknown; smiles?: unknown; letter?: unknown } | null;
+  const b = brief as {
+    kind?: unknown;
+    smiles?: unknown;
+    letter?: unknown;
+    shells?: unknown;
+  } | null;
   if (!b || typeof b.smiles !== "string") return brief;
   if (b.kind === "skeletal-formula") {
     const laid = skeletalBrief(chem, b.smiles);
@@ -21,12 +26,18 @@ function laidOut(brief: unknown): unknown {
     const laid = dotCrossBrief(chem, b.smiles, b.letter);
     return "brief" in laid ? laid.brief : { kind: b.kind, smiles: b.smiles, letter: b.letter };
   }
+  // An ionic compound: its ions, each element with its charge.
+  if (b.kind === "ionic-bonding") {
+    const laid = ionicBrief(chem, b.smiles, b.shells);
+    return "brief" in laid ? laid.brief : { kind: b.kind, smiles: b.smiles, shells: b.shells };
+  }
   return brief;
 }
 
-/** A field holding a brief, or an array of briefs, as JSON text: the same with each skeletal formula and dot-and-cross diagram laid out. */
+/** A field holding a brief, or an array of briefs, as JSON text: the same with each skeletal formula and dot-and-cross diagram (covalent or ionic) laid out. */
 function laidOutField(raw: unknown): unknown {
-  if (typeof raw !== "string" || !/skeletal-formula|dot-and-cross/.test(raw)) return raw;
+  if (typeof raw !== "string" || !/skeletal-formula|dot-and-cross|ionic-bonding/.test(raw))
+    return raw;
   let value: unknown;
   try {
     value = JSON.parse(raw);

@@ -124,6 +124,44 @@ export function dotCrossBrief(
 }
 
 /**
+ * An ionic compound as an ionic dot-and-cross diagram's brief (figures/kinds/
+ * ionicBonding): each ion's element and charge, as the SMILES lists them. The
+ * kind's own `read` then holds each charge to its element, the charges to
+ * cancel and the ions to the canvas. A bond or a hydrogen means a molecule or
+ * a compound ion (hydroxide), which is not drawn this way.
+ */
+export function ionicBrief(
+  chem: Chem,
+  smiles: string,
+  shells: unknown,
+): { brief: Record<string, unknown> } | { problem: string } {
+  let m: InstanceType<Chem["Molecule"]>;
+  try {
+    m = chem.Molecule.fromSmiles(smiles.trim());
+  } catch {
+    return { problem: "That is not a structure SMILES can spell" };
+  }
+  const count = m.getAllAtoms();
+  if (count < 2) return { problem: "needs at least two ions" };
+  if (m.getAllBonds() > 0)
+    return { problem: "has bonds: write each ion on its own, as [Na+].[Cl-]" };
+  for (let i = 0; i < count; i++)
+    if (m.getImplicitHydrogens(i) > 0)
+      return { problem: "has hydrogen: write each ion on its own, as [Na+].[Cl-]" };
+  return {
+    brief: {
+      kind: "ionic-bonding",
+      smiles: smiles.trim(),
+      ions: Array.from({ length: count }, (_, i) => ({
+        element: m.getAtomLabel(i),
+        charge: m.getAtomCharge(i),
+      })),
+      shells: shells ?? null,
+    },
+  };
+}
+
+/**
  * The molecule laid out as a skeletal formula's brief (figures/kinds/
  * skeletalFormula): each atom but hydrogen with its place, hydrogens and
  * charge, each bond with its order and wedge, each benzene ring. Scaled so a
