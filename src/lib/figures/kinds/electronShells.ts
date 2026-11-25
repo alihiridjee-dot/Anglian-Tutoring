@@ -23,7 +23,7 @@ export type ShellsBrief = {
   letter: string | null;
 };
 
-const ELEMENTS = [
+export const ELEMENTS = [
   "H",
   "He",
   "Li",
@@ -49,7 +49,7 @@ const ELEMENTS = [
  * The charge on each element's simple ion at GCSE; the rest form none here.
  * Hydrogen is drawn only as an atom: H⁺ has no electrons, and H⁻ isn't taught.
  */
-const ION: Record<string, number> = {
+export const ION: Record<string, number> = {
   Li: 1,
   Na: 1,
   K: 1,
@@ -65,7 +65,7 @@ const ION: Record<string, number> = {
   Cl: -1,
 };
 /** Electrons shell by shell, each filled in turn: 2, then 8, then 8, then the rest. */
-const fill = (electrons: number) => {
+export const fill = (electrons: number) => {
   const out: number[] = [];
   for (const room of [2, 8, 8, 2]) {
     if (electrons <= 0) break;
@@ -75,11 +75,12 @@ const fill = (electrons: number) => {
   return out;
 };
 /** A charge as an exam paper writes it at the ion's corner: +, 2+, −, 3−. */
-const chargeText = (c: number) => `${Math.abs(c) > 1 ? Math.abs(c) : ""}${c > 0 ? "+" : "−"}`;
+export const chargeText = (c: number) =>
+  `${Math.abs(c) > 1 ? Math.abs(c) : ""}${c > 0 ? "+" : "−"}`;
 /** A charge in a problem's words: +2, −1. */
-const signed = (c: number) => `${c > 0 ? "+" : "−"}${Math.abs(c)}`;
+export const signed = (c: number) => `${c > 0 ? "+" : "−"}${Math.abs(c)}`;
 const SUPER = "⁰¹²³";
-const ionName = (s: string, c: number) =>
+export const ionName = (s: string, c: number) =>
   `${s}${Math.abs(c) > 1 ? SUPER[Math.abs(c)] : ""}${c > 0 ? "⁺" : "⁻"}`;
 
 const NUCLEUS = 16;
