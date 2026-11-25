@@ -26,6 +26,26 @@ export function useNote(conceptId: string) {
 export type { SpecPointNote };
 
 /**
+ * The course of every spec point linked to a note. A note without the
+ * student's own layer still opens from a point on their course that links to
+ * it (useOwnCourse decides which).
+ */
+export function useNoteCourses(conceptId: string, enabled: boolean) {
+  return useQuery({
+    queryKey: ["note-courses", conceptId],
+    enabled,
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("note_concept_spec_points")
+        .select("spec_points(topics(subject, board, level))")
+        .eq("concept_id", conceptId);
+      if (error) throw error;
+      return (data ?? []).flatMap((l) => (l.spec_points?.topics ? [l.spec_points.topics] : []));
+    },
+  });
+}
+
+/**
  * The published notes behind each of the given spec points, primary note first.
  *
  * A point can sit under more than one note (a broad point is touched by a few),

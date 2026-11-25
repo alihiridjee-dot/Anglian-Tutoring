@@ -27,6 +27,8 @@ export type SetRow = {
   published: boolean;
   /** Absent on the showcase fixtures, which have no header slider to move. */
   subject?: string | null;
+  /** The course of the spec point it tests: a student opens only their own. */
+  spec_points?: { topics: { subject: string; board: string; level: string } | null } | null;
 };
 
 export type Paper = { set: SetRow; questions: Q[] };
@@ -140,6 +142,18 @@ export async function fileAttempt(
  * and throws when it simply couldn't be fetched — those are different screens.
  * The first is final; the second gets a "Try again".
  */
+/** Whether this student has ever filed an attempt on this quiz. */
+export async function hasAttempted(userId: string, setId: string): Promise<boolean> {
+  const { data, error } = await supabase
+    .from("mcq_attempts")
+    .select("id")
+    .eq("user_id", userId)
+    .eq("set_id", setId)
+    .limit(1);
+  if (error) throw error;
+  return (data ?? []).length > 0;
+}
+
 export async function fetchPaper(setId: string): Promise<Paper | null> {
   // Demo student: render a self-contained fixture quiz, never real content.
   if (isDemoStudent()) {
@@ -151,7 +165,9 @@ export async function fetchPaper(setId: string): Promise<Paper | null> {
   const [{ data: s, error: sErr }, { data: qs, error: qErr }] = await Promise.all([
     supabase
       .from("mcq_sets")
-      .select("id, title, description, published, subject")
+      .select(
+        "id, title, description, published, subject, spec_points(topics(subject, board, level))",
+      )
       .eq("id", setId)
       .maybeSingle(),
     supabase
