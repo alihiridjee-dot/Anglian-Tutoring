@@ -113,7 +113,7 @@ describe("welcomeSteps", () => {
     const planner = steps.filter((s) => s.chapter === "Planner");
     // Straight after the dashboard's boxes.
     expect(steps.indexOf(planner[0])).toBe(
-      steps.findLastIndex((s) => s.chapter === "Dashboard") + 1,
+      steps.map((s) => s.chapter).lastIndexOf("Dashboard") + 1,
     );
     expect(planner.map((s) => s.tap?.label)).toEqual(["Full plan", "Exams", "Topics", "Catch-up"]);
     // Only the tab is pressed for real; the tiles' taps change nothing.
