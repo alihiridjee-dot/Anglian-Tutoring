@@ -66,7 +66,7 @@ export function ReturningTopicInfo({
           aria-label={`Why ${title} is returning`}
           aria-expanded={open}
           aria-controls={open ? panelId : undefined}
-          className="btn-soft tap-target inline-flex size-8 shrink-0 items-center justify-center rounded-full"
+          className="chip tap-target p-1.5 shrink-0"
           onClick={() => {
             if (open) setOpen(false);
             else show();
@@ -86,8 +86,8 @@ export function ReturningTopicInfo({
             <p className="font-bold">Returning from an earlier week</p>
             {points.map((point) => (
               <div key={point.specPointId} className="space-y-1.5">
-                <p className="flex flex-wrap items-center gap-1.5">
-                  <b className="numeral">{point.code}</b>
+                <p className="flex flex-wrap items-center gap-1.5 text-xs font-semibold">
+                  <span className="chip numeral">{point.code}</span>
                   Planned for{" "}
                   {plannerDateLabel(weekKeyToDate(point.plannedWeek), {
                     day: "numeric",
@@ -98,7 +98,7 @@ export function ReturningTopicInfo({
                 {onOriginalWeek && (
                   <button
                     type="button"
-                    className="btn-solid rounded-xl px-3 py-1.5 min-h-11 sm:pointer-fine:min-h-9 text-sm inline-flex items-center gap-1.5"
+                    className="btn-premium rounded-lg px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 text-xs inline-flex items-center gap-1.5"
                     onClick={() => {
                       setOpen(false);
 

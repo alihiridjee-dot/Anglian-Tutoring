@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import { CircleAlert } from "lucide-react";
 import { Ring } from "@/components/Shared";
 import { STATUS_STYLE, STRONG_THRESHOLD, type PointStatus } from "@/lib/planner/coverage";
@@ -61,16 +60,6 @@ export type Work = { mark: number } | { text: string } | null;
 export function WorkCell({ work }: { work: Work }) {
   if (!work) return null;
   return "mark" in work ? <Mark value={work.mark} /> : <>{work.text}</>;
-}
-
-/** A status with no number: a dot in the colour of the tint given and the plain word. */
-export function DotWord({ tint, children }: { tint: string; children: ReactNode }) {
-  return (
-    <span className={cn(tint, "inline-flex items-center gap-1.5 whitespace-nowrap")}>
-      <span aria-hidden className="size-2.5 shrink-0 rounded-full bg-[color:var(--tint)]" />
-      {children}
-    </span>
-  );
 }
 
 /**

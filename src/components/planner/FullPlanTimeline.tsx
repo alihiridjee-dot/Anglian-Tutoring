@@ -1,9 +1,18 @@
 import { ReturningTopicInfo } from "./ReturningTopicInfo";
 import { NothingDue } from "./NothingDue";
-import { useEffect, useRef, useState } from "react";
-import { BookOpen, ChevronDown, ChevronLeft, ChevronRight, History, Repeat } from "lucide-react";
+import { useEffect, useId, useRef, useState } from "react";
+import {
+  BookOpen,
+  CalendarDays,
+  CheckCircle2,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  GraduationCap,
+  History,
+  Repeat,
+} from "lucide-react";
 import { EmptyState, SectionHeading } from "@/components/Shared";
-import { DotWord, Tally, TINT_TEXT } from "./workbench/figures";
 import type { RoadmapResult } from "@/lib/planner/roadmap";
 import { isTeachBand, withWeeklyPoints } from "@/lib/planner/pacing";
 import { byTopic } from "@/lib/planner/backlog";
@@ -20,17 +29,7 @@ import {
   weekRangeLabel,
 } from "@/lib/planner/week";
 import { PointRow, BarePointRow } from "./PointRow";
-
-/** A lane of a week: a stripe down its left side in the lane's colour. */
-const LANE = "min-w-0 space-y-3 border-l-4 border-[color:var(--tint)] pl-4";
-/**
- * A lane's name: its icon and word in the lane's colour, mixed darker than
- * `TINT_TEXT` so the amber lane still reads on white.
- */
-const LANE_NAME =
-  "font-display flex items-center gap-2 text-base font-extrabold text-[color:color-mix(in_oklab,var(--tint)_55%,var(--primary-deep))]";
-/** The lanes drawn share the width on a wide screen, however many there are. */
-const LANE_COLS = ["", "lg:grid-cols-1", "lg:grid-cols-2", "lg:grid-cols-3"];
+import { useEntryState } from "@/hooks/useEntryState";
 
 const dateLabel = (key: string) =>
   plannerDateLabel(weekKeyToDate(key), { day: "numeric", month: "long", year: "numeric" });
@@ -57,6 +56,13 @@ export function FullPlanTimeline({
   const viewport = useRef<HTMLDivElement>(null);
   const cards = useRef(new Map<string, HTMLElement>());
   const [expanded, setExpanded] = useState(new Set<string>());
+  // Every week but this one is folded until it is opened (Ali, 25 Nov 2026).
+  // Kept with the visit, so Back from a point finds the weeks as they were left.
+  const [openWeeks, setOpenWeeks] = useEntryState<string[]>(
+    "planner.openWeeks",
+    focusWeek ? [focusWeek] : [],
+  );
+  const bodyId = useId();
   const [selectedMonth, setSelectedMonth] = useState((focusWeek ?? now).slice(0, 7));
   const [pendingJump, setPendingJump] = useState<string | null>(focusWeek ?? null);
   const [destination, setDestination] = useState<string | null>(focusWeek ?? null);
@@ -106,8 +112,14 @@ export function FullPlanTimeline({
       else next.add(key);
       return next;
     });
+  const toggleWeek = (week: string) =>
+    setOpenWeeks((open) =>
+      open.includes(week) ? open.filter((key) => key !== week) : [...open, week],
+    );
   const jump = (week: string) => {
     if (!weeks.includes(week)) return;
+    // A jump lands on the week opened, or it would land on a bare date.
+    setOpenWeeks((open) => (open.includes(week) ? open : [...open, week]));
     setSelectedMonth(week.slice(0, 7));
     setDestination(week);
     setPendingJump(week);
@@ -156,46 +168,31 @@ export function FullPlanTimeline({
   return (
     <section className="space-y-4" aria-label="Full plan timeline">
       <SectionHeading title="Your weekly plan" />
-      {/* The month sits on the page, not in a card: one plain line above it,
-          the month large, and the highlighter stroke redrawn as it changes.
-          The arrows and the month list are the quiet `btn-soft`; going back
-          to this week is the one solid button. */}
-      <div className="tint-primary flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <p className="text-sm font-bold text-[color:color-mix(in_oklab,var(--tint)_75%,var(--primary-deep))]">
-            Your route to exams
-          </p>
-          <h3
-            className="mt-1 text-2xl sm:text-3xl font-extrabold leading-[1.1]"
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            {monthLabel(activeMonth)}
-          </h3>
-          <svg
-            key={activeMonth}
-            aria-hidden
-            className="point-squiggle"
-            viewBox="0 0 100 12"
-            preserveAspectRatio="none"
-          >
-            <path d="M2 8 Q 18 1 34 7 T 66 6 T 98 5" vectorEffect="non-scaling-stroke" />
-          </svg>
-        </div>
-        <div className="flex flex-wrap w-full sm:w-auto items-center gap-2">
-          <button
-            type="button"
-            aria-label="Previous month"
-            disabled={monthIndex === 0}
-            className="btn-soft inline-flex size-11 shrink-0 items-center justify-center rounded-xl disabled:cursor-not-allowed"
-            onClick={() => chooseMonth(months[monthIndex - 1])}
-          >
-            <ChevronLeft className="size-5" strokeWidth={3} aria-hidden />
-          </button>
-          <div className="relative order-first w-full sm:order-none sm:w-auto">
+      <div className="premium-card tint-primary rounded-2xl p-4 sm:p-5">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <p className="eyebrow eyebrow-bare text-xs">Your route to exams</p>
+            <h3
+              className="text-xl sm:text-3xl font-bold mt-2"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              {monthLabel(activeMonth)}
+            </h3>
+          </div>
+          <div className="flex flex-wrap w-full sm:w-auto items-center gap-2">
+            <button
+              type="button"
+              aria-label="Previous month"
+              disabled={monthIndex === 0}
+              className="btn-premium rounded-lg p-3 sm:pointer-fine:p-2 disabled:opacity-40 disabled:cursor-not-allowed"
+              onClick={() => chooseMonth(months[monthIndex - 1])}
+            >
+              <ChevronLeft className="size-5" />
+            </button>
             <select
               aria-label="Go to month"
-              className="btn-soft w-full min-h-11 cursor-pointer appearance-none rounded-xl py-2 pl-4 pr-10 text-sm"
+              className="premium-card rounded-lg px-3 py-2 min-h-11 sm:pointer-fine:min-h-0 text-xs sm:text-sm order-first w-full sm:order-none sm:w-auto"
               value={activeMonth}
               onChange={(event) => chooseMonth(event.target.value)}
             >
@@ -206,30 +203,26 @@ export function FullPlanTimeline({
                 </option>
               ))}
             </select>
-            <ChevronDown
-              className="pointer-events-none absolute right-3.5 top-1/2 size-4 -translate-y-1/2 text-[color:color-mix(in_oklab,var(--tint)_70%,var(--primary-deep))]"
-              strokeWidth={3}
-              aria-hidden
-            />
-          </div>
-          <button
-            type="button"
-            aria-label="Next month"
-            disabled={monthIndex === months.length - 1}
-            className="btn-soft inline-flex size-11 shrink-0 items-center justify-center rounded-xl order-2 ml-auto sm:order-none sm:ml-0 disabled:cursor-not-allowed"
-            onClick={() => chooseMonth(months[monthIndex + 1])}
-          >
-            <ChevronRight className="size-5" strokeWidth={3} aria-hidden />
-          </button>
-          {weeks.includes(now) && (
             <button
               type="button"
-              className="btn-solid inline-flex min-h-11 items-center justify-center gap-2 whitespace-nowrap rounded-xl px-4 py-2 text-sm order-1 flex-1 sm:order-none sm:flex-none"
-              onClick={() => jump(now)}
+              aria-label="Next month"
+              disabled={monthIndex === months.length - 1}
+              className="btn-premium rounded-lg p-3 sm:pointer-fine:p-2 order-2 ml-auto sm:order-none sm:ml-0 disabled:opacity-40 disabled:cursor-not-allowed"
+              onClick={() => chooseMonth(months[monthIndex + 1])}
             >
-              <span aria-hidden>📍</span> This week
+              <ChevronRight className="size-5" />
             </button>
-          )}
+            {weeks.includes(now) && (
+              <button
+                type="button"
+                className="btn-premium rounded-lg px-2 sm:px-3 py-2 min-h-11 sm:pointer-fine:min-h-0 text-xs sm:text-sm inline-flex items-center gap-1.5 whitespace-nowrap justify-center order-1 flex-1 sm:order-none sm:flex-none"
+                onClick={() => jump(now)}
+              >
+                <CalendarDays className="size-4 hidden sm:block" aria-hidden />
+                This week
+              </button>
+            )}
+          </div>
         </div>
       </div>
       <div
@@ -257,7 +250,18 @@ export function FullPlanTimeline({
           // Nothing is planned in a break week, so it shows the break, as
           // This week does, and no empty lanes.
           const onBreak = breakCovering(data.breaks ?? [], week);
-          const lanes = Number(!!core) + Number(catchUp.length > 0) + Number(reviews.length > 0);
+          const isOpen = isNow || openWeeks.includes(week);
+          const title = weekRangeLabel(weekKeyToDate(week));
+          const chips = (isNow || week >= examWeek) && (
+            <span className="flex flex-wrap gap-1.5">
+              {isNow && <span className="chip chip-solid text-xs">This week</span>}
+              {week >= examWeek && (
+                <span className="chip tint-rose text-xs">
+                  <GraduationCap className="size-3.5" aria-hidden /> Exams
+                </span>
+              )}
+            </span>
+          );
           return (
             <article
               key={week}
@@ -270,92 +274,101 @@ export function FullPlanTimeline({
               }}
               className={`premium-card rounded-2xl focus-visible:ring-2 focus-visible:ring-[var(--tint)] outline-none ${isNow ? "tint-primary current-week" : "tint-slate"} ${destination === week && !isNow ? "ring-2 ring-[var(--tint)]" : ""}`}
             >
-              <header className="flex flex-wrap items-center justify-between gap-2 px-4 pt-4 sm:px-5 sm:pt-5">
-                <h3 className="text-lg font-extrabold">{weekRangeLabel(weekKeyToDate(week))}</h3>
-                {(isNow || week >= examWeek) && (
-                  <span className="flex flex-wrap items-center gap-x-4 gap-y-1">
-                    {isNow && (
-                      <b className={`inline-flex items-center gap-1.5 ${TINT_TEXT}`}>
-                        <span aria-hidden>📍</span> This week
-                      </b>
-                    )}
-                    {week >= examWeek && (
-                      <b className={`tint-rose inline-flex items-center gap-1.5 ${TINT_TEXT}`}>
-                        <span aria-hidden>🎓</span> Exams
-                      </b>
-                    )}
-                  </span>
+              <header className={isOpen ? "border-b border-border" : undefined}>
+                {isNow ? (
+                  <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-4 sm:px-5">
+                    <h3 className="text-base font-bold">{title}</h3>
+                    {chips}
+                  </div>
+                ) : (
+                  <h3 className="text-base font-bold">
+                    <button
+                      type="button"
+                      onClick={() => toggleWeek(week)}
+                      aria-expanded={isOpen}
+                      aria-controls={`${bodyId}-${week}`}
+                      className="flex w-full flex-wrap items-center gap-2 px-4 py-4 sm:px-5 text-left"
+                    >
+                      <span className="min-w-0 flex-1">{title}</span>
+                      {chips}
+                      <ChevronDown
+                        className={`size-5 shrink-0 text-[color:var(--tint)] transition-transform ${isOpen ? "" : "-rotate-90"}`}
+                        aria-hidden
+                      />
+                    </button>
+                  </h3>
                 )}
               </header>
-              {onBreak ? (
-                <BreakWeek brk={onBreak} />
-              ) : !lanes ? (
-                // Nothing in any lane: one doodle for the week, not three.
-                <div className="px-4 pb-4 sm:px-5">
-                  {week >= examWeek ? (
-                    <NothingDue mascot="panda" mood="proud" title="Exam time. Good luck!" />
-                  ) : (
-                    <NothingDue mascot="panda" mood="sleepy" title="No new topic this week" />
-                  )}
-                </div>
-              ) : (
-                // Each kind of work is a lane told apart by a stripe, an icon
-                // and its name in one colour. A lane with nothing in it is not
-                // drawn, and the lanes left share the width.
-                <div className={`grid gap-6 p-4 sm:p-5 ${LANE_COLS[lanes]}`}>
-                  {core && (
+              <div id={`${bodyId}-${week}`} hidden={!isOpen}>
+                {onBreak ? (
+                  <BreakWeek brk={onBreak} />
+                ) : (
+                  <div className="grid gap-3 p-3 sm:p-4 lg:grid-cols-3">
                     <section
-                      className={`tint-primary ${LANE}`}
+                      className="min-w-0 premium-card rounded-xl p-4 space-y-3 tint-primary bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
                       aria-label={`New learning for ${week}`}
                     >
-                      <p className={LANE_NAME}>
-                        <BookOpen className="size-5" aria-hidden />
+                      <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
+                        <BookOpen className="size-4" />
                         {isPast ? "Scheduled learning" : "New learning"}
                       </p>
-                      <h4 className="text-base font-bold leading-snug">{core.title}</h4>
-                      {(isCovered || (isPast && owing > 0)) && (
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm font-bold">
-                          {isCovered && <DotWord tint="tint-emerald">Topic covered</DotWord>}
-                          {isPast && owing > 0 && (
-                            <Tally n={owing} word="to catch up" tint="tint-amber" />
+                      {core ? (
+                        <>
+                          <h4 className="text-base font-bold leading-snug">{core.title}</h4>
+                          {(isCovered || (isPast && owing > 0)) && (
+                            <div className="flex flex-wrap gap-1.5">
+                              {isCovered && (
+                                <span className="chip tint-emerald text-xs">
+                                  <CheckCircle2 className="size-3" aria-hidden /> Topic covered
+                                </span>
+                              )}
+                              {isPast && owing > 0 && (
+                                <span className="chip tint-amber text-xs">
+                                  <History className="size-3" aria-hidden /> {owing} to catch up
+                                </span>
+                              )}
+                            </div>
                           )}
-                        </div>
-                      )}
-                      {weekly.length > 0 && (
-                        <ul className="space-y-3">
-                          {weekly.map((point) => (
-                            <PointRow
-                              key={point.id}
-                              point={point}
-                              card
-                              missed={isPast && missed.has(point.id)}
-                            />
-                          ))}
-                        </ul>
+                          {weekly.length > 0 && (
+                            <ul className="space-y-1.5">
+                              {weekly.map((point) => (
+                                <PointRow
+                                  key={point.id}
+                                  point={point}
+                                  card
+                                  missed={isPast && missed.has(point.id)}
+                                />
+                              ))}
+                            </ul>
+                          )}
+                        </>
+                      ) : week >= examWeek ? (
+                        <NothingDue mascot="panda" mood="proud" title="Exam time. Good luck!" />
+                      ) : (
+                        <NothingDue mascot="panda" mood="sleepy" title="No new topic this week" />
                       )}
                     </section>
-                  )}
-                  {catchUp.length > 0 && (
                     <section
-                      className={`tint-amber ${LANE}`}
+                      className="min-w-0 premium-card rounded-xl p-4 space-y-3 tint-amber bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
                       aria-label={`Missed work returning for ${week}`}
                     >
-                      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-                        <p className={LANE_NAME}>
-                          <History className="size-5" aria-hidden />
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
+                          <History className="size-4" />
                           Missed work returning
                         </p>
-                        <span className="text-sm font-bold">
-                          <DotWord tint="tint-amber">
+                        {catchUp.length > 0 && (
+                          <span className="chip text-xs">
                             {isNow &&
                             catchUp.every((group) =>
                               group.points.every((point) => assigned.has(point.specPointId)),
                             )
                               ? "Assigned this week"
                               : "Expected this week"}
-                          </DotWord>
-                        </span>
+                          </span>
+                        )}
                       </div>
+                      {!catchUp.length && <NothingDue mascot="cat" title="Nothing to catch up" />}
                       {catchUp.map((group) => (
                         <div key={group.topicId} className="space-y-3">
                           <ReturningTopicInfo
@@ -363,7 +376,7 @@ export function FullPlanTimeline({
                             points={group.points}
                             onOriginalWeek={jump}
                           />
-                          <ul className="space-y-3">
+                          <ul className="space-y-1.5">
                             {group.points.map((point) => {
                               const assessed = progress
                                 .get(group.topicId)
@@ -383,71 +396,72 @@ export function FullPlanTimeline({
                         </div>
                       ))}
                     </section>
-                  )}
-                  {reviews.length > 0 && (
-                    <section className={`tint-rose ${LANE}`} aria-label={`Revision for ${week}`}>
-                      <p className={LANE_NAME}>
-                        <Repeat className="size-5" aria-hidden />
+                    <section
+                      className="min-w-0 premium-card rounded-xl p-4 space-y-3 tint-rose bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
+                      aria-label={`Revision for ${week}`}
+                    >
+                      <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
+                        <Repeat className="size-4" />
                         Revision
                       </p>
-                      {reviews.map((band) => {
-                        const bandKey = `${band.topicId}|${band.kind}|${band.startWeek}`;
-                        const key = `${bandKey}@${week}`;
-                        const items = progress.get(band.topicId)?.points ?? [];
-                        const byId = new Map(items.map((point) => [point.id, point]));
-                        const rows =
-                          expanded.has(`${key}@all`) || !band.points?.length
-                            ? items.map((point) => ({ point, ref: null }))
-                            : band.points.map((ref) => ({
-                                point: byId.get(ref.specPointId),
-                                ref,
-                              }));
-                        // The points due are shown, not folded away; the
-                        // button swaps them for the whole topic and back.
-                        return (
-                          <div key={key} className="space-y-3">
-                            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                              <h4 className="text-base font-bold leading-snug">{band.title}</h4>
-                              {newFocusKeys.has(bandKey) && (
-                                <span className="text-sm font-bold">
-                                  <DotWord tint="tint-pop">New</DotWord>
-                                </span>
-                              )}
-                            </div>
-                            <ul className="space-y-3">
-                              {rows.map(({ point, ref }) =>
-                                point ? (
-                                  <PointRow key={point.id} point={point} card />
-                                ) : (
-                                  ref && (
-                                    <BarePointRow
-                                      key={ref.specPointId}
-                                      code={ref.code}
-                                      title={ref.title}
-                                      card
-                                    />
-                                  )
-                                ),
-                              )}
-                            </ul>
-                            {!!band.points?.length && (
-                              <button
-                                className="btn-soft inline-flex min-h-11 items-center rounded-xl px-3 text-sm sm:pointer-fine:min-h-9"
-                                type="button"
-                                onClick={() => toggle(`${key}@all`)}
-                              >
-                                {expanded.has(`${key}@all`)
-                                  ? "Show due points"
-                                  : "Show whole topic"}
-                              </button>
-                            )}
-                          </div>
-                        );
-                      })}
+                      {reviews.length ? (
+                        <>
+                          {reviews.map((band) => {
+                            const bandKey = `${band.topicId}|${band.kind}|${band.startWeek}`;
+                            const key = `${bandKey}@${week}`;
+                            const items = progress.get(band.topicId)?.points ?? [];
+                            const byId = new Map(items.map((point) => [point.id, point]));
+                            const rows =
+                              expanded.has(`${key}@all`) || !band.points?.length
+                                ? items.map((point) => ({ point, ref: null }))
+                                : band.points.map((ref) => ({
+                                    point: byId.get(ref.specPointId),
+                                    ref,
+                                  }));
+                            return (
+                              <details key={key} className="text-sm">
+                                <summary className="cursor-pointer text-base font-bold leading-snug py-2.5 -my-2.5 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
+                                  {band.title}{" "}
+                                  {newFocusKeys.has(bandKey) && (
+                                    <span className="chip text-xs">New</span>
+                                  )}
+                                </summary>
+                                <button
+                                  className="btn-premium rounded-lg px-2 py-1 my-2 min-h-11 sm:pointer-fine:min-h-0 text-xs"
+                                  type="button"
+                                  onClick={() => toggle(`${key}@all`)}
+                                >
+                                  {expanded.has(`${key}@all`)
+                                    ? "Show due points"
+                                    : "Show whole topic"}
+                                </button>
+                                <ul className="space-y-1.5">
+                                  {rows.map(({ point, ref }) =>
+                                    point ? (
+                                      <PointRow key={point.id} point={point} card />
+                                    ) : (
+                                      ref && (
+                                        <BarePointRow
+                                          key={ref.specPointId}
+                                          code={ref.code}
+                                          title={ref.title}
+                                          card
+                                        />
+                                      )
+                                    ),
+                                  )}
+                                </ul>
+                              </details>
+                            );
+                          })}
+                        </>
+                      ) : (
+                        <NothingDue mascot="owl" mood="sleepy" title="No revision due" />
+                      )}
                     </section>
-                  )}
-                </div>
-              )}
+                  </div>
+                )}
+              </div>
             </article>
           );
         })}
