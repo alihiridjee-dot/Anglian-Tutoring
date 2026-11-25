@@ -1,6 +1,8 @@
 import { useMemo, useState, type ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
 import { Check, GripVertical, Plus } from "lucide-react";
 import { SegmentedToggle } from "@/components/Shared";
+import type { BoardV, LevelV, SubjectV } from "@/lib/curriculum/taxonomy";
 import { cn } from "@/lib/utils";
 import { CTRL, FIELD, StatusWord, Tally, TINT_TEXT, WorkCell } from "./figures";
 import {
@@ -46,6 +48,45 @@ export function Panel({
   );
 }
 
+/** The course the plan is for: a line's spec point opens on its page in this course. */
+export interface GridCourse {
+  subject: SubjectV;
+  board: BoardV;
+  level: LevelV;
+}
+
+/**
+ * A line's spec point, as a link to its page: the curriculum's own, the one a
+ * student and the search reach it by. Its `::after` covers the whole line, so
+ * the line is the link, marks included; the tick box and the handle sit above
+ * it. It isn't dragged itself, so dragging the line still moves it.
+ */
+function PointLink({
+  row,
+  course,
+  className,
+  children,
+}: {
+  row: GridRow;
+  course: GridCourse;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <Link
+      to="/curriculum"
+      search={{ ...course, point: row.specPointId }}
+      draggable={false}
+      className={cn(
+        "after:absolute after:inset-0 after:z-[1] after:content-[''] group-hover:underline",
+        className,
+      )}
+    >
+      {children}
+    </Link>
+  );
+}
+
 /** A lane's name on its own band, in the lane's colour, over the lines filed under it. */
 function LaneBand({ lane }: { lane: LaneKey }) {
   return (
@@ -65,6 +106,7 @@ function LaneBand({ lane }: { lane: LaneKey }) {
  * its lines, filed by why they are there. There is one way to change it: tick
  * lines (or a whole week), then act on them in the bar that appears. Dragging a
  * line onto another week moves it. Weeks gone by, and breaks, are read only.
+ * Clicking a line opens its spec point's page; Back comes back to the line.
  */
 export function PlanGrid({
   months,
@@ -80,6 +122,7 @@ export function PlanGrid({
   addingWeek,
   addSlot,
   footer,
+  course,
 }: {
   months: GridMonth[];
   /** The month on screen; null for the one holding this week. */
@@ -99,6 +142,8 @@ export function PlanGrid({
   addSlot?: ReactNode;
   /** What else belongs to the plan: what the tutor has removed or skipped. */
   footer?: ReactNode;
+  /** The course, so each line opens its spec point. Left out, the lines are not links. */
+  course?: GridCourse | null;
 }) {
   const thisMonth =
     months.find((m) => m.weeks.some((w) => w.tag === "This week"))?.key ?? months[0]?.key ?? "";
@@ -309,13 +354,15 @@ export function PlanGrid({
                             }}
                             className={cn(
                               "border-border border-t align-middle",
+                              course &&
+                                "group relative hover:bg-[color-mix(in_oklab,var(--tint)_6%,transparent)]",
                               picked.has(row.id) &&
                                 "bg-[color-mix(in_oklab,var(--tint)_12%,transparent)]",
                             )}
                           >
                             <td className="border-l-4 border-l-[var(--tint)]">
                               {!week.locked && (
-                                <span className="flex items-center gap-1">
+                                <span className="relative z-[2] flex items-center gap-1">
                                   <GripVertical className="size-4 cursor-grab" aria-hidden />
                                   <input
                                     type="checkbox"
@@ -327,7 +374,15 @@ export function PlanGrid({
                               )}
                             </td>
                             <td className="font-bold break-words">{row.code}</td>
-                            <td className="font-bold">{row.title}</td>
+                            <td className="font-bold">
+                              {course ? (
+                                <PointLink row={row} course={course}>
+                                  {row.title}
+                                </PointLink>
+                              ) : (
+                                row.title
+                              )}
+                            </td>
                             <td className="max-2xl:hidden">{row.topic}</td>
                             <td className="whitespace-nowrap">
                               <WorkCell work={row.task} />
@@ -370,24 +425,44 @@ export function PlanGrid({
                       .map((row) => (
                         <li
                           key={row.id}
-                          className="border-border border-t border-l-4 border-l-[var(--tint)]"
+                          className={cn(
+                            "border-border border-t border-l-4 border-l-[var(--tint)]",
+                            course && "group relative",
+                          )}
                         >
-                          <label className="flex min-h-11 items-center gap-3 px-3 py-2">
-                            {!week.locked && (
-                              <input
-                                type="checkbox"
-                                className="size-5 shrink-0"
-                                checked={picked.has(row.id)}
-                                onChange={(e) => tick([row.id], e.target.checked)}
-                              />
+                          {/* The line opens its point; the tick box keeps a
+                              finger-sized spot of its own above the link. */}
+                          <div className="flex min-h-11 items-center pr-3">
+                            {week.locked ? (
+                              <span className="w-3 shrink-0" />
+                            ) : (
+                              <label className="relative z-[2] flex min-h-11 w-11 shrink-0 items-center justify-center">
+                                <input
+                                  type="checkbox"
+                                  aria-label={`Tick ${row.code} ${row.title}`}
+                                  className="size-5"
+                                  checked={picked.has(row.id)}
+                                  onChange={(e) => tick([row.id], e.target.checked)}
+                                />
+                              </label>
                             )}
-                            <span className="min-w-0 flex-1">
-                              <b className="block leading-snug">
-                                {row.code} {row.title}
-                              </b>
+                            <span className="min-w-0 flex-1 py-2">
+                              {course ? (
+                                <PointLink
+                                  row={row}
+                                  course={course}
+                                  className="block leading-snug font-bold"
+                                >
+                                  {row.code} {row.title}
+                                </PointLink>
+                              ) : (
+                                <b className="block leading-snug">
+                                  {row.code} {row.title}
+                                </b>
+                              )}
                               <StatusWord status={row.status} missed={row.missed} />
                             </span>
-                          </label>
+                          </div>
                         </li>
                       ))}
                   </ul>
