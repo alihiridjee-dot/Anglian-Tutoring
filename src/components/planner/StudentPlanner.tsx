@@ -214,6 +214,7 @@ export function StudentPlanner({
             <button
               key={key}
               type="button"
+              data-guide={`planner-tab-${key}`}
               onClick={() => setTab(key)}
               aria-current={tab === key ? "page" : undefined}
               className={`inline-flex shrink-0 whitespace-nowrap items-center gap-1.5 px-3.5 h-11 sm:pointer-fine:h-10 text-sm font-medium border-b-2 transition ${

@@ -11,11 +11,15 @@ import {
 } from "lucide-react";
 import { ErrorNote, Meter, Spinner } from "@/components/Shared";
 
-/** The student welcome video, its first frame and its captions, served from `public/videos`. */
+/**
+ * The student welcome video, its first frame and its captions, served from
+ * `public/videos`. Browsers keep those files for hours, so `?v=` changes
+ * whenever the video does (v2: the November 2026 redo, Archie's voice).
+ */
 const VIDEO = {
-  src: "/videos/student-welcome.mp4",
-  poster: "/videos/student-welcome.jpg",
-  captions: "/videos/student-welcome.en.vtt",
+  src: "/videos/student-welcome.mp4?v=2",
+  poster: "/videos/student-welcome.jpg?v=2",
+  captions: "/videos/student-welcome.en.vtt?v=2",
 };
 
 /** How far past the furthest point watched a seek may land before it's put back. */

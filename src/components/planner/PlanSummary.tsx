@@ -34,7 +34,7 @@ export function PlanSummary(p: {
   const caughtUp = p.owed === 0;
   return (
     <div className="mb-4 grid gap-3 md:grid-cols-3">
-      <Card tint="tint-primary" emoji="🗓️" title="Exams">
+      <Card tint="tint-primary" emoji="🗓️" title="Exams" guide="plan-exams">
         <Figure>
           <Dot>{p.examPassed ? <span aria-hidden>🏁</span> : p.weeksToGo}</Dot>
           {p.examPassed ? "Exams have passed" : p.weeksToGo === 1 ? "week to go" : "weeks to go"}
@@ -57,7 +57,7 @@ export function PlanSummary(p: {
         </label>
       </Card>
 
-      <Card tint="tint-emerald" emoji="📚" title="Topics">
+      <Card tint="tint-emerald" emoji="📚" title="Topics" guide="plan-covered">
         <Figure>
           <Ring
             value={p.topics ? (p.covered / p.topics) * 100 : 0}
@@ -81,7 +81,12 @@ export function PlanSummary(p: {
         </Link>
       </Card>
 
-      <Card tint={caughtUp ? "tint-emerald" : "tint-amber"} emoji="🔁" title="Catch-up">
+      <Card
+        tint={caughtUp ? "tint-emerald" : "tint-amber"}
+        emoji="🔁"
+        title="Catch-up"
+        guide="plan-catch-up"
+      >
         <Figure>
           <Dot>{caughtUp ? <span aria-hidden>✅</span> : p.owed}</Dot>
           {caughtUp ? "All caught up" : p.owed === 1 ? "point to catch up" : "points to catch up"}
@@ -108,15 +113,21 @@ function Card({
   tint,
   emoji,
   title,
+  guide,
   children,
 }: {
   tint: string;
   emoji: string;
   title: string;
+  /** What the welcome tour rings this card by. */
+  guide: string;
   children: ReactNode;
 }) {
   return (
-    <section className={cn("premium-card summary-card flex flex-col gap-4 rounded-2xl p-5", tint)}>
+    <section
+      data-guide={guide}
+      className={cn("premium-card summary-card flex flex-col gap-4 rounded-2xl p-5", tint)}
+    >
       <h3 className="flex items-center gap-2 text-lg font-extrabold">
         <span aria-hidden>{emoji}</span> {title}
       </h3>

@@ -95,7 +95,10 @@ export function NewLearningLane({
   // A topic with no points this week is not drawn.
   const shownBand = coreThisWeek.length > 0 ? band : null;
   return (
-    <div className="min-w-0 rounded-xl premium-card tint-primary p-4 bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]">
+    <div
+      data-guide="lane-new"
+      className="min-w-0 rounded-xl premium-card tint-primary p-4 bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
+    >
       <div className="flex items-center gap-1.5 mb-1">
         {covered ? (
           <>
@@ -158,6 +161,7 @@ export function ReturningLane({
   return (
     <section
       aria-label="Missed work returning"
+      data-guide="lane-returning"
       className="min-w-0 rounded-xl premium-card tint-amber p-4 bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
     >
       <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2 mb-3">
@@ -207,7 +211,10 @@ export function RevisionLane({
   row: Row;
 }) {
   return (
-    <div className="min-w-0 rounded-xl premium-card tint-rose p-4 bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]">
+    <div
+      data-guide="lane-revision"
+      className="min-w-0 rounded-xl premium-card tint-rose p-4 bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
+    >
       {focus.length > 0 ? (
         <>
           <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2 mb-3">

@@ -1,5 +1,5 @@
 import { pageGuides, pageIntroductions, type GuideStep } from "@/lib/shell/pageGuides";
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { Fragment, useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import { Confetti } from "@/components/Doodles";
 import { cn } from "@/lib/utils";
@@ -174,6 +174,11 @@ export interface TourStop {
   label: string;
   /** The stop's colour, a `tint-*` class. */
   tint?: string;
+  /**
+   * A step inside the one before it, such as one box on the same page. It
+   * shares that page's stop, and counts as one of the pips under it.
+   */
+  minor?: boolean;
 }
 
 /** How much of a tall section has to show above the docked card. */
@@ -281,7 +286,10 @@ function useTourRing(
   targetKey: string | null,
   card: React.RefObject<HTMLDivElement | null>,
 ) {
+  // What the ring is round, for a step that waits for it to be tapped.
+  const found = useRef<HTMLElement | null>(null);
   useEffect(() => {
+    found.current = null;
     if (!targetKey) return;
     const selectors = targetKey.split("\n").filter(Boolean);
     const began = Date.now();
@@ -298,11 +306,13 @@ function useTourRing(
     };
     let last: { element: HTMLElement; top: number } | null = null;
     let lit: { element: HTMLElement; undo: () => void } | null = null;
+    let show: (() => void) | null = null;
     const later: number[] = [];
     const check = () => {
       if (lit?.element.isConnected) return;
       lit?.undo();
       lit = null;
+      found.current = null;
       const element = search();
       const top = element?.getBoundingClientRect().top ?? 0;
       const still = !!element && last?.element === element && Math.abs(last.top - top) < 1;
@@ -311,42 +321,98 @@ function useTourRing(
       // The ring is the step's colour, which the card already wears.
       const tint = card.current ? getComputedStyle(card.current).getPropertyValue("--tint") : "";
       lit = { element, undo: ring(element, tint.trim()) };
-      const show = () => bringIntoView(element, card.current?.offsetHeight ?? 0);
-      show();
+      found.current = element;
+      // On a phone turned sideways the card docks to one side: the side away
+      // from what it rings (`data-side` in styles.css), so it never sits on it.
+      const box = element.getBoundingClientRect();
+      if (card.current) {
+        if (box.left + box.width / 2 > window.innerWidth / 2) card.current.dataset.side = "left";
+        else delete card.current.dataset.side;
+      }
+      const look = () => bringIntoView(element, card.current?.offsetHeight ?? 0);
+      show = look;
+      look();
       // Again a moment later: arriving on a page resets its scroll, and that
       // can land after this first move and undo it. Each look is a no-op once
       // the element is in the clear.
-      later.push(window.setTimeout(show, 600), window.setTimeout(show, 1400));
+      later.push(window.setTimeout(look, 600), window.setTimeout(look, 1400));
     };
+    // The card grows when a step's words appear after a tap: what it rings is
+    // brought clear of the taller card.
+    const resized = new ResizeObserver(() => show?.());
+    if (card.current) resized.observe(card.current);
     const poll = window.setInterval(check, 150);
     check();
     return () => {
       window.clearInterval(poll);
       later.forEach((timer) => window.clearTimeout(timer));
+      resized.disconnect();
       lit?.undo();
+      found.current = null;
     };
   }, [stepId, targetKey, card]);
+  return found;
 }
 
-/** The tour's progress: a stop per step on a dotted line, drawn in as it goes. */
+/** Whether a click landed on an element, or on the ring round its edge. */
+function within(element: HTMLElement, x: number, y: number) {
+  const box = element.getBoundingClientRect();
+  return (
+    x >= box.left - REACH &&
+    x <= box.right + REACH &&
+    y >= box.top - REACH &&
+    y <= box.bottom + REACH
+  );
+}
+
+/**
+ * The tour's progress: a stop per page, joined by dotted lines that draw in as
+ * it goes. A page with several steps keeps the one stop: while the tour is on
+ * it, the stop wears the step's own emoji and colour, swapping as the steps
+ * go by, with a pip under it for each step.
+ */
 function TourTrail({ stops, current }: { stops: TourStop[]; current: number }) {
+  // Each step's page: the nearest full stop at or before it.
+  const pages: number[] = [];
+  stops.forEach((stop, i) => pages.push(stop.minor && i > 0 ? pages[i - 1] : i));
+  const page = pages[current];
+  const onPage = pages.filter((p) => p === page).length;
+  const reached = pages.slice(0, current + 1).filter((p) => p === page).length;
   return (
     <div
       role="img"
       aria-label={`Step ${current + 1} of ${stops.length}: ${stops[current]?.label ?? ""}`}
       className="tour-trail"
-      style={{ "--progress": stops.length > 1 ? current / (stops.length - 1) : 1 } as CSSProperties}
     >
-      {stops.map((stop, i) => (
-        <span
-          key={i}
-          aria-hidden
-          className={cn("tour-stop", stop.tint)}
-          data-state={i < current ? "done" : i === current ? "now" : "next"}
-        >
-          {stop.emoji ?? i + 1}
-        </span>
-      ))}
+      {stops.map((stop, i) => {
+        if (pages[i] !== i) return null;
+        const now = i === page;
+        const face = now ? (stops[current] ?? stop) : stop;
+        return (
+          <Fragment key={i}>
+            {i > 0 && (
+              <span aria-hidden className="tour-link" data-state={i <= current ? "done" : "next"} />
+            )}
+            <span
+              aria-hidden
+              className={cn("tour-stop", face.tint)}
+              data-state={pages.lastIndexOf(i) < current ? "done" : now ? "now" : "next"}
+            >
+              {/* Keyed by the step, so each new face pops in. */}
+              <span key={now ? `now-${current}` : i} className={now ? "tour-face" : undefined}>
+                {face.emoji ?? i + 1}
+              </span>
+              {now && onPage > 1 && (
+                <span className="tour-pips">
+                  {Array.from({ length: onPage }, (_, k) => (
+                    <span key={k} className="tour-pip" data-done={k < reached || undefined} />
+                  ))}
+                </span>
+              )}
+            </span>
+          </Fragment>
+        );
+      })}
     </div>
   );
 }
@@ -365,6 +431,11 @@ function TourTrail({ stops, current }: { stops: TourStop[]; current: number }) {
  *
  * `targets` are the selectors for the element to ring, tried in order. Left
  * out while the step's page is still on its way.
+ *
+ * With `tap`, the step waits for the ringed thing to be tapped instead of for
+ * Next. The tap is caught by the tour, so it never reaches the page and
+ * changes nothing there. Enter on the prompt does the same, for anyone not
+ * pointing; and if the thing never shows up, Next comes back.
  */
 export function GuideOverlay({
   stepId,
@@ -383,6 +454,7 @@ export function GuideOverlay({
   onNext,
   nextLabel,
   closeLabel = "Skip",
+  tap,
 }: {
   /** Changes with every step, so the same selector on a new page is searched again. */
   stepId: string;
@@ -407,11 +479,29 @@ export function GuideOverlay({
   nextLabel: string;
   /** Null leaves it out, for a last step whose Next already ends the tour. */
   closeLabel?: string | null;
+  /**
+   * Wait for a tap on the ringed thing, named `label` as the page names it.
+   * `onTap` gets what was tapped, or null when it never showed up.
+   */
+  tap?: { label: string; onTap: (element: HTMLElement | null) => void };
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const card = useRef<HTMLDivElement>(null);
   const next = useRef<HTMLButtonElement>(null);
-  useTourRing(stepId, place === "dock" && targets ? targets.join("\n") : null, card);
+  const targetKey = place === "dock" && targets ? targets.join("\n") : null;
+  const lit = useTourRing(stepId, targetKey, card);
+
+  // A step waiting for a tap must not strand anyone when what it rings never
+  // shows up (a week with nothing in it, say): Next comes back instead.
+  const [stuck, setStuck] = useState<string | null>(null);
+  useEffect(() => {
+    if (!tap || !targetKey) return;
+    const timer = window.setTimeout(() => {
+      if (!lit.current) setStuck(stepId);
+    }, SEARCH_MS + 1000);
+    return () => window.clearTimeout(timer);
+  }, [stepId, targetKey, lit, tap]);
+  const waiting = !!tap && stuck !== stepId;
 
   useEffect(() => {
     const modal = dialog.current;
@@ -420,6 +510,22 @@ export function GuideOverlay({
     next.current?.focus({ preventScroll: true });
     return () => modal?.close();
   }, []);
+
+  // A tap swaps the prompt for Next: focus goes with it, so Enter carries on.
+  useEffect(() => {
+    if (!card.current?.contains(document.activeElement))
+      next.current?.focus({ preventScroll: true });
+  }, [stepId, waiting]);
+
+  // The ring breathes faster while it's waiting to be tapped.
+  useEffect(() => {
+    if (!waiting) return;
+    const root = document.documentElement;
+    root.dataset.tourWait = "";
+    return () => {
+      delete root.dataset.tourWait;
+    };
+  }, [waiting]);
 
   // While the card is docked, the page gets room at its foot as tall as the
   // card (`html[data-tour]` in styles.css), so whatever a step is about can be
@@ -459,7 +565,11 @@ export function GuideOverlay({
         onClose();
       }}
       onClick={(event) => {
-        if (!card.current?.contains(event.target as Node)) nudge();
+        if (card.current?.contains(event.target as Node)) return;
+        const element = lit.current;
+        if (waiting && element && within(element, event.clientX, event.clientY)) {
+          tap.onTap(element);
+        } else nudge();
       }}
       className="tour fixed inset-0 m-0 size-auto max-h-none max-w-none overflow-hidden border-0 bg-transparent p-0 text-foreground backdrop:bg-transparent"
     >
@@ -513,15 +623,33 @@ export function GuideOverlay({
                 Back
               </button>
             )}
-            <button
-              ref={next}
-              onClick={onNext}
-              onAnimationEnd={(event) => event.currentTarget.classList.remove("tour-nudge")}
-              className="btn-solid inline-flex min-h-11 items-center gap-2 rounded-xl px-4 py-2 text-sm"
-            >
-              {nextLabel}
-              <ArrowRight className="size-4" aria-hidden />
-            </button>
+            {waiting ? (
+              // Where Next would be, saying what to tap instead. Pressing it
+              // with Enter (or a screen reader) counts as the tap; a click on
+              // it with a pointer only nudges, so the tap goes on the page.
+              <button
+                ref={next}
+                type="button"
+                onClick={(event) => (event.detail === 0 ? tap.onTap(lit.current) : nudge())}
+                onAnimationEnd={(event) => event.currentTarget.classList.remove("tour-nudge")}
+                className="inline-flex min-h-11 items-center gap-2 rounded-xl px-2 text-base font-extrabold text-[color:var(--tint)]"
+              >
+                <span aria-hidden className="tour-tap-hand">
+                  👆
+                </span>
+                Tap {tap.label}
+              </button>
+            ) : (
+              <button
+                ref={next}
+                onClick={tap ? () => tap.onTap(null) : onNext}
+                onAnimationEnd={(event) => event.currentTarget.classList.remove("tour-nudge")}
+                className="btn-solid inline-flex min-h-11 items-center gap-2 rounded-xl px-4 py-2 text-sm"
+              >
+                {tap ? "Next" : nextLabel}
+                <ArrowRight className="size-4" aria-hidden />
+              </button>
+            )}
           </div>
         </div>
       </div>
