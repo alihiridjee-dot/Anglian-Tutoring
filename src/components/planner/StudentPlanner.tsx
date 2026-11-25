@@ -2,25 +2,21 @@ import { Link, useRouter } from "@tanstack/react-router";
 import { WeekBreakdown } from "./WeekBreakdown";
 import { FullPlanTimeline } from "./FullPlanTimeline";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
-import { EmptyState, ErrorNote, Meter } from "@/components/Shared";
+import { EmptyState, ErrorNote } from "@/components/Shared";
 import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
 import { Spinner } from "@/components/Shared";
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import {
-  AlertTriangle,
   CalendarDays,
-  CheckCircle2,
   ChevronLeft,
   ChevronRight,
   CircleDot,
-  History,
   Map as MapIcon,
   Repeat,
   Scale,
   SlidersHorizontal,
   Undo2,
-  type LucideIcon,
 } from "lucide-react";
 import { isTeachBand, weeksToExam } from "@/lib/planner/pacing";
 import { reviewLock } from "@/lib/planner/reviewLock";
@@ -45,7 +41,7 @@ import { PastWeek } from "./PastWeek";
 import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
-import { TINT_TEXT } from "./workbench/figures";
+import { PlanSummary } from "./PlanSummary";
 import { describeError } from "@/lib/platform/errors";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { useNow } from "@/hooks/useNow";
@@ -544,17 +540,6 @@ function ThisWeekTab({
 /* Tab 2 — Full plan                                                   */
 /* ------------------------------------------------------------------ */
 
-function SummaryLabel({ icon: Icon, children }: { icon: LucideIcon; children: ReactNode }) {
-  return (
-    <p className="eyebrow eyebrow-bare flex items-center gap-2">
-      <span className="icon-tile size-8 shrink-0">
-        <Icon className="size-4" aria-hidden />
-      </span>
-      {children}
-    </p>
-  );
-}
-
 function FullPlanTab({
   data,
   studentId,
@@ -675,97 +660,44 @@ function FullPlanTab({
 
   return (
     <div>
-      {/* The course at a glance. The exam date leads because every week below is
-          paced from it; each tile carries the one action that changes its number. */}
-      <div className="grid gap-3 md:grid-cols-3 mb-4">
-        <div className="premium-card tint-primary rounded-2xl p-4 flex flex-col gap-3">
-          <SummaryLabel icon={CalendarDays}>Exams</SummaryLabel>
-          <p className="numeral text-3xl text-[color:var(--tint)]">
-            {weeksToGo}{" "}
-            <span className="text-base">{weeksToGo === 1 ? "week" : "weeks"} to go</span>
-          </p>
-          {data.examDate <= nowKey && (
-            <span className="chip tint-rose text-xs self-start" role="status">
-              <AlertTriangle className="size-3.5" aria-hidden /> Exams have passed — pick your next
-              date
-            </span>
-          )}
-          {dateSaved && !savingDate && (
-            <b
-              role="status"
-              className={`tint-emerald inline-flex items-center gap-1.5 text-sm ${TINT_TEXT}`}
-            >
-              <CheckCircle2 className="size-4" aria-hidden /> Exam date saved
-            </b>
-          )}
-          <label className="mt-auto">
-            <span className="sr-only">Exam date</span>
-            <input
-              ref={examDateBox}
-              type="date"
-              defaultValue={data.examDate}
-              min={minExamDate}
-              max={maxExamDate}
-              disabled={savingDate}
-              onFocus={() => setDateSaved(false)}
-              onPointerDown={(e) => {
-                pickingDate.current = e.pointerType === "mouse";
-              }}
-              onKeyDown={(e) => {
-                pickingDate.current = false;
-                if (e.key === "Enter") e.currentTarget.blur();
-              }}
-              onChange={(e) => {
-                if (pickingDate.current) commitExamDate(e.currentTarget);
-              }}
-              onBlur={(e) => {
-                pickingDate.current = false;
-                commitExamDate(e.currentTarget);
-              }}
-              className="btn-soft h-11 sm:pointer-fine:h-9 w-full rounded-xl px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--tint)] disabled:opacity-50"
-            />
-          </label>
-        </div>
-
-        <div className="premium-card tint-emerald rounded-2xl p-4 flex flex-col gap-3">
-          <SummaryLabel icon={CheckCircle2}>Topics covered</SummaryLabel>
-          <p className="numeral text-3xl text-[color:var(--tint)]">
-            {doneCount} <span className="text-base">of {topicIds.size}</span>
-          </p>
-          <Meter value={topicIds.size ? (doneCount / topicIds.size) * 100 : 0} size="sm" />
-          <Link
-            to="/planner-order"
-            search={{ subject }}
-            className="btn-soft mt-auto h-11 sm:pointer-fine:h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
-          >
-            <SlidersHorizontal className="size-4" aria-hidden /> Reorder topics
-          </Link>
-        </div>
-
-        <div className="premium-card tint-amber rounded-2xl p-4 flex flex-col gap-3">
-          <SummaryLabel icon={History}>To catch up</SummaryLabel>
-          <p className="numeral text-3xl text-[color:var(--tint)]">
-            {owed} <span className="text-base">{owed === 1 ? "point" : "points"}</span>
-          </p>
-          {held > 0 && (
-            <span className="chip tint-rose text-xs self-start" role="status">
-              <AlertTriangle className="size-3.5" aria-hidden /> {held} won’t fit before exams
-            </span>
-          )}
-          {/* Missed work comes back on its own, a little each week. Students
-              don't add to their week (Ali, 7 Oct): a tutor can, from their
-              Full plan. */}
-          {paused ? (
-            <span className="chip tint-amber text-xs self-start mt-auto">
-              Paused — catch-up waits for your plan
-            </span>
-          ) : owed > 0 ? null : (
-            <span className="chip tint-emerald text-xs self-start mt-auto">
-              <CheckCircle2 className="size-3.5" aria-hidden /> All caught up
-            </span>
-          )}
-        </div>
-      </div>
+      {/* The course at a glance: Exams, Topics and Catch-up (PlanSummary). */}
+      <PlanSummary
+        weeksToGo={weeksToGo}
+        examPassed={data.examDate <= nowKey}
+        dateSaved={dateSaved && !savingDate}
+        dateBox={(className) => (
+          <input
+            ref={examDateBox}
+            type="date"
+            defaultValue={data.examDate}
+            min={minExamDate}
+            max={maxExamDate}
+            disabled={savingDate}
+            onFocus={() => setDateSaved(false)}
+            onPointerDown={(e) => {
+              pickingDate.current = e.pointerType === "mouse";
+            }}
+            onKeyDown={(e) => {
+              pickingDate.current = false;
+              if (e.key === "Enter") e.currentTarget.blur();
+            }}
+            onChange={(e) => {
+              if (pickingDate.current) commitExamDate(e.currentTarget);
+            }}
+            onBlur={(e) => {
+              pickingDate.current = false;
+              commitExamDate(e.currentTarget);
+            }}
+            className={className}
+          />
+        )}
+        covered={doneCount}
+        topics={topicIds.size}
+        owed={owed}
+        held={held}
+        paused={paused}
+        subject={subject}
+      />
 
       {/* Your new schedule — what the latest ratings changed in the focus lane. */}
       {newFocusKeys.size > 0 && (

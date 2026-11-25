@@ -5821,3 +5821,42 @@ html[data-tour="dock"] [data-guide="page-content"] {
     animation: none;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   THE PLAN SUMMARY — the three cards above the Full plan (PlanSummary)
+   Weeks to go and points to catch up each sit inside a round solid dot (topics
+   covered inside the kit's Ring), so no figure is loose beside its word. The
+   cards rise in, the dots pop, and the Reorder button's arrows hop.
+   ════════════════════════════════════════════════════════════════════════════ */
+.summary-card {
+  animation: point-rise 0.35s cubic-bezier(0.2, 1.3, 0.4, 1);
+}
+.summary-dot {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 999px;
+  font-size: 1.9rem;
+  line-height: 1;
+  /* Mixed toward navy like `.btn-solid`: amber at full strength cannot carry
+     white figures. */
+  color: var(--primary-foreground);
+  background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+  box-shadow: 0 4px 0 0 color-mix(in oklab, var(--tint) 40%, var(--primary-deep));
+}
+.summary-emoji {
+  display: inline-block;
+}
+@media (hover: hover) {
+  .summary-go:hover .summary-emoji {
+    animation: hop 0.5s ease-in-out;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .summary-card,
+  .summary-go:hover .summary-emoji {
+    animation: none;
+  }
+}
