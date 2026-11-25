@@ -104,23 +104,34 @@ function ElementCard({ sheet, element }: { sheet: PeriodicSheet; element: Elemen
   const mass = element ? sheet.masses[element.z] : null;
   return (
     <div className="flex items-center gap-3 rounded-xl border-[1.5px] border-[color:color-mix(in_oklab,var(--tint)_24%,var(--edge))] bg-[color:color-mix(in_oklab,var(--tint)_5%,var(--card))] p-3">
-      <span className="icon-tile font-display size-14 shrink-0 text-2xl font-extrabold">
-        {element ? element.symbol : "X"}
+      <span className="icon-tile font-display h-14 min-w-14 shrink-0 gap-1 px-2 text-2xl font-extrabold">
+        {element ? (
+          <>
+            {/* Nuclide notation: mass number on top, atomic number below, left of the symbol. */}
+            <span className="numeral flex flex-col items-end gap-0.5 text-[0.7rem]" aria-hidden>
+              <span>{mass ?? ""}</span>
+              <span>{element.z}</span>
+            </span>
+            {element.symbol}
+          </>
+        ) : (
+          "X"
+        )}
       </span>
       {element ? (
         <div className="min-w-0">
           <p className="font-display text-lg leading-tight font-extrabold capitalize">
             {element.name}
           </p>
-          <div className="mt-1.5 flex flex-wrap gap-1.5">
-            <span className="chip">
-              Atomic number <span className="numeral">{element.z}</span>
-            </span>
+          <div className="mt-1.5 flex flex-col items-start gap-1.5">
             {mass && (
               <span className="chip">
                 Relative atomic mass <span className="numeral">{mass}</span>
               </span>
             )}
+            <span className="chip">
+              Atomic number <span className="numeral">{element.z}</span>
+            </span>
           </div>
         </div>
       ) : (
