@@ -12,7 +12,7 @@ import {
   readBrief,
 } from "@/lib/figures/figureBrief";
 
-export const FRAMEWORK_VERSION = "exam-generation-v5";
+export const FRAMEWORK_VERSION = "exam-generation-v6";
 export type GenerationFormat = "written" | "mcq";
 export type Grounding = "exact" | "topic" | "style";
 
@@ -252,6 +252,40 @@ In the examples, ⟦skeletal: …⟧ or ⟦displayed: …⟧ stands for a struct
  */
 export const OPTION_CHECKS_GUIDE = `Before the key, work every option out in option_checks: one entry per option, in the options' order, each saying whether that option correctly answers the question as written (correct) and the working or reason in a few words (why). Judge each option on its own, by working it out, not by which one you meant to be right. Exactly one entry is correct, and correct_index is its position.`;
 
+/**
+ * A shared set is cut to a student's level, always from the start
+ * (src/lib/practice/questionLoad.ts): a Reduced student is set its first
+ * `reduced` questions, a Normal one its first `normal`, an Enhanced one all of
+ * it. So the order matters, and the writer is told what each cut must hold.
+ */
+export type SetLengths = { reduced: number; normal: number };
+
+/**
+ * The order of a set that students see at more than one length. Questions 1
+ * to `normal` are the set every student had before the levels, with its
+ * hardest question last. Any after that (written once Enhanced is let
+ * through) are extras, not a longer climb. A set no longer than its shortest
+ * cut needs no order, and gets none.
+ */
+export function lengthsGuide(count: number, format: GenerationFormat, lengths: SetLengths) {
+  const { reduced, normal } = lengths;
+  const item = format === "written" ? "question" : "MCQ";
+  const set = format === "written" ? "task" : "quiz";
+  if (count <= reduced) return null;
+  if (count <= normal)
+    return `ORDER OF THE SET
+Students are set this ${set} at one of two lengths, always from the start: ${item}s 1 to ${reduced}, or all ${count}. Order the set for that.
+- ${item}s 1 to ${reduced} already cover the core of the point, since some students see nothing else. Put the outcomes a student most needs first.
+- The set still progresses in demand, with the most demanding ${item} last.
+Every ${item} stands alone, so the set reads complete at each length.`;
+  return `ORDER OF THE SET
+Students are set this ${set} at one of three lengths, always from the start: ${item}s 1 to ${reduced}, ${item}s 1 to ${normal}, or all ${count}. Order the set for that.
+- ${item}s 1 to ${normal} are a complete ${set} on their own: between them they cover the learning outcomes and progress in demand, with the most demanding ${item} at number ${normal}.
+- ${item}s 1 to ${reduced} already cover the core of the point, since some students see nothing else. Put the outcomes a student most needs first.
+- ${item}s ${normal + 1} to ${count} are extra exam-style practice for students who want more: fresh contexts on outcomes already covered, at the demand of ${item}s ${normal - 1} and ${normal}. They are not harder than ${item} ${normal} and add no new content.
+Every ${item} stands alone, so the set reads complete at each length.`;
+}
+
 const block = (name: string, value: unknown) =>
   `<${name}>\n${JSON.stringify(value).replace(/</g, "\\u003c")}\n</${name}>`;
 
@@ -266,11 +300,14 @@ export function buildGenerationPrompt(
   format: GenerationFormat,
   notes = "",
   figures = false,
+  /** The cuts students see, when the set is a point's shared quiz or task. */
+  lengths?: SetLengths,
 ) {
   if (!Number.isInteger(count) || count < 1 || count > 20)
     throw new Error("Invalid question count");
   if (!context.point.title.trim()) throw new Error("Curriculum title is missing");
   const examples = selectExamples(context, undefined, undefined, format, undefined, figures);
+  const order = lengths ? lengthsGuide(count, format, lengths) : null;
   const grounding = examples.length
     ? [...new Set(examples.map((e) => e.grounding))].join("+")
     : "curriculum_only";
@@ -286,6 +323,7 @@ export function buildGenerationPrompt(
       format === "written"
         ? `Write exactly ${count} written questions. answer_type is short, long or numeric. marks is an integer from 1 to 30, justified by the rubric. mark_scheme must contain the answer and all credit rules.`
         : `Write exactly ${count} MCQs. Each has exactly four distinct, plausible options and one correct answer. ${OPTION_CHECKS_GUIDE} correct_index is a zero-based integer from 0 to 3. Vary its position across the set. explanation must identify why the keyed answer is correct.`,
+      ...(order ? [order] : []),
       ...(format === "written" ? [MARK_SCHEME_LAYOUT] : []),
       ...(figures ? [FIGURE_GUIDE] : []),
       ...(figures && format === "mcq" ? [OPTION_FIGURES_GUIDE] : []),

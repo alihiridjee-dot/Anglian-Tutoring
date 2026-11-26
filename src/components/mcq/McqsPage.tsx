@@ -8,6 +8,8 @@ import { CalendarCheck } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ, DEMO_MCQ_ATTEMPTS, DEMO_MCQ_SETS } from "@/lib/demo/studentDemo";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useQuestionLoad } from "@/hooks/data/useQuestionLoad";
+import { shownCount } from "@/lib/practice/questionLoad";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { useEntryState } from "@/hooks/useEntryState";
 import { McqManager } from "@/components/tutor/McqManager";
@@ -35,6 +37,8 @@ type QuizSet = {
   /** The course topic its spec point sits in, which Marked files it under. */
   topic: TopicRef | null;
   questionCount: number;
+  /** A point's shared quiz, which is cut to the student's level. */
+  generated?: boolean;
 };
 
 /** The student's best attempt at a set, or nothing if they've never opened it. */
@@ -95,6 +99,8 @@ export function MCQs() {
 function StudentMCQs() {
   const { loading: enrolmentsLoading } = useEnrolments();
   const { subject } = useActiveSubject();
+  const { userId } = useRoles();
+  const level = useQuestionLoad(userId);
   const due = useDueThisWeek(subject);
   const [sets, setSets] = useState<QuizSet[]>([]);
   const [attempts, setAttempts] = useState<Record<string, Attempt>>({});
@@ -194,7 +200,7 @@ function StudentMCQs() {
           supabase
             .from("mcq_sets")
             .select(
-              "id, title, published, created_at, spec_point_id, subject, spec_points(code, topics(id, title, sort_order, subject))",
+              "id, title, published, created_at, spec_point_id, subject, origin, spec_points(code, topics(id, title, sort_order, subject))",
             )
             .in("id", batch),
         );
@@ -223,6 +229,7 @@ function StudentMCQs() {
               }
             : null,
           questionCount: 0,
+          generated: r.origin === "generated",
         }));
 
       // How long each quiz is, counted from `set_id` — a column a student is
@@ -283,7 +290,13 @@ function StudentMCQs() {
   // is. Marked: every quiz taken, filed under its topic below — a revision quiz
   // due again keeps its score there too.
   const { dueByLane, marked } = useMemo(() => {
-    const mine = sets.filter((s) => s.subject === subject);
+    // "8 questions" on a card is what this student is set: a shared quiz
+    // is cut to their level.
+    const mine = sets
+      .filter((s) => s.subject === subject)
+      .map((s) =>
+        s.generated ? { ...s, questionCount: shownCount("quiz", s.questionCount, level.load) } : s,
+      );
     const dueSets: Array<{ set: QuizSet; slot: DueSlot }> = [];
     const marked: QuizSet[] = [];
     for (const s of mine) {
@@ -300,7 +313,7 @@ function StudentMCQs() {
       sets: dueSets.filter((d) => d.slot.lane === lane).map((d) => d.set),
     })).filter((section) => section.sets.length > 0);
     return { dueByLane, marked };
-  }, [sets, attempts, subject, due.slots, due.weekStart]);
+  }, [sets, attempts, subject, due.slots, due.weekStart, level.load]);
 
   const dueCount = dueByLane.reduce((n, section) => n + section.sets.length, 0);
   const pageLoading = loading || enrolmentsLoading || due.loading || loadedKey !== dueKey;
@@ -513,6 +526,7 @@ type SetQueryRow = {
   created_at: string;
   spec_point_id: string | null;
   subject: string | null;
+  origin: string;
   spec_points: {
     code: string | null;
     topics: { id: string; title: string; sort_order: number; subject: string } | null;

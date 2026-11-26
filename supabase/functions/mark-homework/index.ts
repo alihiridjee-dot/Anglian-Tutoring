@@ -39,6 +39,7 @@ import {
   RESPONSE_SCHEMA,
   SYSTEM,
   buildPrompt,
+  paperAsFiled,
   stageMarks,
   type Answer,
   type Question,
@@ -154,7 +155,7 @@ Deno.serve(async (req) => {
 
     const { data: submission, error: subError } = await db
       .from("homework_submissions")
-      .select("id, resource_id, student_id, graded_at, ai_marked_at, submitted_at")
+      .select("id, resource_id, student_id, graded_at, ai_marked_at, submitted_at, shown_count")
       .eq("id", submissionId)
       .single();
     if (subError || !submission) throw new HttpError(404, "No such submission");
@@ -217,17 +218,23 @@ Deno.serve(async (req) => {
     }
     const resource = resourceRes.data;
 
-    const questionRows = (questionsRes.data ?? []) as Question[];
+    const answerMap = new Map<string, string | null>(
+      ((answersRes.data ?? []) as Answer[]).map((a) => [a.question_id, a.answer_text]),
+    );
+
+    // Only the questions this student was set: `stageMarks` then checks the
+    // marker marked every one of those, and no other.
+    const questionRows = paperAsFiled(
+      (questionsRes.data ?? []) as Question[],
+      answerMap,
+      submission.shown_count,
+    );
     if (questionRows.length === 0) {
       // A brief with no questions has nothing to mark. Leaving it unstaged puts
       // it in the tutor's queue, which is the right place for it.
       await release(submissionId);
       return json({ marked: false, reason: "no_questions" });
     }
-
-    const answerMap = new Map<string, string | null>(
-      ((answersRes.data ?? []) as Answer[]).map((a) => [a.question_id, a.answer_text]),
-    );
 
     const result = await mark(
       resource?.title ?? "Task",

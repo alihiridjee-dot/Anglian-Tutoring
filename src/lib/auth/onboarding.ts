@@ -8,7 +8,7 @@ import { dbError } from "@/lib/platform/errors";
  * Profile setup — the steps between verifying an email and reaching payment.
  *
  * Each step commits to the database as the student leaves it, rather than
- * accumulating in memory and saving at the end. Setup is a five-page flow with
+ * accumulating in memory and saving at the end. Setup is a six-page flow with
  * a payment wall at the far side, so abandonment part-way through is normal;
  * committing per step means coming back tomorrow resumes rather than restarts.
  *
@@ -21,6 +21,7 @@ export const ONBOARDING_STEPS = [
   { path: "/onboarding/board", label: "Exam board" },
   { path: "/onboarding/subjects", label: "Subjects" },
   { path: "/onboarding/learning", label: "How you learn" },
+  { path: "/onboarding/questions", label: "Questions" },
   { path: "/onboarding/school", label: "School & grades" },
   { path: "/onboarding/plan", label: "Choose a plan" },
 ] as const;

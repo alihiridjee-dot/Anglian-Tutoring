@@ -1,7 +1,9 @@
+import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { QUESTION_COLUMNS, withMarkSchemes } from "@/lib/homework/markSchemes";
 import { DEMO_ANSWERS, DEMO_QUESTIONS, isDemoStudent } from "@/lib/demo/studentDemo";
+import { firstQuestions } from "@/lib/practice/questionLoad";
 
 /**
  * The built-in questions attached to homework briefs, and the answers a student
@@ -52,32 +54,58 @@ export type HomeworkSummary = { count: number; marks: number };
  * the entire question bank for their subjects to render a few counts.
  *
  * The full text is fetched on the sheet's own page, for one brief at a time.
+ *
+ * `caps` cuts a brief to its first questions by position: what a student on a
+ * level is set of a shared task, or the count their work was filed with. A
+ * brief with no cap (a tutor's own, or anyone's on the tutor's screens) counts
+ * every question.
  */
-export function useHomeworkSummaries(resourceIds: string[], enabled = true) {
+export function useHomeworkSummaries(
+  resourceIds: string[],
+  enabled = true,
+  caps: Record<string, number | null | undefined> = NO_CAPS,
+) {
   const ids = [...resourceIds].sort();
-  return useQuery({
+  const query = useQuery({
     queryKey: ["homework", "summaries", ids],
-    queryFn: async (): Promise<Record<string, HomeworkSummary>> => {
-      if (isDemoStudent()) return summariseDemo(ids);
+    /** Each brief's question marks, in question order. */
+    queryFn: async (): Promise<Record<string, number[]>> => {
+      if (isDemoStudent()) return demoMarks(ids);
       if (ids.length === 0) return {};
 
       const { data, error } = await supabase
         .from("homework_questions")
-        .select("resource_id, marks")
+        .select("id, resource_id, position, marks")
         .in("resource_id", ids);
       if (error) throw error;
 
-      const map: Record<string, HomeworkSummary> = {};
-      for (const q of data ?? []) {
-        const entry = (map[q.resource_id] ??= { count: 0, marks: 0 });
-        entry.count += 1;
-        entry.marks += q.marks;
-      }
-      return map;
+      const byBrief: Record<string, { id: string; position: number; marks: number }[]> = {};
+      for (const q of data ?? []) (byBrief[q.resource_id] ??= []).push(q);
+      return Object.fromEntries(
+        Object.entries(byBrief).map(([id, questions]) => [
+          id,
+          // Every question, in the order a cut takes them.
+          firstQuestions(questions, questions.length).map((q) => q.marks),
+        ]),
+      );
     },
     enabled: enabled && ids.length > 0,
   });
+  const marks = query.data;
+  const data = useMemo(() => {
+    if (!marks) return undefined;
+    const map: Record<string, HomeworkSummary> = {};
+    for (const [id, all] of Object.entries(marks)) {
+      const cap = caps[id];
+      const set = cap == null ? all : all.slice(0, Math.max(0, cap));
+      map[id] = { count: set.length, marks: set.reduce((sum, m) => sum + m, 0) };
+    }
+    return map;
+  }, [marks, caps]);
+  return { ...query, data };
 }
+
+const NO_CAPS: Record<string, number | null | undefined> = {};
 
 /** Questions for the given briefs, keyed by resource id and already in order. */
 export function useHomeworkQuestions(resourceIds: string[], enabled = true) {
@@ -144,16 +172,12 @@ export function useHomeworkAnswers(submissionIds: string[], enabled = true) {
   });
 }
 
-/** Counts and mark totals straight off the demo fixtures. */
-function summariseDemo(ids: string[]): Record<string, HomeworkSummary> {
-  const map: Record<string, HomeworkSummary> = {};
+/** Each demo brief's question marks, straight off the fixtures. */
+function demoMarks(ids: string[]): Record<string, number[]> {
+  const map: Record<string, number[]> = {};
   for (const id of ids) {
     const questions = DEMO_QUESTIONS[id];
-    if (!questions) continue;
-    map[id] = {
-      count: questions.length,
-      marks: questions.reduce((sum, q) => sum + q.marks, 0),
-    };
+    if (questions) map[id] = questions.map((q) => q.marks);
   }
   return map;
 }

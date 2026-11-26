@@ -61,7 +61,7 @@ function LearningStep() {
       );
       if (error) throw dbError(error);
 
-      navigate({ to: "/onboarding/school" });
+      navigate({ to: "/onboarding/questions" });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't save your answers — try again.");
     } finally {
@@ -74,7 +74,7 @@ function LearningStep() {
     subtitle:
       "Be honest — there's no wrong answer, and it only helps your tutor pitch lessons right.",
     onBack: () => navigate({ to: "/onboarding/subjects" }),
-    onSkip: () => navigate({ to: "/onboarding/school" }),
+    onSkip: () => navigate({ to: "/onboarding/questions" }),
     onContinue: handleContinue,
     saving,
   };

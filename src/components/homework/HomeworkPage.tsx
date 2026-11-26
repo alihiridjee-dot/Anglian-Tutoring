@@ -5,6 +5,8 @@ import { Chip, EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/compone
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useQuestionLoad } from "@/hooks/data/useQuestionLoad";
+import { QUESTION_CAPS } from "@/lib/practice/questionLoad";
 import {
   useHomework,
   useHomeworkSubmissions,
@@ -198,9 +200,30 @@ function StudentHomework({
 
   // Only the sheets on screen need their question counts, but counting
   // everything at once is still one round trip rather than one per card.
+  // Cut to what this student is set: work handed in keeps the count it was
+  // filed with, and a shared task not yet handed in takes their level's. The
+  // showcase is left whole.
+  const questionLoad = useQuestionLoad(userId);
+  const caps = useMemo(
+    () =>
+      Object.fromEntries(
+        items.map(({ hw, submission }) => [
+          hw.id,
+          isDemoStudent()
+            ? null
+            : submission
+              ? (submission.shown_count ?? null)
+              : hw.origin === "generated"
+                ? QUESTION_CAPS[questionLoad.load].task
+                : null,
+        ]),
+      ),
+    [items, questionLoad.load],
+  );
   const { data: summaries = {} } = useHomeworkSummaries(
     items.map((i) => i.hw.id),
     items.length > 0,
+    caps,
   );
 
   // Every bucket, including the empty ones: the tab row keeps its shape as work

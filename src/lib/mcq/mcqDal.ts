@@ -27,6 +27,8 @@ export type SetRow = {
   published: boolean;
   /** Absent on the showcase fixtures, which have no header slider to move. */
   subject?: string | null;
+  /** "generated" for a point's shared quiz, which is cut to the student's level. */
+  origin?: string | null;
   /** The course of the spec point it tests: a student opens only their own. */
   spec_points?: { topics: { subject: string; board: string; level: string } | null } | null;
 };
@@ -40,6 +42,11 @@ export type Marked = {
   byQuestion: Record<string, { correctIndex: number; explanation: string | null }>;
   /** When the quiz opens again (see retakeLock). Null on the showcase, which has no lock. */
   retakeOpensAt: Date | null;
+  /**
+   * How many of the quiz's first questions the attempt was set and marked on
+   * (`mcq_attempts.shown_count`). Null: all of them.
+   */
+  shownCount: number | null;
 };
 
 /** The marked paper, the answers it was marked on, and the attempt it was filed as. */
@@ -56,6 +63,7 @@ export function readGraded(data: unknown): Review {
     attempt_id?: string;
     score: number;
     total: number;
+    shown_count?: number | null;
     results: Array<{
       question_id: string;
       correct_index: number;
@@ -80,6 +88,7 @@ export function readGraded(data: unknown): Review {
       total: graded.total,
       byQuestion,
       retakeOpensAt: opens && Number.isFinite(opens.getTime()) ? opens : null,
+      shownCount: typeof graded.shown_count === "number" ? graded.shown_count : null,
     },
     answers,
     attemptId: graded.attempt_id ?? null,
@@ -166,7 +175,7 @@ export async function fetchPaper(setId: string): Promise<Paper | null> {
     supabase
       .from("mcq_sets")
       .select(
-        "id, title, description, published, subject, spec_points(topics(subject, board, level))",
+        "id, title, description, published, subject, origin, spec_points(topics(subject, board, level))",
       )
       .eq("id", setId)
       .maybeSingle(),
@@ -174,7 +183,9 @@ export async function fetchPaper(setId: string): Promise<Paper | null> {
       .from("mcq_questions")
       .select("id, position, question, options, figure, option_figures")
       .eq("set_id", setId)
-      .order("position"),
+      // Position isn't unique: the id settles a tie, as it does on the server.
+      .order("position")
+      .order("id"),
   ]);
   if (sErr) throw sErr;
   if (qErr) throw qErr;

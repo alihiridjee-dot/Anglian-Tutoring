@@ -3,6 +3,7 @@ import crypto from "node:crypto";
 import { drawFigure, type SavedFigure } from "../figures/drawFigure.server";
 import type { KnownBrief } from "../figures/figure";
 import { MIN_QUIZ_QUESTIONS, checkAnswers } from "../mcq/answerCheck.server";
+import { HEAVIEST_LIVE_LOAD, QUESTION_CAPS } from "./questionLoad";
 import {
   CALL_LIMITS,
   GenerationError,
@@ -26,8 +27,20 @@ import {
 
 export type PracticeKind = "quiz" | "task";
 
-/** Questions in each point's shared quiz and task. */
-export const QUESTIONS: Record<PracticeKind, number> = { quiz: 8, task: 5 };
+/**
+ * Questions in each point's shared quiz and task: the most any student can be
+ * set. That is Normal's 8 and 5 while Enhanced is held back, as it was before
+ * the levels, and a Reduced student is set the first 6 and 3 of them. Letting
+ * Enhanced through makes it 10 and 7 (`HELD_QUESTION_LOADS`), which costs
+ * about 20% more a call.
+ */
+export const QUESTIONS: Record<PracticeKind, number> = QUESTION_CAPS[HEAVIEST_LIVE_LOAD];
+
+/** The shorter cuts of a kind's set, which its writer orders it for. */
+export const setLengths = (kind: PracticeKind) => ({
+  reduced: QUESTION_CAPS.reduced[kind],
+  normal: QUESTION_CAPS.normal[kind],
+});
 
 /** The fewest questions a point's shared task is saved with. */
 const MIN_TASK_QUESTIONS = 4;
@@ -154,6 +167,7 @@ async function writeQuestions(
     source: "queue",
     jobId: job.job_id,
     figures: true,
+    lengths: setLengths(job.kind),
   };
   const deadline = started + FIGURES_BY_MS;
   if (job.kind === "quiz") {

@@ -17,7 +17,7 @@ type Grades = { previous_grade: string; current_grade: string; target_grade: str
 const EMPTY: Grades = { previous_grade: "", current_grade: "", target_grade: "" };
 
 /**
- * Step 4 — school and grades, all optional, and the end of data collection.
+ * Step 5 — school and grades, all optional, and the end of data collection.
  *
  * Grades are per-subject because that's how they're taught, sat and reported;
  * they're stored on the enrolment rows written in step 2, so only the subjects
@@ -135,7 +135,7 @@ function SchoolStep() {
   const heading = {
     title: "Where are you now, and where do you want to be?",
     subtitle: "All optional — but target grades let your tutor track you against something real.",
-    onBack: () => navigate({ to: "/onboarding/learning" }),
+    onBack: () => navigate({ to: "/onboarding/questions" }),
     // Skip saves nothing, so it needs nothing read first.
     onSkip: () => finish(false),
     continueLabel: "Continue to payment",

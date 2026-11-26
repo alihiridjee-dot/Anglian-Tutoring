@@ -15,7 +15,7 @@
  *   bun scripts/practice-queue.ts resume
  *
  * `run` touches nothing without `--yes`: it lists the ready jobs it would take
- * and roughly what they would cost. Each job is one model call, about $0.06.
+ * and roughly what they would cost. Each job is one model call, about $0.08.
  * `--max-calls` is 1 unless given and 10 at most, and the queue's own limits
  * (a pause, calls in flight, calls per 24 hours) still apply. `retry-failed`
  * spends too, a minute later: the worker takes the jobs it puts back.
@@ -29,8 +29,14 @@ import { drainPracticeQueue, type JobOutcome } from "../src/lib/practice/practic
 if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY)
   throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set");
 
-/** Roughly what one call costs: an 8-question quiz or a 5-question task. */
-const COST_PER_CALL = 0.06;
+/**
+ * Roughly what one call costs on Sonnet 5.5, from the tokens measured over
+ * 9–19 Nov 2026: an 8-question quiz is 12.3k in and 5.4k out ($0.079), a
+ * 5-question task 18.1k in and 4.6k out ($0.082). The $0.06 here before was
+ * low. Once Enhanced is let through and the queue writes 10 and 7, the extra
+ * output makes it about $0.092 and $0.100: use 0.1 then.
+ */
+const COST_PER_CALL = 0.08;
 const MAX_CALLS = 10;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 

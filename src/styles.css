@@ -5915,3 +5915,22 @@ html[data-tour="dock"] [data-guide="page-content"] {
     animation: none;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   THE QUESTION LOAD — Reduced, Normal or Enhanced (QuestionLoadPicker)
+   Three tiles and one ring. A count beside its word ("8 MCQs in each quiz")
+   sits in a solid dot, so no figure is loose. Mixed toward navy like
+   `.summary-dot`: amber at full strength cannot carry white figures.
+   ════════════════════════════════════════════════════════════════════════════ */
+.qload-count {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--primary-foreground);
+  background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+}

@@ -5,7 +5,7 @@ import {
   libraryRequest,
   loadGenerationContext,
 } from "../homework/examGeneration.server";
-import { QUESTIONS, runPracticeJobNow } from "../practice/practiceQueue.server";
+import { QUESTIONS, runPracticeJobNow, setLengths } from "../practice/practiceQueue.server";
 import { MIN_QUIZ_QUESTIONS, checkAnswers } from "./answerCheck.server";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import type { SupabaseClient } from "@supabase/supabase-js";
@@ -97,6 +97,7 @@ export const replaceMcqQuestions = createServerFn({ method: "POST" })
     const { questions } = await generateExamQuestions(generation, QUESTIONS.quiz, "mcq", {
       ...CALL_LIMITS,
       source: "replace",
+      lengths: setLengths("quiz"),
     });
     // The same answer check the queue's quizzes pass: each key solved again,
     // blind, and a question left out when nothing confirms it.

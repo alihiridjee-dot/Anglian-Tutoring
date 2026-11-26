@@ -7,6 +7,7 @@ import {
   Camera,
   ImagePlus,
   KeyRound,
+  ListChecks,
   Loader2,
   Mail,
   Trash2,
@@ -15,7 +16,9 @@ import {
 import { AppLayout } from "@/components/AppLayout";
 import { ErrorNote, Spinner } from "@/components/Shared";
 import { ChoiceTile } from "@/components/onboarding/StepCard";
+import { QuestionLoadPicker } from "@/components/practice/QuestionLoadPicker";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { questionLoadKey, useQuestionLoad } from "@/hooks/data/useQuestionLoad";
 import { useRoles } from "@/hooks/useRole";
 import { useViewerId } from "@/hooks/useViewer";
 import { getSessionUserId } from "@/lib/auth/session";
@@ -24,6 +27,9 @@ import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { type BoardV, type SubjectV } from "@/lib/curriculum/taxonomy";
 import { ProgramDAL } from "@/lib/planner/programDal";
 import { invalidatePlanner } from "@/lib/planner/queries";
+import { currentWeekKey } from "@/lib/planner/week";
+import { dbError } from "@/lib/platform/errors";
+import { TOPICS_PER_WEEK_PER_SUBJECT, type QuestionLoad } from "@/lib/practice/questionLoad";
 // Shared form primitives. They live under components/tutor for historical
 // reasons but carry nothing tutor-specific; reusing them beats restating the
 // same class strings a fourth time.
@@ -52,19 +58,19 @@ function Card({
   children,
 }: {
   title: string;
-  description: string;
+  description?: string;
   icon: React.ComponentType<{ className?: string }>;
   children: React.ReactNode;
 }) {
   return (
     <section className="rounded-2xl premium-card p-4 sm:p-6">
-      <div className="flex items-start gap-3 mb-5">
+      <div className={`mb-5 flex gap-3 ${description ? "items-start" : "items-center"}`}>
         <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
           <Icon className="w-4 h-4 text-primary" />
         </div>
         <div className="min-w-0">
           <h2 className="font-display text-lg font-bold tracking-tight">{title}</h2>
-          <p className="text-sm text-muted-foreground">{description}</p>
+          {description && <p className="text-sm text-muted-foreground">{description}</p>}
         </div>
       </div>
       {children}
@@ -544,6 +550,104 @@ function ExamYearCard() {
   );
 }
 
+/**
+ * How many of each topic's questions a student is set: Reduced, Normal or
+ * Enhanced. Asked at sign-up; this is where it changes after. It takes effect
+ * from the next quiz started and the next task handed in. Work already filed
+ * keeps the count it was filed with (`shown_count`).
+ *
+ * The minutes a day are for this week's points on the plan, across every
+ * subject. With no plan this week (a new student, a break) they are worked as
+ * at sign-up, from one topic a day for each subject.
+ *
+ * Students only: nobody else is set quizzes or tasks.
+ */
+function QuestionLoadCard() {
+  const qc = useQueryClient();
+  const { isTutor } = useRoles();
+  const { role, level, enrolments } = useEnrolments();
+  const studentId = useViewerId();
+  const isStudent = !isTutor && role === "student" && !!level && enrolments.length > 0;
+  const [picked, setPicked] = useState<QuestionLoad | null>(null);
+  const [saving, setSaving] = useState(false);
+  const saved = useQuestionLoad(isStudent ? studentId : null);
+
+  const week = useQuery({
+    queryKey: ["profile-week-points", studentId],
+    enabled: isStudent && !!studentId,
+    queryFn: async () => {
+      const { count, error } = await supabase
+        .from("student_weekly_plan_points")
+        .select("spec_point_id, student_weekly_plans!inner(student_id)", {
+          count: "exact",
+          head: true,
+        })
+        .eq("student_weekly_plans.student_id", studentId!)
+        .eq("student_weekly_plans.week_start", currentWeekKey());
+      if (error) throw new Error(error.message);
+      return count ?? 0;
+    },
+  });
+
+  if (!isStudent || !studentId) return null;
+
+  const selected = picked ?? saved.load;
+  const error = saved.error ?? week.error;
+
+  const save = async () => {
+    setSaving(true);
+    try {
+      const { error: saveError } = await supabase
+        .from("profiles")
+        .update({ question_load: selected })
+        .eq("id", studentId);
+      if (saveError) throw dbError(saveError);
+      // The quiz and task pages cut to the level they read here.
+      qc.setQueryData(questionLoadKey(studentId), selected);
+      setPicked(null);
+      toast.success("Saved. It starts with your next quiz and task.");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't save that. Try again.");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <Card title="How many questions" icon={ListChecks}>
+      {error ? (
+        <ErrorNote
+          error={error}
+          onRetry={() => {
+            saved.retry();
+            void week.refetch();
+          }}
+        />
+      ) : !saved.ready || week.isLoading ? (
+        <Spinner className="py-6" />
+      ) : (
+        <div className="space-y-5">
+          <QuestionLoadPicker
+            value={selected}
+            onChange={setPicked}
+            topicsPerWeek={week.data || enrolments.length * TOPICS_PER_WEEK_PER_SUBJECT}
+          />
+          <div className="max-w-sm">
+            <button
+              type="button"
+              disabled={selected === saved.load || saving}
+              onClick={() => void save()}
+              className={submitBtn}
+            >
+              {saving ? "Saving…" : "Save"}
+            </button>
+          </div>
+        </div>
+      )}
+    </Card>
+  );
+}
+
 function EmailCard({ currentEmail }: { currentEmail: string | null }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -744,6 +848,7 @@ function ProfilePage() {
         <PhotoCard currentEmail={email} />
         <DetailsCard />
         <ExamYearCard />
+        <QuestionLoadCard />
         <EmailCard currentEmail={email} />
         <PasswordCard currentEmail={email} />
       </div>

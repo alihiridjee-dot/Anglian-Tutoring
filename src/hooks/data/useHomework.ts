@@ -242,7 +242,7 @@ export function useHomeworkSubmissions({
       const { data, error } = await supabase
         .from("homework_submissions")
         .select(
-          "id, resource_id, student_id, notes, submitted_at, score_pct, feedback, graded_at, acknowledged_at, release_at, ai_marked_at",
+          "id, resource_id, student_id, notes, submitted_at, score_pct, feedback, graded_at, acknowledged_at, release_at, ai_marked_at, shown_count",
         )
         .eq("student_id", userId);
       if (error) throw error;
@@ -293,7 +293,9 @@ export function useHomeworkSheet({
           .from("homework_questions")
           .select(QUESTION_COLUMNS)
           .eq("resource_id", homeworkId)
-          .order("position", { ascending: true }),
+          // The id settles a tie in position, as it does on the server.
+          .order("position", { ascending: true })
+          .order("id", { ascending: true }),
       ]);
       if (hwRes.error) throw hwRes.error;
       if (!hwRes.data) throw new Error("That task doesn't exist, or isn't yours to open");
@@ -313,7 +315,7 @@ export function useHomeworkSheet({
         const { data: sub, error: subError } = await supabase
           .from("homework_submissions")
           .select(
-            "id, resource_id, student_id, notes, submitted_at, score_pct, feedback, graded_at, acknowledged_at, release_at, ai_marked_at",
+            "id, resource_id, student_id, notes, submitted_at, score_pct, feedback, graded_at, acknowledged_at, release_at, ai_marked_at, shown_count",
           )
           .eq("resource_id", homeworkId)
           .eq("student_id", userId)

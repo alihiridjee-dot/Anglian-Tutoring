@@ -37,6 +37,22 @@ export type Question = {
 export type Answer = { question_id: string; answer_text: string | null };
 
 /**
+ * The paper as it was handed in. Work filed with a count (a shared task, cut
+ * to the student's level: `homework_submissions.shown_count`) is only the
+ * questions it has an answer row for. Hand-in wrote a row for each question
+ * the student was set, blank ones included, and none for the rest, so the
+ * questions past their count are not marked and can't be called "left blank".
+ * Work with no count is every question on the sheet, as before the levels.
+ */
+export function paperAsFiled<Q extends { id: string }>(
+  questions: Q[],
+  answers: Map<string, string | null>,
+  shownCount: number | null | undefined,
+): Q[] {
+  return shownCount == null ? questions : questions.filter((q) => answers.has(q.id));
+}
+
+/**
  * One staged mark. `held` is set when the paper must wait for a tutor instead
  * of publishing itself: the model's own doubt, or a mark it could not tie to
  * the student's words. The text is the reason, written for the tutor.

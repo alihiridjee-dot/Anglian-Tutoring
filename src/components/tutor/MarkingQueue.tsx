@@ -53,6 +53,8 @@ type Submission = {
   student_id: string;
   notes: string | null;
   submitted_at: string;
+  /** How many questions the work was set, on a shared task. Null: all of them. */
+  shown_count?: number | null;
   grade: string | null;
   score_pct: number | null;
   feedback: string | null;
@@ -406,6 +408,7 @@ function MarkSubmissionCard({
   const marking = useAnswerMarking(sub.resource?.id, sub.id, open, {
     submittedAt: sub.submitted_at,
     graded: !!sub.graded_at,
+    shownCount: sub.shown_count ?? null,
   });
 
   // The awarded total is the honest source for score_pct, so keep the field in

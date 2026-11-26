@@ -7,14 +7,16 @@ describe("onboarding progress", () => {
       "Exam board",
       "Subjects",
       "How you learn",
+      "Questions",
       "School & grades",
       "Choose a plan",
     ]);
   });
 
-  test("school is step 4 and the plan step 5 of 5", () => {
-    expect(stepIndex("/onboarding/school") + 1).toBe(4);
-    expect(stepIndex("/onboarding/plan") + 1).toBe(5);
-    expect(ONBOARDING_STEPS).toHaveLength(5);
+  test("questions is step 4, school step 5 and the plan step 6 of 6", () => {
+    expect(stepIndex("/onboarding/questions") + 1).toBe(4);
+    expect(stepIndex("/onboarding/school") + 1).toBe(5);
+    expect(stepIndex("/onboarding/plan") + 1).toBe(6);
+    expect(ONBOARDING_STEPS).toHaveLength(6);
   });
 });
