@@ -99,6 +99,13 @@ const quizOf = async (set: string, n: number, position = (i: number) => i) => {
     ]);
 };
 await quizOf(sharedQuiz, 8);
+// The spec point the shared quiz tests. An attempt freezes its score on the
+// point (`point_scores`), which is what the planner's memory model reads.
+const point = uuid(500);
+await db.query("update mcq_sets set spec_point_id = $1 where id = $2", [point, sharedQuiz]);
+/** An attempt's frozen score on the point, to two places. */
+const pointScore = (scores: unknown) =>
+  Math.round(Number((scores as Record<string, number>)[point]) * 100) / 100;
 await quizOf(longQuiz, 10);
 await quizOf(shortQuiz, 6);
 await quizOf(tutorQuiz, 8);
@@ -313,6 +320,9 @@ for (const kind of ["quiz", "task"] as LoadKind[])
     [1, 2, 3, 4, 6].map((n) => qid(sharedQuiz, n)),
     "An answer past the student's count was kept",
   );
+  // The planner reads the point's frozen score: four of the six set, so 66.67.
+  // Out of all eight, with the right answers to 7 and 8, it would be 75.
+  assert.equal(pointScore(filed.point_scores), 66.67);
 
   // Changing level leaves a filed attempt as it was: the weekly lock replays
   // it with its own count, by id or from another tab, and files nothing.
@@ -330,6 +340,7 @@ for (const kind of ["quiz", "task"] as LoadKind[])
   // Normal is what everyone had: all eight of a quiz written before this.
   const r = (await grade(normal, sharedQuiz, answersTo(sharedQuiz, 8, [8]))) as Graded;
   assert.deepEqual([r.score, r.total, r.shown_count], [7, 8, 8]);
+  assert.equal(pointScore((await attempt(r.attempt_id)).point_scores), 87.5);
   // Enhanced sees nothing extra on it, and all ten once ten are written.
   const old = (await grade(enhanced, sharedQuiz, answersTo(sharedQuiz, 8))) as Graded;
   assert.deepEqual([old.score, old.total, old.shown_count], [8, 8, 8]);
