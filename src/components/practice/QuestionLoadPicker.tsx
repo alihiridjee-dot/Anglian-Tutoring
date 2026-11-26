@@ -2,8 +2,10 @@ import { ChoiceTile } from "@/components/onboarding/StepCard";
 import { TINT_TEXT } from "@/components/planner/workbench/figures";
 import { Ring } from "@/components/Shared";
 import {
+  HEAVIEST_LIVE_LOAD,
   QUESTION_CAPS,
   QUESTION_LOADS,
+  liveLoad,
   minutesPerDay,
   type QuestionLoad,
 } from "@/lib/practice/questionLoad";
@@ -19,6 +21,10 @@ import { cn } from "@/lib/utils";
  * with what the level means beside it. No figure is loose: the minutes sit in
  * the ring and each count in a dot. Ali picked this look (C, "the dial") from
  * three on 26 Nov 2026.
+ *
+ * A level that is held back (`HELD_QUESTION_LOADS`, Enhanced for now) keeps
+ * its tile, dimmed and saying so, as a board we can't teach yet does on the
+ * first step. It can still be pressed, and pressing it gives Normal.
  */
 const LEVELS: Record<QuestionLoad, { name: string; emoji: string; tint: string }> = {
   reduced: { name: "Reduced", emoji: "🪶", tint: "tint-accent" },
@@ -36,21 +42,25 @@ export function QuestionLoadPicker({
   /** Points in a week, across every subject: what the minutes are worked from. */
   topicsPerWeek: number;
 }) {
-  const caps = QUESTION_CAPS[value];
-  const minutes = minutesPerDay(value, topicsPerWeek);
-  // Full on the heaviest level, so the three compare as the ring moves.
-  const share = (minutes / minutesPerDay("enhanced", topicsPerWeek)) * 100;
+  const picked = liveLoad(value);
+  const caps = QUESTION_CAPS[picked];
+  const minutes = minutesPerDay(picked, topicsPerWeek);
+  // Full on the heaviest level on offer, so the choices compare as the ring moves.
+  const share = (minutes / minutesPerDay(HEAVIEST_LIVE_LOAD, topicsPerWeek)) * 100;
   return (
     <div>
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
         {QUESTION_LOADS.map((load) => {
           const level = LEVELS[load];
+          const held = liveLoad(load) !== load;
           return (
-            <div key={load} className={level.tint}>
+            // A grid, so the three tiles stay one height when one has a line more.
+            <div key={load} className={cn("grid", level.tint, held && "opacity-55")}>
               <ChoiceTile
                 title={`${level.emoji} ${level.name}`}
-                selected={value === load}
-                onClick={() => onChange(load)}
+                description={held ? "Not available yet" : undefined}
+                selected={picked === load}
+                onClick={() => onChange(liveLoad(load))}
               />
             </div>
           );
@@ -59,17 +69,17 @@ export function QuestionLoadPicker({
       <div
         className={cn(
           "mt-6 flex flex-wrap items-center gap-x-6 gap-y-4 text-lg",
-          LEVELS[value].tint,
+          LEVELS[picked].tint,
         )}
       >
         <span className="flex items-center gap-2.5 leading-tight font-bold">
           About
-          <Ring key={value} value={share} size={80} stroke={9} className="shrink-0">
+          <Ring key={picked} value={share} size={80} stroke={9} className="shrink-0">
             <span className={cn("numeral pop-in text-[1.7rem]", TINT_TEXT)}>{minutes}</span>
           </Ring>
           minutes a day
         </span>
-        <div key={value} className="point-panel grid gap-2.5 text-[1.0625rem] font-bold">
+        <div key={picked} className="point-panel grid gap-2.5 text-[1.0625rem] font-bold">
           <Count n={caps.quiz} word="MCQs in each quiz" />
           <Count n={caps.task} word="written questions in each task" />
         </div>

@@ -63,14 +63,14 @@ const context = (id: string): GenerationContext => ({
   guidance: [],
 });
 
-const words = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+const words = ["one", "two", "three", "four", "five", "six", "seven", "eight"];
 const assessment = {
   assessment_objectives: ["AO1"],
   mathematical_demand: false,
   practical_demand: false,
 };
 /** Questions as the model writes them, untrimmed. */
-const mcqs = (count = 10) =>
+const mcqs = (count = 8) =>
   words.slice(0, count).map((w, i) => ({
     question: `  Which answer is right for question ${w}?  `,
     options: [
@@ -85,7 +85,7 @@ const mcqs = (count = 10) =>
     explanation: ` The first answer explains ${w}. `,
     ...assessment,
   }));
-const tasks = (count = 7) =>
+const tasks = (count = 5) =>
   words.slice(0, count).map((w) => ({
     prompt: `  Explain idea ${w}.  `,
     marks: 2,
@@ -204,7 +204,7 @@ test("a claimed quiz is written, trimmed and saved under its claim, with its run
   expect(calls["rpc/claim_practice_jobs"]).toEqual([
     { _limit: 3, _spec_point_id: null, _kind: null },
   ]);
-  expect(JSON.stringify(calls["/v1/messages"][0].messages)).toContain("Write exactly 10 MCQs");
+  expect(JSON.stringify(calls["/v1/messages"][0].messages)).toContain("Write exactly 8 MCQs");
   // The call's own limit (200 s, inside the worker's 300 s), not the SDK's ten minutes.
   expect(headers["/v1/messages"][0].get("x-stainless-timeout")).toBe("200");
   const [run, check] = calls.exam_generation_runs;
@@ -235,7 +235,7 @@ test("a claimed quiz is written, trimmed and saved under its claim, with its run
   expect(calls["rpc/fail_practice_job"]).toBeUndefined();
 });
 
-test("a claimed task is written with its seven questions' marks and schemes", async () => {
+test("a claimed task is written with its five questions' marks and schemes", async () => {
   const calls = stub({
     "rpc/claim_practice_jobs": claims(job({ kind: "task" })),
     "/v1/messages": () => message(tasks()),
@@ -243,7 +243,7 @@ test("a claimed task is written with its seven questions' marks and schemes", as
   });
   const [outcome] = await drainPracticeQueue();
   expect(outcome).toMatchObject({ kind: "task", result: "written", result_id: "sheet-1" });
-  expect(JSON.stringify(calls["/v1/messages"][0].messages)).toContain("Write exactly 7 written");
+  expect(JSON.stringify(calls["/v1/messages"][0].messages)).toContain("Write exactly 5 written");
   expect(calls["rpc/complete_practice_job"][0]._questions).toEqual(
     tasks().map((q) => ({
       prompt: q.prompt.trim(),
@@ -720,7 +720,7 @@ test("a graph is drawn by code and saved with its question; its brief stays on t
   expect(outcome).toMatchObject({ result: "written" });
   expect(JSON.stringify(calls["/v1/messages"][0])).toContain("FIGURES");
   const saved_ = calls["rpc/complete_practice_job"][0]._questions as Record<string, unknown>[];
-  expect(saved_).toHaveLength(10);
+  expect(saved_).toHaveLength(8);
   const { figure, figure_brief } = saved_[2] as {
     figure: { svg: string; alt: string };
     figure_brief: unknown;
@@ -754,7 +754,7 @@ test("a circuit is drawn by DeepSeek, and checked before it is saved", async () 
   }
   expect(calls["/chat/completions"]).toHaveLength(1);
   const saved_ = calls["rpc/complete_practice_job"][0]._questions as Record<string, unknown>[];
-  expect(saved_).toHaveLength(7);
+  expect(saved_).toHaveLength(5);
   expect(saved_[1]).toMatchObject({
     figure: { alt: seriesExample.reply.alt },
     figure_brief: { drawn_by: "deepseek" },
@@ -792,7 +792,7 @@ test("a quiz question's answer pictures are each drawn and saved; their briefs s
   expect(outcome).toMatchObject({ result: "written" });
   expect(JSON.stringify(calls["/v1/messages"][0])).toContain("ANSWER PICTURES");
   const saved_ = calls["rpc/complete_practice_job"][0]._questions as Record<string, unknown>[];
-  expect(saved_).toHaveLength(10);
+  expect(saved_).toHaveLength(8);
   const { option_figures, option_figure_briefs } = saved_[1] as {
     option_figures: { svg: string; alt: string }[];
     option_figure_briefs: unknown[];
@@ -821,7 +821,7 @@ test("a question with an answer picture that won't read, or answers not lettered
   });
   await drainPracticeQueue();
   const saved_ = calls["rpc/complete_practice_job"][0]._questions as Record<string, unknown>[];
-  expect(saved_).toHaveLength(8);
+  expect(saved_).toHaveLength(6);
   expect(saved_.some((q) => "option_figures" in q)).toBe(false);
 });
 
@@ -870,14 +870,14 @@ test("a task left with fewer than four questions is a retry that closes its run,
   restore.push(spyOn(console, "warn").mockImplementation(() => {}));
   const calls = stub({
     "rpc/claim_practice_jobs": claims(job({ kind: "task" })),
-    "/v1/messages": () => message(unreadable(1, 3, 4, 6)),
+    "/v1/messages": () => message(unreadable(1, 3)),
   });
   const [outcome] = await drainPracticeQueue();
   expect(outcome).toMatchObject({
     kind: "task",
     result: "failed",
     failure: "retry",
-    error: "Only 3 of 7 questions passed their checks",
+    error: "Only 3 of 5 questions passed their checks",
   });
   expect(calls["rpc/complete_practice_job"]).toBeUndefined();
   expect(calls["rpc/fail_practice_job"][0]).toMatchObject({
@@ -886,7 +886,7 @@ test("a task left with fewer than four questions is a retry that closes its run,
   });
 });
 
-test("a task with one question left out still saves the other six", async () => {
+test("a task with one question left out still saves the other four", async () => {
   restore.push(spyOn(console, "warn").mockImplementation(() => {}));
   const calls = stub({
     "rpc/claim_practice_jobs": claims(job({ kind: "task" })),
@@ -944,7 +944,7 @@ test("a question keyed against its writer's own verdicts is left out without a c
     mcqs()[2].question.trim(),
   );
   const savedQuestions = calls["rpc/complete_practice_job"][0]._questions as { question: string }[];
-  expect(savedQuestions).toHaveLength(9);
+  expect(savedQuestions).toHaveLength(7);
   expect(savedQuestions.map((q) => q.question)).not.toContain(mcqs()[2].question.trim());
 });
 
@@ -964,7 +964,7 @@ test("a key the first solver disputes goes to the second alone: kept if it agree
   await drainPracticeQueue();
   const [first, second] = calls["answer-check"];
   expect([first.model, second.model]).toEqual(["claude-haiku-5-5", "claude-sonnet-5-5"]);
-  expect(asked(first)).toHaveLength(10);
+  expect(asked(first)).toHaveLength(8);
   expect(asked(second).map((q) => q.question.trim())).toEqual(
     [1, 4].map((i) => mcqs()[i].question.trim()),
   );
@@ -980,7 +980,7 @@ test("a key the first solver disputes goes to the second alone: kept if it agree
   );
   // Each question names the run that gave its key: the tie-break's for question two.
   expect(savedQuestions.map((q) => q.checked_run_id)).toEqual(
-    [0, 1, 2, 3, 5, 6, 7, 8, 9].map((i) => (i === 1 ? checks[1].id : checks[0].id) as string),
+    [0, 1, 2, 3, 5, 6, 7].map((i) => (i === 1 ? checks[1].id : checks[0].id) as string),
   );
   expect((checks[0].generated_questions as { checked: unknown[] }).checked[1]).toEqual({
     question: mcqs()[1].question,
@@ -1037,15 +1037,15 @@ test("too few questions left is a retry that closes the writer's run, and nothin
   const calls = stub({
     "rpc/claim_practice_jobs": claims(job()),
     "/v1/messages": () => message(mcqs()),
-    // Neither solver agrees with more than three keys.
-    "answer-check": (body) => solved(body, (q) => (keys.get(q) === 0 ? itsKey(q) : "none")),
+    // Neither solver agrees with more than four keys.
+    "answer-check": (body) => solved(body, (q) => (keys.get(q)! < 2 ? itsKey(q) : "none")),
   });
   restore.push(spyOn(console, "warn").mockImplementation(() => {}));
   const [outcome] = await drainPracticeQueue();
   expect(outcome).toMatchObject({
     result: "failed",
     failure: "retry",
-    error: "Only 3 of 10 questions passed their checks",
+    error: "Only 4 of 8 questions passed their checks",
   });
   expect(calls["rpc/complete_practice_job"]).toBeUndefined();
   expect(calls["rpc/fail_practice_job"][0]._run_id).toBe(calls.exam_generation_runs[0].id);
@@ -1064,13 +1064,13 @@ test("without the first solver the second solves the whole set", async () => {
   restore.push(spyOn(console, "warn").mockImplementation(() => {}));
   const [outcome] = await drainPracticeQueue();
   expect(outcome.result).toBe("written");
-  expect(asked(calls["answer-check"][1])).toHaveLength(10);
+  expect(asked(calls["answer-check"][1])).toHaveLength(8);
   const checks = calls.exam_generation_runs.filter((r) => r.format === "mcq_check");
   expect(checks.map((r) => [r.model, r.outcome, r.api_status ?? null])).toEqual([
     ["claude-haiku-5-5", "failed", 529],
     ["claude-sonnet-5-5", "passed", null],
   ]);
-  expect(calls["rpc/complete_practice_job"][0]._questions).toHaveLength(10);
+  expect(calls["rpc/complete_practice_job"][0]._questions).toHaveLength(8);
 });
 
 test("with no solver there is no check, so nothing is saved: an outage pauses the queue", async () => {

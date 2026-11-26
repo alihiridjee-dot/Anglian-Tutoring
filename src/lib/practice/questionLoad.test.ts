@@ -2,10 +2,13 @@ import { describe, expect, test } from "bun:test";
 import { readdirSync, readFileSync } from "node:fs";
 import { paperAsFiled } from "../../../supabase/functions/mark-homework/marker";
 import {
+  HEAVIEST_LIVE_LOAD,
+  HELD_QUESTION_LOADS,
   QUESTION_CAPS,
   QUESTION_LOADS,
   firstQuestions,
   isQuestionLoad,
+  liveLoad,
   minutesPerDay,
   minutesPerTopic,
   setCount,
@@ -63,6 +66,20 @@ describe("the levels' caps", () => {
         `when '${kind}' then case _load when 'reduced' then ${reduced[kind]} when 'enhanced' then ${enhanced[kind]} else ${normal[kind]} end`,
       );
     }
+  });
+});
+
+describe("Enhanced is held back for now (Ali, 26 Nov 2026)", () => {
+  test("it counts as Normal wherever a level is read or picked", () => {
+    expect(HELD_QUESTION_LOADS).toEqual(["enhanced"]);
+    expect(QUESTION_LOADS.map(liveLoad)).toEqual(["reduced", "normal", "normal"]);
+  });
+
+  // The queue writes for the heaviest level on offer. Ten and seven would cost
+  // about 20% more a call, for questions nobody could be set.
+  test("so the practice queue still writes 8 MCQs and 5 written questions", () => {
+    expect(HEAVIEST_LIVE_LOAD).toBe("normal");
+    expect(QUESTION_CAPS[HEAVIEST_LIVE_LOAD]).toEqual({ quiz: 8, task: 5 });
   });
 });
 

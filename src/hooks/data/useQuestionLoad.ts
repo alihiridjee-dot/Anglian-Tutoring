@@ -4,6 +4,7 @@ import { isDemoStudent } from "@/lib/demo/studentDemo";
 import {
   DEFAULT_QUESTION_LOAD,
   isQuestionLoad,
+  liveLoad,
   type QuestionLoad,
 } from "@/lib/practice/questionLoad";
 
@@ -21,6 +22,8 @@ export const questionLoadKey = (userId: string | null) => ["question-load", user
  * while the level was changed in another tab shows the new count before it is
  * submitted, as the server will mark it.
  *
+ * A level that is held back (Enhanced, for now) reads as Normal.
+ *
  * `userId` null (a tutor previewing, the showcase, nobody signed in) is Normal
  * and ready at once: nothing is cut for them.
  */
@@ -36,7 +39,9 @@ export function useQuestionLoad(userId: string | null) {
         .eq("id", userId!)
         .maybeSingle();
       if (error) throw new Error(error.message);
-      return isQuestionLoad(data?.question_load) ? data.question_load : DEFAULT_QUESTION_LOAD;
+      return isQuestionLoad(data?.question_load)
+        ? liveLoad(data.question_load)
+        : DEFAULT_QUESTION_LOAD;
     },
   });
   return {

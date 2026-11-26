@@ -12,6 +12,7 @@ import {
   DEFAULT_QUESTION_LOAD,
   TOPICS_PER_WEEK_PER_SUBJECT,
   isQuestionLoad,
+  liveLoad,
   type QuestionLoad,
 } from "@/lib/practice/questionLoad";
 
@@ -51,7 +52,7 @@ function QuestionsStep() {
       return { load: profile.data?.question_load, subjects: enrolments.count ?? 0 };
     },
     (saved) => {
-      if (isQuestionLoad(saved.load)) setLoad(saved.load);
+      if (isQuestionLoad(saved.load)) setLoad(liveLoad(saved.load));
       // Reached without a subject (a deep link): the times are for one.
       setSubjects(Math.max(1, saved.subjects));
     },

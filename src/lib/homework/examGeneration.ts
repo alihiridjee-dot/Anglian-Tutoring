@@ -261,14 +261,23 @@ export const OPTION_CHECKS_GUIDE = `Before the key, work every option out in opt
 export type SetLengths = { reduced: number; normal: number };
 
 /**
- * The order of a set that students see at three lengths. Questions 1 to
- * `normal` are the set every student had before the levels, with its hardest
- * question last; the ones after are extras, not a longer climb.
+ * The order of a set that students see at more than one length. Questions 1
+ * to `normal` are the set every student had before the levels, with its
+ * hardest question last. Any after that (written once Enhanced is let
+ * through) are extras, not a longer climb. A set no longer than its shortest
+ * cut needs no order, and gets none.
  */
 export function lengthsGuide(count: number, format: GenerationFormat, lengths: SetLengths) {
   const { reduced, normal } = lengths;
   const item = format === "written" ? "question" : "MCQ";
   const set = format === "written" ? "task" : "quiz";
+  if (count <= reduced) return null;
+  if (count <= normal)
+    return `ORDER OF THE SET
+Students are set this ${set} at one of two lengths, always from the start: ${item}s 1 to ${reduced}, or all ${count}. Order the set for that.
+- ${item}s 1 to ${reduced} already cover the core of the point, since some students see nothing else. Put the outcomes a student most needs first.
+- The set still progresses in demand, with the most demanding ${item} last.
+Every ${item} stands alone, so the set reads complete at each length.`;
   return `ORDER OF THE SET
 Students are set this ${set} at one of three lengths, always from the start: ${item}s 1 to ${reduced}, ${item}s 1 to ${normal}, or all ${count}. Order the set for that.
 - ${item}s 1 to ${normal} are a complete ${set} on their own: between them they cover the learning outcomes and progress in demand, with the most demanding ${item} at number ${normal}.
@@ -298,6 +307,7 @@ export function buildGenerationPrompt(
     throw new Error("Invalid question count");
   if (!context.point.title.trim()) throw new Error("Curriculum title is missing");
   const examples = selectExamples(context, undefined, undefined, format, undefined, figures);
+  const order = lengths ? lengthsGuide(count, format, lengths) : null;
   const grounding = examples.length
     ? [...new Set(examples.map((e) => e.grounding))].join("+")
     : "curriculum_only";
@@ -313,8 +323,7 @@ export function buildGenerationPrompt(
       format === "written"
         ? `Write exactly ${count} written questions. answer_type is short, long or numeric. marks is an integer from 1 to 30, justified by the rubric. mark_scheme must contain the answer and all credit rules.`
         : `Write exactly ${count} MCQs. Each has exactly four distinct, plausible options and one correct answer. ${OPTION_CHECKS_GUIDE} correct_index is a zero-based integer from 0 to 3. Vary its position across the set. explanation must identify why the keyed answer is correct.`,
-      // Only a set longer than its Normal cut has extras to place.
-      ...(lengths && count > lengths.normal ? [lengthsGuide(count, format, lengths)] : []),
+      ...(order ? [order] : []),
       ...(format === "written" ? [MARK_SCHEME_LAYOUT] : []),
       ...(figures ? [FIGURE_GUIDE] : []),
       ...(figures && format === "mcq" ? [OPTION_FIGURES_GUIDE] : []),

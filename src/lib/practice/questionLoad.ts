@@ -26,6 +26,31 @@ export function isQuestionLoad(value: unknown): value is QuestionLoad {
 }
 
 /**
+ * Enhanced is held back for now (Ali, 26 Nov 2026). Its tile is still shown,
+ * dimmed, and pressing it gives Normal. Nothing else is switched off: the
+ * database, the caps and the scoring all know the level, so a profile set to
+ * it is simply treated as Normal until it is let through here.
+ *
+ * Letting it through is taking it off this list. The practice queue then
+ * writes 10 MCQs and 7 written questions (`HEAVIEST_LIVE_LOAD`), which is
+ * paid: about 20% more for every quiz and task from then on, so it needs
+ * Ali's yes.
+ */
+export const HELD_QUESTION_LOADS: readonly QuestionLoad[] = ["enhanced"];
+
+/** The level a student is on in practice: a held level counts as Normal. */
+export function liveLoad(load: QuestionLoad): QuestionLoad {
+  return HELD_QUESTION_LOADS.includes(load) ? DEFAULT_QUESTION_LOAD : load;
+}
+
+/**
+ * The heaviest level a student can be on. The practice queue writes a quiz
+ * and a task this long, as nobody is set more.
+ */
+export const HEAVIEST_LIVE_LOAD: QuestionLoad =
+  [...QUESTION_LOADS].reverse().find((load) => liveLoad(load) === load) ?? DEFAULT_QUESTION_LOAD;
+
+/**
  * The questions shown: the level's cap or what is stored, whichever is
  * smaller. A quiz with six stored questions shows six on every level.
  */
