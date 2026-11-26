@@ -1,5 +1,5 @@
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
-import { ArrowLeft, CheckCircle2, Clock } from "lucide-react";
+import { CheckCircle2, Clock } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -18,6 +18,7 @@ import { acknowledgeSubmission } from "@/lib/homework/homework.functions";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { plannerDateLabel } from "@/lib/planner/week";
+import { refreshBell } from "@/lib/shell/bellRefresh";
 import { needsMarkingStart, startMarking } from "@/lib/homework/startMarking";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { usePinSubject } from "@/hooks/useActiveSubject";
@@ -78,8 +79,7 @@ export function HomeworkSheetPage() {
   if (error) {
     return (
       <AppLayout title="Task">
-        <BackLink />
-        <div className="mt-6">
+        <div>
           <ErrorNote error={error} onRetry={() => void refetch()} />
         </div>
       </AppLayout>
@@ -89,7 +89,6 @@ export function HomeworkSheetPage() {
   if (isPending || !data) {
     return (
       <AppLayout title="Task">
-        <BackLink />
         <Spinner label="Opening this task" />
       </AppLayout>
     );
@@ -117,7 +116,6 @@ export function HomeworkSheetPage() {
   if (!course.ready) {
     return (
       <AppLayout title="Task">
-        <BackLink />
         <Spinner label="Opening this task" />
       </AppLayout>
     );
@@ -127,8 +125,7 @@ export function HomeworkSheetPage() {
   if (!submission && questionLoad.error) {
     return (
       <AppLayout title="Task">
-        <BackLink />
-        <div className="mt-6">
+        <div>
           <ErrorNote error={questionLoad.error} onRetry={questionLoad.retry} />
         </div>
       </AppLayout>
@@ -137,7 +134,6 @@ export function HomeworkSheetPage() {
   if (!submission && !questionLoad.ready) {
     return (
       <AppLayout title="Task">
-        <BackLink />
         <Spinner label="Opening this task" />
       </AppLayout>
     );
@@ -145,8 +141,7 @@ export function HomeworkSheetPage() {
   if (!submission && !course.onCourse(hw)) {
     return (
       <AppLayout title="Task">
-        <BackLink />
-        <div className="mt-6">
+        <div>
           <EmptyState
             mascot="books"
             title="This task isn't on your course"
@@ -199,12 +194,10 @@ export function HomeworkSheetPage() {
             !isTutor && "select-none [-webkit-touch-callout:none] print:hidden",
           )}
         >
-          <BackLink />
-
           {/* Laid out like the front of an exam paper: the title, one plain line
             under it, and the total marks boxed in the corner. The subject needs
             no label — the header slider names it and the tint is its colour. */}
-          <div className="mt-4 flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between gap-4">
             <div className="min-w-0">
               <h1 className="font-display text-2xl font-extrabold sm:text-3xl">{hw.title}</h1>
               <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1.5">
@@ -306,18 +299,6 @@ export function HomeworkSheetPage() {
   );
 }
 
-function BackLink() {
-  return (
-    <Link
-      to={isDemoStudent() ? "/demo/student/homework" : "/homework"}
-      className="text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold sm:pointer-fine:min-h-0"
-    >
-      <ArrowLeft className="size-4" aria-hidden />
-      All tasks
-    </Link>
-  );
-}
-
 /** The overall mark, the tutor's comment, and the student's acknowledgement of it. */
 function MarkPanel({
   submission,
@@ -385,6 +366,8 @@ function AcknowledgeFeedback({
     try {
       await acknowledgeSubmission({ data: { submissionId: submission.id } });
       toast.success("Feedback acknowledged — your tutor has been notified");
+      // acknowledge_submission deleted this task's "Task marked" notice.
+      refreshBell();
       onChanged();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Could not acknowledge feedback");
