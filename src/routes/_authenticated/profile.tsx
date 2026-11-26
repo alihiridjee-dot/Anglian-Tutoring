@@ -1,20 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import {
-  CalendarDays,
-  Camera,
-  ImagePlus,
-  KeyRound,
-  ListChecks,
-  Loader2,
-  Mail,
-  Trash2,
-  UserCog,
-} from "lucide-react";
+import { Camera, Loader2, Trash2, X } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
-import { ErrorNote, Spinner } from "@/components/Shared";
+import { AbovePage, ErrorNote, Ring, Spinner } from "@/components/Shared";
+import { Squiggle } from "@/components/chat/EmptyInbox";
+import { TINT_TEXT } from "@/components/planner/workbench/figures";
 import { ChoiceTile } from "@/components/onboarding/StepCard";
 import { QuestionLoadPicker } from "@/components/practice/QuestionLoadPicker";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -26,14 +18,18 @@ import { examYearOptions } from "@/lib/auth/onboarding";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { type BoardV, type SubjectV } from "@/lib/curriculum/taxonomy";
 import { ProgramDAL } from "@/lib/planner/programDal";
+import { examMondayIn } from "@/lib/planner/pacing";
 import { invalidatePlanner } from "@/lib/planner/queries";
 import { currentWeekKey } from "@/lib/planner/week";
 import { dbError } from "@/lib/platform/errors";
-import { TOPICS_PER_WEEK_PER_SUBJECT, type QuestionLoad } from "@/lib/practice/questionLoad";
-// Shared form primitives. They live under components/tutor for historical
-// reasons but carry nothing tutor-specific; reusing them beats restating the
-// same class strings a fourth time.
-import { Field, inputCls, submitBtn } from "@/components/tutor/Field";
+import {
+  HEAVIEST_LIVE_LOAD,
+  TOPICS_PER_WEEK_PER_SUBJECT,
+  liveLoad,
+  minutesPerDay,
+  type QuestionLoad,
+} from "@/lib/practice/questionLoad";
+import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { useAvatarUrl } from "@/hooks/data/useAvatar";
 import {
@@ -51,36 +47,268 @@ export const Route = createFileRoute("/_authenticated/profile")({
   component: ProfilePage,
 });
 
-function Card({
-  title,
-  description,
-  icon: Icon,
+type SettingKey = "name" | "exams" | "questions" | "email" | "password";
+
+/** Each tile: its emoji, its name, its colour, and what its button says. */
+const SETTINGS: Record<
+  SettingKey,
+  { label: string; emoji: string; tint: string; title: string; action: string }
+> = {
+  name: {
+    label: "You",
+    emoji: "🙂",
+    tint: "tint-primary",
+    title: "Your name and number",
+    action: "Change details",
+  },
+  exams: {
+    label: "Exams",
+    emoji: "🗓️",
+    tint: "tint-amber",
+    title: "Your exam year",
+    action: "Change year",
+  },
+  questions: {
+    label: "Questions",
+    emoji: "🎯",
+    tint: "tint-accent",
+    title: "How many questions",
+    action: "Change amount",
+  },
+  email: {
+    label: "Email",
+    emoji: "✉️",
+    tint: "tint-emerald",
+    title: "Your email",
+    action: "Change email",
+  },
+  password: {
+    label: "Password",
+    emoji: "🔑",
+    tint: "tint-rose",
+    title: "Your password",
+    action: "Change password",
+  },
+};
+
+const LOAD_WORD: Record<QuestionLoad, { emoji: string; name: string }> = {
+  reduced: { emoji: "🪶", name: "Reduced" },
+  normal: { emoji: "🎯", name: "Normal" },
+  enhanced: { emoji: "🚀", name: "Enhanced" },
+};
+
+/** Called by a form once it has saved, so the dialog it sits in can close. */
+const DoneContext = createContext<() => void>(() => {});
+
+/** The points in this week's plan, across every subject: what the minutes are worked from. */
+function useWeekPoints() {
+  const studentId = useViewerId();
+  const isStudent = useIsStudent();
+  const { enrolments } = useEnrolments();
+  const week = useQuery({
+    queryKey: ["profile-week-points", studentId],
+    enabled: isStudent && !!studentId,
+    queryFn: async () => {
+      const { count, error } = await supabase
+        .from("student_weekly_plan_points")
+        .select("spec_point_id, student_weekly_plans!inner(student_id)", {
+          count: "exact",
+          head: true,
+        })
+        .eq("student_weekly_plans.student_id", studentId!)
+        .eq("student_weekly_plans.week_start", currentWeekKey());
+      if (error) throw new Error(error.message);
+      return count ?? 0;
+    },
+  });
+  return {
+    ...week,
+    // With no plan this week (a new student, a break), worked as at sign-up.
+    topicsPerWeek: week.data || enrolments.length * TOPICS_PER_WEEK_PER_SUBJECT,
+  };
+}
+
+/**
+ * One tile, as on the planner's summary: its emoji and name, what it is now,
+ * and one button at its foot whose emoji hops when pointed at.
+ */
+function Tile({
+  k,
+  wide,
+  onOpen,
   children,
 }: {
-  title: string;
-  description?: string;
-  icon: React.ComponentType<{ className?: string }>;
+  k: SettingKey;
+  wide?: boolean;
+  onOpen: () => void;
   children: React.ReactNode;
 }) {
+  const s = SETTINGS[k];
   return (
-    <section className="rounded-2xl premium-card p-4 sm:p-6">
-      <div className={`mb-5 flex gap-3 ${description ? "items-start" : "items-center"}`}>
-        <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-          <Icon className="w-4 h-4 text-primary" />
-        </div>
-        <div className="min-w-0">
-          <h2 className="font-display text-lg font-bold tracking-tight">{title}</h2>
-          {description && <p className="text-sm text-muted-foreground">{description}</p>}
-        </div>
-      </div>
+    <section
+      className={cn(
+        "premium-card summary-card flex flex-col gap-4 rounded-2xl p-5 sm:p-6",
+        s.tint,
+        wide && "md:col-span-2",
+      )}
+    >
+      <h2 className="flex items-center gap-2 text-lg font-extrabold">
+        <span aria-hidden>{s.emoji}</span> {s.label}
+      </h2>
       {children}
+      <button
+        type="button"
+        onClick={onOpen}
+        className="btn-solid summary-go mt-auto inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl px-4 text-base"
+      >
+        <span aria-hidden className="summary-emoji">
+          ✏️
+        </span>
+        {s.action}
+      </button>
     </section>
   );
 }
 
-function ErrorText({ children }: { children: string | null }) {
-  if (!children) return null;
-  return <p className="mt-1 text-xs text-destructive">{children}</p>;
+/** The tile's figure, in its dot or ring, and the plain words beside it. */
+function Figure({ children }: { children: React.ReactNode }) {
+  return <div className="flex items-center gap-3 text-lg leading-tight font-bold">{children}</div>;
+}
+
+/**
+ * The form behind a tile, in the Ask your tutor dialog's look: a solid round
+ * dot, the title with the highlighter stroke, and the form under it. It closes
+ * once the form has saved.
+ */
+function EditDialog({
+  k,
+  email,
+  onClose,
+}: {
+  k: SettingKey;
+  email: string | null;
+  onClose: () => void;
+}) {
+  const s = SETTINGS[k];
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+  return (
+    <AbovePage>
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center bg-primary-deep/50 p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="profile-edit-title"
+        onClick={(e) => {
+          if (e.target === e.currentTarget) onClose();
+        }}
+      >
+        <div
+          className={cn(
+            "ask-sheet premium-card flex max-h-[calc(100dvh-2rem)] w-full flex-col overflow-hidden rounded-3xl shadow-xl",
+            k === "questions" ? "max-w-2xl" : "max-w-lg",
+            s.tint,
+          )}
+        >
+          <div className="flex shrink-0 items-start justify-between gap-3 px-5 pt-5 sm:px-7 sm:pt-7">
+            <div className="flex min-w-0 items-center gap-4">
+              <span className="paywall-dot ask-dot text-2xl" aria-hidden>
+                {s.emoji}
+              </span>
+              <div className="min-w-0">
+                <h2
+                  id="profile-edit-title"
+                  className="text-2xl leading-tight font-extrabold sm:text-3xl"
+                >
+                  {s.title}
+                </h2>
+                <Squiggle className="w-28" />
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Close"
+              className="btn-ghost flex size-11 shrink-0 items-center justify-center rounded-full"
+            >
+              <X className="size-5" />
+            </button>
+          </div>
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-6 sm:px-7 sm:pb-7">
+            <DoneContext.Provider value={onClose}>
+              {k === "name" && <DetailsCard />}
+              {k === "exams" && <ExamYearCard />}
+              {k === "questions" && <QuestionLoadCard />}
+              {k === "email" && <EmailCard currentEmail={email} />}
+              {k === "password" && <PasswordCard currentEmail={email} />}
+            </DoneContext.Provider>
+          </div>
+        </div>
+      </div>
+    </AbovePage>
+  );
+}
+
+const popInput = "pop-input mt-2 h-12 w-full px-4 text-base";
+
+/** A field: its name as plain bold words over the box, any problem in red under it. */
+function PopField({
+  label,
+  error,
+  children,
+}: {
+  label: string;
+  error?: string | null;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <label className="block">
+        <span className="ask-label">{label}</span>
+        {children}
+      </label>
+      {error && <p className="text-destructive mt-2 text-sm font-semibold">{error}</p>}
+    </div>
+  );
+}
+
+/**
+ * The one big button, drawn only once there is something to save: an empty
+ * form shows no greyed-out button.
+ */
+function SaveButton({
+  show,
+  busy,
+  children,
+  onClick,
+}: {
+  show: boolean;
+  busy: boolean;
+  children: React.ReactNode;
+  onClick?: () => void;
+}) {
+  if (!show && !busy) return null;
+  return (
+    <button
+      type={onClick ? "button" : "submit"}
+      onClick={onClick}
+      disabled={busy}
+      className="btn-solid paywall-btn pop-in w-full sm:w-auto"
+    >
+      {busy && <Loader2 className="size-5 animate-spin" aria-hidden />}
+      {children}
+    </button>
+  );
+}
+
+/** Students only: nobody else has an exam year or is set questions. */
+function useIsStudent() {
+  const { isTutor } = useRoles();
+  const { role, level, enrolments } = useEnrolments();
+  return !isTutor && role === "student" && !!level && enrolments.length > 0;
 }
 
 /**
@@ -119,7 +347,7 @@ function useProfileDetails() {
  * One object per account at a fixed path, overwritten in place, so there is
  * never a second file to garbage-collect when someone changes their mind.
  */
-function PhotoCard({ currentEmail }: { currentEmail: string | null }) {
+function usePhoto(currentEmail: string | null) {
   const qc = useQueryClient();
   // Who this is, as the guard resolved it: asking the auth API again on each
   // tap said "session expired" whenever that call dropped.
@@ -212,85 +440,77 @@ function PhotoCard({ currentEmail }: { currentEmail: string | null }) {
     }
   };
 
+  return {
+    avatarUrl,
+    avatarPath,
+    busy,
+    ready: !isLoading,
+    initials: resolveInitials(data?.display_name, currentEmail),
+    pick: () => picker.current?.click(),
+    remove,
+    input: (
+      <input
+        ref={picker}
+        type="file"
+        accept={AVATAR_ACCEPT}
+        onChange={onPicked}
+        className="hidden"
+      />
+    ),
+  };
+}
+
+type Photo = ReturnType<typeof usePhoto>;
+
+/**
+ * The photo as a big round dot you press to change. A yellow camera sits on
+ * its edge and hops when the dot is pointed at; Remove is a bare link beside.
+ */
+function Avatar({ photo }: { photo: Photo }) {
   return (
-    <Card
-      title="Profile photo"
-      description="Shown on your account menu across the site."
-      icon={Camera}
+    <>
+      <button
+        type="button"
+        onClick={photo.pick}
+        disabled={!photo.ready || photo.busy !== null}
+        data-busy={photo.busy !== null}
+        aria-label={photo.avatarPath ? "Change your photo" : "Add a photo"}
+        className="profile-avatar tint-primary"
+      >
+        {photo.avatarUrl ? (
+          <img src={photo.avatarUrl} alt="" width={112} height={112} />
+        ) : (
+          // Also what shows for the moment between the row loading and its
+          // URL being signed, which is why it isn't a spinner.
+          <span aria-hidden>{photo.initials}</span>
+        )}
+        <span className="profile-avatar-badge" aria-hidden>
+          {photo.busy ? <Loader2 className="animate-spin" /> : <Camera />}
+        </span>
+      </button>
+      {photo.input}
+    </>
+  );
+}
+
+function RemovePhoto({ photo }: { photo: Photo }) {
+  if (!photo.avatarPath) return null;
+  return (
+    <button
+      type="button"
+      onClick={photo.remove}
+      disabled={photo.busy !== null}
+      className="paywall-link -ml-3.5"
     >
-      {/* Stacked on a phone: side by side, the 80px disc leaves the buttons too
-          little room and "Upload photo" wraps mid-label. */}
-      <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-5">
-        <div className="w-20 h-20 rounded-full overflow-hidden bg-gradient-to-br from-primary to-accent flex items-center justify-center shrink-0 ring-2 ring-border">
-          {avatarUrl ? (
-            <img
-              src={avatarUrl}
-              alt="Your profile photo"
-              className="w-full h-full object-cover"
-              width={80}
-              height={80}
-            />
-          ) : (
-            // Also what shows for the moment between the row loading and its
-            // URL being signed, which is why it isn't a spinner.
-            <span className="font-display text-xl font-bold text-primary-foreground">
-              {resolveInitials(data?.display_name, currentEmail)}
-            </span>
-          )}
-        </div>
-
-        <div>
-          <div className="flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={() => picker.current?.click()}
-              disabled={isLoading || busy !== null}
-              className="btn-premium h-11 sm:pointer-fine:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 whitespace-nowrap disabled:opacity-50"
-            >
-              {busy === "upload" ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : (
-                <ImagePlus className="w-4 h-4" />
-              )}
-              {avatarPath ? "Change photo" : "Upload photo"}
-            </button>
-
-            {avatarPath && (
-              <button
-                type="button"
-                onClick={remove}
-                disabled={busy !== null}
-                className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-border text-sm font-semibold inline-flex items-center gap-2 hover:bg-muted disabled:opacity-50"
-              >
-                {busy === "remove" ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : (
-                  <Trash2 className="w-4 h-4" />
-                )}
-                Remove
-              </button>
-            )}
-          </div>
-          <p className="mt-3 max-w-xs text-xs text-muted-foreground">
-            A square JPEG, PNG or WebP. Larger photos are cropped to a square and resized for you.
-            Only you can see it — it is stored privately, not on a public link.
-          </p>
-        </div>
-
-        <input
-          ref={picker}
-          type="file"
-          accept={AVATAR_ACCEPT}
-          onChange={onPicked}
-          className="hidden"
-        />
-      </div>
-    </Card>
+      <Trash2 className="size-4" aria-hidden />
+      Remove photo
+    </button>
   );
 }
 
 /** Account details held on the profile row, as opposed to the auth user. */
 function DetailsCard() {
+  const done = useContext(DoneContext);
   const qc = useQueryClient();
   const [displayName, setDisplayName] = useState("");
   const [phone, setPhone] = useState("");
@@ -340,6 +560,7 @@ function DetailsCard() {
       qc.invalidateQueries({ queryKey: ["profile-details"] });
       qc.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
       toast.success("Details saved");
+      done();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Could not save your details");
     } finally {
@@ -347,25 +568,30 @@ function DetailsCard() {
     }
   };
 
+  // Save shows once something differs from what is saved.
+  const changed =
+    data != null &&
+    (displayName.trim() !== (data.display_name ?? "") || phone.trim() !== (data.phone ?? ""));
+
   return (
-    <Card title="Account details" description="Your name and contact number." icon={UserCog}>
+    <>
       {readError && data === undefined && (
-        <div className="mb-4 max-w-sm">
+        <div className="mb-4 max-w-md">
           <ErrorNote error={readError} onRetry={() => void refetch()} />
         </div>
       )}
-      <form onSubmit={submit} className="space-y-4 max-w-sm">
-        <Field label="Display name">
+      <form onSubmit={submit} className="max-w-md space-y-5">
+        <PopField label="Your name">
           <input
             value={displayName}
             onChange={(e) => setDisplayName(e.target.value)}
             autoComplete="name"
             maxLength={DISPLAY_NAME_MAX}
             placeholder={isLoading ? "Loading…" : "e.g. Alex Taylor"}
-            className={inputCls}
+            className={popInput}
           />
-        </Field>
-        <Field label="Phone number">
+        </PopField>
+        <PopField label="Phone number" error={phoneError}>
           <input
             type="tel"
             autoComplete="tel"
@@ -378,40 +604,24 @@ function DetailsCard() {
             maxLength={PHONE_MAX}
             placeholder="e.g. +44 7700 900123"
             aria-invalid={!!phoneError}
-            className={inputCls}
+            className={popInput}
           />
-          <ErrorText>{phoneError}</ErrorText>
-        </Field>
+        </PopField>
         {/* Held until the row is read: unread, the form is empty, and saving
             it would wipe the name and number. */}
-        <button type="submit" disabled={saving || data === undefined} className={submitBtn}>
-          {saving ? "Saving…" : "Save details"}
-        </button>
+        <SaveButton show={changed} busy={saving}>
+          {saving ? "Saving…" : "Save"}
+        </SaveButton>
       </form>
-    </Card>
+    </>
   );
 }
 
-/**
- * The summer a student sits their exams. Asked at sign-up; this is where it
- * changes after. Picking a year moves every subject to that June at once
- * (`ProgramDAL.setExamYear`). The planner's date box moves one subject at a
- * time, and left this answer wrong, which a subject added later is planned to.
- *
- * Students only. The level stays with the tutor: a new level is a different
- * qualification, and can be a different price.
- */
-function ExamYearCard() {
-  const qc = useQueryClient();
-  const { isTutor } = useRoles();
-  const { role, level, enrolments } = useEnrolments();
+/** The year on the profile, and the years the plans are set to. */
+function useExamYear() {
   const studentId = useViewerId();
-  const isStudent = !isTutor && role === "student" && !!level && enrolments.length > 0;
-  const [picked, setPicked] = useState<number | null>(null);
-  const [confirming, setConfirming] = useState(false);
-  const [saving, setSaving] = useState(false);
-
-  const { data, error, refetch, isLoading } = useQuery({
+  const isStudent = useIsStudent();
+  return useQuery({
     queryKey: ["profile-exam-year", studentId],
     enabled: isStudent && !!studentId,
     queryFn: async () => {
@@ -427,19 +637,52 @@ function ExamYearCard() {
       };
     },
   });
+}
+
+/** The year on the profile; before anyone was asked, the year the plans share. */
+function currentExamYear(
+  data: { examYear: number | null; planYears: number[] } | undefined,
+  level: Parameters<typeof examYearOptions>[0],
+) {
+  const options = examYearOptions(level);
+  const onOffer = (year: number | null | undefined) =>
+    year != null && options.some((o) => o.year === year) ? year : null;
+  const planYears = data?.planYears ?? [];
+  return (
+    onOffer(data?.examYear) ??
+    (planYears.length > 0 && planYears.every((y) => y === planYears[0])
+      ? onOffer(planYears[0])
+      : null)
+  );
+}
+
+/**
+ * The summer a student sits their exams. Asked at sign-up; this is where it
+ * changes after. Picking a year moves every subject to that June at once
+ * (`ProgramDAL.setExamYear`). The planner's date box moves one subject at a
+ * time, and left this answer wrong, which a subject added later is planned to.
+ *
+ * Students only. The level stays with the tutor: a new level is a different
+ * qualification, and can be a different price.
+ */
+function ExamYearCard() {
+  const qc = useQueryClient();
+  const done = useContext(DoneContext);
+  const { isTutor } = useRoles();
+  const { role, level, enrolments } = useEnrolments();
+  const studentId = useViewerId();
+  const isStudent = !isTutor && role === "student" && !!level && enrolments.length > 0;
+  const [picked, setPicked] = useState<number | null>(null);
+  const [confirming, setConfirming] = useState(false);
+  const [saving, setSaving] = useState(false);
+
+  const { data, error, refetch, isLoading } = useExamYear();
 
   if (!isStudent || !studentId || !level) return null;
 
   const options = examYearOptions(level);
-  const onOffer = (year: number | null | undefined) =>
-    year != null && options.some((o) => o.year === year) ? year : null;
-  // The year on the profile; before anyone was asked, the year the plans share.
   const planYears = data?.planYears ?? [];
-  const current =
-    onOffer(data?.examYear) ??
-    (planYears.length > 0 && planYears.every((y) => y === planYears[0])
-      ? onOffer(planYears[0])
-      : null);
+  const current = currentExamYear(data, level);
   const selected = picked ?? current;
   // Only a tap changes anything. Before one, the tile shown may be a guess from
   // the plans (nobody was asked before 7 Oct), and Save would only confirm it.
@@ -474,6 +717,7 @@ function ExamYearCard() {
       for (const r of refused) toast.error(`${subjectLabel(r.subject)}: ${r.message}`);
       setPicked(null);
       setConfirming(false);
+      done();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't save your exam year. Try again.");
     } finally {
@@ -482,17 +726,13 @@ function ExamYearCard() {
   };
 
   return (
-    <Card
-      title="Exam year"
-      description="The summer you sit your exams. Your plan is paced to it."
-      icon={CalendarDays}
-    >
+    <>
       {error ? (
         <ErrorNote error={error} onRetry={() => void refetch()} />
       ) : isLoading ? (
         <Spinner className="py-6" />
       ) : (
-        <div className="space-y-4">
+        <div className="space-y-6">
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {options.map((o) => (
               <ChoiceTile
@@ -507,46 +747,37 @@ function ExamYearCard() {
             ))}
           </div>
           {confirming ? (
-            <div className="surface-soft max-w-xl rounded-xl p-3.5 text-sm">
-              <p>
+            <div className="point-panel">
+              <p className="text-lg font-medium">
                 Move every subject’s exams to <span className="font-bold">summer {selected}</span>?
                 Your weeks get fuller to fit the course in.
               </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  disabled={saving}
-                  onClick={() => void save()}
-                  className="btn-solid inline-flex h-11 sm:pointer-fine:h-9 items-center gap-1.5 rounded-lg px-4 text-sm font-semibold"
-                >
-                  {saving && <Loader2 className="size-4 animate-spin" aria-hidden />}
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <SaveButton show busy={saving} onClick={() => void save()}>
                   Move my exams
-                </button>
+                </SaveButton>
                 <button
                   type="button"
                   disabled={saving}
                   onClick={() => setConfirming(false)}
-                  className="btn-soft inline-flex h-11 sm:pointer-fine:h-9 items-center rounded-lg px-4 text-sm font-semibold"
+                  className="paywall-link"
                 >
                   Cancel
                 </button>
               </div>
             </div>
           ) : (
-            <div className="max-w-sm">
-              <button
-                type="button"
-                disabled={!changes || saving}
-                onClick={() => (earlier ? setConfirming(true) : void save())}
-                className={submitBtn}
-              >
-                {saving ? "Saving…" : "Save exam year"}
-              </button>
-            </div>
+            <SaveButton
+              show={changes}
+              busy={saving}
+              onClick={() => (earlier ? setConfirming(true) : void save())}
+            >
+              {saving ? "Saving…" : "Save"}
+            </SaveButton>
           )}
         </div>
       )}
-    </Card>
+    </>
   );
 }
 
@@ -564,6 +795,7 @@ function ExamYearCard() {
  */
 function QuestionLoadCard() {
   const qc = useQueryClient();
+  const done = useContext(DoneContext);
   const { isTutor } = useRoles();
   const { role, level, enrolments } = useEnrolments();
   const studentId = useViewerId();
@@ -572,22 +804,7 @@ function QuestionLoadCard() {
   const [saving, setSaving] = useState(false);
   const saved = useQuestionLoad(isStudent ? studentId : null);
 
-  const week = useQuery({
-    queryKey: ["profile-week-points", studentId],
-    enabled: isStudent && !!studentId,
-    queryFn: async () => {
-      const { count, error } = await supabase
-        .from("student_weekly_plan_points")
-        .select("spec_point_id, student_weekly_plans!inner(student_id)", {
-          count: "exact",
-          head: true,
-        })
-        .eq("student_weekly_plans.student_id", studentId!)
-        .eq("student_weekly_plans.week_start", currentWeekKey());
-      if (error) throw new Error(error.message);
-      return count ?? 0;
-    },
-  });
+  const week = useWeekPoints();
 
   if (!isStudent || !studentId) return null;
 
@@ -606,6 +823,7 @@ function QuestionLoadCard() {
       qc.setQueryData(questionLoadKey(studentId), selected);
       setPicked(null);
       toast.success("Saved. It starts with your next quiz and task.");
+      done();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't save that. Try again.");
     } finally {
@@ -614,7 +832,7 @@ function QuestionLoadCard() {
   };
 
   return (
-    <Card title="How many questions" icon={ListChecks}>
+    <>
       {error ? (
         <ErrorNote
           error={error}
@@ -626,29 +844,23 @@ function QuestionLoadCard() {
       ) : !saved.ready || week.isLoading ? (
         <Spinner className="py-6" />
       ) : (
-        <div className="space-y-5">
+        <div className="space-y-6">
           <QuestionLoadPicker
             value={selected}
             onChange={setPicked}
-            topicsPerWeek={week.data || enrolments.length * TOPICS_PER_WEEK_PER_SUBJECT}
+            topicsPerWeek={week.topicsPerWeek}
           />
-          <div className="max-w-sm">
-            <button
-              type="button"
-              disabled={selected === saved.load || saving}
-              onClick={() => void save()}
-              className={submitBtn}
-            >
-              {saving ? "Saving…" : "Save"}
-            </button>
-          </div>
+          <SaveButton show={selected !== saved.load} busy={saving} onClick={() => void save()}>
+            {saving ? "Saving…" : "Save"}
+          </SaveButton>
         </div>
       )}
-    </Card>
+    </>
   );
 }
 
 function EmailCard({ currentEmail }: { currentEmail: string | null }) {
+  const done = useContext(DoneContext);
   const [email, setEmail] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
@@ -676,6 +888,7 @@ function EmailCard({ currentEmail }: { currentEmail: string | null }) {
         `Confirmation sent to ${next}. If your current address gets one too, click both. Your email changes once that's done.`,
       );
       setEmail("");
+      done();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Could not update your email");
     } finally {
@@ -684,16 +897,9 @@ function EmailCard({ currentEmail }: { currentEmail: string | null }) {
   };
 
   return (
-    <Card
-      title="Email address"
-      description="Used to sign in and to receive updates about your work."
-      icon={Mail}
-    >
-      <form onSubmit={submit} className="space-y-4 max-w-sm">
-        <Field label="Current email">
-          <input value={currentEmail ?? "—"} disabled className={`${inputCls} opacity-60`} />
-        </Field>
-        <Field label="New email">
+    <>
+      <form onSubmit={submit} className="max-w-md space-y-5">
+        <PopField label="New email" error={error}>
           <input
             type="email"
             autoComplete="email"
@@ -704,19 +910,19 @@ function EmailCard({ currentEmail }: { currentEmail: string | null }) {
             }}
             onBlur={() => email && setError(validateEmail(email))}
             aria-invalid={!!error}
-            className={inputCls}
+            className={popInput}
           />
-          <ErrorText>{error}</ErrorText>
-        </Field>
-        <button type="submit" disabled={saving} className={submitBtn}>
+        </PopField>
+        <SaveButton show={email.trim() !== ""} busy={saving}>
           {saving ? "Sending…" : "Send confirmation"}
-        </button>
+        </SaveButton>
       </form>
-    </Card>
+    </>
   );
 }
 
 function PasswordCard({ currentEmail }: { currentEmail: string | null }) {
+  const done = useContext(DoneContext);
   const [current, setCurrent] = useState("");
   const [next, setNext] = useState("");
   const [confirm, setConfirm] = useState("");
@@ -763,6 +969,7 @@ function PasswordCard({ currentEmail }: { currentEmail: string | null }) {
       setCurrent("");
       setNext("");
       setConfirm("");
+      done();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Could not update your password");
     } finally {
@@ -771,22 +978,18 @@ function PasswordCard({ currentEmail }: { currentEmail: string | null }) {
   };
 
   return (
-    <Card
-      title="Password"
-      description="Confirm your current password to set a new one."
-      icon={KeyRound}
-    >
-      <form onSubmit={submit} className="space-y-4 max-w-sm">
-        <Field label="Current password">
+    <>
+      <form onSubmit={submit} className="max-w-md space-y-5">
+        <PopField label="Current password">
           <input
             type="password"
             autoComplete="current-password"
             value={current}
             onChange={(e) => setCurrent(e.target.value)}
-            className={inputCls}
+            className={popInput}
           />
-        </Field>
-        <Field label="New password">
+        </PopField>
+        <PopField label="New password">
           <input
             type="password"
             autoComplete="new-password"
@@ -795,10 +998,10 @@ function PasswordCard({ currentEmail }: { currentEmail: string | null }) {
               setNext(e.target.value);
               if (error) setError(null);
             }}
-            className={inputCls}
+            className={popInput}
           />
-        </Field>
-        <Field label="Confirm new password">
+        </PopField>
+        <PopField label="New password again" error={error}>
           <input
             type="password"
             autoComplete="new-password"
@@ -808,15 +1011,14 @@ function PasswordCard({ currentEmail }: { currentEmail: string | null }) {
               if (error) setError(null);
             }}
             aria-invalid={!!error}
-            className={inputCls}
+            className={popInput}
           />
-          <ErrorText>{error}</ErrorText>
-        </Field>
-        <button type="submit" disabled={saving} className={submitBtn}>
+        </PopField>
+        <SaveButton show={current !== "" || next !== "" || confirm !== ""} busy={saving}>
           {saving ? "Updating…" : "Update password"}
-        </button>
+        </SaveButton>
       </form>
-    </Card>
+    </>
   );
 }
 
@@ -844,14 +1046,108 @@ function ProfilePage() {
           the last person's details. Not by the auth API's answer, which came
           back as nobody whenever a refetch failed, and remounted every card
           empty over whatever the student was typing. */}
-      <div key={viewerId ?? "nobody"} className="max-w-2xl space-y-6">
-        <PhotoCard currentEmail={email} />
-        <DetailsCard />
-        <ExamYearCard />
-        <QuestionLoadCard />
-        <EmailCard currentEmail={email} />
-        <PasswordCard currentEmail={email} />
-      </div>
+      <ProfileTiles key={viewerId ?? "nobody"} email={email} />
     </AppLayout>
+  );
+}
+
+/**
+ * The page as tiles, like the planner's summary: what each thing is now, and
+ * one button on each that opens its form in a dialog.
+ */
+function ProfileTiles({ email }: { email: string | null }) {
+  const photo = usePhoto(email);
+  const { data } = useProfileDetails();
+  const isStudent = useIsStudent();
+  const { level } = useEnrolments();
+  const studentId = useViewerId();
+  const exam = useExamYear();
+  const load = useQuestionLoad(isStudent ? studentId : null);
+  const week = useWeekPoints();
+  const [open, setOpen] = useState<SettingKey | null>(null);
+  const close = useCallback(() => setOpen(null), []);
+
+  const name = data?.display_name?.trim();
+  const phone = data?.phone?.trim();
+  const year = level ? currentExamYear(exam.data, level) : null;
+  const weeksToGo =
+    year != null
+      ? Math.max(0, Math.ceil((examMondayIn(year).getTime() - Date.now()) / (7 * 864e5)))
+      : null;
+  const picked = liveLoad(load.load);
+  const minutes = minutesPerDay(picked, week.topicsPerWeek);
+  const share = (minutes / minutesPerDay(HEAVIEST_LIVE_LOAD, week.topicsPerWeek)) * 100;
+
+  return (
+    <>
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <Tile k="name" wide={isStudent} onOpen={() => setOpen("name")}>
+          <div className="flex items-center gap-5">
+            <Avatar photo={photo} />
+            <div className="min-w-0">
+              <p className="font-display text-3xl leading-tight font-extrabold break-words">
+                {name || "Add your name"}
+              </p>
+              <p className="mt-1 text-lg font-semibold">{phone || "No phone number yet"}</p>
+              <RemovePhoto photo={photo} />
+            </div>
+          </div>
+        </Tile>
+
+        {isStudent && (
+          <Tile k="exams" onOpen={() => setOpen("exams")}>
+            {year != null ? (
+              <>
+                <Figure>
+                  <span className="summary-dot numeral pop-in">{weeksToGo}</span>
+                  {weeksToGo === 1 ? "week to go" : "weeks to go"}
+                </Figure>
+                <p className="text-lg font-bold">Exams in summer {year}</p>
+              </>
+            ) : exam.isLoading ? (
+              <Spinner className="py-4" />
+            ) : (
+              <p className="text-lg font-bold">Pick the summer you sit your exams</p>
+            )}
+          </Tile>
+        )}
+
+        {isStudent && (
+          <Tile k="questions" onOpen={() => setOpen("questions")}>
+            {load.ready && !week.isLoading ? (
+              <>
+                <Figure>
+                  <Ring key={picked} value={share} size={72} stroke={8} className="shrink-0">
+                    <span className={cn("numeral text-[1.75rem]", TINT_TEXT)}>{minutes}</span>
+                  </Ring>
+                  minutes a day
+                </Figure>
+                <p className="text-lg font-bold">
+                  <span aria-hidden>{LOAD_WORD[picked].emoji}</span> {LOAD_WORD[picked].name}
+                </p>
+              </>
+            ) : (
+              <Spinner className="py-4" />
+            )}
+          </Tile>
+        )}
+
+        <Tile k="email" onOpen={() => setOpen("email")}>
+          <p className="font-display text-xl leading-snug font-extrabold break-all">
+            {email ?? "…"}
+          </p>
+        </Tile>
+
+        <Tile k="password" onOpen={() => setOpen("password")}>
+          <Figure>
+            <span className="summary-dot pop-in" aria-hidden>
+              🔒
+            </span>
+            Kept private
+          </Figure>
+        </Tile>
+      </div>
+      {open && <EditDialog k={open} email={email} onClose={close} />}
+    </>
   );
 }

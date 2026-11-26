@@ -5935,6 +5935,102 @@ html[data-tour="dock"] [data-guide="page-content"] {
   background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
 }
 
+/* ════════════════════════════════════════════════════════════════════════════
+   THE PROFILE PAGE (routes/_authenticated/profile.tsx), playful minimalism
+   The photo is a big round dot you press to change, a yellow camera on its
+   edge that hops when the dot is pointed at. The rest of the page is tiles in
+   the planner summary's look (`summary-*`), each opening its form in a dialog
+   in the Ask your tutor look (`ask-*`).
+   ════════════════════════════════════════════════════════════════════════════ */
+.profile-avatar {
+  position: relative;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--primary-foreground);
+  /* Mixed toward navy like `.btn-solid`, so the initials stay white. */
+  background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+  border: 1.5px solid color-mix(in oklab, var(--tint) 55%, black);
+  box-shadow: 0 6px 0 0 color-mix(in oklab, var(--tint) 45%, black);
+  cursor: pointer;
+  transition:
+    transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1),
+    box-shadow 0.16s ease;
+}
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  transition: opacity 0.2s ease;
+}
+.profile-avatar[data-busy="true"] img {
+  opacity: 0.55;
+}
+.profile-avatar:hover:not(:disabled) {
+  transform: translateY(-4px) rotate(-4deg);
+}
+.profile-avatar:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 0 color-mix(in oklab, var(--tint) 45%, black);
+}
+.profile-avatar:focus-visible {
+  outline: 3px solid var(--foreground);
+  outline-offset: 4px;
+}
+.profile-avatar-badge {
+  position: absolute;
+  right: -0.25rem;
+  bottom: -0.25rem;
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 999px;
+  color: var(--pop-ink);
+  background: var(--pop);
+  border: 3px solid var(--background);
+}
+.profile-avatar-badge svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+@media (hover: hover) {
+  .profile-avatar:hover:not(:disabled) .profile-avatar-badge {
+    animation: hop 0.5s ease-in-out;
+  }
+}
+@media (max-width: 599px) {
+  .profile-avatar {
+    width: 5.5rem;
+    height: 5.5rem;
+    font-size: 2rem;
+  }
+  .profile-avatar-badge {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-avatar,
+  .profile-avatar img {
+    transition: none;
+  }
+  .profile-avatar:hover:not(:disabled) {
+    transform: none;
+  }
+  .profile-avatar:hover:not(:disabled) .profile-avatar-badge {
+    animation: none;
+  }
+}
+
 /* ── The parent pass (Linked Parents, student side) ──────────────────────────
    The invite code is a ticket with two notches, a bobbing 🎟️ stub and a round
    button that turns it over to the QR code on its back. Linked parents are
