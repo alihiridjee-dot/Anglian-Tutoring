@@ -16,6 +16,7 @@ import { acknowledgeSubmission } from "@/lib/homework/homework.functions";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { plannerDateLabel } from "@/lib/planner/week";
+import { refreshBell } from "@/lib/shell/bellRefresh";
 import { needsMarkingStart, startMarking } from "@/lib/homework/startMarking";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { usePinSubject } from "@/hooks/useActiveSubject";
@@ -347,6 +348,8 @@ function AcknowledgeFeedback({
     try {
       await acknowledgeSubmission({ data: { submissionId: submission.id } });
       toast.success("Feedback acknowledged — your tutor has been notified");
+      // acknowledge_submission deleted this task's "Task marked" notice.
+      refreshBell();
       onChanged();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Could not acknowledge feedback");
