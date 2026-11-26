@@ -146,10 +146,6 @@ function PrivacyPage() {
             link your account to theirs. If you&apos;re under 13, please ask a parent or guardian
             before you sign up. If something here worries you, talk to them or email us.
           </p>
-          <p className="mt-3 leading-relaxed">
-            If you press <strong>Ask for help</strong> in the search box, what you typed is sent to
-            an AI company in China. So don&apos;t type your name or anything personal there.
-          </p>
         </div>
 
         <Section title="Who we are">
