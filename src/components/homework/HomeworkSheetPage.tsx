@@ -8,6 +8,8 @@ import { AwaitingMark, BuiltInHomework, MarksBox } from "@/components/BuiltInHom
 import { EmptyState, ErrorNote, SciText, SectionHeading, Spinner } from "@/components/Shared";
 import { useHomeworkSheet, useInvalidateHomework } from "@/hooks/data/useHomework";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useQuestionLoad } from "@/hooks/data/useQuestionLoad";
+import { firstQuestions, setCount } from "@/lib/practice/questionLoad";
 import { useOwnCourse } from "@/hooks/useOwnCourse";
 import { isOverdue } from "@/lib/homework/homeworkBuckets";
 import type { SubmissionRow } from "@/lib/homework/types";
@@ -37,6 +39,7 @@ export function HomeworkSheetPage() {
   const reload = useInvalidateHomework();
   const { enrolments } = useEnrolments();
   const course = useOwnCourse();
+  const questionLoad = useQuestionLoad(demo || isTutor ? null : userId);
   const { data: breaks } = useQuery({
     ...studentBreaksQuery(userId ?? ""),
     enabled: !!userId && !isTutor && !isDemoStudent(),
@@ -92,11 +95,46 @@ export function HomeworkSheetPage() {
     );
   }
 
-  const { hw, questions, answers } = data;
+  const { hw, questions: stored, answers } = data;
+
+  // A point's shared task is cut to the student's level: its first questions
+  // by position. Once handed in, the paper is the questions it has an answer
+  // row for: hand-in wrote one for each question set and none past the count
+  // (`submit_homework_answers`), so a later change of level, or a question
+  // added since, leaves it as it was. A tutor previewing and the showcase see
+  // every question.
+  const questions =
+    isTutor || demo
+      ? stored
+      : submission
+        ? submission.shown_count == null
+          ? stored
+          : stored.filter((q) => answers[q.id])
+        : firstQuestions(stored, setCount("task", hw.origin, stored.length, questionLoad.load));
 
   // A task written for another board or level is turned away, unless this
   // student has handed it in: their own work always opens.
   if (!course.ready) {
+    return (
+      <AppLayout title="Task">
+        <BackLink />
+        <Spinner label="Opening this task" />
+      </AppLayout>
+    );
+  }
+  // The level decides which questions are on a blank sheet, so it is not
+  // guessed. Work already handed in carries its own count.
+  if (!submission && questionLoad.error) {
+    return (
+      <AppLayout title="Task">
+        <BackLink />
+        <div className="mt-6">
+          <ErrorNote error={questionLoad.error} onRetry={questionLoad.retry} />
+        </div>
+      </AppLayout>
+    );
+  }
+  if (!submission && !questionLoad.ready) {
     return (
       <AppLayout title="Task">
         <BackLink />

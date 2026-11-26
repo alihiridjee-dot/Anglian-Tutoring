@@ -519,6 +519,7 @@ export type Database = {
           release_at: string | null;
           resource_id: string;
           score_pct: number | null;
+          shown_count: number | null;
           student_id: string;
           submitted_at: string;
           tutor_reviewed_at: string | null;
@@ -538,6 +539,7 @@ export type Database = {
           release_at?: string | null;
           resource_id: string;
           score_pct?: number | null;
+          shown_count?: number | null;
           student_id: string;
           submitted_at?: string;
           tutor_reviewed_at?: string | null;
@@ -557,6 +559,7 @@ export type Database = {
           release_at?: string | null;
           resource_id?: string;
           score_pct?: number | null;
+          shown_count?: number | null;
           student_id?: string;
           submitted_at?: string;
           tutor_reviewed_at?: string | null;
@@ -757,6 +760,7 @@ export type Database = {
           point_scores: Json | null;
           score: number;
           set_id: string;
+          shown_count: number | null;
           total: number;
           user_id: string;
         };
@@ -767,6 +771,7 @@ export type Database = {
           point_scores?: Json | null;
           score: number;
           set_id: string;
+          shown_count?: number | null;
           total: number;
           user_id: string;
         };
@@ -777,6 +782,7 @@ export type Database = {
           point_scores?: Json | null;
           score?: number;
           set_id?: string;
+          shown_count?: number | null;
           total?: number;
           user_id?: string;
         };
@@ -1322,6 +1328,7 @@ export type Database = {
           level: Database["public"]["Enums"]["level"] | null;
           onboarding_completed_at: string | null;
           phone: string | null;
+          question_load: string;
           role: Database["public"]["Enums"]["profile_role"];
           school: string | null;
           student_invite_code: string | null;
@@ -1337,6 +1344,7 @@ export type Database = {
           level?: Database["public"]["Enums"]["level"] | null;
           onboarding_completed_at?: string | null;
           phone?: string | null;
+          question_load?: string;
           role?: Database["public"]["Enums"]["profile_role"];
           school?: string | null;
           student_invite_code?: string | null;
@@ -1352,6 +1360,7 @@ export type Database = {
           level?: Database["public"]["Enums"]["level"] | null;
           onboarding_completed_at?: string | null;
           phone?: string | null;
+          question_load?: string;
           role?: Database["public"]["Enums"]["profile_role"];
           school?: string | null;
           student_invite_code?: string | null;

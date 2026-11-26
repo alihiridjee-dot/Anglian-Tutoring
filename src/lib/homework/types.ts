@@ -33,6 +33,12 @@ export type SubmissionRow = {
    */
   release_at: string | null;
   /**
+   * How many of a shared task's first questions the work was set, filed at
+   * hand-in from the student's level (`homework_submissions.shown_count`).
+   * Null or absent: every question, as on work handed in before the levels.
+   */
+  shown_count?: number | null;
+  /**
    * When the marker finished. Set with no `release_at` means it held the paper
    * for a tutor, so the page says a person is checking it rather than
    * promising marks "shortly". Optional because older readers and the demo

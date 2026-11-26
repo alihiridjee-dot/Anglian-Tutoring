@@ -1473,12 +1473,12 @@ try {
   // ── 2. One drain writes both, exactly as specified ─────────────────────────
   {
     const first = await counted(() => worker.drainPracticeQueue());
-    assert.deepEqual({ ...worker.QUESTIONS }, { quiz: 8, task: 5 }, "today's sizes");
+    assert.deepEqual({ ...worker.QUESTIONS }, { quiz: 10, task: 7 }, "today's sizes");
     assert.deepEqual(
       first.calls.map((c) => [c.point, c.format, c.count]).sort(),
       [
-        [p1.id, "mcq", 8],
-        [p1.id, "written", 5],
+        [p1.id, "mcq", 10],
+        [p1.id, "written", 7],
       ],
       "one call per job, at today's sizes",
     );
@@ -1577,7 +1577,7 @@ try {
           error: null,
           raw_output: null,
           stop_reason: "end_turn",
-          questions: 8,
+          questions: 10,
           has_usage: true,
           api_status: null,
           model: "claude-sonnet-5-5",
@@ -1592,7 +1592,7 @@ try {
           error: null,
           raw_output: null,
           stop_reason: "end_turn",
-          questions: 5,
+          questions: 7,
           has_usage: true,
           api_status: null,
           model: "claude-sonnet-5-5",
@@ -2114,7 +2114,7 @@ try {
     assert.deepEqual(await generatedSets(p13), [], "nothing was saved");
     assert.deepEqual(
       (await runs(p13)).map((r) => [r.outcome, r.error, r.has_usage, r.questions]),
-      [["failed", message, true, 8]],
+      [["failed", message, true, 10]],
       "the call's run is closed as failed, keeping its questions and usage",
     );
 

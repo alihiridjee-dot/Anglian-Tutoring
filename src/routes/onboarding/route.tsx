@@ -80,7 +80,7 @@ function OnboardingLayout() {
         </div>
 
         {/* One continuous track with a gradient fill, rather than one bar per
-            step — it reads as progress through a single flow instead of five
+            step — it reads as progress through a single flow instead of six
             unrelated segments. Labels sit under their own slice. */}
         <div className="mb-8 rise-in">
           <div className="bg-secondary h-2.5 overflow-hidden rounded-full border-[1.5px] border-[color:color-mix(in_oklab,var(--tint)_22%,var(--edge))]">
@@ -89,17 +89,19 @@ function OnboardingLayout() {
               style={{ width: `${pct}%`, background: "var(--gradient-hero)" }}
             />
           </div>
-          <ol className="mt-3 flex items-start gap-2">
+          <ol className="mt-3 flex items-start gap-2 sm:justify-between">
             {ONBOARDING_STEPS.map((step, i) => {
               const done = i < current;
               const active = i === current;
               return (
                 <li
                   key={step.path}
-                  // Five labels do not fit a phone: the active step takes the
-                  // row and the others shrink to their dot until `sm`.
+                  // Six labels do not fit a phone: the active step takes the
+                  // row and the others shrink to their dot until `sm`. From
+                  // there each is as wide as its words and they spread along
+                  // the bar: six equal slices cut "School & grades" short.
                   className={`flex items-center gap-1.5 min-w-0 ${
-                    active ? "flex-1" : "flex-none sm:flex-1"
+                    active ? "flex-1 sm:flex-none" : "flex-none"
                   }`}
                 >
                   {done ? (

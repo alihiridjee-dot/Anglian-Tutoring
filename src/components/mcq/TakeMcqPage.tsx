@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { invalidatePlanner } from "@/lib/planner/queries";
 import { Link, useNavigate, useParams, useRouter, useRouterState } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Chip, EmptyState, ErrorNote, SciBlock, SciText, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { QuestionFlipCard } from "@/components/mcq/QuestionFlipCard";
@@ -35,6 +35,8 @@ import { retakeOpensAt, retakeOpensLabel } from "@/lib/mcq/retakeLock";
 import { StoredFigure } from "@/components/QuestionFigure";
 import { ExamKit } from "@/components/examKit/ExamKit";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useQuestionLoad } from "@/hooks/data/useQuestionLoad";
+import { firstQuestions, setCount } from "@/lib/practice/questionLoad";
 import { useOwnCourse } from "@/hooks/useOwnCourse";
 import { cn } from "@/lib/utils";
 import { pageBehind } from "@/lib/shell/returnSpot";
@@ -93,7 +95,7 @@ export function TakeMcq() {
     refetchOnReconnect: false,
   });
   const set = paper.data?.set ?? null;
-  const questions = paper.data?.questions ?? EMPTY_QUESTIONS;
+  const stored = paper.data?.questions ?? EMPTY_QUESTIONS;
 
   // Taken in the last week? Then it opens as a review of that attempt. Never
   // refetched behind the student's back, like the paper; a submission below
@@ -109,6 +111,21 @@ export function TakeMcq() {
     refetchOnReconnect: false,
   });
   const lockPending = checkLock && locked.isPending;
+
+  // A point's shared quiz is cut to the student's level: its first questions
+  // by position. An attempt on the page, just marked or this week's, keeps the
+  // count the server filed it with, whatever the level is now. A tutor
+  // previewing and the showcase see every question.
+  const questionLoad = useQuestionLoad(demo || isTutor ? null : userId);
+  const filed = marked ?? locked.data?.marked ?? null;
+  const cap = filed
+    ? filed.shownCount
+    : demo || isTutor
+      ? null
+      : setCount("quiz", set?.origin, stored.length, questionLoad.load);
+  const questions = useMemo(() => firstQuestions(stored, cap), [stored, cap]);
+  // A filed attempt needs no level: it carries its own count.
+  const levelPending = !filed && !questionLoad.ready;
 
   // A quiz written for another board or level is turned away, unless this
   // student has taken it before: their own work always opens.
@@ -160,7 +177,7 @@ export function TakeMcq() {
     scoreRef.current?.focus();
   }, [marked]);
   useEffect(() => {
-    if (questions.length === 0 || lockPending) return;
+    if (questions.length === 0 || lockPending || levelPending) return;
     const attempt = `${userId ?? ""}:${setId}`;
     if (startedFor.current === attempt) return;
     startedFor.current = attempt;
@@ -178,7 +195,7 @@ export function TakeMcq() {
     setAnswers(userId && !demo ? reconcileAnswers(loadMcqAnswers(userId, setId), questions) : {});
     restoredId.current = !!userId && !demo && savedAttemptId(userId, setId) !== null;
     attemptId.current = userId && !demo ? attemptIdFor(userId, setId) : null;
-  }, [setId, userId, demo, questions, lockPending, locked.data]);
+  }, [setId, userId, demo, questions, lockPending, locked.data, levelPending]);
 
   const choose = (questionId: string, index: number) => {
     setAnswers((prev) => {
@@ -223,7 +240,13 @@ export function TakeMcq() {
         if (answers[q.id] === q.correct_index) correct += 1;
       }
       focusScore.current = true;
-      setMarked({ score: correct, total: questions.length, byQuestion, retakeOpensAt: null });
+      setMarked({
+        score: correct,
+        total: questions.length,
+        byQuestion,
+        retakeOpensAt: null,
+        shownCount: null,
+      });
       toast.success(`Scored ${correct}/${questions.length}`);
       return;
     }
@@ -410,6 +433,23 @@ export function TakeMcq() {
     );
   }
   if (lockPending)
+    return (
+      <AppLayout title={set.title}>
+        <Spinner label="Loading the quiz" />
+      </AppLayout>
+    );
+  // The level decides which questions are on the paper, so it is not guessed.
+  if (levelPending && questionLoad.error) {
+    return (
+      <AppLayout title={set.title}>
+        <div className="max-w-3xl">
+          <ErrorNote error={questionLoad.error} onRetry={questionLoad.retry} />
+          {back}
+        </div>
+      </AppLayout>
+    );
+  }
+  if (levelPending)
     return (
       <AppLayout title={set.title}>
         <Spinner label="Loading the quiz" />

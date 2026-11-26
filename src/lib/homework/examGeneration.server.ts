@@ -10,6 +10,7 @@ import {
   validateQuestions,
   type GenerationContext,
   type GenerationFormat,
+  type SetLengths,
   type WrittenQuestion,
   type McqQuestion,
 } from "./examGeneration";
@@ -52,6 +53,11 @@ export interface GenerateOptions {
    * keeps sets of text alone.
    */
   figures?: boolean;
+  /**
+   * The set is a point's shared quiz or task, which students are set at three
+   * lengths: the writer orders it so each cut is complete (`lengthsGuide`).
+   */
+  lengths?: SetLengths;
   /** Passed to the Anthropic client when given; its own defaults otherwise. */
   timeoutMs?: number;
   maxRetries?: number;
@@ -273,7 +279,7 @@ export async function generateExamQuestions(
   // No call, so no run row. Every job would fail the same way, so it pauses the queue.
   if (!apiKey) throw new GenerationError("ANTHROPIC_API_KEY not configured", "outage", 30, null);
   const figures = opts.figures ?? false;
-  const prompt = buildGenerationPrompt(context, count, format, opts.notes, figures);
+  const prompt = buildGenerationPrompt(context, count, format, opts.notes, figures, opts.lengths);
   const client = new Anthropic({
     apiKey,
     ...(opts.timeoutMs !== undefined ? { timeout: opts.timeoutMs } : {}),

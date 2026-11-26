@@ -31,6 +31,11 @@ import { parseTutorMarks, type TutorMark } from "@/lib/homework/tutorMarks";
  * The paper is the questions this student was set: those on the sheet when they
  * handed in, plus any they answered. A question a tutor adds afterwards is not
  * shown or counted against them, matching `publish_homework_marks`.
+ *
+ * Work filed with a count (a shared task, cut to the student's level) is only
+ * the questions it has an answer for: hand-in wrote a row for each question
+ * set, blank ones included, and none for the rest. So the questions past the
+ * student's count are not shown, marked or counted in the total.
  */
 export type QuestionMark = { marks: string; feedback: string };
 
@@ -48,7 +53,11 @@ export function useAnswerMarking(
   resourceId: string | undefined,
   submissionId: string,
   open: boolean,
-  { submittedAt, graded }: { submittedAt: string; graded: boolean },
+  {
+    submittedAt,
+    graded,
+    shownCount = null,
+  }: { submittedAt: string; graded: boolean; shownCount?: number | null },
 ) {
   const [questions, setQuestions] = useState<HomeworkQuestion[]>([]);
   const [answers, setAnswers] = useState<Record<string, HomeworkAnswer>>({});
@@ -103,7 +112,9 @@ export function useAnswerMarking(
       const answered = new Set((aRes.data ?? []).map((a) => a.question_id));
       const handedIn = new Date(submittedAt).getTime();
       const qs = all.filter(
-        (q) => answered.has(q.id) || new Date(q.created_at).getTime() <= handedIn,
+        (q) =>
+          answered.has(q.id) ||
+          (shownCount == null && new Date(q.created_at).getTime() <= handedIn),
       );
 
       // The staged proposal, if one was made, keyed for lookup below.
@@ -151,7 +162,7 @@ export function useAnswerMarking(
     return () => {
       cancelled = true;
     };
-  }, [open, loaded, resourceId, submissionId, submittedAt, graded, attempt]);
+  }, [open, loaded, resourceId, submissionId, submittedAt, graded, shownCount, attempt]);
 
   const setMark = useCallback((questionId: string, changes: Partial<QuestionMark>) => {
     setMarks((prev) => ({
