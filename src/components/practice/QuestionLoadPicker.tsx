@@ -1,5 +1,6 @@
 import { ChoiceTile } from "@/components/onboarding/StepCard";
 import { TINT_TEXT } from "@/components/planner/workbench/figures";
+import { QUESTION_LEVELS } from "@/components/practice/questionLevels";
 import { Ring } from "@/components/Shared";
 import {
   HEAVIEST_LIVE_LOAD,
@@ -26,11 +27,7 @@ import { cn } from "@/lib/utils";
  * its tile, dimmed and saying so, as a board we can't teach yet does on the
  * first step. It can still be pressed, and pressing it gives Normal.
  */
-const LEVELS: Record<QuestionLoad, { name: string; emoji: string; tint: string }> = {
-  reduced: { name: "Reduced", emoji: "🪶", tint: "tint-accent" },
-  normal: { name: "Normal", emoji: "🎯", tint: "tint-primary" },
-  enhanced: { name: "Enhanced", emoji: "🚀", tint: "tint-amber" },
-};
+const LEVELS = QUESTION_LEVELS;
 
 export function QuestionLoadPicker({
   value,

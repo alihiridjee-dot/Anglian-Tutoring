@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as FiguresPreviewRouteImport } from './routes/figures-preview'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as LevelPreviewRouteImport } from './routes/level-preview'
 import { Route as MessagesPreviewRouteImport } from './routes/messages-preview'
 import { Route as OnboardingRouteRouteImport } from './routes/onboarding/route'
 import { Route as OurStoryRouteImport } from './routes/our-story'
@@ -94,6 +95,11 @@ const FiguresPreviewRoute = FiguresPreviewRouteImport.update({
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LevelPreviewRoute = LevelPreviewRouteImport.update({
+  id: '/level-preview',
+  path: '/level-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MessagesPreviewRoute = MessagesPreviewRouteImport.update({
@@ -397,6 +403,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/figures-preview': typeof FiguresPreviewRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/level-preview': typeof LevelPreviewRoute
   '/messages-preview': typeof MessagesPreviewRoute
   '/our-story': typeof OurStoryRoute
   '/parent-join': typeof ParentJoinRoute
@@ -459,6 +466,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/figures-preview': typeof FiguresPreviewRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/level-preview': typeof LevelPreviewRoute
   '/messages-preview': typeof MessagesPreviewRoute
   '/our-story': typeof OurStoryRoute
   '/parent-join': typeof ParentJoinRoute
@@ -524,6 +532,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/figures-preview': typeof FiguresPreviewRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/level-preview': typeof LevelPreviewRoute
   '/messages-preview': typeof MessagesPreviewRoute
   '/our-story': typeof OurStoryRoute
   '/parent-join': typeof ParentJoinRoute
@@ -589,6 +598,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/figures-preview'
     | '/how-it-works'
+    | '/level-preview'
     | '/messages-preview'
     | '/our-story'
     | '/parent-join'
@@ -651,6 +661,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/figures-preview'
     | '/how-it-works'
+    | '/level-preview'
     | '/messages-preview'
     | '/our-story'
     | '/parent-join'
@@ -715,6 +726,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/figures-preview'
     | '/how-it-works'
+    | '/level-preview'
     | '/messages-preview'
     | '/our-story'
     | '/parent-join'
@@ -780,6 +792,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   FiguresPreviewRoute: typeof FiguresPreviewRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  LevelPreviewRoute: typeof LevelPreviewRoute
   MessagesPreviewRoute: typeof MessagesPreviewRoute
   OurStoryRoute: typeof OurStoryRoute
   ParentJoinRoute: typeof ParentJoinRoute
@@ -832,6 +845,13 @@ declare module '@tanstack/react-router' {
       path: '/how-it-works'
       fullPath: '/how-it-works'
       preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/level-preview': {
+      id: '/level-preview'
+      path: '/level-preview'
+      fullPath: '/level-preview'
+      preLoaderRoute: typeof LevelPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/messages-preview': {
@@ -1363,6 +1383,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   FiguresPreviewRoute: FiguresPreviewRoute,
   HowItWorksRoute: HowItWorksRoute,
+  LevelPreviewRoute: LevelPreviewRoute,
   MessagesPreviewRoute: MessagesPreviewRoute,
   OurStoryRoute: OurStoryRoute,
   ParentJoinRoute: ParentJoinRoute,
