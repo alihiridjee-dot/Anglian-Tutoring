@@ -62,9 +62,8 @@ function escapeHtml(s: string): string {
 
 /** One line, no control characters, capped: what a student typed is never trusted. */
 function oneLine(s: string, max = 80): string {
-  // deno-lint-ignore no-control-regex
   const flat = s
-    .replace(/[\u0000-\u001f\u007f]+/g, " ")
+    .replace(/\p{Cc}+/gu, " ")
     .replace(/\s+/g, " ")
     .trim();
   return flat.length > max ? `${flat.slice(0, max - 1)}…` : flat;
