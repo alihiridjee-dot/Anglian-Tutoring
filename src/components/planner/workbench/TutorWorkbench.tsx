@@ -13,6 +13,7 @@ import {
 import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
 import { CHAT_KEY, useTutorDirectory } from "@/hooks/data/useChat";
 import { useStudentDirectory } from "@/hooks/data/useStudents";
+import { useEntryState } from "@/hooks/useEntryState";
 import { type BoardV, type SubjectV } from "@/lib/curriculum/taxonomy";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { NeedsYouDAL } from "@/lib/planner/needsYouDal";
@@ -76,10 +77,14 @@ export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
   const studentId = student?.id ?? "";
   const ready = !!student && !!active && !!student.level;
 
-  const [view, setView] = useState<View>("plan");
-  const [solo, setSolo] = useState<Solo>("needs");
-  const [show, setShow] = useState<Show>("all");
-  const [month, setMonth] = useState<string | null>(null);
+  // What is on screen is kept with the visit, so Back from a line's spec point
+  // reopens the same view and month and lands on the line. Named per student
+  // and subject: the planner swaps them in place, and a new one starts afresh.
+  const entry = `workbench.${studentId}.${activeSubject}`;
+  const [view, setView] = useEntryState<View>(`${entry}.view`, "plan");
+  const [solo, setSolo] = useEntryState<Solo>(`${entry}.solo`, "needs");
+  const [show, setShow] = useEntryState<Show>(`${entry}.show`, "all");
+  const [month, setMonth] = useEntryState<string | null>(`${entry}.month`, null);
   const [busy, setBusy] = useState(false);
   const [addingWeek, setAddingWeek] = useState<GridWeek | null>(null);
   const [toAdd, setToAdd] = useState<string[]>([]);
@@ -407,6 +412,11 @@ export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
         onAdd={(week) => {
           setAddingWeek(week);
           setToAdd([]);
+        }}
+        course={{
+          subject: active.subject as SubjectV,
+          board: active.board as BoardV,
+          level: student.level,
         }}
         addingWeek={addingWeek?.key ?? null}
         addSlot={

@@ -2,9 +2,9 @@ import { describe, expect, test } from "bun:test";
 import { readBrief } from "../figureBrief";
 import { checkFigure } from "../figureCheck";
 import { drawWithCode } from "../figureDraw";
-import { ionicBonding } from "./ionicBonding";
+import { type IonicBrief, ionicBonding } from "./ionicBonding";
 
-const [salt, chloride] = ionicBonding.samples.map((s) => s.brief);
+const [salt, chloride] = ionicBonding.samples.map((s) => s.brief as IonicBrief);
 const drawn = (brief: unknown) => drawWithCode(brief as never)!.svg;
 const swap = (svg: string, from: string, to: string) => {
   expect(svg).toContain(from);
@@ -64,7 +64,7 @@ describe("an ionic diagram is held to where each electron came from", () => {
       ],
       shells: "outer",
     });
-    expect(read).toEqual({ brief: { ...chloride, smiles: null } });
+    expect(read as unknown).toEqual({ brief: { ...chloride, smiles: null } });
   });
 
   test("a formula that does not balance names the one that does", () => {
