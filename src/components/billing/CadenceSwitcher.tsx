@@ -47,7 +47,7 @@ interface CadenceSwitcherProps {
  *
  * This replaces a nine-card grid (three cadences × three subject counts) that
  * conflated two unrelated decisions. Coverage is owned by EnrolledSubjectsCard
- * and AddSubjectTiles, which ask which subjects and enrol properly; all that's
+ * and AddSubjectRows, which ask which subjects and enrol properly; all that's
  * left here is the rhythm, so it collapses to three rows priced at whatever the
  * student actually studies.
  *

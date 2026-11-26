@@ -19,6 +19,13 @@ export const SUBJECT_LABEL: Record<string, string> = {
   physics: "Physics",
 };
 
+/** The emoji a subject wears in a round dot (Billing's subject rows). */
+export const SUBJECT_EMOJI: Record<string, string> = {
+  biology: "🧬",
+  chemistry: "🧪",
+  physics: "🧲",
+};
+
 /** The wrapper class. `<div className={subjectTint(subject)}>` and you're done. */
 export const SUBJECT_TINT: Record<string, string> = {
   biology: "tint-bio",

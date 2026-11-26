@@ -6114,3 +6114,88 @@ html[data-tour="dock"] [data-guide="page-content"] {
     transition: none;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   BILLING — the subjects on a plan (EnrolledSubjectsCard, AddSubjectRows)
+   A subject is a bare row: a round dot in its colour holding its emoji, the
+   name, and its exam board as three plain words with the one in use pressed.
+   A subject that can be added wears a dashed dot, and opens in place.
+   The page itself is a trail (BillingTrail) on the `point-*` pieces.
+   ════════════════════════════════════════════════════════════════════════════ */
+/* Dot, name, then the board picker or Add button on the right. */
+.bill-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 0.875rem 0.75rem;
+  border-radius: 1rem;
+}
+/* An add row's second tap: on a line of its own, under the name. */
+.bill-row-more {
+  display: flex;
+  grid-column: 2 / -1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+.bill-dot {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 999px;
+  font-size: 1.5rem;
+  line-height: 1;
+  background: var(--tint);
+  border: 1.5px solid color-mix(in oklab, var(--tint) 55%, black);
+  box-shadow: 0 4px 0 0 color-mix(in oklab, var(--tint) 45%, black);
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.bill-row:hover .bill-dot {
+  transform: translateY(-3px) rotate(-6deg);
+}
+.bill-dot-empty {
+  background: color-mix(in oklab, var(--tint) 7%, var(--card));
+  border: 3px dashed color-mix(in oklab, var(--tint) 35%, var(--edge));
+  box-shadow: none;
+}
+.bill-boards {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.bill-boards button {
+  min-height: 2.75rem;
+  padding: 0 0.875rem;
+  border-radius: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  transition: background 0.15s ease;
+}
+.bill-boards button:hover {
+  background: color-mix(in oklab, var(--tint) 10%, transparent);
+}
+.bill-boards button[aria-pressed="true"] {
+  color: var(--primary-foreground);
+  background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+  box-shadow: 0 3px 0 0 color-mix(in oklab, var(--tint) 40%, var(--primary-deep));
+}
+/* A phone: the picker or button drops under the name, lined up with it. */
+@media (max-width: 599px) {
+  .bill-row {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    padding: 0.75rem 0.5rem;
+  }
+  .bill-row > :nth-child(3) {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bill-row:hover .bill-dot {
+    transform: none;
+  }
+}

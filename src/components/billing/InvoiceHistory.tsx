@@ -1,119 +1,100 @@
 import { ChevronDown, Download, ExternalLink, Receipt } from "lucide-react";
 import { useInvoices } from "@/hooks/data/useBilling";
 import { formatPence } from "@/lib/billing/billing";
-import { Spinner } from "@/components/Shared";
+import { ErrorNote, Spinner } from "@/components/Shared";
+import { DotWord } from "@/components/planner/workbench/figures";
 
 /**
- * The signed-in payer's Stripe payment history. Students who have never paid
- * (their parent does) simply see nothing here, so callers should only render
- * this for accounts that actually pay.
+ * The signed-in payer's Stripe payment history, as bare rows: the amount large,
+ * the date and what it was for under it, then a dot and a word for its state
+ * and the receipt links. Students who have never paid (their parent does)
+ * simply see "No payments yet".
  */
 export function InvoiceHistory() {
-  const { data: invoices, isLoading, error } = useInvoices();
+  const { data: invoices, isLoading, error, refetch } = useInvoices();
 
   if (isLoading) {
     return <Spinner label="Loading payment history" className="py-8" />;
   }
   if (error) {
-    return (
-      <p className="text-sm text-destructive">Couldn't load payment history: {error.message}</p>
-    );
+    return <ErrorNote error={error} onRetry={() => void refetch()} />;
   }
   if (!invoices || invoices.length === 0) {
-    return (
-      <p className="text-muted-foreground text-sm">
-        No payments yet — your first invoice will appear here.
-      </p>
-    );
+    return <p className="font-semibold">No payments yet.</p>;
   }
 
   return (
-    <>
-      {/* A phone gets one invoice per row. The five-column table was 544px
-          wide in a sideways-scrolling box, so the amount, status and receipt
-          started off a phone's screen. */}
-      <ul className="divide-y divide-border/60 text-sm sm:hidden">
-        {invoices.map((inv) => (
-          <li key={inv.id} className="space-y-1 py-3 first:pt-0 last:pb-0">
-            <div className="flex items-start justify-between gap-3">
-              <div className="min-w-0">
-                <p className="font-semibold">{invoiceDate(inv)}</p>
-                <p className="break-words">{invoiceLabel(inv)}</p>
-              </div>
-              <div className="flex shrink-0 flex-col items-end gap-1">
-                <span className="font-semibold">{invoiceAmount(inv)}</span>
-                <StatusChip status={inv.status} />
-              </div>
-            </div>
-            <ReceiptLinks inv={inv} />
-          </li>
-        ))}
-      </ul>
-      <table className="hidden w-full text-sm sm:table">
-        <thead>
-          <tr className="text-left text-xs uppercase tracking-wider text-muted-foreground border-b border-border">
-            <th className="py-2 pr-4 font-semibold">Date</th>
-            <th className="py-2 pr-4 font-semibold">Description</th>
-            <th className="py-2 pr-4 font-semibold">Amount</th>
-            <th className="py-2 pr-4 font-semibold">Status</th>
-            <th className="py-2 font-semibold text-right">Receipt</th>
-          </tr>
-        </thead>
-        <tbody>
-          {invoices.map((inv) => (
-            <tr key={inv.id} className="border-b border-border/60 last:border-0">
-              <td className="py-3 pr-4 whitespace-nowrap">{invoiceDate(inv)}</td>
-              <td className="py-3 pr-4 text-muted-foreground">{invoiceLabel(inv)}</td>
-              <td className="py-3 pr-4 font-semibold whitespace-nowrap">{invoiceAmount(inv)}</td>
-              <td className="py-3 pr-4">
-                <StatusChip status={inv.status} />
-              </td>
-              <td className="py-3 text-right whitespace-nowrap">
-                <ReceiptLinks inv={inv} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </>
+    <ul>
+      {invoices.map((inv) => (
+        <li key={inv.id} className="flex flex-wrap items-center gap-x-5 gap-y-2 rounded-2xl p-3">
+          <div className="min-w-0 flex-[1_1_12rem]">
+            <p className="font-display text-xl font-bold">{invoiceAmount(inv)}</p>
+            <p className="font-semibold break-words">
+              {invoiceDate(inv)} · {invoiceLabel(inv)}
+            </p>
+          </div>
+          <StatusWord status={inv.status} />
+          <ReceiptLinks inv={inv} />
+        </li>
+      ))}
+    </ul>
   );
 }
 
 type Invoice = NonNullable<ReturnType<typeof useInvoices>["data"]>[number];
 
-const invoiceDate = (inv: Invoice) => new Date(inv.created * 1000).toLocaleDateString();
+const invoiceDate = (inv: Invoice) =>
+  new Date(inv.created * 1000).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 const invoiceLabel = (inv: Invoice) => inv.description ?? inv.number ?? "Subscription";
 const invoiceAmount = (inv: Invoice) =>
   formatPence(inv.amount_paid || inv.amount_due, inv.currency);
 
-/** The kit's chip, tinted by state: paid green, still open amber. */
-function StatusChip({ status }: { status: Invoice["status"] }) {
+const STATUS_WORD: Record<string, string> = {
+  paid: "Paid",
+  open: "Due",
+  draft: "Draft",
+  void: "Void",
+  uncollectible: "Not paid",
+};
+
+/** A dot and a word, tinted by state: paid green, still due amber. */
+function StatusWord({ status }: { status: Invoice["status"] }) {
+  if (!status) return null;
   const tint = status === "paid" ? "tint-emerald" : status === "open" ? "tint-amber" : "tint-slate";
-  return <span className={`chip ${tint} uppercase`}>{status ?? "—"}</span>;
+  return (
+    <span className="font-bold">
+      <DotWord tint={tint}>{STATUS_WORD[status] ?? status}</DotWord>
+    </span>
+  );
 }
 
 function ReceiptLinks({ inv }: { inv: Invoice }) {
+  if (!inv.hosted_invoice_url && !inv.invoice_pdf) return null;
   return (
-    <>
+    <span className="flex gap-1">
       {inv.hosted_invoice_url && (
         <a
           href={inv.hosted_invoice_url}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex min-h-11 items-center gap-1 text-primary hover:underline font-semibold mr-3 sm:pointer-fine:min-h-0"
+          className="btn-ghost inline-flex min-h-11 items-center gap-1.5 rounded-xl px-3 text-sm font-bold"
         >
-          View <ExternalLink className="w-3 h-3" />
+          View <ExternalLink className="size-3.5" aria-hidden />
         </a>
       )}
       {inv.invoice_pdf && (
         <a
           href={inv.invoice_pdf}
-          className="inline-flex min-h-11 items-center gap-1 text-primary hover:underline font-semibold sm:pointer-fine:min-h-0"
+          className="btn-ghost inline-flex min-h-11 items-center gap-1.5 rounded-xl px-3 text-sm font-bold"
         >
-          PDF <Download className="w-3 h-3" />
+          PDF <Download className="size-3.5" aria-hidden />
         </a>
       )}
-    </>
+    </span>
   );
 }
 
