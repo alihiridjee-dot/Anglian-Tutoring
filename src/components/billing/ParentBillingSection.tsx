@@ -24,7 +24,7 @@ import {
 import { CadenceSwitcher } from "@/components/billing/CadenceSwitcher";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
 import { PlanLifecycleActions } from "@/components/billing/PlanLifecycleActions";
-import { AddSubjectTiles } from "@/components/billing/AddSubjectCard";
+import { AddSubjectRows } from "@/components/billing/AddSubjectCard";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
 import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
 import { TakeABreakCard } from "@/components/billing/TakeABreakCard";
@@ -118,8 +118,8 @@ function ChildPlan({
             enrolments={enrolments}
             level={level}
             anchorId={anchorId}
-            extraTiles={
-              <AddSubjectTiles
+            extraRows={
+              <AddSubjectRows
                 studentId={studentId}
                 currentTier={sub.plan}
                 enrolledSubjects={enrolments.map((e) => e.subject)}

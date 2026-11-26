@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Info, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
 import { ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { guardNotStaff } from "@/lib/auth/routeGuards";
@@ -10,6 +11,7 @@ import { PaymentPending } from "@/components/billing/PaymentPending";
 import {
   parseCheckoutStatus,
   useCheckoutReturn,
+  useInvoices,
   usePackages,
   useSubscriptions,
   type CheckoutStatus,
@@ -21,12 +23,17 @@ import {
   planLabel,
   formatPence,
   billingIntervalLabel,
+  PLAN_STATUS_LABELS,
+  planStatusTint,
 } from "@/lib/billing/billing";
 import { CadenceSwitcher } from "@/components/billing/CadenceSwitcher";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
 import { PlanLifecycleActions } from "@/components/billing/PlanLifecycleActions";
-import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
-import { AddSubjectTiles } from "@/components/billing/AddSubjectCard";
+import { InvoiceHistory, InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
+import { AddSubjectRows } from "@/components/billing/AddSubjectCard";
+import { BillingTrail, type BillingStop } from "@/components/billing/BillingTrail";
+import { breakCardQuery } from "@/lib/planner/breakQueries";
+import { currentWeekKey } from "@/lib/planner/week";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
 import { ParentBillingSection } from "@/components/billing/ParentBillingSection";
 import { TakeABreakCard } from "@/components/billing/TakeABreakCard";
@@ -46,18 +53,18 @@ export const Route = createFileRoute("/_authenticated/billing")({
 /** The Stripe reassurance + back-link, shared by both persona views. */
 function StripeFooter() {
   return (
-    <div className="mt-8 pop-card pop-card-flat tint-emerald flex gap-3 p-4 text-sm sm:p-5">
-      <span className="icon-tile size-9 shrink-0">
+    <div className="mt-8 flex items-start gap-3 px-1">
+      <span className="icon-tile tint-emerald size-9 shrink-0">
         <ShieldCheck className="size-4" aria-hidden />
       </span>
       <div className="min-w-0">
-        <p className="font-display font-bold">Secure payments by Stripe</p>
-        <p className="mt-0.5">
-          Your card details go straight to Stripe and are never seen or stored by Anglia Educate.
+        <p>
+          <strong>Secure payments by Stripe.</strong> Your card details go straight to Stripe and
+          are never seen or stored by Anglia Educate.
         </p>
         <Link
           to="/dashboard"
-          className="text-primary mt-3 inline-flex min-h-11 items-center text-sm font-semibold hover:underline sm:pointer-fine:min-h-0"
+          className="text-primary mt-1 inline-flex min-h-11 items-center font-bold hover:underline sm:pointer-fine:min-h-0"
         >
           ← Back to dashboard
         </Link>
@@ -78,10 +85,10 @@ function StripeFooter() {
  *     history.
  *   • Student — their own plan.
  *
- * The student view answers three questions in order, because that is the order
- * people actually ask them: what am I on and *who is paying for it*, what does
- * it cover (and how do I drop one subject), and how do I stop. The last of those
- * is PlanLifecycleActions, at the very bottom of the page, behind a four-step gate.
+ * The student view with a plan is a trail (BillingTrail): Subjects → Plan →
+ * Payments → Break as round stops, the picked one open in one card underneath.
+ * Dropping a subject, pausing and cancelling are PlanLifecycleActions, under
+ * the trail at the very bottom of the page, behind a four-step gate.
  */
 function BillingPage() {
   const { enrolledCourses, enrolments, role: profileRole, level } = useEnrolments();
@@ -101,6 +108,13 @@ function BillingPage() {
   // A student's linked parents (empty for the parent view) — used to name the
   // payer and to decide whether the student manages their own plan.
   const { data: linkedParents = [], isLoading: parentsLoading } = useParentLinks(role !== "parent");
+  // Read here too (shared cache) so the trail can leave out a Payments stop
+  // with nothing behind it, and name a break that stands.
+  const invoicesQuery = useInvoices(role !== "parent");
+  const breaksQuery = useQuery({
+    ...breakCardQuery(userId ?? ""),
+    enabled: !!userId && role !== "parent",
+  });
   const sub = subs[0] ?? null;
   const loading = packagesLoading || subsLoading;
   const hasUsablePlan = !!sub && (isSubscriptionLive(sub.status) || sub.status === "paused");
@@ -171,122 +185,186 @@ function BillingPage() {
   // per subject just below, in EnrolledSubjectsCard.
   const course = summariseCourse(level, enrolments);
 
+  // ---- With a plan (or one whose payment failed): the trail. ----
+  if ((hasUsablePlan || paymentOverdue) && sub && !loading && !subsQuery.error && userId) {
+    const thisWeek = currentWeekKey();
+    const standing = (breaksQuery.data ?? []).filter((b) => b.endsOn >= thisWeek);
+    const breakWord = !standing.length
+      ? "Up to a month"
+      : standing[0].startsOn <= thisWeek
+        ? "You're away"
+        : "Booked";
+    const subjectCountWord =
+      ["None", "One", "Two", "Three"][enrolments.length] ?? String(enrolments.length);
+    // Drawn once there is something behind it (or a failed read to say so),
+    // so the trail doesn't lose a stop as the payments arrive.
+    const showPayments =
+      invoicesQuery.isError || (invoicesQuery.isSuccess && invoicesQuery.data.length > 0);
+
+    const stops: BillingStop[] = [];
+    // What the plan covers, where a board is switched and a subject added.
+    // Any student can add a subject to their own live plan, even when a
+    // parent holds the pause/cancel controls: adding is growth, not gated
+    // like they are.
+    if (sub.plan && enrolments.length > 0)
+      stops.push({
+        key: "subjects",
+        emoji: "📚",
+        name: "Subjects",
+        word: `${subjectCountWord} on your plan`,
+        tint: "tint-primary",
+        body: (
+          <EnrolledSubjectsCard
+            bare
+            studentId={userId}
+            enrolments={enrolments}
+            level={level}
+            canChangeBoard
+            extraRows={
+              changeable &&
+              sub.plan && (
+                <AddSubjectRows
+                  studentId={userId}
+                  currentTier={sub.plan}
+                  enrolledSubjects={enrolledCourses}
+                  defaultBoard={enrolments[0]?.board}
+                  level={level}
+                />
+              )
+            }
+          />
+        ),
+      });
+    stops.push({
+      key: "plan",
+      emoji: "💳",
+      name: "Plan",
+      word: sub.cancel_at_period_end ? "Ending" : (PLAN_STATUS_LABELS[sub.status] ?? sub.status),
+      tint: planStatusTint(sub.status),
+      body: (
+        <>
+          <SubscriptionPanel
+            bare
+            sub={sub}
+            canManage={canManage}
+            isPayer={isPayer}
+            returnTo="billing"
+            payerLabel={payerLabel}
+            priceLabel={priceLabel}
+            course={course}
+            // How often they pay, opened from the plan's own button. Only on a
+            // live plan that isn't ending, for whoever manages it.
+            cadenceSwitcher={
+              changeable &&
+              canManage && (
+                <CadenceSwitcher
+                  studentId={userId}
+                  currentTier={activeTier}
+                  subjectCount={enrolments.length}
+                  level={level}
+                  canManage
+                  hadPlan
+                  hideHeading
+                />
+              )
+            }
+          />
+          {!canManage && linksSettled && (
+            <p className="mt-4 px-2 pb-2 sm:px-3">
+              This plan is paid for by <strong>{payerLabel}</strong>, so pausing, changing and
+              cancelling it happen from their account. Ask them to open their own Billing tab —
+              you&apos;ll see any change here straight away.
+            </p>
+          )}
+        </>
+      ),
+    });
+    // Shared household history: a student sees payments on their plan even
+    // when a linked parent's card was charged. No payments, no stop.
+    if (showPayments)
+      stops.push({
+        key: "payments",
+        emoji: "🧾",
+        name: "Payments",
+        word: "Receipts",
+        tint: "tint-amber",
+        body: <InvoiceHistory />,
+      });
+    // A break from the work, not the plan: the plan and its payments carry on.
+    if (isSubscriptionLive(sub.status))
+      stops.push({
+        key: "break",
+        emoji: "🌴",
+        name: "Break",
+        word: breakWord,
+        tint: "tint-accent",
+        body: <TakeABreakCard bare studentId={userId} />,
+      });
+
+    return (
+      <AppLayout title="Billing">
+        <div className="max-w-4xl">
+          <div className="mb-8">
+            {/* A paused plan (Resume) or a failed payment (the card fix) opens
+                on its Plan stop. */}
+            <BillingTrail
+              stops={stops}
+              initial={sub.status === "paused" || paymentOverdue ? "plan" : undefined}
+            />
+          </div>
+
+          {/* Drop a subject, pause and cancel come last, under everything a
+              family might want to do first. */}
+          <div className="mb-8">
+            <PlanLifecycleActions
+              sub={sub}
+              planName={planName}
+              canManage={canManage}
+              course={course}
+              level={level}
+            />
+          </div>
+
+          <StripeFooter />
+        </div>
+      </AppLayout>
+    );
+  }
+
+  // ---- No plan yet (or still loading, or couldn't read it). ----
   return (
     <AppLayout title="Billing">
       <div className="max-w-4xl">
-        {/* A break from the work, not the plan: first on the page, because a
-            family looking for "pause" for a holiday should find this before
-            the plan's own pause, which stops access too. */}
-        {userId && sub && isSubscriptionLive(sub.status) && (
-          <div className="mb-8">
-            <TakeABreakCard studentId={userId} />
-          </div>
-        )}
-
-        {/* Then a stack of tile sections: subjects, the plan (folded away),
-            payment history (folded away), and — last — pause or cancel. */}
-        {/* What the plan covers, where a single subject comes off it and where
-            one is added — one grid. First on the page, above the plan, because
-            it is what a family comes here to change; "cancel Chemistry" is a
-            far commoner intent than "cancel everything", and the cancel dialog
-            links here. Any student can add a subject to their
-            own live plan, even when a parent holds the pause/cancel controls:
-            adding is additive growth, so it isn't gated like they are. */}
-        {userId && hasUsablePlan && sub?.plan && (
-          <div className="mb-8">
-            <EnrolledSubjectsCard
-              studentId={userId}
-              enrolments={enrolments}
-              level={level}
-              canChangeBoard
-              extraTiles={
-                changeable && (
-                  <AddSubjectTiles
-                    studentId={userId}
-                    currentTier={sub.plan}
-                    enrolledSubjects={enrolledCourses}
-                    defaultBoard={enrolments[0]?.board}
-                    level={level}
-                  />
-                )
-              }
-            />
-          </div>
-        )}
-
-        {(hasUsablePlan || paymentOverdue) && sub && !loading && !subsQuery.error ? (
-          <div className="mb-8">
-            <SubscriptionPanel
-              sub={sub}
-              canManage={canManage}
-              isPayer={isPayer}
-              returnTo="billing"
-              payerLabel={payerLabel}
-              priceLabel={priceLabel}
-              course={course}
-              // An overdue plan has no Subjects block above to name them.
-              showSubjects={paymentOverdue}
-              // How often they pay, opened from the plan's Switch payment tile.
-              // Only on a live plan that isn't ending, for whoever manages it.
-              cadenceSwitcher={
-                userId &&
-                changeable &&
-                canManage && (
-                  <CadenceSwitcher
-                    studentId={userId}
-                    currentTier={activeTier}
-                    subjectCount={enrolments.length}
-                    level={level}
-                    canManage
-                    hadPlan
-                    hideHeading
-                  />
-                )
-              }
-            />
-            {!canManage && linksSettled && (
-              <div className="pop-card pop-card-flat mt-3 flex gap-2.5 p-4 text-sm">
-                <Info className="mt-0.5 size-4 shrink-0" aria-hidden />
-                <span>
-                  This plan is paid for by <strong>{payerLabel}</strong>, so pausing, changing and
-                  cancelling it happen from their account. Ask them to open their own Billing tab —
-                  you'll see any change here straight away.
-                </span>
+        <section className="mb-8">
+          <SectionHeading title="Your plan" />
+          <div className="mt-3">
+            {loading ? (
+              <Spinner label="Loading" className="py-8" />
+            ) : subsQuery.error ? (
+              // "Couldn't read your plan" is not "you have no plan". Falling
+              // through to the branch below told a paying student to pick a
+              // plan, with the shop open underneath.
+              <ErrorNote error={subsQuery.error} onRetry={() => void subsQuery.refetch()} />
+            ) : awaitingPayment ? (
+              <PaymentPending delayed={payment.delayed} onRetry={payment.retry} />
+            ) : (
+              <div className="pop-card p-4 sm:p-5">
+                <p>
+                  You don't have an active plan yet. Pick one below to unlock lessons, quizzes, and
+                  task marking.
+                </p>
+                {/* Still say what they'd be buying — the course is set at
+                    signup and is the thing worth checking before paying. */}
+                {course.headline && (
+                  <p className="mt-2 text-sm">
+                    Set up for <strong>{course.headline}</strong>
+                    {subjectLabels.length > 0 && ` — ${subjectLabels.join(", ")}`}.
+                  </p>
+                )}
               </div>
             )}
           </div>
-        ) : (
-          <section className="mb-8">
-            <SectionHeading title="Your plan" />
-            <div className="mt-3">
-              {loading ? (
-                <Spinner label="Loading" className="py-8" />
-              ) : subsQuery.error ? (
-                // "Couldn't read your plan" is not "you have no plan". Falling
-                // through to the branch below told a paying student to pick a
-                // plan, with the shop open underneath.
-                <ErrorNote error={subsQuery.error} onRetry={() => void subsQuery.refetch()} />
-              ) : awaitingPayment ? (
-                <PaymentPending delayed={payment.delayed} onRetry={payment.retry} />
-              ) : (
-                <div className="pop-card p-4 sm:p-5">
-                  <p>
-                    You don't have an active plan yet. Pick one below to unlock lessons, quizzes,
-                    and task marking.
-                  </p>
-                  {/* Still say what they'd be buying — the course is set at
-                      signup and is the thing worth checking before paying. */}
-                  {course.headline && (
-                    <p className="mt-2 text-sm">
-                      Set up for <strong>{course.headline}</strong>
-                      {subjectLabels.length > 0 && ` — ${subjectLabels.join(", ")}`}.
-                    </p>
-                  )}
-                </div>
-              )}
-            </div>
-          </section>
-        )}
+        </section>
 
         {/* The shop, for a student with no plan: how often to pay, which is
             all there is to pick — coverage is the subjects they enrolled in.
@@ -318,20 +396,6 @@ function BillingPage() {
         <div className="mb-8">
           <InvoiceHistoryCard />
         </div>
-
-        {/* Pause and cancel come last, under everything a family might want
-            to do first. */}
-        {(hasUsablePlan || paymentOverdue) && sub && (
-          <div className="mb-8">
-            <PlanLifecycleActions
-              sub={sub}
-              planName={planName}
-              canManage={canManage}
-              course={course}
-              level={level}
-            />
-          </div>
-        )}
 
         <StripeFooter />
       </div>

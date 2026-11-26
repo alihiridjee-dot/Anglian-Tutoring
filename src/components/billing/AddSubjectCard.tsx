@@ -1,18 +1,11 @@
 import { useState } from "react";
-import { Loader2, Plus, Sparkles } from "lucide-react";
+import { Loader2, Plus } from "lucide-react";
 import { toast } from "sonner";
-import {
-  SUBJECTS,
-  BOARDS,
-  isBoard,
-  isLevel,
-  isSubject,
-  type BoardV,
-} from "@/lib/curriculum/taxonomy";
+import { SUBJECTS, BOARDS, isLevel, isSubject, type BoardV } from "@/lib/curriculum/taxonomy";
 import { usePackages, useAddSubjects } from "@/hooks/data/useBilling";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
 import { formatPence } from "@/lib/billing/billing";
-import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
+import { SUBJECT_EMOJI, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import {
   planCadence,
   planSubjectCount,
@@ -23,7 +16,7 @@ import {
   WEEKS_PER_CYCLE,
 } from "@/lib/billing/entitlements";
 
-interface AddSubjectTilesProps {
+interface AddSubjectRowsProps {
   /** subscriptions.student_id whose plan is being grown. */
   studentId: string;
   /** The student's current plan tier, e.g. "monthly_1". */
@@ -43,26 +36,43 @@ interface AddSubjectTilesProps {
 const friendlyPence = (pence: number) =>
   pence % 100 === 0 ? `£${pence / 100}` : formatPence(pence);
 
+/** Counts in a sentence are words: "Four more live lessons a month". */
+const NUMBER_WORDS = [
+  "No",
+  "One",
+  "Two",
+  "Three",
+  "Four",
+  "Five",
+  "Six",
+  "Seven",
+  "Eight",
+  "Nine",
+  "Ten",
+  "Eleven",
+  "Twelve",
+];
+
 /**
- * The frictionless upgrade, as tiles for the Subjects grid: one tile per
- * subject that can still be added, in that subject's colour, leading with the
- * smallest true figure — what it adds per week ("Just £1 a week") and the
- * lessons that buys. Same cadence, one step up the subject-count ladder,
- * prorated and charged now.
+ * The frictionless upgrade, as rows under the subjects already on the plan:
+ * one per subject that can still be added, its emoji in a dashed dot in that
+ * subject's colour, leading with the lessons it buys and the smallest true
+ * figure — what it adds per week ("for just £1 a week"). Same cadence, one step
+ * up the subject-count ladder, prorated and charged now.
  *
- * Two taps, never one: the first opens the tile (board choice and the charge
+ * Two taps, never one: the first opens the row (board choice and the charge
  * spelled out), the second adds it. Renders nothing when there's nothing to
  * sell (plan already covers every subject, or the tier isn't one we can
  * upgrade automatically).
  */
-export function AddSubjectTiles({
+export function AddSubjectRows({
   studentId,
   currentTier,
   enrolledSubjects,
   defaultBoard = "edexcel",
   ownerLabel,
   level,
-}: AddSubjectTilesProps) {
+}: AddSubjectRowsProps) {
   const { data: packages = [] } = usePackages(level);
   const add = useAddSubjects();
   const { coverage } = useCurriculumCoverage();
@@ -107,6 +117,17 @@ export function AddSubjectTiles({
   // Adding the last missing subject completes the set — worth saying so.
   const completesSet = remaining === 1;
   const whose = ownerLabel ? `${ownerLabel}'s` : "your";
+  // A plan already priced for more subjects than it has (bought for three,
+  // two picked) adds the next one for nothing: say so, never "£0 a week".
+  const alreadyPaid = delta != null && delta <= 0;
+  const lessons = `${NUMBER_WORDS[extraLessons] ?? extraLessons} more live ${
+    extraLessons === 1 ? "lesson" : "lessons"
+  } ${cycleWord}`;
+  const offerLine = alreadyPaid
+    ? `${lessons}, already paid for`
+    : deltaPerWeek != null && deltaPerWeek > 0
+      ? `${lessons} for just ${friendlyPence(deltaPerWeek)} a week`
+      : lessons;
 
   const submit = (subject: string, label: string) => {
     add.mutate(
@@ -126,94 +147,95 @@ export function AddSubjectTiles({
       {available.map((s) => {
         const tint = SUBJECT_TINT[s.value] ?? "tint-primary";
         const boardOptions = BOARDS.filter((b) => boardsFor(s.value).includes(b.value));
+        const isOpen = open === s.value;
+        const board = boards[s.value] ?? startingBoard(s.value);
 
-        if (open !== s.value) {
-          return (
-            <div
-              key={s.value}
-              className={`pop-card pop-card-hero pop-card-banded relative flex flex-col items-start gap-3 p-4 sm:aspect-square sm:p-5 ${tint}`}
-            >
-              {completesSet && (
-                <span className="chip chip-solid">
-                  <Sparkles className="size-3.5" aria-hidden /> Complete your sciences
-                </span>
-              )}
-              <h3 className="text-xl font-bold text-[color:var(--tint)]">{s.label}</h3>
-              {deltaPerWeek != null && (
-                <p className="numeral text-3xl text-[color:var(--tint)]">
-                  Just {friendlyPence(deltaPerWeek)} <span className="text-lg">a week</span>
-                </p>
-              )}
-              <span className="chip">
-                +{extraLessons} live {extraLessons === 1 ? "lesson" : "lessons"} {cycleWord}
-              </span>
+        return (
+          <div key={s.value} className={`bill-row ${tint}`}>
+            <span className="bill-dot bill-dot-empty" aria-hidden>
+              {SUBJECT_EMOJI[s.value] ?? "📘"}
+            </span>
+            <div className="min-w-0 flex-1">
+              <h3 className="text-xl font-bold text-[color:var(--tint)]">
+                {completesSet ? `Complete your sciences with ${s.label}` : `Add ${s.label}`}
+              </h3>
+              <p className="font-semibold">{offerLine}</p>
+            </div>
+            {!isOpen && (
               <button
                 type="button"
                 onClick={() => setOpen(s.value)}
-                className="btn-solid mt-auto inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
+                className="btn-solid inline-flex h-11 items-center gap-1.5 rounded-xl px-4 text-sm font-bold"
               >
                 <Plus className="size-4" aria-hidden /> Add {s.label}
               </button>
-            </div>
-          );
-        }
+            )}
 
-        return (
-          <div
-            key={s.value}
-            className={`pop-card flex flex-col gap-3 p-4 sm:aspect-square sm:p-5 ${tint}`}
-          >
-            <h3 className="text-xl font-bold text-[color:var(--tint)]">Add {s.label}</h3>
-            {boardOptions.length > 1 && (
-              <select
-                value={boards[s.value] ?? startingBoard(s.value)}
-                onChange={(e) => {
-                  const next = e.target.value;
-                  if (isBoard(next)) setBoards((prev) => ({ ...prev, [s.value]: next }));
-                }}
-                aria-label={`Exam board for ${s.label}`}
-                className="premium-card h-11 self-start rounded-lg px-2 text-sm font-semibold focus:ring-2 focus:ring-primary/40 focus:outline-none sm:pointer-fine:h-9"
-              >
-                {boardOptions.map((b) => (
-                  <option key={b.value} value={b.value}>
-                    {b.label}
-                  </option>
-                ))}
-              </select>
-            )}
-            {delta != null && nextPrice != null && (
-              <p className="text-sm">
-                Adds <strong>{formatPence(delta)}</strong> {unit}
-                {deltaPerWeek != null && cadence !== "weekly" && (
-                  <> — that&apos;s {friendlyPence(deltaPerWeek)} a week</>
+            {/* The second tap: which board, and what it costs, in full. */}
+            {isOpen && (
+              <div className="bill-row-more point-panel">
+                {boardOptions.length > 1 && (
+                  <div
+                    role="group"
+                    aria-label={`Exam board for ${s.label}`}
+                    className="bill-boards"
+                  >
+                    {boardOptions.map((b) => (
+                      <button
+                        key={b.value}
+                        type="button"
+                        aria-pressed={b.value === board}
+                        onClick={() => setBoards((prev) => ({ ...prev, [s.value]: b.value }))}
+                        disabled={add.isPending}
+                      >
+                        {b.label}
+                      </button>
+                    ))}
+                  </div>
                 )}
-                . Today you pay only for the days left in this billing period, then{" "}
-                <strong>{formatPence(nextPrice)}</strong> {unit}.
-              </p>
-            )}
-            <div className="mt-auto flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={() => submit(s.value, s.label)}
-                disabled={add.isPending}
-                className="btn-solid inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
-              >
-                {add.isPending ? (
-                  <Loader2 className="size-4 animate-spin" aria-hidden />
+                {alreadyPaid ? (
+                  <p>
+                    Nothing more to pay: {whose} plan already covers{" "}
+                    {(NUMBER_WORDS[newCount] ?? String(newCount)).toLowerCase()} subjects.
+                  </p>
                 ) : (
-                  <Plus className="size-4" aria-hidden />
+                  delta != null &&
+                  nextPrice != null && (
+                    <p>
+                      Adds <strong>{formatPence(delta)}</strong> {unit}
+                      {deltaPerWeek != null && cadence !== "weekly" && (
+                        <> — that&apos;s {friendlyPence(deltaPerWeek)} a week</>
+                      )}
+                      . Today you pay only for the days left in this billing period, then{" "}
+                      <strong>{formatPence(nextPrice)}</strong> {unit}.
+                    </p>
+                  )
                 )}
-                Add {s.label}
-              </button>
-              <button
-                type="button"
-                onClick={() => setOpen(null)}
-                disabled={add.isPending}
-                className="btn-ghost inline-flex h-11 items-center rounded-lg px-3 text-sm sm:pointer-fine:h-9"
-              >
-                Not now
-              </button>
-            </div>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => submit(s.value, s.label)}
+                    disabled={add.isPending}
+                    className="btn-solid inline-flex h-11 items-center gap-1.5 rounded-xl px-4 text-sm font-bold"
+                  >
+                    {add.isPending ? (
+                      <Loader2 className="size-4 animate-spin" aria-hidden />
+                    ) : (
+                      <Plus className="size-4" aria-hidden />
+                    )}
+                    Add {s.label}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setOpen(null)}
+                    disabled={add.isPending}
+                    className="btn-ghost inline-flex h-11 items-center rounded-xl px-4 text-sm font-bold"
+                  >
+                    Not now
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         );
       })}

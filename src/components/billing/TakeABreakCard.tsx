@@ -48,14 +48,12 @@ function StandingBreak({
   const action = underWay ? (name ? "End it early" : "I'm back early") : "Call it off";
   return (
     <div className="flex flex-wrap items-center justify-between gap-2">
-      <div className="flex flex-wrap gap-1.5">
-        <span className="chip">{breakReasonLabel(brk.reason)}</span>
-        <span className="chip">
-          {underWay
-            ? `Back ${breakDay(backOn(brk))}`
-            : `${breakDay(brk.startsOn)} – ${breakDay(brk.endsOn)}`}
-        </span>
-      </div>
+      <p className="font-semibold">
+        {breakReasonLabel(brk.reason)} ·{" "}
+        {underWay
+          ? `back ${breakDay(backOn(brk))}`
+          : `${breakDay(brk.startsOn)} – ${breakDay(brk.endsOn)}`}
+      </p>
       {confirming ? (
         <div className="flex flex-wrap gap-2">
           <button
@@ -103,10 +101,13 @@ function StandingBreak({
 export function TakeABreakCard({
   studentId,
   name,
+  bare = false,
 }: {
   studentId: string;
   /** The student's first name, on a parent's or tutor's page. */
   name?: string;
+  /** No card of its own: Billing's trail already draws the one it sits in. */
+  bare?: boolean;
 }) {
   const { data: breaks = [], isPending, error, refetch } = useQuery(breakCardQuery(studentId));
   const [open, setOpen] = useState(false);
@@ -142,13 +143,18 @@ export function TakeABreakCard({
         : "Break booked";
 
   return (
-    <section data-guide="take-a-break" className="tint-accent premium-card rounded-2xl p-4 sm:p-6">
+    <section
+      data-guide="take-a-break"
+      className={bare ? "p-2" : "tint-accent premium-card rounded-2xl p-4 sm:p-6"}
+    >
       <div className="flex items-start gap-3">
-        <span className="icon-tile size-10 shrink-0">
-          <TreePalm className="size-5" />
-        </span>
+        {!bare && (
+          <span className="icon-tile size-10 shrink-0">
+            <TreePalm className="size-5" />
+          </span>
+        )}
         <div className="min-w-0 flex-1 space-y-3">
-          <h2 className="text-lg leading-tight">{title}</h2>
+          <h2 className={bare ? "text-2xl leading-tight" : "text-lg leading-tight"}>{title}</h2>
           {standing.length ? (
             <div className="space-y-2.5">
               {standing.map((b) => (

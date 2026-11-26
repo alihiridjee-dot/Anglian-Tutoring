@@ -88,6 +88,24 @@ export function isSubscriptionLive(status: string | undefined | null) {
   return status === "active" || status === "trialing";
 }
 
+/** A plan's status in a word, as Billing shows it. */
+export const PLAN_STATUS_LABELS: Record<string, string> = {
+  active: "Active",
+  trialing: "Trial",
+  paused: "Paused",
+  past_due: "Payment overdue",
+  unpaid: "Unpaid",
+  canceled: "Cancelled",
+  incomplete: "Incomplete",
+};
+
+/** A plan's colour by status: live green, paused amber, anything wrong rose. */
+export function planStatusTint(status: string) {
+  if (isSubscriptionLive(status)) return "tint-emerald";
+  if (status === "paused") return "tint-amber";
+  return "tint-rose";
+}
+
 type PlanState = Pick<SubscriptionRow, "status" | "cancel_at_period_end">;
 
 /**

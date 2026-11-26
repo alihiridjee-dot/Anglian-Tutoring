@@ -12,8 +12,9 @@ import { toast } from "sonner";
 import {
   isPaymentOverdue,
   isResumable,
-  isSubscriptionLive,
   openBillingPortal,
+  PLAN_STATUS_LABELS,
+  planStatusTint,
   type BillingReturnTo,
 } from "@/lib/billing/billing";
 import { useManageSubscription } from "@/hooks/data/useBilling";
@@ -68,22 +69,11 @@ interface SubscriptionPanelProps {
    * cadence can't change (paused or ending plan, or a viewer who can't manage).
    */
   cadenceSwitcher?: React.ReactNode;
-}
-
-const STATUS_LABELS: Record<string, string> = {
-  active: "Active",
-  trialing: "Trial",
-  paused: "Paused",
-  past_due: "Payment overdue",
-  unpaid: "Unpaid",
-  canceled: "Cancelled",
-  incomplete: "Incomplete",
-};
-
-function statusTint(status: string) {
-  if (isSubscriptionLive(status)) return "tint-emerald";
-  if (status === "paused") return "tint-amber";
-  return "tint-rose";
+  /**
+   * The plan on its own, with no fold-away row and no tiles: Billing's trail
+   * opens it in its Plan stop, which is already the card it sits in.
+   */
+  bare?: boolean;
 }
 
 /**
@@ -113,6 +103,7 @@ export function SubscriptionPanel({
   course,
   showSubjects = false,
   cadenceSwitcher,
+  bare = false,
 }: SubscriptionPanelProps) {
   const manage = useManageSubscription();
   const [portalBusy, setPortalBusy] = useState(false);
@@ -160,22 +151,8 @@ export function SubscriptionPanel({
   const tileClass =
     "pop-card pop-card-interactive flex flex-col items-start justify-between gap-3 p-4 text-left disabled:opacity-50 sm:p-5";
 
-  return (
-    <details className="group pop-card p-4 sm:p-5" open={paused || overdue}>
-      <summary className="flex min-h-11 cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 sm:pointer-fine:min-h-0 [&::-webkit-details-marker]:hidden">
-        <span className="icon-tile size-8 shrink-0">
-          <CreditCard className="size-4" aria-hidden />
-        </span>
-        <h2 className="text-xl font-bold">{title}</h2>
-        <span className={`chip ${statusTint(sub.status)} uppercase`}>
-          {STATUS_LABELS[sub.status] ?? sub.status}
-        </span>
-        <ChevronDown
-          className="ml-auto size-5 shrink-0 transition group-open:rotate-180"
-          aria-hidden
-        />
-      </summary>
-
+  const alerts = (
+    <>
       {manageable && isResumable(sub) && (
         <button
           type="button"
@@ -193,7 +170,7 @@ export function SubscriptionPanel({
       )}
 
       {/* A failed card is fixed in the portal, by whoever owns the card — say
-          which, so nobody reaches for the shop instead. */}
+            which, so nobody reaches for the shop instead. */}
       {overdue && (
         <div className="tint-rose pop-card mt-4 flex items-start gap-3 p-4 text-sm">
           <span className="icon-tile size-8 shrink-0 text-base font-black">!</span>
@@ -209,6 +186,113 @@ export function SubscriptionPanel({
           </div>
         </div>
       )}
+    </>
+  );
+
+  const billingLabel = sub.cancel_at_period_end ? "Access ends" : paused ? "Was due" : "Next bill";
+  const endsAtLong = endsAt?.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
+
+  if (bare)
+    return (
+      <div className="p-2 sm:p-3">
+        <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+          <div>
+            <h2 className="text-3xl leading-tight font-extrabold">{cadenceLabel ?? title}</h2>
+            <svg
+              aria-hidden
+              className="point-squiggle"
+              viewBox="0 0 100 12"
+              preserveAspectRatio="none"
+            >
+              <path d="M2 8 Q 18 1 34 7 T 66 6 T 98 5" vectorEffect="non-scaling-stroke" />
+            </svg>
+          </div>
+          {priceValue && (
+            <p className="flex items-baseline gap-2">
+              <span className="numeral price-bill">{priceValue}</span>
+              <span className="text-lg font-bold">{priceUnit}</span>
+            </p>
+          )}
+        </div>
+
+        {alerts}
+
+        {(endsAtLong || payerLabel) && (
+          <ul className="price-included mt-6 grid gap-3 text-lg">
+            {endsAtLong && (
+              <li>
+                <span aria-hidden className="price-emoji">
+                  📅
+                </span>
+                <span>
+                  {billingLabel} <strong>{endsAtLong}</strong>
+                </span>
+              </li>
+            )}
+            {payerLabel && (
+              <li>
+                <span aria-hidden className="price-emoji">
+                  👤
+                </span>
+                <span>
+                  Paid by <strong>{payerLabel}</strong>
+                </span>
+              </li>
+            )}
+          </ul>
+        )}
+
+        {((manageable && isPayer) || cadenceSwitcher) && (
+          <div className="mt-6 flex flex-wrap gap-2">
+            {manageable && isPayer && (
+              <button
+                type="button"
+                onClick={() => void openPortal()}
+                disabled={portalBusy}
+                className="btn-soft inline-flex h-11 items-center gap-2 rounded-xl px-4 text-sm font-bold"
+              >
+                {portalBusy ? (
+                  <Loader2 className="size-4 animate-spin" aria-hidden />
+                ) : (
+                  <ShieldCheck className="size-4" aria-hidden />
+                )}
+                Card &amp; invoices <ExternalLink className="size-3.5" aria-hidden />
+              </button>
+            )}
+            {cadenceSwitcher && (
+              <button
+                type="button"
+                onClick={() => setSwitching((v) => !v)}
+                aria-expanded={switching}
+                className="btn-soft inline-flex h-11 items-center gap-2 rounded-xl px-4 text-sm font-bold"
+              >
+                <Repeat className="size-4" aria-hidden /> Switch how often you pay
+              </button>
+            )}
+          </div>
+        )}
+
+        {switching && cadenceSwitcher && <div className="point-panel mt-6">{cadenceSwitcher}</div>}
+      </div>
+    );
+
+  return (
+    <details className="group pop-card p-4 sm:p-5" open={paused || overdue}>
+      <summary className="flex min-h-11 cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 sm:pointer-fine:min-h-0 [&::-webkit-details-marker]:hidden">
+        <span className="icon-tile size-8 shrink-0">
+          <CreditCard className="size-4" aria-hidden />
+        </span>
+        <h2 className="text-xl font-bold">{title}</h2>
+        <span className={`chip ${planStatusTint(sub.status)} uppercase`}>
+          {PLAN_STATUS_LABELS[sub.status] ?? sub.status}
+        </span>
+        <ChevronDown
+          className="ml-auto size-5 shrink-0 transition group-open:rotate-180"
+          aria-hidden
+        />
+      </summary>
+
+      {alerts}
 
       <div className="mt-1">
         <PlanFacts
@@ -216,7 +300,7 @@ export function SubscriptionPanel({
           priceLabel={priceUnit ? priceUnit.charAt(0).toUpperCase() + priceUnit.slice(1) : "Price"}
           subjectCount={subjectCount}
           payerLabel={payerLabel}
-          billingLabel={sub.cancel_at_period_end ? "Access ends" : paused ? "Was due" : "Next bill"}
+          billingLabel={billingLabel}
           billingValue={endsAtShort}
           subjectsCourse={showSubjects ? course : undefined}
           extraTiles={
