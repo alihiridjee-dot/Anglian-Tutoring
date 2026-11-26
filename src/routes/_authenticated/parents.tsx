@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
 import { QRCodeSVG } from "qrcode.react";
-import { Check, Copy, Link2, Mail, QrCode, RefreshCw, Users, X } from "lucide-react";
+import { Check, Copy, Link2, Mail, QrCode, RefreshCw, Send, Users, X } from "lucide-react";
 import { Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { Field, inputCls, submitBtn } from "@/components/tutor/Field";
@@ -22,6 +22,7 @@ import {
   type LinkChildOutcome,
 } from "@/hooks/data/useParentLinks";
 import { validateEmail } from "@/lib/auth/validation";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/parents")({
   head: () => ({ meta: [{ title: "Linked Parents | Anglia Educate" }] }),
@@ -196,169 +197,205 @@ function StudentView() {
     }
   };
 
+  const withdraw = async (id: string) => {
+    try {
+      await revoke.mutateAsync(id);
+      toast.success("Invitation withdrawn");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Could not withdraw it");
+    }
+  };
+
+  const remove = async (p: { link_id: string; display_name: string | null; email: string }) => {
+    if (
+      !window.confirm(
+        `Remove ${p.display_name ?? p.email}'s access? Your invite code will change too.`,
+      )
+    )
+      return;
+    try {
+      await unlink.mutateAsync(p.link_id);
+      toast.success("Parent unlinked");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Could not unlink them");
+    }
+  };
+
+  const peopleLoading = parents.isLoading || outgoing.isLoading;
+  // A broken read is said out loud: folded into "nobody", it would tell a
+  // student whose parents *are* linked that no one is.
+  const peopleError = parents.isError ? parents.error : outgoing.isError ? outgoing.error : null;
+  const linked = parents.data ?? [];
+  const waiting = outgoing.data ?? [];
+
   return (
-    <>
-      <Panel
-        title="Invite a parent or guardian"
-        description="They'll be asked to accept before they can see anything."
-        icon={Mail}
-        guide="invite-parent"
-      >
-        <form onSubmit={submit} className="space-y-4 max-w-sm">
-          <Field label="Their email">
-            <input
-              type="email"
-              autoComplete="email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-                if (error) setError(null);
-              }}
-              onBlur={() => email && setError(validateEmail(email))}
-              placeholder="parent@example.com"
-              aria-invalid={!!error}
-              className={inputCls}
-            />
-            {error && <p className="mt-1 text-xs text-destructive">{error}</p>}
-          </Field>
-          <button type="submit" disabled={invite.isPending} className={submitBtn}>
-            {invite.isPending ? "Sending…" : "Send invitation"}
-          </button>
-        </form>
-      </Panel>
-
-      <Panel
-        title="Share invite code"
-        description="A parent who doesn't have an account yet enters this when they sign up."
-        icon={Link2}
-      >
-        <div className="flex flex-wrap items-center gap-2">
-          <code className="flex-1 min-w-40 h-10 rounded-lg bg-secondary border border-border px-3 flex items-center font-mono text-sm tracking-widest">
-            {inviteCode ?? "—"}
-          </code>
-          <button
-            type="button"
-            onClick={copyCode}
-            disabled={!inviteCode}
-            className="h-11 sm:pointer-fine:h-10 px-3 rounded-lg border border-border hover:bg-muted text-sm font-medium inline-flex items-center gap-2 disabled:opacity-60 cursor-pointer"
-          >
-            {copied ? <Check className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4" />}
-            {copied ? "Copied" : "Copy"}
-          </button>
-          <button
-            type="button"
-            onClick={() => setShowQr((v) => !v)}
-            disabled={!inviteCode}
-            aria-expanded={showQr}
-            className="h-11 sm:pointer-fine:h-10 px-3 rounded-lg border border-border hover:bg-muted text-sm font-medium inline-flex items-center gap-2 disabled:opacity-60 cursor-pointer"
-          >
-            {showQr ? <X className="w-4 h-4" /> : <QrCode className="w-4 h-4" />}
-            {showQr ? "Hide QR" : "QR code"}
-          </button>
-          <button
-            type="button"
-            onClick={doRotate}
-            disabled={rotate.isPending}
-            className="h-11 sm:pointer-fine:h-10 px-3 rounded-lg border border-border hover:bg-muted text-sm font-medium inline-flex items-center gap-2 disabled:opacity-60 cursor-pointer"
-          >
-            <RefreshCw className={`w-4 h-4 ${rotate.isPending ? "animate-spin" : ""}`} />
-            New code
-          </button>
-        </div>
-        {showQr && inviteUrl && (
-          <div className="mt-4 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
-            <div className="premium-card shrink-0 rounded-2xl p-3">
-              <QRCodeSVG
-                value={inviteUrl}
-                size={160}
-                marginSize={1}
-                title="Invite code for your parent"
-              />
+    <div className="pop-in">
+      <div data-guide="invite-parent">
+        {/* The parent pass: the code on the front, the same code as a QR code
+            on the back. The round button turns it over. */}
+        <div className="plink-ticket-wrap" data-flipped={showQr}>
+          <div className="plink-ticket-inner">
+            <div className="plink-ticket premium-card tint-amber" inert={showQr}>
+              <span aria-hidden className="plink-stub">
+                🎟️
+              </span>
+              <div className="min-w-0 flex-1 text-center">
+                <h2 className="text-lg font-extrabold">Your parent pass</h2>
+                <p className="plink-code mt-1">{inviteCode ?? "—"}</p>
+                <p className="mt-1 font-medium">
+                  A parent types this when they sign up. Treat it like a password.
+                </p>
+                <div className="mt-2 flex flex-wrap items-center justify-center gap-1">
+                  <button
+                    type="button"
+                    onClick={copyCode}
+                    disabled={!inviteCode}
+                    className="paywall-link"
+                  >
+                    {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
+                    {copied ? "Copied" : "Copy"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={doRotate}
+                    disabled={rotate.isPending}
+                    className="paywall-link"
+                  >
+                    <RefreshCw className={cn("size-4", rotate.isPending && "animate-spin")} />
+                    New code
+                  </button>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowQr(true)}
+                disabled={!inviteUrl}
+                className="plink-flip"
+                aria-label="Show the QR code"
+              >
+                <QrCode className="size-6" />
+              </button>
             </div>
-            <p className="text-[0.9375rem] leading-relaxed text-center sm:text-left">
-              Scan with your parent&apos;s phone. It opens sign-up with your code already filled in.
-            </p>
+            <div className="plink-ticket plink-ticket-back premium-card tint-amber" inert={!showQr}>
+              {inviteUrl && (
+                <div className="plink-qr">
+                  <QRCodeSVG
+                    value={inviteUrl}
+                    size={132}
+                    marginSize={1}
+                    title="Invite code for your parent"
+                  />
+                </div>
+              )}
+              <p className="min-w-0 flex-1 text-lg font-medium">
+                Scan with your parent&apos;s phone. Sign-up opens with your code filled in.
+              </p>
+              <button
+                type="button"
+                onClick={() => setShowQr(false)}
+                className="plink-flip"
+                aria-label="Show the code"
+              >
+                <RefreshCw className="size-6" />
+              </button>
+            </div>
           </div>
-        )}
-        <p className="text-xs text-muted-foreground mt-3">
-          Treat it like a password — anyone who signs up with it can follow your progress. Generate
-          a new one if you've shared it too widely.
+        </div>
+
+        <section className="tint-primary mt-10">
+          <h2 className="text-2xl font-extrabold">Or send it by email</h2>
+          <p className="mt-1 text-lg font-medium">
+            They&apos;re asked to accept before they can see anything.
+          </p>
+          <form onSubmit={submit} className="mt-4">
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <input
+                type="email"
+                autoComplete="email"
+                aria-label="Their email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (error) setError(null);
+                }}
+                onBlur={() => email && setError(validateEmail(email))}
+                placeholder="parent@example.com"
+                aria-invalid={!!error}
+                className="pop-input h-14 w-full min-w-0 px-4 text-base sm:flex-1"
+              />
+              <button
+                type="submit"
+                disabled={invite.isPending}
+                className="btn-solid paywall-btn contact-send shrink-0 px-7"
+              >
+                {invite.isPending ? "Sending…" : "Send"}
+                <Send
+                  className={cn("contact-plane size-5", invite.isPending && "contact-plane-off")}
+                  aria-hidden
+                />
+              </button>
+            </div>
+            {error && <p className="text-destructive mt-2 font-semibold">{error}</p>}
+          </form>
+        </section>
+      </div>
+
+      {peopleLoading ? (
+        <Spinner label="Loading" className="py-8" />
+      ) : peopleError ? (
+        <p className="text-destructive mt-12 font-semibold">
+          Couldn&apos;t load your parents
+          {peopleError instanceof Error ? ` — ${peopleError.message}` : ""}. Refresh to try again.
         </p>
-      </Panel>
-
-      <Panel title="Pending invitations" icon={Mail}>
-        <ListState query={outgoing} empty="No invitations waiting for a reply.">
-          {outgoing.data?.length ? (
-            <ul className="divide-y divide-border">
-              {outgoing.data.map((i) => (
-                <li key={i.id} className="flex items-center justify-between gap-3 py-3">
-                  <div className="min-w-0">
-                    <p className="text-sm font-medium truncate">{i.parent_email}</p>
-                    <p className="text-xs text-muted-foreground">
-                      Expires {new Date(i.expires_at).toLocaleDateString()}
-                    </p>
-                  </div>
-                  <button
-                    onClick={async () => {
-                      try {
-                        await revoke.mutateAsync(i.id);
-                        toast.success("Invitation withdrawn");
-                      } catch (err) {
-                        toast.error(err instanceof Error ? err.message : "Could not withdraw it");
-                      }
-                    }}
-                    className="inline-flex min-h-11 items-center px-2 text-xs font-medium text-muted-foreground hover:text-destructive shrink-0 cursor-pointer sm:pointer-fine:min-h-0"
-                  >
-                    Withdraw
-                  </button>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-        </ListState>
-      </Panel>
-
-      <Panel
-        title="Linked parents"
-        description="They can see your grades, tasks and progress."
-        icon={Users}
-      >
-        <ListState query={parents} empty="No parents are linked to your account.">
-          {parents.data?.length ? (
-            <ul className="divide-y divide-border">
-              {parents.data.map((p) => (
-                <li key={p.link_id} className="flex items-center justify-between gap-3 py-3">
-                  <div className="min-w-0">
-                    <p className="text-sm font-medium truncate">{p.display_name ?? p.email}</p>
-                    <p className="text-xs text-muted-foreground truncate">{p.email}</p>
-                  </div>
-                  <button
-                    onClick={async () => {
-                      if (
-                        !window.confirm(
-                          `Remove ${p.display_name ?? p.email}'s access? Your invite code will change too.`,
-                        )
-                      )
-                        return;
-                      try {
-                        await unlink.mutateAsync(p.link_id);
-                        toast.success("Parent unlinked");
-                      } catch (err) {
-                        toast.error(err instanceof Error ? err.message : "Could not unlink them");
-                      }
-                    }}
-                    className="inline-flex min-h-11 items-center px-2 text-xs font-medium text-muted-foreground hover:text-destructive shrink-0 cursor-pointer sm:pointer-fine:min-h-0"
-                  >
-                    Remove
-                  </button>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-        </ListState>
-      </Panel>
-    </>
+      ) : linked.length + waiting.length > 0 ? (
+        <section className="mt-12">
+          <h2 className="text-2xl font-extrabold">Who&apos;s on your pass</h2>
+          <ul className="mt-5 flex flex-wrap gap-6">
+            {linked.map((p, i) => (
+              <li key={p.link_id} className="plink-seat">
+                <span className={cn("plink-face", FACE_TINTS[i % FACE_TINTS.length])}>
+                  {initials(p.display_name ?? p.email)}
+                  <span aria-hidden className="focus-wave plink-wave">
+                    👋
+                  </span>
+                </span>
+                <span className="text-lg font-bold">{p.display_name ?? p.email}</span>
+                <button type="button" onClick={() => remove(p)} className="paywall-link">
+                  Remove
+                </button>
+              </li>
+            ))}
+            {waiting.map((inv) => (
+              <li key={inv.id} className="plink-seat">
+                <span className="plink-face plink-face-wait tint-primary">
+                  <span aria-hidden className="plink-hourglass">
+                    ⏳
+                  </span>
+                  <span className="sr-only">Waiting for them to accept</span>
+                </span>
+                <span className="text-lg font-bold">{inv.parent_email}</span>
+                <button type="button" onClick={() => withdraw(inv.id)} className="paywall-link">
+                  Withdraw
+                </button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+    </div>
   );
+}
+
+/** A parent's round dot takes one of these, in turn, so two parents differ. */
+const FACE_TINTS = ["tint-amber", "tint-emerald", "tint-rose", "tint-primary"];
+
+/** Up to two letters for a parent's dot, from their name or their email. */
+function initials(name: string) {
+  const parts = name
+    .replace(/@.*/, "")
+    .split(/[\s._-]+/)
+    .filter(Boolean);
+  return ((parts[0]?.[0] ?? "") + (parts[1]?.[0] ?? "")).toUpperCase() || "?";
 }
 
 /** How each non-raising outcome of link_child_by_code reads to the parent. */
