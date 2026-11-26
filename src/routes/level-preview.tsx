@@ -35,7 +35,7 @@ export const Route = createFileRoute("/level-preview")({
 
 type NameLook = "name" | "counts" | "offNormal";
 type MarkLook = "inside" | "row" | "both";
-type ParentLook = "ribbon" | "line" | "card";
+type ParentLook = "ribbon" | "line" | "grades" | "card";
 
 /** The level's emoji and name, and its two counts in dots when asked for. */
 function LevelWord({
@@ -165,6 +165,7 @@ function LevelPreview() {
             { value: "ribbon", label: "A · In the ribbon" },
             { value: "line", label: "B · A line on the page" },
             { value: "card", label: "C · A card with the ring" },
+            { value: "grades", label: "D · On the grades card" },
           ]}
         >
           <ParentPortal load={load} look={parentLook} />
@@ -449,6 +450,21 @@ function ParentPortal({ load, look }: { load: QuestionLoad; look: ParentLook }) 
   const minutes = minutesPerDay(load, topics);
   const share = (minutes / minutesPerDay(HEAVIEST_LIVE_LOAD, topics)) * 100;
 
+  const line = (
+    <p
+      className={cn(
+        level.tint,
+        "flex flex-wrap items-center gap-x-5 gap-y-2.5 text-[1.0625rem] font-bold",
+      )}
+    >
+      <span>
+        {data.childName}&apos;s questions: <span aria-hidden>{level.emoji}</span> {level.name}
+      </span>
+      <Count n={caps.quiz} word="MCQs in each quiz" />
+      <Count n={caps.task} word="written questions in each task" />
+    </p>
+  );
+
   return (
     <div>
       {/* The welcome ribbon, as ParentDashboard draws it. */}
@@ -478,23 +494,13 @@ function ParentPortal({ load, look }: { load: QuestionLoad; look: ParentLook }) 
         </div>
       </div>
 
-      {look === "line" && (
-        <p
-          className={cn(
-            level.tint,
-            "mb-8 flex flex-wrap items-center gap-x-5 gap-y-2.5 text-[1.0625rem] font-bold",
-          )}
-        >
-          <span>
-            {data.childName}&apos;s questions: <span aria-hidden>{level.emoji}</span> {level.name}
-          </span>
-          <Count n={caps.quiz} word="MCQs in each quiz" />
-          <Count n={caps.task} word="written questions in each task" />
-        </p>
-      )}
+      {look === "line" && <div className="mb-8">{line}</div>}
 
       <div className="space-y-8">
-        <ChildGradesCard analytics={data.analytics} level={data.level} grades={data.enrolments} />
+        {/* D: the same line, inside the card whose grades it is read with. */}
+        <ChildGradesCard analytics={data.analytics} level={data.level} grades={data.enrolments}>
+          {look === "grades" ? line : null}
+        </ChildGradesCard>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="space-y-8 lg:col-span-2">
             <ChildWeekCard weeks={data.week} />

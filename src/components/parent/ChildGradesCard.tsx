@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { SubjectAnalytics } from "@/lib/profile/analytics";
 import type { LevelV } from "@/lib/curriculum/taxonomy";
 import { subjectLabel, subjectTint } from "@/lib/curriculum/subjectTheme";
@@ -24,17 +25,21 @@ export function ChildGradesCard({
   analytics,
   level,
   grades = [],
+  children,
 }: {
   analytics: SubjectAnalytics[];
   level: string | null;
   /** The tutor-recorded grades per subject, from the enrolments. */
   grades?: readonly SubjectGrades[];
+  /** A line under the heading, above the rings: what the grades are read with. */
+  children?: ReactNode;
 }) {
   if (analytics.length === 0) return null;
 
   return (
     <div className="premium-card p-4 sm:p-6">
       <SectionHeading title="Predicted grades" />
+      {children && <div className="mt-3">{children}</div>}
       <div className="mt-5 flex flex-wrap justify-center gap-4">
         {analytics.map((row) => {
           const { target_grade: target, current_grade: current } =
