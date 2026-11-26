@@ -44,6 +44,15 @@ export function liveLoad(load: QuestionLoad): QuestionLoad {
 }
 
 /**
+ * The level a stored `profiles.question_load` stands for in practice: what a
+ * student, their tutor and their parent are all shown. A value that is not a
+ * level reads as Normal, and so does a level that is held back.
+ */
+export function readLoad(value: unknown): QuestionLoad {
+  return isQuestionLoad(value) ? liveLoad(value) : DEFAULT_QUESTION_LOAD;
+}
+
+/**
  * The heaviest level a student can be on. The practice queue writes a quiz
  * and a task this long, as nobody is set more.
  */
@@ -70,6 +79,39 @@ export function setCount(
   load: QuestionLoad,
 ): number | null {
   return origin === "generated" ? shownCount(kind, stored, load) : null;
+}
+
+/** What a level left out of one quiz or task. */
+export type LoadCut = {
+  /** Questions the student was set. */
+  set: number;
+  /** Stored questions they were not set. */
+  leftOut: number;
+  /** The level that sets this many, or null if none does. */
+  load: QuestionLoad | null;
+};
+
+/**
+ * What a level left out of one piece of work, read from the work itself: the
+ * count the server filed with it (`shown_count`) against the questions the
+ * quiz or task held. Null when nothing was left out, which is every piece of
+ * work filed without a count and every one that was set whole.
+ *
+ * The level is named from the count, not from the student's profile: they may
+ * have changed level since, and the work says what it was set.
+ */
+export function loadCut(
+  kind: LoadKind,
+  shown: number | null | undefined,
+  stored: number,
+): LoadCut | null {
+  if (shown == null || shown >= stored) return null;
+  const set = Math.max(0, shown);
+  return {
+    set,
+    leftOut: stored - set,
+    load: QUESTION_LOADS.find((load) => QUESTION_CAPS[load][kind] === set) ?? null,
+  };
 }
 
 /**

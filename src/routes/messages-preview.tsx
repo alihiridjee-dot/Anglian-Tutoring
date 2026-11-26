@@ -63,6 +63,7 @@ const record = (s: DirectoryStudent): StudentRecord => ({
     phone: null,
     avatar_path: null,
     student_invite_code: null,
+    question_load: "normal",
     created_at: s.created_at,
     onboarding_completed_at: s.onboarding_completed_at,
   },

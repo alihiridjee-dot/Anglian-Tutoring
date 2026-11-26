@@ -1,6 +1,7 @@
 import { supabase } from "@/integrations/supabase/client";
 import { type SubjectV, type BoardV, type LevelV } from "../curriculum/taxonomy";
 import { selectInSafe, selectInHistory } from "../platform/db/chunked";
+import { readLoad, type QuestionLoad } from "../practice/questionLoad";
 
 /** A spec point's display label. */
 export interface SpecPointLabel {
@@ -14,6 +15,8 @@ export interface PlannerStudent {
   id: string;
   name: string | null;
   level: LevelV | null;
+  /** How many questions they are set, as shown: a held level reads as Normal. */
+  questionLoad: QuestionLoad;
   enrolments: { subject: SubjectV; board: BoardV }[];
 }
 
@@ -119,10 +122,11 @@ export class PlannerRosterDAL {
         display_name: string | null;
         level: LevelV | null;
         role: string | null;
+        question_load: string | null;
       }>(["roster"], (_batch, after) => {
         const query = supabase
           .from("profiles")
-          .select("id, display_name, level, role")
+          .select("id, display_name, level, role, question_load")
           .order("id")
           .limit(500);
         return after ? query.gt("id", after) : query;
@@ -157,6 +161,7 @@ export class PlannerRosterDAL {
         display_name: string | null;
         level: LevelV | null;
         role: string | null;
+        question_load: string | null;
       }>
     )
       .filter((p) => (p.role ?? "student") === "student")
@@ -164,6 +169,7 @@ export class PlannerRosterDAL {
         id: p.id,
         name: p.display_name,
         level: p.level,
+        questionLoad: readLoad(p.question_load),
         enrolments: byStudent.get(p.id) ?? [],
       }))
       .sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""));
