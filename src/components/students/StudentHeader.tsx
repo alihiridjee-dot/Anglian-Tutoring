@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
+import { QuestionLevelWord } from "@/components/practice/QuestionLevel";
 import { useAvatarUrl } from "@/hooks/data/useAvatar";
+import { readLoad } from "@/lib/practice/questionLoad";
 import { resolveInitials } from "@/lib/profile/displayName";
 import type { StudentRecord } from "@/lib/students/studentsDal";
 import { formatDate } from "./studentPresentation";
@@ -36,7 +38,12 @@ export function StudentHeader({
           Below sm the chips are full width and wrap anyway. */}
       <div className="min-w-0 flex-1 sm:basis-56">
         <p className="eyebrow eyebrow-bare">Student</p>
-        <h1 className="mt-1 truncate text-2xl font-extrabold sm:text-3xl">{name}</h1>
+        {/* Their question level beside the name, on every tab: it is what a
+            quiz out of six, or a task of three questions, is read with. */}
+        <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
+          <h1 className="truncate text-2xl font-extrabold sm:text-3xl">{name}</h1>
+          <QuestionLevelWord load={readLoad(record.profile.question_load)} />
+        </div>
         <p className="text-muted-foreground mt-1 flex flex-wrap gap-x-3 gap-y-0.5 text-sm">
           {email && <span className="truncate">{email}</span>}
           <span>Joined {formatDate(record.profile.created_at)}</span>

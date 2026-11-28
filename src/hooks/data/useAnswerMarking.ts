@@ -5,6 +5,7 @@ import { QUESTION_COLUMNS, withMarkSchemes } from "@/lib/homework/markSchemes";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import { toSciNotation } from "@/lib/platform/sciNotation";
 import { parseTutorMarks, type TutorMark } from "@/lib/homework/tutorMarks";
+import { loadCut, type LoadCut } from "@/lib/practice/questionLoad";
 
 /**
  * Loads one submission's questions and answers, and holds the marks the tutor
@@ -65,6 +66,7 @@ export function useAnswerMarking(
   const [tutorMarks, setTutorMarksState] = useState<Record<string, TutorMark[]>>({});
   const [summary, setSummary] = useState<string | null>(null);
   const [held, setHeld] = useState<Record<string, string>>({});
+  const [cut, setCut] = useState<LoadCut | null>(null);
   const [loading, setLoading] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState<Error | null>(null);
@@ -116,6 +118,11 @@ export function useAnswerMarking(
           answered.has(q.id) ||
           (shownCount == null && new Date(q.created_at).getTime() <= handedIn),
       );
+      // What the task held when it was handed in: a question written since
+      // was never theirs to be set, so it is not one the level left out.
+      const stored = all.filter(
+        (q) => answered.has(q.id) || new Date(q.created_at).getTime() <= handedIn,
+      ).length;
 
       // The staged proposal, if one was made, keyed for lookup below.
       const staged = new Map<string, StagedMark>();
@@ -155,6 +162,7 @@ export function useAnswerMarking(
       setMarks(initial);
       setTutorMarksState(penned);
       setHeld(reasons);
+      setCut(loadCut("task", shownCount, stored));
       setSummary(graded || !sRes.data?.summary ? null : toSciNotation(sRes.data.summary));
       setLoaded(true);
       setLoading(false);
@@ -318,6 +326,8 @@ export function useAnswerMarking(
     summary,
     /** Why the marker held a question for the tutor, by question id. */
     held,
+    /** What the student's level left out of this hand-in; null if nothing. */
+    cut,
     loading,
     /** The questions or answers failed to load; `retry` asks again. */
     error,

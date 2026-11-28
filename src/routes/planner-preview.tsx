@@ -14,6 +14,7 @@ import {
 import { ChangesPanel } from "@/components/planner/workbench/ChangesPanel";
 import { NeedsYou, type Need } from "@/components/planner/workbench/NeedsYou";
 import { PlanGrid } from "@/components/planner/workbench/PlanGrid";
+import { QuestionLevelWord } from "@/components/practice/QuestionLevel";
 import { RosterGrid, type RosterRow } from "@/components/planner/workbench/RosterGrid";
 import type { RosterFilter } from "@/components/planner/useTutorPlanner";
 import { TopicOrderPanel } from "@/components/planner/workbench/TopicOrderPanel";
@@ -436,6 +437,7 @@ function PlannerPreview() {
         <header className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
           <h1 className="text-xl font-extrabold">Sam Carter</h1>
           <b>GCSE · AQA</b>
+          <QuestionLevelWord load="reduced" />
           <SubjectToggle
             subjects={["biology", "physics", "chemistry"]}
             value={subject}

@@ -1,12 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
-import {
-  DEFAULT_QUESTION_LOAD,
-  isQuestionLoad,
-  liveLoad,
-  type QuestionLoad,
-} from "@/lib/practice/questionLoad";
+import { DEFAULT_QUESTION_LOAD, readLoad, type QuestionLoad } from "@/lib/practice/questionLoad";
 
 export const questionLoadKey = (userId: string | null) => ["question-load", userId] as const;
 
@@ -39,9 +34,7 @@ export function useQuestionLoad(userId: string | null) {
         .eq("id", userId!)
         .maybeSingle();
       if (error) throw new Error(error.message);
-      return isQuestionLoad(data?.question_load)
-        ? liveLoad(data.question_load)
-        : DEFAULT_QUESTION_LOAD;
+      return readLoad(data?.question_load);
     },
   });
   return {

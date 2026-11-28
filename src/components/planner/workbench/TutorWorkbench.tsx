@@ -10,6 +10,7 @@ import {
   Spinner,
   SubjectToggle,
 } from "@/components/Shared";
+import { QuestionLevelWord } from "@/components/practice/QuestionLevel";
 import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
 import { CHAT_KEY, useTutorDirectory } from "@/hooks/data/useChat";
 import { useStudentDirectory } from "@/hooks/data/useStudents";
@@ -497,6 +498,7 @@ export function TutorWorkbench({ state }: { state: TutorPlannerState }) {
         </button>
         <h2 className="text-xl font-extrabold">{name}</h2>
         {courseLabel && <b>{courseLabel}</b>}
+        <QuestionLevelWord load={student.questionLoad} />
         {ordered.length > 1 && (
           <SubjectToggle
             subjects={ordered.map((e) => e.subject)}

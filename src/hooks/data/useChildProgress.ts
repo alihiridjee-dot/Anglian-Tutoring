@@ -8,6 +8,7 @@ import { WeeklyNotesDAL } from "@/lib/planner/weeklyNotesDal";
 import { weeklyQuizAverages, type ScoredWorkRow } from "@/lib/profile/analytics";
 import { scoredWorkQuery } from "@/hooks/data/useAnalytics";
 import { liveWindowStart } from "@/lib/live/liveSessions";
+import { readLoad, type QuestionLoad } from "@/lib/practice/questionLoad";
 
 export type { WeeklyTrendPoint } from "@/lib/profile/analytics";
 
@@ -54,20 +55,29 @@ export interface ChildCourse {
   level: LevelV | null;
   /** When the account was made — nothing before it was theirs to attend. */
   joinedAt: string;
+  /** How many questions they are set, as shown: a held level reads as Normal. */
+  questionLoad: QuestionLoad;
 }
 
-/** The child's level and join date (parents can read a linked child's profile). */
+/**
+ * The child's level, join date and how many questions they are set (parents
+ * can read a linked child's profile).
+ */
 export function useChildCourse(studentId: string | null) {
   return useQuery({
     queryKey: [...CHILD_KEY, "course", studentId],
     queryFn: async (): Promise<ChildCourse> => {
       const { data, error } = await supabase
         .from("profiles")
-        .select("level, created_at")
+        .select("level, created_at, question_load")
         .eq("id", studentId!)
         .single();
       if (error) throw new Error(error.message);
-      return { level: data.level, joinedAt: data.created_at };
+      return {
+        level: data.level,
+        joinedAt: data.created_at,
+        questionLoad: readLoad(data.question_load),
+      };
     },
     enabled: !!studentId,
   });
@@ -107,7 +117,7 @@ export interface ChildEngagement {
 export function useChildEngagement(
   studentId: string | null,
   subjects: string[],
-  course: ChildCourse | undefined,
+  course: Pick<ChildCourse, "level" | "joinedAt"> | undefined,
 ) {
   return useQuery({
     queryKey: [

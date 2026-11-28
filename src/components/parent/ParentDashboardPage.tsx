@@ -21,6 +21,7 @@ import {
   type WeeklyTrendPoint,
 } from "@/hooks/data/useChildProgress";
 import { ChildGradesCard } from "@/components/parent/ChildGradesCard";
+import { ChildQuestionsCard } from "@/components/parent/ChildQuestionsCard";
 import { EngagementStats } from "@/components/parent/EngagementStats";
 import { FeedbackList } from "@/components/parent/FeedbackList";
 import { ParentMessages } from "@/components/parent/ParentMessages";
@@ -33,6 +34,7 @@ import { MessageSquarePlus } from "lucide-react";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { resolveDisplayName } from "@/lib/profile/displayName";
 import type { SubjectAnalytics } from "@/lib/profile/analytics";
+import { TOPICS_PER_WEEK_PER_SUBJECT, type QuestionLoad } from "@/lib/practice/questionLoad";
 import { useChatThreads } from "@/hooks/data/useChat";
 import { Suspense, lazy, useEffect, useMemo, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
@@ -69,6 +71,11 @@ export interface PortalData {
   feedback: FeedbackItem[];
   week: ChildWeekSubject[];
   sessions: UpcomingSession[];
+  /**
+   * How many questions the child is set. Left out by the showcase, which then
+   * draws no card for it.
+   */
+  questionLoad?: QuestionLoad;
 }
 
 /**
@@ -156,6 +163,7 @@ export function ParentDashboard({ demo }: { demo?: PortalData } = {}) {
     feedback: feedbackQ.data ?? EMPTY_FEEDBACK,
     week: weekQ.data ?? EMPTY_WEEK,
     sessions: sessionsQ.data ?? EMPTY_SESSIONS,
+    questionLoad: courseQ.data?.questionLoad,
   };
   const hasChild = !!demo || !!childId;
   // A real parent with a child to write about; the showcase has no session.
@@ -198,7 +206,12 @@ export function ParentDashboard({ demo }: { demo?: PortalData } = {}) {
 
   const showEngagement =
     !!data.engagement && (data.engagement.sessionsHeld > 0 || data.engagement.homeworkSet > 0);
-  const showSide = showEngagement || data.feedback.length > 0 || data.sessions.length > 0;
+  // The minutes a day are worked from this week's points, as on the child's
+  // own profile; a week not opened yet is taken at a point a day per subject.
+  const weekPoints = data.week.reduce((n, w) => n + w.points.length, 0);
+  const topicsPerWeek = weekPoints || data.enrolments.length * TOPICS_PER_WEEK_PER_SUBJECT;
+  const showSide =
+    !!data.questionLoad || showEngagement || data.feedback.length > 0 || data.sessions.length > 0;
 
   return (
     <AppLayout title="Parent Portal">
@@ -318,6 +331,9 @@ export function ParentDashboard({ demo }: { demo?: PortalData } = {}) {
             </div>
             {showSide && (
               <div className="space-y-8">
+                {data.questionLoad && (
+                  <ChildQuestionsCard load={data.questionLoad} topicsPerWeek={topicsPerWeek} />
+                )}
                 {data.sessions.length > 0 && (
                   <div data-tour="parent-sessions">
                     <UpcomingSessions sessions={data.sessions} />

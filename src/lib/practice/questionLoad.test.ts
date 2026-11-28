@@ -9,8 +9,10 @@ import {
   firstQuestions,
   isQuestionLoad,
   liveLoad,
+  loadCut,
   minutesPerDay,
   minutesPerTopic,
+  readLoad,
   setCount,
   shownCount,
   TOPICS_PER_WEEK_PER_SUBJECT,
@@ -80,6 +82,61 @@ describe("Enhanced is held back for now (Ali, 26 Nov 2026)", () => {
   test("so the practice queue still writes 8 MCQs and 5 written questions", () => {
     expect(HEAVIEST_LIVE_LOAD).toBe("normal");
     expect(QUESTION_CAPS[HEAVIEST_LIVE_LOAD]).toEqual({ quiz: 8, task: 5 });
+  });
+});
+
+describe("the level a tutor and a parent are shown", () => {
+  test("a stored level reads as itself, and a held one as Normal", () => {
+    expect(readLoad("reduced")).toBe("reduced");
+    expect(readLoad("normal")).toBe("normal");
+    for (const held of HELD_QUESTION_LOADS) expect(readLoad(held)).toBe("normal");
+  });
+
+  test("anything that is not a level reads as Normal", () => {
+    for (const value of [null, undefined, "", "Reduced", "light", 3, {}]) {
+      expect(readLoad(value)).toBe("normal");
+    }
+  });
+});
+
+describe("what a level left out of one piece of work", () => {
+  test("a task set three of its five questions was cut by Reduced", () => {
+    expect(loadCut("task", 3, 5)).toEqual({ set: 3, leftOut: 2, load: "reduced" });
+  });
+
+  test("a quiz set six of its eight questions was cut by Reduced", () => {
+    expect(loadCut("quiz", 6, 8)).toEqual({ set: 6, leftOut: 2, load: "reduced" });
+  });
+
+  test("work set whole was not cut, whatever the level", () => {
+    // Normal on a set written before the levels: five of five, eight of eight.
+    expect(loadCut("task", 5, 5)).toBeNull();
+    expect(loadCut("quiz", 8, 8)).toBeNull();
+    // Reduced on a task the queue's checks had already shortened to three.
+    expect(loadCut("task", 3, 3)).toBeNull();
+    // A count above what is stored now (a question removed since) is not a cut.
+    expect(loadCut("task", 5, 4)).toBeNull();
+  });
+
+  test("work filed without a count was set every question", () => {
+    expect(loadCut("task", null, 5)).toBeNull();
+    expect(loadCut("quiz", undefined, 8)).toBeNull();
+  });
+
+  test("Normal is named once a longer set is stored", () => {
+    expect(loadCut("task", 5, 7)).toEqual({ set: 5, leftOut: 2, load: "normal" });
+    expect(loadCut("quiz", 8, 10)).toEqual({ set: 8, leftOut: 2, load: "normal" });
+  });
+
+  test("a count no level sets is still counted, with no level named", () => {
+    expect(loadCut("task", 2, 5)).toEqual({ set: 2, leftOut: 3, load: null });
+    expect(loadCut("task", -1, 5)).toEqual({ set: 0, leftOut: 5, load: null });
+  });
+
+  test("the level is the one whose cap for that kind of work is the count", () => {
+    // Six is Reduced's quiz cap and no level's task cap.
+    expect(loadCut("quiz", 6, 10)?.load).toBe("reduced");
+    expect(loadCut("task", 6, 7)?.load).toBeNull();
   });
 });
 

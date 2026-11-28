@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { AnswerMarkingList } from "./AnswerMarking";
 import { ErrorNote, SciText } from "@/components/Shared";
+import { QuestionsSetLine } from "@/components/practice/QuestionLevel";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { MARKED_MEANWHILE, useAnswerMarking } from "@/hooks/data/useAnswerMarking";
 import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
@@ -545,6 +546,9 @@ function MarkSubmissionCard({
               // Built-in homework: the answers themselves are the work, and any
               // photos are shown inline against the question they belong to.
               <div className="space-y-3">
+                {/* The marks below are out of the questions set, so a paper a
+                    level cut short says so before its percentage is read. */}
+                {marking.cut && <QuestionsSetLine cut={marking.cut} />}
                 <p className="text-xs text-muted-foreground">
                   Answered on the site — {marking.markedCount}/{marking.questions.length} marked,{" "}
                   {marking.awarded}/{marking.totalMarks} marks

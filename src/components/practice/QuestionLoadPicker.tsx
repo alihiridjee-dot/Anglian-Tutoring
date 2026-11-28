@@ -1,5 +1,6 @@
 import { ChoiceTile } from "@/components/onboarding/StepCard";
 import { TINT_TEXT } from "@/components/planner/workbench/figures";
+import { QUESTION_LEVELS } from "@/components/practice/questionLevels";
 import { Ring } from "@/components/Shared";
 import {
   HEAVIEST_LIVE_LOAD,
@@ -26,11 +27,7 @@ import { cn } from "@/lib/utils";
  * its tile, dimmed and saying so, as a board we can't teach yet does on the
  * first step. It can still be pressed, and pressing it gives Normal.
  */
-const LEVELS: Record<QuestionLoad, { name: string; emoji: string; tint: string }> = {
-  reduced: { name: "Reduced", emoji: "🪶", tint: "tint-accent" },
-  normal: { name: "Normal", emoji: "🎯", tint: "tint-primary" },
-  enhanced: { name: "Enhanced", emoji: "🚀", tint: "tint-amber" },
-};
+const LEVELS = QUESTION_LEVELS;
 
 export function QuestionLoadPicker({
   value,
@@ -43,10 +40,6 @@ export function QuestionLoadPicker({
   topicsPerWeek: number;
 }) {
   const picked = liveLoad(value);
-  const caps = QUESTION_CAPS[picked];
-  const minutes = minutesPerDay(picked, topicsPerWeek);
-  // Full on the heaviest level on offer, so the choices compare as the ring moves.
-  const share = (minutes / minutesPerDay(HEAVIEST_LIVE_LOAD, topicsPerWeek)) * 100;
   return (
     <div>
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
@@ -66,23 +59,69 @@ export function QuestionLoadPicker({
           );
         })}
       </div>
+      <QuestionLoadSummary load={picked} topicsPerWeek={topicsPerWeek} className="mt-6" />
+    </div>
+  );
+}
+
+/**
+ * What a level comes to: about how many minutes a day, inside a ring filled as
+ * far as its share of the heaviest level, and the two counts in dots. The
+ * picker draws it under its tiles, and a parent's portal draws the same thing
+ * read-only (`ChildQuestionsCard`), so both see one picture of the level.
+ *
+ * In a narrow column the counts drop under the ring by themselves. `compact`
+ * is for a column too narrow for the full-size ring and its words on one line.
+ */
+export function QuestionLoadSummary({
+  load,
+  topicsPerWeek,
+  compact = false,
+  className,
+}: {
+  load: QuestionLoad;
+  /** Points in a week, across every subject: what the minutes are worked from. */
+  topicsPerWeek: number;
+  compact?: boolean;
+  className?: string;
+}) {
+  const caps = QUESTION_CAPS[load];
+  const minutes = minutesPerDay(load, topicsPerWeek);
+  // Full on the heaviest level on offer, so the choices compare as the ring moves.
+  const share = (minutes / minutesPerDay(HEAVIEST_LIVE_LOAD, topicsPerWeek)) * 100;
+  return (
+    <div
+      className={cn(
+        "flex flex-wrap items-center gap-x-6 gap-y-4",
+        compact ? "text-base" : "text-lg",
+        LEVELS[load].tint,
+        className,
+      )}
+    >
+      <span className="flex items-center gap-2.5 leading-tight font-bold">
+        About
+        <Ring
+          key={load}
+          value={share}
+          size={compact ? 64 : 80}
+          stroke={compact ? 8 : 9}
+          className="shrink-0"
+        >
+          <span className={cn("numeral pop-in", compact ? "text-2xl" : "text-[1.7rem]", TINT_TEXT)}>
+            {minutes}
+          </span>
+        </Ring>
+        minutes a day
+      </span>
       <div
+        key={load}
         className={cn(
-          "mt-6 flex flex-wrap items-center gap-x-6 gap-y-4 text-lg",
-          LEVELS[picked].tint,
+          "point-panel grid gap-2.5 font-bold",
+          compact ? "text-base" : "text-[1.0625rem]",
         )}
       >
-        <span className="flex items-center gap-2.5 leading-tight font-bold">
-          About
-          <Ring key={picked} value={share} size={80} stroke={9} className="shrink-0">
-            <span className={cn("numeral pop-in text-[1.7rem]", TINT_TEXT)}>{minutes}</span>
-          </Ring>
-          minutes a day
-        </span>
-        <div key={picked} className="point-panel grid gap-2.5 text-[1.0625rem] font-bold">
-          <Count n={caps.quiz} word="MCQs in each quiz" />
-          <Count n={caps.task} word="written questions in each task" />
-        </div>
+        <Count n={caps.quiz} word="MCQs in each quiz" />
+        <Count n={caps.task} word="written questions in each task" />
       </div>
     </div>
   );

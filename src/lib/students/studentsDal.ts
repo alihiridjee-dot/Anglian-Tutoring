@@ -67,6 +67,8 @@ export interface StudentProfile {
   student_invite_code: string | null;
   created_at: string;
   onboarding_completed_at: string | null;
+  /** How many questions they are set, as stored. Show it through `readLoad`. */
+  question_load: string;
 }
 
 /** One student, assembled once and shared by every tab of the record page. */
@@ -239,7 +241,7 @@ export class StudentsDAL {
       supabase
         .from("profiles")
         .select(
-          "id, display_name, level, school, phone, avatar_path, student_invite_code, created_at, onboarding_completed_at, role",
+          "id, display_name, level, school, phone, avatar_path, student_invite_code, created_at, onboarding_completed_at, question_load, role",
         )
         .eq("id", studentId)
         .maybeSingle(),
