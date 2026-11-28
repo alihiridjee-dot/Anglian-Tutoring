@@ -13,11 +13,14 @@ export function FilterBar({
   value,
   onChange,
   subjects,
+  subjectOnly,
 }: {
   value: Filters;
   onChange: (f: Filters) => void;
   /** The subjects to offer, when not all of them: a student's paid ones. */
   subjects?: readonly SubjectV[];
+  /** Leave out the Board and Level rows: a student's are their course's. */
+  subjectOnly?: boolean;
 }) {
   const Group = <T extends string>({
     label,
@@ -68,18 +71,22 @@ export function FilterBar({
         selected={value.subject}
         onSelect={(v) => onChange({ ...value, subject: v })}
       />
-      <Group
-        label="Board"
-        options={BOARDS}
-        selected={value.board}
-        onSelect={(v) => onChange({ ...value, board: v })}
-      />
-      <Group
-        label="Level"
-        options={LEVELS}
-        selected={value.level}
-        onSelect={(v) => onChange({ ...value, level: v })}
-      />
+      {!subjectOnly && (
+        <>
+          <Group
+            label="Board"
+            options={BOARDS}
+            selected={value.board}
+            onSelect={(v) => onChange({ ...value, board: v })}
+          />
+          <Group
+            label="Level"
+            options={LEVELS}
+            selected={value.level}
+            onSelect={(v) => onChange({ ...value, level: v })}
+          />
+        </>
+      )}
     </div>
   );
 }

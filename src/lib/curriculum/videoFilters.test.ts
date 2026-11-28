@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { ownCourseFilters, validateVideoSearch, withOwnBoard } from "./videoFilters";
+import { onOwnBoard, ownBoardsOr, ownCourseFilters, validateVideoSearch } from "./videoFilters";
 
 const boards = { biology: "edexcel", chemistry: "aqa" } as const;
 
@@ -27,34 +27,32 @@ describe("ownCourseFilters", () => {
   });
 });
 
-describe("withOwnBoard", () => {
-  const start = { subject: "biology", board: "edexcel", level: "gcse" } as const;
-
-  test("a new subject brings the board it is sat with", () => {
-    expect(withOwnBoard(start, { ...start, subject: "chemistry" }, boards)).toEqual({
-      subject: "chemistry",
-      board: "aqa",
-      level: "gcse",
-    });
+describe("onOwnBoard", () => {
+  test("keeps a video on the board its subject is sat with", () => {
+    expect(onOwnBoard({ subject: "biology", board: "edexcel" }, boards)).toBe(true);
+    expect(onOwnBoard({ subject: "chemistry", board: "aqa" }, boards)).toBe(true);
   });
 
-  test("All subjects clears the board", () => {
-    expect(withOwnBoard(start, { ...start, subject: undefined }, boards)).toEqual({
-      subject: undefined,
-      board: undefined,
-      level: "gcse",
-    });
+  test("turns away another board's video, and one with no board", () => {
+    expect(onOwnBoard({ subject: "biology", board: "cambridge" }, boards)).toBe(false);
+    expect(onOwnBoard({ subject: "biology", board: null }, boards)).toBe(false);
   });
 
-  test("a board or level change is kept as picked", () => {
-    expect(withOwnBoard(start, { ...start, board: "ocr" }, boards)).toEqual({
-      ...start,
-      board: "ocr",
-    });
-    expect(withOwnBoard(start, { ...start, level: undefined }, boards)).toEqual({
-      ...start,
-      level: undefined,
-    });
+  test("a subject with no board on record is left alone", () => {
+    expect(onOwnBoard({ subject: "physics", board: "ocr" }, boards)).toBe(true);
+  });
+});
+
+describe("ownBoardsOr", () => {
+  test("pairs each subject with its board, and lets the rest through", () => {
+    expect(ownBoardsOr(boards)).toBe(
+      "and(subject.eq.biology,board.eq.edexcel),and(subject.eq.chemistry,board.eq.aqa),subject.not.in.(biology,chemistry)",
+    );
+  });
+
+  test("is nothing when no board is on record", () => {
+    expect(ownBoardsOr({})).toBeNull();
+    expect(ownBoardsOr({ biology: undefined })).toBeNull();
   });
 });
 
