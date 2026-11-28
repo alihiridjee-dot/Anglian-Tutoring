@@ -112,9 +112,11 @@ export function NotificationBell() {
   const load = useCallback(async () => {
     // The demo platform is a self-contained showcase — never read real rows.
     if (isDemoMode()) return;
+    // The bell keeps only what hasn't been read: a notice leaves it once read.
     const { data, error } = await supabase
       .from("notifications")
       .select("id, type, title, body, link, read_at, created_at, chat_thread_id")
+      .is("read_at", null)
       .order("created_at", { ascending: false })
       .limit(20);
     if (error) {
@@ -165,16 +167,16 @@ export function NotificationBell() {
     const ids = items.filter((n) => !n.read_at).map((n) => n.id);
     if (ids.length === 0) return;
     const now = new Date().toISOString();
-    setItems((prev) => prev.map((n) => (n.read_at ? n : { ...n, read_at: now })));
+    setItems([]);
     await supabase.from("notifications").update({ read_at: now }).in("id", ids);
   };
 
-  // Opening a notification is reading it.
+  // Opening a notification is reading it, so it leaves the bell.
   const openOne = (n: Notification) => {
     setOpen(false);
     if (n.read_at) return;
     const now = new Date().toISOString();
-    setItems((prev) => prev.map((x) => (x.id === n.id ? { ...x, read_at: now } : x)));
+    setItems((prev) => prev.filter((x) => x.id !== n.id));
     void supabase
       .from("notifications")
       .update({ read_at: now })
