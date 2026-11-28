@@ -2,7 +2,7 @@ import { describe, expect, test } from "bun:test";
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { validateNote, type Note } from "@/lib/notes/noteFormat";
-import { DEMO_SPEC_POINT_NOTES, demoSpecPointNotes } from "./demoNotes";
+import { DEMO_SPEC_POINT_NOTES, demoNoteSpecPoints, demoSpecPointNotes } from "./demoNotes";
 import { DEMO_CURRICULUM_SPEC_POINTS, DEMO_ENROLMENTS } from "./studentDemo";
 
 const DIR = join(import.meta.dir, "notes");
@@ -53,6 +53,19 @@ describe("the showcase's revision notes", () => {
     for (const [id, note] of fixtures) {
       const sits = DEMO_ENROLMENTS.find((e) => e.subject === note.subject)?.board;
       expect({ id, boards: Object.keys(note.boards) }).toEqual({ id, boards: [sits!] });
+    }
+  });
+
+  test("a note written for a demo spec point opens it from the code at its top", () => {
+    for (const n of onTheMap.filter((n) => n.primary)) {
+      const codes = Object.values(fixtures.get(n.id)!.boards).flatMap((l) => l?.spec_codes ?? []);
+      const opens = demoNoteSpecPoints(n.id)
+        .filter((p) => codes.includes(p.code))
+        .map((p) => p.id);
+      expect({ id: n.id, opensItsPoint: opens.includes(n.point) }).toEqual({
+        id: n.id,
+        opensItsPoint: true,
+      });
     }
   });
 });

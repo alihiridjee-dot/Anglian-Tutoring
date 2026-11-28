@@ -598,6 +598,13 @@ export interface SpecPointNote {
   primary: boolean;
 }
 
+/** A spec point a note is filed under, and the course it sits on (none in the showcase). */
+export interface NoteSpecPoint {
+  id: string;
+  code: string;
+  course: { subject: string; board: string; level: string } | null;
+}
+
 // ---------------------------------------------------------------------------
 // Validation. Structural only: it proves a note will render, not that it is
 // right. Scientific review is a person's job.

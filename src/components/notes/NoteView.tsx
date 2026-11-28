@@ -1,4 +1,11 @@
-import { useMemo, useState, type MouseEvent as ReactMouseEvent, type ReactNode } from "react";
+import {
+  Fragment,
+  useMemo,
+  useState,
+  type MouseEvent as ReactMouseEvent,
+  type ReactNode,
+} from "react";
+import { Link } from "@tanstack/react-router";
 import { evaluate, parseFormula } from "@/lib/notes/formula";
 import { Explorer, Practice, Punnett, Sequence, Sort } from "@/components/notes/NoteInteractives";
 import { ParticlesScene, RoadScene, WaveScene } from "@/components/notes/NoteScenes";
@@ -849,7 +856,19 @@ function Section({ id, heading, children }: { id: string; heading: string; child
 
 // ── The note ────────────────────────────────────────────────────────────────
 
-export function NoteView({ note, board }: { note: Note; board?: NoteBoard }) {
+/** Where a spec code opens: its point on the curriculum page. */
+export type NoteCodeLink = { to: string; search: Record<string, string> };
+
+export function NoteView({
+  note,
+  board,
+  codeLinks,
+}: {
+  note: Note;
+  board?: NoteBoard;
+  /** Spec code → its point, for the codes the reader can open. */
+  codeLinks?: Map<string, NoteCodeLink>;
+}) {
   const layer = board ? note.boards[board] : undefined;
   const tint = SUBJECT_TINT[note.subject];
   // The eyebrow is set in capitals, which would turn OCR's "P3.2i" into a
@@ -862,7 +881,31 @@ export function NoteView({ note, board }: { note: Note; board?: NoteBoard }) {
       {board ? `${NOTE_COURSE[board].level} ` : ""}
       {SUBJECT_LABEL[note.subject]}
       {board ? ` · ${NOTE_COURSE[board].board}` : ""}
-      {codes.length > 0 && <span className="normal-case"> · {codes.join(" · ")}</span>}
+      {codes.length > 0 && (
+        <span className="normal-case">
+          {codes.map((c) => {
+            const link = codeLinks?.get(c);
+            return (
+              <Fragment key={c}>
+                {" · "}
+                {link ? (
+                  // Opens the spec point, with its quizzes and tasks. The
+                  // padding widens the tap area without moving the line.
+                  <Link
+                    to={link.to as never}
+                    search={link.search as never}
+                    className="py-2 underline decoration-[color-mix(in_oklab,var(--tint)_40%,transparent)] decoration-2 underline-offset-4 hover:text-[var(--tint)] hover:decoration-[var(--tint)]"
+                  >
+                    {c}
+                  </Link>
+                ) : (
+                  c
+                )}
+              </Fragment>
+            );
+          })}
+        </span>
+      )}
     </span>
   );
   // Every section in reading order, each with its own anchor: a layer can

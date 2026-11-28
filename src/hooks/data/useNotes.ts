@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoMode } from "@/lib/auth/session";
-import { demoSpecPointNotes, loadDemoNote } from "@/lib/demo/demoNotes";
-import type { Note, SpecPointNote } from "@/lib/notes/noteFormat";
+import { demoNoteSpecPoints, demoSpecPointNotes, loadDemoNote } from "@/lib/demo/demoNotes";
+import type { Note, NoteSpecPoint, SpecPointNote } from "@/lib/notes/noteFormat";
 
 /** One published note, with its concept's subject and title. */
 export function useNote(conceptId: string) {
@@ -26,21 +26,25 @@ export function useNote(conceptId: string) {
 export type { SpecPointNote };
 
 /**
- * The course of every spec point linked to a note. A note without the
- * student's own layer still opens from a point on their course that links to
- * it (useOwnCourse decides which).
+ * Every spec point a note is filed under, with its course. The codes at the
+ * top of the note open these points, where their quizzes and tasks are. And a
+ * note without the student's own layer still opens from a point on their
+ * course that links to it (useOwnCourse decides which).
  */
-export function useNoteCourses(conceptId: string, enabled: boolean) {
+export function useNoteSpecPoints(conceptId: string) {
   return useQuery({
-    queryKey: ["note-courses", conceptId],
-    enabled,
-    queryFn: async () => {
+    queryKey: ["note-spec-points", conceptId],
+    enabled: !!conceptId,
+    queryFn: async (): Promise<NoteSpecPoint[]> => {
+      if (isDemoMode()) return demoNoteSpecPoints(conceptId);
       const { data, error } = await supabase
         .from("note_concept_spec_points")
-        .select("spec_points(topics(subject, board, level))")
+        .select("spec_points(id, code, topics(subject, board, level))")
         .eq("concept_id", conceptId);
       if (error) throw error;
-      return (data ?? []).flatMap((l) => (l.spec_points?.topics ? [l.spec_points.topics] : []));
+      return (data ?? []).flatMap(({ spec_points: p }) =>
+        p ? [{ id: p.id, code: p.code, course: p.topics ?? null }] : [],
+      );
     },
   });
 }

@@ -1,5 +1,6 @@
 /// <reference types="vite/client" />
-import type { Note, SpecPointNote } from "@/lib/notes/noteFormat";
+import type { Note, NoteSpecPoint, SpecPointNote } from "@/lib/notes/noteFormat";
+import { DEMO_CURRICULUM_SPEC_POINTS } from "@/lib/demo/studentDemo";
 
 /**
  * Revision notes for the student showcase.
@@ -72,6 +73,19 @@ export function demoSpecPointNotes(specPointIds: string[]): Map<string, SpecPoin
     );
   }
   return byPoint;
+}
+
+/** The demo spec points a fixture note is filed under, as the live read returns them. */
+export function demoNoteSpecPoints(conceptId: string): NoteSpecPoint[] {
+  const ids = new Set(
+    Object.entries(DEMO_SPEC_POINT_NOTES)
+      .filter(([, list]) => list.some((n) => n.id === conceptId))
+      .map(([id]) => id),
+  );
+  return Object.values(DEMO_CURRICULUM_SPEC_POINTS)
+    .flat()
+    .filter((p) => ids.has(p.id))
+    .map((p) => ({ id: p.id, code: p.code, course: null }));
 }
 
 /** One fixture note, or null for an id the showcase has no note for. */

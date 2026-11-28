@@ -2,14 +2,15 @@ import { useParams, useRouter } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
 import { EmptyState, Spinner } from "@/components/Shared";
-import { NoteView } from "@/components/notes/NoteView";
+import { NoteView, type NoteCodeLink } from "@/components/notes/NoteView";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useEntitlements } from "@/hooks/data/useEntitlements";
 import { usePinSubject } from "@/hooks/useActiveSubject";
-import { useNote, useNoteCourses } from "@/hooks/data/useNotes";
+import { useNote, useNoteSpecPoints } from "@/hooks/data/useNotes";
 import { useOwnCourse } from "@/hooks/useOwnCourse";
 import { SUBJECT_LABEL } from "@/lib/curriculum/subjectTheme";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
+import { curriculumTarget } from "@/lib/search/globalSearch";
 import { NOTE_BOARDS, noteLayerFor, pickNoteLayer, subjectOfNoteId } from "@/lib/notes/noteFormat";
 
 export function NotePage() {
@@ -42,8 +43,28 @@ export function NotePage() {
   // and is turned away, unless a spec point on their own course links to it.
   const course = useOwnCourse();
   const checkLinks = course.guarded && !!note && !!enrolled && !(own && layers.includes(own));
-  const links = useNoteCourses(conceptId, checkLinks);
-  const offCourse = checkLinks && !!links.data && !links.data.some((c) => course.onCourse(c));
+  const links = useNoteSpecPoints(conceptId);
+  const offCourse =
+    checkLinks && !!links.data && !links.data.some((p) => p.course && course.onCourse(p.course));
+
+  // Each spec code at the top of the note opens its point, where the quizzes
+  // and tasks for it are, when that point is on the student's own course.
+  const codeLinks = new Map<string, NoteCodeLink>();
+  for (const p of links.data ?? []) {
+    if (p.course && !course.onCourse(p.course)) continue;
+    codeLinks.set(
+      p.code,
+      curriculumTarget(
+        {
+          subject: p.course?.subject ?? note?.subject,
+          board: p.course?.board,
+          level: p.course?.level,
+          pointId: p.id,
+        },
+        demo,
+      ),
+    );
+  }
 
   // A note in a subject the student doesn't take is hidden from them with the
   // rest of that subject, so it arrives as no note at all. Its id still names
@@ -114,7 +135,7 @@ export function NotePage() {
             mascot="books"
           />
         ) : (
-          <NoteView note={note} board={board} />
+          <NoteView note={note} board={board} codeLinks={codeLinks} />
         )}
       </div>
     </AppLayout>
