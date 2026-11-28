@@ -67,7 +67,7 @@ import {
 /** Rows pulled per table before ranking. Generous — ranking does the real work. */
 const FETCH_LIMIT = 120;
 /** Hits kept per group once ranked, so no one group can crowd out the rest. */
-const PER_GROUP_LIMIT = 5;
+export const PER_GROUP_LIMIT = 5;
 
 const labelOf = (list: readonly { value: string; label: string }[], v: string | null | undefined) =>
   list.find((x) => x.value === v)?.label ?? v ?? "";
@@ -474,6 +474,7 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
       title: row.title,
       code: row.code,
       subtitle: specPointSubtitle(row, topic, terms),
+      subject: topic.subject,
       tags: taxonomyTags(topic),
       icon: BookMarked,
       score,
@@ -501,6 +502,7 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
       title: row.title,
       code: row.code,
       subtitle: row.description,
+      subject: row.subject,
       tags: taxonomyTags(row),
       icon: Layers,
       score,
@@ -528,6 +530,7 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
       group: kind,
       title: row.title,
       subtitle: resourceSubtitle(row),
+      subject: row.subject,
       tags: taxonomyTags(row),
       icon: RESOURCE_ICON[kind] ?? ClipboardList,
       score,
@@ -550,6 +553,7 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
       group: "mcq_set",
       title: row.title,
       subtitle: row.published ? "Published quiz" : "Draft — not visible to students",
+      subject: row.subject,
       tags: taxonomyTags({ subject: row.subject }),
       icon: ListChecks,
       score,
@@ -575,6 +579,7 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
       group: "note",
       title: concept.title,
       subtitle: concept.chapter,
+      subject: concept.subject,
       tags: taxonomyTags({ subject: concept.subject, level: concept.level }),
       icon: BookOpen,
       score,
@@ -630,6 +635,7 @@ function searchDemo(ctx: SearchContext, terms: string[]): SearchHit[] {
           title: topic.title,
           code: topic.code,
           subtitle: topic.description,
+          subject,
           tags: taxonomyTags({ subject }),
           icon: Layers,
           score: topicScore,
@@ -654,6 +660,7 @@ function searchDemo(ctx: SearchContext, terms: string[]): SearchHit[] {
           title: point.title,
           code: point.code,
           subtitle: specPointSubtitle(point, topic, terms),
+          subject,
           tags: taxonomyTags({ subject }),
           icon: BookMarked,
           score,
@@ -677,6 +684,7 @@ function searchDemo(ctx: SearchContext, terms: string[]): SearchHit[] {
         group: "homework",
         title: hw.title,
         subtitle: hw.due_at ? `Due ${new Date(hw.due_at).toLocaleDateString()}` : hw.instructions,
+        subject: hw.subject,
         tags: taxonomyTags({ subject: hw.subject }),
         icon: ClipboardList,
         score,
@@ -698,6 +706,7 @@ function searchDemo(ctx: SearchContext, terms: string[]): SearchHit[] {
         group: "live_session",
         title: s.title,
         subtitle: `Starts ${new Date(s.starts_at).toLocaleString()}`,
+        subject: s.subject,
         tags: taxonomyTags(s),
         icon: CalendarClock,
         score,
@@ -719,6 +728,7 @@ function searchDemo(ctx: SearchContext, terms: string[]): SearchHit[] {
         group: "video",
         title: v.title,
         subtitle: v.description,
+        subject: v.subject,
         tags: taxonomyTags(v),
         icon: PlayCircle,
         score,
@@ -741,6 +751,7 @@ function searchDemo(ctx: SearchContext, terms: string[]): SearchHit[] {
         group: "mcq_set",
         title: m.title,
         subtitle: m.specPoint,
+        subject: m.subject,
         tags: taxonomyTags(m),
         icon: ListChecks,
         score,
@@ -761,6 +772,11 @@ export interface SearchSection {
   hits: SearchHit[];
   /** How many matched before the per-group cap, for a "+N more" note. */
   total: number;
+  /**
+   * Every match, ranked, before the cap — so the student box can show the
+   * best five of one subject rather than the Biology among the best five.
+   */
+  ranked?: SearchHit[];
 }
 
 /**
@@ -803,6 +819,7 @@ export async function runGlobalSearch(query: string, ctx: SearchContext): Promis
       label: GROUP_LABEL[group],
       hits: list.slice(0, PER_GROUP_LIMIT),
       total: list.length,
+      ranked: list,
     });
   }
   return sections;
