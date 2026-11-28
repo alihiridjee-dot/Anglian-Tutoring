@@ -54,6 +54,8 @@ export interface SearchHit extends SearchTarget {
   code?: string | null;
   /** Secondary line: the topic it sits under, a due date, a subject. */
   subtitle?: string | null;
+  /** The science it belongs to, when it belongs to one — the student box sorts by it. */
+  subject?: string | null;
   /** Right-aligned metadata chips, e.g. "Biology · AQA". */
   tags?: string[];
   icon: ComponentType<{ className?: string }>;

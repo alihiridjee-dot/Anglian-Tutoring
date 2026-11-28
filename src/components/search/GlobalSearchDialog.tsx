@@ -15,9 +15,41 @@ import { MIN_QUERY_LENGTH } from "@/lib/search/match";
 import { searchTerms, type HelpIntentId } from "@/lib/search/help";
 import { askHelp, explainHelp } from "@/lib/search/helpAsk.functions";
 import { explainSection, findNote } from "@/lib/search/helpAnswers";
-import type { SearchSection } from "@/lib/search/globalSearch";
+import { PER_GROUP_LIMIT, type SearchSection } from "@/lib/search/globalSearch";
 import type { SearchHit } from "@/lib/search/types";
+import { SegmentedToggle } from "@/components/Shared";
+import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
+import { cn } from "@/lib/utils";
 import { Highlight } from "./Highlight";
+
+/** The three sciences, in the order the switch shows them. */
+const SCIENCES = ["biology", "chemistry", "physics"] as const;
+
+/**
+ * One subject's results: the best five of that subject in each kind, not the
+ * ones of that subject that happened to make the overall five. Help answers are
+ * about the student's week, not a subject, so they stay whatever is picked.
+ */
+function inSubject(sections: SearchSection[], subject: string): SearchSection[] {
+  return sections.flatMap((section) => {
+    if (section.group === "help") return [section];
+    const matched = (section.ranked ?? section.hits).filter((h) => h.subject === subject);
+    if (matched.length === 0) return [];
+    return [{ ...section, hits: matched.slice(0, PER_GROUP_LIMIT), total: matched.length }];
+  });
+}
+
+/** How many results each science has, across every kind. */
+function subjectCounts(sections: SearchSection[]): Record<string, number> {
+  const counts: Record<string, number> = {};
+  for (const section of sections) {
+    if (section.group === "help") continue;
+    for (const hit of section.ranked ?? section.hits) {
+      if (hit.subject) counts[hit.subject] = (counts[hit.subject] ?? 0) + 1;
+    }
+  }
+  return counts;
+}
 
 /** Tappable starters in a student's empty box, so it reads as taking sentences. */
 const HELP_EXAMPLES = [
@@ -73,7 +105,20 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
   // A science answer for one query, kept only while that query is on screen.
   const [answered, setAnswered] = useState<{ query: string; section: SearchSection } | null>(null);
   const answer = answered && answered.query === query.trim() ? answered.section : null;
-  const sections = useMemo(() => (answer ? [answer, ...found] : found), [answer, found]);
+  const all = useMemo(() => (answer ? [answer, ...found] : found), [answer, found]);
+
+  // A student's results sort by science: All, or one subject at a time. A
+  // tutor searches across students, so theirs stay grouped by kind alone.
+  const bySubject = !ctx.isTutor;
+  const [picked, setPicked] = useState<string>("all");
+  const counts = useMemo(() => subjectCounts(found), [found]);
+  // A subject the new query found nothing in falls back to All.
+  const subject = picked !== "all" && counts[picked] ? picked : "all";
+  const sections = useMemo(
+    () => (bySubject && subject !== "all" ? inSubject(all, subject) : all),
+    [all, bySubject, subject],
+  );
+  const showSwitch = bySubject && Object.keys(counts).length > 0;
 
   // Keyboard navigation walks one flat list; the group headers are purely visual.
   const flat = useMemo(() => sections.flatMap((s) => s.hits), [sections]);
@@ -135,6 +180,7 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
       setQuery("");
       setAsked(null);
       setAnswered(null);
+      setPicked("all");
       setActiveIndex(0);
       // Autofocus after the element is actually in the tree.
       requestAnimationFrame(() => inputRef.current?.focus());
@@ -215,6 +261,31 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
           </button>
         </div>
 
+        {showSwitch && (
+          <div className="px-4 py-2.5 border-b border-border">
+            <SegmentedToggle
+              layoutId="search-subject-pill"
+              label="Subject"
+              value={subject}
+              onChange={(v) => {
+                setPicked(v);
+                inputRef.current?.focus();
+              }}
+              items={[
+                { value: "all", label: "All" },
+                ...SCIENCES.filter(
+                  (s) => ctx.isDemo || ctx.entitledSubjects.includes(s) || counts[s],
+                ).map((s) => ({
+                  value: s,
+                  label: subjectLabel(s),
+                  count: counts[s] ?? 0,
+                  tint: SUBJECT_TINT[s],
+                })),
+              ]}
+            />
+          </div>
+        )}
+
         <div ref={listRef} className="max-h-[60dvh] overflow-y-auto">
           {!active && helpOn ? (
             <HelpStart
@@ -267,6 +338,7 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
                       key={hit.key}
                       hit={hit}
                       terms={terms}
+                      showTags={!bySubject}
                       active={index === activeIndex}
                       onHover={() => setActiveIndex(index)}
                       onSelect={() => select(hit)}
@@ -303,12 +375,15 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
 function ResultRow({
   hit,
   terms,
+  showTags,
   active,
   onHover,
   onSelect,
 }: {
   hit: SearchHit;
   terms: string[];
+  /** Off for a student: their board and level are the same on every row, and colour says the subject. */
+  showTags: boolean;
   active: boolean;
   onHover: () => void;
   onSelect: () => void;
@@ -320,17 +395,23 @@ function ResultRow({
       data-active={active}
       onMouseMove={onHover}
       onClick={onSelect}
-      className={`w-full flex min-h-11 items-start gap-3 px-4 py-2.5 text-left transition cursor-pointer ${
-        active ? "bg-primary/10" : "hover:bg-secondary/40"
-      }`}
+      // A science's row wears that science's colour: its icon and its code.
+      className={cn(
+        "w-full flex min-h-11 items-start gap-3 px-4 py-2.5 text-left transition cursor-pointer",
+        hit.subject ? SUBJECT_TINT[hit.subject] : undefined,
+        active ? "bg-tint/10" : "hover:bg-secondary/40",
+      )}
     >
       <Icon
-        className={`w-4 h-4 mt-0.5 shrink-0 ${active ? "text-primary" : "text-muted-foreground"}`}
+        className={cn(
+          "w-4 h-4 mt-0.5 shrink-0",
+          hit.subject || active ? "text-tint" : "text-muted-foreground",
+        )}
       />
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline gap-2 min-w-0">
           {hit.code && (
-            <span className="text-[11px] font-bold tracking-wide px-1.5 py-0.5 rounded bg-primary/10 text-primary shrink-0">
+            <span className="text-[11px] font-bold tracking-wide px-1.5 py-0.5 rounded bg-tint/10 text-tint shrink-0">
               <Highlight text={hit.code} terms={terms} />
             </span>
           )}
@@ -344,7 +425,7 @@ function ResultRow({
           </p>
         )}
       </div>
-      {hit.tags && hit.tags.length > 0 && (
+      {showTags && hit.tags && hit.tags.length > 0 && (
         <span className="hidden sm:block text-[10px] uppercase tracking-wider font-bold text-muted-foreground/70 shrink-0 mt-1">
           {hit.tags.join(" · ")}
         </span>
