@@ -85,7 +85,12 @@ export const pageGuides: Record<string, GuideStep[]> = {
     ),
   ],
   Videos: [
-    filters,
+    // A student's Videos page has the Subject row alone.
+    select(
+      '[data-guide="filters"] > :first-child',
+      "Make it yours",
+      "Choose a subject to narrow the videos. Select All to see every subject again.",
+    ),
     at(
       "video-watch",
       "Press play",

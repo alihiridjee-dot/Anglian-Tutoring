@@ -10,8 +10,9 @@ import { SUBJECTS, BOARDS, LEVELS } from "@/lib/curriculum/taxonomy";
 import { isDemoStudent, DEMO_VIDEOS } from "@/lib/demo/studentDemo";
 import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import {
+  onOwnBoard,
+  ownBoardsOr,
   ownCourseFilters,
-  withOwnBoard,
   type VideoSearchParams,
 } from "@/lib/curriculum/videoFilters";
 import { dbError } from "@/lib/platform/errors";
@@ -40,19 +41,20 @@ export function Videos() {
   // Read loosely: the showcase mounts this page under /demo/student as well.
   const search = useSearch({ strict: false }) as VideoSearchParams;
   const navigate = useNavigate();
-  // A student opens on their own course and a tutor on everything. The first
-  // filter they touch takes over from there.
+  // A tutor opens on everything and filters all three ways. A student picks a
+  // subject and nothing more: the board and the level are their own course's,
+  // so another board's videos are never one press away.
   const [picked, setPicked] = useState<Filters | null>(null);
-  const filters: Filters =
-    picked ??
-    (isTutor
-      ? {}
-      : ownCourseFilters({ subject: activeSubject, boardBySubject: ent.boardBySubject, level }));
-  const setFilters = (next: Filters) =>
-    setPicked(isTutor ? next : withOwnBoard(filters, next, ent.boardBySubject));
+  const filters: Filters = isTutor
+    ? (picked ?? {})
+    : ownCourseFilters({
+        subject: picked ? (picked.subject ?? null) : activeSubject,
+        boardBySubject: ent.boardBySubject,
+        level,
+      });
   const [playing, setPlaying] = useState<PlayingVideo | null>(null);
   const videos = useInfiniteQuery({
-    queryKey: ["videos", filters],
+    queryKey: ["videos", filters, isTutor ? null : ent.boardBySubject],
     // A student's course isn't known until their profile has been read.
     enabled: isTutor || !enrolLoading,
     initialPageParam: 0,
@@ -62,7 +64,8 @@ export function Videos() {
           (v) =>
             (!filters.subject || v.subject === filters.subject) &&
             (!filters.board || v.board === filters.board) &&
-            (!filters.level || v.level === filters.level),
+            (!filters.level || v.level === filters.level) &&
+            onOwnBoard(v, ent.boardBySubject),
         );
       }
       let q = supabase
@@ -76,6 +79,10 @@ export function Videos() {
         .range(pageParam, pageParam + PAGE - 1);
       if (filters.subject) q = q.eq("subject", filters.subject);
       if (filters.board) q = q.eq("board", filters.board);
+      // "All" subjects, or a subject with no board on record: each video is
+      // held to the board its own subject is sat with.
+      const ownBoards = isTutor || filters.board ? null : ownBoardsOr(ent.boardBySubject);
+      if (ownBoards) q = q.or(ownBoards);
       if (filters.level) q = q.eq("level", filters.level);
       const { data, error } = await q;
       if (error) throw dbError(error);
@@ -128,8 +135,9 @@ export function Videos() {
     <AppLayout title="Videos">
       <FilterBar
         value={filters}
-        onChange={setFilters}
+        onChange={setPicked}
         subjects={isTutor || ent.entitledSubjects.length === 0 ? undefined : ent.entitledSubjects}
+        subjectOnly={!isTutor}
       />
       {videos.isPending && !unreachable ? (
         <Spinner label="Loading the video library" />
@@ -147,7 +155,7 @@ export function Videos() {
           body={
             isTutor
               ? "Nothing has been published for this subject, board and level yet. Try widening the filters above."
-              : "Nothing has been published for this subject, board and level yet. Try widening the filters above, or come back once your tutor has recorded the next topic."
+              : "Nothing has been published for your course in this subject yet. Try another subject above, or come back once your tutor has recorded the next topic."
           }
         />
       ) : (

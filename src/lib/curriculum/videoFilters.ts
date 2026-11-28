@@ -15,8 +15,9 @@ export function validateVideoSearch(search: Record<string, unknown>): VideoSearc
 }
 
 /**
- * Where a student's Videos page opens: the subject they are on in the header,
- * the board they sit it with, and their level.
+ * What a student's Videos page shows: one subject (the header's until they
+ * pick another), the board they sit it with, and their level. The subject is
+ * the only part they can change.
  *
  * The page used to open on every video they could read, newest first. That is
  * every board and level of each subject they pay for, thousands of rows, and
@@ -37,15 +38,27 @@ export function ownCourseFilters(course: {
 }
 
 /**
- * A student who picks another subject moves to the board they sit that one
- * with; every other change is taken as it is. "All" subjects clears the board,
- * since their subjects can be on different boards.
+ * Is this video on the board the student sits its subject with? "All" subjects
+ * has no one board to filter by, since their subjects can be on different
+ * boards, so each video is checked against its own subject's.
  */
-export function withOwnBoard(
-  prev: VideoFilters,
-  next: VideoFilters,
+export function onOwnBoard(
+  video: { subject: string; board: string | null },
   boardBySubject: Record<string, BoardV | undefined>,
-): VideoFilters {
-  if (next.subject === prev.subject) return next;
-  return { ...next, board: next.subject ? boardBySubject[next.subject] : undefined };
+): boolean {
+  const sat = boardBySubject[video.subject];
+  return !sat || video.board === sat;
+}
+
+/**
+ * {@link onOwnBoard} as a PostgREST `or` filter, for the read itself. Null
+ * when the student has no board on record, and so nothing to keep to.
+ */
+export function ownBoardsOr(boardBySubject: Record<string, BoardV | undefined>): string | null {
+  const sat = Object.entries(boardBySubject).filter(([, board]) => board);
+  if (sat.length === 0) return null;
+  return [
+    ...sat.map(([subject, board]) => `and(subject.eq.${subject},board.eq.${board})`),
+    `subject.not.in.(${sat.map(([subject]) => subject).join(",")})`,
+  ].join(",");
 }
